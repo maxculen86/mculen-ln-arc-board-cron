@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "lodash.get": "^4.4.2"
+  },
   "devDependencies": {
     "@arc-fusion/cli": "^0.2.3"
   },
