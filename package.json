@@ -1,0 +1,22 @@
+{
+  "name": "Arc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@arc-fusion/cli": "^0.2.3"
+  },
+  "scripts": {
+    "fusion": "fusion",
+    "start": "fusion start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://lndigital.visualstudio.com/Gestion%20LANACION-ARC/_git/Arc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
