@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Carrousell({children}) {
+export default function Carousell({children}) {
     return (
         <div>
             {children}

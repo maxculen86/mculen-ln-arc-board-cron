@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import CurrentPrograms from '../private/OTT/layout/containers/currentPrograms';
-import { headerItems } from '../private/OTT/layout/OTTHomeIndex';
-import Header from '../private/OTT/layout/containers/header';
+import CurrentPrograms from '../private/OTT/layout/currentPrograms/containers/currentPrograms';
+import { headerItems, currentPrograms } from '../private/OTT/layout/OTTHomeIndex';
+import Header from '../private/OTT/layout/header/containers/header';
 
 
 const layoutItems = [
@@ -10,11 +10,10 @@ const layoutItems = [
 
 class OTTHomeLayout extends PureComponent {
   render() {
-    console.log(headerItems)
     return (
       <>
       <Header items={headerItems}/>
-      <CurrentPrograms/>
+      <CurrentPrograms items={currentPrograms}/>
         {this.props.children}
       </>
     )

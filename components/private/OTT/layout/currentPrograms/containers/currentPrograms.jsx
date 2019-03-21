@@ -3,6 +3,6 @@ import CurrentProgramsComponent from '../components/currentPrograms'
 
 export default class CurrentPrograms extends PureComponent {
   render() {
-    return (<CurrentProgramsComponent />)
+    return (<CurrentProgramsComponent items={this.props.items}/>)
   }
 }
