@@ -11,9 +11,9 @@ class Carrousell extends PureComponent {
     render() {
         return (
             <CarrousellComponent>
-                {this.props.slider.showPrevPage() && <CarrousellPrevButton onClick={this.props.slider.prevPageHandler}/> }
+                {this.props.slider.hasPrevPage() && <CarrousellPrevButton onClick={this.props.slider.prevButtonHandler}/> }
                 {this.props.children}
-                {this.props.slider.showNextPage() && <CarrousellNextButton onClick={this.props.slider.nextPageHandler}/> }
+                {this.props.slider.hasNextPage() && <CarrousellNextButton onClick={this.props.slider.nextButtonHandler}/> }
             </CarrousellComponent>
         )
     }
