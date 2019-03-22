@@ -17,8 +17,8 @@ type Video {
     canonical_url: String
     canonical_website: String
     short_url: String
-    first_publish_date: Date
-    publish_date: Date
+    first_publish_date: String
+    publish_date: String
     headlines: Headlines
     description: VideoDescription
     promo_items: PromoItems

@@ -12,7 +12,6 @@ const layoutItems = [
 
 class OTTHomeLayout extends PureComponent {
   render() {
-    console.log(urlLiveVideo)
     return (
       <>
       <Header items={headerItems}/>
