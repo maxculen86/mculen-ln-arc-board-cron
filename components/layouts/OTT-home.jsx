@@ -7,17 +7,17 @@ import CurrentPrograms from '../private/OTT/layout/currentPrograms/containers/cu
 
 
 const layoutItems = [
-    'main'
+  'main'
 ];
 
 class OTTHomeLayout extends PureComponent {
   render() {
     return (
       <>
-      <Header items={headerItems}/>
-      <VideoOpening source={urlLiveVideo}/>
-      <LastVideos />
-      <CurrentPrograms items={currentPrograms}/>
+        <Header items={headerItems} />
+        <VideoOpening source={urlLiveVideo} />
+        <LastVideos />
+        <CurrentPrograms items={currentPrograms} />
         {this.props.children}
       </>
     )
