@@ -1,9 +1,17 @@
 {
-  "name": "Arc",
+  "name": "arc",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.5.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "jest": "^22.4.3",
+    "jest-enzyme": "^6.1.2",
     "lodash.get": "^4.4.2"
   },
   "devDependencies": {
@@ -12,7 +20,7 @@
   "scripts": {
     "fusion": "fusion",
     "start": "fusion start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,5 +28,32 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "globals": {
+      "NODE_ENV": "test"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "components",
+      "mocks",
+      "properties"
+    ],
+    "setupFiles": [
+      "./setupTests.js"
+    ],
+    "testPathIgnorePatterns": [
+      "utils"
+    ]
+  }
 }
