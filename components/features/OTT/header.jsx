@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import HeaderContainer from '../../private/OTT/layouts/header/containers/header';
+import HeaderContainer from '../../private/OTT/features/header/containers/header';
 
 
 import { buildHeaderCustomFields, getHeaderCustomFields } from '../../private/OTT/utils/CustomFieldsHeaderHelper';

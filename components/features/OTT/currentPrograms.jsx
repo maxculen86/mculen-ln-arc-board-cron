@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { buildCurrentProgramsCustomFields, getCurrentProgramsCustomFields } from '../../private/OTT/utils/CustomFieldsCurrentProgramHelper';
-import CurrentProgramContainer from '../../private/OTT/layouts/currentPrograms/containers/currentPrograms';
+import CurrentProgramContainer from '../../private/OTT/features/currentPrograms/containers/currentPrograms';
 
 const MAX_PROGRAM_COUNT = 16;
 
