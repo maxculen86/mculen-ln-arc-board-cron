@@ -5,6 +5,7 @@ import LastVideos from '../private/OTT/layouts/lastVideos/containers/lastVideos'
 
 
 const layoutItems = [
+    'header',
     'main'
 ];
 
@@ -12,8 +13,9 @@ class OTTHomeLayout extends PureComponent {
   render() {
     return (
       <>
-      {this.props.children}
+      {this.props.children[0]}
       <VideoOpening source={urlLiveVideo}/>
+      {this.props.children[1]}
       <LastVideos />
       </>
     )

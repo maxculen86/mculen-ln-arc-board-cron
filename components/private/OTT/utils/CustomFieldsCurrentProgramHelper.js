@@ -10,15 +10,15 @@ const buildCurrentProgramsCustomFields = (count) => {
         Object.assign(resp, {
             [`description${i}`]: PropTypes.string.tag({
                 name: 'Descripcion',
-                group: `CurrentProgram ${i}`
+                group: `Programa ${i}`
             }),
             [`href${i}`]: PropTypes.string.tag({
                 name: 'Link al programa',
-                group: `CurrentProgram ${i}`
+                group: `Programa ${i}`
             }),
             [`imgSrc${i}`]: PropTypes.string.tag({
                 name: 'URL de la imagen',
-                group: `CurrentProgram ${i}`
+                group: `Programa ${i}`
             })
         })
     }

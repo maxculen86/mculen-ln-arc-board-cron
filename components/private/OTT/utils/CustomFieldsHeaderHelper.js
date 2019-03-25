@@ -10,11 +10,11 @@ const buildHeaderCustomFields = (count) => {
         Object.assign(resp, {
             [`description${i}`]: PropTypes.string.tag({
                 name: 'Descripcion',
-                group: `HeaderItem ${i}`
+                group: `Link ${i}`
             }),
             [`href${i}`]: PropTypes.string.tag({
                 name: 'Link al programa',
-                group: `HeaderItem ${i}`
+                group: `Link ${i}`
             })
         })
     }
