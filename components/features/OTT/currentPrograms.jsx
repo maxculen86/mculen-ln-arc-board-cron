@@ -9,7 +9,7 @@ class CurrentPrograms extends Component {
     constructor(props) {
         super(props);
         this.CurrentProgramsCustomFields = getCurrentProgramsCustomFields(MAX_PROGRAM_COUNT, this.props)
-            .filter(elem => elem.description != null)
+            .filter(elem => elem.description != null && elem.imgSrc!=null)
     }
     render() {
         return <CurrentProgramContainer items={this.CurrentProgramsCustomFields}/>
