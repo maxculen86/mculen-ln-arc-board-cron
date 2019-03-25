@@ -16,7 +16,6 @@ class LastVideos extends Component {
       }
       ,filter
     });
-    console.log('cached',cached)
     this.state = { videos: get(cached, 'content_elements', null) };
     fetched.then(response => {
       const fetchedVideos = get(response, 'content_elements', null)

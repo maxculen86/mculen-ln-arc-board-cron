@@ -12,13 +12,11 @@ const layoutItems = [
 
 class OTTHomeLayout extends PureComponent {
   render() {
-    console.log(urlLiveVideo)
     return (
       <>
       {this.props.children}
       <VideoOpening source={urlLiveVideo}/>
       <LastVideos />
-      <CurrentPrograms items={currentPrograms}/>
       </>
     )
   }
