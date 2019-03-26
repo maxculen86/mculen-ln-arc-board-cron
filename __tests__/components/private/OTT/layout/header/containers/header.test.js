@@ -19,6 +19,9 @@ describe('OTT - layout - header - containers', () => {
             children={child}
         />
     )
+    
+    console.log(container.html())
+
     const component = container.find('mock-component')
 
     it('Testeo que pase al componente los items recibidos por el container', () => {
