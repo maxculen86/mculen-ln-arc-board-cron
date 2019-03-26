@@ -11,7 +11,7 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.HeaderCustomFields = getHeaderCustomFields(MAX_LINKS_COUNT, this.props)
-            .filter(elem => elem != null)
+            .filter(elem => elem != null && elem.description!=null)
     }
     render() {
         return <HeaderContainer items={this.HeaderCustomFields} />
