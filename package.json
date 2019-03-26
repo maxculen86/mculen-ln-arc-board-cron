@@ -20,7 +20,7 @@
   "scripts": {
     "fusion": "fusion",
     "start": "fusion start",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
