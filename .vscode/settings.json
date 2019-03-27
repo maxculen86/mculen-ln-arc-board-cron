@@ -1,0 +1,15 @@
+{
+    "files.exclude": {
+        "_ignore_*.*": true,
+        ".fusion": true,
+        ".vscode": true,
+        ".huskyrc": true,
+        ".prettierrc": true,
+        ".scannerwork": true,
+        ".lintstagedrc": true,
+        ".prettierignore":true,
+        "coverage": true,
+        "node_modules": true
+    },
+    "editor.tabSize": 4
+}
