@@ -8,7 +8,7 @@ export default function ArticleTitle(props) {
                 {props.volanta &&
                     <span className="volanta">{props.volanta}</span>
                 }
-                {props.titulo}
+                {props.title}
             </a>
         </h2>
     )

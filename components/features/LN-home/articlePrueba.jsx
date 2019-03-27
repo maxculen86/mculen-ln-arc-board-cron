@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Article from '../../private/LN/home/common/containers/article'
 
-export default class ArticlePrueba extends Component {
+class ArticlePrueba extends Component {
   render() {
     return (
       <div>
@@ -10,3 +10,5 @@ export default class ArticlePrueba extends Component {
     )
   }
 }
+
+export default ArticlePrueba
