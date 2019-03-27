@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ArticleImage(props) {
     return (
-      <a className="figure" href={this.props.url}>
+      <a className="figure" href={props.url}>
             <picture className="content-picture">
                 <source media="(min-width: 86.250em)" srcSet={props.imgUrls.desktop} className="img-desktop" alt="imagen-destacada" />
                 <source media="(min-width: 64.000em)" srcSet={props.imgUrls.desktopSM} className="img-desktop-sm" alt="imagen-destacada" />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ArticleComponent from '../components/article'
 
-export default class Article extends Component {
+class Article extends Component {
   render() {
     const data = {
         renderClasses: 'art-01 m',
@@ -25,3 +25,5 @@ export default class Article extends Component {
     )
   }
 }
+
+export default Article
