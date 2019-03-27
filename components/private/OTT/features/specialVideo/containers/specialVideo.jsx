@@ -17,7 +17,6 @@ class SpecialVideo extends Component {
       ,filter
     });
     this.state = { videos: get(cached, 'content_elements', null) };
-    console.log('cache', this.state.videos)
     fetched.then(response => {
       const fetchedVideos = get(response, 'content_elements', null)
       if(fetchedVideos)
