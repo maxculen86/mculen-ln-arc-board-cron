@@ -4,6 +4,15 @@
   "description": "Arc+React App - LN - OTT",
   "private": true,
   "main": "index.js",
+
+  "scripts": {
+    "fusion": "fusion",
+    "start": "fusion start",
+    "test": "jest --passWithNoTests --coverage",
+    "prettier": "prettier --write **/*.{js,jsx}",
+    "eslint": "eslint --ext=js,jsx ."
+  },
+  
   "dependencies": {
     "lodash.get": "^4.4.2",
     "react": "16.6.1",
@@ -32,13 +41,6 @@
     "jest-enzyme": "^6.1.2",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4"
-  },
-  "scripts": {
-    "fusion": "fusion",
-    "start": "fusion start",
-    "test": "jest --passWithNoTests --coverage",
-    "prettier": "prettier --write **/*.{js,jsx}",
-    "eslint": "eslint --ext=js,jsx ."
   },
   "repository": {
     "type": "git",
