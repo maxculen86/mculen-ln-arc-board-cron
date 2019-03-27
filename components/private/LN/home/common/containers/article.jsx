@@ -17,10 +17,10 @@ export default class Article extends Component {
         },
         url: 'https://www.lanacion.com.ar/economia/dolar/devaluacion-por-que-sube-dolar-argentina-nid2231139'
     }
-
+    console.log(data)
     return (
       <>
-        <ArticleComponent { ...data }/>
+        <ArticleComponent { ...data }/> 
       </>
     )
   }

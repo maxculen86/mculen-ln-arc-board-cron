@@ -4,6 +4,7 @@ import Title from './articleTitle'
 
 export default class Article extends Component {
     render() {
+        console.log(this.props)
         return (
             <article className={this.props.renderClasses}>
                 <a className="figure" href={this.props.url}>
