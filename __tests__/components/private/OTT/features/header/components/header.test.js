@@ -6,6 +6,7 @@ jest.mock('../../../../../../../components/private/OTT/features/header/container
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
+import testHelper from '../../../../../../utils/testHelper'
 import HeaderComponent from '../../../../../../../components/private/OTT/features/header/components/header';
 
 describe('OTT - layout - header - components', () => {
@@ -35,21 +36,21 @@ describe('OTT - layout - header - components', () => {
     const mockedContainers = container.find('mock-component')
 
     it('Testeo que no renderee los children', () => {
-        expect(children.length).toEqual(0)
+        testHelper.expectSameValue(children.length, 0)
     });
     it('Test 2 items - Testeo que el item 1 reciba las props del item 1', () => {
-        expect(container1.prop('description')).toEqual(items[0].description)
-        expect(container1.prop('alt')).toEqual(items[0].description)
-        expect(container1.prop('href')).toEqual(items[0].href)
-        expect(container1.prop('data')).toEqual(data)
+        testHelper.expectProp(container1, 'description',items[0].description)
+        testHelper.expectProp(container1, 'alt',items[0].description)
+        testHelper.expectProp(container1, 'href',items[0].href)
+        testHelper.expectProp(container1, 'data',data)
     });
     it('Test 2 items - Testeo que el item 2 reciba las props del item 2', () => {
-        expect(container2.prop('description')).toEqual(items[1].description)
-        expect(container2.prop('alt')).toEqual(items[1].description)
-        expect(container2.prop('href')).toEqual(items[1].href)
-        expect(container2.prop('data')).toEqual(data)
+        testHelper.expectProp(container2, 'description',items[1].description)
+        testHelper.expectProp(container2, 'alt',items[1].description)
+        testHelper.expectProp(container2, 'href',items[1].href)
+        testHelper.expectProp(container2, 'data',data)
     });
     it('Test 2 items - Testeo que no exista un item 3', () => {
-        expect(mockedContainers.length).toEqual(2)
+        testHelper.expectSameValue(mockedContainers.length, 2)
     });
 });

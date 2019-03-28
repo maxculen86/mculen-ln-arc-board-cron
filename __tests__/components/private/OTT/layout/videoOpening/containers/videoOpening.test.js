@@ -6,6 +6,7 @@ jest.mock('../../../../../../../components/private/OTT/layouts/videoOpening/comp
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
+import testHelper from '../../../../../../utils/testHelper'
 import VideoOpeningComponent from '../../../../../../../components/private/OTT/layouts/videoOpening/containers/videoOpening';
 
 describe('OTT - layout - videoOpening - containers', () => {
@@ -25,10 +26,10 @@ describe('OTT - layout - videoOpening - containers', () => {
     const children = container.find('hijos')
 
     it('Testeo que no renderee los children', () => {
-        expect(children.length).toEqual(0)
+        testHelper.expectSameValue(children.length, 0)
     });
 
     it('Testeo que reciba las props que yo mando', () => {
-        expect(component.prop("source")).toEqual(source)
+        testHelper.expectProp(component, "source", source)
     });
 })

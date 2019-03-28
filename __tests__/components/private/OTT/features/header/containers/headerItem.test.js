@@ -6,6 +6,7 @@ jest.mock('../../../../../../../components/private/OTT/features/header/component
 import React from 'react';
 import { mount } from 'enzyme';
 import HeaderItemContainer from '../../../../../../../components/private/OTT/features/header/containers/headerItem';
+import testHelper from '../../../../../../utils/testHelper'
 
 describe('OTT - layout - headerItem - containers', () => {
 
@@ -30,15 +31,15 @@ describe('OTT - layout - headerItem - containers', () => {
     const component = container.find('mock-component')
 
     it('Testeo que pase al componente las propiedades correspondientes', () => {
-        expect(component.prop('description')).toEqual(props.description)
-        expect(component.prop('href')).toEqual(props.href)
-        expect(component.prop('data')).toEqual(props.data)
-        expect(component.prop('alt')).toEqual(props.alt)
+        testHelper.expectProp(component, 'alt', props.alt)
+        testHelper.expectProp(component, 'data', props.data)
+        testHelper.expectProp(component, 'href', props.href)
+        testHelper.expectProp(component, 'description', props.description)
     });
 
     const children = container.find('hijos')
 
     it('Testeo que no renderee los children', () => {
-        expect(children.length).toEqual(0)
+        testHelper.expectSameValue(children.length, 0)
     });
 })

@@ -8,6 +8,7 @@ jest.mock(
 import React from 'react';
 import { mount } from 'enzyme';
 import HeaderContainer from '../../../../../../../components/private/OTT/features/header/containers/header';
+import testHelper from '../../../../../../utils/testHelper'
 
 describe('OTT - layout - header - containers', () => {
     const child = <hijos>soy un child de frame default</hijos>;
@@ -20,11 +21,11 @@ describe('OTT - layout - header - containers', () => {
     const component = container.find('mock-component');
 
     it('Testeo que pase al componente los items recibidos por el container', () => {
-        expect(component.prop('items')).toEqual(items);
+        testHelper.expectProp(component, 'items', items)
     });
     const children = container.find('hijos');
 
     it('Testeo que no renderee los children', () => {
-        expect(children.length).toEqual(0);
+        testHelper.expectSameValue(children.length, 0)
     });
 });

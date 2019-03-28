@@ -5,6 +5,7 @@ jest.mock('../../../../../../../components/private/OTT/features/currentPrograms/
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
+import testHelper from '../../../../../../utils/testHelper'
 import CurrentProgramItemContainer from '../../../../../../../components/private/OTT/features/currentPrograms/components/currentPrograms'; 
 
 
@@ -38,18 +39,18 @@ describe('OTT - layout - currentProgramItem - component', () => {
 
 
     it('Testeo que no renderee los children', () => {
-        expect(children.length).toEqual(0)
+        testHelper.expectSameValue(children.length,0)
     });
     it('Test 2 items - Testeo que el item 1 reciba las props del item 1', () => {
-        expect(container1.prop('description')).toEqual(items[0].description)
-        expect(container1.prop('href')).toEqual(items[0].href)
+        testHelper.expectProp(container1,'description', items[0].description)
+        testHelper.expectProp(container1,'href', items[0].href)
     });
     it('Test 2 items - Testeo que el item 2 reciba las props del item 2', () => {
-        expect(container2.prop('description')).toEqual(items[1].description)
-        expect(container2.prop('href')).toEqual(items[1].href)
+        testHelper.expectProp(container2,'description', items[1].description)
+        testHelper.expectProp(container2,'href', items[1].href)
     });
     it('Test 2 items - Testeo que no exista un item 3', () => {
-        expect(mockedContainers.length).toEqual(2)
+        testHelper.expectSameValue(mockedContainers.length, 2)
     });
 
 
