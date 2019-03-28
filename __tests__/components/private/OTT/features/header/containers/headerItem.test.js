@@ -31,10 +31,7 @@ describe('OTT - layout - headerItem - containers', () => {
     const component = container.find('mock-component')
 
     it('Testeo que pase al componente las propiedades correspondientes', () => {
-        testHelper.expectProp(component, 'alt', props.alt)
-        testHelper.expectProp(component, 'data', props.data)
-        testHelper.expectProp(component, 'href', props.href)
-        testHelper.expectProp(component, 'description', props.description)
+        testHelper.expectProps(component,props)
     });
 
     testHelper.testDoNotRenderChildren(container, 'hijos')
