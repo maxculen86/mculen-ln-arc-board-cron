@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import Consumer from 'fusion:consumer'
 import ArticleComponent from '../components/article'
+import SourceSetSizes from '../config/sourceSets.json'
+import filter from '../../../../../../content/filters/LN/home/article'
+import WithArticleData from '../hocs/withArticleData'
 
 class Article extends Component {
   render() {
@@ -17,7 +21,9 @@ class Article extends Component {
         },
         url: 'https://www.lanacion.com.ar/economia/dolar/devaluacion-por-que-sube-dolar-argentina-nid2231139'
     }
-    console.log(data)
+    console.log(this.props)
+    // obtenerUrlsSourceSets('M', this.props.promo_items.basic.additional_properties.resizeUrl)
+    
     return (
       <>
         <ArticleComponent { ...data }/> 
@@ -26,4 +32,9 @@ class Article extends Component {
   }
 }
 
-export default Article
+const obtenerUrlsSourceSets = (size, url) => {
+  const imgSizes = SourceSetSizes.find(s => s.name === size)
+  console.log(imgSizes)
+}
+
+export default WithArticleData(Article, filter)

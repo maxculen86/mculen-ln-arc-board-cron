@@ -1,0 +1,59 @@
+[
+    {
+        "name": "XXL",
+        "values": [
+            { "desktop": "866" },
+            { "desktopSM": "866" },
+            { "tablet": "642" },
+            { "tabletSM": "550" },
+            { "mobile": "425" },
+            { "mobileSM": "225" }
+        ]
+    },
+    {
+        "name": "XL",
+        "values": [
+            { "desktop": "620" },
+            { "desktopSM": "620" },
+            { "tablet": "450" },
+            { "tabletSM": "390" },
+            { "mobile": "425" },
+            { "mobileSM": "360" }
+        ]
+    },
+    {
+        "name": "L",
+        "values": [
+            { "desktop": "460" },
+            { "desktopSM": "420" },
+            { "tablet": "400" },
+            { "tabletSM": "400" },
+            { "mobile": "425" },
+            { "mobileSM": "225" }
+        ]
+    },
+    {
+        "name": "M",
+        "values": [
+            { "desktop": "320" },
+            { "desktopSM": "320" },
+            { "tablet": "300" },
+            { "tabletSM": "300" },
+            { "mobile": "425" },
+            { "mobileSM": "225" }
+        ]
+    },
+    {
+        "name": "S",
+        "values": [
+            { "Desktop": "230" },
+            { "DesktopSM": "230" },
+            { "Tablet": "180" },
+            { "TabletSM": "215" },
+            { "Mobile": "210" },
+            { "MobileSM": "120" }
+        ]
+    }
+
+]
+  

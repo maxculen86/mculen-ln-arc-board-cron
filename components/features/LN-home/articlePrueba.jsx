@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Article from '../../private/LN/home/common/containers/article'
-import { buildArticlesCustomFields, getArticlesCustomFields } from '../../private/common/utils/customFieldsHelper'
+import { buildArticlesCustomFields } from '../../private/common/utils/customFieldsHelper'
 import PropTypes from 'prop-types'
 
 const MAX_ARTICLES_COUNT = 1
@@ -8,9 +8,9 @@ const MAX_ARTICLES_COUNT = 1
 class ArticlePrueba extends Component {
   render() {
     return (
-      <div>
+      <section className="caja-4notas">
         <Article />
-      </div>
+      </section>
     )
   }
 }
