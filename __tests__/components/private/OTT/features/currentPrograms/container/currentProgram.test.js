@@ -29,11 +29,6 @@ describe('OTT - layout - currentPrograms - containers', () => {
         testHelper.expectProp(component, 'items', items)
     });
 
-    const children = container.find('hijos')
-
-    it('Testeo que no renderee los children', () => {
-        expect(children.length).toEqual(0)
-        testHelper.expectSameValue(children.length, 0)
-    });
+    testHelper.testNoRenderChildren(container, 'hijos')
 
 })

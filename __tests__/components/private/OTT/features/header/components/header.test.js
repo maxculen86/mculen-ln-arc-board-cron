@@ -35,9 +35,8 @@ describe('OTT - layout - header - components', () => {
     const container2 = container.find('mock-component').at(1)
     const mockedContainers = container.find('mock-component')
 
-    it('Testeo que no renderee los children', () => {
-        testHelper.expectSameValue(children.length, 0)
-    });
+    testHelper.testNoRenderChildren(container, 'hijos')
+    
     it('Test 2 items - Testeo que el item 1 reciba las props del item 1', () => {
         testHelper.expectProp(container1, 'description',items[0].description)
         testHelper.expectProp(container1, 'alt',items[0].description)

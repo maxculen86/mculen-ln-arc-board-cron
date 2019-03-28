@@ -22,13 +22,8 @@ describe('OTT - layout - videoOpening - containers', () => {
     )
 
     const component = container.find('mock-component')
-
-    const children = container.find('hijos')
-
-    it('Testeo que no renderee los children', () => {
-        testHelper.expectSameValue(children.length, 0)
-    });
-
+    testHelper.testNoRenderChildren(container, 'hijos')
+    
     it('Testeo que reciba las props que yo mando', () => {
         testHelper.expectProp(component, "source", source)
     });

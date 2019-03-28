@@ -9,7 +9,7 @@ import testHelper from '../../../../../../utils/testHelper'
 import CurrentProgramItemContainer from '../../../../../../../components/private/OTT/features/currentPrograms/components/currentPrograms'; 
 
 
-describe('OTT - layout - currentProgramItem - component', () => {
+describe('OTT - layout - currentProgramItem - component1', () => {
 
     const child = <hijos>soy un child de frame default</hijos>
 
@@ -32,15 +32,13 @@ describe('OTT - layout - currentProgramItem - component', () => {
         />
     )
 
-    const children = container.find('hijos')
     const container1 = container.find('mock-component').at(0)
     const container2 = container.find('mock-component').at(1)
     const mockedContainers = container.find('mock-component')
 
-
-    it('Testeo que no renderee los children', () => {
-        testHelper.expectSameValue(children.length,0)
-    });
+    
+    testHelper.testNoRenderChildren(container, 'hijos')
+    
     it('Test 2 items - Testeo que el item 1 reciba las props del item 1', () => {
         testHelper.expectProp(container1,'description', items[0].description)
         testHelper.expectProp(container1,'href', items[0].href)
