@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { buildSpecialVideoCustomFields, getSpecialVideoCustomFields } from 
-'../../private/OTT/utils/CustomFieldsSpecialVideoHelper';
-import SpecialVideoContainer from 
-'../../private/OTT/features/specialVideo/containers/specialVideo';
+import { buildSpecialVideoCustomFields, getSpecialVideoCustomFields } from
+    '../../private/OTT/utils/CustomFieldsSpecialVideoHelper';
+import SpecialVideoContainer from
+    '../../private/OTT/features/specialVideo/containers/specialVideo';
 
 
 const MAX_VIDEOS_COUNT = 8;
@@ -15,12 +15,12 @@ class SpecialVideo extends Component {
             .filter(elem => elem.idVideo != null)
             .map(elem => elem.idVideo)
     }
-    
-  render() {
-    return (
-    <SpecialVideoContainer videoIds={this.videoIdsCustomFields}/>
-    )
-  }
+
+    render() {
+        return (
+            <SpecialVideoContainer videoIds={this.videoIdsCustomFields} />
+        )
+    }
 }
 
 function getCustomFields() {

@@ -8,26 +8,26 @@ import filter from '../../../../../../content/filters/OTT/homeVideoItem';
 class SpecialVideo extends Component {
   constructor(props) {
     super(props)
-    
+
     const { cached, fetched } = this.getContent({
       sourceName: 'ottVideosSource',
       query: {
         ids: this.props.videoIds
       }
-      ,filter
+      , filter
     });
     this.state = { videos: get(cached, 'content_elements', null) };
     fetched.then(response => {
       const fetchedVideos = get(response, 'content_elements', null)
-      if(fetchedVideos)
+      if (fetchedVideos)
         this.setState({ videos: fetchedVideos })
     })
   }
 
-render() {
-  if(!this.state.videos)
-    return <></>
-  return <SpecialVideoComponent videos={this.state.videos} />
+  render() {
+    if (!this.state.videos)
+      return <></>
+    return <SpecialVideoComponent videos={this.state.videos} />
   }
 }
 
