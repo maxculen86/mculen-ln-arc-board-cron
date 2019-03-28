@@ -37,8 +37,8 @@ describe('OTT - layout - currentProgramItem - component1', () => {
     const mockedContainers = container.find('mock-component')
 
     
-    testHelper.testNoRenderChildren(container, 'hijos')
-    
+    testHelper.testDoNotRenderChildren(container, 'hijos')
+
     it('Test 2 items - Testeo que el item 1 reciba las props del item 1', () => {
         testHelper.expectProp(container1,'description', items[0].description)
         testHelper.expectProp(container1,'href', items[0].href)

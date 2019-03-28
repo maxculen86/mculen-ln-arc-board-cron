@@ -37,5 +37,5 @@ describe('OTT - layout - headerItem - containers', () => {
         testHelper.expectProp(component, 'description', props.description)
     });
 
-    testHelper.testNoRenderChildren(container, 'hijos')
+    testHelper.testDoNotRenderChildren(container, 'hijos')
 })

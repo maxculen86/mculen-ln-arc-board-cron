@@ -29,6 +29,6 @@ describe('OTT - layout - currentPrograms - containers', () => {
         testHelper.expectProp(component, 'items', items)
     });
 
-    testHelper.testNoRenderChildren(container, 'hijos')
+    testHelper.testDoNotRenderChildren(container, 'hijos')
 
 })

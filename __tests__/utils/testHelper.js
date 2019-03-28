@@ -6,7 +6,7 @@
 function expectSameValue(value1, value2) {
     expect(value1).toEqual(value2)
 }
-function testNoRenderChildren(component, childrenName){
+function testDoNotRenderChildren(component, childrenName){
     const children = component.find(childrenName)
     it('TestHelper - Testeo que no renderee los children', () => {
         expectSameValue(children.length,0)
@@ -15,5 +15,5 @@ function testNoRenderChildren(component, childrenName){
 export default {
     expectProp: expectProp,
     expectSameValue: expectSameValue,
-    testNoRenderChildren: testNoRenderChildren
+    testDoNotRenderChildren: testDoNotRenderChildren
 }

@@ -23,5 +23,5 @@ describe('OTT - layout - header - containers', () => {
     it('Testeo que pase al componente los items recibidos por el container', () => {
         testHelper.expectProp(component, 'items', items)
     });
-    testHelper.testNoRenderChildren(container, 'hijos')
+    testHelper.testDoNotRenderChildren(container, 'hijos')
 });

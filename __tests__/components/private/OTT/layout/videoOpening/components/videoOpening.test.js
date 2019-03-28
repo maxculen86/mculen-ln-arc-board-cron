@@ -15,7 +15,7 @@ describe('OTT - layout - videoOpening - components', () => {
 
     const component = container.find('iframe');
 
-    testHelper.testNoRenderChildren(container, 'hijos')
+    testHelper.testDoNotRenderChildren(container, 'hijos')
 
     it('Testeo que renderee el iframe', () => {
         testHelper.expectSameValue(component.length, 1)
