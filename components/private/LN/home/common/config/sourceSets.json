@@ -2,56 +2,146 @@
     {
         "name": "XXL",
         "values": [
-            { "desktop": "866" },
-            { "desktopSM": "866" },
-            { "tablet": "642" },
-            { "tabletSM": "550" },
-            { "mobile": "425" },
-            { "mobileSM": "225" }
+            { 
+                "name": "desktop",
+                "value" : 866
+            },
+            { 
+                "name": "desktopSM",
+                "value": 866
+            },
+            { 
+                "name": "tablet",
+                "value": 642
+            },
+            { 
+                "name": "tabletSM",
+                "value": 550
+            },
+            { 
+                "name": "mobile",
+                "value": 425
+            },
+            { 
+                "name": "mobileSM",
+                "value": 225
+            }
         ]
     },
     {
         "name": "XL",
         "values": [
-            { "desktop": "620" },
-            { "desktopSM": "620" },
-            { "tablet": "450" },
-            { "tabletSM": "390" },
-            { "mobile": "425" },
-            { "mobileSM": "360" }
+            { 
+                "name": "desktop",
+                "value" : 620
+            },
+            { 
+                "name": "desktopSM",
+                "value": 620
+            },
+            { 
+                "name": "tablet",
+                "value": 450
+            },
+            { 
+                "name": "tabletSM",
+                "value": 390
+            },
+            { 
+                "name": "mobile",
+                "value": 425
+            },
+            { 
+                "name": "mobileSM",
+                "value": 360
+            }
         ]
     },
     {
         "name": "L",
         "values": [
-            { "desktop": "460" },
-            { "desktopSM": "420" },
-            { "tablet": "400" },
-            { "tabletSM": "400" },
-            { "mobile": "425" },
-            { "mobileSM": "225" }
+            { 
+                "name": "desktop",
+                "value" : 460
+            },
+            { 
+                "name": "desktopSM",
+                "value": 420
+            },
+            { 
+                "name": "tablet",
+                "value": 400
+            },
+            { 
+                "name": "tabletSM",
+                "value": 400
+            },
+            { 
+                "name": "mobile",
+                "value": 425
+            },
+            { 
+                "name": "mobileSM",
+                "value": 225
+            }
         ]
     },
     {
         "name": "M",
         "values": [
-            { "desktop": "320" },
-            { "desktopSM": "320" },
-            { "tablet": "300" },
-            { "tabletSM": "300" },
-            { "mobile": "425" },
-            { "mobileSM": "225" }
+            { 
+                "name": "desktop",
+                "value" : 320
+            },
+            { 
+                "name": "desktopSM",
+                "value": 320
+            },
+            { 
+                "name": "tablet",
+                "value": 300
+            },
+            { 
+                "name": "tabletSM",
+                "value": 300
+            },
+            { 
+                "name": "mobile",
+                "value": 425
+            },
+            { 
+                "name": "mobileSM",
+                "value": 225
+            }
         ]
     },
     {
         "name": "S",
         "values": [
-            { "Desktop": "230" },
-            { "DesktopSM": "230" },
-            { "Tablet": "180" },
-            { "TabletSM": "215" },
-            { "Mobile": "210" },
-            { "MobileSM": "120" }
+            { 
+                "name": "desktop",
+                "value" : 230
+            },
+            { 
+                "name": "desktopSM",
+                "value": 230
+            },
+            { 
+                "name": "tablet",
+                "value": 180
+            },
+            { 
+                "name": "tabletSM",
+                "value": 215
+            },
+            { 
+                "name": "mobile",
+                "value": 210
+            },
+            { 
+                "name": "mobileSM",
+                "value": 120
+            }
         ]
     }
 

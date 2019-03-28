@@ -9,7 +9,7 @@ class ArticlePrueba extends Component {
   render() {
     return (
       <section className="caja-4notas">
-        <Article />
+        <Article id={this.props.customFields.articleId1}/>
       </section>
     )
   }

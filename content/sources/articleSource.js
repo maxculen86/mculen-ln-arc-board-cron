@@ -1,6 +1,6 @@
 const resolve = (key) => {
     const { url, id } = key
-
+    console.log(id)
     const basePath = '/content/v4/stories/?website=la-nacion-ar';
 
     if (id)

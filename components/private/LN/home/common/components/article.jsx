@@ -5,7 +5,6 @@ import Bajada from './articleBajada'
 
 export default class Article extends Component {
     render() {
-        console.log(this.props)
         return (
             <article className={this.props.renderClasses}>
                 <Image imgUrls={this.props.imgUrls} url={this.props.url} />
