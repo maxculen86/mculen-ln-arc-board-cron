@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
-import get from 'lodash.get'
 import ArticleComponent from '../components/article'
 import SourceSetSizes from '../config/sourceSets.json'
 import filter from '../../../../../../content/filters/LN/home/article'
 import WithArticleData from '../hocs/withArticleData'
 import { getClassesArticle } from '../utils/classHelper'
 
+const SLUG_CONTENT_LAB = 'contentlab'
+const SLUG_ESPACIO_PATROCINADO = 'espaciopatrocinado'
 
 class Article extends Component {
   render() {
-    const data = {
-        renderClasses: 'art-01 m',
-    }
-    console.log(this.props)
     const article = this.props.article
     
     const imgUrls = getUrlsSourceSets('M', article.promo_items.basic.additional_properties.resizeUrl)
@@ -53,6 +50,18 @@ const getUrlsSourceSets = (size, url) => {
     imgUrls.push(sourceSet)
   })
   return imgUrls
+}
+
+const getTagRender = tags => {
+  const slugs = tags.map(n => n.slug)
+  let tagName = ''
+  if(slugs.includes(SLUG_ESPACIO_PATROCINADO)){
+    tagName = tags.find(t => t.slug === SLUG_ESPACIO_PATROCINADO).text
+  }else if(slugs.includes(SLUG_CONTENT_LAB)){
+    tagName = `CONTENT LAB PARA ${tags.find(t => t.slug === SLUG_CONTENT_LAB).text}`
+  }
+
+  return tagName
 }
 
 export default WithArticleData(Article, filter)

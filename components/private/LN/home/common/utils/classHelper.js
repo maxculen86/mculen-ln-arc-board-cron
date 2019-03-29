@@ -1,5 +1,4 @@
 export const getClassesArticle = props =>{
-    debugger;
     let classes = ''
     //Obtener posicion
     const pos = ('0' + props.position).slice(-2)
