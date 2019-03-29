@@ -12,37 +12,37 @@ class Article extends Component {
         renderClasses: 'art-01 m',
         volanta: 'prueba volanta',
         title: 'titulo prueba',
-        imgUrls: {
-            desktop: 'http://bucket2.glanacion.com/anexos/fotos/44/2733144h420.jpg',
-            desktopSM: 'http://bucket2.glanacion.com/anexos/fotos/44/2733144h420.jpg',
-            tablet: 'http://bucket2.glanacion.com/anexos/fotos/44/2733144h420.jpg',
-            tabletSM: 'http://bucket2.glanacion.com/anexos/fotos/44/2733144h420.jpg',
-            mobile: 'http://bucket2.glanacion.com/anexos/fotos/44/2733144h420.jpg',
-            mobileSM: 'http://bucket2.glanacion.com/anexos/fotos/44/2733144h420.jpg'
-        },
         url: 'https://www.lanacion.com.ar/economia/dolar/devaluacion-por-que-sube-dolar-argentina-nid2231139'
     }
-    console.log(this.props.article)
+    console.log(this.props)
     const article = this.props.article
     
-    const imgUrls = obtenerUrlsSourceSets('M', article.promo_items.basic.additional_properties.resizeUrl)
-    
+    const imgUrls = getUrlsSourceSets('M', article.promo_items.basic.additional_properties.resizeUrl)
+    const title = getTitle(this.props.customFields.homeTitle1, article.headlines.basic)
+
     return (
       <>
         <ArticleComponent 
           renderClasses="art-01 M"
           imgUrls={imgUrls}
-          title={article.headlines.basic}
+          title={title}
           url={article.website_url}
-          volanta=""
-          bajada=""
+          teaser={this.props.customFields.homeTeaser1}
+          subheader={this.props.customFields.homeSubheader1}
         /> 
       </>
     )
   }
 }
 
-const obtenerUrlsSourceSets = (size, url) => {
+const getTitle = (homeTitle, title) => {
+  if(homeTitle){
+    return homeTitle
+  }
+  return title
+}
+
+const getUrlsSourceSets = (size, url) => {
   const imgUrls = []
   const imgSizes = SourceSetSizes.find(s => s.name === size)
   imgSizes.values.forEach(el => {

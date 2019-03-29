@@ -1,4 +1,5 @@
 export default `
+{
     _id,
     promo_items {
         basic {
@@ -12,5 +13,4 @@ export default `
     headlines {
         basic
     }
-    
-`
+}`

@@ -7,9 +7,11 @@ const MAX_ARTICLES_COUNT = 1
 
 class ArticlePrueba extends Component {
   render() {
+    console.log(this.props.customFields)
+
     return (
       <section className="caja-4notas">
-        <Article id={this.props.customFields.articleId1}/>
+        <Article id={this.props.customFields.articleId1} customFields={this.props.customFields}/>
       </section>
     )
   }
