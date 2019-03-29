@@ -11,7 +11,15 @@ class ArticlePrueba extends Component {
 
     return (
       <section className="caja-4notas">
-        <Article id={this.props.customFields.articleId1} customFields={this.props.customFields}/>
+        <Article  id={this.props.customFields.articleId1} 
+                  position="1"
+                  size="M"
+                  teaser={this.props.customFields.teaser1} 
+                  subheader={this.props.customFields.subheader1}
+                  homeTitle={this.props.customFields.homeTitle1}
+                  marquee={this.props.customFields.marquee1}
+                  articleMark={this.props.customFields.articleMark1}
+        />
       </section>
     )
   }

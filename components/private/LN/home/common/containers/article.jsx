@@ -4,31 +4,29 @@ import ArticleComponent from '../components/article'
 import SourceSetSizes from '../config/sourceSets.json'
 import filter from '../../../../../../content/filters/LN/home/article'
 import WithArticleData from '../hocs/withArticleData'
+import { getClassesArticle } from '../utils/classHelper'
 
 
 class Article extends Component {
   render() {
     const data = {
         renderClasses: 'art-01 m',
-        volanta: 'prueba volanta',
-        title: 'titulo prueba',
-        url: 'https://www.lanacion.com.ar/economia/dolar/devaluacion-por-que-sube-dolar-argentina-nid2231139'
     }
     console.log(this.props)
     const article = this.props.article
     
     const imgUrls = getUrlsSourceSets('M', article.promo_items.basic.additional_properties.resizeUrl)
-    const title = getTitle(this.props.customFields.homeTitle1, article.headlines.basic)
-
+    const title = getTitle(this.props.homeTitle, article.headlines.basic)
+    const renderClasses = getClassesArticle(this.props)
     return (
       <>
         <ArticleComponent 
-          renderClasses="art-01 M"
+          renderClasses={renderClasses}
           imgUrls={imgUrls}
           title={title}
           url={article.website_url}
-          teaser={this.props.customFields.homeTeaser1}
-          subheader={this.props.customFields.homeSubheader1}
+          teaser={this.props.teaser}
+          subheader={this.props.subheader}
         /> 
       </>
     )

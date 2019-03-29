@@ -23,16 +23,16 @@ const buildArticlesCustomFields = (count) => {
                 name: 'Título en Home',
                 group: `Nota ${i}`
             }),
-            [`homeSubheader${i}`]: PropTypes.string.tag({ 
-                name: 'Bajada en Home',
+            [`subheader${i}`]: PropTypes.string.tag({ 
+                name: 'Bajada',
                 group: `Nota ${i}` 
             }),
-            [`homeTeaser${i}`]: PropTypes.string.tag({ 
-                name: 'Volanta en Home',
+            [`teaser${i}`]: PropTypes.string.tag({ 
+                name: 'Volanta',
                 group: `Nota ${i}` 
             }),
-            [`homeAuthor${i}`]: PropTypes.string.tag({ 
-                name: 'Autor en Home',
+            [`marquee${i}`]: PropTypes.string.tag({ 
+                name: 'Marquesina',
                 group: `Nota ${i}`
             }),
             [`articleMark${i}`]: PropTypes.oneOf(
@@ -56,9 +56,9 @@ const getArticlesCustomFields = (count, props) => {
             url: get(props, `customFields.articleUrl${i}`, null),
             exclusivo: get(props, `customFields.isExclusive${i}`, null),
             titulo: get(props, `customFields.homeTitle${i}`, null),
-            bajada: get(props, `customFields.homeSubheader${i}`, null),
-            volanta: get(props, `customFields.homeTeaser${i}`, null),
-            autor: get(props, `customFields.homeAuthor${i}`, null),
+            bajada: get(props, `customFields.subheader${i}`, null),
+            volanta: get(props, `customFields.teaser${i}`, null),
+            marquesina: get(props, `customFields.marquee${i}`, null),
             destacarMarca: get(props, `customFields.articleMark${i}`, null),
         })
     }
