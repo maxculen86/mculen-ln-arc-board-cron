@@ -1,6 +1,7 @@
 export default `
 {
     _id,
+    subtype,
     promo_items {
         basic {
             type,
@@ -10,6 +11,7 @@ export default `
             url
         }
     },
+    credits,
     headlines {
         basic
     },

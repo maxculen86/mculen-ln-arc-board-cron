@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import ArticleComponent from '../components/article'
+import RegularArticleComponent from '../components/article'
+import AuthorArticle from '../components/authorArticle'
 import SourceSetSizes from '../config/sourceSets.json'
 import { tagsRevista } from '../config/tags.json'
 import filter from '../../../../../../content/filters/LN/home/article'
@@ -7,29 +8,56 @@ import WithArticleData from '../hocs/withArticleData'
 import { getClassesArticle } from '../utils/classHelper'
 
 
+const SUBTYPE_NOTA_AUTOR = 1
 const SLUG_ESPACIO_PATROCINADO = 'espaciopatrocinado'
+
 let classTag = ''
 class Article extends Component {
   render() {
     const article = this.props.article
-    
-    const imgUrls = getUrlsSourceSets('M', article.promo_items.basic.additional_properties.resizeUrl)
+    const isAuthor = parseInt(article.subtype) === SUBTYPE_NOTA_AUTOR
+    const author = article.credits.by.find(c => c.type === 'author')
+    let img
+    if(isAuthor){
+      img = author.image.url
+    }else{
+      img = article.promo_items.basic.additional_properties.resizeUrl
+    }
+    const imgUrls = getUrlsSourceSets('M', img)
+
     const title = getTitle(this.props.homeTitle, article.headlines.basic)
     const tag = getTagRender(article.taxonomy.tags, this.props.marquee, this.props.isContentLab)
     const renderClasses = getClassesArticle(this.props)
 
+    
+    let component
+    if(isAuthor){
+      
+      component = <AuthorArticle 
+                    renderClasses={renderClasses}
+                    url={article.website_url}
+                    imgUrls={imgUrls}
+                    title={title}  
+                    authorName={author.name}
+                    subheader={this.props.subheader}
+                    teaser={this.props.teaser}
+                  />
+    }else{
+      component = <RegularArticleComponent 
+                    renderClasses={renderClasses}
+                    imgUrls={imgUrls}
+                    title={title}
+                    url={article.website_url}
+                    teaser={this.props.teaser}
+                    subheader={this.props.subheader}
+                    tagName={tag}
+                    classTag={classTag}
+                  /> 
+    }
+
     return (
       <>
-        <ArticleComponent 
-          renderClasses={renderClasses}
-          imgUrls={imgUrls}
-          title={title}
-          url={article.website_url}
-          teaser={this.props.teaser}
-          subheader={this.props.subheader}
-          tagName={tag}
-          classTag={classTag}
-        /> 
+        {component}
       </>
     )
   }
