@@ -13,7 +13,7 @@ class UltimosVideosDeProgramas extends Component {
 UltimosVideosDeProgramas.propTypes = {
     customFields: {
         sectionId: PropTypes.string.tag({
-            name: 'Id de Programa'
+            name: 'Id de Programa Ej: terapia-noticias'
         })
     }
 }
