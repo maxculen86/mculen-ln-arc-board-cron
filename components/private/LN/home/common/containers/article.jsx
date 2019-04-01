@@ -15,7 +15,7 @@ class Article extends Component {
     
     const imgUrls = getUrlsSourceSets('M', article.promo_items.basic.additional_properties.resizeUrl)
     const title = getTitle(this.props.homeTitle, article.headlines.basic)
-    const tag = getTagRender(article.taxonomy.tags, this.props.isContentLab)
+    const tag = getTagRender(article.taxonomy.tags, this.props.marquee, this.props.isContentLab)
     const renderClasses = getClassesArticle(this.props)
 
     return (
@@ -57,7 +57,7 @@ const getUrlsSourceSets = (size, url) => {
   return imgUrls
 }
 
-const getTagRender = (tags, isContentLab) => {
+const getTagRender = (tags, marquee, isContentLab) => {
   const slugs = tags.map(n => n.slug)
   let tagName = ''
   if(slugs.includes(SLUG_ESPACIO_PATROCINADO)){
@@ -68,8 +68,8 @@ const getTagRender = (tags, isContentLab) => {
     tagName = tagsRevista.find(tr => slugs.includes(tr)).description
     //Agrego clase logos al tag cuando es revista. 
     classTag = 'logos'
-  }else if(this.props.marquee){
-    tagName = this.props.marquee
+  }else if(marquee){
+    tagName = marquee
   }
 
   return tagName
