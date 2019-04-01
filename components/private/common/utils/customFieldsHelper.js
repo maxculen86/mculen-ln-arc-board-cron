@@ -19,6 +19,10 @@ const buildArticlesCustomFields = (count) => {
                 name: 'Sólo en LN',
                 group: `Nota ${i}` 
             }),
+            [`isContentLab${i}`]: PropTypes.bool.tag({ 
+                name: 'Content Lab',
+                group: `Nota ${i}` 
+            }),
             [`homeTitle${i}`]: PropTypes.string.tag({ 
                 name: 'Título en Home',
                 group: `Nota ${i}`
