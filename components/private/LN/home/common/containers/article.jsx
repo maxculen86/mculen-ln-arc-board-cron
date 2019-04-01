@@ -68,6 +68,8 @@ const getTagRender = (tags, isContentLab) => {
     tagName = tagsRevista.find(tr => slugs.includes(tr)).description
     //Agrego clase logos al tag cuando es revista. 
     classTag = 'logos'
+  }else if(this.props.marquee){
+    tagName = this.props.marquee
   }
 
   return tagName
