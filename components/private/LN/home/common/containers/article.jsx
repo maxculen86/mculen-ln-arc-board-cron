@@ -8,7 +8,7 @@ import WithArticleData from '../hocs/withArticleData'
 import { getClassesArticle } from '../utils/classHelper'
 
 
-const SUBTYPE_NOTA_AUTOR = 1
+const SUBTYPE_NOTA_AUTOR = 4
 const SLUG_ESPACIO_PATROCINADO = 'espaciopatrocinado'
 
 let classTag = ''
