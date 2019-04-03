@@ -3,9 +3,10 @@ jest.mock('../../../../components/private/OTT/features/LastVideosByProgram/conta
     () => 'mock-component');
 
 //Otros imports
+import PropTypes from 'fusion:prop-types';
 import React from 'react';
 import { mount } from 'enzyme';
-import testHelper from '../../../../../../utils/testHelper'
+import testHelper from '../../../utils/testHelper';
 import UltimosVideosDeProgramasFeature from '../../../../components/features/OTT/UltimosVideosDeProgramas';
 
 describe('OTT - layout - currentPrograms - containers', () => {
@@ -19,5 +20,7 @@ describe('OTT - layout - currentPrograms - containers', () => {
             customFields={customFields}
         />
     )
+
+    testHelper.expectSameValue(2,2)
 
 })
