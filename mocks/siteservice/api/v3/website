@@ -1,0 +1,17 @@
+[
+    {
+        "_id": "LA NACION",
+        "display_name": "LA NACION",
+        "is_default_website": true
+    },
+    {
+        "_id": "OTT",
+        "display_name": "OTT",
+        "is_default_website": false
+    },
+    {
+        "_id": "Club LA NACION",
+        "display_name": "Club LA NACION",
+        "is_default_website": false
+    }
+]
