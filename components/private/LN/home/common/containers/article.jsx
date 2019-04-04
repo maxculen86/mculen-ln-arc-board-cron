@@ -25,11 +25,9 @@ class Article extends Component {
       img = article.promo_items.basic.additional_properties.resizeUrl
     }
     const imgUrls = getUrlsSourceSets('M', img)
-    console.log('SUBTYPE', article.subtype)
     const title = getTitle(this.props.homeTitle, article.headlines.basic)
     const tag = getTagRender(article.taxonomy.tags, this.props.marquee, article.subtype)
     const renderClasses = getClassesArticle(this.props)
-    console.log(article)
     
     let component
     if(isAuthor){

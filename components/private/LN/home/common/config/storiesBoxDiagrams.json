@@ -1,0 +1,28 @@
+{
+    "defaultDiagram": [
+        {
+            "position": 1,
+            "size": "XL"
+        },
+        {
+            "position": 2,
+            "size": "M"
+        },
+        {
+            "position": 3,
+            "size": "M"
+        },
+        {
+            "position": 4,
+            "size": "M"
+        },
+        {
+            "position": 5,
+            "size": "M"
+        },
+        {
+            "position": 6,
+            "size": "M"
+        }
+    ]
+}
