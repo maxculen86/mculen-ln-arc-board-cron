@@ -2,25 +2,15 @@
 jest.mock('../../../../components/private/OTT/features/LastVideosByProgram/containers/LastVideosByProgram',
     () => 'mock-component');
 
-//Otros imports
-import PropTypes from 'fusion:prop-types';
 import React from 'react';
 import { mount } from 'enzyme';
-import testHelper from '../../../utils/testHelper';
 import UltimosVideosDeProgramasFeature from '../../../../components/features/OTT/UltimosVideosDeProgramas';
 
-describe('OTT - layout - currentPrograms - containers', () => {
+describe('private - common - containers - button', () => {
+    const cf = { sectionId: 'terapia-noticias' };
 
-    const customFields = {
-        sectionId: 'terapia-noticias'
-    }
-
-    const container = mount(
-        <UltimosVideosDeProgramasFeature
-            customFields={customFields}
-        />
-    )
-
-    testHelper.expectSameValue(2,2)
-
-})
+    const component = mount(<UltimosVideosDeProgramasFeature customFields={cf} />);
+    it('Testeo que pase al componente los items recibidos por el container', () => {
+        expect(component.prop('customFields')).toEqual(cf);
+    });
+});

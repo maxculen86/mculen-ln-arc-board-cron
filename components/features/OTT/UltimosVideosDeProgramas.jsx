@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'fusion:prop-types';
 import LastVideosByProgram from '../../private/OTT/features/LastVideosByProgram/containers/LastVideosByProgram';
 
 class UltimosVideosDeProgramas extends Component {
