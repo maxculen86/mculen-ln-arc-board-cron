@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'fusion:prop-types';
 import HeaderContainer from '../../private/OTT/features/header/containers/header';
 
-
-import { buildHeaderCustomFields, getHeaderCustomFields } from '../../private/OTT/utils/CustomFieldsHeaderHelper';
+import {
+    buildHeaderCustomFields,
+    getHeaderCustomFields
+} from '../../private/OTT/utils/CustomFieldsHeaderHelper';
 
 let MAX_LINKS_COUNT = 6;
 
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.HeaderCustomFields = getHeaderCustomFields(MAX_LINKS_COUNT, this.props)
-            .filter(elem => elem != null && elem.description!=null)
+        this.HeaderCustomFields = getHeaderCustomFields(
+            MAX_LINKS_COUNT,
+            this.props
+        ).filter(elem => elem != null && elem.description != null);
     }
     render() {
-        return <HeaderContainer items={this.HeaderCustomFields} />
+        return <HeaderContainer items={this.HeaderCustomFields} />;
     }
 }
 
@@ -25,8 +29,6 @@ function getCustomFields() {
 
 Header.propTypes = {
     customFields: getCustomFields()
-}
+};
 
-export default Header
-
-
+export default Header;

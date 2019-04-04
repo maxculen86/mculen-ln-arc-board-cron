@@ -1,10 +1,9 @@
-'use strict'
+'use strict';
 
-import PropTypes from 'prop-types';
+import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 
-
-const buildCurrentProgramsCustomFields = (count) => {
+const buildCurrentProgramsCustomFields = count => {
     let resp = {};
     for (let i = 1; i <= count; i++) {
         Object.assign(resp, {
@@ -20,11 +19,11 @@ const buildCurrentProgramsCustomFields = (count) => {
                 name: 'URL de la imagen',
                 group: `Programa ${i}`
             })
-        })
+        });
     }
 
     return resp;
-}
+};
 
 const getCurrentProgramsCustomFields = (count, props) => {
     let resp = [];
@@ -33,13 +32,10 @@ const getCurrentProgramsCustomFields = (count, props) => {
             description: get(props, `customFields.description${i}`, null),
             href: get(props, `customFields.href${i}`, null),
             imgSrc: get(props, `customFields.imgSrc${i}`, null)
-        })
+        });
     }
 
     return resp;
-}
+};
 
-export {
-    buildCurrentProgramsCustomFields,
-    getCurrentProgramsCustomFields
-}
+export { buildCurrentProgramsCustomFields, getCurrentProgramsCustomFields };
