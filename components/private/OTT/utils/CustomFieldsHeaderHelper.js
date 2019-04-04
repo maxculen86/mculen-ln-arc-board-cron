@@ -1,10 +1,9 @@
-'use strict'
+'use strict';
 
-import PropTypes from 'prop-types';
+import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 
-
-const buildHeaderCustomFields = (count) => {
+const buildHeaderCustomFields = count => {
     let resp = {};
     for (let i = 1; i <= count; i++) {
         Object.assign(resp, {
@@ -16,11 +15,11 @@ const buildHeaderCustomFields = (count) => {
                 name: 'Link al programa',
                 group: `Link ${i}`
             })
-        })
+        });
     }
 
     return resp;
-}
+};
 
 const getHeaderCustomFields = (count, props) => {
     let resp = [];
@@ -28,13 +27,10 @@ const getHeaderCustomFields = (count, props) => {
         resp.push({
             description: get(props, `customFields.description${i}`, null),
             href: get(props, `customFields.href${i}`, null)
-        })
+        });
     }
 
     return resp;
-}
+};
 
-export {
-    buildHeaderCustomFields,
-    getHeaderCustomFields
-}
+export { buildHeaderCustomFields, getHeaderCustomFields };
