@@ -9,6 +9,7 @@ import { getClassesArticle } from '../utils/classHelper'
 
 
 const SUBTYPE_NOTA_AUTOR = 4
+const SUBTYPE_NOTA_CONTENT_LAB = 5
 const SLUG_ESPACIO_PATROCINADO = 'espaciopatrocinado'
 
 let classTag = ''
@@ -24,9 +25,9 @@ class Article extends Component {
       img = article.promo_items.basic.additional_properties.resizeUrl
     }
     const imgUrls = getUrlsSourceSets('M', img)
-
+    console.log('SUBTYPE', article.subtype)
     const title = getTitle(this.props.homeTitle, article.headlines.basic)
-    const tag = getTagRender(article.taxonomy.tags, this.props.marquee, this.props.isContentLab)
+    const tag = getTagRender(article.taxonomy.tags, this.props.marquee, article.subtype)
     const renderClasses = getClassesArticle(this.props)
     console.log(article)
     
@@ -85,12 +86,12 @@ const getUrlsSourceSets = (size, url) => {
   return imgUrls
 }
 
-const getTagRender = (tags, marquee, isContentLab) => {
+const getTagRender = (tags, marquee, subtype) => {
   const slugs = tags.map(n => n.slug)
   let tagName = ''
   if(slugs.includes(SLUG_ESPACIO_PATROCINADO)){
     tagName = tags.find(t => t.slug === SLUG_ESPACIO_PATROCINADO).description
-  }else if(isContentLab){
+  }else if(parseInt(subtype) === SUBTYPE_NOTA_CONTENT_LAB){
     tagName = `CONTENT LAB PARA ${tags[0].description}`
   }else if(tagsRevista.some(tr => slugs.includes(tr))){
     tagName = tagsRevista.find(tr => slugs.includes(tr)).description

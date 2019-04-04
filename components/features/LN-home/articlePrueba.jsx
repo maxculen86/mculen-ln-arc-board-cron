@@ -20,7 +20,6 @@ class ArticlePrueba extends Component {
                   homeTitle={this.props.customFields.homeTitle1}
                   marquee={this.props.customFields.marquee1}
                   articleMark={this.props.customFields.articleMark1}
-                  isContentLab={this.props.customFields.isContentLab1}
                   isExclusive={this.props.customFields.isExclusive1}
         />
       </section>
