@@ -16,7 +16,6 @@ export default class Article extends Component {
             subheader,
             classTag
         } = this.props
-
         return (
             <article className={renderClasses}>
                 <Image imgUrls={imgUrls} url={url} />

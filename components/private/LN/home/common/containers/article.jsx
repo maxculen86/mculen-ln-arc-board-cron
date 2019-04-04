@@ -28,7 +28,7 @@ class Article extends Component {
     const title = getTitle(this.props.homeTitle, article.headlines.basic)
     const tag = getTagRender(article.taxonomy.tags, this.props.marquee, this.props.isContentLab)
     const renderClasses = getClassesArticle(this.props)
-
+    console.log(article)
     
     let component
     if(isAuthor){
