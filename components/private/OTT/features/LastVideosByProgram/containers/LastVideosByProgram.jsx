@@ -14,9 +14,11 @@ class LastVideosByProgram extends Component {
     }
     this.getVideos();
   }
-  componentWillReceiveProps(props){
-    //this.getVideos();
+  componentDidUpdate(){
+    
     console.log('cwrp')
+    //loop of death
+    //this.getVideos();
   }
   getVideos(){
     const { cached, fetched } = this.getContent({
@@ -26,10 +28,14 @@ class LastVideosByProgram extends Component {
         }
         ,filter
       });
-      this.state = { videos: get(cached, 'content_elements', null) };
+      // SI LO DEJO ASI, ME DESAPARECE EL STATE "from"
+      // this.state = { videos: get(cached, 'content_elements', null) };
+      this.state.videos = get(cached, 'content_elements', null)
+
       fetched.then(response => {
         const fetchedVideos = get(response, 'content_elements', null)
         if(fetchedVideos)
+          //CUANDO ACTUALIZA EL ESTADO CAE EN componentDidUpdate Y ese vuelve a llamar a getVideos() y se hace un loop
           this.setState({ videos: fetchedVideos })
       })
   }

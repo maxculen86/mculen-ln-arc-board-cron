@@ -4,7 +4,7 @@ import get from 'lodash.get';
 
 
 
-export default function LastVideosByProgams({ videos }) {
+export default function LastVideosByProgams({ videos, nextPageHandler }) {
   const currentItem = videos.map((video,index)=>{
     const title = get(video, 'headlines.basic', null)
     const imgSrc = get(video, 'promo_items.basic.url', null)
@@ -14,6 +14,7 @@ export default function LastVideosByProgams({ videos }) {
   return (
       <div>
       {currentItem}
+      <button onClick={nextPageHandler}>mas videos</button>
       </div>
   )
 }
