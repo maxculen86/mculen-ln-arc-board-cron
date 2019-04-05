@@ -16,6 +16,9 @@ let classTag = ''
 class Article extends Component {
   render() {
     const article = this.props.article
+    if(!article){
+      return getEmptyArticle(this.props.size, this.props.position)
+    }
     const isAuthor = parseInt(article.subtype) === SUBTYPE_NOTA_AUTOR
     const author = article.credits.by.find(c => c.type === 'author')
     let img
@@ -24,7 +27,7 @@ class Article extends Component {
     }else{
       img = article.promo_items.basic.additional_properties.resizeUrl
     }
-    const imgUrls = getUrlsSourceSets('M', img)
+    const imgUrls = getUrlsSourceSets(this.props.size, img)
     const title = getTitle(this.props.homeTitle, article.headlines.basic)
     const tag = getTagRender(article.taxonomy.tags, this.props.marquee, article.subtype)
     const renderClasses = getClassesArticle(this.props)
@@ -60,6 +63,16 @@ class Article extends Component {
       </>
     )
   }
+}
+
+const getEmptyArticle = (size, position) => {
+  const pos = ('0' + position).slice(-2)
+  const classArtVacio = `art-${pos} ${size}`
+  return(
+    <article className={classArtVacio}>
+      <h2>Articulo vacio</h2>
+    </article>
+  )
 }
 
 const getTitle = (homeTitle, title) => {
