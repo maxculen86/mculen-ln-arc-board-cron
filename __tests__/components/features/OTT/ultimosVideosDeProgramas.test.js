@@ -6,7 +6,7 @@ jest.mock(
 
 import React from 'react';
 import { mount } from 'enzyme';
-import UltimosVideosDeProgramasFeature from '../../../../components/features/OTT/UltimosVideosDeProgramas';
+import UltimosVideosDeProgramasFeature from '../../../../components/features/OTT/ultimosVideosDeProgramas';
 
 describe('features - OTT - ultimosVideosDeProgramas', () => {
     const cf = { sectionId: 'terapia-noticias' };
