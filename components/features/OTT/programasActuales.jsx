@@ -34,3 +34,4 @@ CurrentPrograms.propTypes = {
     customFields: getCustomFields()
 };
 export default CurrentPrograms;
+exports.MAX_PROGRAM_COUNT = MAX_PROGRAM_COUNT;
