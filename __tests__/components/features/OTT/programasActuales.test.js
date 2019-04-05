@@ -4,7 +4,7 @@ jest.mock(
 );
 import React from 'react';
 import { mount } from 'enzyme';
-import ProgramasActuales from '../../../../components/features/OTT/ProgramasActuales';
+import ProgramasActuales from '../../../../components/features/OTT/programasActuales';
 import testHelper from '../../../../__tests__/utils/testHelper';
 
 describe('features - OTT - ProgramasActuales', () => {
