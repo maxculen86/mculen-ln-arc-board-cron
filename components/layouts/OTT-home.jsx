@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { urlLiveVideo } from '../private/OTT/layouts/OTTHomeIndex';
 import VideoOpening from '../private/OTT/layouts/videoOpening/containers/videoOpening';
 import LastVideos from '../private/OTT/layouts/lastVideos/containers/lastVideos';
-
+import Footer from '../private/OTT/layouts/footer/containers/footer'
 
 const layoutItems = [
     'header',
@@ -17,6 +17,7 @@ class OTTHomeLayout extends PureComponent {
       <VideoOpening source={urlLiveVideo}/>
       {this.props.children[1]}
       <LastVideos />
+      <Footer />
       </>
     )
   }
