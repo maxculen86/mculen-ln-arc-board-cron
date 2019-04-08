@@ -67,7 +67,6 @@ class LastVideosByProgram extends PureComponent {
   }
 
   render() {
-    this.state.renders = this.state.renders + 1
     if (this.state.renders > 10)
       return null
     if (!this.state.videos)
