@@ -4,7 +4,7 @@ import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 import filter from '../../../../../../content/filters/OTT/homeVideoItem';
 
-const PAGE_SIZE = 4
+const PAGE_SIZE = 12
 class LastVideosByProgram extends PureComponent {
   constructor(props) {
     super(props)
@@ -67,8 +67,6 @@ class LastVideosByProgram extends PureComponent {
   }
 
   render() {
-    if (this.state.renders > 10)
-      return null
     if (!this.state.videos)
       return <></>
     return <LastVideosByProgramComponent videos={this.state.videos} nextPageHandler={this.nextPage} hasNext={this.state.hasNext}/>
