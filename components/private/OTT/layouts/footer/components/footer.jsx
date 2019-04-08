@@ -7,7 +7,7 @@ export default function Footer(props) {
     <footer className="footer">
       <div className="container">
         <h5>
-            Segu&iacute; informado las 24 horas en: 
+            Segu&iacute; informado las 24 horas en: &nbsp;
             <a className="footer-link" href={LINK_LA_NACION}>www.lanacion.com.ar</a>
         </h5>
         <p className="footer-copyright-main">Copyright {props.year} S.A. LA NACION</p>

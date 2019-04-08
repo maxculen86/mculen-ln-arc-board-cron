@@ -6,9 +6,7 @@ export default class Footer extends Component {
         const year = (new Date()).getFullYear()
 
         return (
-            <>
-                <FooterComponent year={year} />
-            </>
+            <FooterComponent year={year} />
         )
     }
 }
