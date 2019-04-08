@@ -1,10 +1,10 @@
 import React from 'react'
-import LastVideoItem from '../../../../../private/OTT/layouts/lastVideos/components/lastVideoItem';
+import LastVideoItem from '../../../layouts/lastVideos/components/lastVideoItem';
 import get from 'lodash.get';
 
 
 
-export default function LastVideosByProgams({ videos, nextPageHandler }) {
+export default function LastVideosByProgams({ videos, nextPageHandler, hasNext }) {
   const currentItem = videos.map((video,index)=>{
     const title = get(video, 'headlines.basic', null)
     const imgSrc = get(video, 'promo_items.basic.url', null)
@@ -14,7 +14,11 @@ export default function LastVideosByProgams({ videos, nextPageHandler }) {
   return (
       <div>
       {currentItem}
-      <button onClick={nextPageHandler}>mas videos</button>
+      {
+        hasNext &&
+        <button onClick={nextPageHandler}>mas videos</button>
+      }
+      
       </div>
   )
 }

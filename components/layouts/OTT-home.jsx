@@ -14,9 +14,9 @@ class OTTHomeLayout extends PureComponent {
     return (
       <>
       {this.props.children[0]}
-      {/* <VideoOpening source={urlLiveVideo}/> */}
+      <VideoOpening source={urlLiveVideo}/>
       {this.props.children[1]}
-      {/* <LastVideos /> */}
+      <LastVideos />
       </>
     )
   }
