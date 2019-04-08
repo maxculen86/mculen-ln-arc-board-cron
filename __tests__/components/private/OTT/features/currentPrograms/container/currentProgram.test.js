@@ -5,6 +5,7 @@ jest.mock('../../../../../../../components/private/OTT/features/currentPrograms/
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
+import testHelper from '../../../../../../utils/testHelper'
 import CurrentProgramsContainer from '../../../../../../../components/private/OTT/features/currentPrograms/containers/currentPrograms';    
 
 describe('OTT - layout - currentPrograms - containers', () => {
@@ -25,12 +26,9 @@ describe('OTT - layout - currentPrograms - containers', () => {
 
     it('Testeo que pase al componente los items recibidos por el container', () => {
         expect(component.prop('items')).toEqual(items)
+        testHelper.expectProp(component, 'items', items)
     });
 
-    const children = container.find('hijos')
-
-    it('Testeo que no renderee los children', () => {
-        expect(children.length).toEqual(0)
-    });
+    testHelper.testDoNotRenderChildren(container, 'hijos')
 
 })

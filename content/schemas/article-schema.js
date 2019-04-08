@@ -26,9 +26,7 @@ type taxonomy {
         slug: String
     }]
 }
-
-
 `
 
-
 export default schema
+

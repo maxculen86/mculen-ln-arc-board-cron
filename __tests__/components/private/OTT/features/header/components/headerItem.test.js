@@ -2,7 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import HeaderComponent from '../../../../../../../components/private/OTT/features/header/containers/headerItem';
-
+import testHelper from '../../../../../../utils/testHelper'
 describe('OTT - layout - headerItem - components', () => {
 
     const data = {'data-event': 'LinkClick', 'data-section': 'HeaderOTT' }
@@ -23,15 +23,15 @@ describe('OTT - layout - headerItem - components', () => {
 
 
     it('Testeo que renderee el link', () => {
-        expect(link.length).toEqual(1)
+        testHelper.expectSameValue(link.length,1)
     });
 
     it('Testeo que lleguen las props que envien', () => {
-        expect(container.prop('href')).toEqual(props.href)
-        expect(container.text()).toEqual(props.description)
-        expect(container.prop('alt')).toEqual(props.alt)
-        expect(link.prop('data-section')).toEqual(props.data["data-section"])
-        expect(link.prop('data-event')).toEqual(props.data["data-event"])
+        testHelper.expectProp(container, 'href', props.href)
+        testHelper.expectProp(container, 'alt', props.alt)
+        testHelper.expectSameValue(container.text(), props.description)
+        testHelper.expectProp(link, 'data-section', props.data["data-section"])
+        testHelper.expectProp(link, 'data-event', props.data["data-event"])
     });
 
 })
