@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import LastVideosByProgramContainer from '../../../../../../../components/private/OTT/features/LastVideosByProgram/containers/LastVideosByProgram';
+import LastVideosByProgramContainer from '../../../../../../../components/private/OTT/features/LastVideosByProgram/containers/lastVideosByProgram';
 
 describe('private - common - containers - button', () => {
     const sectionId= 'terapia-noticias';

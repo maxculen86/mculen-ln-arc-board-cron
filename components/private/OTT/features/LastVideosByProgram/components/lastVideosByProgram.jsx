@@ -1,5 +1,6 @@
 import React from 'react'
 import LastVideoItem from '../../../layouts/lastVideos/components/lastVideoItem';
+import ShowMoreVideos from '../containers/showMoreVideos';
 import get from 'lodash.get';
 
 
@@ -16,7 +17,7 @@ export default function LastVideosByProgams({ videos, nextPageHandler, hasNext }
       {currentItem}
       {
         hasNext &&
-        <button onClick={nextPageHandler}>mas videos</button>
+        <ShowMoreVideos onClick={nextPageHandler}/>
       }
       
       </div>

@@ -1,5 +1,5 @@
 //retorno un elemento que luego busco en el container
-jest.mock('../../../../components/private/OTT/features/LastVideosByProgram/containers/LastVideosByProgram',
+jest.mock('../../../../components/private/OTT/features/LastVideosByProgram/containers/lastVideosByProgram',
     () => 'mock-component');
 
 import React from 'react';
