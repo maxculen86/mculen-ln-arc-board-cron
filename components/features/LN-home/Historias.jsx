@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { getGenericBoxCustomFields, getArticlesCustomFields } from '../../private/common/utils/customFieldsHelper'
+import { getGenericBoxCustomFields, getArticlesCustomFields } from '../../private/LN/home/common/utils/customFieldsHelper'
 import StoriesBox from '../../private/LN/home/common/containers/storiesBox'
 
 const MAX_ARTICLES_COUNT = 6
