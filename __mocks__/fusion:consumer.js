@@ -30,7 +30,7 @@ jest.mock('fusion:consumer', component => {
                     case 'ottVideoSource':
                         if (
                             query.query ==
-                            'sort=publish_date:desc&from=0&size=12&q=taxonomy.sections._id="/terapia-noticias"'
+                            'taxonomy.sections._id="/terapia-noticias"&sort=publish_date:desc&from=0&size=12'
                         ) {
                             return require(`./data/videos/lastVideosfrom0size12sectionterapia-noticias.json`);
                         }

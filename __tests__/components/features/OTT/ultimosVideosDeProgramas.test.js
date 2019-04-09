@@ -1,6 +1,6 @@
 //retorno un elemento que luego busco en el container
 jest.mock(
-    '../../../../components/private/OTT/features/LastVideosByProgram/containers/lastVideosByProgram',
+    '../../../../components/private/OTT/features/lastVideosByProgram/containers/lastVideosByProgram',
     () => 'mock-component'
 );
 

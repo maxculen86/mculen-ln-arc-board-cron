@@ -1,28 +1,40 @@
 import Consumer from 'fusion:consumer';
 
 jest.mock(
-    '../../../../../../../components/private/OTT/features/LastVideosByProgram/components/LastVideosByProgram',
+    '../../../../../../../components/private/OTT/features/lastVideosByProgram/components/lastVideosByProgram',
     () => 'mock-component'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
-import LastVideosByProgramContainer from '../../../../../../../components/private/OTT/features/LastVideosByProgram/containers/lastVideosByProgram';
+import LastVideosByProgramContainer from '../../../../../../../components/private/OTT/features/lastVideosByProgram/containers/lastVideosByProgram';
 import get from 'lodash.get';
 import testHelper from '../../../../../../utils/testHelper';
-import videos from '../../../../../../../__mocks__/data/videos/lastVideosfrom0size12sectionterapia-noticias.json';
+import jsonVideos from '../../../../../../../__mocks__/data/videos/lastVideosfrom0size12sectionterapia-noticias.json';
 
 describe('private - common - containers - button', () => {
     const sectionId = 'terapia-noticias';
-    it('Testeo que recba los videos', () => {
-        const container = mount(
-            <LastVideosByProgramContainer sectionId={sectionId} />
-        );
-        const instance = container.instance();
-        const component = container.find('mock-component');
-        const elems = get(videos, 'content_elements', null);
+    const container = mount(
+        <LastVideosByProgramContainer sectionId={sectionId} />
+    );
+    const component = container.find('mock-component');
 
-        testHelper.expectProp(component, 'videos', elems);
-        testHelper.expectSameValue(component.prop('videos').length, 4);
+    const videosDelMock = component.prop('videos');
+    const videosDelMockLength = videosDelMock.length;
+
+    const jsonElements = get(jsonVideos, 'content_elements', null);
+
+    it('Testeo que reciba los videos', () => {
+        testHelper.expectSameValue(videosDelMock, jsonElements);
     });
+
+    it('Testeo que reciba los la cantidad correcta de videos', () => {
+        testHelper.expectSameValue(videosDelMockLength, 4);
+    });
+
+    //TODO: testear que tenga next
+    //TODO: testear que no tenga next
+    //TODO: testear que no dibuje si el json no trae nada
+    //TODO: testear cached y fetched por separado (?)
+    //TODO: testear que se pasen los videos al mock en todos los casos anteriores y sean los correctos
 });

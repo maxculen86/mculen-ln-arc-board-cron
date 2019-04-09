@@ -1,5 +1,6 @@
 {
     "type": "video",
+    "next": 4,
     "content_elements": [
         {
             "canonical_url": "/url/canonica",
