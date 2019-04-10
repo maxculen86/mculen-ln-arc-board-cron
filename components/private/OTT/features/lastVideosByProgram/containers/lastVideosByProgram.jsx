@@ -12,10 +12,10 @@ class LastVideosByProgram extends PureComponent {
             from: 0,
             videos: [],
             lastCachedItemsCount: 0,
-            hasNext: false
+            hasNext: false,
+            fetched: 0
         };
         this.getVideos(true);
-        console.log(this);
     }
 
     getVideos(isConstructor) {
@@ -56,7 +56,8 @@ class LastVideosByProgram extends PureComponent {
                     );
                     return {
                         videos: [...videosarr, ...fetchedVideos],
-                        lastCachedItemsCount: 0
+                        lastCachedItemsCount: 0,
+                        fetched: response
                     };
                 });
             }
@@ -81,3 +82,4 @@ class LastVideosByProgram extends PureComponent {
 }
 
 export default Consumer(LastVideosByProgram);
+exports.PAGE_SIZE = PAGE_SIZE

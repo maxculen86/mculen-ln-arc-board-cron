@@ -1,0 +1,79 @@
+{
+    "type": "videos",
+    "next": 4,
+    "content_elements": [
+        {
+            "type": "video",
+            "canonical_url": "canonical_url",
+            "canonical_website": "canonical_website",
+            "short_url": "short_url",
+            "first_publish_date": "20190404",
+            "publish_date": "20190505",
+            "headlines": {
+                "basic": "asd"
+            },
+            "description": {
+                "basic": "asdasdasdasd"
+            },
+            "promo_items": {
+                "basic": {
+                    "url": "/url/qwe"
+                }
+            }
+        },{
+            "type": "video",
+            "canonical_url": "canonical_url",
+            "canonical_website": "canonical_website",
+            "short_url": "short_url",
+            "first_publish_date": "20190404",
+            "publish_date": "20190505",
+            "headlines": {
+                "basic": "asd"
+            },
+            "description": {
+                "basic": "asdasdasdasd"
+            },
+            "promo_items": {
+                "basic": {
+                    "url": "/url/qwe"
+                }
+            }
+        },{
+            "type": "video",
+            "canonical_url": "canonical_url",
+            "canonical_website": "canonical_website",
+            "short_url": "short_url",
+            "first_publish_date": "20190404",
+            "publish_date": "20190505",
+            "headlines": {
+                "basic": "asd"
+            },
+            "description": {
+                "basic": "asdasdasdasd"
+            },
+            "promo_items": {
+                "basic": {
+                    "url": "/url/qwe"
+                }
+            }
+        },{
+            "type": "video",
+            "canonical_url": "canonical_url",
+            "canonical_website": "canonical_website",
+            "short_url": "short_url",
+            "first_publish_date": "20190404",
+            "publish_date": "20190505",
+            "headlines": {
+                "basic": "asd"
+            },
+            "description": {
+                "basic": "asdasdasdasd"
+            },
+            "promo_items": {
+                "basic": {
+                    "url": "/url/qwe"
+                }
+            }
+        }
+    ]
+}

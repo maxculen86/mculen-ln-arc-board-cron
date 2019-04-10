@@ -9,18 +9,18 @@
  * */
 
 jest.mock('fusion:consumer', component => {
-    return function(component) {
+    return function (component) {
         class element extends component {
             constructor(props) {
                 super(props);
                 this.props = props;
             }
 
-            addEventListener() {}
+            addEventListener() { }
 
-            dispatchEvent() {}
+            dispatchEvent() { }
 
-            fetchContent(param) {}
+            fetchContent(param) { }
 
             customFetchContent({ sourceName, query, filter }) {
                 switch (sourceName) {
@@ -28,11 +28,20 @@ jest.mock('fusion:consumer', component => {
                         return require(`./data/notas/${query.id}`);
                         break;
                     case 'ottVideoSource':
-                        if (
-                            query.query ==
-                            'taxonomy.sections._id="/terapia-noticias"&sort=publish_date:desc&from=0&size=12'
-                        ) {
-                            return require(`./data/videos/lastVideosfrom0size12sectionterapia-noticias.json`);
+                        switch (query.query) {
+                            case 'taxonomy.sections._id="/terapia-noticias"&sort=publish_date:desc&from=0&size=12':
+                                return require(`./data/videos/lastVideosfrom0size12sectionterapia-noticias.json`);
+
+                            case 'taxonomy.sections._id="/sinvideos"&sort=publish_date:desc&from=0&size=12':
+                                return require(`./data/videos/sinVideosEncontrados.json`);
+
+                            case 'taxonomy.sections._id="/connext"&sort=publish_date:desc&from=0&size=12':
+                                return require(`./data/videos/videosConNext.json`);
+
+                            case 'taxonomy.sections._id="/sinnext"&sort=publish_date:desc&from=0&size=12':
+                                return require(`./data/videos/videosSinNext.json`);
+
+
                         }
                         break;
                     default:
@@ -51,9 +60,9 @@ jest.mock('fusion:consumer', component => {
                 };
             }
 
-            removeEventListener() {}
+            removeEventListener() { }
 
-            setContent() {}
+            setContent() { }
         }
 
         return element;
