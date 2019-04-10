@@ -6,7 +6,6 @@ jest.mock('../../../../../../../components/private/LN/home/common/components/art
 import React from 'react';
 import { mount } from 'enzyme';
 import ArticleContainer from '../../../../../../../components/private/LN/home/common/containers/article'
-import RegularArticleComponent from '../../../../../../../components/private/LN/home/common/components/article'
 import TestHelper from '../../../../../../utils/testHelper'
 
 describe('private - LN - home - common - containers - article', () => {
