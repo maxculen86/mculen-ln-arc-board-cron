@@ -12,21 +12,17 @@ class LastVideosByProgram extends PureComponent {
             from: 0,
             videos: [],
             lastCachedItemsCount: 0,
-            hasNext: false
+            hasNext: false,
+            fetched: 0
         };
         this.getVideos(true);
-        console.log(this);
     }
 
     getVideos(isConstructor) {
         const { cached, fetched } = this.getContent({
             sourceName: 'ottVideoSource',
             query: {
-                query: `taxonomy.sections._id="/${
-                    this.props.sectionId
-                }"&sort=publish_date:desc&from=${
-                    this.state.from
-                }&size=${PAGE_SIZE}`
+                query: `taxonomy.sections._id="/${this.props.sectionId}"&sort=publish_date:desc&from=${this.state.from}&size=${PAGE_SIZE}`
             },
             filter
         });
@@ -56,7 +52,8 @@ class LastVideosByProgram extends PureComponent {
                     );
                     return {
                         videos: [...videosarr, ...fetchedVideos],
-                        lastCachedItemsCount: 0
+                        lastCachedItemsCount: 0,
+                        fetched: response
                     };
                 });
             }
@@ -81,3 +78,4 @@ class LastVideosByProgram extends PureComponent {
 }
 
 export default Consumer(LastVideosByProgram);
+export const pageSize = PAGE_SIZE

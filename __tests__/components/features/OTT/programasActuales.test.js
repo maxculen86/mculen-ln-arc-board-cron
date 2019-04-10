@@ -25,10 +25,6 @@ describe('features - OTT - ProgramasActuales', () => {
 
     const component = mount(<ProgramasActuales customFields={cf} />);
     const instance = component.instance();
-    console.log(
-        'instance.CurrentProgramsCustomFields',
-        instance.CurrentProgramsCustomFields
-    );
     const container = component.find('mocked-component');
 
     it('Testeo que pase al container los items recibidos por el container', () => {
