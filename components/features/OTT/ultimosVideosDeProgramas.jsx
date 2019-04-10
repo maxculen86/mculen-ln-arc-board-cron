@@ -13,11 +13,11 @@ class UltimosVideosDeProgramas extends Component {
 }
 
 UltimosVideosDeProgramas.propTypes = {
-    customFields: {
+    customFields: PropTypes.shape({
         sectionId: PropTypes.string.tag({
             name: 'Id de Programa Ej: terapia-noticias'
         })
-    }
+    })      
 };
 
 export default UltimosVideosDeProgramas;
