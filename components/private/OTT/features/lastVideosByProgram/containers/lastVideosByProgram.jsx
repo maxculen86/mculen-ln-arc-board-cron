@@ -22,7 +22,7 @@ class LastVideosByProgram extends PureComponent {
         const { cached, fetched } = this.getContent({
             sourceName: 'ottVideoSource',
             query: {
-                query: `taxonomy.sections._id="/${
+                query: `q=taxonomy.sections._id="/${
                     this.props.sectionId
                 }"&sort=publish_date:desc&from=${
                     this.state.from
@@ -82,4 +82,4 @@ class LastVideosByProgram extends PureComponent {
 }
 
 export default Consumer(LastVideosByProgram);
-exports.PAGE_SIZE = PAGE_SIZE
+export const pageSize = PAGE_SIZE

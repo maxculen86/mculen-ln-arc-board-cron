@@ -12,7 +12,7 @@ class LastVideos extends Component {
     const { cached, fetched } = this.getContent({
       sourceName: 'ottVideoSource',
       query: {
-        query: 'sort=publish_date:desc&from=0&size=8'
+        query: 'q=sort=publish_date:desc&from=0&size=8'
       }
       ,filter
     });

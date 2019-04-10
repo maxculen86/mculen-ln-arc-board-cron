@@ -7,7 +7,7 @@ jest.mock(
 
 import React from 'react';
 import { mount } from 'enzyme';
-import LastVideosByProgramContainer, { PAGE_SIZE } from '../../../../../../../components/private/OTT/features/lastVideosByProgram/containers/lastVideosByProgram';
+import LastVideosByProgramContainer, { pageSize } from '../../../../../../../components/private/OTT/features/lastVideosByProgram/containers/lastVideosByProgram';
 import get from 'lodash.get';
 import testHelper from '../../../../../../utils/testHelper';
 import jsonConNext from '../../../../../../../__mocks__/data/videos/videosConNext.json';
