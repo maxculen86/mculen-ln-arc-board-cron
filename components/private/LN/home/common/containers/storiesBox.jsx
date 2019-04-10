@@ -5,10 +5,10 @@ import Article from './article'
 
 export default class StoriesBox extends Component {
   render() {
-    console.log(this.props)
     const articles = this.props.articles.map((a,i) => {
       const pos = defaultDiagram[i];
       return <Article 
+        key={i}
         id={a.id} 
         url={a.url}
         teaser={a.teaser} 
