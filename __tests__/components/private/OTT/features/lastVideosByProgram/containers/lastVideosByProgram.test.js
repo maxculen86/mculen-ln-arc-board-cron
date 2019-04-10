@@ -19,6 +19,7 @@ describe('private - OTT - feature - LastVideosByPrograms con next', () => {
         <LastVideosByProgramContainer sectionId={"connext"} />
     );
     let component = container.find('mock-component');
+
     let videosDelMock = component.prop('videos');
     let videosDelMockLength = videosDelMock.length;
 
@@ -39,7 +40,7 @@ describe('private - OTT - feature - LastVideosByPrograms con next', () => {
     it('Testeo boton next', () => {
         let from = container.instance().state.from;
         container.instance().nextPage();
-        testHelper.expectSameValue(from+PAGE_SIZE, container.instance().state.from);
+        testHelper.expectSameValue(from+pageSize, container.instance().state.from);
     });
 });
 

@@ -22,11 +22,7 @@ class LastVideosByProgram extends PureComponent {
         const { cached, fetched } = this.getContent({
             sourceName: 'ottVideoSource',
             query: {
-                query: `q=taxonomy.sections._id="/${
-                    this.props.sectionId
-                }"&sort=publish_date:desc&from=${
-                    this.state.from
-                }&size=${PAGE_SIZE}`
+                query: `taxonomy.sections._id="/${this.props.sectionId}"&sort=publish_date:desc&from=${this.state.from}&size=${PAGE_SIZE}`
             },
             filter
         });
