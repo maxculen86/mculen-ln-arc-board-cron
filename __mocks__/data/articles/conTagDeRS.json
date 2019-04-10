@@ -1,0 +1,616 @@
+{
+    "_id": "TWKFZQ6FCNF3ZKPHGGZPMSSOGQ",
+    "type": "story",
+    "version": "0.9.0",
+    "content_elements": [
+      {
+        "_id": "4MRKV2NDHBEEFG2PE37USQR724",
+        "type": "text",
+        "additional_properties": {
+          "comments": [
+            
+          ],
+          "inline_comments": [
+            
+          ],
+          "_id": 1539009633375
+        },
+        "content": "Compartí la información confiable y la opinión de los especialistas más prestigiosos con este link: Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local - URL: \"<a href=\"https://www.lanacion.com.ar/2173809-tras-0-0-independiente-como-le-fue-river\" target=_blank>https://www.lanacion.com.ar/2173809-tras-0-0-independiente-como-le-fue-river</a> - Copyright © LA NACION"
+      },
+      {
+        "_id": "7YQIJZWJMVFR5OSPPIW34GXK7E",
+        "type": "text",
+        "additional_properties": {
+          "comments": [
+            
+          ],
+          "inline_comments": [
+            
+          ],
+          "_id": 1539009633376
+        },
+        "content": "<br/>"
+      },
+      {
+        "_id": "YQPFIZTCKVFKFDHNINT7IBBI6U",
+        "additional_properties": {
+          "galleries": [
+            
+          ],
+          "ingestionMethod": "manual",
+          "keywords": [
+            
+          ],
+          "mime_type": "image/jpeg",
+          "originalName": "River.jpg",
+          "originalUrl": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "owner": "megan.pantlin@washpost.com",
+          "proxyUrl": "/photo/resize/waT0eaOu9z7W7IYRMEMgR-ikEUI=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "published": true,
+          "resizeUrl": "http://resizer.shared.arcpublishing.com/waT0eaOu9z7W7IYRMEMgR-ikEUI=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "restricted": false,
+          "version": 0,
+          "comments": [
+            
+          ],
+          "_id": 1550690199877
+        },
+        "address": {
+          
+        },
+        "created_date": "2018-09-20T14:08:26Z",
+        "credits": {
+          "affiliation": [
+            
+          ]
+        },
+        "height": 230,
+        "last_updated_date": "2018-09-20T14:08:26Z",
+        "licensable": false,
+        "owner": {
+          "id": "sandbox.lanacionar",
+          "sponsored": false
+        },
+        "source": {
+          "additional_properties": {
+            
+          },
+          "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/YQPFIZTCKVFKFDHNINT7IBBI6U",
+          "system": "Anglerfish"
+        },
+        "subtitle": "River",
+        "type": "image",
+        "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+        "version": "0.8.0",
+        "width": 345
+      }
+    ],
+    "created_date": "2018-09-20T14:08:07.424Z",
+    "revision": {
+      "revision_id": "ESPJ7DCYNFG6VI6RHDPYMWWVNE",
+      "parent_id": "O6QTKF5XCRAD3K6NLESPWIMZ4Q",
+      "editions": [
+        "default"
+      ],
+      "branch": "default",
+      "user_id": "alancastro@lanacion.com.ar",
+      "published": true
+    },
+    "last_updated_date": "2019-02-21T19:18:10.678Z",
+    "canonical_url": "/2018/09/20/tras-el-0-0-con-independiente-como-le-fue-a-river-en-la-era-marcelo-gallardo-cuando-tuvo-que-definir-una-serie-como-local/",
+    "headlines": {
+      "basic": "Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local",
+      "mobile": "",
+      "native": "",
+      "print": "",
+      "tablet": "",
+      "web": "",
+      "meta_title": ""
+    },
+    "owner": {
+      "sponsored": false,
+      "id": "sandbox.lanacionar"
+    },
+    "address": {
+      
+    },
+    "workflow": {
+      "status_code": 3
+    },
+    "subheadlines": {
+      "basic": ""
+    },
+    "description": {
+      "basic": ""
+    },
+    "language": "",
+    "source": {
+      "system": "ellipsis",
+      "name": "lanacionar",
+      "source_type": "staff"
+    },
+    "label": {
+      
+    },
+    "taxonomy": {
+      "sites": [
+        {
+          "_id": "/deportes",
+          "type": "site",
+          "version": "0.5.8",
+          "name": "Deportes",
+          "description": null,
+          "path": "/deportes",
+          "parent_id": "/",
+          "additional_properties": {
+            "original": {
+              "_id": "/deportes",
+              "site": {
+                "site_tagline": null,
+                "site_title": "Deportes",
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_about": null,
+                "site_url": null,
+                "site_keywords": "Deportes"
+              },
+              "site_topper": {
+                "site_logo_image": null
+              },
+              "social": {
+                "twitter": null,
+                "facebook": null,
+                "rss": null,
+                "instagram": null
+              },
+              "navigation": {
+                "nav_title": null
+              },
+              "name": "Deportes",
+              "parent": "/",
+              "_admin": {
+                "alias_ids": [
+                  "/deportes"
+                ]
+              },
+              "inactive": false,
+              "node_type": "section"
+            }
+          }
+        }
+      ],
+      "tags": [
+        {
+          "text": "RollingStone",
+          "description": "Rolling Stone",
+          "slug": "rollingstone"
+        },
+        {
+          "text": "TagPrueba2",
+          "description": "un tag de prueba 2",
+          "slug": "tagprueba2"
+        }
+      ],
+      "sections": [
+        {
+          "_id": "/deportes",
+          "_website": "la-nacion-ar",
+          "type": "section",
+          "version": "0.6.0",
+          "name": "Deportes",
+          "description": null,
+          "path": "/deportes",
+          "parent_id": "/",
+          "parent": {
+            "default": "/"
+          },
+          "additional_properties": {
+            "original": {
+              "_id": "/deportes",
+              "site": {
+                "site_tagline": null,
+                "site_title": "Deportes",
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_about": null,
+                "site_url": null,
+                "site_keywords": "Deportes"
+              },
+              "site_topper": {
+                "site_logo_image": null
+              },
+              "social": {
+                "twitter": null,
+                "facebook": null,
+                "rss": null,
+                "instagram": null
+              },
+              "navigation": {
+                "nav_title": null
+              },
+              "name": "Deportes",
+              "_website": "la-nacion-ar",
+              "parent": {
+                "default": "/",
+                "+ add": "/",
+                "sample": "/"
+              },
+              "ancestors": {
+                "default": [
+                  
+                ],
+                "+ add": [
+                  "/"
+                ],
+                "sample": [
+                  "/"
+                ]
+              },
+              "_admin": {
+                "alias_ids": [
+                  "/deportes"
+                ]
+              },
+              "inactive": false,
+              "node_type": "section",
+              "order": {
+                "+ add": 1001,
+                "sample": 1001
+              }
+            }
+          },
+          "_website_section_id": "la-nacion-ar./deportes"
+        }
+      ],
+      "additional_properties": {
+        "parent_site_primaries": [
+          
+        ]
+      },
+      "primary_section": {
+        "_id": "/deportes",
+        "_website": "la-nacion-ar",
+        "type": "section",
+        "version": "0.6.0",
+        "name": "Deportes",
+        "description": null,
+        "path": "/deportes",
+        "parent_id": "/",
+        "parent": {
+          "default": "/"
+        },
+        "additional_properties": {
+          "original": {
+            "_id": "/deportes",
+            "site": {
+              "site_tagline": null,
+              "site_title": "Deportes",
+              "pagebuilder_path_for_native_apps": null,
+              "site_description": null,
+              "site_about": null,
+              "site_url": null,
+              "site_keywords": "Deportes"
+            },
+            "site_topper": {
+              "site_logo_image": null
+            },
+            "social": {
+              "twitter": null,
+              "facebook": null,
+              "rss": null,
+              "instagram": null
+            },
+            "navigation": {
+              "nav_title": null
+            },
+            "name": "Deportes",
+            "_website": "la-nacion-ar",
+            "parent": {
+              "default": "/",
+              "+ add": "/",
+              "sample": "/"
+            },
+            "ancestors": {
+              "default": [
+                
+              ],
+              "+ add": [
+                "/"
+              ],
+              "sample": [
+                "/"
+              ]
+            },
+            "_admin": {
+              "alias_ids": [
+                "/deportes"
+              ]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+              "+ add": 1001,
+              "sample": 1001
+            }
+          }
+        }
+      },
+      "primary_site": {
+        "_id": "/deportes",
+        "type": "site",
+        "version": "0.5.8",
+        "name": "Deportes",
+        "description": null,
+        "path": "/deportes",
+        "parent_id": "/",
+        "additional_properties": {
+          "original": {
+            "_id": "/deportes",
+            "site": {
+              "site_tagline": null,
+              "site_title": "Deportes",
+              "pagebuilder_path_for_native_apps": null,
+              "site_description": null,
+              "site_about": null,
+              "site_url": null,
+              "site_keywords": "Deportes"
+            },
+            "site_topper": {
+              "site_logo_image": null
+            },
+            "social": {
+              "twitter": null,
+              "facebook": null,
+              "rss": null,
+              "instagram": null
+            },
+            "navigation": {
+              "nav_title": null
+            },
+            "name": "Deportes",
+            "parent": "/",
+            "_admin": {
+              "alias_ids": [
+                "/deportes"
+              ]
+            },
+            "inactive": false,
+            "node_type": "section"
+          }
+        }
+      }
+    },
+    "related_content": {
+      "basic": [
+        
+      ],
+      "redirect": [
+        
+      ]
+    },
+    "promo_items": {
+      "basic": {
+        "_id": "YQPFIZTCKVFKFDHNINT7IBBI6U",
+        "additional_properties": {
+          "galleries": [
+            
+          ],
+          "ingestionMethod": "manual",
+          "keywords": [
+            
+          ],
+          "mime_type": "image/jpeg",
+          "originalName": "River.jpg",
+          "originalUrl": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "owner": "megan.pantlin@washpost.com",
+          "proxyUrl": "/photo/resize/waT0eaOu9z7W7IYRMEMgR-ikEUI=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "published": true,
+          "resizeUrl": "http://resizer.shared.arcpublishing.com/waT0eaOu9z7W7IYRMEMgR-ikEUI=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "restricted": false,
+          "version": 0
+        },
+        "address": {
+          
+        },
+        "created_date": "2018-09-20T14:08:26Z",
+        "credits": {
+          "affiliation": [
+            
+          ]
+        },
+        "height": 230,
+        "last_updated_date": "2018-09-20T14:08:26Z",
+        "licensable": false,
+        "owner": {
+          "id": "sandbox.lanacionar",
+          "sponsored": false
+        },
+        "source": {
+          "additional_properties": {
+            
+          },
+          "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/YQPFIZTCKVFKFDHNINT7IBBI6U",
+          "system": "Anglerfish"
+        },
+        "subtitle": "River",
+        "type": "image",
+        "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+        "version": "0.8.0",
+        "width": 345
+      }
+    },
+    "distributor": {
+      "name": "lanacionar",
+      "category": "staff",
+      "subcategory": "",
+      "additional_properties": {
+        
+      }
+    },
+    "canonical_website": "la-nacion-ar",
+    "planning": {
+      "internal_note": ""
+    },
+    "display_date": "2018-09-20T14:08:46.236Z",
+    "credits": {
+      "by": [
+        {
+          "_id": "Cristian Grosso",
+          "type": "author",
+          "version": "0.5.8",
+          "name": "Cristian Grosso",
+          "image": {
+            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/7c7a1211-7b83-440d-9808-eda0e3de15ab.png",
+            "version": "0.5.8"
+          },
+          "description": "El hipnótico poder del River de Gallardo",
+          "url": "",
+          "slug": "",
+          "social_links": [
+            {
+              "site": "email",
+              "url": ""
+            }
+          ],
+          "socialLinks": [
+            {
+              "site": "email",
+              "url": "",
+              "deprecated": true,
+              "deprecation_msg": "Please use social_links."
+            }
+          ],
+          "additional_properties": {
+            "original": {
+              "_id": "Cristian Grosso",
+              "firstName": "Cristian",
+              "lastName": "Grosso",
+              "byline": "Cristian Grosso",
+              "image": "https://s3.amazonaws.com/arc-authors/lanacionar/7c7a1211-7b83-440d-9808-eda0e3de15ab.png",
+              "email": "",
+              "affiliations": "",
+              "education": [
+                
+              ],
+              "awards": [
+                
+              ],
+              "books": [
+                
+              ],
+              "podcasts": [
+                
+              ],
+              "bio_page": "",
+              "bio": "El hipnótico poder del River de Gallardo",
+              "longBio": "",
+              "slug": "",
+              "native_app_rendering": false,
+              "fuzzy_match": false,
+              "contributor": false,
+              "status": true,
+              "last_updated_date": "2018-09-21T14:25:01.583Z",
+              "expertise": "Copa Libertadores"
+            }
+          }
+        }
+      ]
+    },
+    "subtype": "1",
+    "first_publish_date": "2018-09-20T14:08:49.132Z",
+    "websites": {
+      "la-nacion-ar": {
+        "website_section": {
+          "_id": "/deportes",
+          "_website": "la-nacion-ar",
+          "type": "section",
+          "version": "0.6.0",
+          "name": "Deportes",
+          "description": null,
+          "path": "/deportes",
+          "parent_id": "/",
+          "parent": {
+            "default": "/"
+          },
+          "additional_properties": {
+            "original": {
+              "_id": "/deportes",
+              "site": {
+                "site_tagline": null,
+                "site_title": "Deportes",
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_about": null,
+                "site_url": null,
+                "site_keywords": "Deportes"
+              },
+              "site_topper": {
+                "site_logo_image": null
+              },
+              "social": {
+                "twitter": null,
+                "facebook": null,
+                "rss": null,
+                "instagram": null
+              },
+              "navigation": {
+                "nav_title": null
+              },
+              "name": "Deportes",
+              "_website": "la-nacion-ar",
+              "parent": {
+                "default": "/",
+                "+ add": "/",
+                "sample": "/"
+              },
+              "ancestors": {
+                "default": [
+                  
+                ],
+                "+ add": [
+                  "/"
+                ],
+                "sample": [
+                  "/"
+                ]
+              },
+              "_admin": {
+                "alias_ids": [
+                  "/deportes"
+                ]
+              },
+              "inactive": false,
+              "node_type": "section",
+              "order": {
+                "+ add": 1001,
+                "sample": 1001
+              }
+            }
+          },
+          "_website_section_id": "la-nacion-ar./deportes"
+        },
+        "website_url": "/2018/09/20/tras-el-0-0-con-independiente-como-le-fue-a-river-en-la-era-marcelo-gallardo-cuando-tuvo-que-definir-una-serie-como-local/"
+      }
+    },
+    "additional_properties": {
+      "clipboard": {
+        
+      },
+      "has_published_copy": true,
+      "is_published": true,
+      "publish_date": "2019-01-23T19:26:21.268Z"
+    },
+    "publish_date": "2019-02-21T19:18:10.721Z",
+    "publishing": {
+      "scheduled_operations": {
+        "publish_edition": [
+          
+        ],
+        "unpublish_edition": [
+          
+        ]
+      }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/2018/09/20/tras-el-0-0-con-independiente-como-le-fue-a-river-en-la-era-marcelo-gallardo-cuando-tuvo-que-definir-una-serie-como-local/"
+  }

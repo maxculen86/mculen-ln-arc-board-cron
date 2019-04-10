@@ -105,7 +105,7 @@ const getTagRender = (tags, marquee, subtype) => {
   }else if(parseInt(subtype) === SUBTYPE_NOTA_CONTENT_LAB){
     tagName = `CONTENT LAB PARA ${tags[0].description}`
   }else if(tagsRevista.some(tr => slugs.includes(tr))){
-    tagName = tagsRevista.find(tr => slugs.includes(tr)).description
+    tagName = tags.find(t => tagsRevista.includes(t.slug)).description
     //Agrego clase logos al tag cuando es revista. 
     classTag = 'logos'
   }else if(marquee){

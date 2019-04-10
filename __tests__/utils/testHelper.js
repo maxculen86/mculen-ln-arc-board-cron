@@ -27,10 +27,15 @@ function testToRenderChildrenAsText(component, expectedText){
     });
 }
 
+function expectHTML(component, expectedHTML){
+    expect(component.html()).toContain(expectedHTML)
+}
+
 export default {
     expectProp: expectProp,
     expectSameValue: expectSameValue,
     testDoNotRenderChildren: testDoNotRenderChildren,
     testToRenderChildrenAsText: testToRenderChildrenAsText,
-    expectProps: expectProps
+    expectProps: expectProps,
+    expectHTML: expectHTML
 }

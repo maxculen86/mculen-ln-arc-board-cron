@@ -25,7 +25,7 @@ jest.mock('fusion:consumer', component => {
             customFetchContent({ sourceName, query, filter }) {
                 switch (sourceName) {
                     case 'articleSource':
-                        return require(`./data/notas/${query.id}`);
+                        return require(`./data/articles/${query.id}`);
                         break;
                     case 'ottVideoSource':
                         if (
