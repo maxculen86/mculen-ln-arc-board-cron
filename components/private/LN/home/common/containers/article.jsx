@@ -83,7 +83,6 @@ const getTitle = (homeTitle, title) => {
 const getUrlsSourceSets = (size, urls) => {
   const keys = Object.keys(urls)
   const filteredKeys = keys.filter(k => k.startsWith(size))
-  console.log(filteredKeys)
   const resultUrls = []
   filteredKeys.forEach(el => {
     const arr = el.split('_')

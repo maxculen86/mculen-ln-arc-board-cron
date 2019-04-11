@@ -412,6 +412,18 @@
         "address": {
           
         },
+        "resized_urls": {
+          "L_desktop": "http://demo-prod.origin.arcpublishing.com/resizer/3Px9j0hL_YDBRqe6xlG65T_voHo=/0x460/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "L_mobile": "http://demo-prod.origin.arcpublishing.com/resizer/Ya5tPC6LABviG_nah2hRPJuE894=/0x425/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "M_desktop": "http://demo-prod.origin.arcpublishing.com/resizer/DHz5DL0LHgtF2jS8CeBiCEmnAfw=/0x320/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "M_mobile": "http://demo-prod.origin.arcpublishing.com/resizer/Ya5tPC6LABviG_nah2hRPJuE894=/0x425/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "S_desktop": "http://demo-prod.origin.arcpublishing.com/resizer/A8PUbk7d7sGUr62YRe36l1VYHLY=/0x230/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "S_mobile": "http://demo-prod.origin.arcpublishing.com/resizer/D0MKpgByImwQymCj6xXRaVRkkpY=/0x210/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "XL_desktop": "http://demo-prod.origin.arcpublishing.com/resizer/-3moxKcamjDQY7Xe8lMfAGzrYkA=/0x620/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "XL_mobile": "http://demo-prod.origin.arcpublishing.com/resizer/Ya5tPC6LABviG_nah2hRPJuE894=/0x425/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "XXL_desktop": "http://demo-prod.origin.arcpublishing.com/resizer/_BLWcaKKMZlYylFBa0rDKrVYn48=/0x866/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
+          "XXL_mobile": "http://demo-prod.origin.arcpublishing.com/resizer/Ya5tPC6LABviG_nah2hRPJuE894=/0x425/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg"
+        },
         "created_date": "2018-09-20T14:08:26Z",
         "credits": {
           "affiliation": [
