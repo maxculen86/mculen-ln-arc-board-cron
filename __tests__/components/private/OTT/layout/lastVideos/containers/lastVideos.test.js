@@ -11,7 +11,7 @@ import LastVideosContainer from '../../../../../../../components/private/OTT/lay
 import testHelper from '../../../../../../utils/testHelper';
 import jsonConVideos from '../../../../../../../__mocks__/data/videos/ultimosVideos.json';
 
-describe('private - OTT - feature - LastVideosByPrograms con next', () => {
+describe('private - OTT - container - LastVideos', () => {
     let container = mount(
         <LastVideosContainer/>
     );
