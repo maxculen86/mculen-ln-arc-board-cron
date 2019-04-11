@@ -27,18 +27,19 @@ jest.mock('fusion:consumer', component => {
                     case 'articleSource':
                         return require(`./data/notas/${query.id}`);
                         break;
-                    case 'ottVideoSource':
+                    case 'videosSearchSource':
+                        console.log('QUERY', query);
                         switch (query.query) {
-                            case 'q=taxonomy.sections._id="/terapia-noticias"&sort=publish_date:desc&from=0&size=12':
+                            case 'q=type:videoANDtaxonomy.sections._id="/terapia-noticias"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/lastVideosfrom0size12sectionterapia-noticias.json`);
 
-                            case 'q=taxonomy.sections._id="/sinvideos"&sort=publish_date:desc&from=0&size=12':
+                            case 'q=type:videoANDtaxonomy.sections._id="/sinvideos"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/sinVideosEncontrados.json`);
 
-                            case 'q=taxonomy.sections._id="/connext"&sort=publish_date:desc&from=0&size=12':
+                            case 'q=type:videoANDtaxonomy.sections._id="/connext"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/videosConNext.json`);
 
-                            case 'q=taxonomy.sections._id="/sinnext"&sort=publish_date:desc&from=0&size=12':
+                            case 'q=type:videoANDtaxonomy.sections._id="/sinnext"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/videosSinNext.json`);
                         }
                         break;

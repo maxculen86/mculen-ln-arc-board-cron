@@ -1,14 +1,17 @@
-const lastVideosObject = {
-    queryName: 'lastVideos',
-    query: 'sort=publish_date:desc&from=0&size=8&q=type:video'
+export const lastVideosQuery = () =>
+    'sort=publish_date:desc&from=0&size=8&q=type:video';
+
+export const lastVideosBySectionQuery = ({ sectionName, from, size }) => {
+    console.log('from', from);
+    console.log('size', size);
+    console.log('sectionName', sectionName);
+
+    let qryFrom = '',
+        qrySize = '';
+    if (from != null) qryFrom = `&from=${from}`;
+    if (size != null) qrySize = `&size=${size}`;
+
+    return `q=type:videoANDtaxonomy.sections._id="/${sectionName}"&sort=publish_date:desc${qryFrom}${qrySize}`;
 };
 
-export default function getQuery(queryName) {
-    switch (queryName) {
-        case 'lastVideos':
-            return lastVideosObject.query;
-        default:
-            throw Error('queryName invalido');
-    }
-}
-export const lastVideos = lastVideosObject.queryName;
+export const sourceName = 'videosSearchSource';

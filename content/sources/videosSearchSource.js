@@ -1,13 +1,10 @@
-import getQuery from '../queries/videosSearchSource';
-
 const resolve = key => {
-    const { queryName, published, website } = key;
-    if (!queryName || !website)
+    const { query, published, website } = key;
+    if (!query || !website)
         throw new Error(
             'Debe definir website y query para realizar la consulta'
         );
 
-    const query = getQuery(queryName);
     let qryPublished;
     if (published) qryPublished = '/published';
     else qryPublished = '';

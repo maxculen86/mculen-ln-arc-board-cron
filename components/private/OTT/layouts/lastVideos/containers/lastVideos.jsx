@@ -3,17 +3,20 @@ import LastVideosComponent from '../components/lastVideos';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 import filter from '../../../../../../content/filters/OTT/homeVideoItem';
-import { lastVideos } from '../../../../../../content/queries/videosSearchSource';
+import {
+    lastVideosQuery,
+    sourceName
+} from '../../../../../../content/queries/videosSearchSource';
 
 class LastVideos extends Component {
     constructor(props) {
         super(props);
 
         const { cached, fetched } = this.getContent({
-            sourceName: 'videosSearchSource',
+            sourceName: sourceName,
             query: {
                 published: true,
-                queryName: lastVideos,
+                query: lastVideosQuery(),
                 website: 'ott'
             },
             filter
