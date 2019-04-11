@@ -40,6 +40,9 @@ jest.mock('fusion:consumer', component => {
 
                             case 'q=taxonomy.sections._id="/sinnext"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/videosSinNext.json`);
+                            
+                            case 'sort=publish_date:desc&from=0&size=8&q=type:video':
+                                return require(`./data/videos/ultimosVideos.json`);                                
                         }
                         break;
                     default:
