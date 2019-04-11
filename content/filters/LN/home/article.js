@@ -1,20 +1,18 @@
 export default `
 {
-    _id,
-    subtype,
+    _id
+    subtype
     promo_items {
         basic {
-            type,
-            additional_properties {
-                resizeUrl
-            },
+            type
+            resized_urls
             url
         }
-    },
-    credits,
+    }
+    credits
     headlines {
         basic
-    },
+    }
     taxonomy {
         tags
     }

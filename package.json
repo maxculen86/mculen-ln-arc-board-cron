@@ -4,7 +4,6 @@
   "description": "Arc+React App - LN - OTT",
   "private": true,
   "main": "index.js",
-
   "scripts": {
     "fusion": "fusion",
     "start": "fusion start",
@@ -12,8 +11,8 @@
     "prettier": "prettier --write **/*.{js,jsx}",
     "eslint": "eslint --ext=js,jsx ."
   },
-  
   "dependencies": {
+    "@arc-core-components/content-source_content-api-v4": "^2.0.3-beta.2",
     "lodash.get": "^4.4.2",
     "react": "16.6.1",
     "react-dom": "16.6.1"

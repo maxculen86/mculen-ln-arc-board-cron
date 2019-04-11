@@ -1,31 +1,39 @@
 const schema = `
-type _id: String
-type subtype: String
-type headlines {
+type Headlines {
     basic: String
 }
-type promo_items {
-    basic: {
-        type: String,
-        additional_properties {
-            resizeUrl: String
-        }
+type PromoItems {
+    Basic: {
+        type: String
+        resized_urls: [String]
         url: String
     }
-},
-type credits {
-    by [{
-        type: String
-        name: String
-    }]
 }
-type taxonomy {
-    tags: [{
-        text: String
-        description: String
-        slug: String
-    }]
+type Credit {
+    type: String
+    name: String
 }
+type Credits {
+    by: [Credit]
+}
+type Tag {
+    text: String
+    description: String
+    slug: String
+}
+type Taxonomy {
+    tags: [Tag]
+}
+
+type Query {
+    _id: String
+    taxonomy: Taxonomy
+    credits: Credits
+    promo_items: PromoItems
+    headlines: Headlines
+    subtype: String
+}
+
 `
 
 export default schema

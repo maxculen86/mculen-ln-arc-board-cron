@@ -19,6 +19,7 @@ class Article extends Component {
     if(!article){
       return getEmptyArticle(this.props.size, this.props.position)
     }
+    console.log(article)
     const isAuthor = parseInt(article.subtype) === SUBTYPE_NOTA_AUTOR
     const author = article.credits.by.find(c => c.type === 'author')
     let img
