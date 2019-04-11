@@ -7,24 +7,8 @@
                 "value" : 866
             },
             { 
-                "name": "desktopSM",
-                "value": 866
-            },
-            { 
-                "name": "tablet",
-                "value": 642
-            },
-            { 
-                "name": "tabletSM",
-                "value": 550
-            },
-            { 
                 "name": "mobile",
                 "value": 425
-            },
-            { 
-                "name": "mobileSM",
-                "value": 225
             }
         ]
     },
@@ -36,24 +20,8 @@
                 "value" : 620
             },
             { 
-                "name": "desktopSM",
-                "value": 620
-            },
-            { 
-                "name": "tablet",
-                "value": 450
-            },
-            { 
-                "name": "tabletSM",
-                "value": 390
-            },
-            { 
                 "name": "mobile",
                 "value": 425
-            },
-            { 
-                "name": "mobileSM",
-                "value": 360
             }
         ]
     },
@@ -65,24 +33,8 @@
                 "value" : 460
             },
             { 
-                "name": "desktopSM",
-                "value": 420
-            },
-            { 
-                "name": "tablet",
-                "value": 400
-            },
-            { 
-                "name": "tabletSM",
-                "value": 400
-            },
-            { 
                 "name": "mobile",
                 "value": 425
-            },
-            { 
-                "name": "mobileSM",
-                "value": 225
             }
         ]
     },
@@ -94,24 +46,8 @@
                 "value" : 320
             },
             { 
-                "name": "desktopSM",
-                "value": 320
-            },
-            { 
-                "name": "tablet",
-                "value": 300
-            },
-            { 
-                "name": "tabletSM",
-                "value": 300
-            },
-            { 
                 "name": "mobile",
                 "value": 425
-            },
-            { 
-                "name": "mobileSM",
-                "value": 225
             }
         ]
     },
@@ -123,24 +59,8 @@
                 "value" : 230
             },
             { 
-                "name": "desktopSM",
-                "value": 230
-            },
-            { 
-                "name": "tablet",
-                "value": 180
-            },
-            { 
-                "name": "tabletSM",
-                "value": 215
-            },
-            { 
                 "name": "mobile",
                 "value": 210
-            },
-            { 
-                "name": "mobileSM",
-                "value": 120
             }
         ]
     }

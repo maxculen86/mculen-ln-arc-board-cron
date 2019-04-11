@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import RegularArticleComponent from '../components/article'
 import AuthorArticle from '../components/authorArticle'
-import SourceSetSizes from '../config/sourceSets.json'
 import { tagsRevista } from '../config/tags.json'
 import filter from '../../../../../../content/filters/LN/home/article'
 import WithArticleData from '../hocs/withArticleData'
@@ -19,23 +18,21 @@ class Article extends Component {
     if(!article){
       return getEmptyArticle(this.props.size, this.props.position)
     }
-    console.log(article)
     const isAuthor = parseInt(article.subtype) === SUBTYPE_NOTA_AUTOR
     const author = article.credits.by.find(c => c.type === 'author')
-    let img
+    let imgs
     if(isAuthor){
-      img = author.image.url
+      imgs = author.image.resized_urls
     }else{
-      img = article.promo_items.basic.additional_properties.resizeUrl
+      imgs = article.promo_items.basic.resized_urls
     }
-    const imgUrls = getUrlsSourceSets(this.props.size, img)
+    const imgUrls = getUrlsSourceSets(this.props.size, imgs)
     const title = getTitle(this.props.homeTitle, article.headlines.basic)
     const tag = getTagRender(article.taxonomy.tags, this.props.marquee, article.subtype)
     const renderClasses = getClassesArticle(this.props)
     
     let component
     if(isAuthor){
-      
       component = <AuthorArticle 
                     renderClasses={renderClasses}
                     url={article.website_url}
@@ -83,19 +80,19 @@ const getTitle = (homeTitle, title) => {
   return title
 }
 
-const getUrlsSourceSets = (size, url) => {
-  const imgUrls = []
-  const imgSizes = SourceSetSizes.find(s => s.name === size)
-  imgSizes.values.forEach(el => {
-    //Reemplazar con URL cuando veamos como subir imagenes al resizer
-    const urlWithSize = url.replace('=/', `=/${el.value}x0/`)
-    const sourceSet = {
-      name: el.name,
-      url: url
-    }
-    imgUrls.push(sourceSet)
+const getUrlsSourceSets = (size, urls) => {
+  const keys = Object.keys(urls)
+  const filteredKeys = keys.filter(k => k.startsWith(size))
+  console.log(filteredKeys)
+  const resultUrls = []
+  filteredKeys.forEach(el => {
+    const arr = el.split('_')
+    resultUrls.push({
+      name: arr[arr.length - 1],
+      url: urls[el]
+    })
   })
-  return imgUrls
+  return resultUrls
 }
 
 const getTagRender = (tags, marquee, subtype) => {
