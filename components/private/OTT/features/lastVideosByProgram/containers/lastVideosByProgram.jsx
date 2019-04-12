@@ -3,6 +3,10 @@ import LastVideosByProgramComponent from '../components/lastVideosByProgram';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 import filter from '../../../../../../content/filters/OTT/homeVideoItem';
+import {
+    sourceName,
+    lastVideosBySectionQuery
+} from '../../../../../../content/queries/videosSearchSource';
 
 const PAGE_SIZE = 12;
 class LastVideosByProgram extends PureComponent {
@@ -20,13 +24,15 @@ class LastVideosByProgram extends PureComponent {
 
     getVideos(isConstructor) {
         const { cached, fetched } = this.getContent({
-            sourceName: 'ottVideoSource',
+            sourceName: sourceName,
             query: {
-                query: `q=taxonomy.sections._id="/${
-                    this.props.sectionId
-                }"&sort=publish_date:desc&from=${
-                    this.state.from
-                }&size=${PAGE_SIZE}`
+                website: 'ott',
+                published: true,
+                query: lastVideosBySectionQuery({
+                    sectionName: this.props.sectionId,
+                    from: this.state.from,
+                    size: PAGE_SIZE
+                })
             },
             filter
         });

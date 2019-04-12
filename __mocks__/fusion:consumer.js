@@ -27,18 +27,18 @@ jest.mock('fusion:consumer', component => {
                     case 'articleSource':
                         return require(`./data/notas/${query.id}`);
                         break;
-                    case 'ottVideoSource':
+                    case 'videosSearchSource':
                         switch (query.query) {
-                            case 'q=taxonomy.sections._id="/terapia-noticias"&sort=publish_date:desc&from=0&size=12':
+                            case 'q=type:videoANDtaxonomy.sections._id="/terapia-noticias"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/lastVideosfrom0size12sectionterapia-noticias.json`);
 
-                            case 'q=taxonomy.sections._id="/sinvideos"&sort=publish_date:desc&from=0&size=12':
+                            case 'q=type:videoANDtaxonomy.sections._id="/sinvideos"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/sinVideosEncontrados.json`);
 
-                            case 'q=taxonomy.sections._id="/connext"&sort=publish_date:desc&from=0&size=12':
+                            case 'q=type:videoANDtaxonomy.sections._id="/connext"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/videosConNext.json`);
 
-                            case 'q=taxonomy.sections._id="/sinnext"&sort=publish_date:desc&from=0&size=12':
+                            case 'q=type:videoANDtaxonomy.sections._id="/sinnext"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/videosSinNext.json`);
                             
                             case 'sort=publish_date:desc&from=0&size=8&q=type:video':
@@ -51,12 +51,23 @@ jest.mock('fusion:consumer', component => {
                 }
             }
 
+            doFetch(resolve, rta) {
+                return resolve(rta);
+            }
+
             getContent(sourceInfo) {
                 const rta = this.customFetchContent(sourceInfo);
+                let cached = rta;
+                let fetched = rta;
+                if (this.props.cachedNull != null && this.props.cachedNull)
+                    cached = null;
+                if (this.props.fetchedNull != null && this.props.fetchedNull)
+                    fetched = null;
+                if (this.props.doFetch) this.doFetch = this.props.doFetch;
                 return {
-                    cached: rta,
+                    cached: cached,
                     fetched: new Promise(resolve => {
-                        return resolve(rta);
+                        return this.doFetch(resolve, fetched);
                     })
                 };
             }
