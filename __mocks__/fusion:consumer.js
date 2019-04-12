@@ -25,7 +25,7 @@ jest.mock('fusion:consumer', component => {
             customFetchContent({ sourceName, query, filter }) {
                 switch (sourceName) {
                     case 'articleSource':
-                        return require(`./data/notas/${query.id}`);
+                        return require(`./data/articles/${query.id}`);
                         break;
                     case 'videosSearchSource':
                         switch (query.query) {
@@ -40,9 +40,9 @@ jest.mock('fusion:consumer', component => {
 
                             case 'q=type:videoANDtaxonomy.sections._id="/sinnext"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/videosSinNext.json`);
-                            
+
                             case 'sort=publish_date:desc&from=0&size=8&q=type:video':
-                                return require(`./data/videos/ultimosVideos.json`);                                
+                                return require(`./data/videos/ultimosVideos.json`);
                         }
                         break;
                     default:

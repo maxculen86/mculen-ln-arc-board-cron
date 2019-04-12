@@ -19,10 +19,6 @@ const buildArticlesCustomFields = count => {
                 name: 'Sólo en LN',
                 group: `Nota ${i}`
             }),
-            [`isContentLab${i}`]: PropTypes.bool.tag({
-                name: 'Content Lab',
-                group: `Nota ${i}`
-            }),
             [`homeTitle${i}`]: PropTypes.string.tag({
                 name: 'Título en Home',
                 group: `Nota ${i}`
@@ -63,16 +59,32 @@ const getArticlesCustomFields = (count, props) => {
         resp.push({
             id: get(props, `customFields.articleId${i}`, null),
             url: get(props, `customFields.articleUrl${i}`, null),
-            exclusivo: get(props, `customFields.isExclusive${i}`, null),
-            titulo: get(props, `customFields.homeTitle${i}`, null),
-            bajada: get(props, `customFields.subheader${i}`, null),
-            volanta: get(props, `customFields.teaser${i}`, null),
-            marquesina: get(props, `customFields.marquee${i}`, null),
-            destacarMarca: get(props, `customFields.articleMark${i}`, null)
+            isExclusive: get(props, `customFields.isExclusive${i}`, null),
+            homeTitle: get(props, `customFields.homeTitle${i}`, null),
+            subheader: get(props, `customFields.subheader${i}`, null),
+            teaser: get(props, `customFields.teaser${i}`, null),
+            marquee: get(props, `customFields.marquee${i}`, null),
+            articleMark: get(props, `customFields.articleMark${i}`, null)
         });
     }
 
     return resp;
 };
 
-export { buildArticlesCustomFields, getArticlesCustomFields };
+const getGenericBoxCustomFields = articlesCount => {
+    const generalCustomFields = {
+        hidden: PropTypes.bool.tag({
+            name: 'Ocultar'
+        })
+    };
+    const articlesCustomFields = buildArticlesCustomFields(articlesCount);
+    return PropTypes.shape(
+        Object.assign(generalCustomFields, articlesCustomFields)
+    );
+};
+
+export {
+    buildArticlesCustomFields,
+    getArticlesCustomFields,
+    getGenericBoxCustomFields
+};
