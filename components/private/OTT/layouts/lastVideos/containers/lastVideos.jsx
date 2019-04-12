@@ -1,37 +1,18 @@
 import React, { Component } from 'react';
 import LastVideosComponent from '../components/lastVideos';
-import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 import filter from '../../../../../../content/filters/OTT/homeVideoItem';
-import {
-    lastVideosQuery,
-    sourceName
-} from '../../../../../../content/queries/videosSearchSource';
+import getLastVideosHOC from '../../../../../private/common/hocs/getLastVideos';
 
 class LastVideos extends Component {
     constructor(props) {
         super(props);
-
-        const { cached, fetched } = this.getContent({
-            sourceName: sourceName,
-            query: {
-                published: true,
-                query: lastVideosQuery(),
-                website: 'ott'
-            },
-            filter
-        });
-        this.state = { videos: get(cached, 'content_elements', null) };
-        fetched.then(response => {
-            const fetchedVideos = get(response, 'content_elements', null);
-            if (fetchedVideos) this.setState({ videos: fetchedVideos });
-        });
     }
 
     render() {
-        if (!this.state.videos) return <></>;
-        return <LastVideosComponent videos={this.state.videos} />;
+        if (!this.props.videos) return <></>;
+        return <LastVideosComponent videos={this.props.videos} />;
     }
 }
 
-export default Consumer(LastVideos);
+export default getLastVideosHOC(LastVideos, filter, 'ott', true);
