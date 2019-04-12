@@ -7,7 +7,9 @@ jest.mock(
 
 import React from 'react';
 import { mount } from 'enzyme';
-import LastVideosByProgramContainer, { pageSize } from '../../../../../../../components/private/OTT/features/lastVideosByProgram/containers/lastVideosByProgram';
+import LastVideosByProgramContainer, {
+    pageSize
+} from '../../../../../../../components/private/OTT/features/lastVideosByProgram/containers/lastVideosByProgram';
 import get from 'lodash.get';
 import testHelper from '../../../../../../utils/testHelper';
 import jsonConNext from '../../../../../../../__mocks__/data/videos/videosConNext.json';
@@ -16,7 +18,7 @@ import jsonSinVideos from '../../../../../../../__mocks__/data/videos/sinVideosE
 
 describe('private - OTT - feature - LastVideosByPrograms con next', () => {
     let container = mount(
-        <LastVideosByProgramContainer sectionId={"connext"} />
+        <LastVideosByProgramContainer sectionId={'connext'} />
     );
     let component = container.find('mock-component');
 
@@ -34,21 +36,25 @@ describe('private - OTT - feature - LastVideosByPrograms con next', () => {
     });
 
     it('chequeo que muestre el boton next', () => {
-        testHelper.expectProp(component, "hasNext", true)
+        testHelper.expectProp(component, 'hasNext', true);
     });
 
     it('Testeo boton next', () => {
         let from = container.instance().state.from;
         container.instance().nextPage();
-        testHelper.expectSameValue(from+pageSize, container.instance().state.from);
+        testHelper.expectSameValue(
+            from + pageSize,
+            container.instance().state.from
+        );
     });
 });
 
-
-
 describe('private - OTT - feature - LastVideosByPrograms sin next', () => {
     let container = mount(
-        <LastVideosByProgramContainer sectionId={"sinnext"} />
+        <LastVideosByProgramContainer
+            sectionId={'sinnext'}
+            doFetch={(r, f) => {}}
+        />
     );
     let component = container.find('mock-component');
 
@@ -66,13 +72,13 @@ describe('private - OTT - feature - LastVideosByPrograms sin next', () => {
     });
 
     it('chequeo que NO muestre el boton next', () => {
-        testHelper.expectProp(component, "hasNext", false)
+        testHelper.expectProp(component, 'hasNext', false);
     });
-})
+});
 
 describe('private - OTT - feature - LastVideosByPrograms sin VIDEOS', () => {
     let container = mount(
-        <LastVideosByProgramContainer sectionId={"sinvideos"} />
+        <LastVideosByProgramContainer sectionId={'sinvideos'} />
     );
     let component = container.find('mock-component');
 
@@ -88,12 +94,10 @@ describe('private - OTT - feature - LastVideosByPrograms sin VIDEOS', () => {
     it('Testeo que NO reciba videos', () => {
         testHelper.expectSameValue(videosDelMockLength, 0);
     });
-    
+});
 
-})
-
-    //TODO: testear que tenga next
-    //TODO: testear que no tenga next
-    //TODO: testear que no dibuje si el json no trae nada
-    //TODO: testear cached y fetched por separado (?)
-    //TODO: testear que se pasen los videos al mock en todos los casos anteriores y sean los correctos
+//TODO: testear que tenga next
+//TODO: testear que no tenga next
+//TODO: testear que no dibuje si el json no trae nada
+//TODO: testear cached y fetched por separado (?)
+//TODO: testear que se pasen los videos al mock en todos los casos anteriores y sean los correctos

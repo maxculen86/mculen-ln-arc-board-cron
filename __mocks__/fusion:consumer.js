@@ -28,7 +28,6 @@ jest.mock('fusion:consumer', component => {
                         return require(`./data/notas/${query.id}`);
                         break;
                     case 'videosSearchSource':
-                        console.log('QUERY', query);
                         switch (query.query) {
                             case 'q=type:videoANDtaxonomy.sections._id="/terapia-noticias"&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/lastVideosfrom0size12sectionterapia-noticias.json`);
@@ -49,12 +48,23 @@ jest.mock('fusion:consumer', component => {
                 }
             }
 
+            doFetch(resolve, rta) {
+                return resolve(rta);
+            }
+
             getContent(sourceInfo) {
                 const rta = this.customFetchContent(sourceInfo);
+                let cached = rta;
+                let fetched = rta;
+                if (this.props.cachedNull != null && this.props.cachedNull)
+                    cached = null;
+                if (this.props.fetchedNull != null && this.props.fetchedNull)
+                    fetched = null;
+                if (this.props.doFetch) this.doFetch = this.props.doFetch;
                 return {
-                    cached: rta,
+                    cached: cached,
                     fetched: new Promise(resolve => {
-                        return resolve(rta);
+                        return this.doFetch(resolve, fetched);
                     })
                 };
             }

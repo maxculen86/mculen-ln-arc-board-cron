@@ -2,10 +2,6 @@ export const lastVideosQuery = () =>
     'sort=publish_date:desc&from=0&size=8&q=type:video';
 
 export const lastVideosBySectionQuery = ({ sectionName, from, size }) => {
-    console.log('from', from);
-    console.log('size', size);
-    console.log('sectionName', sectionName);
-
     let qryFrom = '',
         qrySize = '';
     if (from != null) qryFrom = `&from=${from}`;
