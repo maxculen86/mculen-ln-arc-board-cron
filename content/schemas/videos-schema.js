@@ -12,8 +12,7 @@ type Headlines {
 type VideoDescription {
     basic: String
 }
-
-type Query {
+type Video {
     type: String
     canonical_url: String
     canonical_website: String
@@ -23,6 +22,13 @@ type Query {
     headlines: Headlines
     description: VideoDescription
     promo_items: PromoItems
+}
+
+
+type Query {
+    type: String
+    content_elements: [Video]
+    next: Int
 }`;
 
 export default schema;

@@ -13,7 +13,7 @@ const resolve = key => {
 };
 export default {
     resolve,
-    schemaName: 'video-schema',
+    schemaName: 'videos-schema',
     params: {
         query: 'text'
     }
