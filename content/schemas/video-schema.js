@@ -28,9 +28,7 @@ type Video {
 type Query {
     type: String
     content_elements: [Video]
-}
-
-
-`
+    next: Int
+}`
 
 export default schema

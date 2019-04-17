@@ -1,0 +1,50 @@
+{
+    "type": "video",
+    "next": 4,
+    "content_elements": [
+        {
+            "canonical_url": "/url/canonica",
+            "headlines": {
+                "basic": "titulo prueba"
+            },
+            "promo_items": {
+                "basic": {
+                    "url": "/url/de/prueba"
+                }
+            }
+        },
+        {
+            "canonical_url": "/url/canonica",
+            "headlines": {
+                "basic": "titulo prueba"
+            },
+            "promo_items": {
+                "basic": {
+                    "url": "/url/de/prueba"
+                }
+            }
+        },
+        {
+            "canonical_url": "/url/canonica",
+            "headlines": {
+                "basic": "titulo prueba"
+            },
+            "promo_items": {
+                "basic": {
+                    "url": "/url/de/prueba"
+                }
+            }
+        },
+        {
+            "canonical_url": "/url/canonica",
+            "headlines": {
+                "basic": "titulo prueba"
+            },
+            "promo_items": {
+                "basic": {
+                    "url": "/url/de/prueba"
+                }
+            }
+        }
+    ]
+}

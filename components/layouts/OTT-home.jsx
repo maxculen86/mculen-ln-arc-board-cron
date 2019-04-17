@@ -1,29 +1,25 @@
 import React, { PureComponent } from 'react';
-import { headerItems, currentPrograms, urlLiveVideo } from '../private/OTT/layout/OTTHomeIndex';
-import Header from '../private/OTT/layout/header/containers/header';
-import VideoOpening from '../private/OTT/layout/videoOpening/containers/videoOpening';
-import LastVideos from '../private/OTT/layout/lastVideos/containers/lastVideos';
-import CurrentPrograms from '../private/OTT/layout/currentPrograms/containers/currentPrograms';
+import { urlLiveVideo } from '../private/OTT/layouts/OTTHomeIndex';
+import VideoOpening from '../private/OTT/layouts/videoOpening/containers/videoOpening';
+import LastVideos from '../private/OTT/layouts/lastVideos/containers/lastVideos';
+import Footer from '../private/OTT/layouts/footer/containers/footer';
 
-
-const layoutItems = [
-  'main'
-];
+const layoutItems = ['header', 'main'];
 
 class OTTHomeLayout extends PureComponent {
-  render() {
-    return (
-      <>
-        <Header items={headerItems} />
-        <VideoOpening source={urlLiveVideo} />
-        <LastVideos />
-        <CurrentPrograms items={currentPrograms} />
-        {this.props.children}
-      </>
-    )
-  }
+    render() {
+        return (
+            <>
+                {this.props.children[0]}
+                {/* <VideoOpening source={urlLiveVideo}/> */}
+                {this.props.children[1]}
+                <LastVideos />
+                <Footer />
+            </>
+        );
+    }
 }
 
 export default OTTHomeLayout;
 
-OTTHomeLayout.sections = layoutItems
+OTTHomeLayout.sections = layoutItems;
