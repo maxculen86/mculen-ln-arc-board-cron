@@ -1,12 +1,23 @@
 import React from 'react';
+import LinkedTitle from '../../../common/containers/linkedTitle';
+import Picture from '../../../common/containers/picture';
+import PictureSource from '../../../common/containers/pictureSource';
 
-export default function Program(props) {
+export default function Program({ href, description, imgSrc }) {
     return (
-        <a href={props.href}>
-            <div>
-                <h5>{props.description}</h5>
-                <img src={props.imgSrc} />
-            </div>
-        </a>
+        <article class="article">
+            <a class="figure" href={props.href}>
+                <Picture class="content-picture">
+                    <PictureSource srcset={imgSrc} />
+                    <img
+                        class="lazy loaded"
+                        alt="imagen-destacada"
+                        data-src=""
+                        data-was-processed="true"
+                    />
+                </Picture>
+            </a>
+            <LinkedTitle href={href} title={description} />
+        </article>
     );
 }
