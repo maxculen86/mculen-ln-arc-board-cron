@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import HeaderComponent from '../components/header';
 
 class Header extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.data = {'data-event': 'LinkClick', 'data-section': 'HeaderOTT' }
+    this.data = { 'data-event': 'LinkClick', 'data-section': 'HeaderOTT' }
   }
-    render() {
+  render() {
     return (
-      <HeaderComponent items={this.props.items} data={this.data}/>
+        <HeaderComponent items={this.props.items} data={this.data} />
     )
   }
 }
