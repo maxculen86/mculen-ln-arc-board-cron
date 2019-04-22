@@ -1,25 +1,15 @@
 import React from 'react';
+import IosButton from '../../../../common/containers/iosButton';
+import AndroidButton from '../../../../common/containers/androidButton';
+import FacebookButton from '../../../../common/containers/facebookButton';
+import TwitterButton from '../../../../common/containers/twitterButton';
+import InstagramButton from '../../../../common/containers/instagramButton';
+import RssButton from '../../../../common/containers/rssButton';
 
 const LINK_LA_NACION = 'https://www.lanacion.com.ar';
 
 export default function Footer(props) {
     return (
-        // <footer className="footer">
-        //     <div className="container">
-        //         <h5>
-        //             Segu&iacute; informado las 24 horas en: &nbsp;
-        //             <a className="footer-link" href={LINK_LA_NACION}>
-        //                 www.lanacion.com.ar
-        //             </a>
-        //         </h5>
-        //         <p className="footer-copyright-main">
-        //             Copyright {props.year} S.A. LA NACION
-        //         </p>
-        //         <p className="footer-copyright-text">
-        //             Todos los derechos reservados
-        //         </p>
-        //     </div>
-        // </footer>
         <footer className="footer">
             <div className="footer__left">
                 <div className="footer__up">
@@ -61,8 +51,8 @@ export default function Footer(props) {
                 </div>
                 <div className="footer__bottom">
                     Descargá la APP:
-                    <button className="icon-ios" id="pie-apple" />
-                    <button className="icon-android" id="pie-android" />
+                    <IosButton />
+                    <AndroidButton />
                     <div className="footer__captcha">
                         <p>Protegido por reCAPTCHA:</p>
                         <a
@@ -94,10 +84,10 @@ export default function Footer(props) {
             <div className="footer__right">
                 <div className="footer__up">
                     <span className="seguinos"> SEGUINOS</span>
-                    <button className="icon-facebook" id="pie-facebook" />
-                    <button className="icon-twitter" id="pie-twitter" />
-                    <button className="icon-instagram" id="pie-instagram" />
-                    <button className="icon-rss" id="pie-rss" />
+                    <FacebookButton />
+                    <TwitterButton />
+                    <InstagramButton />
+                    <RssButton />
                 </div>
                 <div className="footer__bottom">
                     <span className="gda" />
