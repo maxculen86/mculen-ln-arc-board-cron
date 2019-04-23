@@ -1,0 +1,32 @@
+.apertura {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16/9 ratio */
+    padding-top: 30px;
+    /* IE6 workaround*/
+    height: 0;
+}
+
+.apertura iframe,
+.apertura object,
+.apertura embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.apertura:after {
+    content: '';
+    position: absolute;
+    width: 1000%;
+    left: -500%;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background: #322d59;
+    background: radial-gradient(ellipse at center, #322d59 0, #08142d 100%);
+}

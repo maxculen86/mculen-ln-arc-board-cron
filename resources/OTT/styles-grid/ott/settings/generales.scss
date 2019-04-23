@@ -1,0 +1,101 @@
+body {
+  overflow-x: hidden;
+  font-size: calc(10px + 6 * ((100vw - 32em) / 680)) !important;
+}
+
+.wrapper {
+  max-width: 1140px;
+  margin: auto;
+  @include flex-column;
+  @include flex;
+}
+
+.figure {
+  background: #f2f2f2;
+  padding-top: 56.5%;
+  @include flex;
+  @include just-center;
+  position: relative;
+  height: 0;
+  width: 100%;
+}
+
+.figure picture {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  @include flex;
+  @include alit-center;
+  @include just-center;
+}
+
+.figure picture img {
+  max-height: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon-android:before {
+  content: "b";
+}
+
+.icon-facebook:before {
+  content: "k";
+}
+
+.icon-instagram:before {
+  content: "l";
+}
+
+.icon-ios:before {
+  content: "m";
+}
+
+.icon-twitter:before {
+  content: "n";
+}
+
+.icon-rss:before {
+  content: "q";
+}
+
+[class*=" icon-"]:before,
+[class^="icon-"]:before,
+[data-icon]:before {
+  font-family: ln10 !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::-moz-selection {
+  color: $blanco;
+  background: #06edf8;
+}
+::selection {
+  color: $blanco;
+  background: #06edf8;
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    max-width: 100%;
+    margin: 0 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    margin: 0 10px;
+  }
+}

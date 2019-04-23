@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
-export default ({ media, srcset, className }) => {
-    return <source media={media} srcset={srcset} className={className} />;
+export default ({ media, srcSet, className, alt }) => {
+    return (
+        <source media={media} srcSet={srcSet} className={className} alt={alt} />
+    );
 };

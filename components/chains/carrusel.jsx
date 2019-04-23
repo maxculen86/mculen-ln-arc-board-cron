@@ -1,7 +1,23 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Carousell from '../private/common/containers/carousell';
-export default class carrusel extends Component {
+import Title from '../private/common/containers/title';
+import PropTypes from 'fusion:prop-types';
+export default class Carrusel extends PureComponent {
     render() {
-        return <Carousell>{this.props.children}</Carousell>;
+        return (
+            <section>
+                <Title
+                    className={'section-title'}
+                    title={this.props.customFields.title}
+                />
+                <Carousell>{this.props.children}</Carousell>
+            </section>
+        );
     }
 }
+
+Carrusel.propTypes = {
+    customFields: PropTypes.shape({
+        title: PropTypes.string.tag({ label: 'Titulo' })
+    })
+};

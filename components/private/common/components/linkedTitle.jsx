@@ -3,7 +3,7 @@
 import React from 'react';
 export default ({ href, title }) => {
     return (
-        <h2 class="title">
+        <h2 className={'title'}>
             <a href={href}>{title}</a>
         </h2>
     );

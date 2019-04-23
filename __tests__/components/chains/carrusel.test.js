@@ -10,7 +10,11 @@ import testHelper from '../../utils/testHelper';
 
 describe('chains - carrusel', () => {
     const childrenText = 'childrenText de test';
-    const component = mount(<Carrusel>{childrenText}</Carrusel>);
+    const title = 'ultimos videos';
+    const cf = { title: title };
+    const component = mount(
+        <Carrusel customFields={cf}>{childrenText}</Carrusel>
+    );
     const carousel = component.find('mock-component');
 
     it('Testeo que se dibuje el carousel mockeado', () => {

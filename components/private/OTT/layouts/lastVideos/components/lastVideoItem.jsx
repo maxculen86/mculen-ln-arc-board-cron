@@ -1,10 +1,6 @@
-import React from 'react'
+import React from 'react';
+import VideoArticle from '../../../common/containers/videoArticle';
 
-export default function LastVideoItem(props) {
-  return (
-    <div>
-      <h4>{props.title}</h4>
-      <img src={props.imgSrc} width="280px"/>
-    </div>
-  )
+export default function LastVideoItem({ title, imgSrc, href }) {
+    return <VideoArticle description={title} imgSrc={imgSrc} href={href} />;
 }

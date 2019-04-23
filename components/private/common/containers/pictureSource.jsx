@@ -8,8 +8,9 @@ export default class PictureSource extends PureComponent {
         return (
             <PictureSourceComponent
                 media={this.props.media}
-                srcset={this.props.srcset}
+                srcSet={this.props.srcSet}
                 className={this.props.className}
+                alt={this.props.alt}
             />
         );
     }

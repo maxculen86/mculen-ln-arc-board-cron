@@ -4,7 +4,8 @@ import Picture from '../../../common/containers/picture';
 import PictureSource from '../../../common/containers/pictureSource';
 import Article from '../../../common/containers/article';
 
-export default function Program({ href, description, imgSrc }) {
+export default function VideoArticle({ href, description, imgSrc }) {
+    console.log('description', description);
     return (
         <Article>
             <a className="figure" href={href}>

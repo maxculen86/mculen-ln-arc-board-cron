@@ -1,0 +1,225 @@
+.slider {
+  @include flex;
+  @include flex-row;
+  @include just-between;
+  @include wrap;
+  position: relative;
+}
+
+.slider:after {
+  content: "";
+  position: absolute;
+  width: 1000%;
+  left: -500%;
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #eae6e2;
+}
+
+.section-title {
+  color: $negro;
+  width: 100%;
+  font-family: $font-suecasb;
+  padding: $px-30 0 $px-20;
+  font-size: $px-18;
+}
+
+.slider .article {
+  @include flex;
+  @include flex-row;
+  @include just-between;
+  @include wrap;
+  width: calc((100% - 75px) / 4);
+  position: relative;
+  margin-bottom: $px-40;
+}
+
+.slider .title {
+  padding: 0.5rem 0;
+}
+
+.slider .title a {
+  color: $negro;
+  font-family: $font-suecasb;
+  font-size: $px-12;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  margin-bottom: 0.1rem;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  line-height: 1.5em;
+}
+
+.slider .title a:hover {
+  text-decoration: underline;
+}
+
+.slider .article span {
+  font-family: "Montserrat", sans-serif;
+  color: $blanco;
+  text-align: left;
+  font-size: 0.8rem;
+  line-height: 1.1.8rem;
+  max-height: 2.5rem;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+section:not(.programas) > section > article > .figure:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  right: 0;
+  background-color: rgba(45, 45, 45, 0.6);
+  background-image: url("../img/play.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 3em;
+  transition: 0.2s ease opacity;
+}
+
+.programas .article .figure:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  right: 0;
+  background-color: rgba(45, 45, 45, 0.6);
+  transition: 0.2s ease opacity;
+  font-size: 5em;
+  font-family: SuecaSlab, Helvetica, sans-serif;
+  content: "+";
+  color: rgba(91, 255, 230, 0.5);
+  text-align: center;
+  line-height: 1.5em;
+}
+
+.slider .article .figure:hover:after {
+  opacity: 1;
+}
+
+.previous {
+  font-size: 0;
+  line-height: 0;
+  top: calc(50% - 5rem);
+  left: 0;
+  display: block;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background: rgba(0, 0, 0, 0.9);
+  width: 25px;
+  height: 50px;
+  position: absolute;
+  z-index: 20;
+  color: #fff;
+  border-radius: 0 3px 3px 0;
+  transition: background 0.2s ease;
+}
+
+.previous:after {
+  font-family: SuecaSlab, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  color: #fff;
+  opacity: 1;
+  z-index: 25;
+  content: "<";
+  vertical-align: middle;
+}
+
+.previous:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.next {
+  font-size: 0;
+  line-height: 0;
+  top: calc(50% - 5rem);
+  right: 0;
+  display: block;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background: rgba(0, 0, 0, 0.9);
+  width: 25px;
+  height: 50px;
+  position: absolute;
+  z-index: 20;
+  color: #fff;
+  border-radius: 0 3px 3px 0;
+  transition: background 0.2s ease;
+}
+
+.next:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.next:after {
+  font-family: SuecaSlab, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  color: #fff;
+  opacity: 1;
+  z-index: 25;
+  content: ">";
+  vertical-align: middle;
+}
+
+@media (max-width: 1280px) {
+  .slider .title a {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .slider .article {
+    width: calc((100% - 20px) / 3);
+    transition: all 0.2s ease;
+  }
+  .slider .article:last-of-type {
+    display: none;
+  }
+  .slider .title a {
+    font-size: 1.2em;
+  }
+  .section-title {
+    font-size: 1.5em;
+  }
+  section:not(.programas) > section > article > .figure::after {
+    background-size: 5em;
+  }
+}
+
+@media (max-width: 800px) {
+  .next:after,
+  .previous:after {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .slider .title a {
+    font-size: 1.4em;
+    line-height: 1.6em;
+  }
+}
+
+@media (max-width: 420px) {
+  .slider .article {
+    width: calc((100% - 10px) / 2);
+  }
+  .slider .article:nth-of-type(3) {
+    display: none;
+  }
+}

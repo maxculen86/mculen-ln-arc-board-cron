@@ -8,7 +8,7 @@ export default class LinkedTitle extends PureComponent {
         return (
             <LinkedTitleComponent
                 href={this.props.href}
-                title={this.props.href}
+                title={this.props.title}
             />
         );
     }

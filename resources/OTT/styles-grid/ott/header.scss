@@ -1,0 +1,158 @@
+@import "settings/estructura.scss";
+.header {
+  @include flex;
+  @include flex-row;
+  max-width: 1140px;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  transition: padding 0.2s ease;
+}
+
+.header:after {
+  content: "";
+  position: absolute;
+  width: 1000%;
+  left: -500%;
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #322d59;
+  background: radial-gradient(ellipse at center, #322d59 0, #08142d 100%);
+}
+
+header.sticky {
+  padding: 0.5rem 0;
+}
+
+header.sticky .header__logo img {
+  height: 24px;
+  width: 40px;
+  transition: all 0.2s ease;
+}
+
+.header__nav {
+  @include flex;
+  @include flex-row;
+  @include alit-center;
+  z-index: 2;
+}
+
+.header__nav__link {
+  font-family: $font-suecasm;
+  font-size: $px-12;
+  color: $ott-header-link;
+  margin-right: $px-16;
+  position: relative;
+  font-weight: 800;
+}
+
+.header__nav__link--live {
+  color: $ott-header-link-vivo;
+}
+
+.header__nav__link:active:after,
+.header__nav__link:hover:after {
+  opacity: 1;
+}
+
+.header__nav__link:after {
+  position: absolute;
+  top: $px-18;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: $ott-header-link;
+  content: "";
+  opacity: 0;
+  transition: all 0.25s ease 0s;
+}
+
+.header__nav__link--live:after {
+  background: $ott-header-link-vivo;
+}
+
+.header__logo {
+  margin-right: 20px;
+  z-index: 2;
+}
+
+.header__logo img {
+  height: 38px;
+  width: 65px;
+  transition: all 0.2s ease;
+}
+
+.header__hamburguer {
+  display: none;
+}
+
+@media (max-width: 1500px) {
+  .header__nav__link {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header__nav__link {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 800px) {
+  .header__nav {
+    height: 0;
+    @include flex;
+    @include flex-column;
+    align-items: self-start;
+  }
+  .header .header__nav__link {
+    font-size: 0;
+  }
+  .header__hamburguer {
+    @include flex;
+    font-size: 2.5rem;
+    padding: 0;
+    color: #06edf8;
+    z-index: 2;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+  .header.header.open {
+    @include wrap;
+    @include flex-column;
+  }
+  .header.open .header__nav {
+    @include order(3);
+    height: auto;
+  }
+  .header.open .header__nav__link {
+    display: block;
+    font-size: 1.5em;
+    line-height: 2.5em;
+    transition: all 0.5s ease;
+  }
+  button:focus {
+    outline: 0;
+  }
+  .header__logo {
+    @include order(2);
+    @include grow(1);
+    margin-right: 0;
+    text-align: right;
+    @include self-center;
+  }
+  .header.open .header__logo {
+    margin-top: -46px;
+    @include self-end;
+  }
+  .header.open .header__nav__link:after {
+    display: none;
+  }
+  .header.open.sticky .header__logo {
+    margin-top: -36px;
+  }
+}
