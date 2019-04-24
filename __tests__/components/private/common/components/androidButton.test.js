@@ -28,7 +28,7 @@ describe('private - common - component - androidButton', () => {
     });
 
     it('Testeo que no muestre mas de las props que tiene que mostrar', () => {
-        testHelper.expectSameValue(Object.keys(component.props()).length, 2);
+        testHelper.expectSameValue(Object.keys(component.props()).length, 3);
     });
 
     testHelper.testDoNotRenderChildren(component, 'hijo');
