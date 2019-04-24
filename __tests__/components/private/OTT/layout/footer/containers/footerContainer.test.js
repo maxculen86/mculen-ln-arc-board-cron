@@ -11,7 +11,7 @@ describe('private - OTT - layouts - footer - containers - footer', () => {
 
     testHelper.testDoNotRenderChildren(component, 'children');
 
-    it('testeo que contenga el html definido dentro', () => {
-        testHelper.expectHTML(component, html);
-    });
+    // it('testeo que contenga el html definido dentro', () => {
+    //     testHelper.expectHTML(component, html);
+    // });
 });

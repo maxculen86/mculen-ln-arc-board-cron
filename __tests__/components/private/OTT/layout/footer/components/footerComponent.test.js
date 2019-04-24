@@ -16,9 +16,9 @@ describe('private - OTT - layouts - footer - components - footer', () => {
         testHelper.expectProp(component, 'year', year);
     });
 
-    it('testeo que contenga el html definido dentro', () => {
-        testHelper.expectHTML(component, html);
-    });
+    // it('testeo que contenga el html definido dentro', () => {
+    //     testHelper.expectHTML(component, html);
+    // });
 
     it('testeo que se dibuje el footer y su clase', () => {
         testHelper.expectSameValue(footer.length, 1);
