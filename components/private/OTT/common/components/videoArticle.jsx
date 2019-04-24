@@ -5,7 +5,6 @@ import PictureSource from '../../../common/containers/pictureSource';
 import Article from '../../../common/containers/article';
 
 export default function VideoArticle({ href, description, imgSrc }) {
-    console.log('description', description);
     return (
         <Article>
             <a className="figure" href={href}>
@@ -20,6 +19,7 @@ export default function VideoArticle({ href, description, imgSrc }) {
                 </Picture>
             </a>
             <LinkedTitle href={href} title={description} />
+            {/* <span class="card-description">11 DIC 2018</span> */}
         </Article>
     );
 }
