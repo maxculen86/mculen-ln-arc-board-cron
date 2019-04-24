@@ -31,4 +31,6 @@ Header.propTypes = {
     customFields: getCustomFields()
 };
 
+Header.static = true;
+
 export default Header;
