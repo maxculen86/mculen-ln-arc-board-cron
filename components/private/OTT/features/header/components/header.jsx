@@ -23,7 +23,7 @@ export default function HeaderComponent({ items, data }) {
                 alt="lnmas.com.ar"
                 title="lnmas.com.ar"
             >
-                <img src="styles-grid/img/logo-lnmas.png" />
+                <img className={'a'} src={'logo'} />
             </a>
             <HamburgerButton className={'header__hamburguer'}>
                 ☰
