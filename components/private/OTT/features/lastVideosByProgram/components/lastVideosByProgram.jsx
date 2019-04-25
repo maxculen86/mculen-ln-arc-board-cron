@@ -12,8 +12,11 @@ export default function LastVideosByProgams({
     const currentItem = videos.map((video, index) => {
         const title = get(video, 'headlines.basic', null);
         const imgSrc = get(video, 'promo_items.basic.url', null);
+        const id = get(video, '_id', null);
 
-        return <LastVideoItem title={title} key={index} imgSrc={imgSrc} />;
+        return (
+            <LastVideoItem title={title} key={index} imgSrc={imgSrc} id={id} />
+        );
     });
     return (
         <section className={'slider'}>

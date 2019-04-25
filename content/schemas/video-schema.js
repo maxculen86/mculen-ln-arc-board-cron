@@ -23,6 +23,7 @@ type Query {
     headlines: Headlines
     description: VideoDescription
     promo_items: PromoItems
+    _id: String
 }`;
 
 export default schema;

@@ -22,6 +22,7 @@ type Video {
     headlines: Headlines
     description: VideoDescription
     promo_items: PromoItems
+    _id: String
 }
 
 
