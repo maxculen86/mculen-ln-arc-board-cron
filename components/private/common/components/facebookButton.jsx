@@ -1,5 +1,7 @@
+'use strict';
+
 import React from 'react';
 import Button from '../containers/button';
-export default function facebookButton({ href }) {
-    return <Button href={href}>f</Button>;
-}
+export default ({ href }) => {
+    return <Button className="icon-facebook" id="pie-facebook" href={href} />;
+};

@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+'use strict';
+
+import React, { PureComponent } from 'react';
 import FacebookButtonComponent from '../components/facebookButton';
-export default class FacebookButton extends Component {
+
+export default class FacebookButton extends PureComponent {
     render() {
-        return (
-            <>
-                {this.props.href && (
-                    <FacebookButtonComponent href={this.props.href} />
-                )}
-            </>
-        );
+        return <FacebookButtonComponent href={this.props.href} />;
     }
 }

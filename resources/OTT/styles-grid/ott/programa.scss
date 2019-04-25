@@ -1,0 +1,103 @@
+#programa .header:after,
+#programa .apertura:after {
+  background: $negro;
+  background: -webkit-radial-gradient(center, ellipse, $negro 0, $negro 100%);
+  background: -o-radial-gradient(center, ellipse, $negro 0, $negro 100%);
+  background: radial-gradient(ellipse at center, $negro 0, $negro 100%);
+}
+
+#programa .mas-vistos .slider:after {
+  background: #1a1a1a;
+}
+.info-programa {
+  position: relative;
+  padding: 3rem 0;
+  @include grilla;
+}
+.info-programa:after {
+  content: "";
+  position: absolute;
+  width: 1000%;
+  left: -500%;
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #1a1a1a;
+  background: radial-gradient(ellipse at center, #1a1a1a 0, #1a1a1a 100%);
+}
+.meta-programa {
+  @include grid-column(1, 7, 6);
+}
+
+.meta-programa span {
+  font-size: 0.8rem;
+  color: grey;
+  padding-bottom: 0.5rem;
+  font-family: $font-suecasm;
+}
+.meta-programa h3 {
+  font-family: $font-suecasb;
+  word-break: break-word;
+  font-size: 2rem;
+  line-height: 2rem;
+  padding: 1rem 0 2rem;
+  color: $blanco;
+}
+.meta-programa button {
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  border-radius: 34px;
+  margin: 0.125em 0.313em 0.125em 0;
+  background: #4682b3;
+  color: $blanco;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.meta-programa button:hover {
+  opacity: 0.75;
+}
+
+.categorias {
+  @include grid-column(7, 11, 4);
+}
+.categorias h4 {
+  font-family: SuecaSlabBold, Helvetica, sans-serif;
+  font-weight: 400;
+  word-break: break-word;
+  color: $blanco;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+.categorias ul li a {
+  background: rgba(49, 49, 49, 0.9);
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin: 0.5rem 0.5rem 0 0;
+  font-family: $font-suecasm;
+  transition: opacity 0.2s ease;
+}
+.categorias ul li a:hover {
+  opacity: 0.75;
+}
+#programa .ultimos-videos .article:last-of-type {
+  @include flex;
+}
+
+@media (max-width: 800px) {
+  .categorias,
+  .meta-programa {
+    @include grid-column(1, 11, 10);
+  }
+}
+@media (max-width: 420px) {
+  #programa .ultimos-videos .article:last-of-type {
+    display: none;
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import LastVideoItem from '../../../layouts/lastVideos/components/lastVideoItem';
 import ShowMoreVideos from '../containers/showMoreVideos';
 import get from 'lodash.get';
+import Title from '../../../../common/containers/title';
 
 export default function LastVideosByProgams({
     videos,
@@ -15,9 +16,10 @@ export default function LastVideosByProgams({
         return <LastVideoItem title={title} key={index} imgSrc={imgSrc} />;
     });
     return (
-        <div>
+        <section className={'slider'}>
+            <Title title={'Últimos Videos'} className={'section-title'} />
             {currentItem}
             {hasNext && <ShowMoreVideos onClick={nextPageHandler} />}
-        </div>
+        </section>
     );
 }

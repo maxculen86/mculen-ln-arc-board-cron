@@ -1,0 +1,5 @@
+#acumulado .header:after {
+  background: #000;
+  background: -webkit-radial-gradient(center, ellipse, #000 0, #000 100%);
+  background: -o-radial-gradient(center, ellipse, #000 0, #000 100%);
+  background: radial-gradient(ellipse at center, #000 0, #000 100%); }
