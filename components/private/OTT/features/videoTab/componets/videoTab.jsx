@@ -7,11 +7,16 @@ export default function videoTab({
     title,
     date,
     categories,
-    shareConfig
+    shareConfig,
+    videoHtml
 }) {
     return (
         <>
-            <Video src={videoSrc} />
+            <section
+                className={'apertura'}
+                dangerouslySetInnerHTML={{ __html: videoHtml }}
+            />
+            {/* <Video src={videoSrc} /> */}
             <VideoInfo
                 title={title}
                 date={date}

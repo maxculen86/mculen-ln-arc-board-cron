@@ -1,27 +1,47 @@
 import React, { PureComponent } from 'react';
 import VideoTabComponent from '../componets/videoTab';
-export default class VideoTab extends PureComponent {
+import Consumer from 'fusion:consumer';
+import get from 'lodash.get';
+
+class VideoTab extends PureComponent {
     constructor(props) {
         super(props);
-        this.videoSrc = '/abc';
-        this.title = 'un titulo';
-        this.date = '01-01-2019';
-        this.categories = ['Deportes', 'Politica', 'LN+'];
+        console.log('PROPS', this.props);
+        this.videoHtml = get(this.props.globalContent, 'embed_html', '');
+        this.videoSrc = ''; //get(this.props.globalContent, 'embed_html', '')
+        this.title = get(this.props.globalContent, 'headlines.basic', null);
+        this.description = get(
+            this.props.globalContent,
+            'description.basic',
+            null
+        );
+        this.date = get(this.props.globalContent, 'publish_date', null);
+        this.categories = get(
+            this.props.globalContent,
+            'taxonomy.sections',
+            []
+        );
+
         this.shareConfig = {
-            Facebook: { href: 'www.facebook.com/1' },
+            Facebook: { href: 'www.facebook.com' },
             Twitter: { href: 'www.twitter.com.ar' }
         };
     }
 
     render() {
         return (
-            <VideoTabComponent
-                title={this.title}
-                videoSrc={this.videoSrc}
-                date={this.date}
-                categories={this.categories}
-                shareConfig={this.shareConfig}
-            />
+            <>
+                <VideoTabComponent
+                    videoHtml={this.videoHtml}
+                    title={this.title}
+                    videoSrc={this.videoSrc}
+                    date={this.date}
+                    categories={this.categories}
+                    shareConfig={this.shareConfig}
+                />
+            </>
         );
     }
 }
+
+export default Consumer(VideoTab);
