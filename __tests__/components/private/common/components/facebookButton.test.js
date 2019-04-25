@@ -14,9 +14,12 @@ describe('private - common - component - facebookButton', () => {
     const child = '<hijo>un texto como children</hijo>';
     const props = {
         className: 'icon-facebook',
-        id: 'pie-facebook'
+        id: 'pie-facebook',
+        href: '/google.com'
     };
-    const container = mount(<FacebookButtonComponents children={child} />);
+    const container = mount(
+        <FacebookButtonComponents children={child} href={'/google.com'} />
+    );
     const component = container.find('mock-component');
 
     it('Testeo que existe el mock', () => {
@@ -28,7 +31,7 @@ describe('private - common - component - facebookButton', () => {
     });
 
     it('Testeo que no muestre mas de las props que tiene que mostrar', () => {
-        testHelper.expectSameValue(Object.keys(component.props()).length, 2);
+        testHelper.expectSameValue(Object.keys(component.props()).length, 3);
     });
 
     testHelper.testDoNotRenderChildren(component, 'hijo');

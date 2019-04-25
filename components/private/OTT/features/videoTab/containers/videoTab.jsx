@@ -9,7 +9,7 @@ export default class VideoTab extends PureComponent {
         this.categories = ['Deportes', 'Politica', 'LN+'];
         this.shareConfig = {
             Facebook: { href: 'www.facebook.com/1' },
-            Tweeter: { href: 'www.tweeter.com.ar' }
+            Twitter: { href: 'www.twitter.com.ar' }
         };
     }
 

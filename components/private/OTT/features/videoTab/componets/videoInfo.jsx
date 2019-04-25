@@ -1,19 +1,19 @@
 import React from 'react';
 import FacebookButton from '../../../../common/containers/facebookButton';
-import TweeterButton from '../../../../common/containers/tweeterButton';
+import TwitterButton from '../../../../common/containers/twitterButton';
 
 export default function videoInfo({
     title,
     date,
     facebookHref,
-    tweeterHref,
+    twitterHref,
     categories
 }) {
     return (
         <div>
             <p>{title}</p>
             <p>{date}</p>
-            <TweeterButton href={tweeterHref} />
+            <TwitterButton href={twitterHref} />
             <FacebookButton href={facebookHref} />
         </div>
     );
