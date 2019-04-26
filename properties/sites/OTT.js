@@ -1,6 +1,6 @@
 import global from '../global.json';
 const site = {
-    title: 'Esto es el titulo',
+    title: 'LN+ Mirá todos los programas y videos online',
     className: {
         body: 'ott'
     }
