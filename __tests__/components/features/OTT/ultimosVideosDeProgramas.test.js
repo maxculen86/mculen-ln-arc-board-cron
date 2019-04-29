@@ -2,10 +2,9 @@ import Consumer from 'fusion:consumer';
 
 //retorno un elemento que luego busco en el container
 jest.mock(
-    '../../../../components/private/OTT/features/lastVideosByProgram/containers/lastVideosByProgram',
+    '../../../../components/private/OTT/lastVideosByProgram/containers/lastVideosByProgram',
     () => 'mock-component'
 );
-
 import React from 'react';
 import { mount } from 'enzyme';
 import UltimosVideosDeProgramasFeature from '../../../../components/features/OTT/ultimosVideosDeProgramas';
