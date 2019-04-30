@@ -3,8 +3,8 @@ import PropTypes from 'fusion:prop-types';
 import {
     buildSpecialVideoCustomFields,
     getSpecialVideoCustomFields
-} from '../../private/OTT/utils/CustomFieldsSpecialVideoHelper';
-import SpecialVideoContainer from '../../private/OTT/features/specialVideo/containers/specialVideo';
+} from '../../private/OTT/home/specialVideo/CustomFieldsSpecialVideoHelper';
+import SpecialVideoContainer from '../../private/OTT/home/specialVideo/container';
 
 const MAX_VIDEOS_COUNT = 8;
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Footer from '../private/OTT/layouts/footer/containers/footer';
+import Footer from '../private/OTT/common/footer';
 import '../../resources/OTT/styles-grid/ott/ott.css';
 
 const layoutItems = ['Header', 'Bloque-1', 'Bloque-2'];

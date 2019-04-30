@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import VideoTabContainer from '../../private/OTT/features/videoTab/containers/videoTab';
+import VideoTabContainer from '../../private/OTT/ficha/videoTab';
 
 class VideoFicha extends Component {
     constructor(props) {

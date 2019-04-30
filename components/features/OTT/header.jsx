@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import HeaderContainer from '../../private/OTT/features/header/containers/header';
+import HeaderContainer from '../../private/OTT/common/header/container';
 
 import {
     buildHeaderCustomFields,
     getHeaderCustomFields
-} from '../../private/OTT/utils/CustomFieldsHeaderHelper';
+} from './../../private/OTT/common/header/CustomFieldsHeaderHelper';
 
 let MAX_LINKS_COUNT = 6;
 
