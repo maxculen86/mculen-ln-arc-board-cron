@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../../components/private/OTT/common/containers/program',
+    '../../../../components/private/OTT/common/program/container',
     () => 'mock-component'
 );
 import React from 'react';

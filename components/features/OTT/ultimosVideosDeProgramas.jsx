@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import LastVideosByProgram from '../../private/OTT/lastVideosByProgram/containers/lastVideosByProgram';
+import LastVideosByProgram from '../../private/OTT/programa/lastVideosByProgram/containers/lastVideosByProgram';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 
