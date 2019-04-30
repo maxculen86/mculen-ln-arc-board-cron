@@ -4,7 +4,7 @@ import {
     buildSpecialVideoCustomFields,
     getSpecialVideoCustomFields
 } from '../../private/OTT/home/specialVideo/CustomFieldsSpecialVideoHelper';
-import SpecialVideoContainer from '../../private/OTT/home/specialVideo/containers/specialVideo';
+import SpecialVideoContainer from '../../private/OTT/home/specialVideo/container';
 
 const MAX_VIDEOS_COUNT = 8;
 

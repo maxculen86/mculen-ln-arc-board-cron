@@ -1,6 +1,6 @@
 //retorno un elemento que luego busco en el container
 jest.mock(
-    '../../../../../../../components/private/OTT/common/header/containers/headerItem',
+    '../../../../../../../components/private/OTT/common/header/headerItem',
     () => 'mock-component'
 );
 
@@ -8,7 +8,7 @@ jest.mock(
 import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../../../utils/testHelper';
-import HeaderComponent from '../../../../../../../components/private/OTT/common/header/components/header';
+import HeaderComponent from '../../../../../../../components/private/OTT/common/header/component';
 
 describe('OTT - layout - header - components', () => {
     const child = <hijos>soy un child default</hijos>;

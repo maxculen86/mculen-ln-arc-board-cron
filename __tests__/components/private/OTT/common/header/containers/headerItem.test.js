@@ -1,13 +1,13 @@
 //retorno un elemento que luego busco en el container
 jest.mock(
-    '../../../../../../../components/private/OTT/common/header/components/headerItem',
+    '../../../../../../../components/private/OTT/common/header/headerItem/component',
     () => 'mock-component'
 );
 
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
-import HeaderItemContainer from '../../../../../../../components/private/OTT/common/header/containers/headerItem';
+import HeaderItemContainer from '../../../../../../../components/private/OTT/common/header/headerItem/container';
 import testHelper from '../../../../../../utils/testHelper';
 
 describe('OTT - layout - headerItem - containers', () => {

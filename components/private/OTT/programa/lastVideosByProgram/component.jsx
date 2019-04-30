@@ -1,8 +1,8 @@
 import React from 'react';
-import LastVideoItem from '../../../common/lastVideos/lastVideoItem/component';
-import ShowMoreVideos from '../containers/showMoreVideos';
+import LastVideoItem from '../../common/lastVideos/lastVideoItem/component';
+import ShowMoreVideos from './showMoreVideos';
 import get from 'lodash.get';
-import Title from '../../../../common/containers/title';
+import Title from '../../../common/containers/title';
 
 export default function LastVideosByProgams({
     videos,

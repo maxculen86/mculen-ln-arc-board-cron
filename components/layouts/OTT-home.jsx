@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { urlLiveVideo } from '../private/OTT/home/OTTHomeIndex';
-import VideoOpening from '../private/OTT/home/videoOpening/containers/videoOpening';
-import LastVideos from '../private/OTT/common/lastVideos/containers/lastVideos';
-import Footer from '../private/OTT/common/footer/containers/footer';
+import VideoOpening from '../private/OTT/home/videoOpening';
+import LastVideos from '../private/OTT/common/lastVideos';
+import Footer from '../private/OTT/common/footer';
 import '../../resources/OTT/styles-grid/ott/ott.css';
 const layoutItems = ['Header', 'Bloque-1', 'Bloque-2'];
 

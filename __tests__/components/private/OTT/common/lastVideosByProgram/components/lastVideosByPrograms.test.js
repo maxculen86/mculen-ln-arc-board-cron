@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../../../../../components/private/OTT/common/lastVideos/components/lastVideoItem',
+    '../../../../../../../components/private/OTT/common/lastVideos/lastVideoItem/component',
     () => 'mock-componentItem'
 );
 

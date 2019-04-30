@@ -1,7 +1,7 @@
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
-import HeaderComponent from '../../../../../../../components/private/OTT/common/header/containers/headerItem';
+import HeaderComponent from '../../../../../../../components/private/OTT/common/header/headerItem/container';
 import testHelper from '../../../../../../utils/testHelper';
 describe('OTT - layout - headerItem - components', () => {
     const data = { 'data-event': 'LinkClick', 'data-section': 'HeaderOTT' };

@@ -1,7 +1,7 @@
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
-import VideoOpeningComponent from '../../../../../../../components/private/OTT/home/videoOpening/containers/videoOpening';
+import VideoOpeningComponent from '../../../../../../../components/private/OTT/home/videoOpening/container';
 import testHelper from '../../../../../../utils/testHelper';
 describe('OTT - layout - videoOpening - components', () => {
     const child = <hijos>soy un child de frame default</hijos>;
