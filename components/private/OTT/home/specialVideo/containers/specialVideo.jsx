@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SpecialVideoComponent from '../components/specialVideo';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
-import filter from '../../../../../content/filters/OTT/homeVideoItem';
+import filter from '../../../../../../content/filters/OTT/homeVideoItem';
 
 class SpecialVideo extends Component {
     constructor(props) {

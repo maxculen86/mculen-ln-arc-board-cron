@@ -1,5 +1,5 @@
 import React from 'react';
-import Buttom from '../../../common/containers/button';
+import Buttom from '../../../../common/containers/button';
 
 export default function ShowMoreVideos(props) {
     return (
