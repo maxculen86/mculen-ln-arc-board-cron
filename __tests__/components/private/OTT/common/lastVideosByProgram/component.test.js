@@ -1,17 +1,17 @@
 jest.mock(
-    '../../../../../../../components/private/OTT/common/lastVideos/lastVideoItem/component',
+    '../../../../../../components/private/OTT/common/lastVideos/lastVideoItem/component',
     () => 'mock-componentItem'
 );
 
 jest.mock(
-    '../../../../../../../components/private/OTT/programa/lastVideosByProgram/showMoreVideos',
+    '../../../../../../components/private/OTT/programa/lastVideosByProgram/showMoreVideos',
     () => 'mock-componentButton'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
-import testHelper from '../../../../../../utils/testHelper';
-import LastVideosByProgramContainer from '../../../../../../../components/private/OTT/programa/lastVideosByProgram/component';
+import testHelper from '../../../../../utils/testHelper';
+import LastVideosByProgramContainer from '../../../../../../components/private/OTT/programa/lastVideosByProgram/component';
 import get from 'lodash.get';
 
 describe('private - OTT - feature - LastVideosByPrograms component', () => {

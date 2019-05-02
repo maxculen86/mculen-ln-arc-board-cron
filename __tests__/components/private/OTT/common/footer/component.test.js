@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import testHelper from '../../../../../../utils/testHelper';
-import Footer from '../../../../../../../components/private/OTT/common/footer/component';
+import testHelper from '../../../../../utils/testHelper';
+import Footer from '../../../../../../components/private/OTT/common/footer/component';
 
 describe('private - OTT - layouts - footer - components - footer', () => {
     const year = new Date().getFullYear();

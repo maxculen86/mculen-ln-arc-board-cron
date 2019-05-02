@@ -2,14 +2,14 @@ import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 
 jest.mock(
-    '../../../../../../../components/private/OTT/common/lastVideos/component',
+    '../../../../../../components/private/OTT/common/lastVideos/component',
     () => 'mock-component'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
-import LastVideosComponent from '../../../../../../../components/private/OTT/common/lastVideos/container';
-import testHelper from '../../../../../../utils/testHelper';
+import LastVideosComponent from '../../../../../../components/private/OTT/common/lastVideos/container';
+import testHelper from '../../../../../utils/testHelper';
 
 describe('private - OTT - component - LastVideos', () => {
     let videosArray = [

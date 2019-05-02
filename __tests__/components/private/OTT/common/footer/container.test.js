@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import testHelper from '../../../../../../utils/testHelper';
-import Footer from '../../../../../../../components/private/OTT/common/footer/container';
+import testHelper from '../../../../../utils/testHelper';
+import Footer from '../../../../../../components/private/OTT/common/footer/container';
 
 describe('private - OTT - layouts - footer - containers - footer', () => {
     const children = <label>Soy un child</label>;

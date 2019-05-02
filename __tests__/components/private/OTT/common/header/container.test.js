@@ -1,14 +1,14 @@
 //retorno un elemento que luego busco en el container
 jest.mock(
-    '../../../../../../../components/private/OTT/common/header/component',
+    '../../../../../../components/private/OTT/common/header/component',
     () => 'mock-component'
 );
 
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
-import HeaderContainer from '../../../../../../../components/private/OTT/common/header/container';
-import testHelper from '../../../../../../utils/testHelper';
+import HeaderContainer from '../../../../../../components/private/OTT/common/header/container';
+import testHelper from '../../../../../utils/testHelper';
 
 describe('OTT - layout - header - containers', () => {
     const child = <hijos>soy un child de frame default</hijos>;

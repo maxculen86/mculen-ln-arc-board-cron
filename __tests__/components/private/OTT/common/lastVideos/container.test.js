@@ -2,15 +2,15 @@ import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 
 jest.mock(
-    '../../../../../../../components/private/OTT/common/lastVideos/component',
+    '../../../../../../components/private/OTT/common/lastVideos/component',
     () => 'mock-component'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
-import LastVideosContainer from '../../../../../../../components/private/OTT/common/lastVideos/container';
-import testHelper from '../../../../../../utils/testHelper';
-import jsonConVideos from '../../../../../../../__mocks__/data/videos/ultimosVideos.json';
+import LastVideosContainer from '../../../../../../components/private/OTT/common/lastVideos/container';
+import testHelper from '../../../../../utils/testHelper';
+import jsonConVideos from '../../../../../../__mocks__/data/videos/ultimosVideos.json';
 
 describe('private - OTT - container - LastVideos', () => {
     let container = mount(<LastVideosContainer />);

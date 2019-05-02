@@ -1,7 +1,7 @@
 import Consumer from 'fusion:consumer';
 
 jest.mock(
-    '../../../../../../../components/private/OTT/programa/lastVideosByProgram/component',
+    '../../../../../../components/private/OTT/programa/lastVideosByProgram/component',
     () => 'mock-component'
 );
 
@@ -9,12 +9,12 @@ import React from 'react';
 import { mount } from 'enzyme';
 import LastVideosByProgramContainer, {
     pageSize
-} from '../../../../../../../components/private/OTT/programa/lastVideosByProgram';
+} from '../../../../../../components/private/OTT/programa/lastVideosByProgram';
 import get from 'lodash.get';
-import testHelper from '../../../../../../utils/testHelper';
-import jsonConNext from '../../../../../../../__mocks__/data/videos/videosConNext.json';
-import jsonSinNext from '../../../../../../../__mocks__/data/videos/videosSinNext.json';
-import jsonSinVideos from '../../../../../../../__mocks__/data/videos/sinVideosEncontrados.json';
+import testHelper from '../../../../../utils/testHelper';
+import jsonConNext from '../../../../../../__mocks__/data/videos/videosConNext.json';
+import jsonSinNext from '../../../../../../__mocks__/data/videos/videosSinNext.json';
+import jsonSinVideos from '../../../../../../__mocks__/data/videos/sinVideosEncontrados.json';
 
 describe('private - OTT - feature - LastVideosByPrograms con next', () => {
     let container = mount(
