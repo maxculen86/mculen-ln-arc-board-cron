@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousell from '../../../common/containers/carousell';
+import Carousell from '../../../common/carousell';
 import CurrentProgramItem from './currentProgramsItem';
 
 export default function CurrentPrograms({ items }) {

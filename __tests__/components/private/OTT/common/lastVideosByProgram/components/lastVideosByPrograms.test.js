@@ -4,14 +4,14 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../../components/private/OTT/programa/lastVideosByProgram/containers/showMoreVideos',
+    '../../../../../../../components/private/OTT/programa/lastVideosByProgram/showMoreVideos',
     () => 'mock-componentButton'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../../../utils/testHelper';
-import LastVideosByProgramContainer from '../../../../../../../components/private/OTT/programa/lastVideosByProgram/components/lastVideosByProgram';
+import LastVideosByProgramContainer from '../../../../../../../components/private/OTT/programa/lastVideosByProgram/component';
 import get from 'lodash.get';
 
 describe('private - OTT - feature - LastVideosByPrograms component', () => {

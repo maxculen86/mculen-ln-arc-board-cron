@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderItem from './headerItem';
-import HamburgerButton from '../../../common/containers/hamburgerButton';
-import Nav from '../../../common/containers/nav';
+import HamburgerButton from '../../../common/hamburgerButton';
+import Nav from '../../../common/nav';
 
 export default function HeaderComponent({ items, data }) {
     const headerItems = items.map((item, index) => {

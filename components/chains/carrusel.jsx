@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import Carousell from '../private/common/containers/carousell';
-import Title from '../private/common/containers/title';
+import Carousell from '../private/common/carousell';
+import Title from '../private/common/title';
 import PropTypes from 'fusion:prop-types';
 export default class Carrusel extends PureComponent {
     render() {

@@ -1,6 +1,6 @@
 //retorno un elemento que luego busco en el container
 jest.mock(
-    '../../../../../components/private/common/components/twitterButton',
+    '../../../../../components/private/common/twitterButton/component',
     () => 'mock-component'
 );
 
@@ -8,7 +8,7 @@ jest.mock(
 import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../utils/testHelper';
-import TwitterButtonContainer from '../../../../../components/private/common/containers/twitterButton';
+import TwitterButtonContainer from '../../../../../components/private/common/twitterButton/container';
 
 describe('private - common - containers - twitterButton', () => {
     const child = '<hijo>un texto como children</hijo>';

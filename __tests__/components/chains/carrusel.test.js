@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../components/private/common/containers/carousell',
+    '../../../components/private/common/carousell',
     () => 'mock-component'
 );
 

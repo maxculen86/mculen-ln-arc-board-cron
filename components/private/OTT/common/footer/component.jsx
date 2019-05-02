@@ -1,10 +1,10 @@
 import React from 'react';
-import IosButton from '../../../common/containers/iosButton';
-import AndroidButton from '../../../common/containers/androidButton';
-import FacebookButton from '../../../common/containers/facebookButton';
-import TwitterButton from '../../../common/containers/twitterButton';
-import InstagramButton from '../../../common/containers/instagramButton';
-import RssButton from '../../../common/containers/rssButton';
+import IosButton from '../../../common/iosButton';
+import AndroidButton from '../../../common/androidButton';
+import FacebookButton from '../../../common/facebookButton';
+import TwitterButton from '../../../common/twitterButton';
+import InstagramButton from '../../../common/instagramButton';
+import RssButton from '../../../common/rssButton';
 
 const LINK_LA_NACION = 'https://www.lanacion.com.ar';
 

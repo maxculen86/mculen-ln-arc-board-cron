@@ -1,7 +1,7 @@
 import Consumer from 'fusion:consumer';
 
 jest.mock(
-    '../../../../../../../components/private/OTT/programa/lastVideosByProgram/components/lastVideosByProgram',
+    '../../../../../../../components/private/OTT/programa/lastVideosByProgram/component',
     () => 'mock-component'
 );
 
@@ -9,7 +9,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import LastVideosByProgramContainer, {
     pageSize
-} from '../../../../../../../components/private/OTT/programa/lastVideosByProgram/containers/lastVideosByProgram';
+} from '../../../../../../../components/private/OTT/programa/lastVideosByProgram';
 import get from 'lodash.get';
 import testHelper from '../../../../../../utils/testHelper';
 import jsonConNext from '../../../../../../../__mocks__/data/videos/videosConNext.json';

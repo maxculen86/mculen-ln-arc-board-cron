@@ -1,6 +1,6 @@
 //retorno un elemento que luego busco en el container
 jest.mock(
-    '../../../../../components/private/common/components/instagramButton',
+    '../../../../../components/private/common/instagramButton/component',
     () => 'mock-component'
 );
 
@@ -8,7 +8,7 @@ jest.mock(
 import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../utils/testHelper';
-import InstagramButtonContainer from '../../../../../components/private/common/containers/instagramButton';
+import InstagramButtonContainer from '../../../../../components/private/common/instagramButton/container';
 
 describe('private - common - containers - instagramButton', () => {
     const child = '<hijo>un texto como children</hijo>';

@@ -1,6 +1,6 @@
 //retorno un elemento que luego busco en el container
 jest.mock(
-    '../../../../../components/private/common/components/nav',
+    '../../../../../components/private/common/nav/component',
     () => 'mock-component'
 );
 
@@ -8,7 +8,7 @@ jest.mock(
 import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../utils/testHelper';
-import NavContainer from '../../../../../components/private/common/containers/nav';
+import NavContainer from '../../../../../components/private/common/nav/container';
 
 describe('private - common - containers - nav', () => {
     const child = 'un texto como children';

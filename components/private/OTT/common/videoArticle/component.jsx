@@ -1,8 +1,8 @@
 import React from 'react';
-import LinkedTitle from '../../../common/containers/linkedTitle';
-import Picture from '../../../common/containers/picture';
-import PictureSource from '../../../common/containers/pictureSource';
-import Article from '../../../common/containers/article';
+import LinkedTitle from '../../../common/linkedTitle/container';
+import Picture from '../../../common/picture/container';
+import PictureSource from '../../../common/pictureSource/container';
+import Article from '../../../common/article/container';
 
 export default function VideoArticle({ href, description, imgSrc }) {
     return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import HeaderContainer from '../../private/OTT/common/header/container';
+import HeaderContainer from '../../private/OTT/common/header';
 
 import {
     buildHeaderCustomFields,

@@ -30,4 +30,4 @@ export default getLastVideosBySection(
     true,
     PAGE_SIZE
 );
-export const pageSize = PAGE_SIZE;
+export const PageSize = PAGE_SIZE;

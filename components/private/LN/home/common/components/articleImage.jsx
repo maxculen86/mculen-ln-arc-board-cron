@@ -1,6 +1,6 @@
 import React from 'react';
-import Picture from '../../../../common/containers/picture';
-import Source from '../../../../common/containers/pictureSource';
+import Picture from '../../../../common/picture';
+import Source from '../../../../common/pictureSource';
 
 export default function ArticleImage(props) {
     const desktop = props.imgUrls.find(m => m.name === 'desktop').url;

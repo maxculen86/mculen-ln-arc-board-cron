@@ -2,7 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../utils/testHelper';
-import NavComponent from '../../../../../components/private/common/components/nav';
+import NavComponent from '../../../../../components/private/common/nav/component';
 
 describe('private - common - component - nav', () => {
     const child = 'un texto como children';
