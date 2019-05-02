@@ -2,6 +2,13 @@
 
 import React from 'react';
 
+const getBodyClass = props => {
+    const { className = {} } = props;
+    if (className.body) return { className: className.body };
+
+    return undefined;
+};
+
 export default ({
     children,
     contextPath,
@@ -9,11 +16,15 @@ export default ({
     CssLinks,
     Fusion,
     Libs,
-    MetaTags
+    MetaTags,
+    metaValue,
+    siteProperties
 }) => (
     <html>
         <head>
-            <title>Fusion Article</title>
+            <title>
+                {metaValue('title') || siteProperties.title || 'LA NACION'}
+            </title>
             <MetaTags />
             <Libs />
             <CssLinks />
@@ -27,7 +38,7 @@ export default ({
                 href={deployment(`${contextPath}/resources/favicon.ico`)}
             />
         </head>
-        <body>
+        <body {...getBodyClass(siteProperties)}>
             <div id="fusion-app">{children}</div>
             <Fusion />
         </body>
