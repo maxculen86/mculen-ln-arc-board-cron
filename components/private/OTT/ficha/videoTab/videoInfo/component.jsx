@@ -1,6 +1,6 @@
 import React from 'react';
-import FacebookButton from '../../../../common/containers/facebookButton';
-import TwitterButton from '../../../../common/containers/twitterButton';
+import FacebookButton from '../../../../common/facebookButton';
+import TwitterButton from '../../../../common/twitterButton';
 
 export default function videoInfo({
     title,

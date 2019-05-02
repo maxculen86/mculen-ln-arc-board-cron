@@ -1,8 +1,8 @@
 import React from 'react';
-import Carousell from '../../../common/containers/carousell';
+import Carousell from '../../../common/carousell';
 import LastVideoItem from './lastVideoItem';
 import get from 'lodash.get';
-import Title from '../../../common/containers/title';
+import Title from '../../../common/title';
 
 export default function LastVideos({ videos }) {
     const currentItem = videos.map((video, index) => {

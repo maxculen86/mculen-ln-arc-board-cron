@@ -1,8 +1,8 @@
 import React from 'react';
-import LinkedTitle from '../../../common/containers/linkedTitle';
-import Picture from '../../../common/containers/picture';
-import PictureSource from '../../../common/containers/pictureSource';
-import Article from '../../../common/containers/article';
+import LinkedTitle from '../../../common/linkedTitle';
+import Picture from '../../../common/picture';
+import PictureSource from '../../../common/pictureSource';
+import Article from '../../../common/article';
 
 export default function Program({ href, description, imgSrc }) {
     return (
