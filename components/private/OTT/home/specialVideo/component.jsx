@@ -8,7 +8,6 @@ export default function SpecialVideo({ videos }) {
         const imgSrc = get(video, 'promo_items.basic.url', null);
         const id = get(video, '_id', null);
 
-        console.log(title, imgSrc, id);
         return (
             <VideoArticle
                 description={title}
@@ -18,7 +17,6 @@ export default function SpecialVideo({ videos }) {
             />
         );
     });
-    console.log('specialVideos', specialVideos);
     return (
         <section className={'especiales'}>
             <h2 className={'section-title'}>LN+ Especiales</h2>

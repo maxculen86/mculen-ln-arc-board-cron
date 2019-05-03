@@ -5,7 +5,6 @@ const resolve = key => {
         throw new Error(
             'Debe definir website y query para realizar la consulta'
         );
-    console.log('ids', ids);
     return `/content/v4/ids?website=${website}&ids=${ids.join(
         ','
     )}&published=${published}`;

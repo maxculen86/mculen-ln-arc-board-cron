@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousell from '../../../common/carousell';
-import LastVideoItem from './lastVideoItem';
+import VideoArticle from '../../common/videoArticle';
 import get from 'lodash.get';
 import Title from '../../../common/title';
 
@@ -9,13 +9,14 @@ export default function LastVideos({ videos }) {
         const title = get(video, 'headlines.basic', null);
         const imgSrc = get(video, 'promo_items.basic.url', null);
         const videoId = get(video, '_id', null);
+        const publishDate = get(video, 'first_publish_date', null);
 
         return (
-            <LastVideoItem
-                title={title}
-                key={index}
+            <VideoArticle
+                description={title}
                 imgSrc={imgSrc}
                 id={videoId}
+                date={publishDate}
             />
         );
     });

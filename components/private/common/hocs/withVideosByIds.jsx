@@ -26,7 +26,6 @@ function withVideosByIds(WrappedComponent, filter, website, published) {
                     },
                     filter
                 });
-                console.log('CACHED', cached);
                 const cachedVideos = get(cached, 'content_elements', null);
 
                 if (cachedVideos) this.state.videos = cachedVideos;

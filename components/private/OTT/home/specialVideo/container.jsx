@@ -8,7 +8,6 @@ import withVideosByIds from '../../../common/hocs/withVideosByIds';
 class SpecialVideo extends Component {
     render() {
         if (!this.props.videos) return null;
-        console.log('VIDEOS', this.props.videos);
         return <SpecialVideoComponent videos={this.props.videos} />;
     }
 }

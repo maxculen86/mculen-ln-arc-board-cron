@@ -1,11 +1,9 @@
 import global from '../global.json';
 const site = {
-    title: 'LN+ Mirá todos los programas y videos online',
+    title: 'LA NACION',
     className: {
-        body: 'ott'
+        body: 'ln'
     },
-    videoBaseUrl: '/program/video/',
-    getVideoUrl: id => `/program/video/${id}/`,
     organizationId: 'lanacionar',
     videoPlayer: {
         apiEnv: 'sandbox'
