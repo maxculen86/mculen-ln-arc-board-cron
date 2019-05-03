@@ -11,10 +11,7 @@ class UltimosVideosDeProgramas extends Component {
             'globalContent.taxonomy.sections[0].name',
             null
         );
-        console.log(
-            'this.props.customFields.sectionId',
-            this.props.customFields.sectionId
-        );
+
         if (sectionId && !this.props.customFields.sectionId)
             return <LastVideosByProgram sectionId={sectionId} />;
         else

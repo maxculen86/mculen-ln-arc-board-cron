@@ -15,9 +15,7 @@ import LastVideosByProgramContainer from '../../../../../../components/private/O
 import get from 'lodash.get';
 
 describe('private - OTT - feature - LastVideosByPrograms component', () => {
-    function nextPage() {
-        console.log('sarasa');
-    }
+    function nextPage() {}
 
     let videosArray = [
         {
@@ -150,9 +148,7 @@ describe('private - OTT - feature - LastVideosByPrograms component', () => {
 });
 
 describe('private - OTT - feature - LastVideosByPrograms component', () => {
-    function nextPage() {
-        console.log('sarasa');
-    }
+    function nextPage() {}
 
     let videosArray = [
         {

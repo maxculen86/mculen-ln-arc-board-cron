@@ -8,6 +8,7 @@ export default class VideoArticle extends Component {
     render() {
         const siteVars = getProperties(this.props.arcSite);
         const href = siteVars.getVideoUrl(this.props.id);
+
         return (
             <VideoArticleComponent
                 description={this.props.description}

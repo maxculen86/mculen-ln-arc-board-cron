@@ -6,7 +6,11 @@ const site = {
     },
     videoBaseUrl: '/program/video/',
     programBaseUrl: '/program/',
-    getVideoUrl: id => `/program/video/${id}/`
+    getVideoUrl: id => `/program/video/${id}/`,
+    organizationId: 'lanacionar',
+    videoPlayer: {
+        apiEnv: 'sandbox'
+    }
 };
 
 export default { ...global, ...site };
