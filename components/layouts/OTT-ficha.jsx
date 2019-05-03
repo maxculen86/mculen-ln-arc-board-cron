@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Footer from '../private/OTT/common/footer';
+import LastVideos from '../private/OTT/common/lastVideos';
 import '../../resources/OTT/styles-grid/ott/ott.css';
 
 const layoutItems = ['Header', 'Bloque-1', 'Bloque-2'];
@@ -13,6 +14,7 @@ class OTTFichaLayout extends Component {
                         {this.props.children[0]}
                         <main className={'main'}>
                             {this.props.children[1]}
+                            <LastVideos />
                             {this.props.children[2]}
                         </main>
                         <Footer />
