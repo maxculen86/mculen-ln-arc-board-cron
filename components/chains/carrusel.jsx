@@ -6,10 +6,12 @@ export default class Carrusel extends PureComponent {
     render() {
         return (
             <section>
-                <Title
-                    className={'section-title'}
-                    title={this.props.customFields.title}
-                />
+                {this.props.customFields.title && (
+                    <Title
+                        className={'section-title'}
+                        title={this.props.customFields.title}
+                    />
+                )}
                 <Carousell>{this.props.children}</Carousell>
             </section>
         );

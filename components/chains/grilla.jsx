@@ -6,10 +6,12 @@ export default class Grilla extends Component {
     render() {
         return (
             <section className={'slider'}>
-                <Title
-                    className={'section-title'}
-                    title={this.props.customFields.title}
-                />
+                {this.props.customFields.title && (
+                    <Title
+                        className={'section-title'}
+                        title={this.props.customFields.title}
+                    />
+                )}
                 {this.props.children}
             </section>
         );
