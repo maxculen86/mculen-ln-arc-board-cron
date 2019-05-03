@@ -3,29 +3,14 @@ import SpecialVideoComponent from './component';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 import filter from '../../../../../content/filters/OTT/homeVideoItem';
+import withVideosByIds from '../../../common/hocs/withVideosByIds';
 
 class SpecialVideo extends Component {
-    constructor(props) {
-        super(props);
-
-        const { cached, fetched } = this.getContent({
-            sourceName: 'ottVideosSource',
-            query: {
-                ids: this.props.videoIds
-            },
-            filter
-        });
-        this.state = { videos: get(cached, 'content_elements', null) };
-        fetched.then(response => {
-            const fetchedVideos = get(response, 'content_elements', null);
-            if (fetchedVideos) this.setState({ videos: fetchedVideos });
-        });
-    }
-
     render() {
-        if (!this.state.videos) return <></>;
-        return <SpecialVideoComponent videos={this.state.videos} />;
+        if (!this.props.videos) return null;
+        console.log('VIDEOS', this.props.videos);
+        return <SpecialVideoComponent videos={this.props.videos} />;
     }
 }
 
-export default Consumer(SpecialVideo);
+export default withVideosByIds(SpecialVideo, null, 'ott', true);

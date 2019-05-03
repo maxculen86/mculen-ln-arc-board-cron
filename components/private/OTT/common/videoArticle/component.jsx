@@ -3,8 +3,9 @@ import LinkedTitle from '../../../common/linkedTitle/container';
 import Picture from '../../../common/picture/container';
 import PictureSource from '../../../common/pictureSource/container';
 import Article from '../../../common/article/container';
+import dateHelper from '../utils/dateHelper';
 
-export default function VideoArticle({ href, description, imgSrc }) {
+export default function VideoArticle({ href, description, imgSrc, date }) {
     return (
         <Article>
             <a className="figure" href={href}>
@@ -19,7 +20,11 @@ export default function VideoArticle({ href, description, imgSrc }) {
                 </Picture>
             </a>
             <LinkedTitle href={href} title={description} />
-            {/* <span class="card-description">11 DIC 2018</span> */}
+            {date && (
+                <span class="card-description">
+                    {dateHelper.getVideoDateFormat(date)}
+                </span>
+            )}
         </Article>
     );
 }

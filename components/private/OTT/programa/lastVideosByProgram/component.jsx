@@ -1,8 +1,8 @@
 import React from 'react';
-import LastVideoItem from '../../common/lastVideos/lastVideoItem/component';
 import ShowMoreVideos from './showMoreVideos';
 import get from 'lodash.get';
 import Title from '../../../common/title';
+import VideoArticle from '../../common/videoArticle';
 
 export default function LastVideosByProgams({
     videos,
@@ -15,7 +15,12 @@ export default function LastVideosByProgams({
         const id = get(video, '_id', null);
 
         return (
-            <LastVideoItem title={title} key={index} imgSrc={imgSrc} id={id} />
+            <VideoArticle
+                description={title}
+                key={index}
+                imgSrc={imgSrc}
+                id={id}
+            />
         );
     });
     return (

@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import VideoArticleComponent from './component';
+import getProperties from 'fusion:properties';
+import Consumer from 'fusion:consumer';
+
+@Consumer
 export default class VideoArticle extends Component {
     render() {
-        console.log(this.props);
-        const href = `/program/video/${this.props.id}/`;
+        const siteVars = getProperties(this.props.arcSite);
+        const href = siteVars.getVideoUrl(this.props.id);
         return (
             <VideoArticleComponent
                 description={this.props.description}
                 imgSrc={this.props.imgSrc}
                 href={href}
+                date={this.props.date}
             />
         );
     }
