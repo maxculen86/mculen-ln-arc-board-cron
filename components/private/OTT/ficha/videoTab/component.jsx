@@ -3,20 +3,15 @@ import Video from './video';
 import VideoInfo from './videoInfo';
 
 export default function videoTab({
-    videoSrc,
+    videoId,
     title,
     date,
     categories,
-    shareConfig,
-    videoHtml
+    shareConfig
 }) {
     return (
         <>
-            <section
-                className={'apertura'}
-                dangerouslySetInnerHTML={{ __html: videoHtml }}
-            />
-            {/* <Video src={videoSrc} /> */}
+            <Video videoId={videoId} />
             <VideoInfo
                 title={title}
                 date={date}

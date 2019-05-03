@@ -6,9 +6,7 @@ import get from 'lodash.get';
 class VideoTab extends PureComponent {
     constructor(props) {
         super(props);
-        console.log('PROPS', this.props);
-        this.videoHtml = get(this.props.globalContent, 'embed_html', '');
-        this.videoSrc = ''; //get(this.props.globalContent, 'embed_html', '')
+        this.videoId = get(this.props.globalContent, '_id', null);
         this.title = get(this.props.globalContent, 'headlines.basic', null);
         this.description = get(
             this.props.globalContent,
@@ -32,6 +30,7 @@ class VideoTab extends PureComponent {
         return (
             <>
                 <VideoTabComponent
+                    videoId={this.videoId}
                     videoHtml={this.videoHtml}
                     title={this.title}
                     videoSrc={this.videoSrc}

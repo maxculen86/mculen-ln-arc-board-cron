@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import VideoArticleComponent from './component';
 export default class VideoArticle extends Component {
     render() {
-        console.log(this.props);
         const href = `/program/video/${this.props.id}/`;
         return (
             <VideoArticleComponent

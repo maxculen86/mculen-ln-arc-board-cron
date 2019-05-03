@@ -12,9 +12,9 @@ export default function videoInfo({
     return (
         <section className={'info-programa'}>
             <section className={'meta-programa'}>
-                <span class="fecha">{date}</span>
-                <h3 class="titulo">{title}</h3>
-                <div class="social">
+                <span className={'fecha'}>{date}</span>
+                <h3 className={'titulo'}>{title}</h3>
+                <div className={'social'}>
                     <TwitterButton href={twitterHref} />
                     <FacebookButton href={facebookHref} />
                 </div>
