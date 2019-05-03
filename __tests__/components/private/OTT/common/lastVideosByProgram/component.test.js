@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../../../../components/private/OTT/common/lastVideos/lastVideoItem/component',
+    '../../../../../../components/private/OTT/common/videoArticle',
     () => 'mock-componentItem'
 );
 
@@ -105,7 +105,7 @@ describe('private - OTT - feature - LastVideosByPrograms component', () => {
         );
         testHelper.expectProp(
             component.at(0),
-            'title',
+            'description',
             videosArray[0].headlines.basic
         );
     });
@@ -118,7 +118,7 @@ describe('private - OTT - feature - LastVideosByPrograms component', () => {
         );
         testHelper.expectProp(
             component.at(1),
-            'title',
+            'description',
             videosArray[1].headlines.basic
         );
     });
@@ -131,7 +131,7 @@ describe('private - OTT - feature - LastVideosByPrograms component', () => {
         );
         testHelper.expectProp(
             component.at(2),
-            'title',
+            'description',
             videosArray[2].headlines.basic
         );
     });
