@@ -21,7 +21,8 @@ function getMonthAsText(date) {
     //var local = event.toLocaleDateString('es-AR', options)
 }
 
-function getVideoDateFormat(date) {
+function getVideoDateFormat(dateString) {
+    const date = new Date(dateString);
     return `${date.getDay()} ${months[date.getMonth()]} ${date.getYear() +
         1900}`;
 }

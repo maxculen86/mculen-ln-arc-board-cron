@@ -11,6 +11,7 @@ export default `
             }
         }
         _id
+        first_publish_date
     }
     next
 }

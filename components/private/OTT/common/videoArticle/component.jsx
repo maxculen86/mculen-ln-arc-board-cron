@@ -21,7 +21,7 @@ export default function VideoArticle({ href, description, imgSrc, date }) {
             </a>
             <LinkedTitle href={href} title={description} />
             {date && (
-                <span class="card-description">
+                <span className={'card-description'}>
                     {dateHelper.getVideoDateFormat(date)}
                 </span>
             )}

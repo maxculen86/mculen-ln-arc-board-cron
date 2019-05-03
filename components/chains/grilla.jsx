@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
+import Title from '../private/common/title';
+import PropTypes from 'fusion:prop-types';
 
-export default class grilla extends Component {
+export default class Grilla extends Component {
     render() {
-        return <section>{this.props.children}</section>;
+        return (
+            <section className={'slider'}>
+                <Title
+                    className={'section-title'}
+                    title={this.props.customFields.title}
+                />
+                {this.props.children}
+            </section>
+        );
     }
 }
+
+Grilla.propTypes = {
+    customFields: PropTypes.shape({
+        title: PropTypes.string.tag({ label: 'Titulo' })
+    })
+};
