@@ -5,7 +5,7 @@
         "is_default_website": true
     },
     {
-        "_id": "OTT",
+        "_id": "ott",
         "display_name": "OTT",
         "is_default_website": false
     },
