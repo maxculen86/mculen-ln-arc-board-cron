@@ -1,14 +1,19 @@
 import React from 'react';
-import LinkedTitle from '../../../common/linkedTitle';
-import Picture from '../../../common/picture';
 import PictureSource from '../../../common/pictureSource';
 import Article from '../../../common/article';
 
 export default function Program({ href, description, imgSrc }) {
+    const alt = `Ir a ${description}`;
     return (
-        <Article>
-            <a className="figure" href={href}>
-                <Picture className="content-picture">
+        <article className={'article'}>
+            <a
+                className="figure"
+                href={href}
+                alt={alt}
+                data-event="LinkClick"
+                data-section="LinksOTT"
+            >
+                <picture className="content-picture">
                     <PictureSource srcSet={imgSrc} />
                     <img
                         className="lazy loaded"
@@ -16,9 +21,18 @@ export default function Program({ href, description, imgSrc }) {
                         data-src=""
                         data-was-processed="true"
                     />
-                </Picture>
+                </picture>
             </a>
-            <LinkedTitle href={href} title={description} />
-        </Article>
+            <h2 className={'title'}>
+                <a
+                    href={href}
+                    alt={alt}
+                    data-event="LinkClick"
+                    data-section="LinksOTT"
+                >
+                    {description}
+                </a>
+            </h2>
+        </article>
     );
 }

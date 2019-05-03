@@ -6,7 +6,8 @@ export default function HeaderItem(props) {
             href={props.href}
             className="header__nav__link"
             alt={props.alt}
-            {...props.data}
+            data-event={'LinkClick'}
+            data-section={'HeaderOTT'}
         >
             {props.description}
         </a>

@@ -1,10 +1,12 @@
 'use strict';
 
 import React from 'react';
-export default ({ href, title }) => {
+export default ({ href, title, alt }) => {
     return (
         <h2 className={'title'}>
-            <a href={href}>{title}</a>
+            <a href={href} alt={alt}>
+                {title}
+            </a>
         </h2>
     );
 };
