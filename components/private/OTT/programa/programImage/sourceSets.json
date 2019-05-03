@@ -1,0 +1,67 @@
+[
+    {
+        "name": "XXL",
+        "values": [
+            {
+                "name": "desktop",
+                "value": 866
+            },
+            {
+                "name": "mobile",
+                "value": 425
+            }
+        ]
+    },
+    {
+        "name": "XL",
+        "values": [
+            {
+                "name": "desktop",
+                "value": 620
+            },
+            {
+                "name": "mobile",
+                "value": 425
+            }
+        ]
+    },
+    {
+        "name": "L",
+        "values": [
+            {
+                "name": "desktop",
+                "value": 460
+            },
+            {
+                "name": "mobile",
+                "value": 425
+            }
+        ]
+    },
+    {
+        "name": "M",
+        "values": [
+            {
+                "name": "desktop",
+                "value": 320
+            },
+            {
+                "name": "mobile",
+                "value": 425
+            }
+        ]
+    },
+    {
+        "name": "S",
+        "values": [
+            {
+                "name": "desktop",
+                "value": 230
+            },
+            {
+                "name": "mobile",
+                "value": 210
+            }
+        ]
+    }
+]
