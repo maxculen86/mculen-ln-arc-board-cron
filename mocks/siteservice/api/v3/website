@@ -1,6 +1,6 @@
 [
     {
-        "_id": "LA NACION",
+        "_id": "la-nacion-ar",
         "display_name": "LA NACION",
         "is_default_website": true
     },
@@ -10,7 +10,7 @@
         "is_default_website": false
     },
     {
-        "_id": "Club LA NACION",
+        "_id": "club-la-nacion",
         "display_name": "Club LA NACION",
         "is_default_website": false
     }
