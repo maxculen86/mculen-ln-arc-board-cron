@@ -1,3 +1,4 @@
+import Consumer from 'fusion:consumer';
 import React from 'react';
 import { mount } from 'enzyme';
 import Header from '../../../../components/features/OTT/header';

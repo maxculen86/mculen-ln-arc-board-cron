@@ -1,3 +1,4 @@
+import Consumer from 'fusion:consumer';
 //retorno un elemento que luego busco en el container
 jest.mock(
     '../../../../../../components/private/OTT/common/header/headerItem',
