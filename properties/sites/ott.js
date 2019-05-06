@@ -5,11 +5,7 @@ const site = {
         body: 'ott'
     },
     videoBaseUrl: '/program/video/',
-    getVideoUrl: id => `/program/video/${id}/`,
-    organizationId: 'lanacionar',
-    videoPlayer: {
-        apiEnv: 'sandbox'
-    }
+    getVideoUrl: id => `/program/video/${id}/`
 };
 
 export default { ...global, ...site };

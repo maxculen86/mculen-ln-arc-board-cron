@@ -3,10 +3,6 @@ const site = {
     title: 'LA NACION',
     className: {
         body: 'ln'
-    },
-    organizationId: 'lanacionar',
-    videoPlayer: {
-        apiEnv: 'sandbox'
     }
 };
 
