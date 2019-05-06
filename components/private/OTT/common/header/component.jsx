@@ -2,14 +2,15 @@ import React from 'react';
 import HeaderItem from './headerItem';
 import HamburgerButton from '../../../common/hamburgerButton';
 import Nav from '../../../common/nav';
+import Consumer from 'fusion:consumer';
 
-export default function HeaderComponent({ items, data }) {
-    const headerItems = items.map((item, index) => {
+export default Consumer(function HeaderComponent(props) {
+    const headerItems = props.items.map((item, index) => {
         return (
             <HeaderItem
                 description={item.description}
                 href={item.href}
-                data={data}
+                data={props.data}
                 alt={item.description}
                 key={index}
             />
@@ -18,12 +19,17 @@ export default function HeaderComponent({ items, data }) {
     return (
         <header className="header">
             <a
-                className="header__logo"
-                href="/"
-                alt="lnmas.com.ar"
-                title="lnmas.com.ar"
+                className={'header__logo'}
+                href={'/'}
+                alt={'lnmas.com.ar'}
+                title={'lnmas.com.ar'}
             >
-                <img className={'a'} src={'logo'} />
+                <img
+                    className={'a'}
+                    src={`${
+                        props.contextPath
+                    }/resources/OTT/styles-grid/img/logo-lnmas.png`}
+                />
             </a>
             <HamburgerButton className={'header__hamburguer'}>
                 ☰
@@ -31,4 +37,4 @@ export default function HeaderComponent({ items, data }) {
             <Nav className="header__nav">{headerItems}</Nav>
         </header>
     );
-}
+});
