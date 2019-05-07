@@ -12,7 +12,7 @@ class Program extends Component {
             <ProgramContainer
                 description={this.props.customFields.description}
                 href={this.props.customFields.href}
-                imgSrc={this.props.customFields.imgSrc}
+                imageId={this.props.customFields.imgId}
             />
         );
     }
@@ -22,7 +22,7 @@ Program.propTypes = {
     customFields: PropTypes.shape({
         description: PropTypes.string,
         href: PropTypes.string,
-        imgSrc: PropTypes.string
+        imgId: PropTypes.string.tag({ label: 'Id de Imagen' })
     })
 };
 export default Program;

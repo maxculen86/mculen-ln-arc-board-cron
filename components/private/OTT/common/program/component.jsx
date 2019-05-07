@@ -1,9 +1,9 @@
 import React from 'react';
 import PictureSource from '../../../common/pictureSource';
-import Article from '../../../common/article';
-
-export default function Program({ href, description, imgSrc }) {
+import get from 'lodash.get';
+export default function Program({ href, description, image }) {
     const alt = `Ir a ${description}`;
+    const imageUrl = get(image, 'url', null);
     return (
         <article className={'article'}>
             <a
@@ -13,15 +13,17 @@ export default function Program({ href, description, imgSrc }) {
                 data-event="LinkClick"
                 data-section="LinksOTT"
             >
-                <picture className="content-picture">
-                    <PictureSource srcSet={imgSrc} />
-                    <img
-                        className="lazy loaded"
-                        alt="imagen-destacada"
-                        data-src=""
-                        data-was-processed="true"
-                    />
-                </picture>
+                {
+                    <picture className="content-picture">
+                        <PictureSource srcSet={imageUrl} />
+                        <img
+                            className="lazy loaded"
+                            alt="imagen-destacada"
+                            data-src=""
+                            data-was-processed="true"
+                        />
+                    </picture>
+                }
             </a>
             <h2 className={'title'}>
                 <a

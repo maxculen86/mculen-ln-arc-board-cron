@@ -1,7 +1,6 @@
 import React from 'react';
 import Picture from '../../../common/picture';
 export default function component({ imgSrc }) {
-    console.log('imgSrc', imgSrc);
     return (
         <section className={null}>
             <picture className={'content-picture'}>

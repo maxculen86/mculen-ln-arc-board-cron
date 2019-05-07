@@ -13,6 +13,7 @@ export default function LastVideos({ videos }) {
 
         return (
             <VideoArticle
+                key={index}
                 description={title}
                 imgSrc={imgSrc}
                 id={videoId}
