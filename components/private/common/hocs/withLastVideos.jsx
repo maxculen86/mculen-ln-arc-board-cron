@@ -8,7 +8,7 @@ import {
     lastVideosQuery
 } from '../../../../content/queries/videosSearchSource';
 
-function getLastVideosBySection(WrappedComponent, filter, website, published) {
+function withLastVideos(WrappedComponent, filter, website, published) {
     return Consumer(
         class extends PureComponent {
             state = {
@@ -59,4 +59,4 @@ function getLastVideosBySection(WrappedComponent, filter, website, published) {
     );
 }
 
-export default getLastVideosBySection;
+export default withLastVideos;

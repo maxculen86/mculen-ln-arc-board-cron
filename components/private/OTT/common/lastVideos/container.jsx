@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LastVideosComponent from './component';
 import get from 'lodash.get';
 import filter from '../../../../../content/filters/OTT/homeVideoItem';
-import getLastVideosHOC from '../../../common/hocs/getLastVideos';
+import withLastVideosHOC from '../../../common/hocs/withLastVideos';
 
 class LastVideos extends Component {
     constructor(props) {
@@ -15,4 +15,4 @@ class LastVideos extends Component {
     }
 }
 
-export default getLastVideosHOC(LastVideos, filter, 'ott', true);
+export default withLastVideosHOC(LastVideos, filter, 'ott', true);

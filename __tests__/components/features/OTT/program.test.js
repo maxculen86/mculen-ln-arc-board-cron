@@ -11,7 +11,7 @@ describe('features - OTT - program', () => {
     const cf = {
         description: 'description text 1',
         href: 'href1',
-        imgSrc: 'imgSrc1'
+        imgId: 'abc1234'
     };
     const component = mount(<Program customFields={cf} />);
     const programContainer = component.find('mock-component');
@@ -22,6 +22,6 @@ describe('features - OTT - program', () => {
     it('Testeo que pase los custom fields al program container', () => {
         testHelper.expectProp(programContainer, 'description', cf.description);
         testHelper.expectProp(programContainer, 'href', cf.href);
-        testHelper.expectProp(programContainer, 'imgSrc', cf.imgSrc);
+        testHelper.expectProp(programContainer, 'imageId', cf.imgId);
     });
 });

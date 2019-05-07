@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import getLastVideosBySection from '../../../common/hocs/getLastVideosBySection';
+import withLastVideosBySection from '../../../common/hocs/withLastVideosBySection';
 import LastVideosByProgramComponent from './component';
 import get from 'lodash.get';
 import filter from '../../../../../content/filters/OTT/homeVideoItem';
@@ -23,7 +23,7 @@ class LastVideosByProgram extends PureComponent {
     }
 }
 
-export default getLastVideosBySection(
+export default withLastVideosBySection(
     LastVideosByProgram,
     filter,
     'ott',

@@ -8,7 +8,7 @@ import {
     lastVideosBySectionQuery
 } from '../../../../content/queries/videosSearchSource';
 
-function getLastVideosBySection(
+function withLastVideosBySection(
     WrappedComponent,
     filter,
     website,
@@ -99,4 +99,4 @@ function getLastVideosBySection(
     );
 }
 
-export default getLastVideosBySection;
+export default withLastVideosBySection;
