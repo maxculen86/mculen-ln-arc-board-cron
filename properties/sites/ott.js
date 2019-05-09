@@ -1,4 +1,3 @@
-import global from '../global.json';
 const site = {
     title: 'LN+ Mirá todos los programas y videos online',
     className: {
@@ -8,4 +7,4 @@ const site = {
     getVideoUrl: id => `/program/video/${id}/`
 };
 
-export default { ...global, ...site };
+export default { ...site };

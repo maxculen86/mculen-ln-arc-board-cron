@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import HeaderItem from './headerItem';
 import HamburgerButton from '../../../common/hamburgerButton';
 import Nav from '../../../common/nav';
-import Consumer from 'fusion:consumer';
+import Context from 'fusion:context';
 
 class HeaderComponent extends PureComponent {
     constructor(props) {
@@ -30,9 +30,11 @@ class HeaderComponent extends PureComponent {
                 >
                     <img
                         className={'a'}
-                        src={`${
-                            this.props.contextPath
-                        }/resources/OTT/styles-grid/img/logo-lnmas.png`}
+                        src={this.props.deployment(
+                            `${
+                                this.props.contextPath
+                            }/resources/OTT/styles-grid/img/logo-lnmas.png`
+                        )}
                     />
                 </a>
                 <HamburgerButton className={'header__hamburguer'}>

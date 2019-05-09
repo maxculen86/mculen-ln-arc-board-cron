@@ -1,4 +1,3 @@
-import global from '../global.json';
 const site = {
     title: 'Club la Nacion',
     className: {
@@ -6,4 +5,4 @@ const site = {
     }
 };
 
-export default { ...global, ...site };
+export default { ...site };
