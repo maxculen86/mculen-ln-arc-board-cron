@@ -1,12 +1,21 @@
-import Consumer from 'fusion:consumer';
+// import Consumer from 'fusion:consumer';
+// import React from 'react';
+// import { mount } from 'enzyme';
+// import Header from '../../../../components/features/OTT/header';
+
+// describe('features - OTT - header', () => {
+//     const cf = { description1: 'description text 1', href1: 'href1' };
+//     const component = mount(<Header customFields={cf} />);
+//     it('Testeo que pase al componente los items recibidos por el container', () => {
+//         expect(component.prop('customFields')).toEqual(cf);
+//     });
+// });
+
 import React from 'react';
 import { mount } from 'enzyme';
-import Header from '../../../../components/features/OTT/header';
-
-describe('features - OTT - header', () => {
-    const cf = { description1: 'description text 1', href1: 'href1' };
-    const component = mount(<Header customFields={cf} />);
-    it('Testeo que pase al componente los items recibidos por el container', () => {
-        expect(component.prop('customFields')).toEqual(cf);
+import testHelper from '../../../utils/testHelper';
+describe('HACER TEST', () => {
+    it('HACER TESTS!', () => {
+        testHelper.expectSameValue(2, 2);
     });
 });
