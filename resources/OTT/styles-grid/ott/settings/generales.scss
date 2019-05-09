@@ -84,7 +84,7 @@ a {
 }
 ::selection {
   color: $blanco;
-  background: #06edf8;
+  background: $ott-header-link;
 }
 
 @media (max-width: 1200px) {

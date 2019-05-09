@@ -5,7 +5,16 @@
   background: -o-radial-gradient(center, ellipse, $negro 0, $negro 100%);
   background: radial-gradient(ellipse at center, $negro 0, $negro 100%);
 }
-
+#programa .apertura {
+  padding-bottom: 40.25%;
+}
+#programa .apertura picture img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
 #programa .mas-vistos .slider:after {
   background: #1a1a1a;
 }

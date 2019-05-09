@@ -711,14 +711,14 @@ a {
   z-index: 2; }
 
 .apertura:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 1000%;
   left: -500%;
   right: 100%;
   top: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: -1;
   background: #322d59;
   background: -webkit-radial-gradient(center, ellipse, #322d59 0, #08142d 100%);
   background: -o-radial-gradient(center, ellipse, #322d59 0, #08142d 100%);
@@ -734,9 +734,9 @@ a {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   position: relative; }
@@ -774,9 +774,15 @@ a {
   justify-content: space-between;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  width: calc((100% - 75px) / 4);
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  width: calc((100% - 1.5rem) / 4);
   position: relative;
-  margin-bottom: 2.5em; }
+  margin-bottom: 2.5em;
+  padding-right: 0.5rem; }
+
+.slider .article:last-of-type {
+  padding-right: 0; }
 
 .slider .title {
   padding: 0.5rem 0; }
@@ -854,7 +860,7 @@ section:not(.programas) > section > article > .figure:after {
 .previous {
   font-size: 0;
   line-height: 0;
-  top: calc(50% - 5rem);
+  top: 37%;
   left: 0;
   display: block;
   padding: 0;
@@ -886,7 +892,7 @@ section:not(.programas) > section > article > .figure:after {
 .next {
   font-size: 0;
   line-height: 0;
-  top: calc(50% - 5rem);
+  top: 37%;
   right: 0;
   display: block;
   padding: 0;
@@ -920,11 +926,6 @@ section:not(.programas) > section > article > .figure:after {
     font-size: 0.9em; } }
 
 @media (max-width: 1024px) {
-  .slider .article {
-    width: calc((100% - 20px) / 3);
-    -webkit-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease; }
   .slider .article:last-of-type {
     display: none; }
   .slider .title a {
@@ -932,7 +933,13 @@ section:not(.programas) > section > article > .figure:after {
   .section-title {
     font-size: 1.5em; }
   section:not(.programas) > section > article > .figure::after {
-    background-size: 5em; } }
+    background-size: 5em; }
+  #all .slider .article:last-of-type {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex; } }
 
 @media (max-width: 800px) {
   .next:after,
@@ -945,8 +952,6 @@ section:not(.programas) > section > article > .figure:after {
     line-height: 1.6em; } }
 
 @media (max-width: 420px) {
-  .slider .article {
-    width: calc((100% - 10px) / 2); }
   .slider .article:nth-of-type(3) {
     display: none; } }
 
@@ -1013,6 +1018,16 @@ button.mas:hover {
   background: -webkit-radial-gradient(center, ellipse, #000 0, #000 100%);
   background: -o-radial-gradient(center, ellipse, #000 0, #000 100%);
   background: radial-gradient(ellipse at center, #000 0, #000 100%); }
+
+#programa .apertura {
+  padding-bottom: 40.25%; }
+
+#programa .apertura picture img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2; }
 
 #programa .mas-vistos .slider:after {
   background: #1a1a1a; }
@@ -1290,3 +1305,54 @@ section:not(.programas) > section > article > .figure:after {
     width: calc((100% - 10px) / 2); }
   .box-4 .article:nth-of-type(3) {
     display: none; } }
+
+.centered-404 {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-top: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.error-header {
+  color: #06edf8;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-family: "suecaslabbold", "Georgia", "serif"; }
+
+.error-text span {
+  display: block; }
+
+.error-text span,
+.error-text a {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: #FFF;
+  font-family: "suecaslabmedium", "Georgia", "serif"; }
+
+.error-text a {
+  border-bottom: 1px solid #FFF;
+  -webkit-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease; }
+
+.error-text a:hover {
+  opacity: 0.75; }
+
+@media (max-width: 600px) {
+  .centered-404 {
+    padding-top: 0%; }
+  .error-header {
+    font-size: 1.4rem; }
+  .error-text span,
+  .error-text a {
+    font-size: 0.8rem;
+    line-height: 1.2rem; } }

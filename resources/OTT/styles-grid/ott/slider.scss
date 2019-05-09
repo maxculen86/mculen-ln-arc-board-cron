@@ -1,7 +1,7 @@
 .slider {
   @include flex;
   @include flex-row;
-  @include just-between;
+  @include just-start;
   @include wrap;
   position: relative;
 }
@@ -31,9 +31,14 @@
   @include flex-row;
   @include just-between;
   @include wrap;
-  width: calc((100% - 75px) / 4);
+  @include self-start;
+  width: calc((100% - 1.5rem) / 4);
   position: relative;
-  margin-bottom: $px-40;
+  margin-bottom: 2.5em;
+  padding-right: 0.5rem;
+}
+.slider .article:last-of-type {
+  padding-right: 0;
 }
 
 .slider .title {
@@ -113,7 +118,7 @@ section:not(.programas) > section > article > .figure:after {
 .previous {
   font-size: 0;
   line-height: 0;
-  top: calc(50% - 5rem);
+  top: 37%;
   left: 0;
   display: block;
   padding: 0;
@@ -146,7 +151,7 @@ section:not(.programas) > section > article > .figure:after {
 .next {
   font-size: 0;
   line-height: 0;
-  top: calc(50% - 5rem);
+  top: 37%;
   right: 0;
   display: block;
   padding: 0;
@@ -183,10 +188,6 @@ section:not(.programas) > section > article > .figure:after {
 }
 
 @media (max-width: 1024px) {
-  .slider .article {
-    width: calc((100% - 20px) / 3);
-    transition: all 0.2s ease;
-  }
   .slider .article:last-of-type {
     display: none;
   }
@@ -198,6 +199,9 @@ section:not(.programas) > section > article > .figure:after {
   }
   section:not(.programas) > section > article > .figure::after {
     background-size: 5em;
+  }
+  #all .slider .article:last-of-type {
+    @include flex;
   }
 }
 
@@ -216,9 +220,6 @@ section:not(.programas) > section > article > .figure:after {
 }
 
 @media (max-width: 420px) {
-  .slider .article {
-    width: calc((100% - 10px) / 2);
-  }
   .slider .article:nth-of-type(3) {
     display: none;
   }
