@@ -2,13 +2,10 @@ import React from 'react';
 import Picture from '../../../common/picture';
 export default function component({ imgSrc }) {
     return (
-        <section className={null}>
+        <section className={'apertura'}>
             <picture className={'content-picture'}>
-                <img
-                    className={'img-desktop'}
-                    src={imgSrc}
-                    style={{ width: '400px', height: '400px' }}
-                />
+                <source srcset={imgSrc} data-srcset={imgSrc} />
+                <img className={'lazy loaded'} className={'img-desktop'} />
             </picture>
         </section>
     );
