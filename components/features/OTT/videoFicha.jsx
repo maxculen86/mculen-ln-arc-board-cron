@@ -16,5 +16,6 @@ class VideoFicha extends Component {
 
 //     })
 // };
+VideoFicha.static = true;
 
 export default VideoFicha;
