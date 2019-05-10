@@ -46,4 +46,4 @@ class HeaderComponent extends PureComponent {
     }
 }
 
-export default Consumer(HeaderComponent);
+export default Context(HeaderComponent);
