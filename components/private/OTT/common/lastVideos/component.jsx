@@ -10,7 +10,8 @@ export default function LastVideos({ videos }) {
         const imgSrc = get(video, 'promo_items.basic.url', null);
         const videoId = get(video, '_id', null);
         const publishDate = get(video, 'first_publish_date', null);
-
+        const href = get(video, 'website_url', null);
+        console.log(video);
         return (
             <VideoArticle
                 key={index}
@@ -18,6 +19,7 @@ export default function LastVideos({ videos }) {
                 imgSrc={imgSrc}
                 id={videoId}
                 date={publishDate}
+                href={href}
             />
         );
     });
