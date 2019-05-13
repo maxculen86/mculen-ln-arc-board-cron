@@ -4,7 +4,8 @@ const site = {
         body: 'ott'
     },
     videoBaseUrl: '/program/video/',
-    getVideoUrl: id => `/program/video/${id}/`
+    getVideoUrl: id => `/program/video/${id}/`,
+    tagManagerId: 'GTM-GHV6'
 };
 
 export default { ...site };
