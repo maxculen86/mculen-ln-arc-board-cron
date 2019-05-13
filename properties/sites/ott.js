@@ -1,4 +1,4 @@
-const site = {
+export default {
     title: 'LN+ Mirá todos los programas y videos online',
     className: {
         body: 'ott'
@@ -7,5 +7,3 @@ const site = {
     getVideoUrl: id => `/program/video/${id}/`,
     tagManagerId: 'GTM-GHV6'
 };
-
-export default { ...site };
