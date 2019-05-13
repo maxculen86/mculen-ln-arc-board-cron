@@ -5,5 +5,6 @@ export default {
     },
     videoBaseUrl: '/program/video/',
     getVideoUrl: id => `/program/video/${id}/`,
-    tagManagerId: 'GTM-GHV6'
+    tagManagerId: 'GTM-GHV6',
+    comscoreId: '6906398'
 };

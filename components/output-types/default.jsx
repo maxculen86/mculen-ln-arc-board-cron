@@ -29,20 +29,43 @@ const tagManagerInfo = {
     },
     insertTagManagerBodyScript: siteProps => {
         const { tagManagerId } = siteProps;
-        if (tagManagerId)
-            return (
-                tagManagerId && (
-                    <noscript
-                        dangerouslySetInnerHTML={{
-                            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${tagManagerId}"
+        if (tagManagerId) return;
+        <noscript
+            dangerouslySetInnerHTML={{
+                __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${tagManagerId}"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>`
-                        }}
-                    />
-                )
-            );
+            }}
+        />;
     }
 };
 
+const comscoreInfo = {
+    insertComscoreHeadScript: siteProps => {
+        const { comscoreId } = siteProps;
+        if (comscoreId) {
+            return (
+                <>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `var _comscore = _comscore || [];
+                            _comscore.push({ c1: "2", c2: "${comscoreId}" });
+                            (function() {
+                              var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+                              s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+                              el.parentNode.insertBefore(s, el);
+                            })();`
+                        }}
+                    />
+                    <noscript
+                        dangerouslySetInnerHTML={{
+                            __html: `<img src="https://sb.scorecardresearch.com/p?c1=2&c2=${comscoreId}&cv=2.0&cj=1" />`
+                        }}
+                    />
+                </>
+            );
+        }
+    }
+};
 export default ({
     children,
     contextPath,
@@ -72,6 +95,7 @@ export default ({
                 href={deployment(`${contextPath}/resources/favicon.ico`)}
             />
             {tagManagerInfo.insertTagManagerHeadScript(siteProperties)}
+            {comscoreInfo.insertComscoreHeadScript(siteProperties)}
         </head>
         <body {...getBodyClass(siteProperties)}>
             {tagManagerInfo.insertTagManagerBodyScript(siteProperties)}
