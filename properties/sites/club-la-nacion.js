@@ -1,8 +1,6 @@
-const site = {
+export default  {
     title: 'Club la Nacion',
     className: {
         body: 'cln'
     }
 };
-
-export default { ...site };

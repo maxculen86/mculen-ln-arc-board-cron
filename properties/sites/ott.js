@@ -1,4 +1,4 @@
-const site = {
+export default {
     title: 'LN+ Mirá todos los programas y videos online',
     className: {
         body: 'ott'
@@ -6,5 +6,3 @@ const site = {
     videoBaseUrl: '/program/video/',
     getVideoUrl: id => `/program/video/${id}/`
 };
-
-export default { ...site };

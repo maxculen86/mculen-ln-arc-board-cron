@@ -1,8 +1,6 @@
-const site = {
+export default  {
     title: 'LA NACION',
     className: {
         body: 'ln'
     }
 };
-
-export default { ...site };
