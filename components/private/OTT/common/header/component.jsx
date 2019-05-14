@@ -7,18 +7,27 @@ import Context from 'fusion:context';
 class HeaderComponent extends PureComponent {
     constructor(props) {
         super(props);
-        this.headerItems = props.items.map((item, index) => {
+        this.headerItems = this.getHeaderItems(props);
+    }
+
+    getHeaderItems(props) {
+        return props.items.map((item, index) => {
             return (
                 <HeaderItem
                     description={item.description}
                     href={item.href}
                     data={props.data}
-                    alt={item.description}
+                    alt={item.alt}
                     key={index}
                 />
             );
         });
     }
+
+    componentWillUpdate(nextProps, nextState) {
+        this.headerItems = this.getHeaderItems(nextProps);
+    }
+
     render() {
         return (
             <header className="header">

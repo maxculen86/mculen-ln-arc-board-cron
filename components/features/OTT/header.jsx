@@ -1,35 +1,19 @@
 import React, { Component } from 'react';
-import PropTypes from 'fusion:prop-types';
 import HeaderContainer from '../../private/OTT/common/header';
+import Context from 'fusion:context';
+import getProperties from 'fusion:properties';
 
-import {
-    buildHeaderCustomFields,
-    getHeaderCustomFields
-} from './../../private/OTT/common/header/CustomFieldsHeaderHelper';
-
-let MAX_LINKS_COUNT = 6;
-
+@Context
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.HeaderCustomFields = getHeaderCustomFields(
-            MAX_LINKS_COUNT,
-            this.props
-        ).filter(elem => elem != null && elem.description != null);
+        const siteVars = getProperties(props.arcSite);
+        this.headerHierarchy = siteVars.header.hierarchy;
     }
     render() {
-        return <HeaderContainer items={this.HeaderCustomFields} />;
+        return <HeaderContainer hierarchy={this.headerHierarchy} />;
     }
 }
-
-function getCustomFields() {
-    const HeaderCustomFields = buildHeaderCustomFields(MAX_LINKS_COUNT);
-    return PropTypes.shape(Object.assign(HeaderCustomFields));
-}
-
-Header.propTypes = {
-    customFields: getCustomFields()
-};
 
 Header.static = true;
 
