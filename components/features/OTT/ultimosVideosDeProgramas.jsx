@@ -1,34 +1,33 @@
-import React, { Component } from 'react';
-import PropTypes from 'fusion:prop-types';
+import React, { PureComponent } from 'react';
 import LastVideosByProgram from '../../private/OTT/programa/lastVideosByProgram';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 
-class UltimosVideosDeProgramas extends Component {
-    render() {
-        const sectionId = get(
-            this.props,
-            'globalContent.taxonomy.sections[0].name',
-            null
-        );
-
-        if (sectionId && !this.props.customFields.sectionId)
-            return <LastVideosByProgram sectionId={sectionId} />;
-        else
-            return (
-                <LastVideosByProgram
-                    sectionId={this.props.customFields.sectionId}
-                />
+class UltimosVideosDeProgramas extends PureComponent {
+    constructor(props) {
+        super(props);
+        if (!Object.keys(this.props.globalContent).length)
+            throw new Error(
+                'El feature UltimosVideosDeProgramas debe ser utilizado en Templates'
             );
+
+        switch (this.props.globalContentConfig.source) {
+            case 'sectionSource':
+                this.sectionId = this.props.globalContent._id;
+                break;
+            case 'videoSource':
+                this.sectionId = get(
+                    this.props,
+                    'globalContent.taxonomy.sections[0].name',
+                    null
+                );
+                break;
+        }
+    }
+    render() {
+        if (!this.sectionId) return null;
+        return <LastVideosByProgram sectionId={this.sectionId} />;
     }
 }
-
-UltimosVideosDeProgramas.propTypes = {
-    customFields: PropTypes.shape({
-        sectionId: PropTypes.string.tag({
-            name: 'Id de Programa Ej: terapia-noticias'
-        })
-    })
-};
 
 export default Consumer(UltimosVideosDeProgramas);
