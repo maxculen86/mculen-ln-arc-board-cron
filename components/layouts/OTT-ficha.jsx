@@ -15,9 +15,9 @@ class OTTFichaLayout extends Component {
                     <div className={'wrapper'}>
                         <Header />
                         <main className={'main'}>
-                            {this.props.children[1]}
+                            {this.props.children[0]}
                             <LastVideos />
-                            {this.props.children[2]}
+                            {this.props.children[1]}
                         </main>
                         <Footer />
                     </div>
