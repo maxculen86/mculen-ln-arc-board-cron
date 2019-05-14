@@ -15,9 +15,14 @@ export default function AllPrograms({ items }) {
         );
     });
     return (
-        <section className={'slider'}>
-            <Title className={'section-title'} title={'Todos los programas'} />
-            {currentItem}
+        <section className={'programas'}>
+            <section className={'slider'}>
+                <Title
+                    className={'section-title'}
+                    title={'Todos los programas'}
+                />
+                {currentItem}
+            </section>
         </section>
     );
 }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Footer from '../private/OTT/common/footer';
 import LastVideos from '../private/OTT/common/lastVideos';
+import Header from '../private/OTT/common/header';
+
 import '../../resources/OTT/styles-grid/ott/ott.css';
 
-const layoutItems = ['Header', 'Bloque-1', 'Bloque-2'];
+const layoutItems = ['Bloque-1', 'Bloque-2'];
 
 class OTTFichaLayout extends Component {
     render() {
@@ -11,7 +13,7 @@ class OTTFichaLayout extends Component {
             <>
                 <div id={'acumulado'}>
                     <div className={'wrapper'}>
-                        {this.props.children[0]}
+                        <Header />
                         <main className={'main'}>
                             {this.props.children[1]}
                             <LastVideos />
