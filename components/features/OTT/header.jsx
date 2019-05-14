@@ -3,7 +3,6 @@ import HeaderContainer from '../../private/OTT/common/header';
 import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
 
-@Context
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -17,4 +16,4 @@ class Header extends Component {
 
 Header.static = true;
 
-export default Header;
+export default Context(Header);

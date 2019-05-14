@@ -9,5 +9,6 @@ export default {
     comscoreId: '6906398',
     header: {
         hierarchy: 'Header'
-    }
+    },
+    activeProgramsHierarchy: 'ActivePrograms'
 };

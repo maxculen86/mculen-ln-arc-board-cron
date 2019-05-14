@@ -3,7 +3,6 @@ import ImagenProgramComponent from '../../private/OTT/programa/programImage';
 import get from 'lodash.get';
 import Consumer from 'fusion:consumer';
 
-@Consumer
 class ImagenPrograma extends Component {
     constructor(props) {
         super(props);
@@ -25,4 +24,4 @@ class ImagenPrograma extends Component {
         return <ImagenProgramComponent imageId={this.imageId} />;
     }
 }
-export default ImagenPrograma;
+export default Consumer(ImagenPrograma);
