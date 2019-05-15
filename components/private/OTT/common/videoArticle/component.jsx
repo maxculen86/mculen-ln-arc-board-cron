@@ -20,11 +20,11 @@ export default function VideoArticle({ href, description, imgSrc, date }) {
                 </Picture>
             </a>
             <LinkedTitle href={href} title={description} />
-            {date && (
+            {/* {date && (
                 <span className={'card-description'}>
                     {dateHelper.getVideoDateFormat(date)}
                 </span>
-            )}
+            )} */}
         </Article>
     );
 }
