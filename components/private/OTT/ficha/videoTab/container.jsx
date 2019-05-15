@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import VideoTabComponent from './component';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
+import dateHelper from '../../common/utils/dateHelper';
 
 class VideoTab extends PureComponent {
     constructor(props) {
@@ -14,6 +15,7 @@ class VideoTab extends PureComponent {
             null
         );
         this.date = get(this.props.globalContent, 'publish_date', null);
+        if (this.date) this.date = dateHelper.getVideoDateFormat(this.date);
         this.categories = get(
             this.props.globalContent,
             'taxonomy.sections',
