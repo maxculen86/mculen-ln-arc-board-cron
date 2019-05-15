@@ -1,7 +1,13 @@
 'use strict';
 
 import React from 'react';
-import Button from '../button';
-export default props => {
-    return <Button className="icon-instagram" id="pie-instagram" />;
+
+export default ({ onClick }) => {
+    return (
+        <button
+            className="icon-instagram"
+            id="pie-instagram"
+            onClick={onClick}
+        />
+    );
 };

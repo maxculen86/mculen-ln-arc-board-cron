@@ -14,10 +14,13 @@ export default function Footer(props) {
             <div className="footer__left">
                 <div className="footer__up">
                     <span className="seguinos"> Seguinos:</span>
-                    <FacebookButton />
-                    <TwitterButton />
-                    <InstagramButton />
-                    <RssButton />
+                    <FacebookButton
+                        href={'https://www.facebook.com/lanacionmas/'}
+                    />
+                    <TwitterButton href={'https://twitter.com/lanacionmas'} />
+                    <InstagramButton
+                        href={'https://www.instagram.com/lanacionmas'}
+                    />
                 </div>
             </div>
             <div className="footer__center">

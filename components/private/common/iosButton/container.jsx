@@ -4,7 +4,11 @@ import React, { PureComponent } from 'react';
 import IosButtonButtonComponent from './component';
 
 export default class IosButton extends PureComponent {
+    handleButtonClick = () => {
+        window.open(this.props.href);
+    };
+
     render() {
-        return <IosButtonButtonComponent />;
+        return <IosButtonButtonComponent onClick={this.handleButtonClick} />;
     }
 }
