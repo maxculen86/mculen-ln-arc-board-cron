@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LastVideosComponent from './component';
-import get from 'lodash.get';
 import filter from '../../../../../content/filters/OTT/homeVideoItem';
 import withLastVideosHOC from '../../../common/hocs/withLastVideos';
 
