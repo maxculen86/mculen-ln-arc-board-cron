@@ -3,8 +3,6 @@ export default {
     className: {
         body: 'ott'
     },
-    videoBaseUrl: '/program/video/',
-    getVideoUrl: id => `/program/video/${id}/`,
     tagManagerId: 'GTM-GHV6',
     comscoreId: '6906398',
     header: {

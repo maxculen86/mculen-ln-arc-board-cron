@@ -12,6 +12,7 @@ export default `
         }
         _id
         first_publish_date
+        website_url
     }
     next
 }
