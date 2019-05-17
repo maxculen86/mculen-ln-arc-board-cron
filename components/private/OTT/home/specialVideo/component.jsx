@@ -5,16 +5,11 @@ import VideoArticle from '../../common/videoArticle';
 export default function SpecialVideo({ videos }) {
     const specialVideos = videos.map((video, index) => {
         const title = get(video, 'headlines.basic', null);
-        const imgSrc = get(video, 'promo_items.basic.url', null);
         const id = get(video, '_id', null);
+        const href = get(video, 'website_url', null);
 
         return (
-            <VideoArticle
-                description={title}
-                key={index}
-                imgSrc={imgSrc}
-                id={id}
-            />
+            <VideoArticle description={title} key={index} href={href} id={id} />
         );
     });
     return (
