@@ -3,10 +3,15 @@ export default {
     className: {
         body: 'ott'
     },
-    tagManagerId: 'GTM-GHV6',
     comscoreId: '6906398',
     header: {
         hierarchy: 'Header'
     },
-    activeProgramsHierarchy: 'ActivePrograms'
+    activeProgramsHierarchy: 'ActivePrograms',
+    scripts: [
+        {
+            type: 'GTM',
+            props: { id: 'GTM-GHV6' }
+        }
+    ]
 };

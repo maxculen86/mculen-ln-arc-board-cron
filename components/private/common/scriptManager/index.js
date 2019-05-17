@@ -1,6 +1,7 @@
 import React from 'react';
+import GTM from './googleTagManager';
 
-const Components = {};
+const Components = { GTM };
 
 export default (settings = {}) => props => {
     const { location } = props;
