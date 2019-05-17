@@ -3,7 +3,6 @@ export default {
     className: {
         body: 'ott'
     },
-    comscoreId: '6906398',
     header: {
         hierarchy: 'Header'
     },
@@ -12,6 +11,10 @@ export default {
         {
             type: 'GTM',
             props: { id: 'GTM-GHV6' }
+        },
+        {
+            type: 'Comscore',
+            props: { config: { c1: '2', c2: '6906398' } }
         }
     ]
 };

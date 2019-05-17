@@ -1,7 +1,8 @@
 import React from 'react';
 import GTM from './googleTagManager';
+import Comscore from './comscore';
 
-const Components = { GTM };
+const Components = { GTM, Comscore };
 
 export default (settings = {}) => props => {
     const { location } = props;
