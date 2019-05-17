@@ -11,7 +11,6 @@ export default function LastVideos({ videos }) {
         const videoId = get(video, '_id', null);
         const publishDate = get(video, 'first_publish_date', null);
         const href = get(video, 'website_url', null);
-        console.log(video);
         return (
             <VideoArticle
                 key={index}
