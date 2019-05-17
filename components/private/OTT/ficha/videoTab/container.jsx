@@ -16,16 +16,6 @@ class VideoTab extends PureComponent {
         );
         this.date = get(this.props.globalContent, 'publish_date', null);
         if (this.date) this.date = dateHelper.getVideoDateFormat(this.date);
-        this.categories = get(
-            this.props.globalContent,
-            'taxonomy.sections',
-            []
-        );
-
-        this.shareConfig = {
-            Facebook: { href: 'www.facebook.com' },
-            Twitter: { href: 'www.twitter.com.ar' }
-        };
     }
 
     render() {
@@ -37,8 +27,6 @@ class VideoTab extends PureComponent {
                     title={this.title}
                     videoSrc={this.videoSrc}
                     date={this.date}
-                    categories={this.categories}
-                    shareConfig={this.shareConfig}
                 />
             </>
         );
