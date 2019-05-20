@@ -1,14 +1,8 @@
-//retorno un elemento que luego busco en el container
-jest.mock(
-    '../../../../../components/private/common/button',
-    () => 'mock-component'
-);
-
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../utils/testHelper';
-import RssButtonComponents from '../../../../../components/private/common/rssButton/component';
+import RssButtonComponents from '../../../../../components/private/common/rssButton';
 
 describe('private - common - component - rssButton', () => {
     const child = '<hijo>un texto como children</hijo>';
@@ -17,9 +11,9 @@ describe('private - common - component - rssButton', () => {
         id: 'pie-rss'
     };
     const container = mount(<RssButtonComponents children={child} />);
-    const component = container.find('mock-component');
+    const component = container.find('button');
 
-    it('Testeo que existe el mock', () => {
+    it('Testeo que existe el button', () => {
         testHelper.expectSameValue(component.length, 1);
     });
 

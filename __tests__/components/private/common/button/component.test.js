@@ -2,7 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../utils/testHelper';
-import ButtonComponent from '../../../../../components/private/common/button/component';
+import ButtonComponent from '../../../../../components/private/common/button';
 
 describe('private - common - component - button', () => {
     const child = 'un texto como children';
