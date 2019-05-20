@@ -3,7 +3,6 @@ import VideoTabComponent from './component';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 import dateHelper from '../../common/utils/dateHelper';
-import { catchClause } from '@babel/types';
 
 class VideoTab extends PureComponent {
     constructor(props) {
@@ -48,12 +47,13 @@ class VideoTab extends PureComponent {
                 },
                 {
                     itemProp: 'duration',
-                    content: new Date(
+                    content: dateHelper.timeToIso8601(
                         this.props.globalContent.duration
-                    ).toISOString()
+                    )
                 }
             ];
         } catch (e) {
+            console.log(e);
             this.analytics = [];
         }
     }

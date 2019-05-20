@@ -4,9 +4,7 @@ export default function videoInfo({ title, date }) {
         <section className={'info-programa'}>
             <section className={'meta-programa'}>
                 <span className={'fecha'}>{date}</span>
-                <h3 itemprop={'name'} className={'titulo'}>
-                    {title}
-                </h3>
+                <h3 className={'titulo'}>{title}</h3>
             </section>
         </section>
     );

@@ -27,7 +27,16 @@ function getVideoDateFormat(dateString) {
         1900}`;
 }
 
+function timeToIso8601(timestamp) {
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    return `T${hours}H${minutes}M${seconds}S`;
+}
+
 export default {
     getMonthAsText: getMonthAsText,
-    getVideoDateFormat: getVideoDateFormat
+    getVideoDateFormat: getVideoDateFormat,
+    timeToIso8601: timeToIso8601
 };

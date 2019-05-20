@@ -6,8 +6,8 @@ export default function videoTab({ videoId, title, date, analytics }) {
     return (
         <>
             <div
-                itemscope
-                itemtype="http://schema.org/VideoObject"
+                itemScope
+                itemType="http://schema.org/VideoObject"
                 style={{ display: 'none' }}
             >
                 {analytics.map((elem, index) => (
