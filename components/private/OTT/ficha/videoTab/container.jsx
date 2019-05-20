@@ -3,6 +3,7 @@ import VideoTabComponent from './component';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 import dateHelper from '../../common/utils/dateHelper';
+import { catchClause } from '@babel/types';
 
 class VideoTab extends PureComponent {
     constructor(props) {
@@ -16,49 +17,55 @@ class VideoTab extends PureComponent {
         );
         this.date = get(this.props.globalContent, 'publish_date', null);
         if (this.date) this.date = dateHelper.getVideoDateFormat(this.date);
-        console.log('PROPS', props);
+        this.props.globalContent.streams;
+
+        this.props.globalContent.streams.sort((a, b) => {
+            return b.height - a.height;
+        });
+        try {
+            this.analytics = [
+                {
+                    itemProp: 'description',
+                    content: this.props.globalContent.description.basic
+                },
+                {
+                    itemProp: 'name',
+                    content: this.props.globalContent.headlines.basic
+                },
+                {
+                    itemProp: 'thumbnailUrl',
+                    content: this.props.globalContent.promo_image.url
+                },
+                {
+                    itemProp: 'uploadDate',
+                    content: new Date(
+                        this.props.globalContent.publish_date
+                    ).toISOString()
+                },
+                {
+                    itemProp: 'contentUrl',
+                    content: this.props.globalContent.streams[0].url
+                },
+                {
+                    itemProp: 'duration',
+                    content: new Date(
+                        this.props.globalContent.duration
+                    ).toISOString()
+                }
+            ];
+        } catch (e) {
+            this.analytics = [];
+        }
     }
 
     render() {
         return (
-            <>
-                <meta
-                    itemprop={'description'}
-                    content={this.props.globalContent.description.basic}
-                />
-                <meta
-                    itemprop={'name'}
-                    content={this.props.globalContent.headlines.basic}
-                />
-                <meta
-                    itemprop={'thumbnailUrl'}
-                    content={this.props.globalContent.promo_image.url}
-                />
-                <meta
-                    itemprop={'uploadDate'}
-                    content={new Date(
-                        this.props.globalContent.publish_date
-                    ).toISOString()}
-                />
-
-                <meta
-                    itemprop={'contentUrl'}
-                    content={this.props.globalContent.streams[0].url}
-                />
-                <meta
-                    itemprop={'duration'}
-                    content={new Date(
-                        this.props.globalContent.duration
-                    ).toISOString()}
-                />
-                <VideoTabComponent
-                    videoId={this.videoId}
-                    videoHtml={this.videoHtml}
-                    title={this.title}
-                    videoSrc={this.videoSrc}
-                    date={this.date}
-                />
-            </>
+            <VideoTabComponent
+                videoId={this.videoId}
+                title={this.title}
+                date={this.date}
+                analytics={this.analytics}
+            />
         );
     }
 }
