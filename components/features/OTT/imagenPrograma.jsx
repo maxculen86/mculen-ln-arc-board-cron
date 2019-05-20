@@ -11,8 +11,6 @@ class ImagenPrograma extends Component {
                 'El feature UltimosVideosDeProgramas debe ser utilizado en Templates'
             );
 
-        console.log('props imagen programa', props);
-
         this.imageId = get(
             this.props,
             'globalContent.OTT_Program.image_program_id',

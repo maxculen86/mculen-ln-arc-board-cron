@@ -16,31 +16,56 @@ class VideoTab extends PureComponent {
         );
         this.date = get(this.props.globalContent, 'publish_date', null);
         if (this.date) this.date = dateHelper.getVideoDateFormat(this.date);
-        this.categories = get(
-            this.props.globalContent,
-            'taxonomy.sections',
-            []
-        );
+        this.props.globalContent.streams;
 
-        this.shareConfig = {
-            Facebook: { href: 'www.facebook.com' },
-            Twitter: { href: 'www.twitter.com.ar' }
-        };
+        this.props.globalContent.streams.sort((a, b) => {
+            return b.height - a.height;
+        });
+        try {
+            this.analytics = [
+                {
+                    itemProp: 'description',
+                    content: this.props.globalContent.description.basic
+                },
+                {
+                    itemProp: 'name',
+                    content: this.props.globalContent.headlines.basic
+                },
+                {
+                    itemProp: 'thumbnailUrl',
+                    content: this.props.globalContent.promo_image.url
+                },
+                {
+                    itemProp: 'uploadDate',
+                    content: new Date(
+                        this.props.globalContent.publish_date
+                    ).toISOString()
+                },
+                {
+                    itemProp: 'contentUrl',
+                    content: this.props.globalContent.streams[0].url
+                },
+                {
+                    itemProp: 'duration',
+                    content: dateHelper.timeToIso8601(
+                        this.props.globalContent.duration
+                    )
+                }
+            ];
+        } catch (e) {
+            console.log(e);
+            this.analytics = [];
+        }
     }
 
     render() {
         return (
-            <>
-                <VideoTabComponent
-                    videoId={this.videoId}
-                    videoHtml={this.videoHtml}
-                    title={this.title}
-                    videoSrc={this.videoSrc}
-                    date={this.date}
-                    categories={this.categories}
-                    shareConfig={this.shareConfig}
-                />
-            </>
+            <VideoTabComponent
+                videoId={this.videoId}
+                title={this.title}
+                date={this.date}
+                analytics={this.analytics}
+            />
         );
     }
 }

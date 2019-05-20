@@ -8,7 +8,6 @@ import { mount } from 'enzyme';
 import Component from '../../../../../../components/private/OTT/home/specialVideo/component';
 import TestHelper from '../../../../../utils/testHelper';
 import { content_elements } from '../../../../../../__mocks__/data/ottVideos/videosOtt.json';
-import { isTSAnyKeyword } from '@babel/types';
 
 describe('private - OTT - home - specialVideo - component', () => {
     const child = <h1>Soy un child</h1>;

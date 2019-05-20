@@ -9,12 +9,6 @@ const resolve = key => {
         throw new Error(
             'El id de sección debe comenzar con / - Section Source'
         );
-    console.log(
-        'website + id website + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + idwebsite + id',
-        website,
-        id
-    );
-
     return `/site/v3/navigation/${website}/?_id=${id}`;
 };
 export default {
