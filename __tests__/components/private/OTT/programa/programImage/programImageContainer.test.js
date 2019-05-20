@@ -18,7 +18,7 @@ describe('private - OTT - programa - programImage', () => {
     );
 
     const component = container.find('mocked-component');
-    console.log(component.props());
+
     it('Testeo que la url sea la misma en el componente que el container', () => {
         TestHelper.expectProp(
             component,
@@ -26,4 +26,6 @@ describe('private - OTT - programa - programImage', () => {
             'https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/7XBWH35QWZHSVGDQUVATJ6DC34.jpg'
         );
     });
+
+    TestHelper.testDoNotRenderChildren(container, 'children');
 });
