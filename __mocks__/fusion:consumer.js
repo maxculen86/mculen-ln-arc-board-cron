@@ -30,6 +30,9 @@ jest.mock('fusion:consumer', component => {
                     case 'imageSource':
                         return require(`./data/images/${query.id}`);
                         break;
+                    case 'ottVideosSource':
+                        return require(`./data/ottVideos/${query.ids[0]}`);
+                        break;
                     case 'videosSearchSource':
                         switch (query.query) {
                             case 'q=type:videoANDtaxonomy.sections._id="/terapia-noticias"&sort=publish_date:desc&from=0&size=12':
