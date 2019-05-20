@@ -3,7 +3,7 @@ import Footer from '../private/OTT/common/footer';
 import LastVideos from '../private/OTT/common/lastVideos';
 import Header from '../private/OTT/common/header';
 
-import '../../resources/OTT/styles-grid/ott/ott.css';
+import '../../resources/OTT/styles-grid/ott/ott.scss';
 
 const layoutItems = ['Bloque-1', 'Bloque-2'];
 

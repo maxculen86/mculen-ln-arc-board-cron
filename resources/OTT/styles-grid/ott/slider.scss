@@ -37,7 +37,7 @@
   margin-bottom: 2.5em;
   padding-right: 0.5rem;
 }
-.slider .article:last-of-type {
+.slider .article:nth-of-type(4n+4) {
   padding-right: 0;
 }
 
@@ -57,7 +57,7 @@
   cursor: pointer;
   display: block;
   overflow: hidden;
-  line-height: 1.5em;
+  line-height: 1.5em; 
 }
 
 .slider .title a:hover {
@@ -118,7 +118,7 @@ section:not(.programas) > section > article > .figure:after {
 .previous {
   font-size: 0;
   line-height: 0;
-  top: 37%;
+  top: 53px;
   left: 0;
   display: block;
   padding: 0;
@@ -151,7 +151,7 @@ section:not(.programas) > section > article > .figure:after {
 .next {
   font-size: 0;
   line-height: 0;
-  top: 37%;
+  top: 53px;
   right: 0;
   display: block;
   padding: 0;
@@ -188,9 +188,6 @@ section:not(.programas) > section > article > .figure:after {
 }
 
 @media (max-width: 1024px) {
-  .slider .article:last-of-type {
-    display: none;
-  }
   .slider .title a {
     font-size: 1.2em;
   }
@@ -203,9 +200,19 @@ section:not(.programas) > section > article > .figure:after {
   #all .slider .article:last-of-type {
     @include flex;
   }
+  .slider .article {
+    width: calc(100% - 1rem) / 3;
+  }
+  .slider .article:nth-of-type(3n+3) {
+    padding-right: 0;
+  }
+  
 }
 
 @media (max-width: 800px) {
+  .next, .previous {
+    top: 27px
+  }
   .next:after,
   .previous:after {
     font-size: 1.2rem;
@@ -220,7 +227,14 @@ section:not(.programas) > section > article > .figure:after {
 }
 
 @media (max-width: 420px) {
-  .slider .article:nth-of-type(3) {
-    display: none;
+  .next, .previous {
+    top: 10px;
+    height: 30px;
+  }
+  .slider .article {
+    width: calc(100% - .5rem) / 2;
+  }
+  .slider .article:nth-of-type(2n+2) {
+    padding-right: 0;
   }
 }
