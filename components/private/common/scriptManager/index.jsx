@@ -16,8 +16,6 @@ export default (components, settings = {}) => {
     )
         throw new Error(ERRORS.ARGUMENTS_COMPONENTS);
 
-    // if (!settings) throw new Error(ERRORS.ARGUMENTS_SETTINGS);
-
     const componentsName = Object.keys(components);
 
     return props => {
