@@ -13,6 +13,7 @@
 /dist
 
 /coverage
+.scannerwork
 
 npm-debug.log
 _ignore_*
