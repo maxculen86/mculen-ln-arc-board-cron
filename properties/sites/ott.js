@@ -7,14 +7,8 @@ export default {
         hierarchy: 'Header'
     },
     activeProgramsHierarchy: 'ActivePrograms',
-    scripts: [
-        {
-            type: 'GTM',
-            props: { id: 'GTM-GHV6' }
-        },
-        {
-            type: 'Comscore',
-            props: { config: { c1: '2', c2: '6906398' } }
-        }
-    ]
+    scripts: {
+        GTM: { props: { id: 'GTM-GHV6' } },
+        Comscore: { props: { config: { c1: '2', c2: '6906398' } } }
+    }
 };

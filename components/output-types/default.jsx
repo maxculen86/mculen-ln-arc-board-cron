@@ -2,8 +2,9 @@ import React from 'react';
 import ScriptManager from '../private/common/scriptManager';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
+import Microdata from '../private/common/scriptManager/microdata';
 
-const components = { GTM, Comscore };
+const components = { GTM, Comscore, Microdata };
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -44,17 +45,7 @@ export default ({
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
-                -----------------------------------------------------------------------------
-                -----------------------------------------------------------------------------
-                -----------------------------------------------------------------------------
-                -----------------------------------------------------------------------------
-                -----------------------------------------------------------------------------
-                <Scripts name="Schema" />
-                -----------------------------------------------------------------------------
-                -----------------------------------------------------------------------------
-                -----------------------------------------------------------------------------
-                -----------------------------------------------------------------------------
-                -----------------------------------------------------------------------------
+                <Scripts name="Microdata" />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
