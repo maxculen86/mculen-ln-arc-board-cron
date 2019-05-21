@@ -12,3 +12,8 @@ window.addEventListener('scroll', () => {
 hamburguer.addEventListener('click', () => {
     header.classList.toggle(open);
 });
+
+const article = document.querySelector('.slider .article');
+const arrows = document.querySelector('.slider button');
+const articleHeight = article.offsetHeight;
+console.log(articleHeight);
