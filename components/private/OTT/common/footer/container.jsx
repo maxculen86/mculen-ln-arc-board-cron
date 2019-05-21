@@ -12,7 +12,7 @@ export default class Footer extends Component {
         return (
             <FooterComponent
                 year={year}
-                handleOpenWindowEvent={handleOpenWindowEvent}
+                handleOpenWindowEvent={this.handleOpenWindowEvent}
             />
         );
     }

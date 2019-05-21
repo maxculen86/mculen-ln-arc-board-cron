@@ -4,9 +4,6 @@ import AndroidButton from '../../../common/androidButton';
 import FacebookButton from '../../../common/facebookButton';
 import TwitterButton from '../../../common/twitterButton';
 import InstagramButton from '../../../common/instagramButton';
-import RssButton from '../../../common/rssButton';
-
-const LINK_LA_NACION = 'https://www.lanacion.com.ar';
 
 export default function Footer({ year, handleOpenWindowEvent }) {
     return (
