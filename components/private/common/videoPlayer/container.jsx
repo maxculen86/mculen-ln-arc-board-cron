@@ -53,7 +53,6 @@ VideoPlayer.propTypes = {
 VideoPlayer.defaultProps = {
     enableAds: true,
     loadVideoOnInit: true
-    // apiEnv: 'sandbox'
 };
 
 export default Context(VideoPlayer);
