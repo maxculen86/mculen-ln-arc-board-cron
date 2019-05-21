@@ -15,7 +15,7 @@
             "name": "desktop-sm",
             "lowerRange": 1024,
             "topRange": 1379,
-            "pageSize": 3
+            "pageSize": 4
         },
         {
             "name": "tablet",
@@ -27,7 +27,7 @@
             "name": "tablet-sm",
             "lowerRange": 672,
             "topRange": 863,
-            "pageSize": 2
+            "pageSize": 3
         },
         {
             "name": "mobile",
