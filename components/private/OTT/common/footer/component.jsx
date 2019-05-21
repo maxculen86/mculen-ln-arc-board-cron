@@ -8,18 +8,26 @@ import RssButton from '../../../common/rssButton';
 
 const LINK_LA_NACION = 'https://www.lanacion.com.ar';
 
-export default function Footer(props) {
+export default function Footer({ year, handleOpenWindowEvent }) {
     return (
         <footer className="footer">
             <div className="footer__left">
                 <div className="footer__up">
                     <span className="seguinos"> Seguinos:</span>
                     <FacebookButton
-                        href={'https://www.facebook.com/lanacionmas/'}
+                        onClick={handleOpenWindowEvent(
+                            'https://www.facebook.com/lanacionmas/'
+                        )}
                     />
-                    <TwitterButton href={'https://twitter.com/lanacionmas'} />
+                    <TwitterButton
+                        onClick={handleOpenWindowEvent(
+                            'https://twitter.com/lanacionmas'
+                        )}
+                    />
                     <InstagramButton
-                        href={'https://www.instagram.com/lanacionmas'}
+                        onClick={handleOpenWindowEvent(
+                            'https://www.instagram.com/lanacionmas'
+                        )}
                     />
                 </div>
             </div>
@@ -60,7 +68,7 @@ export default function Footer(props) {
                 </div>
                 <div className="footer__bottom">
                     <p className="copyright">
-                        Copyright {props.year} SA LA NACION. Todos los derechos
+                        Copyright {year} SA LA NACION. Todos los derechos
                         reservados
                     </p>
                 </div>

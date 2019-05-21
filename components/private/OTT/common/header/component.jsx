@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import HeaderItem from './headerItem';
 import HamburgerButton from '../../../common/hamburgerButton';
-import Nav from '../../../common/nav';
+
 import Context from 'fusion:context';
 
 class HeaderComponent extends PureComponent {
@@ -49,7 +49,7 @@ class HeaderComponent extends PureComponent {
                 <HamburgerButton className={'header__hamburguer'}>
                     ☰
                 </HamburgerButton>
-                <Nav className="header__nav">{this.headerItems}</Nav>
+                <nav className="header__nav">{this.headerItems}</nav>
             </header>
         );
     }
