@@ -13,7 +13,7 @@ describe('private - common - component - androidButton', () => {
         onClick: func
     };
     const container = mount(
-        <AndroidButtonComponents children={child} onClickEvent={func} />
+        <AndroidButtonComponents children={child} onClick={func} />
     );
     const component = container.find('button');
 
