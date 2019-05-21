@@ -1,14 +1,12 @@
 import React, { PureComponent } from 'react';
 import VideoPlayerComponent from './component';
 import PropTypes from 'fusion:prop-types';
-import FusionContext from 'fusion:context';
+import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
-import Consumer from 'fusion:consumer';
 
 //TODO: prueba de concepto. Test pendientes para cuando definan que se necesita hacer y que no
 //en un player de video
 
-@Consumer
 class VideoPlayer extends PureComponent {
     constructor(props) {
         super(props);
@@ -55,7 +53,6 @@ VideoPlayer.propTypes = {
 VideoPlayer.defaultProps = {
     enableAds: true,
     loadVideoOnInit: true
-    // apiEnv: 'sandbox'
 };
 
-export default FusionContext(VideoPlayer);
+export default Context(VideoPlayer);

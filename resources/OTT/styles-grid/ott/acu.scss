@@ -14,11 +14,27 @@
   width: 100%;
   z-index: 2;
 }
+#acumulado main > section:first-of-type:after {
+  content: "";
+  position: absolute;
+  width: 1000%;
+  left: -500%;
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #1a1a1a;
+
+
+}
 #acumulado .ultimos-videos .slider:after {
-  background: $negro;
+  background: #1a1a1a;
 }
 #acumulado .ultimos-videos .section-title {
   color: $blanco;
+}
+#acumulado .ultimos-videos .section-title:after {
+  background: #1a1a1a;
 }
 #acumulado .ultimos-videos .title a {
   color: $blanco;
@@ -33,11 +49,15 @@ button.mas {
   display: inline-block;
   padding: 0.6rem 1.5rem;
   font-size: 0.7rem;
-  margin: 1rem auto;
+  margin: 1rem auto 0;
   cursor: pointer;
   border: 0;
   text-transform: uppercase;
   transition: opacity 0.2s ease;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 button.mas:hover {
   opacity: 0.75;

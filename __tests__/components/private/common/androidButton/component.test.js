@@ -1,23 +1,21 @@
-//retorno un elemento que luego busco en el container
-jest.mock(
-    '../../../../../components/private/common/button',
-    () => 'mock-component'
-);
-
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
 import testHelper from '../../../../utils/testHelper';
-import AndroidButtonComponents from '../../../../../components/private/common/androidButton/component';
+import AndroidButtonComponents from '../../../../../components/private/common/androidButton';
 
 describe('private - common - component - androidButton', () => {
     const child = '<hijo>un texto como children</hijo>';
+    const func = () => 'res';
     const props = {
         className: 'icon-android',
-        id: 'pie-android'
+        id: 'pie-android',
+        onClick: func
     };
-    const container = mount(<AndroidButtonComponents children={child} />);
-    const component = container.find('mock-component');
+    const container = mount(
+        <AndroidButtonComponents children={child} onClick={func} />
+    );
+    const component = container.find('button');
 
     it('Testeo que existe el mock', () => {
         testHelper.expectSameValue(component.length, 1);
@@ -28,7 +26,7 @@ describe('private - common - component - androidButton', () => {
     });
 
     it('Testeo que no muestre mas de las props que tiene que mostrar', () => {
-        testHelper.expectSameValue(Object.keys(component.props()).length, 3);
+        testHelper.expectSameValue(Object.keys(component.props()).length, 4);
     });
 
     testHelper.testDoNotRenderChildren(component, 'hijo');
