@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import CarousellComponent from './component';
-import CarousellNextButton from './carousellNextButton/container';
-import CarousellPrevButton from './carousellPrevButton/container';
+import CarousellNextButton from './carousellNextButton';
+import CarousellPrevButton from './carousellPrevButton';
 import Slider from '../../OTT/common/hocs/slider';
 
 const DEFAULT_PAGESIZE = 4;
