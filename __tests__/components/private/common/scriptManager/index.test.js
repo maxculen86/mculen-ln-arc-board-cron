@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-multi-comp */
 import React, { Component } from 'react';
 import { mount, shallow } from 'enzyme';
 import ScriptManager from '../../../../../components/private/common/scriptManager';
@@ -22,20 +25,30 @@ describe('ScriptManager ...', () => {
 
 describe('ScriptManager genera un componente', () => {
     const LOCATION = 'OK';
+
+    // eslint-disable-next-line react/prefer-stateless-function
+    class NoSeIncluyeEnDicc extends Component {
+        render() {
+            return <div>nada!</div>;
+        }
+    }
+
+    // eslint-disable-next-line react/prefer-stateless-function
     class ScriptMock extends Component {
         render() {
             return <script>mock!</script>;
         }
     }
+
+    // eslint-disable-next-line react/prefer-stateless-function
     class ScriptMock2 extends Component {
         render() {
-            // if (this.props.location !== LOCATION) return '';
+            const { location } = this.props;
+
+            if (location !== LOCATION) return '';
 
             return <script>mock! 2!</script>;
         }
-    }
-    class NoSeIncluyeEnDicc extends Component {
-        render() {}
     }
 
     const components = { ScriptMock, ScriptMock2 };

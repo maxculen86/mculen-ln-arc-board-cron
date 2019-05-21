@@ -1,5 +1,9 @@
 import React from 'react';
 import ScriptManager from '../private/common/scriptManager';
+import GTM from '../private/common/scriptManager/googleTagManager';
+import Comscore from '../private/common/scriptManager/comscore';
+
+const components = { GTM, Comscore };
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -19,7 +23,7 @@ export default ({
     metaValue,
     siteProperties
 }) => {
-    const Scripts = ScriptManager(siteProperties.scripts);
+    const Scripts = ScriptManager(components, siteProperties.scripts);
 
     return (
         <html lang="es">
@@ -40,6 +44,17 @@ export default ({
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
+                -----------------------------------------------------------------------------
+                -----------------------------------------------------------------------------
+                -----------------------------------------------------------------------------
+                -----------------------------------------------------------------------------
+                -----------------------------------------------------------------------------
+                <Scripts name="Schema" />
+                -----------------------------------------------------------------------------
+                -----------------------------------------------------------------------------
+                -----------------------------------------------------------------------------
+                -----------------------------------------------------------------------------
+                -----------------------------------------------------------------------------
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
