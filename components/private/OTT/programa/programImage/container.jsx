@@ -5,8 +5,6 @@ import get from 'lodash.get';
 
 class ProgramImageContainer extends PureComponent {
     render() {
-        if (!this.props.image) return null;
-
         const url = get(this.props.image, 'url', null);
         return <ImageComponent imgSrc={url} />;
     }

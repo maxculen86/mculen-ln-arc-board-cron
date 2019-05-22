@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import withLastVideosBySection from '../../../common/hocs/withLastVideosBySection';
 import LastVideosByProgramComponent from './component';
-import get from 'lodash.get';
 import filter from '../../../../../content/filters/OTT/homeVideoItem';
 
 const PAGE_SIZE = 12;

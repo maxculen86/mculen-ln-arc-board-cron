@@ -59,11 +59,8 @@ function withLastVideosBySection(
                 } else this.state.lastCachedItemsCount = 0;
 
                 fetched.then(response => {
-                    const fetchedVideos = get(
-                        response,
-                        'content_elements',
-                        null
-                    );
+                    let fetchedVideos = get(response, 'content_elements', null);
+                    fetchedVideos = fetchedVideos.slice(0); //copy data
                     this.state.hasNext = get(response, 'next', null) != null;
                     if (fetchedVideos) {
                         this.setState(ps => {

@@ -18,7 +18,6 @@ class ImagenPrograma extends Component {
         );
     }
     render() {
-        if (!this.imageId) return null;
         return <ImagenProgramComponent imageId={this.imageId} />;
     }
 }

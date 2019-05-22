@@ -12,14 +12,13 @@ export default function LastVideosByProgams({
     const currentItem = videos.map((video, index) => {
         const title = get(video, 'headlines.basic', null);
         const imgSrc = get(video, 'promo_items.basic.url', null);
-        const id = get(video, '_id', null);
-
+        const href = get(video, 'website_url', null);
         return (
             <VideoArticle
                 description={title}
                 key={index}
                 imgSrc={imgSrc}
-                id={id}
+                href={href}
             />
         );
     });
