@@ -5,8 +5,11 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf resources/dist",
+    "build": "webpack --config ./config/webpack.config.js --env.prod",
+    "dev": "webpack --watch --config ./config/webpack.config.js --env.dev --progress --debug",
     "fusion": "fusion",
-    "start": "fusion start",
+    "start": "npm run clean && npm run build && fusion start",
     "test": "jest --passWithNoTests --coverage",
     "prettier": "prettier --write **/*.{js,jsx}",
     "eslint": "eslint --ext=js,jsx ."
@@ -24,6 +27,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
+    "clean-webpack-plugin": "^2.0.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "eslint": "^5.15.3",
@@ -40,7 +44,10 @@
     "jest": "^24.5.0",
     "jest-enzyme": "^6.1.2",
     "lint-staged": "^8.1.5",
-    "prettier": "^1.16.4"
+    "mini-css-extract-plugin": "^0.6.0",
+    "node-sass-glob-importer": "^5.3.1",
+    "prettier": "^1.16.4",
+    "webpack": "^4.32.0"
   },
   "repository": {
     "type": "git",

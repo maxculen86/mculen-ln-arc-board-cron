@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../private/OTT/common/footer';
 import Header from '../private/OTT/common/header';
 
-import '../../resources/OTT/styles-grid/ott/ott.scss';
+import '../../resources/dist/css/ott/style.css';
 
 const layoutItems = ['Bloque-1'];
 
