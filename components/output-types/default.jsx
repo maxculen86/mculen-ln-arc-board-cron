@@ -45,7 +45,7 @@ export default ({
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
-                <Scripts name="Microdata" />
+                {/* <Scripts name="Microdata" /> */}
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

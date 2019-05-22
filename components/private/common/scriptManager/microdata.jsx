@@ -15,11 +15,13 @@ export default class Microdata extends Component {
     }
 
     render() {
-        const script = `alert('Microdata ${this.props.location}');`;
+        const script = `{
+            "@context": "https://schema.org"
+        }`;
 
         return (
             <script
-                type="text/javascript"
+                type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: script }}
             />
         );
