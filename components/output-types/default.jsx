@@ -4,7 +4,7 @@ import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 
-const components = { GTM, Comscore, Microdata };
+const scriptList = { GTM, Comscore, Microdata };
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -24,7 +24,7 @@ export default ({
     metaValue,
     siteProperties
 }) => {
-    const Scripts = ScriptManager(components, siteProperties.scripts);
+    const Scripts = ScriptManager(scriptList, siteProperties.scripts);
 
     return (
         <html lang="es">

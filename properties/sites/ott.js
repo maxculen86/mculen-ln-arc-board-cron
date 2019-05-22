@@ -8,7 +8,13 @@ export default {
     },
     activeProgramsHierarchy: 'ActivePrograms',
     scripts: {
-        GTM: { props: { id: 'GTM-GHV6' } },
-        Comscore: { props: { config: { c1: '2', c2: '6906398' } } }
+        GTM: {
+            props: { id: 'GTM-GHV6' },
+            location: ['head', 'body-top']
+        },
+        Comscore: {
+            props: { config: { c1: '2', c2: '6906398' } },
+            location: ['head']
+        }
     }
 };
