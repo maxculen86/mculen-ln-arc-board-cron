@@ -3,7 +3,7 @@ import Footer from '../private/OTT/common/footer';
 import LastVideos from '../private/OTT/common/lastVideos';
 import Header from '../private/OTT/common/header';
 import loadOTTVideoAnalytics from '../private/OTT/ficha/ottVideoAnalytics';
-import '../../resources/OTT/styles-grid/ott/ott.scss';
+import '../../resources/dist/css/ott/style.css';
 import Consumer from 'fusion:consumer';
 
 const layoutItems = ['Bloque-1', 'Bloque-2'];
