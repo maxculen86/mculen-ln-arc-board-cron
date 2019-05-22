@@ -30,7 +30,11 @@ describe('private - OTT - home - specialVideo - component', () => {
             firstComponent.prop('href'),
             firstVideo.website_url
         );
-        TestHelper.expectSameValue(firstComponent.prop('id'), firstVideo._id);
+
+        TestHelper.expectSameValue(
+            firstComponent.prop('imgSrc'),
+            firstVideo.promo_items.basic.url
+        );
     });
 
     const secondVideo = content_elements[1];
@@ -44,6 +48,9 @@ describe('private - OTT - home - specialVideo - component', () => {
             secondComponent.prop('href'),
             secondVideo.website_url
         );
-        TestHelper.expectSameValue(secondComponent.prop('id'), secondVideo._id);
+        TestHelper.expectSameValue(
+            secondComponent.prop('imgSrc'),
+            secondVideo.promo_items.basic.url
+        );
     });
 });
