@@ -99,27 +99,11 @@ main > section > .section-title:after {
   display: block;
 }
 
-section:not(.programas) > section > article > .figure:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  right: 0;
-  background-color: rgba(45, 45, 45, 0.6);
-  background-image: url("../img/play.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 3em;
-  transition: 0.2s ease opacity;
-}
-
 .box-4 .article .figure:hover:after {
   opacity: 1;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1380px) {
   .box-4 .title a {
     font-size: 0.9em;
   }
@@ -144,14 +128,14 @@ section:not(.programas) > section > article > .figure:after {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 672px) {
   .box-4 .title a {
     font-size: 1.4em;
     line-height: 1.6em;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 360px) {
   .box-4 .article {
     width: calc((100% - 10px) / 2);
   }

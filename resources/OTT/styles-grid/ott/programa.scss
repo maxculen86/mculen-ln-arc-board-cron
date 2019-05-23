@@ -99,13 +99,13 @@
   @include flex;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 864px) {
   .categorias,
   .meta-programa {
     @include grid-column(1, 11, 10);
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 360px) {
   #programa .ultimos-videos .article:last-of-type {
     display: none;
   }
