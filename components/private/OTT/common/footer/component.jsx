@@ -72,8 +72,16 @@ export default function Footer({ year, handleOpenWindowEvent }) {
             </div>
             <div className="footer__right">
                 <div className="footer__up">
-                    <IosButton />
-                    <AndroidButton />
+                    <IosButton
+                        onClick={handleOpenWindowEvent(
+                            'https://itunes.apple.com/ar/app/la-nacion/id410689702?mt=8'
+                        )}
+                    />
+                    <AndroidButton
+                        onClick={handleOpenWindowEvent(
+                            'https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419'
+                        )}
+                    />
                     <div className="footer__captcha" />
                 </div>
                 <div className="footer__bottom">
