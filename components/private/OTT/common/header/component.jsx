@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import HeaderItem from './headerItem';
 import HamburgerButton from '../../../common/hamburgerButton';
-
 import Context from 'fusion:context';
+import hrefHelper from '../../../common/utils/hrefHelper';
 
 class HeaderComponent extends PureComponent {
     constructor(props) {
@@ -33,7 +33,7 @@ class HeaderComponent extends PureComponent {
             <header className="header">
                 <a
                     className={'header__logo'}
-                    href={'/'}
+                    href={hrefHelper.createCorrectHref(this.props, '/')}
                     alt={'lnmas.com.ar'}
                     title={'lnmas.com.ar'}
                 >

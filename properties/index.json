@@ -1,4 +1,5 @@
 {
+    "isDev": true,
     "organizationId": "lanacionar",
     "videoPlayer": {
         "apiEnv": "sandbox"

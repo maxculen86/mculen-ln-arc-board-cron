@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import VideoArticleComponent from './component';
+import withCorrectHref from '../../../common/hocs/withCorrectHref';
 
-export default class VideoArticle extends Component {
+class VideoArticle extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <VideoArticleComponent
@@ -12,3 +16,4 @@ export default class VideoArticle extends Component {
         );
     }
 }
+export default withCorrectHref(VideoArticle);

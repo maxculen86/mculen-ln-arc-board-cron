@@ -1,6 +1,7 @@
 import React from 'react';
+import withCorrectHref from '../../../common/hocs/withCorrectHref';
 
-export default function HeaderItem(props) {
+export default withCorrectHref(function HeaderItem(props) {
     return (
         <a
             href={props.href}
@@ -12,4 +13,4 @@ export default function HeaderItem(props) {
             {props.description}
         </a>
     );
-}
+});
