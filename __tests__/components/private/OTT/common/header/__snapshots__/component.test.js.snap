@@ -23,6 +23,7 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
   }
 >
   <HeaderComponent
+    arcSite="ott"
     contextPath="contextPath"
     data={
       Object {
@@ -44,6 +45,11 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
         },
       ]
     }
+    siteProperties={
+      Object {
+        "isDev": true,
+      }
+    }
   >
     <header
       className="header"
@@ -51,7 +57,7 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
       <a
         alt="lnmas.com.ar"
         className="header__logo"
-        href="/"
+        href="contextPath/ott/?_website=ott"
         title="lnmas.com.ar"
       >
         <img
