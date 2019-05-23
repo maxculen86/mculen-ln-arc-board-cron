@@ -12,7 +12,8 @@
     "start": "npm run clean && npm run build && fusion start",
     "test": "jest --passWithNoTests --coverage",
     "prettier": "prettier --write **/*.{js,jsx}",
-    "eslint": "eslint --ext=js,jsx ."
+    "start": "fusion start",
+    "test": "jest --passWithNoTests --coverage"
   },
   "dependencies": {
     "@arc-core-components/content-source_content-api-v4": "^2.0.3-beta.2",
@@ -21,7 +22,7 @@
     "react-dom": "16.6.1"
   },
   "devDependencies": {
-    "@arc-fusion/cli": "^0.2.3",
+    "@arc-fusion/cli": "^0.2.9",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",

@@ -89,7 +89,7 @@ header.sticky .header__logo img {
   display: none;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1380px) {
   .header__nav__link {
     font-size: 0.9em;
   }
@@ -101,7 +101,7 @@ header.sticky .header__logo img {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 864px) {
   .header__nav {
     height: 0;
     @include flex;
