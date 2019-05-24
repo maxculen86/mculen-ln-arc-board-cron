@@ -24,6 +24,16 @@ class HeaderComponent extends PureComponent {
         });
     }
 
+    openDesplegable = () => {
+        const classOpen = 'open';
+        const header = document.querySelector('header');
+        if (header.classList.contains(classOpen)) {
+            header.classList.remove(classOpen);
+        } else {
+            header.classList.add(classOpen);
+        }
+    };
+
     componentWillUpdate(nextProps, nextState) {
         this.headerItems = this.getHeaderItems(nextProps);
     }
@@ -46,7 +56,10 @@ class HeaderComponent extends PureComponent {
                         )}
                     />
                 </a>
-                <HamburgerButton className={'header__hamburguer'}>
+                <HamburgerButton
+                    onClick={this.openDesplegable}
+                    className={'header__hamburguer'}
+                >
                     ☰
                 </HamburgerButton>
                 <nav className="header__nav">{this.headerItems}</nav>
