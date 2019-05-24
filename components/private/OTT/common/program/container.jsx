@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProgramComponent from './component';
 import withImage from '../../../common/hocs/withImage';
+import withCorrectHref from '../../../common/hocs/withCorrectHref';
 class Program extends Component {
     render() {
         return (
@@ -13,4 +14,4 @@ class Program extends Component {
     }
 }
 
-export default withImage(Program, null, true);
+export default withImage(withCorrectHref(Program), null, true);

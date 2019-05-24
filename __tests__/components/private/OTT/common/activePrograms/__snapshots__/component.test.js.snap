@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OTT - layout - activePrograms - components Snapshot Test 1`] = `
+<ActivePrograms
+  items={
+    Array [
+      Object {
+        "description": "description 1",
+        "href": "href 1",
+        "imgId": "ABCDEF1",
+      },
+      Object {
+        "description": "description 2",
+        "href": "href 2",
+        "imgId": "GHIJKL2",
+      },
+    ]
+  }
+>
+  <section>
+    <mock-title
+      className="section-title"
+      title="Todos los programas"
+    />
+    <mock-carousell>
+      <mock-program
+        description="description 1"
+        href="href 1"
+        imageId="ABCDEF1"
+        key="0"
+      />
+      <mock-program
+        description="description 2"
+        href="href 2"
+        imageId="GHIJKL2"
+        key="1"
+      />
+    </mock-carousell>
+  </section>
+</ActivePrograms>
+`;

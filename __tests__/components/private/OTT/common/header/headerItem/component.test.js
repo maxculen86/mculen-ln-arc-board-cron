@@ -1,8 +1,16 @@
+import Context from 'fusion:context';
+jest.mock(
+    '../../../../../../../components/private/common/utils/hrefHelper',
+    () => {
+        return { createCorrectHref: (a, b) => b };
+    }
+);
 //Otros imports
 import React from 'react';
 import { mount } from 'enzyme';
 import HeaderComponent from '../../../../../../../components/private/OTT/common/header/headerItem';
 import testHelper from '../../../../../../utils/testHelper';
+
 describe('OTT - layout - headerItem - components', () => {
     const data = { 'data-event': 'LinkClick', 'data-section': 'HeaderOTT' };
     const props = {
