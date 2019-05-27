@@ -1,15 +1,27 @@
 import Environment from 'fusion:environment';
 
-const { IS_DEV, HOMEPAGE } =
+const isTrue = env =>
+    env === true || String(env).toLocaleLowerCase() === 'true';
+
+const getEnvFromDomain = w =>
+    w && w.document.location.hostname.split('.').shift();
+
+const { IS_DEV, IS_SANDBOX, HOMEPAGE } =
     !Environment || !Environment.NODE_ENV
         ? {
-              IS_DEV: window.document.location.host === 'localhost',
+              IS_DEV:
+                  getEnvFromDomain(
+                      typeof window === 'undefined' ? false : window
+                  ) === 'localhost',
+              IS_SANDBOX:
+                  getEnvFromDomain(
+                      typeof window === 'undefined' ? false : window
+                  ) === 'sandbox',
               HOMEPAGE: 'homepage'
           }
         : Environment;
 
-const isOriginURL =
-    IS_DEV === true || String(IS_DEV).toLocaleLowerCase() === 'true';
+const isOriginURL = isTrue(IS_DEV) || isTrue(IS_SANDBOX);
 
 const RE_REMOVE_SLASH = /(^[/]+|[/]+$)/gi;
 
@@ -26,6 +38,8 @@ function createCorrectHref(href, arcSite, contextPath = '') {
         .join('/')
         .replace(RE_REMOVE_SLASH, '');
 
-    return `/${url}${isOriginURL ? `?_website=${arcSite}` : ''}`;
+    const finalUrl = `/${url}${isOriginURL ? `?_website=${arcSite}` : ''}`;
+
+    return finalUrl;
 }
 export default { createCorrectHref };
