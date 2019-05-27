@@ -45,11 +45,7 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
         },
       ]
     }
-    siteProperties={
-      Object {
-        "isDev": true,
-      }
-    }
+    siteProperties={Object {}}
   >
     <header
       className="header"

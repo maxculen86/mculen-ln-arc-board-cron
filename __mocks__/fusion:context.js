@@ -11,7 +11,7 @@ jest.mock('fusion:context', WrappedComponent => {
                     <WrappedComponent
                         contextPath={'contextPath'}
                         deployment={path => `pathDeployment/${path}`}
-                        siteProperties={{ isDev: true }}
+                        siteProperties={{}}
                         arcSite="ott"
                         {...this.props}
                     />
