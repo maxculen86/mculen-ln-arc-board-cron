@@ -202,6 +202,9 @@ section > article > .figure:before {
   .slider .title a {
     font-size: 0.9em;
   }
+  .programas .article .figure:after {
+    line-height: 1.8em;
+  }
 }
 
 @media (max-width: 1025px) {
@@ -235,6 +238,10 @@ section > article > .figure:before {
   .previous:after {
     font-size: 1.2rem;
   }
+  .programas .article .figure:after {
+    content: '';
+    background-color: rgba(45, 45, 45, 0);
+  }
 }
 
 @media (max-width: 672px) {
@@ -250,5 +257,8 @@ section > article > .figure:before {
   }
   .slider .article:nth-of-type(2n+2) {
     padding-right: 0;
+  }
+  .next, .previous {
+    z-index: 2;
   }
 }

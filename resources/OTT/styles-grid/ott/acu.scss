@@ -14,6 +14,9 @@
   width: 100%;
   z-index: 2;
 }
+#acumulado main {
+  position: relative;
+}
 #acumulado main > section:first-of-type:after {
   content: "";
   position: absolute;
@@ -42,6 +45,10 @@
 #acumulado .ultimos-videos .article:last-of-type {
   @include flex;
 }
+
+button {
+  cursor: pointer
+}
 button.mas {
   width: 150px;
   font-family: $font-arial;
@@ -57,7 +64,7 @@ button.mas {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -10px;
 }
 button.mas:hover {
   opacity: 0.75;
@@ -66,8 +73,3 @@ button.mas:hover {
   background: #1ed9c4;
 }
 
-@media (max-width: 420px) {
-  #acumulado .ultimos-videos .article:last-of-type {
-    display: none;
-  }
-}
