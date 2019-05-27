@@ -63,9 +63,11 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
       </a>
       <HamburgerButton
         className="header__hamburguer"
+        onClick={[Function]}
       >
         <button
           className="header__hamburguer"
+          onClick={[Function]}
         >
           ☰
         </button>
