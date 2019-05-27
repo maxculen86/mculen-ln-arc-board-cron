@@ -11,9 +11,7 @@
     "fusion": "fusion",
     "start": "npm run clean && npm run build && fusion start",
     "test": "jest --passWithNoTests --coverage",
-    "prettier": "prettier --write **/*.{js,jsx}",
-    "start": "fusion start",
-    "test": "jest --passWithNoTests --coverage"
+    "prettier": "prettier --write **/*.{js,jsx}"
   },
   "dependencies": {
     "@arc-core-components/content-source_content-api-v4": "^2.0.3-beta.2",
