@@ -1,5 +1,4 @@
 import React from 'react';
-import defaultImages from '../../common/utils/defaultImages';
 export default function component({ imgSrc }) {
     return (
         <section className={'apertura'}>
@@ -8,7 +7,6 @@ export default function component({ imgSrc }) {
                 {imgSrc && (
                     <img className={'lazy loaded'} className={'img-desktop'} />
                 )}
-                {!imgSrc && defaultImages.defaultSvgProgramImage(700, 450)}
             </picture>
         </section>
     );
