@@ -19,6 +19,10 @@
         "**/node_modules/*/**": true,
         "/data/db/**":true,
         "/data/dumps/**":true,
-        "/data/restore/**":true
+        "/data/restore/**":true,
+        "/coverage/**":true,
+        "/.scannerwork/**":true,
+        "/dist/**":true,
+        "/resources/dist/**":true
     }
 }
