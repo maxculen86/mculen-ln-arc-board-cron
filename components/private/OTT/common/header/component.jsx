@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
+import Context from 'fusion:context';
 import HeaderItem from './headerItem';
 import HamburgerButton from '../../../common/hamburgerButton';
-import Context from 'fusion:context';
 import hrefHelper from '../../../common/utils/hrefHelper';
 
 class HeaderComponent extends PureComponent {
@@ -29,16 +29,22 @@ class HeaderComponent extends PureComponent {
     }
 
     render() {
+        const { arcSite, contextPath } = this.props;
+
         return (
             <header className="header">
                 <a
-                    className={'header__logo'}
-                    href={hrefHelper.createCorrectHref(this.props, '/')}
-                    alt={'lnmas.com.ar'}
-                    title={'lnmas.com.ar'}
+                    className="header__logo"
+                    href={hrefHelper.createCorrectHref(
+                        '/',
+                        arcSite,
+                        contextPath
+                    )}
+                    alt="lnmas.com.ar"
+                    title="lnmas.com.ar"
                 >
                     <img
-                        className={'a'}
+                        className="a"
                         src={this.props.deployment(
                             `${
                                 this.props.contextPath
@@ -46,7 +52,7 @@ class HeaderComponent extends PureComponent {
                         )}
                     />
                 </a>
-                <HamburgerButton className={'header__hamburguer'}>
+                <HamburgerButton className="header__hamburguer">
                     ☰
                 </HamburgerButton>
                 <nav className="header__nav">{this.headerItems}</nav>

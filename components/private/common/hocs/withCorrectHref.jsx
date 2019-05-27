@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { PureComponent } from 'react';
 import Context from 'fusion:context';
 import hrefHelper from '../utils/hrefHelper';
@@ -9,9 +7,14 @@ function withCorrectHref(WrappedComponent) {
         class extends PureComponent {
             constructor(props) {
                 super(props);
-                this.href = props.href
-                    ? hrefHelper.createCorrectHref(props, props.href)
-                    : '';
+
+                const { arcSite, href, contextPath } = props;
+
+                this.href = hrefHelper.createCorrectHref(
+                    href,
+                    arcSite,
+                    contextPath
+                );
             }
 
             render() {
