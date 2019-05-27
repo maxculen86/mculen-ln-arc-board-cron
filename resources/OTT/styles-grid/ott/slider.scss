@@ -92,6 +92,7 @@ section > article > .figure:after {
   background-size: 3em;
   transition: 0.2s ease opacity;
 }
+
 section > article > .figure:before { 
   content: "";
   position: absolute;
@@ -123,6 +124,7 @@ section > article > .figure:before {
   color: rgba(91, 255, 230, 0.5);
   text-align: center;
   line-height: 1.5em;
+  background-image: initial !important;
 }
 
 .slider .article .figure:hover:after {
@@ -202,9 +204,9 @@ section > article > .figure:before {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .slider .title a {
-    font-size: 1.2em;
+    font-size: .97em;
   }
   .section-title {
     font-size: 1.5em;
@@ -218,12 +220,13 @@ section > article > .figure:before {
   .slider .article {
     width: calc((100% - 1rem) / 3);
   }
-  .slider .article:nth-of-type(3n+3) {
-    padding-right: 0;
-  }
   .slider .article:nth-of-type(4n+4) {
     padding-right: 0.5em;
   }
+  .slider .article:nth-of-type(3n+3) {
+    padding-right: 0;
+  }
+
   
 }
 
@@ -242,10 +245,10 @@ section > article > .figure:before {
   .slider .article {
     width: calc((100% - .5rem) / 2);
   }
-  .slider .article:nth-of-type(2n+2) {
-    padding-right: 0;
-  }
   .slider .article:nth-of-type(3n+3) {
     padding-right: 0.5em;
+  }
+  .slider .article:nth-of-type(2n+2) {
+    padding-right: 0;
   }
 }

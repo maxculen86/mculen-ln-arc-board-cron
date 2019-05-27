@@ -91,20 +91,29 @@
   @include just-end;
 }
 
-.ios-app {
-  background-image: url("../img/icon-button-app-store.svg");
+.icon-ios {
+  background-image: url("../img/icon-button-app-store.png");
   background-repeat: no-repeat;
   background-size: contain;
+  background-color: transparent;
   height: 39px;
   width: 121px;
   margin-right: $px-30;
+  border: 0;
 }
-.android-app {
-  background-image: url("../img/icon-button-google-play.svg");
+.icon-android {
+  background-image: url("../img/icon-button-google-play.png");
   background-repeat: no-repeat;
   background-size: contain;
+  background-color: transparent;
   height: 39px;
   width: 121px;
+  border: 0;
+}
+.icon-ios:before,
+.icon-android:before {
+  
+  content: '' !important;
 }
 .data-fiscal {
   background-image: url("../img/data-fiscal.png");
@@ -114,7 +123,7 @@
   width: 39px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .footer {
     @include flex-column;
     text-align: center;

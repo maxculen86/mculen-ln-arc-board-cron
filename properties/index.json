@@ -13,7 +13,7 @@
         },
         {
             "name": "desktop-sm",
-            "lowerRange": 1024,
+            "lowerRange": 1025,
             "topRange": 1379,
             "pageSize": 4
         },
