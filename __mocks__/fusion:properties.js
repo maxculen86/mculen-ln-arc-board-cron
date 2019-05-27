@@ -9,16 +9,21 @@
  * */
 
 jest.mock('fusion:properties', () => {
-    return function() {
-        return {
-            sliderConfig: [
-                {
-                    name: 'desktop',
-                    lowerRange: 1380,
-                    topRange: null,
-                    pageSize: 4
-                }
-            ]
-        };
+    return function(source) {
+        switch (source) {
+            case 'ott':
+                return require('./data/properties/ottSiteProps');
+            default:
+                return {
+                    sliderConfig: [
+                        {
+                            name: 'desktop',
+                            lowerRange: 1380,
+                            topRange: null,
+                            pageSize: 4
+                        }
+                    ]
+                };
+        }
     };
 });

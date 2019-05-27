@@ -1,7 +1,6 @@
 import React from 'react';
 import PictureSource from '../../../common/pictureSource';
 import get from 'lodash.get';
-import defaultImages from '../utils/defaultImages';
 export default function Program({ href, description, image }) {
     const alt = `Ir a ${description}`;
     const imageUrl = get(image, 'url', null);
@@ -24,8 +23,6 @@ export default function Program({ href, description, image }) {
                             data-was-processed="true"
                         />
                     )}
-                    {!imageUrl &&
-                        defaultImages.defaultSvgProgramImage(279, 157)}
                 </picture>
             </a>
             <h2 className={'title'}>
