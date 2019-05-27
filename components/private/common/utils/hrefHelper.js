@@ -3,14 +3,20 @@ import Environment from 'fusion:environment';
 const isTrue = env =>
     env === true || String(env).toLocaleLowerCase() === 'true';
 
-const getEnvFromDomain = () =>
-    window.document.location.hostname.split('.').shift();
+const getEnvFromDomain = w =>
+    w && w.document.location.hostname.split('.').shift();
 
 const { IS_DEV, IS_SANDBOX, HOMEPAGE } =
     !Environment || !Environment.NODE_ENV
         ? {
-              IS_DEV: getEnvFromDomain() === 'localhost',
-              IS_SANDBOX: getEnvFromDomain() === 'sandbox',
+              IS_DEV:
+                  getEnvFromDomain(
+                      typeof window === 'undefined' ? false : window
+                  ) === 'localhost',
+              IS_SANDBOX:
+                  getEnvFromDomain(
+                      typeof window === 'undefined' ? false : window
+                  ) === 'sandbox',
               HOMEPAGE: 'homepage'
           }
         : Environment;
