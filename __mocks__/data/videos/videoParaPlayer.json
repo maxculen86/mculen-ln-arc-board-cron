@@ -222,9 +222,6 @@
     "requestUri": "/api/v3/render/?isAdmin=true&outputType=default&_website=ott",
     "siteProperties": {
         "organizationId": "lanacionar",
-        "videoPlayer": {
-            "apiEnv": "sandbox"
-        },
         "videoBaseUrl": "/",
         "sliderConfig": [
             {

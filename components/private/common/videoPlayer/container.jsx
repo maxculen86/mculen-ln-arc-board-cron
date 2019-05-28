@@ -3,6 +3,7 @@ import VideoPlayerComponent from './component';
 import PropTypes from 'fusion:prop-types';
 import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
+import { API_ENV } from 'fusion:environment';
 
 //TODO: prueba de concepto. Test pendientes para cuando definan que se necesita hacer y que no
 //en un player de video
@@ -12,7 +13,7 @@ class VideoPlayer extends PureComponent {
         super(props);
         const siteVars = getProperties(props.arcSite);
         this.organizationId = siteVars.organizationId;
-        this.apiEnv = siteVars.videoPlayer.apiEnv;
+        this.apiEnv = API_ENV || '';
         if (this.props.apiEnv) this.apiEnv = this.props.apiEnv;
     }
 
