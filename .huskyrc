@@ -2,6 +2,6 @@
     "hooks": {
         "pre-commit": "lint-staged",
         "pre-push": "if `git-branch-is -qr '(master$|develop$|/origin$)'`; then npm test; fi",
-        "post-pull": "if `git-branch-is -qr '(master$|develop$|/origin$)'`; then npm run build; fi"
+        "post-merge": "if `git-branch-is -qr '(master$|develop$|/origin$)'`; then npm run build; fi"
     }
 }
