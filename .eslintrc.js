@@ -30,6 +30,12 @@ module.exports = {
     },
     overrides: [
         {
+            files: ['*.js', '*.jsx'],
+            rules: {
+                'import/no-unresolved': false
+            }
+        },
+        {
             files: ['setupTests.js'],
             rules: {
                 'import/no-extraneous-dependencies': false
