@@ -7,7 +7,7 @@ import loadOTTVideoStyles from '../private/OTT/ficha/ottVideoStyles';
 import '../../resources/dist/css/ott/style.css';
 import Consumer from 'fusion:consumer';
 
-const layoutItems = ['Bloque-1', 'Bloque-2'];
+const layoutItems = ['Header', 'Bloque-1', 'Bloque-2'];
 
 class OTTFichaLayout extends Component {
     render() {
@@ -15,11 +15,11 @@ class OTTFichaLayout extends Component {
             <>
                 <div id={'acumulado'}>
                     <div className={'wrapper'}>
-                        <Header />
+                        {this.props.children[0]}
                         <main className={'main'}>
-                            {this.props.children[0]}
-                            <LastVideos />
                             {this.props.children[1]}
+                            <LastVideos />
+                            {this.props.children[2]}
                         </main>
                         <Footer />
                     </div>

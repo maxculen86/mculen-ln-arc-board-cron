@@ -4,14 +4,14 @@ import Header from '../private/OTT/common/header';
 
 import '../../resources/dist/css/ott/style.css';
 
-const layoutItems = ['Bloque-1'];
+const layoutItems = ['Header', 'Bloque-1'];
 
 class OTTDefaultLayout extends Component {
     render() {
         return (
             <div className={'wrapper'}>
-                <Header />
-                <main className={'main'}>{this.props.children[0]}</main>
+                {this.props.children[0]}
+                <main className={'main'}>{this.props.children[1]}</main>
                 <Footer />
             </div>
         );
