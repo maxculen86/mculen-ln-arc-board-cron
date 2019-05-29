@@ -13,6 +13,7 @@
 .header:after {
   content: "";
   position: absolute;
+  max-height:74px;
   width: 1000%;
   left: -500%;
   right: 100%;
@@ -102,6 +103,11 @@ header.sticky .header__logo img {
 }
 
 @media (max-width: 864px) {
+
+  .header:after {
+	max-height:90px;
+  }
+
   .header__nav {
     height: 0;
     @include flex;
