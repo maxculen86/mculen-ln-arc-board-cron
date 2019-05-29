@@ -53,7 +53,6 @@ class VideoTab extends PureComponent {
                 }
             ];
         } catch (e) {
-            console.log(e);
             this.analytics = [];
         }
     }

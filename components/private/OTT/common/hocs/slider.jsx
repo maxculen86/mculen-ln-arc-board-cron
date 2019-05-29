@@ -6,7 +6,6 @@ export default function slider(WrappedComponent, pageSize) {
     return class extends PureComponent {
         constructor(props) {
             super(props);
-            console.log('const');
             const siteVars = getProperties(props.arcSite);
             this.sliderConfig = siteVars.sliderConfig;
             this.state = {
@@ -34,9 +33,6 @@ export default function slider(WrappedComponent, pageSize) {
         }
 
         updatePageSize() {
-            console.log('state', this.state);
-            console.log('props', this.props);
-            console.log('next', this.hasNextPage(), 'prev', this.hasPrevPage());
             if (this.sliderConfig)
                 for (let index = 0; index < this.sliderConfig.length; index++) {
                     const elem = this.sliderConfig.find(elem => {
