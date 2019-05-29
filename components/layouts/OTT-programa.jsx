@@ -10,8 +10,8 @@ class OTTProgramaLayout extends Component {
     render() {
         return (
             <div id={'programa'}>
+                {this.props.children[0]}
                 <div className={'wrapper'}>
-                    {this.props.children[0]}
                     <main className={'main'}>{this.props.children[1]}</main>
                     <Footer />
                 </div>

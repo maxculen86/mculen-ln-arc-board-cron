@@ -32,33 +32,36 @@ class HeaderComponent extends PureComponent {
         const { arcSite, contextPath } = this.props;
 
         return (
-            <header className="header">
-                <a
-                    className="header__logo"
-                    href={hrefHelper.createCorrectHref(
-                        '/',
-                        arcSite,
-                        contextPath
-                    )}
-                    alt="lnmas.com.ar"
-                    title="lnmas.com.ar"
-                >
-                    <img
-                        className="a"
-                        src={this.props.deployment(
-                            `${
-                                this.props.contextPath
-                            }/resources/OTT/styles-grid/img/logo-lnmas.png`
-                        )}
-                    />
-                </a>
-                <HamburgerButton className={'header__hamburguer'}>
-                    ☰
-                </HamburgerButton>
-                <nav className="header__nav">{this.headerItems}</nav>
-            </header>
+            <div className="header-wrapper wrapper">
+                <header className="header">
+                    <div className="wrapper">
+                        <a
+                            className="header__logo"
+                            href={hrefHelper.createCorrectHref(
+                                '/',
+                                arcSite,
+                                contextPath
+                            )}
+                            alt="lnmas.com.ar"
+                            title="lnmas.com.ar"
+                        >
+                            <img
+                                className="a"
+                                src={this.props.deployment(
+                                    `${
+                                        this.props.contextPath
+                                    }/resources/OTT/styles-grid/img/logo-lnmas.png`
+                                )}
+                            />
+                        </a>
+                        <HamburgerButton className={'header__hamburguer'}>
+                            ☰
+                        </HamburgerButton>
+                        <nav className="header__nav">{this.headerItems}</nav>
+                    </div>
+                </header>
+            </div>
         );
     }
 }
-
 export default Context(HeaderComponent);

@@ -12,16 +12,18 @@ const layoutItems = ['Header', 'Bloque-1', 'Bloque-2'];
 class OTTHomeLayout extends PureComponent {
     render() {
         return (
-            <div className={'wrapper'}>
+            <>
                 {this.props.children[0]}
-                <main className={'main'}>
-                    <VideoOpening source={urlLiveVideo} />
-                    {this.props.children[1]}
-                    <LastVideos />
-                    {this.props.children[2]}
-                    <Footer />
-                </main>
-            </div>
+                <div className={'wrapper'}>
+                    <main className={'main'}>
+                        <VideoOpening source={urlLiveVideo} />
+                        {this.props.children[1]}
+                        <LastVideos />
+                        {this.props.children[2]}
+                        <Footer />
+                    </main>
+                </div>
+            </>
         );
     }
     componentDidMount() {
