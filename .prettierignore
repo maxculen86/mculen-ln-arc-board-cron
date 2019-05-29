@@ -3,9 +3,13 @@
 **/.{git,svn,hg}/**
 ./.{git,svn,hg}
 dist/
+resources/dist
 package.json
 .scannerwork/
 .vscode/
 _fix_windows/
 _ignore_*
 coverage/
+.fusion/
+.fusion/**
+babel.config.js
