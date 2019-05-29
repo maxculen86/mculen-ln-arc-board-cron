@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from '../private/OTT/common/footer';
-import Header from '../private/OTT/common/header';
+import loadHeaderEvents from '../private/OTT/common/header/layoutEvents';
 
 import '../../resources/dist/css/ott/style.css';
 
@@ -15,6 +15,9 @@ class OTTDefaultLayout extends Component {
                 <Footer />
             </div>
         );
+    }
+    componentDidMount() {
+        loadHeaderEvents();
     }
 }
 

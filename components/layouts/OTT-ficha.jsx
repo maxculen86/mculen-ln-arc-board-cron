@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Footer from '../private/OTT/common/footer';
 import LastVideos from '../private/OTT/common/lastVideos';
-import Header from '../private/OTT/common/header';
+import loadHeaderEvents from '../private/OTT/common/header/layoutEvents';
 import loadOTTVideoAnalytics from '../private/OTT/ficha/ottVideoAnalytics';
 import loadOTTVideoStyles from '../private/OTT/ficha/ottVideoStyles';
 import '../../resources/dist/css/ott/style.css';
@@ -33,6 +33,7 @@ class OTTFichaLayout extends Component {
     }
 
     componentDidMount() {
+        loadHeaderEvents();
         if (
             this.props.globalContent &&
             this.props.globalContent.type == 'video'

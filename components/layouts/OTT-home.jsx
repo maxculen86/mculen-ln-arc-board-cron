@@ -3,7 +3,7 @@ import { urlLiveVideo } from '../private/OTT/home/OTTHomeIndex';
 import VideoOpening from '../private/OTT/home/videoOpening';
 import LastVideos from '../private/OTT/common/lastVideos';
 import Footer from '../private/OTT/common/footer';
-import Header from '../private/OTT/common/header';
+import loadHeaderEvents from '../private/OTT/common/header/layoutEvents';
 
 import '../../resources/dist/css/ott/style.css';
 
@@ -23,6 +23,9 @@ class OTTHomeLayout extends PureComponent {
                 </main>
             </div>
         );
+    }
+    componentDidMount() {
+        loadHeaderEvents();
     }
 }
 
