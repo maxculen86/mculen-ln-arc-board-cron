@@ -14,27 +14,30 @@ function withImage(WrappedComponent, filter, published) {
             }
 
             getImage() {
-                const { cached, fetched } = this.getContent({
-                    sourceName: 'imageSource',
-                    query: {
-                        published: published,
-                        id: this.props.imageId
-                    },
-                    filter
-                });
-                const cachedImage = cached;
+                if (this.props.imageId) {
+                    let { cached, fetched } = this.getContent({
+                        sourceName: 'imageSource',
+                        query: {
+                            published: published,
+                            id: this.props.imageId
+                        },
+                        filter
+                    });
+                    const cachedImage = cached;
 
-                if (cachedImage) this.state.image = cachedImage;
+                    if (cachedImage) this.state.image = cachedImage;
 
-                fetched.then(response => {
-                    // const fetchedImage = get(
-                    //     response,
-                    //     'content_elements',
-                    //     null
-                    // );
-                    const fetchedImage = response;
-                    if (fetchedImage) this.setState({ image: fetchedImage });
-                });
+                    fetched.then(response => {
+                        // const fetchedImage = get(
+                        //     response,
+                        //     'content_elements',
+                        //     null
+                        // );
+                        const fetchedImage = response;
+                        if (fetchedImage)
+                            this.setState({ image: fetchedImage });
+                    });
+                } else this.state.image = null;
             }
 
             render() {
