@@ -65,6 +65,10 @@ a {
 .icon-rss:before {
   content: "q";
 }
+.icon-play:before {
+  content: "r";
+  color: $blanco;  
+}
 
 [class*=" icon-"]:before,
 [class^="icon-"]:before,

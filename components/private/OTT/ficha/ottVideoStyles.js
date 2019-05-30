@@ -61,17 +61,18 @@ export default function loadOTTVideoStyles() {
                 margin: '0',
                 position: 'relative',
                 left: '2px',
-                top: '-3px'
+                top: '2px',
+                display: 'inline-block'
             }
         },
         template: function powaShotTemplate(settings) {
-            let playText = '▶';
+            let playText = '';
 
             let template = `
                     <div class="powa-shot-image powa-shot-click powa-shot-click-play" style="background-image: url('${
                         settings.image
                     }')">
-                        <div class="powa-shot-play-btn powa-shot-click powa-shot-click-play"><span class="video-btn-play-powa">${playText}</span></div>
+                        <div class="powa-shot-play-btn powa-shot-click powa-shot-click-play"><span class="video-btn-play-powa icon-play">${playText}</span></div>
                     </div>`;
 
             return template.trim();
