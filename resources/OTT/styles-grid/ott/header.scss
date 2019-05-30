@@ -9,6 +9,7 @@ header {
     z-index: 3;
     transition: padding 0.2s ease;
     margin: auto;
+    min-width: 1140px;
 }
 .header-wrapper {
     background: radial-gradient(ellipse at center, #322d59 0, #08142d 100%);
@@ -20,6 +21,7 @@ header {
 }
 header .wrapper {
     @include flex-row;
+    margin: 0;
 }
 header.sticky {
     padding: 0.5rem 0;
@@ -79,6 +81,13 @@ header.sticky .header__logo img {
 @media (max-width: 1380px) {
     .header__nav__link {
         font-size: 0.9em;
+    }
+}
+@media (max-width: 1200px) {
+    .header {
+        min-width: initial;
+        max-width: 100%;
+        margin: 0 30px;
     }
 }
 @media (max-width: 1025px) {
