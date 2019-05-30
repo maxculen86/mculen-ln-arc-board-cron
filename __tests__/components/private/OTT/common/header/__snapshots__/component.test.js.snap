@@ -47,56 +47,64 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
     }
     siteProperties={Object {}}
   >
-    <header
-      className="header"
+    <div
+      className="header-wrapper wrapper"
     >
-      <a
-        alt="lnmas.com.ar"
-        className="header__logo"
-        href="/contextPath/homepage?_website=ott"
-        title="lnmas.com.ar"
+      <header
+        className="header"
       >
-        <img
-          className="a"
-          src="pathDeployment/contextPath/resources/OTT/styles-grid/img/logo-lnmas.png"
-        />
-      </a>
-      <HamburgerButton
-        className="header__hamburguer"
-      >
-        <button
-          className="header__hamburguer"
+        <div
+          className="wrapper"
         >
-          ☰
-        </button>
-      </HamburgerButton>
-      <nav
-        className="header__nav"
-      >
-        <mock-component
-          alt="alt 1"
-          data={
-            Object {
-              "dataEvent": "link 2",
-            }
-          }
-          description="description 1"
-          href="href 1"
-          key="0"
-        />
-        <mock-component
-          alt="alt 2"
-          data={
-            Object {
-              "dataEvent": "link 2",
-            }
-          }
-          description="description 2"
-          href="href 2"
-          key="1"
-        />
-      </nav>
-    </header>
+          <a
+            alt="lnmas.com.ar"
+            className="header__logo"
+            href="/contextPath/homepage?_website=ott"
+            title="lnmas.com.ar"
+          >
+            <img
+              className="a"
+              src="pathDeployment/contextPath/resources/OTT/styles-grid/img/logo-lnmas.png"
+            />
+          </a>
+          <HamburgerButton
+            className="header__hamburguer"
+          >
+            <button
+              className="header__hamburguer"
+            >
+              ☰
+            </button>
+          </HamburgerButton>
+          <nav
+            className="header__nav"
+          >
+            <mock-component
+              alt="alt 1"
+              data={
+                Object {
+                  "dataEvent": "link 2",
+                }
+              }
+              description="description 1"
+              href="href 1"
+              key="0"
+            />
+            <mock-component
+              alt="alt 2"
+              data={
+                Object {
+                  "dataEvent": "link 2",
+                }
+              }
+              description="description 2"
+              href="href 2"
+              key="1"
+            />
+          </nav>
+        </div>
+      </header>
+    </div>
   </HeaderComponent>
 </element>
 `;
