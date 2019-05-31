@@ -1,9 +1,16 @@
-#programa .header:after,
+
 #programa .apertura:after {
   background: $negro;
   background: -webkit-radial-gradient(center, ellipse, $negro 0, $negro 100%);
   background: -o-radial-gradient(center, ellipse, $negro 0, $negro 100%);
   background: radial-gradient(ellipse at center, $negro 0, $negro 100%);
+}
+#programa .header-wrapper {
+  background: $negro;
+  background: -webkit-radial-gradient(center, ellipse, $negro 0, $negro 100%);
+  background: -o-radial-gradient(center, ellipse, $negro 0, $negro 100%);
+  background: radial-gradient(ellipse at center, $negro 0, $negro 100%);
+
 }
 #programa .apertura {
   padding-bottom: 40.25%;

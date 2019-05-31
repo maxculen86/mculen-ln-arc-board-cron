@@ -158,3 +158,9 @@ header.sticky .header__logo img {
         margin-top: -36px;
     }
 }
+
+@media (max-width: 672px) {
+    .header {
+        margin: 0 10px;
+    }
+}
