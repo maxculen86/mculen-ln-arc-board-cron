@@ -16,4 +16,3 @@ hamburguer.addEventListener('click', () => {
 const article = document.querySelector('.slider .article');
 const arrows = document.querySelector('.slider button');
 const articleHeight = article.offsetHeight;
-console.log(articleHeight);
