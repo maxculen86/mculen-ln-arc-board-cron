@@ -5,25 +5,25 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint --ext=js,jsx .",
-    "sonar-local": "sonar-scanner -Dsonar.projectKey=arc-ln -Dsonar.sourceEncoding=UTF-8 -Dsonar.host.url=http://localhost:9000 -Dsonar.sources=./ -Dsonar.language=js -Dsonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules -Dsonar.tests=./__tests__ -Dsonar.test.inclusions=./__tests__/**/*.test.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
-    "zip": "npm run build && fusion zip",
-    "clean": "rm -rf resources/dist",
     "build": "npm run clean && webpack --config ./config/webpack.config.js --env.prod",
+    "clean": "rm -rf resources/dist",
     "dev": "webpack --watch --config ./config/webpack.config.js --env.dev --progress --debug",
+    "eslint": "eslint --ext=js,jsx .",
     "fusion": "fusion",
-    "start": "npm run build && fusion start",
+    "prettier": "prettier --write **/*.{js,jsx}",
+    "sonar-local": "sonar-scanner -Dsonar.projectKey=arc-ln -Dsonar.sourceEncoding=UTF-8 -Dsonar.host.url=http://localhost:9000 -Dsonar.sources=./ -Dsonar.language=js -Dsonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules -Dsonar.tests=./__tests__ -Dsonar.test.inclusions=./__tests__/**/*.test.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
+    "start": "fusion start",
     "test": "jest --passWithNoTests --coverage",
-    "prettier": "prettier --write **/*.{js,jsx}"
+    "zip": "npm run build && fusion zip"
   },
   "dependencies": {
-    "@arc-core-components/content-source_content-api-v4": "^2.0.3-beta.2",
+    "@arc-core-components/content-source_content-api-v4": "^2.0.4-beta.0",
     "lodash.get": "^4.4.2",
     "react": "16.6.1",
     "react-dom": "16.6.1"
   },
   "devDependencies": {
-    "@arc-fusion/cli": "^0.2.9",
+    "@arc-fusion/cli": "^1.0.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
@@ -91,6 +91,8 @@
     "testPathIgnorePatterns": [
       "utils"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
