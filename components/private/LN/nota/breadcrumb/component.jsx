@@ -6,8 +6,7 @@ export default props => {
         return (
             <Fragment key={index}>
                 <strong className={section.type}>
-                    {' '}
-                    <a href={section.path}>{section.name}</a>{' '}
+                    <a href={section.path}>{section.name}</a>
                 </strong>
                 {index !== sections.length - 1 && <span> | </span>}
             </Fragment>
