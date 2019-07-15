@@ -5,7 +5,6 @@ import { SSL_OP_ALL } from 'constants';
 
 const resolve = key => {
     const { url, id } = key;
-    console.log(id);
     const basePath = '/content/v4/stories/?website=la-nacion-ar';
 
     if (id) return `${basePath}&_id=${id}`;
@@ -27,7 +26,6 @@ const getPresets = () => {
 
 const transform = data => {
     const presets = getPresets();
-    console.log('presets: ', presets);
     return addResizedUrls(data, {
         resizerSecret: RESIZER_SECRET,
         resizerUrl: RESIZER_URL,

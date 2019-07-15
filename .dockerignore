@@ -3,3 +3,12 @@
 data/
 dist/
 node_modules/
+coverage/
+.scannerwork/
+.vscode/
+.eslintrc.js
+.lintstagedrc
+.prettierignore
+.prettierrc
+.huskyrc
+_ignore_*

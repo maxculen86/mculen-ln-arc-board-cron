@@ -1,0 +1,42 @@
+{
+    "_id": "7XBWH35QWZHSVGDQUVATJ6DC34",
+    "additional_properties": {
+        "galleries": [],
+        "ingestionMethod": "manual",
+        "keywords": [""],
+        "mime_type": "image/jpeg",
+        "originalName": "conversaciones.jpg",
+        "originalUrl": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/7XBWH35QWZHSVGDQUVATJ6DC34.jpg",
+        "owner": "asoto@lanacion.com.ar",
+        "proxyUrl": "/photo/resize/7-9Bh4IjWA2Bv3RKmUd7ySOVWf4=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/7XBWH35QWZHSVGDQUVATJ6DC34.jpg",
+        "published": true,
+        "resizeUrl": "http://resizer.shared.arcpublishing.com/7-9Bh4IjWA2Bv3RKmUd7ySOVWf4=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/7XBWH35QWZHSVGDQUVATJ6DC34.jpg",
+        "restricted": false,
+        "version": 0
+    },
+    "address": {},
+    "created_date": "2019-05-09T14:56:14Z",
+    "credits": {
+        "affiliation": []
+    },
+    "height": 477,
+    "image_type": "photograph",
+    "last_updated_date": "2019-05-09T14:56:14Z",
+    "licensable": false,
+    "owner": {
+        "id": "sandbox.lanacionar",
+        "sponsored": false
+    },
+    "source": {
+        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/7XBWH35QWZHSVGDQUVATJ6DC34",
+        "system": "Anglerfish"
+    },
+    "subtitle": "conversaciones",
+    "taxonomy": {
+        "associated_tasks": []
+    },
+    "type": "image",
+    "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/7XBWH35QWZHSVGDQUVATJ6DC34.jpg",
+    "version": "0.9.0",
+    "width": 1113
+}

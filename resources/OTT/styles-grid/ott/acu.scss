@@ -1,0 +1,75 @@
+#acumulado .header-wrapper {
+  background: $negro;
+  background: -webkit-radial-gradient(center, ellipse, $negro 0, $negro 100%);
+  background: -o-radial-gradient(center, ellipse, $negro 0, $negro 100%);
+  background: radial-gradient(ellipse at center, $negro 0, $negro 100%);
+}
+#acumulado .apertura {
+  padding-bottom: 40.25%;
+}
+#acumulado .apertura picture img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+#acumulado main {
+  position: relative;
+}
+#acumulado main > section:first-of-type:after {
+  content: "";
+  position: absolute;
+  width: 1000%;
+  left: -500%;
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background: #1a1a1a;
+
+
+}
+#acumulado .ultimos-videos .slider:after {
+  background: #1a1a1a;
+}
+#acumulado .ultimos-videos .section-title {
+  color: $blanco;
+}
+#acumulado .ultimos-videos .section-title:after {
+  background: #1a1a1a;
+}
+#acumulado .ultimos-videos .title a {
+  color: $blanco;
+}
+#acumulado .ultimos-videos .article:last-of-type {
+  @include flex;
+}
+
+button {
+  cursor: pointer
+}
+button.mas {
+  width: 150px;
+  font-family: $font-arial;
+  color: #1f2848;
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.7rem;
+  margin: 1rem auto 0;
+  cursor: pointer;
+  border: 0;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+}
+button.mas:hover {
+  opacity: 0.75;
+}
+.--verde {
+  background: #1ed9c4;
+}
+

@@ -1,0 +1,21 @@
+import React from 'react';
+import LinkedTitle from '../../../common/linkedTitle';
+
+export default function VideoArticle({ href, description, imgSrc, date }) {
+    return (
+        <article className={'article'}>
+            <a className="figure" href={href}>
+                <picture className="content-picture">
+                    <source srcSet={imgSrc} />
+                    <img
+                        className="lazy loaded"
+                        alt="imagen-destacada"
+                        data-src=""
+                        data-was-processed="true"
+                    />
+                </picture>
+            </a>
+            <LinkedTitle href={href} title={description} />
+        </article>
+    );
+}

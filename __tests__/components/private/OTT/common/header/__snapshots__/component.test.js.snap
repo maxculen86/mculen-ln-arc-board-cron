@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OTT - layout - header - components Snapshot Test 1`] = `
+<element
+  data={
+    Object {
+      "dataEvent": "link 2",
+    }
+  }
+  items={
+    Array [
+      Object {
+        "alt": "alt 1",
+        "description": "description 1",
+        "href": "href 1",
+      },
+      Object {
+        "alt": "alt 2",
+        "description": "description 2",
+        "href": "href 2",
+      },
+    ]
+  }
+>
+  <HeaderComponent
+    arcSite="ott"
+    contextPath="contextPath"
+    data={
+      Object {
+        "dataEvent": "link 2",
+      }
+    }
+    deployment={[Function]}
+    items={
+      Array [
+        Object {
+          "alt": "alt 1",
+          "description": "description 1",
+          "href": "href 1",
+        },
+        Object {
+          "alt": "alt 2",
+          "description": "description 2",
+          "href": "href 2",
+        },
+      ]
+    }
+    siteProperties={Object {}}
+  >
+    <div
+      className="header-wrapper wrapper"
+    >
+      <header
+        className="header"
+      >
+        <div
+          className="wrapper"
+        >
+          <a
+            alt="lnmas.com.ar"
+            className="header__logo"
+            href="/contextPath/homepage?_website=ott"
+            title="lnmas.com.ar"
+          >
+            <img
+              className="a"
+              src="pathDeployment/contextPath/resources/OTT/styles-grid/img/logo-lnmas.png"
+            />
+          </a>
+          <HamburgerButton
+            className="header__hamburguer"
+          >
+            <button
+              className="header__hamburguer"
+            >
+              ☰
+            </button>
+          </HamburgerButton>
+          <nav
+            className="header__nav"
+          >
+            <mock-component
+              alt="alt 1"
+              data={
+                Object {
+                  "dataEvent": "link 2",
+                }
+              }
+              description="description 1"
+              href="href 1"
+              key="0"
+            />
+            <mock-component
+              alt="alt 2"
+              data={
+                Object {
+                  "dataEvent": "link 2",
+                }
+              }
+              description="description 2"
+              href="href 2"
+              key="1"
+            />
+          </nav>
+        </div>
+      </header>
+    </div>
+  </HeaderComponent>
+</element>
+`;

@@ -10,7 +10,10 @@ export default `
                 url
             }
         }
+        _id
+        first_publish_date
+        website_url
     }
     next
 }
-`
+`;
