@@ -20,7 +20,9 @@ jest.mock('fusion:consumer', component => {
 
             dispatchEvent() {}
 
-            fetchContent(param) {}
+            fetchContent(param) {
+                console.log('FetchContent', param);
+            }
 
             customFetchContent({ sourceName, query, filter }) {
                 switch (sourceName) {
@@ -63,6 +65,7 @@ jest.mock('fusion:consumer', component => {
             }
 
             getContent(sourceInfo) {
+                console.log('GetContent', sourceInfo);
                 const rta = this.customFetchContent(sourceInfo);
                 let cached = rta;
                 let fetched = rta;
