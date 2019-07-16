@@ -20,9 +20,7 @@ jest.mock('fusion:consumer', component => {
 
             dispatchEvent() {}
 
-            fetchContent(param) {
-                console.log('FetchContent', param);
-            }
+            fetchContent(param) {}
 
             customFetchContent({ sourceName, query, filter }) {
                 switch (sourceName) {
@@ -36,7 +34,6 @@ jest.mock('fusion:consumer', component => {
                         return require(`./data/ottVideos/${query.ids[0]}`);
                         break;
                     case 'videosSearchSource':
-                        console.log('QUERYYYYYYYY', query.query);
                         switch (query.query) {
                             case 'body={"query":{"bool":{"must":[{"term":{"type":"video"}},{"term":{"revision.published":true}},{"nested":{"path":"taxonomy.sections","query":{"bool":{"must":[{"term":{"taxonomy.sections._id":"terapia-noticias"}}]}}}}]}}}&sort=publish_date:desc&from=0&size=12':
                                 return require(`./data/videos/lastVideosfrom0size12sectionterapia-noticias.json`);
@@ -65,7 +62,6 @@ jest.mock('fusion:consumer', component => {
             }
 
             getContent(sourceInfo) {
-                console.log('GetContent', sourceInfo);
                 const rta = this.customFetchContent(sourceInfo);
                 let cached = rta;
                 let fetched = rta;
