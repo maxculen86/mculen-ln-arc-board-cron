@@ -4,8 +4,10 @@ import TituloNota from './tituloNota';
 import TagsNota from './tagsNota';
 
 export default props => {
-    <div>
-        <TituloNota />
-        <TagsNota />
-    </div>;
+    return (
+        <div>
+            <TituloNota {...props} />
+            <TagsNota {...props} />
+        </div>
+    );
 };
