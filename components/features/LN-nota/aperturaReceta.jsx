@@ -1,20 +1,27 @@
-/* import React, { Component } from 'react';
-import {TituloNota} from '../../private/LN/nota/apertura/tituloNota';
+import React, { Component, Fragment } from 'react';
+import TituloNota from '../../private/LN/nota/apertura/tituloNota/tituloNota';
+import TagsNota from '../../private/LN/nota/apertura/tagsNota/tagsNota';
 import Consumer from 'fusion:consumer';
 
 class AperturaReceta extends Component {
     render() {
-        return <TituloNota {...this.props} />;
+        return (
+            <Fragment>
+                <TituloNota {...this.props} />
+                <TagsNota {...this.props} />
+            </Fragment>
+        );
     }
 }
 
 //AperturaReceta.label = 'Apertura receta'
 
-export default Consumer(AperturaReceta) */
+export default Consumer(AperturaReceta);
 
-import { TituloNota } from '../../private/LN/nota/apertura/tituloNota/index';
+/* import TituloNota from '../../private/LN/nota/apertura/tituloNota/tituloNota';
+import TagsNota from '../../private/LN/nota/apertura/tagsNota/tagsNota';
 import Consumer from 'fusion:consumer';
 
 TituloNota.label = 'LN-AperturaReceta';
 
-export default Consumer(TituloNota);
+export default Consumer(TituloNota, TagsNota); */
