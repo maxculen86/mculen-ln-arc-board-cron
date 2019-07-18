@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - TituloNota Test de snapshot TituloNota 1`] = `
+<div
+  class="tags"
+>
+  <strong
+    class="TagPrueba1"
+  >
+    <a
+      href="tagprueba1"
+    >
+      TagPrueba1
+    </a>
+  </strong>
+  <span>
+     - 
+  </span>
+  <strong
+    class="TagPrueba2"
+  >
+    <a
+      href="tagprueba2"
+    >
+      TagPrueba2
+    </a>
+  </strong>
+</div>
+`;

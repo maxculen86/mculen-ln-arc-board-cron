@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Consumer from 'fusion:consumer';
 
-class AperturaReceta extends Component {
-    render() {
-        return <div></div>;
-    }
-}
+import AperturaRecetaComponent from '../../private/LN/nota/apertura/aperturaReceta';
 
-export default Consumer(AperturaReceta);
+AperturaRecetaComponent.label = 'LN-AperturaReceta';
+
+export default Consumer(AperturaRecetaComponent);
