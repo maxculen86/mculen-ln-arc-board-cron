@@ -2,6 +2,7 @@ import React from 'react';
 //import './index.css'
 
 export const TituloNota = props => {
+    //console.log(props);
     const {
         globalContent: {
             headlines: { basic }

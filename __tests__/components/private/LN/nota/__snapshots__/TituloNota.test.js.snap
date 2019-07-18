@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - TituloNota Test de snapshot TituloNota 1`] = `
+<h1
+  class="titleSpecial"
+>
+  Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local
+</h1>
+`;
