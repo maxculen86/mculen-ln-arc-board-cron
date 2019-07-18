@@ -1,7 +1,7 @@
-const primarySectionTreeResolver = globalContent => {
-    const allSections = [];
+const primarySectionTreeResolver = ({ globalContent, siteProperties }) => {
+    var allSections = [];
     const getPrimaryTree = section => {
-        this.allSections.push({
+        allSections.push({
             name: section.name,
             path: section.path,
             type: 'category'
@@ -19,7 +19,7 @@ const primarySectionTreeResolver = globalContent => {
         getPrimaryTree(globalContent.taxonomy.primary_section);
     }
     allSections.push({
-        name: globalContent.siteProperties.title,
+        name: siteProperties.title,
         path: '/',
         type: 'site'
     });
