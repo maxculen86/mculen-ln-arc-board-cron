@@ -7,9 +7,9 @@ import Breadcrumb from './breadcrumb';
 export default props => {
     return (
         <div>
+            <Breadcrumb {...props} />
             <TituloNota {...props} />
             <TagsNota {...props} />
-            <Breadcrumb {...props} />
         </div>
     );
 };
