@@ -6,7 +6,7 @@ import { mount, render } from 'enzyme';
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import siteProps from '../../../../../__mocks__/data/properties/lnSiteProps';
 
-import Breadcrumb from '../../../../../components/private/LN/nota/breadcrumb';
+import Breadcrumb from '../../../../../components/private/LN/nota/apertura/breadcrumb';
 
 describe('features - LaNacion - Nota - ', () => {
     it('Test de snapshot Breadcrumb', () => {
