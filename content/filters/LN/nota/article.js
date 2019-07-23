@@ -5,7 +5,13 @@ const section = `
     name
     path
     parent_id
-
+    additional_properties {
+        original {
+            ancestors {
+                default
+            }
+        }
+    }
 }`;
 
 const image = `
