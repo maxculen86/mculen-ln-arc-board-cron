@@ -1,5 +1,0 @@
-diff a/components/private/common/utils/sectionUtils.js b/components/private/common/utils/sectionUtils.js	(rejected hunks)
-@@ -1,2 +1 @@
--const primarySectionTreeResolver = (globalContent) => {
--
-+const primarySectionTreeResolver = globalContent => {
