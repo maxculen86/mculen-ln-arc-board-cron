@@ -1,5 +1,6 @@
 import React from 'react';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
+import PropTypes from 'fusion:prop-types';
 
 const sections = ({ taxonomy, destacado }) => {
     /* Si llegan las secciones: 
@@ -23,18 +24,40 @@ const sections = ({ taxonomy, destacado }) => {
     console.log('Primary: ', primary);
     console.log('Sections: ', taxonomy.sections);
 
-    const sections = taxonomy.sections.filter(x =>
-        x.additional_properties.original.ancestors.default.includes(
-            primary.additional_properties.original.ancestors.default[0]
-        )
+    var listSections = '';
+    if (primary) {
+        listSections = taxonomy.sections.filter(x =>
+            x.additional_properties.original.ancestors.default.includes(
+                primary.additional_properties.original.ancestors.default[0]
+            )
+        );
+    }
+
+    console.log('Despues: ', listSections);
+    const listSectionsDespues = listSections.map(x => {
+        return {
+            path: x.path,
+            text: x.name
+        };
+    });
+
+    return (
+        <TaxonomyComponent list={listSectionsDespues} destacado={destacado} />
     );
-
-    console.log('Despues: ', sections);
-    const list = [];
-
-    return <TaxonomyComponent list={list} destacado={destacado} />;
 };
 
+sections.propTypes = {
+    primary: PropTypes.object,
+    listSections: PropTypes.array,
+    listSectionsDespues: PropTypes.array,
+    listSectionsDespues: PropTypes.arrayOf(
+        PropTypes.shape({
+            text: PropTypes.string,
+            path: PropTypes.string
+        })
+    ),
+    destacado: PropTypes.boolean
+};
 //Proptypes para esperar taxonomy.
 //Tambien deberia recibir como propiedad: si uitiliza la primary_section o que seccion. (por ahora solo primary), y cuantas se saltea desde la raiz
 

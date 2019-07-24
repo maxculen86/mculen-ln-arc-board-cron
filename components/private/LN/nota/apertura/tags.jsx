@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
+import PropTypes from 'fusion:prop-types';
 
 const tags = ({ tags, destacado }) => {
     const listTags = tags.map(x => {
@@ -11,6 +12,15 @@ const tags = ({ tags, destacado }) => {
     return <TaxonomyComponent list={listTags} destacado={destacado} />;
 };
 
-//proptypes para definir que me tiene que llegar un array de tags y un destacado bool
+tags.propTypes = {
+    listTags: PropTypes.array,
+    listTags: PropTypes.arrayOf(
+        PropTypes.shape({
+            text: PropTypes.string,
+            path: PropTypes.string
+        })
+    ),
+    destacado: PropTypes.boolean
+};
 
 export default tags;
