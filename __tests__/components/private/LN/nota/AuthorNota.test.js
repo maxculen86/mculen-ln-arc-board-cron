@@ -5,10 +5,10 @@ import { render } from 'enzyme';
 
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 
-import TagsOrSections from '../../../../../components/private/LN/nota/apertura/tagsOrSections';
+import AuthorNota from '../../../../../components/private/LN/nota/apertura/authorNota';
 
-describe('features - LaNacion - Nota - TagsOrSections', () => {
-    const component = render(<TagsOrSections globalContent={nota} />);
+describe('features - LaNacion - Nota - AuthorNota', () => {
+    const component = render(<AuthorNota globalContent={nota} />);
     it('Test de snapshot TituloNota', () => {
         expect(component).toMatchSnapshot();
     });
