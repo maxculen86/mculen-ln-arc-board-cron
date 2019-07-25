@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const baseImage = ({ sources, altText }) => {
-    return (
-        <picture className="content-picture">
+const baseImage = ({ sources, altText, zoom, href }) => {
+    let pic = (
+        <picture className={`content-pic picture ${zoom && 'zoom'}`}>
             {sources.map(x => {
                 return (
                     <source
@@ -17,6 +17,15 @@ const baseImage = ({ sources, altText }) => {
             <img alt={altText} />
         </picture>
     );
+
+    if (href) {
+        pic = (
+            <a href={href} className="figure">
+                {pic}
+            </a>
+        );
+    }
+    return pic;
 };
 
 baseImage.propTypes = {
@@ -27,11 +36,13 @@ baseImage.propTypes = {
             url: PropTypes.string
         })
     ).isRequired,
-    altText: PropTypes.string
+    altText: PropTypes.string,
+    zoom: PropTypes.bool
 };
 
 baseImage.defaultProps = {
-    altText: ''
+    altText: '',
+    zoom: false
 };
 
 export default baseImage;

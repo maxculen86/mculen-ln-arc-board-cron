@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import BaseImage from '../common/baseImage';
 // import getProperties from 'fusion:properties';
 
-const articleImage = ({ image, imageResizePresets, altText }) => {
+const articleImage = ({ image, imageResizePresets, altText, zoom }) => {
     const sources = Object.keys(image.resized_urls).map(x => {
         const p = imageResizePresets[x];
         const url = image.resized_urls[x];
@@ -14,7 +14,7 @@ const articleImage = ({ image, imageResizePresets, altText }) => {
         };
     });
 
-    return <BaseImage sources={sources} altText={altText} />;
+    return <BaseImage sources={sources} altText={altText} zoom={zoom} />;
 };
 
 articleImage.propTypes = {
@@ -28,11 +28,13 @@ articleImage.propTypes = {
             class: PropTypes.string
         })
     ).isRequired,
-    altText: PropTypes.string
+    altText: PropTypes.string,
+    zoom: PropTypes.bool
 };
 
 articleImage.defaultProps = {
-    altText: ''
+    altText: '',
+    zoom: false
 };
 
 export default articleImage;
