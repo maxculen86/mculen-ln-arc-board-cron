@@ -26,8 +26,12 @@ baseImage.propTypes = {
             class: PropTypes.string,
             url: PropTypes.string
         })
-    ),
+    ).isRequired,
     altText: PropTypes.string
+};
+
+baseImage.defaultProps = {
+    altText: ''
 };
 
 export default baseImage;
