@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { render, mount } from 'enzyme';
 import BaseImage from '../../../../../components/private/LN/common/baseImage';
 
