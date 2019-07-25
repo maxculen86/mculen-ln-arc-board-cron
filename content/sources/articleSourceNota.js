@@ -14,11 +14,21 @@ const resolve = (key, a) => {
 
 const transform = (data, siteProps) => {
     const properties = getProperties(siteProps.website);
-    return addResizedUrls(data, {
+    const presets = properties.imageConfig.resize.nota.bySubtype[data.subtype];
+    const resp = addResizedUrls(data, {
         resizerSecret,
         resizerUrl,
-        presets: properties.imageConfig.resize.nota.bySubtype[data.subtype]
+        presets
     });
+
+    resp.imageResizePresets = presets;
+
+    console.log(
+        '---------------------------------------------Data luego de transform: ',
+        resp
+    );
+
+    return resp;
 };
 
 export default {

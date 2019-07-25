@@ -20,8 +20,6 @@ const sections = ({ taxonomy, destacado }) => {
     */
 
     const primary = taxonomy.primary_section;
-    console.log('Primary: ', primary);
-    console.log('Sections: ', taxonomy.sections);
 
     const sections = taxonomy.sections.filter(x =>
         x.additional_properties.original.ancestors.default.includes(
@@ -29,7 +27,6 @@ const sections = ({ taxonomy, destacado }) => {
         )
     );
 
-    console.log('Despues: ', sections);
     const list = [];
 
     return <TaxonomyComponent list={list} destacado={destacado} />;

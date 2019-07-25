@@ -6,6 +6,7 @@ import CategoryNota from './tagsOrSections';
 import Breadcrumb from './breadcrumb';
 import Tags from './tags';
 import Sections from './sections';
+import ArticleImage from '../articleImage';
 
 export default props => {
     const {
@@ -24,7 +25,12 @@ export default props => {
                 taxonomy={props.globalContent.taxonomy}
                 destacado={true}
             />
-            <Tags tags={props.globalContent.taxonomy.tags} destacado={false} />
+            <Tags tags={tags} destacado={false} />
+
+            <ArticleImage
+                imageResizePresets={props.globalContent.imageResizePresets}
+                image={props.globalContent.promo_items.basic}
+            />
         </div>
     );
 };
