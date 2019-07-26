@@ -1,8 +1,9 @@
 import React from 'react';
-import TaxonomyComponent from '../../common/taxonomyImportantList';
 import PropTypes from 'fusion:prop-types';
+import TaxonomyComponent from '../../common/taxonomyImportantList';
 
-const sections = ({ taxonomy, destacado }) => {
+const sections = props => {
+    const { taxonomy, destacado } = props;
     /* Si llegan las secciones: 
     
     /recetas
@@ -22,7 +23,7 @@ const sections = ({ taxonomy, destacado }) => {
 
     const primary = taxonomy.primary_section;
 
-    var listSections = '';
+    let listSections = '';
     if (primary) {
         listSections = taxonomy.sections.filter(x =>
             x.additional_properties.original.ancestors.default.includes(
@@ -46,18 +47,10 @@ const sections = ({ taxonomy, destacado }) => {
 };
 
 sections.propTypes = {
-    primary: PropTypes.object,
-    listSections: PropTypes.array,
-    listSectionsDespues: PropTypes.arrayOf(
-        PropTypes.shape({
-            text: PropTypes.string,
-            path: PropTypes.string
-        })
-    ),
-    destacado: PropTypes.boolean
+    taxonomy: PropTypes.object.isRequired,
+    destacado: PropTypes.boolean.isRequired
 };
-
-//Proptypes para esperar taxonomy.
-//Tambien deberia recibir como propiedad: si uitiliza la primary_section o que seccion. (por ahora solo primary), y cuantas se saltea desde la raiz
+// Proptypes para esperar taxonomy.
+// Tambien deberia recibir como propiedad: si uitiliza la primary_section o que seccion. (por ahora solo primary), y cuantas se saltea desde la raiz
 
 export default sections;
