@@ -1,8 +1,8 @@
 import React from 'react';
-import TaxonomyComponent from '../../common/taxonomyImportantList';
 import PropTypes from 'fusion:prop-types';
+import TaxonomyComponent from '../../common/taxonomyImportantList';
 
-const tags = ({ tags, destacado }) => {
+const Tags = ({ tags, destacado }) => {
     const listTags = tags.map(x => {
         return {
             path: x.slug,
@@ -12,15 +12,15 @@ const tags = ({ tags, destacado }) => {
     return <TaxonomyComponent list={listTags} destacado={destacado} />;
 };
 
-tags.propTypes = {
-    listTags: PropTypes.array,
-    listTags: PropTypes.arrayOf(
+Tags.propTypes = {
+    tags: PropTypes.arrayOf(
         PropTypes.shape({
-            text: PropTypes.string,
-            path: PropTypes.string
+            description: PropTypes.string,
+            slug: PropTypes.string,
+            text: PropTypes.string
         })
-    ),
-    destacado: PropTypes.boolean
+    ).isRequired,
+    destacado: PropTypes.boolean.isRequired
 };
 
-export default tags;
+export default Tags;

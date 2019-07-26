@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-//import './index.css'
 
 const TituloNota = props => {
-    const { titulo } = props;
-    return <h1 className="titleSpecial">{titulo}</h1>;
+    const {
+        titulo: { basic }
+    } = props;
+    return <h1 className="titleSpecial">{basic}</h1>;
 };
 
 TituloNota.propTypes = {
-    titulo: PropTypes.string
+    titulo: PropTypes.shape({
+        basic: PropTypes.string.isRequired
+    }).isRequired
 };
 
 export default TituloNota;

@@ -1,35 +1,52 @@
 import React from 'react';
-
+import PropTypes from 'fusion:prop-types';
 import TituloNota from './tituloNota';
-import TagsNota from './tagsOrSections';
-import CategoryNota from './tagsOrSections';
 import Breadcrumb from './breadcrumb';
 import Tags from './tags';
 import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 
-export default props => {
+const AperturaReceta = props => {
     const {
         globalContent: {
             taxonomy,
             taxonomy: { tags },
             headlines,
             subheadlines,
-            credits
+            credits: { by }
         }
     } = props;
+    const destacado = true;
     return (
         <div>
             <Breadcrumb {...props} />
-            <TituloNota titulo={headlines.basic} />
-            {/* <CategoryNota items={sections} destacado={destacado} />
-            <TagsNota items={tags} destacado={destacado} /> */}
-
-            <Sections taxonomy={taxonomy} destacado={true} />
-            <BajadaNota subheadlines={subheadlines.basic} />
+            <TituloNota titulo={headlines} />
+            <Sections taxonomy={taxonomy} destacado={destacado} />
+            <BajadaNota subheadlines={subheadlines} />
             <Tags tags={tags} destacado={false} />
-            <AuthorNota author={credits.by} />
+            <AuthorNota author={by} />
         </div>
     );
 };
+
+AperturaReceta.propTypes = {
+    globalContent: PropTypes.shape({
+        taxonomy: PropTypes.shape({
+            tags: PropTypes.arrayOf(
+                PropTypes.shape({
+                    description: PropTypes.string,
+                    slug: PropTypes.string,
+                    text: PropTypes.string
+                })
+            ).isRequired
+        }),
+        headlines: PropTypes.object.isRequired,
+        subheadlines: PropTypes.object.isRequired,
+        credits: PropTypes.shape({
+            by: PropTypes.array
+        }).isRequired
+    }).isRequired
+};
+
+export default AperturaReceta;

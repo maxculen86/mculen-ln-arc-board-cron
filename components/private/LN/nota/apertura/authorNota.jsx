@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-//import './index.css'
 
-const AuthorNota = props => {
-    const { author } = props;
+const AuthorNota = ({ author }) => {
     const listAuthor = author.map((authorNota, index) => {
         return (
             <div key={index}>
@@ -18,13 +16,12 @@ const AuthorNota = props => {
 };
 
 AuthorNota.propTypes = {
-    listAuthor: PropTypes.array,
-    listAuthor: PropTypes.arrayOf(
+    author: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string,
             type: PropTypes.string
         })
-    )
+    ).isRequired
 };
 
 export default AuthorNota;
