@@ -21,8 +21,6 @@ const sections = ({ taxonomy, destacado }) => {
     */
 
     const primary = taxonomy.primary_section;
-    console.log('Primary: ', primary);
-    console.log('Sections: ', taxonomy.sections);
 
     var listSections = '';
     if (primary) {
@@ -40,6 +38,7 @@ const sections = ({ taxonomy, destacado }) => {
             text: x.name
         };
     });
+    const list = [];
 
     return (
         <TaxonomyComponent list={listSectionsDespues} destacado={destacado} />
@@ -49,7 +48,6 @@ const sections = ({ taxonomy, destacado }) => {
 sections.propTypes = {
     primary: PropTypes.object,
     listSections: PropTypes.array,
-    listSectionsDespues: PropTypes.array,
     listSectionsDespues: PropTypes.arrayOf(
         PropTypes.shape({
             text: PropTypes.string,
@@ -58,6 +56,7 @@ sections.propTypes = {
     ),
     destacado: PropTypes.boolean
 };
+
 //Proptypes para esperar taxonomy.
 //Tambien deberia recibir como propiedad: si uitiliza la primary_section o que seccion. (por ahora solo primary), y cuantas se saltea desde la raiz
 

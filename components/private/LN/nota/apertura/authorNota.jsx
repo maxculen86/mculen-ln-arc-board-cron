@@ -3,7 +3,9 @@ import PropTypes from 'fusion:prop-types';
 //import './index.css'
 
 const AuthorNota = props => {
-    const { author } = props;
+    const { authors } = props;
+    if (!authors) return null;
+
     const listAuthor = author.map((authorNota, index) => {
         return (
             <div key={index}>
