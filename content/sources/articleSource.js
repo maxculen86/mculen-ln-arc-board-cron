@@ -29,13 +29,12 @@ const transform = data => {
     return addResizedUrls(data, {
         resizerSecret: RESIZER_SECRET,
         resizerUrl: RESIZER_URL,
-        presets: presets
+        presets
     });
 };
 
 export default {
     resolve,
-    schemaName: 'article-schema',
     params: {
         url: 'text',
         id: 'text'

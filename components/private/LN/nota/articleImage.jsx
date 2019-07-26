@@ -3,16 +3,19 @@ import PropTypes from 'fusion:prop-types';
 import ImageBase from '../common/imageBase';
 
 const articleImage = ({ image, imageResizePresets, altText, zoom }) => {
-    const sources = Object.keys(image.resized_urls).map(x => {
-        const p = imageResizePresets[x];
-        const url = image.resized_urls[x];
-        return {
-            media: p.media,
-            class: p.class,
-            url
-        };
-    });
+    if (!imageResizePresets) return null;
 
+    const sources = Object.keys(image.resized_urls)
+        .filter(f => Object.keys(imageResizePresets).includes(f))
+        .map(x => {
+            const p = imageResizePresets[x];
+            const url = image.resized_urls[x];
+            return {
+                media: p.media,
+                class: p.class,
+                url
+            };
+        });
     return <ImageBase sources={sources} altText={altText} zoom={zoom} />;
 };
 

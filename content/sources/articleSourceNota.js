@@ -5,8 +5,10 @@ import getProperties from 'fusion:properties';
 
 const resolve = (key, a) => {
     const { url, id } = key;
+    const arcSite = key['arc-site'];
+
     //TODO: corregir
-    const basePath = `/content/v4/stories/?website=la-nacion-ar`;
+    const basePath = `/content/v4/stories/?website=${arcSite}`;
 
     if (id) return `${basePath}&_id=${id}`;
     else if (url) return `${basePath}&website_url=${url}`;
@@ -14,7 +16,8 @@ const resolve = (key, a) => {
 };
 
 const transform = (data, siteProps) => {
-    const properties = getProperties('la-nacion-ar');
+    const arcSite = siteProps['arc-site'];
+    const properties = getProperties(arcSite);
     const presets = properties.imageConfig.resize.nota.bySubtype[data.subtype];
     const resp = addResizedUrls(data, {
         resizerSecret,
