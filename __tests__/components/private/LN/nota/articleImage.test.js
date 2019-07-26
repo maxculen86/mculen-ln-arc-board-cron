@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 jest.mock(
-    '../../../../../components/private/LN/common/baseImage',
+    '../../../../../components/private/LN/common/imageBase',
     () => 'mock-image'
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import BaseImage from '../../../../../components/private/LN/common/baseImage';
+import ImageBase from '../../../../../components/private/LN/common/imageBase';
 
 describe('features - La Nacion - components - common - BaseImage', () => {
     const sources = [
@@ -26,7 +26,7 @@ describe('features - La Nacion - components - common - BaseImage', () => {
 
     it('Test snapshot', () => {
         const comp = render(
-            <BaseImage
+            <ImageBase
                 sources={sources}
                 altText="texto alternativo"
                 zoom
@@ -38,7 +38,7 @@ describe('features - La Nacion - components - common - BaseImage', () => {
 
     it('Test sin link y sin zoom', () => {
         const comp = mount(
-            <BaseImage sources={sources} altText="texto alternativo" />
+            <ImageBase sources={sources} altText="texto alternativo" />
         );
         expect(comp.find('a').length).toBe(0);
         expect(comp.find('.zoom').length).toBe(0);

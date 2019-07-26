@@ -4,8 +4,9 @@ import { resizerSecret, resizerUrl } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 
 const resolve = (key, a) => {
-    const { url, id, website } = key;
-    const basePath = `/content/v4/stories/?website=${website}`;
+    const { url, id } = key;
+    //TODO: corregir
+    const basePath = `/content/v4/stories/?website=la-nacion-ar`;
 
     if (id) return `${basePath}&_id=${id}`;
     else if (url) return `${basePath}&website_url=${url}`;
@@ -13,7 +14,7 @@ const resolve = (key, a) => {
 };
 
 const transform = (data, siteProps) => {
-    const properties = getProperties(siteProps.website);
+    const properties = getProperties('la-nacion-ar');
     const presets = properties.imageConfig.resize.nota.bySubtype[data.subtype];
     const resp = addResizedUrls(data, {
         resizerSecret,
