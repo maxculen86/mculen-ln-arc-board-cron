@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
 import TituloNota from './tituloNota';
 import Breadcrumb from './breadcrumb';
@@ -15,27 +15,32 @@ const AperturaReceta = props => {
             taxonomy: { tags },
             headlines,
             subheadlines,
-            credits: { by }
+            credits: { by },
+            imageResizePresets,
+            promo_items
         }
     } = props;
     const destacado = true;
     return (
-        <div className="row aper-receta w-100 hlp-marginBottom-40">
+        <Fragment>
             <section className="col-desksm-8 cont-figure">
+                {/* TODO: reemplazar por destacado.jsx */}
                 <ArticleImage
-                    imageResizePresets={props.globalContent.imageResizePresets}
-                    image={props.globalContent.promo_items.basic}
+                    imageResizePresets={imageResizePresets}
+                    image={promo_items.basic}
                     zoom
                 />
             </section>
-
+            <div className="col-desksm-4 cont-aper">
+                <Sections taxonomy={taxonomy} destacado={destacado} />
+                {/* Porciones y tiempo */}
+                <Tags tags={tags} destacado={false} />
+            </div>
             <Breadcrumb {...props} />
-            <Tags tags={tags} destacado={false} />
             <TituloNota titulo={headlines} />
-            <Sections taxonomy={taxonomy} destacado={destacado} />
             <BajadaNota subheadlines={subheadlines} />
             <AuthorNota authors={by} />
-        </div>
+        </Fragment>
     );
 };
 
@@ -54,7 +59,9 @@ AperturaReceta.propTypes = {
         subheadlines: PropTypes.object.isRequired,
         credits: PropTypes.shape({
             by: PropTypes.array
-        }).isRequired
+        }).isRequired,
+        imageResizePresets: PropTypes.object.isRequired,
+        promo_items: PropTypes.object.isRequired
     }).isRequired
 };
 

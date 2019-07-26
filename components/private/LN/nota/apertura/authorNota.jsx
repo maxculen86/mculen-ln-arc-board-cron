@@ -18,7 +18,7 @@ const AuthorNota = ({ authors }) => {
             </div>
         );
     });
-    return <h1>{listAuthor}</h1>;
+    return listAuthor;
 };
 
 AuthorNota.propTypes = {
