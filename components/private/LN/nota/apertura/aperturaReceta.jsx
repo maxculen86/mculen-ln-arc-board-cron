@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
 import TituloNota from './tituloNota';
-import Breadcrumb from './breadcrumbNota';
 import Tags from './tags';
 import Sections from './sections';
 import BajadaNota from './bajadaNota';
@@ -36,7 +35,6 @@ const AperturaReceta = props => {
                 {/* Porciones y tiempo */}
                 <Tags tags={tags} destacado={false} />
             </div>
-            <Breadcrumb {...props} />
             <TituloNota titulo={headlines} />
             <BajadaNota subheadlines={subheadlines} />
             <AuthorNota authors={by} />

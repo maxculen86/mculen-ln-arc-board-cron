@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const baseImage = ({ sources, altText, zoom, href }) => {
+const imageBase = ({ sources, altText, zoom, href }) => {
     let pic = (
         <picture className={`content-pic picture ${zoom && 'zoom'}`}>
             {sources.map(x => {
                 return (
                     <source
+                        key={x.media}
                         media={x.media}
                         srcSet={x.url}
                         className={x.class}
@@ -28,21 +29,21 @@ const baseImage = ({ sources, altText, zoom, href }) => {
     return pic;
 };
 
-baseImage.propTypes = {
+imageBase.propTypes = {
     sources: PropTypes.arrayOf(
         PropTypes.shape({
-            media: PropTypes.string,
+            media: PropTypes.string.isRequired,
             class: PropTypes.string,
-            url: PropTypes.string
+            url: PropTypes.string.isRequired
         })
     ).isRequired,
     altText: PropTypes.string,
     zoom: PropTypes.bool
 };
 
-baseImage.defaultProps = {
+imageBase.defaultProps = {
     altText: '',
     zoom: false
 };
 
-export default baseImage;
+export default imageBase;
