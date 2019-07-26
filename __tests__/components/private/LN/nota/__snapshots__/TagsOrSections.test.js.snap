@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`features - LaNacion - Nota - TagsOrSections Test de snapshot TituloNota 1`] = `
+<div
+  class="conteiner-classNoDestacada"
+/>
+`;
+
 exports[`features - LaNacion - Nota - TituloNota Test de snapshot TituloNota 1`] = `
 <div
   class="conteiner-classNoDestacada"

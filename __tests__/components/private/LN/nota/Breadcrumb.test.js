@@ -1,7 +1,5 @@
-import Consumer from 'fusion:consumer';
-
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { render } from 'enzyme';
 
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import siteProps from '../../../../../__mocks__/data/properties/lnSiteProps';
@@ -17,8 +15,8 @@ describe('features - LaNacion - Nota - ', () => {
     });
 
     it('Test de Breadcrumb variante 2 niveles', () => {
-        ///recetas/recetas-con-ingredientes/pollo
-        ///recetas/recetas-con-ingredientes
+        // /recetas/recetas-con-ingredientes/pollo
+        // /recetas/recetas-con-ingredientes
 
         nota.taxonomy.sections = nota.taxonomy.sections.filter(
             x =>
@@ -40,8 +38,8 @@ describe('features - LaNacion - Nota - ', () => {
     });
 
     it('Test de Breadcrumb variante 1 nivel', () => {
-        ///recetas/recetas-con-ingredientes/pollo
-        ///recetas/recetas-con-ingredientes
+        // /recetas/recetas-con-ingredientes/pollo
+        // /recetas/recetas-con-ingredientes
 
         nota.taxonomy.sections = undefined;
         nota.taxonomy.primary_section = undefined;

@@ -5,7 +5,8 @@ const BajadaNota = props => {
     const {
         subheadlines: { basic }
     } = props;
-    return <h1 className="BajadaSpecial">{basic}</h1>;
+    const subtitulo = basic || null;
+    return <h1 className="BajadaSpecial">{subtitulo}</h1>;
 };
 
 BajadaNota.propTypes = {
