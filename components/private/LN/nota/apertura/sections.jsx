@@ -32,7 +32,6 @@ const sections = props => {
         );
     }
 
-    console.log('Despues: ', listSections);
     const listSectionsDespues = listSections.map(x => {
         return {
             path: x.path,

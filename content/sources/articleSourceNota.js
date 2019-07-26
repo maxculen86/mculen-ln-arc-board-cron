@@ -23,11 +23,6 @@ const transform = (data, siteProps) => {
 
     resp.imageResizePresets = presets;
 
-    console.log(
-        '---------------------------------------------Data luego de transform: ',
-        resp
-    );
-
     return resp;
 };
 

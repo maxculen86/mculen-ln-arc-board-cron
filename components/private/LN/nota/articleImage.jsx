@@ -19,12 +19,12 @@ const articleImage = ({ image, imageResizePresets, altText, zoom }) => {
 articleImage.propTypes = {
     image: PropTypes.shape({
         type: PropTypes.oneOf(['image']),
-        resized_urls: PropTypes.array.isRequired
+        resized_urls: PropTypes.objectOf(PropTypes.string).isRequired
     }).isRequired,
-    imageResizePresets: PropTypes.arrayOf(
+    imageResizePresets: PropTypes.objectOf(
         PropTypes.shape({
-            media: PropTypes.string,
-            class: PropTypes.string
+            class: PropTypes.string,
+            media: PropTypes.string
         })
     ).isRequired,
     altText: PropTypes.string,

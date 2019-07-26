@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const AuthorNota = ({ authors }) => {
+    console.log('Autor: ', authors);
+
     const listAuthor = authors.map((authorNota, index) => {
         return (
             <div key={index}>

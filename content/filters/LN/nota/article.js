@@ -37,7 +37,12 @@ export default `
             ${image}
         }
     }
-    credits
+    credits {
+        by {
+            name
+            type
+        }
+    }
     headlines {
         basic
     }
