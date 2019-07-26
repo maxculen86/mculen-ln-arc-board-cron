@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import BaseImage from '../common/baseImage';
+import ImageBase from '../common/imageBase';
 
 const articleImage = ({ image, imageResizePresets, altText, zoom }) => {
     const sources = Object.keys(image.resized_urls).map(x => {
@@ -13,7 +13,7 @@ const articleImage = ({ image, imageResizePresets, altText, zoom }) => {
         };
     });
 
-    return <BaseImage sources={sources} altText={altText} zoom={zoom} />;
+    return <ImageBase sources={sources} altText={altText} zoom={zoom} />;
 };
 
 articleImage.propTypes = {

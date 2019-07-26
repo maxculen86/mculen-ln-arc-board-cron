@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
 import TituloNota from './tituloNota';
-import Breadcrumb from './breadcrumb';
+import Breadcrumb from './breadcrumbNota';
 import Tags from './tags';
 import Sections from './sections';
 import BajadaNota from './bajadaNota';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
-import BreadcrumbComponent from './component';
+import BreadcrumbComponent from '../../common/breadcrumbBase';
 
 class Breadcrumb extends Component {
     constructor(props) {

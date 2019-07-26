@@ -6,7 +6,7 @@ import { mount, render } from 'enzyme';
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import siteProps from '../../../../../__mocks__/data/properties/lnSiteProps';
 
-import Breadcrumb from '../../../../../components/private/LN/nota/apertura/breadcrumb';
+import Breadcrumb from '../../../../../components/private/LN/nota/apertura/breadcrumbNota';
 
 describe('features - LaNacion - Nota - ', () => {
     it('Test de snapshot Breadcrumb', () => {
@@ -35,8 +35,7 @@ describe('features - LaNacion - Nota - ', () => {
             <Breadcrumb globalContent={nota} siteProperties={siteProps} />
         );
 
-        expect(component.find('strong').length).toBe(2);
-        expect(component.find('span').length).toBe(1);
+        expect(component.find('a').length).toBe(2);
     });
 
     it('Test de Breadcrumb variante 1 nivel', () => {
@@ -50,7 +49,6 @@ describe('features - LaNacion - Nota - ', () => {
             <Breadcrumb globalContent={nota} siteProperties={siteProps} />
         );
 
-        expect(component.find('strong').length).toBe(1);
-        expect(component.find('span').length).toBe(0);
+        expect(component.find('a').length).toBe(1);
     });
 });

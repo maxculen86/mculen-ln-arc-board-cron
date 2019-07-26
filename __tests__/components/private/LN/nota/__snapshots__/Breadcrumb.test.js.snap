@@ -1,41 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - LaNacion - Nota -  Test de snapshot Breadcrumb 1`] = `
-<div
-  class="breadcrumb"
+<nav
+  class="com-breadcrumb hlp-marginBottom-40"
 >
-  <strong
-    class="site"
+  <a
+    href="/"
   >
-    <a
-      href="/"
-    >
-      LA NACION
-    </a>
-  </strong>
-  <span>
-     | 
-  </span>
-  <strong
-    class="category"
+    LA NACION
+  </a>
+  <a
+    href="/recetas"
   >
-    <a
-      href="/recetas"
-    >
-      Recetas
-    </a>
-  </strong>
-  <span>
-     | 
-  </span>
-  <strong
-    class="category"
+    Recetas
+  </a>
+  <a
+    href="/recetas/recetas-con-ingredientes"
   >
-    <a
-      href="/recetas/recetas-con-ingredientes"
-    >
-      Recetas con ingredientes
-    </a>
-  </strong>
-</div>
+    Recetas con ingredientes
+  </a>
+</nav>
 `;
