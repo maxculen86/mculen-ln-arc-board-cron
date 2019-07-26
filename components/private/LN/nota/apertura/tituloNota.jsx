@@ -5,7 +5,8 @@ const TituloNota = props => {
     const {
         titulo: { basic }
     } = props;
-    return <h1 className="titleSpecial">{basic}</h1>;
+    const tituloNota = basic || null;
+    return <h1 className="titleSpecial">{tituloNota}</h1>;
 };
 
 TituloNota.propTypes = {

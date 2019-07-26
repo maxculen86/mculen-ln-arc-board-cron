@@ -22,7 +22,7 @@ const AuthorNota = ({ authors }) => {
 };
 
 AuthorNota.propTypes = {
-    authors: PropTypes.arrayOf(
+    author: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string,
             type: PropTypes.string,
