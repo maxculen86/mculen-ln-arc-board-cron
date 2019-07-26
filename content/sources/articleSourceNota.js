@@ -1,18 +1,16 @@
 import { addResizedUrls } from '@arc-core-components/content-source_content-api-v4';
-import filter from '../filters/LN/nota/article';
 import { resizerSecret, resizerUrl } from 'fusion:environment';
 import getProperties from 'fusion:properties';
+import filter from '../filters/LN/nota/article';
 
 const resolve = (key, a) => {
     const { url, id } = key;
     const arcSite = key['arc-site'];
-
-    //TODO: corregir
     const basePath = `/content/v4/stories/?website=${arcSite}`;
 
     if (id) return `${basePath}&_id=${id}`;
-    else if (url) return `${basePath}&website_url=${url}`;
-    else throw new Error('Debe definir url o id para obtener la nota');
+    if (url) return `${basePath}&website_url=${url}`;
+    throw new Error('Debe definir url o id para obtener la nota');
 };
 
 const transform = (data, siteProps) => {
