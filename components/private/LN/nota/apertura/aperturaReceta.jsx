@@ -6,6 +6,7 @@ import Tags from './tags';
 import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
+import ArticleImage from '../articleImage';
 
 const AperturaReceta = props => {
     const {
@@ -19,13 +20,21 @@ const AperturaReceta = props => {
     } = props;
     const destacado = true;
     return (
-        <div>
+        <div className="row aper-receta w-100 hlp-marginBottom-40">
+            <section className="col-desksm-8 cont-figure">
+                <ArticleImage
+                    imageResizePresets={props.globalContent.imageResizePresets}
+                    image={props.globalContent.promo_items.basic}
+                    zoom
+                />
+            </section>
+
             <Breadcrumb {...props} />
+            <Tags tags={tags} destacado={false} />
             <TituloNota titulo={headlines} />
             <Sections taxonomy={taxonomy} destacado={destacado} />
             <BajadaNota subheadlines={subheadlines} />
-            <Tags tags={tags} destacado={false} />
-            <AuthorNota author={by} />
+            <AuthorNota authors={by} />
         </div>
     );
 };

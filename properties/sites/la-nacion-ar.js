@@ -9,10 +9,19 @@ export default {
                 bySubtype: {
                     1: {
                         apertura_big: {
-                            width: 1033
+                            width: 1033,
+                            media: '(min-width: 768px)',
+                            class: 'img-desktop'
                         },
                         apertura_medium: {
-                            width: 768
+                            width: 768,
+                            media: '(min-width: 740px)',
+                            class: 'img-desktop-sm'
+                        },
+                        apertura_small: {
+                            width: 340,
+                            media: '(min-width: 320px)',
+                            class: 'img-mobile'
                         }
                     }
                 }

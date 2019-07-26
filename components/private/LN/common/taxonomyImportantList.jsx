@@ -4,8 +4,7 @@ import PropTypes from 'fusion:prop-types';
 /**
  * Renderiza elementos relacionados destacados (como categorias o tags)
  */
-const TaxonomyImportantList = props => {
-    const { list, destacado } = props;
+const TaxonomyImportantList = ({ list, destacado }) => {
     return (
         <div className={destacado ? 'classDestacada' : ''}>
             {list.map(v => (

@@ -37,8 +37,16 @@ export default `
             ${image}
         }
     }
-    credits
+    credits {
+        by {
+            name
+            type
+        }
+    }
     headlines {
+        basic
+    }
+    subheadlines {
         basic
     }
     taxonomy { 
@@ -55,5 +63,31 @@ export default `
         type
         content
         ${image}
+    }
+    imageResizePresets {
+        apertura_small {
+            media
+            class
+        }
+        apertura_medium{
+            media
+            class
+        }
+        apertura_big{
+            media
+            class
+        }
+        cuerpo_small{
+            media
+            class
+        }
+        cuerpo_medium{
+            media
+            class
+        }
+        cuerpo_big   {
+            media
+            class
+        } 
     }
 }`;

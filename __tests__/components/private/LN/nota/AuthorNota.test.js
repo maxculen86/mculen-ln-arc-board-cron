@@ -6,7 +6,7 @@ import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSS
 import AuthorNota from '../../../../../components/private/LN/nota/apertura/authorNota';
 
 describe('features - LaNacion - Nota - AuthorNota', () => {
-    const component = render(<AuthorNota globalContent={nota} />);
+    const component = render(<AuthorNota authors={nota.credits.by} />);
     it('Test de snapshot TituloNota', () => {
         expect(component).toMatchSnapshot();
     });
