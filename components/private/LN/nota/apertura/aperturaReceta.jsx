@@ -18,8 +18,6 @@ export default props => {
             credits
         }
     } = props;
-
-    console.log('Props: ', props.globalContent.promo_items.basic);
     return (
         <div className="row aper-receta w-100 hlp-marginBottom-40">
             <section className="col-desksm-8 cont-figure">
