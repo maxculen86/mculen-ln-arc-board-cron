@@ -2,25 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
 
-const sections = props => {
+const Sections = props => {
     const { taxonomy, destacado } = props;
-    /* Si llegan las secciones: 
-    
-    /recetas
-        /ingredientes
-                    /pollo
-                    /carne
-
-        /acompañamiento/
-                        lechuga
-
-    
-                        
-        tendria que dibujar: ingredientes, pollo, carne, acompañamiento, lechuga
-
-        Si queres en primera instancia que simplemente agarre el primarySection y permita indicarle que nivel NO dibujar (recetas en este caso)
-    */
-
     const primary = taxonomy.primary_section;
 
     let listSections = '';
@@ -38,18 +21,23 @@ const sections = props => {
             text: x.name
         };
     });
-    const list = [];
 
     return (
         <TaxonomyComponent list={listSectionsDespues} destacado={destacado} />
     );
 };
 
-sections.propTypes = {
-    taxonomy: PropTypes.object.isRequired,
+Sections.propTypes = {
+    taxonomy: PropTypes.shape({
+        sections: PropTypes.arrayOf(
+            PropTypes.shape({
+                path: PropTypes.string,
+                name: PropTypes.string
+            })
+        ).isRequired,
+        primary_section: PropTypes.object.isRequired
+    }).isRequired,
     destacado: PropTypes.boolean.isRequired
 };
-// Proptypes para esperar taxonomy.
-// Tambien deberia recibir como propiedad: si uitiliza la primary_section o que seccion. (por ahora solo primary), y cuantas se saltea desde la raiz
 
-export default sections;
+export default Sections;

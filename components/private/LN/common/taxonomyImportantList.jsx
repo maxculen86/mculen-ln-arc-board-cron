@@ -7,8 +7,8 @@ import PropTypes from 'fusion:prop-types';
 const TaxonomyImportantList = ({ list, destacado }) => {
     return (
         <div className={destacado ? 'classDestacada' : ''}>
-            {list.map((v, index) => (
-                <a key={index} href={v.path}>
+            {list.map(v => (
+                <a key={v.text} href={v.path}>
                     {v.text}
                 </a>
             ))}
@@ -16,7 +16,7 @@ const TaxonomyImportantList = ({ list, destacado }) => {
     );
 };
 
-TaxonomyImportantList.PropTypes = {
+TaxonomyImportantList.propTypes = {
     list: PropTypes.arrayOf(
         PropTypes.shape({
             text: PropTypes.string,
