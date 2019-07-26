@@ -2,11 +2,17 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const AuthorNota = ({ author }) => {
-    const listAuthor = author.map((authorNota, index) => {
+    const listAuthor = author.map(authorNota => {
         return (
-            <div key={index}>
-                <a className={authorNota.type}>{authorNota.name}</a>
-                <button className={authorNota.type} onClick={() => {}}>
+            <div key={author.slug}>
+                <a href={author.slug} className={authorNota.type}>
+                    {authorNota.name}
+                </a>
+                <button
+                    type="button"
+                    className={authorNota.type}
+                    onClick={() => {}}
+                >
                     SEGUIR
                 </button>
             </div>
@@ -19,7 +25,8 @@ AuthorNota.propTypes = {
     author: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string,
-            type: PropTypes.string
+            type: PropTypes.string,
+            slug: PropTypes.string
         })
     ).isRequired
 };
