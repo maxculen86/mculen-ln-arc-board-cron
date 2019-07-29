@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - ListItemsIngredientes Test de snapshot TituloNota 1`] = `
+<div>
+  <h3>
+    Para la salsa
+  </h3>
+  <ul>
+    <li>
+      Tomate
+    </li>
+    <li>
+      Zanahoria
+    </li>
+    <li>
+      Cebolla
+    </li>
+    <li>
+      Ajo
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`features - LaNacion - Nota - ListItemsPreparacion Test de snapshot TituloNota 1`] = `
+<div>
+  <h3 />
+  <ul>
+    <li>
+      Cocinar
+    </li>
+    <li>
+      Probar
+    </li>
+    <li>
+      Servir
+    </li>
+  </ul>
+</div>
+`;
