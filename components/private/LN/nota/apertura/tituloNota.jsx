@@ -1,26 +1,19 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
+import { getLogoSectionClass } from '../../../common/utils/sectionUtils';
 
 const TituloNota = ({
     globalContent: {
         headlines: { basic },
-        taxonomy: { sections }
+        taxonomy
     }
 }) => {
-    const logoSection = sections.find(x =>
-        get(x, 'additional_properties.original.style.section_logo_class')
-    );
+    const logoSectionClass = getLogoSectionClass(taxonomy);
     return (
         <>
-            {logoSection && (
+            {logoSectionClass && (
                 <div className="hlp-marginBottom-20">
-                    <i
-                        className={
-                            logoSection.additional_properties.original.style
-                                .section_logo_class
-                        }
-                    />
+                    <i className={logoSectionClass} />
                 </div>
             )}
             <h1 className="com-title-nota hlp-marginBottom-40">{basic}</h1>

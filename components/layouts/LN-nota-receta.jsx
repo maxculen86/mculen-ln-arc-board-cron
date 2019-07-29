@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
+import { getSectionClass } from '../private/common/utils/sectionUtils';
 
 const pageBuilderSections = [
     'Apertura',
@@ -36,28 +36,13 @@ class LNNotaReceta extends Component {
 
     constructor(props) {
         super(props);
-
-        this.getSectionClass();
-    }
-
-    getSectionClass() {
         const {
             props: {
-                globalContent: {
-                    taxonomy: { sections }
-                }
+                globalContent: { taxonomy }
             }
         } = this;
 
-        const logoSection = sections.find(x =>
-            get(x, 'additional_properties.original.style.section_class')
-        );
-
-        this.sectionClass = '';
-        if (logoSection) {
-            this.sectionClass =
-                logoSection.additional_properties.original.style.section_class;
-        }
+        this.sectionClass = getSectionClass(taxonomy);
     }
 
     render() {

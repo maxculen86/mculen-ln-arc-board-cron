@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta 1`] = `
+<article
+  class="lay brando"
+>
+  <main>
+    <header
+      class="row titulo"
+    >
+      <div
+        class="col-12"
+      >
+        <div
+          id="Hijo0"
+        />
+      </div>
+    </header>
+    <div
+      class="row aper-receta w-100 hlp-marginBottom-40"
+    >
+      <div
+        id="Hijo1"
+      />
+    </div>
+    <div
+      id="Hijo2"
+    />
+    <div
+      id="Hijo3"
+    />
+    <div
+      id="Hijo4"
+    />
+    <div
+      id="Hijo5"
+    />
+  </main>
+</article>
+`;

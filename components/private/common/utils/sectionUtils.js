@@ -1,5 +1,10 @@
-const primarySectionTreeResolver = ({ globalContent, siteProperties }) => {
-    var allSections = [];
+import get from 'lodash.get';
+
+export const primarySectionTreeResolver = ({
+    globalContent,
+    siteProperties
+}) => {
+    let allSections = [];
     const getPrimaryTree = section => {
         allSections.push({
             name: section.name,
@@ -28,6 +33,36 @@ const primarySectionTreeResolver = ({ globalContent, siteProperties }) => {
     return allSections;
 };
 
+export const getSectionClass = taxonomy => {
+    const logoSection = taxonomy.sections.find(x =>
+        get(x, 'additional_properties.original.style.section_class')
+    );
+
+    let sectionClass;
+    if (logoSection) {
+        sectionClass =
+            logoSection.additional_properties.original.style.section_class;
+    }
+
+    return sectionClass;
+};
+
+export const getLogoSectionClass = taxonomy => {
+    console.log('asdasdasd', taxonomy);
+    const logoSection = taxonomy.sections.find(x =>
+        get(x, 'additional_properties.original.style.section_logo_class')
+    );
+    let sectionClass;
+    if (logoSection) {
+        sectionClass =
+            logoSection.additional_properties.original.style.section_logo_class;
+    }
+
+    return sectionClass;
+};
+
 export default {
-    primarySectionTreeResolver
+    primarySectionTreeResolver,
+    getSectionClass,
+    getLogoSectionClass
 };
