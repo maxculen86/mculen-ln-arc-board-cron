@@ -1,24 +1,60 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const importer = require('node-sass-glob-importer');
+const glob = require('glob');
 const paths = require('./paths');
 
-const sites = ['OTT'];
+const sites = {
+    OTT: [{ '[site]/style': 'style.scss' }],
+    LN: [
+        { '[site]/base': 'css/base/*.scss' },
+        { '[site]/[dirname]/[basename]': 'css/*/*.scss' }
+    ]
+};
 
-const entries = sites.reduce((config, site) => {
-    const files = ['style.scss'];
+const entries = Object.keys(sites).reduce((config, site) => {
+    const patterns = sites[site];
 
-    files.forEach(file => {
-        const ext = path.extname(file);
-        const filename = path.basename(file, ext);
-        const name = `${site}/${filename}`.toLocaleLowerCase();
+    patterns.forEach((item, i) => {
+        Object.entries(item).forEach(([name, pattern]) => {
+            const files = glob.sync(`${paths.resources}/${site}/${pattern}`);
 
-        // eslint-disable-next-line no-param-reassign
-        config[name] = `${paths.resources}/${site}/${file}`;
+            console.log(site, files, `${paths.resources}/${site}/${pattern}`);
+
+            files.forEach(file => {
+                const pathbase = path.dirname(file);
+                const dirname = path.basename(pathbase);
+                const extname = path.extname(file);
+                const basename = path
+                    .basename(file, extname)
+                    .replace(/_/gi, '');
+
+                const key = name
+                    .replace(/\[site\]/gi, site)
+                    .replace(/\[pathbase\]/gi, pathbase)
+                    .replace(/\[dirname\]/gi, dirname)
+                    .replace(/\[basename\]/gi, basename)
+                    .replace(/\[baseextname\]/gi, basename + extname)
+                    .toLocaleLowerCase();
+
+                config[key] = config[key] || [];
+
+                // config[key].push(file);
+
+                config[key].push(
+                    '/home/danllo@lanacion.com.ar/dev/ln/Arc/resources/LN/fake.scss'
+                );
+                config[key] = config[key].filter(
+                    (element, indexOf) =>
+                        config[key].indexOf(element) === indexOf
+                );
+            });
+        });
     });
 
     return config;
 }, {});
+// console.log('· entries:', entries);
 
 const isProduction = env =>
     env &&
