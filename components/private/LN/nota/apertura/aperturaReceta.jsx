@@ -1,4 +1,3 @@
-/* eslint-disable import/no-duplicates */
 /* eslint-disable camelcase */
 import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
@@ -7,8 +6,7 @@ import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 import ArticleImage from '../articleImage';
-import ListItemsIngredientes from './ListItems';
-import ListItemsPreparacion from './ListItems';
+import ListItems from './ListItems';
 
 const AperturaReceta = props => {
     const {
@@ -55,7 +53,7 @@ const AperturaReceta = props => {
                 <div className="ce-ingredientes">
                     <h2>Ingredientes</h2>
                     {listIngredientes.map(list => (
-                        <ListItemsIngredientes
+                        <ListItems
                             list={list.embed.config.items}
                             titleList={list.embed.config.titleList}
                         />
@@ -68,7 +66,7 @@ const AperturaReceta = props => {
                 <div className="ce-preparaciones">
                     <h2>Preparación</h2>
                     {listPreparacion.map(list => (
-                        <ListItemsPreparacion
+                        <ListItems
                             list={list.embed.config.items}
                             titleList={list.embed.config.titleList}
                             listNumeric="true"
