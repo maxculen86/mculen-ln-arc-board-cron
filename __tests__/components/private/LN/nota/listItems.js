@@ -1,8 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
-import ListItemsIngredientes from '../../../../../components/private/LN/nota/apertura/ListItems';
-import ListItemsPreparacion from '../../../../../components/private/LN/nota/apertura/ListItems';
+import ListItems from '../../../../../components/private/LN/nota/apertura/listItems';
 
 const content_elements = nota.content_elements;
 
@@ -15,7 +14,7 @@ const listPreparacion = content_elements.filter(
 
 describe('features - LaNacion - Nota - ListItemsIngredientes', () => {
     const component = render(
-        <ListItemsIngredientes
+        <ListItems
             list={listIngredientes.embed.config.items}
             titleList={listIngredientes.embed.config.titleList}
         />
@@ -27,7 +26,7 @@ describe('features - LaNacion - Nota - ListItemsIngredientes', () => {
 
 describe('features - LaNacion - Nota - ListItemsPreparacion', () => {
     const component = render(
-        <ListItemsPreparacion
+        <ListItems
             list={listPreparacion.embed.config.items}
             titlelistPreparacion={listPreparacion.embed.config.titleList}
             listNumeric="true"

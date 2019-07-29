@@ -1,13 +1,9 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-// eslint-disable-next-line react/prop-types
 const TypeList = ({ listNumeric, children }) =>
     listNumeric ? <ol>{children}</ol> : <ul>{children}</ul>;
 
-// eslint-disable-next-line camelcase
 const ListItemsFactory = ({ list, titleList, listNumeric }) => (
     <div>
         <h3>{titleList}</h3>
@@ -20,11 +16,12 @@ const ListItemsFactory = ({ list, titleList, listNumeric }) => (
 );
 
 TypeList.propTypes = {
-    listNumeric: PropTypes.bool.isRequired
+    listNumeric: PropTypes.bool.isRequired,
+    children: PropTypes.node.isRequired
 };
 
 ListItemsFactory.propTypes = {
-    list: PropTypes.array.isRequired,
+    list: PropTypes.arrayOf(PropTypes.string).isRequired,
     titleList: PropTypes.string.isRequired,
     listNumeric: PropTypes.bool
 };

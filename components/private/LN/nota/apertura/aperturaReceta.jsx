@@ -1,12 +1,14 @@
 /* eslint-disable camelcase */
 import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { formatRelative, subDays } from 'date-fns';
+import { es } from 'date-fns/locale';
 import Tags from './tags';
 import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 import ArticleImage from '../articleImage';
-import ListItems from './ListItems';
+import ListItems from './listItems';
 
 const AperturaReceta = props => {
     const {
@@ -22,6 +24,8 @@ const AperturaReceta = props => {
     } = props;
     const destacado = true;
 
+    /** TODO: siguiente codigo corresponde a
+     * la logica del container. */
     const listIngredientes = content_elements
         ? content_elements.filter(ce => ce.subtype === 'custom-ingrediente')
         : [];
@@ -47,6 +51,8 @@ const AperturaReceta = props => {
             </div>
             <BajadaNota subheadlines={subheadlines} />
             <AuthorNota authors={by} />
+
+            {/* TODO: falta componte de cuerpo */}
             {/** Usar el siguiente bucle para validar si hay 
             elementos por renderizar y renderizar lista de ingredientes */}
             {listIngredientes.length !== 0 && (
@@ -60,8 +66,9 @@ const AperturaReceta = props => {
                     ))}
                 </div>
             )}
-            {/** Usar el siguiente bucle para validar si hay 
-            elementos por renderizar y renderizar lista de preparación */}
+            {/* TODO: falta componte de cuerpo 
+                Usar el siguiente bucle para validar si hay 
+                elementos por renderizar y renderizar lista de preparación */}
             {listPreparacion.length !== 0 && (
                 <div className="ce-preparaciones">
                     <h2>Preparación</h2>
