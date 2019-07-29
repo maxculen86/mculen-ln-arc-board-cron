@@ -738,6 +738,99 @@
                     }
                 },
                 "_website_section_id": "la-nacion-ar./recetas/recetas-con-ingredientes"
+            },
+            {
+                "_id": "/revistas/brando",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Brando",
+                "description": null,
+                "path": "/revistas/brando",
+                "parent_id": "/revistas",
+                "additional_properties": {
+                    "original": {
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": null,
+                            "rss": null,
+                            "instagram": null,
+                            "facebook": null
+                        },
+                        "navigation": {
+                            "nav_title": "Brando"
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/revistas/brando"]
+                        },
+                        "style": {
+                            "section_logo_class": "logo-brando",
+                            "section_class": "brando"
+                        },
+                        "_id": "/revistas/brando",
+                        "name": "Brando",
+                        "parent": "/revistas",
+                        "ancestors": ["/revistas"],
+                        "inactive": false
+                    }
+                }
+            },
+            {
+                "_id": "/revistas",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Revistas",
+                "description": null,
+                "path": "/revistas",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/revistas",
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": null,
+                            "rss": null,
+                            "instagram": null,
+                            "facebook": null
+                        },
+                        "navigation": {
+                            "nav_title": "Revistas"
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "name": "Revistas",
+                        "parent": "/",
+                        "_admin": {
+                            "alias_ids": ["/revistas"]
+                        },
+                        "inactive": false
+                    }
+                }
             }
         ],
         "additional_properties": {

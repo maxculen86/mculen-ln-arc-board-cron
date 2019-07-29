@@ -10,6 +10,10 @@ const section = `
             ancestors {
                 default
             }
+            style {
+                section_logo_class
+                section_class
+            }
         }
     }
 }`;
