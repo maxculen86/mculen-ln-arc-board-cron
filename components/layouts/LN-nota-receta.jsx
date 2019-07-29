@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import get from 'lodash.get';
 
-const sections = [
+const pageBuilderSections = [
     'Apertura',
     'Destacado',
     'PreContenido',
@@ -10,18 +12,59 @@ const sections = [
     'Tercera'
 ];
 
-export default class LNNotaReceta extends Component {
-    static sections = sections;
+class LNNotaReceta extends Component {
+    static sections = pageBuilderSections;
 
     static propTypes = {
-        children: PropTypes.arrayOf(PropTypes.object).isRequired
+        children: PropTypes.arrayOf(PropTypes.object).isRequired,
+        globalContent: PropTypes.shape({
+            taxonomy: PropTypes.shape({
+                sections: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        additional_properties: PropTypes.shape({
+                            original: PropTypes.shape({
+                                style: PropTypes.shape({
+                                    section_class: PropTypes.string
+                                })
+                            })
+                        })
+                    })
+                )
+            }).isRequired
+        }).isRequired
     };
+
+    constructor(props) {
+        super(props);
+
+        this.getSectionClass();
+    }
+
+    getSectionClass() {
+        const {
+            props: {
+                globalContent: {
+                    taxonomy: { sections }
+                }
+            }
+        } = this;
+
+        const logoSection = sections.find(x =>
+            get(x, 'additional_properties.original.style.section_class')
+        );
+
+        this.sectionClass = '';
+        if (logoSection) {
+            this.sectionClass =
+                logoSection.additional_properties.original.style.section_class;
+        }
+    }
 
     render() {
         const { children } = this.props;
 
         return (
-            <article className="lay brando">
+            <article className={`lay ${this.sectionClass}`}>
                 <main>
                     <header className="row titulo">
                         <div className="col-12">
@@ -44,3 +87,5 @@ export default class LNNotaReceta extends Component {
         );
     }
 }
+
+export default Consumer(LNNotaReceta);

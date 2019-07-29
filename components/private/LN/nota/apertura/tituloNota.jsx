@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import get from 'lodash.get';
 
 const TituloNota = ({
     globalContent: {
@@ -7,12 +8,8 @@ const TituloNota = ({
         taxonomy: { sections }
     }
 }) => {
-    const logoSection = sections.find(
-        x =>
-            x.additional_properties &&
-            x.additional_properties.original &&
-            x.additional_properties.original.style &&
-            x.additional_properties.original.style.section_logo_class
+    const logoSection = sections.find(x =>
+        get(x, 'additional_properties.original.style.section_logo_class')
     );
     return (
         <>
@@ -39,10 +36,16 @@ TituloNota.propTypes = {
         taxonomy: PropTypes.shape({
             sections: PropTypes.arrayOf(
                 PropTypes.shape({
-                    additional_properties: PropTypes.object
+                    additional_properties: PropTypes.shape({
+                        original: PropTypes.shape({
+                            style: PropTypes.shape({
+                                section_logo_class: PropTypes.string
+                            })
+                        })
+                    })
                 })
             )
-        }).isRequired
+        })
     }).isRequired
 };
 
