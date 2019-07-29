@@ -48,7 +48,6 @@ export const getSectionClass = taxonomy => {
 };
 
 export const getLogoSectionClass = taxonomy => {
-    console.log('asdasdasd', taxonomy);
     const logoSection = taxonomy.sections.find(x =>
         get(x, 'additional_properties.original.style.section_logo_class')
     );
