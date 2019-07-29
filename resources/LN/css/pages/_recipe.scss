@@ -1,0 +1,58 @@
+.aper-receta {
+    background: $gris1;
+    .cont-figure {
+        @media ($media-l) {
+            order: 2;
+        }
+    }
+    .cont-aper {
+        padding: $px-30;
+        padding-bottom: 0;
+        @media ($media-l) {
+            order: 1;
+        }
+        .tags {
+            border-bottom: solid 1px $gris3;
+            padding-bottom: $px-20;
+            position: relative;
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: $px-2;
+                width: $px-30;
+                background: $negro;
+                bottom: -$px-2;
+            }
+        }
+        .cont_tags {
+            margin-bottom: $px-30;
+            &:last-child { 
+                margin-bottom: 0;
+            }
+        }
+    }
+
+}
+
+.ingredient-list {
+    list-style: disc;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .com-item {
+        margin: 0 .8em;
+        line-height: 1.5em;
+    }
+}
+.time-number,
+.portion-number {
+    display: flex;
+    align-items: center; 
+    font-family: arial;
+    font-size: $font-16;
+    padding-left: .5em;
+    .num {
+        margin: 0 .2em 0 .4em;
+    }
+}

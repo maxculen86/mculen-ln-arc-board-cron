@@ -1,0 +1,127 @@
+.footer_header {
+
+    @media ($media-l) {
+        order:1;
+        border-bottom: 1px solid $gris3;
+        padding-bottom: $px-15; 
+    }
+}
+.footer_redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (min-width: 1024px){
+        justify-content: flex-start;
+    }
+}
+.footer_redes i{
+    @media (max-width: 1023px){
+        margin: $px-10;
+    }
+    margin-right: $px-20;
+}
+.footer_logo {
+    border-bottom: 1px solid $gris3;
+    padding-bottom: $px-20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media ($media-l) {
+        order:2;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+.footer_logo svg{
+    width: 197px;
+    height: 20px;
+}
+.footer_logo a {
+    display: inline-flex;
+    height: fit-content;
+}
+.footer_app {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @media ($media-l) {
+        order:3;
+        justify-content: flex-end;
+    }
+}
+.app_ios {
+    @media ($media-l) {
+        margin-left: $px-10;
+    }
+}
+.item_link {
+    font-family: $font-arial;
+    font-size: $font-14;
+    color: $link;
+    margin-right: $px-20;
+    height: fit-content;
+    width: fit-content;
+}
+.footer_captcha {
+    font-family: $font-arial;
+}
+.copyright {
+    font-family: $font-arial;
+    font-size: $font-14;
+    color: $gris4;
+    text-align: center;
+    @media ($media-l) {
+        text-align: left;
+        order: 1;
+    }
+}
+.footer_fiscal {
+    @media ($media-l) {
+        order: 2;
+    }
+}
+.footer_captcha p,
+.footer_fiscal p {
+    color: $gris4;
+    height: fit-content;
+    width: fit-content;
+}
+.img_data-fiscal {
+    width: $px-35;
+}
+.img_gda {
+    height: $px-15;
+}
+.gda {
+    font-family: Arial,"sans-serif";
+    font-size: $font-14;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 1023px) {
+        align-items: center;
+    }
+}
+
+.logo-gda {
+    display: flex;
+    flex-direction: row-reverse;
+    @media (max-width: 1023px) {
+        align-items: center;
+    }
+    @media (min-width: 1024px) {
+            margin-top: -10px;
+    }
+}
+
+.fiscal_row {
+    width: 100%;
+    @media (min-width: 1024px) {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.footer_sitio {display: none;}
+@media (min-width: 1024px) {
+    .footer_sitio {display: flex;}
+}
+

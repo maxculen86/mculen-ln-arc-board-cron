@@ -1,0 +1,12 @@
+.com-date {
+    font: 400 $font-14 $font-arial;
+    color: $gris4;
+    margin-top: 6px;
+    @media (min-width: 768px) {
+        text-align: right;
+    }
+}
+
+.acu .com-date {
+    text-align: left;
+}
