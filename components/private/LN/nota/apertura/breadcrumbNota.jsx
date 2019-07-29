@@ -1,42 +1,50 @@
-import React, { Component } from 'react';
-import Consumer from 'fusion:consumer';
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import BreadcrumbComponent from '../../common/breadcrumbBase';
 
-class Breadcrumb extends Component {
-    constructor(props) {
-        super(props);
-        this.allSections = [];
-        if (this.props.globalContent.taxonomy.primary_section) {
-            this.getPrimaryTree(
-                this.props.globalContent.taxonomy.primary_section
-            );
-        }
-        this.allSections.push({
-            name: this.props.siteProperties.title,
-            path: '/',
-            type: 'site'
-        });
-        this.allSections = this.allSections.reverse();
+const getPrimaryTree = (sections, section, resultSections) => {
+    resultSections.push({
+        name: section.name,
+        path: section.path
+    });
+    if (section.parent_id && section.parent_id !== '/') {
+        getPrimaryTree(
+            sections,
+            sections.find(parent => parent._id === section.parent_id),
+            resultSections
+        );
     }
+};
 
-    getPrimaryTree(section) {
-        this.allSections.push({
-            name: section.name,
-            path: section.path,
-            type: 'category'
-        });
-        if (section.parent_id && section.parent_id !== '/') {
-            this.getPrimaryTree(
-                this.props.globalContent.taxonomy.sections.find(
-                    parent => parent._id === section.parent_id
-                )
-            );
-        }
+const breadcrumbNota = ({
+    globalContent: {
+        taxonomy: { primary_section, sections }
+    },
+    siteProperties: { title: siteTitle }
+}) => {
+    let allSections = [];
+    if (primary_section) {
+        getPrimaryTree(sections, primary_section, allSections);
     }
+    allSections.push({
+        name: siteTitle,
+        path: '/'
+    });
+    allSections = allSections.reverse();
 
-    render() {
-        return <BreadcrumbComponent sections={this.allSections.slice(0, 3)} />;
-    }
-}
+    return <BreadcrumbComponent sections={allSections.slice(0, 3)} />;
+};
 
-export default Consumer(Breadcrumb);
+breadcrumbNota.propTypes = {
+    globalContent: PropTypes.shape({
+        taxonomy: PropTypes.shape({
+            sections: PropTypes.array.isRequired,
+            primary_section: PropTypes.object
+        }).isRequired
+    }).isRequired,
+    siteProperties: PropTypes.shape({
+        title: PropTypes.string.isRequired
+    }).isRequired
+};
+
+export default breadcrumbNota;

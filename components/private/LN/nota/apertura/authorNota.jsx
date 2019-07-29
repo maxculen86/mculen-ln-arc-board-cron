@@ -22,13 +22,17 @@ const AuthorNota = ({ authors }) => {
 };
 
 AuthorNota.propTypes = {
-    author: PropTypes.arrayOf(
+    authors: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string,
             type: PropTypes.string,
             slug: PropTypes.string
         })
-    ).isRequired
+    )
+};
+
+AuthorNota.defaultProps = {
+    authors: []
 };
 
 export default AuthorNota;

@@ -4,7 +4,11 @@ import PropTypes from 'fusion:prop-types';
 const breadcrumbBase = props => {
     const { sections } = props;
     const listSections = sections.map(section => {
-        return <a href={section.path}>{section.name}</a>;
+        return (
+            <a key={section.path} href={section.path}>
+                {section.name}
+            </a>
+        );
     });
 
     return (
