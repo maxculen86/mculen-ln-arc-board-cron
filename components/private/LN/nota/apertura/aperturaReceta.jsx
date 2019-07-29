@@ -1,3 +1,5 @@
+/* eslint-disable import/no-duplicates */
+/* eslint-disable camelcase */
 import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
 import TituloNota from './tituloNota';
@@ -7,6 +9,8 @@ import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 import ArticleImage from '../articleImage';
+import ListItemsIngredientes from './ListItems';
+import ListItemsPreparacion from './ListItems';
 
 const AperturaReceta = props => {
     const {
@@ -17,10 +21,20 @@ const AperturaReceta = props => {
             subheadlines,
             credits: { by },
             imageResizePresets,
-            promo_items
+            promo_items,
+            content_elements
         }
     } = props;
     const destacado = true;
+
+    const listIngredientes = content_elements
+        ? content_elements.filter(ce => ce.subtype === 'custom-ingrediente')
+        : [];
+
+    const listPreparacion = content_elements
+        ? content_elements.filter(ce => ce.subtype === 'custom-preparacion')
+        : [];
+
     return (
         <Fragment>
             <section className="col-desksm-8 cont-figure">
@@ -40,6 +54,33 @@ const AperturaReceta = props => {
             <TituloNota titulo={headlines} />
             <BajadaNota subheadlines={subheadlines} />
             <AuthorNota authors={by} />
+            {/** Usar el siguiente bucle para validar si hay 
+            elementos por renderizar y renderizar lista de ingredientes */}
+            {listIngredientes.length !== 0 && (
+                <div className="ce-ingredientes">
+                    <h2>Ingredientes</h2>
+                    {listIngredientes.map(list => (
+                        <ListItemsIngredientes
+                            list={list.embed.config.items}
+                            titleList={list.embed.config.titleList}
+                        />
+                    ))}
+                </div>
+            )}
+            {/** Usar el siguiente bucle para validar si hay 
+            elementos por renderizar y renderizar lista de preparación */}
+            {listPreparacion.length !== 0 && (
+                <div className="ce-preparaciones">
+                    <h2>Preparación</h2>
+                    {listPreparacion.map(list => (
+                        <ListItemsPreparacion
+                            list={list.embed.config.items}
+                            titleList={list.embed.config.titleList}
+                            listNumeric="true"
+                        />
+                    ))}
+                </div>
+            )}
         </Fragment>
     );
 };
@@ -61,7 +102,8 @@ AperturaReceta.propTypes = {
             by: PropTypes.array
         }).isRequired,
         imageResizePresets: PropTypes.object.isRequired,
-        promo_items: PropTypes.object.isRequired
+        promo_items: PropTypes.object.isRequired,
+        content_elements: PropTypes.array.isRequired
     }).isRequired
 };
 

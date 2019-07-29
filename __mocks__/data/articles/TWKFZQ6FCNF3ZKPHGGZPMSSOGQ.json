@@ -4,6 +4,60 @@
     "version": "0.10.2",
     "content_elements": [
         {
+            "_id": "WEZHDQGSB5EK7MHKUW7VA7ZS7I",
+            "type": "custom_embed",
+            "subtype": "custom-ingrediente",
+            "additional_properties": {
+                "_id": "S4GRUAX42JHJZDIBPYFYIM6DJQ",
+                "comments": []
+            },
+            "embed": {
+                "id": "d11763c5ae165",
+                "url": "https://handle-lists.itjquintana.now.sh/",
+                "config": {
+                    "titleList": "Para la salsa",
+                    "typeList": "ingredientes",
+                    "items": ["Tomate", "Zanahoria", "Cebolla", "Ajo"]
+                }
+            }
+        },
+        {
+            "_id": "JRFVVOFE6FCHNFSW2LNTACOW7M",
+            "type": "custom_embed",
+            "subtype": "custom-ingrediente",
+            "additional_properties": {
+                "_id": "UL7KZS4M7READMBWQ6VWAG55X4",
+                "comments": []
+            },
+            "embed": {
+                "id": "1a0db6cda9545f",
+                "url": "https://handle-lists.itjquintana.now.sh/",
+                "config": {
+                    "titleList": "Para lo que sea",
+                    "typeList": "ingredientes",
+                    "items": ["Tomate", "Harina", "Huevos", "Lo que sea"]
+                }
+            }
+        },
+        {
+            "_id": "LDBESZHOGRHBFDCG7YAH2ZXMKA",
+            "type": "custom_embed",
+            "subtype": "custom-preparacion",
+            "additional_properties": {
+                "_id": "XW2CI2SCL5HIFMZFB4DUMJTVBA",
+                "comments": []
+            },
+            "embed": {
+                "id": "ac76aeaf266a3",
+                "url": "https://handle-lists.itjquintana.now.sh/",
+                "config": {
+                    "titleList": "Para la salsa",
+                    "typeList": "preparacion",
+                    "items": ["Cocinar", "Probar", "Servir"]
+                }
+            }
+        },
+        {
             "_id": "4MRKV2NDHBEEFG2PE37USQR724",
             "type": "text",
             "additional_properties": {
