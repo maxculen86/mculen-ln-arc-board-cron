@@ -39,11 +39,8 @@ const entries = Object.keys(sites).reduce((config, site) => {
 
                 config[key] = config[key] || [];
 
-                // config[key].push(file);
+                config[key].push(file);
 
-                config[key].push(
-                    '/home/danllo@lanacion.com.ar/dev/ln/Arc/resources/LN/fake.scss'
-                );
                 config[key] = config[key].filter(
                     (element, indexOf) =>
                         config[key].indexOf(element) === indexOf

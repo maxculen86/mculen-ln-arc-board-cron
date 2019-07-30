@@ -12,3 +12,4 @@ coverage/
 .prettierrc
 .huskyrc
 _ignore_*
+_env_config

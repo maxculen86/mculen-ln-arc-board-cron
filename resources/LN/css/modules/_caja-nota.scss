@@ -1,3 +1,6 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
 .mod-caja-nota{
     display: grid;
     grid-template-columns: 1fr;

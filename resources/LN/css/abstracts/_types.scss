@@ -1,4 +1,7 @@
- /* FONTS --------------- */
+@import './variables';
+@import './mixins';
+
+/* FONTS --------------- */
  
  @include font-face("SuecaSlab", suecaslab-medium-webfont, 500);
  @include font-face("SuecaSlab", suecaslab-bold-webfont, 700);
