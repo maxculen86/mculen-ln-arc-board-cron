@@ -16,8 +16,12 @@ const ListItemsFactory = ({ list, titleList, listNumeric }) => (
 );
 
 TypeList.propTypes = {
-    listNumeric: PropTypes.bool.isRequired,
+    listNumeric: PropTypes.bool,
     children: PropTypes.node.isRequired
+};
+
+TypeList.defaultProps = {
+    listNumeric: false
 };
 
 ListItemsFactory.propTypes = {

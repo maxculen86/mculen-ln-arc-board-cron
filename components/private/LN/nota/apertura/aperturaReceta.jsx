@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
 import React, { Fragment } from 'react';
 import PropTypes from 'fusion:prop-types';
-import { formatRelative, subDays } from 'date-fns';
-import { es } from 'date-fns/locale';
 import Tags from './tags';
 import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 import ArticleImage from '../articleImage';
 import ListItems from './listItems';
+import DateHeader from './dateHeader';
+import dateAndTimeUtil from '../../../common/utils/dateAndTimeUtil';
 
 const AperturaReceta = props => {
     const {
@@ -19,10 +19,16 @@ const AperturaReceta = props => {
             credits: { by },
             imageResizePresets,
             promo_items,
-            content_elements
+            content_elements,
+            display_date
         }
     } = props;
     const destacado = true;
+
+    /** TODO: Siguiente constante para el container
+     * que sera usado para el componente de DateHeader
+     */
+    const dateHeaderProps = dateAndTimeUtil(display_date);
 
     /** TODO: siguiente codigo corresponde a
      * la logica del container. */
@@ -51,7 +57,7 @@ const AperturaReceta = props => {
             </div>
             <BajadaNota subheadlines={subheadlines} />
             <AuthorNota authors={by} />
-
+            <DateHeader {...dateHeaderProps} />
             {/* TODO: falta componte de cuerpo */}
             {/** Usar el siguiente bucle para validar si hay 
             elementos por renderizar y renderizar lista de ingredientes */}
@@ -103,7 +109,8 @@ AperturaReceta.propTypes = {
         }).isRequired,
         imageResizePresets: PropTypes.object.isRequired,
         promo_items: PropTypes.object.isRequired,
-        content_elements: PropTypes.array.isRequired
+        content_elements: PropTypes.array.isRequired,
+        display_date: PropTypes.string.isRequired
     }).isRequired
 };
 
