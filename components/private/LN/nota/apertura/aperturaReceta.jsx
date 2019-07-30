@@ -6,7 +6,9 @@ import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 import ArticleImage from '../articleImage';
-import ListItems from './ListItems';
+import ListItems from './listItems';
+import DateHeader from './dateHeader';
+import dateAndTimeUtil from '../../../common/utils/dateAndTimeUtil';
 import Destacado from './destacado';
 
 const AperturaReceta = props => {
@@ -18,10 +20,18 @@ const AperturaReceta = props => {
             credits: { by },
             imageResizePresets,
             promo_items,
-            content_elements
+            content_elements,
+            display_date
         }
     } = props;
 
+    /** TODO: Siguiente constante para el container
+     * que sera usado para el componente de DateHeader
+     */
+    const dateHeaderProps = dateAndTimeUtil(display_date);
+
+    /** TODO: siguiente codigo corresponde a
+     * la logica del container. */
     const listIngredientes = content_elements
         ? content_elements.filter(ce => ce.subtype === 'custom-ingrediente')
         : [];
@@ -48,6 +58,8 @@ const AperturaReceta = props => {
             </div>
             <BajadaNota subheadlines={subheadlines} />
             <AuthorNota authors={by} />
+            <DateHeader {...dateHeaderProps} />
+            {/* TODO: falta componte de cuerpo */}
             {/** Usar el siguiente bucle para validar si hay 
             elementos por renderizar y renderizar lista de ingredientes */}
             {listIngredientes.length !== 0 && (
@@ -61,8 +73,9 @@ const AperturaReceta = props => {
                     ))}
                 </div>
             )}
-            {/** Usar el siguiente bucle para validar si hay 
-            elementos por renderizar y renderizar lista de preparación */}
+            {/* TODO: falta componte de cuerpo 
+                Usar el siguiente bucle para validar si hay 
+                elementos por renderizar y renderizar lista de preparación */}
             {listPreparacion.length !== 0 && (
                 <div className="ce-preparaciones">
                     <h2>Preparación</h2>
@@ -97,7 +110,8 @@ AperturaReceta.propTypes = {
         }).isRequired,
         imageResizePresets: PropTypes.object.isRequired,
         promo_items: PropTypes.object.isRequired,
-        content_elements: PropTypes.array.isRequired
+        content_elements: PropTypes.array.isRequired,
+        display_date: PropTypes.string.isRequired
     }).isRequired
 };
 
