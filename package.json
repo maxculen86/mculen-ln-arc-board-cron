@@ -89,7 +89,7 @@
       "./setupTests.js"
     ],
     "testPathIgnorePatterns": [
-      "utils"
+      "/__tests__/utils"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
