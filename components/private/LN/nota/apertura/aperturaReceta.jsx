@@ -11,6 +11,8 @@ import DateHeader from './dateHeader';
 import dateAndTimeUtil from '../../../common/utils/dateAndTimeUtil';
 import Destacado from './destacado';
 
+import '../../../../../resources/dist/css/ln/layouts/grid.css';
+
 const AperturaReceta = props => {
     const {
         globalContent: {
@@ -26,7 +28,7 @@ const AperturaReceta = props => {
     } = props;
 
     /** TODO: Siguiente constante para el container
-     * que sera usado para el componente de DateHeader
+     * que sera usado para el componente de DateHeader. Hacer container que tenga esta logica y devuelva el componente de DateHeader
      */
     const dateHeaderProps = dateAndTimeUtil(display_date);
 
@@ -43,22 +45,19 @@ const AperturaReceta = props => {
     return (
         <Fragment>
             <section className="col-desksm-8 cont-figure">
-                {/* TODO: reemplazar por destacado.jsx */}
                 <Destacado {...props} />
-                {/* <ArticleImage
-                    imageResizePresets={imageResizePresets}
-                    image={promo_items.basic}
-                    zoom
-                /> */}
             </section>
             <div className="col-desksm-4 cont-aper">
                 <Sections taxonomy={taxonomy} destacado />
                 {/* Porciones y tiempo */}
                 <Tags tags={tags} destacado={false} />
             </div>
-            <BajadaNota subheadlines={subheadlines} />
+
+            {/* TODO: estos van por fuera de la apertura! */}
+            {/* <BajadaNota subheadlines={subheadlines} />
             <AuthorNota authors={by} />
-            <DateHeader {...dateHeaderProps} />
+            <DateHeader {...dateHeaderProps} /> */}
+
             {/* TODO: falta componte de cuerpo */}
             {/** Usar el siguiente bucle para validar si hay 
             elementos por renderizar y renderizar lista de ingredientes */}

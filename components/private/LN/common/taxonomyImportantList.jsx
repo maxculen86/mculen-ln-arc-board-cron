@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+import '../../../../resources/dist/css/ln/components/tag.css';
+
 /**
  * Renderiza elementos relacionados destacados (como categorias o tags)
  */
 const TaxonomyImportantList = ({ list, destacado }) => {
     return (
-        <div className={destacado ? 'classDestacada' : ''}>
+        <div className={`${destacado ? 'com-tag' : 'com-secondary-tag'}`}>
             {list.map(v => (
                 <a key={v.text} href={v.path}>
                     {v.text}

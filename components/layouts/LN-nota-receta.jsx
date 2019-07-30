@@ -4,6 +4,9 @@ import PropTypes from 'fusion:prop-types';
 import { getSectionClass } from '../private/common/utils/sectionUtils';
 
 import '../../resources/dist/css/ln/base.css';
+import '../../resources/dist/css/ln/pages/recipe.css';
+import '../../resources/dist/css/ln/layouts/grid.css';
+import '../../resources/dist/css/ln/layouts/layout.css';
 
 const pageBuilderSections = [
     'Apertura',
