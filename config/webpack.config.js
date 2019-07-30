@@ -19,8 +19,6 @@ const entries = Object.keys(sites).reduce((config, site) => {
         Object.entries(item).forEach(([name, pattern]) => {
             const files = glob.sync(`${paths.resources}/${site}/${pattern}`);
 
-            console.log(site, files, `${paths.resources}/${site}/${pattern}`);
-
             files.forEach(file => {
                 const pathbase = path.dirname(file);
                 const dirname = path.basename(pathbase);
@@ -51,7 +49,6 @@ const entries = Object.keys(sites).reduce((config, site) => {
 
     return config;
 }, {});
-// console.log('· entries:', entries);
 
 const isProduction = env =>
     env &&
