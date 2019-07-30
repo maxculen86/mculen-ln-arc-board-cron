@@ -40,6 +40,15 @@ export default `
         basic {
             ${image}
         }
+        receta {
+            embed {
+                config {
+                    title
+                    counterTime
+                    counterPortion
+                }
+            }
+        }
     }
     credits {
         by {

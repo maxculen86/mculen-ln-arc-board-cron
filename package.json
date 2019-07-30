@@ -7,16 +7,16 @@
   "scripts": {
     "build": "npm run clean && npm run webpack",
     "build-dev": "npm run clean && npm run webpack-watch",
-    "webpack": "webpack --config ./config/webpack.config.js --env.prod",
-    "webpack-watch": "webpack --config ./config/webpack.config.js --env.dev --watch --verbose",
     "clean": "rm -rf resources/dist",
     "eslint": "eslint --ext=js,jsx .",
     "fusion": "fusion",
     "prettier": "prettier --write **/*.{js,jsx}",
     "sonar-local": "sonar-scanner -Dsonar.projectKey=arc-ln -Dsonar.sourceEncoding=UTF-8 -Dsonar.host.url=http://localhost:9000 -Dsonar.sources=./ -Dsonar.language=js -Dsonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules -Dsonar.tests=./__tests__ -Dsonar.test.inclusions=./__tests__/**/*.test.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
-    "start": "npm run build && fusion start",
+    "start": "fusion start",
     "start-dev": "npm run build-dev & fusion start",
     "test": "jest --passWithNoTests --coverage",
+    "webpack": "webpack --config ./config/webpack.config.js --env.prod",
+    "webpack-watch": "webpack --config ./config/webpack.config.js --env.dev --watch --verbose",
     "zip": "npm run build && fusion zip"
   },
   "dependencies": {

@@ -10,6 +10,7 @@ import ListItems from './listItems';
 import DateHeader from './dateHeader';
 import dateAndTimeUtil from '../../../common/utils/dateAndTimeUtil';
 import Destacado from './destacado';
+import DetalleReceta from './porcionesTiempoNota';
 
 import '../../../../../resources/dist/css/ln/layouts/grid.css';
 
@@ -44,6 +45,9 @@ const AperturaReceta = props => {
 
     return (
         <Fragment>
+            {/* <section>
+                <DetalleReceta {...props} />
+            </section> */}
             <section className="col-desksm-8 cont-figure">
                 <Destacado {...props} />
             </section>
