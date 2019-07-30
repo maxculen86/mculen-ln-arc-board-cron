@@ -1,0 +1,43 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.com-title_list {
+    font-family: SuecaSlab, Georgia;
+    font-size: $font-24;
+    font-weight: bold;
+    color: #000;
+}
+
+.com-subtitle_list {
+    font-family: Arial;
+    font-size: $font-16;
+    font-weight: bold;
+    color: #000;
+}
+
+.com-ordered {
+    padding-left: 0;
+    counter-reset: item;
+    .com-item {
+        list-style-type: none;
+        padding-left: 2em;
+        margin: 2.5em 0;
+        font-family: Georgia;
+        font-size: $font-19;
+        color: #000;
+        position: relative;
+        &:before {
+            content: counter(item) "";
+            counter-increment: item;
+            padding: .8em .7em;
+            top: -8px;
+            background-color: #000;
+            color: #fff;
+            position: absolute;
+            left: 0;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: $font-14;
+        }
+    }
+}

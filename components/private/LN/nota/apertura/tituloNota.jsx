@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { getLogoSectionClass } from '../../../common/utils/sectionUtils';
 
+import '../../../../../resources/dist/css/ln/components/title.css';
+
 const TituloNota = ({
     globalContent: {
         headlines: { basic },

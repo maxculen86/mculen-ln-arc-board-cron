@@ -3,6 +3,8 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { getSectionClass } from '../private/common/utils/sectionUtils';
 
+import '../../resources/dist/css/ln/base.css';
+
 const pageBuilderSections = [
     'Apertura',
     'Destacado',
