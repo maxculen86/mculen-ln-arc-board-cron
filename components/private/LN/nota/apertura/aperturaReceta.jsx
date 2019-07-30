@@ -7,6 +7,7 @@ import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 import ArticleImage from '../articleImage';
 import ListItems from './ListItems';
+import Destacado from './destacado';
 
 const AperturaReceta = props => {
     const {
@@ -20,7 +21,6 @@ const AperturaReceta = props => {
             content_elements
         }
     } = props;
-    const destacado = true;
 
     const listIngredientes = content_elements
         ? content_elements.filter(ce => ce.subtype === 'custom-ingrediente')
@@ -34,14 +34,15 @@ const AperturaReceta = props => {
         <Fragment>
             <section className="col-desksm-8 cont-figure">
                 {/* TODO: reemplazar por destacado.jsx */}
-                <ArticleImage
+                <Destacado {...props} />
+                {/* <ArticleImage
                     imageResizePresets={imageResizePresets}
                     image={promo_items.basic}
                     zoom
-                />
+                /> */}
             </section>
             <div className="col-desksm-4 cont-aper">
-                <Sections taxonomy={taxonomy} destacado={destacado} />
+                <Sections taxonomy={taxonomy} destacado />
                 {/* Porciones y tiempo */}
                 <Tags tags={tags} destacado={false} />
             </div>
