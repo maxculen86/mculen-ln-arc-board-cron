@@ -9,9 +9,9 @@ import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 
 const pageBuilderSections = [
+    'Pre-Apertura',
     'Apertura',
-    'Destacado',
-    'PreContenido',
+    'Pos-Apertura',
     'Cuerpo',
     'Pie',
     'Tercera'
