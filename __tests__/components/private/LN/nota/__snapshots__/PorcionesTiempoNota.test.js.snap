@@ -1,9 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - LaNacion - Nota - TituloNota Test de snapshot TituloNota 1`] = `
-<h1
-  class="titleSpecial"
+<div
+  class="container"
 >
-  Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local
-</h1>
+  <div
+    class="row"
+  >
+    <div
+      class="input-group"
+      style="width:100%"
+    >
+      <p
+        style="width:70%"
+      >
+         Tiempo total: 45 min.
+      </p>
+    </div>
+    <div
+      class="input-group"
+      style="width:100%"
+    >
+      <p
+        style="width:70%"
+      >
+         Porciones: 8
+      </p>
+    </div>
+  </div>
+</div>
 `;

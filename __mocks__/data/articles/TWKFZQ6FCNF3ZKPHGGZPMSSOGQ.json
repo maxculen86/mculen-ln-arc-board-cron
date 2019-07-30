@@ -1053,6 +1053,20 @@
             "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
             "version": "0.9.0",
             "width": 345
+        },
+        "receta": {
+            "_id": "NZGBL2YRYFCYBLYLEV6FSXOOD4",
+            "subtype": "custom-detalle-receta",
+            "type": "custom_embed",
+            "embed": {
+                "id": "1c379a41a07f3d",
+                "url": "https://www.lanacion.com.ar/",
+                "config": {
+                    "title": "detalle-receta",
+                    "counterTime": "45",
+                    "counterPortion": "8"
+                }
+            }
         }
     },
     "distributor": {
