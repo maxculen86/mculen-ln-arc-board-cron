@@ -1,8 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
-// import './index.css'
-
-const mintTiempo = 'min.';
 
 const PorcionesTiempoNota = props => {
     const {
@@ -17,32 +14,31 @@ const PorcionesTiempoNota = props => {
         }
     } = props;
     return (
-        <Fragment>
-            <div className="container">
-                <div className="row">
-                    <div className="input-group" style={{ width: '100%' }}>
-                        <p style={{ width: '70%' }}>
-                            {/* <img
-                                style={{ width: '8%' }}
-                                src={imageTime}
-                                alt="Logo"
-                            /> */}{' '}
-                            Tiempo total: {counterTime} {mintTiempo}
-                        </p>
-                    </div>
-                    <div className="input-group" style={{ width: '100%' }}>
-                        <p style={{ width: '70%' }}>
-                            {/* <img
-                                style={{ width: '8%' }}
-                                src={imagePorcion}
-                                alt="Logo"
-                            /> */}{' '}
-                            Porciones: {counterPortion}
-                        </p>
-                    </div>
+        <div className="cont_tags tags">
+            <div className="row">
+                <div className="col-2 col-tablet-1">
+                    <i className="icon-time" />
+                </div>
+                <div className="time-number col-10 col-tablet-11">
+                    <span>
+                        Tiempo total:
+                        <span className="num">{counterTime}</span>
+                        min.
+                    </span>
                 </div>
             </div>
-        </Fragment>
+            <div className="row">
+                <div className="col-2 col-tablet-1">
+                    <i className="icon-portion" />
+                </div>
+                <div className="portion-number col-10 col-tablet-11">
+                    <span>
+                        Porciones:
+                        <span className="num">{counterPortion}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
     );
 };
 

@@ -53,7 +53,7 @@ const AperturaReceta = props => {
             </section>
             <div className="col-desksm-4 cont-aper">
                 <Sections taxonomy={taxonomy} destacado />
-                {/* Porciones y tiempo */}
+                <DetalleReceta {...props} />
                 <Tags tags={tags} destacado={false} />
             </div>
 
