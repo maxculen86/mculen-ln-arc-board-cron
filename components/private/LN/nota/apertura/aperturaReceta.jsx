@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Tags from './tags';
 import Sections from './sections';
@@ -44,10 +44,7 @@ const AperturaReceta = props => {
         : [];
 
     return (
-        <Fragment>
-            {/* <section>
-                <DetalleReceta {...props} />
-            </section> */}
+        <>
             <section className="col-desksm-8 cont-figure">
                 <Destacado {...props} />
             </section>
@@ -91,7 +88,7 @@ const AperturaReceta = props => {
                     ))}
                 </div>
             )}
-        </Fragment>
+        </>
     );
 };
 
