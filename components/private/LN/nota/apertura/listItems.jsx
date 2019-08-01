@@ -4,6 +4,9 @@ import PropTypes from 'fusion:prop-types';
 const TypeList = ({ listNumeric, children }) =>
     listNumeric ? <ol>{children}</ol> : <ul>{children}</ul>;
 
+//TODO: falta html
+//TODO: pasar a carpeta Cuerpo, crear containers de Ingredientes y Preparacion y sacar
+//esa logica de aperturaReceta.jsx
 const ListItemsFactory = ({ list, titleList, listNumeric }) => (
     <div>
         <h3>{titleList}</h3>

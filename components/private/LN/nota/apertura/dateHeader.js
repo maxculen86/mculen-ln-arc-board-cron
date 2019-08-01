@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+//TODO: falta html
 const DateHeader = ({ date, time }) =>
     date && time ? (
         <div>
@@ -8,6 +9,7 @@ const DateHeader = ({ date, time }) =>
             <strong>{`${time}`}</strong>
         </div>
     ) : (
+        //TODO: que hacer cuando no tenemos los datos para renderar?
         <p>Sin fecha</p>
     );
 
