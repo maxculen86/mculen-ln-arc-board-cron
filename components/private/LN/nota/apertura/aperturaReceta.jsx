@@ -6,9 +6,9 @@ import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 import ArticleImage from '../articleImage';
-import ListItems from './listItems';
 import DateHeader from './dateHeader';
-import dateAndTimeUtil from '../../../common/utils/dateAndTimeUtil';
+import ListIngredientes from './listIngredientes';
+import ListPreparacion from './listPreparacion';
 
 const AperturaReceta = props => {
     const {
@@ -24,21 +24,6 @@ const AperturaReceta = props => {
         }
     } = props;
     const destacado = true;
-
-    /** TODO: Siguiente constante para el container
-     * que sera usado para el componente de DateHeader
-     */
-    const dateHeaderProps = dateAndTimeUtil(display_date);
-
-    /** TODO: siguiente codigo corresponde a
-     * la logica del container. */
-    const listIngredientes = content_elements
-        ? content_elements.filter(ce => ce.subtype === 'custom-ingrediente')
-        : [];
-
-    const listPreparacion = content_elements
-        ? content_elements.filter(ce => ce.subtype === 'custom-preparacion')
-        : [];
 
     return (
         <Fragment>
@@ -57,36 +42,9 @@ const AperturaReceta = props => {
             </div>
             <BajadaNota subheadlines={subheadlines} />
             <AuthorNota authors={by} />
-            <DateHeader {...dateHeaderProps} />
-            {/* TODO: falta componte de cuerpo */}
-            {/** Usar el siguiente bucle para validar si hay 
-            elementos por renderizar y renderizar lista de ingredientes */}
-            {listIngredientes.length !== 0 && (
-                <div className="ce-ingredientes">
-                    <h2>Ingredientes</h2>
-                    {listIngredientes.map(list => (
-                        <ListItems
-                            list={list.embed.config.items}
-                            titleList={list.embed.config.titleList}
-                        />
-                    ))}
-                </div>
-            )}
-            {/* TODO: falta componte de cuerpo 
-                Usar el siguiente bucle para validar si hay 
-                elementos por renderizar y renderizar lista de preparación */}
-            {listPreparacion.length !== 0 && (
-                <div className="ce-preparaciones">
-                    <h2>Preparación</h2>
-                    {listPreparacion.map(list => (
-                        <ListItems
-                            list={list.embed.config.items}
-                            titleList={list.embed.config.titleList}
-                            listNumeric="true"
-                        />
-                    ))}
-                </div>
-            )}
+            <DateHeader display_date={display_date} />
+            <ListIngredientes content_elements={content_elements} />
+            <ListPreparacion content_elements={content_elements} />
         </Fragment>
     );
 };

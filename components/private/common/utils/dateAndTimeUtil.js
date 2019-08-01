@@ -4,12 +4,12 @@
  */
 export default function dateAndTimeUtil(displayDate) {
     return {
-        date: new Date(displayDate).toLocaleString('es-419', {
+        date: new Date(displayDate).toLocaleString('es-AR', {
             month: 'long',
             day: '2-digit',
             year: 'numeric'
         }),
-        time: new Date(displayDate).toLocaleString('es-419', {
+        time: new Date(displayDate).toLocaleString('es-AR', {
             hour: 'numeric',
             minute: 'numeric'
         })
