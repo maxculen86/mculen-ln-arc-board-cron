@@ -10,7 +10,7 @@ import ListItems from './listItems';
 import DateHeader from './dateHeader';
 import dateAndTimeUtil from '../../../common/utils/dateAndTimeUtil';
 import Destacado from './destacado';
-import DetalleReceta from './porcionesTiempoNota';
+import DetalleReceta from './detalleReceta';
 
 import '../../../../../resources/dist/css/ln/layouts/grid.css';
 

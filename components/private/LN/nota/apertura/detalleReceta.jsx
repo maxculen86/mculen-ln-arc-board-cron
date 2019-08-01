@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const PorcionesTiempoNota = props => {
+const DetalleReceta = props => {
     const {
         globalContent: {
             promo_items: {
@@ -42,14 +42,14 @@ const PorcionesTiempoNota = props => {
     );
 };
 
-PorcionesTiempoNota.propTypes = {
+DetalleReceta.propTypes = {
     globalContent: PropTypes.shape({
         promo_items: PropTypes.shape({
             receta: PropTypes.shape({
                 embed: PropTypes.shape({
                     config: PropTypes.shape({
-                        counterPortion: PropTypes.string.isRequired,
-                        counterTime: PropTypes.string.isRequired,
+                        counterPortion: PropTypes.number.isRequired,
+                        counterTime: PropTypes.number.isRequired,
                         title: PropTypes.string.isRequired
                     })
                 })
@@ -58,4 +58,4 @@ PorcionesTiempoNota.propTypes = {
     }).isRequired
 };
 
-export default PorcionesTiempoNota;
+export default DetalleReceta;
