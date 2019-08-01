@@ -9,7 +9,7 @@ import DetalleReceta from '../../../../../components/private/LN/nota/apertura/de
 
 describe('features - LaNacion - Nota - TituloNota', () => {
     const component = render(<DetalleReceta globalContent={nota} />);
-    it('Test de snapshot TituloNota', () => {
+    it('Test de snapshot Detalle Receta', () => {
         expect(component).toMatchSnapshot();
     });
 });

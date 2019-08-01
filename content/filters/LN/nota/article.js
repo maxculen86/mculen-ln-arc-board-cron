@@ -55,6 +55,7 @@ export default `
             ${video}
         }
         receta {
+            subtype
             embed {
                 config {
                     title
