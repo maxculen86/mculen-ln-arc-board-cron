@@ -51,7 +51,7 @@ DetalleReceta.propTypes = {
     globalContent: PropTypes.shape({
         promo_items: PropTypes.shape({
             receta: PropTypes.shape({
-                subtype: PropTypes.string.isRequired,
+                subtype: PropTypes.oneOf(['custom-detalle-receta']),
                 embed: PropTypes.shape({
                     config: PropTypes.shape({
                         counterPortion: PropTypes.number.isRequired,
