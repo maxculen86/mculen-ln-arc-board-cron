@@ -2,9 +2,9 @@
 
 exports[`features - LaNacion - Nota - DateHeader Test de snapshot DateHeader 1`] = `
 <div>
-  26 de julio de 2019 · 
+  2019 M07 23 · 
   <strong>
-    19:12
+    17:53
   </strong>
 </div>
 `;
