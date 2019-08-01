@@ -3,10 +3,15 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { getSectionClass } from '../private/common/utils/sectionUtils';
 
+import '../../resources/dist/css/ln/base.css';
+import '../../resources/dist/css/ln/pages/recipe.css';
+import '../../resources/dist/css/ln/layouts/grid.css';
+import '../../resources/dist/css/ln/layouts/layout.css';
+
 const pageBuilderSections = [
+    'Pre-Apertura',
     'Apertura',
-    'Destacado',
-    'PreContenido',
+    'Pos-Apertura',
     'Cuerpo',
     'Pie',
     'Tercera'
@@ -50,6 +55,8 @@ class LNNotaReceta extends Component {
 
         return (
             <article className={`lay ${this.sectionClass}`}>
+                {/* TODO: ver de cargar solo si hay videos a mostrar */}
+                <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
                 <main>
                     <header className="row titulo">
                         <div className="col-12">

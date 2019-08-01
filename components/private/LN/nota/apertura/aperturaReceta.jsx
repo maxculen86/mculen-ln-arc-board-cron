@@ -1,14 +1,18 @@
 /* eslint-disable camelcase */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Tags from './tags';
 import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 import ArticleImage from '../articleImage';
-import DateHeader from './dateHeader';
-import ListIngredientes from './listIngredientes';
-import ListPreparacion from './listPreparacion';
+// import DateHeader from './dateHeader';
+// import ListIngredientes from './listIngredientes';
+// import ListPreparacion from './listPreparacion';
+import Destacado from './destacado';
+import DetalleReceta from './porcionesTiempoNota';
+
+import '../../../../../resources/dist/css/ln/layouts/grid.css';
 
 const AperturaReceta = props => {
     const {
@@ -23,29 +27,26 @@ const AperturaReceta = props => {
             display_date
         }
     } = props;
-    const destacado = true;
 
     return (
-        <Fragment>
+        <>
             <section className="col-desksm-8 cont-figure">
-                {/* TODO: reemplazar por destacado.jsx */}
-                <ArticleImage
-                    imageResizePresets={imageResizePresets}
-                    image={promo_items.basic}
-                    zoom
-                />
+                <Destacado {...props} />
             </section>
             <div className="col-desksm-4 cont-aper">
-                <Sections taxonomy={taxonomy} destacado={destacado} />
-                {/* Porciones y tiempo */}
+                <Sections taxonomy={taxonomy} destacado />
+                <DetalleReceta {...props} />
                 <Tags tags={tags} destacado={false} />
             </div>
+
+            {/* TODO: estos van por fuera de la apertura! 
             <BajadaNota subheadlines={subheadlines} />
-            <AuthorNota authors={by} />
+            <AuthorNota authors={by} /> 
             <DateHeader display_date={display_date} />
             <ListIngredientes content_elements={content_elements} />
             <ListPreparacion content_elements={content_elements} />
-        </Fragment>
+            */}
+        </>
     );
 };
 

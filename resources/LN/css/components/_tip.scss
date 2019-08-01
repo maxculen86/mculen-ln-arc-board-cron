@@ -1,0 +1,15 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.com-tip{
+    font:normal 19px/30px $font-georgia; 
+    & > div:not(:last-child){
+        margin-bottom: 30px;
+    } 
+    dt, dd{
+        display: inline;
+    }
+    dt{
+        font-weight: 600;
+    }
+}

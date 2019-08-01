@@ -1,0 +1,46 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.--btn {
+    font-family: $font-arial;
+    font-size: $font-12;
+    font-weight: bold;
+    padding: $px-12 $px-24;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: opacity .2s ease-in-out;
+    &.--small {
+        padding: 8px 12px;
+    }
+    &.--primary {
+        background-color: $link;
+        border: 1px solid $link;
+        color: $blanco;
+    }
+    &.--secondary {
+        background-color: $blanco;
+        border: 1px solid $link;
+        color: $link;
+    }
+    &.--highlight {
+        background-color: $highlight;
+        border: 1px solid $gris3;
+        color: $negro;
+    }
+    &.--bright {
+        background-color: inherit;
+        border: 1px solid $blanco;
+        color: $blanco;
+    }
+    &:hover {
+        opacity: 0.8;
+        transition: opacity .2s ease-in-out;
+        cursor: pointer
+    }
+}
+
+button:hover {
+    opacity: 0.8;
+    transition: opacity .2s ease-in-out;
+    cursor: pointer
+}

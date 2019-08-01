@@ -32,6 +32,19 @@ const image = `
     subtitle
 `;
 
+const video = `
+    type
+    _id
+    additional_properties {
+        advertising {
+            playAds
+        }
+        headlines {
+            basic
+        }
+    }
+`;
+
 export default `
 {
     _id
@@ -39,6 +52,16 @@ export default `
     promo_items {
         basic {
             ${image}
+            ${video}
+        }
+        receta {
+            embed {
+                config {
+                    title
+                    counterTime
+                    counterPortion
+                }
+            }
         }
     }
     credits {
