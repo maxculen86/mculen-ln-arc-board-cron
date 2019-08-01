@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Tags from './tags';
 import Sections from './sections';
 import BajadaNota from './bajadaNota';
 import AuthorNota from './authorNota';
 import ArticleImage from '../articleImage';
-import ListItems from './listItems';
-import DateHeader from './dateHeader';
-import dateAndTimeUtil from '../../../common/utils/dateAndTimeUtil';
+// import DateHeader from './dateHeader';
+// import ListIngredientes from './listIngredientes';
+// import ListPreparacion from './listPreparacion';
 import Destacado from './destacado';
 import DetalleReceta from './detalleReceta';
 
@@ -28,26 +28,8 @@ const AperturaReceta = props => {
         }
     } = props;
 
-    /** TODO: Siguiente constante para el container
-     * que sera usado para el componente de DateHeader. Hacer container que tenga esta logica y devuelva el componente de DateHeader
-     */
-    const dateHeaderProps = dateAndTimeUtil(display_date);
-
-    /** TODO: siguiente codigo corresponde a
-     * la logica del container. */
-    const listIngredientes = content_elements
-        ? content_elements.filter(ce => ce.subtype === 'custom-ingrediente')
-        : [];
-
-    const listPreparacion = content_elements
-        ? content_elements.filter(ce => ce.subtype === 'custom-preparacion')
-        : [];
-
     return (
-        <Fragment>
-            {/* <section>
-                <DetalleReceta {...props} />
-            </section> */}
+        <>
             <section className="col-desksm-8 cont-figure">
                 <Destacado {...props} />
             </section>
@@ -57,41 +39,14 @@ const AperturaReceta = props => {
                 <Tags tags={tags} destacado={false} />
             </div>
 
-            {/* TODO: estos van por fuera de la apertura! */}
-            {/* <BajadaNota subheadlines={subheadlines} />
-            <AuthorNota authors={by} />
-            <DateHeader {...dateHeaderProps} /> */}
-
-            {/* TODO: falta componte de cuerpo */}
-            {/** Usar el siguiente bucle para validar si hay 
-            elementos por renderizar y renderizar lista de ingredientes */}
-            {listIngredientes.length !== 0 && (
-                <div className="ce-ingredientes">
-                    <h2>Ingredientes</h2>
-                    {listIngredientes.map(list => (
-                        <ListItems
-                            list={list.embed.config.items}
-                            titleList={list.embed.config.titleList}
-                        />
-                    ))}
-                </div>
-            )}
-            {/* TODO: falta componte de cuerpo 
-                Usar el siguiente bucle para validar si hay 
-                elementos por renderizar y renderizar lista de preparación */}
-            {listPreparacion.length !== 0 && (
-                <div className="ce-preparaciones">
-                    <h2>Preparación</h2>
-                    {listPreparacion.map(list => (
-                        <ListItems
-                            list={list.embed.config.items}
-                            titleList={list.embed.config.titleList}
-                            listNumeric="true"
-                        />
-                    ))}
-                </div>
-            )}
-        </Fragment>
+            {/* TODO: estos van por fuera de la apertura! 
+            <BajadaNota subheadlines={subheadlines} />
+            <AuthorNota authors={by} /> 
+            <DateHeader display_date={display_date} />
+            <ListIngredientes content_elements={content_elements} />
+            <ListPreparacion content_elements={content_elements} />
+            */}
+        </>
     );
 };
 

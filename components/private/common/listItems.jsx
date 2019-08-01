@@ -1,9 +1,14 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const TypeList = ({ listNumeric, children }) =>
-    listNumeric ? <ol>{children}</ol> : <ul>{children}</ul>;
+const TypeList = ({ ol, children }) =>
+    ol ? <ol>{children}</ol> : <ul>{children}</ul>;
 
+//TODO: falta html
+//TODO: pasar a carpeta Cuerpo, crear containers de Ingredientes y Preparacion y sacar
+//esa logica de aperturaReceta.jsx
+// TODO: Agregar className para los ul o ol de ser necesario
 const ListItemsFactory = ({ list, titleList, listNumeric }) => (
     <div>
         <h3>{titleList}</h3>
@@ -16,12 +21,12 @@ const ListItemsFactory = ({ list, titleList, listNumeric }) => (
 );
 
 TypeList.propTypes = {
-    listNumeric: PropTypes.bool,
+    ol: PropTypes.bool,
     children: PropTypes.node.isRequired
 };
 
 TypeList.defaultProps = {
-    listNumeric: false
+    ol: false
 };
 
 ListItemsFactory.propTypes = {

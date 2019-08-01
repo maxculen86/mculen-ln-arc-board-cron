@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticleImage from '../articleImage';
+import VideoPlayer from '../../../common/videoPlayer';
 
 const destacado = props => {
     const {
@@ -10,7 +11,6 @@ const destacado = props => {
         }
     } = props;
 
-    console.log('Destacado: ', basic);
     switch (basic.type) {
         case 'image':
             return (
@@ -21,10 +21,20 @@ const destacado = props => {
                 />
             );
         case 'video':
-            return <p>Soy un videito</p>;
+            const { _id } = basic;
+            return <VideoPlayer videoId={_id} />;
         default:
             return null;
     }
+};
+
+destacado.propTypes = {
+    globalContent: PropTypes.shape({
+        imageResizePresets: PropTypes.object,
+        promo_items: PropTypes.shape({
+            basic: PropTypes.object
+        })
+    }).isRequired
 };
 
 export default destacado;
