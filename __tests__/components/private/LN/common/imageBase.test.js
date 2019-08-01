@@ -36,11 +36,10 @@ describe('features - La Nacion - components - common - BaseImage', () => {
         expect(comp).toMatchSnapshot();
     });
 
-    it('Test sin link y sin zoom', () => {
+    it('Test sin zoom', () => {
         const comp = mount(
             <ImageBase sources={sources} altText="texto alternativo" />
         );
-        expect(comp.find('a').length).toBe(0);
         expect(comp.find('.zoom').length).toBe(0);
     });
 });

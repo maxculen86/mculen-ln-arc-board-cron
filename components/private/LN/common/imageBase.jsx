@@ -2,30 +2,24 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const imageBase = ({ sources, altText, zoom, href }) => {
-    let pic = (
-        <picture className={`content-pic picture ${zoom && 'zoom'}`}>
-            {sources.map(x => {
-                return (
-                    <source
-                        key={x.media}
-                        media={x.media}
-                        srcSet={x.url}
-                        className={x.class}
-                        alt={altText}
-                    />
-                );
-            })}
-            <img alt={altText} />
-        </picture>
+    const pic = (
+        <a href={href} className="figure">
+            <picture className={`content-pic picture ${zoom && 'zoom'}`}>
+                {sources.map(x => {
+                    return (
+                        <source
+                            key={x.media}
+                            media={x.media}
+                            srcSet={x.url}
+                            className={x.class}
+                            alt={altText}
+                        />
+                    );
+                })}
+                <img className="content-img" alt={altText} />
+            </picture>
+        </a>
     );
-
-    if (href) {
-        pic = (
-            <a href={href} className="figure">
-                {pic}
-            </a>
-        );
-    }
     return pic;
 };
 
@@ -38,12 +32,14 @@ imageBase.propTypes = {
         })
     ).isRequired,
     altText: PropTypes.string,
-    zoom: PropTypes.bool
+    zoom: PropTypes.bool,
+    href: PropTypes.string
 };
 
 imageBase.defaultProps = {
     altText: '',
-    zoom: false
+    zoom: false,
+    href: ''
 };
 
 export default imageBase;
