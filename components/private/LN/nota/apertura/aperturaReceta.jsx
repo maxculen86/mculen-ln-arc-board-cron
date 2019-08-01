@@ -10,7 +10,7 @@ import ArticleImage from '../articleImage';
 // import ListIngredientes from './listIngredientes';
 // import ListPreparacion from './listPreparacion';
 import Destacado from './destacado';
-import DetalleReceta from './porcionesTiempoNota';
+import DetalleReceta from './detalleReceta';
 
 import '../../../../../resources/dist/css/ln/layouts/grid.css';
 
