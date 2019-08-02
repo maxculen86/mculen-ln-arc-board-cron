@@ -6,7 +6,7 @@ import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSS
 import BajadaNota from '../../../../../components/private/LN/nota/apertura/bajadaNota';
 
 describe('features - LaNacion - Nota - BajadaNota', () => {
-    const component = render(<BajadaNota subheadlines={nota.subheadlines} />);
+    const component = render(<BajadaNota globalContent={nota} />);
     it('Test de snapshot TituloNota', () => {
         expect(component).toMatchSnapshot();
     });

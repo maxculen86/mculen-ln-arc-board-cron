@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import dateAndTimeUtil from '../../../common/utils/dateAndTimeUtil';
