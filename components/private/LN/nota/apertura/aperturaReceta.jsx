@@ -25,11 +25,6 @@ const aperturaReceta = props => {
                 <DetalleReceta {...props} />
                 <Tags tags={tags} destacado={false} />
             </div>
-
-            {/* TODO: estos van por fuera de la apertura! 
-            <ListIngredientes content_elements={content_elements} />
-            <ListPreparacion content_elements={content_elements} />
-            */}
         </>
     );
 };

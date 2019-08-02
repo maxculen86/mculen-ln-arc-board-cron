@@ -3,6 +3,10 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { getSectionClass } from '../private/common/utils/sectionUtils';
 
+//TODO: pasar a componente que procese el cuerpo!
+import ListIngredientes from '../private/LN/nota/apertura/listIngredientes';
+import ListPreparacion from '../private/LN/nota/apertura/listPreparacion';
+
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
@@ -74,6 +78,22 @@ class LNNotaReceta extends Component {
                     {children[3]}
                     {children[4]}
                     {children[5]}
+
+                    <br />
+                    <div>
+                        {/* TODO: estos van en el componente que procese el cuerpo! */}
+                        <ListIngredientes
+                            content_elements={
+                                this.props.globalContent.content_elements
+                            }
+                        />
+                        <br />
+                        <ListPreparacion
+                            content_elements={
+                                this.props.globalContent.content_elements
+                            }
+                        />
+                    </div>
                 </main>
             </article>
         );

@@ -45,6 +45,20 @@ const video = `
     }
 `;
 
+const customReceta = `
+    subtype
+    embed {
+        config {
+            titleList
+            title
+            typeList
+            items
+            counterTime
+            counterPortion
+        }
+    }
+`;
+
 export default `
 {
     _id
@@ -55,14 +69,7 @@ export default `
             ${video}
         }
         receta {
-            subtype
-            embed {
-                config {
-                    title
-                    counterTime
-                    counterPortion
-                }
-            }
+            ${customReceta}
         }
     }
     credits {
@@ -91,6 +98,7 @@ export default `
         type
         content
         ${image}
+        ${customReceta}
     }
     display_date
     imageResizePresets {
