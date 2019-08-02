@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ArticleImage from '../articleImage';
+import ImageArticle from '../imageArticle';
 import VideoPlayer from '../../../common/videoPlayer';
 
 const destacado = props => {
@@ -14,7 +14,7 @@ const destacado = props => {
     switch (basic.type) {
         case 'image':
             return (
-                <ArticleImage
+                <ImageArticle
                     image={basic}
                     imageResizePresets={imageResizePresets}
                     zoom

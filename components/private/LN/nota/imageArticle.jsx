@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ImageBase from '../common/imageBase';
 
-const articleImage = ({ image, imageResizePresets, altText, zoom }) => {
+const imageArticle = ({ image, imageResizePresets, altText, zoom }) => {
     if (!imageResizePresets) return null;
 
     const sources = Object.keys(image.resized_urls)
@@ -19,7 +19,7 @@ const articleImage = ({ image, imageResizePresets, altText, zoom }) => {
     return <ImageBase sources={sources} altText={altText} zoom={zoom} />;
 };
 
-articleImage.propTypes = {
+imageArticle.propTypes = {
     image: PropTypes.shape({
         type: PropTypes.oneOf(['image']),
         resized_urls: PropTypes.objectOf(PropTypes.string).isRequired
@@ -34,9 +34,9 @@ articleImage.propTypes = {
     zoom: PropTypes.bool
 };
 
-articleImage.defaultProps = {
+imageArticle.defaultProps = {
     altText: '',
     zoom: false
 };
 
-export default articleImage;
+export default imageArticle;

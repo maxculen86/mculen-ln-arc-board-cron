@@ -16,7 +16,7 @@ const getPrimaryTree = (sections, section, resultSections) => {
     }
 };
 
-const breadcrumbNota = ({
+const breadcrumbArticle = ({
     globalContent: {
         taxonomy: { primary_section, sections }
     },
@@ -35,7 +35,7 @@ const breadcrumbNota = ({
     return <BreadcrumbComponent sections={allSections.slice(0, 3)} />;
 };
 
-breadcrumbNota.propTypes = {
+breadcrumbArticle.propTypes = {
     globalContent: PropTypes.shape({
         taxonomy: PropTypes.shape({
             sections: PropTypes.array.isRequired,
@@ -47,4 +47,4 @@ breadcrumbNota.propTypes = {
     }).isRequired
 };
 
-export default breadcrumbNota;
+export default breadcrumbArticle;

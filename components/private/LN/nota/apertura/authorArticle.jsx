@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const AuthorNota = ({
+const authorArticle = ({
     globalContent: {
         credits: { by }
     }
@@ -25,7 +25,7 @@ const AuthorNota = ({
     return listAuthor;
 };
 
-AuthorNota.propTypes = {
+authorArticle.propTypes = {
     credits: PropTypes.shape({
         by: PropTypes.shape({
             authors: PropTypes.arrayOf(
@@ -39,8 +39,8 @@ AuthorNota.propTypes = {
     })
 };
 
-AuthorNota.defaultProps = {
+authorArticle.defaultProps = {
     authors: []
 };
 
-export default AuthorNota;
+export default authorArticle;

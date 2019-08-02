@@ -6,9 +6,9 @@ jest.mock(
     () => 'mock-image'
 );
 
-import ArticleImage from '../../../../../components/private/LN/nota/articleImage';
+import ImageArticle from '../../../../../components/private/LN/nota/imageArticle';
 
-describe('features - La Nacion - components - nota - articleImage', () => {
+describe('features - La Nacion - components - nota - imageArticle', () => {
     const image = {
         type: 'image',
         resized_urls: {
@@ -38,7 +38,7 @@ describe('features - La Nacion - components - nota - articleImage', () => {
 
     it('Test de armado de props', () => {
         const comp = mount(
-            <ArticleImage
+            <ImageArticle
                 imageResizePresets={imageResizePresets}
                 image={image}
                 altText="texto alt"

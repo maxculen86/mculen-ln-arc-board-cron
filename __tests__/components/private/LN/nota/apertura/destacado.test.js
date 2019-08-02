@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../../../../components/private/LN/nota/articleImage.jsx',
+    '../../../../../../components/private/LN/nota/imageArticle.jsx',
     () => 'mock-image'
 );
 jest.mock(

@@ -4,7 +4,7 @@ import { getLogoSectionClass } from '../../../common/utils/sectionUtils';
 
 import '../../../../../resources/dist/css/ln/components/title.css';
 
-const TituloNota = ({
+const titleArticle = ({
     globalContent: {
         headlines: { basic },
         taxonomy
@@ -23,7 +23,7 @@ const TituloNota = ({
     );
 };
 
-TituloNota.propTypes = {
+titleArticle.propTypes = {
     globalContent: PropTypes.shape({
         headlines: PropTypes.shape({
             basic: PropTypes.string.isRequired
@@ -44,4 +44,4 @@ TituloNota.propTypes = {
     }).isRequired
 };
 
-export default TituloNota;
+export default titleArticle;
