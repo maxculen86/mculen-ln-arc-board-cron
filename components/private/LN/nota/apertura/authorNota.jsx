@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const AuthorNota = ({ authors }) => {
-    const listAuthor = authors.map(authorNota => {
+const AuthorNota = ({
+    globalContent: {
+        credits: { by }
+    }
+}) => {
+    const listAuthor = by.map(authorNota => {
         return (
             <div key={authorNota.slug}>
                 <a href={authorNota.slug} className={authorNota.type}>
@@ -22,13 +26,17 @@ const AuthorNota = ({ authors }) => {
 };
 
 AuthorNota.propTypes = {
-    authors: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string,
-            type: PropTypes.string,
-            slug: PropTypes.string
+    credits: PropTypes.shape({
+        by: PropTypes.shape({
+            authors: PropTypes.arrayOf(
+                PropTypes.shape({
+                    name: PropTypes.string,
+                    type: PropTypes.string,
+                    slug: PropTypes.string
+                })
+            )
         })
-    )
+    })
 };
 
 AuthorNota.defaultProps = {
