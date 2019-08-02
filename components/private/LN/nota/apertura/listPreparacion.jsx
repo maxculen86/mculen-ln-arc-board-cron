@@ -29,7 +29,11 @@ const listPreparacion = ({ content_elements }) => {
 };
 
 listPreparacion.propTypes = {
-    content_elements: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+    content_elements: PropTypes.arrayOf(
+        PropTypes.shape({
+            subtype: PropTypes.string
+        }).isRequired
+    ).isRequired
 };
 
 export default listPreparacion;

@@ -3,8 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import ListItems from '../../../common/listItems';
 
 const listIngredientes = ({ content_elements }) => {
-    console.log('---------------------------', content_elements);
-
     const ingredientesFiltered = content_elements
         ? content_elements.filter(ce => ce.subtype === 'custom-ingrediente')
         : [];
@@ -30,7 +28,11 @@ const listIngredientes = ({ content_elements }) => {
 };
 
 listIngredientes.propTypes = {
-    content_elements: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+    content_elements: PropTypes.arrayOf(
+        PropTypes.shape({
+            subtype: PropTypes.string
+        }).isRequired
+    ).isRequired
 };
 
 export default listIngredientes;
