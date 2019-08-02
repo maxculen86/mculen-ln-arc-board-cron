@@ -92,6 +92,7 @@ export default `
         content
         ${image}
     }
+    display_date
     imageResizePresets {
         apertura_small {
             media
