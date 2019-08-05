@@ -4,9 +4,9 @@ import getProperties from 'fusion:properties';
 import filter from '../filters/LN/nota/article';
 
 const resolve = (key, a) => {
-    const { url, id } = key;
+    const { url, id, website } = key;
     const arcSite = key['arc-site'];
-    const basePath = `/content/v4/stories/?website=${arcSite}`;
+    const basePath = `/content/v4/stories/?website=${website || arcSite}`;
 
     if (id) return `${basePath}&_id=${id}`;
     if (url) return `${basePath}&website_url=${url}`;
@@ -33,7 +33,8 @@ export default {
     // schemaName: source.schemaName,
     params: {
         url: 'text',
-        id: 'text'
+        id: 'text',
+        website: 'text'
     },
     filter,
     transform
