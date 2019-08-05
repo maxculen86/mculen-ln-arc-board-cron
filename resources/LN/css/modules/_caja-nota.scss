@@ -1,0 +1,44 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.mod-caja-nota{
+    display: grid;
+    grid-template-columns: 1fr;
+
+    //Estructura de vista tipo lista, text e img en una misma linea (como era en mobile antes)
+    &.--lista{
+        grid-template-columns: 1fr 141px;
+        grid-column-gap: 10px;
+        .figure{
+            height: 94px;
+            order: 2;
+        }
+        @media ($media-m){
+            display: initial;
+            .figure{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    //agrega borde a la caja y un padding al texto
+    &.--border{
+        border: $px-1 solid $gris2;
+        .mod-caja-nota__descrip{
+            padding: $px-15;
+        }
+    }
+
+    //le agrega un padding al texto en mobile
+    &.w-100-mobile{
+        .mod-caja-nota__descrip{
+            padding-left: $px-20;
+            padding-right: $px-20;
+            @media ($media-m){
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+}

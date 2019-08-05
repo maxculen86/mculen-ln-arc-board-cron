@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota -  Test de snapshot Breadcrumb 1`] = `
+<nav
+  class="com-breadcrumb hlp-marginBottom-40"
+>
+  <a
+    href="/"
+  >
+    LA NACION
+  </a>
+  <a
+    href="/recetas"
+  >
+    Recetas
+  </a>
+  <a
+    href="/recetas/recetas-con-ingredientes"
+  >
+    Recetas con ingredientes
+  </a>
+</nav>
+`;

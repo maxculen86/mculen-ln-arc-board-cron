@@ -14,6 +14,7 @@ export default props => {
             data-muted={props.muted}
             data-sticky={props.sticky}
             data-api={props.apiEnv}
+            data-env="prod"
         />
     );
 };

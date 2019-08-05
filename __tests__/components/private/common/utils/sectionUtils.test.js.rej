@@ -1,0 +1,6 @@
+diff a/__tests__/components/private/common/utils/sectionUtils.test.js b/__tests__/components/private/common/utils/sectionUtils.test.js	(rejected hunks)
+@@ -4,2 +4,2 @@ import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSS
+-describe("Utils - SectionUtils", ()=>{
+-    it("Test de primarySectionTreeResolver", ()=>{
++describe('Utils - SectionUtils', () => {
++    it('Test de primarySectionTreeResolver', () => {

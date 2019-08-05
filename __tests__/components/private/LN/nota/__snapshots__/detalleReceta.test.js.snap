@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Receta 1`] = `
+<div
+  class="cont_tags tags"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-2 col-tablet-1"
+    >
+      <i
+        class="icon-time"
+      />
+    </div>
+    <div
+      class="time-number col-10 col-tablet-11"
+    >
+      <span>
+        Tiempo total:
+        <span
+          class="num"
+        >
+          45
+        </span>
+        min.
+      </span>
+    </div>
+  </div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-2 col-tablet-1"
+    >
+      <i
+        class="icon-portion"
+      />
+    </div>
+    <div
+      class="portion-number col-10 col-tablet-11"
+    >
+      <span>
+        Porciones:
+        <span
+          class="num"
+        >
+          8
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;

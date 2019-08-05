@@ -1,0 +1,51 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.com-tag a {
+    font-family: $font-arial;
+    font-size: $font-12;
+    padding: 7px 12px;
+    border: 1px solid;
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    display: inline-block;
+    border-color: $ln;
+    color: $ln
+}
+
+.com-tag a:last-of-type {
+    margin-right: 0;
+}
+
+.com-secondary-tag {
+    p {
+        display: inline-flex;
+        font-family: $font-arial;
+        color: $gris5;
+    }
+    a {
+    font-family: $font-arial;
+    font-size: $font-14;
+    margin-right: 17px;
+    display: inline-block;
+    position: relative;
+    color: $ln;
+    margin-bottom: 10px;    
+    }
+}
+
+.com-secondary-tag a:after {
+    content: '·';
+    display: inline-block;
+    position: absolute;
+    color: $ln;
+    right: -14px;
+    font-size: $font-25;
+    line-height: 15px;
+}
+
+.com-secondary-tag a:last-of-type:after {
+    display: none;
+}

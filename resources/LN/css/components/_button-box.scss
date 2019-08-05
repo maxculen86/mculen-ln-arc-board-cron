@@ -1,0 +1,29 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.button-box {
+    background: $gris1;
+    display: flex;
+    align-items: center;
+    .cont-figure {
+        margin-top: $px-25;
+        padding-left: $px-40;
+        height: 90px;
+        overflow: hidden;
+    }
+    .content-text {
+        padding-left: $px-20;
+        h2 {
+            font-family: $font-SuecaSlab;
+            font-size: $px-20;
+        }
+        p {
+            font-family: $font-arial;
+            font-size: $px-16;
+        }
+    }
+    .content-button {
+        display: flex;
+        justify-content: center;
+    }
+}
