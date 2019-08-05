@@ -4,6 +4,60 @@
     "version": "0.10.2",
     "content_elements": [
         {
+            "_id": "WEZHDQGSB5EK7MHKUW7VA7ZS7I",
+            "type": "custom_embed",
+            "subtype": "custom-ingrediente",
+            "additional_properties": {
+                "_id": "S4GRUAX42JHJZDIBPYFYIM6DJQ",
+                "comments": []
+            },
+            "embed": {
+                "id": "d11763c5ae165",
+                "url": "https://handle-lists.itjquintana.now.sh/",
+                "config": {
+                    "titleList": "Para la salsa",
+                    "typeList": "ingredientes",
+                    "items": ["Tomate", "Zanahoria", "Cebolla", "Ajo"]
+                }
+            }
+        },
+        {
+            "_id": "JRFVVOFE6FCHNFSW2LNTACOW7M",
+            "type": "custom_embed",
+            "subtype": "custom-ingrediente",
+            "additional_properties": {
+                "_id": "UL7KZS4M7READMBWQ6VWAG55X4",
+                "comments": []
+            },
+            "embed": {
+                "id": "1a0db6cda9545f",
+                "url": "https://handle-lists.itjquintana.now.sh/",
+                "config": {
+                    "titleList": "Para lo que sea",
+                    "typeList": "ingredientes",
+                    "items": ["Tomate", "Harina", "Huevos", "Lo que sea"]
+                }
+            }
+        },
+        {
+            "_id": "LDBESZHOGRHBFDCG7YAH2ZXMKA",
+            "type": "custom_embed",
+            "subtype": "custom-preparacion",
+            "additional_properties": {
+                "_id": "XW2CI2SCL5HIFMZFB4DUMJTVBA",
+                "comments": []
+            },
+            "embed": {
+                "id": "ac76aeaf266a3",
+                "url": "https://handle-lists.itjquintana.now.sh/",
+                "config": {
+                    "titleList": "Para la salsa",
+                    "typeList": "preparacion",
+                    "items": ["Cocinar", "Probar", "Servir"]
+                }
+            }
+        },
+        {
             "_id": "4MRKV2NDHBEEFG2PE37USQR724",
             "type": "text",
             "additional_properties": {
@@ -738,6 +792,99 @@
                     }
                 },
                 "_website_section_id": "la-nacion-ar./recetas/recetas-con-ingredientes"
+            },
+            {
+                "_id": "/revistas/brando",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Brando",
+                "description": null,
+                "path": "/revistas/brando",
+                "parent_id": "/revistas",
+                "additional_properties": {
+                    "original": {
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": null,
+                            "rss": null,
+                            "instagram": null,
+                            "facebook": null
+                        },
+                        "navigation": {
+                            "nav_title": "Brando"
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/revistas/brando"]
+                        },
+                        "style": {
+                            "section_logo_class": "logo-brando",
+                            "section_class": "brando"
+                        },
+                        "_id": "/revistas/brando",
+                        "name": "Brando",
+                        "parent": "/revistas",
+                        "ancestors": ["/revistas"],
+                        "inactive": false
+                    }
+                }
+            },
+            {
+                "_id": "/revistas",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Revistas",
+                "description": null,
+                "path": "/revistas",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/revistas",
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": null,
+                            "rss": null,
+                            "instagram": null,
+                            "facebook": null
+                        },
+                        "navigation": {
+                            "nav_title": "Revistas"
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "name": "Revistas",
+                        "parent": "/",
+                        "_admin": {
+                            "alias_ids": ["/revistas"]
+                        },
+                        "inactive": false
+                    }
+                }
             }
         ],
         "additional_properties": {
@@ -906,6 +1053,20 @@
             "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
             "version": "0.9.0",
             "width": 345
+        },
+        "receta": {
+            "_id": "NZGBL2YRYFCYBLYLEV6FSXOOD4",
+            "subtype": "custom-detalle-receta",
+            "type": "custom_embed",
+            "embed": {
+                "id": "1c379a41a07f3d",
+                "url": "https://www.lanacion.com.ar/",
+                "config": {
+                    "title": "detalle-receta",
+                    "counterTime": "45",
+                    "counterPortion": "8"
+                }
+            }
         }
     },
     "distributor": {

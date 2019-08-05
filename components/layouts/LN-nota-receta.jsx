@@ -1,19 +1,103 @@
 import React, { Component } from 'react';
+import Consumer from 'fusion:consumer';
+import PropTypes from 'fusion:prop-types';
+import { getSectionClass } from '../private/common/utils/sectionUtils';
 
-const sections = ['Apertura', 'Destacado', 'Cuerpo', 'Pie', 'Tercera'];
+//TODO: pasar a componente que procese el cuerpo!
+import ListIngredientes from '../private/LN/nota/apertura/listIngredientes';
+import ListPreparacion from '../private/LN/nota/apertura/listPreparacion';
 
-export default class LNNotaReceta extends Component {
-    static sections = sections;
+import '../../resources/dist/css/ln/base.css';
+import '../../resources/dist/css/ln/pages/recipe.css';
+import '../../resources/dist/css/ln/layouts/grid.css';
+import '../../resources/dist/css/ln/layouts/layout.css';
+
+const pageBuilderSections = [
+    'Pre-Apertura',
+    'Apertura',
+    'Pos-Apertura',
+    'Cuerpo',
+    'Pie',
+    'Tercera'
+];
+
+class LNNotaReceta extends Component {
+    static sections = pageBuilderSections;
+
+    static propTypes = {
+        children: PropTypes.arrayOf(PropTypes.object).isRequired,
+        globalContent: PropTypes.shape({
+            taxonomy: PropTypes.shape({
+                sections: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        additional_properties: PropTypes.shape({
+                            original: PropTypes.shape({
+                                style: PropTypes.shape({
+                                    section_class: PropTypes.string
+                                })
+                            })
+                        })
+                    })
+                )
+            }).isRequired
+        }).isRequired
+    };
+
+    constructor(props) {
+        super(props);
+        const {
+            props: {
+                globalContent: { taxonomy }
+            }
+        } = this;
+
+        this.sectionClass = getSectionClass(taxonomy);
+    }
 
     render() {
+        const { children } = this.props;
+
         return (
-            <div>
-                {this.props.children[0]}
-                {this.props.children[1]}
-                {this.props.children[2]}
-                {this.props.children[3]}
-                {this.props.children[4]}
-            </div>
+            <article className={`lay ${this.sectionClass}`}>
+                {/* TODO: ver de cargar solo si hay videos a mostrar */}
+                <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
+                <main>
+                    <header className="row titulo">
+                        <div className="col-12">
+                            {/* APERTURA (Banner, breadcrumb, logo+titulo) */}
+                            {children[0]}
+                        </div>
+                    </header>
+                    <div className="row aper-receta w-100 hlp-marginBottom-40">
+                        {/* Destacado (Sections, Tags, porciones y tiempo, media detacado) */}
+                        {children[1]}
+                    </div>
+
+                    {/* POR DEFINIR  */}
+                    {children[2]}
+                    {children[3]}
+                    {children[4]}
+                    {children[5]}
+
+                    <br />
+                    <div>
+                        {/* TODO: estos van en el componente que procese el cuerpo! */}
+                        <ListIngredientes
+                            content_elements={
+                                this.props.globalContent.content_elements
+                            }
+                        />
+                        <br />
+                        <ListPreparacion
+                            content_elements={
+                                this.props.globalContent.content_elements
+                            }
+                        />
+                    </div>
+                </main>
+            </article>
         );
     }
 }
+
+export default Consumer(LNNotaReceta);
