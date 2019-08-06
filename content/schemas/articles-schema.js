@@ -28,12 +28,6 @@ type Taxonomy {
 
 type Article {
     _id: String
-    taxonomy: Taxonomy
-    credits: Credits
-    promo_items: PromoItems
-    headlines: Headlines
-    subtype: String
-
 }
 
 type Query {

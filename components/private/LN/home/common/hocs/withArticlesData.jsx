@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 
-function WithArticlesData() {
+function WithArticlesData(WrappedArticles, filter) {
     return Consumer(
         class extends PureComponent {
             state = {
