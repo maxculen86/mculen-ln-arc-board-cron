@@ -49,6 +49,7 @@ const article = `
     _id
     type
     subtype
+    canonical_url
     promo_items {
         basic {
             ${image}
