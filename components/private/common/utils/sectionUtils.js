@@ -45,21 +45,7 @@ export const getSectionStyle = sections => {
     return sectionClass;
 };
 
-export const getLogoSectionClass = taxonomy => {
-    const logoSection = taxonomy.sections.find(x =>
-        get(x, 'additional_properties.original.style.section_logo_class')
-    );
-    let sectionClass;
-    if (logoSection) {
-        sectionClass =
-            logoSection.additional_properties.original.style.section_logo_class;
-    }
-
-    return sectionClass;
-};
-
 export default {
     primarySectionTreeResolver,
-    getSectionClass: getSectionStyle,
-    getLogoSectionClass
+    getSectionClass: getSectionStyle
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import get from 'lodash.get';
 import PropTypes from 'fusion:prop-types';
 
 import { getSectionStyle } from '../../../common/utils/sectionUtils';
