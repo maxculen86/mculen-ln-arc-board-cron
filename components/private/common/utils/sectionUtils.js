@@ -33,35 +33,19 @@ export const primarySectionTreeResolver = ({
     return allSections;
 };
 
-export const getSectionClass = taxonomy => {
-    const logoSection = taxonomy.sections.find(x =>
-        get(x, 'additional_properties.original.style.section_class')
-    );
-
-    let sectionClass;
-    if (logoSection) {
-        sectionClass =
-            logoSection.additional_properties.original.style.section_class;
-    }
-
-    return sectionClass;
-};
-
-export const getLogoSectionClass = taxonomy => {
-    const logoSection = taxonomy.sections.find(x =>
-        get(x, 'additional_properties.original.style.section_logo_class')
+export const getSectionStyle = sections => {
+    const logoSection = sections.find(x =>
+        get(x, 'additional_properties.original.style.section_style_name')
     );
     let sectionClass;
     if (logoSection) {
         sectionClass =
-            logoSection.additional_properties.original.style.section_logo_class;
+            logoSection.additional_properties.original.style.section_style_name;
     }
-
     return sectionClass;
 };
 
 export default {
     primarySectionTreeResolver,
-    getSectionClass,
-    getLogoSectionClass
+    getSectionClass: getSectionStyle
 };

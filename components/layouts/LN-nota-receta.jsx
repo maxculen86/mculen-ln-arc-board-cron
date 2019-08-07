@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { getSectionClass } from '../private/common/utils/sectionUtils';
+import { getSectionStyle } from '../private/common/utils/sectionUtils';
 
-//TODO: pasar a componente que procese el cuerpo!
+// TODO: pasar a componente que procese el cuerpo!
 import ListIngredientes from '../private/LN/nota/apertura/listIngredientes';
 import ListPreparacion from '../private/LN/nota/apertura/listPreparacion';
 
@@ -47,11 +47,13 @@ class LNNotaReceta extends Component {
         super(props);
         const {
             props: {
-                globalContent: { taxonomy }
+                globalContent: {
+                    taxonomy: { sections }
+                }
             }
         } = this;
 
-        this.sectionClass = getSectionClass(taxonomy);
+        this.sectionClass = getSectionStyle(sections);
     }
 
     render() {

@@ -4,10 +4,10 @@ import SourceSetSizes from '../../components/private/LN/home/common/config/sourc
 
 const resolve = key => {
     console.log('KEY: ', key);
-    const { id } = key;
+    const { section_id } = key;
     let section = '';
-    if (id) {
-        section = `+AND+taxonomy.sections._id=${id}`;
+    if (section_id) {
+        section = `+AND+taxonomy.sections._id=${section_id}`;
     }
     return `content/v4/search/published?website=la-nacion-ar&q=type:story${section}`;
 };
@@ -38,7 +38,7 @@ export default {
     resolve,
     schemaName: 'articles-schema',
     params: {
-        id: 'text'
+        section_id: 'text'
     },
     transform
 };

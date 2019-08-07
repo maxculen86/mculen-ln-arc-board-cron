@@ -14,12 +14,12 @@ function WithArticlesData(WrappedArticles, filter) {
             constructor(props) {
                 super(props);
 
-                const id = 'recetas';
+                const section_id = 'recetas';
 
                 const { cached, fetched } = this.getContent({
                     sourceName: 'articlesSource',
                     query: {
-                        id
+                        section_id
                     },
                     filter
                 });

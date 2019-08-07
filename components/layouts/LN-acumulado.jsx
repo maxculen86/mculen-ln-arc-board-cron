@@ -4,7 +4,11 @@ const layoutItems = ['Notas'];
 
 class LNAcumuladoLayout extends Component {
     render() {
-        return <>{this.props.children[0]}</>;
+        return (
+            <div id="wrap">
+                <main>{this.props.children[0]}</main>
+            </div>
+        );
     }
 }
 

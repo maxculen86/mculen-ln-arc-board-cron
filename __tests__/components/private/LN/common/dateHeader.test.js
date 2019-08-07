@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'enzyme';
-import DateHeader from '../../../../../components/private/LN/nota/apertura/dateHeader';
+import DateHeader from '../../../../../components/private/LN/common/dateHeader';
 
 describe('features - LaNacion - Nota - DateHeader', () => {
     const component = render(
