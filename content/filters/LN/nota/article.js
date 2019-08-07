@@ -11,8 +11,7 @@ const section = `
                 default
             }
             style {
-                section_logo_class
-                section_class
+                section_style_name
             }
         }
     }
