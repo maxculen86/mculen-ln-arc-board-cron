@@ -1,7 +1,9 @@
 const schema = `
 type Headlines {
     basic: String
-    mobile: String
+}
+type Subheadlines {
+    basic: String
 }
 type PromoItems {
     Basic: {
@@ -28,6 +30,12 @@ type Taxonomy {
 
 type Article {
     _id: String
+    display_date: String
+    taxonomy: Taxonomy
+    credits: Credits
+    promo_items: PromoItems
+    subheadlines: Subheadlines
+    
 }
 
 type Query {

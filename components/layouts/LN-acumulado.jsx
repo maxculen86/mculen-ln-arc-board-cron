@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
 
-const layoutItems = ['Notas'];
+const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
 class LNAcumuladoLayout extends Component {
     render() {
         return (
             <div id="wrap">
-                <main>{this.props.children[0]}</main>
+                <main>
+                    <div classNameName="lay-sidebar">
+                        <div className="sidebar__main">
+                            <div className="row">
+                                {/* TITULO DE ACUMULADO */}
+                                {this.props.children[0]}
+                            </div>
+                            <div className="row">
+                                {/* LINKS DE NAVEGACION */}
+                                {this.props.children[1]}
+                            </div>
+                            <section class="row-gap-tablet-2 row-gap-desksm-3">
+                                {/* NOTAS */}
+                                {this.props.children[2]}
+                            </section>
+                        </div>
+                        <div className="sidebar__aside">
+                            <div className="com-ranking hlp-none hlp-tablet-none">
+                                {/* RANKING DE NOTAS */}
+                                {this.props.children[3]}
+                            </div>
+                        </div>
+                    </div>
+                </main>
             </div>
         );
     }
