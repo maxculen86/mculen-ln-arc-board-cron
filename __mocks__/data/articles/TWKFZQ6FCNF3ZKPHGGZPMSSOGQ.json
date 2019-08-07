@@ -831,8 +831,7 @@
                             "alias_ids": ["/revistas/brando"]
                         },
                         "style": {
-                            "section_logo_class": "logo-brando",
-                            "section_class": "brando"
+                            "section_style_name": "brando"
                         },
                         "_id": "/revistas/brando",
                         "name": "Brando",

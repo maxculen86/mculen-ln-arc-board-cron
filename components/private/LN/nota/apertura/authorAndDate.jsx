@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import Author from './authorArticle';
-import Date from './dateHeader';
+import Date from '../../common/dateHeader';
 
 const authorAndDate = props => {
     const {

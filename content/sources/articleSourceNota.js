@@ -24,7 +24,6 @@ const transform = (data, siteProps) => {
     });
 
     resp.imageResizePresets = presets;
-
     return resp;
 };
 

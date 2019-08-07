@@ -3,14 +3,10 @@ import PropTypes from 'fusion:prop-types';
 
 const DetalleReceta = props => {
     const {
-        globalContent: {
-            promo_items: {
-                receta: {
-                    subtype,
-                    embed: {
-                        config: { counterTime, counterPortion }
-                    }
-                }
+        receta: {
+            subtype,
+            embed: {
+                config: { counterTime, counterPortion }
             }
         }
     } = props;
@@ -48,17 +44,13 @@ const DetalleReceta = props => {
 };
 
 DetalleReceta.propTypes = {
-    globalContent: PropTypes.shape({
-        promo_items: PropTypes.shape({
-            receta: PropTypes.shape({
-                subtype: PropTypes.oneOf(['custom-detalle-receta']),
-                embed: PropTypes.shape({
-                    config: PropTypes.shape({
-                        counterPortion: PropTypes.number.isRequired,
-                        counterTime: PropTypes.number.isRequired,
-                        title: PropTypes.string.isRequired
-                    })
-                })
+    receta: PropTypes.shape({
+        subtype: PropTypes.oneOf(['custom-detalle-receta']),
+        embed: PropTypes.shape({
+            config: PropTypes.shape({
+                counterPortion: PropTypes.number.isRequired,
+                counterTime: PropTypes.number.isRequired,
+                title: PropTypes.string.isRequired
             })
         })
     }).isRequired
