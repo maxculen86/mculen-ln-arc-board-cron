@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ImageArticle from '../imageArticle';
+import ImageArticle from '../../common/imageBase';
 import VideoPlayer from '../../../common/videoPlayer';
 
 const destacado = props => {

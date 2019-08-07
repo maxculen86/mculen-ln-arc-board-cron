@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ImageBase from '../common/imageBase';
+import ImageBase from './component';
 
 const imageArticle = ({
     image,
