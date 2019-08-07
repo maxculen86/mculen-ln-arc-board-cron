@@ -17,13 +17,9 @@ describe('Utils - SectionUtils', () => {
         expect(sectionTree[3].name).toBe('Pollo');
     });
 
-    it('Test de getLogoSectionClass', () => {
-        expect(sectionUtils.getLogoSectionClass(nota.taxonomy)).toBe(
-            'logo-brando'
-        );
-    });
-
     it('Test de getSectionClass', () => {
-        expect(sectionUtils.getSectionClass(nota.taxonomy)).toBe('brando');
+        expect(sectionUtils.getSectionClass(nota.taxonomy.sections)).toBe(
+            'brando'
+        );
     });
 });

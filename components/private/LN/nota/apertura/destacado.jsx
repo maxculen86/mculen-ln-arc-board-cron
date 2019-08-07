@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ImageArticle from '../imageArticle';
+import ImageArticle from '../../common/imageBase';
 import VideoPlayer from '../../../common/videoPlayer';
 
 const destacado = props => {
@@ -11,20 +11,25 @@ const destacado = props => {
         }
     } = props;
 
-    switch (basic.type) {
-        case 'image':
-            return (
-                <ImageArticle
-                    image={basic}
-                    imageResizePresets={imageResizePresets}
-                    zoom
-                />
-            );
-        case 'video':
-            const { _id } = basic;
-            return <VideoPlayer videoId={_id} />;
-        default:
-            return null;
+    if (basic) {
+        switch (basic.type) {
+            case 'image':
+                return (
+                    <ImageArticle
+                        image={basic}
+                        imageResizePresets={imageResizePresets}
+                        zoom
+                        configType="apertura"
+                    />
+                );
+            case 'video':
+                const { _id } = basic;
+                return <VideoPlayer videoId={_id} />;
+            default:
+                return null;
+        }
+    } else {
+        return null;
     }
 };
 

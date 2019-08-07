@@ -1,14 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`features - LaNacion - Nota - TituloNota Test de snapshot TituloNota 1`] = `
+exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono en Nota 1`] = `
 Array [
-  <div
-    class="hlp-marginBottom-20"
-  >
-    <i
-      class="logo-brando"
-    />
-  </div>,
+  <i
+    class="logo-brando"
+  />,
   <h1
     class="com-title-nota hlp-marginBottom-40"
   >

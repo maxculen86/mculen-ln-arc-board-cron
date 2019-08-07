@@ -10,6 +10,7 @@ import '../../../../../resources/dist/css/ln/layouts/grid.css';
 const aperturaReceta = props => {
     const {
         globalContent: {
+            promo_items: { receta },
             taxonomy,
             taxonomy: { tags }
         }
@@ -22,7 +23,7 @@ const aperturaReceta = props => {
             </section>
             <div className="col-desksm-4 cont-aper">
                 <Sections taxonomy={taxonomy} destacado />
-                <DetalleReceta {...props} />
+                {receta && <DetalleReceta receta={receta} />}
                 <Tags tags={tags} destacado={false} />
             </div>
         </>
@@ -46,7 +47,9 @@ aperturaReceta.propTypes = {
             by: PropTypes.array
         }).isRequired,
         imageResizePresets: PropTypes.object.isRequired,
-        promo_items: PropTypes.object.isRequired,
+        promo_items: PropTypes.shape({
+            receta: PropTypes.object
+        }),
         content_elements: PropTypes.array.isRequired,
         display_date: PropTypes.string.isRequired
     }).isRequired
