@@ -31,6 +31,7 @@ export default `
         basic
     }
     display_date
+    website_url
     imageResizePresets {
         articleAcu_small {
             media
