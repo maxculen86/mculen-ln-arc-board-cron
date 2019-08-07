@@ -31,6 +31,12 @@ const image = `
     subtitle
 `;
 
+const imageResizeConfig = `
+    media
+    class
+    type
+`;
+
 const video = `
     type
     _id
@@ -102,28 +108,22 @@ export default `
     display_date
     imageResizePresets {
         apertura_small {
-            media
-            class
+            ${imageResizeConfig}
         }
-        apertura_medium{
-            media
-            class
+        apertura_medium {
+           ${imageResizeConfig}
         }
-        apertura_big{
-            media
-            class
+        apertura_big {
+            ${imageResizeConfig}
         }
-        cuerpo_small{
-            media
-            class
+        cuerpo_small {
+           ${imageResizeConfig}
         }
-        cuerpo_medium{
-            media
-            class
+        cuerpo_medium {
+            ${imageResizeConfig}
         }
-        cuerpo_big   {
-            media
-            class
+        cuerpo_big {
+           ${imageResizeConfig}
         } 
     }
 }`;

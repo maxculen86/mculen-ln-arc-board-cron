@@ -2,7 +2,7 @@
 
 exports[`features - LaNacion - Nota - DateHeader Test de snapshot DateHeader 1`] = `
 <p
-  classsname="com-date"
+  class="com-date"
 >
   23 de julio de 2019 • 17:53
 </p>

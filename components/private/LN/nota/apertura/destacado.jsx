@@ -19,6 +19,7 @@ const destacado = props => {
                         image={basic}
                         imageResizePresets={imageResizePresets}
                         zoom
+                        configType="apertura"
                     />
                 );
             case 'video':

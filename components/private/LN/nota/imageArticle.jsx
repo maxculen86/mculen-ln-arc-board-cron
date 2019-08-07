@@ -2,20 +2,30 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ImageBase from '../common/imageBase';
 
-const imageArticle = ({ image, imageResizePresets, altText, zoom }) => {
-    if (!imageResizePresets) return null;
+const imageArticle = ({
+    image,
+    imageResizePresets,
+    altText,
+    zoom,
+    configType
+}) => {
+    if (!imageResizePresets || !configType) return null;
 
-    const sources = Object.keys(image.resized_urls)
-        .filter(f => Object.keys(imageResizePresets).includes(f))
-        .map(x => {
-            const p = imageResizePresets[x];
-            const url = image.resized_urls[x];
-            return {
-                media: p.media,
-                class: p.class,
-                url
-            };
-        });
+    const sources = Object.keys(image.resized_urls).reduce(
+        (filtered, value) => {
+            const p = imageResizePresets[value];
+            if (p.type === configType) {
+                const url = image.resized_urls[value];
+                filtered.push({
+                    media: p.media,
+                    class: p.class,
+                    url
+                });
+            }
+            return filtered;
+        },
+        []
+    );
     return <ImageBase sources={sources} altText={altText} zoom={zoom} />;
 };
 
@@ -27,11 +37,13 @@ imageArticle.propTypes = {
     imageResizePresets: PropTypes.objectOf(
         PropTypes.shape({
             class: PropTypes.string,
-            media: PropTypes.string
+            media: PropTypes.string,
+            type: PropTypes.string
         })
     ).isRequired,
     altText: PropTypes.string,
-    zoom: PropTypes.bool
+    zoom: PropTypes.bool,
+    configType: PropTypes.string.isRequired
 };
 
 imageArticle.defaultProps = {
