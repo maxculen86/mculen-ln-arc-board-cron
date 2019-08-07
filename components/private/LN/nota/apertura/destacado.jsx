@@ -11,20 +11,24 @@ const destacado = props => {
         }
     } = props;
 
-    switch (basic.type) {
-        case 'image':
-            return (
-                <ImageArticle
-                    image={basic}
-                    imageResizePresets={imageResizePresets}
-                    zoom
-                />
-            );
-        case 'video':
-            const { _id } = basic;
-            return <VideoPlayer videoId={_id} />;
-        default:
-            return null;
+    if (basic) {
+        switch (basic.type) {
+            case 'image':
+                return (
+                    <ImageArticle
+                        image={basic}
+                        imageResizePresets={imageResizePresets}
+                        zoom
+                    />
+                );
+            case 'video':
+                const { _id } = basic;
+                return <VideoPlayer videoId={_id} />;
+            default:
+                return null;
+        }
+    } else {
+        return null;
     }
 };
 

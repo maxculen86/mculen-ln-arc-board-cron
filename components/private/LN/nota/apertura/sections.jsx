@@ -6,7 +6,7 @@ const Sections = props => {
     const { taxonomy, destacado } = props;
     const primary = taxonomy.primary_section;
 
-    let listSections = '';
+    let listSections = [];
     if (primary) {
         listSections = taxonomy.sections.filter(x =>
             x.additional_properties.original.ancestors.default.includes(

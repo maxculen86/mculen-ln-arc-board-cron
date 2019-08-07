@@ -7,7 +7,7 @@ export default {
         resize: {
             nota: {
                 bySubtype: {
-                    1: {
+                    4: {
                         apertura_big: {
                             width: 1033,
                             media: '(min-width: 768px)',
