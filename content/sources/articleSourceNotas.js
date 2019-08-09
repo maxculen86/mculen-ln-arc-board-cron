@@ -37,8 +37,7 @@ const resolve = (key, a) => {
                         }
                     ]}
                 }
-            }&
-            "size": ${cantidadNotas}
+            }&size=${cantidadNotas}
             &sort=publish_date:desc`;
         const final = `${basePath}&${query}`;
         console.log('-------------------', final);
