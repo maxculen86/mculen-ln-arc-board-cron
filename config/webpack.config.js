@@ -29,11 +29,12 @@ const entries = Object.keys(sites).reduce((config, site) => {
             const options = {
                 ...defaultOptions,
                 ignore:
-                    ignore && ignore.map(p => `${paths.resources}/${site}/${p}`)
+                    ignore &&
+                    ignore.map(p => `${paths.sourcePath.base}/${site}/${p}`)
             };
 
             const files = glob.sync(
-                `${paths.resources}/${site}/${pattern}`,
+                `${paths.sourcePath.base}/${site}/${pattern}`,
                 options
             );
 
@@ -112,8 +113,8 @@ const getRules = env => {
                 {
                     loader: 'file-loader',
                     options: {
-                        outputPath: 'fonts',
-                        publicPath: '/pf/resources/dist/fonts',
+                        outputPath: paths.outputPath.fonts,
+                        publicPath: paths.urlPath.fonts,
                         name: isProd ? '[hash].[ext]' : '[name].[ext]'
                     }
                 }
@@ -125,8 +126,8 @@ const getRules = env => {
                 {
                     loader: 'file-loader',
                     options: {
-                        outputPath: 'images',
-                        publicPath: '/pf/resources/dist/images',
+                        outputPath: paths.outputPath.images,
+                        publicPath: paths.urlPath.images,
                         name: isProd ? '[hash].[ext]' : '[name].[ext]'
                     }
                 }
@@ -148,12 +149,12 @@ module.exports = (env = {}) => {
         mode: isProd ? 'production' : 'development',
         entry: entries,
         output: {
-            path: paths.dist,
-            filename: 'js/[name].js'
+            path: paths.outputPath.base,
+            filename: `[name].js`
         },
         plugins: [
             new MiniCssExtractPlugin({
-                filename: isProd ? 'css/[name].css' : 'css/[name].css'
+                filename: `${paths.outputPath.css}/[name].css`
             })
         ]
     };
