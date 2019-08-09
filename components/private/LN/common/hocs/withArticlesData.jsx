@@ -12,7 +12,6 @@ function WithArticlesData(WrappedArticles, filter) {
 
             constructor(props) {
                 super(props);
-                console.log(props);
                 const { cached, fetched } = this.getContent({
                     sourceName: 'articlesSource',
                     query: {
@@ -24,7 +23,6 @@ function WithArticlesData(WrappedArticles, filter) {
                 this.state = { articles: cached.content_elements };
 
                 fetched.then(response => {
-                    console.log('FETCHED: ', response);
                     this.setState({ articles: response.content_elements });
                 });
             }

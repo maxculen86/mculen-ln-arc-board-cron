@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Article from '../common/ArticleTypes/articleMain';
-import WithArticlesData from '../common/hocs/withArticlesData';
-import filter from '../../../../content/filters/LN/acumulado/articleAcu';
+import Article from '../../common/ArticleTypes/articleMain';
+import WithArticlesData from '../../common/hocs/withArticlesData';
+import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 
 const CLASS_W_100 = 'w-100-mobile';
 class GrillaNotas extends Component {
     render() {
-        console.log('PROPS', this.props);
         let articles = [];
         if (this.props.articles) {
             articles = this.props.articles.map((a, i) => {
@@ -37,7 +36,7 @@ class GrillaNotas extends Component {
         }
 
         return (
-            <section class="row-gap-tablet-2 row-gap-desksm-3">
+            <section className="row-gap-tablet-2 row-gap-desksm-3">
                 {articles}
             </section>
         );

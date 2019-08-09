@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Consumer from 'fusion:consumer';
+import AcuTitle from '../../components/private/LN/acumulado/acumuladoTitle';
 
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
@@ -7,21 +9,25 @@ class LNAcumuladoLayout extends Component {
         return (
             <div id="wrap">
                 <main>
-                    <div classNameName="lay-sidebar">
+                    <div className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
-                                {/* TITULO DE ACUMULADO */}
+                                <AcuTitle
+                                    title={this.props.globalContent.name}
+                                />
+                                {/* LUGAR PARA UN ANEXO */}
                                 {this.props.children[0]}
                             </div>
                             <div className="row">
                                 {/* LINKS DE NAVEGACION */}
                                 {this.props.children[1]}
                             </div>
-                            <section class="row-gap-tablet-2 row-gap-desksm-3">
+                            <section className="row-gap-tablet-2 row-gap-desksm-3">
                                 {/* NOTAS */}
                                 {this.props.children[2]}
                             </section>
                         </div>
+
                         <div className="sidebar__aside">
                             <div className="com-ranking hlp-none hlp-tablet-none">
                                 {/* RANKING DE NOTAS */}
@@ -37,4 +43,4 @@ class LNAcumuladoLayout extends Component {
 
 LNAcumuladoLayout.sections = layoutItems;
 
-export default LNAcumuladoLayout;
+export default Consumer(LNAcumuladoLayout);

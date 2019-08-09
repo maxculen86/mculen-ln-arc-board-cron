@@ -4,7 +4,7 @@ import getProperties from 'fusion:properties';
 import filter from '../filters/LN/nota/article';
 
 const resolve = (key, a) => {
-    const { url, id, website } = key;
+    const { url, id, website, prueba } = key;
     const arcSite = key['arc-site'];
     const basePath = `/content/v4/stories/?website=${website || arcSite}`;
 
@@ -14,6 +14,7 @@ const resolve = (key, a) => {
 };
 
 const transform = (data, siteProps) => {
+    console.log('SITEPROPS', siteProps);
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
     const presets = properties.imageConfig.resize.nota.bySubtype[data.subtype];
@@ -33,7 +34,8 @@ export default {
     params: {
         url: 'text',
         id: 'text',
-        website: 'text'
+        website: 'text',
+        prueba: 'text'
     },
     filter,
     transform

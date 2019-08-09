@@ -1,15 +1,4 @@
-import React, { Component } from 'react';
-import GrillaNotasComponent from '../../private/LN/acumulado/grillaNotas';
-
-class GrillaNotas extends Component {
-    render() {
-        return (
-            <>
-                <GrillaNotasComponent />
-            </>
-        );
-    }
-}
+import GrillaNotas from '../../private/LN/acumulado/grillaNotas';
 
 GrillaNotas.label = 'LN-Acumulado-Grilla-Notas';
 GrillaNotas.static = true;
