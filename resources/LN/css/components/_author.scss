@@ -2,12 +2,12 @@
 @import '../base/aspect-ratios';
 
 .com-author {
-    display: inline-block;
-    align-items: center;
-    &:not(:last-child) {
-        margin-right: 30px;
+        display: inline-block;
+        align-items: center;
         margin-bottom: 15px;
-    }
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
     a {
         font-family: $font-arial;
         font-weight: 600;

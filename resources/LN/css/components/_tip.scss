@@ -2,14 +2,19 @@
 @import '../base/aspect-ratios';
 
 .com-tip{
-    font:normal 19px/30px $font-georgia; 
+    font:normal 19px/30px $font-georgia;
+    padding-top: $px-40;
+    padding-bottom:  $px-40;
+    border-top: 1px solid $gris3;
+    border-bottom: 1px solid $gris3; 
     & > div:not(:last-child){
         margin-bottom: 30px;
-    } 
-    dt, dd{
+    }
+    dt,
+    dd {
         display: inline;
     }
-    dt{
+    dt {
         font-weight: 600;
     }
 }

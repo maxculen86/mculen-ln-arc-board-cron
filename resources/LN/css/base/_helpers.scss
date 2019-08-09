@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+// @import '../abstracts/imports';
 
 //=============================
 // PADDINGS
@@ -141,26 +142,26 @@
         margin-right: $i*5 + px;
     }
     @media (min-width: 320px) {
-        .hlp-marginright-mobile-#{$i*5} {
+        .hlp-marginRight-mobile-#{$i*5} {
             margin-right: $i*5 + px !important;
         }
     }
     @media (min-width: 768px) {
-        .hlp-marginright-mobile-#{$i*5} {
+        .hlp-marginRight-mobile-#{$i*5} {
             margin-right: inherit !important;
         }
-        .hlp-marginright-tablet-#{$i*5} {
+        .hlp-marginRight-tablet-#{$i*5} {
             margin-right: $i*5 + px !important;
         }
     }
     @media (min-width: 1024px) {
-        .hlp-marginright-mobile-#{$i*5} {
+        .hlp-marginRight-mobile-#{$i*5} {
             margin-right: inherit !important;
         }
-        .hlp-marginright-tablet-#{$i*5} {
+        .hlp-marginRight-tablet-#{$i*5} {
             margin-right: inherit !important;
         }
-        .hlp-marginright-desksm-#{$i*5} {
+        .hlp-marginRight-desksm-#{$i*5} {
             margin-right: $i*5 + px !important;
         }
     }
@@ -230,10 +231,31 @@
 }
 
 //=============================
+// TEXT right
+//=============================
+.hlp-text-right {
+    text-align: right;
+}
+
+//=============================
+// TEXT left
+//=============================
+.hlp-text-left {
+    text-align: left;
+}
+
+//=============================
 // OVERFLOW SCROLL
 //=============================
 .hlp-overflow-scroll {
     overflow: scroll;
+}
+
+//=============================
+// BOLD
+//=============================
+.hlp-bold {
+    font-weight: bold;
 }
 
 //=============================

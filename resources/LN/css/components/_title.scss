@@ -1,4 +1,5 @@
 @import '../abstracts/imports';
+@import '../base/aspect-ratios';
 
 /* titles section */
 
@@ -47,13 +48,13 @@
 .com-title-nota {
     font-family: $font-SuecaSlab;
     font-size: $font-24;
-    line-height: $line-24;
+    line-height: $line-22;
 }
 
 .com-title-acu {
     font-family: $font-arial;
     font-size: $font-14;
-    line-height: $line-20;
+    line-height: $line-17;
     color: $negro;
     margin-top: $px-5;
     b {
@@ -77,8 +78,8 @@
 //Valores de tablet para arriba
 @media (min-width: 360px) {
     .com-title-acu {
-        font-size: $font-13;
-        line-height: $line-23;
+        font-size: $font-14;
+        line-height: $line-16;
     }
 }
 
@@ -86,12 +87,12 @@
 @media (min-width: 768px) {
     .com-title-nota {
         font-size: $font-38;
-        line-height: $line-38;
+        line-height: $line-36;
     }
 }
 
 //Valores de desk chico para arriba
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
     .com-title-section-xxl {
         font-family: $font-SuecaSlab;
         font-size: $font-40;
@@ -130,7 +131,7 @@
     .com-title-acu {
         font-family: $font-SuecaSlab;
         font-size: $font-15;
-        line-height: $line-21;
+        line-height: $line-17;
         letter-spacing: -0.35px;
     }
     .opening .com-title-acu {
@@ -148,11 +149,11 @@
 @media (min-width: 1340px) {
     .com-title-nota {
         font-size: $font-43;
-        line-height: $line-54;
+        line-height: $line-50;
     }
     .com-title-acu {
         font-size: $font-17;
-        line-height: $line-21;
+        line-height: $line-17;
         letter-spacing: -0.4px;
     }
 }

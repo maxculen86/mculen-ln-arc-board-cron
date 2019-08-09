@@ -1,0 +1,8 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.text {
+    font-family: $font-arial;
+    font-size: $font-16;
+    line-height: $line-23;
+}

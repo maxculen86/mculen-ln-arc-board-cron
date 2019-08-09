@@ -6,6 +6,22 @@
     font-family: $font-arial;
     font-size: $font-12;
     color: $link;
+    &.--small {
+        font-size: $font-14;
+        text-transform: initial;
+    }
+    &.--inline {
+        display: inline-block;
+        text-transform: initial;
+        font-size: $px-16;
+        line-height: $px-23
+    }
+}
+
+.link {
+    font-family: $font-arial;
+    font-size: $font-12;
+    color: $link;
     .--small {
         font-size: $font-14;
         text-transform: initial;

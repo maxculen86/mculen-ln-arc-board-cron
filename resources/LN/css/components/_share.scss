@@ -13,6 +13,15 @@
     background: $blanco;
     border: 1px solid $gris1;
     overflow: hidden;
+    transition: transform 0.25s;
+    //scrollUp
+    &.--scrollDown {
+        transform: translateY(-100%);
+    }
+    //scrollDown
+    &.--scrollUp {
+        transform: translateY(0);
+    }
 }
 
 .com-share>div {
@@ -21,7 +30,9 @@
 
 .com-share>.share-right {
     float: right;
-    margin-right: 10px;
+    button {
+        margin-right: 0;
+    }
 }
 
 .com-share button {
@@ -70,7 +81,7 @@
         background: initial;
         border: 0;
         font-size: $font-30;
-        padding: 20px 0;
+        margin: $px-10 0;
     }
     .com-share label {
         margin-left: initial
@@ -80,8 +91,11 @@
         display: none;
     }
     .com-share>.share-right button:first-child {
-        border-top: 1px solid $negro
+        border-top: 1px solid $negro;
+        padding-top: $px-10;
+        margin: 0
     }
 }
+
 
 /* end share Sociales */

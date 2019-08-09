@@ -4,13 +4,17 @@
 .com-title_list {
     font-family: SuecaSlab, Georgia;
     font-size: $font-24;
-    font-weight: bold;
+    line-height: $line-28;
     color: #000;
+    &.--bold {
+        font-weight: bold;
+    }
 }
 
 .com-subtitle_list {
     font-family: Arial;
     font-size: $font-16;
+    line-height: $line-22;
     font-weight: bold;
     color: #000;
 }
@@ -24,6 +28,7 @@
         margin: 2.5em 0;
         font-family: Georgia;
         font-size: $font-19;
+        line-height: $line-23;
         color: #000;
         position: relative;
         &:before {

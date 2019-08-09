@@ -10,9 +10,10 @@
         font-size: $font-35;
         margin-right: $px-5
     }
-    .hlp-text-center {
+    .logo {
         text-align: left;
         display: flex;
+        margin-bottom: $px-10
     }
     .--btn {
         border-color: $blanco;
@@ -45,8 +46,8 @@
         }
     }
     .lay .opening article .com-date {
-            display: none;
-        }
+        display: none;
+    }
 }
 
 @media (min-width: 1025px) {
@@ -56,15 +57,16 @@
             font-size: $font-80;
             display: block;
             margin-right: 0;
+            margin-bottom: $px-5;
         }
-        .hlp-text-center {
+        .logo {
             text-align: right;
             display: block;
             width: fit-content;
-            margin: 0 auto;
+            margin: 0 auto $px-10;
             .--btn {
-
-                display: inline-block;            }
+                display: inline-block;
+            }
         }
         .com-share {
             display: inline-block;
@@ -89,5 +91,4 @@
             }
         }
     }
-    
 }

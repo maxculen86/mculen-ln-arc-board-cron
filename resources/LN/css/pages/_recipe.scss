@@ -6,6 +6,8 @@
     .cont-figure {
         @media ($media-l) {
             order: 2;
+            display: flex;
+            align-items: center;
         }
     }
     .cont-aper {
@@ -29,13 +31,16 @@
             }
         }
         .cont_tags {
-            margin-bottom: $px-30;
-            &:last-child { 
+            margin-bottom: $px-20;
+            &:last-child {
                 margin-bottom: 0;
+            }
+            .com-subtitle_list {
+                font-size: $font-14;
+                margin-bottom: $px-12;
             }
         }
     }
-
 }
 
 .ingredient-list {
@@ -48,10 +53,11 @@
         line-height: 1.5em;
     }
 }
+
 .time-number,
 .portion-number {
     display: flex;
-    align-items: center; 
+    align-items: center;
     font-family: arial;
     font-size: $font-16;
     padding-left: .5em;
