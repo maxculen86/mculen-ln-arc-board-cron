@@ -8,16 +8,34 @@ const sites = {
     OTT: [{ '[site]/style': 'style.scss' }],
     LN: [
         { '[site]/base': 'css/base/*.scss' },
-        { '[site]/[dirname]/[basename]': 'css/*/*.scss' }
+        {
+            '[site]/[dirname]/[basename]': {
+                pattern: 'css/*/*.scss',
+                ignore: ['css/abstracts/**']
+            }
+        }
     ]
 };
 
+const defaultOptions = {};
 const entries = Object.keys(sites).reduce((config, site) => {
     const patterns = sites[site];
 
     patterns.forEach((item, i) => {
-        Object.entries(item).forEach(([name, pattern]) => {
-            const files = glob.sync(`${paths.resources}/${site}/${pattern}`);
+        Object.entries(item).forEach(([name, _pattern]) => {
+            const { pattern, ignore } =
+                typeof _pattern === 'string' ? { pattern: _pattern } : _pattern;
+
+            const options = {
+                ...defaultOptions,
+                ignore:
+                    ignore && ignore.map(p => `${paths.resources}/${site}/${p}`)
+            };
+
+            const files = glob.sync(
+                `${paths.resources}/${site}/${pattern}`,
+                options
+            );
 
             files.forEach(file => {
                 const pathbase = path.dirname(file);
