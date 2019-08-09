@@ -23,6 +23,7 @@ function WithArticlesData(WrappedArticles, filter) {
                 this.state = { articles: cached.content_elements };
 
                 fetched.then(response => {
+                    console.log('FETCHED', response);
                     this.setState({ articles: response.content_elements });
                 });
             }

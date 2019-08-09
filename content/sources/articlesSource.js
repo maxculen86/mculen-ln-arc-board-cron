@@ -3,12 +3,10 @@ import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
 
 const resolve = key => {
-    console.log('KEYYYYYYYY: ', key);
     const { section_id } = key;
-    console.log('SECTION ID: ', section_id);
     let section = '';
     if (section_id) {
-        section = `&taxonomy.sections._id=${section_id}`;
+        section = `+AND+taxonomy.primary_section._id:"${section_id}"`;
     }
     return `content/v4/search/published?website=la-nacion-ar&q=type:story${section}`;
 };

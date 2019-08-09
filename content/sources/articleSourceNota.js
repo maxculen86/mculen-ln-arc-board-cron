@@ -14,7 +14,6 @@ const resolve = (key, a) => {
 };
 
 const transform = (data, siteProps) => {
-    console.log('SITEPROPS', siteProps);
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
     const presets = properties.imageConfig.resize.nota.bySubtype[data.subtype];

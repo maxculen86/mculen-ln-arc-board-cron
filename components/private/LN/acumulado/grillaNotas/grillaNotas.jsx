@@ -22,11 +22,14 @@ class GrillaNotas extends Component {
                     };
                 }
 
+                let kicker = '';
+                if (a.label.volanta) kicker = a.label.volanta.text;
+
                 return (
                     <Article
                         key={i}
                         extraClasses={CLASS_W_100}
-                        kicker={a.label.volanta}
+                        kicker={kicker}
                         title={a.headlines.basic}
                         image={image}
                         href={a.website_url}
