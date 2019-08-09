@@ -8,7 +8,7 @@ const resolve = key => {
     if (section_id) {
         section = `+AND+taxonomy.primary_section._id:"${section_id}"`;
     }
-    return `content/v4/search/published?website=la-nacion-ar&size=${size}&q=type:story${section}`;
+    return `content/v4/search/published?website=la-nacion-ar&sort=display_date:desc&size=${size}&q=type:story${section}`;
 };
 
 const getPresets = () => {
