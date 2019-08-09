@@ -3,7 +3,6 @@ import Article from '../articleBase';
 
 class ArticleMain extends Component {
     render() {
-        console.log('ARTICLE PROPS', this.props);
         return (
             <Article extraClasses={this.props.extraClasses}>
                 <section className="cont-figure">

@@ -6,7 +6,10 @@ class Index extends Component {
     render() {
         return (
             <>
-                <GrillaNotas section_id={this.props.globalContent._id} />
+                <GrillaNotas
+                    section_id={this.props.globalContent._id}
+                    size="1"
+                />
             </>
         );
     }

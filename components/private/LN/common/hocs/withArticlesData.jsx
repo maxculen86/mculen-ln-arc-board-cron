@@ -15,7 +15,8 @@ function WithArticlesData(WrappedArticles, filter) {
                 const { cached, fetched } = this.getContent({
                     sourceName: 'articlesSource',
                     query: {
-                        section_id: props.section_id
+                        section_id: props.section_id,
+                        size: props.size
                     },
                     filter
                 });
@@ -23,7 +24,6 @@ function WithArticlesData(WrappedArticles, filter) {
                 this.state = { articles: cached.content_elements };
 
                 fetched.then(response => {
-                    console.log('FETCHED', response);
                     this.setState({ articles: response.content_elements });
                 });
             }
