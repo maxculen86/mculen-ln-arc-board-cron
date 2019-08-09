@@ -14,30 +14,35 @@ function withArticlesData(WrappedArticle, filter) {
 
                 const website = get(this, 'props.website', null);
                 const sectionId = get(this, 'props.sectionId', null);
+                const destination = get(this, 'props.destination', null);
+                const cantidadNotas = get(this, 'props.cantidadNotas', null);
                 if (!website && !sectionId) return;
                 console.log(
                     'TCL: extends -> constructor -> website, sectionId',
                     website,
-                    sectionId
+                    sectionId,
+                    destination
                 );
 
                 const { cached, fetched } = this.getContent({
                     sourceName: 'articleSourceNotas',
                     query: {
                         website,
-                        sectionId
+                        sectionId,
+                        destination,
+                        cantidadNotas
                     },
                     filter
                 });
 
-                // this.state = { articles: cached };
+                this.state = { articles: cached };
                 console.log(
                     'TCL: extends -> withArticlesData -> cached',
                     cached
                 );
 
                 fetched.then(response => {
-                    // this.setState({ articles: response });
+                    this.setState({ articles: response });
                 });
             }
 

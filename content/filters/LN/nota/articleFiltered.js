@@ -12,38 +12,35 @@ const image = `
     subtitle
 `;
 
-export default `
-{
-    _id
-    subtype
-    promo_items {
-        basic {
-            ${image}
+export default `{
+content_elements {    
+        _id
+        subtype
+        promo_items {
+            basic {
+                ${image}
+            }
         }
-    }
-    credits {
-        by {
-            name
-            type
+        credits {
+            by {
+                name
+                type
+            }
         }
-    }
-    headlines {
-        basic
-    }
-    display_date
-    website_url
-    imageResizePresets {
-        articleAcu_small {
-            media
-            class
+        headlines {
+            basic
         }
-        articleAcu_medium{
-            media
-            class
-        }
-        articleAcu_big{
-            media
-            class
+        display_date
+        website_url
+        imageResizePresets {
+            medium{
+                media
+                class
+            }
+            big{
+                media
+                class
+            }
         }
     }
 }`;

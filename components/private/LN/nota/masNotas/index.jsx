@@ -4,9 +4,10 @@ import ArticleList from './articleList';
 
 const index = props => {
     const {
+        customFields: { cantidadNotas },
         globalContent: {
             taxonomy: {
-                primary_section: { _id, _website }
+                primary_section: { _id, _website, name }
             }
         }
     } = props;
@@ -24,7 +25,12 @@ const index = props => {
                     <strong>{` ${name}`}</strong>
                 </h3>
                 <section className="row-gap-tablet-3 row-gap-desksm-3 hlp-marginBottom-40">
-                    <ArticleList sectionId={_id} website={_website} />
+                    <ArticleList
+                        cantidadNotas={cantidadNotas}
+                        sectionId={_id}
+                        website={_website}
+                        destination="article"
+                    />
                 </section>
             </div>
         )

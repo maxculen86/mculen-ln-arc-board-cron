@@ -6,7 +6,7 @@ import withArticlesData from '../common/hocs/withArticlesData';
 
 const ArticleList = props => {
     const { articles } = props;
-    return articles.map(e => <ArticleItem e={e} />);
+    return articles.content_elements.map(e => <ArticleItem e={e} />);
 };
 
-export default withArticlesData(ArticleList, articleFiltered);
+export default withArticlesData(ArticleList);
