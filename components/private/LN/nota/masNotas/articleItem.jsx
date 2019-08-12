@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 const ArticleItem = ({ e }) => (
     <article className="mod-caja-nota --border">
         <section id="" className="cont-figure">
-            <a href={e.href} className="figure">
+            <a href={e.website_url} className="figure">
                 <picture id="" className="content-pic picture">
                     <img src={e.imgSrc} alt="" className="content-img" />
                 </picture>
@@ -12,9 +12,9 @@ const ArticleItem = ({ e }) => (
         </section>
         <div className="mod-caja-nota__descrip">
             <h2 className="com-title-acu">
-                <a href={e.href}>
-                    <b>{`${e.volanta} `}</b>
-                    {e.titulo}
+                <a href={e.website_url}>
+                    <b>{`${e.subheadlines.basic} `}</b>
+                    {e.headlines.basic}
                 </a>
             </h2>
         </div>
