@@ -6,6 +6,7 @@ const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
 class LNAcumuladoLayout extends Component {
     render() {
+        console.log(this.props.globalContent);
         return (
             <div id="wrap">
                 <main>

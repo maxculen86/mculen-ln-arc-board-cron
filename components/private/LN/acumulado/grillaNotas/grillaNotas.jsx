@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import Consumer from 'fusion:consumer';
 import Article from '../../common/ArticleTypes/articleMain';
 import WithArticlesData from '../../common/hocs/withArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
+import BtnMasNotas from '../botonVerMasNotas';
 
 const CLASS_W_100 = 'w-100-mobile';
 class GrillaNotas extends Component {
     render() {
         let articles = [];
-        if (this.props.articles) {
+        if (this.props.articles.length) {
             articles = this.props.articles.map((a, i) => {
                 let image = {};
                 if (a.promo_items) {
@@ -23,7 +25,7 @@ class GrillaNotas extends Component {
                 }
 
                 let kicker = '';
-                if (a.label.volanta) kicker = a.label.volanta.text;
+                if (a.label && a.label.volanta) kicker = a.label.volanta.text;
 
                 return (
                     <Article
@@ -39,9 +41,17 @@ class GrillaNotas extends Component {
         }
 
         return (
-            <section className="row-gap-tablet-2 row-gap-desksm-3">
-                {articles}
-            </section>
+            <>
+                <section className="row-gap-tablet-2 row-gap-desksm-3">
+                    {articles}
+                </section>
+                <section className="row">
+                    <BtnMasNotas
+                        onClickHandler={this.props.obtenerMasNotas}
+                        name={this.props.globalContent.name}
+                    />
+                </section>
+            </>
         );
     }
 }

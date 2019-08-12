@@ -3,12 +3,16 @@ import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
 
 const resolve = key => {
-    const { section_id, size } = key;
+    const { section_id, size, page } = key;
+    if (!page) {
+        page = 1;
+    }
+    const offset = (page - 1) * size;
     let section = '';
     if (section_id) {
         section = `+AND+taxonomy.primary_section._id:"${section_id}"`;
     }
-    return `content/v4/search/published?website=la-nacion-ar&sort=display_date:desc&size=${size}&q=type:story${section}`;
+    return `content/v4/search/published?website=la-nacion-ar&sort=display_date:desc&size=${size}&offset=${offset}&q=type:story${section}`;
 };
 
 const getPresets = () => {
@@ -37,7 +41,8 @@ export default {
     schemaName: 'articles-schema',
     params: {
         section_id: 'text',
-        size: 'text'
+        size: 'text',
+        page: 'text'
     },
     transform
 };

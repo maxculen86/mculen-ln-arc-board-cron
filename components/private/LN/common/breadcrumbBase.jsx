@@ -12,9 +12,10 @@ const breadcrumbBase = props => {
             </a>
         );
     });
-
     return (
-        <nav className="com-breadcrumb hlp-marginBottom-40">{listSections}</nav>
+        <nav className={`com-breadcrumb ${props.extraClasses}`}>
+            {listSections}
+        </nav>
     );
 };
 

@@ -4,7 +4,7 @@ import getProperties from 'fusion:properties';
 import filter from '../filters/LN/nota/article';
 
 const resolve = (key, a) => {
-    const { url, id, website, prueba } = key;
+    const { url, id, website } = key;
     const arcSite = key['arc-site'];
     const basePath = `/content/v4/stories/?website=${website || arcSite}`;
 
@@ -33,8 +33,7 @@ export default {
     params: {
         url: 'text',
         id: 'text',
-        website: 'text',
-        prueba: 'text'
+        website: 'text'
     },
     filter,
     transform
