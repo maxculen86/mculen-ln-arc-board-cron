@@ -4,7 +4,7 @@ import LastVideos from '../private/OTT/common/lastVideos';
 import loadHeaderEvents from '../private/OTT/common/header/layoutEvents';
 import loadOTTVideoAnalytics from '../private/OTT/ficha/ottVideoAnalytics';
 import loadOTTVideoStyles from '../private/OTT/ficha/ottVideoStyles';
-import '../../resources/dist/css/ott/style.css';
+import '../../assets/bundles/css/ott/style.css';
 import Consumer from 'fusion:consumer';
 
 const layoutItems = ['Header', 'Bloque-1', 'Bloque-2'];
