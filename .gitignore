@@ -12,7 +12,7 @@
 
 /dist
 /resources/dist
-/src/bundles
+/assets/bundles
 
 /coverage
 .scannerwork

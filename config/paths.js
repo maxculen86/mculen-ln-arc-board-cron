@@ -3,7 +3,7 @@ const path = require('path');
 const URL_BASE = '/pf';
 const DIRNAME_SOURCE = 'src/statics';
 const DIRNAME_PUBLIC = 'resources/dist';
-const DIRNAME_PRIVATE = 'src/bundles';
+const DIRNAME_PRIVATE = 'assets/bundles';
 
 const DIRNAME_JS = 'js';
 const DIRNAME_CSS = 'css';

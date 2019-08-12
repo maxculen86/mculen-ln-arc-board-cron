@@ -8,7 +8,7 @@
     "build": "npm run clean && npm run webpack",
     "build-dev": "npm run clean && npm run webpack-dev",
     "build-watch": "npm run clean && npm run webpack-watch",
-    "clean": "rm -rf resources/dist && rm -rf src/bundles",
+    "clean": "rm -rf resources/dist && rm -rf assets/bundles",
     "eslint": "eslint --ext=js,jsx .",
     "fusion": "fusion",
     "prettier": "prettier --write **/*.{js,jsx}",
