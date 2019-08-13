@@ -1,4 +1,4 @@
-export const slots = {
+export const slotsConfig = {
     caja1_dsk: {
         slotName: 'la_nacion_desktop/nota/caja1_dsk',
         dimensions: [[300, 600], [160, 600], [120, 600], [300, 250]],
@@ -50,8 +50,4 @@ export const slots = {
     }
 };
 
-export const getSlotsOptions = () => {
-    return Object.keys(slots);
-};
-
-export default { slots, getSlotsOptions };
+export default slotsConfig;
