@@ -7,12 +7,12 @@ const resolve = key => {
     if (!page) {
         page = 1;
     }
-    const offset = (page - 1) * size;
+    const from = (page - 1) * size;
     let section = '';
     if (section_id) {
         section = `+AND+taxonomy.primary_section._id:"${section_id}"`;
     }
-    return `content/v4/search/published?website=la-nacion-ar&sort=display_date:desc&size=${size}&offset=${offset}&q=type:story${section}`;
+    return `content/v4/search/published?website=la-nacion-ar&sort=display_date:desc&size=${size}&from=${from}&q=type:story${section}`;
 };
 
 const getPresets = () => {

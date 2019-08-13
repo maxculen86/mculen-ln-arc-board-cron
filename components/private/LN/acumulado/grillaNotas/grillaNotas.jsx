@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Consumer from 'fusion:consumer';
 import Article from '../../common/ArticleTypes/articleMain';
 import WithArticlesData from '../../common/hocs/withArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
