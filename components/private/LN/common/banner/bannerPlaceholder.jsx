@@ -26,8 +26,8 @@ const bannerPlaceholder = ({ slotName, targeting, dimensions, missDfpId }) => {
 
 bannerPlaceholder.propTypes = {
     slotName: PropTypes.string.isRequired,
-    targeting: PropTypes.isRequired,
-    dimensions: PropTypes.isRequired,
+    targeting: PropTypes.oneOfType([PropTypes.object]).isRequired,
+    dimensions: PropTypes.oneOfType([PropTypes.array]).isRequired,
     missDfpId: PropTypes.bool
 };
 
