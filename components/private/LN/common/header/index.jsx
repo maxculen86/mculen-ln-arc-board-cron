@@ -7,6 +7,15 @@ export default class Index extends Component {
         isMobile: false
     };
 
+    componentDidMount() {
+        const viewportWidth =
+            window.innerWidth || document.documentElement.clientWidth;
+
+        this.setState({
+            isMobile: viewportWidth < 1024
+        });
+    }
+
     render() {
         return (
             <>
