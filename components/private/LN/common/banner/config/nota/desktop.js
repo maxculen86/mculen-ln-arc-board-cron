@@ -1,11 +1,10 @@
-export const slotsConfig = {
+import { defaultTargeting } from './defaults';
+
+export default {
     caja1_dsk: {
         slotName: 'la_nacion_desktop/nota/caja1_dsk',
         dimensions: [[300, 600], [160, 600], [120, 600], [300, 250]],
-        targeting: {
-            sitio: 'lanacion',
-            seccion: 'nota'
-        },
+        targeting: defaultTargeting,
         bidding: {
             prebid: {
                 enabled: true,
@@ -49,5 +48,3 @@ export const slotsConfig = {
         }
     }
 };
-
-export default slotsConfig;
