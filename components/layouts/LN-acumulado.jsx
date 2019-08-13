@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
+import Header from '../../components/private/LN/common/header';
 import AcuTitle from '../../components/private/LN/acumulado/acumuladoTitle';
 
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
@@ -9,6 +10,7 @@ class LNAcumuladoLayout extends Component {
         console.log(this.props.globalContent);
         return (
             <div id="wrap">
+                <Header />
                 <main>
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
