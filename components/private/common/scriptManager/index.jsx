@@ -22,6 +22,7 @@ export default (components, settings = {}) => {
         const { location, name } = props;
 
         if (!(location || name)) throw new Error(ERRORS.PROPS);
+        console.log('Componentes------------------------', componentsName);
 
         const scripts = componentsName
             .filter(
@@ -39,7 +40,7 @@ export default (components, settings = {}) => {
                 return <Script location={location} {...properties} />;
             })
             .filter(Boolean);
-
+        console.log('Scripts-----------------------------', scripts);
         return scripts;
     };
 };
