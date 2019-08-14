@@ -4,7 +4,7 @@ import Header from './headerBase';
 export default class HeaderDesktop extends Component {
     render() {
         return (
-            <Header className="header">
+            <Header id="header" className="header">
                 <div className="col-4 header__left">
                     <div className="com-hamburger">
                         <span className="com-hamburger__bar"></span>
