@@ -1,0 +1,20 @@
+[
+    {
+        "href": "/",
+        "colClass": "col-2",
+        "iconClass": "icon-home",
+        "description": "Home"
+    },
+    {
+        "href": "/",
+        "colClass": "col-4",
+        "iconClass": "icon-club",
+        "description": "Club LA NACION"
+    },
+    {
+        "href": "/",
+        "colClass": "col-3",
+        "iconClass": "icon-comment",
+        "description": "Mi Cuenta"
+    }
+]
