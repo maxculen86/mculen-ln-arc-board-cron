@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import NavbarMobileContainer from '../private/LN/common/NavbarMobileComponents';
+import Header from '../private/LN/common/header';
 
 const layoutItems = ['Bloque1', 'Bloque2'];
 
@@ -10,6 +10,7 @@ class LNHomeLayout extends Component {
     render() {
         return (
             <>
+                <Header />
                 <link
                     rel="stylesheet"
                     type="text/css"
@@ -17,7 +18,6 @@ class LNHomeLayout extends Component {
                 />
                 {this.props.children[0]}
                 {this.props.children[1]}
-                <NavbarMobileContainer />
             </>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HeaderDesktop from './headerDesktop';
 import HeaderMobile from './headerMobile';
+import NavBarMobile from '../NavbarMobileComponents';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -47,7 +48,12 @@ export default class Index extends Component {
         return (
             <>
                 {!this.state.isMobile && <HeaderDesktop />}
-                {this.state.isMobile && <HeaderMobile />}
+                {this.state.isMobile && (
+                    <>
+                        <HeaderMobile />
+                        <NavBarMobile />
+                    </>
+                )}
             </>
         );
     }
