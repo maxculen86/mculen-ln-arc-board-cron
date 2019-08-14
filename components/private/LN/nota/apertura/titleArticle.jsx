@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { getLogoSectionClass } from '../../../common/utils/sectionUtils';
+import NewsLetter from '../../common/newsLetter/newLetterContainer';
 
 import '../../../../../resources/dist/css/ln/components/title.css';
 
@@ -19,6 +20,7 @@ const titleArticle = ({
                 </div>
             )}
             <h1 className="com-title-nota hlp-marginBottom-40">{basic}</h1>
+            <NewsLetter />
         </>
     );
 };
