@@ -1,5 +1,8 @@
 import { defaultTargeting } from './defaults';
 
+const mob_320x100_sizes = [[320, 100], [320, 50]];
+const mob_300x250_sizes = [[300, 250], [250, 250], [200, 200]];
+
 export default {
     megatop_mob: {
         slotName: 'la_nacion_mobile/Nota/megatop_mob',
@@ -18,6 +21,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: mob_320x100_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -64,6 +72,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: mob_320x100_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -110,6 +123,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: mob_300x250_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -156,6 +174,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: mob_300x250_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -202,6 +225,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: mob_300x250_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -248,6 +276,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: mob_300x250_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -294,6 +327,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: mob_300x250_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',

@@ -1,5 +1,8 @@
 import { defaultTargeting } from './defaults';
 
+const tab_300x250_sizes = [[300, 250]];
+const tab_728x90_sizes = [[728, 90]];
+
 export default {
     '1x1_tab': {
         device: 'tab',
@@ -15,6 +18,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: tab_728x90_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -69,6 +77,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: tab_300x250_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -116,6 +129,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: tab_300x250_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -163,6 +181,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: tab_300x250_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -216,6 +239,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: tab_728x90_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -263,6 +291,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: tab_728x90_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',

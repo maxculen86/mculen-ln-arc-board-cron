@@ -1,5 +1,10 @@
 import { defaultTargeting } from './defaults';
 
+const dsk_970x90_sizes = [[970, 90], [728, 90]];
+const dsk_728x90_sizes = [[728, 90]];
+const dsk_300x600_sizes = [[300, 600], [300, 250], [160, 600], [120, 600]];
+const dsk_300x250_sizes = [[300, 250]];
+
 export default {
     megatop_dsk: {
         slotName: 'la_nacion_desktop/Nota/megatop_dsk',
@@ -18,6 +23,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: dsk_970x90_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -69,6 +79,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: dsk_300x600_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -115,6 +130,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: dsk_300x250_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -161,6 +181,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: dsk_300x600_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -207,6 +232,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: dsk_300x600_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -253,6 +283,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: dsk_300x600_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -301,6 +336,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: dsk_728x90_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -347,6 +387,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: dsk_728x90_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -393,6 +438,11 @@ export default {
         bidding: {
             prebid: {
                 enabled: true,
+                mediaTypes: {
+                    banner: {
+                        sizes: dsk_728x90_sizes
+                    }
+                },
                 bids: [
                     {
                         bidder: 'appnexus',

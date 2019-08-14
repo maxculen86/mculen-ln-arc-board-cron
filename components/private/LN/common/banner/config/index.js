@@ -19,3 +19,12 @@ export const slotsConfig = {
     home: homeConfig,
     acu: acuConfig
 };
+
+export const baseConfig = {
+    bidding: {
+        prebid: {
+            enabled: true,
+            timeout: 2000
+        }
+    }
+};
