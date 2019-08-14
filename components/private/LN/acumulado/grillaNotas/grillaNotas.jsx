@@ -44,12 +44,14 @@ class GrillaNotas extends Component {
                 <section className="row-gap-tablet-2 row-gap-desksm-3">
                     {articles}
                 </section>
-                <section className="row">
-                    <BtnMasNotas
-                        onClickHandler={this.props.obtenerMasNotas}
-                        name={this.props.globalContent.name}
-                    />
-                </section>
+                {this.props.mostrarBtnMasNotas && (
+                    <section className="row">
+                        <BtnMasNotas
+                            onClickHandler={this.props.obtenerMasNotas}
+                            name={this.props.globalContent.name}
+                        />
+                    </section>
+                )}
             </>
         );
     }

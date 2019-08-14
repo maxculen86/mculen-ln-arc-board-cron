@@ -6,6 +6,7 @@ function WithArticlesData(WrappedArticles, filter) {
         class extends PureComponent {
             state = {
                 articles: undefined,
+                mostrarBtnMasNotas: true,
                 page: 1
             };
 
@@ -24,19 +25,20 @@ function WithArticlesData(WrappedArticles, filter) {
                 this.state = {
                     page: this.state.page,
                     articles: cached.content_elements,
-                    obtenerMasNotas: this.state.obtenerMasNotas
+                    obtenerMasNotas: this.state.obtenerMasNotas,
+                    mostrarBtnMasNotas: cached.content_elements < 30
                 };
 
                 fetched.then(response => {
                     this.setState({
                         page: this.state.page,
-                        articles: response.content_elements
+                        articles: response.content_elements,
+                        mostrarBtnMasNotas: response.content_elements < 30
                     });
                 });
             }
 
             obtenerMasNotas = () => {
-                debugger;
                 let page = this.state.page;
                 const articles = this.state.articles;
                 page++;
@@ -52,10 +54,12 @@ function WithArticlesData(WrappedArticles, filter) {
                 });
 
                 if (cached && cached.content_elements) {
-                    articles.push(cached.content_elements);
+                    cached.content_elements.forEach(art => articles.push(art));
+                    const mostrarBtnMasNotas = response.content_elements < 30;
                     this.setState({
                         page,
-                        articles
+                        articles,
+                        mostrarBtnMasNotas
                     });
                 }
 
@@ -64,9 +68,12 @@ function WithArticlesData(WrappedArticles, filter) {
                         response.content_elements.forEach(art =>
                             articles.push(art)
                         );
+                        const mostrarBtnMasNotas =
+                            response.content_elements < 30;
                         this.setState({
                             page,
-                            articles
+                            articles,
+                            mostrarBtnMasNotas
                         });
                     }
                 });
@@ -77,6 +84,7 @@ function WithArticlesData(WrappedArticles, filter) {
                     <WrappedArticles
                         articles={this.state.articles}
                         obtenerMasNotas={this.obtenerMasNotas}
+                        mostrarBtnMasNotas={this.state.mostrarBtnMasNotas}
                         {...this.props}
                     />
                 );
