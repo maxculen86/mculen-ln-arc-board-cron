@@ -1,3 +1,5 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react/button-has-type */
 import React from 'react';
 import Item from './item';
 
