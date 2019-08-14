@@ -32,10 +32,9 @@ class LNAcumuladoLayout extends Component {
                         </div>
 
                         <div className="sidebar__aside">
-                            <div className="com-ranking hlp-none hlp-tablet-none">
-                                {/* RANKING DE NOTAS */}
-                                {this.props.children[3]}
-                            </div>
+                            {/* RANKING DE NOTAS */}
+                            {this.props.children[3]}
+                            <div className="com-ranking hlp-none hlp-tablet-none"></div>
                         </div>
                     </div>
                 </main>
