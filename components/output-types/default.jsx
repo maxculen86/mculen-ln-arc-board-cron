@@ -4,8 +4,9 @@ import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
+import ArcAds from '../private/common/scriptManager/arcAds';
 
-const scriptList = { GTM, Comscore, Microdata, PostBid };
+const scriptList = { GTM, Comscore, Microdata, ArcAds, PostBid };
 
 const getBodyClass = props => {
     const { className = {} } = props;

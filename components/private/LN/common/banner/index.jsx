@@ -1,6 +1,6 @@
 import React from 'react';
-import ArcAd from '@arc-core-components/feature_ads-arc-ad';
 import PropTypes from 'fusion:prop-types';
+import ArcAd from './arcWrapper';
 import { slotsConfig, getSlotsOptions } from './config';
 import PlaceHolder from './bannerPlaceholder';
 import { getDevice } from '../../../common/utils/screenUtils';
@@ -15,7 +15,7 @@ const banner = props => {
         selectedSlots: { desktopSlot, mobileSlot, tabletSlot }
     } = props;
 
-    if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
+    if ((!desktopSlot && !mobileSlot && !tabletSlot) || !dfp_id) return null;
 
     const getSlotForDevice = () => {
         const device = getDevice();

@@ -11,6 +11,10 @@ export default {
         PostBid: {
             props: {},
             location: ['body-top']
+        },
+        ArcAds: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {
