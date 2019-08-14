@@ -11,8 +11,8 @@ export default function ListMenu() {
         <nav className="com-nav-mobile">
             <div className="row">
                 {items}
-                <button class="col-2 item-foo">
-                    <i class="icon-menu"></i>
+                <button className="col-2 item-foo">
+                    <i className="icon-menu"></i>
                     <p>Menú</p>
                 </button>
             </div>
