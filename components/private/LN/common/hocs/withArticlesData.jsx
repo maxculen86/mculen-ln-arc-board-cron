@@ -36,6 +36,7 @@ function WithArticlesData(WrappedArticles, filter) {
             }
 
             obtenerMasNotas = () => {
+                debugger;
                 let page = this.state.page;
                 const articles = this.state.articles;
                 page++;
@@ -59,11 +60,15 @@ function WithArticlesData(WrappedArticles, filter) {
                 }
 
                 fetched.then(response => {
-                    articles.push(response.content_elements);
-                    this.setState({
-                        page,
-                        articles
-                    });
+                    if (response.content_elements) {
+                        response.content_elements.forEach(art =>
+                            articles.push(art)
+                        );
+                        this.setState({
+                            page,
+                            articles
+                        });
+                    }
                 });
             };
 

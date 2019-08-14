@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Article from '../../common/ArticleTypes/articleMain';
+import Article from '../../common/articleTypes/articleMain';
 import WithArticlesData from '../../common/hocs/withArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import BtnMasNotas from '../botonVerMasNotas';
