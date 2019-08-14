@@ -1,7 +1,6 @@
 import React from 'react';
 import Item from './item';
 
-// eslint-disable-next-line react/prop-types
 export default function ListMenu() {
     return (
         <nav className="com-nav-mobile">

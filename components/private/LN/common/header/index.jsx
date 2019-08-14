@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import HeaderDesktop from './headerDesktop';
 import HeaderMobile from './headerMobile';
-import NavBarMobile from '../NavbarMobileComponents';
+import NavBarMobile from '../navBar';
+import WithDevice from '../hocs/withDevice';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
 var lastScrollPosition = 0;
-export default class Index extends Component {
-    state = {
-        isMobile: false
-    };
-
+class Index extends Component {
     onScrollHandler = header => {
         const scrollPos = window.scrollY;
         const classList = header.classList;
@@ -28,18 +25,11 @@ export default class Index extends Component {
             classList.remove(CLASS_SCROLL_UP);
             classList.remove(CLASS_SCROLL_DOWN);
         }
+        lastScrollPosition = scrollPos;
     };
 
     componentDidMount() {
-        const viewportWidth =
-            window.innerWidth || document.documentElement.clientWidth;
-        const isMobile = viewportWidth < 1024;
-
-        this.setState({
-            isMobile
-        });
-
-        const idHeader = isMobile ? 'header-mobile' : 'header';
+        const idHeader = this.props.isMobile ? 'header-mobile' : 'header';
         const header = document.getElementById(idHeader);
         window.addEventListener('scroll', () => this.onScrollHandler(header));
     }
@@ -47,8 +37,8 @@ export default class Index extends Component {
     render() {
         return (
             <>
-                {!this.state.isMobile && <HeaderDesktop />}
-                {this.state.isMobile && (
+                {!this.props.isMobile && <HeaderDesktop />}
+                {this.props.isMobile && (
                     <>
                         <HeaderMobile />
                         <NavBarMobile />
@@ -58,3 +48,5 @@ export default class Index extends Component {
         );
     }
 }
+
+export default WithDevice(Index);
