@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Article from '../../common/articleTypes/articleMain';
-import WithArticlesData from '../../common/hocs/withArticlesData';
+import WithArticlesData from '../hocs/WithArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import BtnMasNotas from '../botonVerMasNotas';
 
