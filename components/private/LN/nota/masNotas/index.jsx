@@ -11,7 +11,6 @@ const index = props => {
             }
         }
     } = props;
-    console.log('TCL: props', props);
 
     return (
         _id && (

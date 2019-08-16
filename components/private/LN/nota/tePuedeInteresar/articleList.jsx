@@ -70,7 +70,6 @@ const articless = [
 
 const ArticleList = props => {
     const { articles } = props;
-    console.log('TCL: articles', articles);
     return articles.map(e => <ArticleItem e={e} />);
 };
 
