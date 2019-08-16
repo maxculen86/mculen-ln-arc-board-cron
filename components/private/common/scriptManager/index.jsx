@@ -39,7 +39,6 @@ export default (components, settings = {}) => {
                 return <Script location={location} {...properties} />;
             })
             .filter(Boolean);
-
         return scripts;
     };
 };

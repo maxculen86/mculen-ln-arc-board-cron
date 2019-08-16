@@ -3,6 +3,20 @@ export default {
     className: {
         body: 'ln'
     },
+    scripts: {
+        GTM: {
+            props: { id: 'GTM-GHV6' },
+            location: ['head', 'body-top']
+        },
+        PostBid: {
+            props: {},
+            location: ['body-top']
+        },
+        ArcAds: {
+            props: {},
+            location: ['head']
+        }
+    },
     imageConfig: {
         resize: {
             nota: {
@@ -60,5 +74,8 @@ export default {
                 }
             }
         }
+    },
+    bannerConfig: {
+        dfp_id: 133919216
     }
 };
