@@ -2,8 +2,9 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import NewsletterAPI from '../utils/NewsLetter';
 
-const logueado = false;
+const logueado = true;
 
+// TODO: sacar consumer. No debe conocer el contexto donde se usa. Solo administra newsletters
 function withNewsLetterData(WrappedComponent) {
     return Consumer(
         class withAuthentication extends React.Component {
@@ -22,6 +23,7 @@ function withNewsLetterData(WrappedComponent) {
                 this.subscriptionsCallBack();
             }
 
+            // TODO: renombrar
             subscriptionsCallBack() {
                 const options = {
                     method: 'POST'
