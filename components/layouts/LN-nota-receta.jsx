@@ -107,7 +107,7 @@ class LNNotaReceta extends Component {
                             feature
                         */}
                         {/* <MasNotas /> */}
-                        <TePuedeInteresar />
+                        {/* <TePuedeInteresar /> */}
                     </main>
                 </article>
             </>
