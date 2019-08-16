@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeaderDesktop from './headerDesktop';
 import HeaderMobile from './headerMobile';
-import NavBarMobile from '../navBar';
+import NavBarMobile from '../navbar';
 import WithDevice from '../hocs/withDevice';
 
 const CLASS_SCROLL_UP = '--scrollUp';

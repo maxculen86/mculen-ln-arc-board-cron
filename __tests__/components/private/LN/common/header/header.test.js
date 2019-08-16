@@ -7,7 +7,7 @@ jest.mock(
     () => 'mocked-desktop-header'
 );
 jest.mock(
-    '../../../../../../components/private/LN/common/navBar',
+    '../../../../../../components/private/LN/common/navbar',
     () => 'mocked-mobile-navbar'
 );
 

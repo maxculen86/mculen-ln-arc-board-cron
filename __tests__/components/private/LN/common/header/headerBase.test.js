@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import TestHelper from '../../../../../utils/testHelper';
 import Header from '../../../../../../components/private/LN/common/header/headerBase';
-import Item from '../../../../../../components/private/LN/common/navBar/item';
 
 describe('components - private - LN - common - header - headerBase', () => {
     const child = <div>Soy un child</div>;
