@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
@@ -6,6 +7,8 @@ import { getSectionStyle } from '../private/common/utils/sectionUtils';
 // TODO: pasar a componente que procese el cuerpo!
 import ListIngredientes from '../private/LN/nota/apertura/listIngredientes';
 import ListPreparacion from '../private/LN/nota/apertura/listPreparacion';
+// import MasNotas from '../features/LN-nota/masNotas';
+import TePuedeInteresar from '../features/LN-nota/tePuedeInteresar';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
@@ -60,44 +63,54 @@ class LNNotaReceta extends Component {
         const { children } = this.props;
 
         return (
-            <article className={`lay ${this.sectionClass}`}>
-                {/* TODO: ver de cargar solo si hay videos a mostrar */}
-                <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
-                <main>
-                    <header className="row titulo">
-                        <div className="col-12">
-                            {/* APERTURA (Banner, breadcrumb, logo+titulo) */}
-                            {children[0]}
+            <>
+                <article className={`lay ${this.sectionClass}`}>
+                    {/* TODO: ver de cargar solo si hay videos a mostrar */}
+                    <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
+                    <main>
+                        <header className="row titulo">
+                            <div className="col-12">
+                                {/* APERTURA (Banner, breadcrumb, logo+titulo) */}
+                                {children[0]}
+                            </div>
+                        </header>
+                        <div className="row aper-receta w-100 hlp-marginBottom-40">
+                            {/* Destacado (Sections, Tags, porciones y tiempo, media detacado) */}
+                            {children[1]}
                         </div>
-                    </header>
-                    <div className="row aper-receta w-100 hlp-marginBottom-40">
-                        {/* Destacado (Sections, Tags, porciones y tiempo, media detacado) */}
-                        {children[1]}
-                    </div>
 
-                    {/* POR DEFINIR  */}
-                    {children[2]}
-                    {children[3]}
-                    {children[4]}
-                    {children[5]}
+                        {/* POR DEFINIR  */}
+                        {children[2]}
+                        {children[3]}
+                        {children[4]}
+                        {children[5]}
 
-                    <br />
-                    <div>
-                        {/* TODO: estos van en el componente que procese el cuerpo! */}
-                        <ListIngredientes
-                            content_elements={
-                                this.props.globalContent.content_elements
-                            }
-                        />
                         <br />
-                        <ListPreparacion
-                            content_elements={
-                                this.props.globalContent.content_elements
-                            }
-                        />
-                    </div>
-                </main>
-            </article>
+                        <div>
+                            {/* TODO: estos van en el componente que procese el cuerpo! */}
+                            <ListIngredientes
+                                content_elements={
+                                    this.props.globalContent.content_elements
+                                }
+                            />
+                            <br />
+                            <ListPreparacion
+                                content_elements={
+                                    this.props.globalContent.content_elements
+                                }
+                            />
+                        </div>
+                        {/**
+                            TODO: A continuacion solo se ve el html que ve para 
+                            contenedor de mas Notas
+                            TODO: Definir si va al cuerpo y si es necesario crear un 
+                            feature
+                        */}
+                        {/* <MasNotas /> */}
+                        <TePuedeInteresar />
+                    </main>
+                </article>
+            </>
         );
     }
 }
