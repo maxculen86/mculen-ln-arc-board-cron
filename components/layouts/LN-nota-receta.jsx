@@ -7,8 +7,6 @@ import { getSectionStyle } from '../private/common/utils/sectionUtils';
 // TODO: pasar a componente que procese el cuerpo!
 import ListIngredientes from '../private/LN/nota/apertura/listIngredientes';
 import ListPreparacion from '../private/LN/nota/apertura/listPreparacion';
-// import MasNotas from '../features/LN-nota/masNotas';
-import TePuedeInteresar from '../features/LN-nota/tePuedeInteresar';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
@@ -80,10 +78,10 @@ class LNNotaReceta extends Component {
                         </div>
 
                         {/* POR DEFINIR  */}
-                        {children[2]}
-                        {children[3]}
-                        {children[4]}
-                        {children[5]}
+                        <div>{children[3]}</div>
+                        <div>{children[2]}</div>
+                        <div>{children[4]}</div>
+                        <div>{children[5]}</div>
 
                         <br />
                         <div>
@@ -100,14 +98,6 @@ class LNNotaReceta extends Component {
                                 }
                             />
                         </div>
-                        {/**
-                            TODO: A continuacion solo se ve el html que ve para 
-                            contenedor de mas Notas
-                            TODO: Definir si va al cuerpo y si es necesario crear un 
-                            feature
-                        */}
-                        {/* <MasNotas /> */}
-                        {/* <TePuedeInteresar /> */}
                     </main>
                 </article>
             </>
