@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ArcAd from './arcWrapper';
+import BannerComponent from './component';
+import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import { slotsConfig, getSlotsOptions } from './config';
 import PlaceHolder from './bannerPlaceholder';
-import { getDevice } from '../../../common/utils/screenUtils';
 
 const banner = props => {
     const {
@@ -12,16 +12,18 @@ const banner = props => {
         },
         isAdmin,
         slotGroup,
-        selectedSlots: { desktopSlot, mobileSlot, tabletSlot }
+        selectedSlots: { desktopSlot, mobileSlot, tabletSlot },
+        sticky,
+        background,
+        screenUtils
     } = props;
 
-    if ((!desktopSlot && !mobileSlot && !tabletSlot) || !dfp_id) return null;
+    if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
 
     const getSlotForDevice = () => {
-        const device = getDevice();
-        if (device === 'tablet') return tabletSlot;
-        if (device === 'desktop') return desktopSlot;
-        if (device === 'mobile') return mobileSlot;
+        if (screenUtils.device === 'tablet') return tabletSlot;
+        if (screenUtils.device === 'desktop') return desktopSlot;
+        if (screenUtils.device === 'mobile') return mobileSlot;
 
         return null;
     };
@@ -32,7 +34,9 @@ const banner = props => {
     if (!finalConfig) return null;
 
     if (!dfp_id) {
-        if (!isAdmin) return null;
+        if (!isAdmin) {
+            return null;
+        }
         return <PlaceHolder missDfpId />;
     }
 
@@ -48,13 +52,15 @@ const banner = props => {
     }
 
     return (
-        <ArcAd
-            id={finalSlot}
+        <BannerComponent
+            slotId={finalSlot}
             dfpId={dfp_id}
             slotName={finalConfig.slotName}
             dimensions={finalConfig.dimensions}
             targeting={finalConfig.targeting}
             bidding={finalConfig.bidding}
+            sticky={sticky}
+            background={background}
         />
     );
 };
@@ -71,7 +77,17 @@ banner.propTypes = {
         desktopSlot: PropTypes.oneOf(getSlotsOptions()),
         mobileSlot: PropTypes.oneOf(getSlotsOptions()),
         tabletSlot: PropTypes.oneOf(getSlotsOptions())
+    }).isRequired,
+    sticky: PropTypes.bool,
+    background: PropTypes.bool,
+    screenUtils: PropTypes.shape({
+        device: PropTypes.string
     }).isRequired
 };
 
-export default banner;
+banner.defaultProps = {
+    sticky: false,
+    background: false
+};
+
+export default WithScreenUtils(banner);

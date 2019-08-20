@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { baseConfig } from './config';
 
+// TODO: faltan propTypes
 class ArcWrapper extends Component {
     static arcAdsInstance = undefined;
 
@@ -53,8 +54,12 @@ class ArcWrapper extends Component {
     }
 
     render() {
-        const { id, children } = this.props;
-        return <div id={id}>{children}</div>;
+        const { id, children, className } = this.props;
+        return (
+            <div id={id} className={className}>
+                {children}
+            </div>
+        );
     }
 }
 

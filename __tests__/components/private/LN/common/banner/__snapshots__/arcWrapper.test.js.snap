@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LaNacion - Common - Banner - ArcWrapper Test de snapShot 1`] = `
+<div
+  class="claseTest"
+  id="caja1_dsk"
+/>
+`;
