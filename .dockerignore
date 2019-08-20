@@ -13,3 +13,6 @@ coverage/
 .huskyrc
 _ignore_*
 _env_config
+
+src/statics
+assets/bundles

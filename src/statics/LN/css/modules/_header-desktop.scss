@@ -1,0 +1,150 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+//=====================
+// HEADER Desktop CORE
+//=====================
+.header{
+    display: none;
+    @media ($media-l){
+        display: block;
+        border-bottom: 1px solid $gris3;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background: #fff;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: transform 0.25s;
+        &__left{
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            align-items: center;
+        }
+        &__middle{
+            text-align: center;
+        }
+        &__right{
+            margin-left: auto;
+            text-align: right;
+        }  
+        //=================================
+        // ------ESTADOS DEL HEADER------
+        //=================================
+        //scrollUp
+        &.--scrollDown {
+            transform: translateY(-100%);
+        }
+
+        //scrollDown
+        &.--scrollUp {
+            transform: translateY(0);
+        }
+
+        //active del search-----
+        &.--active-search{
+            .header__left{
+                flex-basis: 60%;
+                max-width: 60%;
+                .com-search{
+                    &__submit{
+                        display: inline-block;
+                    }
+                    &__input{
+                        width: 75%;
+                    }
+                    .icon-search{
+                        display: none;
+                    }
+                }
+            }
+            .header__middle{
+                display: none;
+            }
+        }
+
+        //active menu-------
+        &.--active-menu{
+            .com-hamburger {
+                &__bar {
+                    &:nth-child(1) {
+                    transform: translateY(0) rotate(-45deg);
+                    }
+
+                    &:nth-child(2) {
+                    opacity: 0;
+                    }
+
+                    &:nth-child(3) {
+                    transform: translateY(0) rotate(45deg);
+                    }
+                }
+                &:before{
+                    content:"CERRAR";
+                }
+            }
+        }
+
+        //active modo DARK-------
+        &.--active-dark{
+            background: rgba(0, 0, 0, 0.5);
+            .header__left{      
+                .com-hamburger{
+                    &__bar{
+                        background-color: #fff;
+                    }
+                    &:before{
+                        color:#fff;
+                    }
+                }
+                .com-search{
+                    &__input{
+                        color:#fff;
+                        &::placeholder { 
+                            color: $gris3; 
+                        }
+                    }
+                    &__submit{
+                        background: #fff;
+                        color:$link;
+                    }
+                    .icon-search{
+                        color:#fff;
+                    }
+                }
+                
+            }
+            .header__middle{
+                &__logo{
+                    path, polygon{
+                        color: #fff !important;
+                        background: #fff !important;
+                        fill: #fff !important;
+                    }
+                }
+            }
+            .header__right{
+                .com-usuario{
+                    &__name{
+                        color:#fff;
+                        &:before{
+                            border-top: 2px solid #fff;
+                            border-left: 2px solid #fff;
+                        }
+                    }
+                    &__valueSuscrib{
+                        color:$gris3;
+                    }
+                }
+                .--btn.--secondary{
+                    background-color: transparent;
+                    border: 1px solid #fff;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+
+

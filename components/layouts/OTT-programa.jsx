@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Footer from '../private/OTT/common/footer';
 import loadHeaderEvents from '../private/OTT/common/header/layoutEvents';
 
-import '../../resources/dist/css/ott/style.css';
+import '../../assets/bundles/css/ott/style.css';
 
 const layoutItems = ['Header', 'Bloque-1'];
 

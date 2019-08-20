@@ -1,0 +1,55 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.mod-newsletter {
+    background: $link;
+    color: $blanco;
+    .col-4 p {
+        font-family: $font-arial;
+        font-size: $font-16;
+        line-height: $line-16;
+    }
+    h2 {
+        display: inline-block
+    }
+    .com-breadcrumb a {
+        color: $blanco;
+        border-color: $blanco;
+        &:last-child {
+            border: 0
+        }
+    }
+    &.suscripto {}
+    &.error {
+        label {
+            display: block;
+            width: fit-content;
+            border-radius: 3px;
+            background-color: #9d2827;
+            padding: 3px 6px;
+            font-family: $font-arial;
+            font-size: $px-14;
+        }
+        input {
+            width: calc(100% - 110px);
+            border: 1px solid #9d2827;
+            &:after {
+                content: '\e912';
+                font-family: 'LNicons' !important;
+                font-size: $px-14;
+                color: #9d2827
+            }
+        }
+    }
+    label.check {
+        display: block;
+        width: fit-content;
+        border-radius: 3px;
+        background-color: $blanco;
+        color: $negro;
+        padding: 3px 6px;
+        font-family: $font-arial;
+        font-weight: bold;
+        font-size: $px-16;
+    }
+}

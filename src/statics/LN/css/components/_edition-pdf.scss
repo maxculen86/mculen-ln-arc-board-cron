@@ -1,0 +1,11 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.colection_sidebar {
+    .cont-figure {
+        border-bottom: solid 11px #fcff2c;
+        .content-pic {
+            background: #000;
+        }
+    }
+}

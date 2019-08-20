@@ -8,10 +8,10 @@ import { getSectionStyle } from '../private/common/utils/sectionUtils';
 import ListIngredientes from '../private/LN/nota/apertura/listIngredientes';
 import ListPreparacion from '../private/LN/nota/apertura/listPreparacion';
 
-import '../../resources/dist/css/ln/base.css';
-import '../../resources/dist/css/ln/pages/recipe.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
+import '../../assets/bundles/css/ln/base.css';
+import '../../assets/bundles/css/ln/pages/recipe.css';
+import '../../assets/bundles/css/ln/layouts/grid.css';
+import '../../assets/bundles/css/ln/layouts/layout.css';
 
 const pageBuilderSections = [
     'Pre-Apertura',

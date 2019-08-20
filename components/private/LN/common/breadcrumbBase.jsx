@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import '../../../../resources/dist/css/ln/components/breadcrumb.css';
+import '../../../../assets/bundles/css/ln/components/breadcrumb.css';
 
 const breadcrumbBase = props => {
     const { sections } = props;

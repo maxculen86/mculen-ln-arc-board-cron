@@ -1,0 +1,50 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.wiki-autor {
+    h1 {
+        display: inline
+    }
+    label {
+        font-family: $font-arial;
+        font-size: $px-14;
+        line-height: $px-19;
+        display: block
+    }
+    p {
+        font-family: $font-arial;
+        font-size: $px-16;
+        line-height: $px-23;
+    }
+    .cont-figure-wiki {
+        display: inline-block;
+        margin-right: $px-10;
+        img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+    }
+    .wiki-calc {
+        width: calc(100% - 80px)
+    }
+}
+
+@media (min-width: 768px) {
+    .wiki-autor {
+        p {
+            display: block
+        }
+        .wiki-calc {
+            width: calc(100% - 200px)
+        }
+        .cont-figure-wiki {
+            display: inline-block;
+            margin-right: $px-30;
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.diario-hoy img {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.carta-lectores {
+    border: solid 1px #d9d9d9;
+}
