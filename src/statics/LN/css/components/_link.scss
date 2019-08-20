@@ -1,0 +1,40 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.com-link {
+    text-transform: uppercase;
+    font-family: $font-arial;
+    font-size: $font-12;
+    color: $link;
+    &.--small {
+        font-size: $font-14;
+        text-transform: initial;
+    }
+    &.--inline {
+        display: inline-block;
+        text-transform: initial;
+        font-size: $px-16;
+        line-height: $px-23
+    }
+}
+
+.link {
+    font-family: $font-arial;
+    font-size: $font-12;
+    color: $link;
+    .--small {
+        font-size: $font-14;
+        text-transform: initial;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all .2s ease-in-out;
+    &:hover {
+        opacity: 0.8;
+        transition: all .2s ease-in-out;
+        cursor: pointer
+    }
+}

@@ -1,0 +1,35 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+//=====================
+// USUARIO
+//=====================
+.com-usuario{
+    font-family: Arial;
+    line-height: $font-16;
+    display: flex;
+    justify-content: flex-end;
+    &__name{
+        font-weight: 700;
+        font-size: $font-14;
+        color:$link;
+        cursor:pointer;
+        position: relative;
+        &:before{
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-top: 2px solid $link;
+            border-left: 2px solid $link;
+            position: absolute;
+            right: -14px;
+            top: 1px;
+            transform: rotate(224deg);
+        }
+    }
+    &__valueSuscrib{
+        font-weight: 400;
+        font-size: $font-12;
+        color:$gris5;
+    }
+}

@@ -1,0 +1,32 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+/* lead */
+
+.com-lead-nota {
+    //no hay nada definido en mobile
+    font-family: $font-arial;
+    font-size: $font-17;
+    line-height: $line-23;
+}
+
+//Valores de tablet para arriba
+@media (min-width: 768px) {}
+
+//Valores de desk chico para arriba
+@media (min-width: 1025px) {}
+
+//Valores de desk chico para arriba
+@media (min-width: 1280px) {
+    .com-lead-nota {
+        font-family: $font-arial;
+        font-size: $font-19;
+        line-height: $line-23;
+    }
+}
+
+//Valores de desk para arriba
+@media (min-width: 1340px) {}
+
+
+/* end lead */

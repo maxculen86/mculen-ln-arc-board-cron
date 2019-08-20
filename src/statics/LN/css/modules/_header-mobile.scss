@@ -1,0 +1,40 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+//=====================
+// HEADER CORE MOBILE
+//=====================
+.header-mobile{
+    display: block;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $gris2;
+    .header-mobile__logo{
+        svg{
+            width:170px;
+        }
+    }
+    a{
+        color: #0074c4;
+        font-family:arial;
+        text-transform: uppercase;
+        font-size: $px-12;
+    }
+    @media ($media-l){
+        display: none;
+    }
+    &.--active-dark{
+        background: rgba(0, 0, 0, 0.5);
+        .header-mobile__logo{
+            path, polygon{
+                color: #fff !important;
+                background: #fff !important;
+                fill: #fff !important;
+            }
+        }
+        a{
+            color:#fff;
+        }
+    }
+}

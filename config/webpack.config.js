@@ -8,16 +8,35 @@ const sites = {
     OTT: [{ '[site]/style': 'style.scss' }],
     LN: [
         { '[site]/base': 'css/base/*.scss' },
-        { '[site]/[dirname]/[basename]': 'css/*/*.scss' }
+        {
+            '[site]/[dirname]/[basename]': {
+                pattern: 'css/*/*.scss',
+                ignore: ['css/abstracts/**']
+            }
+        }
     ]
 };
 
+const defaultOptions = {};
 const entries = Object.keys(sites).reduce((config, site) => {
     const patterns = sites[site];
 
     patterns.forEach((item, i) => {
-        Object.entries(item).forEach(([name, pattern]) => {
-            const files = glob.sync(`${paths.resources}/${site}/${pattern}`);
+        Object.entries(item).forEach(([name, _pattern]) => {
+            const { pattern, ignore } =
+                typeof _pattern === 'string' ? { pattern: _pattern } : _pattern;
+
+            const options = {
+                ...defaultOptions,
+                ignore:
+                    ignore &&
+                    ignore.map(p => `${paths.sourcePath.base}/${site}/${p}`)
+            };
+
+            const files = glob.sync(
+                `${paths.sourcePath.base}/${site}/${pattern}`,
+                options
+            );
 
             files.forEach(file => {
                 const pathbase = path.dirname(file);
@@ -94,8 +113,8 @@ const getRules = env => {
                 {
                     loader: 'file-loader',
                     options: {
-                        outputPath: 'fonts',
-                        publicPath: '/pf/resources/dist/fonts',
+                        outputPath: paths.outputPath.fonts,
+                        publicPath: paths.urlPath.fonts,
                         name: isProd ? '[hash].[ext]' : '[name].[ext]'
                     }
                 }
@@ -107,8 +126,8 @@ const getRules = env => {
                 {
                     loader: 'file-loader',
                     options: {
-                        outputPath: 'images',
-                        publicPath: '/pf/resources/dist/images',
+                        outputPath: paths.outputPath.images,
+                        publicPath: paths.urlPath.images,
                         name: isProd ? '[hash].[ext]' : '[name].[ext]'
                     }
                 }
@@ -130,12 +149,12 @@ module.exports = (env = {}) => {
         mode: isProd ? 'production' : 'development',
         entry: entries,
         output: {
-            path: paths.dist,
-            filename: 'js/[name].js'
+            path: paths.outputPath.base,
+            filename: `[name].js`
         },
         plugins: [
             new MiniCssExtractPlugin({
-                filename: isProd ? 'css/[name].css' : 'css/[name].css'
+                filename: `${paths.outputPath.css}/[name].css`
             })
         ]
     };

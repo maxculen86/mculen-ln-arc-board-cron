@@ -1,0 +1,48 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.com-nav-mobile{
+    position: fixed;
+    bottom:0;
+    padding: 5px 10px 10px;
+    background: #fff;
+    z-index: 1500;
+    border-top: 1px solid $gris2;
+    width: 100%;
+    .row{
+        max-width: 390px;
+        margin: 0 auto;
+        justify-content: space-between;
+    }
+    .item-foo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        p {
+            font-family: $font-arial;
+            font-size: $font-11;
+            color: $gris5;
+        }
+        &:hover {
+            p {
+                color: $ln;
+            }
+            i {
+                color: $ln;
+            }
+        } 
+        &.--active {
+            p {
+                color: $ln;
+            }
+            i {
+                color: $ln;
+            }
+        }
+    }
+    @media ($media-l) { 
+        display: none;
+    }
+} 

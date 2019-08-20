@@ -1,0 +1,25 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.com-breadcrumb {
+    font-family: $font-arial;
+    font-size: $font-14;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    a {
+        color: $link;
+        border-right: solid 1px $gris4;
+        padding: 0 $px-10;
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+}
+
+//Valores de tablet para arriba
+@media (min-width: 768px) {
+    .com-breadcrumb {
+        display: flex;
+    }
+}

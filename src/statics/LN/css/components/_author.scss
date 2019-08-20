@@ -1,0 +1,21 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.com-author {
+        display: inline-block;
+        align-items: center;
+        margin-bottom: 15px;
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    a {
+        font-family: $font-arial;
+        font-weight: 600;
+        color: $link;
+        margin-right: 5px;
+        font-size: $font-14;
+        @media (min-width: 768px) {
+            font-size: $font-16;
+        }
+    }
+}

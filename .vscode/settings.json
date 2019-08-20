@@ -23,6 +23,7 @@
         "/coverage/**":true,
         "/.scannerwork/**":true,
         "/dist/**":true,
-        "/resources/dist/**":true
+        "/resources/dist/**":true,
+        "/src/bundles/**":true
     }
 }

@@ -1,0 +1,161 @@
+@import '../abstracts/imports';
+@import '../base/aspect-ratios';
+
+.footer-header {
+    @media ($media-l) {
+        padding-bottom: $px-15;
+        border-bottom: 1px solid $gris3;
+    }
+    .footer-header__logo {
+        border-bottom: 1px solid $gris3;
+        padding-bottom: $px-20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media ($media-l) {
+            order: 2;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        svg {
+            width: 197px;
+            height: 20px;
+        }
+        a {
+            display: inline-flex;
+            height: fit-content;
+        }
+    }
+    .footer-header__redes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media ($media-l) {
+            order: 1;
+        }
+        @media (min-width: 1024px) {
+            justify-content: flex-start;
+        }
+        i {
+            margin-right: $px-20;
+            @media (max-width: 1023px) {
+                margin: $px-10;
+            }
+        }
+    }
+    .footer-header__app {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @media ($media-l) {
+            order: 3;
+            justify-content: flex-end;
+        }
+        .app_ios {
+            @media ($media-l) {
+                margin-left: $px-10;
+            }
+        }
+    }
+}
+
+.footer-sitio {
+    .footer-sitio__links {
+        display: none;
+        @media (min-width: 1024px) {
+            display: flex;
+        }
+        .item_link {
+            font-family: $font-arial;
+            font-size: $font-14;
+            color: $link;
+            margin-right: $px-20;
+            height: fit-content;
+            width: fit-content;
+        }
+    }
+    .footer-sitio__captcha {
+        font-family: $font-arial;
+        line-height: $px-18;
+        display: none;
+        @media (min-width: 1024px) {
+            display: flex;
+        }
+        p {
+            color: $gris5;
+            font-size: $px-14;
+            line-height: $px-20;
+            height: fit-content;
+            width: fit-content;
+        }
+        .private {
+            font-size: $font-14;
+            line-height: $px-18;
+        }
+        .condition {
+            font-size: $font-14;
+            line-height: $px-18;
+        }
+    }
+}
+
+.footer-copyright {
+    .footer-copyright__fiscal {
+        @media ($media-l) {
+            order: 2;
+        }
+        p {
+            color: $gris5;
+            font-size: $px-14;
+            line-height: $px-20;
+            height: fit-content;
+            width: fit-content;
+        }
+        .fiscal_row {
+            width: 100%;
+            @media (min-width: 1024px) {
+                display: flex;
+                justify-content: flex-end;
+            }
+            .logo-gda {
+                display: flex;
+                flex-direction: row-reverse;
+                @media (max-width: 1023px) {
+                    align-items: center;
+                }
+                @media (min-width: 1024px) {
+                    margin-top: -10px;
+                }
+            }
+            .gda {
+                font-family: Arial, "sans-serif";
+                font-size: $font-14;
+                line-height: $px-20;
+                display: flex;
+                justify-content: center;
+                @media (max-width: 1023px) {
+                    align-items: center;
+                }
+                .img_gda {
+                    height: $px-15;
+                }
+            }
+            .data-fiscal {
+                .img_data-fiscal {
+                    width: $px-35;
+                }
+            }
+        }
+    }
+    .footer-copyright__reserved {
+        font-family: $font-arial;
+        font-size: $font-14;
+        line-height: $px-24;
+        color: $gris5;
+        text-align: center;
+        @media ($media-l) {
+            text-align: left;
+            order: 1;
+        }
+    }
+}

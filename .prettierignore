@@ -4,6 +4,7 @@
 ./.{git,svn,hg}
 dist/
 resources/dist
+src/bundles
 package.json
 .scannerwork/
 .vscode/
