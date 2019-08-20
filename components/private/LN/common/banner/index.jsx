@@ -18,7 +18,7 @@ const banner = props => {
         screenUtils
     } = props;
 
-    if ((!desktopSlot && !mobileSlot && !tabletSlot) || !dfp_id) return null;
+    if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
 
     const getSlotForDevice = () => {
         if (screenUtils.device === 'tablet') return tabletSlot;
@@ -34,7 +34,9 @@ const banner = props => {
     if (!finalConfig) return null;
 
     if (!dfp_id) {
-        if (!isAdmin) return null;
+        if (!isAdmin) {
+            return null;
+        }
         return <PlaceHolder missDfpId />;
     }
 
