@@ -3,6 +3,20 @@ export default {
     className: {
         body: 'ln'
     },
+    scripts: {
+        GTM: {
+            props: { id: 'GTM-GHV6' },
+            location: ['head', 'body-top']
+        },
+        PostBid: {
+            props: {},
+            location: ['body-top']
+        },
+        ArcAds: {
+            props: {},
+            location: ['head']
+        }
+    },
     imageConfig: {
         resize: {
             nota: {
@@ -40,7 +54,28 @@ export default {
                         }
                     }
                 }
+            },
+            masNotas: {
+                byDestination: {
+                    article: {
+                        big: {
+                            width: 1033,
+                            media: '(min-width: 768px)',
+                            class: 'img-desktop',
+                            type: 'apertura'
+                        },
+                        medium: {
+                            width: 300,
+                            media: '(min-width: 240px)',
+                            class: 'img-desktop-sm',
+                            type: 'apertura'
+                        }
+                    }
+                }
             }
         }
+    },
+    bannerConfig: {
+        dfp_id: 133919216
     }
 };
