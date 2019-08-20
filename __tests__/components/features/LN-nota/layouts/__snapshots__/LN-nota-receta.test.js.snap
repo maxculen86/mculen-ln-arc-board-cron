@@ -23,18 +23,26 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
         id="Hijo1"
       />
     </div>
-    <div
-      id="Hijo2"
-    />
-    <div
-      id="Hijo3"
-    />
-    <div
-      id="Hijo4"
-    />
-    <div
-      id="Hijo5"
-    />
+    <div>
+      <div
+        id="Hijo3"
+      />
+    </div>
+    <div>
+      <div
+        id="Hijo2"
+      />
+    </div>
+    <div>
+      <div
+        id="Hijo4"
+      />
+    </div>
+    <div>
+      <div
+        id="Hijo5"
+      />
+    </div>
     <br />
     <div>
       <div
