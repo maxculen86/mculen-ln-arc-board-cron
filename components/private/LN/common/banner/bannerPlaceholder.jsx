@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+// TODO: mejorar como se ve en el PB
 const bannerPlaceholder = ({ slotName, targeting, dimensions, missDfpId }) => {
     const style = {
         alignItems: 'center',

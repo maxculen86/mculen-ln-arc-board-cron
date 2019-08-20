@@ -10,7 +10,7 @@ import {
 const banner = ({
     siteProperties,
     isAdmin,
-    customFields: { group, desktop, mobile, tablet }
+    customFields: { group, desktop, mobile, tablet, sticky, background }
 }) => {
     return (
         <Banner
@@ -23,6 +23,8 @@ const banner = ({
                 mobileSlot: mobile,
                 tabletSlot: tablet
             }}
+            sticky={sticky}
+            background={background}
         />
     );
 };
@@ -36,7 +38,9 @@ banner.propTypes = {
         }).isRequired,
         desktop: PropTypes.oneOf(getSlotsOptions()),
         mobile: PropTypes.oneOf(getSlotsOptions()),
-        tablet: PropTypes.oneOf(getSlotsOptions())
+        tablet: PropTypes.oneOf(getSlotsOptions()),
+        sticky: PropTypes.bool,
+        background: PropTypes.bool
     }).isRequired,
     siteProperties: PropTypes.isRequired,
     isAdmin: PropTypes.bool.isRequired
