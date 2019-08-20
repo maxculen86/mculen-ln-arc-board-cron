@@ -32,7 +32,12 @@ const breadcrumbArticle = ({
     });
     allSections = allSections.reverse();
 
-    return <BreadcrumbComponent sections={allSections.slice(0, 3)} />;
+    return (
+        <BreadcrumbComponent
+            extraClasses="hlp-marginBottom-40"
+            sections={allSections.slice(0, 3)}
+        />
+    );
 };
 
 breadcrumbArticle.propTypes = {
