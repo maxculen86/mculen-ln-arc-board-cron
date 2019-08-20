@@ -40,7 +40,6 @@ const resolve = (key, a) => {
             }&size=${cantidadNotas}
             &sort=publish_date:desc`;
         const final = `${basePath}&${query}`;
-        console.log('-------------------', final);
         return final;
     }
 
@@ -48,7 +47,6 @@ const resolve = (key, a) => {
 };
 
 const transform = (data, siteProps) => {
-    console.log('---------------------', siteProps);
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
     const presets =

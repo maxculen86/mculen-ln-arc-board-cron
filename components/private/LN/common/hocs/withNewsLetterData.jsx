@@ -37,7 +37,7 @@ function withNewsLetterData(WrappedComponent) {
                         this.setState({ service: resData });
                     })
                     .catch(error =>
-                        console.log('ERROR en la API ::::: ', error)
+                        console.error('ERROR en la API ::::: ', error)
                     );
             }
 
