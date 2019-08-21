@@ -5,7 +5,9 @@
 dist/
 resources/dist
 src/bundles
+assets/bundles
 package.json
+package-lock.json
 .scannerwork/
 .vscode/
 _fix_windows/
