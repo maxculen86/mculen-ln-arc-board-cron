@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { baseConfig } from './config';
 
-// TODO: faltan propTypes
+// TODO: faltan propTypes, probar import de acrAds.js aca
 class ArcWrapper extends Component {
     static arcAdsInstance = undefined;
 
