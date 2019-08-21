@@ -1,3 +1,4 @@
+.docz
 .git*
 .fusion/
 data/
@@ -15,4 +16,3 @@ _ignore_*
 _env_config
 
 src/statics
-assets/bundles
