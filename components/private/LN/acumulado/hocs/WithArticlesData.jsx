@@ -12,26 +12,28 @@ function WithArticlesData(WrappedArticles, filter) {
 
             constructor(props) {
                 super(props);
+                const { section_id, size, obtenerMasNotas } = props;
+                const { page } = this.state;
                 const { cached, fetched } = this.getContent({
                     sourceName: 'articlesSource',
                     query: {
-                        section_id: props.section_id,
-                        size: props.size,
-                        page: this.state.page
+                        section_id,
+                        size,
+                        page
                     },
                     filter
                 });
 
                 this.state = {
-                    page: this.state.page,
+                    page,
                     articles: cached.content_elements,
-                    obtenerMasNotas: this.state.obtenerMasNotas,
+                    obtenerMasNotas,
                     mostrarBtnMasNotas: cached.content_elements < 30
                 };
 
                 fetched.then(response => {
                     this.setState({
-                        page: this.state.page,
+                        page,
                         articles: response.content_elements,
                         mostrarBtnMasNotas: response.content_elements < 30
                     });
@@ -39,15 +41,15 @@ function WithArticlesData(WrappedArticles, filter) {
             }
 
             obtenerMasNotas = () => {
-                let page = this.state.page;
-                const articles = this.state.articles;
+                let { page } = this.state;
+                const { section_id, size } = this.props;
+                const { articles } = this.state;
                 page++;
-                console.log('ESTADO::', this.state);
                 const { cached, fetched } = this.getContent({
                     sourceName: 'articlesSource',
                     query: {
-                        section_id: this.props.section_id,
-                        size: this.props.size,
+                        section_id,
+                        size,
                         page
                     },
                     filter
@@ -55,7 +57,7 @@ function WithArticlesData(WrappedArticles, filter) {
 
                 if (cached && cached.content_elements) {
                     cached.content_elements.forEach(art => articles.push(art));
-                    const mostrarBtnMasNotas = response.content_elements < 30;
+                    const mostrarBtnMasNotas = cached.content_elements < 30;
                     this.setState({
                         page,
                         articles,
@@ -80,11 +82,12 @@ function WithArticlesData(WrappedArticles, filter) {
             };
 
             render() {
+                const { articles, mostrarBtnMasNotas } = this.state;
                 return (
                     <WrappedArticles
-                        articles={this.state.articles}
+                        articles={articles}
                         obtenerMasNotas={this.obtenerMasNotas}
-                        mostrarBtnMasNotas={this.state.mostrarBtnMasNotas}
+                        mostrarBtnMasNotas={mostrarBtnMasNotas}
                         {...this.props}
                     />
                 );
