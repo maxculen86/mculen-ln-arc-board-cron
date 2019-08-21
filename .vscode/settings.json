@@ -10,7 +10,8 @@
         ".prettierignore": true,
         ".eslintrc*": true,
         "coverage": true,
-        "node_modules": true
+        "node_modules": true,
+        "assets/bundles/*": true
     },
     "editor.tabSize": 4,
     "files.watcherExclude": {
@@ -24,6 +25,6 @@
         "/.scannerwork/**":true,
         "/dist/**":true,
         "/resources/dist/**":true,
-        "/src/bundles/**":true
+        "/assets/**":true
     }
 }
