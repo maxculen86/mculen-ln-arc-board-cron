@@ -7,7 +7,6 @@ const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
 class LNAcumuladoLayout extends Component {
     render() {
-        console.log(this.props);
         return (
             <div id="wrap">
                 <Header />
@@ -30,7 +29,6 @@ class LNAcumuladoLayout extends Component {
                                 {this.props.children[2]}
                             </section>
                         </div>
-
                         <div className="sidebar__aside">
                             {/* RANKING DE NOTAS */}
                             {this.props.children[3]}
