@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ArticleMain from '../../common/articleTypes/articleMain';
-import WithArticlesData from '../hocs/WithArticlesData';
+import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import BtnMasNotas from '../botonVerMasNotas';
 
@@ -21,7 +21,7 @@ class GrillaNotas extends Component {
                 <section className="row-gap-tablet-2 row-gap-desksm-3">
                     {articles}
                 </section>
-                {this.props.mostrarBtnMasNotas && (
+                {this.props.hayMasNotas && (
                     <section className="row">
                         <BtnMasNotas
                             onClickHandler={this.props.obtenerMasNotas}
@@ -34,4 +34,4 @@ class GrillaNotas extends Component {
     }
 }
 
-export default WithArticlesData(GrillaNotas); // TODO: dejo el filter comentado porque no me trae datos. REVISAR, filter);
+export default WithAcuArticlesData(GrillaNotas); // TODO: dejo el filter comentado porque no me trae datos. REVISAR, filter);

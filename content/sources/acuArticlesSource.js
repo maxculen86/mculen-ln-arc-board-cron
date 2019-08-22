@@ -1,15 +1,16 @@
 import { addResizedUrls } from '@arc-core-components/content-source_content-api-v4';
-import { resizerSecret, resizerUrl } from 'fusion:environment';
+import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
+import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
 
-const resolve = (key, a) => {
-    const { sectionId, website, cantidadNotas = 10 } = key;
+const resolve = key => {
+    const { sectionId, size, page, website } = key;
     const arcSite = key['arc-site'];
+    const from = (page || 0) * size;
     const basePath = `/content/v4/search/published/?website=${website ||
         arcSite}`;
 
-    if (sectionId) {
-        const query = `body={
+    const query = `&body={
             "query":{
                 "bool": {
                     "must": [
@@ -37,41 +38,42 @@ const resolve = (key, a) => {
                         }
                     ]}
                 }
-            }&size=${cantidadNotas}
+            }`;
+    const final = `${basePath}${query}&size=${size || 30}&from=${from}
             &sort=publish_date:desc`;
-        const final = `${basePath}&${query}`;
-        return final;
-    }
-
-    throw new Error('Debe definir sectionId o website para obtener la nota');
+    console.log('----------------', final);
+    return final;
 };
 
-const transform = (data, siteProps) => {
-    const arcSite = siteProps['arc-site'];
-    const properties = getProperties(arcSite);
-    const presets =
-        properties.imageConfig.resize.masNotas.byDestination[
-            siteProps.destination
-        ];
-    const resp = addResizedUrls(data, {
-        resizerSecret,
-        resizerUrl,
+const getPresets = () => {
+    const presets = {};
+    SourceSetSizes.forEach(ss => {
+        ss.values.forEach(v => {
+            presets[`${ss.name}_${v.name}`] = {
+                height: v.value
+            };
+        });
+    });
+    return presets;
+};
+
+const transform = data => {
+    const presets = getPresets();
+    console.log('-------------------- transform', data.content_elements.length);
+    return addResizedUrls(data, {
+        resizerSecret: RESIZER_SECRET,
+        resizerUrl: RESIZER_URL,
         presets
     });
-
-    resp.imageResizePresets = presets;
-
-    return resp;
 };
 
 export default {
     resolve,
-    // schemaName: source.schemaName,
     params: {
         sectionId: 'text',
-        website: 'text',
-        destination: 'text',
-        cantidadNotas: 'number'
+        size: 'text',
+        page: 'text',
+        website: 'text'
     },
     transform
 };
