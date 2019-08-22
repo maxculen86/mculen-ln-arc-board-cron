@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ArticleItem from './articleItem';
+import ArticleMain from '../../common/articleTypes/articleMain';
 import articleFiltered from '../../../../../content/filters/LN/nota/articleFiltered';
 import withArticlesData from '../common/hocs/withArticlesData';
 
 const ArticleList = props => {
     const { articles } = props;
-    return articles.content_elements.map(e => <ArticleItem e={e} />);
+    if (!articles) return null;
+    return articles.content_elements.map(e => (
+        <ArticleMain articleData={e} border={true} />
+    ));
 };
 
 export default withArticlesData(ArticleList);

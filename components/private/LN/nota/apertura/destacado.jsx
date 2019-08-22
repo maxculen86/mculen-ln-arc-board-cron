@@ -14,7 +14,7 @@ const destacado = props => {
     if (basic) {
         return (
             <Media
-                mediaItem={basic}
+                mediaData={basic}
                 imageResizePresets={imageResizePresets}
                 colNumber={8}
             />

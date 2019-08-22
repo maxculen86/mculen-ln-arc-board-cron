@@ -3,26 +3,29 @@ import Image from './imageBase';
 import VideoPlayer from './videoPlayer';
 
 // TODO: proptypes
-const media = ({ mediaItem, imageResizePresets, colNumber }) => {
-    const { type, _id } = mediaItem;
+const media = ({ mediaData, imageResizePresets, colNumber }) => {
+    // TODO: revisar implementacion de placeHolder
+    let item = <a className="figure" />;
+    if (mediaData) {
+        const { type, _id } = mediaData;
 
-    let item;
-    switch (type) {
-        case 'image':
-            item = (
-                <Image
-                    image={mediaItem}
-                    imageResizePresets={imageResizePresets}
-                    zoom
-                    configType="apertura"
-                />
-            );
-            break;
-        case 'video':
-            item = <VideoPlayer videoId={_id} />;
-            break;
-        default:
-            item = null;
+        switch (type) {
+            case 'image':
+                item = (
+                    <Image
+                        image={mediaData}
+                        imageResizePresets={imageResizePresets}
+                        zoom
+                        configType="apertura"
+                    />
+                );
+                break;
+            case 'video':
+                item = <VideoPlayer videoId={_id} />;
+                break;
+            default:
+                break;
+        }
     }
     const colClass = colNumber ? `col-desksm-${colNumber} ` : '';
 
