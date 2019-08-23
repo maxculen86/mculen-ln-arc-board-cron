@@ -10,10 +10,10 @@ export default ({
     border
 }) => {
     const volanta = label && label.volanta && label.volanta.text;
+    const borderClass = border ? '--border ' : '';
     return (
         <article
-            className={`mod-caja-nota ${border && '--border '}${extraClasses ||
-                ''}`}
+            className={`mod-caja-nota ${borderClass}${extraClasses || ''}`}
         >
             {mediaComponent}
             <div className="mod-caja-nota__descrip">
