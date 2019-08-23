@@ -9,7 +9,11 @@ const titleSection = ({ size, text }) => {
 
 titleSection.propTypes = {
     size: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired
+    text: PropTypes.string
+};
+
+titleSection.defaultProps = {
+    text: "I'm a fancy header"
 };
 
 export default titleSection;
