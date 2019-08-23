@@ -1,5 +1,6 @@
 import { addResizedUrls } from '@arc-core-components/content-source_content-api-v4';
 import { resizerSecret, resizerUrl } from 'fusion:environment';
+import get from 'lodash.get';
 import getProperties from 'fusion:properties';
 import filter from '../filters/LN/nota/article';
 
@@ -16,12 +17,20 @@ const resolve = (key, a) => {
 const transform = (data, siteProps) => {
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
-    const presets = properties.imageConfig.resize.nota.bySubtype[data.subtype];
-    const resp = addResizedUrls(data, {
-        resizerSecret,
-        resizerUrl,
-        presets
-    });
+
+    const presets = get(
+        properties,
+        'imageConfig.resize.nota.bySubtype[data.subtype]',
+        null
+    );
+    let resp = data;
+    if (presets) {
+        resp = addResizedUrls(data, {
+            resizerSecret,
+            resizerUrl,
+            presets
+        });
+    }
 
     resp.imageResizePresets = presets;
 
@@ -30,7 +39,6 @@ const transform = (data, siteProps) => {
 
 export default {
     resolve,
-    // schemaName: source.schemaName,
     params: {
         url: 'text',
         id: 'text',

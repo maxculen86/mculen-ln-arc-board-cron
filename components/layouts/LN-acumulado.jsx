@@ -9,7 +9,6 @@ const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
 class LNAcumuladoLayout extends Component {
     render() {
-        console.log(this.props);
         return (
             <div id="wrap">
                 <Header />
