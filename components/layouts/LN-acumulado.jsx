@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import Header from '../../components/private/LN/common/header';
 import AcuTitle from '../../components/private/LN/acumulado/acumuladoTitle';
+import BannerCaja1 from '../../components/private/LN/acumulado/bannerCaja1';
+import BannerCaja2 from '../../components/private/LN/acumulado/bannerCaja2';
 
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
 class LNAcumuladoLayout extends Component {
     render() {
+        console.log(this.props);
         return (
             <div id="wrap">
                 <Header />
@@ -30,8 +33,10 @@ class LNAcumuladoLayout extends Component {
                             </section>
                         </div>
                         <div className="sidebar__aside">
+                            <BannerCaja1 />
                             {/* RANKING DE NOTAS */}
                             {this.props.children[3]}
+                            <BannerCaja2 />
                         </div>
                     </div>
                 </main>

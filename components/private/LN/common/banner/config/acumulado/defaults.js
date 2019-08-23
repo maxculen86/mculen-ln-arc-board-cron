@@ -1,6 +1,6 @@
 export const defaultTargeting = {
     sitio: 'lanacion',
-    seccion: 'acu'
+    seccion: 'acumulado'
 };
 
 export default { defaultTargeting };

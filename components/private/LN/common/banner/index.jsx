@@ -72,7 +72,7 @@ banner.propTypes = {
         })
     }).isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    slotGroup: PropTypes.oneOf(['nota', 'home', 'acu']).isRequired,
+    slotGroup: PropTypes.oneOf(['nota', 'home', 'acumulado']).isRequired,
     selectedSlots: PropTypes.shape({
         desktopSlot: PropTypes.oneOf(getSlotsOptions()),
         mobileSlot: PropTypes.oneOf(getSlotsOptions()),
