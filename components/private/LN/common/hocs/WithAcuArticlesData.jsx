@@ -7,6 +7,9 @@ function WithAcuArticlesData(WrappedArticles, filter) {
         class extends PureComponent {
             constructor(props) {
                 super(props);
+
+                const { page } = props;
+
                 const { articles, hayMasNotas } = this.getArticles(
                     ({
                         articles: articlesFetched,
@@ -22,7 +25,7 @@ function WithAcuArticlesData(WrappedArticles, filter) {
                 this.state = {
                     articles,
                     hayMasNotas,
-                    page: 0
+                    page: page || 1
                 };
             }
 
@@ -71,10 +74,6 @@ function WithAcuArticlesData(WrappedArticles, filter) {
 
                 this.getArticles(
                     ({ articles: articlesFetched, hayMasNotas }) => {
-                        console.log(
-                            '---------articles fetched',
-                            JSON.stringify(articlesFetched, null, 2)
-                        );
                         this.setState({
                             page: page + 1,
                             articles: [...articles, ...articlesFetched],

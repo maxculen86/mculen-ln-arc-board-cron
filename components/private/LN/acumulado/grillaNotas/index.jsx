@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import GrillaNotas from './grillaNotas';
 
-const SIZE = 2;
+// TODO: pasar esto a un customField
+const SIZE = 4;
 class Index extends Component {
     render() {
         return (

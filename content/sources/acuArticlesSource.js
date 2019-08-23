@@ -6,7 +6,7 @@ import SourceSetSizes from '../../components/private/LN/home/common/config/sourc
 const resolve = key => {
     const { sectionId, size, page, website } = key;
     const arcSite = key['arc-site'];
-    const from = (page || 0) * size;
+    const from = ((page || 1) - 1) * size;
     const basePath = `/content/v4/search/published/?website=${website ||
         arcSite}`;
 
@@ -41,7 +41,6 @@ const resolve = key => {
             }`;
     const final = `${basePath}${query}&size=${size || 30}&from=${from}
             &sort=publish_date:desc`;
-    console.log('----------------', final);
     return final;
 };
 
@@ -59,7 +58,6 @@ const getPresets = () => {
 
 const transform = data => {
     const presets = getPresets();
-    console.log('-------------------- transform', data.content_elements.length);
     return addResizedUrls(data, {
         resizerSecret: RESIZER_SECRET,
         resizerUrl: RESIZER_URL,
