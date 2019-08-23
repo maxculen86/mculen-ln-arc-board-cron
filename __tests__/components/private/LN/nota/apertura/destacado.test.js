@@ -1,9 +1,9 @@
 jest.mock(
-    '../../../../../../components/private/LN/common/imageBase',
+    '../../../../../../components/private/LN/common/media/imageBase',
     () => 'mock-image'
 );
 jest.mock(
-    '../../../../../../components/private/common/videoPlayer/container.jsx',
+    '../../../../../../components/private/LN/common/media/videoPlayer.jsx',
     () => 'mock-video'
 );
 
@@ -30,11 +30,5 @@ describe('features - La Nacion - Components - Nota - Apertura - Destacado ', () 
         const video = comp.find('mock-video');
         expect(video.length).toBe(1);
         expect(video.prop('videoId')).toBe(nota.promo_items.basic._id);
-    });
-
-    it('Test de logica de Destacado - Desconocido', () => {
-        nota.promo_items.basic.type = 'tipoDesconocido';
-        const comp = mount(<Destacado globalContent={nota} />);
-        expect(comp.children().length).toBe(0);
     });
 });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Article from '../../common/articleTypes/articleMain';
-import WithArticlesData from '../hocs/WithArticlesData';
+import ArticleMain from '../../common/articleTypes/articleMain';
+import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import BtnMasNotas from '../botonVerMasNotas';
 
@@ -8,33 +8,10 @@ const CLASS_W_100 = 'w-100-mobile';
 class GrillaNotas extends Component {
     render() {
         let articles = [];
-        if (this.props.articles.length) {
+        if (this.props.articles && this.props.articles.length) {
             articles = this.props.articles.map((a, i) => {
-                let image = {};
-                if (a.promo_items) {
-                    image = {
-                        altText: a.promo_items.basic.subtitle,
-                        src: a.promo_items.basic.url
-                    };
-                } else {
-                    image = {
-                        altText: '',
-                        src: ''
-                    };
-                }
-
-                let kicker = '';
-                if (a.label && a.label.volanta) kicker = a.label.volanta.text;
-
                 return (
-                    <Article
-                        key={i}
-                        extraClasses={CLASS_W_100}
-                        kicker={kicker}
-                        title={a.headlines.basic}
-                        image={image}
-                        href={a.website_url}
-                    />
+                    <ArticleMain articleData={a} extraClasses={CLASS_W_100} />
                 );
             });
         }
@@ -44,7 +21,7 @@ class GrillaNotas extends Component {
                 <section className="row-gap-tablet-2 row-gap-desksm-3">
                     {articles}
                 </section>
-                {this.props.mostrarBtnMasNotas && (
+                {this.props.hayMasNotas && (
                     <section className="row">
                         <BtnMasNotas
                             onClickHandler={this.props.obtenerMasNotas}
@@ -57,4 +34,4 @@ class GrillaNotas extends Component {
     }
 }
 
-export default WithArticlesData(GrillaNotas, filter);
+export default WithAcuArticlesData(GrillaNotas); // TODO: dejo el filter comentado porque no me trae datos. REVISAR, filter);

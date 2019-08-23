@@ -72,10 +72,9 @@ class LNNotaReceta extends Component {
                                 {children[0]}
                             </div>
                         </header>
-                        <div className="row aper-receta w-100 hlp-marginBottom-40">
-                            {/* Destacado (Sections, Tags, porciones y tiempo, media detacado) */}
-                            {children[1]}
-                        </div>
+
+                        {/* Destacado (Sections, Tags, porciones y tiempo, media detacado) */}
+                        {children[1]}
 
                         {/* POR DEFINIR  */}
                         <div>{children[3]}</div>

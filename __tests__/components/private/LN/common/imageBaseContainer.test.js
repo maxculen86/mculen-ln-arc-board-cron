@@ -2,11 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 jest.mock(
-    '../../../../../components/private/LN/common/imageBase/component',
+    '../../../../../components/private/LN/common/media/imageBase/component',
     () => 'mock-image'
 );
 
-import ImageArticle from '../../../../../components/private/LN/common/imageBase/container';
+import ImageArticle from '../../../../../components/private/LN/common/media/imageBase/container';
 
 describe('features - La Nacion - components - nota - imageArticle', () => {
     const image = {
