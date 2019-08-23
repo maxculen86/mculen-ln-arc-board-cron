@@ -1,0 +1,15 @@
+import React from 'react';
+
+export default ({ headlines: { basic }, volanta, href }) => {
+    // TODO: ver de sacar volanta a otro componente para manejar el tema del punto repetido y etc
+    // TODO: test y proptypes pendientes
+    const volantaComponent = volanta && <b>{`${volanta}. `}</b>;
+    return (
+        <h2 className="com-title-acu">
+            <a href={href}>
+                {volantaComponent}
+                {basic}
+            </a>
+        </h2>
+    );
+};

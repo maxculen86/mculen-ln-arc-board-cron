@@ -17,12 +17,8 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
       </div>
     </header>
     <div
-      class="row aper-receta w-100 hlp-marginBottom-40"
-    >
-      <div
-        id="Hijo1"
-      />
-    </div>
+      id="Hijo1"
+    />
     <div>
       <div
         id="Hijo3"
