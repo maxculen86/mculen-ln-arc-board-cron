@@ -17,6 +17,7 @@ const pageBuilderSections = [
     'Pre-Titulo',
     'Titulo',
     'Apertura',
+    'Left-Cuerpo',
     'Pos-Apertura',
     'Cuerpo',
     'Tercera',
@@ -85,25 +86,14 @@ class LNNotaReceta extends Component {
                     <div className="sidebar__main">
                         <div className="row">
                             <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
-                                {/* TODO: Componente Share */}
-                                <div className="com-share">
-                                    <div className="share-left">
-                                        <button href="" class="icon-facebook" />
-                                        <button href="" class="icon-twitter" />
-                                        <button href="" class="icon-whatsapp" />
-                                    </div>
-
-                                    <div className="share-right">
-                                        <button href="" class="icon-mail" />
-                                    </div>
-                                </div>
-                                {/* /Componente Share */}
+                                {/* Left-Cuerpo Shared*/}
+                                {children[3]}
                             </div>
 
                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                 <div className="row">
                                     {/* Pos-Apertura */}
-                                    {children[3]}
+                                    {children[4]}
                                 </div>
 
                                 {/* Cuerpo + tip + MasNotasDe */}
@@ -122,27 +112,27 @@ class LNNotaReceta extends Component {
                                     }
                                 />
 
-                                {children[4]}
+                                {children[5]}
                             </div>
                         </div>
                     </div>
                     {/* Tercera */}
                     <div className="sidebar__aside">
-                        <div className="row">{children[5]}</div>
+                        <div className="row">{children[6]}</div>
                     </div>
                 </div>
 
                 {/* TODO: revisar clases del newsLetter Full-Break */}
-                {children[6]}
+                {children[7]}
 
                 <div className="lay-sidebar hlp-marginBottom-40">
                     <div className="sidebar__main">
                         {/* Bottom */}
-                        {children[7]}
+                        {children[8]}
                     </div>
                     <div className="sidebar__aside">
                         {/* Bottom-Tercera */}
-                        {children[8]}
+                        {children[9]}
                     </div>
                 </div>
             </main>
