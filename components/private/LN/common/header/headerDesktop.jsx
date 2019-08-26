@@ -1,15 +1,14 @@
 import React from 'react';
 import Header from './headerBase';
+import Hamburguer from './hamburger';
+
+import '../../../../../assets/bundles/css/ln/modules/header-desktop.css';
 
 export default function HeaderDesktop() {
     return (
         <Header id="header" className="header">
             <div className="col-4 header__left">
-                <div className="com-hamburger">
-                    <span className="com-hamburger__bar" />
-                    <span className="com-hamburger__bar" />
-                    <span className="com-hamburger__bar" />
-                </div>
+                <Hamburguer />
             </div>
             <div className="col-4 header__middle">
                 <a href="/" className="header__middle__logo">

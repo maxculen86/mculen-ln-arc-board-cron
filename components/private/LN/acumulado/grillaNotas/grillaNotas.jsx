@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ArticleMain from '../../common/articleTypes/articleMain';
+import ArticleDate from '../../common/dateArticle';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import BtnMasNotas from '../botonVerMasNotas';
@@ -10,15 +11,23 @@ class GrillaNotas extends Component {
         let articles = [];
         if (this.props.articles && this.props.articles.length) {
             articles = this.props.articles.map((a, i) => {
+                const dateComponent = (
+                    <ArticleDate display_date={a.display_date} />
+                );
                 return (
-                    <ArticleMain articleData={a} extraClasses={CLASS_W_100} />
+                    <ArticleMain
+                        key={i}
+                        children={dateComponent}
+                        articleData={a}
+                        extraClasses={CLASS_W_100}
+                    />
                 );
             });
         }
 
         return (
             <>
-                <section className="row-gap-tablet-2 row-gap-desksm-3">
+                <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
                     {articles}
                 </section>
                 {this.props.hayMasNotas && (
