@@ -10,6 +10,6 @@ describe('TitleSection', () => {
 
     it('check correct class is displayed', () => {
         const component = mount(<TitleSection size="m" text="Sample title" />);
-        expect(component.hasClass('com-title-section-m')).toEqual(true);
+        expect(component.find('.com-title-section-m')).toHaveLength(1);
     });
 });
