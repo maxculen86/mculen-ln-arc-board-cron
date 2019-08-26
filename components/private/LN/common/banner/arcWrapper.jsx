@@ -56,7 +56,7 @@ class ArcWrapper extends Component {
     render() {
         const { id, children, className } = this.props;
         return (
-            <div id={id} className={className}>
+            <div id={id} className={`banner ${className}`}>
                 {children}
             </div>
         );
