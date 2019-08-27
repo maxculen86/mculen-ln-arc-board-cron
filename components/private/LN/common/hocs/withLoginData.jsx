@@ -1,6 +1,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import LoginAPI from '../utils/Login';
+import ExpiredCookie from '../utils/expiredCookie';
 
 // const logueado = false;
 
@@ -10,24 +10,29 @@ function withLoginData(WrappedComponent) {
         class withAuthentication extends React.Component {
             constructor(props) {
                 super(props);
-                this.loginService = new LoginAPI();
+                this.loginService = new ExpiredCookie();
                 this.state = {
-                    logeado: false
+                    logueado: false
                 };
             }
 
             componentDidMount() {
-                //LEER COOKIE
-
-                if (true) {
-                    this.setState({ logeado: true });
+                // LEER COOKIE
+                const timeExpirationCookie = 10;
+                if (timeExpirationCookie) {
+                    this.setState({
+                        logueado: this.loginService.setCookie(
+                            timeExpirationCookie
+                        )
+                    });
                 }
             }
 
             render() {
+                const { logueado } = this.state;
                 return (
                     <WrappedComponent
-                        loginData={{ logueado: this.state.logeado }}
+                        loginData={{ logueado }}
                         {...this.props}
                     />
                 );

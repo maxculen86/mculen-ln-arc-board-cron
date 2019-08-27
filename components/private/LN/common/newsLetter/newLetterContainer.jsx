@@ -10,6 +10,7 @@ const newLetter = props => {
         logueado,
         subscriptionsCallBack
     } = props;
+    console.log('props :::::', props);
     return (
         <>
             <NewsLetterComponent
