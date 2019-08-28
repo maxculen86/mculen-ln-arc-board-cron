@@ -21,7 +21,10 @@ const resolve = key => {
                                 "type":"story"
                             }
                         },
-                        {
+                        ${
+                            filter === 'Ultimas Noticias'
+                                ? ''
+                                : `{
                             "nested":{
                                 "path":"taxonomy.sections",
                                 "query":{
@@ -36,6 +39,7 @@ const resolve = key => {
                                     }
                                 }
                             }
+                        }`
                         }
                     ]}
                 }

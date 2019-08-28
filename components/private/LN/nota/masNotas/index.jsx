@@ -11,7 +11,6 @@ const index = props => {
             }
         }
     } = props;
-
     return (
         _id && (
             <div className="row">
@@ -29,6 +28,7 @@ const index = props => {
                         sectionId={_id}
                         website={_website}
                         destination="article"
+                        filter={filter}
                     />
                 </section>
             </div>
