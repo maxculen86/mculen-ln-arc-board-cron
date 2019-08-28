@@ -1,7 +1,5 @@
-import React from 'react';
-
 const expiredCookie = () => {
-    function setCookie(timeExpiration = 5) {
+    function setCookie(timeExpiration = 2) {
         const now = new Date();
         const exp = new Date(now.getTime() + timeExpiration * 1000);
         document.cookie = `Token=1; expires=${exp.toUTCString()}`;
