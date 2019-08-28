@@ -28,7 +28,11 @@ const index = props => {
                         sectionId={_id}
                         website={_website}
                         destination="article"
-                        filter={filter}
+                        filter={
+                            filter === 'Sección'
+                                ? 'Sección'
+                                : 'Ultimas Noticias'
+                        }
                     />
                 </section>
             </div>

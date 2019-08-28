@@ -5,7 +5,6 @@ import SourceSetSizes from '../../components/private/LN/home/common/config/sourc
 
 const resolve = key => {
     const { sectionId, size, page, website, filter } = key;
-    console.log('filter ::::::::::::', filter);
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
     const basePath = `/content/v4/search/published/?website=${website ||
@@ -22,7 +21,8 @@ const resolve = key => {
                             }
                         },
                         ${
-                            filter === 'Ultimas Noticias'
+                            filter === 'Ultimas Noticias' ||
+                            filter === undefined
                                 ? ''
                                 : `{
                             "nested":{
@@ -76,7 +76,8 @@ export default {
         sectionId: 'text',
         size: 'text',
         page: 'text',
-        website: 'text'
+        website: 'text',
+        filter: 'text'
     },
     transform
 };
