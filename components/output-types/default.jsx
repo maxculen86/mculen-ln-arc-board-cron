@@ -5,6 +5,7 @@ import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
+import DataLayerIndex from '../private/common/dataLayerIndex';
 
 const scriptList = { GTM, Comscore, Microdata, ArcAds, PostBid };
 
@@ -15,17 +16,19 @@ const getBodyClass = props => {
     return undefined;
 };
 
-export default ({
-    children,
-    contextPath,
-    deployment,
-    CssLinks,
-    Fusion,
-    Libs,
-    MetaTags,
-    metaValue,
-    siteProperties
-}) => {
+export default props => {
+    const {
+        children,
+        contextPath,
+        deployment,
+        CssLinks,
+        Fusion,
+        Libs,
+        MetaTags,
+        metaValue,
+        siteProperties
+    } = props;
+
     const Scripts = ScriptManager(scriptList, siteProperties.scripts);
 
     return (
@@ -34,6 +37,7 @@ export default ({
                 <title>
                     {metaValue('title') || siteProperties.title || 'LA NACION'}
                 </title>
+                <DataLayerIndex {...props} />
                 <Scripts location="head" />
                 <MetaTags />
                 <Libs />
