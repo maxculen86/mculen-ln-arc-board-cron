@@ -1,11 +1,8 @@
 import React from 'react';
-import expiredCookie from '../utils/expiredCookie';
+import useCookie from '../utils/useCookie';
 
-// const logueado = false;
-
-// TODO: sacar consumer. No debe conocer el contexto donde se usa. Solo administra newsletters
 function withLoginData(WrappedComponent) {
-    const { getCookie } = expiredCookie();
+    const { getCookie } = useCookie();
 
     return class withAuthentication extends React.Component {
         constructor(props) {
