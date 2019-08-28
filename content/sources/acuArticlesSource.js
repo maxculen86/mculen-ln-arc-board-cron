@@ -4,11 +4,30 @@ import getProperties from 'fusion:properties';
 import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
 
 const resolve = key => {
-    const { sectionId, size, page, website, filter } = key;
+    const { sectionId, size, page, website } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
     const basePath = `/content/v4/search/published/?website=${website ||
         arcSite}`;
+
+    const sectionFilter =
+        sectionId &&
+        `{
+    ,"nested":{
+        "path":"taxonomy.sections",
+        "query":{
+            "bool":{
+                "must":[
+                    {
+                        "term":{
+                            "taxonomy.sections._id":"${sectionId}"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}`;
 
     const query = `&body={
             "query":{
@@ -19,28 +38,8 @@ const resolve = key => {
                             {
                                 "type":"story"
                             }
-                        },
-                        ${
-                            filter === 'Ultimas Noticias' ||
-                            filter === undefined
-                                ? ''
-                                : `{
-                            "nested":{
-                                "path":"taxonomy.sections",
-                                "query":{
-                                    "bool":{
-                                        "must":[
-                                            {
-                                                "term":{
-                                                    "taxonomy.sections._id":"${sectionId}"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        }`
                         }
+                        ${sectionFilter || ''}
                     ]}
                 }
             }`;
@@ -76,8 +75,7 @@ export default {
         sectionId: 'text',
         size: 'text',
         page: 'text',
-        website: 'text',
-        filter: 'text'
+        website: 'text'
     },
     transform
 };

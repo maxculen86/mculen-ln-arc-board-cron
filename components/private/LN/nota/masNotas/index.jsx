@@ -25,14 +25,9 @@ const index = props => {
                 <section className="row-gap-tablet-3 row-gap-desksm-3 hlp-marginBottom-40">
                     <ArticleList
                         cantidadNotas={cantidadNotas}
-                        sectionId={_id}
+                        sectionId={filter === 'Sección' ? _id : undefined}
                         website={_website}
                         destination="article"
-                        filter={
-                            filter === 'Sección'
-                                ? 'Sección'
-                                : 'Ultimas Noticias'
-                        }
                     />
                 </section>
             </div>
