@@ -4,14 +4,15 @@ import ArticleList from './articleList';
 
 const index = props => {
     const {
-        customFields: { cantidadNotas },
+        customFields: { cantidadNotas, filtrar },
         globalContent: {
             taxonomy: {
                 primary_section: { _id, _website, name }
             }
         }
     } = props;
-
+    // const filtrar = (filtrar === 'Ultimas Noticias') ? true : false;
+    console.log('filtros: ', filtrar);
     return (
         _id && (
             <div className="row">
