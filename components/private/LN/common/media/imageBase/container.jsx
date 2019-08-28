@@ -9,10 +9,11 @@ const imageArticle = ({
     zoom,
     configType
 }) => {
-    if (!imageResizePresets || !configType) return null;
+    if ((!imageResizePresets && !image.url) || !configType) return null;
 
-    const sources = Object.keys(image.resized_urls).reduce(
-        (filtered, value) => {
+    const sources =
+        image.resized_urls &&
+        Object.keys(image.resized_urls).reduce((filtered, value) => {
             const p = imageResizePresets[value];
             if (p.type === configType) {
                 const url = image.resized_urls[value];
@@ -23,10 +24,15 @@ const imageArticle = ({
                 });
             }
             return filtered;
-        },
-        []
+        }, []);
+    return (
+        <ImageBase
+            urlDefault={image.url}
+            sources={sources}
+            altText={altText}
+            zoom={zoom}
+        />
     );
-    return <ImageBase sources={sources} altText={altText} zoom={zoom} />;
 };
 
 imageArticle.propTypes = {
