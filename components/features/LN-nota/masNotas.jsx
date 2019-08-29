@@ -8,7 +8,7 @@ MasNotas.label = 'LN-Nota-masNotas';
 
 MasNotas.propTypes = {
     customFields: PropTypes.shape({
-        cantidadNotas: PropTypes.number,
+        cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
         filter: PropTypes.oneOf(['Ultimas Noticias', 'Sección']).tag({
             label: 'Filtrar Por'
         })
