@@ -1,5 +1,9 @@
 import React from 'react';
 import { render } from 'enzyme';
+jest.mock(
+    '../../../../../../components/private/LN/common/media/videoPlayer.jsx',
+    () => 'mock-video'
+);
 import Ranking from '../../../../../../components/private/LN/common/ranking';
 
 describe('Ranking', () => {

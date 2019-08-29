@@ -1964,4 +1964,4 @@ const articles = [
     }
 ];
 
-export { articles };
+export default articles;
