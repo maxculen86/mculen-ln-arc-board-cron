@@ -11,6 +11,11 @@ export default {
         dimensions: [[1, 1]],
         targeting: defaultTargeting
     },
+    cabezal_mob: {
+        slotName: `${PATH_SLOT}/cabezal_mob`,
+        dimensions: [[300, 50]],
+        targeting: defaultTargeting
+    },
     sticky1_mob: {
         slotName: `${PATH_SLOT}/sticky1_mob`,
         dimensions: DIMENSIONS_STICKY,

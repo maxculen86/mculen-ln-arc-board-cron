@@ -1,18 +1,20 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import Banner from '../common/banner';
+import WithScreenUtils from '../../common/hocs/withScreenUtils';
 
 function BannerCaja2(props) {
-    const { siteProperties, isAdmin } = props;
+    const { siteProperties, isAdmin, screenUtils } = props;
+    const deviceClass = `--${screenUtils.device}`;
     return (
-        <div className="banner --desktop --large">
+        <div className={`banner --large ${deviceClass}`}>
             <Banner
                 siteProperties={siteProperties}
                 slotGroup="acumulado"
                 selectedSlots={{
                     desktopSlot: 'caja2_dsk',
-                    mobileSlot: 'NINGUNO',
-                    tabletSlot: 'NINGUNO'
+                    mobileSlot: 'caja2_mob',
+                    tabletSlot: 'caja2_tab'
                 }}
                 isAdmin={isAdmin}
                 sticky={false}
@@ -25,4 +27,4 @@ function BannerCaja2(props) {
     );
 }
 
-export default Consumer(BannerCaja2);
+export default Consumer(WithScreenUtils(BannerCaja2));
