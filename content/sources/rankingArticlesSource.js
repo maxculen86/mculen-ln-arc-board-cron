@@ -7,41 +7,8 @@ const resolve = key => {
     const { sectionId, size, page, website } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
-    const basePath = `/content/v4/search/published/?website=${website ||
-        arcSite}`;
-
-    const query = `&body={
-            "query":{
-                "bool": {
-                    "must": [
-                        {
-                            "term":
-                            {
-                                "type":"story"
-                            }
-                        },
-                        {
-                            "nested":{
-                                "path":"taxonomy.sections",
-                                "query":{
-                                    "bool":{
-                                        "must":[
-                                            {
-                                                "term":{
-                                                    "taxonomy.sections._id":"${sectionId}"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        }
-                    ]}
-                }
-            }`;
-    const final = `${basePath}${query}&size=${size || 30}&from=${from}
-            &sort=publish_date:desc`;
-    return final;
+    const basePath = `https://api.demo.arcpublishing.com/feeds/most-read/`; //https://api.demo.arcpublishing.com/feeds/most-read/
+    return basePath;
 };
 
 const getPresets = () => {
