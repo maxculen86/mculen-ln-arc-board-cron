@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 import NotaDataLayer from '../LN/nota/dataLayer';
 
@@ -9,7 +10,7 @@ const config = {
     }
 };
 
-export default props => {
+const dataLayerIndex = props => {
     const { arcSite, layout } = props;
 
     const sitio = config[arcSite];
@@ -20,3 +21,10 @@ export default props => {
     if (!DataLayer) return null;
     return <DataLayer {...props} />;
 };
+
+dataLayerIndex.propTypes = {
+    arcSite: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired
+};
+
+export default dataLayerIndex;
