@@ -36,7 +36,7 @@ function WithRankingArticlesData(WrappedArticles, filter) {
                 const size = get(this, 'props.size', 30);
 
                 const { cached, fetched } = this.getContent({
-                    sourceName: 'acuArticlesSource',
+                    sourceName: 'rankingArticlesSource',
                     query: {
                         website,
                         sectionId,
