@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
+import paths from '../../config/paths';
 
 const scriptList = { GTM, Comscore, Microdata, ArcAds, PostBid };
 
@@ -14,8 +16,10 @@ const getBodyClass = props => {
 
     return undefined;
 };
+const pathCss = `${paths.outputPath.base}/${paths.outputPath.css}`;
 
-export default ({
+const Default = ({
+    arcSite,
     children,
     contextPath,
     deployment,
@@ -29,7 +33,7 @@ export default ({
     const Scripts = ScriptManager(scriptList, siteProperties.scripts);
 
     return (
-        <html lang="es">
+        <html lang="es" info={arcSite}>
             <head>
                 <title>
                     {metaValue('title') || siteProperties.title || 'LA NACION'}
@@ -37,7 +41,17 @@ export default ({
                 <Scripts location="head" />
                 <MetaTags />
                 <Libs />
-                <CssLinks />
+                {/* Para OTT carga los styles por front */}
+                {arcSite === 'ott' ? (
+                    <link
+                        rel="stylesheet"
+                        href={deployment(
+                            `${contextPath}${pathCss}/${arcSite}/style.css`
+                        )}
+                    />
+                ) : (
+                    <CssLinks />
+                )}
                 <meta
                     name="viewport"
                     content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
@@ -58,3 +72,9 @@ export default ({
         </html>
     );
 };
+
+Default.propTypes = {
+    siteProperties: PropTypes.isRequired
+};
+
+export default Default;

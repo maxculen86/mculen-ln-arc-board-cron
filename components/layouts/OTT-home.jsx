@@ -5,8 +5,6 @@ import LastVideos from '../private/OTT/common/lastVideos';
 import Footer from '../private/OTT/common/footer';
 import loadHeaderEvents from '../private/OTT/common/header/layoutEvents';
 
-import '../../assets/bundles/css/ott/style.css';
-
 const layoutItems = ['Header', 'Bloque-1', 'Bloque-2'];
 
 class OTTHomeLayout extends PureComponent {
