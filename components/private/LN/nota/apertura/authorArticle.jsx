@@ -7,7 +7,6 @@ const authorArticle = ({
         credits: { by }
     }
 }) => {
-    console.log('by: ', by, by.length);
     const listAuthor = by.map((authorNota, i) => {
         return (
             <div key={authorNota._id} className="com-author">
