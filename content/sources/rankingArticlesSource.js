@@ -2,15 +2,14 @@ import { addResizedUrls } from '@arc-core-components/content-source_content-api-
 import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
-
-// TODO: Faltaria el filtrar resultados
+// TODO: ver filtro en API por "?website=${website || arcSite}"
+// TODO: Faltaria el filtrar ára que traiga solo 6 resultados
 
 const resolve = key => {
     const { sectionId, size, page, website } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
-    const basePath = `https://api.demo.arcpublishing.com/feeds/most-read/?website=${website ||
-        arcSite}`;
+    const basePath = `https://api.demo.arcpublishing.com/feeds/most-read/`;
     return basePath;
 };
 
