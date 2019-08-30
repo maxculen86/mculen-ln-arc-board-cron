@@ -1,6 +1,7 @@
+import Consumer from 'fusion:consumer';
+
 import React from 'react';
 import { mount } from 'enzyme';
-
 jest.mock(
     '../../../../../components/private/LN/common/media/imageBase/component',
     () => 'mock-image'

@@ -11,16 +11,13 @@ const destacado = props => {
         }
     } = props;
 
-    if (basic) {
-        return (
-            <Media
-                mediaData={basic}
-                imageResizePresets={imageResizePresets}
-                colNumber={8}
-            />
-        );
-    }
-    return null;
+    return (
+        <Media
+            mediaData={basic}
+            imageResizePresets={imageResizePresets}
+            colNumber={8}
+        />
+    );
 };
 
 destacado.propTypes = {
