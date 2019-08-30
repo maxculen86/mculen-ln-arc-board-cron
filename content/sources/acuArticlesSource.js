@@ -10,6 +10,25 @@ const resolve = key => {
     const basePath = `/content/v4/search/published/?website=${website ||
         arcSite}`;
 
+    const sectionFilter =
+        sectionId &&
+        `{
+    ,"nested":{
+        "path":"taxonomy.sections",
+        "query":{
+            "bool":{
+                "must":[
+                    {
+                        "term":{
+                            "taxonomy.sections._id":"${sectionId}"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}`;
+
     const query = `&body={
             "query":{
                 "bool": {
@@ -19,23 +38,8 @@ const resolve = key => {
                             {
                                 "type":"story"
                             }
-                        },
-                        {
-                            "nested":{
-                                "path":"taxonomy.sections",
-                                "query":{
-                                    "bool":{
-                                        "must":[
-                                            {
-                                                "term":{
-                                                    "taxonomy.sections._id":"${sectionId}"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
                         }
+                        ${sectionFilter || ''}
                     ]}
                 }
             }`;
