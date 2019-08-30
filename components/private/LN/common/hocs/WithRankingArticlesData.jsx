@@ -10,21 +10,16 @@ function WithRankingArticlesData(WrappedArticles, filter) {
 
                 const { page } = props;
 
-                const { articles, hayMasNotas } = this.getArticles(
-                    ({
-                        articles: articlesFetched,
-                        hayMasNotas: hayMasNotasFetched
-                    }) => {
+                const { articles } = this.getArticles(
+                    ({ articles: articlesFetched }) => {
                         this.setState({
-                            articles: articlesFetched,
-                            hayMasNotas: hayMasNotasFetched
+                            articles: articlesFetched
                         });
                     },
                     0
                 );
                 this.state = {
                     articles,
-                    hayMasNotas,
                     page: page || 1
                 };
             }
@@ -49,7 +44,6 @@ function WithRankingArticlesData(WrappedArticles, filter) {
 
                 // Caclulo si hay mas notas y saco la q sobra
                 const articles = get(cached, 'content_elements', []);
-                const hayMasNotas = get(cached, 'next', false);
                 // Devuelvo otro fetched que ya tenga parte de la logica implementada
                 fetched.then(response => {
                     const articlesFetched = get(
@@ -57,40 +51,33 @@ function WithRankingArticlesData(WrappedArticles, filter) {
                         'content_elements',
                         []
                     );
-                    const hayMasNotasFetched = get(response, 'next', false);
 
                     fetchedCallback({
-                        articles: articlesFetched.slice(0, size),
-                        hayMasNotas: hayMasNotasFetched
+                        articles: articlesFetched.slice(0, size)
                     });
                 });
 
-                return { articles: articles.slice(0, size), hayMasNotas };
+                return { articles: articles.slice(0, size) };
             };
 
             obtenerMasNotas = () => {
                 const { page } = this.state;
                 const { articles } = this.state;
 
-                this.getArticles(
-                    ({ articles: articlesFetched, hayMasNotas }) => {
-                        this.setState({
-                            page: page + 1,
-                            articles: [...articles, ...articlesFetched],
-                            hayMasNotas
-                        });
-                    },
-                    page + 1
-                );
+                this.getArticles(({ articles: articlesFetched }) => {
+                    this.setState({
+                        page: page + 1,
+                        articles: [...articles, ...articlesFetched]
+                    });
+                }, page + 1);
             };
 
             render() {
-                const { articles, hayMasNotas } = this.state;
+                const { articles } = this.state;
                 return (
                     <WrappedArticles
                         articles={articles}
                         obtenerMasNotas={this.obtenerMasNotas}
-                        hayMasNotas={hayMasNotas}
                         {...this.props}
                     />
                 );

@@ -3,11 +3,14 @@ import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
 
+// TODO: Faltaria el filtrar resultados
+
 const resolve = key => {
     const { sectionId, size, page, website } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
-    const basePath = `https://api.demo.arcpublishing.com/feeds/most-read/`; //https://api.demo.arcpublishing.com/feeds/most-read/
+    const basePath = `https://api.demo.arcpublishing.com/feeds/most-read/?website=${website ||
+        arcSite}`;
     return basePath;
 };
 
