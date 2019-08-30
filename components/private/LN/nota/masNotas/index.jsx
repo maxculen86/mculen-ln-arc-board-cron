@@ -24,7 +24,7 @@ const index = props => {
                 </h3>
                 <section className="row-gap-tablet-3 row-gap-desksm-3 hlp-marginBottom-40">
                     <ArticleList
-                        cantidadNotas={cantidadNotas}
+                        size={cantidadNotas}
                         sectionId={filter === 'Sección' ? _id : undefined}
                         website={_website}
                         destination="article"
