@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ArticleItem from './articleItem';
+import ArticleMain from '../../common/articleTypes/articleMain';
 import articleFiltered from '../../../../../content/filters/LN/nota/articleFiltered';
-import withArticlesData from '../common/hocs/withArticlesData';
+import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 
 const ArticleList = props => {
-    const { articles } = props;
-    return articles.content_elements.map(e => <ArticleItem e={e} />);
+    const { articles, imageResizePresets } = props;
+    if (!articles) return null;
+    return articles.map(e => (
+        <ArticleMain
+            imageResizePresets={imageResizePresets}
+            articleData={e}
+            border
+        />
+    ));
 };
 
-export default withArticlesData(ArticleList);
+export default withAcuArticlesData(ArticleList, null, 'masNotas');

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { baseConfig } from './config';
 
-// TODO: faltan propTypes
+// TODO: faltan propTypes, probar import de acrAds.js aca
 class ArcWrapper extends Component {
     static arcAdsInstance = undefined;
 
@@ -56,7 +56,7 @@ class ArcWrapper extends Component {
     render() {
         const { id, children, className } = this.props;
         return (
-            <div id={id} className={className}>
+            <div id={id} className={`banner ${className}`}>
                 {children}
             </div>
         );

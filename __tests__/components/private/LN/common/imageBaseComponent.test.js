@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import ImageBase from '../../../../../components/private/LN/common/imageBase/component';
+import ImageBase from '../../../../../components/private/LN/common/media/imageBase/component';
 
 describe('features - La Nacion - components - common - BaseImage', () => {
     const sources = [

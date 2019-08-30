@@ -1,12 +1,11 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
 import NewsletterAPI from '../utils/NewsLetter';
-
-const logueado = true;
+import Login from './withLoginData';
+// const logueado = true;
 
 // TODO: sacar consumer. No debe conocer el contexto donde se usa. Solo administra newsletters
 function withNewsLetterData(WrappedComponent) {
-    return Consumer(
+    return Login(
         class withAuthentication extends React.Component {
             constructor(props) {
                 super(props);
@@ -47,7 +46,6 @@ function withNewsLetterData(WrappedComponent) {
                 return (
                     <WrappedComponent
                         service={service}
-                        logueado={logueado}
                         subscriptionsCallBack={this.subscriptionsCallBack}
                         {...this.props}
                     />

@@ -14,12 +14,17 @@ import '../../assets/bundles/css/ln/layouts/grid.css';
 import '../../assets/bundles/css/ln/layouts/layout.css';
 
 const pageBuilderSections = [
-    'Pre-Apertura',
+    'Pre-Titulo',
+    'Titulo',
     'Apertura',
+    'Left-Cuerpo',
     'Pos-Apertura',
     'Cuerpo',
-    'Pie',
-    'Tercera'
+    'Tercera',
+    'Full-Break',
+    'Bottom',
+    'Bottom-Tercera',
+    'Pie'
 ];
 
 class LNNotaReceta extends Component {
@@ -61,46 +66,76 @@ class LNNotaReceta extends Component {
         const { children } = this.props;
 
         return (
-            <>
-                <article className={`lay ${this.sectionClass}`}>
-                    {/* TODO: ver de cargar solo si hay videos a mostrar */}
-                    <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
-                    <main>
-                        <header className="row titulo">
-                            <div className="col-12">
-                                {/* APERTURA (Banner, breadcrumb, logo+titulo) */}
-                                {children[0]}
-                            </div>
-                        </header>
-                        <div className="row aper-receta w-100 hlp-marginBottom-40">
-                            {/* Destacado (Sections, Tags, porciones y tiempo, media detacado) */}
+            <main>
+                {/* Pre-Titulo: Banners */}
+                {children[0]}
+                <div className={`lay ${this.sectionClass}`}>
+                    {/* TODO: confirmar */}
+                    <header className="row titulo">
+                        <div className="col-12">
+                            {/* Titulo (breadcrumb, logo+titulo) */}
                             {children[1]}
                         </div>
+                    </header>
+                    {/* Apertura */}
+                    {children[2]}
+                </div>
 
-                        {/* POR DEFINIR  */}
-                        <div>{children[3]}</div>
-                        <div>{children[2]}</div>
-                        <div>{children[4]}</div>
-                        <div>{children[5]}</div>
+                <div className="lay-sidebar">
+                    {/* Cuerpo */}
+                    <div className="sidebar__main">
+                        <div className="row">
+                            <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
+                                {/* Left-Cuerpo Shared*/}
+                                {children[3]}
+                            </div>
 
-                        <br />
-                        <div>
-                            {/* TODO: estos van en el componente que procese el cuerpo! */}
-                            <ListIngredientes
-                                content_elements={
-                                    this.props.globalContent.content_elements
-                                }
-                            />
-                            <br />
-                            <ListPreparacion
-                                content_elements={
-                                    this.props.globalContent.content_elements
-                                }
-                            />
+                            <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                <div className="row">
+                                    {/* Pos-Apertura */}
+                                    {children[4]}
+                                </div>
+
+                                {/* Cuerpo + tip + MasNotasDe */}
+                                {/* TODO: estos van en el componente que procese el cuerpo! */}
+                                <ListIngredientes
+                                    content_elements={
+                                        this.props.globalContent
+                                            .content_elements
+                                    }
+                                />
+                                <br />
+                                <ListPreparacion
+                                    content_elements={
+                                        this.props.globalContent
+                                            .content_elements
+                                    }
+                                />
+
+                                {children[5]}
+                            </div>
                         </div>
-                    </main>
-                </article>
-            </>
+                    </div>
+                    {/* Tercera */}
+                    <div className="sidebar__aside">
+                        <div className="row">{children[6]}</div>
+                    </div>
+                </div>
+
+                {/* TODO: revisar clases del newsLetter Full-Break */}
+                {children[7]}
+
+                <div className="lay-sidebar hlp-marginBottom-40">
+                    <div className="sidebar__main">
+                        {/* Bottom */}
+                        {children[8]}
+                    </div>
+                    <div className="sidebar__aside">
+                        {/* Bottom-Tercera */}
+                        {children[9]}
+                    </div>
+                </div>
+            </main>
         );
     }
 }

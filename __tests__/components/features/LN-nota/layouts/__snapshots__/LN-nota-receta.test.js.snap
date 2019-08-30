@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta 1`] = `
-<article
-  class="lay brando"
->
-  <main>
+<main>
+  <div
+    id="Hijo0"
+  />
+  <div
+    class="lay brando"
+  >
     <header
       class="row titulo"
     >
@@ -12,109 +15,132 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
         class="col-12"
       >
         <div
-          id="Hijo0"
+          id="Hijo1"
         />
       </div>
     </header>
     <div
-      class="row aper-receta w-100 hlp-marginBottom-40"
+      id="Hijo2"
+    />
+  </div>
+  <div
+    class="lay-sidebar"
+  >
+    <div
+      class="sidebar__main"
     >
       <div
-        id="Hijo1"
-      />
-    </div>
-    <div>
-      <div
-        id="Hijo3"
-      />
-    </div>
-    <div>
-      <div
-        id="Hijo2"
-      />
-    </div>
-    <div>
-      <div
-        id="Hijo4"
-      />
-    </div>
-    <div>
-      <div
-        id="Hijo5"
-      />
-    </div>
-    <br />
-    <div>
-      <div
-        class="ce-ingredientes"
+        class="row"
       >
-        <h2>
-          Ingredientes
-        </h2>
-        <div>
-          <h3>
-            Para la salsa
-          </h3>
-          <ul>
-            <li>
-              Tomate
-            </li>
-            <li>
-              Zanahoria
-            </li>
-            <li>
-              Cebolla
-            </li>
-            <li>
-              Ajo
-            </li>
-          </ul>
+        <div
+          class="col-1 hlp-marginBottom-40 hlp-tablet-none"
+        >
+          <div
+            id="Hijo3"
+          />
         </div>
-        <div>
-          <h3>
-            Para lo que sea
-          </h3>
-          <ul>
-            <li>
-              Tomate
-            </li>
-            <li>
-              Harina
-            </li>
-            <li>
-              Huevos
-            </li>
-            <li>
-              Lo que sea
-            </li>
-          </ul>
+        <div
+          class="col-deskxl-10 offset-deskxl-1 col-desksm-11"
+        >
+          <div
+            class="row"
+          >
+            <div
+              id="Hijo4"
+            />
+          </div>
+          <div
+            class="ce-ingredientes"
+          >
+            <h2>
+              Ingredientes
+            </h2>
+            <div>
+              <h3>
+                Para la salsa
+              </h3>
+              <ul>
+                <li>
+                  Tomate
+                </li>
+                <li>
+                  Zanahoria
+                </li>
+                <li>
+                  Cebolla
+                </li>
+                <li>
+                  Ajo
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3>
+                Para lo que sea
+              </h3>
+              <ul>
+                <li>
+                  Tomate
+                </li>
+                <li>
+                  Harina
+                </li>
+                <li>
+                  Huevos
+                </li>
+                <li>
+                  Lo que sea
+                </li>
+              </ul>
+            </div>
+          </div>
+          <br />
+          <div
+            class="ce-preparaciones"
+          >
+            <h2>
+              Preparación
+            </h2>
+            <div>
+              <h3>
+                Para la salsa
+              </h3>
+              <ol>
+                <li>
+                  Cocinar
+                </li>
+                <li>
+                  Probar
+                </li>
+                <li>
+                  Servir
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div
+            id="Hijo5"
+          />
         </div>
       </div>
-      <br />
-      <div
-        class="ce-preparaciones"
-      >
-        <h2>
-          Preparación
-        </h2>
-        <div>
-          <h3>
-            Para la salsa
-          </h3>
-          <ol>
-            <li>
-              Cocinar
-            </li>
-            <li>
-              Probar
-            </li>
-            <li>
-              Servir
-            </li>
-          </ol>
-        </div>
-      </div>
     </div>
-  </main>
-</article>
+    <div
+      class="sidebar__aside"
+    >
+      <div
+        class="row"
+      />
+    </div>
+  </div>
+  <div
+    class="lay-sidebar hlp-marginBottom-40"
+  >
+    <div
+      class="sidebar__main"
+    />
+    <div
+      class="sidebar__aside"
+    />
+  </div>
+</main>
 `;

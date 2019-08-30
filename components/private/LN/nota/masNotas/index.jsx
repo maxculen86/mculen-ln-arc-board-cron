@@ -4,14 +4,13 @@ import ArticleList from './articleList';
 
 const index = props => {
     const {
-        customFields: { cantidadNotas },
+        customFields: { cantidadNotas, filter },
         globalContent: {
             taxonomy: {
                 primary_section: { _id, _website, name }
             }
         }
     } = props;
-
     return (
         _id && (
             <div className="row">
@@ -26,7 +25,7 @@ const index = props => {
                 <section className="row-gap-tablet-3 row-gap-desksm-3 hlp-marginBottom-40">
                     <ArticleList
                         cantidadNotas={cantidadNotas}
-                        sectionId={_id}
+                        sectionId={filter === 'Sección' ? _id : undefined}
                         website={_website}
                         destination="article"
                     />
