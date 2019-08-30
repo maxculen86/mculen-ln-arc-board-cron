@@ -4,18 +4,20 @@ import ImageBase from './component';
 
 const imageArticle = ({
     image,
-    imageResizePresets,
     altText,
     zoom,
-    configType
+    configType,
+    imageResizePresets
 }) => {
+    // TODO: analizar si se puede evitar tener que pasar el imagePresets como props
     if ((!imageResizePresets && !image.url) || !configType) return null;
 
     const sources =
         image.resized_urls &&
         Object.keys(image.resized_urls).reduce((filtered, value) => {
             const p = imageResizePresets[value];
-            if (p.type === configType) {
+            if (!p) return filtered;
+            if (!configType || p.type === configType) {
                 const url = image.resized_urls[value];
                 filtered.push({
                     media: p.media,
@@ -25,6 +27,7 @@ const imageArticle = ({
             }
             return filtered;
         }, []);
+
     return (
         <ImageBase
             urlDefault={image.url}

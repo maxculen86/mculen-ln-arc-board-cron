@@ -88,21 +88,17 @@ export default {
                 }
             },
             masNotas: {
-                byDestination: {
-                    article: {
-                        big: {
-                            width: 1033,
-                            media: '(min-width: 768px)',
-                            class: 'img-desktop',
-                            type: 'apertura'
-                        },
-                        medium: {
-                            width: 300,
-                            media: '(min-width: 240px)',
-                            class: 'img-desktop-sm',
-                            type: 'apertura'
-                        }
-                    }
+                big: {
+                    width: 200,
+                    media: '(min-width: 768px)',
+                    class: 'img-desktop',
+                    type: 'apertura'
+                },
+                medium: {
+                    width: 150,
+                    media: '(min-width: 240px)',
+                    class: 'img-desktop-sm',
+                    type: 'apertura'
                 }
             }
         }
