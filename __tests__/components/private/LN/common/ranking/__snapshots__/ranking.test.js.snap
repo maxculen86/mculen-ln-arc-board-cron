@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ranking matches snapshot 1`] = `
+<div
+  class="com-ranking"
+>
+  <h2
+    class="com-title-section-m"
+  >
+    Recetas más leídas
+  </h2>
+  <ul
+    class="com-ordered"
+  >
+    <li
+      class="com-item"
+    >
+      <article
+        class="mod-caja-nota --border "
+      >
+        <section
+          class="cont-figure"
+        />
+        <div
+          class="mod-caja-nota__descrip"
+        >
+          <h2
+            class="com-title-acu"
+          >
+            <a
+              href="/baseball/2019/08/26/baseball-game-recap"
+            >
+              Baseball Game Recap:
+            </a>
+          </h2>
+        </div>
+      </article>
+    </li>
+    <li
+      class="com-item"
+    >
+      <article
+        class="mod-caja-nota --border "
+      >
+        <section
+          class="cont-figure"
+        >
+          <a
+            class="figure"
+          />
+        </section>
+        <div
+          class="mod-caja-nota__descrip"
+        >
+          <h2
+            class="com-title-acu"
+          >
+            <a
+              href="/brands/2019/07/31/cream-of-broccoli-soup-recipe"
+            >
+              Cream of Broccoli Soup Recipe
+            </a>
+          </h2>
+        </div>
+      </article>
+    </li>
+  </ul>
+</div>
+`;
