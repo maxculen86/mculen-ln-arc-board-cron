@@ -6,10 +6,6 @@ export default WrappedComponent => {
         constructor(props) {
             super(props);
 
-            this.device = 'desktop';
-        }
-
-        componentDidMount() {
             this.device = this.getDevice();
         }
 
@@ -36,7 +32,6 @@ export default WrappedComponent => {
                 navigator.userAgent || navigator.vendor || window.opera
             );
             const isTablet = screen.width >= 1023;
-
             if (mobileOrTablet) {
                 if (isTablet) return 'tablet';
                 return 'mobile';

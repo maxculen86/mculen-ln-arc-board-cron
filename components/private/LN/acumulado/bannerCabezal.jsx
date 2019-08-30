@@ -7,8 +7,8 @@ function BannerCabezal(props) {
     const { siteProperties, isAdmin, screenUtils } = props;
     const deviceClass = `--${screenUtils.device}`;
     return (
-        <div className={`banner w-100 --bg-banner ${deviceClass}`}>
-            <div className="banner --top">
+        <div className="banner w-100 --bg-banner">
+            <div className={`banner --top ${deviceClass}`}>
                 <Banner
                     siteProperties={siteProperties}
                     slotGroup="acumulado"
@@ -25,4 +25,4 @@ function BannerCabezal(props) {
     );
 }
 
-export default Consumer(WithScreenUtils(BannerCabezal));
+export default WithScreenUtils(Consumer(BannerCabezal));
