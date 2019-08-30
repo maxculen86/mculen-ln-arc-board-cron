@@ -7,6 +7,7 @@ const authorArticle = ({
         credits: { by }
     }
 }) => {
+    console.log('by: ', by, by.length);
     const listAuthor = by.map((authorNota, i) => {
         return (
             <div key={authorNota._id} className="com-author">
@@ -17,10 +18,10 @@ const authorArticle = ({
                 ) : (
                     <span>{authorNota.name}</span>
                 )}
-                {i < by.length && by.length > 1 ? (
+                {i < by.length - 2 ? (
                     <span>, </span>
                 ) : (
-                    <>{i === by.length ? <span> y</span> : ''}</>
+                    <>{i === by.length - 2 ? <span> y</span> : ''}</>
                 )}
             </div>
         );
