@@ -24,6 +24,8 @@ jest.mock('fusion:consumer', component => {
 
             customFetchContent({ sourceName, query, filter }) {
                 switch (sourceName) {
+                    case 'acuArticlesSource':
+                        return require(`./data/articleCollections/${query.sectionId}`);
                     case 'articleSource':
                         return require(`./data/articles/${query.id}`);
                         break;

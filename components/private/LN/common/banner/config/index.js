@@ -1,6 +1,6 @@
 import notaConfig from './nota';
 import homeConfig from './home';
-import acuConfig from './acu';
+import acuConfig from './acumulado';
 
 export const getSlotsOptions = () => {
     let opt = [];
@@ -17,7 +17,7 @@ export const getSlotsOptions = () => {
 export const slotsConfig = {
     nota: notaConfig,
     home: homeConfig,
-    acu: acuConfig
+    acumulado: acuConfig
 };
 
 export const baseConfig = {

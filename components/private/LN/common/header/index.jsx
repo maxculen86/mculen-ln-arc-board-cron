@@ -6,11 +6,18 @@ import WithDevice from '../hocs/withDevice';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
-var lastScrollPosition = 0;
+let lastScrollPosition = 0;
 class Index extends Component {
+    componentDidMount() {
+        const { isMobile } = this.props;
+        const idHeader = isMobile ? 'header-mobile' : 'header';
+        const header = document.getElementById(idHeader);
+        window.addEventListener('scroll', () => this.onScrollHandler(header));
+    }
+
     onScrollHandler = header => {
         const scrollPos = window.scrollY;
-        const classList = header.classList;
+        const { classList } = header;
         if (scrollPos) {
             if (scrollPos < lastScrollPosition) {
                 classList.remove(CLASS_SCROLL_DOWN);
@@ -28,17 +35,12 @@ class Index extends Component {
         lastScrollPosition = scrollPos;
     };
 
-    componentDidMount() {
-        const idHeader = this.props.isMobile ? 'header-mobile' : 'header';
-        const header = document.getElementById(idHeader);
-        window.addEventListener('scroll', () => this.onScrollHandler(header));
-    }
-
     render() {
+        const { isMobile } = this.props;
         return (
             <>
-                {!this.props.isMobile && <HeaderDesktop />}
-                {this.props.isMobile && (
+                {!isMobile && <HeaderDesktop />}
+                {isMobile && (
                     <>
                         <HeaderMobile />
                         <NavBarMobile />
