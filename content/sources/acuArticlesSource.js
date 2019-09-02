@@ -12,22 +12,22 @@ const resolve = key => {
 
     const sectionFilter =
         sectionId &&
-        `{
-    ,"nested":{
-        "path":"taxonomy.sections",
-        "query":{
-            "bool":{
-                "must":[
-                    {
-                        "term":{
-                            "taxonomy.sections._id":"${sectionId}"
-                        }
+        `,{
+            "nested":{
+                "path":"taxonomy.sections",
+                "query":{
+                    "bool":{
+                        "must":[
+                            {
+                                "term":{
+                                    "taxonomy.sections._id":"${sectionId}"
+                                }
+                            }
+                        ]
                     }
-                ]
+                }
             }
-        }
-    }
-}`;
+        }`;
 
     const query = `&body={
             "query":{
