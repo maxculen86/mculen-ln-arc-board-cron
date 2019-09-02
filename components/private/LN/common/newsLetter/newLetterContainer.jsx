@@ -5,7 +5,6 @@ import NewsLetterComponent from './newsLetterComponent';
 // TODO: debe utilizar consumer. Pensar como hacer para que sea reutilizable por otra secciones donde primarySecion no exista.
 // Otro container por encima que resuelva eso o una logica.
 const newLetter = props => {
-    console.log('newsletter props', props);
     const {
         service: { titulo, servicioId, suscripto },
         logueado,

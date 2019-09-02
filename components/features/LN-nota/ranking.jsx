@@ -1,5 +1,16 @@
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import Ranking from '../../private/LN/common/ranking';
 
-Ranking.label = 'LN-Common-Ranking';
+const ranking = ({ customFields: { cantidadNotas } }) => {
+    return <Ranking size={cantidadNotas} />;
+};
 
-export default Ranking;
+ranking.label = 'LN-Common-Ranking';
+ranking.propTypes = {
+    customFields: PropTypes.shape({
+        cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' })
+    }).isRequired
+};
+
+export default ranking;
