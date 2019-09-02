@@ -9,25 +9,12 @@ MasNotas.label = 'LN-Nota-masNotas';
 MasNotas.propTypes = {
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
-        filter: PropTypes.oneOf(['Ultimas Noticias', 'Sección']).tag({
-            label: 'Filtrar Por'
+        filter: PropTypes.oneOf(Object.keys(MasNotas.filterTypes)).tag({
+            labels: MasNotas.filterTypes,
+            label: 'Filtrar por',
+            defaultValue: Object.keys(MasNotas.filterTypes)[0]
         })
     })
 };
-
-/* MasNotas.propTypes = {
-    customFields: PropTypes.shape({
-        cantidadNotas: PropTypes.number,
-        filter: PropTypes.oneOf(['', 'Ultimas Noticias', 'Sección']).tag({
-            label: 'Filtrar Por'
-        }).isRequired
-    })
-}; */
-
-/* MasNotas.defaultProps = {
-    customFields: {
-        filter: ''
-    }
-}; */
 
 export default Consumer(MasNotas);

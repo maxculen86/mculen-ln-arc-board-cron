@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import ArticleList from './articleList';
 
 const index = props => {
@@ -7,25 +6,39 @@ const index = props => {
         customFields: { cantidadNotas, filter },
         globalContent: {
             taxonomy: {
-                primary_section: { _id, _website, name }
+                primary_section: { _id, _website, name: sectionName }
             }
         }
     } = props;
+
+    let title;
+    switch (filter) {
+        case '0':
+            title = <strong>Ultimas Noticias</strong>;
+            break;
+        case '1':
+            title = (
+                <>
+                    Mas recetas de
+                    <strong>{` ${sectionName}`}</strong>
+                </>
+            );
+            break;
+        default:
+            title = <strong>Ultimas Noticias</strong>;
+            break;
+    }
+
     return (
         _id && (
             <div className="row">
                 <h3 className="com-title-section-s hlp-marginBottom-30">
-                    {/** 
-                        TODO: Considerar este componente para common
-                        con titulo dinamico
-                    */}
-                    Mas recetas de
-                    <strong>{` ${name}`}</strong>
+                    {title}
                 </h3>
                 <section className="row-gap-tablet-3 row-gap-desksm-3 hlp-marginBottom-40">
                     <ArticleList
                         size={cantidadNotas}
-                        sectionId={filter === 'Sección' ? _id : undefined}
+                        sectionId={filter === '1' ? _id : undefined}
                         website={_website}
                         destination="article"
                     />
@@ -35,8 +48,9 @@ const index = props => {
     );
 };
 
-// MasRecetas.propType = {
-//     type: PropTypes.string.isRequired
-// };
+index.filterTypes = {
+    0: 'Ultimas Noticias',
+    1: 'Por Seccion'
+};
 
 export default index;
