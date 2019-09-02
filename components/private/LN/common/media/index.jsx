@@ -5,7 +5,7 @@ import VideoPlayer from './videoPlayer';
 // TODO: proptypes
 const media = ({ mediaData, imageResizePresets, colNumber }) => {
     // TODO: revisar implementacion de placeHolder
-    let item = <a className="figure" />;
+    let item = null;
     if (mediaData) {
         const { type, _id } = mediaData;
 
@@ -28,7 +28,9 @@ const media = ({ mediaData, imageResizePresets, colNumber }) => {
         }
     }
     const colClass = colNumber ? `col-desksm-${colNumber} ` : '';
-
+    if (!item) {
+        item = <a className="figure" />;
+    }
     return <section className={`${colClass}cont-figure`}>{item}</section>;
 };
 

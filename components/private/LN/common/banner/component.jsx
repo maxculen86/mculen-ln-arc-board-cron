@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArcAd from './arcWrapper';
 
+import '../../../../../assets/bundles/css/ln/layouts/grid.css';
+
 // TODO: test pendientes hasta tener el html final. Falta definicion de div contenedor cuando es background.
 // Falta la clase si es desktop, tablet, mobile. Confirmar.
 const bannerComponent = ({
@@ -12,11 +14,12 @@ const bannerComponent = ({
     targeting,
     bidding,
     sticky,
-    background
+    background,
+    device
 }) => {
     let ad = (
         <ArcAd
-            className={sticky ? '--sticky' : ''}
+            className={`--${device}${sticky ? ' --sticky' : ''}`}
             id={slotId}
             dfpId={dfpId}
             slotName={slotName}
@@ -26,7 +29,7 @@ const bannerComponent = ({
         />
     );
     if (background) {
-        ad = <div>{ad}</div>;
+        ad = <div className="banner w-100 --bg-banner">{ad}</div>;
     }
     return ad;
 };

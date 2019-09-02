@@ -1,15 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - LaNacion - Nota - AuthorNota Test de snapshot TituloNota 1`] = `
-<div>
+<div
+  class="com-author"
+>
   <a
     class="reference"
   />
-  <button
-    class="reference"
-    type="button"
-  >
-    SEGUIR
-  </button>
 </div>
 `;

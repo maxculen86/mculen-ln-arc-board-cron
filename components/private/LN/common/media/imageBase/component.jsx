@@ -1,22 +1,23 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const imageBase = ({ sources, altText, zoom, href }) => {
+const imageBase = ({ urlDefault, sources, altText, zoom, href }) => {
     const pic = (
         <a href={href} className="figure">
             <picture className={`content-pic picture ${zoom && 'zoom'}`}>
-                {sources.map(x => {
-                    return (
-                        <source
-                            key={x.media}
-                            media={x.media}
-                            srcSet={x.url}
-                            className={x.class}
-                            alt={altText}
-                        />
-                    );
-                })}
-                <img className="content-img" alt={altText} />
+                {sources &&
+                    sources.map(x => {
+                        return (
+                            <source
+                                key={x.media}
+                                media={x.media}
+                                srcSet={x.url}
+                                className={x.class}
+                                alt={altText}
+                            />
+                        );
+                    })}
+                <img src={urlDefault} className="content-img" alt={altText} />
             </picture>
         </a>
     );
