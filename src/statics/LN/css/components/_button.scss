@@ -21,6 +21,11 @@
         background-color: $blanco;
         border: 1px solid $link;
         color: $link;
+        &:hover{
+            background-color: $link;
+            border: 1px solid $link;
+            color: $blanco;
+        }
     }
     &.--highlight {
         background-color: $highlight;
@@ -43,4 +48,18 @@ button:hover {
     opacity: 0.8;
     transition: opacity .2s ease-in-out;
     cursor: pointer
+}
+
+@media ($media-m) {
+    .--btn {
+        font-size: $px-11;
+        padding: $px-15 $px-35;
+    }
+}
+
+@media ($media-l) {
+    .--btn {
+        font-size: $px-12;
+        padding: $px-12 $px-24;
+    }
 }

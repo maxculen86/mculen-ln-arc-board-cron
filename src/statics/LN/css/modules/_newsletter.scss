@@ -4,19 +4,44 @@
 .mod-newsletter {
     background: $link;
     color: $blanco;
-    .col-4 p {
-        font-family: $font-arial;
-        font-size: $font-16;
-        line-height: $line-16;
+    padding: 0 $px-20;
+    .col-12 {
+        p {
+            font-family: $font-arial;
+            font-size: $font-16;
+            line-height: $line-16;
+        }
+        &:nth-child(2) {
+            background-image: url('../../img/newsletter-lineas-trama-der.svg');
+            background-position: right top;
+            background-size: 40%;
+            background-repeat: no-repeat
+        }
+        &:nth-child(3) {
+            padding-top: 0;
+        }
     }
     h2 {
         display: inline-block
     }
-    .com-breadcrumb a {
-        color: $blanco;
-        border-color: $blanco;
-        &:last-child {
-            border: 0
+    .com-input {
+        width: 100%;
+    }
+    &.lay-full-width .com-input {
+        width: 100%;
+    }
+    .com-breadcrumb {
+        display: block;
+        font-size: $px-16;
+        a {
+            color: $blanco;
+            border-color: $blanco;
+        }
+    }
+    .hlp-line {
+        padding-right: 0;
+        &:after {
+            display: none;
         }
     }
     &.suscripto {}
@@ -28,11 +53,13 @@
             background-color: #9d2827;
             padding: 3px 6px;
             font-family: $font-arial;
-            font-size: $px-14;
+            font-size: $px-12;
         }
-        input {
-            width: calc(100% - 110px);
+        .com-input {
             border: 1px solid #9d2827;
+            background-image: url('../../img/x.svg');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
             &:after {
                 content: '\e912';
                 font-family: 'LNicons' !important;
@@ -40,6 +67,11 @@
                 color: #9d2827
             }
         }
+    }
+    p.check {
+        background-image: url('../../img/check.svg');
+        background-repeat: no-repeat;
+        text-indent: 30px;
     }
     label.check {
         display: block;
@@ -49,7 +81,67 @@
         color: $negro;
         padding: 3px 6px;
         font-family: $font-arial;
-        font-weight: bold;
         font-size: $px-16;
+    }
+}
+
+//Valores de tablet para arriba
+@media (min-width: 768px) {
+    .mod-newsletter {
+        padding: 0 $px-10;
+        &.error {
+            label {
+                font-size: $px-14;
+            }
+        }
+        &.lay-full-width .com-input {
+            width: calc(100% - 120px);
+        }
+        .hlp-line {
+            padding-right: $px-20;
+            &:after {
+                display: inline-block;
+            }
+        }
+        .col-12:nth-child(2) {
+            background-image: none;
+        }
+        .col-12:nth-child(3) {
+            padding-top: $px-40;
+            padding-left: $px-20;
+            .com-breadcrumb {
+                display: block;
+                a {
+                    display: block;
+                    padding: 0;
+                    &:last-child {
+                        border: 0
+                    }
+                }
+            }
+        }
+        .col-tablet-2 {
+            background-repeat: no-repeat;
+            background-size: 100%;
+            &:first-child {
+                background-image: url('../../img/newsletter-lineas-trama-izq.svg');
+                background-position: left bottom;
+            }
+            &:last-child {
+                background-image: url('../../img/newsletter-lineas-trama-der.svg');
+                background-position: right top;
+            }
+        }
+    }
+}
+
+//Valores de desktop-sm para arriba
+@media (min-width: 1280px) {
+    .mod-newsletter {
+        padding: initial;
+        .col-tablet-2 {
+            background-repeat: no-repeat;
+            background-size: 80%;
+        }
     }
 }

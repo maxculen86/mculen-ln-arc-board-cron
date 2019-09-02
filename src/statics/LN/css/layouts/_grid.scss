@@ -1,7 +1,6 @@
 @import '../abstracts/imports';
 @import '../base/aspect-ratios';
 
-
 //Tener en cuenta que 
 // el min valora mucho el orden
 // siempre menor resolucion primero
@@ -36,6 +35,11 @@
 .w-100-mobile{
   width: calc(100% + 20px)!important;
   margin-left: -$px-10;
+  //se agrega media max porq este valor solo debe venir en mobile y en las otras resoluciones 
+  //traer el valor de otras clases, entonces no se puede darle un valor en resoluciones que no sea mobile.
+  @media screen and (max-width : 47em){
+    border: none !important;   
+  }
 }
 @media ($media-s){ 
   .w-100-mobile{
@@ -237,7 +241,7 @@
 [class^="row-gap"], [class*=" row-gap"]{
   display: grid;
   grid-column-gap: $px-10;
-  grid-row-gap: $px-10;
+  grid-row-gap: $px-30;
   @media ($media-s){ 
     grid-column-gap: $px-20;
     grid-row-gap: $px-20;

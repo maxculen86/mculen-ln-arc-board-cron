@@ -5,10 +5,10 @@
     background: $gris1;
     display: flex;
     align-items: center;
+    padding: 0 $px-40;
     .cont-figure {
         margin-top: $px-25;
-        padding-left: $px-40;
-        height: 90px;
+        height: $px-90;
         overflow: hidden;
     }
     .content-text {
