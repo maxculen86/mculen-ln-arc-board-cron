@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TitleSection matches snapshot 1`] = `
+<h2
+  class="com-title-section-m"
+>
+  Sample title
+</h2>
+`;
