@@ -2,6 +2,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import Header from '../private/LN/common/header';
+import Footer from '../private/LN/common/footer';
 
 const layoutItems = ['Bloque1', 'Bloque2'];
 
@@ -18,6 +19,7 @@ class LNHomeLayout extends Component {
                 />
                 {this.props.children[0]}
                 {this.props.children[1]}
+                <Footer />
             </>
         );
     }
