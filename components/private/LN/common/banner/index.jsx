@@ -53,6 +53,7 @@ const banner = props => {
 
     return (
         <BannerComponent
+            device={screenUtils.device}
             slotId={finalSlot}
             dfpId={dfp_id}
             slotName={finalConfig.slotName}

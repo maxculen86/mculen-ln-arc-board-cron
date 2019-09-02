@@ -79,8 +79,11 @@ export default `
     }
     credits {
         by {
+            _id
             name
             type
+            url
+            slug
         }
     }
     headlines {

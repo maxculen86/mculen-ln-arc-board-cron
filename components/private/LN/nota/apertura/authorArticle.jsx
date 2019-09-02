@@ -1,24 +1,27 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import '../../../../../assets/bundles/css/ln/components/author.css';
 
 const authorArticle = ({
     globalContent: {
         credits: { by }
     }
 }) => {
-    const listAuthor = by.map(authorNota => {
+    const listAuthor = by.map((authorNota, i) => {
         return (
-            <div key={authorNota.slug}>
-                <a href={authorNota.slug} className={authorNota.type}>
-                    {authorNota.name}
-                </a>
-                <button
-                    type="button"
-                    className={authorNota.type}
-                    onClick={() => {}}
-                >
-                    SEGUIR
-                </button>
+            <div key={authorNota._id} className="com-author">
+                {authorNota.url !== '' ? (
+                    <a href={authorNota.url} className={authorNota.type}>
+                        {authorNota.name}
+                    </a>
+                ) : (
+                    <span>{authorNota.name}</span>
+                )}
+                {i < by.length - 2 ? (
+                    <span>, </span>
+                ) : (
+                    <>{i === by.length - 2 ? <span> y</span> : ''}</>
+                )}
             </div>
         );
     });
@@ -30,9 +33,11 @@ authorArticle.propTypes = {
         by: PropTypes.shape({
             authors: PropTypes.arrayOf(
                 PropTypes.shape({
+                    _id: PropTypes.string,
                     name: PropTypes.string,
                     type: PropTypes.string,
-                    slug: PropTypes.string
+                    slug: PropTypes.string,
+                    url: PropTypes.string
                 })
             )
         })

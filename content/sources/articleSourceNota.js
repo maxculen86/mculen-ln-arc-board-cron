@@ -18,11 +18,20 @@ const transform = (data, siteProps) => {
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
 
-    const presets = get(
+    let presets = get(
         properties,
-        'imageConfig.resize.nota.bySubtype[data.subtype]',
+        `imageConfig.resize.nota.bySubtype[${data.subtype}]`,
         null
     );
+
+    if (!presets) {
+        presets = get(
+            properties,
+            'imageConfig.resize.nota.bySubtype[default]',
+            null
+        );
+    }
+
     let resp = data;
     if (presets) {
         resp = addResizedUrls(data, {
