@@ -5,6 +5,7 @@ import AcuTitle from '../private/LN/acumulado/acumuladoTitle';
 import BannerCaja1 from '../private/LN/acumulado/bannerCaja1';
 import BannerCaja2 from '../private/LN/acumulado/bannerCaja2';
 import BannerCabezal from '../private/LN/acumulado/bannerCabezal';
+import BreadCrumb from '../private/LN/common/breadcrumbBase';
 
 import '../../assets/bundles/css/ln/base.css';
 import '../../assets/bundles/css/ln/layouts/layout.css';
@@ -22,6 +23,11 @@ class LNAcumuladoLayout extends Component {
                     <BannerCabezal />
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
+                            <div className="row">
+                                <BreadCrumb
+                                    sectionId={this.props.globalContent._id}
+                                />
+                            </div>
                             <div className="row">
                                 <AcuTitle
                                     title={this.props.globalContent.name}

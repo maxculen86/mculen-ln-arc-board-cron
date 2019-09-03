@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import WithNavigation from './hocs/WithNavigation';
 
 import '../../../../assets/bundles/css/ln/components/breadcrumb.css';
 
-const breadcrumbBase = props => {
-    const { sections } = props;
+const breadcrumbBase = ({ sections, extraClasses }) => {
+    console.log('SECTIONS:::', sections);
     const listSections = sections.map(section => {
         return (
             <a key={section.path} href={section.path}>
@@ -13,9 +14,7 @@ const breadcrumbBase = props => {
         );
     });
     return (
-        <nav className={`com-breadcrumb ${props.extraClasses}`}>
-            {listSections}
-        </nav>
+        <nav className={`com-breadcrumb ${extraClasses}`}>{listSections}</nav>
     );
 };
 
@@ -29,4 +28,4 @@ breadcrumbBase.propTypes = {
     ).isRequired
 };
 
-export default breadcrumbBase;
+export default WithNavigation(breadcrumbBase);

@@ -1,0 +1,59 @@
+import React, { PureComponent } from 'react';
+import Consumer from 'fusion:consumer';
+import get from 'lodash.get';
+
+export default function WithNavigation(WrappedComponent) {
+    return Consumer(
+        class extends PureComponent {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    sections: []
+                };
+                this.getNavigationTree();
+            }
+
+            getNavigationTree = () => {
+                const website = get(this, 'props.globalContent._website', null);
+                const { cached, fetched } = this.getContent({
+                    sourceName: 'navigationTreeSource',
+                    query: {
+                        website
+                    }
+                });
+                if (cached) this.getSectionTree(cached, false);
+                else fetched.then(result => this.getSectionTree(result, true));
+            };
+
+            getSectionTree = (results, isFetched) => {
+                const sections = [];
+                const { sectionId } = this.props;
+                sections.push({
+                    id: results._id,
+                    name: results.name,
+                    path: results._id
+                });
+                let section = results;
+                do {
+                    section = section.children.filter(el =>
+                        sectionId.includes(el._id)
+                    )[0];
+                    if (section) {
+                        sections.push({
+                            id: section._id,
+                            name: section.name,
+                            path: section._id
+                        });
+                    }
+                } while (section);
+                if (isFetched) this.setState({ sections });
+                else this.state = { sections };
+            };
+
+            render() {
+                const { sections } = this.state;
+                return <WrappedComponent {...this.props} sections={sections} />;
+            }
+        }
+    );
+}
