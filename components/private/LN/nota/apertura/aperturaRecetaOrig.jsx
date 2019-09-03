@@ -19,16 +19,10 @@ const aperturaReceta = props => {
     return (
         <div className="row aper-receta w-100 hlp-marginBottom-40 sin-foto">
             <Destacado {...props} />
-            <div className="col-desksm-12 cont-aper">
-                <div className="row">
-                    <div className="col-desksm-3">
-                        {receta && <DetalleReceta receta={receta} />}
-                    </div>
-                    <div className="col-desksm-9">
-                        <Sections taxonomy={taxonomy} destacado />
-                        <Tags tags={tags} destacado={false} />
-                    </div>
-                </div>
+            <div className="col-desksm-4 cont-aper">
+                <Sections taxonomy={taxonomy} destacado />
+                {receta && <DetalleReceta receta={receta} />}
+                <Tags tags={tags} destacado={false} />
             </div>
         </div>
     );

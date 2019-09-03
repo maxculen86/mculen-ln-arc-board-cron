@@ -3,6 +3,25 @@
 
 .aper-receta {
     background: $gris1;
+
+    &.sin-foto {
+        .cont-figure .content-pic {
+        background: $blanco;
+        }
+        .cont-aper {
+            .tags {
+                border-bottom: 0;
+                margin-right: $px-30;
+                border-right: solid 1px $gris3;
+                &:before {
+                    bottom: initial;
+                    height: $px-30;
+                    width: $px-1;
+                    right: -1px;
+                }
+            }
+        }
+    }
     .cont-figure {
         @media ($media-l) {
             order: 2;

@@ -39,6 +39,26 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            &:before {
+                font-family: 'LNlogos' !important;
+                content: "\e926";
+                color: #f2f2f2;
+                background: #fff;
+                border-radius: 50%;
+                font-size: 5em;
+                font-family: ln10;
+                font-style: normal;
+                font-weight: 400;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                position: absolute;
+                line-height: .5em;
+                padding: .43em .19em;
+                top: 35%;
+            }
             &.zoom {
                 &:after {
                     font-family: 'LNicons' !important;
@@ -67,6 +87,7 @@
                 top: 0;
                 filter: brightness(100%);
                 transition: all .2s ease-in-out;
+                
                 &:hover {
                     transition: all .2s ease-in-out;
                     filter: brightness(110%);
