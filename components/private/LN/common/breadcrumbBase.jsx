@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import WithNavigation from './hocs/WithNavigation';
 
 import '../../../../assets/bundles/css/ln/components/breadcrumb.css';
 
 const breadcrumbBase = ({ sections, extraClasses }) => {
-    console.log('SECTIONS:::', sections);
     const listSections = sections.map(section => {
         return (
             <a key={section.path} href={section.path}>
@@ -28,4 +26,4 @@ breadcrumbBase.propTypes = {
     ).isRequired
 };
 
-export default WithNavigation(breadcrumbBase);
+export default breadcrumbBase;
