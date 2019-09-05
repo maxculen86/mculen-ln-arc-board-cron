@@ -3,7 +3,7 @@ import Image from './imageBase';
 import VideoPlayer from './videoPlayer';
 
 // TODO: proptypes
-const media = ({ mediaData, imageResizePresets, colNumber }) => {
+const media = ({ mediaData, imageResizePresets, colNumber, zoom }) => {
     // TODO: revisar implementacion de placeHolder
     let item = null;
     if (mediaData) {
@@ -15,7 +15,7 @@ const media = ({ mediaData, imageResizePresets, colNumber }) => {
                     <Image
                         image={mediaData}
                         imageResizePresets={imageResizePresets}
-                        zoom
+                        zoom={zoom}
                         configType="apertura"
                     />
                 );

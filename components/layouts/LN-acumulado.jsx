@@ -33,10 +33,8 @@ class LNAcumuladoLayout extends Component {
                                 {/* LINKS DE NAVEGACION */}
                                 {this.props.children[1]}
                             </div>
-                            <section className="row-gap-tablet-2 row-gap-desksm-3">
-                                {/* NOTAS */}
-                                {this.props.children[2]}
-                            </section>
+                            {/* NOTAS */}
+                            {this.props.children[2]}
                         </div>
                         <div className="sidebar__aside">
                             <BannerCaja1 />
