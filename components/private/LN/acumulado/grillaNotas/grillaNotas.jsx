@@ -8,15 +8,17 @@ import BtnMasNotas from '../botonVerMasNotas';
 const CLASS_W_100 = 'w-100-mobile';
 class GrillaNotas extends Component {
     render() {
-        let articles = [];
-        if (this.props.articles && this.props.articles.length) {
-            articles = this.props.articles.map((a, i) => {
+        let articlesComponents = [];
+        const { articles, imageResizePresets } = this.props;
+        if (articles && articles.length) {
+            articlesComponents = articles.map((a, i) => {
                 const dateComponent = (
                     <ArticleDate display_date={a.display_date} />
                 );
                 return (
                     <ArticleMain
                         key={i}
+                        imageResizePresets={imageResizePresets}
                         children={dateComponent}
                         articleData={a}
                         extraClasses={CLASS_W_100}
@@ -28,7 +30,7 @@ class GrillaNotas extends Component {
         return (
             <>
                 <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-                    {articles}
+                    {articlesComponents}
                 </section>
                 {this.props.hayMasNotas && (
                     <section className="row">
