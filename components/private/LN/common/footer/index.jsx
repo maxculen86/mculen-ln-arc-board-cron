@@ -1,7 +1,7 @@
 import React from 'react';
 import WithDevice from '../hocs/withDevice';
 import Header from './header';
-import '../../../../../assets/bundles/css/ln/components/footer.css';
+import '../../../../../resources/dist/css/ln/components/footer.css';
 
 const Index = () => (
     <footer>

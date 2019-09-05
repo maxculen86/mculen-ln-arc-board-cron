@@ -10,7 +10,7 @@
     "build-dev": "npm run clean && npm run webpack-dev",
     "build-watch": "npm run clean && npm run webpack-watch",
 
-    "clean": "rm -rf resources/dist && rm -rf assets/bundles",
+    "clean": "rm -rf resources/dist",
     
     "eslint": "eslint --ext=js,jsx",
     "prettier": "prettier --write **/*.{js,jsx}",

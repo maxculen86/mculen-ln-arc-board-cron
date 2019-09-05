@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../assets/bundles/css/ln/components/title.css';
+import '../../../../resources/dist/css/ln/components/title.css';
 
 function AcumuladoTitle({ title }) {
     return (
