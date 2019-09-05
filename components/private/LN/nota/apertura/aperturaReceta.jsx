@@ -17,9 +17,19 @@ const aperturaReceta = props => {
     } = props;
 
     return (
-        <div className="row aper-receta w-100 hlp-marginBottom-40 sin-foto">
-            <Destacado {...props} />
-            <div className="col-desksm-12 cont-aper">
+        <div
+            className={`row aper-receta w-100 hlp-marginBottom-40 ${
+                !props.globalContent.promo_items.basic._id ? '' : 'sin-foto'
+            }`}
+        >
+            {props.globalContent.promo_items.basic._id && (
+                <Destacado {...props} />
+            )}
+            <div
+                className={`col-desksm-${
+                    props.globalContent.promo_items.basic._id ? '4' : '12'
+                } cont-aper`}
+            >
                 <div className="row">
                     <div className="col-desksm-3">
                         {receta && <DetalleReceta receta={receta} />}
