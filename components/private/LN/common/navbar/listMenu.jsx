@@ -5,7 +5,7 @@ import ItemHome from './itemHome';
 import ItemClub from './itemClub';
 import ItemMiCuenta from './itemMiCuenta';
 
-import '../../../../../assets/bundles/css/ln/components/nav-mobile.css';
+import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
 // eslint-disable-next-line react/prop-types
 export default function ListMenu() {

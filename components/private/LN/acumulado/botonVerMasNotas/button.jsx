@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../../assets/bundles/css/ln/components/button.css';
+import '../../../../../resources/dist/css/ln/components/button.css';
 
 export default function Button({ onClickHandler, name }) {
     return (

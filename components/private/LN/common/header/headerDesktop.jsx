@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
 
-import '../../../../../assets/bundles/css/ln/modules/header-desktop.css';
+import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 
 export default function HeaderDesktop() {
     return (

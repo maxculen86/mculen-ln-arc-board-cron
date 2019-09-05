@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArcAd from './arcWrapper';
 
-import '../../../../../assets/bundles/css/ln/layouts/grid.css';
+import '../../../../../resources/dist/css/ln/layouts/grid.css';
 
 // TODO: test pendientes hasta tener el html final. Falta definicion de div contenedor cuando es background.
 // Falta la clase si es desktop, tablet, mobile. Confirmar.

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../../assets/bundles/css/ln/components/ranking.css';
+import '../../../../../resources/dist/css/ln/components/ranking.css';
 import withRankingArticlesData from '../hocs/WithRankingArticlesData';
 import PropTypes from 'fusion:prop-types';
 import TitleSection from '../titles/titleSection';

@@ -6,10 +6,10 @@ import BannerCaja1 from '../private/LN/acumulado/bannerCaja1';
 import BannerCaja2 from '../private/LN/acumulado/bannerCaja2';
 import BannerCabezal from '../private/LN/acumulado/bannerCabezal';
 
-import '../../assets/bundles/css/ln/base.css';
-import '../../assets/bundles/css/ln/layouts/layout.css';
-import '../../assets/bundles/css/ln/layouts/grid.css';
-import '../../assets/bundles/css/ln/pages/acu.css';
+import '../../resources/dist/css/ln/base.css';
+import '../../resources/dist/css/ln/layouts/layout.css';
+import '../../resources/dist/css/ln/layouts/grid.css';
+import '../../resources/dist/css/ln/pages/acu.css';
 
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
