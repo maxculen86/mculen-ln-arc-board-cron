@@ -30,6 +30,12 @@ module.exports = {
     },
     overrides: [
         {
+            files: ['*.jsx'],
+            rules: {
+                'react/prefer-stateless-function': false
+            }
+        },
+        {
             files: ['*.js', '*.jsx'],
             rules: {
                 'import/no-unresolved': false
