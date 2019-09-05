@@ -20,7 +20,8 @@
     "sonar-local": "sonar-scanner -Dsonar.projectKey=arc-ln -Dsonar.sourceEncoding=UTF-8 -Dsonar.host.url=http://localhost:9000 -Dsonar.sources=./ -Dsonar.language=js -Dsonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules -Dsonar.tests=./__tests__ -Dsonar.test.inclusions=./__tests__/**/*.test.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
     "test": "jest --passWithNoTests --coverage",
     "fusion": "fusion",
-    "zip": "npm run build && fusion zip"
+    "zip": "npm run build && fusion zip",
+    "doc": "react-doc-generator ./components/ -o ./components.md"
   },
   "dependencies": {
     "@arc-core-components/content-source_content-api-v4": "^2.0.4-beta.0",
