@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../../assets/bundles/css/ln/components/date.css';
 
 const MONTHS = [
     'Enero',

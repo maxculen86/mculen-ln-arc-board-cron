@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const imageBase = ({ urlDefault, sources, altText, zoom, href }) => {
+    let zoomClass = '';
+    if (zoom) zoomClass = 'zoom';
     const pic = (
         <a href={href} className="figure">
-            <picture className={`content-pic picture ${zoom && 'zoom'}`}>
+            <picture className={`content-pic picture ${zoomClass}`}>
                 {sources &&
                     sources.map(x => {
                         return (
