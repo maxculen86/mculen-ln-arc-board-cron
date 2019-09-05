@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@arc-core-components/content-source_content-api-v4": "^2.0.4-beta.0",
-    "@arc-core-components/feature_ads-arc-ad": "^0.2.8-beta.0",
     "lodash.get": "^4.4.2",
     "react": "16.6.1",
     "react-dom": "16.6.1"

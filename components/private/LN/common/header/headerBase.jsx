@@ -1,10 +1,11 @@
 import React from 'react';
 
 export default function HeaderBase(props) {
+    const { id, className, children } = props;
     return (
-        <header id={props.id} className={props.className}>
+        <header id={id} className={className}>
             <div className="lay">
-                <div className="row">{props.children}</div>
+                <div className="row">{children}</div>
             </div>
         </header>
     );

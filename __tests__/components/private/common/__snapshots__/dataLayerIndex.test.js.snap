@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LN - Common - DataLayer DataLayer nota recetas snapshot 1`] = `
+<dataLayerIndex
+  arcSite="la-nacion-ar"
+  layout="LN-nota-receta"
+>
+  <dataLayer
+    arcSite="la-nacion-ar"
+    layout="LN-nota-receta"
+  >
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "var dataLayer = [
+        {
+            metarefresh: 'N/A',
+            pageType: 'N/A',
+            mainTag: 'N/A',
+            tags: 'N/A',
+            autor: 'N/A',
+            seccion: 'Recetas',
+            longitud: 'N/A',
+            formato: 'N/A',
+            genero: 'N/A',
+            tematica: 'N/A',
+            valor: 'N/A',
+            age: 'N/A',
+            gender: 'N/A',
+            marital: 'N/A',
+            country: 'N/A',
+            city: 'N/A',
+            education: 'N/A',
+            career: 'N/A',
+            industry: 'N/A',
+            income: 'N/A',
+            interest: 'N/A'
+        }
+    ];    ",
+        }
+      }
+      type="text/javascript"
+    />
+  </dataLayer>
+</dataLayerIndex>
+`;

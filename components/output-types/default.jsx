@@ -7,6 +7,7 @@ import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
 import paths from '../../config/paths';
+import DataLayerIndex from '../private/common/dataLayerIndex';
 
 const scriptList = { GTM, Comscore, Microdata, ArcAds, PostBid };
 
@@ -18,18 +19,20 @@ const getBodyClass = props => {
 };
 const pathCss = `${paths.outputPath.base}/${paths.outputPath.css}`;
 
-const Default = ({
-    arcSite,
-    children,
-    contextPath,
-    deployment,
-    CssLinks,
-    Fusion,
-    Libs,
-    MetaTags,
-    metaValue,
-    siteProperties
-}) => {
+const Default = props => {
+    const {
+        arcSite,
+        children,
+        contextPath,
+        deployment,
+        CssLinks,
+        Fusion,
+        Libs,
+        MetaTags,
+        metaValue,
+        siteProperties
+    } = props;
+
     const Scripts = ScriptManager(scriptList, siteProperties.scripts);
 
     return (
@@ -38,6 +41,7 @@ const Default = ({
                 <title>
                     {metaValue('title') || siteProperties.title || 'LA NACION'}
                 </title>
+                <DataLayerIndex {...props} />
                 <Scripts location="head" />
                 <MetaTags />
                 <Libs />

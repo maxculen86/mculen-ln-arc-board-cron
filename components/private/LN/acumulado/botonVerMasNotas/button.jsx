@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../../../../assets/bundles/css/ln/components/button.css';
+
 export default function Button({ onClickHandler, name }) {
     return (
         <div className="col-12 hlp-text-center hlp-margintop-40">

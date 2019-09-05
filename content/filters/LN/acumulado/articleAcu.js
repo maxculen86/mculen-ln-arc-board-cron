@@ -14,36 +14,39 @@ const image = `
 
 export default `
 {
-    _id
-    subtype
-    promo_items {
-        basic {
-            ${image}
+    content_elements {
+        _id
+        subtype
+        promo_items {
+            basic {
+                ${image}
+            }
+        }
+        credits {
+            by {
+                name
+                type
+            }
+        }
+        headlines {
+            basic
+        }
+        display_date
+        website_url
+        imageResizePresets {
+            articleAcu_small {
+                media
+                class
+            }
+            articleAcu_medium{
+                media
+                class
+            }
+            articleAcu_big{
+                media
+                class
+            }
         }
     }
-    credits {
-        by {
-            name
-            type
-        }
-    }
-    headlines {
-        basic
-    }
-    display_date
-    website_url
-    imageResizePresets {
-        articleAcu_small {
-            media
-            class
-        }
-        articleAcu_medium{
-            media
-            class
-        }
-        articleAcu_big{
-            media
-            class
-        }
-    }
+    
 }`;

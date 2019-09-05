@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 
-function WithAcuArticlesData(WrappedArticles, filter) {
+function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
     return Consumer(
         class extends PureComponent {
             constructor(props) {
@@ -10,14 +10,20 @@ function WithAcuArticlesData(WrappedArticles, filter) {
 
                 const { page } = props;
 
-                const { articles, hayMasNotas } = this.getArticles(
+                const {
+                    articles,
+                    hayMasNotas,
+                    imageResizePresets
+                } = this.getArticles(
                     ({
                         articles: articlesFetched,
-                        hayMasNotas: hayMasNotasFetched
+                        hayMasNotas: hayMasNotasFetched,
+                        imageResizePresets: imageResizePresetsFetched
                     }) => {
                         this.setState({
                             articles: articlesFetched,
-                            hayMasNotas: hayMasNotasFetched
+                            hayMasNotas: hayMasNotasFetched,
+                            imageResizePresets: imageResizePresetsFetched
                         });
                     },
                     0
@@ -25,7 +31,8 @@ function WithAcuArticlesData(WrappedArticles, filter) {
                 this.state = {
                     articles,
                     hayMasNotas,
-                    page: page || 1
+                    page: page || 1,
+                    imageResizePresets
                 };
             }
 
@@ -33,7 +40,6 @@ function WithAcuArticlesData(WrappedArticles, filter) {
                 // HACK: No hace falta usar lodash.get
                 const website = get(this, 'props.website', null);
                 const sectionId = get(this, 'props.sectionId', null);
-                const destination = get(this, 'props.destination', null);
                 const size = get(this, 'props.size', 30);
 
                 const { cached, fetched } = this.getContent({
@@ -42,7 +48,7 @@ function WithAcuArticlesData(WrappedArticles, filter) {
                         website,
                         sectionId,
                         size,
-                        destination,
+                        imageConfig,
                         page
                     },
                     filter
@@ -51,6 +57,11 @@ function WithAcuArticlesData(WrappedArticles, filter) {
                 // Caclulo si hay mas notas y saco la q sobra
                 const articles = get(cached, 'content_elements', []);
                 const hayMasNotas = get(cached, 'next', false);
+                const imageResizePresets = get(
+                    cached,
+                    'imageResizePresets',
+                    {}
+                );
                 // Devuelvo otro fetched que ya tenga parte de la logica implementada
                 fetched.then(response => {
                     const articlesFetched = get(
@@ -59,14 +70,23 @@ function WithAcuArticlesData(WrappedArticles, filter) {
                         []
                     );
                     const hayMasNotasFetched = get(response, 'next', false);
-
+                    const imageResizePresetsFetched = get(
+                        response,
+                        'imageResizePresets',
+                        {}
+                    );
                     fetchedCallback({
                         articles: articlesFetched.slice(0, size),
-                        hayMasNotas: hayMasNotasFetched
+                        hayMasNotas: hayMasNotasFetched,
+                        imageResizePresets: imageResizePresetsFetched
                     });
                 });
 
-                return { articles: articles.slice(0, size), hayMasNotas };
+                return {
+                    articles: articles.slice(0, size),
+                    hayMasNotas,
+                    imageResizePresets
+                };
             };
 
             obtenerMasNotas = () => {
@@ -74,11 +94,16 @@ function WithAcuArticlesData(WrappedArticles, filter) {
                 const { articles } = this.state;
 
                 this.getArticles(
-                    ({ articles: articlesFetched, hayMasNotas }) => {
+                    ({
+                        articles: articlesFetched,
+                        hayMasNotas,
+                        imageResizePresets
+                    }) => {
                         this.setState({
                             page: page + 1,
                             articles: [...articles, ...articlesFetched],
-                            hayMasNotas
+                            hayMasNotas,
+                            imageResizePresets
                         });
                     },
                     page + 1
@@ -86,9 +111,14 @@ function WithAcuArticlesData(WrappedArticles, filter) {
             };
 
             render() {
-                const { articles, hayMasNotas } = this.state;
+                const {
+                    articles,
+                    hayMasNotas,
+                    imageResizePresets
+                } = this.state;
                 return (
                     <WrappedArticles
+                        imageResizePresets={imageResizePresets}
                         articles={articles}
                         obtenerMasNotas={this.obtenerMasNotas}
                         hayMasNotas={hayMasNotas}

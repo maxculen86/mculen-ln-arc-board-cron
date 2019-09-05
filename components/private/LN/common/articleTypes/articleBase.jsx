@@ -1,6 +1,8 @@
 import React from 'react';
 import TitleAcu from '../titles/titleAcu';
 
+import '../../../../../assets/bundles/css/ln/modules/caja-nota.css';
+
 // TODO: test pendiente. PorpTypes pendiente
 export default ({
     extraClasses,

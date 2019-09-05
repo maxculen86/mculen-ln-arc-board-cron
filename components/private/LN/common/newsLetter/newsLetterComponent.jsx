@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 
+import '../../../../../assets/bundles/css/ln/layouts/layout.css';
+import '../../../../../assets/bundles/css/ln/base/helpers.css';
+import '../../../../../assets/bundles/css/ln/modules/newsletter.css';
+import '../../../../../assets/bundles/css/ln/components/button.css';
+
 const newLetter = props => {
     const [mail, setMail] = useState('');
     const [isSubscribe, setIsSubscribe] = useState(false);

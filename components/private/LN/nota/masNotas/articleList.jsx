@@ -5,9 +5,15 @@ import articleFiltered from '../../../../../content/filters/LN/nota/articleFilte
 import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 
 const ArticleList = props => {
-    const { articles } = props;
+    const { articles, imageResizePresets } = props;
     if (!articles) return null;
-    return articles.map(e => <ArticleMain articleData={e} border={true} />);
+    return articles.map(e => (
+        <ArticleMain
+            imageResizePresets={imageResizePresets}
+            articleData={e}
+            border
+        />
+    ));
 };
 
-export default withAcuArticlesData(ArticleList);
+export default withAcuArticlesData(ArticleList, null, 'masNotas');
