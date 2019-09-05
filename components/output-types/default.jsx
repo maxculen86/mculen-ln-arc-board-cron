@@ -33,7 +33,7 @@ const Default = ({
     const Scripts = ScriptManager(scriptList, siteProperties.scripts);
 
     return (
-        <html lang="es" info={arcSite}>
+        <html lang="es">
             <head>
                 <title>
                     {metaValue('title') || siteProperties.title || 'LA NACION'}

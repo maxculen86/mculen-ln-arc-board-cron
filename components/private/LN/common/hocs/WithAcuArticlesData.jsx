@@ -30,6 +30,7 @@ function WithAcuArticlesData(WrappedArticles, filter) {
             }
 
             getArticles = (fetchedCallback, page) => {
+                // HACK: No hace falta usar lodash.get
                 const website = get(this, 'props.website', null);
                 const sectionId = get(this, 'props.sectionId', null);
                 const destination = get(this, 'props.destination', null);
