@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import Header from './headerBase';
 
 import '../../../../../assets/bundles/css/ln/modules/header-mobile.css';
 
-export default function HeaderMobile() {
+const HeaderMobile = ({ loginData }) => {
     return (
         <Header id="header-mobile" className="header-mobile">
             <div className="col-6">
@@ -11,9 +12,26 @@ export default function HeaderMobile() {
                     <i className="logo-la-nacion" />
                 </a>
             </div>
-            <div className="col-6 hlp-text-right">
-                <a>Suscribite</a>
-            </div>
+            {!loginData.subscription && (
+                <div className="col-6 hlp-text-right">
+                    <a href="/">Suscribite</a>
+                </div>
+            )}
         </Header>
     );
-}
+};
+
+HeaderMobile.propTypes = {
+    loginData: PropTypes.shape({
+        subscription: PropTypes.bool,
+        userName: PropTypes.string
+    })
+};
+
+HeaderMobile.defaultProps = {
+    loginData: PropTypes.shape({
+        subscription: false,
+        userName: ''
+    })
+};
+export default HeaderMobile;
