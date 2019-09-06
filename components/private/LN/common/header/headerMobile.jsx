@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Header from './headerBase';
 
-import '../../../../../assets/bundles/css/ln/modules/header-mobile.css';
+import '../../../../../resources/dist/css/ln/modules/header-mobile.css';
 
 const HeaderMobile = ({ loginData }) => {
     return (

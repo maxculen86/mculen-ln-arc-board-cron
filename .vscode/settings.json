@@ -13,6 +13,7 @@
         "node_modules": true
     },
     "editor.tabSize": 4,
+    "editor.formatOnSave": false,
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
@@ -23,7 +24,6 @@
         "/coverage/**":true,
         "/.scannerwork/**":true,
         "/dist/**":true,
-        "/resources/dist/**":true,
-        "/src/bundles/**":true
+        "/resources/dist/**":true
     }
 }

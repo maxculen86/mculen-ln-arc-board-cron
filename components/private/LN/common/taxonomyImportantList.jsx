@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import '../../../../assets/bundles/css/ln/components/tag.css';
+import '../../../../resources/dist/css/ln/components/tag.css';
 
 /**
  * Renderiza elementos relacionados destacados (como categorias o tags)

@@ -3,8 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
 
-import '../../../../../assets/bundles/css/ln/modules/header-desktop.css';
-// import header from '.';
+import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 
 const HeaderDesktop = ({ logueado, loginData }) => {
     return (

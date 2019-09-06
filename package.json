@@ -5,21 +5,28 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+
     "build": "npm run clean && npm run webpack",
     "build-dev": "npm run clean && npm run webpack-dev",
     "build-watch": "npm run clean && npm run webpack-watch",
-    "clean": "rm -rf resources/dist && rm -rf assets/bundles",
-    "eslint": "eslint --ext=js,jsx .",
-    "fusion": "fusion",
+
+    "clean": "rm -rf resources/dist",
+
+    "eslint": "eslint --ext=js,jsx",
     "prettier": "prettier --write **/*.{js,jsx}",
-    "sonar-local": "sonar-scanner -Dsonar.projectKey=arc-ln -Dsonar.sourceEncoding=UTF-8 -Dsonar.host.url=http://localhost:9000 -Dsonar.sources=./ -Dsonar.language=js -Dsonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules -Dsonar.tests=./__tests__ -Dsonar.test.inclusions=./__tests__/**/*.test.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
+
     "start": "npm run build-dev && fusion start",
     "start-prod": "npm run build && fusion start",
     "start-watch": "npm run build-watch & fusion start",
-    "test": "jest --passWithNoTests --coverage",
+
     "webpack": "webpack --config ./config/webpack.config.js --env.prod",
     "webpack-dev": "webpack --config ./config/webpack.config.js --env.dev",
     "webpack-watch": "webpack --config ./config/webpack.config.js --env.dev --watch --verbose",
+
+    "sonar-local": "sonar-scanner -Dsonar.projectKey=arc-ln -Dsonar.sourceEncoding=UTF-8 -Dsonar.host.url=http://localhost:9000 -Dsonar.sources=./ -Dsonar.language=js -Dsonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules -Dsonar.tests=./__tests__ -Dsonar.test.inclusions=./__tests__/**/*.test.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
+
+    "test": "jest --passWithNoTests --coverage",
+    "fusion": "fusion",
     "zip": "npm run build && fusion zip"
   },
   "dependencies": {

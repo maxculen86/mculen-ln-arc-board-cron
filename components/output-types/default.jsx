@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
@@ -6,6 +7,7 @@ import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
 import DataLayerIndex from '../private/common/dataLayerIndex';
+import paths from '../../config/paths';
 
 const scriptList = { GTM, Comscore, Microdata, ArcAds, PostBid };
 
@@ -15,9 +17,11 @@ const getBodyClass = props => {
 
     return undefined;
 };
+const pathCss = `${paths.outputPath.base}/${paths.outputPath.css}`;
 
-export default props => {
+const Default = props => {
     const {
+        arcSite,
         children,
         contextPath,
         deployment,
@@ -41,7 +45,17 @@ export default props => {
                 <Scripts location="head" />
                 <MetaTags />
                 <Libs />
-                <CssLinks />
+                {/* Para OTT carga los styles por front */}
+                {arcSite === 'ott' ? (
+                    <link
+                        rel="stylesheet"
+                        href={deployment(
+                            `${contextPath}${pathCss}/${arcSite}/style.css`
+                        )}
+                    />
+                ) : (
+                    <CssLinks />
+                )}
                 <meta
                     name="viewport"
                     content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
@@ -62,3 +76,9 @@ export default props => {
         </html>
     );
 };
+
+Default.propTypes = {
+    siteProperties: PropTypes.isRequired
+};
+
+export default Default;
