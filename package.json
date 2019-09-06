@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-
+    
     "build": "npm run clean && npm run webpack",
     "build-dev": "npm run clean && npm run webpack-dev",
     "build-watch": "npm run clean && npm run webpack-watch",

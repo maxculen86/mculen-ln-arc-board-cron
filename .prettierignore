@@ -4,8 +4,8 @@
 ./.{git,svn,hg}
 dist/
 resources/dist
-src/bundles
 package.json
+package-lock.json
 .scannerwork/
 .vscode/
 _fix_windows/
