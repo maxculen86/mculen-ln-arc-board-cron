@@ -11,8 +11,9 @@
     padding-bottom: 10px;
     border-bottom: 1px solid $gris2;
     .header-mobile__logo{
-        svg{
-            width:170px;
+        .logo-la-nacion{
+            color:$ln;
+            font-size: 17px;
         }
     }
     a{
@@ -24,17 +25,18 @@
     @media ($media-l){
         display: none;
     }
+
+    //=================================
+    // ------ESTADOS DEL HEADER------
+    //=================================
     &.--active-dark{
         background: rgba(0, 0, 0, 0.5);
-        .header-mobile__logo{
-            path, polygon{
-                color: #fff !important;
-                background: #fff !important;
-                fill: #fff !important;
-            }
-        }
         a{
             color:#fff;
+            .logo-la-nacion{
+                color:#fff;
+            }
         }
     }
+
 }

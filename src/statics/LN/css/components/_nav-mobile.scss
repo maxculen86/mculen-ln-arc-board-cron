@@ -1,9 +1,9 @@
 @import '../abstracts/imports';
 @import '../base/aspect-ratios';
 
-.com-nav-mobile{
+.com-nav-mobile {
     position: fixed;
-    bottom:0;
+    bottom: 0;
     padding: 5px 10px 10px;
     background: #fff;
     z-index: 1500;
@@ -23,7 +23,7 @@
         p {
             font-family: $font-arial;
             font-size: $font-11;
-            color: $gris5;
+            color: $gris6;
         }
         &:hover {
             p {
@@ -32,7 +32,7 @@
             i {
                 color: $ln;
             }
-        } 
+        }
         &.--active {
             p {
                 color: $ln;
@@ -41,8 +41,17 @@
                 color: $ln;
             }
         }
+    } 
+    //scrollUp
+    &.--scrollDown {
+        bottom: -200px;
     }
-    @media ($media-l) { 
+
+    //scrollDown
+    &.--scrollUp {
+        bottom: 0
+    }
+    @media ($media-l) {
         display: none;
     }
-} 
+}

@@ -13,7 +13,7 @@
 }
  
  /* COLUMNAS */
-@mixin columns($name, $start, $end) {
+ @mixin columns($name, $start, $end) {
   @for $i from $start through $end {
    .col-#{$name}#{$i} {
       -ms-flex: 0 0 $col-width * $i * 1%;

@@ -1,43 +1,78 @@
 @import '../abstracts/imports';
 @import '../base/aspect-ratios';
 
-.mod-caja-nota{
-    display: grid;
-    grid-template-columns: 1fr;
-
+.mod-caja-nota {
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
     //Estructura de vista tipo lista, text e img en una misma linea (como era en mobile antes)
-    &.--lista{
+    &.--lista {
         grid-template-columns: 1fr 141px;
         grid-column-gap: 10px;
-        .figure{
+        .figure {
             height: 94px;
             order: 2;
         }
-        @media ($media-m){
+        @media ($media-m) {
             display: initial;
-            .figure{
+            .figure {
                 width: 100%;
                 height: auto;
             }
         }
     }
-
-    //agrega borde a la caja y un padding al texto
-    &.--border{
-        border: $px-1 solid $gris2;
-        .mod-caja-nota__descrip{
-            padding: $px-15;
+    &.--list {
+        margin-bottom: $px-40;
+        .com-hour {
+            margin-bottom: $px-8;
+        }
+        @media ($media-m) {
+            flex-direction: row;
+            .com-hour {
+                margin-right: $px-20;
+                margin-bottom: 0;
+            }
+            .cont-figure {
+                min-width: 213px;
+                margin-right: $px-20;
+            }
         }
     }
-
+    //agrega borde a la caja y un padding al texto
+    &.--border {
+        border: $px-1 solid $gris2;
+        .mod-caja-nota__descrip {
+            padding: $px-8 $px-15;
+            h2 {
+                margin-top: 0;
+            }
+            @media ($media-m) {
+                padding: $px-10;
+                h2 {
+                    margin-top: $px-7;
+                }
+            }
+        }
+    }
     //le agrega un padding al texto en mobile
-    &.w-100-mobile{
-        .mod-caja-nota__descrip{
-            padding-left: $px-20;
-            padding-right: $px-20;
-            @media ($media-m){
+    &.w-100-mobile {
+        .mod-caja-nota__descrip {
+            padding-left: $px-10;
+            padding-right: $px-10;
+            @media ($media-s) {
+                padding-left: $px-20;
+                padding-right: $px-20;
+            }
+            @media ($media-m) {
                 padding-left: 0;
                 padding-right: 0;
+            }
+        }
+        &.--border {
+            .mod-caja-nota__descrip {
+                @media ($media-m) {
+                    padding: $px-15 !important;
+                }
             }
         }
     }

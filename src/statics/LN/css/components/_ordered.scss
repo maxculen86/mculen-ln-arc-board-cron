@@ -25,16 +25,20 @@
     .com-item {
         list-style-type: none;
         padding-left: 2em;
-        margin: 2.5em 0;
+        margin: 1.5em 0;
         font-family: Georgia;
         font-size: $font-19;
         line-height: $line-23;
         color: #000;
         position: relative;
+        &:first-of-type {
+            margin: 1em 0;
+        }
         &:before {
             content: counter(item) "";
             counter-increment: item;
-            padding: .8em .7em;
+            width: 26px;
+            height: 36px;
             top: -8px;
             background-color: #000;
             color: #fff;
@@ -43,6 +47,9 @@
             font-family: Arial, sans-serif;
             font-weight: bold;
             font-size: $font-14;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }

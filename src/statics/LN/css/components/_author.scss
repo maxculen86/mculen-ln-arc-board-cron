@@ -2,18 +2,14 @@
 @import '../base/aspect-ratios';
 
 .com-author {
-        display: inline-block;
-        align-items: center;
-        margin-bottom: 15px;
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
+    display: inline-block;
+    align-items: center;
+    margin-bottom: 15px;
+    font-family: $font-arial;
+    font-size: $font-16;
+    font-weight: 600;
     a {
-        font-family: $font-arial;
-        font-weight: 600;
         color: $link;
-        margin-right: 5px;
-        font-size: $font-14;
         @media (min-width: 768px) {
             font-size: $font-16;
         }

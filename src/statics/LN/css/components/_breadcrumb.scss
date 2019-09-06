@@ -9,11 +9,22 @@
     align-items: center;
     a {
         color: $link;
-        border-right: solid 1px $gris4;
+        border-left: solid 1px $gris4;
         padding: 0 $px-10;
         &:first-child {
             padding-left: 0;
+            border-left: 0;
         }
+        &:last-child {
+            border-right: none;
+            pointer-events: none;
+            cursor: default;
+            color: $gris5;
+        }
+    }
+    p {
+        border-left: solid 1px $gris4;
+        padding: 0 $px-10;
     }
 }
 
