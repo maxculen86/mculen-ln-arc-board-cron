@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
 
+import '../../../../../resources/dist/css/ln/components/tag.css';
+
 const Tags = ({ tags, destacado }) => {
     const listTags = tags.map(x => {
         return {

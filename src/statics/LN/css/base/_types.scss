@@ -1,5 +1,5 @@
-@import './variables';
-@import './mixins';
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
 
  /* FONTS --------------- */
  @include font-face("SuecaSlab", suecaslab-medium-webfont, 500);

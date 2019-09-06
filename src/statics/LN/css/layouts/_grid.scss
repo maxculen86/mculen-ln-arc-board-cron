@@ -1,10 +1,9 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 //Tener en cuenta que 
 // el min valora mucho el orden
 // siempre menor resolucion primero
-
 
 //=======================================
 // IMAGEN QUE SE ESCAPA DE MARGENES al 100%
