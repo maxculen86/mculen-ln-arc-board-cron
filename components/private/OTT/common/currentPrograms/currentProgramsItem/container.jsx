@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CurrentProgramItemComponent from '../components/currentProgramItem';
+import CurrentProgramItemComponent from './component';
 
 class CurrentProgramItem extends Component {
     render() {
