@@ -8,11 +8,7 @@ const ArticleList = props => {
     const { articles, imageResizePresets } = props;
     if (!articles) return null;
     return articles.map(e => (
-        <ArticleMain
-            imageResizePresets={imageResizePresets}
-            articleData={e}
-            border
-        />
+        <ArticleMain imageResizePresets={imageResizePresets} articleData={e} />
     ));
 };
 
