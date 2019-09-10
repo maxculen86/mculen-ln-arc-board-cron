@@ -26,6 +26,10 @@
     font-weight: 800;
     line-height: $line-22;
     letter-spacing: -0.29px;
+
+    .com-ranking & {
+        margin-bottom: $px-20;
+    }
 }
 
 .com-title-section-s {

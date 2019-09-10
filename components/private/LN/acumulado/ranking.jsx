@@ -3,7 +3,7 @@ import Consumer from 'fusion:consumer';
 
 function Ranking(props) {
     return (
-        <div className="com-ranking hlp-none hlp-tablet-none">
+        <div className="com-ranking">
             <h2 className="com-title-section-m">
                 {props.globalContent.name} más leídas
             </h2>
