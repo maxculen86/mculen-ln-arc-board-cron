@@ -1,27 +1,24 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Placeholder from '../../imagePlaceholder';
 
 const imageBase = ({ urlDefault, sources, altText, zoom, href }) => {
-    let zoomClass = '';
-    if (zoom) zoomClass = 'zoom';
     const pic = (
-        <a href={href} className="figure">
-            <picture className={`content-pic picture ${zoomClass}`}>
-                {sources &&
-                    sources.map(x => {
-                        return (
-                            <source
-                                key={x.media}
-                                media={x.media}
-                                srcSet={x.url}
-                                className={x.class}
-                                alt={altText}
-                            />
-                        );
-                    })}
-                <img src={urlDefault} className="content-img" alt={altText} />
-            </picture>
-        </a>
+        <Placeholder href={href} zoom={zoom}>
+            {sources &&
+                sources.map(x => {
+                    return (
+                        <source
+                            key={x.media}
+                            media={x.media}
+                            srcSet={x.url}
+                            className={x.class}
+                            alt={altText}
+                        />
+                    );
+                })}
+            <img src={urlDefault} className="content-img" alt={altText} />
+        </Placeholder>
     );
     return pic;
 };
