@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 24 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>ln-mas-bco</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13.6314861,2.93333333 L20.5333333,10.8065092 L20.5333333,13.9333333 L19.1700055,13.9333333 L10.1804246,3.90672259 L8.8,3.90672259 L8.8,2.93333333 L13.6314861,2.93333333 Z M6.16049218,12.9601661 C8.95117053,12.9072854 9.61971929,11.8243098 9.58307899,9.79946367 L10.2666667,9.79946367 L10.2666667,13.9333333 L0,13.9333333 L0,12.9598963 L2.05213022,12.9598963 L2.05213022,3.90677034 L0.00136717536,3.90677034 L0.00136717536,2.93333333 L6.84490017,2.93333333 L6.84490017,3.90677034 L4.79167621,3.90677034 L4.79167621,12.9601661 L6.16049218,12.9601661 Z M23.4666667,2.79678481 L23.4666667,3.80182278 L20.6691176,3.80182278 L20.6691176,6.6 L19.6642158,6.6 L19.6642158,3.8015443 L16.8666667,3.8015443 L16.8666667,2.79678481 L19.6642158,2.79678481 L19.6642158,0 L20.6691176,0 L20.6691176,2.79678481 L23.4666667,2.79678481 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Elementos" transform="translate(-507.000000, -793.000000)">
+            <g id="ln-mas-bco" transform="translate(507.000000, 793.000000)">
+                <rect id="Rectangle-Copy-7" x="0" y="0" width="23.2533333" height="16"></rect>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="ln-mas" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

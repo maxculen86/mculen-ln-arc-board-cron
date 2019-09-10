@@ -1,12 +1,14 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
 
-.acu:after {
-    content: '';
+.fondo-revista {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 400px;
+    height: 300px;
     z-index: -1;
+}
+
+@media ($media-l) {
+    .fondo-revista {
+        height: 550px;
+    }
 }

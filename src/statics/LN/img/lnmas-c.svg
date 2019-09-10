@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-492.678 146 33.178 19.771">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: #59b9db;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#77c2db"/>
+      <stop offset="0.23" stop-color="#74c0d9"/>
+      <stop offset="0.43" stop-color="#69b9d4"/>
+      <stop offset="0.62" stop-color="#57afcc"/>
+      <stop offset="0.8" stop-color="#3e9fc0"/>
+      <stop offset="0.98" stop-color="#1e8cb1"/>
+      <stop offset="1" stop-color="#1a89af"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="0" x2="0.5" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="LNmas_chico" transform="translate(-492.648 146)">
+    <path id="Path_1491" data-name="Path 1491" class="cls-1" d="M187.029,55.95H180.25v1.4h1.937L194.8,71.813h1.912V67.3Z" transform="translate(-167.689 -52.042)"/>
+    <path id="Path_1492" data-name="Path 1492" class="cls-2" d="M211.117,320.929H209.18V307.874h2.905v-1.4H202.4v1.4h2.9v13.055H202.4v1.4h14.527v-5.962h-.968C216.011,319.291,215.065,320.853,211.117,320.929Z" transform="translate(-202.43 -302.562)"/>
+    <path id="Path_1493" data-name="Path 1493" class="cls-3" d="M352.24,3.908h-3.908V0h-1.4V3.908H343.02v1.4h3.908V9.219h1.4V5.311h3.908Z" transform="translate(-319.091)"/>
+  </g>
+</svg>

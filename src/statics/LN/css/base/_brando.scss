@@ -1,5 +1,4 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
 
 .brando {
     $primario: $brando;
@@ -18,7 +17,7 @@
     [class*=" logo-"] {
         color: $primario;
     }
-    .acu:after,
+    &.fondo-revista,
     .mod-newsletter {
         background-color: $primario;
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './headerBase';
 
-import '../../../../../assets/bundles/css/ln/modules/header-mobile.css';
+import '../../../../../resources/dist/css/ln/modules/header-mobile.css';
 
 export default function HeaderMobile() {
     return (

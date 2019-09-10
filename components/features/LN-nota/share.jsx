@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../assets/bundles/css/ln/components/share.css';
+import '../../../resources/dist/css/ln/components/share.css';
 
 // TODO: hacer. Esto es solo un mock
 const share = props => {

@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import IconBase from '../../common/logoBase';
 import TitleArticle from './titleArticle';
 
-import '../../../../../assets/bundles/css/ln/components/title.css';
+import '../../../../../resources/dist/css/ln/components/title.css';
 
 const titleAndIconArticle = ({
     globalContent: {

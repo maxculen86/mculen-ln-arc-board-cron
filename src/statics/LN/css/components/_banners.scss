@@ -1,0 +1,89 @@
+@import '../abstracts/variables';
+
+
+.--bg-banner {
+    background-color:#f3f3f3;
+    margin-bottom:40px;
+}
+
+.banner {
+    &.--large { 
+        width:300px;
+        height:600px;
+        background: #a0dbe9;
+        margin-bottom:40px;
+        
+    }
+    &.--small {
+        width:300px;
+        height:250px;
+        margin:0px auto 20px auto;
+        background: #a0dbe9;
+        margin-bottom:40px;
+        
+    }
+    &.--top {
+        width:320px;
+        height:100px;
+        background: #a0dbe9;
+    }
+
+    &.--sticky {
+        width:300px;
+        height:50px;
+        background: #a0dbe9;
+    }
+
+    &.--tablet,
+    &.--desktop {
+        display:none;
+    }
+
+    &.--mobile {
+        display:block;
+        margin:auto;
+    }
+}
+
+//Valores de tablet para arriba
+@media (min-width: 768px) {
+
+    .banner {
+        &.--desktop,
+        &.--mobile {
+            display:none;
+        }
+    
+        &.--tablet {
+            display:block;
+            margin:auto;
+        }
+
+        &.--top {
+            width:728px;
+            height:90px;
+        }
+    }
+}
+
+//Valores de desk chico para arriba
+@media (min-width: 1024px) {
+    .banner {
+        &.--tablet,
+        &.--mobile {
+            display:none;
+        }
+
+        &.--desktop {
+            display:block;
+            margin:auto;
+        }
+
+        &.--top {
+            max-width:1260px;
+            width:100%;
+            height:170px;
+        }
+    }
+
+}

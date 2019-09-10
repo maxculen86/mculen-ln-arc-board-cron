@@ -1,5 +1,4 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
 
 //=====================
 // HEADER Desktop CORE
@@ -23,6 +22,10 @@
         }
         &__middle{
             text-align: center;
+            .logo-la-nacion{
+                color:$ln;
+                font-size: 31px;
+            }
         }
         &__right{
             margin-left: auto;
@@ -115,12 +118,8 @@
                 
             }
             .header__middle{
-                &__logo{
-                    path, polygon{
-                        color: #fff !important;
-                        background: #fff !important;
-                        fill: #fff !important;
-                    }
+                .logo-la-nacion{
+                    color:#fff;
                 }
             }
             .header__right{
@@ -145,6 +144,3 @@
         }
     }
 }
-
-
-

@@ -1,5 +1,4 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
 
 //=======================================
 // lay CON ASIDE
@@ -73,4 +72,5 @@
 .lay-full-width {
     padding-left: 0;
     padding-right: 0;
+    max-width: 100% !important;
 }

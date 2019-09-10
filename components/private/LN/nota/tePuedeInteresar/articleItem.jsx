@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const ArticleItem = ({ e }) => (
-    <article className="mod-caja-nota --border">
+    <article className="mod-caja-nota">
         <section id="" className="cont-figure">
             <a href={e.url} className="figure">
                 <picture id="" className="content-pic picture">
