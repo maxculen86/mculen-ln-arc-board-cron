@@ -37,7 +37,7 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
-    "@arc-fusion/cli": "1.0.3",
+    "@arc-fusion/cli": "1.0.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
