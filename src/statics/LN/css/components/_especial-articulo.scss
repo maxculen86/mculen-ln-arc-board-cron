@@ -1,5 +1,5 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
+
 
 .com-espacio-patrocinado {
     font: 400 $font-12 $font-arial;
@@ -18,8 +18,8 @@
 }
 
 .com-marquesina {
-    font: 700 $font-14 $font-arial;
-    line-height: $line-19;
+    font: normal $font-14 $font-arial;
+    line-height: $line-17;
     color: $negro;
     text-transform: capitalize;
     margin-top: 6px;

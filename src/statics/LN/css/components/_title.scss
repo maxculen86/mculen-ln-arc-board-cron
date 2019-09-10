@@ -1,5 +1,4 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
 
 /* titles section */
 
@@ -40,7 +39,7 @@
 .com-title-section-xs {
     font-family: $font-arial;
     font-size: $font-16;
-    font-weight: 800;
+    font-weight: 700;
     line-height: $line-16;
     letter-spacing: -0.21px;
 }
@@ -56,13 +55,26 @@
     font-size: $font-14;
     line-height: $line-17;
     color: $negro;
-    margin-top: $px-5;
+    margin-top: $px-7;
     b {
         font-weight: 600;
     }
 }
 
-.com-titleWithfollow {
+.com-title-acu-humor {
+    font-family: $font-SuecaSlab;
+    font-size: $font-16;
+    font-weight: 800;
+    line-height: $line-16;
+    letter-spacing: -0.4px;
+    margin-right: $px-20;
+    .humor & {
+        display: inline-block;
+        margin-top: 0;
+    }
+}
+
+.com-titleWithfollow { 
     [class^="com-title"],
     [class*=" com-title"] {
         display: inline-block;
@@ -75,16 +87,31 @@
     }
 }
 
+.com-title-section-autor {
+    font-family: $font-SuecaSlab;
+    font-size: $font-20;
+    font-weight: 600;
+    line-height: $line-20;
+    letter-spacing: -0.47px;
+}
+
 //Valores de tablet para arriba
 @media (min-width: 360px) {
     .com-title-acu {
-        font-size: $font-14;
-        line-height: $line-16;
+        font-family: $font-SuecaSlab;
+        font-size: $font-17;
+        line-height: $line-21;
     }
 }
 
 //Valores de tablet para arriba
 @media (min-width: 768px) {
+    .com-title-acu {
+        font-family: $font-SuecaSlab;
+        font-size: $font-17;
+        line-height: $line-17;
+        letter-spacing: -0.4px;
+    }
     .com-title-nota {
         font-size: $font-38;
         line-height: $line-36;
@@ -129,19 +156,9 @@
         letter-spacing: -0.32px;
     }
     .com-title-acu {
-        font-family: $font-SuecaSlab;
-        font-size: $font-15;
+        font-size: $font-17;
         line-height: $line-17;
-        letter-spacing: -0.35px;
-    }
-    .opening .com-title-acu {
-        width: 80%;
-        margin: -40px auto 30px;
-        padding: .6em .8em;
-        background: #fff;
-        z-index: 10;
-        box-shadow: 1px 1px 30px -10px rgba(0, 0, 0, .3);
-        position: relative;
+        letter-spacing: -0.4px;
     }
 }
 
@@ -150,11 +167,6 @@
     .com-title-nota {
         font-size: $font-43;
         line-height: $line-50;
-    }
-    .com-title-acu {
-        font-size: $font-17;
-        line-height: $line-17;
-        letter-spacing: -0.4px;
     }
 }
 

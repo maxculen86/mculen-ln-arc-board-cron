@@ -1,15 +1,8 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
+
 
 .com-date {
     font: 400 $font-14 $font-arial;
-    color: $gris4;
-    margin-top: 20px;
-}
-
-.mod-authordate .com-date {
-    @media (min-width: 768px) {
-        text-align: right;
-        margin-top: 6px;
-    }
+    color: $gris5;
+    margin-top: $px-6;
 }

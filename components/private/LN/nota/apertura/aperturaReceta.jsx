@@ -5,7 +5,7 @@ import Sections from './sections';
 import Destacado from './destacado';
 import DetalleReceta from './detalleReceta';
 
-import '../../../../../assets/bundles/css/ln/layouts/grid.css';
+import '../../../../../resources/dist/css/ln/layouts/grid.css';
 
 const aperturaReceta = props => {
     const {

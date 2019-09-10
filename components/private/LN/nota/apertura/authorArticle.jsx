@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import '../../../../../assets/bundles/css/ln/components/author.css';
+import '../../../../../resources/dist/css/ln/components/author.css';
 
 const authorArticle = ({
     globalContent: {

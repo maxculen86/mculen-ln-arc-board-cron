@@ -1,8 +1,7 @@
-@import './variables';
-@import './mixins';
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
 
  /* FONTS --------------- */
- 
  @include font-face("SuecaSlab", suecaslab-medium-webfont, 500);
  @include font-face("SuecaSlab", suecaslab-bold-webfont, 700);
  @include font-face("LNicons", ln-icons, normal);
@@ -26,67 +25,67 @@
      -moz-osx-font-smoothing: grayscale;
  }
  
- .icon-whatsapp:before {
+ .icon-check:before {
      content: "\e900";
  }
  
- .icon-twitter:before {
+ .icon-unlock:before {
      content: "\e901";
  }
  
- .icon-time:before {
+ .icon-user:before {
      content: "\e902";
  }
  
- .icon-rss:before {
+ .icon-android:before {
      content: "\e903";
  }
  
- .icon-portion:before {
+ .icon-bullet:before {
      content: "\e904";
  }
  
- .icon-menu:before {
+ .icon-clap:before {
      content: "\e905";
  }
  
- .icon-mail:before {
+ .icon-close:before {
      content: "\e906";
  }
  
- .icon-right:before {
+ .icon-club:before {
      content: "\e907";
  }
  
- .icon-left:before {
+ .icon-comment:before {
      content: "\e908";
  }
  
- .icon-ios:before {
+ .icon-down:before {
      content: "\e909";
  }
  
- .icon-instagram:before {
+ .icon-facebook:before {
      content: "\e90a";
  }
  
- .icon-inbox:before {
+ .icon-home:before {
      content: "\e90b";
  }
  
- .icon-home:before {
+ .icon-inbox:before {
      content: "\e90c";
  }
  
- .icon-facebook:before {
+ .icon-instagram:before {
      content: "\e90d";
  }
  
- .icon-star:before {
+ .icon-ios:before {
      content: "\e90e";
  }
  
- .icon-comment:before {
+ .icon-left:before {
      content: "\e90f";
  }
  
@@ -94,44 +93,56 @@
      content: "\e910";
  }
  
- .icon-club:before {
+ .icon-mail:before {
      content: "\e911";
  }
  
- .icon-close:before {
+ .icon-menu:before {
      content: "\e912";
  }
  
- .icon-search:before {
+ .icon-portion:before {
      content: "\e913";
  }
  
- .icon-bullet:before {
+ .icon-right:before {
      content: "\e914";
  }
  
- .icon-down:before {
+ .icon-rss:before {
      content: "\e915";
  }
  
- .icon-up:before {
+ .icon-search:before {
      content: "\e916";
  }
  
- .icon-clap:before {
+ .icon-setting:before {
      content: "\e917";
  }
  
- .icon-android:before {
+ .icon-star:before {
      content: "\e918";
  }
  
- .icon-setting:before {
+ .icon-time:before {
      content: "\e919";
  }
  
- .icon-zoom:before {
+ .icon-twitter:before {
      content: "\e91a";
+ }
+ 
+ .icon-up:before {
+     content: "\e91b";
+ }
+ 
+ .icon-whatsapp:before {
+     content: "\e91c";
+ }
+ 
+ .icon-zoom:before {
+     content: "\e91d";
  }
  /*LOGOS*/
  
@@ -143,7 +154,7 @@
      font-weight: normal;
      font-variant: normal;
      text-transform: none;
-     font-size: $font-24;
+     font-size: $font-15;
      @media (min-width: 768px) {
          font-size: $font-26;
      }
@@ -153,62 +164,62 @@
      -moz-osx-font-smoothing: grayscale;
  }
  
- .logo-rolling:before {
-     content: "\e91b";
- }
- 
- .logo-ohlala:before {
-     content: "\e91c";
- }
- 
- .logo-negocios:before {
-     content: "\e91d";
- }
- 
- .logo-ln-mas:before {
-     content: "\e91e";
- }
- 
- .logo-ln:before {
-     content: "\e91f";
- }
- 
- .logo-living:before {
-     content: "\e920";
- }
- 
- .logo-la-nacion:before {
-     content: "\e921";
- }
- 
- .logo-jardin:before {
-     content: "\e922";
- }
- 
- .logo-hola:before {
-     content: "\e923";
- }
- 
- .logo-hola-argentina:before {
-     content: "\e924";
- }
- 
- .logo-club-lanacion:before {
-     content: "\e925";
- }
- 
- .logo-ln-placeholder:before {
-     content: "\e926";
+ .logo-brando:before {
+     content: "\e800";
  }
  
  .logo-club:before {
-     content: "\e927";
+     content: "\e801";
+ }
+ 
+ .logo-club-lanacion:before {
+     content: "\e802";
+ }
+ 
+ .logo-hola:before {
+     content: "\e803";
+ }
+ 
+ .logo-hola-argentina:before {
+     content: "\e804";
+ }
+ 
+ .logo-jardin:before {
+     content: "\e805";
+ }
+ 
+ .logo-la-nacion:before {
+     content: "\e806";
+ }
+ 
+ .logo-living:before {
+     content: "\e807";
+ }
+ 
+ .logo-ln:before {
+     content: "\e808";
+ }
+ 
+ .logo-ln-mas:before {
+     content: "\e809";
+ }
+ 
+ .logo-ln-placeholder:before {
+     content: "\e80a";
  }
  
  .logo-lugares:before {
-     content: "\e928";
+     content: "\e80b";
  }
  
- .logo-brando:before {
-     content: "\e929";
+ .logo-negocios:before {
+     content: "\e80c";
+ }
+ 
+ .logo-ohlala:before {
+     content: "\e80d";
+ }
+ 
+ .logo-rolling:before {
+     content: "\e80e";
  }

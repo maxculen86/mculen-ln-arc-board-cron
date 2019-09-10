@@ -1,11 +1,8 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
 
-.colection_sidebar {
-    .cont-figure {
-        border-bottom: solid 11px #fcff2c;
-        .content-pic {
-            background: #000;
-        }
+
+.print-edition {
+    .com-title-section-xs {
+        display: inline;
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../../../../assets/bundles/css/ln/components/hamburger.css';
+import '../../../../../resources/dist/css/ln/components/hamburger.css';
 
 export default function Hamburger() {
     return (

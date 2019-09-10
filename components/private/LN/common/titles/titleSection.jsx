@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import '../../../../../assets/bundles/css/ln/components/title.css';
+import '../../../../../resources/dist/css/ln/components/title.css';
 
 const titleSection = ({ size, text }) => {
     const className = `com-title-section-${size}`;
