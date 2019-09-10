@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
+import Footer from '../private/LN/common/footer';
 import AcuTitle from '../private/LN/acumulado/acumuladoTitle';
 import BannerCaja1 from '../private/LN/acumulado/bannerCaja1';
 import BannerCaja2 from '../private/LN/acumulado/bannerCaja2';
@@ -46,6 +47,7 @@ class LNAcumuladoLayout extends Component {
                         </div>
                     </div>
                 </main>
+                <Footer />
             </div>
         );
     }
