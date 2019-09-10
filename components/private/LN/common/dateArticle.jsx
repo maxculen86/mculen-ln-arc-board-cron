@@ -15,13 +15,14 @@ const MONTHS = [
     'Noviembre',
     'Diciembre'
 ];
-export default function DateArticle({ display_date }) {
+export default function DateArticle({ display_date, hasTime }) {
     const date = new Date(display_date);
     return (
         <h4 className="com-date">
             {`${date.getDate()} de ${
                 MONTHS[date.getMonth()]
-            } de ${date.getFullYear()} ● ${date.getHours()}:${date.getMinutes()}`}
+            } de ${date.getFullYear()}`}
+            {hasTime && ` ● ${date.getHours()}:${date.getMinutes()}`}
         </h4>
     );
 }
