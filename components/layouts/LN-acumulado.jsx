@@ -36,7 +36,7 @@ class LNAcumuladoLayout extends Component {
                             {/* NOTAS */}
                             {this.props.children[2]}
                         </div>
-                        <div className="sidebar__aside">
+                        <div className="sidebar__aside hlp-tablet-none">
                             <BannerCaja1 />
                             {/* RANKING DE NOTAS */}
                             {this.props.children[3]}
