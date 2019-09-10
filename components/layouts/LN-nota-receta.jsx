@@ -13,6 +13,12 @@ import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 
+// TODO: este estilo no funciona si se importa en el feature o component
+import '../../resources/dist/css/ln/components/date.css';
+import '../../resources/dist/css/ln/components/tag.css';
+import '../../resources/dist/css/ln/components/author.css';
+import '../../resources/dist/css/ln/components/lead.css';
+
 const pageBuilderSections = [
     'Pre-Titulo',
     'Titulo',

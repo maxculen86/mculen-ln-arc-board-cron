@@ -155,6 +155,8 @@
      font-variant: normal;
      text-transform: none;
      font-size: $font-15;
+     margin-bottom: $px-12;
+     display: inline-block;
      @media (min-width: 768px) {
          font-size: $font-26;
      }
