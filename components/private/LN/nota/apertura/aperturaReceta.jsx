@@ -16,21 +16,23 @@ const aperturaReceta = props => {
         }
     } = props;
 
-    const tieneMultimedio = !!basic && basic._id;
+    const hasMultimedia = !!(basic && basic._id);
 
     return (
         <div
             className={`row aper-receta w-100 hlp-marginBottom-40 ${
-                !tieneMultimedio ? '' : 'sin-foto'
+                hasMultimedia ? 'sin-foto' : ''
             }`}
         >
-            {tieneMultimedio && <Destacado {...props} />}
-            {tieneMultimedio ? (
-                <div className="col-desksm-4 cont-aper">
-                    <Sections taxonomy={taxonomy} destacado />
-                    {receta && <DetalleReceta receta={receta} />}
-                    <Tags tags={tags} destacado={false} />
-                </div>
+            {hasMultimedia ? (
+                <>
+                    <Destacado {...props} />
+                    <div className="col-desksm-4 cont-aper">
+                        <Sections taxonomy={taxonomy} destacado />
+                        {receta && <DetalleReceta receta={receta} />}
+                        <Tags tags={tags} destacado={false} />
+                    </div>
+                </>
             ) : (
                 <div className="col-desksm-12 cont-aper">
                     <Sections taxonomy={taxonomy} destacado />
@@ -60,7 +62,8 @@ aperturaReceta.propTypes = {
         }).isRequired,
         imageResizePresets: PropTypes.object.isRequired,
         promo_items: PropTypes.shape({
-            receta: PropTypes.object
+            receta: PropTypes.object,
+            basic: PropTypes.object
         }),
         content_elements: PropTypes.array.isRequired,
         display_date: PropTypes.string.isRequired

@@ -32,7 +32,8 @@ module.exports = {
         {
             files: ['*.jsx'],
             rules: {
-                'react/prefer-stateless-function': false
+                'react/prefer-stateless-function': false,
+                'no-underscore-dangle': false
             }
         },
         {
