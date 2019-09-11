@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
@@ -14,43 +14,39 @@ import '../../resources/dist/css/ln/pages/acu.css';
 
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
-class LNAcumuladoAuthorLayout extends Component {
-    render() {
-        return (
-            <div id="wrap">
-                <Header />
-                <main>
-                    <BannerCabezal />
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            <div className="row">
-                                <div>WikiAuthor</div>
-                                {/* TODO: Crear componente 
-                                    <WikiAuthor /> */}
-                            </div>
-                            <div className="row">
-                                {/* LINKS DE NAVEGACION */}
-                                {this.props.children[1]}
-                            </div>
-                            <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-                                {/* NOTAS */}
-                                {this.props.children[2]}
-                            </section>
-                        </div>
-                        <div className="sidebar__aside">
-                            <BannerCaja1 />
-                            {/* RANKING DE NOTAS */}
-                            {this.props.children[3]}
-                            <BannerCaja2 />
-                        </div>
+const LNAcumuladoAuthorLayout = () => (
+    <div id="wrap">
+        <Header />
+        <main>
+            <BannerCabezal />
+            <div className="lay-sidebar">
+                <div className="sidebar__main">
+                    <div className="row">
+                        <div>WikiAuthor</div>
+                        {/* TODO: Crear componente 
+                            <WikiAuthor /> */}
                     </div>
-                </main>
-                <Footer />
+                    <div className="row">
+                        {/* LINKS DE NAVEGACION */}
+                        {this.props.children[1]}
+                    </div>
+                    <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
+                        {/* NOTAS */}
+                        {this.props.children[2]}
+                    </section>
+                </div>
+                <div className="sidebar__aside">
+                    <BannerCaja1 />
+                    {/* RANKING DE NOTAS */}
+                    {this.props.children[3]}
+                    <BannerCaja2 />
+                </div>
             </div>
-        );
-    }
-}
+        </main>
+        <Footer />
+    </div>
+);
 
-LNAcumuladoLayout.sections = layoutItems;
+LNAcumuladoAuthorLayout.sections = layoutItems;
 
-export default Consumer(LNAcumuladoLayout);
+export default Consumer(LNAcumuladoAuthorLayout);
