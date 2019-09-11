@@ -11,8 +11,8 @@ const authorAndDate = props => {
 
     return (
         <div>
-            <Author {...props} />
             <Date display_date={display_date} />
+            <Author {...props} />
         </div>
     );
 };

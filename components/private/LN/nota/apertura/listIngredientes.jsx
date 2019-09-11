@@ -14,8 +14,10 @@ const listIngredientes = ({ content_elements }) => {
     // TODO: Agregar className para los ul o ol de ser necesario
     return (
         ingredientesFiltered.length !== 0 && (
-            <div className="ce-ingredientes">
-                <h2>Ingredientes</h2>
+            <div className="ce-ingredientes col-tablet-3 hlp-marginBottom-mobile-40">
+                <h4 class="com-title-section-s hlp-marginBottom-20">
+                    Ingredientes
+                </h4>
                 {ingredientesFiltered.map(list => (
                     <ListItems
                         list={list.embed.config.items}

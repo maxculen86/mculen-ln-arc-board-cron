@@ -8,9 +8,13 @@ import '../../../../resources/dist/css/ln/components/tag.css';
  */
 const TaxonomyImportantList = ({ list, destacado }) => {
     return (
-        <div className={`${destacado ? 'com-tag' : 'com-secondary-tag'}`}>
+        <div
+            className={`${
+                destacado ? 'com-tag cont_tags' : 'com-secondary-tag'
+            }`}
+        >
             {list.map(v => (
-                <a key={v.text} href={v.path}>
+                <a className="com-item" key={v.text} href={v.path}>
                     {v.text}
                 </a>
             ))}
