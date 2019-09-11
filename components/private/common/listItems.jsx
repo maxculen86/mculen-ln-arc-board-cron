@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const TypeList = ({ ol, children }) =>
-    ol ? <ol>{children}</ol> : <ul>{children}</ul>;
+    ol ? (
+        <ol className="com-ordered">{children}</ol>
+    ) : (
+        <ul className="com-unordered">{children}</ul>
+    );
 
 //TODO: falta html
 //TODO: pasar a carpeta Cuerpo, crear containers de Ingredientes y Preparacion y sacar
@@ -10,10 +14,12 @@ const TypeList = ({ ol, children }) =>
 // TODO: Agregar className para los ul o ol de ser necesario
 const ListItemsFactory = ({ list, titleList, listNumeric }) => (
     <div>
-        <h3>{titleList}</h3>
+        <h4 className="com-title-section-xs">{titleList}</h4>
         <TypeList ol={listNumeric}>
             {list.map((item, key) => (
-                <li key={key}>{item}</li>
+                <li className="com-item" key={key}>
+                    {item}
+                </li>
             ))}
         </TypeList>
     </div>

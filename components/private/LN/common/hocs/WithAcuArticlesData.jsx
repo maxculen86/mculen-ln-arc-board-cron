@@ -53,7 +53,6 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                     },
                     filter
                 });
-
                 // Caclulo si hay mas notas y saco la q sobra
                 const articles = get(cached, 'content_elements', []);
                 const hayMasNotas = get(cached, 'next', false);

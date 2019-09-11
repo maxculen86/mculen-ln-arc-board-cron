@@ -12,4 +12,4 @@ const ArticleList = props => {
     ));
 };
 
-export default withAcuArticlesData(ArticleList, null, 'masNotas');
+export default withAcuArticlesData(ArticleList, null, 'notaM');

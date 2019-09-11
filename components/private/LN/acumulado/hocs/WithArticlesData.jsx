@@ -15,7 +15,7 @@ function WithArticlesData(WrappedArticles, filter) {
                 const { section_id, size, obtenerMasNotas } = props;
                 const { page } = this.state;
                 const { cached, fetched } = this.getContent({
-                    sourceName: 'articlesSource',
+                    sourceName: 'acuArticlesSource',
                     query: {
                         section_id,
                         size,

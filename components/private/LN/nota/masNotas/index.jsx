@@ -14,7 +14,7 @@ const index = props => {
     let title;
     switch (filter) {
         case '0':
-            title = <strong>Ultimas Noticias</strong>;
+            title = <h4>Ultimas Noticias</h4>;
             break;
         case '1':
             title = (
@@ -25,14 +25,14 @@ const index = props => {
             );
             break;
         default:
-            title = <strong>Ultimas Noticias</strong>;
+            title = <h4>Ultimas Noticias</h4>;
             break;
     }
 
     return (
         _id && (
             <div className="row">
-                <h3 className="com-title-section-s hlp-marginBottom-30">
+                <h3 className="com-title-section-xl hlp-marginBottom-30">
                     {title}
                 </h3>
                 <section className="row-gap-tablet-3 row-gap-desksm-3 hlp-marginBottom-40">
