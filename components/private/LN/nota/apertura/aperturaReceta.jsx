@@ -10,36 +10,34 @@ import '../../../../../resources/dist/css/ln/layouts/grid.css';
 const aperturaReceta = props => {
     const {
         globalContent: {
-            promo_items: { receta },
+            promo_items: { receta, basic },
             taxonomy,
             taxonomy: { tags }
         }
     } = props;
 
+    const tieneMultimedio = !!basic && basic._id;
+
     return (
         <div
             className={`row aper-receta w-100 hlp-marginBottom-40 ${
-                !props.globalContent.promo_items.basic._id ? '' : 'sin-foto'
+                !tieneMultimedio ? '' : 'sin-foto'
             }`}
         >
-            {props.globalContent.promo_items.basic._id && (
-                <Destacado {...props} />
-            )}
-            <div
-                className={`col-desksm-${
-                    props.globalContent.promo_items.basic._id ? '4' : '12'
-                } cont-aper`}
-            >
-                <div className="row">
-                    <div className="col-desksm-3">
-                        {receta && <DetalleReceta receta={receta} />}
-                    </div>
-                    <div className="col-desksm-9">
-                        <Sections taxonomy={taxonomy} destacado />
-                        <Tags tags={tags} destacado={false} />
-                    </div>
+            {tieneMultimedio && <Destacado {...props} />}
+            {tieneMultimedio ? (
+                <div className="col-desksm-4 cont-aper">
+                    <Sections taxonomy={taxonomy} destacado />
+                    {receta && <DetalleReceta receta={receta} />}
+                    <Tags tags={tags} destacado={false} />
                 </div>
-            </div>
+            ) : (
+                <div className="col-desksm-12 cont-aper">
+                    <Sections taxonomy={taxonomy} destacado />
+                    {receta && <DetalleReceta receta={receta} />}
+                    <Tags tags={tags} destacado={false} />
+                </div>
+            )}
         </div>
     );
 };
