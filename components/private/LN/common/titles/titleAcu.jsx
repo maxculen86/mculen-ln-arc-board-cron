@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../../assets/bundles/css/ln/components/title.css';
+import '../../../../../resources/dist/css/ln/components/title.css';
 
 export default ({ headlines: { basic }, volanta, href }) => {
     // TODO: ver de sacar volanta a otro componente para manejar el tema del punto repetido y etc
