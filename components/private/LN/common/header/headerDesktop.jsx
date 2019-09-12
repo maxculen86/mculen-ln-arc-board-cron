@@ -4,6 +4,7 @@ import Header from './headerBase';
 import Hamburguer from './hamburger';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
+import '../../../../../resources/dist/css/ln/components/usuario.css';
 
 const HeaderDesktop = ({ logueado, loginData }) => {
     return (
