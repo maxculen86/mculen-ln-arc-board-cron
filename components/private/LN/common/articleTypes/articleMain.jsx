@@ -19,6 +19,7 @@ const articleMain = ({
             <Media
                 mediaData={articleData.by.credits}
                 imageResizePresets={imageResizePresets}
+                href={articleData.website_url}
             />
         );
     } else {
@@ -29,6 +30,7 @@ const articleMain = ({
             <Media
                 imageResizePresets={imageResizePresets}
                 mediaData={type === 'image' ? imagenDestacada : null}
+                href={articleData.website_url}
             />
         );
     }

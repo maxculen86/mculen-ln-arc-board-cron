@@ -1,8 +1,30 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
 
 .aper-receta {
     background: $gris1;
+    margin-bottom: 30px;
+    &.sin-foto {
+        .cont-figure .content-pic {
+        background: $blanco;
+        }
+        .cont-aper {
+            .tags {
+                border-bottom: 0;
+                margin-right: $px-30;
+                border-right: solid 1px $gris3;
+                &:before {
+                    bottom: initial;
+                    height: $px-30;
+                    width: $px-1;
+                    right: -1px;
+                }
+            }
+        }
+    }
+    @media ($media-l){
+        margin-bottom: 80px;
+    }
+
     .cont-figure {
         @media ($media-l) {
             order: 2;
@@ -11,7 +33,7 @@
         }
     }
     .cont-aper {
-        padding: $px-30;
+        padding: $px-20;
         padding-bottom: 0;
         @media ($media-l) {
             order: 1;
@@ -63,5 +85,11 @@
     padding-left: .5em;
     .num {
         margin: 0 .2em 0 .4em;
+    }
+}
+
+@media (min-width: 768px) {
+    .aper-receta .cont-aper {
+        padding: $px-30;
     }
 }

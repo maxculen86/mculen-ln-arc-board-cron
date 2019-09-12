@@ -13,6 +13,15 @@ import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 
+//TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
+//EL COMPONENTE Y EN OTROS NO
+import '../../resources/dist/css/ln/components/date.css';
+import '../../resources/dist/css/ln/components/tag.css';
+import '../../resources/dist/css/ln/components/author.css';
+import '../../resources/dist/css/ln/components/lead.css';
+import '../../resources/dist/css/ln/components/ordered.css';
+import '../../resources/dist/css/ln/components/unordered.css';
+
 const pageBuilderSections = [
     'Pre-Titulo',
     'Titulo',
@@ -98,26 +107,28 @@ class LNNotaReceta extends Component {
 
                                 {/* Cuerpo + tip + MasNotasDe */}
                                 {/* TODO: estos van en el componente que procese el cuerpo! */}
-                                <ListIngredientes
-                                    content_elements={
-                                        this.props.globalContent
-                                            .content_elements
-                                    }
-                                />
-                                <br />
-                                <ListPreparacion
-                                    content_elements={
-                                        this.props.globalContent
-                                            .content_elements
-                                    }
-                                />
+                                <div className="row">
+                                    <ListIngredientes
+                                        content_elements={
+                                            this.props.globalContent
+                                                .content_elements
+                                        }
+                                    />
+                                    <br />
+                                    <ListPreparacion
+                                        content_elements={
+                                            this.props.globalContent
+                                                .content_elements
+                                        }
+                                    />
+                                </div>
 
                                 {children[5]}
                             </div>
                         </div>
                     </div>
                     {/* Tercera */}
-                    <div className="sidebar__aside">
+                    <div className="sidebar__aside hlp-tablet-none">
                         <div className="row">{children[6]}</div>
                     </div>
                 </div>

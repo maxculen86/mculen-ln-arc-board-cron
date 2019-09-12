@@ -30,6 +30,13 @@ module.exports = {
     },
     overrides: [
         {
+            files: ['*.jsx'],
+            rules: {
+                'react/prefer-stateless-function': false,
+                'no-underscore-dangle': false
+            }
+        },
+        {
             files: ['*.js', '*.jsx'],
             rules: {
                 'import/no-unresolved': false

@@ -87,6 +87,23 @@ export default {
                     }
                 }
             },
+            notaM: {
+                desktop: {
+                    width: 600,
+                    media: '{min-width: 64em}',
+                    type: 'apertura'
+                },
+                tablet: {
+                    width: 520,
+                    media: '{min-width: 48em}',
+                    type: 'apertura'
+                },
+                mobile: {
+                    width: 375,
+                    media: '{min-width: 20em}',
+                    type: 'apertura'
+                }
+            },
             masNotas: {
                 big: {
                     width: 200,

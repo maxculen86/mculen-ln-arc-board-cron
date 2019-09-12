@@ -1,5 +1,5 @@
-@import '../abstracts/imports';
-@import '../base/aspect-ratios';
+@import '../abstracts/variables';
+
 
 .mod-opening-revista {
     .com-share {
@@ -44,9 +44,6 @@
             overflow: hidden;
             display: inline-block;
         }
-    }
-    .lay .opening article .com-date {
-        display: none;
     }
 }
 
