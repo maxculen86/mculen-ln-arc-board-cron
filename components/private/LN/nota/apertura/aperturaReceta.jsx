@@ -21,7 +21,7 @@ const aperturaReceta = props => {
     return (
         <div
             className={`row aper-receta w-100 hlp-marginBottom-40 ${
-                hasMultimedia ? 'sin-foto' : ''
+                hasMultimedia ? '' : 'sin-foto'
             }`}
         >
             {hasMultimedia ? (
