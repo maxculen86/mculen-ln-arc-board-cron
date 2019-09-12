@@ -3,9 +3,6 @@
 .aper-receta {
     background: $gris1;
     margin-bottom: 30px;
-    @media ($media-l){
-        margin-bottom: 80px;
-    }
     &.sin-foto {
         .cont-figure .content-pic {
         background: $blanco;
@@ -24,6 +21,10 @@
             }
         }
     }
+    @media ($media-l){
+        margin-bottom: 80px;
+    }
+
     .cont-figure {
         @media ($media-l) {
             order: 2;
