@@ -2,7 +2,7 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import AcuTitle from '../private/LN/acumulado/acumuladoTitle';
+import WikiAuthor from '../private/LN/acumulado/author/wikiAuthor';
 import BannerCaja1 from '../private/LN/acumulado/bannerCaja1';
 import BannerCaja2 from '../private/LN/acumulado/bannerCaja2';
 import BannerCabezal from '../private/LN/acumulado/bannerCabezal';
@@ -14,7 +14,7 @@ import '../../resources/dist/css/ln/pages/acu.css';
 
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
-const LNAcumuladoAuthorLayout = () => (
+const LNAcumuladoAuthorLayout = props => (
     <div id="wrap">
         <Header />
         <main>
@@ -22,23 +22,21 @@ const LNAcumuladoAuthorLayout = () => (
             <div className="lay-sidebar">
                 <div className="sidebar__main">
                     <div className="row">
-                        <div>WikiAuthor</div>
-                        {/* TODO: Crear componente 
-                            <WikiAuthor /> */}
+                        <WikiAuthor />
                     </div>
                     <div className="row">
                         {/* LINKS DE NAVEGACION */}
-                        {this.props.children[1]}
+                        {props.children[1]}
                     </div>
                     <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
                         {/* NOTAS */}
-                        {this.props.children[2]}
+                        {props.children[2]}
                     </section>
                 </div>
                 <div className="sidebar__aside">
                     <BannerCaja1 />
                     {/* RANKING DE NOTAS */}
-                    {this.props.children[3]}
+                    {props.children[3]}
                     <BannerCaja2 />
                 </div>
             </div>
