@@ -14,6 +14,12 @@ function withLoginData(WrappedComponent) {
             };
         }
 
+        goToLogout = () => {
+            // TODO: llevar la siguiente variable a un archivo de constantes comunes
+            const urlToLogout = `https://ingresar.lanacion.com.ar/logout/logout.html?pagina=${location.href}`;
+            location.href = urlToLogout;
+        };
+
         componentDidMount() {
             const { mockApi } = this.props;
             if (mockApi) return mockApi;
@@ -39,11 +45,12 @@ function withLoginData(WrappedComponent) {
         }
 
         render() {
-            const { logueado, loginData } = this.state;
+            const { logueado, loginData, goToLogout } = this.state;
             return (
                 <WrappedComponent
                     logueado={logueado}
                     loginData={loginData}
+                    goToLogout={this.goToLogout}
                     {...this.props}
                 />
             );
