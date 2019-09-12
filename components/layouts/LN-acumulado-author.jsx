@@ -14,38 +14,43 @@ import '../../resources/dist/css/ln/pages/acu.css';
 
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
-const LNAcumuladoAuthorLayout = () => (
-    <div id="wrap">
-        <Header />
-        <main>
-            <BannerCabezal />
-            <div className="lay-sidebar">
-                <div className="sidebar__main">
-                    <div className="row">
-                        <div>WikiAuthor</div>
-                        {/* TODO: Crear componente 
+const LNAcumuladoAuthorLayout = props => {
+    console.log(props);
+
+    return (
+        <div id="wrap">
+            <Header />
+            <main>
+                <BannerCabezal />
+                <div className="lay-sidebar">
+                    <div className="sidebar__main">
+                        <div className="row">
+                            <AcuTitle title={props.globalContent.byline} />
+                            <div>WikiAuthor</div>
+                            {/* TODO: Crear componente 
                             <WikiAuthor /> */}
+                        </div>
+                        <div className="row">
+                            {/* LINKS DE NAVEGACION */}
+                            {props.children[1]}
+                        </div>
+                        <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
+                            {/* NOTAS */}
+                            {props.children[2]}
+                        </section>
                     </div>
-                    <div className="row">
-                        {/* LINKS DE NAVEGACION */}
-                        {this.props.children[1]}
+                    <div className="sidebar__aside">
+                        <BannerCaja1 />
+                        {/* RANKING DE NOTAS */}
+                        {props.children[3]}
+                        <BannerCaja2 />
                     </div>
-                    <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-                        {/* NOTAS */}
-                        {this.props.children[2]}
-                    </section>
                 </div>
-                <div className="sidebar__aside">
-                    <BannerCaja1 />
-                    {/* RANKING DE NOTAS */}
-                    {this.props.children[3]}
-                    <BannerCaja2 />
-                </div>
-            </div>
-        </main>
-        <Footer />
-    </div>
-);
+            </main>
+            <Footer />
+        </div>
+    );
+};
 
 LNAcumuladoAuthorLayout.sections = layoutItems;
 

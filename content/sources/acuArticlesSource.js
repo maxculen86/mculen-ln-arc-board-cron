@@ -4,7 +4,7 @@ import { resizerSecret, resizerUrl } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 
 const resolve = key => {
-    const { sectionId, size, page, website } = key;
+    const { sectionId, authorId, size, page, website } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
     const basePath = `/content/v4/search/published/?website=${website ||
@@ -29,6 +29,25 @@ const resolve = key => {
             }
         }`;
 
+    const authorFilter =
+        authorId &&
+        `,{
+            "nested":{
+                "path":"credits.by",
+                "query":{
+                    "bool":{
+                        "must":[
+                            {
+                                "term":{
+                                    "credits.by._id":"${authorId}"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }`;
+
     const query = `&body={
             "query":{
                 "bool": {
@@ -40,6 +59,8 @@ const resolve = key => {
                             }
                         }
                         ${sectionFilter || ''}
+                        ${authorFilter || ''}
+                        
                     ]}
                 }
             }`;
