@@ -33,13 +33,13 @@
 // DISPLAY NONE
 //=============================
 
-//oculto hasta tablet
-@media (max-width: 48em){ 
+//oculto hasta 1024
+@media (max-width: 64em - 1){ 
     .hlp-tablet-none {
         display: none;
     }
 }
-//
+// oculto
 @media ($media-xs) {
     .hlp-none {
         display: none;

@@ -8,6 +8,7 @@ const sites = {
     OTT: [{ '[site]/style': 'style.scss' }],
     LN: [
         { '[site]/base': 'css/base/*.scss' },
+        { '[site]/abstracts': 'css/abstracts/*.scss' },
         {
             '[site]/[dirname]/[basename]': {
                 pattern: 'css/*/*.scss',

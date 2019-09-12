@@ -8,12 +8,8 @@ const ArticleList = props => {
     const { articles, imageResizePresets } = props;
     if (!articles) return null;
     return articles.map(e => (
-        <ArticleMain
-            imageResizePresets={imageResizePresets}
-            articleData={e}
-            border
-        />
+        <ArticleMain imageResizePresets={imageResizePresets} articleData={e} />
     ));
 };
 
-export default withAcuArticlesData(ArticleList, null, 'masNotas');
+export default withAcuArticlesData(ArticleList, null, 'notaM');
