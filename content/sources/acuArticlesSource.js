@@ -31,14 +31,9 @@ const resolve = key => {
 
     const authorFilter =
         authorId &&
-        `,{
-            "path":"credits.by",
-            "query":{
-                "term":{
-                    "credits.by._id":"${authorId}"
-                }
-            }
-        }`;
+        `,{"match":{
+                "credits.by._id":"${authorId}"
+            }}`;
 
     const query = `&body={
             "query":{
@@ -50,17 +45,16 @@ const resolve = key => {
                                 "type":"story"
                                 
                             }
+                            ${authorFilter || ''}
                         }
-                        ${authorFilter || ''}
                         ${sectionFilter || ''}
-                        
-                        
-                    ]}
+                    ]
+                }
                 }
             }`;
     const final = `${basePath}${query}&size=${size || 30}&from=${from}
             &sort=publish_date:desc`;
-    console.log('FINAL::::', final);
+
     return final;
 };
 
