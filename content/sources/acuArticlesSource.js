@@ -32,18 +32,10 @@ const resolve = key => {
     const authorFilter =
         authorId &&
         `,{
-            "nested":{
-                "path":"credits.by",
-                "query":{
-                    "bool":{
-                        "must":[
-                            {
-                                "term":{
-                                    "credits.by._id":"${authorId}"
-                                }
-                            }
-                        ]
-                    }
+            "path":"credits.by",
+            "query":{
+                "term":{
+                    "credits.by._id":"${authorId}"
                 }
             }
         }`;
@@ -56,16 +48,19 @@ const resolve = key => {
                             "term":
                             {
                                 "type":"story"
+                                
                             }
                         }
-                        ${sectionFilter || ''}
                         ${authorFilter || ''}
+                        ${sectionFilter || ''}
+                        
                         
                     ]}
                 }
             }`;
     const final = `${basePath}${query}&size=${size || 30}&from=${from}
             &sort=publish_date:desc`;
+    console.log('FINAL::::', final);
     return final;
 };
 
