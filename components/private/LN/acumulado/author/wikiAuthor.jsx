@@ -4,6 +4,13 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+import '../../../../../resources/dist/css/ln/modules/wiki-autor.css';
+import '../../../../../resources/dist/css/ln/components/author.css';
+
+// TODO: los siguientes enlaces son para agregar en base
+import '../../../../../resources/dist/css/ln/components/title.css';
+import '../../../../../resources/dist/css/ln/components/link.css';
+
 const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
     <div className="hlp-marginBottom-20 wiki-autor row">
         <section id="" className="cont-figure-wiki hlp-marginBottom-20">

@@ -11,6 +11,10 @@ const useCookie = () => {
     function getCookie(nameCookie) {
         if (!nameCookie) return undefined;
 
+        var token = localStorage.getItem('token');
+
+        if (token) return token;
+
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${nameCookie}=`);
         return parts.length === 2

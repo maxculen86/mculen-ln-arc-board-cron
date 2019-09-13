@@ -37,11 +37,15 @@ class Index extends Component {
     };
 
     render() {
-        const { isMobile, logueado, loginData } = this.props;
+        const { isMobile, logueado, loginData, goToLogout } = this.props;
         return (
             <>
                 {!isMobile && (
-                    <HeaderDesktop logueado={logueado} loginData={loginData} />
+                    <HeaderDesktop
+                        logueado={logueado}
+                        loginData={loginData}
+                        goToLogout={goToLogout}
+                    />
                 )}
                 {isMobile && (
                     <>
