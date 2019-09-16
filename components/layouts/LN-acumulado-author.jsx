@@ -15,8 +15,6 @@ import '../../resources/dist/css/ln/pages/acu.css';
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
 const LNAcumuladoAuthorLayout = props => {
-    console.log(props);
-
     return (
         <div id="wrap">
             <Header />

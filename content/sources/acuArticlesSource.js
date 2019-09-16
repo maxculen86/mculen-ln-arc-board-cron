@@ -31,9 +31,11 @@ const resolve = key => {
 
     const authorFilter =
         authorId &&
-        `,{"match":{
+        `,{
+            "match":{
                 "credits.by._id":"${authorId}"
-            }}`;
+            }
+        }`;
 
     const query = `&body={
             "query":{
@@ -45,8 +47,9 @@ const resolve = key => {
                                 "type":"story"
                                 
                             }
-                            ${authorFilter || ''}
+                            
                         }
+                        ${authorFilter || ''}
                         ${sectionFilter || ''}
                     ]
                 }
