@@ -26,12 +26,12 @@ exports[`Ranking matches snapshot 1`] = `
             href=""
           >
             <picture
-              class="content-pic picture zoom"
+              class="content-pic picture "
             >
               <img
                 alt=""
                 class="content-img"
-                src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg"
+                src="https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg"
               />
             </picture>
           </a>
@@ -43,9 +43,9 @@ exports[`Ranking matches snapshot 1`] = `
             class="com-title-acu"
           >
             <a
-              href="/2018/09/20/tras-el-0-0-con-independiente-como-le-fue-a-river-en-la-era-marcelo-gallardo-cuando-tuvo-que-definir-una-serie-como-local/"
+              href="/baseball/2019/09/04/baseball-game-recap"
             >
-              Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local
+              Baseball Game Recap:
             </a>
           </h2>
         </div>
@@ -65,12 +65,12 @@ exports[`Ranking matches snapshot 1`] = `
             href=""
           >
             <picture
-              class="content-pic picture zoom"
+              class="content-pic picture "
             >
               <img
                 alt=""
                 class="content-img"
-                src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg"
+                src="https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg"
               />
             </picture>
           </a>
@@ -82,9 +82,165 @@ exports[`Ranking matches snapshot 1`] = `
             class="com-title-acu"
           >
             <a
-              href="/2018/09/20/tras-el-0-0-con-independiente-como-le-fue-a-river-en-la-era-marcelo-gallardo-cuando-tuvo-que-definir-una-serie-como-local/"
+              href="/baseball/2019/09/04/baseball-game-recap"
             >
-              Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local
+              Baseball Game Recap:
+            </a>
+          </h2>
+        </div>
+      </article>
+    </li>
+    <li
+      class="com-item"
+    >
+      <article
+        class="mod-caja-nota --border "
+      >
+        <section
+          class="cont-figure"
+        >
+          <a
+            class="figure"
+            href=""
+          >
+            <picture
+              class="content-pic picture "
+            >
+              <img
+                alt=""
+                class="content-img"
+                src="https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg"
+              />
+            </picture>
+          </a>
+        </section>
+        <div
+          class="mod-caja-nota__descrip"
+        >
+          <h2
+            class="com-title-acu"
+          >
+            <a
+              href="/baseball/2019/09/04/baseball-game-recap"
+            >
+              Baseball Game Recap:
+            </a>
+          </h2>
+        </div>
+      </article>
+    </li>
+    <li
+      class="com-item"
+    >
+      <article
+        class="mod-caja-nota --border "
+      >
+        <section
+          class="cont-figure"
+        >
+          <a
+            class="figure"
+            href=""
+          >
+            <picture
+              class="content-pic picture "
+            >
+              <img
+                alt=""
+                class="content-img"
+                src="https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg"
+              />
+            </picture>
+          </a>
+        </section>
+        <div
+          class="mod-caja-nota__descrip"
+        >
+          <h2
+            class="com-title-acu"
+          >
+            <a
+              href="/baseball/2019/09/04/baseball-game-recap"
+            >
+              Baseball Game Recap:
+            </a>
+          </h2>
+        </div>
+      </article>
+    </li>
+    <li
+      class="com-item"
+    >
+      <article
+        class="mod-caja-nota --border "
+      >
+        <section
+          class="cont-figure"
+        >
+          <a
+            class="figure"
+            href=""
+          >
+            <picture
+              class="content-pic picture "
+            >
+              <img
+                alt=""
+                class="content-img"
+                src="https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg"
+              />
+            </picture>
+          </a>
+        </section>
+        <div
+          class="mod-caja-nota__descrip"
+        >
+          <h2
+            class="com-title-acu"
+          >
+            <a
+              href="/baseball/2019/09/04/baseball-game-recap"
+            >
+              Baseball Game Recap:
+            </a>
+          </h2>
+        </div>
+      </article>
+    </li>
+    <li
+      class="com-item"
+    >
+      <article
+        class="mod-caja-nota --border "
+      >
+        <section
+          class="cont-figure"
+        >
+          <a
+            class="figure"
+            href=""
+          >
+            <picture
+              class="content-pic picture "
+            >
+              <img
+                alt=""
+                class="content-img"
+                src="https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg"
+              />
+            </picture>
+          </a>
+        </section>
+        <div
+          class="mod-caja-nota__descrip"
+        >
+          <h2
+            class="com-title-acu"
+          >
+            <a
+              href="/baseball/2019/09/04/baseball-game-recap"
+            >
+              Baseball Game Recap:
             </a>
           </h2>
         </div>
