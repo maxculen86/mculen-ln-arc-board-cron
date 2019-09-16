@@ -3,8 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 
-const breadcrumbBase = props => {
-    const { sections } = props;
+const breadcrumbBase = ({ sections, extraClasses }) => {
     const listSections = sections.map(section => {
         return (
             <a key={section.path} href={section.path}>
@@ -13,9 +12,7 @@ const breadcrumbBase = props => {
         );
     });
     return (
-        <nav className={`com-breadcrumb ${props.extraClasses}`}>
-            {listSections}
-        </nav>
+        <nav className={`com-breadcrumb ${extraClasses}`}>{listSections}</nav>
     );
 };
 
