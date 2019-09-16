@@ -4,10 +4,6 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { getSectionStyle } from '../private/common/utils/sectionUtils';
 
-// TODO: pasar a componente que procese el cuerpo!
-import ListIngredientes from '../private/LN/nota/apertura/listIngredientes';
-import ListPreparacion from '../private/LN/nota/apertura/listPreparacion';
-
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';

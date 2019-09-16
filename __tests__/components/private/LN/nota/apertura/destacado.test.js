@@ -21,7 +21,7 @@ describe('features - La Nacion - Components - Nota - Apertura - Destacado ', () 
         const img = comp.find('mock-image');
         expect(img.length).toBe(1);
         expect(img.prop('image')).toBe(nota.promo_items.basic);
-        expect(img.prop('zoom')).toBe(true);
+        expect(img.prop('zoom')).toBe(undefined);
     });
 
     it('Test de logica de Destacado - Video', () => {
