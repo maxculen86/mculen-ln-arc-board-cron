@@ -45,4 +45,4 @@ class GrillaNotas extends Component {
     }
 }
 
-export default WithAcuArticlesData(GrillaNotas, null, 'masNotas'); // TODO: dejo el filter comentado porque no me trae datos. REVISAR, filter);
+export default WithAcuArticlesData(GrillaNotas, null, 'notaM'); // TODO: dejo el filter comentado porque no me trae datos. REVISAR, filter);
