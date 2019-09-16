@@ -7,25 +7,31 @@ const authorArticle = ({
         credits: { by }
     }
 }) => {
-    const listAuthor = by.map((authorNota, i) => {
-        return (
-            <div key={authorNota._id} className="com-author">
-                {authorNota.url !== '' ? (
-                    <a href={authorNota.url} className={authorNota.type}>
-                        {authorNota.name}
-                    </a>
-                ) : (
-                    <span>{authorNota.name}</span>
-                )}
-                {i < by.length - 2 ? (
-                    <span>, </span>
-                ) : (
-                    <>{i === by.length - 2 ? <span> y</span> : ''}</>
-                )}
-            </div>
-        );
-    });
-    return listAuthor;
+    return (
+        <>
+            <span>Por </span>
+            {by &&
+                by.map((authorNota, i) => (
+                    <div key={authorNota._id} className="com-author">
+                        {authorNota.url !== '' ? (
+                            <a
+                                href={authorNota.url}
+                                className={authorNota.type}
+                            >
+                                {authorNota.name}
+                            </a>
+                        ) : (
+                            <span> {authorNota.name} </span>
+                        )}
+                        {i < by.length - 2 ? (
+                            <span>, </span>
+                        ) : (
+                            <>{i === by.length - 2 ? ' y\u00A0' : ''}</>
+                        )}
+                    </div>
+                ))}
+        </>
+    );
 };
 
 authorArticle.propTypes = {

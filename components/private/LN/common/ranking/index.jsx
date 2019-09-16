@@ -7,9 +7,11 @@ import OrderedList from '../lists/ordered';
 import ArticleMain from '../articleTypes/articleMain';
 
 // mock array
-//import articles from './mock';
+import articles from './mock';
 
-const Ranking = ({ articles }) => {
+const Ranking = props => {
+    // { articles }
+
     return (
         <div className="com-ranking">
             {/*hlp-none hlp-tablet-none*/}

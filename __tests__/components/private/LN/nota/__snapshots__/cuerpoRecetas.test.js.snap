@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CuerpoReceta matches snapshot 1`] = `
+Array [
+  <div
+    class="row"
+  >
+    <div
+      class="col-tablet-3 hlp-marginBottom-mobile-40"
+    >
+      <h4
+        class="com-title-section-s hlp-marginBottom-20"
+      >
+        Ingredientes
+      </h4>
+      <div>
+        <h4
+          class="com-title-section-xs"
+        >
+          Para la salsa
+        </h4>
+        <ul
+          class="com-unordered"
+        >
+          <li
+            class="com-item"
+          >
+            Tomate
+          </li>
+          <li
+            class="com-item"
+          >
+            Zanahoria
+          </li>
+          <li
+            class="com-item"
+          >
+            Cebolla
+          </li>
+          <li
+            class="com-item"
+          >
+            Ajo
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4
+          class="com-title-section-xs"
+        >
+          Para lo que sea
+        </h4>
+        <ul
+          class="com-unordered"
+        >
+          <li
+            class="com-item"
+          >
+            Tomate
+          </li>
+          <li
+            class="com-item"
+          >
+            Harina
+          </li>
+          <li
+            class="com-item"
+          >
+            Huevos
+          </li>
+          <li
+            class="com-item"
+          >
+            Lo que sea
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="col-tablet-8 offset-tablet-1"
+    >
+      <h4
+        class="com-title-section-m hlp-marginBottom-20"
+      >
+        Preparación
+      </h4>
+      <div>
+        <h4
+          class="com-title-section-xs"
+        >
+          Para la salsa
+        </h4>
+        <ol
+          class="com-ordered"
+        >
+          <li
+            class="com-item"
+          >
+            Cocinar
+          </li>
+          <li
+            class="com-item"
+          >
+            Probar
+          </li>
+          <li
+            class="com-item"
+          >
+            Servir
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="row hlp-marginBottom-40"
+  >
+    <dl
+      class="com-tip"
+    >
+      <h4
+        class="com-title-section-m"
+      >
+        Tip
+      </h4>
+      <br />
+      <div>
+        <dt>
+          Opcional 
+        </dt>
+        <dd>
+          El Stoemp se hace tradicionalmente con puerros (en lugar de los repollitos) pero se pueden agregar las verduras que uno quiera, manteniendo las proporciones: por el 100% del peso de las papas, 50% zanahorias, 50% verdura a elección. Vegetariano. Es ideal para incorporar verduras a los más reticentes.
+        </dd>
+      </div>
+    </dl>
+  </div>,
+]
+`;

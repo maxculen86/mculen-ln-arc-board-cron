@@ -2,17 +2,17 @@ const articles = [
     {
         type: 'story',
         version: '0.10.2',
-        created_date: '2019-08-26T13:53:18.910Z',
+        created_date: '2019-09-04T18:14:08.966Z',
         revision: {
-            revision_id: 'LXDJJMMX65DARF4EDW4NJOURFU',
-            parent_id: 'AHYVDQ4CG5EM3KAYMPN33H2ASE',
+            revision_id: 'GOYWGIMDWBEJVASZAJ77KONPPA',
+            parent_id: 'VCGQOGZZINGYNG5PEPCH2L72JI',
             editions: ['default'],
             branch: 'default',
-            user_id: 'giannattasior@washpost.com',
+            user_id: 'jansena@washpost.com',
             published: true
         },
-        last_updated_date: '2019-08-26T14:16:36.256Z',
-        canonical_url: '/baseball/2019/08/26/baseball-game-recap',
+        last_updated_date: '2019-09-10T18:21:12.501Z',
+        canonical_url: '/baseball/2019/09/04/baseball-game-recap',
         headlines: {
             basic: 'Baseball Game Recap:',
             mobile: '',
@@ -102,6 +102,38 @@ const articles = [
                             node_type: 'section'
                         }
                     }
+                },
+                {
+                    _id: '/sports/basketball',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: 1019,
+                            node_type: 'section',
+                            children: []
+                        }
+                    }
                 }
             ],
             tags: [
@@ -176,14 +208,16 @@ const articles = [
                                 'main-site-navigation': '/sports',
                                 'primary-header-links': '/sports',
                                 'desktop-navigation': '/sports',
-                                'mobile-navigation': '/'
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
                             },
                             ancestors: {
                                 default: ['/', '/sports'],
                                 'main-site-navigation': ['/sports'],
                                 'primary-header-links': ['/sports'],
                                 'desktop-navigation': ['/', '/sports'],
-                                'mobile-navigation': ['/']
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
                             },
                             _admin: {
                                 alias_ids: ['/sports/baseball']
@@ -193,7 +227,8 @@ const articles = [
                                 'primary-header-links': 2002,
                                 'desktop-navigation': 2001,
                                 'mobile-navigation': 1001,
-                                default: 2002
+                                default: 2002,
+                                'footer-test': 1001
                             },
                             node_type: 'section',
                             inactive: false,
@@ -250,6 +285,59 @@ const articles = [
                         }
                     },
                     _website_section_id: 'demo./sports'
+                },
+                {
+                    _id: '/sports/basketball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: {
+                                'main-site-navigation': 2003,
+                                'primary-header-links': 2001,
+                                default: 1019,
+                                'desktop-navigation': 2002
+                            },
+                            _website: 'demo',
+                            node_type: 'section',
+                            children: []
+                        }
+                    },
+                    _website_section_id: 'demo./sports/basketball'
                 }
             ],
             primary_section: {
@@ -280,14 +368,16 @@ const articles = [
                             'main-site-navigation': '/sports',
                             'primary-header-links': '/sports',
                             'desktop-navigation': '/sports',
-                            'mobile-navigation': '/'
+                            'mobile-navigation': '/',
+                            'footer-test': '/'
                         },
                         ancestors: {
                             default: ['/', '/sports'],
                             'main-site-navigation': ['/sports'],
                             'primary-header-links': ['/sports'],
                             'desktop-navigation': ['/', '/sports'],
-                            'mobile-navigation': ['/']
+                            'mobile-navigation': ['/'],
+                            'footer-test': ['/']
                         },
                         _admin: {
                             alias_ids: ['/sports/baseball']
@@ -297,7 +387,8 @@ const articles = [
                             'primary-header-links': 2002,
                             'desktop-navigation': 2001,
                             'mobile-navigation': 1001,
-                            default: 2002
+                            default: 2002,
+                            'footer-test': 1001
                         },
                         node_type: 'section',
                         inactive: false,
@@ -309,35 +400,43 @@ const articles = [
         label: {},
         promo_items: {
             basic: {
-                _id: '3C3UZNAAUVBETNQGM5MPTSYJNQ',
+                _id: 'BOFS74XX7ZAC7H4LFSDHZRUSLQ',
                 additional_properties: {
                     fullSizeResizeUrl:
-                        '/photo/resize/rm_w3hf8SCSpd3NsIFtPDhCxnEs=/arc-anglerfish-arc2-prod-demo/public/3C3UZNAAUVBETNQGM5MPTSYJNQ.jpg',
-                    galleries: [],
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    galleries: [
+                        {
+                            headlines: {
+                                basic: 'test'
+                            },
+                            _id: 'NXOYDFRY7VAULGKBRTXVSCC5R4'
+                        }
+                    ],
                     ingestionMethod: 'manual',
                     keywords: [],
                     mime_type: 'image/jpeg',
                     originalName: 'architecture-3121009_1280.jpg',
                     originalUrl:
-                        'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/3C3UZNAAUVBETNQGM5MPTSYJNQ.jpg',
+                        'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
                     owner: 'aaron.jansen@washpost.com',
                     proxyUrl:
-                        '/photo/resize/rm_w3hf8SCSpd3NsIFtPDhCxnEs=/arc-anglerfish-arc2-prod-demo/public/3C3UZNAAUVBETNQGM5MPTSYJNQ.jpg',
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
                     published: true,
                     resizeUrl:
-                        'http://thumbor-prod-us-east-1.photo.aws.arc.pub/rm_w3hf8SCSpd3NsIFtPDhCxnEs=/arc-anglerfish-arc2-prod-demo/public/3C3UZNAAUVBETNQGM5MPTSYJNQ.jpg',
+                        'http://thumbor-prod-us-east-1.photo.aws.arc.pub/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
                     restricted: false,
-                    version: 1
+                    version: 4
                 },
                 address: {},
                 caption: 'this is a caption',
-                created_date: '2019-08-22T23:50:12Z',
+                created_date: '2019-09-10T11:34:15Z',
                 credits: {
-                    affiliation: []
+                    by: []
                 },
+                geo: {},
                 height: 720,
                 image_type: 'photograph',
-                last_updated_date: '2019-08-23T00:00:46Z',
+                last_updated_date: '2019-09-10T17:20:41Z',
                 licensable: false,
                 owner: {
                     id: 'demo',
@@ -345,7 +444,7 @@ const articles = [
                 },
                 source: {
                     edit_url:
-                        'https://demo.arcpublishing.com/photo/3C3UZNAAUVBETNQGM5MPTSYJNQ',
+                        'https://demo.arcpublishing.com/photo/BOFS74XX7ZAC7H4LFSDHZRUSLQ',
                     system: 'Anglerfish'
                 },
                 subtitle: 'bridge',
@@ -354,9 +453,9 @@ const articles = [
                 },
                 type: 'image',
                 url:
-                    'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/3C3UZNAAUVBETNQGM5MPTSYJNQ.jpg',
+                    'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
                 version: '0.9.0',
-                width: 1280
+                width: 960
             }
         },
         distributor: {
@@ -368,69 +467,81 @@ const articles = [
         planning: {
             internal_note: '',
             story_length: {
-                word_count_actual: 23,
-                line_count_actual: 14,
-                inch_count_actual: 2
+                word_count_actual: 25,
+                line_count_actual: 20,
+                inch_count_actual: 3
             }
         },
-        display_date: '2019-08-26T14:16:32.972Z',
+        display_date: '2019-09-04T18:17:43.046Z',
         credits: {
             by: [
                 {
-                    _id: 'aaron.jansen',
+                    _id: 'alexremington',
                     type: 'author',
                     version: '0.5.8',
-                    name: 'Aaron Jansen',
+                    name: 'Alex Remington',
+                    org: 'Washington, DC',
                     image: {
-                        url: '',
+                        url:
+                            'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
                         version: '0.5.8'
                     },
-                    description: '',
+                    description:
+                        'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
                     url: '',
                     slug: '',
                     social_links: [
                         {
                             site: 'email',
-                            url: ''
+                            url: 'alexander.remington@washpost.com'
                         }
                     ],
                     socialLinks: [
                         {
                             site: 'email',
-                            url: '',
+                            url: 'alexander.remington@washpost.com',
                             deprecated: true,
                             deprecation_msg: 'Please use social_links.'
                         }
                     ],
                     additional_properties: {
                         original: {
-                            _id: 'aaron.jansen',
-                            firstName: 'Aaron',
-                            lastName: 'Jansen',
-                            byline: 'Aaron Jansen',
-                            image: '',
-                            email: '',
+                            _id: 'alexremington',
+                            firstName: 'Alex',
+                            lastName: 'Remington',
+                            byline: 'Alex Remington',
+                            role: 'Enterprise Account Executive',
+                            image:
+                                'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                            email: 'alexander.remington@washpost.com',
                             affiliations: '',
+                            languages: 'English',
                             beat: 'Arc',
+                            author_type: 'Staff',
                             education: [],
                             awards: [],
                             books: [],
                             podcasts: [],
                             bio_page: '',
-                            bio: '',
+                            location: 'Washington, DC',
+                            bio:
+                                'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
                             longBio: '',
                             slug: '',
                             native_app_rendering: false,
                             fuzzy_match: false,
                             contributor: false,
                             status: true,
-                            last_updated_date: '2018-07-12T21:07:58.339Z'
+                            last_updated: '2018-02-16T14:36:06.520Z',
+                            middleName: 'F.',
+                            expertise: 'Arc Publishing',
+                            last_updated_date: '2019-04-17T15:13:36.104Z'
                         }
                     }
                 }
             ]
         },
-        first_publish_date: '2019-08-26T14:16:36.283Z',
+        first_publish_date: '2019-09-04T18:17:44.675Z',
         websites: {
             demo: {
                 website_section: {
@@ -461,14 +572,16 @@ const articles = [
                                 'main-site-navigation': '/sports',
                                 'primary-header-links': '/sports',
                                 'desktop-navigation': '/sports',
-                                'mobile-navigation': '/'
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
                             },
                             ancestors: {
                                 default: ['/', '/sports'],
                                 'main-site-navigation': ['/sports'],
                                 'primary-header-links': ['/sports'],
                                 'desktop-navigation': ['/', '/sports'],
-                                'mobile-navigation': ['/']
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
                             },
                             _admin: {
                                 alias_ids: ['/sports/baseball']
@@ -478,7 +591,8 @@ const articles = [
                                 'primary-header-links': 2002,
                                 'desktop-navigation': 2001,
                                 'mobile-navigation': 1001,
-                                default: 2002
+                                default: 2002,
+                                'footer-test': 1001
                             },
                             node_type: 'section',
                             inactive: false,
@@ -487,42 +601,42 @@ const articles = [
                     },
                     _website_section_id: 'demo./sports/baseball'
                 },
-                website_url: '/baseball/2019/08/26/baseball-game-recap'
+                website_url: '/baseball/2019/09/04/baseball-game-recap'
             }
         },
         additional_properties: {
             clipboard: {},
             has_published_copy: true,
-            is_published: false,
-            publish_date: false
+            is_published: true,
+            publish_date: '2019-09-04T18:17:44.675Z'
         },
-        publish_date: '2019-08-26T14:16:36.283Z',
+        publish_date: '2019-09-10T18:21:12.543Z',
         publishing: {
             scheduled_operations: {
                 publish_edition: [],
                 unpublish_edition: []
             }
         },
-        _id: 'VA2TVD2G3JA65DA2LUWLKNDT2Y',
+        _id: 'XWEH72X4X5AOBHZQACTDKFAXAY',
         website: 'demo',
-        website_url: '/baseball/2019/08/26/baseball-game-recap'
+        website_url: '/baseball/2019/09/04/baseball-game-recap'
     },
     {
         type: 'story',
         version: '0.10.2',
-        created_date: '2019-07-31T20:39:11.698Z',
+        created_date: '2019-09-04T18:14:08.966Z',
         revision: {
-            revision_id: '7OTATIAGKVGMLDMMSVIF7XAJH4',
-            parent_id: 'Q3VEE4KCXJDCDJD2YX4Y2BCHR4',
+            revision_id: 'GOYWGIMDWBEJVASZAJ77KONPPA',
+            parent_id: 'VCGQOGZZINGYNG5PEPCH2L72JI',
             editions: ['default'],
             branch: 'default',
-            user_id: 'giannattasior@washpost.com',
+            user_id: 'jansena@washpost.com',
             published: true
         },
-        last_updated_date: '2019-08-26T04:45:48.426Z',
-        canonical_url: '/brands/2019/07/31/cream-of-broccoli-soup-recipe',
+        last_updated_date: '2019-09-10T18:21:12.501Z',
+        canonical_url: '/baseball/2019/09/04/baseball-game-recap',
         headlines: {
-            basic: 'Cream of Broccoli Soup Recipe',
+            basic: 'Baseball Game Recap:',
             mobile: '',
             native: '',
             print: '',
@@ -539,14 +653,13 @@ const articles = [
         },
         address: {},
         workflow: {
-            status_code: 2,
-            note: ''
+            status_code: 1
         },
         subheadlines: {
-            basic: 'A delicious summertime recipe'
+            basic: ''
         },
         description: {
-            basic: 'Content by brands for readers.'
+            basic: ''
         },
         language: '',
         source: {
@@ -554,793 +667,417 @@ const articles = [
             name: 'demo',
             source_type: 'staff'
         },
-        label: {},
         taxonomy: {
             sites: [
                 {
-                    _id: '/brands',
+                    _id: '/sports/baseball',
                     type: 'site',
                     version: '0.5.8',
-                    name: 'Brands',
-                    description: 'Brands',
-                    path: '/brands',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
                     additional_properties: {
                         original: {
-                            _id: '/brands',
-                            Ads: {
-                                dfp_id: null
-                            },
+                            _id: '/sports/baseball',
                             site: {
-                                site_keywords:
-                                    'brands, branded content, content',
-                                site_description: 'Brands',
-                                site_url:
-                                    'http://demo.arcpublishing.com/brands',
-                                site_title: 'Brands'
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
                             },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            default: {
-                                test: 'http://demo.arcpublishing.com/brands'
-                            },
-                            name: 'Brands',
+                            name: 'Baseball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
                             _admin: {
-                                alias_ids: ['/brands']
+                                alias_ids: ['/sports/baseball']
                             },
+                            order: 2002,
+                            node_type: 'section',
+                            inactive: false
+                        }
+                    }
+                },
+                {
+                    _id: '/sports',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            name: 'Sports',
+                            order: 1017,
+                            parent: '/',
+                            ancestors: ['/'],
                             inactive: false,
                             node_type: 'section'
                         }
                     }
                 },
                 {
-                    _id: '/food',
+                    _id: '/sports/basketball',
                     type: 'site',
                     version: '0.5.8',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
                     additional_properties: {
                         original: {
-                            _id: '/food',
+                            _id: '/sports/basketball',
                             site: {
-                                site_url: 'demo.arcpublishing.com/pb/food',
-                                site_title: 'Food',
-                                site_description: 'Food',
-                                site_keywords: 'food'
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
                             },
-                            Ads: {
-                                dfp_id: null
+                            name: 'Basketball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
                             },
-                            copyright: '2018 (c) Arc Publishing',
-                            name: 'Food',
-                            order: 1015,
-                            parent: '/',
                             inactive: false,
-                            node_type: 'section'
+                            order: 1019,
+                            node_type: 'section',
+                            children: []
                         }
                     }
                 }
             ],
             tags: [
                 {
-                    text: 'brand',
-                    description: 'brand',
-                    slug: 'brand'
+                    text: 'baseball',
+                    description: 'Tag for baseball stories',
+                    slug: 'baseball'
                 },
                 {
-                    text: 'company',
-                    description: 'company',
-                    slug: 'company'
-                },
-                {
-                    text: 'evergreen',
-                    description: 'evergreen',
-                    slug: 'evergreen'
-                },
-                {
-                    text: 'email',
-                    description: 'email',
-                    slug: 'email'
-                },
-                {
-                    text: 'DMP',
-                    description: 'DMP',
-                    slug: 'dmp'
-                }
-            ],
-            sections: [
-                {
-                    _id: '/brands',
-                    _website: 'demo',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Brands',
-                    description: 'Brands',
-                    path: '/brands',
-                    additional_properties: {
-                        original: {
-                            _id: '/brands',
-                            Ads: {
-                                dfp_id: null
-                            },
-                            site: {
-                                site_keywords:
-                                    'brands, branded content, content',
-                                site_description: 'Brands',
-                                site_url:
-                                    'http://demo.arcpublishing.com/brands',
-                                site_title: 'Brands'
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            default: {
-                                test: 'http://demo.arcpublishing.com/brands'
-                            },
-                            name: 'Brands',
-                            _website: 'demo',
-                            parent: {
-                                default: null
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/brands']
-                            },
-                            inactive: false,
-                            node_type: 'section',
-                            order: {}
-                        }
-                    },
-                    _website_section_id: 'demo./brands'
-                },
-                {
-                    _id: '/food',
-                    _website: 'east-coast-herald',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'eastcoastherald.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'east-coast-herald',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'east-coast-herald./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'the-gazette',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'thegazette.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-gazette',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-gazette./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'the-mirror',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'themirror.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-mirror',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-mirror./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'the-globe',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'theglobe.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-globe',
-                            parent: {
-                                default: '/',
-                                footer: '/'
-                            },
-                            ancestors: {
-                                default: [],
-                                footer: ['/']
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section',
-                            order: {
-                                footer: 1001
-                            }
-                        }
-                    },
-                    _website_section_id: 'the-globe./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'the-bugle',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'thebugle.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-bugle',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-bugle./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'the-telegraph',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'thetelegraph.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-telegraph',
-                            parent: {
-                                default: '/',
-                                'main-site-navigation': '/'
-                            },
-                            ancestors: {
-                                default: [],
-                                'main-site-navigation': ['/']
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section',
-                            order: {
-                                'main-site-navigation': 1001
-                            }
-                        }
-                    },
-                    _website_section_id: 'the-telegraph./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'demo',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'demo.arcpublishing.com/pb/food',
-                                site_title: 'Food',
-                                site_description: 'Food',
-                                site_keywords: 'food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            copyright: '2018 (c) Arc Publishing',
-                            _website: 'demo',
-                            name: 'Food',
-                            order: {
-                                default: 1015
-                            },
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'demo./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'the-prophet',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'theprophet.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-prophet',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section',
-                            order: {
-                                default: 1002
-                            }
-                        }
-                    },
-                    _website_section_id: 'the-prophet./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'the-mercury',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'themercury.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-mercury',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-mercury./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'the-planet',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'theplanet.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-planet',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-planet./food'
-                },
-                {
-                    _id: '/food',
-                    _website: 'west-coast-sun',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'westcoastsun.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'west-coast-sun',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'west-coast-sun./food'
+                    text: 'sports',
+                    description: 'Generic tag for sports articles',
+                    slug: 'sports'
                 }
             ],
             primary_site: {
-                _id: '/brands',
+                _id: '/sports/baseball',
                 type: 'site',
                 version: '0.5.8',
-                name: 'Brands',
-                description: 'Brands',
-                path: '/brands',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
                 additional_properties: {
                     original: {
-                        _id: '/brands',
-                        Ads: {
-                            dfp_id: null
-                        },
+                        _id: '/sports/baseball',
                         site: {
-                            site_keywords: 'brands, branded content, content',
-                            site_description: 'Brands',
-                            site_url: 'http://demo.arcpublishing.com/brands',
-                            site_title: 'Brands'
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
                         },
-                        logo: {
-                            logo: null,
-                            logo_align: 'left',
-                            logo_url: null,
-                            logo_text: null,
-                            logo_sticky: null
-                        },
-                        default: {
-                            test: 'http://demo.arcpublishing.com/brands'
-                        },
-                        name: 'Brands',
+                        name: 'Baseball',
+                        parent: '/sports',
+                        ancestors: ['/', '/sports'],
                         _admin: {
-                            alias_ids: ['/brands']
+                            alias_ids: ['/sports/baseball']
                         },
-                        inactive: false,
-                        node_type: 'section'
+                        order: 2002,
+                        node_type: 'section',
+                        inactive: false
                     }
                 }
             },
+            seo_keywords: ['baseball', 'sports'],
+            sections: [
+                {
+                    _id: '/sports/baseball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
+                            },
+                            node_type: 'section',
+                            inactive: false,
+                            _website: 'demo'
+                        }
+                    },
+                    _website_section_id: 'demo./sports/baseball'
+                },
+                {
+                    _id: '/sports',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    parent: {
+                        default: '/'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            _website: 'demo',
+                            name: 'Sports',
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 1003,
+                                'desktop-navigation': 1001,
+                                default: 1017
+                            },
+                            parent: {
+                                default: '/',
+                                'main-site-navigation': '/',
+                                'primary-header-links': '/',
+                                'footer-test': null,
+                                'desktop-navigation': '/'
+                            },
+                            ancestors: {
+                                default: ['/'],
+                                'main-site-navigation': [],
+                                'primary-header-links': [],
+                                'footer-test': [],
+                                'desktop-navigation': ['/']
+                            },
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    },
+                    _website_section_id: 'demo./sports'
+                },
+                {
+                    _id: '/sports/basketball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: {
+                                'main-site-navigation': 2003,
+                                'primary-header-links': 2001,
+                                default: 1019,
+                                'desktop-navigation': 2002
+                            },
+                            _website: 'demo',
+                            node_type: 'section',
+                            children: []
+                        }
+                    },
+                    _website_section_id: 'demo./sports/basketball'
+                }
+            ],
             primary_section: {
-                _id: '/brands',
+                _id: '/sports/baseball',
                 _website: 'demo',
                 type: 'section',
                 version: '0.6.0',
-                name: 'Brands',
-                description: 'Brands',
-                path: '/brands',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
+                parent: {
+                    default: '/sports'
+                },
                 additional_properties: {
                     original: {
-                        _id: '/brands',
-                        Ads: {
-                            dfp_id: null
-                        },
+                        _id: '/sports/baseball',
                         site: {
-                            site_keywords: 'brands, branded content, content',
-                            site_description: 'Brands',
-                            site_url: 'http://demo.arcpublishing.com/brands',
-                            site_title: 'Brands'
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
                         },
-                        logo: {
-                            logo: null,
-                            logo_align: 'left',
-                            logo_url: null,
-                            logo_text: null,
-                            logo_sticky: null
-                        },
-                        default: {
-                            test: 'http://demo.arcpublishing.com/brands'
-                        },
-                        name: 'Brands',
-                        _website: 'demo',
+                        name: 'Baseball',
                         parent: {
-                            default: null
+                            default: '/sports',
+                            'main-site-navigation': '/sports',
+                            'primary-header-links': '/sports',
+                            'desktop-navigation': '/sports',
+                            'mobile-navigation': '/',
+                            'footer-test': '/'
                         },
                         ancestors: {
-                            default: []
+                            default: ['/', '/sports'],
+                            'main-site-navigation': ['/sports'],
+                            'primary-header-links': ['/sports'],
+                            'desktop-navigation': ['/', '/sports'],
+                            'mobile-navigation': ['/'],
+                            'footer-test': ['/']
                         },
                         _admin: {
-                            alias_ids: ['/brands']
+                            alias_ids: ['/sports/baseball']
                         },
-                        inactive: false,
+                        order: {
+                            'main-site-navigation': 2002,
+                            'primary-header-links': 2002,
+                            'desktop-navigation': 2001,
+                            'mobile-navigation': 1001,
+                            default: 2002,
+                            'footer-test': 1001
+                        },
                         node_type: 'section',
-                        order: {}
+                        inactive: false,
+                        _website: 'demo'
                     }
                 }
-            },
-            seo_keywords: [
-                'brand',
-                'content',
-                'marketing',
-                'brand category',
-                'recipe',
-                'DIY tips',
-                'travel destinations'
-            ]
+            }
         },
+        label: {},
         promo_items: {
-            html: {
-                content: 'http://www.slimjim.com/',
-                _id: 'Q5ESU6HC3JDVVNFK3E7L6TQEYA',
-                type: 'raw_html'
+            basic: {
+                _id: 'BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                additional_properties: {
+                    fullSizeResizeUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    galleries: [
+                        {
+                            headlines: {
+                                basic: 'test'
+                            },
+                            _id: 'NXOYDFRY7VAULGKBRTXVSCC5R4'
+                        }
+                    ],
+                    ingestionMethod: 'manual',
+                    keywords: [],
+                    mime_type: 'image/jpeg',
+                    originalName: 'architecture-3121009_1280.jpg',
+                    originalUrl:
+                        'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    owner: 'aaron.jansen@washpost.com',
+                    proxyUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    published: true,
+                    resizeUrl:
+                        'http://thumbor-prod-us-east-1.photo.aws.arc.pub/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    restricted: false,
+                    version: 4
+                },
+                address: {},
+                caption: 'this is a caption',
+                created_date: '2019-09-10T11:34:15Z',
+                credits: {
+                    by: []
+                },
+                geo: {},
+                height: 720,
+                image_type: 'photograph',
+                last_updated_date: '2019-09-10T17:20:41Z',
+                licensable: false,
+                owner: {
+                    id: 'demo',
+                    sponsored: false
+                },
+                source: {
+                    edit_url:
+                        'https://demo.arcpublishing.com/photo/BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                    system: 'Anglerfish'
+                },
+                subtitle: 'bridge',
+                taxonomy: {
+                    associated_tasks: []
+                },
+                type: 'image',
+                url:
+                    'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                version: '0.9.0',
+                width: 960
             }
         },
         distributor: {
@@ -1350,617 +1087,2649 @@ const articles = [
         },
         canonical_website: 'demo',
         planning: {
-            scheduling: {
-                planned_publish_date: '2019-08-01T11:00:49Z',
-                will_have_image: true,
-                will_have_video: true
-            },
             internal_note: '',
             story_length: {
-                word_count_actual: 29,
-                line_count_actual: 18,
+                word_count_actual: 25,
+                line_count_actual: 20,
                 inch_count_actual: 3
             }
         },
-        display_date: '2019-07-31T20:47:19.443Z',
+        display_date: '2019-09-04T18:17:43.046Z',
         credits: {
-            by: []
+            by: [
+                {
+                    _id: 'alexremington',
+                    type: 'author',
+                    version: '0.5.8',
+                    name: 'Alex Remington',
+                    org: 'Washington, DC',
+                    image: {
+                        url:
+                            'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                        version: '0.5.8'
+                    },
+                    description:
+                        'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                    url: '',
+                    slug: '',
+                    social_links: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com'
+                        }
+                    ],
+                    socialLinks: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com',
+                            deprecated: true,
+                            deprecation_msg: 'Please use social_links.'
+                        }
+                    ],
+                    additional_properties: {
+                        original: {
+                            _id: 'alexremington',
+                            firstName: 'Alex',
+                            lastName: 'Remington',
+                            byline: 'Alex Remington',
+                            role: 'Enterprise Account Executive',
+                            image:
+                                'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                            email: 'alexander.remington@washpost.com',
+                            affiliations: '',
+                            languages: 'English',
+                            beat: 'Arc',
+                            author_type: 'Staff',
+                            education: [],
+                            awards: [],
+                            books: [],
+                            podcasts: [],
+                            bio_page: '',
+                            location: 'Washington, DC',
+                            bio:
+                                'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                            longBio: '',
+                            slug: '',
+                            native_app_rendering: false,
+                            fuzzy_match: false,
+                            contributor: false,
+                            status: true,
+                            last_updated: '2018-02-16T14:36:06.520Z',
+                            middleName: 'F.',
+                            expertise: 'Arc Publishing',
+                            last_updated_date: '2019-04-17T15:13:36.104Z'
+                        }
+                    }
+                }
+            ]
         },
-        first_publish_date: '2019-07-31T20:47:20.642Z',
+        first_publish_date: '2019-09-04T18:17:44.675Z',
         websites: {
             demo: {
                 website_section: {
-                    _id: '/brands',
+                    _id: '/sports/baseball',
                     _website: 'demo',
                     type: 'section',
                     version: '0.6.0',
-                    name: 'Brands',
-                    description: 'Brands',
-                    path: '/brands',
-                    additional_properties: {
-                        original: {
-                            _id: '/brands',
-                            Ads: {
-                                dfp_id: null
-                            },
-                            site: {
-                                site_keywords:
-                                    'brands, branded content, content',
-                                site_description: 'Brands',
-                                site_url:
-                                    'http://demo.arcpublishing.com/brands',
-                                site_title: 'Brands'
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            default: {
-                                test: 'http://demo.arcpublishing.com/brands'
-                            },
-                            name: 'Brands',
-                            _website: 'demo',
-                            parent: {
-                                default: null
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/brands']
-                            },
-                            inactive: false,
-                            node_type: 'section',
-                            order: {}
-                        }
-                    },
-                    _website_section_id: 'demo./brands'
-                },
-                website_url: '/brands/2019/07/31/cream-of-broccoli-soup-recipe'
-            },
-            'east-coast-herald': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'east-coast-herald',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
                     parent: {
-                        default: '/'
+                        default: '/sports'
                     },
                     additional_properties: {
                         original: {
-                            _id: '/food',
+                            _id: '/sports/baseball',
                             site: {
-                                site_url: 'eastcoastherald.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
                             },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'east-coast-herald',
+                            name: 'Baseball',
                             parent: {
-                                default: '/'
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
                             },
                             ancestors: {
-                                default: []
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
                             },
                             _admin: {
-                                alias_ids: ['/food']
+                                alias_ids: ['/sports/baseball']
                             },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'east-coast-herald./food'
-                },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
-            },
-            'the-gazette': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'the-gazette',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'thegazette.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-gazette',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-gazette./food'
-                },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
-            },
-            'the-mirror': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'the-mirror',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'themirror.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-mirror',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-mirror./food'
-                },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
-            },
-            'the-globe': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'the-globe',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'theglobe.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-globe',
-                            parent: {
-                                default: '/',
-                                footer: '/'
-                            },
-                            ancestors: {
-                                default: [],
-                                footer: ['/']
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section',
                             order: {
-                                footer: 1001
-                            }
-                        }
-                    },
-                    _website_section_id: 'the-globe./food'
-                },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
-            },
-            'the-bugle': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'the-bugle',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'thebugle.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
                             },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-bugle',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-bugle./food'
-                },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
-            },
-            'the-telegraph': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'the-telegraph',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'thetelegraph.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-telegraph',
-                            parent: {
-                                default: '/',
-                                'main-site-navigation': '/'
-                            },
-                            ancestors: {
-                                default: [],
-                                'main-site-navigation': ['/']
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
                             node_type: 'section',
-                            order: {
-                                'main-site-navigation': 1001
-                            }
-                        }
-                    },
-                    _website_section_id: 'the-telegraph./food'
-                },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
-            },
-            'the-prophet': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'the-prophet',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'theprophet.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-prophet',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
                             inactive: false,
-                            node_type: 'section',
-                            order: {
-                                default: 1002
-                            }
+                            _website: 'demo'
                         }
                     },
-                    _website_section_id: 'the-prophet./food'
+                    _website_section_id: 'demo./sports/baseball'
                 },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
-            },
-            'the-mercury': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'the-mercury',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'themercury.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-mercury',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-mercury./food'
-                },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
-            },
-            'the-planet': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'the-planet',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'theplanet.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'the-planet',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'the-planet./food'
-                },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
-            },
-            'west-coast-sun': {
-                website_section: {
-                    _id: '/food',
-                    _website: 'west-coast-sun',
-                    type: 'section',
-                    version: '0.6.0',
-                    name: 'Food',
-                    description: 'Food',
-                    path: '/food',
-                    parent_id: '/',
-                    parent: {
-                        default: '/'
-                    },
-                    additional_properties: {
-                        original: {
-                            _id: '/food',
-                            site: {
-                                site_url: 'westcoastsun.com/food',
-                                site_description: 'Food',
-                                site_keywords: 'Food',
-                                site_title: 'Food'
-                            },
-                            Ads: {
-                                dfp_id: null
-                            },
-                            logo: {
-                                logo: null,
-                                logo_align: 'left',
-                                logo_url: null,
-                                logo_text: null,
-                                logo_sticky: null
-                            },
-                            name: 'Food',
-                            _website: 'west-coast-sun',
-                            parent: {
-                                default: '/'
-                            },
-                            ancestors: {
-                                default: []
-                            },
-                            _admin: {
-                                alias_ids: ['/food']
-                            },
-                            inactive: false,
-                            node_type: 'section'
-                        }
-                    },
-                    _website_section_id: 'west-coast-sun./food'
-                },
-                website_url: '/2019/07/31/cream-of-broccoli-soup-recipe/'
+                website_url: '/baseball/2019/09/04/baseball-game-recap'
             }
         },
         additional_properties: {
             clipboard: {},
             has_published_copy: true,
             is_published: true,
-            publish_date: '2019-07-31T20:47:20.642Z'
+            publish_date: '2019-09-04T18:17:44.675Z'
         },
-        publish_date: '2019-08-26T04:45:48.462Z',
+        publish_date: '2019-09-10T18:21:12.543Z',
         publishing: {
             scheduled_operations: {
                 publish_edition: [],
                 unpublish_edition: []
             }
         },
-        _id: 'GDZ4ZV625ZAA7B6AOAZTTMHUM4',
+        _id: 'XWEH72X4X5AOBHZQACTDKFAXAY',
         website: 'demo',
-        website_url: '/brands/2019/07/31/cream-of-broccoli-soup-recipe'
+        website_url: '/baseball/2019/09/04/baseball-game-recap'
+    },
+    {
+        type: 'story',
+        version: '0.10.2',
+        created_date: '2019-09-04T18:14:08.966Z',
+        revision: {
+            revision_id: 'GOYWGIMDWBEJVASZAJ77KONPPA',
+            parent_id: 'VCGQOGZZINGYNG5PEPCH2L72JI',
+            editions: ['default'],
+            branch: 'default',
+            user_id: 'jansena@washpost.com',
+            published: true
+        },
+        last_updated_date: '2019-09-10T18:21:12.501Z',
+        canonical_url: '/baseball/2019/09/04/baseball-game-recap',
+        headlines: {
+            basic: 'Baseball Game Recap:',
+            mobile: '',
+            native: '',
+            print: '',
+            tablet: '',
+            web: '',
+            meta_title: ''
+        },
+        owner: {
+            sponsored: false,
+            id: 'demo'
+        },
+        content_restrictions: {
+            content_code: 'free'
+        },
+        address: {},
+        workflow: {
+            status_code: 1
+        },
+        subheadlines: {
+            basic: ''
+        },
+        description: {
+            basic: ''
+        },
+        language: '',
+        source: {
+            system: 'ellipsis',
+            name: 'demo',
+            source_type: 'staff'
+        },
+        taxonomy: {
+            sites: [
+                {
+                    _id: '/sports/baseball',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: 2002,
+                            node_type: 'section',
+                            inactive: false
+                        }
+                    }
+                },
+                {
+                    _id: '/sports',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            name: 'Sports',
+                            order: 1017,
+                            parent: '/',
+                            ancestors: ['/'],
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    }
+                },
+                {
+                    _id: '/sports/basketball',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: 1019,
+                            node_type: 'section',
+                            children: []
+                        }
+                    }
+                }
+            ],
+            tags: [
+                {
+                    text: 'baseball',
+                    description: 'Tag for baseball stories',
+                    slug: 'baseball'
+                },
+                {
+                    text: 'sports',
+                    description: 'Generic tag for sports articles',
+                    slug: 'sports'
+                }
+            ],
+            primary_site: {
+                _id: '/sports/baseball',
+                type: 'site',
+                version: '0.5.8',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
+                additional_properties: {
+                    original: {
+                        _id: '/sports/baseball',
+                        site: {
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
+                        },
+                        name: 'Baseball',
+                        parent: '/sports',
+                        ancestors: ['/', '/sports'],
+                        _admin: {
+                            alias_ids: ['/sports/baseball']
+                        },
+                        order: 2002,
+                        node_type: 'section',
+                        inactive: false
+                    }
+                }
+            },
+            seo_keywords: ['baseball', 'sports'],
+            sections: [
+                {
+                    _id: '/sports/baseball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
+                            },
+                            node_type: 'section',
+                            inactive: false,
+                            _website: 'demo'
+                        }
+                    },
+                    _website_section_id: 'demo./sports/baseball'
+                },
+                {
+                    _id: '/sports',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    parent: {
+                        default: '/'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            _website: 'demo',
+                            name: 'Sports',
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 1003,
+                                'desktop-navigation': 1001,
+                                default: 1017
+                            },
+                            parent: {
+                                default: '/',
+                                'main-site-navigation': '/',
+                                'primary-header-links': '/',
+                                'footer-test': null,
+                                'desktop-navigation': '/'
+                            },
+                            ancestors: {
+                                default: ['/'],
+                                'main-site-navigation': [],
+                                'primary-header-links': [],
+                                'footer-test': [],
+                                'desktop-navigation': ['/']
+                            },
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    },
+                    _website_section_id: 'demo./sports'
+                },
+                {
+                    _id: '/sports/basketball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: {
+                                'main-site-navigation': 2003,
+                                'primary-header-links': 2001,
+                                default: 1019,
+                                'desktop-navigation': 2002
+                            },
+                            _website: 'demo',
+                            node_type: 'section',
+                            children: []
+                        }
+                    },
+                    _website_section_id: 'demo./sports/basketball'
+                }
+            ],
+            primary_section: {
+                _id: '/sports/baseball',
+                _website: 'demo',
+                type: 'section',
+                version: '0.6.0',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
+                parent: {
+                    default: '/sports'
+                },
+                additional_properties: {
+                    original: {
+                        _id: '/sports/baseball',
+                        site: {
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
+                        },
+                        name: 'Baseball',
+                        parent: {
+                            default: '/sports',
+                            'main-site-navigation': '/sports',
+                            'primary-header-links': '/sports',
+                            'desktop-navigation': '/sports',
+                            'mobile-navigation': '/',
+                            'footer-test': '/'
+                        },
+                        ancestors: {
+                            default: ['/', '/sports'],
+                            'main-site-navigation': ['/sports'],
+                            'primary-header-links': ['/sports'],
+                            'desktop-navigation': ['/', '/sports'],
+                            'mobile-navigation': ['/'],
+                            'footer-test': ['/']
+                        },
+                        _admin: {
+                            alias_ids: ['/sports/baseball']
+                        },
+                        order: {
+                            'main-site-navigation': 2002,
+                            'primary-header-links': 2002,
+                            'desktop-navigation': 2001,
+                            'mobile-navigation': 1001,
+                            default: 2002,
+                            'footer-test': 1001
+                        },
+                        node_type: 'section',
+                        inactive: false,
+                        _website: 'demo'
+                    }
+                }
+            }
+        },
+        label: {},
+        promo_items: {
+            basic: {
+                _id: 'BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                additional_properties: {
+                    fullSizeResizeUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    galleries: [
+                        {
+                            headlines: {
+                                basic: 'test'
+                            },
+                            _id: 'NXOYDFRY7VAULGKBRTXVSCC5R4'
+                        }
+                    ],
+                    ingestionMethod: 'manual',
+                    keywords: [],
+                    mime_type: 'image/jpeg',
+                    originalName: 'architecture-3121009_1280.jpg',
+                    originalUrl:
+                        'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    owner: 'aaron.jansen@washpost.com',
+                    proxyUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    published: true,
+                    resizeUrl:
+                        'http://thumbor-prod-us-east-1.photo.aws.arc.pub/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    restricted: false,
+                    version: 4
+                },
+                address: {},
+                caption: 'this is a caption',
+                created_date: '2019-09-10T11:34:15Z',
+                credits: {
+                    by: []
+                },
+                geo: {},
+                height: 720,
+                image_type: 'photograph',
+                last_updated_date: '2019-09-10T17:20:41Z',
+                licensable: false,
+                owner: {
+                    id: 'demo',
+                    sponsored: false
+                },
+                source: {
+                    edit_url:
+                        'https://demo.arcpublishing.com/photo/BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                    system: 'Anglerfish'
+                },
+                subtitle: 'bridge',
+                taxonomy: {
+                    associated_tasks: []
+                },
+                type: 'image',
+                url:
+                    'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                version: '0.9.0',
+                width: 960
+            }
+        },
+        distributor: {
+            name: 'demo',
+            category: 'staff',
+            subcategory: ''
+        },
+        canonical_website: 'demo',
+        planning: {
+            internal_note: '',
+            story_length: {
+                word_count_actual: 25,
+                line_count_actual: 20,
+                inch_count_actual: 3
+            }
+        },
+        display_date: '2019-09-04T18:17:43.046Z',
+        credits: {
+            by: [
+                {
+                    _id: 'alexremington',
+                    type: 'author',
+                    version: '0.5.8',
+                    name: 'Alex Remington',
+                    org: 'Washington, DC',
+                    image: {
+                        url:
+                            'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                        version: '0.5.8'
+                    },
+                    description:
+                        'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                    url: '',
+                    slug: '',
+                    social_links: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com'
+                        }
+                    ],
+                    socialLinks: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com',
+                            deprecated: true,
+                            deprecation_msg: 'Please use social_links.'
+                        }
+                    ],
+                    additional_properties: {
+                        original: {
+                            _id: 'alexremington',
+                            firstName: 'Alex',
+                            lastName: 'Remington',
+                            byline: 'Alex Remington',
+                            role: 'Enterprise Account Executive',
+                            image:
+                                'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                            email: 'alexander.remington@washpost.com',
+                            affiliations: '',
+                            languages: 'English',
+                            beat: 'Arc',
+                            author_type: 'Staff',
+                            education: [],
+                            awards: [],
+                            books: [],
+                            podcasts: [],
+                            bio_page: '',
+                            location: 'Washington, DC',
+                            bio:
+                                'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                            longBio: '',
+                            slug: '',
+                            native_app_rendering: false,
+                            fuzzy_match: false,
+                            contributor: false,
+                            status: true,
+                            last_updated: '2018-02-16T14:36:06.520Z',
+                            middleName: 'F.',
+                            expertise: 'Arc Publishing',
+                            last_updated_date: '2019-04-17T15:13:36.104Z'
+                        }
+                    }
+                }
+            ]
+        },
+        first_publish_date: '2019-09-04T18:17:44.675Z',
+        websites: {
+            demo: {
+                website_section: {
+                    _id: '/sports/baseball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
+                            },
+                            node_type: 'section',
+                            inactive: false,
+                            _website: 'demo'
+                        }
+                    },
+                    _website_section_id: 'demo./sports/baseball'
+                },
+                website_url: '/baseball/2019/09/04/baseball-game-recap'
+            }
+        },
+        additional_properties: {
+            clipboard: {},
+            has_published_copy: true,
+            is_published: true,
+            publish_date: '2019-09-04T18:17:44.675Z'
+        },
+        publish_date: '2019-09-10T18:21:12.543Z',
+        publishing: {
+            scheduled_operations: {
+                publish_edition: [],
+                unpublish_edition: []
+            }
+        },
+        _id: 'XWEH72X4X5AOBHZQACTDKFAXAY',
+        website: 'demo',
+        website_url: '/baseball/2019/09/04/baseball-game-recap'
+    },
+    {
+        type: 'story',
+        version: '0.10.2',
+        created_date: '2019-09-04T18:14:08.966Z',
+        revision: {
+            revision_id: 'GOYWGIMDWBEJVASZAJ77KONPPA',
+            parent_id: 'VCGQOGZZINGYNG5PEPCH2L72JI',
+            editions: ['default'],
+            branch: 'default',
+            user_id: 'jansena@washpost.com',
+            published: true
+        },
+        last_updated_date: '2019-09-10T18:21:12.501Z',
+        canonical_url: '/baseball/2019/09/04/baseball-game-recap',
+        headlines: {
+            basic: 'Baseball Game Recap:',
+            mobile: '',
+            native: '',
+            print: '',
+            tablet: '',
+            web: '',
+            meta_title: ''
+        },
+        owner: {
+            sponsored: false,
+            id: 'demo'
+        },
+        content_restrictions: {
+            content_code: 'free'
+        },
+        address: {},
+        workflow: {
+            status_code: 1
+        },
+        subheadlines: {
+            basic: ''
+        },
+        description: {
+            basic: ''
+        },
+        language: '',
+        source: {
+            system: 'ellipsis',
+            name: 'demo',
+            source_type: 'staff'
+        },
+        taxonomy: {
+            sites: [
+                {
+                    _id: '/sports/baseball',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: 2002,
+                            node_type: 'section',
+                            inactive: false
+                        }
+                    }
+                },
+                {
+                    _id: '/sports',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            name: 'Sports',
+                            order: 1017,
+                            parent: '/',
+                            ancestors: ['/'],
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    }
+                },
+                {
+                    _id: '/sports/basketball',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: 1019,
+                            node_type: 'section',
+                            children: []
+                        }
+                    }
+                }
+            ],
+            tags: [
+                {
+                    text: 'baseball',
+                    description: 'Tag for baseball stories',
+                    slug: 'baseball'
+                },
+                {
+                    text: 'sports',
+                    description: 'Generic tag for sports articles',
+                    slug: 'sports'
+                }
+            ],
+            primary_site: {
+                _id: '/sports/baseball',
+                type: 'site',
+                version: '0.5.8',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
+                additional_properties: {
+                    original: {
+                        _id: '/sports/baseball',
+                        site: {
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
+                        },
+                        name: 'Baseball',
+                        parent: '/sports',
+                        ancestors: ['/', '/sports'],
+                        _admin: {
+                            alias_ids: ['/sports/baseball']
+                        },
+                        order: 2002,
+                        node_type: 'section',
+                        inactive: false
+                    }
+                }
+            },
+            seo_keywords: ['baseball', 'sports'],
+            sections: [
+                {
+                    _id: '/sports/baseball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
+                            },
+                            node_type: 'section',
+                            inactive: false,
+                            _website: 'demo'
+                        }
+                    },
+                    _website_section_id: 'demo./sports/baseball'
+                },
+                {
+                    _id: '/sports',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    parent: {
+                        default: '/'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            _website: 'demo',
+                            name: 'Sports',
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 1003,
+                                'desktop-navigation': 1001,
+                                default: 1017
+                            },
+                            parent: {
+                                default: '/',
+                                'main-site-navigation': '/',
+                                'primary-header-links': '/',
+                                'footer-test': null,
+                                'desktop-navigation': '/'
+                            },
+                            ancestors: {
+                                default: ['/'],
+                                'main-site-navigation': [],
+                                'primary-header-links': [],
+                                'footer-test': [],
+                                'desktop-navigation': ['/']
+                            },
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    },
+                    _website_section_id: 'demo./sports'
+                },
+                {
+                    _id: '/sports/basketball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: {
+                                'main-site-navigation': 2003,
+                                'primary-header-links': 2001,
+                                default: 1019,
+                                'desktop-navigation': 2002
+                            },
+                            _website: 'demo',
+                            node_type: 'section',
+                            children: []
+                        }
+                    },
+                    _website_section_id: 'demo./sports/basketball'
+                }
+            ],
+            primary_section: {
+                _id: '/sports/baseball',
+                _website: 'demo',
+                type: 'section',
+                version: '0.6.0',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
+                parent: {
+                    default: '/sports'
+                },
+                additional_properties: {
+                    original: {
+                        _id: '/sports/baseball',
+                        site: {
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
+                        },
+                        name: 'Baseball',
+                        parent: {
+                            default: '/sports',
+                            'main-site-navigation': '/sports',
+                            'primary-header-links': '/sports',
+                            'desktop-navigation': '/sports',
+                            'mobile-navigation': '/',
+                            'footer-test': '/'
+                        },
+                        ancestors: {
+                            default: ['/', '/sports'],
+                            'main-site-navigation': ['/sports'],
+                            'primary-header-links': ['/sports'],
+                            'desktop-navigation': ['/', '/sports'],
+                            'mobile-navigation': ['/'],
+                            'footer-test': ['/']
+                        },
+                        _admin: {
+                            alias_ids: ['/sports/baseball']
+                        },
+                        order: {
+                            'main-site-navigation': 2002,
+                            'primary-header-links': 2002,
+                            'desktop-navigation': 2001,
+                            'mobile-navigation': 1001,
+                            default: 2002,
+                            'footer-test': 1001
+                        },
+                        node_type: 'section',
+                        inactive: false,
+                        _website: 'demo'
+                    }
+                }
+            }
+        },
+        label: {},
+        promo_items: {
+            basic: {
+                _id: 'BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                additional_properties: {
+                    fullSizeResizeUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    galleries: [
+                        {
+                            headlines: {
+                                basic: 'test'
+                            },
+                            _id: 'NXOYDFRY7VAULGKBRTXVSCC5R4'
+                        }
+                    ],
+                    ingestionMethod: 'manual',
+                    keywords: [],
+                    mime_type: 'image/jpeg',
+                    originalName: 'architecture-3121009_1280.jpg',
+                    originalUrl:
+                        'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    owner: 'aaron.jansen@washpost.com',
+                    proxyUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    published: true,
+                    resizeUrl:
+                        'http://thumbor-prod-us-east-1.photo.aws.arc.pub/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    restricted: false,
+                    version: 4
+                },
+                address: {},
+                caption: 'this is a caption',
+                created_date: '2019-09-10T11:34:15Z',
+                credits: {
+                    by: []
+                },
+                geo: {},
+                height: 720,
+                image_type: 'photograph',
+                last_updated_date: '2019-09-10T17:20:41Z',
+                licensable: false,
+                owner: {
+                    id: 'demo',
+                    sponsored: false
+                },
+                source: {
+                    edit_url:
+                        'https://demo.arcpublishing.com/photo/BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                    system: 'Anglerfish'
+                },
+                subtitle: 'bridge',
+                taxonomy: {
+                    associated_tasks: []
+                },
+                type: 'image',
+                url:
+                    'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                version: '0.9.0',
+                width: 960
+            }
+        },
+        distributor: {
+            name: 'demo',
+            category: 'staff',
+            subcategory: ''
+        },
+        canonical_website: 'demo',
+        planning: {
+            internal_note: '',
+            story_length: {
+                word_count_actual: 25,
+                line_count_actual: 20,
+                inch_count_actual: 3
+            }
+        },
+        display_date: '2019-09-04T18:17:43.046Z',
+        credits: {
+            by: [
+                {
+                    _id: 'alexremington',
+                    type: 'author',
+                    version: '0.5.8',
+                    name: 'Alex Remington',
+                    org: 'Washington, DC',
+                    image: {
+                        url:
+                            'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                        version: '0.5.8'
+                    },
+                    description:
+                        'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                    url: '',
+                    slug: '',
+                    social_links: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com'
+                        }
+                    ],
+                    socialLinks: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com',
+                            deprecated: true,
+                            deprecation_msg: 'Please use social_links.'
+                        }
+                    ],
+                    additional_properties: {
+                        original: {
+                            _id: 'alexremington',
+                            firstName: 'Alex',
+                            lastName: 'Remington',
+                            byline: 'Alex Remington',
+                            role: 'Enterprise Account Executive',
+                            image:
+                                'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                            email: 'alexander.remington@washpost.com',
+                            affiliations: '',
+                            languages: 'English',
+                            beat: 'Arc',
+                            author_type: 'Staff',
+                            education: [],
+                            awards: [],
+                            books: [],
+                            podcasts: [],
+                            bio_page: '',
+                            location: 'Washington, DC',
+                            bio:
+                                'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                            longBio: '',
+                            slug: '',
+                            native_app_rendering: false,
+                            fuzzy_match: false,
+                            contributor: false,
+                            status: true,
+                            last_updated: '2018-02-16T14:36:06.520Z',
+                            middleName: 'F.',
+                            expertise: 'Arc Publishing',
+                            last_updated_date: '2019-04-17T15:13:36.104Z'
+                        }
+                    }
+                }
+            ]
+        },
+        first_publish_date: '2019-09-04T18:17:44.675Z',
+        websites: {
+            demo: {
+                website_section: {
+                    _id: '/sports/baseball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
+                            },
+                            node_type: 'section',
+                            inactive: false,
+                            _website: 'demo'
+                        }
+                    },
+                    _website_section_id: 'demo./sports/baseball'
+                },
+                website_url: '/baseball/2019/09/04/baseball-game-recap'
+            }
+        },
+        additional_properties: {
+            clipboard: {},
+            has_published_copy: true,
+            is_published: true,
+            publish_date: '2019-09-04T18:17:44.675Z'
+        },
+        publish_date: '2019-09-10T18:21:12.543Z',
+        publishing: {
+            scheduled_operations: {
+                publish_edition: [],
+                unpublish_edition: []
+            }
+        },
+        _id: 'XWEH72X4X5AOBHZQACTDKFAXAY',
+        website: 'demo',
+        website_url: '/baseball/2019/09/04/baseball-game-recap'
+    },
+    {
+        type: 'story',
+        version: '0.10.2',
+        created_date: '2019-09-04T18:14:08.966Z',
+        revision: {
+            revision_id: 'GOYWGIMDWBEJVASZAJ77KONPPA',
+            parent_id: 'VCGQOGZZINGYNG5PEPCH2L72JI',
+            editions: ['default'],
+            branch: 'default',
+            user_id: 'jansena@washpost.com',
+            published: true
+        },
+        last_updated_date: '2019-09-10T18:21:12.501Z',
+        canonical_url: '/baseball/2019/09/04/baseball-game-recap',
+        headlines: {
+            basic: 'Baseball Game Recap:',
+            mobile: '',
+            native: '',
+            print: '',
+            tablet: '',
+            web: '',
+            meta_title: ''
+        },
+        owner: {
+            sponsored: false,
+            id: 'demo'
+        },
+        content_restrictions: {
+            content_code: 'free'
+        },
+        address: {},
+        workflow: {
+            status_code: 1
+        },
+        subheadlines: {
+            basic: ''
+        },
+        description: {
+            basic: ''
+        },
+        language: '',
+        source: {
+            system: 'ellipsis',
+            name: 'demo',
+            source_type: 'staff'
+        },
+        taxonomy: {
+            sites: [
+                {
+                    _id: '/sports/baseball',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: 2002,
+                            node_type: 'section',
+                            inactive: false
+                        }
+                    }
+                },
+                {
+                    _id: '/sports',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            name: 'Sports',
+                            order: 1017,
+                            parent: '/',
+                            ancestors: ['/'],
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    }
+                },
+                {
+                    _id: '/sports/basketball',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: 1019,
+                            node_type: 'section',
+                            children: []
+                        }
+                    }
+                }
+            ],
+            tags: [
+                {
+                    text: 'baseball',
+                    description: 'Tag for baseball stories',
+                    slug: 'baseball'
+                },
+                {
+                    text: 'sports',
+                    description: 'Generic tag for sports articles',
+                    slug: 'sports'
+                }
+            ],
+            primary_site: {
+                _id: '/sports/baseball',
+                type: 'site',
+                version: '0.5.8',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
+                additional_properties: {
+                    original: {
+                        _id: '/sports/baseball',
+                        site: {
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
+                        },
+                        name: 'Baseball',
+                        parent: '/sports',
+                        ancestors: ['/', '/sports'],
+                        _admin: {
+                            alias_ids: ['/sports/baseball']
+                        },
+                        order: 2002,
+                        node_type: 'section',
+                        inactive: false
+                    }
+                }
+            },
+            seo_keywords: ['baseball', 'sports'],
+            sections: [
+                {
+                    _id: '/sports/baseball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
+                            },
+                            node_type: 'section',
+                            inactive: false,
+                            _website: 'demo'
+                        }
+                    },
+                    _website_section_id: 'demo./sports/baseball'
+                },
+                {
+                    _id: '/sports',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    parent: {
+                        default: '/'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            _website: 'demo',
+                            name: 'Sports',
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 1003,
+                                'desktop-navigation': 1001,
+                                default: 1017
+                            },
+                            parent: {
+                                default: '/',
+                                'main-site-navigation': '/',
+                                'primary-header-links': '/',
+                                'footer-test': null,
+                                'desktop-navigation': '/'
+                            },
+                            ancestors: {
+                                default: ['/'],
+                                'main-site-navigation': [],
+                                'primary-header-links': [],
+                                'footer-test': [],
+                                'desktop-navigation': ['/']
+                            },
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    },
+                    _website_section_id: 'demo./sports'
+                },
+                {
+                    _id: '/sports/basketball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: {
+                                'main-site-navigation': 2003,
+                                'primary-header-links': 2001,
+                                default: 1019,
+                                'desktop-navigation': 2002
+                            },
+                            _website: 'demo',
+                            node_type: 'section',
+                            children: []
+                        }
+                    },
+                    _website_section_id: 'demo./sports/basketball'
+                }
+            ],
+            primary_section: {
+                _id: '/sports/baseball',
+                _website: 'demo',
+                type: 'section',
+                version: '0.6.0',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
+                parent: {
+                    default: '/sports'
+                },
+                additional_properties: {
+                    original: {
+                        _id: '/sports/baseball',
+                        site: {
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
+                        },
+                        name: 'Baseball',
+                        parent: {
+                            default: '/sports',
+                            'main-site-navigation': '/sports',
+                            'primary-header-links': '/sports',
+                            'desktop-navigation': '/sports',
+                            'mobile-navigation': '/',
+                            'footer-test': '/'
+                        },
+                        ancestors: {
+                            default: ['/', '/sports'],
+                            'main-site-navigation': ['/sports'],
+                            'primary-header-links': ['/sports'],
+                            'desktop-navigation': ['/', '/sports'],
+                            'mobile-navigation': ['/'],
+                            'footer-test': ['/']
+                        },
+                        _admin: {
+                            alias_ids: ['/sports/baseball']
+                        },
+                        order: {
+                            'main-site-navigation': 2002,
+                            'primary-header-links': 2002,
+                            'desktop-navigation': 2001,
+                            'mobile-navigation': 1001,
+                            default: 2002,
+                            'footer-test': 1001
+                        },
+                        node_type: 'section',
+                        inactive: false,
+                        _website: 'demo'
+                    }
+                }
+            }
+        },
+        label: {},
+        promo_items: {
+            basic: {
+                _id: 'BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                additional_properties: {
+                    fullSizeResizeUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    galleries: [
+                        {
+                            headlines: {
+                                basic: 'test'
+                            },
+                            _id: 'NXOYDFRY7VAULGKBRTXVSCC5R4'
+                        }
+                    ],
+                    ingestionMethod: 'manual',
+                    keywords: [],
+                    mime_type: 'image/jpeg',
+                    originalName: 'architecture-3121009_1280.jpg',
+                    originalUrl:
+                        'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    owner: 'aaron.jansen@washpost.com',
+                    proxyUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    published: true,
+                    resizeUrl:
+                        'http://thumbor-prod-us-east-1.photo.aws.arc.pub/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    restricted: false,
+                    version: 4
+                },
+                address: {},
+                caption: 'this is a caption',
+                created_date: '2019-09-10T11:34:15Z',
+                credits: {
+                    by: []
+                },
+                geo: {},
+                height: 720,
+                image_type: 'photograph',
+                last_updated_date: '2019-09-10T17:20:41Z',
+                licensable: false,
+                owner: {
+                    id: 'demo',
+                    sponsored: false
+                },
+                source: {
+                    edit_url:
+                        'https://demo.arcpublishing.com/photo/BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                    system: 'Anglerfish'
+                },
+                subtitle: 'bridge',
+                taxonomy: {
+                    associated_tasks: []
+                },
+                type: 'image',
+                url:
+                    'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                version: '0.9.0',
+                width: 960
+            }
+        },
+        distributor: {
+            name: 'demo',
+            category: 'staff',
+            subcategory: ''
+        },
+        canonical_website: 'demo',
+        planning: {
+            internal_note: '',
+            story_length: {
+                word_count_actual: 25,
+                line_count_actual: 20,
+                inch_count_actual: 3
+            }
+        },
+        display_date: '2019-09-04T18:17:43.046Z',
+        credits: {
+            by: [
+                {
+                    _id: 'alexremington',
+                    type: 'author',
+                    version: '0.5.8',
+                    name: 'Alex Remington',
+                    org: 'Washington, DC',
+                    image: {
+                        url:
+                            'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                        version: '0.5.8'
+                    },
+                    description:
+                        'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                    url: '',
+                    slug: '',
+                    social_links: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com'
+                        }
+                    ],
+                    socialLinks: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com',
+                            deprecated: true,
+                            deprecation_msg: 'Please use social_links.'
+                        }
+                    ],
+                    additional_properties: {
+                        original: {
+                            _id: 'alexremington',
+                            firstName: 'Alex',
+                            lastName: 'Remington',
+                            byline: 'Alex Remington',
+                            role: 'Enterprise Account Executive',
+                            image:
+                                'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                            email: 'alexander.remington@washpost.com',
+                            affiliations: '',
+                            languages: 'English',
+                            beat: 'Arc',
+                            author_type: 'Staff',
+                            education: [],
+                            awards: [],
+                            books: [],
+                            podcasts: [],
+                            bio_page: '',
+                            location: 'Washington, DC',
+                            bio:
+                                'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                            longBio: '',
+                            slug: '',
+                            native_app_rendering: false,
+                            fuzzy_match: false,
+                            contributor: false,
+                            status: true,
+                            last_updated: '2018-02-16T14:36:06.520Z',
+                            middleName: 'F.',
+                            expertise: 'Arc Publishing',
+                            last_updated_date: '2019-04-17T15:13:36.104Z'
+                        }
+                    }
+                }
+            ]
+        },
+        first_publish_date: '2019-09-04T18:17:44.675Z',
+        websites: {
+            demo: {
+                website_section: {
+                    _id: '/sports/baseball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
+                            },
+                            node_type: 'section',
+                            inactive: false,
+                            _website: 'demo'
+                        }
+                    },
+                    _website_section_id: 'demo./sports/baseball'
+                },
+                website_url: '/baseball/2019/09/04/baseball-game-recap'
+            }
+        },
+        additional_properties: {
+            clipboard: {},
+            has_published_copy: true,
+            is_published: true,
+            publish_date: '2019-09-04T18:17:44.675Z'
+        },
+        publish_date: '2019-09-10T18:21:12.543Z',
+        publishing: {
+            scheduled_operations: {
+                publish_edition: [],
+                unpublish_edition: []
+            }
+        },
+        _id: 'XWEH72X4X5AOBHZQACTDKFAXAY',
+        website: 'demo',
+        website_url: '/baseball/2019/09/04/baseball-game-recap'
+    },
+    {
+        type: 'story',
+        version: '0.10.2',
+        created_date: '2019-09-04T18:14:08.966Z',
+        revision: {
+            revision_id: 'GOYWGIMDWBEJVASZAJ77KONPPA',
+            parent_id: 'VCGQOGZZINGYNG5PEPCH2L72JI',
+            editions: ['default'],
+            branch: 'default',
+            user_id: 'jansena@washpost.com',
+            published: true
+        },
+        last_updated_date: '2019-09-10T18:21:12.501Z',
+        canonical_url: '/baseball/2019/09/04/baseball-game-recap',
+        headlines: {
+            basic: 'Baseball Game Recap:',
+            mobile: '',
+            native: '',
+            print: '',
+            tablet: '',
+            web: '',
+            meta_title: ''
+        },
+        owner: {
+            sponsored: false,
+            id: 'demo'
+        },
+        content_restrictions: {
+            content_code: 'free'
+        },
+        address: {},
+        workflow: {
+            status_code: 1
+        },
+        subheadlines: {
+            basic: ''
+        },
+        description: {
+            basic: ''
+        },
+        language: '',
+        source: {
+            system: 'ellipsis',
+            name: 'demo',
+            source_type: 'staff'
+        },
+        taxonomy: {
+            sites: [
+                {
+                    _id: '/sports/baseball',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: 2002,
+                            node_type: 'section',
+                            inactive: false
+                        }
+                    }
+                },
+                {
+                    _id: '/sports',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            name: 'Sports',
+                            order: 1017,
+                            parent: '/',
+                            ancestors: ['/'],
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    }
+                },
+                {
+                    _id: '/sports/basketball',
+                    type: 'site',
+                    version: '0.5.8',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: '/sports',
+                            ancestors: ['/', '/sports'],
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: 1019,
+                            node_type: 'section',
+                            children: []
+                        }
+                    }
+                }
+            ],
+            tags: [
+                {
+                    text: 'baseball',
+                    description: 'Tag for baseball stories',
+                    slug: 'baseball'
+                },
+                {
+                    text: 'sports',
+                    description: 'Generic tag for sports articles',
+                    slug: 'sports'
+                }
+            ],
+            primary_site: {
+                _id: '/sports/baseball',
+                type: 'site',
+                version: '0.5.8',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
+                additional_properties: {
+                    original: {
+                        _id: '/sports/baseball',
+                        site: {
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
+                        },
+                        name: 'Baseball',
+                        parent: '/sports',
+                        ancestors: ['/', '/sports'],
+                        _admin: {
+                            alias_ids: ['/sports/baseball']
+                        },
+                        order: 2002,
+                        node_type: 'section',
+                        inactive: false
+                    }
+                }
+            },
+            seo_keywords: ['baseball', 'sports'],
+            sections: [
+                {
+                    _id: '/sports/baseball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
+                            },
+                            node_type: 'section',
+                            inactive: false,
+                            _website: 'demo'
+                        }
+                    },
+                    _website_section_id: 'demo./sports/baseball'
+                },
+                {
+                    _id: '/sports',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Sports',
+                    description: 'Latest scores and sports.',
+                    path: '/sports',
+                    parent_id: '/',
+                    parent: {
+                        default: '/'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports',
+                            site: {
+                                site_title: 'Sports',
+                                site_url: '/sports',
+                                site_description: 'Latest scores and sports.',
+                                site_keywords: 'scores,scoreboard,sports'
+                            },
+                            _website: 'demo',
+                            name: 'Sports',
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 1003,
+                                'desktop-navigation': 1001,
+                                default: 1017
+                            },
+                            parent: {
+                                default: '/',
+                                'main-site-navigation': '/',
+                                'primary-header-links': '/',
+                                'footer-test': null,
+                                'desktop-navigation': '/'
+                            },
+                            ancestors: {
+                                default: ['/'],
+                                'main-site-navigation': [],
+                                'primary-header-links': [],
+                                'footer-test': [],
+                                'desktop-navigation': ['/']
+                            },
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    },
+                    _website_section_id: 'demo./sports'
+                },
+                {
+                    _id: '/sports/basketball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Basketball',
+                    description: 'Latest basketball sports and scores.',
+                    path: '/sports/basketball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/basketball',
+                            site: {
+                                site_title: 'Basketball',
+                                site_url: '/sports/basketball',
+                                site_description:
+                                    'Latest basketball sports and scores.',
+                                site_keywords:
+                                    'basketball,sports,scores,scoreboard,ncaa'
+                            },
+                            name: 'Basketball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/basketball']
+                            },
+                            inactive: false,
+                            order: {
+                                'main-site-navigation': 2003,
+                                'primary-header-links': 2001,
+                                default: 1019,
+                                'desktop-navigation': 2002
+                            },
+                            _website: 'demo',
+                            node_type: 'section',
+                            children: []
+                        }
+                    },
+                    _website_section_id: 'demo./sports/basketball'
+                }
+            ],
+            primary_section: {
+                _id: '/sports/baseball',
+                _website: 'demo',
+                type: 'section',
+                version: '0.6.0',
+                name: 'Baseball',
+                description: 'Latest baseball scores and stories.',
+                path: '/sports/baseball',
+                parent_id: '/sports',
+                parent: {
+                    default: '/sports'
+                },
+                additional_properties: {
+                    original: {
+                        _id: '/sports/baseball',
+                        site: {
+                            site_title: 'Baseball',
+                            site_url: '/sports/baseball',
+                            site_description:
+                                'Latest baseball scores and stories.',
+                            site_keywords: 'sports,baseball,world series'
+                        },
+                        name: 'Baseball',
+                        parent: {
+                            default: '/sports',
+                            'main-site-navigation': '/sports',
+                            'primary-header-links': '/sports',
+                            'desktop-navigation': '/sports',
+                            'mobile-navigation': '/',
+                            'footer-test': '/'
+                        },
+                        ancestors: {
+                            default: ['/', '/sports'],
+                            'main-site-navigation': ['/sports'],
+                            'primary-header-links': ['/sports'],
+                            'desktop-navigation': ['/', '/sports'],
+                            'mobile-navigation': ['/'],
+                            'footer-test': ['/']
+                        },
+                        _admin: {
+                            alias_ids: ['/sports/baseball']
+                        },
+                        order: {
+                            'main-site-navigation': 2002,
+                            'primary-header-links': 2002,
+                            'desktop-navigation': 2001,
+                            'mobile-navigation': 1001,
+                            default: 2002,
+                            'footer-test': 1001
+                        },
+                        node_type: 'section',
+                        inactive: false,
+                        _website: 'demo'
+                    }
+                }
+            }
+        },
+        label: {},
+        promo_items: {
+            basic: {
+                _id: 'BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                additional_properties: {
+                    fullSizeResizeUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    galleries: [
+                        {
+                            headlines: {
+                                basic: 'test'
+                            },
+                            _id: 'NXOYDFRY7VAULGKBRTXVSCC5R4'
+                        }
+                    ],
+                    ingestionMethod: 'manual',
+                    keywords: [],
+                    mime_type: 'image/jpeg',
+                    originalName: 'architecture-3121009_1280.jpg',
+                    originalUrl:
+                        'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    owner: 'aaron.jansen@washpost.com',
+                    proxyUrl:
+                        '/photo/resize/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    published: true,
+                    resizeUrl:
+                        'http://thumbor-prod-us-east-1.photo.aws.arc.pub/1PVx9k0TuwavHvZ6vcQUn0vMc7I=/arc-anglerfish-arc2-prod-demo/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                    restricted: false,
+                    version: 4
+                },
+                address: {},
+                caption: 'this is a caption',
+                created_date: '2019-09-10T11:34:15Z',
+                credits: {
+                    by: []
+                },
+                geo: {},
+                height: 720,
+                image_type: 'photograph',
+                last_updated_date: '2019-09-10T17:20:41Z',
+                licensable: false,
+                owner: {
+                    id: 'demo',
+                    sponsored: false
+                },
+                source: {
+                    edit_url:
+                        'https://demo.arcpublishing.com/photo/BOFS74XX7ZAC7H4LFSDHZRUSLQ',
+                    system: 'Anglerfish'
+                },
+                subtitle: 'bridge',
+                taxonomy: {
+                    associated_tasks: []
+                },
+                type: 'image',
+                url:
+                    'https://arc-anglerfish-arc2-prod-demo.s3.amazonaws.com/public/BOFS74XX7ZAC7H4LFSDHZRUSLQ.jpg',
+                version: '0.9.0',
+                width: 960
+            }
+        },
+        distributor: {
+            name: 'demo',
+            category: 'staff',
+            subcategory: ''
+        },
+        canonical_website: 'demo',
+        planning: {
+            internal_note: '',
+            story_length: {
+                word_count_actual: 25,
+                line_count_actual: 20,
+                inch_count_actual: 3
+            }
+        },
+        display_date: '2019-09-04T18:17:43.046Z',
+        credits: {
+            by: [
+                {
+                    _id: 'alexremington',
+                    type: 'author',
+                    version: '0.5.8',
+                    name: 'Alex Remington',
+                    org: 'Washington, DC',
+                    image: {
+                        url:
+                            'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                        version: '0.5.8'
+                    },
+                    description:
+                        'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                    url: '',
+                    slug: '',
+                    social_links: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com'
+                        }
+                    ],
+                    socialLinks: [
+                        {
+                            site: 'email',
+                            url: 'alexander.remington@washpost.com',
+                            deprecated: true,
+                            deprecation_msg: 'Please use social_links.'
+                        }
+                    ],
+                    additional_properties: {
+                        original: {
+                            _id: 'alexremington',
+                            firstName: 'Alex',
+                            lastName: 'Remington',
+                            byline: 'Alex Remington',
+                            role: 'Enterprise Account Executive',
+                            image:
+                                'https://s3.amazonaws.com/arc-authors/demo/81f686b0-e312-44a3-91f4-19d793d3d19e.jpeg',
+                            email: 'alexander.remington@washpost.com',
+                            affiliations: '',
+                            languages: 'English',
+                            beat: 'Arc',
+                            author_type: 'Staff',
+                            education: [],
+                            awards: [],
+                            books: [],
+                            podcasts: [],
+                            bio_page: '',
+                            location: 'Washington, DC',
+                            bio:
+                                'Alex Remington is an executive with Arc Publishing. He enjoys baseball, rock music, and stand-up comedy!',
+                            longBio: '',
+                            slug: '',
+                            native_app_rendering: false,
+                            fuzzy_match: false,
+                            contributor: false,
+                            status: true,
+                            last_updated: '2018-02-16T14:36:06.520Z',
+                            middleName: 'F.',
+                            expertise: 'Arc Publishing',
+                            last_updated_date: '2019-04-17T15:13:36.104Z'
+                        }
+                    }
+                }
+            ]
+        },
+        first_publish_date: '2019-09-04T18:17:44.675Z',
+        websites: {
+            demo: {
+                website_section: {
+                    _id: '/sports/baseball',
+                    _website: 'demo',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Baseball',
+                    description: 'Latest baseball scores and stories.',
+                    path: '/sports/baseball',
+                    parent_id: '/sports',
+                    parent: {
+                        default: '/sports'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/sports/baseball',
+                            site: {
+                                site_title: 'Baseball',
+                                site_url: '/sports/baseball',
+                                site_description:
+                                    'Latest baseball scores and stories.',
+                                site_keywords: 'sports,baseball,world series'
+                            },
+                            name: 'Baseball',
+                            parent: {
+                                default: '/sports',
+                                'main-site-navigation': '/sports',
+                                'primary-header-links': '/sports',
+                                'desktop-navigation': '/sports',
+                                'mobile-navigation': '/',
+                                'footer-test': '/'
+                            },
+                            ancestors: {
+                                default: ['/', '/sports'],
+                                'main-site-navigation': ['/sports'],
+                                'primary-header-links': ['/sports'],
+                                'desktop-navigation': ['/', '/sports'],
+                                'mobile-navigation': ['/'],
+                                'footer-test': ['/']
+                            },
+                            _admin: {
+                                alias_ids: ['/sports/baseball']
+                            },
+                            order: {
+                                'main-site-navigation': 2002,
+                                'primary-header-links': 2002,
+                                'desktop-navigation': 2001,
+                                'mobile-navigation': 1001,
+                                default: 2002,
+                                'footer-test': 1001
+                            },
+                            node_type: 'section',
+                            inactive: false,
+                            _website: 'demo'
+                        }
+                    },
+                    _website_section_id: 'demo./sports/baseball'
+                },
+                website_url: '/baseball/2019/09/04/baseball-game-recap'
+            }
+        },
+        additional_properties: {
+            clipboard: {},
+            has_published_copy: true,
+            is_published: true,
+            publish_date: '2019-09-04T18:17:44.675Z'
+        },
+        publish_date: '2019-09-10T18:21:12.543Z',
+        publishing: {
+            scheduled_operations: {
+                publish_edition: [],
+                unpublish_edition: []
+            }
+        },
+        _id: 'XWEH72X4X5AOBHZQACTDKFAXAY',
+        website: 'demo',
+        website_url: '/baseball/2019/09/04/baseball-game-recap'
     }
 ];
 

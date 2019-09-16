@@ -1,17 +1,37 @@
+function formatDate(date) {
+    const monthNames = [
+        'Enero',
+        'Febrero',
+        'Marzo',
+        'Abril',
+        'Mayo',
+        'Junio',
+        'Julio',
+        'Agosto',
+        'Septiembre',
+        'Octubre',
+        'Noviembre',
+        'Diciembre'
+    ];
+
+    const monthIndex = date.getMonth();
+
+    return `${date.getDate()} de ${
+        monthNames[monthIndex]
+    } de ${date.getFullYear()}`;
+}
+
+function formatDateHoursAndMint(date) {
+    return `${date.getHours()}:${date.getMinutes()}`;
+}
+
 /**
  * helper para formatear fecha y tiempo
  * @param {string} date
  */
 export default function dateAndTimeUtil(displayDate) {
     return {
-        date: new Date(displayDate).toLocaleString('es-AR', {
-            month: 'long',
-            day: '2-digit',
-            year: 'numeric'
-        }),
-        time: new Date(displayDate).toLocaleString('es-AR', {
-            hour: 'numeric',
-            minute: 'numeric'
-        })
+        date: formatDate(new Date(displayDate)),
+        time: formatDateHoursAndMint(new Date(displayDate))
     };
 }

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LN - Common - Snippet Snippet nota recetas snapshot 1`] = `
+<snippetIndex
+  arcSite="la-nacion-ar"
+  layout="LN-nota-receta"
+>
+  <snippet
+    arcSite="la-nacion-ar"
+    layout="LN-nota-receta"
+  >
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "var snippet = [
+                    {
+                        \\"@context\\": \\"http://schema.org\\",
+                        \\"@type\\": \\"Recipe\\",
+                        \\"author\\": \\"Juan Irigoyen\\",
+                        \\"cookTime\\": \\"PT65M\\",
+                        \\"datePublished\\": \\"2019-08-02\\",
+                        \\"description\\": \\"El matambre de cerdo es un plato típico en Bélgica..\\",
+                        \\"image\\": \\"foto_del_matambre.jpg\\",
+                        \\"recipeIngredient\\": [
+                          \\"1 kg de berenjenas\\",
+                          \\"1 litro de agua\\",
+                          \\"sal\\"
+                        ],
+                        \\"name\\": \\"Receta de Matambre de cerdo con batatas caramelizadas y gremolatta\\",
+                        \\"recipeInstructions\\": \\"TIP\\",
+                        \\"recipeYield\\": \\"8 porciones\\"
+                    }
+                ];",
+        }
+      }
+      type="application/ld+json"
+    />
+  </snippet>
+</snippetIndex>
+`;

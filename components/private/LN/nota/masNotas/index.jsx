@@ -5,6 +5,7 @@ const index = props => {
     const {
         customFields: { cantidadNotas, filter },
         globalContent: {
+            subtype,
             taxonomy: {
                 primary_section: { _id, _website, name: sectionName }
             }
@@ -14,7 +15,12 @@ const index = props => {
     let title;
     switch (filter) {
         case '0':
-            title = <h4>Ultimas Noticias</h4>;
+            title =
+                subtype === '4' ? (
+                    <strong>Últimas Recetas</strong>
+                ) : (
+                    <strong>{`Ultimas Notas de ${sectionName}`}</strong>
+                );
             break;
         case '1':
             title = (
@@ -25,7 +31,7 @@ const index = props => {
             );
             break;
         default:
-            title = <h4>Ultimas Noticias</h4>;
+            title = <strong>{`Ultimas Notas de ${sectionName}`}</strong>;
             break;
     }
 

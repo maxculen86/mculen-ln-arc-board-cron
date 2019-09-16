@@ -104,25 +104,6 @@ class LNNotaReceta extends Component {
                                     {/* Pos-Apertura */}
                                     {children[4]}
                                 </div>
-
-                                {/* Cuerpo + tip + MasNotasDe */}
-                                {/* TODO: estos van en el componente que procese el cuerpo! */}
-                                <div className="row">
-                                    <ListIngredientes
-                                        content_elements={
-                                            this.props.globalContent
-                                                .content_elements
-                                        }
-                                    />
-                                    <br />
-                                    <ListPreparacion
-                                        content_elements={
-                                            this.props.globalContent
-                                                .content_elements
-                                        }
-                                    />
-                                </div>
-
                                 {children[5]}
                             </div>
                         </div>

@@ -45,5 +45,16 @@
     "title": "LA NACION",
     "className": {
         "body": "ln"
+    },
+    "scripts": {
+        "Comscore": {
+            "props": {
+                "config": {
+                    "c1": "2",
+                    "c2": "6906398"
+                }
+            },
+            "location": ["head"]
+        }
     }
 }

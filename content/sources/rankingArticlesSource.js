@@ -2,6 +2,9 @@ import { addResizedUrls } from '@arc-core-components/content-source_content-api-
 import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
+import { resizerSecret, resizerUrl } from 'fusion:environment';
+import get from 'lodash.get';
+
 // TODO: ver filtro en API por "?website=${website || arcSite}"
 // TODO: Faltaria el filtrar ára que traiga solo 6 resultados
 
@@ -13,25 +16,27 @@ const resolve = key => {
     return basePath;
 };
 
-const getPresets = () => {
-    const presets = {};
-    SourceSetSizes.forEach(ss => {
-        ss.values.forEach(v => {
-            presets[`${ss.name}_${v.name}`] = {
-                height: v.value
-            };
-        });
-    });
+const getPresets = siteProps => {
+    const arcSite = siteProps['arc-site'];
+    const properties = getProperties(arcSite);
+
+    const presets = get(properties, `imageConfig.resize.masNotas`, null);
     return presets;
 };
 
-const transform = data => {
-    const presets = getPresets();
-    return addResizedUrls(data, {
-        resizerSecret: RESIZER_SECRET,
-        resizerUrl: RESIZER_URL,
-        presets
+const transform = (data, siteProps) => {
+    const respData = data;
+    const presets = getPresets(siteProps);
+    respData.content_elements = data.content_elements.map(v => {
+        return addResizedUrls(v, {
+            resizerSecret: resizerSecret,
+            resizerUrl: resizerUrl,
+            presets
+        });
     });
+
+    respData.imageResizePresets = presets;
+    return respData;
 };
 
 export default {

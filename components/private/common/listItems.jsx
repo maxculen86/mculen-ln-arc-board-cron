@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import '../../../assets/bundles/css/ln/components/ordered.css';
+import '../../../assets/bundles/css/ln/components/unordered.css';
+import '../../../assets/bundles/css/ln/components/title.css';
 
 const TypeList = ({ ol, children }) =>
     ol ? (
@@ -11,19 +14,20 @@ const TypeList = ({ ol, children }) =>
 //TODO: falta html
 //TODO: pasar a carpeta Cuerpo, crear containers de Ingredientes y Preparacion y sacar
 //esa logica de aperturaReceta.jsx
-// TODO: Agregar className para los ul o ol de ser necesario
-const ListItemsFactory = ({ list, titleList, listNumeric }) => (
-    <div>
-        <h4 className="com-title-section-xs">{titleList}</h4>
-        <TypeList ol={listNumeric}>
-            {list.map((item, key) => (
-                <li className="com-item" key={key}>
-                    {item}
-                </li>
-            ))}
-        </TypeList>
-    </div>
-);
+const ListItemsFactory = ({ list, titleList, listNumeric }) => {
+    return (
+        <div>
+            <h4 className="com-title-section-xs">{titleList}</h4>
+            <TypeList ol={listNumeric}>
+                {list.map((item, key) => (
+                    <li key={key} className="com-item">
+                        {item}
+                    </li>
+                ))}
+            </TypeList>
+        </div>
+    );
+};
 
 TypeList.propTypes = {
     ol: PropTypes.bool,

@@ -15,6 +15,14 @@ export default {
         ArcAds: {
             props: {},
             location: ['head']
+        },
+        FacebookSDK: {
+            props: {},
+            location: ['head']
+        },
+        Comscore: {
+            props: { config: { c1: '2', c2: '6906398' } },
+            location: ['head']
         }
     },
     imageConfig: {
@@ -90,31 +98,17 @@ export default {
             notaM: {
                 desktop: {
                     width: 600,
-                    media: '{min-width: 64em}',
+                    media: '(min-width: 64em)',
                     type: 'apertura'
                 },
                 tablet: {
                     width: 520,
-                    media: '{min-width: 48em}',
+                    media: '(min-width: 48em)',
                     type: 'apertura'
                 },
                 mobile: {
                     width: 375,
-                    media: '{min-width: 20em}',
-                    type: 'apertura'
-                }
-            },
-            masNotas: {
-                big: {
-                    width: 200,
-                    media: '(min-width: 768px)',
-                    class: 'img-desktop',
-                    type: 'apertura'
-                },
-                medium: {
-                    width: 150,
-                    media: '(min-width: 240px)',
-                    class: 'img-desktop-sm',
+                    media: '(min-width: 20em)',
                     type: 'apertura'
                 }
             }
@@ -122,5 +116,11 @@ export default {
     },
     bannerConfig: {
         dfp_id: 133919216
+    },
+    shareConfig: {
+        host: 'http://www.lanacion.com.ar',
+        facebook: {
+            appID: '246891475813003'
+        }
     }
 };

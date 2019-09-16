@@ -6,10 +6,12 @@ import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
+import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
+import SnippetIndex from '../private/common/snippetIndex';
 
-const scriptList = { GTM, Comscore, Microdata, ArcAds, PostBid };
+const scriptList = { GTM, Comscore, Microdata, ArcAds, FacebookSDK, PostBid };
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -42,6 +44,7 @@ const Default = props => {
                     {metaValue('title') || siteProperties.title || 'LA NACION'}
                 </title>
                 <DataLayerIndex {...props} />
+                <SnippetIndex {...props} />
                 <Scripts location="head" />
                 <MetaTags />
                 <Libs />

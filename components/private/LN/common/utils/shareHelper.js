@@ -1,0 +1,91 @@
+export function popUpCompartirNotaTW(notaId, dominio, titulo) {
+    if (notaId.length > 0) {
+        const result =
+            '//twitter.com/share?text=' +
+            titulo +
+            '&url=' +
+            dominio +
+            notaId +
+            '&via=LANACION';
+        console.log('el resultado: ', result);
+        popUpRedSocial(
+            '//twitter.com/share?text=' +
+                titulo +
+                '&url=' +
+                dominio +
+                notaId +
+                '&via=LANACION'
+        ); //$("#hs-twitter").val());
+    } else {
+        window.open('//twitter.lanacion.com.ar/', '_blank');
+    }
+}
+
+function popUpRedSocial(url) {
+    open(url, '', 'top=300,left=550,width=800,height=380');
+}
+
+//COMPARTIR EN NOTA ----------------------------------------------------------------------
+export function popUpCompartirNotaFB(notaId, dominio, titulo) {
+    if (notaId.length > 0) {
+        FB.ui(
+            {
+                method: 'share',
+                mobile_iframe: true,
+                href: `${dominio}${notaId}`
+            },
+            function(response) {}
+        );
+        //popUpRedSocial(`//www.facebook.com/sharer.php?m2w&s=100&p[url]=${dominio}${notaId}`);
+    } else {
+        window.open('https://www.facebook.com/lanacion', '_blank');
+    }
+}
+
+export function popUpCompartirNotaGoogle(notaId, dominio, titulo) {
+    if (notaId.length > 0) {
+        popUpRedSocial('//plus.google.com/share?url=' + dominio + notaId); //$("#hs-twitter").val());
+    } else {
+        window.open('https://plus.google.com/+lanacion', '_blank');
+    }
+}
+
+export function popUpCompartirMailTo(notaId, dominio) {
+    if (notaId.length > 0) {
+        popUpRedSocial(
+            dominio + 'herramientas/nota/enviar-por-mail.html?nota_id' + notaId
+        );
+    }
+}
+
+export function popUpCompartirNotaRss() {
+    window.open(
+        'http://servicios.lanacion.com.ar/herramientas/rss/ayuda',
+        '_blank'
+    );
+}
+
+export const shareWhatsAppDesktop = (notaId, dominio) => {
+    let wsShare = `https://api.whatsapp.com/send?text=${dominio}${notaId}`;
+    window.open(wsShare, '_blank');
+};
+
+export const shareWhatsAppMobile = (notaId, dominio, title, content) => {
+    try {
+        const texto = `${title} : ...`;
+        const whatsappUrl = `whatsapp://send?text=${texto} - ${dominio}${notaId}`;
+        window.location.href = whatsappUrl;
+
+        /***** Whatsapp  *****/
+        if (
+            /Android|webOS|iPhone|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent
+            )
+        ) {
+            // $(".wapp").css("display", "inline-block");
+            // $("body").addClass("touch");
+        }
+    } catch (e) {
+        console.warn && console.warn('Initialize: ', e);
+    }
+};
