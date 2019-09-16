@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import '../../../assets/bundles/css/ln/components/ordered.css';
-import '../../../assets/bundles/css/ln/components/unordered.css';
-import '../../../assets/bundles/css/ln/components/title.css';
+import '../../../resources/dist/css/ln/components/ordered.css';
+import '../../../resources/dist/css/ln/components/unordered.css';
+import '../../../resources/dist/css/ln/components/title.css';
 
 const TypeList = ({ ol, children }) =>
     ol ? (

@@ -12,7 +12,6 @@
 
 /dist
 /resources/dist
-/assets/bundles
 
 /coverage
 .scannerwork

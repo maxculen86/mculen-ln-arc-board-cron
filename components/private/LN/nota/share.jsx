@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../assets/bundles/css/ln/components/share.css';
+import '../../../../resources/dist/css/ln/components/share.css';
 import config from '../../../../properties/sites/la-nacion-ar';
 import {
     popUpCompartirNotaTW,
