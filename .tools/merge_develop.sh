@@ -82,12 +82,12 @@ git checkout ${BRANCH_MERGE_BASE}/OTT &&
 git merge ${BRANCH_RELEASE} &&
 echo " > ------------------------------------ <" &&
 
+git checkout ${BRANCH_RELEASE} &&
+
 echo "Borrando ${BRANCH_MERGE_BASE}/*" &&
 git branch -d ${BRANCH_MERGE_BASE}/COMMON &&
 git branch -d ${BRANCH_MERGE_BASE}/NOTA &&
 git branch -d ${BRANCH_MERGE_BASE}/HOME &&
 git branch -d ${BRANCH_MERGE_BASE}/OTT &&
-
-git checkout ${BRANCH_RELEASE} &&
 
 echo " >>> FIN <<< "
