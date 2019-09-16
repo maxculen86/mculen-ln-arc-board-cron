@@ -5,6 +5,9 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "dev": "npm run build-dev && npm run start",
+    "prod": "npm run build && npm run start",
+    "watch": "npm run build-watch & npm run start",
 
     "build": "npm run clean && npm run webpack",
     "build-dev": "npm run clean && npm run webpack-dev",
@@ -15,9 +18,7 @@
     "eslint": "eslint --ext=js,jsx",
     "prettier": "prettier --write **/*.{js,jsx}",
 
-    "start": "npm run build-dev && fusion start",
-    "start-prod": "npm run build && fusion start",
-    "start-watch": "npm run build-watch & fusion start",
+    "start": "fusion start",
 
     "webpack": "webpack --config ./config/webpack.config.js --env.prod",
     "webpack-dev": "webpack --config ./config/webpack.config.js --env.dev",
@@ -28,6 +29,8 @@
     "test": "jest --passWithNoTests --coverage",
     "fusion": "fusion",
     "zip": "npm run build && fusion zip",
+
+    "full-reset-all": "fusion clean && npm run clean && rm -rf node_modules/* --verbose && npm i && npm test",
     "doc": "react-doc-generator ./components/ -o ./components.md"
   },
   "dependencies": {
@@ -37,7 +40,7 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
-    "@arc-fusion/cli": "1.0.3",
+    "@arc-fusion/cli": "1.0.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
