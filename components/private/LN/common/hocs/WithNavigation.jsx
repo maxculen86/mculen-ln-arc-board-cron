@@ -10,7 +10,11 @@ export default function WithNavigation(WrappedComponent) {
                 this.state = {
                     sections: []
                 };
-                this.getNavigationTree();
+                this.getNavigationTree().then(sections => {
+                    this.setState({
+                        sections
+                    });
+                });
             }
 
             getNavigationTree = () => {
@@ -21,11 +25,17 @@ export default function WithNavigation(WrappedComponent) {
                         website
                     }
                 });
-                if (cached) this.getSectionTree(cached, false);
-                else fetched.then(result => this.getSectionTree(result, true));
+
+                return new Promise(resolve => {
+                    if (cached) resolve(this.getSectionTree(cached));
+                    else
+                        fetched.then(result =>
+                            resolve(this.getSectionTree(result))
+                        );
+                });
             };
 
-            getSectionTree = (results, isFetched) => {
+            getSectionTree = results => {
                 const sections = [];
                 const { sectionId } = this.props;
                 sections.push({
@@ -46,8 +56,7 @@ export default function WithNavigation(WrappedComponent) {
                         });
                     }
                 } while (section);
-                if (isFetched) this.setState({ sections });
-                else this.state = { sections };
+                return sections;
             };
 
             render() {
