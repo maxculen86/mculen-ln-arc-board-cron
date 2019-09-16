@@ -3,6 +3,7 @@ import HeaderDesktop from './headerDesktop';
 import HeaderMobile from './headerMobile';
 import NavBarMobile from '../navbar';
 import WithDevice from '../hocs/withDevice';
+import withLoginData from '../hocs/withLoginData';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -36,13 +37,19 @@ class Index extends Component {
     };
 
     render() {
-        const { isMobile } = this.props;
+        const { isMobile, logueado, loginData, goToLogout } = this.props;
         return (
             <>
-                {!isMobile && <HeaderDesktop />}
+                {!isMobile && (
+                    <HeaderDesktop
+                        logueado={logueado}
+                        loginData={loginData}
+                        goToLogout={goToLogout}
+                    />
+                )}
                 {isMobile && (
                     <>
-                        <HeaderMobile />
+                        <HeaderMobile loginData={loginData} />
                         <NavBarMobile />
                     </>
                 )}
@@ -51,4 +58,4 @@ class Index extends Component {
     }
 }
 
-export default WithDevice(Index);
+export default withLoginData(WithDevice(Index));

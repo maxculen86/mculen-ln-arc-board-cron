@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
+import Footer from '../private/LN/common/footer';
 import AcuTitle from '../private/LN/acumulado/acumuladoTitle';
 import BannerCaja1 from '../private/LN/acumulado/bannerCaja1';
 import BannerCaja2 from '../private/LN/acumulado/bannerCaja2';
@@ -33,12 +34,10 @@ class LNAcumuladoLayout extends Component {
                                 {/* LINKS DE NAVEGACION */}
                                 {this.props.children[1]}
                             </div>
-                            <section className="row-gap-tablet-2 row-gap-desksm-3">
-                                {/* NOTAS */}
-                                {this.props.children[2]}
-                            </section>
+                            {/* NOTAS */}
+                            {this.props.children[2]}
                         </div>
-                        <div className="sidebar__aside">
+                        <div className="sidebar__aside hlp-tablet-none">
                             <BannerCaja1 />
                             {/* RANKING DE NOTAS */}
                             {this.props.children[3]}
@@ -46,6 +45,7 @@ class LNAcumuladoLayout extends Component {
                         </div>
                     </div>
                 </main>
+                <Footer />
             </div>
         );
     }

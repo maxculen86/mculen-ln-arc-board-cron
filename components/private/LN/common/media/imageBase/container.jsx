@@ -7,7 +7,8 @@ const imageArticle = ({
     altText,
     zoom,
     configType,
-    imageResizePresets
+    imageResizePresets,
+    href
 }) => {
     // TODO: analizar si se puede evitar tener que pasar el imagePresets como props
     if ((!imageResizePresets && !image.url) || !configType) return null;
@@ -34,6 +35,7 @@ const imageArticle = ({
             sources={sources}
             altText={altText}
             zoom={zoom}
+            href={href}
         />
     );
 };

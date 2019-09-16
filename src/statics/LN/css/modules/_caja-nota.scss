@@ -4,6 +4,11 @@
     display: flex;
     align-content: flex-start;
     flex-direction: column;
+     
+    .com-ranking & {
+        margin-bottom:$px-40;
+    }
+    
     //Estructura de vista tipo lista, text e img en una misma linea (como era en mobile antes)
     &.--lista {
         grid-template-columns: 1fr 141px;

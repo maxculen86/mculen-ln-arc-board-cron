@@ -14,8 +14,10 @@ const listPreparacion = ({ content_elements }) => {
     // TODO: Agregar className para los ul o ol de ser necesario
     return (
         preparacionFiltered.length !== 0 && (
-            <div className="ce-preparaciones">
-                <h2>Preparación</h2>
+            <div className="ce-preparaciones col-tablet-8 offset-tablet-1">
+                <h4 className="com-title-section-m hlp-marginBottom-20">
+                    Preparación
+                </h4>
                 {preparacionFiltered.map(list => (
                     <ListItems
                         list={list.embed.config.items}
