@@ -76,6 +76,8 @@ class LNNotaReceta extends Component {
 
         return (
             <main>
+                {/* TODO: pasar esto a otro lado para que solo se cargue cuando hay videos en la pagina */}
+                <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
                 {/* Pre-Titulo: Banners */}
                 {children[0]}
                 <div className={`lay ${this.sectionClass}`}>
