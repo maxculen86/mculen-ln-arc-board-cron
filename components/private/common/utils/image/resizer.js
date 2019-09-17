@@ -37,17 +37,17 @@ export const createResizer = (resizerKey, resizerUrl) => {
         originalHeight,
         presets
     ) => {
-        const resp = {};
-        Object.keys(presets).forEach(opt => {
-            resp[opt] = {
+        const resp = [];
+        presets.forEach(opt => {
+            resp.push({
                 resizedUrl: resizeUrl(
                     originalUrl,
                     originalWidth,
                     originalHeight,
-                    presets[opt]
+                    opt
                 ),
-                option: presets[opt]
-            };
+                option: opt
+            });
         });
         return resp;
     };

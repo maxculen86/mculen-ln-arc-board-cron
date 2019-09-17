@@ -8,7 +8,6 @@ import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 
 const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
-    console.log('TCL: HeaderDesktop -> goToLogout', goToLogout);
     return (
         <Header id="header" className="header">
             <div className="col-4 header__left">
