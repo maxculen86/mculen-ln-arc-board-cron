@@ -15,24 +15,12 @@ const imageArticle = ({
 
     const sources =
         image.resized_urls &&
-        Object.keys(image.resized_urls).reduce((filtered, value) => {
-            const p = imageResizePresets[value];
-            if (!p) return filtered;
-            if (!configType || p.type === configType) {
-                const url = image.resized_urls[value];
-                filtered.push({
-                    media: p.media,
-                    class: p.class,
-                    url
-                });
-            }
-            return filtered;
-        }, []);
+        Object.values(image.resized_urls).filter(v => !!v.option);
 
     return (
         <ImageBase
             urlDefault={image.url}
-            sources={sources}
+            sources={sources || []}
             altText={altText}
             zoom={zoom}
             href={href}

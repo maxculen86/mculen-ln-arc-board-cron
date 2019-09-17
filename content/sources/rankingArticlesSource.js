@@ -1,5 +1,4 @@
-import { addResizedUrls } from '@arc-core-components/content-source_content-api-v4';
-import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getProperties from 'fusion:properties';
 import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
 import { resizerSecret, resizerUrl } from 'fusion:environment';
@@ -20,7 +19,7 @@ const getPresets = siteProps => {
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
 
-    const presets = get(properties, `imageConfig.resize.masNotas`, null);
+    const presets = get(properties, `imageConfig.resize.notaM`, null);
     return presets;
 };
 

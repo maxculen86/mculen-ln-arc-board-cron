@@ -20,12 +20,7 @@ const section = `
 const image = `
     type
     resized_urls {
-        apertura_small
-        apertura_medium
-        apertura_big
-        cuerpo_small
-        cuerpo_medium
-        cuerpo_big                
+        take: all             
     }
     url
     subtitle

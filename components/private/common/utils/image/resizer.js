@@ -149,6 +149,5 @@ export const addResizedUrls = (ansDoc, option) => {
             resizer
         );
     }
-
     return respDoc;
 };

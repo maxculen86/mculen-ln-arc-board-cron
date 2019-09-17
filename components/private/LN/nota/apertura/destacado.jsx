@@ -10,7 +10,7 @@ const destacado = props => {
             promo_items: { basic }
         }
     } = props;
-
+    console.log('------------------------', basic);
     return (
         <Media
             mediaData={basic}
