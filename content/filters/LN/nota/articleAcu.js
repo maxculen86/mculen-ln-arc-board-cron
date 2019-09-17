@@ -1,12 +1,9 @@
+import imageResizedUrl from '../common';
+
 const image = `
     type
     resized_urls {
-        apertura_small
-        apertura_medium
-        apertura_big
-        cuerpo_small
-        cuerpo_medium
-        cuerpo_big                
+        ${imageResizedUrl}              
     }
     url
     subtitle
@@ -31,19 +28,4 @@ export default `
         basic
     }
     display_date
-    website_url
-    imageResizePresets {
-        articleAcu_small {
-            media
-            class
-        }
-        articleAcu_medium{
-            media
-            class
-        }
-        articleAcu_big{
-            media
-            class
-        }
-    }
 }`;

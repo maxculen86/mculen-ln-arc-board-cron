@@ -1,3 +1,5 @@
+import imageResizedUrl from '../common';
+
 const section = `
 {
     _id
@@ -20,16 +22,10 @@ const section = `
 const image = `
     type
     resized_urls {
-        take: all             
+        ${imageResizedUrl}             
     }
     url
     subtitle
-`;
-
-const imageResizeConfig = `
-    media
-    class
-    type
 `;
 
 const video = `
@@ -104,24 +100,4 @@ export default `
         ${customReceta}
     }
     display_date
-    imageResizePresets {
-        apertura_small {
-            ${imageResizeConfig}
-        }
-        apertura_medium {
-           ${imageResizeConfig}
-        }
-        apertura_big {
-            ${imageResizeConfig}
-        }
-        cuerpo_small {
-           ${imageResizeConfig}
-        }
-        cuerpo_medium {
-            ${imageResizeConfig}
-        }
-        cuerpo_big {
-           ${imageResizeConfig}
-        } 
-    }
 }`;

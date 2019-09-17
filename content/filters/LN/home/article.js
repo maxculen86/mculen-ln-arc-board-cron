@@ -1,3 +1,5 @@
+import imageResizedUrl from '../common';
+
 export default `
 {
     _id
@@ -5,7 +7,9 @@ export default `
     promo_items {
         basic {
             type
-            resized_urls
+            resized_urls {
+                ${imageResizedUrl}
+            }
             url
         }
     }
