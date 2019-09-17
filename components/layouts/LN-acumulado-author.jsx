@@ -6,6 +6,7 @@ import WikiAuthor from '../private/LN/acumulado/author/wikiAuthor';
 import BannerCaja1 from '../private/LN/acumulado/bannerCaja1';
 import BannerCaja2 from '../private/LN/acumulado/bannerCaja2';
 import BannerCabezal from '../private/LN/acumulado/bannerCabezal';
+import BreadCrumbAutor from '../private/LN/acumulado/breadcrumbs/breadcrumbAutor';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
@@ -51,6 +52,12 @@ const LNAcumuladoAuthorLayout = props => (
             <BannerCabezal />
             <div className="lay-sidebar">
                 <div className="sidebar__main">
+                    <div className="row">
+                        <BreadCrumbAutor
+                            author={props.globalContent}
+                            siteProperties={props.siteProperties}
+                        />
+                    </div>
                     <div className="row">
                         <WikiAuthor {...bioAuthor} />
                     </div>
