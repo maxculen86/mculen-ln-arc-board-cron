@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
-function BreadcrumbAutor({ author, siteProperties }) {
+function BreadcrumbAutor({ author, host }) {
     const sections = [
         {
             path: '/',
@@ -21,10 +21,7 @@ function BreadcrumbAutor({ author, siteProperties }) {
     return (
         <>
             <BreadCrumbBase sections={sections} />
-            <BreadCrumbSchema
-                sections={sections}
-                host={siteProperties.shareConfig.host}
-            />
+            <BreadCrumbSchema sections={sections} host={host} />
         </>
     );
 }

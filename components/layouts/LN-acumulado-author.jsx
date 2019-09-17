@@ -55,7 +55,7 @@ const LNAcumuladoAuthorLayout = props => (
                     <div className="row">
                         <BreadCrumbAutor
                             author={props.globalContent}
-                            siteProperties={props.siteProperties}
+                            host={props.siteProperties.shareConfig.host}
                         />
                     </div>
                     <div className="row">

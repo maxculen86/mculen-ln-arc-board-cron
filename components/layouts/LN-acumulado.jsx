@@ -27,7 +27,10 @@ class LNAcumuladoLayout extends Component {
                             <div className="row">
                                 <BreadcrumbSection
                                     sectionId={this.props.globalContent._id}
-                                    siteProperties={this.props.siteProperties}
+                                    host={
+                                        this.props.siteProperties.shareConfig
+                                            .host
+                                    }
                                 />
                             </div>
                             <div className="row">
