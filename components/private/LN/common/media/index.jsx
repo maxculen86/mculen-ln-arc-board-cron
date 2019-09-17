@@ -4,7 +4,7 @@ import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
 // TODO: proptypes
-const media = ({ mediaData, imageResizePresets, colNumber, zoom, href }) => {
+const media = ({ mediaData, colNumber, zoom, href }) => {
     // TODO: revisar implementacion de placeHolder
     let item = null;
     if (mediaData) {
@@ -15,7 +15,6 @@ const media = ({ mediaData, imageResizePresets, colNumber, zoom, href }) => {
                     <Image
                         image={mediaData}
                         url={href}
-                        imageResizePresets={imageResizePresets}
                         zoom={zoom}
                         configType="apertura"
                     />

@@ -68,7 +68,6 @@ aperturaReceta.propTypes = {
         credits: PropTypes.shape({
             by: PropTypes.array
         }).isRequired,
-        imageResizePresets: PropTypes.object.isRequired,
         promo_items: PropTypes.shape({
             receta: PropTypes.object,
             basic: PropTypes.object

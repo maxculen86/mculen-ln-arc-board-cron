@@ -34,7 +34,6 @@ const transform = (data, siteProps) => {
         });
     });
 
-    respData.imageResizePresets = presets;
     return respData;
 };
 

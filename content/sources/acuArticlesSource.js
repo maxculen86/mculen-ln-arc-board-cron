@@ -70,8 +70,6 @@ const transform = (data, siteProps) => {
             presets
         });
     });
-    respData.imageResizePresets = presets;
-
     return respData;
 };
 

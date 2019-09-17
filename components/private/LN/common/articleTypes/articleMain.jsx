@@ -3,13 +3,7 @@ import get from 'lodash.get';
 import ArticleBase from './articleBase';
 import Media from '../media';
 
-const articleMain = ({
-    articleData,
-    extraClasses,
-    children,
-    border,
-    imageResizePresets
-}) => {
+const articleMain = ({ articleData, extraClasses, children, border }) => {
     let media = null;
 
     // TODO: validar tipo autor correcto
@@ -18,7 +12,6 @@ const articleMain = ({
         media = (
             <Media
                 mediaData={articleData.by.credits}
-                imageResizePresets={imageResizePresets}
                 href={articleData.website_url}
             />
         );
@@ -28,7 +21,6 @@ const articleMain = ({
 
         media = (
             <Media
-                imageResizePresets={imageResizePresets}
                 mediaData={type === 'image' ? imagenDestacada : null}
                 href={articleData.website_url}
             />
