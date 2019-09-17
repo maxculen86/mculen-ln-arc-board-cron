@@ -1,7 +1,10 @@
 export const imageResizedUrl = `
     width
     height
-    class
-    type
     resizedUrl
+    option {
+        media
+        class
+        type
+    }
 `;

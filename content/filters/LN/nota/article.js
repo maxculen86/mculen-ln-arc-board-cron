@@ -1,4 +1,4 @@
-import imageResizedUrl from '../common';
+import { imageResizedUrl } from '../common';
 
 const section = `
 {
