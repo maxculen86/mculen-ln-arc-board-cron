@@ -17,7 +17,7 @@ const index = props => {
         case '0':
             title =
                 subtype === '4' ? (
-                    <strong>Últimas Recetas</strong>
+                    <h4>Últimas Recetas</h4>
                 ) : (
                     <strong>{`Ultimas Notas de ${sectionName}`}</strong>
                 );
@@ -31,7 +31,7 @@ const index = props => {
             );
             break;
         default:
-            title = <strong>{`Ultimas Notas de ${sectionName}`}</strong>;
+            title = <h4>{`Ultimas Notas de ${sectionName}`}</h4>;
             break;
     }
 

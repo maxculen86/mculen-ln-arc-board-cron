@@ -17,6 +17,8 @@ import '../../resources/dist/css/ln/components/author.css';
 import '../../resources/dist/css/ln/components/lead.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
+import '../../resources/dist/css/ln/components/input.css';
+import '../../resources/dist/css/ln/modules/newsletter.css';
 
 const pageBuilderSections = [
     'Pre-Titulo',
