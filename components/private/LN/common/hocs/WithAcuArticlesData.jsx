@@ -40,6 +40,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 // HACK: No hace falta usar lodash.get
                 const website = get(this, 'props.website', null);
                 const sectionId = get(this, 'props.sectionId', null);
+                const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
 
                 const { cached, fetched } = this.getContent({
@@ -47,6 +48,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                     query: {
                         website,
                         sectionId,
+                        authorId,
                         size,
                         imageConfig,
                         page

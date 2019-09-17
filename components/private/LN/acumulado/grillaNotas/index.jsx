@@ -5,10 +5,14 @@ import GrillaNotas from './grillaNotas';
 const SIZE = 30;
 class Index extends Component {
     render() {
+        const { author_type, _id } = this.props.globalContent;
+        const sectionId = !author_type ? _id : null;
+        const authorId = author_type ? _id : null;
         return (
             <>
                 <GrillaNotas
-                    sectionId={this.props.globalContent._id}
+                    authorId={authorId}
+                    sectionId={sectionId}
                     size={SIZE}
                     page={1}
                 />
