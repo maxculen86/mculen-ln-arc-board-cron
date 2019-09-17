@@ -23,7 +23,6 @@ describe('components - private - LN - acumulado - grillaNotas', () => {
     TestHelper.testDoNotRenderChildren(component, 'child');
 
     const grilla = component.find('grilla-mock');
-    console.log(grilla);
     it('testeo que la grilla exista', () => {
         expect(grilla.is('grilla-mock')).toBe(true);
         expect(grilla.prop('sectionId')).toBe(globalContent._id);

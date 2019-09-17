@@ -40,7 +40,6 @@ const transform = (data, siteProps) => {
             presets
         });
     }
-
     return resp;
 };
 

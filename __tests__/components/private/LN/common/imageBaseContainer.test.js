@@ -21,7 +21,7 @@ describe('features - La Nacion - components - nota - imageArticle', () => {
                 option: {
                     class: 'img-desktop',
                     media: '(min-width: 768px)',
-                    type: 'apertura'
+                    type: 'promo_items'
                 }
             },
             {
@@ -30,7 +30,7 @@ describe('features - La Nacion - components - nota - imageArticle', () => {
                 option: {
                     class: 'img-desktop-sm',
                     media: '(min-width: 740px)',
-                    type: 'apertura'
+                    type: 'promo_items'
                 }
             },
             {
@@ -39,16 +39,7 @@ describe('features - La Nacion - components - nota - imageArticle', () => {
                 option: {
                     class: 'img-mobile',
                     media: '(min-width: 320px)',
-                    type: 'apertura'
-                }
-            },
-            {
-                resizedUrl:
-                    'http://demo-prod.origin.arcpublishing.com/resizer/9KaOBmsd7Cru2i7Avp4tdpbwczo=/340x0/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/4LNFPBJE4FEF5MBDLBHG2GNCBE.jpg',
-                option: {
-                    class: 'img-mobile',
-                    media: '(min-width: 320px)',
-                    type: 'cuerpo'
+                    type: 'promo_items'
                 }
             }
         ]
@@ -56,12 +47,7 @@ describe('features - La Nacion - components - nota - imageArticle', () => {
 
     it('Test de armado de props', () => {
         const comp = mount(
-            <ImageArticle
-                image={image}
-                altText="texto alt"
-                zoom
-                configType="apertura"
-            />
+            <ImageArticle image={image} altText="texto alt" zoom />
         );
         const compBaseImage = comp.find('mock-image');
         expect(compBaseImage.length).toBe(1);
@@ -74,7 +60,7 @@ describe('features - La Nacion - components - nota - imageArticle', () => {
                 option: {
                     media: '(min-width: 768px)',
                     class: 'img-desktop',
-                    type: 'apertura'
+                    type: 'promo_items'
                 }
             },
             {
@@ -83,7 +69,7 @@ describe('features - La Nacion - components - nota - imageArticle', () => {
                 option: {
                     media: '(min-width: 740px)',
                     class: 'img-desktop-sm',
-                    type: 'apertura'
+                    type: 'promo_items'
                 }
             },
             {
@@ -92,7 +78,7 @@ describe('features - La Nacion - components - nota - imageArticle', () => {
                 option: {
                     media: '(min-width: 320px)',
                     class: 'img-mobile',
-                    type: 'apertura'
+                    type: 'promo_items'
                 }
             }
         ]);

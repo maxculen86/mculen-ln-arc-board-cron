@@ -15,14 +15,21 @@ describe('LN - Common - Utils - Imagen - Resizer', () => {
             height: 123,
             media: '(min-width: 768px)',
             class: 'img-desktop',
-            type: 'apertura'
+            type: 'promo_items'
         },
         {
             width: 150,
             height: 175,
             media: '(min-width: 240px)',
             class: 'img-desktop-sm',
-            type: 'apertura'
+            type: 'promo_items'
+        },
+        {
+            width: 666,
+            height: 666,
+            media: '(min-width: 666px)',
+            class: 'img-desktop-sm',
+            type: 'content_elements'
         }
     ];
 
@@ -69,6 +76,7 @@ describe('LN - Common - Utils - Imagen - Resizer', () => {
         expect(newNota.promo_items.basic.resized_urls[0].resizedUrl).toBe(
             'http://demo-prod.origin.arcpublishing.com/resizer/k_-nxquhw4MOtCGTufFgn1lPu1I=/200x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg'
         );
+        expect(newNota.promo_items.basic.resized_urls.length).toBe(2);
         Object.keys(presets[0]).forEach(p => {
             expect(newNota.promo_items.basic.resized_urls[0].option[p]).toBe(
                 presets[0][p]
@@ -76,11 +84,11 @@ describe('LN - Common - Utils - Imagen - Resizer', () => {
         });
 
         expect(newNota.content_elements[3].resized_urls[0].resizedUrl).toBe(
-            'http://demo-prod.origin.arcpublishing.com/resizer/NQSUlTHGlhDAsv_StDOU4tEaWUY=/200x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/L6DRYSNKH5BHNHQC2CPUVQ7ILQ.png'
+            'http://demo-prod.origin.arcpublishing.com/resizer/IIUPFcivtJyCuIWSumMdf0K5y4k=/666x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/L6DRYSNKH5BHNHQC2CPUVQ7ILQ.png'
         );
         Object.keys(presets[0]).forEach(p => {
             expect(newNota.content_elements[3].resized_urls[0].option[p]).toBe(
-                presets[0][p]
+                presets[2][p]
             );
         });
 

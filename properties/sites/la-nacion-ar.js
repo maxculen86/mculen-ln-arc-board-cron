@@ -34,31 +34,31 @@ export default {
                             width: 1033,
                             media: '(min-width: 768px)',
                             class: 'img-desktop',
-                            type: 'apertura'
+                            type: 'promo_items'
                         },
                         {
                             width: 768,
                             media: '(min-width: 740px)',
                             class: 'img-desktop-sm',
-                            type: 'apertura'
+                            type: 'promo_items'
                         },
                         {
                             width: 340,
                             media: '(min-width: 320px)',
                             class: 'img-mobile',
-                            type: 'apertura'
+                            type: 'promo_items'
                         },
                         {
                             width: 768,
                             media: '(min-width: 740px)',
                             class: 'img-desktop-sm',
-                            type: 'cuerpo'
+                            type: 'content_elements'
                         },
                         {
                             width: 340,
                             media: '(min-width: 320px)',
                             class: 'img-mobile',
-                            type: 'cuerpo'
+                            type: 'content_elements'
                         }
                     ],
                     default: [
@@ -66,7 +66,7 @@ export default {
                             width: 1033,
                             media: '(min-width: 768px)',
                             class: 'img-desktop',
-                            type: 'apertura'
+                            type: 'promo_items'
                         }
                     ]
                 }
@@ -74,18 +74,15 @@ export default {
             notaM: [
                 {
                     width: 600,
-                    media: '(min-width: 64em)',
-                    type: 'apertura'
+                    media: '(min-width: 64em)'
                 },
                 {
                     width: 520,
-                    media: '(min-width: 48em)',
-                    type: 'apertura'
+                    media: '(min-width: 48em)'
                 },
                 {
                     width: 375,
-                    media: '(min-width: 20em)',
-                    type: 'apertura'
+                    media: '(min-width: 20em)'
                 }
             ]
         }

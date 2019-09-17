@@ -76,6 +76,10 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
 
 const resizeCredits = (credits, resizeOptions, resizer) => {
     const resp = {};
+    const optionsFinal = resizeOptions.some(v => v.type === 'credits')
+        ? resizeOptions.filter(v => v.type === 'credits')
+        : resizeOptions.filter(v => !v.type);
+
     Object.keys(credits).forEach(key => {
         const credit = credits[key];
         resp[key] = credit.map(c => {
@@ -84,7 +88,7 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
                     c.image.url,
                     c.image.width,
                     c.image.height,
-                    resizeOptions
+                    optionsFinal
                 );
                 return {
                     ...c,
@@ -103,10 +107,13 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 
 const resizePromoItems = (promoItems, resizeOptions, resizer) => {
     const resp = {};
+    const optionsFinal = resizeOptions.some(v => v.type === 'promo_items')
+        ? resizeOptions.filter(v => v.type === 'promo_items')
+        : resizeOptions.filter(v => !v.type);
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
         if (pi.type === 'image') {
-            resp[key] = resizeArcImage(pi, resizeOptions, resizer);
+            resp[key] = resizeArcImage(pi, optionsFinal, resizer);
         } else {
             resp[key] = pi;
         }
@@ -122,18 +129,27 @@ export const addResizedUrls = (ansDoc, option) => {
 
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
+    const optionsContentElements = option.presets.some(
+        v => v.type === 'content_elements'
+    )
+        ? option.presets.filter(v => v.type === 'content_elements')
+        : option.presets.filter(v => !v.type);
+
     const respDoc = {
         ...ansDoc,
         content_elements:
             ansDoc.content_elements &&
             ansDoc.content_elements.map(elem => {
                 if (elem.type === 'image') {
-                    return resizeArcImage(elem, option.presets, resizer);
+                    return resizeArcImage(
+                        elem,
+                        optionsContentElements,
+                        resizer
+                    );
                 }
                 return elem;
             })
     };
-
     if (!!ansDoc.promo_items) {
         respDoc.promo_items = resizePromoItems(
             ansDoc.promo_items,

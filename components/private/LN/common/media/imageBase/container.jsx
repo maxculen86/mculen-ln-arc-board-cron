@@ -2,14 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ImageBase from './component';
 
-const imageArticle = ({ image, altText, zoom, configType, href }) => {
+const imageArticle = ({ image, altText, zoom, href }) => {
     if (!image.url) return null;
 
     const sources =
-        image.resized_urls &&
-        image.resized_urls.filter(
-            v => !!v.option && (!configType || v.option.type === configType)
-        );
+        image.resized_urls && image.resized_urls.filter(v => !!v.option);
 
     return (
         <ImageBase
@@ -28,8 +25,7 @@ imageArticle.propTypes = {
         resized_urls: PropTypes.objectOf(PropTypes.string).isRequired
     }).isRequired,
     altText: PropTypes.string,
-    zoom: PropTypes.bool,
-    configType: PropTypes.string.isRequired
+    zoom: PropTypes.bool
 };
 
 imageArticle.defaultProps = {
