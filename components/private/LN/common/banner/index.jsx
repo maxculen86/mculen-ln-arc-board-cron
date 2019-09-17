@@ -5,6 +5,8 @@ import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import { slotsConfig, getSlotsOptions } from './config';
 import PlaceHolder from './bannerPlaceholder';
 
+import '../../../../../resources/dist/css/ln/components/banners.css';
+
 const banner = props => {
     const {
         siteProperties: {
