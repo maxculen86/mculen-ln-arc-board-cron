@@ -1,4 +1,18 @@
-import WithNavigation from '../../common/hocs/WithNavigation';
+import React from 'react';
 import BreadCrumbBase from '../../common/breadcrumbBase';
+import BreadCrumbSchema from '../../common/breadcrumbSchema';
+import WithNavigation from '../../common/hocs/WithNavigation';
 
-export default WithNavigation(BreadCrumbBase);
+function BreadcrumbSection({ sections, siteProperties }) {
+    return (
+        <>
+            <BreadCrumbBase sections={sections} />
+            <BreadCrumbSchema
+                sections={sections}
+                host={siteProperties.shareConfig.host}
+            />
+        </>
+    );
+}
+
+export default WithNavigation(BreadcrumbSection);
