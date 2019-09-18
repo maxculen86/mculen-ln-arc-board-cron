@@ -10,20 +10,14 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
 
                 const { page } = props;
 
-                const {
-                    articles,
-                    hayMasNotas,
-                    imageResizePresets
-                } = this.getArticles(
+                const { articles, hayMasNotas } = this.getArticles(
                     ({
                         articles: articlesFetched,
-                        hayMasNotas: hayMasNotasFetched,
-                        imageResizePresets: imageResizePresetsFetched
+                        hayMasNotas: hayMasNotasFetched
                     }) => {
                         this.setState({
                             articles: articlesFetched,
-                            hayMasNotas: hayMasNotasFetched,
-                            imageResizePresets: imageResizePresetsFetched
+                            hayMasNotas: hayMasNotasFetched
                         });
                     },
                     0
@@ -31,8 +25,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 this.state = {
                     articles,
                     hayMasNotas,
-                    page: page || 1,
-                    imageResizePresets
+                    page: page || 1
                 };
             }
 
@@ -58,11 +51,6 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 // Caclulo si hay mas notas y saco la q sobra
                 const articles = get(cached, 'content_elements', []);
                 const hayMasNotas = get(cached, 'next', false);
-                const imageResizePresets = get(
-                    cached,
-                    'imageResizePresets',
-                    {}
-                );
                 // Devuelvo otro fetched que ya tenga parte de la logica implementada
                 fetched.then(response => {
                     const articlesFetched = get(
@@ -71,22 +59,15 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         []
                     );
                     const hayMasNotasFetched = get(response, 'next', false);
-                    const imageResizePresetsFetched = get(
-                        response,
-                        'imageResizePresets',
-                        {}
-                    );
                     fetchedCallback({
                         articles: articlesFetched.slice(0, size),
-                        hayMasNotas: hayMasNotasFetched,
-                        imageResizePresets: imageResizePresetsFetched
+                        hayMasNotas: hayMasNotasFetched
                     });
                 });
 
                 return {
                     articles: articles.slice(0, size),
-                    hayMasNotas,
-                    imageResizePresets
+                    hayMasNotas
                 };
             };
 
@@ -95,16 +76,11 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 const { articles } = this.state;
 
                 this.getArticles(
-                    ({
-                        articles: articlesFetched,
-                        hayMasNotas,
-                        imageResizePresets
-                    }) => {
+                    ({ articles: articlesFetched, hayMasNotas }) => {
                         this.setState({
                             page: page + 1,
                             articles: [...articles, ...articlesFetched],
-                            hayMasNotas,
-                            imageResizePresets
+                            hayMasNotas
                         });
                     },
                     page + 1
@@ -112,14 +88,9 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
             };
 
             render() {
-                const {
-                    articles,
-                    hayMasNotas,
-                    imageResizePresets
-                } = this.state;
+                const { articles, hayMasNotas } = this.state;
                 return (
                     <WrappedArticles
-                        imageResizePresets={imageResizePresets}
                         articles={articles}
                         obtenerMasNotas={this.obtenerMasNotas}
                         hayMasNotas={hayMasNotas}

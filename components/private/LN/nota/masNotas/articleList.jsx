@@ -5,11 +5,9 @@ import articleFiltered from '../../../../../content/filters/LN/nota/articleFilte
 import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 
 const ArticleList = props => {
-    const { articles, imageResizePresets } = props;
+    const { articles } = props;
     if (!articles) return null;
-    return articles.map(e => (
-        <ArticleMain imageResizePresets={imageResizePresets} articleData={e} />
-    ));
+    return articles.map(e => <ArticleMain articleData={e} />);
 };
 
 export default withAcuArticlesData(ArticleList, null, 'notaM');

@@ -46,7 +46,6 @@ function withLoginData(WrappedComponent) {
 
         render() {
             const { logueado, loginData } = this.state;
-            // console.log("TCL: withAuthentication -> render -> this.goToLogout", this.goToLogout)
             return (
                 <WrappedComponent
                     logueado={logueado}
