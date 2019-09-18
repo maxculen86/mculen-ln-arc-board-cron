@@ -6,7 +6,6 @@ function BannerCaja1(props) {
     const { siteProperties, isAdmin } = props;
     return (
         <Banner
-            extraClasses="--large"
             siteProperties={siteProperties}
             slotGroup="acumulado"
             selectedSlots={{
@@ -16,7 +15,9 @@ function BannerCaja1(props) {
             }}
             isAdmin={isAdmin}
             sticky={false}
-            background
+            screenUtils={{
+                device: 'desktop'
+            }}
         />
     );
 }
