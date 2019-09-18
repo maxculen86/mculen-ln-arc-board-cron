@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { getSectionStyle } from '../private/common/utils/sectionUtils';
+import CabezalDsk from '../../components/private/LN/nota/banners/bannerCabezal';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
@@ -19,7 +20,6 @@ import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 
 const pageBuilderSections = [
-    'Pre-Titulo',
     'Titulo',
     'Apertura',
     'Left-Cuerpo',
@@ -75,7 +75,7 @@ class LNNotaReceta extends Component {
                 {/* TODO: pasar esto a otro lado para que solo se cargue cuando hay videos en la pagina */}
                 <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
                 {/* Pre-Titulo: Banners */}
-                {children[0]}
+                <CabezalDsk />
                 <div className={`lay ${this.sectionClass}`}>
                     {/* TODO: confirmar */}
                     <header className="row titulo">
