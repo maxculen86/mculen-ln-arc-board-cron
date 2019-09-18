@@ -88,18 +88,4 @@ if [ "${4}" == "MERGE" ] || [ "${4}" == "DEPLOY" ]; then
     fi;
 fi &&
 
-# # # HOME
-# # arc_merge_and_deploy.sh HOME LN/HOME/2019/09/S17/AcuFilter LN/HOME/merge/2019-09-18
-# # arc_merge_and_deploy.sh HOME LN/HOME/2019/09/s17/SchemaBreadcrumb LN/HOME/merge/2019-09-18 MERGE
-
-# # # NOTA
-# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/s17/SolucionBugAperturaSinImagen LN/NOTA/merge/2019-09-18
-# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/s17/AjustarCalculo LN/NOTA/merge/2019-09-18
-# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/s17/ResizerImagenes LN/NOTA/merge/2019-09-18
-# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/S17/IssueAperturaRecetas LN/NOTA/merge/2019-09-18
-
-# # # HAY CONFLICTOS
-# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/S17/EnsamblarReceta LN/NOTA/merge/2019-09-18
-# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/S17-BannersReceta LN/NOTA/merge/2019-09-18 MERGE
-
 echo " >>> FIN <<< "
