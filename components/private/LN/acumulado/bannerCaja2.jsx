@@ -1,30 +1,27 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import Banner from '../common/banner';
-import WithScreenUtils from '../../common/hocs/withScreenUtils';
 
 function BannerCaja2(props) {
-    const { siteProperties, isAdmin, screenUtils } = props;
-    const deviceClass = `--${screenUtils.device}`;
+    const { siteProperties, isAdmin } = props;
     return (
-        <div className={`banner --large ${deviceClass}`}>
-            <Banner
-                siteProperties={siteProperties}
-                slotGroup="acumulado"
-                selectedSlots={{
-                    desktopSlot: 'caja2_dsk',
-                    mobileSlot: 'caja2_mob',
-                    tabletSlot: 'caja2_tab'
-                }}
-                isAdmin={isAdmin}
-                sticky={false}
-                background
-                screenUtils={{
-                    device: 'desktop'
-                }}
-            />
-        </div>
+        <Banner
+            extraClasses="--large"
+            siteProperties={siteProperties}
+            slotGroup="acumulado"
+            selectedSlots={{
+                desktopSlot: 'caja2_dsk',
+                mobileSlot: 'caja2_mob',
+                tabletSlot: 'caja2_tab'
+            }}
+            isAdmin={isAdmin}
+            sticky={false}
+            background
+            screenUtils={{
+                device: 'desktop'
+            }}
+        />
     );
 }
 
-export default Consumer(WithScreenUtils(BannerCaja2));
+export default Consumer(BannerCaja2);

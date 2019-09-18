@@ -17,7 +17,8 @@ const banner = props => {
         selectedSlots: { desktopSlot, mobileSlot, tabletSlot },
         sticky,
         background,
-        screenUtils
+        screenUtils,
+        extraClasses
     } = props;
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
@@ -64,6 +65,7 @@ const banner = props => {
             bidding={finalConfig.bidding}
             sticky={sticky}
             background={background}
+            extraClasses={extraClasses}
         />
     );
 };
