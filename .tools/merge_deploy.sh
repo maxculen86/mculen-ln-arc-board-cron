@@ -17,74 +17,89 @@ else
     NUEVO="${3}"
 fi
 
-echo "MERGE:${MERGE}" &&
-echo "DEVELOP:${DEVELOP}" &&
-echo "TEAM:${TEAM}" &&
-echo "NUEVO:${NUEVO}" &&
+echo "INICIANDO DEPLOY:  ${MERGE} | ${DEVELOP} | ${TEAM} | ${NUEVO}" >> .tools/log.txt &&
+echo ">> INICIANDO <<" &&
+echo " >     TEAM: ${TEAM}" &&
+echo " >    MERGE: ${MERGE}" &&
+echo " >    NUEVO: ${NUEVO}" &&
+echo " >  DEVELOP: ${DEVELOP}" &&
 
 echo ">>>> UPDATE BRANCHES <<<<" &&
-git checkout develop && git fetch && git pull &&
-git checkout LN/HOME/develop && git fetch && git pull &&
-git checkout LN/NOTA/develop && git fetch && git pull &&
-git checkout LN/COMMON/develop && git fetch && git pull &&
-git checkout ${DEVELOP} && git fetch && git pull &&
-git checkout ${TEAM} && git fetch && git pull &&
-git checkout ${MERGE} && git fetch && git pull &&
+if [ "${DEVELOP}" != "develop" ]; then
+    git checkout develop >> .tools/log.txt && git fetch >> .tools/log.txt && git pull >> .tools/log.txt;
+fi &&
+if [ "${TEAM}" != "LN/HOME/develop" ]; then
+    git checkout LN/HOME/develop >> .tools/log.txt && git fetch >> .tools/log.txt && git pull >> .tools/log.txt;
+fi &&
+if [ "${TEAM}" != "LN/NOTA/develop" ]; then
+    git checkout LN/NOTA/develop >> .tools/log.txt && git fetch >> .tools/log.txt && git pull >> .tools/log.txt;
+fi &&
+if [ "${TEAM}" != "LN/COMMON/develop" ]; then
+    git checkout LN/COMMON/develop >> .tools/log.txt && git fetch >> .tools/log.txt && git pull >> .tools/log.txt;
+fi &&
+git checkout ${DEVELOP} >> .tools/log.txt && git fetch >> .tools/log.txt && git pull >> .tools/log.txt &&
+git checkout ${TEAM} >> .tools/log.txt && git fetch >> .tools/log.txt && git pull >> .tools/log.txt &&
+git checkout ${MERGE} >> .tools/log.txt && git fetch >> .tools/log.txt && git pull >> .tools/log.txt &&
 
 echo "" &&
 echo "------------------------------------------" &&
 echo "" &&
 
 echo " > > > Actualizo ${TEAM} desde ${DEVELOP}" &&
-git checkout ${TEAM} && 
-git merge ${DEVELOP} --verbose && 
-git push --verbose && 
+git checkout ${TEAM} >> .tools/log.txt && 
+git merge ${DEVELOP} --verbose >> .tools/log.txt && 
+git push --verbose >> .tools/log.txt && 
 
 if [ `git branch --list ${NUEVO}` ]
 then
     echo " > > > Actualizo ${NUEVO} desde ${TEAM}"
-    git checkout ${NUEVO} &&
-    git merge ${TEAM};
+    git checkout ${NUEVO} >> .tools/log.txt &&
+    git merge ${TEAM} >> .tools/log.txt;
 else
     echo " > > > Creo ${NUEVO} desde ${TEAM}"
-    git checkout ${TEAM} &&
-    git checkout -b ${NUEVO};
+    git checkout ${TEAM} >> .tools/log.txt &&
+    git checkout -b ${NUEVO} >> .tools/log.txt;
 fi &&
 
 echo " > > > Merge desde ${MERGE} a ${NUEVO}" &&
-git merge ${MERGE} --verbose &&
+git merge ${MERGE} --verbose >> .tools/log.txt &&
 
-if [ "${4}" == "DEPLOY" ]; then 
+if [ "${4}" == "MERGE" ] || [ "${4}" == "DEPLOY" ]; then 
 
     echo " > > > Merge desde ${NUEVO} a ${TEAM}" &&
-    git checkout ${TEAM} && 
-    git merge ${NUEVO} --verbose && 
-    git push --verbose && 
+    git checkout ${TEAM} >> .tools/log.txt && 
+    git merge ${NUEVO} --verbose >> .tools/log.txt && 
+    git push --verbose >> .tools/log.txt &&
 
-    echo " > > > ELIMINO ${NUEVO}" &&
-    git branch -d ${NUEVO} &&
+    if [ "${4}" == "DEPLOY" ]; then 
 
-    echo " > > > Merge desde ${TEAM} a develop" &&
-    git checkout develop &&
-    git merge ${TEAM} --verbose && 
-    git push --verbose;
-else
-    echo "  >  >  > Agregar DEPLOY como cuarto parametro para impactar en ramas devs";
-    echo "  >  >  > ${0} ${1} ${2} ${3} DEPLOY"
+        echo " > > > Merge desde ${TEAM} a develop" &&
+        git checkout develop >> .tools/log.txt &&
+        git merge ${TEAM} --verbose >> .tools/log.txt && 
+        git push --verbose >> .tools/log.txt &&
+        
+        echo " > > > ELIMINO ${NUEVO}" &&
+        git branch -d ${NUEVO} >> .tools/log.txt &&
+
+        npx fusion zip;
+    else
+        echo "  >  >  > Agregar DEPLOY o MERGE como cuarto parametro para impactar en ramas devs";
+        echo "  >  >  > ${0} ${1} ${2} ${3} DEPLOY"
+    fi;
 fi &&
 
-npm run test &&
-npx fusion zip &&
+# # # HOME
+# # arc_merge_and_deploy.sh HOME LN/HOME/2019/09/S17/AcuFilter LN/HOME/merge/2019-09-18
+# # arc_merge_and_deploy.sh HOME LN/HOME/2019/09/s17/SchemaBreadcrumb LN/HOME/merge/2019-09-18 MERGE
 
+# # # NOTA
+# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/s17/SolucionBugAperturaSinImagen LN/NOTA/merge/2019-09-18
+# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/s17/AjustarCalculo LN/NOTA/merge/2019-09-18
+# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/s17/ResizerImagenes LN/NOTA/merge/2019-09-18
+# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/S17/IssueAperturaRecetas LN/NOTA/merge/2019-09-18
 
-# # .tools/merge_final.sh NOTA LN/NOTA/2019/09/S17/TituloRecetas   
-# # .tools/merge_final.sh NOTA LN/NOTA/2019/09/s17/ValidacionPorcionTiempo
-
-# # git checkout LN/NOTA/develop && git merge LN/NOTA/merge/2019-09-17-17-47 --verbose && git push --verbose
-# # git branch -d LN/NOTA/merge/2019-09-17-17-47
-
-# # git checkout develop
-# # git merge LN/NOTA/develop --verbose
-# # git push --verbose
+# # # HAY CONFLICTOS
+# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/S17/EnsamblarReceta LN/NOTA/merge/2019-09-18
+# arc_merge_and_deploy.sh NOTA LN/NOTA/2019/09/S17-BannersReceta LN/NOTA/merge/2019-09-18 MERGE
 
 echo " >>> FIN <<< "

@@ -21,3 +21,4 @@ _ignore_*
 
 # Webstorm
 .idea/
+.tools/log.txt
