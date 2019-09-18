@@ -19,7 +19,7 @@ const index = props => {
                 subtype === '4' ? (
                     <strong>Últimas Recetas</strong>
                 ) : (
-                    <strong>{`Ultimas Notas de ${sectionName}`}</strong>
+                    <strong>{`Últimas Noticias`}</strong>
                 );
             break;
         case '1':
