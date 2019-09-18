@@ -72,7 +72,7 @@ class LNNotaReceta extends Component {
         const { children } = this.props;
 
         return (
-            <>
+            <div id="wrap">
                 <Header />
                 <main>
                     {/* TODO: pasar esto a otro lado para que solo se cargue cuando hay videos en la pagina */}
@@ -130,7 +130,7 @@ class LNNotaReceta extends Component {
                     </div>
                 </main>
                 <Footer />
-            </>
+            </div>
         );
     }
 }
