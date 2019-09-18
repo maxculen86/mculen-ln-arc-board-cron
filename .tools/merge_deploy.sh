@@ -2,13 +2,14 @@
 
 
 if [ -z "$1" ]; then echo "Falta parametro 1: $0 <EQUIPO>"; exit; fi
-if [ -z "$2" ]; then echo "Falta parametro 2: $0 $1 "; exit; fi
+if [ -z "$2" ]; then echo "Falta parametro 2: $0 $1 <BRANCH>"; exit; fi
 
 MERGE="${2}"
 DEVELOP="develop"
 TEAM="LN/${1}/develop"
 
 if [ -z "$3" ]; then 
+    DATE=`date +%Y-%m-%d-%H-%M`
     NUEVO="LN/${1}/merge/${DATE}"
     echo "Falta parametro 3: ${0} ${1} ${2} <NOMBRE NUEVO BRANCH>"
     echo " > USANDO DEFAULT: ${NUEVO}"
