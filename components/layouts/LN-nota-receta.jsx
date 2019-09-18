@@ -98,7 +98,6 @@ class LNNotaReceta extends Component {
                                 {/* Left-Cuerpo Shared*/}
                                 {children[3]}
                             </div>
-
                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                 <div className="row">
                                     {/* Pos-Apertura */}
