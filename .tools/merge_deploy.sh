@@ -1,22 +1,24 @@
 #!/bin/bash
 
 
-if [ -z "$1" ]; then echo "Parametro 1 vacio"; exit; fi
-if [ -z "$2" ]; then echo "Parametro 2 vacio"; exit; fi
+if [ -z "$1" ]; then echo "Falta parametro 1: $0 <EQUIPO>"; exit; fi
+if [ -z "$2" ]; then echo "Falta parametro 2: $0 $1 "; exit; fi
 
 MERGE="${2}"
 DEVELOP="develop"
-CHAPTER="LN/${1}/develop"
+TEAM="LN/${1}/develop"
 
 if [ -z "$3" ]; then 
     NUEVO="LN/${1}/merge/${DATE}"
+    echo "Falta parametro 3: ${0} ${1} ${2} <NOMBRE NUEVO BRANCH>"
+    echo " > USANDO DEFAULT: ${NUEVO}"
 else
     NUEVO="${3}"
 fi
 
 echo "MERGE:${MERGE}" &&
 echo "DEVELOP:${DEVELOP}" &&
-echo "CHAPTER:${CHAPTER}" &&
+echo "TEAM:${TEAM}" &&
 echo "NUEVO:${NUEVO}" &&
 
 echo ">>>> UPDATE BRANCHES <<<<" &&
@@ -25,26 +27,26 @@ git checkout LN/HOME/develop && git fetch && git pull &&
 git checkout LN/NOTA/develop && git fetch && git pull &&
 git checkout LN/COMMON/develop && git fetch && git pull &&
 git checkout ${DEVELOP} && git fetch && git pull &&
-git checkout ${CHAPTER} && git fetch && git pull &&
+git checkout ${TEAM} && git fetch && git pull &&
 git checkout ${MERGE} && git fetch && git pull &&
 
 echo "" &&
 echo "------------------------------------------" &&
 echo "" &&
 
-echo " > > > Actualizo ${CHAPTER} desde ${DEVELOP}" &&
-git checkout ${CHAPTER} && 
+echo " > > > Actualizo ${TEAM} desde ${DEVELOP}" &&
+git checkout ${TEAM} && 
 git merge ${DEVELOP} --verbose && 
 git push --verbose && 
 
 if [ `git branch --list ${NUEVO}` ]
 then
-    echo " > > > Actualizo ${NUEVO} desde ${CHAPTER}"
+    echo " > > > Actualizo ${NUEVO} desde ${TEAM}"
     git checkout ${NUEVO} &&
-    git merge ${CHAPTER};
+    git merge ${TEAM};
 else
-    echo " > > > Creo ${NUEVO} desde ${CHAPTER}"
-    git checkout ${CHAPTER} &&
+    echo " > > > Creo ${NUEVO} desde ${TEAM}"
+    git checkout ${TEAM} &&
     git checkout -b ${NUEVO};
 fi &&
 
@@ -53,20 +55,21 @@ git merge ${MERGE} --verbose &&
 
 if [ "${4}" == "DEPLOY" ]; then 
 
-    echo " > > > Merge desde ${NUEVO} a ${CHAPTER}" &&
-    git checkout ${CHAPTER} && 
+    echo " > > > Merge desde ${NUEVO} a ${TEAM}" &&
+    git checkout ${TEAM} && 
     git merge ${NUEVO} --verbose && 
     git push --verbose && 
 
     echo " > > > ELIMINO ${NUEVO}" &&
     git branch -d ${NUEVO} &&
 
-    echo " > > > Merge desde ${CHAPTER} a develop" &&
+    echo " > > > Merge desde ${TEAM} a develop" &&
     git checkout develop &&
-    git merge ${CHAPTER} --verbose && 
+    git merge ${TEAM} --verbose && 
     git push --verbose;
 else
     echo "  >  >  > Agregar DEPLOY como cuarto parametro para impactar en ramas devs";
+    echo "  >  >  > ${0} ${1} ${2} ${3} DEPLOY"
 fi &&
 
 npm run test &&
