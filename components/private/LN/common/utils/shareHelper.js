@@ -53,7 +53,7 @@ export function popUpCompartirNotaGoogle(notaId, dominio, titulo) {
 export function popUpCompartirMailTo(notaId, dominio) {
     if (notaId.length > 0) {
         popUpRedSocial(
-            `mailto:''?subject=Te recomiendo esta nota de LA NACION&body=Lee esta nota de LA NACION ${dominio}${notaId}`
+            `mailto:?subject=Te recomiendo esta nota de LA NACION&body=Lee esta nota de LA NACION ${dominio}${notaId}`
         );
     }
 }
