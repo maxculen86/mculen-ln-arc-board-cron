@@ -30,6 +30,13 @@ describe('LN - Common - Utils - Imagen - Resizer', () => {
             media: '(min-width: 666px)',
             class: 'img-desktop-sm',
             type: 'content_elements'
+        },
+        {
+            width: 123,
+            height: 123,
+            media: '(min-width: 123px)',
+            class: 'img-desktop-sm',
+            type: 'credits'
         }
     ];
 
@@ -95,9 +102,9 @@ describe('LN - Common - Utils - Imagen - Resizer', () => {
         expect(newNota.credits.by[0].image.resized_urls[0].resizedUrl).toBe(
             'http://demo-prod.origin.arcpublishing.com/resizer/DlXn4M5x_q0_XJHXWh7nvOi4SJ8=/0x123/s3.amazonaws.com/arc-authors/lanacionar/d9ada84c-fee5-42c8-b34f-8dc3c28ea585.png'
         );
-        Object.keys(presets[0]).forEach(p => {
+        Object.keys(presets[3]).forEach(p => {
             expect(newNota.credits.by[0].image.resized_urls[0].option[p]).toBe(
-                presets[0][p]
+                presets[3][p]
             );
         });
     });
