@@ -9,7 +9,7 @@ const index = props => {
         globalContent: { subtype }
     } = props;
 
-    if (subtype === '4') return <CuerpoReceta {...props} />;
+    if (subtype === '7') return <CuerpoReceta {...props} />;
 
     return <CuerpoDefault {...props} />;
 };
