@@ -91,7 +91,7 @@ export default {
         dfp_id: 133919216
     },
     shareConfig: {
-        host: 'http://www.lanacion.com.ar',
+        host: 'https://www.lanacion.com.ar',
         facebook: {
             appID: '246891475813003'
         }

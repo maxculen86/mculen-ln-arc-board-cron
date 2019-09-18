@@ -7,6 +7,7 @@ const authorArticle = ({
         credits: { by }
     }
 }) => {
+    by = by.filter(author => author.type === 'author');
     return (
         <>
             <span>Por </span>
@@ -24,7 +25,7 @@ const authorArticle = ({
                             <span> {authorNota.name} </span>
                         )}
                         {i < by.length - 2 ? (
-                            <span>, </span>
+                            <span>{', \u00A0'}</span>
                         ) : (
                             <>{i === by.length - 2 ? ' y\u00A0' : ''}</>
                         )}

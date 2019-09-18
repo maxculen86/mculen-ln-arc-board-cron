@@ -10,6 +10,7 @@ import {
 
 const Share = props => {
     const {
+        requestUri,
         globalContent: {
             headlines: { basic: title },
             taxonomy: {
@@ -26,7 +27,7 @@ const Share = props => {
                 <button
                     onClick={() =>
                         popUpCompartirNotaFB(
-                            _id,
+                            requestUri,
                             config.shareConfig.host,
                             title
                         )
@@ -36,7 +37,7 @@ const Share = props => {
                 <button
                     onClick={() =>
                         popUpCompartirNotaTW(
-                            _id,
+                            requestUri,
                             config.shareConfig.host,
                             title
                         )
@@ -46,7 +47,10 @@ const Share = props => {
                 <button
                     id="whatsAppShareDesktop"
                     onClick={() =>
-                        shareWhatsAppDesktop(_id, config.shareConfig.host)
+                        shareWhatsAppDesktop(
+                            requestUri,
+                            config.shareConfig.host
+                        )
                     }
                     className="icon-whatsapp"
                 />
@@ -56,7 +60,10 @@ const Share = props => {
                 <button
                     className="icon-mail"
                     onClick={() =>
-                        popUpCompartirMailTo(_id, config.shareConfig.host)
+                        popUpCompartirMailTo(
+                            requestUri,
+                            config.shareConfig.host
+                        )
                     }
                 />
                 <button className="icon-comment" />
