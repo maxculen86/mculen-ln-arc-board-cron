@@ -48,6 +48,7 @@ echo "" &&
 echo " > > > Actualizo ${TEAM} desde ${DEVELOP}" &&
 git checkout ${TEAM} >> .tools/log.txt && 
 git merge ${DEVELOP} --verbose >> .tools/log.txt && 
+echo "  >  > PUSH a ${TEAM}" &&
 git push --verbose >> .tools/log.txt && 
 
 if [ `git branch --list ${NUEVO}` ]
@@ -69,6 +70,7 @@ if [ "${4}" == "MERGE" ] || [ "${4}" == "DEPLOY" ]; then
     echo " > > > Merge desde ${NUEVO} a ${TEAM}" &&
     git checkout ${TEAM} >> .tools/log.txt && 
     git merge ${NUEVO} --verbose >> .tools/log.txt && 
+    echo "  >  > PUSH a ${TEAM}" &&
     git push --verbose >> .tools/log.txt &&
 
     if [ "${4}" == "DEPLOY" ]; then 
@@ -76,6 +78,7 @@ if [ "${4}" == "MERGE" ] || [ "${4}" == "DEPLOY" ]; then
         echo " > > > Merge desde ${TEAM} a develop" &&
         git checkout develop >> .tools/log.txt &&
         git merge ${TEAM} --verbose >> .tools/log.txt && 
+        echo "  >  > PUSH a develop" &&
         git push --verbose >> .tools/log.txt &&
         
         echo " > > > ELIMINO ${NUEVO}" &&
