@@ -67,9 +67,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
     </div>
   </header>
   <main>
-    <div
-      id="Hijo0"
-    />
+    <mock-banner-cabezal />
     <div
       class="lay brando"
     >
@@ -80,12 +78,12 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           class="col-12"
         >
           <div
-            id="Hijo1"
+            id="Hijo0"
           />
         </div>
       </header>
       <div
-        id="Hijo2"
+        id="Hijo1"
       />
     </div>
     <div
@@ -101,7 +99,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
             class="col-1 hlp-marginBottom-40 hlp-tablet-none"
           >
             <div
-              id="Hijo3"
+              id="Hijo2"
             />
           </div>
           <div
@@ -111,11 +109,11 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
               class="row"
             >
               <div
-                id="Hijo4"
+                id="Hijo3"
               />
             </div>
             <div
-              id="Hijo5"
+              id="Hijo4"
             />
           </div>
         </div>
@@ -127,13 +125,13 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           class="row"
         >
           <div
-            id="Hijo6"
+            id="Hijo5"
           />
         </div>
       </div>
     </div>
     <div
-      id="Hijo7"
+      id="Hijo6"
     />
     <div
       class="lay-sidebar hlp-marginBottom-40"
@@ -142,14 +140,14 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
         class="sidebar__main"
       >
         <div
-          id="Hijo8"
+          id="Hijo7"
         />
       </div>
       <div
         class="sidebar__aside"
       >
         <div
-          id="Hijo9"
+          id="Hijo8"
         />
       </div>
     </div>

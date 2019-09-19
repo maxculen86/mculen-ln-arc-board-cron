@@ -1,5 +1,10 @@
 import Consumer from 'fusion:consumer';
 
+jest.mock(
+    '../../../../../components/private/LN/nota/banners/bannerCabezal',
+    () => 'mock-banner-cabezal'
+);
+
 import React from 'react';
 import { render } from 'enzyme';
 import NotaRecetaLayout from '../../../../../components/layouts/LN-nota-receta';
@@ -19,7 +24,6 @@ describe('layouts - La Nacion - Nota - Receta', () => {
                 <div id="Hijo7" />
                 <div id="Hijo8" />
                 <div id="Hijo9" />
-                <div id="Hijo10" />
             </NotaRecetaLayout>
         );
 
