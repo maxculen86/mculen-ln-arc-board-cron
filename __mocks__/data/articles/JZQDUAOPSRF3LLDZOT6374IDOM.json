@@ -657,6 +657,65 @@
                         "suffix": "LIC"
                     }
                 }
+            },
+            {
+                "_id": "diego-cabot",
+                "type": "author",
+                "version": "0.5.8",
+                "name": "Diego Cabot",
+                "image": {
+                    "url": "https://s3.amazonaws.com/arc-authors/lanacionar/4b2cbe7c-9d50-4451-9a08-6dd8c4f72339.png",
+                    "version": "0.5.8"
+                },
+                "url": "/autores/diego-cabot",
+                "slug": "diego-cabot",
+                "social_links": [
+                    {
+                        "site": "email",
+                        "url": "dcabot@lanacion.com.ar"
+                    },
+                    {
+                        "site": "twitter",
+                        "url": "@diegocabot"
+                    }
+                ],
+                "socialLinks": [
+                    {
+                        "site": "email",
+                        "url": "dcabot@lanacion.com.ar",
+                        "deprecated": true,
+                        "deprecation_msg": "Please use social_links."
+                    },
+                    {
+                        "site": "twitter",
+                        "url": "@diegocabot",
+                        "deprecated": true,
+                        "deprecation_msg": "Please use social_links."
+                    }
+                ],
+                "additional_properties": {
+                    "original": {
+                        "_id": "diego-cabot",
+                        "byline": "Diego Cabot",
+                        "firstName": "Diego",
+                        "lastName": "Cabot",
+                        "author_type": "Estándar",
+                        "email": "dcabot@lanacion.com.ar",
+                        "image": "https://s3.amazonaws.com/arc-authors/lanacionar/4b2cbe7c-9d50-4451-9a08-6dd8c4f72339.png",
+                        "twitter": "@diegocabot",
+                        "status": true,
+                        "role": "LA NACION",
+                        "longBio": "",
+                        "slug": "diego-cabot",
+                        "last_updated_date": "2019-08-21T20:30:50.202Z",
+                        "books": [],
+                        "podcasts": [],
+                        "education": [],
+                        "awards": [],
+                        "bio_page": "/autores/diego-cabot",
+                        "type": "author"
+                    }
+                }
             }
         ]
     },
