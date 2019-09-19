@@ -22,7 +22,6 @@ import '../../resources/dist/css/ln/components/input.css';
 import '../../resources/dist/css/ln/modules/newsletter.css';
 
 const pageBuilderSections = [
-    'Pre-Titulo',
     'Titulo',
     'Apertura',
     'Left-Cuerpo',

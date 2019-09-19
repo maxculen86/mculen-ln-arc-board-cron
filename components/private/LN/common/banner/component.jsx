@@ -15,11 +15,14 @@ const bannerComponent = ({
     bidding,
     sticky,
     background,
-    device
+    device,
+    extraClasses
 }) => {
     let ad = (
         <ArcAd
-            className={`--${device}${sticky ? ' --sticky' : ''}`}
+            className={`--${device}${
+                sticky ? ' --sticky' : ''
+            } ${extraClasses || ''}`}
             id={slotId}
             dfpId={dfpId}
             slotName={slotName}
