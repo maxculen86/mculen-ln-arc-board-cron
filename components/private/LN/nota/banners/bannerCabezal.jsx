@@ -1,6 +1,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import Banner from '../common/banner';
+import Banner from '../../common/banner';
 
 function BannerCabezal(props) {
     const { siteProperties, isAdmin } = props;
@@ -8,7 +8,7 @@ function BannerCabezal(props) {
         <Banner
             extraClasses="--top"
             siteProperties={siteProperties}
-            slotGroup="acumulado"
+            slotGroup="nota"
             selectedSlots={{
                 desktopSlot: 'cabezal_dsk',
                 mobileSlot: 'cabezal_mob',

@@ -39,6 +39,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            &:before {
+                font-family: 'LNlogos' !important;
+                content: "\e80a";
+                color: $blanco;
+                font-size: 4em;
+                font-family: ln10;
+                font-style: normal;
+                font-weight: 400;
+                font-variant: normal;
+                text-transform: none;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
             &.zoom {
                 &:after {
                     font-family: 'LNicons' !important;

@@ -1,4 +1,4 @@
-import { addResizedUrls } from '@arc-core-components/content-source_content-api-v4';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import { resizerSecret, resizerUrl } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
@@ -40,9 +40,6 @@ const transform = (data, siteProps) => {
             presets
         });
     }
-
-    resp.imageResizePresets = presets;
-
     return resp;
 };
 

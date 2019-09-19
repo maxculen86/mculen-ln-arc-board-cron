@@ -9,10 +9,10 @@ const imageBase = ({ urlDefault, sources, altText, zoom, href }) => {
                 sources.map(x => {
                     return (
                         <source
-                            key={x.media}
-                            media={x.media}
-                            srcSet={x.url}
-                            className={x.class}
+                            key={x.option.media}
+                            media={x.option.media}
+                            srcSet={x.resizedUrl}
+                            className={x.option.class}
                             alt={altText}
                         />
                     );
@@ -28,7 +28,7 @@ imageBase.propTypes = {
         PropTypes.shape({
             media: PropTypes.string.isRequired,
             class: PropTypes.string,
-            url: PropTypes.string.isRequired
+            resizedUrl: PropTypes.string.isRequired
         })
     ).isRequired,
     altText: PropTypes.string,

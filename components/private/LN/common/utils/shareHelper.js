@@ -7,7 +7,6 @@ export function popUpCompartirNotaTW(notaId, dominio, titulo) {
             dominio +
             notaId +
             '&via=LANACION';
-        console.log('el resultado: ', result);
         popUpRedSocial(
             '//twitter.com/share?text=' +
                 titulo +
@@ -53,7 +52,7 @@ export function popUpCompartirNotaGoogle(notaId, dominio, titulo) {
 export function popUpCompartirMailTo(notaId, dominio) {
     if (notaId.length > 0) {
         popUpRedSocial(
-            dominio + 'herramientas/nota/enviar-por-mail.html?nota_id' + notaId
+            `mailto:?subject=Te recomiendo esta nota de LA NACION&body=Lee esta nota de LA NACION ${dominio}${notaId}`
         );
     }
 }

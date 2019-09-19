@@ -1,4 +1,4 @@
-import { addResizedUrls } from '@arc-core-components/content-source_content-api-v4';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import SourceSetSizes from '../../components/private/OTT/programa/programImage/sourceSets.json';
 //import { SSL_OP_ALL } from 'constants';

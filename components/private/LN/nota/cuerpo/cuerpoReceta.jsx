@@ -7,6 +7,7 @@ import Tips from './tips';
 const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
     let ingredients = [];
     let preparation = [];
+    let tips = [];
 
     contentElements.forEach(element => {
         switch (element.type) {
@@ -40,7 +41,9 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                 }
                 break;
             case 'text':
-                // Dunno what to do here :(
+                if (element.content.length > 10) {
+                    tips.push({ description: element.content });
+                }
                 break;
             default:
                 break;
@@ -59,16 +62,7 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
             </div>
 
             <div className="row hlp-marginBottom-40">
-                <Tips
-                    size="m"
-                    title="Tip"
-                    paragraphs={[
-                        {
-                            title: 'Opcional ',
-                            description: `El Stoemp se hace tradicionalmente con puerros (en lugar de los repollitos) pero se pueden agregar las verduras que uno quiera, manteniendo las proporciones: por el 100% del peso de las papas, 50% zanahorias, 50% verdura a elección. Vegetariano. Es ideal para incorporar verduras a los más reticentes.`
-                        }
-                    ]}
-                />
+                <Tips size="m" title="Tip" paragraphs={tips} />
             </div>
         </>
     );

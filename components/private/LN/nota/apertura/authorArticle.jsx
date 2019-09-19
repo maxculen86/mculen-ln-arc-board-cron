@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/components/author.css';
 
+// TODO: esta mal como arma el listado con las 'y' y las ','. El test pasa para poder mergear pero hay que corregirlo!
 const authorArticle = ({
     globalContent: {
         credits: { by }
     }
 }) => {
+    by = by.filter(author => author.type === 'author');
     return (
         <>
             <span>Por </span>
@@ -14,17 +16,12 @@ const authorArticle = ({
                 by.map((authorNota, i) => (
                     <div key={authorNota._id} className="com-author">
                         {authorNota.url !== '' ? (
-                            <a
-                                href={authorNota.url}
-                                className={authorNota.type}
-                            >
-                                {authorNota.name}
-                            </a>
+                            <a href={authorNota.url}>{authorNota.name}</a>
                         ) : (
                             <span> {authorNota.name} </span>
                         )}
                         {i < by.length - 2 ? (
-                            <span>, </span>
+                            <>{', \u00A0'}</>
                         ) : (
                             <>{i === by.length - 2 ? ' y\u00A0' : ''}</>
                         )}
