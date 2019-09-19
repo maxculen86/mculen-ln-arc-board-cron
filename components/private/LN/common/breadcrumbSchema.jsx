@@ -12,14 +12,19 @@ function BreadcrumbSchema({ sections, host }) {
         }`;
         })
         .join(',');
-    return (
-        <script type="application/ld+json">
-            {`{
+    const data = {
+        __html: `
+            {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
                 "itemListElement": [${items}]
-            }`}
-        </script>
+            }`
+    };
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={data}
+        ></script>
     );
 }
 
