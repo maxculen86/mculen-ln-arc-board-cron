@@ -11,7 +11,7 @@ const media = ({ mediaData, colNumber, zoom, href }) => {
         const { type, _id } = mediaData;
         switch (type) {
             case 'image':
-                item = <Image image={mediaData} url={href} zoom={zoom} />;
+                item = <Image image={mediaData} href={href} zoom={zoom} />;
                 break;
             case 'video':
                 item = <VideoPlayer videoId={_id} />;
