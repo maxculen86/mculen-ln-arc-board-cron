@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
+import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
-function BreadcrumbAutor({ author }) {
+function BreadcrumbAutor({ author, host }) {
     const sections = [
         {
             path: '/',
@@ -13,13 +14,14 @@ function BreadcrumbAutor({ author }) {
             name: 'Autores'
         },
         {
-            path: author.id,
-            name: author.name
+            path: `/${author._id}`,
+            name: author.byline
         }
     ];
     return (
         <>
             <BreadCrumbBase sections={sections} />
+            <BreadCrumbSchema sections={sections} host={host} />
         </>
     );
 }

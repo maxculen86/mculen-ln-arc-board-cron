@@ -12,7 +12,9 @@ const breadcrumbBase = ({ sections, extraClasses }) => {
         );
     });
     return (
-        <nav className={`com-breadcrumb ${extraClasses}`}>{listSections}</nav>
+        <nav className={`com-breadcrumb ${extraClasses || ''}`}>
+            {listSections}
+        </nav>
     );
 };
 
