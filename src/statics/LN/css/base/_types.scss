@@ -155,7 +155,6 @@
      font-variant: normal;
      text-transform: none;
      font-size: $font-15;
-     margin-bottom: $px-12;
      display: inline-block;
      @media (min-width: 768px) {
          font-size: $font-26;
@@ -164,6 +163,10 @@
      /* Better Font Rendering =========== */
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
+ }
+ [class^="logo-"]:not(.logo-la-nacion),
+ [class*=" logo-"] {
+    margin-bottom: $px-12;
  }
  
  .logo-brando:before {

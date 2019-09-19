@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { getSectionStyle } from '../private/common/utils/sectionUtils';
-
+import Header from '../private/LN/common/header';
+import Footer from '../private/LN/common/footer';
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
@@ -73,60 +74,65 @@ class LNNotaReceta extends Component {
         const { children } = this.props;
 
         return (
-            <main>
-                {/* TODO: pasar esto a otro lado para que solo se cargue cuando hay videos en la pagina */}
-                <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
-                {/* Pre-Titulo: Banners */}
-                {children[0]}
-                <div className={`lay ${this.sectionClass}`}>
-                    {/* TODO: confirmar */}
-                    <header className="row titulo">
-                        <div className="col-12">
-                            {/* Titulo (breadcrumb, logo+titulo) */}
-                            {children[1]}
-                        </div>
-                    </header>
-                    {/* Apertura */}
-                    {children[2]}
-                </div>
-
-                <div className="lay-sidebar">
-                    {/* Cuerpo */}
-                    <div className="sidebar__main">
-                        <div className="row">
-                            <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
-                                {/* Left-Cuerpo Shared*/}
-                                {children[3]}
+            <div id="wrap">
+                <Header />
+                <main>
+                    {/* TODO: pasar esto a otro lado para que solo se cargue cuando hay videos en la pagina */}
+                    <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
+                    {/* Pre-Titulo: Banners */}
+                    {children[0]}
+                    <div className={`lay ${this.sectionClass}`}>
+                        {/* TODO: confirmar */}
+                        <header className="row titulo">
+                            <div className="col-12">
+                                {/* Titulo (breadcrumb, logo+titulo) */}
+                                {children[1]}
                             </div>
-                            <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                <div className="row">
-                                    {/* Pos-Apertura */}
-                                    {children[4]}
+                        </header>
+                        {/* Apertura */}
+                        {children[2]}
+                    </div>
+
+                    <div className="lay-sidebar">
+                        {/* Cuerpo */}
+                        <div className="sidebar__main">
+                            <div className="row">
+                                <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
+                                    {/* Left-Cuerpo Shared*/}
+                                    {children[3]}
                                 </div>
-                                {children[5]}
+
+                                <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                    <div className="row">
+                                        {/* Pos-Apertura */}
+                                        {children[4]}
+                                    </div>
+                                    {children[5]}
+                                </div>
                             </div>
                         </div>
+                        {/* Tercera */}
+                        <div className="sidebar__aside hlp-tablet-none">
+                            <div className="row">{children[6]}</div>
+                        </div>
                     </div>
-                    {/* Tercera */}
-                    <div className="sidebar__aside hlp-tablet-none">
-                        <div className="row">{children[6]}</div>
-                    </div>
-                </div>
 
-                {/* TODO: revisar clases del newsLetter Full-Break */}
-                {children[7]}
+                    {/* TODO: revisar clases del newsLetter Full-Break */}
+                    {children[7]}
 
-                <div className="lay-sidebar hlp-marginBottom-40">
-                    <div className="sidebar__main">
-                        {/* Bottom */}
-                        {children[8]}
+                    <div className="lay-sidebar hlp-marginBottom-40">
+                        <div className="sidebar__main">
+                            {/* Bottom */}
+                            {children[8]}
+                        </div>
+                        <div className="sidebar__aside">
+                            {/* Bottom-Tercera */}
+                            {children[9]}
+                        </div>
                     </div>
-                    <div className="sidebar__aside">
-                        {/* Bottom-Tercera */}
-                        {children[9]}
-                    </div>
-                </div>
-            </main>
+                </main>
+                <Footer />
+            </div>
         );
     }
 }
