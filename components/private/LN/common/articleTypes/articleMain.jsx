@@ -5,7 +5,6 @@ import Media from '../media';
 
 const articleMain = ({ articleData, extraClasses, children, border }) => {
     let media = null;
-
     // TODO: validar tipo autor correcto
     if (articleData.subtype === 99) {
         // TODO: la imagen de autor viene por fuera de anglerfishhhhhhh.......
