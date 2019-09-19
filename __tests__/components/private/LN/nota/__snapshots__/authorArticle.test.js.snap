@@ -1,16 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - LaNacion - Nota - AuthorNota Test de snapshot TituloNota 1`] = `
-Array [
-  <span>
-    Por 
-  </span>,
-  <div
-    class="com-author"
-  >
-    <a
-      class="reference"
-    />
-  </div>,
-]
+<span>
+  Por 
+</span>
 `;
