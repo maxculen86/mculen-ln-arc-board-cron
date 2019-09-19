@@ -14,7 +14,7 @@ const media = ({ mediaData, imageResizePresets, colNumber, zoom, href }) => {
                 item = (
                     <Image
                         image={mediaData}
-                        url={href}
+                        href={href}
                         imageResizePresets={imageResizePresets}
                         zoom={zoom}
                         configType="apertura"
