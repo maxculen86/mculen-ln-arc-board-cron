@@ -7,7 +7,6 @@ import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 const ArticleList = props => {
     const {
         articles,
-        imageResizePresets,
         globalContent: { promo_items }
     } = props;
 
@@ -21,9 +20,7 @@ const ArticleList = props => {
         return true;
     });
 
-    return articlesArray.map(e => (
-        <ArticleMain imageResizePresets={imageResizePresets} articleData={e} />
-    ));
+    return articlesArray.map(e => <ArticleMain articleData={e} />);
 };
 
 export default withAcuArticlesData(ArticleList, null, 'notaM');

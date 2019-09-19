@@ -9,7 +9,7 @@ const CLASS_W_100 = 'w-100-mobile';
 class GrillaNotas extends Component {
     render() {
         let articlesComponents = [];
-        const { articles, imageResizePresets } = this.props;
+        const { articles } = this.props;
         if (articles && articles.length) {
             articlesComponents = articles.map((a, i) => {
                 const dateComponent = (
@@ -18,7 +18,6 @@ class GrillaNotas extends Component {
                 return (
                     <ArticleMain
                         key={i}
-                        imageResizePresets={imageResizePresets}
                         children={dateComponent}
                         articleData={a}
                         extraClasses={CLASS_W_100}
@@ -45,4 +44,4 @@ class GrillaNotas extends Component {
     }
 }
 
-export default WithAcuArticlesData(GrillaNotas, null, 'notaM'); // TODO: dejo el filter comentado porque no me trae datos. REVISAR, filter);
+export default WithAcuArticlesData(GrillaNotas, filter, 'notaM');

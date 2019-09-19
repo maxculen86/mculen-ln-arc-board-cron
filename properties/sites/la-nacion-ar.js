@@ -29,89 +29,62 @@ export default {
         resize: {
             nota: {
                 bySubtype: {
-                    4: {
-                        apertura_big: {
+                    7: [
+                        {
                             width: 1033,
                             media: '(min-width: 768px)',
                             class: 'img-desktop',
-                            type: 'apertura'
+                            type: 'promo_items'
                         },
-                        apertura_medium: {
+                        {
                             width: 768,
                             media: '(min-width: 740px)',
                             class: 'img-desktop-sm',
-                            type: 'apertura'
+                            type: 'promo_items'
                         },
-                        apertura_small: {
+                        {
                             width: 340,
                             media: '(min-width: 320px)',
                             class: 'img-mobile',
-                            type: 'apertura'
+                            type: 'promo_items'
                         },
-                        cuerpo_medium: {
+                        {
                             width: 768,
                             media: '(min-width: 740px)',
                             class: 'img-desktop-sm',
-                            type: 'cuerpo'
+                            type: 'content_elements'
                         },
-                        cuerpo_small: {
+                        {
                             width: 340,
                             media: '(min-width: 320px)',
                             class: 'img-mobile',
-                            type: 'cuerpo'
+                            type: 'content_elements'
                         }
-                    },
-                    default: {
-                        apertura_big: {
+                    ],
+                    default: [
+                        {
                             width: 1033,
                             media: '(min-width: 768px)',
                             class: 'img-desktop',
-                            type: 'apertura'
-                        },
-                        apertura_medium: {
-                            width: 768,
-                            media: '(min-width: 740px)',
-                            class: 'img-desktop-sm',
-                            type: 'apertura'
-                        },
-                        apertura_small: {
-                            width: 340,
-                            media: '(min-width: 320px)',
-                            class: 'img-mobile',
-                            type: 'apertura'
-                        },
-                        cuerpo_medium: {
-                            width: 768,
-                            media: '(min-width: 740px)',
-                            class: 'img-desktop-sm',
-                            type: 'cuerpo'
-                        },
-                        cuerpo_small: {
-                            width: 340,
-                            media: '(min-width: 320px)',
-                            class: 'img-mobile',
-                            type: 'cuerpo'
+                            type: 'promo_items'
                         }
-                    }
+                    ]
                 }
             },
-            notaM: {
-                desktop: {
+            notaM: [
+                {
                     width: 600,
-                    media: '(min-width: 64em)',
-                    type: 'apertura'
+                    media: '(min-width: 64em)'
                 },
-                tablet: {
+                {
                     width: 520,
-                    media: '(min-width: 48em)',
-                    type: 'apertura'
+                    media: '(min-width: 48em)'
                 },
-                mobile: {
+                {
                     width: 375,
-                    media: '(min-width: 20em)',
-                    type: 'apertura'
+                    media: '(min-width: 20em)'
                 }
-            }
+            ]
         }
     },
     bannerConfig: {

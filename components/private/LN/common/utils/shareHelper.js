@@ -7,7 +7,6 @@ export function popUpCompartirNotaTW(notaId, dominio, titulo) {
             dominio +
             notaId +
             '&via=LANACION';
-        console.log('el resultado: ', result);
         popUpRedSocial(
             '//twitter.com/share?text=' +
                 titulo +

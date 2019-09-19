@@ -1,12 +1,9 @@
+import { imageResizedUrl } from '../common';
+
 const image = `
     type
     resized_urls {
-        apertura_small
-        apertura_medium
-        apertura_big
-        cuerpo_small
-        cuerpo_medium
-        cuerpo_big                
+       ${imageResizedUrl}               
     }
     url
 `;
@@ -31,33 +28,7 @@ const article = `
         content
         ${image}
     }
-    display_date
-    imageResizePresets {
-        apertura_small {
-            media
-            class
-        }
-        apertura_medium{
-            media
-            class
-        }
-        apertura_big{
-            media
-            class
-        }
-        cuerpo_small{
-            media
-            class
-        }
-        cuerpo_medium{
-            media
-            class
-        }
-        cuerpo_big   {
-            media
-            class
-        } 
-    }
+    display_date   
 `;
 
 export default `

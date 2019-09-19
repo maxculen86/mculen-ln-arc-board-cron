@@ -1,7 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - LaNacion - Nota - AuthorNota Test de snapshot TituloNota 1`] = `
-<span>
-  Por 
-</span>
+Array [
+  <span>
+    Por 
+  </span>,
+  <div
+    class="com-author"
+  >
+    <a
+      href="/autor/agustina__++**''''''¿¿_lomuto/"
+    >
+      Agustina Lomuto
+    </a>
+     y 
+  </div>,
+  <div
+    class="com-author"
+  >
+    <a
+      href="/autores/diego-cabot"
+    >
+      Diego Cabot
+    </a>
+  </div>,
+]
 `;

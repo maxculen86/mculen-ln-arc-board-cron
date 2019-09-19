@@ -5,22 +5,28 @@ import ImageBase from '../../../../../components/private/LN/common/media/imageBa
 describe('features - La Nacion - components - common - BaseImage', () => {
     const sources = [
         {
-            media: '(min-width: 768px)',
-            url: 'http://urldeprueba.com/imagenes/imagen1.jpeg',
-            class: 'desktop',
-            alt: 'texto 1'
+            resizedUrl: 'http://urldeprueba.com/imagenes/imagen1.jpeg',
+            option: {
+                media: '(min-width: 768px)',
+                class: 'desktop',
+                alt: 'texto 1'
+            }
         },
         {
-            media: '(min-width: 360px)',
-            url: 'http://urldeprueba.com/imagenes/imagen2.jpeg',
-            class: 'desktop-sm',
-            alt: 'texto 2'
+            resizedUrl: 'http://urldeprueba.com/imagenes/imagen2.jpeg',
+            option: {
+                media: '(min-width: 360px)',
+                class: 'desktop-sm',
+                alt: 'texto 2'
+            }
         },
         {
-            media: '(min-width: 240px)',
-            url: 'http://urldeprueba.com/imagenes/imagen2.jpeg',
-            class: 'mobile',
-            alt: 'texto 3'
+            resizedUrl: 'http://urldeprueba.com/imagenes/imagen2.jpeg',
+            option: {
+                media: '(min-width: 240px)',
+                class: 'mobile',
+                alt: 'texto 3'
+            }
         }
     ];
 
