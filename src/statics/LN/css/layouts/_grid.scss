@@ -22,12 +22,14 @@
   .w-100{
     width: calc(100% + 60px)!important;
     margin-left: -$px-30;
+    margin-top: -20px;
   }
 }
 @media ($media-l){
   .w-100{
       width: 100%!important;
       margin-left: 0;
+      margin-top: -20px;
   }
 }
 
