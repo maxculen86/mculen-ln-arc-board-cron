@@ -15,6 +15,11 @@ describe('layouts - La Nacion - Nota - Receta', () => {
                 <div id="Hijo3" />
                 <div id="Hijo4" />
                 <div id="Hijo5" />
+                <div id="Hijo6" />
+                <div id="Hijo7" />
+                <div id="Hijo8" />
+                <div id="Hijo9" />
+                <div id="Hijo10" />
             </NotaRecetaLayout>
         );
 
