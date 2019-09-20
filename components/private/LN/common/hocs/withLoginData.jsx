@@ -31,7 +31,10 @@ function withLoginData(WrappedComponent) {
                         logueado: true,
                         loginData: {
                             subscription,
-                            userName: `${Usuario.UsuarioDetalleNombre} ${Usuario.UsuarioDetalleApellido}`
+                            userName: `${Usuario.UsuarioDetalleEmail.substring(
+                                0,
+                                16
+                            )}...`
                         }
                     });
                 }

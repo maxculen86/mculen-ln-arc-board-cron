@@ -34,7 +34,7 @@ module.exports = {
             rules: {
                 'react/prefer-stateless-function': false,
                 'no-underscore-dangle': 0,
-                'no-restricted-globals': ['location']
+                'no-restricted-globals': 0
             }
         },
         {
