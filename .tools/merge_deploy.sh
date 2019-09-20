@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-if [ -z "$1" ]; then echo "Falta parametro 1: $0 <EQUIPO>"; exit; fi
-if [ -z "$2" ]; then echo "Falta parametro 2: $0 $1 <BRANCH>"; exit; fi
+if [ -z "$1" ]; then echo "Falta parametro 1: $0 <NOMBRE TEAM>"; exit; fi
+if [ -z "$2" ]; then echo "Falta parametro 2: $0 $1 <BRANCH A MERGEAR>"; exit; fi
 
 MERGE="${2}"
 DEVELOP="develop"
