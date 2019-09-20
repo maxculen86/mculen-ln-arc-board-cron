@@ -1,5 +1,5 @@
 import Consumer from 'fusion:consumer';
-import BreadCrumbArticle from '../../private/LN/nota/apertura/breadcrumbArticle';
+import BreadCrumbArticle from '../../private/LN/nota/apertura/breadcrumb/breadcrumbArticle';
 
 BreadCrumbArticle.label = 'LN-Nota-Breadcrumb';
 
