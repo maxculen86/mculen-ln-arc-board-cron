@@ -1,6 +1,5 @@
 @import '../abstracts/variables';
 
-
 //=====================
 // USUARIO
 //=====================
@@ -15,6 +14,7 @@
         color:$link;
         cursor:pointer;
         position: relative;
+        margin-bottom: $px-5;
         &:before{
             content: "";
             width: 7px;
@@ -31,5 +31,65 @@
         font-weight: 400;
         font-size: $font-12;
         color:$gris5;
+    }
+}
+
+
+
+.com-desplegable {
+    display:none;
+    width:200px;
+    border: 1px solid $gris1;
+    background: $blanco;
+    border-radius: 3px;
+    text-align: left;
+    position:absolute;
+    right:-40px;
+    top:50px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    &:before{
+        content: "";
+        transform: rotate(45deg);
+        width: 12px;
+        height: 12px;
+        border: 2px solid $gris1;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 0 0 6px 0;
+        margin: -8px auto 0;
+        background: $blanco;
+        display:block;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2),
+    }
+  &:after{
+        content: "";
+        width: 40px;
+        height: 10px;
+        position: absolute;
+        top: 0;
+        left: 80px;
+        background: $blanco;
+        display:block;
+        z-index:0;
+    }
+    li {
+      z-index:2;
+      position:relative;
+      &:last-child{
+        border-top:1px solid $gris3;
+      }
+      a{
+        font-size: $font-14;
+        padding:.8em 2em;
+        width:auto;
+        display:block;
+        color:#0074c4;
+        &:hover{
+          background: $gris1;
+        }
+      }
+    }
+    .--active & {
+      display: block;
     }
 }
