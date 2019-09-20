@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-if [ -z "$1" ]; then echo "Falta parametro 1: $0 <NOMBRE TEAM>"; exit; fi
-if [ -z "$2" ]; then echo "Falta parametro 2: $0 $1 <BRANCH A MERGEAR>"; exit; fi
+if [ -z "$1" ]; then echo "Falta parametro 1: $0 <EQUIPO>"; exit; fi
+if [ -z "$2" ]; then echo "Falta parametro 2: $0 $1 <BRANCH>"; exit; fi
 
 MERGE="${2}"
 DEVELOP="develop"
@@ -85,10 +85,10 @@ if [ "${4}" == "MERGE" ] || [ "${4}" == "DEPLOY" ]; then
         git branch -d ${NUEVO} >> .tools/log.txt &&
 
         npx fusion zip;
-    else
-        echo "  >  >  > Agregar DEPLOY o MERGE como cuarto parametro para impactar en ramas devs";
-        echo "  >  >  > ${0} ${1} ${2} ${3} DEPLOY"
-    fi;
+    fi
+else
+    echo "  >  >  > Agregar DEPLOY o MERGE como cuarto parametro para impactar en ramas devs";
+    echo "  >  >  > ${0} ${1} ${2} ${3} DEPLOY"
 fi &&
 
 echo " >>> FIN <<< "
