@@ -5,6 +5,8 @@ import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import { slotsConfig, getSlotsOptions } from './config';
 import PlaceHolder from './bannerPlaceholder';
 
+import '../../../../../resources/dist/css/ln/components/banners.css';
+
 const banner = props => {
     const {
         siteProperties: {
@@ -15,7 +17,8 @@ const banner = props => {
         selectedSlots: { desktopSlot, mobileSlot, tabletSlot },
         sticky,
         background,
-        screenUtils
+        screenUtils,
+        extraClasses
     } = props;
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
@@ -62,6 +65,7 @@ const banner = props => {
             bidding={finalConfig.bidding}
             sticky={sticky}
             background={background}
+            extraClasses={extraClasses}
         />
     );
 };

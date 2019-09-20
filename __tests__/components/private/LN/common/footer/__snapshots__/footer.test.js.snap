@@ -326,7 +326,7 @@ exports[`Footer - LaNacion Test de snapshot Detalle Receta 1`] = `
         class="col-desksm-3 col-deskxl-4 footer-sitio__captcha"
       >
         <p>
-          Protegido por re CAPTCHA:
+          Protegido por reCAPTCHA:
           <a
             class="condition"
             href="https://policies.google.com/terms?hl=es-419"

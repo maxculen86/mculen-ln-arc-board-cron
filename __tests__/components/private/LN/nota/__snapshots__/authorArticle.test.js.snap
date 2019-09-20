@@ -9,8 +9,20 @@ Array [
     class="com-author"
   >
     <a
-      class="reference"
-    />
+      href="/autor/agustina__++**''''''¿¿_lomuto/"
+    >
+      Agustina Lomuto
+    </a>
+     y 
+  </div>,
+  <div
+    class="com-author"
+  >
+    <a
+      href="/autores/diego-cabot"
+    >
+      Diego Cabot
+    </a>
   </div>,
 ]
 `;

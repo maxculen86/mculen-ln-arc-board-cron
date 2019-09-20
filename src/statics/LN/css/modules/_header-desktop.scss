@@ -7,11 +7,10 @@
     display: none;
     @media ($media-l){
         display: block;
-        border-bottom: 1px solid $gris3;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        border-bottom: 1px solid $gris2;
+        padding-top: 13px;
+        padding-bottom: 13px;
         background: #fff;
-        position: fixed;
         width: 100%;
         z-index: 1000;
         transition: transform 0.25s;
@@ -24,24 +23,31 @@
             text-align: center;
             .logo-la-nacion{
                 color:$ln;
-                font-size: 31px;
+                font-size: 30px;
             }
         }
         &__right{
             margin-left: auto;
             text-align: right;
-        }  
+        }
+        .header__middle{
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
         //=================================
         // ------ESTADOS DEL HEADER------
         //=================================
         //scrollUp
         &.--scrollDown {
             transform: translateY(-100%);
+            position: fixed;
         }
 
         //scrollDown
         &.--scrollUp {
             transform: translateY(0);
+            position: fixed;
         }
 
         //active del search-----

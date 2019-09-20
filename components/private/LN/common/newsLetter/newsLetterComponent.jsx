@@ -16,8 +16,8 @@ const newLetter = props => {
                     logueado ? 'logueado' : ''
                 }${isSubscribe ? 'suscripto' : ''}`}
             >
-                <div className="col-2" />
-                <div className="col-4 hlp-paddingHeight-40 hlp-marginRight-20">
+                <div className="col-tablet-2" />
+                <div className="col-12 col-tablet-5 hlp-paddingHeight-40 hlp-paddingRight-20 hlp-line">
                     <h2 className="com-title-section-s hlp-marginBottom-10 hlp-marginRight-5">
                         Newsletter
                     </h2>
@@ -58,7 +58,7 @@ const newLetter = props => {
                         </p>
                     )}
                 </div>
-                <div className="col-4 hlp-paddingHeight-40 hlp-marginLeft-20">
+                <div className="col-12 col-tablet-3 hlp-paddingHeight-40">
                     {logueado ? null : isSubscribe ? null : (
                         // TODO: Falta validacion del input type="mail" y si va nulo
                         <>
@@ -81,7 +81,7 @@ const newLetter = props => {
                     )}
                     {isSubscribe ? null : (
                         <div className="com-breadcrumb">
-                            <a className="hlp-bold" href="">
+                            <a className="hlp-bold hlp-marginBottom-15" href="">
                                 Ver ejemplo
                             </a>
                             <a href="#" onClick={subscriptionsCallBack}>
@@ -91,7 +91,7 @@ const newLetter = props => {
                         </div>
                     )}
                 </div>
-                <div className="col-2" />
+                <div className="col-tablet-2" />
             </div>
         </>
     );
