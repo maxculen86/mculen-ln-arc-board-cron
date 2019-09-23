@@ -1,12 +1,19 @@
 import React from 'react';
-import '../../../../../resources/dist/css/ln/components/ranking.css';
-import withRankingArticlesData from '../hocs/WithRankingArticlesData';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import withRankingArticlesData from '../hocs/WithRankingArticlesData';
 import TitleSection from '../titles/titleSection';
 import OrderedList from '../lists/ordered';
 import ArticleMain from '../articleTypes/articleMain';
 
-const Ranking = ({ title, articles, size }) => {
+import '../../../../../resources/dist/css/ln/components/ranking.css';
+
+const Ranking = ({ articles, size, globalContent }) => {
+    console.log('RANKING GLOBAL CONTENT:::', globalContent);
+    const title =
+        globalContent.node_type === 'section'
+            ? globalContent.name
+            : globalContent.taxonomy.primary_section.name;
     const titleText = title ? `Más leídas de ${title}` : 'Más leídas';
     return (
         <div className="com-ranking">
@@ -29,4 +36,4 @@ Ranking.propTypes = {
     title: PropTypes.string
 };
 
-export default withRankingArticlesData(Ranking);
+export default Consumer(withRankingArticlesData(Ranking));
