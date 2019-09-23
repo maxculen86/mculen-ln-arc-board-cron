@@ -1,13 +1,20 @@
 const useCookie = () => {
-    // Metodo para setear Cookie
-    /* function setCookie(timeExpiration = 2) {
-        const now = new Date();
-        const exp = new Date(now.getTime() + timeExpiration * 1000);
-        document.cookie = `Token=1; expires=${exp.toUTCString()}`;
-        return !!(document.cookie && document.cookie.indexOf('Token=1') !== -1);
-    } */
+    function setCookie(nameCookie, valueCookie, timeExpiration = 2) {
+        if (!nameCookie || typeof nameCookie !== 'string') return false;
+        if (nameCookie.length === 0) return false;
 
-    // Metodo para mostrar Cookie
+        if (!valueCookie || typeof valueCookie !== 'string') return false;
+        if (valueCookie.length === 0) return false;
+
+        const now = new Date();
+        const exp = new Date(now.getTime() + timeExpiration * 60 * 1000);
+        document.cookie = `${nameCookie}=${valueCookie}; expires=${exp.toUTCString()}`;
+        return !!(
+            document.cookie &&
+            document.cookie.indexOf(`${nameCookie}=${valueCookie}`) !== -1
+        );
+    }
+
     function getCookie(nameCookie) {
         if (!nameCookie) return undefined;
 
@@ -22,7 +29,8 @@ const useCookie = () => {
     }
 
     return {
-        getCookie
+        getCookie,
+        setCookie
     };
 };
 
