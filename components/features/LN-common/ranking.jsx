@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Ranking from '../../private/LN/common/ranking';
 
-const ranking = ({ customFields: { cantidadNotas, titulo } }) => {
+const ranking = ({ customFields: { cantidadNotas } }) => {
     return <Ranking size={cantidadNotas} />;
 };
 

@@ -9,7 +9,6 @@ import ArticleMain from '../articleTypes/articleMain';
 import '../../../../../resources/dist/css/ln/components/ranking.css';
 
 const Ranking = ({ articles, size, globalContent }) => {
-    console.log('RANKING GLOBAL CONTENT:::', globalContent);
     const title =
         globalContent.node_type === 'section'
             ? globalContent.name
@@ -32,8 +31,7 @@ const Ranking = ({ articles, size, globalContent }) => {
 };
 
 Ranking.propTypes = {
-    articles: PropTypes.oneOfType([PropTypes.array]).isRequired,
-    title: PropTypes.string
+    articles: PropTypes.array.isRequired
 };
 
 export default Consumer(withRankingArticlesData(Ranking));
