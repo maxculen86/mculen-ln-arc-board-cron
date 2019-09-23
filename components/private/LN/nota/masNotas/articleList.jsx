@@ -12,15 +12,7 @@ const ArticleList = props => {
 
     if (!articles) return null;
 
-    const articleId = promo_items.basic._id;
-    const articlesArray = articles.filter(article => {
-        if (article.promo_items.hasOwnProperty('receta')) {
-            return article.promo_items.basic._id !== articleId;
-        }
-        return true;
-    });
-
-    return articlesArray.map(e => <ArticleMain articleData={e} />);
+    return articles.map(e => <ArticleMain articleData={e} />);
 };
 
 export default withAcuArticlesData(ArticleList, null, 'notaM');
