@@ -1,14 +1,25 @@
 #!/bin/bash
 
-RELEASE=false
+# GRUPOS=( "OTT" )
+# GRUPOS=( "LN/NOTA" "LN/HOME" "LN/COMMON" )
+GRUPOS=( "LN/NOTA" "LN/HOME" "LN/COMMON" "OTT" )
+
 BRANCH_ORIGEN="develop"
-if [ -z "$1" ]; then 
-    KEY=`date +%Y-%m-%d`
-    RELEASE=false
-else
-    KEY="${1}"
-    RELEASE=true
+MERGE=false
+if [ "${1}" == "MERGE" ]; then 
+    MERGE=true
 fi
+if [ "${1}" == "PUSH" ]; then 
+    MERGE=true
+    PUSH=true
+fi
+
+if [ -z "${2}" ]; then 
+    KEY=`date +%Y-%m-%d`
+else
+    KEY="${2}"
+fi
+
 BRANCH_NAME="LN/merge/${KEY}"
 BRANCH_TEMP="LN/merge/${KEY}-temp"
 
@@ -17,9 +28,6 @@ if [ "${BRANCH_ORIGEN}" == "develop" ]; then
 else
     BRANCH_RELEASE="${BRANCH_NAME}/${BRANCH_ORIGEN}"
 fi
-
-GRUPOS=( "LN/NOTA" "LN/HOME" "LN/COMMON" "OTT" )
-GRUPOS=( "LN/COMMON" )
 
 echo ">>>> UPDATE BRANCHES <<<<" &&
 git checkout -q develop && git fetch && git pull &&
@@ -33,13 +41,13 @@ echo "" &&
 
 if [ `git branch --list ${BRANCH_RELEASE}` ]
 then
-    echo ">>>> Creo RELEASE desde ${BRANCH_ORIGEN}" &&
-    git checkout ${BRANCH_ORIGEN} &&
-    git checkout -q -b ${BRANCH_RELEASE};
-else
     echo ">>>> Cambio a ${BRANCH_RELEASE}" &&
-    git checkout ${BRANCH_RELEASE};
-fi
+    git checkout -q ${BRANCH_RELEASE};
+else
+    echo ">>>> Creo RELEASE ${BRANCH_RELEASE} desde ${BRANCH_ORIGEN}" &&
+    git checkout -q ${BRANCH_ORIGEN} &&
+    git checkout -q -b ${BRANCH_RELEASE};
+fi &&
 
 echo "------------------------------------------" &&
 echo "" &&
@@ -47,26 +55,30 @@ echo "" &&
 for NAME in "${GRUPOS[@]}"
 do : 
     echo ">>>> Creo temporal desde ${NAME}" &&
-    git checkout ${NAME}/develop &&
-    git checkout -b ${BRANCH_TEMP}/${NAME} &&
+    git checkout -q ${NAME}/develop &&
+    git checkout -q -b ${BRANCH_TEMP}/${NAME} &&
 
     echo "  >>>> Actualizo temporal con RELEASE" &&
     git merge ${BRANCH_RELEASE} &&
 
     echo "  >>>> Creo RELEASE para ${NAME}" &&
-    git checkout ${BRANCH_RELEASE} &&
-    git checkout -b ${BRANCH_RELEASE}-para/${NAME} &&
+    git checkout -q ${BRANCH_RELEASE} &&
+    git checkout -q -b ${BRANCH_RELEASE}-para/${NAME} &&
 
     echo "  >>>> Aplico ${NAME} al RELEASE" &&
     git merge ${BRANCH_TEMP}/${NAME} &&
 
     echo "  >>>> Aplico RELEASE" &&
-    git checkout ${BRANCH_RELEASE} &&
+    git checkout -q ${BRANCH_RELEASE} &&
     git merge ${BRANCH_RELEASE}-para/${NAME} &&
 
     echo "  >>>> Actualizo ${NAME}" &&
-    git checkout ${NAME}/develop &&
+    git checkout -q ${NAME}/develop &&
     git merge ${BRANCH_RELEASE} &&
+
+    if [ $PUSH ]; then
+        git push --verbose;
+    fi &&
 
     echo "  >>>> ELIMINO TEMPS" &&
     git branch -d ${BRANCH_RELEASE}-para/${NAME} &&
@@ -74,14 +86,34 @@ do :
 
 done && 
 
-if [ $RELASE ]; then
+if [ $MERGE ]; then
 
-    echo "  >>>> Aplico RELEASE FINAL" &&
-    git checkout ${BRANCH_ORIGEN} &&
+    echo "" &&
+    echo "" &&
+    echo "  >>>>>>>>>>>>>>><<<<<<<<<<<<<<<" &&
+    echo "  >>>> Aplico RELEASE FINAL <<<<" &&
+    echo "  >>>>>>>>>>>>>>><<<<<<<<<<<<<<<" &&
+    echo "" &&
+    echo "" &&
+
+    git checkout -q ${BRANCH_ORIGEN} &&
     git merge ${BRANCH_RELEASE} &&
 
     echo "  >>>> ELIMINO RELEASE" &&
     git branch -d ${BRANCH_RELEASE} || exit;
+fi &&
+
+if [ $PUSH ]; then
+    echo "" &&
+    echo "" &&
+    echo "  >>>>>>><<<<<<<" &&
+    echo "  >>>> PUSH <<<<" &&
+    echo "  >>>>>>><<<<<<<" &&
+    echo "" &&
+    echo "" &&
+
+    git checkout -q ${BRANCH_ORIGEN} &&
+    git push --verbose;
 
 fi &&
 
