@@ -122,12 +122,8 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
         class="sidebar__aside hlp-tablet-none"
       >
         <div
-          class="row"
-        >
-          <div
-            id="Hijo5"
-          />
-        </div>
+          id="Hijo5"
+        />
       </div>
     </div>
     <div
