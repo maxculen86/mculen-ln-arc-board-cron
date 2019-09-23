@@ -112,14 +112,14 @@ class LNNotaReceta extends Component {
                         </div>
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-tablet-none">
-                            <div className="row">{children[5]}</div>
+                            {children[5]}
                         </div>
                     </div>
 
                     {/* TODO: revisar clases del newsLetter Full-Break */}
                     {children[6]}
 
-                    <div className="lay-sidebar hlp-marginBottom-40">
+                    <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
                             {children[7]}
