@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import BreadcrumbComponent from '../../common/breadcrumbBase';
+import BreadcrumbComponent from '../../../common/breadcrumbBase';
+import BreadCrumbSchema from '../../../common/breadcrumbSchema';
 
 const getPrimaryTree = (sections, section, resultSections) => {
     resultSections.push({
@@ -20,7 +21,7 @@ const breadcrumbArticle = ({
     globalContent: {
         taxonomy: { primary_section, sections }
     },
-    siteProperties: { title: siteTitle }
+    siteProperties: { title: siteTitle, shareConfig }
 }) => {
     let allSections = [];
     if (primary_section) {
@@ -33,10 +34,16 @@ const breadcrumbArticle = ({
     allSections = allSections.reverse();
 
     return (
-        <BreadcrumbComponent
-            extraClasses="hlp-marginBottom-40"
-            sections={allSections.slice(0, 3)}
-        />
+        <>
+            <BreadcrumbComponent
+                extraClasses="hlp-marginBottom-40"
+                sections={allSections.slice(0, 3)}
+            />
+            <BreadCrumbSchema
+                sections={allSections.slice(0, 3)}
+                host={shareConfig.host}
+            />
+        </>
     );
 };
 

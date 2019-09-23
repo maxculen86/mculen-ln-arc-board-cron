@@ -149,19 +149,24 @@ body {
 }
 
 main {
-    padding-top: 20px;
     padding-bottom: 30px;
     @media (min-width: 768px) {
-        padding-top: 30px;
+        padding-top: 20px;
         padding-bottom: 50px;
     }
     @media (min-width: 1025px) {
-        padding-top: 100px;
+        padding-top: 20px;
         padding-bottom: 50px;
     }
 }
 
 a {
     text-decoration: none;
-    color:inherit;
+    color: inherit;
+    transition: all .2s ease-in-out;
+    &:hover {
+        opacity: 0.8;
+        transition: all .2s ease-in-out;
+        cursor: pointer
+    }
 }

@@ -1,93 +1,133 @@
 #!/bin/bash
 
+# GRUPOS=( "OTT" )
+# GRUPOS=( "LN/NOTA" "LN/HOME" "LN/COMMON" )
+GRUPOS=( "LN/NOTA" "LN/HOME" "LN/COMMON" "OTT" )
+
 BRANCH_ORIGEN="develop"
-BRANCH_NAME="LN/release/${1}"
-BRANCH_MERGE_BASE="LN/release/${1}-merged-from"
-BRANCH_RELEASE="${BRANCH_NAME}/${BRANCH_ORIGEN}"
+MERGE=false
+PUSH=false
+
+if [ "${1}" == "MERGE" ]; then 
+    MERGE=true
+    PUSH=false
+fi
+if [ "${1}" == "PUSH" ]; then 
+    MERGE=true
+    PUSH=true
+fi
+
+if [ -z "${2}" ]; then 
+    KEY=`date +%Y-%m-%d`
+else
+    KEY="${2}"
+fi
+
+BRANCH_NAME="LN/merge/${KEY}"
+BRANCH_TEMP="LN/merge/${KEY}-temp"
+
+if [ "${BRANCH_ORIGEN}" == "develop" ]; then
+    BRANCH_RELEASE="${BRANCH_NAME}/ALL-MERGED"
+else
+    BRANCH_RELEASE="${BRANCH_NAME}/${BRANCH_ORIGEN}"
+fi
+
+
+echo " · GRUPOS: ${GRUPOS[@]}"
+echo " · BRANCH_NAME: ${BRANCH_NAME}"
+echo " · BRANCH_TEMP: ${BRANCH_TEMP}"
+echo " · BRANCH_ORIGEN: ${BRANCH_ORIGEN}"
+echo " · MERGE: ${MERGE}"
+echo " · PUSH: ${PUSH}"
 
 echo ">>>> UPDATE BRANCHES <<<<" &&
-git checkout ${BRANCH_ORIGEN} && git fetch --verbose && git pull --verbose &&
-git checkout develop && git fetch --verbose && git pull --verbose &&
-git checkout LN/NOTA/develop && git fetch --verbose && git pull --verbose &&
-git checkout LN/HOME/develop && git fetch --verbose && git pull --verbose && 
-git checkout OTT/develop && git fetch --verbose && git pull --verbose && 
-git checkout LN/COMMON/develop && git fetch --verbose && git pull --verbose &&
+git checkout -q develop && git fetch && git pull &&
+for NAME in "${GRUPOS[@]}"
+do : 
+   git checkout -q ${NAME}/develop && git fetch && git pull || exit;
+done && 
 
 echo "------------------------------------------" &&
+echo "" &&
 
-echo ">>>> Merge desde ${BRANCH_ORIGEN} a ${BRANCH_MERGE_BASE}/COMMON <<<<" &&
-git checkout ${BRANCH_ORIGEN} &&
-git checkout -q -b ${BRANCH_MERGE_BASE}/COMMON --no-track ${BRANCH_ORIGEN} &&
-git merge LN/COMMON/develop --verbose &&
+if [ `git branch --list ${BRANCH_RELEASE}` ]
+then
+    echo ">>>> Cambio a ${BRANCH_RELEASE}" &&
+    git checkout -q ${BRANCH_RELEASE};
+else
+    echo ">>>> Creo RELEASE ${BRANCH_RELEASE} desde ${BRANCH_ORIGEN}" &&
+    git checkout -q ${BRANCH_ORIGEN} &&
+    git checkout -q -b ${BRANCH_RELEASE};
+fi &&
 
-echo " > ------------------------------------ <" &&
-echo ">>>> Merge desde ${BRANCH_ORIGEN} a ${BRANCH_MERGE_BASE}/NOTA <<<<" &&
-git checkout ${BRANCH_ORIGEN} &&
-git checkout -q -b ${BRANCH_MERGE_BASE}/NOTA --no-track ${BRANCH_ORIGEN} &&
-git merge LN/NOTA/develop --verbose &&
+echo "------------------------------------------" &&
+echo "" &&
 
-echo " > ------------------------------------ <" &&
-echo ">>>> Merge desde ${BRANCH_ORIGEN} a ${BRANCH_MERGE_BASE}/HOME <<<<" &&
-git checkout ${BRANCH_ORIGEN} &&
-git checkout -q -b ${BRANCH_MERGE_BASE}/HOME --no-track ${BRANCH_ORIGEN} &&
-git merge LN/HOME/develop --verbose &&
+for NAME in "${GRUPOS[@]}"
+do : 
+    echo ">>>> Creo temporal desde ${NAME}" &&
+    git checkout -q ${NAME}/develop &&
+    git checkout -q -b ${BRANCH_TEMP}/${NAME} &&
 
-echo " > ------------------------------------ <" &&
-echo ">>>> Merge desde ${BRANCH_ORIGEN} a ${BRANCH_MERGE_BASE}/OTT <<<<" &&
-git checkout ${BRANCH_ORIGEN} &&
-git checkout -q -b ${BRANCH_MERGE_BASE}/OTT --no-track ${BRANCH_ORIGEN} &&
-git merge OTT/develop --verbose &&
-echo " > ------------------------------------ <" &&
+    echo "  >>>> Actualizo temporal con RELEASE" &&
+    git merge ${BRANCH_RELEASE} &&
 
-echo ">>>> CREO BRANCH ${BRANCH_RELEASE} <<<<<" &&
-git checkout -q -b ${BRANCH_RELEASE} --no-track ${BRANCH_ORIGEN} &&
+    echo "  >>>> Creo RELEASE para ${NAME}" &&
+    git checkout -q ${BRANCH_RELEASE} &&
+    git checkout -q -b ${BRANCH_RELEASE}-para/${NAME} &&
 
-echo ">>>> Merge desde ${BRANCH_MERGE_BASE}/COMMON a ${BRANCH_RELEASE} <<<<" &&
-git merge ${BRANCH_MERGE_BASE}/COMMON --verbose &&
+    echo "  >>>> Aplico ${NAME} al RELEASE" &&
+    git merge ${BRANCH_TEMP}/${NAME} &&
 
-echo ">>>> Merge desde ${BRANCH_MERGE_BASE}/NOTA a ${BRANCH_RELEASE} <<<<" &&
-git merge ${BRANCH_MERGE_BASE}/NOTA --verbose &&
+    echo "  >>>> Aplico RELEASE" &&
+    git checkout -q ${BRANCH_RELEASE} &&
+    git merge ${BRANCH_RELEASE}-para/${NAME} &&
 
-echo ">>>> Merge desde ${BRANCH_MERGE_BASE}/HOME a ${BRANCH_RELEASE} <<<<" &&
-git merge ${BRANCH_MERGE_BASE}/HOME --verbose &&
+    echo "  >>>> Actualizo ${NAME}" &&
+    git checkout -q ${NAME}/develop &&
+    git merge ${BRANCH_RELEASE} &&
 
-echo ">>>> Merge desde ${BRANCH_MERGE_BASE}/OTT a ${BRANCH_RELEASE} <<<<" &&
-git merge ${BRANCH_MERGE_BASE}/OTT --verbose &&
+    if [ $PUSH ]; then
+        git push --verbose;
+    fi &&
 
-echo " > ------------------------------------ <" &&
+    echo "  >>>> ELIMINO TEMPS" &&
+    git branch -d ${BRANCH_RELEASE}-para/${NAME} &&
+    git branch -d ${BRANCH_TEMP}/${NAME} || exit;
 
-git checkout ${BRANCH_RELEASE} &&
-echo ">>> PUSH ${BRANCH_RELEASE} <<<<" &&
+done && 
 
-git push --set-upstream origin ${BRANCH_RELEASE} &&
-echo " > ------------------------------------ <" &&
+if [ $MERGE == true ]; then
 
-echo ">>> Merge desde ${BRANCH_RELEASE} a ${BRANCH_MERGE_BASE}/COMMON <<<<" &&
-git checkout ${BRANCH_MERGE_BASE}/COMMON &&
-git merge ${BRANCH_RELEASE} &&
-echo " > ------------------------------------ <" &&
+    echo "" &&
+    echo "" &&
+    echo "  >>>>>>>>>>>>>>><<<<<<<<<<<<<<<" &&
+    echo "  >>>> Aplico RELEASE FINAL <<<<" &&
+    echo "  >>>>>>>>>>>>>>><<<<<<<<<<<<<<<" &&
+    echo "" &&
+    echo "" &&
 
-echo ">>> Merge desde ${BRANCH_RELEASE} a ${BRANCH_MERGE_BASE}/NOTA <<<<" &&
-git checkout ${BRANCH_MERGE_BASE}/NOTA &&
-git merge ${BRANCH_RELEASE} &&
-echo " > ------------------------------------ <" &&
+    git checkout -q ${BRANCH_ORIGEN} &&
+    git merge ${BRANCH_RELEASE} &&
 
-echo ">>> Merge desde ${BRANCH_RELEASE} a ${BRANCH_MERGE_BASE}/HOME <<<<" &&
-git checkout ${BRANCH_MERGE_BASE}/HOME &&
-git merge ${BRANCH_RELEASE} &&
-echo " > ------------------------------------ <" &&
+    echo "  >>>> ELIMINO RELEASE" &&
+    git branch -d ${BRANCH_RELEASE} || exit;
+fi &&
 
-echo ">>> Merge desde ${BRANCH_RELEASE} a ${BRANCH_MERGE_BASE}/OTT <<<<" &&
-git checkout ${BRANCH_MERGE_BASE}/OTT &&
-git merge ${BRANCH_RELEASE} &&
-echo " > ------------------------------------ <" &&
+if [ $PUSH == true ]; then
+    echo "" &&
+    echo "" &&
+    echo "  >>>>>>><<<<<<<" &&
+    echo "  >>>> PUSH <<<<" &&
+    echo "  >>>>>>><<<<<<<" &&
+    echo "" &&
+    echo "" &&
 
-git checkout ${BRANCH_RELEASE} &&
+    git checkout -q ${BRANCH_ORIGEN} &&
+    git push --verbose;
 
-echo "Borrando ${BRANCH_MERGE_BASE}/*" &&
-git branch -d ${BRANCH_MERGE_BASE}/COMMON &&
-git branch -d ${BRANCH_MERGE_BASE}/NOTA &&
-git branch -d ${BRANCH_MERGE_BASE}/HOME &&
-git branch -d ${BRANCH_MERGE_BASE}/OTT &&
+fi &&
 
 echo " >>> FIN <<< "
+
+exit
