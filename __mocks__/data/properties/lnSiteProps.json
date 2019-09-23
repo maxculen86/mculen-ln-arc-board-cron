@@ -4,6 +4,12 @@
         "apiEnv": "sandbox"
     },
     "videoBaseUrl": "/",
+    "shareConfig": {
+        "host": "https://www.lanacion.com.ar",
+        "facebook": {
+            "appID": "246891475813003"
+        }
+    },
     "sliderConfig": [
         {
             "name": "desktop",
