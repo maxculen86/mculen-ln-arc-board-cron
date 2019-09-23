@@ -6,20 +6,16 @@ import TitleSection from '../titles/titleSection';
 import OrderedList from '../lists/ordered';
 import ArticleMain from '../articleTypes/articleMain';
 
-// mock array
-import articles from './mock';
-
-const Ranking = props => {
-    // { articles }
-
+const Ranking = ({ title, articles, size }) => {
+    const titleText = title ? `Más leídas de ${title}` : 'Más leídas';
     return (
         <div className="com-ranking">
             {/*hlp-none hlp-tablet-none*/}
-            <TitleSection size="m" text="Recetas más leídas" />
+            <TitleSection size="m" text={titleText} />
             <OrderedList>
                 {articles.length > 0 &&
                     articles
-                        .filter((item, i) => i < 6)
+                        .slice(0, size)
                         .map(article => (
                             <ArticleMain border articleData={article} />
                         ))}
@@ -28,8 +24,9 @@ const Ranking = props => {
     );
 };
 
-/*Ranking.propTypes = {
-    articles: PropTypes.oneOfType([PropTypes.array]).isRequired
-};*/
+Ranking.propTypes = {
+    articles: PropTypes.oneOfType([PropTypes.array]).isRequired,
+    title: PropTypes.string
+};
 
 export default withRankingArticlesData(Ranking);
