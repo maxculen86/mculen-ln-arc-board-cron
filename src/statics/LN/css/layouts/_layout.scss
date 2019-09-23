@@ -7,6 +7,7 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
+    margin-bottom: $px-40;
 }
 
 @media ($media-l) {
