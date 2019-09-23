@@ -78,16 +78,20 @@
     }
 }
 
-.com-titleWithfollow { 
+.com-titleWithfollow {
+    margin-bottom: 20px;
+    @media (min-width: 768px) {
+        margin-bottom: 30px;
+    }
+    @media (min-width: 1024px) {
+        margin-bottom: 40px;
+    }
     [class^="com-title"],
     [class*=" com-title"] {
         display: inline-block;
         margin-right: $px-10;
         vertical-align: middle;
         margin-bottom: $px-10;
-        @media (min-width: 768px) {
-            margin-bottom: 0;
-        }
     }
 }
 

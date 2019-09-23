@@ -85,10 +85,10 @@ if [ "${4}" == "MERGE" ] || [ "${4}" == "DEPLOY" ]; then
         git branch -d ${NUEVO} >> .tools/log.txt &&
 
         npx fusion zip;
-    else
-        echo "  >  >  > Agregar DEPLOY o MERGE como cuarto parametro para impactar en ramas devs";
-        echo "  >  >  > ${0} ${1} ${2} ${3} DEPLOY"
-    fi;
+    fi
+else
+    echo "  >  >  > Agregar DEPLOY o MERGE como cuarto parametro para impactar en ramas devs";
+    echo "  >  >  > ${0} ${1} ${2} ${3} DEPLOY"
 fi &&
 
 echo " >>> FIN <<< "
