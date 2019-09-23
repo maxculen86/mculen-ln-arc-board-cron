@@ -10,7 +10,7 @@ article a.figure {
     }
 }
 
-article a.figure:before {
+article a.figure:before:not(.mod-caja-nota a.figure:before) {
     position: absolute;
     top: 0;
     bottom: 0;

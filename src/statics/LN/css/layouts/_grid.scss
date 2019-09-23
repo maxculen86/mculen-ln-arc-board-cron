@@ -8,9 +8,13 @@
 //=======================================
 // IMAGEN QUE SE ESCAPA DE MARGENES al 100%
 //=======================================
-.w-100{
+.w-100 {
   width: calc(100% + 20px)!important;
   margin-left: -$px-10;
+  &.banner{
+    margin-left:0;
+    width:100%!important;
+  }
 }
 @media ($media-s){
   .w-100{
