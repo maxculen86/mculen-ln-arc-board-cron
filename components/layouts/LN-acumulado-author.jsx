@@ -65,10 +65,8 @@ const LNAcumuladoAuthorLayout = props => (
                         {/* LINKS DE NAVEGACION */}
                         {props.children[1]}
                     </div>
-                    <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-                        {/* NOTAS */}
-                        {props.children[2]}
-                    </section>
+                    {/* NOTAS */}
+                    {props.children[2]}
                 </div>
                 <div className="sidebar__aside">
                     <BannerCaja1 />
