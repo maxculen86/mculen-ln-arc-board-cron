@@ -8,6 +8,9 @@
     line-height: $font-16;
     display: flex;
     justify-content: flex-end;
+    >button.--highlight{
+      margin-right: 35px;
+    }
     &__name{
         font-weight: 700;
         font-size: $font-14;
