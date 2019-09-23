@@ -9,13 +9,13 @@
     display: flex;
     justify-content: flex-end;
     >button.--highlight{
-      margin-right: 35px;
+      margin-right: $px-35;
     }
     &__name{
         font-weight: 700;
         font-size: $font-14;
-        color:$link;
-        cursor:pointer;
+        color: $link;
+        cursor: pointer;
         position: relative;
         margin-bottom: $px-5;
         &:before{
@@ -33,7 +33,7 @@
     &__valueSuscrib{
         font-weight: 400;
         font-size: $font-12;
-        color:$gris5;
+        color: $gris5;
     }
 }
 
@@ -46,9 +46,9 @@
     background: $blanco;
     border-radius: 3px;
     text-align: left;
-    position:absolute;
-    right:-40px;
-    top:50px;
+    position: absolute;
+    right: -40px;
+    top: $px-50;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     &:before{
         content: "";
@@ -66,11 +66,11 @@
     }
   &:after{
         content: "";
-        width: 40px;
-        height: 10px;
+        width: $px-40;
+        height: $px-10;
         position: absolute;
         top: 0;
-        left: 80px;
+        left: $px-80;
         background: $blanco;
         display:block;
         z-index:0;
