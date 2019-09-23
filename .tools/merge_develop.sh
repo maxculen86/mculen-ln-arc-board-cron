@@ -6,8 +6,11 @@ GRUPOS=( "LN/NOTA" "LN/HOME" "LN/COMMON" "OTT" )
 
 BRANCH_ORIGEN="develop"
 MERGE=false
+PUSH=false
+
 if [ "${1}" == "MERGE" ]; then 
     MERGE=true
+    PUSH=false
 fi
 if [ "${1}" == "PUSH" ]; then 
     MERGE=true
@@ -24,10 +27,18 @@ BRANCH_NAME="LN/merge/${KEY}"
 BRANCH_TEMP="LN/merge/${KEY}-temp"
 
 if [ "${BRANCH_ORIGEN}" == "develop" ]; then
-    BRANCH_RELEASE="${BRANCH_NAME}/RELEASE"
+    BRANCH_RELEASE="${BRANCH_NAME}/ALL-MERGED"
 else
     BRANCH_RELEASE="${BRANCH_NAME}/${BRANCH_ORIGEN}"
 fi
+
+
+echo " · GRUPOS: ${GRUPOS[@]}"
+echo " · BRANCH_NAME: ${BRANCH_NAME}"
+echo " · BRANCH_TEMP: ${BRANCH_TEMP}"
+echo " · BRANCH_ORIGEN: ${BRANCH_ORIGEN}"
+echo " · MERGE: ${MERGE}"
+echo " · PUSH: ${PUSH}"
 
 echo ">>>> UPDATE BRANCHES <<<<" &&
 git checkout -q develop && git fetch && git pull &&
@@ -86,7 +97,7 @@ do :
 
 done && 
 
-if [ $MERGE ]; then
+if [ $MERGE == true ]; then
 
     echo "" &&
     echo "" &&
@@ -103,7 +114,7 @@ if [ $MERGE ]; then
     git branch -d ${BRANCH_RELEASE} || exit;
 fi &&
 
-if [ $PUSH ]; then
+if [ $PUSH == true ]; then
     echo "" &&
     echo "" &&
     echo "  >>>>>>><<<<<<<" &&
