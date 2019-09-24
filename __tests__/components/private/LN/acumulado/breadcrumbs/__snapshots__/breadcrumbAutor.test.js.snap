@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - private - LN - acumulado - breadcrumbs - breadcrumbAutor Test de snapshot breadcrumbAutor 1`] = `
+Array [
+  <nav
+    class="com-breadcrumb "
+  >
+    <a
+      href="/"
+    >
+      LA NACION
+    </a>
+    <a
+      href="/autores"
+    >
+      Autores
+    </a>
+    <a
+      href="/autores/emilse-pizarro"
+    >
+      Emilse Pizarro
+    </a>
+  </nav>,
+  null,
+]
+`;
