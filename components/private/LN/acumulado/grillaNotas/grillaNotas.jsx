@@ -6,6 +6,7 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import BtnMasNotas from '../botonVerMasNotas';
 
 const CLASS_W_100 = 'w-100-mobile';
+const DATA_SECTION = 'CuerpoAcuRecetas';
 class GrillaNotas extends Component {
     render() {
         let articlesComponents = [];
@@ -17,6 +18,7 @@ class GrillaNotas extends Component {
                 );
                 return (
                     <ArticleMain
+                        dataSection={DATA_SECTION}
                         key={i}
                         children={dateComponent}
                         articleData={a}

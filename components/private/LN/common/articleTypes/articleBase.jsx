@@ -9,13 +9,17 @@ export default ({
     articleData: { headlines, website_url, label },
     mediaComponent,
     children,
-    border
+    border,
+    dataSection
 }) => {
     const volanta = label && label.volanta && label.volanta.text;
     const borderClass = border ? '--border ' : '';
+    const extraOpts = {};
+    if (dataSection) extraOpts['data-section'] = dataSection;
     return (
         <article
-            className={`mod-caja-nota ${borderClass}${extraClasses || ''}`}
+            className={`mod-caja-nota ${borderClass} ${extraClasses || ''}`}
+            {...extraOpts}
         >
             {mediaComponent}
             <div className="mod-caja-nota__descrip">
