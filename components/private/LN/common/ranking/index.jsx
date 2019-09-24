@@ -8,12 +8,18 @@ import ArticleMain from '../articleTypes/articleMain';
 
 import '../../../../../resources/dist/css/ln/components/ranking.css';
 
+const getTitle = globalContent => {
+    let title;
+    if (globalContent.author_type) title = globalContent.byline;
+    else if (globalContent.node_type === 'section') title = globalContent.name;
+    else if (globalContent.taxonomy.primary_section)
+        title = globalContent.taxonomy.primary_section.name;
+
+    return title ? `Más leídas de ${title}` : 'Más leídas';
+};
+
 const Ranking = ({ articles, size, globalContent }) => {
-    const title =
-        globalContent.node_type === 'section'
-            ? globalContent.name
-            : globalContent.taxonomy.primary_section.name;
-    const titleText = title ? `Más leídas de ${title}` : 'Más leídas';
+    const titleText = getTitle(globalContent);
     return (
         <div className="com-ranking">
             {/*hlp-none hlp-tablet-none*/}
