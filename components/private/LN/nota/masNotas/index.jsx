@@ -25,13 +25,13 @@ const index = props => {
         case '1':
             title = (
                 <>
-                    Mas recetas de
+                    Más recetas de
                     <strong>{` ${sectionName}`}</strong>
                 </>
             );
             break;
         default:
-            title = <h4>{`Ultimas Notas de ${sectionName}`}</h4>;
+            title = <h4>{`Últimas notas de ${sectionName}`}</h4>;
             break;
     }
 
