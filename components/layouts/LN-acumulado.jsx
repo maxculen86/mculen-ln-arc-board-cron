@@ -12,6 +12,8 @@ import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/pages/acu.css';
+import '../../resources/dist/css/ln/components/ordered.css';
+import '../../resources/dist/css/ln/components/unordered.css';
 
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
