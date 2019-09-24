@@ -31,13 +31,18 @@
         margin-bottom: $px-13; 
     }
 }
-
+h4.com-title-section-m {
+    margin-bottom: $px-20;
+}
 .com-title-section-s {
     font-family: $font-SuecaSlab;
     font-size: $font-22;
     font-weight: 500;
     line-height: $line-22;
     letter-spacing: -0.29px;
+}
+h4.com-title-section-s{
+    margin-bottom: $px-20;
 }
 
 .com-title-section-xs {
@@ -53,7 +58,9 @@
     font-size: $font-24;
     line-height: $line-22;
 }
-
+h1.com-title-nota{
+    margin-bottom: $px-40;
+}
 .com-title-acu {
     font-family: $font-arial;
     font-size: $font-14;

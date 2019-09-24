@@ -2,7 +2,7 @@
 
 .aper-receta {
     background: $gris1;
-    margin-bottom: 30px;
+    margin-bottom: $px-40;
     &.sin-foto {
         .cont-figure .content-pic {
         background: $blanco;
@@ -53,7 +53,7 @@
             }
         }
         .cont_tags {
-            margin-bottom: $px-5;
+            margin-bottom: $px-20;
             &:last-child {
                 margin-bottom: 0;
             }
