@@ -10,8 +10,9 @@
         .cont-aper {
             .tags {
                 border-bottom: 0;
-                margin-right: $px-30;
+                margin-right: $px-50;
                 border-right: solid 1px $gris3;
+                > div:last-of-type {margin-top: $px-20;} 
                 &:before {
                     bottom: initial;
                     height: $px-30;
@@ -57,7 +58,7 @@
             &:last-child {
                 margin-bottom: 0;
             }
-            .com-subtitle_list {
+            & + .com-subtitle_list {
                 font-size: $font-14;
                 margin-bottom: $px-12;
             }

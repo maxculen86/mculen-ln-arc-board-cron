@@ -26,6 +26,7 @@
 .com-secondary-tag {
     white-space: nowrap;
     overflow-x: auto;
+    margin-top: $px-10;
     p {
         display: inline-flex;
         font-family: $font-arial;
@@ -38,7 +39,7 @@
         display: inline-block;
         position: relative;
         color: $link;
-        margin-bottom: $px-10;
+        margin-bottom: $px-20;
     }
 }
 
