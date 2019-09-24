@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { API_ENV } from 'fusion:environment';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
 
@@ -7,7 +8,12 @@ import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 
+const { SitioSeguroRegistracion } = API_ENV || {
+    SitioSeguroRegistracion: 'https://ingresar.lanacion.com.ar'
+};
+
 const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
+    const { goToLoginUrl } = loginData;
     const [active, setActive] = useState('');
 
     return (
@@ -23,12 +29,14 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
             <div className="col-4 header__right">
                 <div className={`com-usuario${active}`}>
                     {!loginData.subscription && (
-                        <button
-                            type="button"
+                        <a
                             className="--btn --highlight hlp-marginRight-35"
+                            href={
+                                `${SitioSeguroRegistracion}/suscribirme` || '/'
+                            }
                         >
                             Suscribite
-                        </button>
+                        </a>
                     )}
                     {logueado && (
                         <div
@@ -78,7 +86,11 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                         </div>
                     )}
                     {!logueado && (
-                        <button type="button" className="--btn --secondary">
+                        <button
+                            type="button"
+                            className="--btn --secondary"
+                            onClick={() => goToLoginUrl()}
+                        >
                             Ingresar
                         </button>
                     )}

@@ -5,17 +5,20 @@ const apiIngresar = () => {
     const urlApi = 'https://api-ingresar.lanacion.com.ar/UsuarioV1/';
 
     const reLogin = (token, xvalue) =>
-        fetch(`${urlApi}relogin`, {
+        fetch(`${urlApi}ReLogin`, {
             method: 'POST',
+            headers: {
+                'X-Token': token,
+                'X-Value': xvalue
+            },
             body: JSON.stringify({
-                Token: token,
-                Xvalue: xvalue,
-                AutenticacionTipoId: '14',
+                AutenticacionTipoId: '1',
+                OrigenLoginTipoId: '1',
                 IsRelogin: '1'
             })
         }).then(res => res.json());
 
-    const getMe = (isRelogin = false) => {
+    const getMe = (isRelogin = false, token, xvalue) => {
         if (
             getCookie('shouldrelogin') &&
             getCookie('usuariodata') &&
@@ -26,11 +29,15 @@ const apiIngresar = () => {
             );
         }
 
+        const headers = {};
+
+        headers['X-Token'] = token || getCookie('token');
+
+        if (xvalue) headers['X-Value'] = xvalue;
+
         return fetch(`${urlApi}me`, {
             method: 'POST',
-            headers: {
-                'X-Token': getCookie('token')
-            }
+            headers
         }).then(res => res.json());
     };
 
