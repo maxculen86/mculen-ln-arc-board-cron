@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */ // TODO: Modificar codigo para evitar excluir esta regla
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { API_ENV } from 'fusion:environment';
