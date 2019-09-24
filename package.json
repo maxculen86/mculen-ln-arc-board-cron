@@ -27,17 +27,18 @@
   },
   "dependencies": {
     "lodash.get": "^4.4.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "thumbor": "^0.1.5"
   },
   "devDependencies": {
     "@arc-fusion/cli": "1.0.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
+    "check-dependencies": "^1.1.0",
     "clean-webpack-plugin": "^2.0.2",
     "css-loader": "^2.1.1",
     "enzyme": "^3.10.0",
@@ -50,7 +51,7 @@
     "eslint-plugin-flowtype": "^3.13.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.14.3",
     "file-loader": "^3.0.1",
     "git-branch-is": "^2.1.0",
@@ -66,8 +67,8 @@
     "react-doc-generator": "^1.2.5",
     "resolve-url-loader": "^3.1.0",
     "sass-loader": "^7.3.1",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8"
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
   },
   "repository": {
     "type": "git",

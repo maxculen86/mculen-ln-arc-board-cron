@@ -162,5 +162,11 @@ main {
 
 a {
     text-decoration: none;
-    color:inherit;
+    color: inherit;
+    transition: all .2s ease-in-out;
+    &:hover {
+        opacity: 0.8;
+        transition: all .2s ease-in-out;
+        cursor: pointer
+    }
 }

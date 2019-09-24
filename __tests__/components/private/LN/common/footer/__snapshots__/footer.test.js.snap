@@ -49,6 +49,7 @@ exports[`Footer - LaNacion Test de snapshot Detalle Receta 1`] = `
         </a>
         <a
           href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
+          target="_blank"
         >
           <i
             class="icon-rss"
@@ -61,6 +62,7 @@ exports[`Footer - LaNacion Test de snapshot Detalle Receta 1`] = `
         <a
           class="app_play"
           href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
+          target="_blank"
         >
           <svg
             height="35"
@@ -245,6 +247,7 @@ exports[`Footer - LaNacion Test de snapshot Detalle Receta 1`] = `
         <a
           class="app_ios"
           href="https://apps.apple.com/ar/app/la-nacion/id410689702"
+          target="_blank"
         >
           <svg
             height="35"
@@ -311,7 +314,8 @@ exports[`Footer - LaNacion Test de snapshot Detalle Receta 1`] = `
         </a>
         <a
           class="item_link"
-          href="https://www.lanacion.in/#/"
+          href="https://www.lanacion.in/"
+          target="_blank"
         >
           ¿Cómo anunciar?
         </a>
@@ -330,12 +334,14 @@ exports[`Footer - LaNacion Test de snapshot Detalle Receta 1`] = `
           <a
             class="condition"
             href="https://policies.google.com/terms?hl=es-419"
+            target="_blank"
           >
             Condiciones
           </a>
           <a
             class="private"
             href="https://policies.google.com/privacy?hl=es-419"
+            target="_blank"
           >
             Privacidad
           </a>
@@ -357,6 +363,7 @@ exports[`Footer - LaNacion Test de snapshot Detalle Receta 1`] = `
           Miembro de GDA. Grupo de Diarios América
           <a
             href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
+            target="_blank"
           >
             <img
               alt="Data fiscal"

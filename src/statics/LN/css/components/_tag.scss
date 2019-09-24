@@ -4,15 +4,19 @@
 .com-tag a {
     font-family: $font-arial;
     font-size: $font-12;
-    padding: 7px 12px;
-    border: 1px solid;
-    border-radius: 3px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    padding: $px-6 $px-11;
+    border: $px-1 solid;
+    border-radius: $px-3;
+    margin-right: $px-10;
+    margin-bottom: $px-10;
     text-transform: uppercase;
     display: inline-block;
     border-color: $ln;
-    color: $ln
+    color: $ln;
+    &:hover{
+        background: $ln;
+        color: $blanco; 
+    }
 }
 
 .com-tag a:last-of-type {
@@ -22,6 +26,7 @@
 .com-secondary-tag {
     white-space: nowrap;
     overflow-x: auto;
+    margin-top: $px-10;
     p {
         display: inline-flex;
         font-family: $font-arial;
@@ -30,11 +35,11 @@
     a {
         font-family: $font-arial;
         font-size: $font-14;
-        margin-right: 17px;
+        margin-right: $px-17;
         display: inline-block;
         position: relative;
         color: $link;
-        margin-bottom: 10px;
+        margin-bottom: $px-20;
     }
 }
 
@@ -45,7 +50,7 @@
     color: $ln;
     right: -14px;
     font-size: $font-25;
-    line-height: 15px;
+    line-height: $px-15;
 }
 
 .com-secondary-tag a:last-of-type:after {
