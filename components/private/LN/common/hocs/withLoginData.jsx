@@ -4,7 +4,7 @@ import { API_ENV } from 'fusion:environment';
 import apiIngresar from '../../../common/services/apIngresar';
 import useCookie from '../utils/useCookie';
 
-const { setCookie, getCookie } = useCookie();
+const { setCookie, getCookie, eraseCookie } = useCookie();
 
 const { LoginUrl } = API_ENV || {
     LoginUrl: 'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback='
@@ -126,8 +126,8 @@ function withLoginData(WrappedComponent) {
             const setUserData = res => {
                 if (res.response) {
                     if (!getCookie('shouldrelogin')) {
-                        setCookie('shouldrelogin', 'true', 1);
-                        setCookie('usuariodata', res.response, 1);
+                        setCookie('shouldrelogin', 'true', 12 * 60);
+                        setCookie('usuariodata', res.response, 12 * 60);
                     }
 
                     const { Usuario } = JSON.parse(res.response);
@@ -206,6 +206,8 @@ function withLoginData(WrappedComponent) {
             const urlApiIngresar =
                 APIingresar || 'https://ingresar.lanacion.com.ar';
             const urlToLogout = `${urlApiIngresar}/logout/logout.html?pagina=${location.href}`;
+            eraseCookie('shouldrelogin');
+            eraseCookie('usuariodata');
 
             location.href = urlToLogout;
         };

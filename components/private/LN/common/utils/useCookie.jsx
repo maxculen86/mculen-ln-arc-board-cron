@@ -1,4 +1,9 @@
 const useCookie = () => {
+    function eraseCookie(nameCookie) {
+        console.log('TCL: eraseCookie -> nameCookie', nameCookie);
+        document.cookie = `${nameCookie}=false;expires=Thu, 01-Jan-1970 00:00:01 GMT`;
+    }
+
     function setCookie(nameCookie, valueCookie, timeExpiration = 2) {
         if (!nameCookie || typeof nameCookie !== 'string') return false;
         if (nameCookie.length === 0) return false;
@@ -30,7 +35,8 @@ const useCookie = () => {
 
     return {
         getCookie,
-        setCookie
+        setCookie,
+        eraseCookie
     };
 };
 
