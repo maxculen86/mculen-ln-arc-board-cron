@@ -37,11 +37,9 @@ const index = props => {
 
     return (
         _id && (
-            <div className="row">
-                <h3 className="com-title-section-xl hlp-marginBottom-30">
-                    {title}
-                </h3>
-                <section className="row-gap-tablet-3 row-gap-desksm-3 hlp-marginBottom-40">
+            <div className="row more-articles">
+                <h3 className="com-title-section-xl">{title}</h3>
+                <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
                         size={cantidadNotas}
                         sectionId={filter === '1' ? _id : undefined}

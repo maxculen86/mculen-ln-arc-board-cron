@@ -5,17 +5,16 @@ import '../../../../../resources/dist/css/ln/components/tip.css';
 const Tips = props => {
     const { size, title, paragraphs } = props;
     return (
-        <dl className="com-tip">
+        <div className="com-tip">
             <h4 className={`com-title-section-${size}`}>{title}</h4>
-            <br />
             {paragraphs &&
                 paragraphs.map(paragraph => (
-                    <div key={paragraph.title}>
+                    <dl key={paragraph.title}>
                         <dt>{paragraph.title}</dt>
                         <dd>{paragraph.description}</dd>
-                    </div>
+                    </dl>
                 ))}
-        </dl>
+        </div>
     );
 };
 
