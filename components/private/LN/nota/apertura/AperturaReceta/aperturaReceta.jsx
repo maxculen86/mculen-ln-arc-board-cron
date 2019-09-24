@@ -22,7 +22,7 @@ const aperturaReceta = props => {
                 hasMultimedia ? '' : 'sin-foto'
             }`}
         >
-            {hasMultimedia ? (
+            {!hasMultimedia ? (
                 <AperturaConDestacado {...props} />
             ) : (
                 <AperturaSinDestacado
