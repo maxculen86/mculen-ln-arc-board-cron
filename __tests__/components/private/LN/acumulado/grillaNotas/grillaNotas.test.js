@@ -12,20 +12,37 @@ import TestHelper from '../../../../../utils/testHelper';
 import GrillaNotas from '../../../../../../components/private/LN/acumulado/grillaNotas';
 
 describe('components - private - LN - acumulado - grillaNotas', () => {
-    const globalContent = {
+    const globalContentSection = {
         _id: 'recetas'
     };
     const child = <div>Soy un child</div>;
-    const component = mount(
-        <GrillaNotas globalContent={globalContent}>{child}</GrillaNotas>
+    const componentSection = mount(
+        <GrillaNotas globalContent={globalContentSection}>{child}</GrillaNotas>
     );
 
-    TestHelper.testDoNotRenderChildren(component, 'child');
+    TestHelper.testDoNotRenderChildren(componentSection, 'child');
 
-    const grilla = component.find('grilla-mock');
-    it('testeo que la grilla exista', () => {
-        expect(grilla.is('grilla-mock')).toBe(true);
-        expect(grilla.prop('sectionId')).toBe(globalContent._id);
-        expect(grilla.prop('size')).toBe(30);
+    const grillaSection = componentSection.find('grilla-mock');
+    it('testeo que la grilla de section exista', () => {
+        expect(grillaSection.is('grilla-mock')).toBe(true);
+        expect(grillaSection.prop('sectionId')).toBe(globalContentSection._id);
+        expect(grillaSection.prop('size')).toBe(30);
+    });
+
+    const globalContentAuthor = {
+        _id: 'emilse-pizarro',
+        author_type: 'Estandar'
+    };
+    const componentAuthor = mount(
+        <GrillaNotas globalContent={globalContentAuthor}>{child}</GrillaNotas>
+    );
+
+    TestHelper.testDoNotRenderChildren(componentAuthor, 'child');
+
+    const grillaAuthor = componentAuthor.find('grilla-mock');
+    it('testeo que la grilla de autor exista', () => {
+        expect(grillaAuthor.is('grilla-mock')).toBe(true);
+        expect(grillaAuthor.prop('authorId')).toBe(globalContentAuthor._id);
+        expect(grillaAuthor.prop('size')).toBe(30);
     });
 });

@@ -1,0 +1,1541 @@
+{
+    "_id": "/",
+    "Termicas": {
+        "comentarios": "false",
+        "debug": "true"
+    },
+    "bannerConfig": {
+        "dfp_id": "133919216"
+    },
+    "_website": "la-nacion-ar",
+    "name": "LA NACION",
+    "order": null,
+    "parent": null,
+    "ancestors": null,
+    "inactive": false,
+    "node_type": "section",
+    "children": [
+        {
+            "_id": "/deportes",
+            "site": {
+                "site_tagline": null,
+                "site_title": "Deportes",
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_about": null,
+                "site_url": null,
+                "site_keywords": "Deportes"
+            },
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "social": {
+                "twitter": null,
+                "facebook": null,
+                "rss": null,
+                "instagram": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "name": "Deportes",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/",
+                "+ add": "/",
+                "sample": "/",
+                "config": null,
+                "Home-secciones": "/"
+            },
+            "ancestors": {
+                "default": [],
+                "+ add": ["/"],
+                "sample": ["/"],
+                "config": [],
+                "Home-secciones": ["/"]
+            },
+            "_admin": {
+                "alias_ids": ["/deportes"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+                "+ add": 1001,
+                "sample": 1001,
+                "Home-secciones": 1002
+            },
+            "children": [
+                {
+                    "_id": "/deportes/futbol",
+                    "site": {
+                        "site_tagline": null,
+                        "site_title": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_description": null,
+                        "site_about": null,
+                        "site_url": null,
+                        "site_keywords": null
+                    },
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "social": {
+                        "twitter": null,
+                        "facebook": null,
+                        "rss": null,
+                        "instagram": null
+                    },
+                    "navigation": {
+                        "nav_title": null
+                    },
+                    "Termicas": {
+                        "debug": "false"
+                    },
+                    "name": "Futbol",
+                    "_website": "la-nacion-ar",
+                    "parent": {
+                        "default": "/deportes"
+                    },
+                    "ancestors": {
+                        "default": ["/deportes"]
+                    },
+                    "_admin": {
+                        "alias_ids": ["/deportes/futbol"]
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "children": [
+                        {
+                            "_id": "/deportes/futbol/boca",
+                            "site": {
+                                "site_tagline": null,
+                                "site_title": null,
+                                "pagebuilder_path_for_native_apps": null,
+                                "site_description": null,
+                                "site_about": null,
+                                "site_url": null,
+                                "site_keywords": null
+                            },
+                            "site_topper": {
+                                "site_logo_image": null
+                            },
+                            "social": {
+                                "twitter": null,
+                                "facebook": null,
+                                "rss": null,
+                                "instagram": null
+                            },
+                            "navigation": {
+                                "nav_title": null
+                            },
+                            "Termicas": {
+                                "debug": "false"
+                            },
+                            "name": "Boca Juniors",
+                            "_website": "la-nacion-ar",
+                            "parent": {
+                                "default": "/deportes/futbol"
+                            },
+                            "ancestors": {
+                                "default": ["/deportes", "/deportes/futbol"]
+                            },
+                            "_admin": {
+                                "alias_ids": ["/deportes/futbol/boca"]
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_id": "/turismo",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": null
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "name": "Turismo",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/",
+                "lifestyle": "/economia"
+            },
+            "ancestors": {
+                "default": [],
+                "lifestyle": ["/", "/economia"]
+            },
+            "_admin": {
+                "alias_ids": ["/turismo"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+                "lifestyle": 2001
+            },
+            "children": []
+        },
+        {
+            "_id": "/videos",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": null
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": null
+            },
+            "_admin": {
+                "alias_ids": ["/videos"]
+            },
+            "_website": "la-nacion-ar",
+            "name": "Videos",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/politica",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Política"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Política"
+            },
+            "name": "Política",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/politica"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/opinion",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Opinión"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Opinión"
+            },
+            "name": "Opinión",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/opinion"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/el-mundo",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "El Mundo"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "El Mundo"
+            },
+            "name": "El Mundo",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/el-mundo"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/comunidad",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Comunidad"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Comunidad"
+            },
+            "name": "Comunidad",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/comunidad"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/cultura",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Cultura"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Cultura"
+            },
+            "name": "Cultura",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/cultura"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/educacion",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Educacion"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Educacion"
+            },
+            "name": "Educacion",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/educacion"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/salud",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Salud"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Salud"
+            },
+            "name": "Salud",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/salud"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/sociedad",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Sociedad"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Sociedad"
+            },
+            "name": "Sociedad",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/sociedad"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/seguridad",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Seguridad"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Seguridad"
+            },
+            "name": "Seguridad",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/seguridad"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/buenos-aires",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Buenos Aires"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Buenos Aires"
+            },
+            "name": "Buenos Aires",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/buenos-aires"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/tecnologia",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Tecnología"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Tecnología"
+            },
+            "name": "Tecnología",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/tecnologia"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/lifestyle",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Lifestyle"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Lifestyle"
+            },
+            "name": "Lifestyle",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/lifestyle"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/ciencia",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Ciencia"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Ciencia"
+            },
+            "name": "Ciencia",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/ciencia"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/espectaculos",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": "",
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Espectáculos"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Espectáculos"
+            },
+            "name": "Espectáculos",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/espectaculos"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/moda-y-belleza",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Moda"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Moda"
+            },
+            "name": "Moda",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/moda-y-belleza"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/propiedades",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Propiedades"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Propiedades"
+            },
+            "name": "Propiedades",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/propiedades"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/arquitectura",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Arquitectura"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Arquitectura"
+            },
+            "name": "Arquitectura",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/arquitectura"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/autos",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Autos"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Autos"
+            },
+            "name": "Autos",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/autos"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/editoriales",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": "Editoriales"
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Editoriales"
+            },
+            "name": "Editoriales",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/editoriales"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/recetas",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": null
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Recetas"
+            },
+            "name": "Recetas",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/recetas"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": [
+                {
+                    "_id": "/recetas/platos-principales",
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "site": {
+                        "site_tagline": null,
+                        "site_title": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_description": null,
+                        "site_url": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "social": {
+                        "twitter": null,
+                        "rss": null,
+                        "instagram": null,
+                        "facebook": null
+                    },
+                    "navigation": {
+                        "nav_title": "Platos Principales"
+                    },
+                    "name": "Platos Principales",
+                    "_website": "la-nacion-ar",
+                    "parent": {
+                        "default": "/recetas"
+                    },
+                    "ancestors": {
+                        "default": ["/recetas"]
+                    },
+                    "_admin": {
+                        "alias_ids": ["/recetas/platos-principales"]
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "children": [
+                        {
+                            "_id": "/recetas/platos-principales/cerdo",
+                            "site_topper": {
+                                "site_logo_image": null
+                            },
+                            "site": {
+                                "site_tagline": null,
+                                "site_title": null,
+                                "pagebuilder_path_for_native_apps": null,
+                                "site_description": null,
+                                "site_url": null,
+                                "site_about": null,
+                                "site_keywords": null
+                            },
+                            "social": {
+                                "twitter": null,
+                                "rss": null,
+                                "instagram": null,
+                                "facebook": null
+                            },
+                            "navigation": {
+                                "nav_title": "Cerdo"
+                            },
+                            "name": "Cerdo",
+                            "_website": "la-nacion-ar",
+                            "parent": {
+                                "default": "/recetas/platos-principales"
+                            },
+                            "ancestors": {
+                                "default": [
+                                    "/recetas",
+                                    "/recetas/platos-principales"
+                                ]
+                            },
+                            "_admin": {
+                                "alias_ids": [
+                                    "/recetas/platos-principales/cerdo"
+                                ]
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "children": [
+                                {
+                                    "_id": "/recetas/platos-principales/cerdo/cerdito",
+                                    "site_topper": {
+                                        "site_logo_image": null
+                                    },
+                                    "site": {
+                                        "site_tagline": null,
+                                        "site_title": null,
+                                        "pagebuilder_path_for_native_apps": null,
+                                        "site_description": null,
+                                        "site_url": null,
+                                        "site_about": null,
+                                        "site_keywords": null
+                                    },
+                                    "social": {
+                                        "twitter": null,
+                                        "rss": null,
+                                        "instagram": null,
+                                        "facebook": null
+                                    },
+                                    "navigation": {
+                                        "nav_title": null
+                                    },
+                                    "Termicas": {
+                                        "debug": "false"
+                                    },
+                                    "name": "Cerdito",
+                                    "_website": "la-nacion-ar",
+                                    "parent": {
+                                        "default": "/recetas/platos-principales/cerdo"
+                                    },
+                                    "ancestors": {
+                                        "default": [
+                                            "/recetas",
+                                            "/recetas/platos-principales",
+                                            "/recetas/platos-principales/cerdo"
+                                        ]
+                                    },
+                                    "_admin": {
+                                        "alias_ids": [
+                                            "/recetas/platos-principales/cerdo/cerdito"
+                                        ]
+                                    },
+                                    "inactive": false,
+                                    "node_type": "section",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "_id": "/recetas/platos-principales/carne",
+                            "site_topper": {
+                                "site_logo_image": null
+                            },
+                            "site": {
+                                "site_tagline": null,
+                                "site_title": null,
+                                "pagebuilder_path_for_native_apps": null,
+                                "site_description": null,
+                                "site_url": null,
+                                "site_about": null,
+                                "site_keywords": null
+                            },
+                            "social": {
+                                "twitter": null,
+                                "rss": null,
+                                "instagram": null,
+                                "facebook": null
+                            },
+                            "navigation": {
+                                "nav_title": "Carne"
+                            },
+                            "name": "Carne",
+                            "_website": "la-nacion-ar",
+                            "parent": {
+                                "default": "/recetas/platos-principales"
+                            },
+                            "ancestors": {
+                                "default": [
+                                    "/recetas",
+                                    "/recetas/platos-principales"
+                                ]
+                            },
+                            "_admin": {
+                                "alias_ids": [
+                                    "/recetas/platos-principales/carne"
+                                ]
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "_id": "/recetas/recetas-con-ingredientes",
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "site": {
+                        "site_tagline": null,
+                        "site_title": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_description": null,
+                        "site_url": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "social": {
+                        "twitter": null,
+                        "rss": null,
+                        "instagram": null,
+                        "facebook": null
+                    },
+                    "navigation": {
+                        "nav_title": null
+                    },
+                    "Termicas": {
+                        "debug": "false"
+                    },
+                    "_admin": {
+                        "alias_ids": ["/recetas/recetas-con-ingredientes"]
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Recetas con ingredientes",
+                    "parent": {
+                        "default": "/recetas"
+                    },
+                    "ancestors": {
+                        "default": ["/recetas"]
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "children": [
+                        {
+                            "_id": "/recetas/recetas-con-ingredientes/carne",
+                            "site_topper": {
+                                "site_logo_image": null
+                            },
+                            "site": {
+                                "site_tagline": null,
+                                "site_title": null,
+                                "pagebuilder_path_for_native_apps": null,
+                                "site_description": null,
+                                "site_url": null,
+                                "site_about": null,
+                                "site_keywords": null
+                            },
+                            "social": {
+                                "twitter": null,
+                                "rss": null,
+                                "instagram": null,
+                                "facebook": null
+                            },
+                            "navigation": {
+                                "nav_title": null
+                            },
+                            "Termicas": {
+                                "debug": "false"
+                            },
+                            "name": "Carne",
+                            "_website": "la-nacion-ar",
+                            "parent": {
+                                "default": "/recetas/recetas-con-ingredientes"
+                            },
+                            "ancestors": {
+                                "default": [
+                                    "/recetas",
+                                    "/recetas/recetas-con-ingredientes"
+                                ]
+                            },
+                            "_admin": {
+                                "alias_ids": [
+                                    "/recetas/recetas-con-ingredientes/carne"
+                                ]
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "children": []
+                        },
+                        {
+                            "_id": "/recetas/recetas-con-ingredientes/pollo",
+                            "site_topper": {
+                                "site_logo_image": null
+                            },
+                            "site": {
+                                "site_tagline": null,
+                                "site_title": null,
+                                "pagebuilder_path_for_native_apps": null,
+                                "site_description": null,
+                                "site_url": null,
+                                "site_about": null,
+                                "site_keywords": null
+                            },
+                            "social": {
+                                "twitter": null,
+                                "rss": null,
+                                "instagram": null,
+                                "facebook": null
+                            },
+                            "navigation": {
+                                "nav_title": null
+                            },
+                            "Termicas": {
+                                "debug": "false"
+                            },
+                            "name": "Pollo",
+                            "_website": "la-nacion-ar",
+                            "parent": {
+                                "default": "/recetas/recetas-con-ingredientes"
+                            },
+                            "ancestors": {
+                                "default": [
+                                    "/recetas",
+                                    "/recetas/recetas-con-ingredientes"
+                                ]
+                            },
+                            "_admin": {
+                                "alias_ids": [
+                                    "/recetas/recetas-con-ingredientes/pollo"
+                                ]
+                            },
+                            "inactive": false,
+                            "node_type": "section",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_id": "/revistas",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": null,
+                "site_title": null,
+                "pagebuilder_path_for_native_apps": null,
+                "site_description": null,
+                "site_url": null,
+                "site_about": null,
+                "site_keywords": null
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "instagram": null,
+                "facebook": null
+            },
+            "navigation": {
+                "nav_title": "Revistas"
+            },
+            "Termicas": {
+                "debug": "false"
+            },
+            "name": "Revistas",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/"
+            },
+            "ancestors": {
+                "default": []
+            },
+            "_admin": {
+                "alias_ids": ["/revistas"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": [
+                {
+                    "_id": "/revistas/brando",
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "site": {
+                        "site_tagline": null,
+                        "site_title": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_description": null,
+                        "site_url": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "social": {
+                        "twitter": null,
+                        "rss": null,
+                        "instagram": null,
+                        "facebook": null
+                    },
+                    "navigation": {
+                        "nav_title": "Brando"
+                    },
+                    "Termicas": {
+                        "debug": "false"
+                    },
+                    "_admin": {
+                        "alias_ids": ["/revistas/brando"]
+                    },
+                    "style": {
+                        "section_style_name": "brando"
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Brando",
+                    "parent": {
+                        "default": "/revistas"
+                    },
+                    "ancestors": {
+                        "default": ["/revistas"]
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "children": []
+                },
+                {
+                    "_id": "/revistas/hola",
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "site": {
+                        "site_tagline": null,
+                        "site_title": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_description": null,
+                        "site_url": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "social": {
+                        "twitter": null,
+                        "rss": null,
+                        "instagram": null,
+                        "facebook": null
+                    },
+                    "navigation": {
+                        "nav_title": "Hola"
+                    },
+                    "Termicas": {
+                        "debug": "false"
+                    },
+                    "_admin": {
+                        "alias_ids": ["/revistas/hola"]
+                    },
+                    "style": {
+                        "section_style_name": "hola"
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Hola",
+                    "parent": {
+                        "default": "/revistas"
+                    },
+                    "ancestors": {
+                        "default": ["/revistas"]
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "_id": "link-GK73PGMVRH2D9EB86M6CHMUXR8",
+            "_website": "la-nacion-ar",
+            "display_name": "enlazar",
+            "url": "https://www.lanacion.com.ar",
+            "parent": {
+                "sample": "/economia",
+                "default": "/"
+            },
+            "order": {
+                "sample": 0,
+                "default": 1002
+            },
+            "node_type": "link",
+            "children": []
+        },
+        {
+            "_id": "/economia",
+            "site_topper": {
+                "site_logo_image": null
+            },
+            "site": {
+                "site_tagline": "Economía",
+                "site_title": "Economía",
+                "pagebuilder_path_for_native_apps": null,
+                "site_about": null,
+                "site_description": null,
+                "site_url": null,
+                "site_keywords": null
+            },
+            "social": {
+                "twitter": null,
+                "rss": null,
+                "facebook": null,
+                "instagram": null
+            },
+            "navigation": {
+                "nav_title": "Economía"
+            },
+            "name": "Economía",
+            "_website": "la-nacion-ar",
+            "parent": {
+                "default": "/",
+                "sample": "/",
+                "lifestyle": "/",
+                "Home-secciones": "/"
+            },
+            "ancestors": {
+                "default": [],
+                "sample": ["/"],
+                "lifestyle": ["/"],
+                "Home-secciones": ["/"]
+            },
+            "_admin": {
+                "alias_ids": ["/economia"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "order": {
+                "sample": 1002,
+                "default": 1003,
+                "lifestyle": 1002,
+                "Home-secciones": 1003
+            },
+            "children": [
+                {
+                    "_id": "/economia/campo",
+                    "site": {
+                        "site_tagline": null,
+                        "site_title": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_description": null,
+                        "site_about": null,
+                        "site_url": null,
+                        "site_keywords": null
+                    },
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "social": {
+                        "twitter": null,
+                        "facebook": null,
+                        "rss": null,
+                        "instagram": null
+                    },
+                    "navigation": {
+                        "nav_title": null
+                    },
+                    "Termicas": {
+                        "debug": "false"
+                    },
+                    "name": "Campo",
+                    "_website": "la-nacion-ar",
+                    "parent": {
+                        "default": "/economia"
+                    },
+                    "ancestors": {
+                        "default": ["/economia"]
+                    },
+                    "_admin": {
+                        "alias_ids": ["/economia/campo"]
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "children": []
+                }
+            ]
+        }
+    ]
+}
