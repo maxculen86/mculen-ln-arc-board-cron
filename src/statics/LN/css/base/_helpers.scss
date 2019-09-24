@@ -112,7 +112,6 @@
 @for $i from 1 through 20 {
     .hlp-marginBottom-#{$i*5} {
         margin-bottom: $i*5 + px;
-        border-bottom: 4px solid red;
     }
     @media (min-width: 320px) {
         .hlp-marginBottom-mobile-#{$i*5} {

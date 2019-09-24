@@ -58,9 +58,15 @@ h4.com-title-section-s{
     font-size: $font-24;
     line-height: $line-22;
 }
-h1.com-title-nota{
-    margin-bottom: $px-40;
+
+h1.com-title-nota {
+    margin-bottom: $px-20;
+    //Valores de tablet para arriba
+    @media (min-width: 768px) {
+        margin-bottom: $px-40;
+    }
 }
+
 .com-title-acu {
     font-family: $font-arial;
     font-size: $font-14;
