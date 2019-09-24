@@ -5,9 +5,7 @@ import ListItems from '../../../common/listItems';
 const listPreparacion = ({ preparation }) => {
     return (
         <>
-            <h4 className="com-title-section-m hlp-marginBottom-20">
-                Preparación
-            </h4>
+            <h4 className="com-title-section-m">Preparación</h4>
             {preparation &&
                 preparation.map(list => (
                     <ListItems
