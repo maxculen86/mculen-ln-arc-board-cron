@@ -31,6 +31,7 @@ const Index = () => (
                         href="https://www.lanacion.in/"
                         className="item_link"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         ¿Cómo anunciar?
                     </a>
@@ -43,11 +44,12 @@ const Index = () => (
                 </section>
                 <section className="col-desksm-3 col-deskxl-4 footer-sitio__captcha">
                     <p>
-                        Protegido por reCAPTCHA:
+                        <span>Protegido por reCAPTCHA:</span>
                         <a
                             href="https://policies.google.com/terms?hl=es-419"
                             className="condition"
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             Condiciones
                         </a>
@@ -55,6 +57,7 @@ const Index = () => (
                             href="https://policies.google.com/privacy?hl=es-419"
                             className="private"
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             Privacidad
                         </a>
@@ -73,6 +76,7 @@ const Index = () => (
                         <a
                             href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             <img
                                 src="https://static.glanacion.com/v2/ln/img/data.jpg"
