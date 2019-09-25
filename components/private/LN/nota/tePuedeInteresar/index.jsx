@@ -88,11 +88,9 @@ class index extends Component {
     render = () => {
         const { articles } = this.state;
         return (
-            <div className="row">
-                <h4 className="com-title-section-xl hlp-marginBottom-40">
-                    Te puede interesar
-                </h4>
-                <section className="row-gap-tablet-3 row-gap-desksm-3 hlp-marginBottom-40">
+            <div className="row interest">
+                <h4 className="com-title-section-xl">Te puede interesar</h4>
+                <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList articles={articles} />
                 </section>
             </div>

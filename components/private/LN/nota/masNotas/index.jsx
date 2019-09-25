@@ -25,23 +25,21 @@ const index = props => {
         case '1':
             title = (
                 <>
-                    Mas recetas de
+                    Más recetas de
                     <strong>{` ${sectionName}`}</strong>
                 </>
             );
             break;
         default:
-            title = <h4>{`Ultimas Notas de ${sectionName}`}</h4>;
+            title = <h4>{`Últimas notas de ${sectionName}`}</h4>;
             break;
     }
 
     return (
         _id && (
-            <div className="row">
-                <h3 className="com-title-section-xl hlp-marginBottom-30">
-                    {title}
-                </h3>
-                <section className="row-gap-tablet-3 row-gap-desksm-3 hlp-marginBottom-40">
+            <div className="row more-articles">
+                <h3 className="com-title-section-xl">{title}</h3>
+                <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
                         size={cantidadNotas}
                         sectionId={filter === '1' ? _id : undefined}

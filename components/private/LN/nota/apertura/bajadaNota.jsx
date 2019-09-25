@@ -9,7 +9,7 @@ const BajadaNota = props => {
     } = props;
 
     const subtitulo = basic || null;
-    return <h1 className="BajadaSpecial">{subtitulo}</h1>;
+    return <h3 className="com-lead-nota">{subtitulo}</h3>;
 };
 
 BajadaNota.propTypes = {

@@ -62,11 +62,11 @@
                 &:after {
                     font-family: 'LNicons' !important;
                     color: $blanco;
-                    font-size: 25px;
+                    font-size: $font-25;
                     content: "\e91a";
                     position: absolute;
-                    width: 58px;
-                    height: 42px;
+                    width: $px-58;
+                    height: $px-42;
                     top: 0;
                     right: 0;
                     background: $negro;

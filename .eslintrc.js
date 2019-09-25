@@ -25,34 +25,37 @@ module.exports = {
         'prettier/prettier': ['error'],
         'jsx-a11y/href-no-hash': [0],
         'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-        'react/jsx-indent': true,
-        'react/jsx-indent-props': 4
+        'react/jsx-indent': [2, 4],
+        'react/jsx-indent-props': [2, 4]
     },
     overrides: [
         {
             files: ['*.jsx'],
             rules: {
-                'react/prefer-stateless-function': false,
-                'no-underscore-dangle': 0,
-                'no-restricted-globals': ['location']
+                'react/prefer-stateless-function': [0],
+                'no-underscore-dangle': 0
             }
         },
         {
             files: ['*.js', '*.jsx'],
             rules: {
-                'import/no-unresolved': false
+                'import/no-unresolved': [0],
+                'import/order': [1],
+                'object-shorthand': [1],
+                'no-console': [2],
+                'no-unused-vars': [2]
             }
         },
         {
             files: ['setupTests.js'],
             rules: {
-                'import/no-extraneous-dependencies': false
+                'import/no-extraneous-dependencies': [0]
             }
         },
         {
             files: ['*.test.js', '*.spec.js'],
             rules: {
-                'import/first': false
+                'import/first': [0]
             }
         }
     ]

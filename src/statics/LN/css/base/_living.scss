@@ -9,7 +9,10 @@
     }
     .com-tag a {
         color: $primario;
-        border-color: $primario
+        border-color: $primario;
+        &:hover{
+            background: $primario;
+        }
     }
     .com-secondary-tag a,
     .com-secondary-tag a:after,

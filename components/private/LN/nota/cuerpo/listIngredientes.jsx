@@ -5,9 +5,7 @@ import ListItems from '../../../common/listItems';
 const listIngredientes = ({ ingredients }) => {
     return (
         <>
-            <h4 className="com-title-section-s hlp-marginBottom-20">
-                Ingredientes
-            </h4>
+            <h4 className="com-title-section-s">Ingredientes</h4>
             {ingredients.length !== 0 &&
                 ingredients.map(list => (
                     <ListItems

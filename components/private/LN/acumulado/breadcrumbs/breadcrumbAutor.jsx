@@ -14,7 +14,7 @@ function BreadcrumbAutor({ author, host }) {
             name: 'Autores'
         },
         {
-            path: `/${author._id}`,
+            path: `/autores/${author._id}`,
             name: author.byline
         }
     ];

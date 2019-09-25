@@ -61,7 +61,7 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                 </div>
             </div>
 
-            <div className="row hlp-marginBottom-40">
+            <div className="row">
                 <Tips size="m" title="Tip" paragraphs={tips} />
             </div>
         </>

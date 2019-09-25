@@ -27,7 +27,11 @@ const Index = () => (
                     >
                         Términos y condiciones
                     </a>
-                    <a href="https://www.lanacion.in/#/" className="item_link">
+                    <a
+                        href="https://www.lanacion.in/"
+                        className="item_link"
+                        target="_blank"
+                    >
                         ¿Cómo anunciar?
                     </a>
                     <a
@@ -43,12 +47,14 @@ const Index = () => (
                         <a
                             href="https://policies.google.com/terms?hl=es-419"
                             className="condition"
+                            target="_blank"
                         >
                             Condiciones
                         </a>
                         <a
                             href="https://policies.google.com/privacy?hl=es-419"
                             className="private"
+                            target="_blank"
                         >
                             Privacidad
                         </a>
@@ -64,7 +70,10 @@ const Index = () => (
                             className="img_gda"
                         />
                         Miembro de GDA. Grupo de Diarios América
-                        <a href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx">
+                        <a
+                            href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
+                            target="_blank"
+                        >
                             <img
                                 src="https://static.glanacion.com/v2/ln/img/data.jpg"
                                 alt="Data fiscal"
