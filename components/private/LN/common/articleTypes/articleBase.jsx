@@ -15,7 +15,10 @@ export default ({
     const volanta = label && label.volanta && label.volanta.text;
     const borderClass = border ? '--border ' : '';
     const extraOpts = {};
-    if (dataSection) extraOpts['data-section'] = dataSection;
+    if (dataSection) {
+        extraOpts['data-section'] = dataSection;
+        extraOpts['data-event'] = 'LinkClick';
+    }
     return (
         <article
             className={`mod-caja-nota ${borderClass} ${extraClasses || ''}`}

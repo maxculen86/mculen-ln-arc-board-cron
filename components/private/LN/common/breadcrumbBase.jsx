@@ -5,7 +5,10 @@ import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 
 const BreadcrumbBase = ({ sections, extraClasses, dataSection }) => {
     const extraOpts = {};
-    if (dataSection) extraOpts['data-section'] = dataSection;
+    if (dataSection) {
+        extraOpts['data-section'] = dataSection;
+        extraOpts['data-event'] = 'LinkClick';
+    }
     const listSections = sections.map(section => {
         return (
             <a key={section.path} href={section.path} {...extraOpts}>
