@@ -40,6 +40,7 @@ type Article {
 
 type Query {
     content_elements: [Article]
+    next: String
 }
 
 `;
