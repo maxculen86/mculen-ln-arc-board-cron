@@ -12,11 +12,15 @@ exports[`features - LaNacion - Home - Acum - Author Test de snapshot Bio Author 
       class="figure"
       href="https://google.com"
     >
-      <img
-        alt=""
-        class="content-img"
-        src="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
-      />
+      <picture
+        class="content-pic picture"
+      >
+        <img
+          alt=""
+          class="content-img"
+          src="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
+        />
+      </picture>
     </a>
   </section>
   <div
