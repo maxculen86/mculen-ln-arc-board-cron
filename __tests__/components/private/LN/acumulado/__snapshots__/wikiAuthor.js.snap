@@ -2,10 +2,10 @@
 
 exports[`features - LaNacion - Home - Acum - Author Test de snapshot Bio Author 1`] = `
 <div
-  class="hlp-marginBottom-20 wiki-autor row"
+  class="wiki-autor row"
 >
   <section
-    class="cont-figure-wiki hlp-marginBottom-20"
+    class="cont-figure-wiki"
     id=""
   >
     <a
@@ -20,16 +20,14 @@ exports[`features - LaNacion - Home - Acum - Author Test de snapshot Bio Author 
     </a>
   </section>
   <div
-    class="wiki-calc hlp-margintop-5"
+    class="wiki-calc"
   >
     <h1
       class="com-title-section-xl"
     >
       Joaquín Morales Solá
     </h1>
-    <label
-      class="hlp-marginBottom-20 hlp-margintop-15"
-    >
+    <label>
       LA NACION
     </label>
   </div>
