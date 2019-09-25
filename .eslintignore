@@ -3,3 +3,6 @@ __tests__/
 .fusion/
 dist/
 resources/dist/
+resources/common/js/
+_ignore_
+_ignore_*.*
