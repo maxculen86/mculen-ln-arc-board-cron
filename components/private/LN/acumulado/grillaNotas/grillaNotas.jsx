@@ -6,6 +6,7 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import BtnMasNotas from '../botonVerMasNotas';
 
 const CLASS_W_100 = 'w-100-mobile';
+//TODO: Este data section hay que cambiarlo por uno generico para cuerpo de acumulado.
 const DATA_SECTION = 'CuerpoAcuRecetas';
 class GrillaNotas extends Component {
     render() {
@@ -20,10 +21,11 @@ class GrillaNotas extends Component {
                     <ArticleMain
                         dataSection={DATA_SECTION}
                         key={i}
-                        children={dateComponent}
                         articleData={a}
                         extraClasses={CLASS_W_100}
-                    />
+                    >
+                        {dateComponent}
+                    </ArticleMain>
                 );
             });
         }
