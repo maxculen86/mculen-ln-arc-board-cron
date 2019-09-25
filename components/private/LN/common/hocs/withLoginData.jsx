@@ -34,94 +34,6 @@ function withLoginData(WrappedComponent) {
             };
         }
 
-        /**
-         * TODO: crear una formato valido de fecha
-         * TODO: Considerar llevar la siguiente funcion a algun utilitario
-         */
-        convertTo24Hour = time => {
-            let newDate = time;
-            const hours = time.substr(0, 2);
-            if (time.indexOf('a.m.') != -1 && hours === 12) {
-                newDate = time.replace('12', '00');
-            }
-            if (time.indexOf('p.m.') !== -1 && hours < 12) {
-                newDate = time.replace(hours, parseInt(hours) + 12);
-            }
-            return newDate.replace(/(a.m.|p.m.)/, '');
-        };
-
-        mustRelogin = () => {
-            let syncValue = getCookie('syncLfLN');
-            const cookieSalt = getCookie('token');
-
-            try {
-                let result = true;
-                const { ReloginValidation } = API_ENV || {
-                    ReloginValidation: 8121600000
-                };
-
-                // Se parsea cookie syncLfLN para que no tenga am/pm .
-                // Convirtiendo la hora en formato de 24hrs y no de 12hrs .
-                // Cookie de ejemplo : 09/06/2017 06:52:46 p.m.
-                if (
-                    syncValue.indexOf('/') > -1 &&
-                    (syncValue.indexOf('a.m.') > -1 ||
-                        syncValue.indexOf('p.m.') > -1)
-                ) {
-                    const arrFullDate = syncValue.split(' '); // [0] : 09/06/2017 - [1] : 06:52:46 - [2] : p.m.
-
-                    // La fecha está en DD/MM/YYYY . La convierto a MM/DD/YYYY ;
-                    // let daysDate = arrFullDate[0];
-                    const arrDays = arrFullDate[0].split('/');
-                    const daysDate = `${arrDays[1]}/${arrDays[0]}/${
-                        arrDays[2]
-                    }`;
-
-                    const time = this.convertTo24Hour(
-                        arrFullDate[1] + arrFullDate[2]
-                    );
-                    arrFullDate[1] = time;
-                    syncValue = `${daysDate} ${arrFullDate[1]}`; // Vuelvo a armar la cookie con el date actualizado.
-                }
-
-                if (cookieSalt === '') return false;
-
-                if (syncValue !== '') {
-                    const syncDate = new Date(syncValue);
-                    if (isNaN(syncDate)) {
-                        /* 
-                            Logger.Error(`Relogin | SyncDate Invalid Date => ${  syncValue}`, e); 
-                        */
-                        return false;
-                    }
-                    if (
-                        new Date() <
-                        new Date(syncDate.getTime() - ReloginValidation)
-                    ) {
-                        result = false;
-                    }
-                }
-
-                return result;
-            } catch (e) {
-                // TODO: Se deja la siguiente funcion para futuro looger
-                /* Logger.Error('Relogin | MustRelogin - Error restando fechas', {
-                    syncValue: syncValue,
-                    Date: new Date()
-                }); */
-
-                return false;
-            }
-        };
-
-        getTokenBodyHelper = (res, position) => {
-            try {
-                return res.split('|')[position];
-            } catch (ex) {
-                return null;
-            }
-        };
-
         componentDidMount = () => {
             const { mockApi } = this.props;
             if (mockApi) return mockApi;
@@ -204,6 +116,70 @@ function withLoginData(WrappedComponent) {
             apiIngresar.getMe().then(res => setUserData(res));
         };
 
+        mustRelogin = () => {
+            let syncValue = getCookie('syncLfLN');
+            const cookieSalt = getCookie('token');
+
+            try {
+                let result = true;
+                const { ReloginValidation } = API_ENV || {
+                    ReloginValidation: 8121600000
+                };
+
+                // Se parsea cookie syncLfLN para que no tenga am/pm .
+                // Convirtiendo la hora en formato de 24hrs y no de 12hrs .
+                // Cookie de ejemplo : 09/06/2017 06:52:46 p.m.
+                if (
+                    syncValue.indexOf('/') > -1 &&
+                    (syncValue.indexOf('a.m.') > -1 ||
+                        syncValue.indexOf('p.m.') > -1)
+                ) {
+                    const arrFullDate = syncValue.split(' '); // [0] : 09/06/2017 - [1] : 06:52:46 - [2] : p.m.
+
+                    // La fecha está en DD/MM/YYYY . La convierto a MM/DD/YYYY ;
+                    // let daysDate = arrFullDate[0];
+                    const arrDays = arrFullDate[0].split('/');
+                    const daysDate = `${arrDays[1]}/${arrDays[0]}/${
+                        arrDays[2]
+                    }`;
+
+                    const time = this.convertTo24Hour(
+                        arrFullDate[1] + arrFullDate[2]
+                    );
+                    arrFullDate[1] = time;
+                    syncValue = `${daysDate} ${arrFullDate[1]}`; // Vuelvo a armar la cookie con el date actualizado.
+                }
+
+                if (cookieSalt === '') return false;
+
+                if (syncValue !== '') {
+                    const syncDate = new Date(syncValue);
+                    if (isNaN(syncDate)) {
+                        /* 
+                            Logger.Error(`Relogin | SyncDate Invalid Date => ${  syncValue}`, e); 
+                        */
+                        return false;
+                    }
+                    if (
+                        new Date() <
+                        new Date(syncDate.getTime() - ReloginValidation)
+                    ) {
+                        result = false;
+                    }
+                }
+
+                return result;
+            } catch (e) {
+                // TODO: Se deja la siguiente funcion para futuro looger
+                /* Logger.Error('Relogin | MustRelogin - Error restando fechas', {
+                    syncValue: syncValue,
+                    Date: new Date()
+                }); */
+
+                return false;
+            }
+        };
+
         goToLogout = () => {
             const { APIingresar } = API_ENV || {};
             const urlApiIngresar =
@@ -229,6 +205,35 @@ function withLoginData(WrappedComponent) {
                     }
                 }
             });
+        };
+
+        /**
+         * TODO: Considerar colocar esta funcion en utilitario
+         */
+        getTokenBodyHelper = (res, position) => {
+            try {
+                return res.split('|')[position];
+            } catch (ex) {
+                return null;
+            }
+        };
+
+        /**
+         * TODO: crear una formato valido de fecha
+         * TODO: Considerar llevar la siguiente funcion a algun utilitario
+         */
+        convertTo24Hour = time => {
+            let newDate = time;
+            const hours = time.substr(0, 2);
+
+            if (time.indexOf('a.m.') != -1 && hours === 12) {
+                newDate = time.replace('12', '00');
+            }
+            if (time.indexOf('p.m.') !== -1 && hours < 12) {
+                newDate = time.replace(hours, parseInt(hours) + 12);
+            }
+
+            return newDate.replace(/(a.m.|p.m.)/, '');
         };
 
         render() {
