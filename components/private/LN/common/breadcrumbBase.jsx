@@ -3,10 +3,12 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 
-const breadcrumbBase = ({ sections, extraClasses }) => {
+const BreadcrumbBase = ({ sections, extraClasses, dataSection }) => {
+    const extraOpts = {};
+    if (dataSection) extraOpts['data-section'] = dataSection;
     const listSections = sections.map(section => {
         return (
-            <a key={section.path} href={section.path}>
+            <a key={section.path} href={section.path} {...extraOpts}>
                 {section.name}
             </a>
         );
@@ -18,14 +20,21 @@ const breadcrumbBase = ({ sections, extraClasses }) => {
     );
 };
 
-breadcrumbBase.propTypes = {
+BreadcrumbBase.propTypes = {
     sections: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string,
             name: PropTypes.string,
             path: PropTypes.string
         })
-    ).isRequired
+    ).isRequired,
+    extraClasses: PropTypes.string,
+    dataSection: PropTypes.string
 };
 
-export default breadcrumbBase;
+BreadcrumbBase.defaultProps = {
+    extraClasses: undefined,
+    dataSection: undefined
+};
+
+export default BreadcrumbBase;

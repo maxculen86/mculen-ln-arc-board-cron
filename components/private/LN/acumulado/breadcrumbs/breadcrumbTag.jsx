@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
+const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbTag({ tag, host }) {
     const sections = [
         {
@@ -16,7 +17,7 @@ function BreadcrumbTag({ tag, host }) {
     ];
     return (
         <>
-            <BreadCrumbBase sections={sections} />
+            <BreadCrumbBase sections={sections} dataSection={DATA_SECTION} />
             <BreadCrumbSchema sections={sections} host={host} />
         </>
     );

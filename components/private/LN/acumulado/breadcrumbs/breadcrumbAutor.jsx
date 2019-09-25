@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
+const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbAutor({ author, host }) {
     const sections = [
         {
@@ -20,7 +21,7 @@ function BreadcrumbAutor({ author, host }) {
     ];
     return (
         <>
-            <BreadCrumbBase sections={sections} />
+            <BreadCrumbBase sections={sections} dataSection={DATA_SECTION} />
             <BreadCrumbSchema sections={sections} host={host} />
         </>
     );
