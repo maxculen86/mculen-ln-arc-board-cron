@@ -18,18 +18,21 @@ const getTitle = globalContent => {
     return title ? `Más leídas de ${title}` : 'Más leídas';
 };
 
-const Ranking = ({ articles, size, globalContent }) => {
+const Ranking = ({ articles, size, dataSection, globalContent }) => {
     const titleText = getTitle(globalContent);
     return (
         <div className="com-ranking">
-            {/*hlp-none hlp-tablet-none*/}
             <TitleSection size="m" text={titleText} />
             <OrderedList>
                 {articles.length > 0 &&
                     articles
                         .slice(0, size)
                         .map(article => (
-                            <ArticleMain border articleData={article} />
+                            <ArticleMain
+                                border
+                                articleData={article}
+                                dataSection={dataSection}
+                            />
                         ))}
             </OrderedList>
         </div>
@@ -37,7 +40,14 @@ const Ranking = ({ articles, size, globalContent }) => {
 };
 
 Ranking.propTypes = {
-    articles: PropTypes.array.isRequired
+    articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    size: PropTypes.number,
+    dataSection: PropTypes.string
+};
+
+Ranking.defaultProps = {
+    size: 0,
+    dataSection: undefined
 };
 
 export default Consumer(withRankingArticlesData(Ranking));
