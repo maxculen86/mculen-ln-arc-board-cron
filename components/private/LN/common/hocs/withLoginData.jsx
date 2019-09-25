@@ -114,7 +114,8 @@ function withLoginData(WrappedComponent) {
                 this.goToLogout();
             }
 
-            apiIngresar.getMe().then(res => setUserData(res));
+            if (getCookie('token'))
+                apiIngresar.getMe().then(res => setUserData(res));
         };
 
         mustRelogin = () => {
