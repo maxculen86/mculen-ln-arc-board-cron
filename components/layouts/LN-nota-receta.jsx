@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { getSectionStyle } from '../private/common/utils/sectionUtils';
-import CabezalDsk from '../../components/private/LN/nota/banners/bannerCabezal';
+
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import '../../resources/dist/css/ln/base.css';
@@ -23,6 +23,7 @@ import '../../resources/dist/css/ln/components/input.css';
 import '../../resources/dist/css/ln/modules/newsletter.css';
 
 const pageBuilderSections = [
+    'Pre-Titulo',
     'Titulo',
     'Apertura',
     'Left-Cuerpo',
@@ -79,17 +80,17 @@ class LNNotaReceta extends Component {
                     {/* TODO: pasar esto a otro lado para que solo se cargue cuando hay videos en la pagina */}
                     <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
                     {/* Pre-Titulo: Banners */}
-                    <CabezalDsk />
+                    {children[0]}
                     <div className={`lay ${this.sectionClass}`}>
                         {/* TODO: confirmar */}
                         <header className="row titulo">
                             <div className="col-12">
                                 {/* Titulo (breadcrumb, logo+titulo) */}
-                                {children[0]}
+                                {children[1]}
                             </div>
                         </header>
                         {/* Apertura */}
-                        {children[1]}
+                        {children[2]}
                     </div>
 
                     <div className="lay-sidebar">
@@ -98,35 +99,35 @@ class LNNotaReceta extends Component {
                             <div className="row">
                                 <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
                                     {/* Left-Cuerpo Shared*/}
-                                    {children[2]}
+                                    {children[3]}
                                 </div>
 
                                 <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                     <div className="row">
                                         {/* Pos-Apertura */}
-                                        {children[3]}
+                                        {children[4]}
                                     </div>
-                                    {children[4]}
+                                    {children[5]}
                                 </div>
                             </div>
                         </div>
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-tablet-none">
-                            {children[5]}
+                            {children[6]}
                         </div>
                     </div>
 
                     {/* TODO: revisar clases del newsLetter Full-Break */}
-                    {children[6]}
+                    {children[7]}
 
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
-                            {children[7]}
+                            {children[8]}
                         </div>
                         <div className="sidebar__aside">
                             {/* Bottom-Tercera */}
-                            {children[8]}
+                            {children[9]}
                         </div>
                     </div>
                 </main>
