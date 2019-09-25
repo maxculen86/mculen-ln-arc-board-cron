@@ -1,15 +1,28 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 import WithNavigation from '../../common/hocs/WithNavigation';
 
+const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbSection({ sections, host }) {
     return (
         <>
-            <BreadCrumbBase sections={sections} />
+            <BreadCrumbBase sections={sections} dataSection={DATA_SECTION} />
             <BreadCrumbSchema sections={sections} host={host} />
         </>
     );
 }
+
+BreadcrumbSection.propTypes = {
+    sections: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string,
+            path: PropTypes.string
+        })
+    ).isRequired,
+    host: PropTypes.string.isRequired
+};
 
 export default WithNavigation(BreadcrumbSection);

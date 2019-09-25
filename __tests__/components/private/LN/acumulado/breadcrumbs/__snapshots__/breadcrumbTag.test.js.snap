@@ -6,11 +6,15 @@ Array [
     class="com-breadcrumb "
   >
     <a
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
       href="/"
     >
       LA NACION
     </a>
     <a
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
       href="/tema/soy-un-tag"
     >
       Soy un tag

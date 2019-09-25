@@ -1,6 +1,7 @@
 @import '../abstracts/variables';
 
 .wiki-autor {
+    margin-bottom: $px-20;
     h1 {
         display: inline
     }
@@ -18,6 +19,7 @@
     .cont-figure-wiki {
         display: inline-block;
         margin-right: $px-10;
+        margin-bottom: $px-20;
         img {
             width: 45px;
             height: 45px;
@@ -25,7 +27,11 @@
         }
     }
     .wiki-calc {
-        width: calc(100% - 80px)
+        width: calc(100% - 80px);
+        margin-top: $px-5;
+        label {
+            margin:$px-15 0 $px-20;
+        }
     }
 }
 
