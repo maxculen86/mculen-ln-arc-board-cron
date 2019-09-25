@@ -174,6 +174,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
         >
           <a
             href="https://www.facebook.com/lanacion"
+            rel="noreferrer noopener"
             target="_blank"
           >
             <i
@@ -182,6 +183,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           </a>
           <a
             href="https://twitter.com/LANACION"
+            rel="noreferrer noopener"
             target="_blank"
           >
             <i
@@ -190,6 +192,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           </a>
           <a
             href="https://www.instagram.com/lanacioncom/"
+            rel="noreferrer noopener"
             target="_blank"
           >
             <i
@@ -198,6 +201,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           </a>
           <a
             href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
+            rel="noreferrer noopener"
             target="_blank"
           >
             <i
@@ -211,6 +215,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           <a
             class="app_play"
             href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
+            rel="noreferrer noopener"
             target="_blank"
           >
             <svg
@@ -396,6 +401,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           <a
             class="app_ios"
             href="https://apps.apple.com/ar/app/la-nacion/id410689702"
+            rel="noreferrer noopener"
             target="_blank"
           >
             <svg
@@ -464,6 +470,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           <a
             class="item_link"
             href="https://www.lanacion.in/"
+            rel="noopener noreferrer"
             target="_blank"
           >
             ¿Cómo anunciar?
@@ -479,10 +486,13 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           class="col-desksm-3 col-deskxl-4 footer-sitio__captcha"
         >
           <p>
-            Protegido por reCAPTCHA:
+            <span>
+              Protegido por reCAPTCHA:
+            </span>
             <a
               class="condition"
               href="https://policies.google.com/terms?hl=es-419"
+              rel="noopener noreferrer"
               target="_blank"
             >
               Condiciones
@@ -490,6 +500,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
             <a
               class="private"
               href="https://policies.google.com/privacy?hl=es-419"
+              rel="noopener noreferrer"
               target="_blank"
             >
               Privacidad
@@ -512,6 +523,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
             Miembro de GDA. Grupo de Diarios América
             <a
               href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <img
