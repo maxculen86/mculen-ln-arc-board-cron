@@ -16,6 +16,9 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
     const { goToLoginUrl } = loginData;
     const [active, setActive] = useState('');
 
+    const toggleMenu = () =>
+        active === '' ? setActive(' --active') : setActive('');
+
     return (
         <Header id="header" className="header">
             <div className="col-4 header__left">
@@ -39,13 +42,7 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                         </a>
                     )}
                     {logueado && (
-                        <div
-                            onClick={() =>
-                                active === ''
-                                    ? setActive(' --active')
-                                    : setActive('')
-                            }
-                        >
+                        <div onClick={toggleMenu} role="button">
                             <p className="com-usuario__name">
                                 {loginData.userName}
                             </p>

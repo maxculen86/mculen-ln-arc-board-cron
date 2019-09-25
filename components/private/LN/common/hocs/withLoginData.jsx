@@ -34,14 +34,17 @@ function withLoginData(WrappedComponent) {
             };
         }
 
-        // TODO: crear una formato valido de fecha
+        /**
+         * TODO: crear una formato valido de fecha
+         * TODO: Considerar llevar la siguiente funcion a algun utilitario
+         */
         convertTo24Hour = time => {
-            let newDate;
+            let newDate = time;
             const hours = time.substr(0, 2);
             if (time.indexOf('a.m.') != -1 && hours === 12) {
                 newDate = time.replace('12', '00');
             }
-            if (time.indexOf('p.m.') != -1 && hours < 12) {
+            if (time.indexOf('p.m.') !== -1 && hours < 12) {
                 newDate = time.replace(hours, parseInt(hours) + 12);
             }
             return newDate.replace(/(a.m.|p.m.)/, '');
@@ -167,7 +170,7 @@ function withLoginData(WrappedComponent) {
             */
 
             /**
-             * Validamos que hayan pasado diez dias desde la ultima sesion
+             * Validamos que hayan pasado cinco dias desde la ultima sesion
              */
             if (this.mustRelogin()) {
                 const token = getCookie('token');
@@ -206,10 +209,26 @@ function withLoginData(WrappedComponent) {
             const urlApiIngresar =
                 APIingresar || 'https://ingresar.lanacion.com.ar';
             const urlToLogout = `${urlApiIngresar}/logout/logout.html?pagina=${location.href}`;
+
             eraseCookie('shouldrelogin');
             eraseCookie('usuariodata');
 
-            location.href = urlToLogout;
+            const ifrm = document.createElement('iframe');
+            ifrm.setAttribute('src', urlToLogout);
+            ifrm.style.width = '0px';
+            ifrm.style.height = '0px';
+            document.body.appendChild(ifrm);
+
+            this.setState({
+                logueado: false,
+                loginData: {
+                    subscription: false,
+                    userName: 'Sin nombre',
+                    goToLoginUrl: () => {
+                        location.href = LoginUrl + window.btoa(location.href);
+                    }
+                }
+            });
         };
 
         render() {
