@@ -15,7 +15,9 @@ const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
     <div className="wiki-autor row">
         <section id="" className="cont-figure-wiki">
             <a href={url} className="figure">
-                <img src={imgSrc} alt="" className="content-img" />
+                <picture className="content-pic picture">
+                    <img src={imgSrc} alt="" className="content-img" />
+                </picture>
             </a>
         </section>
         <div className="wiki-calc">
