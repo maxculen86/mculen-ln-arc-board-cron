@@ -35,17 +35,86 @@ function withLoginData(WrappedComponent) {
             };
         }
 
-        // TODO: crear una formato valido de fecha
-        convertTo24Hour = time => {
-            let newDate;
-            const hours = time.substr(0, 2);
-            if (time.indexOf('a.m.') != -1 && hours === 12) {
-                newDate = time.replace('12', '00');
+        componentDidMount = () => {
+            const { mockApi } = this.props;
+            if (mockApi) return mockApi;
+
+            const setUserData = res => {
+                if (res.response) {
+                    if (!getCookie('shouldrelogin')) {
+                        setCookie('shouldrelogin', 'true', 12 * 60);
+                        setCookie('usuariodata', res.response, 12 * 60);
+                    }
+
+                    const { Usuario } = JSON.parse(res.response);
+                    let subscription = false;
+
+                    if (Usuario && Usuario.ProductoPremiumId) {
+                        subscription = Usuario.ProductoPremiumId.includes('2');
+                    }
+
+                    this.setState({
+                        logueado: true,
+                        loginData: {
+                            subscription,
+                            userName: `${Usuario.UsuarioDetalleEmail.substring(
+                                0,
+                                16
+                            )}...`
+                        }
+                    });
+                }
+
+                /**
+                 * TODO: Handler bad codes of /me
+                 */
+            };
+
+            // TODO: Agregar aqui validadion de de diff de dias para hacer relogin
+            /* 
+            
+            5. Cuando haces relogin tomar nuevo token y x-value
+            6. Llamar a getMe con nuevo token y xvalue en header
+
+            Nota. Considerar casos de res.code para relogin
+            Validar set Xvalue Token 
+            Dejar -todo- nota para res.response.Usuario
+            Fin de la tarea
+            */
+
+            /**
+             * Validamos que hayan pasado cinco dias desde la ultima sesion
+             */
+            if (this.mustRelogin()) {
+                const token = getCookie('token');
+                const xvalue = getCookie('xvalue');
+
+                if ((token, xvalue)) {
+                    apiIngresar.reLogin(token, xvalue).then(res => {
+                        const newToken = this.getTokenBodyHelper(
+                            res.response,
+                            1
+                        );
+                        const newXvalue = this.getTokenBodyHelper(
+                            res.response,
+                            2
+                        );
+
+                        if (res.code === '00001') {
+                            apiIngresar
+                                .getMe(true, newToken, newXvalue)
+                                .then(userData => {
+                                    setUserData(userData);
+                                });
+                        }
+                    });
+                    return null;
+                }
+
+                this.goToLogout();
             }
-            if (time.indexOf('p.m.') != -1 && hours < 12) {
-                newDate = time.replace(hours, parseInt(hours) + 12);
-            }
-            return newDate.replace(/(a.m.|p.m.)/, '');
+
+            apiIngresar.getMe().then(res => setUserData(res));
         };
 
         mustRelogin = () => {
@@ -112,6 +181,36 @@ function withLoginData(WrappedComponent) {
             }
         };
 
+        goToLogout = () => {
+            const { APIingresar } = API_ENV || {};
+            const urlApiIngresar =
+                APIingresar || 'https://ingresar.lanacion.com.ar';
+            const urlToLogout = `${urlApiIngresar}/logout/logout.html?pagina=${location.href}`;
+
+            eraseCookie('shouldrelogin');
+            eraseCookie('usuariodata');
+
+            const ifrm = document.createElement('iframe');
+            ifrm.setAttribute('src', urlToLogout);
+            ifrm.style.width = '0px';
+            ifrm.style.height = '0px';
+            document.body.appendChild(ifrm);
+
+            this.setState({
+                logueado: false,
+                loginData: {
+                    subscription: false,
+                    userName: 'Sin nombre',
+                    goToLoginUrl: () => {
+                        location.href = LoginUrl + window.btoa(location.href);
+                    }
+                }
+            });
+        };
+
+        /**
+         * TODO: Considerar colocar esta funcion en utilitario
+         */
         getTokenBodyHelper = (res, position) => {
             try {
                 return res.split('|')[position];
@@ -120,97 +219,22 @@ function withLoginData(WrappedComponent) {
             }
         };
 
-        componentDidMount = () => {
-            const { mockApi } = this.props;
-            if (mockApi) return mockApi;
+        /**
+         * TODO: crear una formato valido de fecha
+         * TODO: Considerar llevar la siguiente funcion a algun utilitario
+         */
+        convertTo24Hour = time => {
+            let newDate = time;
+            const hours = time.substr(0, 2);
 
-            const setUserData = res => {
-                if (res.response) {
-                    if (!getCookie('shouldrelogin')) {
-                        setCookie('shouldrelogin', 'true', 12 * 60);
-                        setCookie('usuariodata', res.response, 12 * 60);
-                    }
-
-                    const { Usuario } = JSON.parse(res.response);
-                    let subscription = false;
-
-                    if (Usuario && Usuario.ProductoPremiumId) {
-                        subscription = Usuario.ProductoPremiumId.includes('2');
-                    }
-
-                    this.setState({
-                        logueado: true,
-                        loginData: {
-                            subscription,
-                            userName: `${Usuario.UsuarioDetalleEmail.substring(
-                                0,
-                                16
-                            )}...`
-                        }
-                    });
-                }
-
-                /**
-                 * TODO: Handler bad codes of /me
-                 */
-            };
-
-            // TODO: Agregar aqui validadion de de diff de dias para hacer relogin
-            /* 
-            
-            5. Cuando haces relogin tomar nuevo token y x-value
-            6. Llamar a getMe con nuevo token y xvalue en header
-
-            Nota. Considerar casos de res.code para relogin
-            Validar set Xvalue Token 
-            Dejar -todo- nota para res.response.Usuario
-            Fin de la tarea
-            */
-
-            /**
-             * Validamos que hayan pasado diez dias desde la ultima sesion
-             */
-            if (this.mustRelogin()) {
-                const token = getCookie('token');
-                const xvalue = getCookie('xvalue');
-
-                if ((token, xvalue)) {
-                    apiIngresar.reLogin(token, xvalue).then(res => {
-                        const newToken = this.getTokenBodyHelper(
-                            res.response,
-                            1
-                        );
-                        const newXvalue = this.getTokenBodyHelper(
-                            res.response,
-                            2
-                        );
-
-                        if (res.code === '00001') {
-                            apiIngresar
-                                .getMe(true, newToken, newXvalue)
-                                .then(userData => {
-                                    setUserData(userData);
-                                });
-                        }
-                    });
-                    return null;
-                }
-
-                this.goToLogout();
+            if (time.indexOf('a.m.') != -1 && hours === 12) {
+                newDate = time.replace('12', '00');
+            }
+            if (time.indexOf('p.m.') !== -1 && hours < 12) {
+                newDate = time.replace(hours, parseInt(hours) + 12);
             }
 
-            apiIngresar.getMe().then(res => setUserData(res));
-        };
-
-        goToLogout = () => {
-            const { APIingresar } = API_ENV || {};
-            const urlApiIngresar =
-                APIingresar || 'https://ingresar.lanacion.com.ar';
-            const urlToLogout = `${urlApiIngresar}/logout/logout.html?pagina=${location.href}`;
-            eraseCookie('shouldrelogin');
-            eraseCookie('usuariodata');
-
-            location.href = urlToLogout;
+            return newDate.replace(/(a.m.|p.m.)/, '');
         };
 
         render() {
