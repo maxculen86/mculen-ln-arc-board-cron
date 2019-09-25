@@ -26,7 +26,8 @@ BreadcrumbTag.propTypes = {
     tag: PropTypes.shape({
         slug: PropTypes.string,
         text: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    host: PropTypes.string.isRequired
 };
 
 export default BreadcrumbTag;

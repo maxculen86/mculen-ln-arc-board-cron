@@ -28,9 +28,10 @@ function BreadcrumbAutor({ author, host }) {
 
 BreadcrumbAutor.propTypes = {
     author: PropTypes.shape({
-        id: PropTypes.string,
-        name: PropTypes.string
-    }).isRequired
+        _id: PropTypes.string,
+        byline: PropTypes.string
+    }).isRequired,
+    host: PropTypes.string.isRequired
 };
 
 export default BreadcrumbAutor;
