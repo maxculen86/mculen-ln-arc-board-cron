@@ -18,8 +18,6 @@ const snippet = props => {
         }
     } = props;
 
-    let recipeSnippet = [];
-
     const autores = !!by
         ? by
               .filter(v => v.type === 'author')
