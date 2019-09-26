@@ -16,7 +16,7 @@ exports[`Ranking matches snapshot 1`] = `
       class="com-item"
     >
       <article
-        class="mod-caja-nota --border "
+        class="mod-caja-nota --border  "
       >
         <section
           class="cont-figure"
@@ -55,7 +55,7 @@ exports[`Ranking matches snapshot 1`] = `
       class="com-item"
     >
       <article
-        class="mod-caja-nota --border "
+        class="mod-caja-nota --border  "
       >
         <section
           class="cont-figure"
@@ -91,7 +91,7 @@ exports[`Ranking matches snapshot 1`] = `
       class="com-item"
     >
       <article
-        class="mod-caja-nota --border "
+        class="mod-caja-nota --border  "
       >
         <section
           class="cont-figure"

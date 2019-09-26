@@ -12,17 +12,17 @@ import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
 
 const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
-    <div className="hlp-marginBottom-20 wiki-autor row">
-        <section id="" className="cont-figure-wiki hlp-marginBottom-20">
+    <div className="wiki-autor row">
+        <section id="" className="cont-figure-wiki">
             <a href={url} className="figure">
-                <img src={imgSrc} alt="" className="content-img" />
+                <picture className="content-pic picture">
+                    <img src={imgSrc} alt="" className="content-img" />
+                </picture>
             </a>
         </section>
-        <div className="wiki-calc hlp-margintop-5">
+        <div className="wiki-calc">
             <h1 className="com-title-section-xl">{name}</h1>
-            <label className="hlp-marginBottom-20 hlp-margintop-15">
-                LA NACION
-            </label>
+            <label>LA NACION</label>
         </div>
         <p className="hlp-mobile-none col-12">
             {bio}

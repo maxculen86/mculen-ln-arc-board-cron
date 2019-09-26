@@ -6,16 +6,22 @@ Array [
     class="com-breadcrumb "
   >
     <a
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
       href="/"
     >
       LA NACION
     </a>
     <a
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
       href="/autores"
     >
       Autores
     </a>
     <a
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
       href="/autores/emilse-pizarro"
     >
       Emilse Pizarro

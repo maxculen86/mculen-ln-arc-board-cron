@@ -3,7 +3,13 @@ import get from 'lodash.get';
 import ArticleBase from './articleBase';
 import Media from '../media';
 
-const articleMain = ({ articleData, extraClasses, children, border }) => {
+const articleMain = ({
+    articleData,
+    extraClasses,
+    children,
+    border,
+    dataSection
+}) => {
     let media = null;
     // TODO: validar tipo autor correcto
     if (articleData.subtype === 99) {
@@ -32,6 +38,7 @@ const articleMain = ({ articleData, extraClasses, children, border }) => {
             extraClasses={extraClasses}
             mediaComponent={media}
             border={border}
+            dataSection={dataSection}
         >
             {children}
         </ArticleBase>

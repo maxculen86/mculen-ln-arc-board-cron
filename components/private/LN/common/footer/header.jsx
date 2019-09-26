@@ -8,18 +8,31 @@ const header = () => (
             </a>
         </section>
         <section className="col-12 col-desksm-4 col-desk-3 footer-header__redes">
-            <a href="https://www.facebook.com/lanacion" target="_blank">
+            <a
+                href="https://www.facebook.com/lanacion"
+                target="_blank"
+                rel="noreferrer noopener"
+            >
                 <i className="icon-facebook" />
             </a>
-            <a href="https://twitter.com/LANACION" target="_blank">
+            <a
+                href="https://twitter.com/LANACION"
+                target="_blank"
+                rel="noreferrer noopener"
+            >
                 <i className="icon-twitter" />
             </a>
-            <a href="https://www.instagram.com/lanacioncom/" target="_blank">
+            <a
+                href="https://www.instagram.com/lanacioncom/"
+                target="_blank"
+                rel="noreferrer noopener"
+            >
                 <i className="icon-instagram" />
             </a>
             <a
                 href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
                 target="_blank"
+                rel="noreferrer noopener"
             >
                 <i className="icon-rss" />
             </a>
@@ -29,6 +42,7 @@ const header = () => (
                 href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
                 className="app_play"
                 target="_blank"
+                rel="noreferrer noopener"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -150,6 +164,7 @@ const header = () => (
                 href="https://apps.apple.com/ar/app/la-nacion/id410689702"
                 className="app_ios"
                 target="_blank"
+                rel="noreferrer noopener"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
