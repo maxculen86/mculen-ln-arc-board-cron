@@ -1,0 +1,21 @@
+{
+    "mobile": [
+        {
+            "banner": "caja1_mob",
+            "position": 4
+        },
+        {
+            "banner": "caja2_mob",
+            "position": 9
+        },
+        {
+            "banner": "caja3_mob",
+            "position": 14
+        },
+        {
+            "banner": "caja4_mob",
+            "position": 15
+        }
+    ],
+    "tablet": []
+}
