@@ -26,8 +26,8 @@ class GrillaNotas extends Component {
 
     componentDidUpdate() {
         const { hayMasNotas } = this.props;
-        if (!hayMasNotas) {
-            const transparencyDiv = document.querySelector('.transparency');
+        const transparencyDiv = document.querySelector('.transparency');
+        if (!hayMasNotas && transparencyDiv) {
             transparencyDiv.parentElement.removeChild(transparencyDiv);
         } else {
             this.setAlturaTransparency();
