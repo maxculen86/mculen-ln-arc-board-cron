@@ -12,7 +12,7 @@ const ArticleList = props => {
 
     if (!articles) return null;
 
-    return articles.map(e => <ArticleMain articleData={e} />);
+    return articles.map(e => <ArticleMain articleData={e} border />);
 };
 
 export default withAcuArticlesData(ArticleList, null, 'notaM');
