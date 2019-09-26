@@ -149,13 +149,12 @@ body {
 }
 
 main {
-    padding-bottom: 30px;
+    position: relative;
+    padding: 20px 0 30px;
     @media (min-width: 768px) {
-        padding-top: 20px;
         padding-bottom: 50px;
     }
     @media (min-width: 1025px) {
-        padding-top: 20px;
         padding-bottom: 50px;
     }
 }
