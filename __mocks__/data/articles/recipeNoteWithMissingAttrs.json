@@ -16,8 +16,7 @@
                 "url": "https://handle-lists.itjquintana.now.sh/",
                 "config": {
                     "titleList": "Para la salsa",
-                    "typeList": "ingredientes",
-                    "items": []
+                    "typeList": "ingredientes"
                 }
             }
         },
@@ -34,8 +33,7 @@
                 "url": "https://handle-lists.itjquintana.now.sh/",
                 "config": {
                     "titleList": "Para lo que sea",
-                    "typeList": "ingredientes",
-                    "items": []
+                    "typeList": "ingredientes"
                 }
             }
         },
@@ -52,8 +50,7 @@
                 "url": "https://handle-lists.itjquintana.now.sh/",
                 "config": {
                     "titleList": "Para la salsa",
-                    "typeList": "preparacion",
-                    "items": []
+                    "typeList": "preparacion"
                 }
             }
         },
