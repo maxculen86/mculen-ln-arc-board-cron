@@ -10,9 +10,17 @@ const authorAndDate = props => {
     } = props;
 
     return (
-        <div>
-            <Date display_date={display_date} />
-            <Author {...props} />
+        <div className="col-12">
+            <div className="row mod-authordate">
+                <div className="col-12">
+                    <Date display_date={display_date} />
+                </div>
+            </div>
+            <div className="col-12">
+                <div className="com-author">
+                    <Author {...props} />
+                </div>
+            </div>
         </div>
     );
 };

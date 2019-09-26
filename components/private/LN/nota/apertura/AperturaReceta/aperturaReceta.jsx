@@ -18,7 +18,7 @@ const aperturaReceta = props => {
 
     return (
         <div
-            className={`row aper-receta w-100 hlp-marginBottom-40 ${
+            className={`row aper-receta w-100 ${
                 hasMultimedia ? '' : 'sin-foto'
             }`}
         >

@@ -27,7 +27,12 @@ const Index = () => (
                     >
                         Términos y condiciones
                     </a>
-                    <a href="https://www.lanacion.in/#/" className="item_link">
+                    <a
+                        href="https://www.lanacion.in/"
+                        className="item_link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         ¿Cómo anunciar?
                     </a>
                     <a
@@ -39,16 +44,20 @@ const Index = () => (
                 </section>
                 <section className="col-desksm-3 col-deskxl-4 footer-sitio__captcha">
                     <p>
-                        Protegido por reCAPTCHA:
+                        <span>Protegido por reCAPTCHA:</span>
                         <a
                             href="https://policies.google.com/terms?hl=es-419"
                             className="condition"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
                             Condiciones
                         </a>
                         <a
                             href="https://policies.google.com/privacy?hl=es-419"
                             className="private"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
                             Privacidad
                         </a>
@@ -64,7 +73,11 @@ const Index = () => (
                             className="img_gda"
                         />
                         Miembro de GDA. Grupo de Diarios América
-                        <a href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx">
+                        <a
+                            href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <img
                                 src="https://static.glanacion.com/v2/ln/img/data.jpg"
                                 alt="Data fiscal"

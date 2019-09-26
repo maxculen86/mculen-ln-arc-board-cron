@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - private - LN - acumulado - breadcrumbs - breadcrumbTag Test de snapshot breadcrumbTag 1`] = `
+Array [
+  <nav
+    class="com-breadcrumb "
+  >
+    <a
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
+      href="/"
+    >
+      LA NACION
+    </a>
+    <a
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
+      href="/tema/soy-un-tag"
+    >
+      Soy un tag
+    </a>
+  </nav>,
+  null,
+]
+`;

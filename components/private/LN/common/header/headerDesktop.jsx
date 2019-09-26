@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { API_ENV } from 'fusion:environment';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
 
@@ -7,7 +8,17 @@ import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 
+const { SitioSeguroRegistracion } = API_ENV || {
+    SitioSeguroRegistracion: 'https://ingresar.lanacion.com.ar'
+};
+
 const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
+    const { goToLoginUrl } = loginData;
+    const [active, setActive] = useState('');
+
+    const toggleMenu = () =>
+        active === '' ? setActive(' --active') : setActive('');
+
     return (
         <Header id="header" className="header">
             <div className="col-4 header__left">
@@ -19,80 +30,64 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                 </a>
             </div>
             <div className="col-4 header__right">
-                <div className="com-usuario">
+                <div className={`com-usuario${active}`}>
                     {!loginData.subscription && (
-                        <button
-                            type="button"
+                        <a
                             className="--btn --highlight hlp-marginRight-35"
+                            href={
+                                `${SitioSeguroRegistracion}/suscribirme` || '/'
+                            }
                         >
                             Suscribite
-                        </button>
+                        </a>
                     )}
                     {logueado && (
-                        <button
-                            type="button"
-                            id="btnSuscriptor"
-                            className="menu__item__ingresar --suscriptor "
-                        >
-                            <span
-                                className="item__suscriptor --nombre icon-derecha"
-                                id="spanUsuario"
-                            >
+                        <div onClick={toggleMenu} role="button">
+                            <p className="com-usuario__name">
                                 {loginData.userName}
-                            </span>
+                            </p>
                             {loginData.subscription ? (
-                                <span className="item__suscriptor --con__digital">
+                                <p className="com-usuario__valueSuscrib">
                                     Suscriptor digital
-                                </span>
+                                </p>
                             ) : (
-                                <span className="item__suscriptor --sin__digital">
+                                <p className="com-usuario__valueSuscrib">
                                     Sin suscripción digital
-                                </span>
+                                </p>
                             )}
-                            <ul>
-                                <li className="ingresar__suscriptor__item --cuenta">
-                                    <a
-                                        href="https://micuenta.lanacion.com.ar/mis-datos"
-                                        data-event="LinkClick"
-                                        data-section="MenuLN"
-                                    >
+                            <ul className="com-desplegable">
+                                <li>
+                                    <a href="https://micuenta.lanacion.com.ar/mis-datos">
                                         Mi cuenta
                                     </a>
                                 </li>
-                                <li className="ingresar__suscriptor__item --suscripciones">
-                                    <a
-                                        href="https://micuenta.lanacion.com.ar/mis-suscripciones"
-                                        data-event="LinkClick"
-                                        data-section="MenuLN"
-                                    >
+                                <li>
+                                    <a href="https://micuenta.lanacion.com.ar/ayuda">
+                                        Mis datos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://micuenta.lanacion.com.ar/mis-suscripciones">
                                         Mis suscripciones
                                     </a>
                                 </li>
-                                <li className="ingresar__suscriptor__item --ayuda">
+                                <li>
                                     <a
-                                        href="https://micuenta.lanacion.com.ar/ayuda"
-                                        data-event="LinkClick"
-                                        data-section="MenuLN"
-                                    >
-                                        Ayuda
-                                    </a>
-                                </li>
-                                <li className="ingresar__suscriptor__item --salir">
-                                    <a
-                                        id="btnSalir"
-                                        href="javascript:void(0)"
+                                        href="javascript:void(0);"
                                         onClick={() => goToLogout()}
-                                        data-event="LinkClick"
-                                        data-section="MenuLN"
                                     >
                                         Salir
                                     </a>
                                 </li>
                             </ul>
-                        </button>
+                        </div>
                     )}
                     {!logueado && (
-                        <button type="button" className="--btn --secondary">
+                        <button
+                            type="button"
+                            className="--btn --secondary"
+                            onClick={() => goToLoginUrl()}
+                        >
                             Ingresar
                         </button>
                     )}

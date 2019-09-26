@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
+const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbAutor({ author, host }) {
     const sections = [
         {
@@ -14,13 +15,13 @@ function BreadcrumbAutor({ author, host }) {
             name: 'Autores'
         },
         {
-            path: `/${author._id}`,
+            path: `/autores/${author._id}`,
             name: author.byline
         }
     ];
     return (
         <>
-            <BreadCrumbBase sections={sections} />
+            <BreadCrumbBase sections={sections} dataSection={DATA_SECTION} />
             <BreadCrumbSchema sections={sections} host={host} />
         </>
     );
@@ -28,9 +29,10 @@ function BreadcrumbAutor({ author, host }) {
 
 BreadcrumbAutor.propTypes = {
     author: PropTypes.shape({
-        id: PropTypes.string,
-        name: PropTypes.string
-    }).isRequired
+        _id: PropTypes.string,
+        byline: PropTypes.string
+    }).isRequired,
+    host: PropTypes.string.isRequired
 };
 
 export default BreadcrumbAutor;
