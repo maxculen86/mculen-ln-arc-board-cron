@@ -26,8 +26,8 @@ class GrillaNotas extends Component {
 
     componentDidUpdate() {
         const { hayMasNotas } = this.props;
-        if (!hayMasNotas) {
-            const transparencyDiv = document.querySelector('.transparency');
+        const transparencyDiv = document.querySelector('.transparency');
+        if (!hayMasNotas && transparencyDiv) {
             transparencyDiv.parentElement.removeChild(transparencyDiv);
         } else {
             this.setAlturaTransparency();
@@ -41,9 +41,8 @@ class GrillaNotas extends Component {
         const articleGrid = articlesGrid[articlesGrid.length - 1];
         const alturaArticle =
             articleGrid.offsetHeight || articleGrid.clientHeight;
-        document.querySelector(
-            '.transparency'
-        ).style.height = `${alturaArticle}px`;
+        const transparecyDiv = document.querySelector('.transparency');
+        if (transparecyDiv) transparecyDiv.style.height = `${alturaArticle}px`;
     };
 
     render() {

@@ -1,5 +1,5 @@
 @import '../abstracts/variables';
-.cont-figure-wiki,
+
 .cont-figure {
     background-color: $placeholder;
     .figure {
@@ -42,8 +42,8 @@
             &:before {
                 font-family: 'LNlogos' !important;
                 content: "\e80a";
-                color: $blanco;
-                font-size: 4em;
+                color: #d9d9d9;
+                font-size: 4.22em;
                 font-family: ln10;
                 font-style: normal;
                 font-weight: 400;
