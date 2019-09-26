@@ -11,8 +11,9 @@ const DATA_SECTION = 'CuerpoAcuRecetas';
 const CLASS_TRANSPARENCY = 'transparency';
 class GrillaNotas extends Component {
     componentDidMount() {
+        const { hayMasNotas } = this.props;
         const divGrilla = document.querySelector('.hlp-degrade');
-        if (divGrilla) {
+        if (divGrilla && hayMasNotas) {
             const transparencyDiv = document.createElement('div');
             transparencyDiv.classList.add(CLASS_TRANSPARENCY);
             divGrilla.appendChild(transparencyDiv);
@@ -23,9 +24,23 @@ class GrillaNotas extends Component {
         }
     }
 
+    componentDidUpdate() {
+        const { hayMasNotas } = this.props;
+        const transparencyDiv = document.querySelector('.transparency');
+        if (!hayMasNotas && transparencyDiv) {
+            transparencyDiv.parentElement.removeChild(transparencyDiv);
+        } else {
+            this.setAlturaTransparency();
+        }
+    }
+
     setAlturaTransparency = () => {
-        const articleGrid = document.querySelector('.mod-caja-nota');
-        const alturaArticle = articleGrid.offsetHeight;
+        const articlesGrid = document.querySelectorAll(
+            '.hlp-degrade article.mod-caja-nota'
+        );
+        const articleGrid = articlesGrid[articlesGrid.length - 1];
+        const alturaArticle =
+            articleGrid.offsetHeight || articleGrid.clientHeight;
         document.querySelector(
             '.transparency'
         ).style.height = `${alturaArticle}px`;
@@ -33,7 +48,12 @@ class GrillaNotas extends Component {
 
     render() {
         let articlesComponents = [];
-        const { articles } = this.props;
+        const {
+            articles,
+            hayMasNotas,
+            obtenerMasNotas,
+            globalContent
+        } = this.props;
         if (articles && articles.length) {
             articlesComponents = articles.map((a, i) => {
                 const dateComponent = (
@@ -57,11 +77,11 @@ class GrillaNotas extends Component {
                 <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
                     {articlesComponents}
                 </section>
-                {this.props.hayMasNotas && (
+                {hayMasNotas && (
                     <section className="row">
                         <BtnMasNotas
-                            onClickHandler={this.props.obtenerMasNotas}
-                            name={this.props.globalContent.name}
+                            onClickHandler={obtenerMasNotas}
+                            name={globalContent.name}
                         />
                     </section>
                 )}
