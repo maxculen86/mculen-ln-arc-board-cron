@@ -22,8 +22,12 @@ const AperturaConDestacado = props => {
             <div className="col-desksm-4 cont-aper">
                 <Sections taxonomy={taxonomy} destacado />
                 {receta && <DetalleReceta receta={receta} />}
-                <h4 className="com-subtitle_list">Recetas con:</h4>
-                <Tags tags={tags} destacado={false} />
+                {!!tags && tags.length > 0 && (
+                    <>
+                        <h4 className="com-subtitle_list">Recetas con:</h4>
+                        <Tags tags={tags} destacado={false} />
+                    </>
+                )}
             </div>
         </>
     );

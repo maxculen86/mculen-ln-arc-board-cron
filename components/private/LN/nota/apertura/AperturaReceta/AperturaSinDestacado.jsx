@@ -17,8 +17,12 @@ const AperturaSinDestacado = props => {
                 </div>
                 <div className="col-desksm-9">
                     <Sections taxonomy={taxonomy} destacado />
-                    <h4 className="com-subtitle_list">Recetas con:</h4>
-                    <Tags tags={tags} destacado={false} />
+                    {!!tags && tags.length > 0 && (
+                        <>
+                            <h4 className="com-subtitle_list">Recetas con:</h4>
+                            <Tags tags={tags} destacado={false} />
+                        </>
+                    )}
                 </div>
             </div>
         </div>
