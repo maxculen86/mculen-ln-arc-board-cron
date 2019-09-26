@@ -1,0 +1,27 @@
+import Consumer from 'fusion:consumer';
+
+import React from 'react';
+import { render } from 'enzyme';
+import NotaRecetaLayout from '../../../components/layouts/LN-nota-receta';
+import nota from '../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
+
+describe('layouts - La Nacion - Nota - Receta', () => {
+    it('Test de snapshot para layout receta', () => {
+        const comp = render(
+            <NotaRecetaLayout globalContent={nota}>
+                <div id="Hijo0" />
+                <div id="Hijo1" />
+                <div id="Hijo2" />
+                <div id="Hijo3" />
+                <div id="Hijo4" />
+                <div id="Hijo5" />
+                <div id="Hijo6" />
+                <div id="Hijo7" />
+                <div id="Hijo8" />
+                <div id="Hijo9" />
+            </NotaRecetaLayout>
+        );
+
+        expect(comp).toMatchSnapshot();
+    });
+});

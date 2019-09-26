@@ -9,12 +9,13 @@ const apiIngresar = () => {
             method: 'POST',
             headers: {
                 'X-Token': token,
-                'X-Value': xvalue
+                'X-Value': xvalue,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 AutenticacionTipoId: '1',
                 OrigenLoginTipoId: '1',
-                IsRelogin: '1'
+                IsRelogin: 1
             })
         }).then(res => res.json());
 

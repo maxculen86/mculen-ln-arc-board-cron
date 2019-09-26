@@ -1,19 +1,60 @@
+import { API_ENV } from 'fusion:environment';
+
+const { CookieExpiration, DominioCookie } = API_ENV || {
+    CookieExpiration: '8640000000',
+    DominioCookie: '.lanacion.com.ar'
+};
+
 const useCookie = () => {
+    const DiccionarioCookiesAGuardar = [
+        'usuariosexo',
+        'usuarioemail',
+        'usuarioanio',
+        'usuarioDetalleClubNacion',
+        'UsuarioDetalleGuid',
+        'UsuarioDetalleNick',
+        'UsuarioId',
+        'UsuarioUsuario',
+        'usuario%5Fusuario',
+        'usuarioLogTkn',
+        'cookieLogin',
+        'syncLfLN',
+        'Provinciaid',
+        'Paisid',
+        'LNPreferencias',
+        'Crm_id',
+        'ProductoPremiumId',
+        'token',
+        'xvalue',
+        'TokenJWT'
+    ];
+
     function eraseCookie(nameCookie) {
-        console.log('TCL: eraseCookie -> nameCookie', nameCookie);
-        document.cookie = `${nameCookie}=false;expires=Thu, 01-Jan-1970 00:00:01 GMT`;
+        document.cookie = `${nameCookie}=false; expires=${new Date().toUTCString()}; domain=${DominioCookie}; path=/`;
     }
 
-    function setCookie(nameCookie, valueCookie, timeExpiration = 2) {
+    function setCookie(nameCookie, valueCookie, timeExpiration) {
+        const seconds = timeExpiration ? timeExpiration * 60 * 1000 : undefined;
+
         if (!nameCookie || typeof nameCookie !== 'string') return false;
         if (nameCookie.length === 0) return false;
 
         if (!valueCookie || typeof valueCookie !== 'string') return false;
         if (valueCookie.length === 0) return false;
 
-        const now = new Date();
-        const exp = new Date(now.getTime() + timeExpiration * 60 * 1000);
-        document.cookie = `${nameCookie}=${valueCookie}; expires=${exp.toUTCString()}`;
+        /**
+         * crear timeExpiration en caso de no venir definido
+         */
+        let exp;
+        if (!seconds) {
+            const secondsDefault = parseInt(CookieExpiration);
+            const date = new Date();
+            exp = new Date(date.setTime(date.getTime() + secondsDefault));
+        } else {
+            exp = new Date(new Date().getTime() + seconds);
+        }
+
+        document.cookie = `${nameCookie}=${valueCookie}; expires=${exp.toUTCString()}; domain=${DominioCookie}; path=/`;
         return !!(
             document.cookie &&
             document.cookie.indexOf(`${nameCookie}=${valueCookie}`) !== -1
@@ -36,7 +77,8 @@ const useCookie = () => {
     return {
         getCookie,
         setCookie,
-        eraseCookie
+        eraseCookie,
+        DiccionarioCookiesAGuardar
     };
 };
 

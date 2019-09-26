@@ -4,7 +4,11 @@ import React from 'react';
 
 export default function ItemHome() {
     return (
-        <a href="/" className="col-2 item-foo">
+        <a
+            href="https://www.lanacion.com.ar/"
+            // antes era col-2 cuando vuelva MENU
+            className="col-4 item-foo"
+        >
             <i className="icon-home" />
             <p>Home</p>
         </a>

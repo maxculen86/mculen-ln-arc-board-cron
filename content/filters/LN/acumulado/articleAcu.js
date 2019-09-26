@@ -31,5 +31,6 @@ export default `
         display_date
         website_url       
     }
+    next
     
 }`;

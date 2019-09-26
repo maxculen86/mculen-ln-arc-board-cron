@@ -6,10 +6,54 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import BtnMasNotas from '../botonVerMasNotas';
 
 const CLASS_W_100 = 'w-100-mobile';
+//TODO: Este data section hay que cambiarlo por uno generico para cuerpo de acumulado.
+const DATA_SECTION = 'CuerpoAcuRecetas';
+const CLASS_TRANSPARENCY = 'transparency';
 class GrillaNotas extends Component {
+    componentDidMount() {
+        const { hayMasNotas } = this.props;
+        const divGrilla = document.querySelector('.hlp-degrade');
+        if (divGrilla && hayMasNotas) {
+            const transparencyDiv = document.createElement('div');
+            transparencyDiv.classList.add(CLASS_TRANSPARENCY);
+            divGrilla.appendChild(transparencyDiv);
+            this.setAlturaTransparency();
+            window.addEventListener('resize', () => {
+                this.setAlturaTransparency();
+            });
+        }
+    }
+
+    componentDidUpdate() {
+        const { hayMasNotas } = this.props;
+        const transparencyDiv = document.querySelector('.transparency');
+        if (!hayMasNotas && transparencyDiv) {
+            transparencyDiv.parentElement.removeChild(transparencyDiv);
+        } else {
+            this.setAlturaTransparency();
+        }
+    }
+
+    setAlturaTransparency = () => {
+        const articlesGrid = document.querySelectorAll(
+            '.hlp-degrade article.mod-caja-nota'
+        );
+        const articleGrid = articlesGrid[articlesGrid.length - 1];
+        const alturaArticle =
+            articleGrid.offsetHeight || articleGrid.clientHeight;
+        document.querySelector(
+            '.transparency'
+        ).style.height = `${alturaArticle}px`;
+    };
+
     render() {
         let articlesComponents = [];
-        const { articles } = this.props;
+        const {
+            articles,
+            hayMasNotas,
+            obtenerMasNotas,
+            globalContent
+        } = this.props;
         if (articles && articles.length) {
             articlesComponents = articles.map((a, i) => {
                 const dateComponent = (
@@ -17,11 +61,13 @@ class GrillaNotas extends Component {
                 );
                 return (
                     <ArticleMain
+                        dataSection={DATA_SECTION}
                         key={i}
-                        children={dateComponent}
                         articleData={a}
                         extraClasses={CLASS_W_100}
-                    />
+                    >
+                        {dateComponent}
+                    </ArticleMain>
                 );
             });
         }
@@ -31,11 +77,11 @@ class GrillaNotas extends Component {
                 <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
                     {articlesComponents}
                 </section>
-                {this.props.hayMasNotas && (
+                {hayMasNotas && (
                     <section className="row">
                         <BtnMasNotas
-                            onClickHandler={this.props.obtenerMasNotas}
-                            name={this.props.globalContent.name}
+                            onClickHandler={obtenerMasNotas}
+                            name={globalContent.name}
                         />
                     </section>
                 )}

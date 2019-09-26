@@ -8,8 +8,8 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
     class="row"
   >
     <a
-      class="col-2 item-foo"
-      href="/"
+      class="col-4 item-foo"
+      href="https://www.lanacion.com.ar/"
     >
       <i
         class="icon-home"
@@ -20,7 +20,7 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
     </a>
     <a
       class="col-4 item-foo"
-      href="/"
+      href="https://club.lanacion.com.ar/"
     >
       <i
         class="icon-club"
@@ -30,8 +30,8 @@ exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] =
       </p>
     </a>
     <a
-      class="col-3 item-foo"
-      href="/"
+      class="col-4 item-foo"
+      href="https://micuenta.lanacion.com.ar/mis-datos/"
     >
       <i
         class="icon-comment"
