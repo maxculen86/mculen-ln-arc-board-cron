@@ -27,9 +27,7 @@ describe('snippet', () => {
     });
 
     it('renders ok with missing data', () => {
-        const snippet = renderer
-            .create(<Snippet globalContent={recipeNoteWithMissingAttrs} />)
-            .toJSON();
-        expect(snippet).toMatchSnapshot();
+        render(<Snippet globalContent={recipeNoteWithMissingAttrs} />, container)
+        expect(container).toMatchSnapshot();
     });
 });
