@@ -7,6 +7,7 @@ class Index extends Component {
     render() {
         const size = this.props.size || SIZE;
         const { author_type, _id } = this.props.globalContent;
+        const { siteProperties } = this.props;
         const sectionId = !author_type ? _id : null;
         const authorId = author_type ? _id : null;
         return (
@@ -15,6 +16,7 @@ class Index extends Component {
                 sectionId={sectionId}
                 size={size}
                 page={1}
+                siteProperties={siteProperties}
             />
         );
     }

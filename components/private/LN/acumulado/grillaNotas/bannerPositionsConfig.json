@@ -17,5 +17,14 @@
             "position": 15
         }
     ],
-    "tablet": []
+    "tablet": [
+        {
+            "banner": "caja1_tab",
+            "position": 4
+        },
+        {
+            "banner": "caja2_tab",
+            "position": 8
+        }
+    ]
 }
