@@ -4,7 +4,7 @@ import { resizerSecret, resizerUrl } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 
 const resolve = key => {
-    const { sectionId, authorId, size, page, website, noteId } = key;
+    const { sectionId, authorId, size, page, website, canonicalUrl } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
     const basePath = `/content/v4/search/published/?website=${website ||
@@ -52,8 +52,8 @@ const resolve = key => {
                     ],
                     "must_not": [
                         {
-                            "ids": { 
-                                "values": ["${noteId}"]
+                            "terms": { 
+                                "canonical_url": ["${canonicalUrl}"]
                             }
                         }
                     ]

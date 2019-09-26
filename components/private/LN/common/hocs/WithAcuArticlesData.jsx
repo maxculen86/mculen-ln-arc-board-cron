@@ -35,7 +35,10 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 const sectionId = get(this, 'props.sectionId', null);
                 const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
-                const noteId = get(this, 'props.globalContent._id');
+                const canonicalUrl = get(
+                    this,
+                    'props.globalContent.canonical_url'
+                );
 
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
@@ -46,7 +49,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         size,
                         imageConfig,
                         page,
-                        noteId
+                        canonicalUrl
                     },
                     filter
                 });
