@@ -14,9 +14,6 @@
   width: 100%;
   z-index: 2;
 }
-#acumulado main {
-  position: relative;
-}
 #acumulado main > section:first-of-type:after {
   content: "";
   position: absolute;

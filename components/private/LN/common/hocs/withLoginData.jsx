@@ -5,7 +5,12 @@ import { API_ENV } from 'fusion:environment';
 import apiIngresar from '../../../common/services/apIngresar';
 import useCookie from '../utils/useCookie';
 
-const { setCookie, getCookie, eraseCookie } = useCookie();
+const {
+    setCookie,
+    getCookie,
+    eraseCookie,
+    DiccionarioCookiesAGuardar
+} = useCookie();
 
 const { LoginUrl } = API_ENV || {
     LoginUrl: 'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback='
@@ -100,11 +105,16 @@ function withLoginData(WrappedComponent) {
                             2
                         );
 
-                        if (res.code === '00001') {
+                        if (res.code === '0000') {
                             apiIngresar
                                 .getMe(true, newToken, newXvalue)
                                 .then(userData => {
                                     setUserData(userData);
+                                    this.reMeHandler(
+                                        userData,
+                                        newToken,
+                                        newXvalue
+                                    );
                                 });
                         }
                     });
@@ -116,6 +126,86 @@ function withLoginData(WrappedComponent) {
 
             if (getCookie('token'))
                 apiIngresar.getMe().then(res => setUserData(res));
+        };
+
+        reMeHandler = (res, token, xvalue) => {
+            switch (res.code) {
+                case '0000':
+                    const { Usuario } = JSON.parse(res.response) || {};
+
+                    eraseCookie('token');
+                    eraseCookie('xvalue');
+
+                    setCookie('token', token);
+                    setCookie('xvalue', xvalue);
+                    this.setupCookies(Usuario);
+                    break;
+                case '0001':
+                    /**
+                     * TODO: manejo de Logger
+                     Logger.Error("ReMe | Error Controlado ", JSON.stringify(res) );
+                     */
+                    this.goToLogout();
+                    break;
+                case '0002':
+                    /**
+                     * TODO: manejo de Logger
+                     Logger.Error("ReMe | Token inválido ", JSON.stringify(res)); //{ 'response' : res ,  'tokens': { 'X-Token': Cookie.LeerCookie("token") || '', 'X-Value': Cookie.LeerCookie("xvalue") || '' }});
+                     */
+                    this.goToLogout();
+                    break;
+                default:
+                    /**
+                     * TODO: manejo de Logger
+                     Logger.Error("ReMe | Error (Handler) ", JSON.stringify(res) );
+                     */
+                    this.goToLogout();
+            }
+        };
+
+        setupCookies = obj => {
+            // eslint-disable-next-line guard-for-in
+            for (const key in obj) {
+                let aux;
+                let cookie;
+                if (
+                    DiccionarioCookiesAGuardar.indexOf(key) > -1 &&
+                    typeof obj[key] == 'string'
+                ) {
+                    switch (key) {
+                        case 'UsuarioDetalleGuid':
+                            aux = 'usuario%5Fdetalle%5Fguid';
+                            cookie = `{${getCookie('token')}}`;
+                            break;
+                        case 'UsuarioDetalleNick':
+                            aux = 'usuario%5Fdetalle%5Fnick';
+                            cookie = obj[key];
+                            break;
+                        case 'UsuarioId':
+                            aux = 'usuario%5Fid';
+                            cookie = obj[key];
+                            break;
+                        case 'UsuarioUsuario':
+                            aux = 'usuario%5Fusuario';
+                            cookie = obj[key];
+                            break;
+                        case 'usuarioLogTkn':
+                            aux = 'usuario%5Flogtkn';
+                            cookie = obj[key];
+                            break;
+                        case 'TokenJWT':
+                            aux = 'PersoTKN';
+                            cookie = obj[key];
+                            break;
+                        default:
+                            aux = key;
+                            cookie = obj[key];
+                    }
+
+                    eraseCookie(aux);
+                    setCookie(aux, cookie);
+                }
+            }
         };
 
         mustRelogin = () => {

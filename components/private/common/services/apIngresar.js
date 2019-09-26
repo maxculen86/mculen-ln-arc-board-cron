@@ -7,9 +7,12 @@ const apiIngresar = () => {
     const reLogin = (token, xvalue) =>
         fetch(`${urlApi}ReLogin`, {
             method: 'POST',
+            headers: {
+                'X-Token': token,
+                'X-Value': xvalue,
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
-                Token: token,
-                Xvalue: xvalue,
                 AutenticacionTipoId: '1',
                 OrigenLoginTipoId: '1',
                 IsRelogin: 1
