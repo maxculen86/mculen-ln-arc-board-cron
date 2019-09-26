@@ -1,7 +1,7 @@
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getProperties from 'fusion:properties';
 import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
-import { resizerSecret, resizerUrl } from 'fusion:environment';
+import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import get from 'lodash.get';
 
 // TODO: ver filtro en API por "?website=${website || arcSite}"
@@ -28,8 +28,8 @@ const transform = (data, siteProps) => {
     const presets = getPresets(siteProps);
     respData.content_elements = data.content_elements.map(v => {
         return addResizedUrls(v, {
-            resizerSecret: resizerSecret,
-            resizerUrl: resizerUrl,
+            resizerSecret: RESIZER_KEY,
+            resizerUrl: RESIZER_URL,
             presets
         });
     });

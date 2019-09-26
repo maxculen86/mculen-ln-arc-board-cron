@@ -1,5 +1,5 @@
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
-import { resizerSecret, resizerUrl } from 'fusion:environment';
+import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
 import filter from '../filters/LN/nota/article';
@@ -35,8 +35,8 @@ const transform = (data, siteProps) => {
     let resp = data;
     if (presets) {
         resp = addResizedUrls(data, {
-            resizerSecret,
-            resizerUrl,
+            resizerSecret: RESIZER_KEY,
+            resizerUrl: RESIZER_URL,
             presets
         });
     }
