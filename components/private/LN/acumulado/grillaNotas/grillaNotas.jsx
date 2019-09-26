@@ -41,9 +41,8 @@ class GrillaNotas extends Component {
         const articleGrid = articlesGrid[articlesGrid.length - 1];
         const alturaArticle =
             articleGrid.offsetHeight || articleGrid.clientHeight;
-        document.querySelector(
-            '.transparency'
-        ).style.height = `${alturaArticle}px`;
+        const transparecyDiv = document.querySelector('.transparency');
+        if (transparecyDiv) transparecyDiv.style.height = `${alturaArticle}px`;
     };
 
     render() {
