@@ -1,8 +1,5 @@
 {
     "organizationId": "lanacionar",
-    "videoPlayer": {
-        "apiEnv": "sandbox"
-    },
     "videoBaseUrl": "/",
     "shareConfig": {
         "host": "https://www.lanacion.com.ar",
