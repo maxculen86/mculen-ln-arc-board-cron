@@ -13,7 +13,9 @@ class VideoPlayer extends PureComponent {
         super(props);
         const siteVars = getProperties(props.arcSite);
         this.organizationId = siteVars.organizationId;
-        this.apiEnv = API_ENV || '';
+        console.log('-----------------', API_ENV);
+        // TODO: en sandbox no esta lvantando la variable de enviroment
+        this.apiEnv = API_ENV || 'sandbox';
         if (this.props.apiEnv) this.apiEnv = this.props.apiEnv;
     }
 
