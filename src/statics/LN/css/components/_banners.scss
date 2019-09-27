@@ -4,6 +4,13 @@
 .--bg-banner {
     background-color:#f3f3f3;
     margin-bottom:$px-40;
+    &.w-100{
+        .banner{
+            display: flex!important;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 }
 
 .banner {
@@ -86,10 +93,4 @@
         }
     }
 
-}
-
-#cabezal_dsk{
-    display: flex!important;
-    justify-content: center;
-    align-items: center;
 }
