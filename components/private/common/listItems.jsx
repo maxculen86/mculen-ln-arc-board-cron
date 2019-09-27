@@ -21,7 +21,7 @@ const ListItemsFactory = ({ list, titleList, listNumeric }) => {
             <TypeList ol={listNumeric}>
                 {list.map((item, key) => (
                     <li key={key} className="com-item">
-                        {item}
+                        {decodeURIComponent(item)}
                     </li>
                 ))}
             </TypeList>
