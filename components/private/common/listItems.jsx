@@ -14,6 +14,7 @@ const TypeList = ({ ol, children }) =>
 //TODO: falta html
 //TODO: pasar a carpeta Cuerpo, crear containers de Ingredientes y Preparacion y sacar
 //esa logica de aperturaReceta.jsx
+// TODO: Se tuvo que agregar un decodeURIComponent en cada item del Ingredientes y preparacion de los PowerUps
 const ListItemsFactory = ({ list, titleList, listNumeric }) => {
     return (
         <div>
@@ -21,7 +22,7 @@ const ListItemsFactory = ({ list, titleList, listNumeric }) => {
             <TypeList ol={listNumeric}>
                 {list.map((item, key) => (
                     <li key={key} className="com-item">
-                        {item}
+                        {decodeURIComponent(item)}
                     </li>
                 ))}
             </TypeList>

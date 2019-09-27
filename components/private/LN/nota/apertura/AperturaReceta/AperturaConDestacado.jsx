@@ -10,7 +10,7 @@ import '../../../../../../resources/dist/css/ln/layouts/grid.css';
 const AperturaConDestacado = props => {
     const {
         globalContent: {
-            promo_items: { receta },
+            promo_items: promoItems,
             taxonomy,
             taxonomy: { tags }
         }
@@ -21,9 +21,15 @@ const AperturaConDestacado = props => {
             <Destacado {...props} />
             <div className="col-desksm-4 cont-aper">
                 <Sections taxonomy={taxonomy} destacado />
-                {receta && <DetalleReceta receta={receta} />}
-                <h4 className="com-subtitle_list">Recetas con:</h4>
-                <Tags tags={tags} destacado={false} />
+                {!!promoItems && !!promoItems.receta && (
+                    <DetalleReceta receta={promoItems.receta} />
+                )}
+                {!!tags && tags.length > 0 && (
+                    <>
+                        <h4 className="com-subtitle_list">Recetas con:</h4>
+                        <Tags tags={tags} destacado={false} />
+                    </>
+                )}
             </div>
         </>
     );

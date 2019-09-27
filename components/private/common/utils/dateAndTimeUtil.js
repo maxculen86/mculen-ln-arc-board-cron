@@ -22,7 +22,9 @@ function formatDate(date) {
 }
 
 function formatDateHoursAndMint(date) {
-    return `${date.getHours()}:${date.getMinutes()}`;
+    return `${`00${date.getHours()}`.slice(
+        -2
+    )}:${`00${date.getMinutes()}`.slice(-2)}`;
 }
 
 /**

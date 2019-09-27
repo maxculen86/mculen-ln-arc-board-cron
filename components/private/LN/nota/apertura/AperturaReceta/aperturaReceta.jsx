@@ -8,13 +8,13 @@ import '../../../../../../resources/dist/css/ln/layouts/grid.css';
 const aperturaReceta = props => {
     const {
         globalContent: {
-            promo_items: { receta, basic },
+            promo_items: promoItems,
             taxonomy,
             taxonomy: { tags }
         }
     } = props;
 
-    const hasMultimedia = !!(basic && basic._id);
+    const hasMultimedia = !!(!!promoItems && promoItems.basic);
 
     return (
         <div
@@ -28,7 +28,7 @@ const aperturaReceta = props => {
                 <AperturaSinDestacado
                     tags={tags}
                     taxonomy={taxonomy}
-                    receta={receta}
+                    receta={!!promoItems && promoItems.receta}
                 />
             )}
         </div>

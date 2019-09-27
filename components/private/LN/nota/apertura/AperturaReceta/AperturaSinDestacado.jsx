@@ -12,13 +12,19 @@ const AperturaSinDestacado = props => {
     return (
         <div className="col-desksm-12 cont-aper">
             <div className="row">
-                <div className="col-desksm-3">
-                    {receta && <DetalleReceta receta={receta} />}
-                </div>
+                {receta && (
+                    <div className="col-desksm-3">
+                        <DetalleReceta receta={receta} />
+                    </div>
+                )}
                 <div className="col-desksm-9">
                     <Sections taxonomy={taxonomy} destacado />
-                    <h4 className="com-subtitle_list">Recetas con:</h4>
-                    <Tags tags={tags} destacado={false} />
+                    {!!tags && tags.length > 0 && (
+                        <>
+                            <h4 className="com-subtitle_list">Recetas con:</h4>
+                            <Tags tags={tags} destacado={false} />
+                        </>
+                    )}
                 </div>
             </div>
         </div>
