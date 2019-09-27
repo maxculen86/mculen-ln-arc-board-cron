@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-// TODO:
+// TODO: validar con el validador de google
 const snippet = props => {
     const {
         globalContent: {
