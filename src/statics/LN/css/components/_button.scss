@@ -9,6 +9,9 @@
     text-transform: uppercase;
     border-radius: 3px;
     transition: opacity .2s ease-in-out;
+    &:focus {
+        outline:0;
+    }
     &.--small {
         padding: 8px 12px;
     }

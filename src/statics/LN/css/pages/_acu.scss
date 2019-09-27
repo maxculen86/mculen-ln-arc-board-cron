@@ -43,3 +43,15 @@ article a.figure:before:not(.mod-caja-nota a.figure:before) {
         z-index: 10;
     }
 }
+.loader {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    left: 70px;
+    right: 0;
+    top: 10px;
+    bottom: 0;
+    border: 4px solid #ebebeb;
+    border-bottom-color: #1088b5;
+    animation: b 1s linear 0s infinite;
+}
