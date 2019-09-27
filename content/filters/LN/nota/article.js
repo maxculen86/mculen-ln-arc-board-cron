@@ -58,6 +58,7 @@ const customReceta = `
 export default `
 {
     _id
+    canonical_url
     subtype
     promo_items {
         basic {

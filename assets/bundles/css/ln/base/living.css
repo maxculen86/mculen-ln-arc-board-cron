@@ -1,0 +1,420 @@
+/* COLUMNAS*/
+/* COLORES */
+/* end Colores */
+/* FONT-FACE */
+/* COLUMNAS */
+/* ORDERS */
+/* OFFSETS */
+/* COLUMNAS*/
+/* COLORES */
+/* end Colores */
+/* FONT-FACE */
+/* COLUMNAS */
+/* ORDERS */
+/* OFFSETS */
+/* FONTS --------------- */
+@font-face {
+  font-family: "SuecaSlab";
+  src: url(/pf/resources/dist/fonts/suecaslab-medium-webfont.eot);
+  src: url(/pf/resources/dist/fonts/suecaslab-medium-webfont.eot) format("embedded-opentype"), url(/pf/resources/dist/fonts/suecaslab-medium-webfont.woff) format("woff"), url(/pf/resources/dist/fonts/suecaslab-medium-webfont.ttf) format("truetype"), url(/pf/resources/dist/fonts/suecaslab-medium-webfont.svg) format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SuecaSlab";
+  src: url(/pf/resources/dist/fonts/suecaslab-bold-webfont.eot);
+  src: url(/pf/resources/dist/fonts/suecaslab-bold-webfont.eot) format("embedded-opentype"), url(/pf/resources/dist/fonts/suecaslab-bold-webfont.woff) format("woff"), url(/pf/resources/dist/fonts/suecaslab-bold-webfont.ttf) format("truetype"), url(/pf/resources/dist/fonts/suecaslab-bold-webfont.svg) format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LNicons";
+  src: url(/pf/resources/dist/fonts/ln-icons.eot);
+  src: url(/pf/resources/dist/fonts/ln-icons.eot) format("embedded-opentype"), url(/pf/resources/dist/fonts/ln-icons.woff) format("woff"), url(/pf/resources/dist/fonts/ln-icons.ttf) format("truetype"), url(/pf/resources/dist/fonts/ln-icons.svg) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LNlogos";
+  src: url(/pf/resources/dist/fonts/ln-logos.eot);
+  src: url(/pf/resources/dist/fonts/ln-logos.eot) format("embedded-opentype"), url(/pf/resources/dist/fonts/ln-logos.woff) format("woff"), url(/pf/resources/dist/fonts/ln-logos.ttf) format("truetype"), url(/pf/resources/dist/fonts/ln-logos.svg) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+strong {
+  font-weight: 700;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'LNicons' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  font-size: 2rem;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-whatsapp:before {
+  content: "\e900";
+}
+
+.icon-twitter:before {
+  content: "\e901";
+}
+
+.icon-time:before {
+  content: "\e902";
+}
+
+.icon-rss:before {
+  content: "\e903";
+}
+
+.icon-portion:before {
+  content: "\e904";
+}
+
+.icon-menu:before {
+  content: "\e905";
+}
+
+.icon-mail:before {
+  content: "\e906";
+}
+
+.icon-right:before {
+  content: "\e907";
+}
+
+.icon-left:before {
+  content: "\e908";
+}
+
+.icon-ios:before {
+  content: "\e909";
+}
+
+.icon-instagram:before {
+  content: "\e90a";
+}
+
+.icon-inbox:before {
+  content: "\e90b";
+}
+
+.icon-home:before {
+  content: "\e90c";
+}
+
+.icon-facebook:before {
+  content: "\e90d";
+}
+
+.icon-star:before {
+  content: "\e90e";
+}
+
+.icon-comment:before {
+  content: "\e90f";
+}
+
+.icon-lock:before {
+  content: "\e910";
+}
+
+.icon-club:before {
+  content: "\e911";
+}
+
+.icon-close:before {
+  content: "\e912";
+}
+
+.icon-search:before {
+  content: "\e913";
+}
+
+.icon-bullet:before {
+  content: "\e914";
+}
+
+.icon-down:before {
+  content: "\e915";
+}
+
+.icon-up:before {
+  content: "\e916";
+}
+
+.icon-clap:before {
+  content: "\e917";
+}
+
+.icon-android:before {
+  content: "\e918";
+}
+
+.icon-setting:before {
+  content: "\e919";
+}
+
+.icon-zoom:before {
+  content: "\e91a";
+}
+
+/*LOGOS*/
+[class^="logo-"],
+[class*=" logo-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'LNlogos' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 768px) {
+  [class^="logo-"],
+  [class*=" logo-"] {
+    font-size: 1.625rem;
+  }
+}
+
+.logo-rolling:before {
+  content: "\e91b";
+}
+
+.logo-ohlala:before {
+  content: "\e91c";
+}
+
+.logo-negocios:before {
+  content: "\e91d";
+}
+
+.logo-ln-mas:before {
+  content: "\e91e";
+}
+
+.logo-ln:before {
+  content: "\e91f";
+}
+
+.logo-living:before {
+  content: "\e920";
+}
+
+.logo-la-nacion:before {
+  content: "\e921";
+}
+
+.logo-jardin:before {
+  content: "\e922";
+}
+
+.logo-hola:before {
+  content: "\e923";
+}
+
+.logo-hola-argentina:before {
+  content: "\e924";
+}
+
+.logo-club-lanacion:before {
+  content: "\e925";
+}
+
+.logo-ln-placeholder:before {
+  content: "\e926";
+}
+
+.logo-club:before {
+  content: "\e927";
+}
+
+.logo-lugares:before {
+  content: "\e928";
+}
+
+.logo-brando:before {
+  content: "\e929";
+}
+
+@media screen and (min-width: 20em) {
+  html {
+    font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1340 - 320)));
+  }
+}
+
+@media screen and (min-width: 22.5625em) {
+  html {
+    font-size: calc(16px + (18 - 16) * ((100vw - 360px) / (1340 - 360)));
+  }
+}
+
+@media screen and (min-width: 47.9375em) {
+  html {
+    font-size: calc(16px + (18 - 16) * ((100vw - 768px) / (1340 - 768)));
+  }
+}
+
+@media screen and (min-width: 64.0625em) {
+  html {
+    font-size: calc(16px + (18 - 16) * ((100vw - 1024px) / (1340 - 1024)));
+  }
+}
+
+@media screen and (min-width: 83.75em) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* COLUMNAS*/
+/* COLORES */
+/* end Colores */
+.cont-figure {
+  background-color: #f2f2f2;
+}
+
+.cont-figure .figure {
+  display: flex;
+  width: 100%;
+}
+
+.cont-figure .figure:hover {
+  opacity: 1;
+}
+
+.cont-figure .figure .picture {
+  padding-top: calc((2 / 3)* 100%);
+}
+
+.cont-figure .figure .content-video {
+  width: 100%;
+  background: #f2f2f2;
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.cont-figure .figure .content-video > * {
+  z-index: 1;
+}
+
+.cont-figure .figure .content-video .content-multimedia {
+  display: flex;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+}
+
+.cont-figure .figure .content-pic {
+  width: 100%;
+  background: #f2f2f2;
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont-figure .figure .content-pic.zoom:after {
+  font-family: 'LNicons' !important;
+  color: #ffffff;
+  font-size: 25px;
+  content: "\e91a";
+  position: absolute;
+  width: 58px;
+  height: 42px;
+  top: 0;
+  right: 0;
+  background: #000000;
+  opacity: 0.7;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont-figure .figure .content-pic > * {
+  z-index: 1;
+}
+
+.cont-figure .figure .content-pic .content-img {
+  display: flex;
+  position: absolute;
+  top: 0;
+  filter: brightness(100%);
+  transition: all .2s ease-in-out;
+}
+
+.cont-figure .figure .content-pic .content-img:hover {
+  transition: all .2s ease-in-out;
+  filter: brightness(110%);
+}
+
+.square {
+  padding-top: calc((3 / 4)* 100%);
+}
+
+.video {
+  padding-top: calc((9 / 16)* 100%);
+}
+
+.cinema {
+  padding-top: calc((9 / 21)* 100%);
+}
+
+.vertical-square {
+  padding-top: calc((13 / 12.19)* 100%);
+}
+
+.vertical-video {
+  padding-top: calc((13 / 8.19)* 100%);
+}
+
+.living .acu article a.figure:before,
+.living article a.figure:before {
+  content: '\e920';
+  color: #000000;
+}
+
+.living .com-tag a {
+  color: #000000;
+  border-color: #000000;
+}
+
+.living .com-secondary-tag a,
+.living .com-secondary-tag a:after,
+.living [class^="logo-"],
+.living [class*=" logo-"] {
+  color: #000000;
+}
+
+.living .acu:after,
+.living .mod-newsletter {
+  background-color: #000000;
+}
+
+
+/*# sourceMappingURL=living.css.map*/

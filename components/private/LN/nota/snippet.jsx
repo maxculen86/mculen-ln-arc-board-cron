@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-// TODO:
+// TODO: validar con el validador de google
 const snippet = props => {
     const {
         globalContent: {
@@ -18,37 +18,53 @@ const snippet = props => {
         }
     } = props;
 
-    const autores = by.map(v => v.name).join(', ');
+    const autores = !!by
+        ? by
+              .filter(v => v.type === 'author')
+              .map(v => v.name)
+              .join(', ')
+        : [];
     const date = display_date;
     const description = subheadlines.basic;
-    const image = promo_items.basic.url;
+    let image, counterTime, counterPortion, ingredientes, preparaciones;
 
-    const counterTime =
-        promo_items.receta.subtype === 'custom-detalle-receta'
-            ? promo_items.receta.embed.config.title === 'detalle-receta'
-                ? promo_items.receta.embed.config.counterTime
-                : null
-            : null;
-    const counterPortion =
-        promo_items.receta.subtype === 'custom-detalle-receta'
-            ? promo_items.receta.embed.config.title === 'detalle-receta'
-                ? promo_items.receta.embed.config.counterPortion
-                : null
-            : null;
+    if (promo_items && !!promo_items.receta && !!promo_items.basic) {
+        image = promo_items.basic.url;
 
-    const preparacions = content_elements.filter(
-        preparacion => preparacion.subtype === 'custom-preparacion'
-    );
-    const preparaciones = preparacions
-        .map(pre => pre.embed.config.items.map(item => item).join(', '))
-        .join(', ');
+        counterTime =
+            promo_items.receta.subtype === 'custom-detalle-receta'
+                ? promo_items.receta.embed.config.title === 'detalle-receta'
+                    ? promo_items.receta.embed.config.counterTime
+                    : null
+                : null;
 
-    const ingredients = content_elements.filter(
-        ingrediente => ingrediente.subtype === 'custom-ingrediente'
-    );
-    const ingredientes = ingredients.map(pre =>
-        pre.embed.config.items.map(item => item).join(', ')
-    );
+        counterPortion =
+            promo_items.receta.subtype === 'custom-detalle-receta'
+                ? promo_items.receta.embed.config.title === 'detalle-receta'
+                    ? promo_items.receta.embed.config.counterPortion
+                    : null
+                : null;
+    }
+
+    if (content_elements) {
+        const preparacions = content_elements.filter(
+            preparacion => preparacion.subtype === 'custom-preparacion'
+        );
+        preparaciones = preparacions.map(pre => {
+            if (pre.embed.config.items) {
+                return pre.embed.config.items.map(item => item).join(', ');
+            }
+        });
+
+        const ingredients = content_elements.filter(
+            ingrediente => ingrediente.subtype === 'custom-ingrediente'
+        );
+        ingredientes = ingredients.map(pre => {
+            if (pre.embed.config.items) {
+                return pre.embed.config.items.map(item => item).join(', ');
+            }
+        });
+    }
 
     return (
         <script
