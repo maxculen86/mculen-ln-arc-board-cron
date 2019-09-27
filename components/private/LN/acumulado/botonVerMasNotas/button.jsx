@@ -7,6 +7,7 @@ export default function Button({ onClickHandler, name, loading, loadingIcon }) {
     if (loading) disabledProp.disabled = true;
     return (
         <div className="col-12 hlp-text-center hlp-margintop-40">
+            {loading && loadingIcon}
             <button
                 onClick={onClickHandler}
                 className="--btn --secondary"
@@ -14,7 +15,6 @@ export default function Button({ onClickHandler, name, loading, loadingIcon }) {
             >
                 VER MÁS NOTAS DE {name.toUpperCase()}
             </button>
-            {loading && loadingIcon}
         </div>
     );
 }
