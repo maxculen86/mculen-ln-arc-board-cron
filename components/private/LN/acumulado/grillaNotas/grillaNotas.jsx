@@ -78,10 +78,6 @@ class GrillaNotas extends Component {
         return undefined;
     };
 
-    onClickHandler = () => {
-        this.props.obtenerMasNotas();
-    };
-
     render() {
         let articlesComponents = [];
         const {
