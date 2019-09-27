@@ -11,10 +11,7 @@ const snippet = props => {
             promo_items,
             credits: { by },
             display_date,
-            content_elements,
-            taxonomy: {
-                primary_section: { path: primarySectionPath }
-            }
+            content_elements
         }
     } = props;
 
@@ -99,15 +96,6 @@ snippet.propTypes = {
     }),
     content_elements: PropTypes.array.isRequired,
     display_date: PropTypes.string.isRequired,
-    taxonomy: PropTypes.shape({
-        tags: PropTypes.arrayOf(
-            PropTypes.shape({
-                description: PropTypes.string,
-                slug: PropTypes.string,
-                text: PropTypes.string
-            })
-        ).isRequired
-    }),
     credits: PropTypes.shape({
         by: PropTypes.shape({
             authors: PropTypes.arrayOf(
