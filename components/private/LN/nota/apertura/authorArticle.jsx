@@ -11,7 +11,7 @@ const authorArticle = ({
     by = by.filter(author => author.type === 'author');
     return (
         <>
-            <span>Por </span>
+            {by && by.length > 0 ? <span>Por </span> : ''}
             {by &&
                 by.map((authorNota, i) => (
                     <div key={authorNota._id} className="com-author">
