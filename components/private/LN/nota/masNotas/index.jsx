@@ -3,7 +3,7 @@ import ArticleList from './articleList';
 
 const index = props => {
     const {
-        customFields: { cantidadNotas, filter, border },
+        customFields: { cantidadNotas, filter },
         globalContent: {
             subtype,
             taxonomy: {
@@ -13,6 +13,8 @@ const index = props => {
     } = props;
 
     let title;
+    let border = false;
+
     switch (filter) {
         case '0':
             title =
@@ -23,6 +25,7 @@ const index = props => {
                 );
             break;
         case '1':
+            border = true;
             title = (
                 <>
                     Más recetas de
