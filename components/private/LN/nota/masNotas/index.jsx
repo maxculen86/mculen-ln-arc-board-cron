@@ -13,6 +13,8 @@ const index = props => {
     } = props;
 
     let title;
+    let border = false;
+
     switch (filter) {
         case '0':
             title =
@@ -23,6 +25,7 @@ const index = props => {
                 );
             break;
         case '1':
+            border = true;
             title = (
                 <>
                     Más recetas de
@@ -45,6 +48,7 @@ const index = props => {
                         sectionId={filter === '1' ? _id : undefined}
                         website={_website}
                         destination="article"
+                        border={border}
                     />
                 </section>
             </div>
