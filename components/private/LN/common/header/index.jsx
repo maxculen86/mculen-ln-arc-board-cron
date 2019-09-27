@@ -13,11 +13,13 @@ class Index extends Component {
         const { isMobile } = this.props;
         const idHeader = isMobile ? 'header-mobile' : 'header';
         const header = document.getElementById(idHeader);
-        const headerHeigth = header.clientHeight || header.offsetHeight;
-        const main = document.querySelector('main');
-        window.addEventListener('scroll', () =>
-            this.onScrollHandler(header, main, headerHeigth)
-        );
+        if (header) {
+            const headerHeigth = header.clientHeight || header.offsetHeight;
+            const main = document.querySelector('main');
+            window.addEventListener('scroll', () =>
+                this.onScrollHandler(header, main, headerHeigth)
+            );
+        }
     }
 
     onScrollHandler = (header, main, heigth) => {
