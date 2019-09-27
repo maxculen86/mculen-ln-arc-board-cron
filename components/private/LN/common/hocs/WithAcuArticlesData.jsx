@@ -17,15 +17,19 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                     }) => {
                         this.setState({
                             articles: articlesFetched,
-                            hayMasNotas: hayMasNotasFetched
+                            hayMasNotas: hayMasNotasFetched,
+                            loading: false
                         });
                     },
                     0
                 );
+                let loading = false;
+                if (!articles.length) loading = true;
                 this.state = {
                     articles,
                     hayMasNotas,
-                    page: page || 1
+                    page: page || 1,
+                    loading
                 };
             }
 
@@ -79,13 +83,14 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
             obtenerMasNotas = () => {
                 const { page } = this.state;
                 const { articles } = this.state;
-
+                this.setState({ loading: true });
                 this.getArticles(
                     ({ articles: articlesFetched, hayMasNotas }) => {
                         this.setState({
                             page: page + 1,
                             articles: [...articles, ...articlesFetched],
-                            hayMasNotas
+                            hayMasNotas,
+                            loading: false
                         });
                     },
                     page + 1
@@ -93,12 +98,13 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
             };
 
             render() {
-                const { articles, hayMasNotas } = this.state;
+                const { articles, hayMasNotas, loading } = this.state;
                 return (
                     <WrappedArticles
                         articles={articles}
                         obtenerMasNotas={this.obtenerMasNotas}
                         hayMasNotas={hayMasNotas}
+                        loading={loading}
                         {...this.props}
                     />
                 );
