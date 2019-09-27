@@ -55,3 +55,12 @@ article a.figure:before:not(.mod-caja-nota a.figure:before) {
     border-bottom-color: #1088b5;
     animation: b 1s linear 0s infinite;
 }
+@keyframes b {
+    0% {
+        transform: rotate(0deg)
+    }
+ 
+    to {
+        transform: rotate(1turn)
+    }
+ }

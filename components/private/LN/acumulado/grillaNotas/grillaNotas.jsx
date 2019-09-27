@@ -3,6 +3,7 @@ import ArticleMain from '../../common/articleTypes/articleMain';
 import ArticleDate from '../../common/dateArticle';
 import BtnMasNotas from '../botonVerMasNotas';
 import Banner from '../../common/banner';
+import LoadingIcon from '../../common/loadingIcon';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import config from './bannerPositionsConfig.json';
@@ -77,13 +78,18 @@ class GrillaNotas extends Component {
         return undefined;
     };
 
+    onClickHandler = () => {
+        this.props.obtenerMasNotas();
+    };
+
     render() {
         let articlesComponents = [];
         const {
             articles,
             hayMasNotas,
             obtenerMasNotas,
-            globalContent
+            globalContent,
+            loading
         } = this.props;
         if (articles && articles.length) {
             articlesComponents = articles.map((a, i) => {
@@ -108,7 +114,7 @@ class GrillaNotas extends Component {
                 );
             });
         }
-
+        console.log('LOADING::::', loading);
         return (
             <>
                 <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
@@ -119,6 +125,8 @@ class GrillaNotas extends Component {
                         <BtnMasNotas
                             onClickHandler={obtenerMasNotas}
                             name={globalContent.name}
+                            loadingIcon={<LoadingIcon />}
+                            loading={loading}
                         />
                     </section>
                 )}
