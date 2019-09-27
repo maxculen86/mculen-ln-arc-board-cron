@@ -3,7 +3,7 @@ import ArticleList from './articleList';
 
 const index = props => {
     const {
-        customFields: { cantidadNotas, filter },
+        customFields: { cantidadNotas, filter, border },
         globalContent: {
             subtype,
             taxonomy: {
@@ -45,6 +45,7 @@ const index = props => {
                         sectionId={filter === '1' ? _id : undefined}
                         website={_website}
                         destination="article"
+                        border={border}
                     />
                 </section>
             </div>

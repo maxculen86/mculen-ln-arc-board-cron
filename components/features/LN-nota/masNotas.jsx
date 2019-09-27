@@ -13,6 +13,10 @@ MasNotas.propTypes = {
             labels: MasNotas.filterTypes,
             label: 'Filtrar por',
             defaultValue: Object.keys(MasNotas.filterTypes)[0]
+        }),
+        border: PropTypes.bool.tag({
+            label: 'Con borde',
+            defaultValue: false
         })
     })
 };
