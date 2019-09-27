@@ -15,7 +15,7 @@ const authorArticle = ({
             {by &&
                 by.map((authorNota, i) => (
                     <div key={authorNota._id} className="com-author">
-                        {authorNota.url !== '' ? (
+                        {authorNota.url && authorNota.url !== '' ? (
                             <a href={authorNota.url}>{authorNota.name}</a>
                         ) : (
                             <span> {authorNota.name} </span>
