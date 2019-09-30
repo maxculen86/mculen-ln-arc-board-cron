@@ -50,6 +50,7 @@
     right: -40px;
     top: $px-50;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    z-index:100;
     &:before{
         content: "";
         transform: rotate(45deg);
