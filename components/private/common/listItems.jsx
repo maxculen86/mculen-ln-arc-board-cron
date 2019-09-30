@@ -11,14 +11,16 @@ const TypeList = ({ ol, children }) =>
         <ul className="com-unordered">{children}</ul>
     );
 
-//TODO: falta html
-//TODO: pasar a carpeta Cuerpo, crear containers de Ingredientes y Preparacion y sacar
-//esa logica de aperturaReceta.jsx
+// TODO: falta html
+// TODO: pasar a carpeta Cuerpo, crear containers de Ingredientes y Preparacion y sacar
+// esa logica de aperturaReceta.jsx
 // TODO: Se tuvo que agregar un decodeURIComponent en cada item del Ingredientes y preparacion de los PowerUps
 const ListItemsFactory = ({ list, titleList, listNumeric }) => {
     return (
         <div>
-            <h4 className="com-title-section-xs">{titleList}</h4>
+            <h4 className="com-title-section-xs">
+                {decodeURIComponent(titleList)}
+            </h4>
             <TypeList ol={listNumeric}>
                 {list.map((item, key) => (
                     <li key={key} className="com-item">
