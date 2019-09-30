@@ -15,14 +15,14 @@ Array [
     <a
       data-event="LinkClick"
       data-section="AperturaAcuRecetas"
-      href="/autores"
+      href="/autor"
     >
-      Autores
+      Autor
     </a>
     <a
       data-event="LinkClick"
       data-section="AperturaAcuRecetas"
-      href="/autores/emilse-pizarro"
+      href="/autor/emilse-pizarro"
     >
       Emilse Pizarro
     </a>

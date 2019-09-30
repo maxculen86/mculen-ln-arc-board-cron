@@ -22,7 +22,7 @@ const Share = props => {
     //TODO: arreglar el tema de las URL's
 
     return (
-        <div className="com-share">
+        <div id="v-share" className="com-share">
             <div className="share-left">
                 <button
                     onClick={() =>
