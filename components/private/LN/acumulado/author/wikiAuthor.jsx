@@ -8,8 +8,10 @@ import '../../../../../resources/dist/css/ln/modules/wiki-autor.css';
 import '../../../../../resources/dist/css/ln/components/author.css';
 
 // TODO: los siguientes enlaces son para agregar en base
+
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
+import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
     <div className="wiki-autor row">
