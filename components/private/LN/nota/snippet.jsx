@@ -71,15 +71,15 @@ const snippet = props => {
                     {
                         "@context": "http://schema.org",
                         "@type": "Recipe",
-                        "author": '${autores}',
-                        "cookTime": 'PT${counterTime}M',
-                        "datePublished": '${date}',
-                        "description": '${description}',
-                        "image": '${image}',
-                        "recipeIngredient": '${ingredientes}',
-                        "name": '${headlines.basic}',
-                        "recipeInstructions": '${preparaciones}',
-                        "recipeYield": '${counterPortion} porciones'
+                        "author": "${autores}",
+                        "cookTime": "PT${counterTime}M",
+                        "datePublished": "${date}",
+                        "description": "${description}",
+                        "image": "${image}",
+                        "recipeIngredient": "${ingredientes}",
+                        "name": "${headlines.basic}",
+                        "recipeInstructions": "${preparaciones}",
+                        "recipeYield": "${counterPortion} porciones"
                     }
                 ];`
             }}
