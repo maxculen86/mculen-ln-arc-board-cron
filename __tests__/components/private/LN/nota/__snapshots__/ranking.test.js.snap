@@ -2,7 +2,7 @@
 
 exports[`Ranking matches snapshot 1`] = `
 <div
-  class="com-ranking"
+  class="com-ranking hlp-mobile-none"
 >
   <h2
     class="com-title-section-m"
