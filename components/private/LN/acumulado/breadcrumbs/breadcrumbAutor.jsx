@@ -11,11 +11,11 @@ function BreadcrumbAutor({ author, host }) {
             name: 'LA NACION'
         },
         {
-            path: '/autores',
-            name: 'Autores'
+            path: '/autor',
+            name: 'Autor'
         },
         {
-            path: `/autores/${author._id}`,
+            path: `/autor/${author._id}`,
             name: author.byline
         }
     ];

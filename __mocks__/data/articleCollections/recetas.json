@@ -804,7 +804,7 @@
                         "url": "https://s3.amazonaws.com/arc-authors/lanacionar/4b2cbe7c-9d50-4451-9a08-6dd8c4f72339.png",
                         "version": "0.5.8"
                     },
-                    "url": "/autores/diego-cabot",
+                    "url": "/autor/diego-cabot",
                     "slug": "diego-cabot",
                     "social_links": [
                         {
@@ -849,7 +849,7 @@
                             "podcasts": [],
                             "education": [],
                             "awards": [],
-                            "bio_page": "/autores/diego-cabot",
+                            "bio_page": "/autor/diego-cabot",
                             "type": "author"
                         }
                     }
