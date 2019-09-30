@@ -14,11 +14,11 @@ import '../../../../../resources/dist/css/ln/components/link.css';
 const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
     <div className="wiki-autor row">
         <section id="" className="cont-figure-wiki">
-            <a href={url} className="figure">
+            <div href={url} className="figure">
                 <picture className="content-pic picture">
                     <img src={imgSrc} alt="" className="content-img" />
                 </picture>
-            </a>
+            </div>
         </section>
         <div className="wiki-calc">
             <h1 className="com-title-section-xl">{name}</h1>
