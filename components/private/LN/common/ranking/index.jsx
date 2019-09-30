@@ -21,7 +21,7 @@ const getTitle = globalContent => {
 const Ranking = ({ articles, size, dataSection, globalContent }) => {
     const titleText = getTitle(globalContent);
     return (
-        <div className="com-ranking">
+        <div className="com-ranking hlp-mobile-none">
             <TitleSection size="m" text={titleText} />
             <OrderedList>
                 {articles.length > 0 &&
