@@ -4,7 +4,15 @@ import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 
 const resolve = key => {
-    const { sectionId, authorId, size, page, website, canonicalUrl } = key;
+    const {
+        sectionId,
+        authorId,
+        tagId,
+        size,
+        page,
+        website,
+        canonicalUrl
+    } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
     const basePath = `/content/v4/search/published/?website=${website ||
@@ -37,6 +45,14 @@ const resolve = key => {
             }
         }`;
 
+    const tagFilter =
+        tagId &&
+        `,{
+            "match":{
+                "taxonomy.tags.slug":"${tagId}"
+            }
+        }`;
+
     const query = `&body={
             "query":{
                 "bool": {
@@ -49,6 +65,7 @@ const resolve = key => {
                         }
                         ${authorFilter || ''}
                         ${sectionFilter || ''}
+                        ${tagFilter || ''}
                     ],
                     "must_not": [
                         {

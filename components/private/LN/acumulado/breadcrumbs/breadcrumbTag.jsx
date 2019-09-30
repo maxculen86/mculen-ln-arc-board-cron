@@ -12,7 +12,7 @@ function BreadcrumbTag({ tag, host }) {
         },
         {
             path: `/tema/${tag.slug}`,
-            name: tag.text
+            name: tag.name
         }
     ];
     return (
