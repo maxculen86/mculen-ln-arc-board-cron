@@ -30,7 +30,7 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                 </a>
             </div>
             <div className="col-4 header__right">
-                <div className={`com-usuario${active}`}>
+                <div id="user-menu" className={`com-usuario${active}`}>
                     {!loginData.subscription && (
                         <a
                             className="--btn --highlight hlp-marginRight-35"
