@@ -16,9 +16,7 @@ Array [
       data-event="LinkClick"
       data-section="AperturaAcuRecetas"
       href="/tema/soy-un-tag"
-    >
-      Soy un tag
-    </a>
+    />
   </nav>,
   null,
 ]
