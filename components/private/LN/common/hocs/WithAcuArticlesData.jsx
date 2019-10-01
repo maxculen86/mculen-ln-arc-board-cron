@@ -39,11 +39,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 const sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
-                const size = get(this, 'props.size', 30);
-                const canonicalUrl = get(
-                    this,
-                    'props.globalContent.canonical_url'
-                );
+                const size = get(this, 'props.size', 30) + 1;
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
@@ -53,8 +49,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         tagId,
                         size,
                         imageConfig,
-                        page,
-                        canonicalUrl
+                        page
                     },
                     filter
                 });
@@ -100,9 +95,17 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
 
             render() {
                 const { articles, hayMasNotas, loading } = this.state;
+
+                const articlesArray = articles.filter(article => {
+                    return (
+                        article.type === 'story' &&
+                        article._id !== this.props.globalContent._id
+                    );
+                });
+
                 return (
                     <WrappedArticles
-                        articles={articles}
+                        articles={articlesArray}
                         obtenerMasNotas={this.obtenerMasNotas}
                         hayMasNotas={hayMasNotas}
                         loading={loading}
