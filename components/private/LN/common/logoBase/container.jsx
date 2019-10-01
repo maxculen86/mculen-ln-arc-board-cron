@@ -8,7 +8,7 @@ const logoBaseContainer = ({ sections }) => {
     const sectionStyle = getSectionStyle(sections);
     if (sectionStyle) {
         return (
-            <LogoComponent path={sections.path} styledNamed={sectionStyle} />
+            <LogoComponent path={sections[0].path} styledNamed={sectionStyle} />
         );
     }
     return null;
@@ -17,6 +17,7 @@ const logoBaseContainer = ({ sections }) => {
 logoBaseContainer.propTypes = {
     sections: PropTypes.arrayOf(
         PropTypes.shape({
+            path: PropTypes.string.isRequired,
             additional_properties: PropTypes.shape({
                 original: PropTypes.shape({
                     style: PropTypes.shape({

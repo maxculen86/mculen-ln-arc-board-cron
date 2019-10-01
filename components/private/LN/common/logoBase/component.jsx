@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const logoBaseComponent = ({ path, styledNamed }) => {
+const logoBaseComponent = props => {
+    const { path, styledNamed } = props;
+    console.log('PATH ---------------', path);
     return (
         <a href={path}>
             <i className={`logo-${styledNamed}`} />
