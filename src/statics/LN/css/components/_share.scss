@@ -13,7 +13,7 @@
     background: $blanco;
     border: 1px solid $gris1;
     overflow: hidden;
-    transition: transform 0.25s;
+    transition: all 0.25s;
     //scrollUp
     &.--scrollDown {
         transform: translateY(-100%);
@@ -21,6 +21,7 @@
     //scrollDown
     &.--scrollUp {
         transform: translateY(0);
+        top:70px;
     }
     .humor & {
         border: 0;
@@ -88,6 +89,7 @@
     .com-share {
         position: sticky;
         top: 40%;
+        top:10px;
         left: 0;
         width: 30px;
         background: initial;

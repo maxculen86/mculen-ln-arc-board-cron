@@ -8,7 +8,7 @@ exports[`features - LaNacion - Home - Acum - Author Test de snapshot Bio Author 
     class="cont-figure-wiki"
     id=""
   >
-    <a
+    <div
       class="figure"
       href="https://google.com"
     >
@@ -21,7 +21,7 @@ exports[`features - LaNacion - Home - Acum - Author Test de snapshot Bio Author 
           src="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
         />
       </picture>
-    </a>
+    </div>
   </section>
   <div
     class="wiki-calc"

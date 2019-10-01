@@ -129,8 +129,12 @@
             opacity: 1;
         }
         .picture {
-            width: 80px !important;
-            height: 80px;
+            width: 45px !important;
+            height: 45px;
+            @media (min-width:768px) {
+                width: 80px !important;
+                height: 80px;
+            }
             border-radius: 50%;
         }
         .content-pic {
@@ -147,7 +151,10 @@
                 font-family: 'LNlogos' !important;
                 content: "\e80a";
                 color: #d9d9d9;
-                font-size: 5em;
+                font-size: 43px;
+                @media (min-width:768) {
+                    font-size: 78px;
+                }
                 font-family: ln10;
                 font-style: normal;
                 
@@ -164,6 +171,16 @@
             .content-img {
                 width: 80px;
                 height: 80px;
+                z-index: 1;
+                background-color: $blanco;
+                &:before {
+                    content: '324';
+                    background: black;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 4;
+                    display: inline-block;
+                } 
             }
         }
     }

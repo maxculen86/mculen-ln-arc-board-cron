@@ -2502,15 +2502,15 @@ exports[`LN - Common - Snippet Snippet nota recetas snapshot 1`] = `
                     {
                         \\"@context\\": \\"http://schema.org\\",
                         \\"@type\\": \\"Recipe\\",
-                        \\"author\\": '',
-                        \\"cookTime\\": 'PT45M',
-                        \\"datePublished\\": '2018-09-20T14:08:46.236Z',
-                        \\"description\\": '',
-                        \\"image\\": 'https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg',
-                        \\"recipeIngredient\\": 'Tomate, Zanahoria, Cebolla, Ajo,Tomate, Harina, Huevos, Lo que sea',
-                        \\"name\\": 'Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local',
-                        \\"recipeInstructions\\": 'Cocinar, Probar, Servir',
-                        \\"recipeYield\\": '8 porciones'
+                        \\"author\\": \\"\\",
+                        \\"cookTime\\": \\"PT45M\\",
+                        \\"datePublished\\": \\"2018-09-20T14:08:46.236Z\\",
+                        \\"description\\": \\"\\",
+                        \\"image\\": \\"https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg\\",
+                        \\"recipeIngredient\\": \\"Tomate, Zanahoria, Cebolla, Ajo,Tomate, Harina, Huevos, Lo que sea\\",
+                        \\"name\\": \\"Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local\\",
+                        \\"recipeInstructions\\": \\"Cocinar, Probar, Servir\\",
+                        \\"recipeYield\\": \\"8 porciones\\"
                     }
                 ];",
         }
