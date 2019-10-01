@@ -8,7 +8,7 @@ class Index extends Component {
         const size = this.props.size || SIZE;
         const { author_type, _id, Payload } = this.props.globalContent;
         const tagId =
-            Payload.items && Payload.items.length
+            Payload && Payload.items && Payload.items.length
                 ? Payload.items[0].slug
                 : undefined;
         const { siteProperties } = this.props;
