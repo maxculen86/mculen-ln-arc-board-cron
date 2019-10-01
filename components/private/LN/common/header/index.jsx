@@ -33,13 +33,17 @@ class Index extends Component {
             if (scrollPos < lastScrollPosition) {
                 //classList.remove(CLASS_SCROLL_DOWN);
                 classList.add(CLASS_SCROLL_UP);
-                vshare.classList.add(CLASS_SCROLL_UP);
+                if (vshare) {
+                    vshare.classList.add(CLASS_SCROLL_UP);
+                }
                 wrap.classList.add(CLASS_SCROLL_UP);
                 //SCROLL UP
             } else {
                 classList.remove(CLASS_SCROLL_UP);
                 //classList.add(CLASS_SCROLL_DOWN);
-                vshare.classList.remove(CLASS_SCROLL_UP);
+                if (vshare) {
+                    vshare.classList.remove(CLASS_SCROLL_UP);
+                }
                 wrap.classList.remove(CLASS_SCROLL_UP);
                 //SCROLL DOWN
             }
