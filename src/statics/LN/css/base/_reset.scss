@@ -143,6 +143,9 @@ body {
 #wrap {
     position: relative;
     margin-bottom: 80px;
+    &.--scrollUp{
+        padding-top: 67px;
+    }
     @media (min-width: 1023px) {
         margin-bottom: 0;
     }

@@ -8,22 +8,22 @@
     @media ($media-l){
         display: block;
         border-bottom: 1px solid $gris2;
-        padding-top: 13px;
-        padding-bottom: 13px;
+        padding-top: $px-13;
+        padding-bottom: $px-13;
         background: #fff;
         width: 100%;
-        z-index: 1000;
+        z-index: 10000;
         transition: all 0.25s;
         &__left{
             display: grid;
-            grid-template-columns: 100px 1fr;
+            grid-template-columns: $px-100 1fr;
             align-items: center;
         }
         &__middle{
             text-align: center;
             .logo-la-nacion{
                 color:$ln;
-                font-size: 30px;
+                font-size: $font-30;
             }
         }
         &__right{
@@ -150,8 +150,4 @@
             }
         }
     }
-}
-
-#wrap.--scrollUp{
-    padding-top: 67px;
 }

@@ -10,8 +10,7 @@ const resolve = key => {
         tagId,
         size,
         page,
-        website,
-        canonicalUrl
+        website
     } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
@@ -53,18 +52,6 @@ const resolve = key => {
             }
         }`;
 
-    const canonicalUrlFilter =
-        canonicalUrl &&
-        `,
-        "must_not": [
-            {
-                "terms": { 
-                    "canonical_url": ["${canonicalUrl}"]
-                }
-            }
-        ]
-        `;
-
     const query = `&body={
             "query":{
                 "bool": {
@@ -79,7 +66,6 @@ const resolve = key => {
                         ${sectionFilter || ''}
                         ${tagFilter || ''}
                     ]
-                    ${canonicalUrlFilter || ''}
                 }
             }
     }`;
