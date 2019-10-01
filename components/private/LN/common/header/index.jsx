@@ -14,15 +14,17 @@ class Index extends Component {
         const idHeader = isMobile ? 'header-mobile' : 'header';
         const header = document.getElementById(idHeader);
         if (header) {
-            const headerHeigth = header.clientHeight || header.offsetHeight;
-            const main = document.querySelector('main');
+            //const headerHeigth = header.clientHeight || header.offsetHeight;
+            //const main = document.querySelector('main');
             window.addEventListener('scroll', () =>
-                this.onScrollHandler(header, main, headerHeigth)
+                //this.onScrollHandler(header, main, headerHeigth)
+                this.onScrollHandler(header)
             );
         }
     }
 
-    onScrollHandler = (header, main, heigth) => {
+    //onScrollHandler = (header, main, heigth) => {
+    onScrollHandler = (header) => {
         const scrollPos = window.scrollY;
         const { classList } = header;
         const vshare = document.getElementById('v-share');

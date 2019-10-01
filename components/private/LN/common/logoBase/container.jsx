@@ -7,7 +7,9 @@ import LogoComponent from './component';
 const logoBaseContainer = ({ sections }) => {
     const sectionStyle = getSectionStyle(sections);
     if (sectionStyle) {
-        return <LogoComponent styledNamed={sectionStyle} />;
+        return (
+            <LogoComponent path={sections[0].path} styledNamed={sectionStyle} />
+        );
     }
     return null;
 };
@@ -15,6 +17,7 @@ const logoBaseContainer = ({ sections }) => {
 logoBaseContainer.propTypes = {
     sections: PropTypes.arrayOf(
         PropTypes.shape({
+            path: PropTypes.string.isRequired,
             additional_properties: PropTypes.shape({
                 original: PropTypes.shape({
                     style: PropTypes.shape({
