@@ -82,6 +82,58 @@
         font-family: $font-arial;
         font-size: $px-16;
     }
+    .sidebar__aside & {
+        .col-tablet-2 {
+            display: none;
+        }
+        .col-12 {
+            width: 100%;
+            max-width: 100%;
+            flex: 0 0 100%;
+            &:nth-child(2) {
+                background-image: url('/pf/resources/dist/images/newsletter-lineas-trama-der.svg');
+                background-position: right top;
+                background-size: 50%;
+                padding: $px-30 $px-20 0;
+                p {
+                    display: none;
+                }
+            }
+            &:nth-child(3) {
+                padding: 0 $px-20 $px-30;
+                .com-breadcrumb{
+
+                font-size: $font-14;
+                margin-top: $px-40;
+                margin-bottom: 0;
+                    a {
+                        display: inline-block;
+                        margin-bottom: 0;
+                        color: $blanco;
+                        &:last-child {
+                            border-left: solid 1px $blanco;
+                            padding-left: $px-5;
+                            margin-left: $px-5;
+                        }
+                    }
+                } 
+            }
+            h2:first-of-type {
+                margin-bottom: 0;
+            }
+            h2:last-of-type {
+                display: block;
+                margin-bottom: $px-30;
+            }
+            .com-input {
+                width: 100%;
+                margin-bottom: $px-10;
+            }
+            .--btn {
+                display: block
+            }
+        }
+    }
 }
 
 //Valores de tablet para arriba
