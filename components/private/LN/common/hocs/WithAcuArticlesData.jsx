@@ -37,19 +37,20 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 // HACK: No hace falta usar lodash.get
                 const website = get(this, 'props.website', null);
                 const sectionId = get(this, 'props.sectionId', null);
+                const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
                 const canonicalUrl = get(
                     this,
                     'props.globalContent.canonical_url'
                 );
-
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
                         website,
                         sectionId,
                         authorId,
+                        tagId,
                         size,
                         imageConfig,
                         page,

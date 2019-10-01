@@ -19,6 +19,11 @@ const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
 class LNAcumuladoLayout extends Component {
     render() {
+        const { globalContent, siteProperties } = this.props;
+        if (!globalContent.Payload || !globalContent.Payload.items.length)
+            throw new Error('tag no encontrado');
+
+        const tag = globalContent.Payload.items[0];
         return (
             <div id="wrap">
                 <Header />
@@ -28,17 +33,12 @@ class LNAcumuladoLayout extends Component {
                         <div className="sidebar__main">
                             <div className="row">
                                 <BreadcrumbTag
-                                    tag={this.props.globalContent}
-                                    host={
-                                        this.props.siteProperties.shareConfig
-                                            .host
-                                    }
+                                    tag={tag}
+                                    host={siteProperties.shareConfig.host}
                                 />
                             </div>
                             <div className="row">
-                                <AcuTitle
-                                    title={this.props.globalContent.name}
-                                />
+                                <AcuTitle title={tag.name} />
                                 {/* LUGAR PARA UN ANEXO */}
                                 {this.props.children[0]}
                             </div>

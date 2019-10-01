@@ -53,6 +53,18 @@ const resolve = key => {
             }
         }`;
 
+    const canonicalUrlFilter =
+        canonicalUrl &&
+        `,
+        "must_not": [
+            {
+                "terms": { 
+                    "canonical_url": ["${canonicalUrl}"]
+                }
+            }
+        ]
+        `;
+
     const query = `&body={
             "query":{
                 "bool": {
@@ -66,14 +78,8 @@ const resolve = key => {
                         ${authorFilter || ''}
                         ${sectionFilter || ''}
                         ${tagFilter || ''}
-                    ],
-                    "must_not": [
-                        {
-                            "terms": { 
-                                "canonical_url": ["${canonicalUrl}"]
-                            }
-                        }
                     ]
+                    ${canonicalUrlFilter || ''}
                 }
             }
     }`;
