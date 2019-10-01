@@ -7,7 +7,9 @@ import LogoComponent from './component';
 const logoBaseContainer = ({ sections }) => {
     const sectionStyle = getSectionStyle(sections);
     if (sectionStyle) {
-        return <LogoComponent styledNamed={sectionStyle} />;
+        return (
+            <LogoComponent path={sections.path} styledNamed={sectionStyle} />
+        );
     }
     return null;
 };
