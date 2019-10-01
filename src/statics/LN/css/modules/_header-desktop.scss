@@ -13,7 +13,7 @@
         background: #fff;
         width: 100%;
         z-index: 1000;
-        transition: transform 0.25s;
+        transition: all 0.25s;
         &__left{
             display: grid;
             grid-template-columns: 100px 1fr;
@@ -47,6 +47,7 @@
         //scrollDown
         &.--scrollUp {
             transform: translateY(0);
+            top:0;
             position: fixed;
         }
 
@@ -149,4 +150,8 @@
             }
         }
     }
+}
+
+#wrap.--scrollUp{
+    padding-top: 67px;
 }

@@ -13,10 +13,10 @@
         border-left: solid 1px $gris4;
         padding: 0 $px-10;
         &:last-child {
-            border-right: none;
+            /*border-right: none;
             pointer-events: none;
             cursor: default;
-            color: $gris5;
+            color: $gris5;*/
         }
         &:first-child {
             padding-left: 0;

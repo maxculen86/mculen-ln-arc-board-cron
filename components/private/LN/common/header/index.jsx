@@ -26,24 +26,27 @@ class Index extends Component {
         const scrollPos = window.scrollY;
         const { classList } = header;
         const vshare = document.getElementById('v-share');
+        const usermenu = document.getElementById('user-menu');
+        const wrap = document.getElementById('wrap');
+        usermenu.classList.remove("--active");
         if (scrollPos) {
-            main.style.paddingTop = `${heigth}px`;
             if (scrollPos < lastScrollPosition) {
-                classList.remove(CLASS_SCROLL_DOWN);
+                //classList.remove(CLASS_SCROLL_DOWN);
                 classList.add(CLASS_SCROLL_UP);
                 vshare.classList.add(CLASS_SCROLL_UP);
+                wrap.classList.add(CLASS_SCROLL_UP);
                 //SCROLL UP
             } else {
                 classList.remove(CLASS_SCROLL_UP);
-                classList.add(CLASS_SCROLL_DOWN);
+                //classList.add(CLASS_SCROLL_DOWN);
                 vshare.classList.remove(CLASS_SCROLL_UP);
+                wrap.classList.remove(CLASS_SCROLL_UP);
                 //SCROLL DOWN
             }
         } else {
-            //16px es el alto que viene por defecto en la clase.
-            main.style.paddingTop = '16px';
             classList.remove(CLASS_SCROLL_UP);
             classList.remove(CLASS_SCROLL_DOWN);
+            wrap.classList.remove(CLASS_SCROLL_UP);
         }
         lastScrollPosition = scrollPos;
     };
