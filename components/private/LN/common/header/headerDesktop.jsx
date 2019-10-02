@@ -23,6 +23,8 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
         const menuUser = document.getElementById('menuUser');
 
         if (menuUser) menuUser.addEventListener('blur', e => setActive(''));
+
+        window.addEventListener('scroll', e => setActive(''));
     });
 
     return (
