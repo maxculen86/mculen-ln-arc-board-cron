@@ -18,7 +18,9 @@ const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
         <section id="" className="cont-figure-wiki">
             <div href={url} className="figure">
                 <picture className="content-pic picture">
-                    <img src={imgSrc} alt="" className="content-img" />
+                    {imgSrc && (
+                        <img src={imgSrc} alt="" className="content-img" />
+                    )}
                 </picture>
             </div>
         </section>
@@ -30,14 +32,14 @@ const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
             {bio}
             {twitter && (
                 <span>
-                Twitter:{' '}
-                <a
-                    href={`https://twitter.com/${twitter}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {twitter}
-                </a>
+                    Twitter:&nbsp;
+                    <a
+                        href={`https://twitter.com/${twitter}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {twitter}
+                    </a>
                 </span>
             )}
         </p>
