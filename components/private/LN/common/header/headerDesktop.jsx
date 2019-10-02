@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { API_ENV } from 'fusion:environment';
 import Header from './headerBase';
@@ -18,6 +18,14 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
 
     const toggleMenu = () =>
         active === '' ? setActive(' --active') : setActive('');
+
+    useEffect(() => {
+        const menuUser = document.getElementById('menuUser');
+
+        if (menuUser) menuUser.addEventListener('blur', e => setActive(''));
+
+        window.addEventListener('scroll', e => setActive(''));
+    });
 
     return (
         <Header id="header" className="header">
@@ -42,7 +50,12 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                         </a>
                     )}
                     {logueado && (
-                        <div onClick={toggleMenu} role="button">
+                        <div
+                            onClick={toggleMenu}
+                            tabIndex="0"
+                            role="button"
+                            id="menuUser"
+                        >
                             <p className="com-usuario__name">
                                 {loginData.userName}
                             </p>
