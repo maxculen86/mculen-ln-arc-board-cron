@@ -1,6 +1,6 @@
 import { defaultTargeting } from './defaults';
 
-const PATH_SLOT = 'la_nacion_desktop/Acumulado';
+const PATH_SLOT = 'la_nacion_mobile/Acumulado';
 
 const DIMENSIONS_STICKY = [[320, 100], [320, 50], [1, 1]];
 const DIMENSIONS_CAJA = [[320, 50], [300, 250], [300, 450], [320, 100], [1, 1]];
