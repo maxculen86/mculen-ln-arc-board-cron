@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 // TODO: validar con el validador de google
+// TODO: se agrego decodeURIComponent a todos los items que vienen en Ingredientes y Preparación de PowerUps
 const snippet = props => {
     const {
         globalContent: {
@@ -15,7 +16,7 @@ const snippet = props => {
         }
     } = props;
 
-    const autores = !!by
+    const autores = by
         ? by
               .filter(v => v.type === 'author')
               .map(v => v.name)
@@ -23,7 +24,7 @@ const snippet = props => {
         : [];
     const date = display_date;
     const description = subheadlines.basic;
-    let image, counterTime, counterPortion, ingredientes, preparaciones;
+    let image; let counterTime; let counterPortion; let ingredientes; let preparaciones;
 
     if (promo_items && !!promo_items.receta && !!promo_items.basic) {
         image = promo_items.basic.url;
@@ -49,7 +50,9 @@ const snippet = props => {
         );
         preparaciones = preparacions.map(pre => {
             if (pre.embed.config.items) {
-                return pre.embed.config.items.map(item => item).join(', ');
+                return pre.embed.config.items
+                    .map(item => decodeURIComponent(item))
+                    .join(', ');
             }
         });
 
@@ -58,7 +61,9 @@ const snippet = props => {
         );
         ingredientes = ingredients.map(pre => {
             if (pre.embed.config.items) {
-                return pre.embed.config.items.map(item => item).join(', ');
+                return pre.embed.config.items
+                    .map(item => decodeURIComponent(item))
+                    .join(', ');
             }
         });
     }
