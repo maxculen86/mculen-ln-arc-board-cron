@@ -11,7 +11,7 @@ function BannerCabezal(props) {
             slotGroup="acumulado"
             selectedSlots={{
                 desktopSlot: 'cabezal_dsk',
-                mobileSlot: 'cabezal_mob',
+                mobileSlot: 'sticky1_mob',
                 tabletSlot: 'cabezal_tab'
             }}
             background
