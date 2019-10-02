@@ -32,7 +32,8 @@ const article = `
 `;
 
 export default `
-{
+{   
+    type
     content_elements {
         ${article}
     }

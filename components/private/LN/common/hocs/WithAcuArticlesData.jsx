@@ -95,13 +95,14 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
 
             render() {
                 const { articles, hayMasNotas, loading } = this.state;
+                let articlesArray = articles;
+                const { type, _id } = this.props.globalContent;
 
-                const articlesArray = articles.filter(article => {
-                    return (
-                        article.type === 'story' &&
-                        article._id !== this.props.globalContent._id
-                    );
-                });
+                if (type === 'story') {
+                    articlesArray = articles.filter(article => {
+                        return article._id !== _id;
+                    });
+                }
 
                 return (
                     <WrappedArticles

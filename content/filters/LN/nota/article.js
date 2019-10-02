@@ -59,6 +59,7 @@ export default `
 {
     _id
     canonical_url
+    type
     subtype
     promo_items {
         basic {

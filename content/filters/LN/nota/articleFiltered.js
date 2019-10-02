@@ -10,6 +10,7 @@ const image = `
 `;
 
 export default `{
+type
 content_elements {    
         _id
         subtype
