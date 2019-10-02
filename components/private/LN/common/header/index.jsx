@@ -33,7 +33,7 @@ class Index extends Component {
         usermenu.classList.remove("--active");
         if (scrollPos) {
             if (scrollPos < lastScrollPosition) {
-                //classList.remove(CLASS_SCROLL_DOWN);
+                classList.remove(CLASS_SCROLL_DOWN);
                 classList.add(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.add(CLASS_SCROLL_UP);
@@ -42,7 +42,7 @@ class Index extends Component {
                 //SCROLL UP
             } else {
                 classList.remove(CLASS_SCROLL_UP);
-                //classList.add(CLASS_SCROLL_DOWN);
+                classList.add(CLASS_SCROLL_DOWN);
                 if (vshare) {
                     vshare.classList.remove(CLASS_SCROLL_UP);
                 }
