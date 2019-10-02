@@ -42,8 +42,11 @@ const getUserLoginWhitSubscription = () => ({
  */
 describe('components - private - LN - common - header', () => {
     const child = <div>Soy un child</div>;
+    const desktopSU = {
+        device: 'desktop'
+    };
     const componentDesktop = mount(
-        <Header isMobile={false} mockApi={getUserLogout()}>
+        <Header screenUtils={desktopSU} mockApi={getUserLogout()}>
             {child}
         </Header>
     );
@@ -54,14 +57,17 @@ describe('components - private - LN - common - header', () => {
         TestHelper.expectHTML(componentDesktop, 'mocked-desktop-header');
     });
 
+    const mobileSU = {
+        device: 'desktop'
+    };
     const componentMobile = mount(
-        <Header isMobile={true} mockApi={getUserLogout()}>
+        <Header screenUtils={mobileSU} mockApi={getUserLogout()}>
             {child}
         </Header>
     );
     TestHelper.testDoNotRenderChildren(componentMobile, 'child');
     it('Testeo que muestre el header mobile', () => {
-        TestHelper.expectHTML(componentMobile, 'mocked-mobile-header');
-        TestHelper.expectHTML(componentMobile, 'mocked-mobile-navbar');
+        expect(componentMobile.find('mocked-mobile-header')).toBeTruthy();
+        expect(componentMobile.find('mocked-mobile-navbar')).toBeTruthy();
     });
 });
