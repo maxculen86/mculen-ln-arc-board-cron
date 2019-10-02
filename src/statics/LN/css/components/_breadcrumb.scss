@@ -24,6 +24,10 @@
             color:$link;
         }
     }
+    span{
+        border-left: solid 1px $gris4;
+        padding: 0 $px-10;
+    }
     p {
         border-left: solid 1px $gris4;
         padding: 0 $px-10;

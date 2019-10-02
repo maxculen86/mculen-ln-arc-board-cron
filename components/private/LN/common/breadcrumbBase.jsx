@@ -10,7 +10,11 @@ const BreadcrumbBase = ({ sections, extraClasses, dataSection }) => {
         extraOpts['data-event'] = 'LinkClick';
     }
     const listSections = sections.map(section => {
+        if (section.path === '') {
+            return <span key={section.path}>{section.name}</span>;
+        }
         return (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <a key={section.path} href={section.path} {...extraOpts}>
                 {section.name}
             </a>

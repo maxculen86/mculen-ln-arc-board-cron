@@ -15,6 +15,12 @@
         font-family: $font-arial;
         font-size: $px-16;
         line-height: $px-23;
+        span{
+            display: block;
+            a{
+                color: $ln;
+            }
+        }
     }
     .cont-figure-wiki {
         display: inline-block;
