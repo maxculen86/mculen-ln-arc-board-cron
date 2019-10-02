@@ -15,13 +15,14 @@ class Index extends Component {
         const idHeader = device === 'desktop' ? 'header' : 'header-mobile';
         const header = document.getElementById(idHeader);
         if (header) {
+            const headerHeigth = header.clientHeight || header.offsetHeight;
             window.addEventListener('scroll', () =>
-                this.onScrollHandler(header)
+                this.onScrollHandler(header, headerHeigth)
             );
         }
     }
 
-    onScrollHandler = header => {
+    onScrollHandler = (header, height) => {
         const scrollPos = window.scrollY;
         const { classList } = header;
         const vshare = document.getElementById('v-share');
@@ -29,6 +30,9 @@ class Index extends Component {
         const wrap = document.getElementById('wrap');
         if (usermenu) usermenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
+            if (scrollPos > {height}+2){ // el 2 es solo para que no sea exacto
+                classList.add(CLASS_SCROLL_DOWN);
+            }
             if (scrollPos < lastScrollPosition) {
                 //SCROLL UP
                 classList.remove(CLASS_SCROLL_DOWN);
@@ -40,7 +44,6 @@ class Index extends Component {
             } else {
                 //SCROLL DOWN
                 classList.remove(CLASS_SCROLL_UP);
-                classList.add(CLASS_SCROLL_DOWN);
                 if (vshare) {
                     vshare.classList.remove(CLASS_SCROLL_UP);
                 }
