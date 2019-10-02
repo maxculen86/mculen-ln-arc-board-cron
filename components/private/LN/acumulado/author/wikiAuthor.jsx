@@ -28,7 +28,8 @@ const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
         </div>
         <p className="hlp-mobile-none col-12">
             {bio}
-            <span>
+            {twitter && (
+                <span>
                 Twitter:{' '}
                 <a
                     href={`https://twitter.com/${twitter}`}
@@ -37,7 +38,8 @@ const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
                 >
                     {twitter}
                 </a>
-            </span>
+                </span>
+            )}
         </p>
     </div>
 );
