@@ -1,5 +1,4 @@
 import React from 'react';
-import WithDevice from '../hocs/withDevice';
 import Header from './header';
 import '../../../../../resources/dist/css/ln/components/footer.css';
 
@@ -97,4 +96,4 @@ const Index = () => (
     </footer>
 );
 
-export default WithDevice(Index);
+export default Index;
