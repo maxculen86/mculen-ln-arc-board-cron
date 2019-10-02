@@ -1,6 +1,6 @@
 import { defaultTargeting } from './defaults';
 
-const PATH_SLOT = 'la_nacion_desktop/Acumulado';
+const PATH_SLOT = 'la_nacion_tablet/Acumulado';
 
 const DIMENSIONS_CAJA = [[300, 250], [1, 1]];
 
