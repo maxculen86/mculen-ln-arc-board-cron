@@ -12,20 +12,9 @@ Array [
     >
       LA NACION
     </a>
-    <a
-      data-event="LinkClick"
-      data-section="AperturaAcuRecetas"
-      href="/autor"
-    >
-      Autor
-    </a>
-    <a
-      data-event="LinkClick"
-      data-section="AperturaAcuRecetas"
-      href="/autor/emilse-pizarro"
-    >
+    <span>
       Emilse Pizarro
-    </a>
+    </span>
   </nav>,
   null,
 ]

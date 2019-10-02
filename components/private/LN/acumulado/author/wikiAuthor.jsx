@@ -28,10 +28,15 @@ const WikiAuthor = ({ name, url, imgSrc, bio, twitter }) => (
         </div>
         <p className="hlp-mobile-none col-12">
             {bio}
-            <br />
-            Twitter:
-            <span className="com-link --inline">
-                <a href={`https://twitter.com/${twitter}`}>{twitter}</a>
+            <span>
+                Twitter:{' '}
+                <a
+                    href={`https://twitter.com/${twitter}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {twitter}
+                </a>
             </span>
         </p>
     </div>
