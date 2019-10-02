@@ -3,7 +3,7 @@
 exports[`features - LaNacion - Nota -  Test de snapshot Breadcrumb 1`] = `
 Array [
   <nav
-    class="com-breadcrumb hlp-marginBottom-40"
+    class="com-breadcrumb "
   >
     <a
       href="/"
