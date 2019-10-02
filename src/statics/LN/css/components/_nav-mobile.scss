@@ -20,8 +20,7 @@
         justify-content: center;
         align-items: center;
         background: transparent;
-        //OCULTO HAMBURGUESA
-        &:last-child{display:none;}
+
         p {
             font-family: $font-arial;
             font-size: $font-11;
