@@ -7,6 +7,7 @@ import withLoginData from '../hocs/withLoginData';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
+const CLASS_ACTIVE = '--active';
 let lastScrollPosition = 0;
 class Index extends Component {
     componentDidMount() {
@@ -24,13 +25,13 @@ class Index extends Component {
     }
 
     //onScrollHandler = (header, main, heigth) => {
-    onScrollHandler = (header) => {
+    onScrollHandler = header => {
         const scrollPos = window.scrollY;
         const { classList } = header;
         const vshare = document.getElementById('v-share');
         const usermenu = document.getElementById('user-menu');
         const wrap = document.getElementById('wrap');
-        usermenu.classList.remove("--active");
+        if (usermenu) usermenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos < lastScrollPosition) {
                 classList.remove(CLASS_SCROLL_DOWN);
