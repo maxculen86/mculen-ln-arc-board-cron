@@ -3,7 +3,7 @@
 
 .--bg-banner {
     background-color:#f3f3f3;
-    margin-bottom:$px-40;
+    margin-bottom:$px-20;
     &.w-100{
         .banner{
             display: flex!important;
@@ -96,7 +96,7 @@
 
         &.--desktop {
             display:block;
-            margin-bottom:$px-40;
+            margin-bottom:$px-20;
         }
 
         &.--top {

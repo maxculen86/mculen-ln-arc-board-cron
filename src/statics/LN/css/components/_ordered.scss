@@ -28,7 +28,8 @@
         margin: 1.5em 0;
         font-family: Georgia;
         font-size: $font-19;
-        line-height: normal;
+        line-height: 30px;
+        margin-bottom: 25px;
         color: #000;
         position: relative;
         &:first-of-type {
@@ -39,7 +40,7 @@
             counter-increment: item;
             width: 26px;
             height: 36px;
-            top: -8px;
+            top: -4px;
             background-color: #000;
             color: #fff;
             position: absolute;
