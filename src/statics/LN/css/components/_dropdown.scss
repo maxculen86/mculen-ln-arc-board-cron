@@ -1,0 +1,93 @@
+.wrap-dropdown {
+    background: rgba(0, 0, 0, .7);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    display: block;
+    .com-dropdown {
+        background: #f4f4f4; 
+        width: 100vw;
+        height: 100vh;        ;
+        display: block;
+        .header__dropdown {
+            background: #fff;
+            margin-bottom: 10px; 
+            border: 1px solid #d9d9d9;
+            position: fixed;  
+            .logo__dropdown {
+                padding: 15px 20px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                i {
+                    color: #006998;
+                }
+            }
+            .close__dropdown {
+                padding: 15px 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                i {
+                    font-size: 30px;
+                    color: #3f3f3f;
+                }
+            }
+            .search__dropdown {
+                border-top: 1px solid #d9d9d9;
+                padding: 15px 20px;
+
+                .content-input {
+                    position: relative;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    i {
+                        position: absolute;
+                        right: 10px;
+                    }
+                    .input-buscador {
+                        border: 1px solid #d9d9d9; 
+                        width: 100%;
+                        display: flex;
+                        padding: 10px;
+                        border-radius: 3px;
+                    }
+                }
+                
+            }
+        }
+        .menu__dropdown {
+            background: #f4f4f4; 
+            .nav__dropdown {
+                .list__nav {
+                    margin-bottom: 10px;
+                    border: 1px solid #d9d9d9; 
+                    background: #fff;
+                }
+                .item__nav {
+                    border-bottom: 1px solid #d9d9d9;
+                    padding: 15px 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: #3f3f3f;
+                    font-weight: 700;
+                    font-size: 16px;
+                    .button__item {
+                        background: transparent;
+                        i {
+                            font-size: 20px;
+                            color: #3f3f3f;
+                        }
+                    }
+                }
+            } 
+        }
+    }
+}
+.item--disabled {
+    display: none;
+}
