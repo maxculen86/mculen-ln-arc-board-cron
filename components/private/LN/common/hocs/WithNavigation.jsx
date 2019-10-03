@@ -11,7 +11,6 @@ export default function WithNavigation(WrappedComponent) {
                     sections: []
                 };
                 this.getNavigationTree().then(sections => {
-                    debugger;
                     this.setState({
                         sections
                     });

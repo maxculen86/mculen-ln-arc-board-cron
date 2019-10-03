@@ -3,14 +3,12 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 
-const getListSections = (sections, extraOpts) => {
-    debugger;
-    return sections.map(section => (
+const getListSections = (sections, extraOpts) =>
+    sections.map(section => (
         <a key={section.path} href={section.path} {...extraOpts}>
             {section.name}
         </a>
     ));
-}
 
 const BreadcrumbBase = ({
     sections,
@@ -23,9 +21,9 @@ const BreadcrumbBase = ({
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
     }
-    let finalSections = sections;
     let listSections = [];
-    if (!lastLinked) {
+    if (!lastLinked && sections.length) {
+        let finalSections = sections;
         finalSections = finalSections.slice(0, finalSections.length - 1);
         listSections = getListSections(finalSections, extraOpts);
         const lastSection = sections.slice(
@@ -35,7 +33,7 @@ const BreadcrumbBase = ({
         listSections.push(
             <span key={lastSection.path}>{lastSection.name}</span>
         );
-    } else listSections = getListSections(finalSections, extraOpts);
+    } else listSections = getListSections(sections, extraOpts);
     return (
         <nav className={`com-breadcrumb ${extraClasses || ''}`}>
             {listSections}
