@@ -3,23 +3,39 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 
-const BreadcrumbBase = ({ sections, extraClasses, dataSection }) => {
+const getListSections = (sections, extraOpts) => {
+    debugger;
+    return sections.map(section => (
+        <a key={section.path} href={section.path} {...extraOpts}>
+            {section.name}
+        </a>
+    ));
+}
+
+const BreadcrumbBase = ({
+    sections,
+    extraClasses,
+    dataSection,
+    lastLinked
+}) => {
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
     }
-    const listSections = sections.map(section => {
-        if (section.path === '') {
-            return <span key={section.path}>{section.name}</span>;
-        }
-        return (
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            <a key={section.path} href={section.path} {...extraOpts}>
-                {section.name}
-            </a>
+    let finalSections = sections;
+    let listSections = [];
+    if (!lastLinked) {
+        finalSections = finalSections.slice(0, finalSections.length - 1);
+        listSections = getListSections(finalSections, extraOpts);
+        const lastSection = sections.slice(
+            sections.length - 1,
+            sections.length
+        )[0];
+        listSections.push(
+            <span key={lastSection.path}>{lastSection.name}</span>
         );
-    });
+    } else listSections = getListSections(finalSections, extraOpts);
     return (
         <nav className={`com-breadcrumb ${extraClasses || ''}`}>
             {listSections}
@@ -36,12 +52,14 @@ BreadcrumbBase.propTypes = {
         })
     ).isRequired,
     extraClasses: PropTypes.string,
-    dataSection: PropTypes.string
+    dataSection: PropTypes.string,
+    lastLinked: PropTypes.boolean
 };
 
 BreadcrumbBase.defaultProps = {
     extraClasses: undefined,
-    dataSection: undefined
+    dataSection: undefined,
+    lastLinked: false
 };
 
 export default BreadcrumbBase;
