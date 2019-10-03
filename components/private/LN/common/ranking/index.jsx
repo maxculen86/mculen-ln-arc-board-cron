@@ -12,8 +12,10 @@ const getTitle = globalContent => {
     let title;
     if (globalContent.author_type) title = globalContent.byline;
     else if (globalContent.node_type === 'section') title = globalContent.name;
-    else if (globalContent.taxonomy.primary_section)
+    else if (globalContent.taxonomy && globalContent.taxonomy.primary_section)
         title = globalContent.taxonomy.primary_section.name;
+    else if (globalContent.Payload.items && globalContent.Payload.items.length)
+        title = globalContent.Payload.items[0].name;
 
     return title ? `Más leídas de ${title}` : 'Más leídas';
 };
