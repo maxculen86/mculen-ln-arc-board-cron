@@ -30,7 +30,7 @@ class Index extends Component {
         const wrap = document.getElementById('wrap');
         if (usermenu) usermenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
-            if (scrollPos > {height}+2){ // el 2 es solo para que no sea exacto
+            if (scrollPos > height) {
                 classList.add(CLASS_SCROLL_DOWN);
             }
             if (scrollPos < lastScrollPosition) {
