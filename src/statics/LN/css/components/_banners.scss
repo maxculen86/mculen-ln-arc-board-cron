@@ -57,9 +57,9 @@
             top: 0;
             width: 100%;
             z-index: 10000;
-            background: red;
+            background-color:#f3f3f3;
             #wrap.--scrollDown &{
-                display:block,
+                display:block;
             }
         }
     }
