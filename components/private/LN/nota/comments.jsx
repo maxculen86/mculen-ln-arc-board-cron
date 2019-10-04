@@ -2,15 +2,21 @@ import React, { Fragment, useEffect } from 'react';
 
 const Comments = props => {
     console.log("############ GLOBALCONTENT ##########: ", props.globalContent);
-    const { globalContent: { _id }} = props;
+    const {
+        globalContent: {
+            _id,
+            canonical_url: url,
+            headlines: { basic: title },
+            taxonomy: { tags }
+    }} = props;
 
     const metadata = {
-        title: '',
-        url: '',
-        tags: '',
-        type: 'livecomment'
+        "title": title,
+        "url": url,
+        "tags": tags.map(tag => tag.text).join(','),
+        "type": "livecomment"
     };
-    
+
     useEffect(() => {
         const networkConfig = {
             network: 'la-nacion.fyre.co'
