@@ -23,6 +23,10 @@ export default {
         Comscore: {
             props: { config: { c1: '2', c2: '6906398' } },
             location: ['head']
+        },
+        Livefyre: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {
