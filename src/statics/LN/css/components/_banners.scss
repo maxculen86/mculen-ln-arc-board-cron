@@ -58,7 +58,6 @@
             z-index: 10000;
             transition: all 0.25s;
             background-color:#f3f3f3;
-            background: red;
             &.--active{
                 #wrap.--scrollDown &{
                     top: 0;
