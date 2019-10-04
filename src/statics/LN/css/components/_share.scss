@@ -82,7 +82,9 @@
 }
 
 //Valores de tablet para arriba
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+
+}
 
 //Valores de desk chico para arriba
 @media (min-width: 1024px) {
@@ -109,6 +111,12 @@
         border: 0;
         font-size: $font-30;
         margin: $px-10 0;
+        opacity: 0.8;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            color: $link;
+        }
     }
     .com-share label {
         margin-left: initial
