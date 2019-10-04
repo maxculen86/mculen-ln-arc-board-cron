@@ -1,20 +1,21 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const Comments = props => {
-    console.log("############ GLOBALCONTENT ##########: ", props.globalContent);
+    console.log('############ GLOBALCONTENT ##########: ', props.globalContent);
     const {
         globalContent: {
             _id,
             canonical_url: url,
             headlines: { basic: title },
             taxonomy: { tags }
-    }} = props;
+        }
+    } = props;
 
     const metadata = {
-        "title": title,
-        "url": url,
-        "tags": tags.map(tag => tag.text).join(','),
-        "type": "livecomment"
+        title,
+        url,
+        tags: tags.map(tag => tag.text).join(','),
+        type: 'livecomment'
     };
 
     useEffect(() => {
@@ -27,36 +28,52 @@ const Comments = props => {
             articleId: _id,
             el: 'livefyre',
             collectionMeta: 'dataLiveFyre.getAttribute("data-id")',
-            "datetimeFormat": {
+            datetimeFormat: {
                 minutesUntilAbsoluteTime: 4,
                 absoluteFormat: 'HH:mm dd/MM/y'
             },
             editorCss: {
                 background: '#ccc',
                 color: 'red',
-                font: '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
+                font:
+                    '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
             }
         };
 
         Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
-            new Conv(networkConfig, [convConfig], (commentsWidget) => {}); 
+            new Conv(networkConfig, [convConfig], commentsWidget => {});
             auth.delegate({
                 login(callback) {
                     callback(null, { livefyre: '<userauthtoken>' });
                 }
             });
         });
-    }, []);
+    }, [_id]);
 
     return (
-        <Fragment>
+        <>
             <section id="comentarios" data-module="nota-sugeridas-comentarios">
-                <div id="tokenLF" data-id="" data-entrada={_id} data-lf-siteId="356483"></div>
-                <p class="legales">Los comentarios publicados son de exclusiva responsabilidad de sus autores y las consecuencias derivadas de ellos pueden ser pasibles de sanciones legales. Aquel usuario que incluya en sus mensajes algún comentario violatorio del reglamento será eliminado e inhabilitado para volver a comentar. Enviar un comentario implica la aceptación del Reglamento.</p>
-                <div class="recordar-logueo">Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
+                <div
+                    id="tokenLF"
+                    data-id=""
+                    data-entrada={_id}
+                    data-lf-siteId="356483"
+                />
+                <p className="legales">
+                    Los comentarios publicados son de exclusiva responsabilidad
+                    de sus autores y las consecuencias derivadas de ellos pueden
+                    ser pasibles de sanciones legales. Aquel usuario que incluya
+                    en sus mensajes algún comentario violatorio del reglamento
+                    será eliminado e inhabilitado para volver a comentar. Enviar
+                    un comentario implica la aceptación del Reglamento.
+                </p>
+                <div className="recordar-logueo">
+                    Para poder comentar tenés que ingresar con tu usuario de LA
+                    NACION.
+                </div>
                 <div className="livefyre" />
             </section>
-        </Fragment>
+        </>
     );
 };
 
