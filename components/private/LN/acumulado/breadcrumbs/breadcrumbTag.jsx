@@ -11,8 +11,7 @@ function BreadcrumbTag({ tag, host }) {
             name: 'LA NACION'
         },
         {
-            //path: `/tema/${tag.slug}`,
-            path: ``,
+            path: `/tema/${tag.slug}`,
             name: tag.name
         }
     ];

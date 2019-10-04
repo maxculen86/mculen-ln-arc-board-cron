@@ -21,7 +21,8 @@
         padding-left: 1em;
         font-family: $font-arial;
         font-size: $font-16;
-        line-height: $line-33;
+        line-height: 25px;
+        margin-bottom: 25px;
         color: #000;
         position: relative;
         &:before {
@@ -29,7 +30,7 @@
             width: $px-7;
             height: $px-7;
             border-radius: 50%;
-            top: 17px;
+            top: 10px;
             background-color: #000;
             color: #fff;
             position: absolute;
