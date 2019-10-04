@@ -51,10 +51,7 @@
                 margin-top: 0;
             }
             @media ($media-m) {
-                padding: $px-10;
-                h2 {
-                    margin-top: $px-7;
-                }
+                padding: $px-13 $px-21 $px-20 $px-18;
             }
         }
     }
@@ -85,6 +82,8 @@
 .more-articles {
     .com-title-section-xl{
         margin-bottom: $px-30;
+        font-size: $font-30;
+        line-height: $line-40;
     }
     >section{
         margin-bottom: $px-40;
@@ -94,6 +93,8 @@
 .interest{
     .com-title-section-xl{
         margin-bottom: $px-30;
+        font-size: $font-30;
+        line-height: $line-40;
     }
     >section{
         margin-bottom: $px-40;
