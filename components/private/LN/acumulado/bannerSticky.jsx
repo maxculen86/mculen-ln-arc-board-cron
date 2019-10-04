@@ -2,28 +2,26 @@ import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import Banner from '../common/banner';
 
-const CLASS_SCROLL_DOWN = '--showSticky';
+const CLASS_ACTIVE = '--active';
 class BannerSticky extends Component {
     lastScroll = 0;
 
     componentDidMount() {
-        const sticky1 = document.getElementById('sticky1_mob');
-        if (sticky1) {
-            const wrap = document.getElementById('wrap');
-            const sticky1Position =
-                sticky1.offsetTop +
-                (sticky1.clientHeight || sticky1.offsetHeight);
+        const contentMain = document.getElementById('content-main');
+        const sticky2 = document.getElementById('sticky2_mob');
+        if (sticky2 && contentMain) {
             window.addEventListener('scroll', () =>
-                this.onScrollHandler(wrap, sticky1Position)
+                this.onScrollHandler(sticky2, contentMain)
             );
         }
     }
 
-    onScrollHandler = (wrap, sticky1Position) => {
+    onScrollHandler = (sticky2, contentMain) => {
         const sp = window.scrollY;
-        if (sp > this.lastScroll && sp > sticky1Position)
-            wrap.classList.add(CLASS_SCROLL_DOWN);
-        else wrap.classList.remove(CLASS_SCROLL_DOWN);
+        const layPosition = contentMain.offsetTop;
+        if (sp > this.lastScroll && sp > layPosition)
+            sticky2.classList.add(CLASS_ACTIVE);
+        else sticky2.classList.remove(CLASS_ACTIVE);
         this.lastScroll = sp;
     };
 

@@ -14,32 +14,31 @@ class Index extends Component {
         const { device } = this.props.screenUtils;
         const idHeader = device === 'desktop' ? 'header' : 'header-mobile';
         const header = document.getElementById(idHeader);
+        const vshare = document.getElementById('v-share');
+        const userMenu = document.getElementById('user-menu');
+        const wrap = document.getElementById('wrap');
         if (header) {
             const headerHeigth = header.clientHeight || header.offsetHeight;
             window.addEventListener('scroll', () =>
-                this.onScrollHandler(header, headerHeigth)
+                this.onScrollHandler(
+                    header,
+                    headerHeigth,
+                    vshare,
+                    userMenu,
+                    wrap
+                )
             );
         }
     }
 
-    onScrollHandler = (header, height) => {
+    onScrollHandler = (header, height, vshare, userMenu, wrap) => {
         const scrollPos = window.scrollY;
         const { classList } = header;
-        const vshare = document.getElementById('v-share');
-        const usermenu = document.getElementById('user-menu');
-        const wrap = document.getElementById('wrap');
 
-        const content = document.getElementById("content-main");
-        const sticky2 = document.getElementById("sticky2_mob");
-
-        if (usermenu) usermenu.classList.remove(CLASS_ACTIVE);
+        if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos > height) {
                 classList.add(CLASS_SCROLL_DOWN);
-            }
-            const topContent = content.offsetTop;
-            if (scrollPos > topContent) {
-                sticky2.classList.add(CLASS_ACTIVE);
             }
             if (scrollPos < lastScrollPosition) {
                 //SCROLL UP
@@ -63,7 +62,6 @@ class Index extends Component {
             classList.remove(CLASS_SCROLL_UP);
             classList.remove(CLASS_SCROLL_DOWN);
             wrap.classList.remove(CLASS_SCROLL_UP);
-            sticky2.classList.remove(CLASS_ACTIVE);
         }
         lastScrollPosition = scrollPos;
     };
