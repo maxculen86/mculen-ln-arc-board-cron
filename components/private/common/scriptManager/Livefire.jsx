@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Layfyre extends Component {
+export default class Livefyre extends Component {
     constructor(props) {
         super(props);
 
