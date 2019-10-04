@@ -38,6 +38,7 @@ const breadcrumbArticle = ({
             <BreadcrumbComponent
                 extraClasses=""
                 sections={allSections.slice(0, 3)}
+                lastLinked
             />
             <BreadCrumbSchema
                 sections={allSections.slice(0, 3)}

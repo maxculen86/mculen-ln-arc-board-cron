@@ -4,10 +4,16 @@
 .com-author {
     display: inline-block;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
+    @media (min-width:1024px) {
+        margin-bottom: 60px;
+    }
     font-family: $font-arial;
     font-size: $font-16;
     font-weight: 600;
+    .com-author {
+        margin-bottom: 0;
+    }
     a {
         color: $link;
         @media (min-width: 768px) {
