@@ -40,6 +40,7 @@ class Index extends Component {
                 if (vshare) {
                     vshare.classList.add(CLASS_SCROLL_UP);
                 }
+                wrap.classList.remove(CLASS_SCROLL_DOWN);
                 wrap.classList.add(CLASS_SCROLL_UP);
             } else {
                 //SCROLL DOWN
@@ -48,6 +49,7 @@ class Index extends Component {
                     vshare.classList.remove(CLASS_SCROLL_UP);
                 }
                 wrap.classList.remove(CLASS_SCROLL_UP);
+                wrap.classList.add(CLASS_SCROLL_DOWN);
             }
         } else {
             classList.remove(CLASS_SCROLL_UP);

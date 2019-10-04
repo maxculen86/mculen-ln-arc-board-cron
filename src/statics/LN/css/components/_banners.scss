@@ -3,7 +3,7 @@
 
 .--bg-banner {
     background-color:#f3f3f3;
-    margin-bottom:$px-40;
+    margin-bottom:$px-20;
     &.w-100{
         .banner{
             display: flex!important;
@@ -48,6 +48,20 @@
     &.--mobile {
         display:block;
         margin:auto;
+        &.--sticky{
+            position: fixed;
+            margin-top: 0!important;
+            left: 0;
+            right: 0;
+            display: none;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+            background-color:#f3f3f3;
+            #wrap.--scrollDown &{
+                display:block;
+            }
+        }
     }
 }
 
@@ -57,7 +71,7 @@
     .banner {
         &.--desktop,
         &.--mobile {
-            display:none;
+            display:none!important;
         }
     
         &.--tablet {
@@ -77,12 +91,12 @@
     .banner {
         &.--tablet,
         &.--mobile {
-            display:none;
+            display:none!important;
         }
 
         &.--desktop {
             display:block;
-            margin-bottom:$px-40;
+            margin-bottom:$px-20;
         }
 
         &.--top {
