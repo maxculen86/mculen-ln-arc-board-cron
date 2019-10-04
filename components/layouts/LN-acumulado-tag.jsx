@@ -25,7 +25,7 @@ class LNAcumuladoLayout extends Component {
 
         const tag = globalContent.Payload.items[0];
         return (
-            <div id="wrap">
+            <div id="wrapper">
                 <Header />
                 <main>
                     <BannerCabezal />

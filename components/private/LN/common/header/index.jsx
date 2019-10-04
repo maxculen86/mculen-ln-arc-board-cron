@@ -16,7 +16,7 @@ class Index extends Component {
         const header = document.getElementById(idHeader);
         const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
-        const wrap = document.getElementById('wrap');
+        const wrapper = document.getElementById('wrapper');
         if (header) {
             const headerHeigth = header.clientHeight || header.offsetHeight;
             window.addEventListener('scroll', () =>
@@ -25,13 +25,13 @@ class Index extends Component {
                     headerHeigth,
                     vshare,
                     userMenu,
-                    wrap
+                    wrapper
                 )
             );
         }
     }
 
-    onScrollHandler = (header, height, vshare, userMenu, wrap) => {
+    onScrollHandler = (header, height, vshare, userMenu, wrapper) => {
         const scrollPos = window.scrollY;
         const { classList } = header;
 
@@ -47,21 +47,21 @@ class Index extends Component {
                 if (vshare) {
                     vshare.classList.add(CLASS_SCROLL_UP);
                 }
-                wrap.classList.remove(CLASS_SCROLL_DOWN);
-                wrap.classList.add(CLASS_SCROLL_UP);
+                wrapper.classList.remove(CLASS_SCROLL_DOWN);
+                wrapper.classList.add(CLASS_SCROLL_UP);
             } else {
                 //SCROLL DOWN
                 classList.remove(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.remove(CLASS_SCROLL_UP);
                 }
-                wrap.classList.remove(CLASS_SCROLL_UP);
-                wrap.classList.add(CLASS_SCROLL_DOWN);
+                wrapper.classList.remove(CLASS_SCROLL_UP);
+                wrapper.classList.add(CLASS_SCROLL_DOWN);
             }
         } else {
             classList.remove(CLASS_SCROLL_UP);
             classList.remove(CLASS_SCROLL_DOWN);
-            wrap.classList.remove(CLASS_SCROLL_UP);
+            wrapper.classList.remove(CLASS_SCROLL_UP);
         }
         lastScrollPosition = scrollPos;
     };

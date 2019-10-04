@@ -59,7 +59,7 @@
             transition: all 0.25s;
             background-color:#f3f3f3;
             &.--active{
-                #wrap.--scrollDown &{
+                #wrapper.--scrollDown &{
                     top: 0;
                 }
             }
@@ -73,7 +73,7 @@
     .banner {
         &.--desktop,
         &.--mobile {
-            display:none!important;
+            display:none;
         }
     
         &.--tablet {
@@ -93,7 +93,7 @@
     .banner {
         &.--tablet,
         &.--mobile {
-            display:none!important;
+            display:none;
         }
 
         &.--desktop {

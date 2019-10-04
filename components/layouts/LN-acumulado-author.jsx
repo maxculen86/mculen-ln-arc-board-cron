@@ -20,7 +20,7 @@ const LNAcumuladoAuthorLayout = props => {
     const { globalContent, siteProperties } = props;
     const { byline, image, _id, longBio, twitter } = globalContent;
     return (
-        <div id="wrap">
+        <div id="wrapper">
             <Header />
             <main>
                 <BannerCabezal />

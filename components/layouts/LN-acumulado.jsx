@@ -21,7 +21,7 @@ const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 class LNAcumuladoLayout extends Component {
     render() {
         return (
-            <div id="wrap">
+            <div id="wrapper">
                 <Header />
                 <main>
                     <BannerCabezal />
