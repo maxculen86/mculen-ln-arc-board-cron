@@ -53,13 +53,16 @@
             margin-top: 0!important;
             left: 0;
             right: 0;
-            display: none;
-            top: 0;
+            top: -100px;
             width: 100%;
             z-index: 10000;
+            transition: all 0.25s;
             background-color:#f3f3f3;
-            #wrap.--scrollDown &{
-                display:block;
+            background: red;
+            &.--active{
+                #wrap.--scrollDown &{
+                    top: 0;
+                }
             }
         }
     }

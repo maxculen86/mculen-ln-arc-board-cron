@@ -23,7 +23,7 @@ const LNAcumuladoAuthorLayout = props => {
             <Header />
             <main>
                 <BannerCabezal />
-                <div className="lay-sidebar">
+                <div id="content-main" className="lay-sidebar">
                     <div className="sidebar__main">
                         <div className="row">
                             <BreadCrumbAutor
