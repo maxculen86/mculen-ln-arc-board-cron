@@ -18,9 +18,13 @@ const AperturaConDestacado = props => {
 
     return (
         <>
-            <Destacado {...props} />
+            {!!(promoItems.basic.url && promoItems.basic._id) && (
+                <Destacado basic={promoItems.basic} />
+            )}
             <div className="col-desksm-4 cont-aper">
-                <Sections taxonomy={taxonomy} destacado />
+                {!!(taxonomy.sections && taxonomy.primary_section) && (
+                    <Sections taxonomy={taxonomy} destacado />
+                )}
                 {!!promoItems && !!promoItems.receta && (
                     <DetalleReceta receta={promoItems.receta} />
                 )}
@@ -38,6 +42,8 @@ const AperturaConDestacado = props => {
 AperturaConDestacado.propTypes = {
     globalContent: PropTypes.shape({
         taxonomy: PropTypes.shape({
+            primary_section: PropTypes.string,
+            sections: PropTypes.object,
             tags: PropTypes.arrayOf(
                 PropTypes.shape({
                     description: PropTypes.string,
