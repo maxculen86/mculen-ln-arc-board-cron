@@ -212,7 +212,8 @@ const Comments = props => {
             canonical_url: url,
             headlines: { basic: title },
             taxonomy: { tags }
-    }} = props;
+        }
+    } = props;
 
     const metadata = {
         "title": title,
@@ -235,37 +236,39 @@ const Comments = props => {
             el: 'livefyre',
             collectionMeta: jwt.sign(payload, secretOrPrivateKey),
             "datetimeFormat": {
+
                 minutesUntilAbsoluteTime: 4,
                 absoluteFormat: 'HH:mm dd/MM/y'
             },
             editorCss: {
                 background: '#ccc',
                 color: 'red',
-                font: '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
+                font:
+                    '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
             }
         };
 
         Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
-            new Conv(networkConfig, [convConfig], (commentsWidget) => {}); 
+            new Conv(networkConfig, [convConfig], commentsWidget => {});
             auth.delegate({
                 login(callback) {
                     callback(null, { livefyre: '<userauthtoken>' });
                 }
             });
         });
-    }, []);
+    }, [_id]);
 
     return (
-        <Fragment>
+        <>
             <section id="comentarios" data-module="nota-sugeridas-comentarios">
                 <h4> ENVÍA <b> TU COMENTARIO </b> </h4>
-                <a class="ver-legales"> Ver legales </a>
+                <a className="ver-legales"> Ver legales </a>
                 <div id="tokenLF" data-id="" data-entrada={_id} data-lf-siteid="356483"></div>
-                <p class="legales">Los comentarios publicados son de exclusiva responsabilidad de sus autores y las consecuencias derivadas de ellos pueden ser pasibles de sanciones legales. Aquel usuario que incluya en sus mensajes algún comentario violatorio del reglamento será eliminado e inhabilitado para volver a comentar. Enviar un comentario implica la aceptación del Reglamento.</p>
-                <div class="recordar-logueo">Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
+                <p className="legales">Los comentarios publicados son de exclusiva responsabilidad de sus autores y las consecuencias derivadas de ellos pueden ser pasibles de sanciones legales. Aquel usuario que incluya en sus mensajes algún comentario violatorio del reglamento será eliminado e inhabilitado para volver a comentar. Enviar un comentario implica la aceptación del Reglamento.</p>
+                <div className="recordar-logueo">Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
                 <div className="livefyre" />
             </section>
-        </Fragment>
+        </>
     );
 };
 
