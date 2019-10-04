@@ -3,21 +3,17 @@ import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 
 // TODO: name destacadoEnApertura
-const destacado = props => {
-    const {
-        globalContent: {
-            promo_items: { basic }
-        }
-    } = props;
+const destacado = ({ basic }) => {
     return <Media mediaData={basic} colNumber={8} />;
 };
 
 destacado.propTypes = {
-    globalContent: PropTypes.shape({
-        promo_items: PropTypes.shape({
-            basic: PropTypes.object
-        })
-    }).isRequired
+    basic: PropTypes.shape({
+        subtitle: PropTypes.string,
+        type: PropTypes.string,
+        url: PropTypes.string,
+        _id: PropTypes.string
+    })
 };
 
 export default destacado;

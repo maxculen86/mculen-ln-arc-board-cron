@@ -16,22 +16,33 @@ const aperturaReceta = props => {
 
     const hasMultimedia = !!(!!promoItems && promoItems.basic);
 
+    const aperturaConDatos = !!(
+        !!taxonomy &&
+        tags &&
+        promoItems &&
+        promoItems.receta
+    );
+
     return (
-        <div
-            className={`row aper-receta w-100 ${
-                hasMultimedia ? '' : 'sin-foto'
-            }`}
-        >
-            {hasMultimedia ? (
-                <AperturaConDestacado {...props} />
-            ) : (
-                <AperturaSinDestacado
-                    tags={tags}
-                    taxonomy={taxonomy}
-                    receta={!!promoItems && promoItems.receta}
-                />
-            )}
-        </div>
+        <>
+            {aperturaConDatos ? (
+                <div
+                    className={`row aper-receta w-100 ${
+                        hasMultimedia ? '' : 'sin-foto'
+                    }`}
+                >
+                    {hasMultimedia ? (
+                        <AperturaConDestacado {...props} />
+                    ) : (
+                        <AperturaSinDestacado
+                            tags={tags}
+                            taxonomy={taxonomy}
+                            receta={!!promoItems && promoItems.receta}
+                        />
+                    )}
+                </div>
+            ) : null}
+        </>
     );
 };
 
