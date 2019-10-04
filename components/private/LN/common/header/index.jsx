@@ -28,10 +28,18 @@ class Index extends Component {
         const vshare = document.getElementById('v-share');
         const usermenu = document.getElementById('user-menu');
         const wrap = document.getElementById('wrap');
+
+        const content = document.getElementById("content-main");
+        const sticky2 = document.getElementById("sticky2_mob");
+
         if (usermenu) usermenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos > height) {
                 classList.add(CLASS_SCROLL_DOWN);
+            }
+            const topContent = content.offsetTop;
+            if (scrollPos > topContent) {
+                sticky2.classList.add(CLASS_ACTIVE);
             }
             if (scrollPos < lastScrollPosition) {
                 //SCROLL UP
@@ -55,6 +63,7 @@ class Index extends Component {
             classList.remove(CLASS_SCROLL_UP);
             classList.remove(CLASS_SCROLL_DOWN);
             wrap.classList.remove(CLASS_SCROLL_UP);
+            sticky2.classList.remove(CLASS_ACTIVE);
         }
         lastScrollPosition = scrollPos;
     };

@@ -29,7 +29,7 @@ class LNAcumuladoLayout extends Component {
                 <Header />
                 <main>
                     <BannerCabezal />
-                    <div className="lay-sidebar">
+                    <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
                                 <BreadcrumbTag
