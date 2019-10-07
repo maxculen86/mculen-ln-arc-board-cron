@@ -83,7 +83,7 @@
     .com-title-section-xl{
         margin-bottom: $px-30;
         font-size: $font-30;
-        line-height: $line-40;
+        line-height: $line-30;
     }
     >section{
         margin-bottom: $px-40;
@@ -91,6 +91,8 @@
 }
 
 .interest{
+    padding-top: $px-54;
+    border-top: 1px solid $gris3;
     .com-title-section-xl{
         margin-bottom: $px-30;
         font-size: $font-30;
@@ -98,5 +100,13 @@
     }
     >section{
         margin-bottom: $px-40;
+    }
+}
+
+
+@media (min-width: 1280px) {
+    .interest{
+        padding-top: $px-54;
+        border-top: 1px solid $gris3;
     }
 }

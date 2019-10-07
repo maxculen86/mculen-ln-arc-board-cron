@@ -3,7 +3,7 @@
 exports[`snippet renders ok with complete data 1`] = `
 <div>
   <script
-    type="application/ld+json"
+    type="text/javascript"
   >
     var snippet = [
                     {
@@ -27,7 +27,7 @@ exports[`snippet renders ok with complete data 1`] = `
 exports[`snippet renders ok with missing data 1`] = `
 <div>
   <script
-    type="application/ld+json"
+    type="text/javascript"
   >
     var snippet = [
                     {
