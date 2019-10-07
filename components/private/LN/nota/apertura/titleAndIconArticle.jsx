@@ -7,6 +7,7 @@ import TitleArticle from './titleArticle';
 import '../../../../../resources/dist/css/ln/components/title.css';
 
 const titleAndIconArticle = ({
+    customFields: { prefix },
     globalContent: {
         taxonomy: { sections },
         headlines
@@ -15,12 +16,18 @@ const titleAndIconArticle = ({
     return (
         <>
             <IconBase sections={sections} />
-            <TitleArticle headlines={headlines} />
+            <TitleArticle prefix={prefix} headlines={headlines} />
         </>
     );
 };
 
 titleAndIconArticle.propTypes = {
+    customFields: PropTypes.shape({
+        prefix: PropTypes.string.tag({
+            label: 'Prefijo',
+            defaultValue: ''
+        })
+    }).isRequired,
     globalContent: PropTypes.shape({
         headlines: PropTypes.shape({
             basic: PropTypes.string.isRequired
