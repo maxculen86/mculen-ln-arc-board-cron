@@ -53,13 +53,15 @@
             margin-top: 0!important;
             left: 0;
             right: 0;
-            display: none;
-            top: 0;
+            top: -100px;
             width: 100%;
             z-index: 10000;
+            transition: all 0.25s;
             background-color:#f3f3f3;
-            #wrap.--scrollDown &{
-                display:block;
+            &.--active{
+                #wrapper.--scrollDown &{
+                    top: 0;
+                }
             }
         }
     }
@@ -71,7 +73,7 @@
     .banner {
         &.--desktop,
         &.--mobile {
-            display:none!important;
+            display:none;
         }
     
         &.--tablet {
@@ -91,7 +93,7 @@
     .banner {
         &.--tablet,
         &.--mobile {
-            display:none!important;
+            display:none;
         }
 
         &.--desktop {

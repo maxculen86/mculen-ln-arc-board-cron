@@ -21,12 +21,12 @@ const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 class LNAcumuladoLayout extends Component {
     render() {
         return (
-            <div id="wrap">
+            <div id="wrapper">
                 <Header />
                 <main>
                     <BannerCabezal />
                     <BannerSticky />
-                    <div className="lay-sidebar">
+                    <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
                                 <BreadcrumbSection

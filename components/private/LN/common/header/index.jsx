@@ -14,21 +14,28 @@ class Index extends Component {
         const { device } = this.props.screenUtils;
         const idHeader = device === 'desktop' ? 'header' : 'header-mobile';
         const header = document.getElementById(idHeader);
+        const vshare = document.getElementById('v-share');
+        const userMenu = document.getElementById('user-menu');
+        const wrapper = document.getElementById('wrapper');
         if (header) {
             const headerHeigth = header.clientHeight || header.offsetHeight;
             window.addEventListener('scroll', () =>
-                this.onScrollHandler(header, headerHeigth)
+                this.onScrollHandler(
+                    header,
+                    headerHeigth,
+                    vshare,
+                    userMenu,
+                    wrapper
+                )
             );
         }
     }
 
-    onScrollHandler = (header, height) => {
+    onScrollHandler = (header, height, vshare, userMenu, wrapper) => {
         const scrollPos = window.scrollY;
         const { classList } = header;
-        const vshare = document.getElementById('v-share');
-        const usermenu = document.getElementById('user-menu');
-        const wrap = document.getElementById('wrap');
-        if (usermenu) usermenu.classList.remove(CLASS_ACTIVE);
+
+        if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos > height) {
                 classList.add(CLASS_SCROLL_DOWN);
@@ -40,21 +47,21 @@ class Index extends Component {
                 if (vshare) {
                     vshare.classList.add(CLASS_SCROLL_UP);
                 }
-                wrap.classList.remove(CLASS_SCROLL_DOWN);
-                wrap.classList.add(CLASS_SCROLL_UP);
+                wrapper.classList.remove(CLASS_SCROLL_DOWN);
+                wrapper.classList.add(CLASS_SCROLL_UP);
             } else {
                 //SCROLL DOWN
                 classList.remove(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.remove(CLASS_SCROLL_UP);
                 }
-                wrap.classList.remove(CLASS_SCROLL_UP);
-                wrap.classList.add(CLASS_SCROLL_DOWN);
+                wrapper.classList.remove(CLASS_SCROLL_UP);
+                wrapper.classList.add(CLASS_SCROLL_DOWN);
             }
         } else {
             classList.remove(CLASS_SCROLL_UP);
             classList.remove(CLASS_SCROLL_DOWN);
-            wrap.classList.remove(CLASS_SCROLL_UP);
+            wrapper.classList.remove(CLASS_SCROLL_UP);
         }
         lastScrollPosition = scrollPos;
     };

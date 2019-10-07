@@ -7,11 +7,12 @@
     display: none;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: $px-40;
+    color: $gris5;
     a {
         color: $link;
-        border-left: solid 1px $gris4;
-        padding: 0 $px-10;
+        border-left: solid 1px $gris5;
+        padding: 0 $px-6;
         &:last-child {
             /*border-right: none;
             pointer-events: none;
@@ -25,12 +26,12 @@
         }
     }
     span{
-        border-left: solid 1px $gris4;
-        padding: 0 $px-10;
+        border-left: solid 1px $gris5;
+        padding: 0 $px-6;
     }
     p {
-        border-left: solid 1px $gris4;
-        padding: 0 $px-10;
+        border-left: solid 1px $gris5;
+        padding: 0 $px-6;
     }
 }
 
