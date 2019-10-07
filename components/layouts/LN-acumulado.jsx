@@ -7,7 +7,6 @@ import BannerCaja1 from '../private/LN/acumulado/bannerCaja1';
 import BannerCaja2 from '../private/LN/acumulado/bannerCaja2';
 import BannerCabezal from '../private/LN/acumulado/bannerCabezal';
 import BannerSticky from '../private/LN/acumulado/bannerSticky';
-import BreadcrumbSection from '../private/LN/acumulado/breadcrumbs/breadcrumbSection';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
@@ -16,7 +15,15 @@ import '../../resources/dist/css/ln/pages/acu.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 
-const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
+const layoutItems = [
+    'Pre-Apertura',
+    'Breadcrumb',
+    'Titulo',
+    'Apertura',
+    'Links',
+    'Notas',
+    'Aside'
+];
 
 class LNAcumuladoLayout extends Component {
     render() {
@@ -24,38 +31,28 @@ class LNAcumuladoLayout extends Component {
             <div id="wrapper">
                 <Header />
                 <main>
-                    <BannerCabezal />
-                    <BannerSticky />
+                    {/* BANNERS: CABEZAL Y STICKY */}
+                    {this.props.children[0]}
                     <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
-                                <BreadcrumbSection
-                                    sectionId={this.props.globalContent._id}
-                                    host={
-                                        this.props.siteProperties.shareConfig
-                                            .host
-                                    }
-                                />
+                                {/* BREADCRUMB */}
+                                {this.props.children[1]}
                             </div>
                             <div className="row">
-                                <AcuTitle
-                                    title={this.props.globalContent.name}
-                                />
-                                {/* LUGAR PARA UN ANEXO */}
-                                {this.props.children[0]}
+                                {/* LUGAR PARA UN ANEXO Y TITULO */}
+                                {this.props.children[2]}
                             </div>
                             <div className="row">
                                 {/* LINKS DE NAVEGACION */}
-                                {this.props.children[1]}
+                                {this.props.children[3]}
                             </div>
                             {/* NOTAS */}
-                            {this.props.children[2]}
+                            {this.props.children[4]}
                         </div>
                         <div className="sidebar__aside hlp-tablet-none">
-                            <BannerCaja1 />
                             {/* RANKING DE NOTAS */}
-                            {this.props.children[3]}
-                            <BannerCaja2 />
+                            {this.props.children[5]}
                         </div>
                     </div>
                 </main>
