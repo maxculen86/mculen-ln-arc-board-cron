@@ -5,7 +5,7 @@
     font-family: $font-arial;
     font-size: $font-12;
     font-weight: bold;
-    padding: $px-12 $px-24;
+    padding: $px-11 $px-24;
     text-transform: uppercase;
     border-radius: 3px;
     transition: opacity .2s ease-in-out;
@@ -34,6 +34,11 @@
         background-color: $highlight;
         border: 1px solid $gris3;
         color: $negro;
+        &:hover{
+            background: $negro;
+            border-color: $negro; 
+            color: $blanco;
+        }
     }
     &.--bright {
         background-color: inherit;
@@ -63,6 +68,6 @@ button:hover {
 @media ($media-l) {
     .--btn {
         font-size: $px-12;
-        padding: $px-11 $px-24;
+        padding: $px-10 $px-24;
     }
 }

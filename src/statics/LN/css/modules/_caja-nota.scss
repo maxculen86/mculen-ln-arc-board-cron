@@ -9,6 +9,10 @@
         margin-bottom:$px-40;
     }
     
+    a:hover {
+        color: $ln;
+    }
+
     //Estructura de vista tipo lista, text e img en una misma linea (como era en mobile antes)
     &.--lista {
         grid-template-columns: 1fr 141px;
