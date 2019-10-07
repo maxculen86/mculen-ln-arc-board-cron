@@ -34,15 +34,22 @@ export const primarySectionTreeResolver = ({
 };
 
 export const getSectionStyle = sections => {
-    const logoSection = sections.find(x =>
-        get(x, 'additional_properties.original.style.section_style_name')
-    );
+    const logoSection = sections.findIndex(x => {
+        if (x.additional_properties.original.style) {
+            return get(
+                x,
+                'additional_properties.original.style.section_style_name'
+            );
+        }
+        return undefined;
+    });
+    console.log('||||||||||||**********',logoSection);
     let sectionClass;
     if (logoSection) {
         sectionClass =
             logoSection.additional_properties.original.style.section_style_name;
     }
-    return sectionClass;
+    return { class: sectionClass, section: logoSection };
 };
 
 export default {
