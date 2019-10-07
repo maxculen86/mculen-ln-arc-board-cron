@@ -139,7 +139,11 @@ export default function Desplegable() {
                                     </li>
                                 </ul>
                             </li>
-                            <li className="item__nav item--mundo">El mundo</li>
+                            <li className="item__nav item--mundo">
+                                <a href="" className="link__item">
+                                    El mundo{' '}
+                                </a>
+                            </li>
                             <li className="item__nav item--sociedad">
                                 <a href="" className="link__item">
                                     Sociedad
@@ -456,9 +460,15 @@ export default function Desplegable() {
                                     </li>
                                 </ul>
                             </li>
-                            <li className="item__nav item--ln">LN+</li>
+                            <li className="item__nav item--ln">
+                                <a href="" className="link__item">
+                                    LN+
+                                </a>
+                            </li>
                             <li className="item__nav item--club">
-                                Club LA NACION
+                                <a href="" className="link__item">
+                                    Club LA NACION
+                                </a>
                             </li>
                         </ul>
                     </nav>

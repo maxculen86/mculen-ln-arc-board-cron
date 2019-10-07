@@ -9,13 +9,15 @@
     .com-dropdown {
         background: #f4f4f4; 
         width: 100vw;
-        height: 100vh;        ;
+        height: 100vh;        
         display: block;
+        position: relative;
         .header__dropdown {
             background: #fff;
             margin-bottom: 10px; 
-            border: 1px solid #d9d9d9;
-            position: fixed;  
+            border: 1px solid #d9d9d9; 
+            max-height: 130px;
+            z-index: 2;
             .logo__dropdown {
                 padding: 15px 20px;
                 display: flex;
@@ -61,6 +63,8 @@
         }
         .menu__dropdown {
             background: #f4f4f4; 
+            width: 100%;
+            z-index: 1;
             .nav__dropdown {
                 .list__nav {
                     margin-bottom: 10px;
@@ -68,23 +72,78 @@
                     background: #fff;
                 }
                 .item__nav {
-                    border-bottom: 1px solid #d9d9d9;
-                    padding: 15px 20px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    flex-wrap: wrap;
                     color: #3f3f3f;
                     font-weight: 700;
                     font-size: 16px;
+                    .link__item {
+                        border-bottom: 1px solid #d9d9d9;
+                        height: 50px;
+                        width: calc(100% - 50px);
+                        display: flex;
+                        align-items: center;
+                        padding: 0 0 0 20px;
+                    }
                     .button__item {
                         background: transparent;
+                        border-bottom: 1px solid #d9d9d9;
+                        height: 50px;
+                        width: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         i {
                             font-size: 20px;
                             color: #3f3f3f;
                         }
                     }
+                    .sublist__nav {
+                        &.item--active {
+                            width: 100%;
+                        }
+                    }
+                    &.item--mundo {
+                        .link__item {
+                            width: 100%;
+                        }
+                    }
+                    &.item--ln {
+                        .link__item {
+                            width: 100%;
+                        }
+                    }
+                    &.item--club {
+                        .link__item {
+                            width: 100%;
+                        }
+                    }
                 }
             } 
+        } 
+        &.scroll--active {
+            .header__dropdown {
+                position: fixed;  
+                height: 60px;
+                overflow: hidden;
+            }
+            .menu__dropdown {
+                position: absolute;
+                top: 70px;
+            }
+        }
+        &.scroll--pasive {
+            .header__dropdown {
+                position: fixed;  
+                height: inherit;
+                overflow: inherit;
+            }
+            .menu__dropdown {
+                position: absolute;
+                top: 140px;
+            }
         }
     }
 }
