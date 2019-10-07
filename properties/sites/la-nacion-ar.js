@@ -99,5 +99,6 @@ export default {
         facebook: {
             appID: '246891475813003'
         }
-    }
+    },
+    sharedKeyLF: 'Wi9J9hmEtpK9QRp5nY1SSSQ2FKE='
 };
