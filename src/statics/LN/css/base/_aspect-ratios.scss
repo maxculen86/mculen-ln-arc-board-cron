@@ -40,6 +40,9 @@
             justify-content: center;
             align-items: center;
             border: 1px solid $gris3;
+            .--border & {
+                border:none;
+            }
             &:before {
                 font-family: 'LNlogos' !important;
                 content: "\e80a";
