@@ -5,7 +5,7 @@ import '../../../../resources/dist/css/ln/components/tag.css';
 
 const ItemSubSection = ({ id, navTitle, website }) => (
     <li key={id}>
-        <a href={`${id}?_website=${website}`} title={navTitle}>{navTitle}</a>
+        <h3><a href={`${id}?_website=${website}`} title={navTitle}>{navTitle}</a></h3>
     </li>
 );
 

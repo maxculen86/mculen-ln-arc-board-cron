@@ -67,10 +67,31 @@
     border-bottom: 1px solid #ccc;
     .com-title-section-xl{
         text-decoration: none;
+        margin-right: $px-30;
     }
 }
 .com-category {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: flex-start;
+    width: 700px;
+    overflow-y: hidden;
+    overflow-x: scroll;    
     li {
-        display: inline;
+        display: inline-flex;
+        flex-direction: row;
+        padding-right: $px-20;
+        h3 {
+            font-family: $font-SuecaSlab;
+            font-size: $font-18;
+            font-weight: 500;
+            line-height: $line-19;
+            letter-spacing: -0.32px;
+            width: max-content;
+            display: block;
+        }
     }
+
 }
