@@ -18,7 +18,7 @@ const TypeList = ({ ol, children }) =>
 const ListItemsFactory = ({ list, titleList, listNumeric }) => {
     return (
         <div>
-            <h4 className="com-title-section-xs">
+            <h4 className="com-title-section-xs hlp-marginBottom-20">
                 {decodeURIComponent(titleList)}
             </h4>
             <TypeList ol={listNumeric}>
