@@ -1,55 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] = `
-<nav
-  class="com-nav-mobile"
->
-  <div
-    class="row"
+Array [
+  <desplegable-mock />,
+  <nav
+    class="com-nav-mobile"
   >
-    <a
-      class="col-4 item-foo"
-      href="https://www.lanacion.com.ar/"
+    <div
+      class="row"
     >
-      <i
-        class="icon-home"
-      />
-      <p>
-        Home
-      </p>
-    </a>
-    <a
-      class="col-4 item-foo"
-      href="https://club.lanacion.com.ar/"
-    >
-      <i
-        class="icon-club"
-      />
-      <p>
-        Club LA NACION
-      </p>
-    </a>
-    <a
-      class="col-4 item-foo"
-      href="https://micuenta.lanacion.com.ar/mis-datos/"
-    >
-      <i
-        class="icon-comment"
-      />
-      <p>
-        Mi Cuenta
-      </p>
-    </a>
-    <button
-      class="col-2 item-foo"
-    >
-      <i
-        class="icon-menu"
-      />
-      <p>
-        Menú
-      </p>
-    </button>
-  </div>
-</nav>
+      <a
+        class="col-2 item-foo"
+        href="https://www.lanacion.com.ar/"
+      >
+        <i
+          class="icon-home"
+        />
+        <p>
+          Home
+        </p>
+      </a>
+      <a
+        class="col-4 item-foo"
+        href="https://club.lanacion.com.ar/"
+      >
+        <i
+          class="icon-club"
+        />
+        <p>
+          Club LA NACION
+        </p>
+      </a>
+      <a
+        class="col-3 item-foo"
+        href="https://micuenta.lanacion.com.ar/mis-datos/"
+      >
+        <i
+          class="icon-comment"
+        />
+        <p>
+          Mi Cuenta
+        </p>
+      </a>
+      <button
+        class="col-2 item-foo"
+      >
+        <i
+          class="icon-menu"
+        />
+        <p>
+          Menú
+        </p>
+      </button>
+    </div>
+  </nav>,
+]
 `;

@@ -29,113 +29,153 @@ export default function Desplegable() {
                 <section className="menu__dropdown">
                     <nav className="nav__dropdown">
                         <ul className="list__nav  first--nav">
-                            <li className="item__nav item--noticias">
+                            <li className="item__nav item--noticias item--disabled">
                                 <a href="" className="link__item">
                                     Últimas noticias
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Tránsito</a>{' '}
+                                        <a href="" className="link__item">
+                                            Tránsito
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Clima</a>{' '}
+                                        <a href="" className="link__item">
+                                            Clima
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
-                            <li className="item__nav item--politica">
+                            <li className="item__nav item--politica item--disabled">
                                 <a href="" className="link__item">
                                     Política
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Buenos Aires</a>{' '}
+                                        <a href="" className="link__item">
+                                            Buenos Aires
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Seguridad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Seguridad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Educación</a>{' '}
+                                        <a href="" className="link__item">
+                                            Educación
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Cultura</a>{' '}
+                                        <a href="" className="link__item">
+                                            Cultura
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Comunidad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Comunidad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Salud</a>{' '}
+                                        <a href="" className="link__item">
+                                            Salud
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Ciencia</a>{' '}
+                                        <a href="" className="link__item">
+                                            Ciencia
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">LN Data</a>{' '}
+                                        <a href="" className="link__item">
+                                            LN Data
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Columnistas</a>{' '}
+                                        <a href="" className="link__item">
+                                            Columnistas
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
-                            <li className="item__nav item--economia">
+                            <li className="item__nav item--economia item--disabled">
                                 <a href="" className="link__item">
                                     Economía
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Buenos Aires</a>{' '}
+                                        <a href="" className="link__item">
+                                            Buenos Aires
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Seguridad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Seguridad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Educación</a>{' '}
+                                        <a href="" className="link__item">
+                                            Educación
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Cultura</a>{' '}
+                                        <a href="" className="link__item">
+                                            Cultura
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Comunidad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Comunidad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Salud</a>{' '}
+                                        <a href="" className="link__item">
+                                            Salud
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Ciencia</a>{' '}
+                                        <a href="" className="link__item">
+                                            Ciencia
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">LN Data</a>{' '}
+                                        <a href="" className="link__item">
+                                            LN Data
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Columnistas</a>{' '}
+                                        <a href="" className="link__item">
+                                            Columnistas
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
@@ -144,319 +184,441 @@ export default function Desplegable() {
                                     El mundo{' '}
                                 </a>
                             </li>
-                            <li className="item__nav item--sociedad">
+                            <li className="item__nav item--sociedad item--disabled">
                                 <a href="" className="link__item">
                                     Sociedad
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Buenos Aires</a>{' '}
+                                        <a href="" className="link__item">
+                                            Buenos Aires
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Seguridad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Seguridad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Educación</a>{' '}
+                                        <a href="" className="link__item">
+                                            Educación
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Cultura</a>{' '}
+                                        <a href="" className="link__item">
+                                            Cultura
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Comunidad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Comunidad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Salud</a>{' '}
+                                        <a href="" className="link__item">
+                                            Salud
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Ciencia</a>{' '}
+                                        <a href="" className="link__item">
+                                            Ciencia
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">LN Data</a>{' '}
+                                        <a href="" className="link__item">
+                                            LN Data
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Columnistas</a>{' '}
+                                        <a href="" className="link__item">
+                                            Columnistas
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
-                            <li className="item__nav item--opinion">
+                            <li className="item__nav item--opinion item--disabled">
                                 <a href="" className="link__item">
                                     Opinion
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Buenos Aires</a>{' '}
+                                        <a href="" className="link__item">
+                                            Buenos Aires
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Seguridad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Seguridad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Educación</a>{' '}
+                                        <a href="" className="link__item">
+                                            Educación
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Cultura</a>{' '}
+                                        <a href="" className="link__item">
+                                            Cultura
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Comunidad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Comunidad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Salud</a>{' '}
+                                        <a href="" className="link__item">
+                                            Salud
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Ciencia</a>{' '}
+                                        <a href="" className="link__item">
+                                            Ciencia
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">LN Data</a>{' '}
+                                        <a href="" className="link__item">
+                                            LN Data
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Columnistas</a>{' '}
+                                        <a href="" className="link__item">
+                                            Columnistas
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
-                            <li className="item__nav item--deportes">
+                            <li className="item__nav item--deportes item--disabled">
                                 <a href="" className="link__item">
                                     Deportes
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Buenos Aires</a>{' '}
+                                        <a href="" className="link__item">
+                                            Buenos Aires
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Seguridad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Seguridad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Educación</a>{' '}
+                                        <a href="" className="link__item">
+                                            Educación
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Cultura</a>{' '}
+                                        <a href="" className="link__item">
+                                            Cultura
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Comunidad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Comunidad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Salud</a>{' '}
+                                        <a href="" className="link__item">
+                                            Salud
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Ciencia</a>{' '}
+                                        <a href="" className="link__item">
+                                            Ciencia
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">LN Data</a>{' '}
+                                        <a href="" className="link__item">
+                                            LN Data
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Columnistas</a>{' '}
+                                        <a href="" className="link__item">
+                                            Columnistas
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
-                            <li className="item__nav item--lifestyle">
+                            <li className="item__nav item--lifestyle item--disabled">
                                 <a href="" className="link__item">
                                     Lifestyle
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Buenos Aires</a>{' '}
+                                        <a href="" className="link__item">
+                                            Buenos Aires
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Seguridad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Seguridad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Educación</a>{' '}
+                                        <a href="" className="link__item">
+                                            Educación
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Cultura</a>{' '}
+                                        <a href="" className="link__item">
+                                            Cultura
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Comunidad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Comunidad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Salud</a>{' '}
+                                        <a href="" className="link__item">
+                                            Salud
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Ciencia</a>{' '}
+                                        <a href="" className="link__item">
+                                            Ciencia
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">LN Data</a>{' '}
+                                        <a href="" className="link__item">
+                                            LN Data
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Columnistas</a>{' '}
+                                        <a href="" className="link__item">
+                                            Columnistas
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
-                            <li className="item__nav item--espectaculos">
+                            <li className="item__nav item--espectaculos item--disabled">
                                 <a href="" className="link__item">
                                     Espectáculos
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Buenos Aires</a>{' '}
+                                        <a href="" className="link__item">
+                                            Buenos Aires
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Seguridad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Seguridad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Educación</a>{' '}
+                                        <a href="" className="link__item">
+                                            Educación
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Cultura</a>{' '}
+                                        <a href="" className="link__item">
+                                            Cultura
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Comunidad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Comunidad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Salud</a>{' '}
+                                        <a href="" className="link__item">
+                                            Salud
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Ciencia</a>{' '}
+                                        <a href="" className="link__item">
+                                            Ciencia
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">LN Data</a>{' '}
+                                        <a href="" className="link__item">
+                                            LN Data
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Columnistas</a>{' '}
+                                        <a href="" className="link__item">
+                                            Columnistas
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                         <ul className="list__nav secondary--nav">
-                            <li className="item__nav item--impresa">
+                            <li className="item__nav item--impresa item--disabled">
                                 <a href="" className="link__item">
                                     Edición impresa
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Buenos Aires</a>{' '}
+                                        <a href="" className="link__item">
+                                            Buenos Aires
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Seguridad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Seguridad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Educación</a>{' '}
+                                        <a href="" className="link__item">
+                                            Educación
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Cultura</a>{' '}
+                                        <a href="" className="link__item">
+                                            Cultura
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Comunidad</a>{' '}
+                                        <a href="" className="link__item">
+                                            Comunidad
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Salud</a>{' '}
+                                        <a href="" className="link__item">
+                                            Salud
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Ciencia</a>{' '}
+                                        <a href="" className="link__item">
+                                            Ciencia
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">LN Data</a>{' '}
+                                        <a href="" className="link__item">
+                                            LN Data
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Columnistas</a>{' '}
+                                        <a href="" className="link__item">
+                                            Columnistas
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
-                            <li className="item__nav item--revistas">
+                            <li className="item__nav item--revistas item--disabled">
                                 <a href="" className="link__item">
                                     Revistas
                                 </a>
                                 <button className="button__item">
                                     <i class="icon-down"></i>
                                 </button>
-                                <ul className="sublist__nav item--disabled">
+                                <ul className="sublist__nav">
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Ohlalá!</a>{' '}
+                                        <a href="" className="link__item">
+                                            Ohlalá!
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">¡Hola!</a>{' '}
+                                        <a href="" className="link__item">
+                                            ¡Hola!
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">RollingStone</a>{' '}
+                                        <a href="" className="link__item">
+                                            RollingStone
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Lugares</a>{' '}
+                                        <a href="" className="link__item">
+                                            Lugares
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Living</a>{' '}
+                                        <a href="" className="link__item">
+                                            Living
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Brando</a>{' '}
+                                        <a href="" className="link__item">
+                                            Brando
+                                        </a>{' '}
                                     </li>
                                     <li className="item__nav">
                                         {' '}
-                                        <a href="">Jardín</a>{' '}
+                                        <a href="" className="link__item">
+                                            Jardín
+                                        </a>{' '}
                                     </li>
                                 </ul>
                             </li>
