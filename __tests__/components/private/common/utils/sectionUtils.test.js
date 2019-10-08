@@ -16,10 +16,4 @@ describe('Utils - SectionUtils', () => {
         expect(sectionTree[0].name).toBe('LA NACION');
         expect(sectionTree[3].name).toBe('Pollo');
     });
-
-    it('Test de getSectionClass', () => {
-        expect(sectionUtils.getSectionClass(nota.taxonomy.sections)).toBe(
-            'brando'
-        );
-    });
 });
