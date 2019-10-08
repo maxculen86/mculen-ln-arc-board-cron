@@ -34,15 +34,24 @@ export const primarySectionTreeResolver = ({
 };
 
 export const getSectionStyle = sections => {
-    const logoSection = sections.find(x =>
-        get(x, 'additional_properties.original.style.section_style_name')
-    );
+    const logoSection = sections.find(x => {
+        if (x.additional_properties.original.style) {
+            return get(
+                x,
+                'additional_properties.original.style.section_style_name'
+            );
+        }
+        return undefined;
+    });
     let sectionClass;
     if (logoSection) {
         sectionClass =
             logoSection.additional_properties.original.style.section_style_name;
     }
-    return sectionClass;
+    return {
+        class: `${sectionClass === undefined ? undefined : sectionClass}`,
+        section: `${logoSection === undefined ? undefined : logoSection}`
+    };
 };
 
 export default {
