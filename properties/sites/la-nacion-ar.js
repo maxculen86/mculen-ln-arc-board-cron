@@ -100,5 +100,7 @@ export default {
             appID: '246891475813003'
         }
     },
-    sharedKeyLF: 'Wi9J9hmEtpK9QRp5nY1SSSQ2FKE='
+    sharedKeyLF: 'Wi9J9hmEtpK9QRp5nY1SSSQ2FKE=',
+    loginUrl: '//qa-ingresar.lanacion.com.ar/ingresar/D/1/?callback=',
+    logoutUrl: '/logout.html'
 };

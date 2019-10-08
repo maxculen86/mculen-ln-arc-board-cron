@@ -1,10 +1,11 @@
 /* eslint-disable no-undef */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import customStrings from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
+import useCookie from '../../../LN/common/utils/useCookie';
 
 const Comments = props => {
     const {
@@ -15,6 +16,8 @@ const Comments = props => {
             taxonomy: { tags }
         }
     } = props;
+    const [loggedIn, setLoggedIn] = useState(false);
+    const { getCookie } = useCookie();
 
     const metadata = {
         "title": title,
@@ -37,9 +40,11 @@ const Comments = props => {
 
         LiveFyre.convConfig = {
             siteId: '356483',
-            articleId: _id,
+            articleId: '1466383',
             el: 'livefyre',
-            collectionMeta: jwt.sign(payload, config.sharedKeyLF),
+            collectionMeta: jwt.sign(payload, config.sharedKeyLF, {
+                algorithm: 'HS256'
+            }),
             datetimeFormat: {
                 minutesUntilAbsoluteTime: 4,
                 absoluteFormat: 'HH:mm dd/MM/y'
@@ -91,6 +96,16 @@ const Comments = props => {
         LiveFyre.convConfig.postToButtons = ['tw', 'fb'];
 
         Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
+            setLoggedIn(getCookie() !== 'undefined');
+
+            if (loggedIn) {
+                if (!LiveFyre.autenticado) {
+                    auth.authenticate({ livefyre: getCookie() });
+                    LiveFyre.autenticado = true;
+                    LiveFyre.logueoUsuario = true;
+                }
+            }
+
             /* eslint-disable no-new */
             new Conv(LiveFyre.networkConfig, [LiveFyre.convConfig], widget => {
                 widget.on('commentPosted', data => {
@@ -124,7 +139,17 @@ const Comments = props => {
 
             auth.delegate({
                 login(callback) {
-                    callback(null, { livefyre: '<userauthtoken>' });
+                    callback(null, { livefyre: getCookie() });
+                },
+                logout(finishLogout) {
+                    finishLogout(null);
+                },
+                viewProfile(author) {
+                    const authorId = author.id.match('[0-9]+');
+                    if (author.profileUrl != null && authorId.length > 0) {
+                        const win = window.open(author.profileUrl, '_blank');
+                        win.focus();
+                    }
                 }
             });
         });
@@ -140,6 +165,11 @@ const Comments = props => {
                 <div className="recordar-logueo">Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
                 <div className="livefyre" />
             </section>
+            {loggedIn ? (
+                <h1>Estoy logueado</h1>
+            ) : (
+                <div>Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
+            )}
         </>
     );
 };
