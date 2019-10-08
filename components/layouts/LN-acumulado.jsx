@@ -3,10 +3,6 @@ import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import AcuTitle from '../private/LN/acumulado/acumuladoTitle';
-import BannerCaja1 from '../private/LN/acumulado/bannerCaja1';
-import BannerCaja2 from '../private/LN/acumulado/bannerCaja2';
-import BannerCabezal from '../private/LN/acumulado/bannerCabezal';
-import BannerSticky from '../private/LN/acumulado/bannerSticky';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
@@ -18,7 +14,6 @@ import '../../resources/dist/css/ln/components/unordered.css';
 const layoutItems = [
     'Pre-Apertura',
     'Breadcrumb',
-    'Titulo',
     'Apertura',
     'Links',
     'Notas',
