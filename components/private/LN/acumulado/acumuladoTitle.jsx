@@ -4,16 +4,16 @@ import '../../../../resources/dist/css/ln/components/title.css';
 import '../../../../resources/dist/css/ln/components/tag.css';
 
 const ItemSubSection = ({ id, navTitle, website }) => (
-    //<li key={id}>
+    <li key={id}>
         <a href={`${id}?_website=${website}`} title={navTitle}>{navTitle}</a>
-    //</li>
+    </li>
 );
 
 const AcumuladoTitle = ({ title, children, isPrimarySecton }) => (
-    <div className="com-titleWithfollow">
+    <div className="com-titleWithfollow with-categories">
         <h1 className="com-title-section-xl">{title}</h1>
         {children && isPrimarySecton && (
-            <div class="cont_tags com-secondary-tag">
+            <ul class="com-category">
                 {children.map(({ _id, navigation, _website }) => (
                     <ItemSubSection
                         id={_id}
@@ -21,7 +21,7 @@ const AcumuladoTitle = ({ title, children, isPrimarySecton }) => (
                         website={_website}
                     />
                 ))}
-            </div>
+            </ul>
         )}
         {children && isPrimarySecton && <hr />}
     </div>
