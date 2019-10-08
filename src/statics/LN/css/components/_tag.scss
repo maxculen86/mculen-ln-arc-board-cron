@@ -1,26 +1,27 @@
 @import '../abstracts/variables';
 
 
-.com-tag a {
-    font-family: $font-arial;
-    font-size: $font-12;
-    padding: $px-6 $px-11;
-    border: $px-1 solid;
-    border-radius: $px-3;
-    margin-right: $px-10;
-    margin-bottom: $px-10;
-    text-transform: uppercase;
-    display: inline-block;
-    border-color: $ln;
-    color: $ln;
-    &:hover{
-        background: $ln;
-        color: $blanco; 
+.com-tag {
+    a {
+        font-family: $font-arial;
+        font-size: $font-12;
+        padding: $px-6 $px-11;
+        border: $px-1 solid;
+        border-radius: $px-3;
+        margin-right: $px-10;
+        margin-bottom: $px-10;
+        text-transform: uppercase;
+        display: inline-block;
+        border-color: $ln;
+        color: $ln;
+        &:hover{
+            background: $ln;
+            color: $blanco; 
+        }
+        &:last-of-type {
+            margin-right: 0;
+        }
     }
-}
-
-.com-tag a:last-of-type {
-    margin-right: 0;
 }
 
 .com-secondary-tag {
@@ -40,26 +41,21 @@
         position: relative;
         color: $link;
         margin-bottom: $px-20;
+        &:after {
+            content: '·';
+            display: inline-block;
+            position: absolute;
+            color: $ln;
+            right: -14px;
+            font-size: $font-25;
+            line-height: $px-15;
+        }
+        &:last-of-type:after {
+            display: none;
+        }
     }
-}
-
-.com-secondary-tag a:after {
-    content: '·';
-    display: inline-block;
-    position: absolute;
-    color: $ln;
-    right: -14px;
-    font-size: $font-25;
-    line-height: $px-15;
-}
-
-.com-secondary-tag a:last-of-type:after {
-    display: none;
-}
-
-//Valores de tablet para arriba
-@media (min-width: 768px) {
-    .com-secondary-tag {
+    //Valores de tablet para arriba
+    @media (min-width: 768px) {
         white-space: initial;
         overflow-x: initial;
     }
