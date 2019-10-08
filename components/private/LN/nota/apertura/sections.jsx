@@ -23,11 +23,15 @@ const Sections = props => {
     });
 
     return (
-        <TaxonomyComponent
-            list={listSectionsDespues}
-            destacado={destacado}
-            type="section"
-        />
+        <>
+            {listSectionsDespues ? (
+                <TaxonomyComponent
+                    list={listSectionsDespues}
+                    destacado={destacado}
+                    type="section"
+                />
+            ) : null}
+        </>
     );
 };
 
