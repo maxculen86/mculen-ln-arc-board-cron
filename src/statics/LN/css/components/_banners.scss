@@ -47,10 +47,15 @@
 
     &.--mobile {
         display:block;
-        margin:auto;
+        margin:0 -10px;
+        background: #f3f3f3;
+        text-align: center;
+        @media (min-width: 321px){
+            margin:0;
+        }
         &.--sticky{
             position: fixed;
-            margin-top: 0!important;
+            margin: 0!important;
             left: 0;
             right: 0;
             top: -100px;
