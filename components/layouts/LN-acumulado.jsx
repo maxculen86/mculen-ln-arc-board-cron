@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import AcuTitle from '../private/LN/acumulado/acumuladoTitle';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
