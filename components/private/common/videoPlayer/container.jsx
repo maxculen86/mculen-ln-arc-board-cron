@@ -9,11 +9,12 @@ import { API_ENV } from 'fusion:environment';
 //en un player de video
 
 class VideoPlayer extends PureComponent {
+    static scriptInited = false;
+
     constructor(props) {
         super(props);
         const siteVars = getProperties(props.arcSite);
         this.organizationId = siteVars.organizationId;
-        console.log('-----------------', API_ENV);
         // TODO: en sandbox no esta lvantando la variable de enviroment
         this.apiEnv = API_ENV || 'sandbox';
         if (this.props.apiEnv) this.apiEnv = this.props.apiEnv;
@@ -23,20 +24,33 @@ class VideoPlayer extends PureComponent {
         this.props.isAdmin && window.powaBoot();
     }
 
+    getScript = () => {
+        if (!VideoPlayer.scriptInited) {
+            VideoPlayer.scriptInited = true;
+            return (
+                <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
+            );
+        }
+        return null;
+    };
+
     render() {
         return (
-            <VideoPlayerComponent
-                videoId={this.props.videoId}
-                orgId={this.organizationId}
-                enableAds={this.props.enableAds}
-                enableAdBar={this.props.enableAdBar}
-                loadVideoOnInit={this.props.loadVideoOnInit}
-                autoPlay={this.props.autoPlay}
-                enableControls={this.props.enableControls}
-                muted={this.props.muted}
-                sticky={this.props.sticky}
-                apiEnv={this.apiEnv}
-            />
+            <>
+                {this.getScript()}
+                <VideoPlayerComponent
+                    videoId={this.props.videoId}
+                    orgId={this.organizationId}
+                    enableAds={this.props.enableAds}
+                    enableAdBar={this.props.enableAdBar}
+                    loadVideoOnInit={this.props.loadVideoOnInit}
+                    autoPlay={this.props.autoPlay}
+                    enableControls={this.props.enableControls}
+                    muted={this.props.muted}
+                    sticky={this.props.sticky}
+                    apiEnv={this.apiEnv}
+                />
+            </>
         );
     }
 }
