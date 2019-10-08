@@ -47,10 +47,10 @@
                 content: "";
                 display: block;
                 position: absolute;
-                height: $px-2;
+                height: $px-1;
                 width: $px-30;
                 background: $negro;
-                bottom: -$px-2;
+                bottom: -$px-1;
             }
         }
         .cont_tags {
@@ -61,6 +61,22 @@
             & + .com-subtitle_list {
                 font-size: $font-14;
                 margin-bottom: $px-12;
+            }
+            i:before {
+                text-indent: -8px;
+                display: inline-block;
+            }
+            .icon-time {
+                font-size: 2.3em;
+                @media (min-width:768px){
+                    font-size: 2.8em;
+                }
+            }
+            .icon-portion {
+                font-size: 2.3em;
+                @media (min-width:768px){
+                    font-size: 2.8em;
+                }
             }
         }
     }
@@ -83,7 +99,6 @@
     align-items: center;
     font-family: arial;
     font-size: $font-16;
-    padding-left: .5em;
     .num {
         margin: 0 .2em 0 .4em;
     }
@@ -92,5 +107,11 @@
 @media (min-width: 768px) {
     .aper-receta .cont-aper {
         padding: $px-30;
+    }
+}
+
+@media (min-width: 1024px) {
+    .aper-receta .cont-aper .cont_tags .time-number, .aper-receta .cont-aper .cont_tags .portion-number {
+        padding-left: $px-15;
     }
 }

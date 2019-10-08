@@ -6,7 +6,12 @@ import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSS
 import TitleArticle from '../../../../../components/private/LN/nota/apertura/titleAndIconArticle';
 
 describe('features - LaNacion - Nota - TituloNota', () => {
-    const component = render(<TitleArticle globalContent={nota} />);
+    const component = render(
+        <TitleArticle 
+            globalContent={nota} 
+            customFields={{ prefix: ''}}
+        />
+    );
     it('Test de snapshot Titulo e Icono en Nota', () => {
         expect(component).toMatchSnapshot();
     });

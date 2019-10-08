@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 
 .wiki-autor {
-    margin-bottom: $px-20;
+    margin-bottom: $px-40;
     h1 {
         display: inline
     }
@@ -15,6 +15,12 @@
         font-family: $font-arial;
         font-size: $px-16;
         line-height: $px-23;
+        span{
+            display: block;
+            a{
+                color: $ln;
+            }
+        }
     }
     .cont-figure-wiki {
         display: inline-block;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { API_ENV } from 'fusion:environment';
 import Header from './headerBase';
@@ -12,12 +12,47 @@ const { SitioSeguroRegistracion } = API_ENV || {
     SitioSeguroRegistracion: 'https://ingresar.lanacion.com.ar'
 };
 
+const ItemAnchor = ({ url, text }) => {
+    const callURL = url => (location.href = url);
+
+    return (
+        <li>
+            <a onMouseDown={() => callURL(url)} href="javascript:void(0)">
+                {text}
+            </a>
+        </li>
+    );
+};
+
+const enlaces = [
+    {
+        url: 'https://micuenta.lanacion.com.ar/mis-datos',
+        text: 'Mi cuenta'
+    },
+    {
+        url: 'https://micuenta.lanacion.com.ar/ayuda',
+        text: 'Mis datos'
+    },
+    {
+        url: 'https://micuenta.lanacion.com.ar/mis-suscripciones',
+        text: 'Mis suscripciones'
+    }
+];
+
 const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
     const { goToLoginUrl } = loginData;
     const [active, setActive] = useState('');
 
     const toggleMenu = () =>
         active === '' ? setActive(' --active') : setActive('');
+
+    useEffect(() => {
+        const menuUser = document.getElementById('menuUser');
+
+        if (menuUser) menuUser.addEventListener('blur', e => setActive(''));
+
+        window.addEventListener('scroll', e => setActive(''));
+    });
 
     return (
         <Header id="header" className="header">
@@ -42,7 +77,12 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                         </a>
                     )}
                     {logueado && (
-                        <div onClick={toggleMenu} role="button">
+                        <div
+                            onMouseUp={toggleMenu}
+                            tabIndex="0"
+                            role="button"
+                            id="menuUser"
+                        >
                             <p className="com-usuario__name">
                                 {loginData.userName}
                             </p>
@@ -56,25 +96,13 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                                 </p>
                             )}
                             <ul className="com-desplegable">
-                                <li>
-                                    <a href="https://micuenta.lanacion.com.ar/mis-datos">
-                                        Mi cuenta
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://micuenta.lanacion.com.ar/ayuda">
-                                        Mis datos
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://micuenta.lanacion.com.ar/mis-suscripciones">
-                                        Mis suscripciones
-                                    </a>
-                                </li>
+                                {enlaces.map(({ url, text }) => (
+                                    <ItemAnchor url={url} text={text} />
+                                ))}
                                 <li>
                                     <a
                                         href="javascript:void(0);"
-                                        onClick={() => goToLogout()}
+                                        onMouseDown={() => goToLogout()}
                                     >
                                         Salir
                                     </a>

@@ -21,7 +21,7 @@ const index = props => {
                 subtype === '4' ? (
                     <h4>Últimas Recetas</h4>
                 ) : (
-                    <strong>{`Últimas Noticias`}</strong>
+                    <h4>{`Últimas Noticias`}</h4>
                 );
             break;
         case '1':
@@ -41,7 +41,7 @@ const index = props => {
     return (
         _id && (
             <div className="row more-articles">
-                <h3 className="com-title-section-xl">{title}</h3>
+                <h2 className="com-title-section-xl">{title}</h2>
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
                         size={cantidadNotas}

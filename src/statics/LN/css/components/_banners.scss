@@ -3,7 +3,7 @@
 
 .--bg-banner {
     background-color:#f3f3f3;
-    margin-bottom:$px-40;
+    margin-bottom:$px-20;
     &.w-100{
         .banner{
             display: flex!important;
@@ -48,6 +48,22 @@
     &.--mobile {
         display:block;
         margin:auto;
+        &.--sticky{
+            position: fixed;
+            margin-top: 0!important;
+            left: 0;
+            right: 0;
+            top: -100px;
+            width: 100%;
+            z-index: 10000;
+            transition: all 0.25s;
+            background-color:#f3f3f3;
+            &.--active{
+                #wrapper.--scrollDown &{
+                    top: 0;
+                }
+            }
+        }
     }
 }
 
@@ -82,7 +98,7 @@
 
         &.--desktop {
             display:block;
-            margin-bottom:$px-40;
+            margin-bottom:$px-20;
         }
 
         &.--top {

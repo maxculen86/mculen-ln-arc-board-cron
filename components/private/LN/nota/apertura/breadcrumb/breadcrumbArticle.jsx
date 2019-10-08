@@ -36,8 +36,9 @@ const breadcrumbArticle = ({
     return (
         <>
             <BreadcrumbComponent
-                extraClasses="hlp-marginBottom-40"
+                extraClasses=""
                 sections={allSections.slice(0, 3)}
+                lastLinked
             />
             <BreadCrumbSchema
                 sections={allSections.slice(0, 3)}

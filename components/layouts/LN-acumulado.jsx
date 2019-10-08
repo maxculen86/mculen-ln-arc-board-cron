@@ -6,6 +6,7 @@ import AcuTitle from '../private/LN/acumulado/acumuladoTitle';
 import BannerCaja1 from '../private/LN/acumulado/bannerCaja1';
 import BannerCaja2 from '../private/LN/acumulado/bannerCaja2';
 import BannerCabezal from '../private/LN/acumulado/bannerCabezal';
+import BannerSticky from '../private/LN/acumulado/bannerSticky';
 import BreadcrumbSection from '../private/LN/acumulado/breadcrumbs/breadcrumbSection';
 
 import '../../resources/dist/css/ln/base.css';
@@ -20,11 +21,12 @@ const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 class LNAcumuladoLayout extends Component {
     render() {
         return (
-            <div id="wrap">
+            <div id="wrapper">
                 <Header />
                 <main>
                     <BannerCabezal />
-                    <div className="lay-sidebar">
+                    <BannerSticky />
+                    <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
                                 <BreadcrumbSection

@@ -39,6 +39,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border: 1px solid $gris3;
+            .--border & {
+                border:none;
+            }
             &:before {
                 font-family: 'LNlogos' !important;
                 content: "\e80a";
@@ -152,7 +156,7 @@
                 content: "\e80a";
                 color: #d9d9d9;
                 font-size: 43px;
-                @media (min-width:768) {
+                @media (min-width:768px) {
                     font-size: 78px;
                 }
                 font-family: ln10;

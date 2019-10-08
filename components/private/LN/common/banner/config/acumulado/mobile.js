@@ -1,8 +1,7 @@
 import { defaultTargeting } from './defaults';
 
-const PATH_SLOT = 'la_nacion_desktop/Acumulado';
+const PATH_SLOT = 'la_nacion_mobile/Acumulado';
 
-const DIMENSIONS_STICKY = [[320, 100], [320, 50], [1, 1]];
 const DIMENSIONS_CAJA = [[320, 50], [300, 250], [300, 450], [320, 100], [1, 1]];
 
 export default {
@@ -11,19 +10,14 @@ export default {
         dimensions: [[1, 1]],
         targeting: defaultTargeting
     },
-    cabezal_mob: {
-        slotName: `${PATH_SLOT}/cabezal_mob`,
-        dimensions: [[300, 50]],
-        targeting: defaultTargeting
-    },
     sticky1_mob: {
         slotName: `${PATH_SLOT}/sticky1_mob`,
-        dimensions: DIMENSIONS_STICKY,
+        dimensions: [[320, 50]],
         targeting: defaultTargeting
     },
     sticky2_mob: {
         slotName: `${PATH_SLOT}/sticky2_mob`,
-        dimensions: DIMENSIONS_STICKY,
+        dimensions: [[300, 50]],
         targeting: defaultTargeting
     },
     caja1_mob: {

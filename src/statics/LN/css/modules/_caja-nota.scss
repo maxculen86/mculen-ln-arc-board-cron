@@ -9,6 +9,10 @@
         margin-bottom:$px-40;
     }
     
+    a:hover {
+        color: $ln;
+    }
+
     //Estructura de vista tipo lista, text e img en una misma linea (como era en mobile antes)
     &.--lista {
         grid-template-columns: 1fr 141px;
@@ -51,10 +55,7 @@
                 margin-top: 0;
             }
             @media ($media-m) {
-                padding: $px-10;
-                h2 {
-                    margin-top: $px-7;
-                }
+                padding: $px-13 $px-21 $px-20 $px-18;
             }
         }
     }
@@ -85,6 +86,8 @@
 .more-articles {
     .com-title-section-xl{
         margin-bottom: $px-30;
+        font-size: $font-30;
+        line-height: $line-30;
     }
     >section{
         margin-bottom: $px-40;
@@ -92,10 +95,22 @@
 }
 
 .interest{
+    padding-top: $px-54;
+    border-top: 1px solid $gris3;
     .com-title-section-xl{
         margin-bottom: $px-30;
+        font-size: $font-30;
+        line-height: $line-40;
     }
     >section{
         margin-bottom: $px-40;
+    }
+}
+
+
+@media (min-width: 1280px) {
+    .interest{
+        padding-top: $px-54;
+        border-top: 1px solid $gris3;
     }
 }

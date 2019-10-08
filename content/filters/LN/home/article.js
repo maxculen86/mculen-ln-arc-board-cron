@@ -3,6 +3,7 @@ import { imageResizedUrl } from '../common';
 export default `
 {
     _id
+    type
     subtype
     promo_items {
         basic {

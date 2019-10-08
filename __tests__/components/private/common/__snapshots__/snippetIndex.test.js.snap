@@ -2515,7 +2515,7 @@ exports[`LN - Common - Snippet Snippet nota recetas snapshot 1`] = `
                 ];",
         }
       }
-      type="application/ld+json"
+      type="text/javascript"
     />
   </snippet>
 </snippetIndex>

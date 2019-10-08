@@ -12,6 +12,7 @@ const image = `
 export default `
 {
     _id
+    type
     subtype
     promo_items {
         basic {

@@ -11,10 +11,6 @@ function BreadcrumbAutor({ author, host }) {
             name: 'LA NACION'
         },
         {
-            path: '/autor',
-            name: 'Autor'
-        },
-        {
             path: `/autor/${author._id}`,
             name: author.byline
         }

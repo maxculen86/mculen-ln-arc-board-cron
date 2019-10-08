@@ -56,13 +56,12 @@ exports[`features - LaNacion - Home - Acum - Author Test de snapshot Bio Author 
         vicepresidente Chacho Alvarez, sobre la trama secreta de los
         sobornos en el Senado, las causas de su renuncia y los
         errores que condujeron al fracaso de la Alianza.
-    <br />
-    Twitter:
-    <span
-      class="com-link --inline"
-    >
+    <span>
+      Twitter: 
       <a
         href="https://twitter.com/@moralessola"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         @moralessola
       </a>

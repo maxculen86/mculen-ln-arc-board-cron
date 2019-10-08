@@ -22,15 +22,18 @@ const imageArticle = ({ image, altText, zoom, href }) => {
 imageArticle.propTypes = {
     image: PropTypes.shape({
         type: PropTypes.oneOf(['image']),
+        url: PropTypes.string,
         resized_urls: PropTypes.objectOf(PropTypes.string).isRequired
     }).isRequired,
     altText: PropTypes.string,
-    zoom: PropTypes.bool
+    zoom: PropTypes.bool,
+    href: PropTypes.string
 };
 
 imageArticle.defaultProps = {
     altText: '',
-    zoom: false
+    zoom: false,
+    href: ''
 };
 
 export default imageArticle;

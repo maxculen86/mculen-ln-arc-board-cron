@@ -14,7 +14,7 @@ const TaxonomyImportantList = ({ list, destacado }) => {
             }`}
         >
             {list.map(v => (
-                <a className="com-item" key={v.text} href={v.path}>
+                <a className="com-item" key={v.text} href={`/tema/${v.path}`}>
                     {v.text}
                 </a>
             ))}
