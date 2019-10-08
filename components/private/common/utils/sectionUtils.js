@@ -34,7 +34,7 @@ export const primarySectionTreeResolver = ({
 };
 
 export const getSectionStyle = sections => {
-    const logoSection = sections.findIndex(x => {
+    const logoSection = sections.find(x => {
         if (x.additional_properties.original.style) {
             return get(
                 x,
@@ -43,13 +43,15 @@ export const getSectionStyle = sections => {
         }
         return undefined;
     });
-    console.log('||||||||||||**********',logoSection);
     let sectionClass;
     if (logoSection) {
         sectionClass =
             logoSection.additional_properties.original.style.section_style_name;
     }
-    return { class: sectionClass, section: logoSection };
+    return {
+        class: `${sectionClass === undefined ? undefined : sectionClass}`,
+        section: `${logoSection === undefined ? undefined : logoSection}`
+    };
 };
 
 export default {

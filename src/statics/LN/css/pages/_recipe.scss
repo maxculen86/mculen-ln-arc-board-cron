@@ -62,6 +62,10 @@
                 font-size: $font-14;
                 margin-bottom: $px-12;
             }
+            i:before {
+                text-indent: -8px;
+                display: inline-block;
+            }
             .icon-time {
                 font-size: 2.3em;
                 @media (min-width:768px){
@@ -73,12 +77,6 @@
                 @media (min-width:768px){
                     font-size: 2.8em;
                 }
-            }
-            .time-number {
-                padding-left: 15px;
-            }
-            .portion-number {
-                padding-left: 15px;
             }
         }
     }
@@ -101,7 +99,6 @@
     align-items: center;
     font-family: arial;
     font-size: $font-16;
-    padding-left: .5em;
     .num {
         margin: 0 .2em 0 .4em;
     }
@@ -110,5 +107,11 @@
 @media (min-width: 768px) {
     .aper-receta .cont-aper {
         padding: $px-30;
+    }
+}
+
+@media (min-width: 1024px) {
+    .aper-receta .cont-aper .cont_tags .time-number, .aper-receta .cont-aper .cont_tags .portion-number {
+        padding-left: $px-15;
     }
 }

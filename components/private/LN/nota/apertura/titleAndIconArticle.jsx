@@ -7,6 +7,7 @@ import { getSectionStyle } from '../../../common/utils/sectionUtils';
 import '../../../../../resources/dist/css/ln/components/title.css';
 
 const titleAndIconArticle = ({
+    customFields: { prefix },
     globalContent: {
         taxonomy: { sections },
         headlines
@@ -20,14 +21,20 @@ const titleAndIconArticle = ({
                 {sectionStyle.class && sectionStyle.section ? (
                     <IconBase sections={sections} />
                 ) : null}
-                <TitleArticle headlines={headlines} />
+                <TitleArticle prefix={prefix} headlines={headlines} />
             </>
         );
     }
-    return <TitleArticle headlines={headlines} />;
+    return <TitleArticle prefix={prefix} headlines={headlines} />;
 };
 
 titleAndIconArticle.propTypes = {
+    customFields: PropTypes.shape({
+        prefix: PropTypes.string.tag({
+            label: 'Prefijo',
+            defaultValue: ''
+        })
+    }).isRequired,
     globalContent: PropTypes.shape({
         headlines: PropTypes.shape({
             basic: PropTypes.string.isRequired
