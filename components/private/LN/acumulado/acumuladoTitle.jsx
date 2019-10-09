@@ -1,4 +1,6 @@
 import React from 'react';
+import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
+import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 
 import '../../../../resources/dist/css/ln/components/title.css';
 
@@ -8,7 +10,12 @@ const ItemSubSection = ({ id, navTitle, website }) => (
     </li>
 );
 
-const AcumuladoTitle = ({ title, children, isPrimarySecton }) => (
+const AcumuladoTitle = ({
+    title,
+    children,
+    isPrimarySecton,
+    orderAndCountTags
+}) => (
     <div className="com-titleWithfollow">
         <h1 className="com-title-section-xl">{title}</h1>
         {children && isPrimarySecton && (
@@ -22,8 +29,21 @@ const AcumuladoTitle = ({ title, children, isPrimarySecton }) => (
                 ))}
             </ul>
         )}
-        {children && isPrimarySecton && <hr />}
+        {children && isPrimarySecton && <br />}
+        {children && orderAndCountTags && isPrimarySecton && (
+            <ol>
+                {orderAndCountTags.map(tag => (
+                    <li key={tag}>
+                        <a
+                            href={`${children[0]._id}/${tag.slug}?_website=${children[0]._website}`}
+                        >
+                            {tag.text}
+                        </a>
+                    </li>
+                ))}
+            </ol>
+        )}
     </div>
 );
 
-export default AcumuladoTitle;
+export default WithAcuArticlesData(AcumuladoTitle, filter, 'notaM');

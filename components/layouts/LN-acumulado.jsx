@@ -18,7 +18,7 @@ import '../../resources/dist/css/ln/components/unordered.css';
 
 const layoutItems = ['Apertura', 'Links', 'Notas', 'Aside'];
 
-const LNAcumuladoLayout = props => (
+const LNAcumuladoLayout = ({ globalContent, children, siteProperties }) => (
     <div id="wrapper">
         <Header />
         <main>
@@ -28,33 +28,33 @@ const LNAcumuladoLayout = props => (
                 <div className="sidebar__main">
                     <div className="row">
                         <BreadcrumbSection
-                            sectionId={props.globalContent._id}
-                            host={props.siteProperties.shareConfig.host}
+                            sectionId={globalContent._id}
+                            host={siteProperties.shareConfig.host}
                         />
                     </div>
                     <div className="row">
                         <AcuTitle
-                            title={props.globalContent.name}
-                            children={props.globalContent.children}
+                            title={globalContent.name}
+                            children={globalContent.children}
                             isPrimarySecton={
-                                props.globalContent._id.split('/').splice(1)
+                                globalContent._id.split('/').splice(1)
                                     .length === 1
                             }
                         />
                         {/* LUGAR PARA UN ANEXO */}
-                        {props.children[0]}
+                        {children[0]}
                     </div>
                     <div className="row">
                         {/* LINKS DE NAVEGACION */}
-                        {props.children[1]}
+                        {children[1]}
                     </div>
                     {/* NOTAS */}
-                    {props.children[2]}
+                    {children[2]}
                 </div>
                 <div className="sidebar__aside hlp-tablet-none">
                     <BannerCaja1 />
                     {/* RANKING DE NOTAS */}
-                    {props.children[3]}
+                    {children[3]}
                     <BannerCaja2 />
                 </div>
             </div>

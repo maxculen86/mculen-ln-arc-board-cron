@@ -76,6 +76,31 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 };
             };
 
+            setOrderAndCountTags = articles => {
+                const tags = articles
+                    .map(article => get(article, 'taxonomy.tags'))
+                    .filter(article => article.length !== 0)
+                    .reduce((tagsFinal, article) => {
+                        article.map(
+                            art =>
+                                (tagsFinal[art.slug] = {
+                                    count:
+                                        tagsFinal[art.slug] &&
+                                        tagsFinal[art.slug].count
+                                            ? tagsFinal[art.slug].count + 1
+                                            : 1,
+                                    slug: art.slug,
+                                    text: art.text
+                                })
+                        );
+                        return tagsFinal;
+                    }, []);
+
+                return Object.keys(tags)
+                    .sort((a, b) => (tags[a].count < tags[b].count ? 1 : -1))
+                    .map(key => (tags[key] = tags[key]));
+            };
+
             obtenerMasNotas = () => {
                 const { page } = this.state;
                 const { articles } = this.state;
@@ -107,6 +132,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 return (
                     <WrappedArticles
                         articles={articlesArray}
+                        orderAndCountTags={this.setOrderAndCountTags(articles)}
                         obtenerMasNotas={this.obtenerMasNotas}
                         hayMasNotas={hayMasNotas}
                         loading={loading}
