@@ -2,46 +2,67 @@
 
 
 .com-tag {
-    a {
-        font-family: $font-arial;
-        font-size: $font-12;
-        padding: $px-6 $px-11;
-        border: $px-1 solid;
-        border-radius: $px-3;
-        margin-right: $px-10;
-        margin-bottom: $px-10;
-        text-transform: uppercase;
-        display: inline-block;
-        border-color: $ln;
-        color: $ln;
-        &:hover{
-            background: $ln;
-            color: $blanco; 
-        }
-        &:last-of-type {
-            margin-right: 0;
-        }
+a {
+    font-family: $font-arial;
+    font-size: $font-12;
+    padding: $px-6 $px-11;
+    border: $px-1 solid;
+    border-radius: $px-3;
+    margin-right: $px-10;
+    margin-bottom: $px-10;
+    text-transform: uppercase;
+    display: inline-block;
+    border-color: $ln;
+    color: $ln;
+    &:hover{
+        background: $ln;
+        color: $blanco; 
     }
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
 }
 
 .com-secondary-tag {
-    white-space: nowrap;
-    overflow-x: auto;
-    margin-top: $px-10;
-    p {
-        display: inline-flex;
-        font-family: $font-arial;
-        color: $gris5;
-    }
-    a {
-        font-family: $font-arial;
-        font-size: $font-14;
-        margin-right: $px-17;
+white-space: nowrap;
+overflow-x: auto;
+margin-top: $px-10;
+p {
+    display: inline-flex;
+    font-family: $font-arial;
+    color: $gris5;
+}
+a {
+    font-family: $font-arial;
+    font-size: $font-14;
+    margin-right: $px-17;
+    display: inline-block;
+    position: relative;
+    color: $link;
+    margin-bottom: $px-20;
+    &:after {
+        content: '·';
         display: inline-block;
-        position: relative;
-        color: $link;
-        margin-bottom: $px-20;
-        &:after {
+        position: absolute;
+        color: $ln;
+        right: -14px;
+        font-size: $font-25;
+        line-height: $px-15;
+    }
+    &:last-of-type:after {
+        display: none;
+    }
+}
+//Valores de tablet para arriba
+@media (min-width: 768px) {
+    white-space: initial;
+    overflow-x: initial;
+}
+.com-titleWithfollow & {
+    li {
+        display: inline;
+        a:after {
             content: '·';
             display: inline-block;
             position: absolute;
@@ -50,77 +71,55 @@
             font-size: $font-25;
             line-height: $px-15;
         }
-        &:last-of-type:after {
+        &:last-of-type a:after {
             display: none;
         }
     }
-    //Valores de tablet para arriba
-    @media (min-width: 768px) {
-        white-space: initial;
-        overflow-x: initial;
-    }
-    .com-titleWithfollow & {
-        li {
-            display: inline;
-            a:after {
-                content: '·';
-                display: inline-block;
-                position: absolute;
-                color: $ln;
-                right: -14px;
-                font-size: $font-25;
-                line-height: $px-15;
-            }
-            &:last-of-type a:after {
-                display: none;
-            }
-        }
-    }
+}
 }
 
 
 
 .with-category {
-    width: 100%;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: $px-20;
+width: 100%;
+border-bottom: 1px solid #ccc;
+margin-bottom: $px-20;
 
+display: inline-flex;
+flex-direction: row;
+flex-wrap: nowrap;
+
+.com-title-section-xl {
+    text-decoration: none;
+    margin-right: $px-30;
+
+    display: inline-flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+.com-category {
+    width: 100%;
+    max-width: 700px;
+    overflow: hidden;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    li {
+    padding-right: $px-20;
+    padding-bottom: 1px;
+    
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    a {
+        font-family: $font-SuecaSlab;
+        font-size: $font-18;
+        font-weight: 500;
+        line-height: $line-19;
+        letter-spacing: -0.32px;
 
-    .com-title-section-xl {
-        text-decoration: none;
-        margin-right: $px-30;
-
-        display: inline-flex;
-        flex-wrap: nowrap;
         white-space: nowrap;
     }
-    .com-category {
-      width: 100%;
-      max-width: 700px;
-      overflow: hidden;
-      display: inline-flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      li {
-        padding-right: $px-20;
-        padding-bottom: 1px;
-        
-        display: inline-flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        a {
-            font-family: $font-SuecaSlab;
-            font-size: $font-18;
-            font-weight: 500;
-            line-height: $line-19;
-            letter-spacing: -0.32px;
-
-          white-space: nowrap;
-        }
-      }
     }
-  }
-  
+}
+}
