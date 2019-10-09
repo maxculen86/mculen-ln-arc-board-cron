@@ -8,14 +8,10 @@ const logoBaseContainer = ({ sections }) => {
     const sectionStyle = getSectionStyle(sections);
     if (sectionStyle) {
         return (
-            <>
-                {sectionStyle.section.path ? (
-                    <LogoComponent
-                        path={sectionStyle.section.path}
-                        styledNamed={sectionStyle.class}
-                    />
-                ) : null}
-            </>
+            <LogoComponent
+                path={sectionStyle.section.path}
+                styledNamed={sectionStyle.class}
+            />
         );
     }
     return null;
