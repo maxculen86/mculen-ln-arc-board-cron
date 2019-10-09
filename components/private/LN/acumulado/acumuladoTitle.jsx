@@ -7,11 +7,9 @@ import '../../../../resources/dist/css/ln/components/tag.css';
 
 const ItemSubSection = ({ id, navTitle, website }) => (
     <li key={id}>
-        <h3>
-            <a href={`${id}?_website=${website}`} title={navTitle}>
-                {navTitle}
-            </a>
-        </h3>
+        <a href={`${id}?_website=${website}`} title={navTitle}>
+            {navTitle}
+        </a>
     </li>
 );
 
@@ -36,7 +34,6 @@ const AcumuladoTitle = ({
                 </ol>
             )}
         </div>
-        {children && isPrimarySecton && <br />}
         {children && orderAndCountTags && isPrimarySecton && (
             <ol class="cont_tags com-secondary-tag">
                 {orderAndCountTags.map(tag => (
