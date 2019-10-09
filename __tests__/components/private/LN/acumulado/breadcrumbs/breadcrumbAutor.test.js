@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'enzyme';
-import BreadcrumbAutor from '../../../../../../components/private/LN/acumulado/breadcrumbs/breadcrumbAutor';
+import BreadcrumbAutor from '../../../../../../components/private/LN/acumulado/breadcrumb/breadcrumbAutor';
 
 describe('components - private - LN - acumulado - breadcrumbs - breadcrumbAutor', () => {
     const author = {
