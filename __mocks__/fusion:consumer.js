@@ -8,6 +8,7 @@
  * trigger jest to mock the Consumer import below
  * */
 
+//TODO: ESTE MOCK NO FUNCIONA CUANDO SON COMPONENTES FUNCIONALES, REVISARLO
 jest.mock('fusion:consumer', component => {
     return function(component) {
         class element extends component {
