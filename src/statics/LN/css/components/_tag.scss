@@ -59,9 +59,26 @@
         white-space: initial;
         overflow-x: initial;
     }
+    .com-titleWithfollow & {
+        li {
+            display: inline;
+            a:after {
+                content: '·';
+                display: inline-block;
+                position: absolute;
+                color: $ln;
+                right: -14px;
+                font-size: $font-25;
+                line-height: $px-15;
+            }
+            &:last-of-type a:after {
+                display: none;
+            }
+        }
+    }
 }
 
-.with-categories{
+.with-category{
     display: flex;
     flex-wrap: nowrap;
     border-bottom: 1px solid #ccc;
@@ -69,7 +86,9 @@
         text-decoration: none;
         margin-right: $px-30;
     }
+    
 }
+
 .com-category {
     display: inline-flex;
     flex-direction: row;
@@ -93,5 +112,4 @@
             display: block;
         }
     }
-
 }

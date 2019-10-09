@@ -21,26 +21,29 @@ const AcumuladoTitle = ({
     isPrimarySecton,
     orderAndCountTags
 }) => (
-    <div className="com-titleWithfollow with-categories">
-        <h1 className="com-title-section-xl">{title}</h1>
-        {children && isPrimarySecton && (
-            <ul class="com-category">
-                {children.map(({ _id, navigation, _website }) => (
-                    <ItemSubSection
-                        id={_id}
-                        navTitle={navigation.nav_title}
-                        website={_website}
-                    />
-                ))}
-            </ul>
-        )}
+    <div className="com-titleWithfollow">
+        <div class="with-category">
+            <h1 className="com-title-section-xl">{title}</h1>
+            {children && isPrimarySecton && (
+                <ol class="com-category">
+                    {children.map(({ _id, navigation, _website }) => (
+                        <ItemSubSection
+                            id={_id}
+                            navTitle={navigation.nav_title}
+                            website={_website}
+                        />
+                    ))}
+                </ol>
+            )}
+        </div>
         {children && isPrimarySecton && <br />}
         {children && orderAndCountTags && isPrimarySecton && (
-            <ol>
+            <ol class="cont_tags com-secondary-tag">
                 {orderAndCountTags.map(tag => (
                     <li key={tag}>
                         <a
                             href={`${children[0]._id}/${tag.slug}?_website=${children[0]._website}`}
+                            title={tag.text}
                         >
                             {tag.text}
                         </a>
