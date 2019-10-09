@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import customStrings from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import useCookie from '../../../LN/common/utils/useCookie';
+import withLoginData from '../../../LN/common/hocs/withLoginData';
 
 const Comments = props => {
     const {
@@ -16,7 +17,6 @@ const Comments = props => {
             taxonomy: { tags }
         }
     } = props;
-    const [loggedIn, setLoggedIn] = useState(false);
     const { getCookie } = useCookie();
 
     const metadata = {
@@ -40,7 +40,7 @@ const Comments = props => {
 
         LiveFyre.convConfig = {
             siteId: '356483',
-            articleId: '1466383',
+            articleId: '1466383', // _id
             el: 'livefyre',
             collectionMeta: jwt.sign(payload, config.sharedKeyLF, {
                 algorithm: 'HS256'
@@ -96,9 +96,7 @@ const Comments = props => {
         LiveFyre.convConfig.postToButtons = ['tw', 'fb'];
 
         Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
-            setLoggedIn(getCookie() !== 'undefined');
-
-            if (loggedIn) {
+            if (props.logueado) {
                 if (!LiveFyre.autenticado) {
                     auth.authenticate({ livefyre: getCookie() });
                     LiveFyre.autenticado = true;
@@ -133,12 +131,21 @@ const Comments = props => {
                     // ga('send', 'event', 'livefyre', 'verMas', 'verMas');
                 });
                 widget.on('initialRenderComplete', data => {
-                    alert('done');
+                    if (props.logueado) {
+                        if (!LiveFyre.autenticado) {
+                            auth.authenticate({ livefyre: getCookie() });
+                            LiveFyre.autenticado = true;
+                            LiveFyre.logueoUsuario = true;
+                        }
+                    } else {
+                        fyre.conv.logout();
+                    }
                 });
             });
 
             auth.delegate({
                 login(callback) {
+                    props.loginData.goToLoginUrl();
                     callback(null, { livefyre: getCookie() });
                 },
                 logout(finishLogout) {
@@ -163,18 +170,18 @@ const Comments = props => {
                 <div id="tokenLF" data-id="" data-entrada={_id} data-lf-siteid="356483"></div>
                 <p className="legales">Los comentarios publicados son de exclusiva responsabilidad de sus autores y las consecuencias derivadas de ellos pueden ser pasibles de sanciones legales. Aquel usuario que incluya en sus mensajes algún comentario violatorio del reglamento será eliminado e inhabilitado para volver a comentar. Enviar un comentario implica la aceptación del Reglamento.</p>
                 <div className="recordar-logueo">Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
-                <div className="livefyre" />
-            </section>
-            {loggedIn ? (
-                <h1>Estoy logueado</h1>
-            ) : (
                 <div>Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
-            )}
+                <div id="livefyre" />
+            </section>
         </>
     );
 };
 
 Comments.propTypes = {
+    logueado: PropTypes.bool.isRequired,
+    loginData: PropTypes.shape({
+        goToLoginUrl: PropTypes.func
+    }).isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
         canonical_url: PropTypes.string,
@@ -193,4 +200,4 @@ Comments.propTypes = {
     }).isRequired
 };
 
-export default Comments;
+export default withLoginData(Comments);
