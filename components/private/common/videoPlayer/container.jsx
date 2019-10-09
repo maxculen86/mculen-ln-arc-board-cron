@@ -24,20 +24,9 @@ class VideoPlayer extends PureComponent {
         this.props.isAdmin && window.powaBoot();
     }
 
-    getScript = () => {
-        if (!VideoPlayer.scriptInited) {
-            VideoPlayer.scriptInited = true;
-            return (
-                <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
-            );
-        }
-        return null;
-    };
-
     render() {
         return (
             <>
-                {this.getScript()}
                 <VideoPlayerComponent
                     videoId={this.props.videoId}
                     orgId={this.organizationId}
