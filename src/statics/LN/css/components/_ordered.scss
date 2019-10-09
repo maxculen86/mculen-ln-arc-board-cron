@@ -33,7 +33,7 @@
         color: #000;
         position: relative;
         &:first-of-type {
-            margin: 1em 0;
+            margin: 0 0 1em 0;
         }
         &:before {
             content: counter(item) "";

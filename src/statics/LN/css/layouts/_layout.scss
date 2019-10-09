@@ -25,7 +25,7 @@
 }
 
 @media ($media-lg) {
-    .sidebar__main {
+    #wrapper.nota .sidebar__main {
         margin-right: $px-80;
     }
 }

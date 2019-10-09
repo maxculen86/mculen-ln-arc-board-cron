@@ -107,6 +107,24 @@
     }
 }
 
+.more-articles, .interest {
+    .mod-caja-nota{
+        .cont-figure{
+            margin: 0 -0.625rem;
+            @media (min-width: 321px) {
+                margin: 0 -1.25rem;
+            }
+            @media (min-width: 450px) {
+                margin: 0;
+            }
+        }
+        &.--border{
+            .cont-figure{
+                margin: 0!important;
+            }
+        }
+    }
+}
 
 @media (min-width: 1280px) {
     .interest{
