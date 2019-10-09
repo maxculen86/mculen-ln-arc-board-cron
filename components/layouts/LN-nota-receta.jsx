@@ -74,7 +74,7 @@ class LNNotaReceta extends Component {
         const { children } = this.props;
 
         return (
-            <div id="wrapper" class="nota">
+            <div id="wrapper" className="nota">
                 <Header />
                 <main>
                     {/* TODO: pasar esto a otro lado para que solo se cargue cuando hay videos en la pagina */}
