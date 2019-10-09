@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
-import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 
 import '../../../../../resources/dist/css/ln/modules/wiki-autor.css';
@@ -14,8 +13,9 @@ import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
 import '../../../../../resources/dist/css/ln/base/helpers.css';
 
-const WikiAuthor = ({ globalContent }) => {
-    const { byline, bio_page, image, longBio, twitter } = globalContent;
+const WikiAuthor = props => {
+    console.log('PROPS::::', props.globalContent);
+    const { byline, bio_page, image, longBio, twitter } = props.globalContent;
     return (
         <div className="wiki-autor row">
             <section id="" className="cont-figure-wiki">
@@ -60,4 +60,4 @@ WikiAuthor.propTypes = {
     }).isRequired
 };
 
-export default Consumer(WikiAuthor);
+export default WikiAuthor;
