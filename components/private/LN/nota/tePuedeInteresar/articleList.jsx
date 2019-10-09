@@ -1,76 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import ArticleItem from './articleItem';
-
-const articless = [
-    {
-        href: 'https://facebook.com',
-        image: 'https://bucket1.glanacion.com/anexos/fotos/22/3054322h600.jpg',
-        volanta: 'The school ',
-        title:
-            'que tiene de escudo al Che Guevara y donde izan la bandera de Cuba'
-    },
-    {
-        href: 'https://facebook.com',
-        image: 'https://bucket1.glanacion.com/anexos/fotos/22/3054322h600.jpg',
-        volanta: 'The school ',
-        title:
-            'que tiene de escudo al Che Guevara y donde izan la bandera de Cuba'
-    },
-    {
-        href: 'https://facebook.com',
-        image: 'https://bucket1.glanacion.com/anexos/fotos/22/3054322h600.jpg',
-        volanta: 'The school ',
-        title:
-            'que tiene de escudo al Che Guevara y donde izan la bandera de Cuba'
-    },
-    {
-        href: 'https://facebook.com',
-        image: 'https://bucket1.glanacion.com/anexos/fotos/22/3054322h600.jpg',
-        volanta: 'The school ',
-        title:
-            'que tiene de escudo al Che Guevara y donde izan la bandera de Cuba'
-    },
-    {
-        href: 'https://facebook.com',
-        image: 'https://bucket1.glanacion.com/anexos/fotos/22/3054322h600.jpg',
-        volanta: 'The school ',
-        title:
-            'que tiene de escudo al Che Guevara y donde izan la bandera de Cuba'
-    },
-    {
-        href: 'https://facebook.com',
-        image: 'https://bucket1.glanacion.com/anexos/fotos/22/3054322h600.jpg',
-        volanta: 'The school ',
-        title:
-            'que tiene de escudo al Che Guevara y donde izan la bandera de Cuba'
-    },
-    {
-        href: 'https://facebook.com',
-        image: 'https://bucket1.glanacion.com/anexos/fotos/22/3054322h600.jpg',
-        volanta: 'The school ',
-        title:
-            'que tiene de escudo al Che Guevara y donde izan la bandera de Cuba'
-    },
-    {
-        href: 'https://facebook.com',
-        image: 'https://bucket1.glanacion.com/anexos/fotos/22/3054322h600.jpg',
-        volanta: 'The school ',
-        title:
-            'que tiene de escudo al Che Guevara y donde izan la bandera de Cuba'
-    },
-    {
-        href: 'https://facebook.com',
-        image: 'https://bucket1.glanacion.com/anexos/fotos/22/3054322h600.jpg',
-        volanta: 'The school ',
-        title:
-            'que tiene de escudo al Che Guevara y donde izan la bandera de Cuba'
-    }
-];
+import Article from './article';
 
 const ArticleList = props => {
     const { articles } = props;
-    return articles.map(e => <ArticleItem e={e} />);
+    return articles.map(article => <Article articleData={article} />);
 };
 
 export default ArticleList;

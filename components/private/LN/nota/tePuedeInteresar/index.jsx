@@ -78,11 +78,31 @@ class index extends Component {
             max: 18,
             widget: 'li-nacion-recommended-item-template-1',
             callback: resp => {
-                const items = resp ? resp.items : [];
+                const items = resp ? this.transformArticles(resp.items) : [];
                 $this.setState({ articles: items });
             }
         });
         $p('fetch');
+    };
+
+    transformArticles = liftigniterArticles => {
+        return liftigniterArticles.map(article => {
+            const { url, id, title, image } = article;
+
+            const resp = {};
+            resp.subtype = 1;
+            resp.by = {};
+            resp.website_url = url;
+            resp._id = id;
+            resp.headlines = { basic: title };
+            resp.promo_items = {
+                basic: {
+                    type: 'image',
+                    url: image
+                }
+            };
+            return resp;
+        });
     };
 
     render = () => {
