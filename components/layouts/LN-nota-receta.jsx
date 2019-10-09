@@ -74,7 +74,7 @@ class LNNotaReceta extends Component {
         const { children } = this.props;
 
         return (
-            <div id="wrapper" class="nota">
+            <div id="wrapper" className="nota">
                 <Header />
                 <main>
                     {/* Pre-Titulo: Banners */}
