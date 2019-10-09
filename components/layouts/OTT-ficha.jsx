@@ -24,10 +24,6 @@ class OTTFichaLayout extends Component {
                         <Footer />
                     </div>
                 </div>
-                {this.props.globalContent &&
-                    this.props.globalContent.type == 'video' && (
-                        <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
-                    )}
             </>
         );
     }
