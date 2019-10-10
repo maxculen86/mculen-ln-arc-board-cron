@@ -9,7 +9,7 @@ const resolve = key => {
         throw new Error(
             'El id de sección debe comenzar con / - Section Source'
         );
-    return `/site/v3/navigation/${website}/?_id=${id}`;
+    return `/site/v3/website/${website}/section/?_id=${id}`;
 };
 export default {
     resolve,
