@@ -10,7 +10,9 @@ const Tags = ({ tags, destacado }) => {
             text: x.text
         };
     });
-    return <TaxonomyComponent list={listTags} destacado={destacado} />;
+    return (
+        <TaxonomyComponent list={listTags} destacado={destacado} type="tag" />
+    );
 };
 
 Tags.propTypes = {

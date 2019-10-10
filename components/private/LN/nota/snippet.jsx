@@ -70,7 +70,7 @@ const snippet = props => {
 
     return (
         <script
-            type="application/ld+json"
+            type="text/javascript"
             dangerouslySetInnerHTML={{
                 __html: `var snippet = [
                     {

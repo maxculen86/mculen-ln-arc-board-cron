@@ -2,7 +2,8 @@
 
 exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta 1`] = `
 <div
-  id="wrap"
+  class="nota"
+  id="wrapper"
 >
   <header
     class="header"

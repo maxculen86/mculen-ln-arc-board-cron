@@ -37,13 +37,10 @@ const breadcrumbArticle = ({
         <>
             <BreadcrumbComponent
                 extraClasses=""
-                sections={allSections.slice(0, 3)}
+                sections={allSections}
                 lastLinked
             />
-            <BreadCrumbSchema
-                sections={allSections.slice(0, 3)}
-                host={shareConfig.host}
-            />
+            <BreadCrumbSchema sections={allSections} host={shareConfig.host} />
         </>
     );
 };
