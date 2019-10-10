@@ -172,27 +172,3 @@ a {
         cursor: pointer
     }
 }
-
-
-
-.error404{
-    header {
-      .row{
-        .header__middle .logo-la-nacion {
-            color:#006998;
-        }
-        .col-6:first-child{
-          text-align: right;
-        }
-        nav{
-          margin-top:30px;
-          a{
-            color:#0074c4;
-            }
-        }
-      }
-    }
-    main img {
-      margin: 0 auto;
-    }
-  }

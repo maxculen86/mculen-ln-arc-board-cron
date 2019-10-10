@@ -1,20 +1,86 @@
 @import '../abstracts/variables';
 
+html{ height:100%; }
+
+body {
+    
+    @media (min-width: 64em) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+    }
+}
+
 .error404{
-    header {
-      .row{
-        .col-6:first-child{
-          text-align: right;
+margin: 0 auto;
+background: url(https://www.lanacion.com.ar/error/liniers-vertical.jpg) no-repeat;
+height: 100vh;
+background-position: bottom;
+background-size: 100%;
+@media (min-width: 64em) {
+    background: none;
+    height: auto;
+}
+header {
+    .row{
+    .header__middle__logo .logo-la-nacion {
+        color:#006998;
+    }
+    @media (min-width: 64em)
+    {
+    >div:first-child{
+        text-align: right;
+        border-right: 1px solid #d9d9d9;
+        padding-right: 30px;
+    }
+    >div:last-child{
+        padding-left: 30px;
+    }
+}
+    nav{
+        margin-top:30px;
+        a{
+        color:#0074c4;
+        &:first-child{
+        margin-right: 30px;
         }
-        nav{
-          margin-top:30px;
-          a{
+        }
+    }
+    h1 {
+        font-family: Suecaslab;
+        font-size: 24px;
+        line-height: 54px;
+        margin-top: -15px;
+        margin-bottom: -6px;
+    }
+            p {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 19px;
+        line-height: 30px;
+    }
+    }
+}
+main {
+    padding: 50px 0 20px;
+    img {
+    display: none;
+    margin: 0 auto;
+    @media (min-width: 64em) {
+    display: block;
+    }
+    }
+}
+footer {
+    font-size: 14px;
+    .footer-copyright__reserved {
+        color: #5e5e5e;
+    }
+    .footer-copyright__fiscal {
+        text-align: right;
+        a {
             color:#0074c4;
-            }
         }
-      }
     }
-    main img {
-      margin: 0 auto;
-    }
-  }
+}
+}

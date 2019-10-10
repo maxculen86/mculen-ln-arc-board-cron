@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import Arc404 from '../../private/OTT/common/error404';
 
-import '../../resources/dist/css/ln/components/title.css';
-import '../../resources/dist/css/ln/pages/acu.css';
+import '../../resources/dist/css/ln/base.css';
+import '../../resources/dist/css/ln/layouts/layout.css';
+import '../../resources/dist/css/ln/layouts/grid.css';
+
+import '../../resources/dist/css/ln/components/button.css';
+
+
+import '../../resources/dist/css/ln/pages/error.css';
 
 const ErrorPage = props => {
     console.log('props **********', props);
@@ -13,12 +19,12 @@ const ErrorPage = props => {
 
 <div id="wrapper" className="error404">
   <header>
-    <div clasNames="lay">
+    <div className="lay">
       <div className="row">
-        <div className="col-6">
+        <div className="col-12 col-desksm-5">
           <a href="/" className="header__middle__logo"><i className="logo-la-nacion"></i></a>
         </div>
-        <div className="col-6">
+        <div className="col-12 col-desksm-7">
           <h1>La página que buscás no está disponible.</h1>
           <p>Seguí navegando y encontrá lo que necesitás:</p>
           <nav>
@@ -39,12 +45,12 @@ const ErrorPage = props => {
   </main>
   <footer>
     <div className="lay">
-      <div className="row footer-copyright">
-        <div className="col-desksm-6 col-desk-6 footer-copyright__fiscal">
-          <p>Visitá <a href="https://www.lanacion.com.ar/humor">Humor</a> en LA NACION</p>
-        </div>
-        <div className="col-desksm-6 col-desk-6 footer-copyright__reserved">
+        <div className="row footer-copyright">
+        <div className="col-12 col-desksm-6 col-desk-6 footer-copyright__reserved">
           <p>Copyright 2019 SA LA NACION | Todos los derechos reservados</p>
+        </div>
+        <div className="col-12 col-desksm-6 col-desk-6 footer-copyright__fiscal">
+          <p>Visitá <a href="https://www.lanacion.com.ar/humor">Humor</a> en LA NACION</p>
         </div>
       </div>
     </div>
