@@ -26,7 +26,7 @@ class LNAcumuladoLayout extends Component {
         } = this.props;
         if (!site_topper && !author_type && !Payload) {
             const e = new Error('Acumulado no encontrado.');
-            e.code = 'ENOENT';
+            e.statusCode = 404;
             throw e;
         }
         return (
