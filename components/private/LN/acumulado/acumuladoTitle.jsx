@@ -23,14 +23,16 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
     useEffect(() => {
         setChildren(globalContent.children);
         setIsPrimarySection(
-            globalContent._id.split('/').splice(1).length === 1
+            globalContent &&
+                globalContent._id &&
+                globalContent._id.split('/').splice(1).length === 1
         );
 
         if (children && children.length > 0) setWithCategory('with-category');
 
         setTitle(() => {
             const { Payload, node_type, byline, name } = globalContent;
-            if (Payload) return Payload.items[0];
+            if (Payload) return Payload.items[0].name;
             if (node_type === 'section') return name;
             if (byline) return byline;
             return '';
