@@ -9,7 +9,7 @@ const logoBaseContainer = ({ sections }) => {
     if (sectionStyle) {
         return (
             <LogoComponent
-                path={sectionStyle.section.path}
+                path={sectionStyle.path}
                 styledNamed={sectionStyle.class}
             />
         );

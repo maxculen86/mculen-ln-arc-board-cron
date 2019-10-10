@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'enzyme';
-import BreadcrumbTag from '../../../../../../components/private/LN/acumulado/breadcrumbs/breadcrumbTag';
+import BreadcrumbTag from '../../../../../../components/private/LN/acumulado/breadcrumb/breadcrumbTag';
 
 describe('components - private - LN - acumulado - breadcrumbs - breadcrumbTag', () => {
     const tag = {
