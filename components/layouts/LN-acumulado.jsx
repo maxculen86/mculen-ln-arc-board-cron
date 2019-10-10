@@ -21,7 +21,6 @@ const layoutItems = [
 
 class LNAcumuladoLayout extends Component {
     render() {
-        console.log(this.props.globalContent);
         const {
             globalContent: { site_topper, author_type, Payload }
         } = this.props;
