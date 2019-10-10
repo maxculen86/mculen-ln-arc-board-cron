@@ -13,6 +13,7 @@
         @media (min-width:768px){
             width: 280px;
             max-height: 100vh;
+            background: #fff; 
         }
         height: 100vh;        
         display: block;
@@ -20,11 +21,17 @@
         .header__dropdown {
             background: #fff;
             margin-bottom: 10px; 
+            @media (min-width:768px){
+               margin-bottom: 0;
+            }
             border: 1px solid #d9d9d9; 
             max-height: 130px;
             z-index: 2;
             .logo__dropdown {
                 padding: 15px 20px;
+                @media (min-width:768px) {
+                    padding: 10px 20px;
+                }
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
@@ -37,17 +44,23 @@
             }
             .close__dropdown {
                 padding: 15px 20px;
+                @media (min-width:768px) {
+                    padding: 10px 20px;
+                }
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 i {
-                    font-size: 30px;
+                    font-size: 25px;
                     color: #3f3f3f;
                 }
             }
             .search__dropdown {
                 border-top: 1px solid #d9d9d9;
                 padding: 15px 20px;
+                @media (min-width:768px){
+                    display: none;
+                }
 
                 .content-input {
                     position: relative;
@@ -76,9 +89,17 @@
             .nav__dropdown {
                 .list__nav {
                     margin-bottom: 10px;
+                    @media (min-width:768px){
+                        margin-bottom: 0;
+                        border: 0; 
+                     }
                     border: 1px solid #d9d9d9; 
                     background: #fff;
                     &.secondary--nav {
+                        @media (min-width:768px){
+                            border-top: 1px solid #d9d9d9; 
+                         }
+                        
                         .item__nav {
                             .link__item {
                                 color: #5a5a5a;
@@ -92,6 +113,144 @@
                         flex-wrap: wrap;                    
                         font-weight: 700;
                         font-size: 16px;
+                        &.item--active {
+                            background: #f2f2f2;
+                            .link__item {
+                                color: #006998;
+                                text-decoration: underline;
+                            }
+                            .sublist__nav {
+                                .item__nav {
+                                    .link__item {
+                                        color: #3f3f3f;
+                                        text-decoration: none;
+                                        padding-left: 40px;
+                                        background: #fff;
+                                    }
+                                }
+                            }
+                        }
+                        @media (min-width:768px){
+                            font-size: 14px;
+
+                            &.item--active {
+                                background: #f2f2f2;
+                                .link__item {
+                                    color: #006998;
+                                    text-decoration: underline;
+                                }
+                                .sublist__nav {
+                                    .item__nav {
+                                        .link__item {
+                                            color: #000;
+                                            text-decoration: none;
+                                            padding-left: 20px;
+                                        }
+                                        &:hover {
+                                            background: #f2f2f2;
+                                            .link__item {
+                                                color: #006998;
+                                                text-decoration: underline;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.item--economia{
+                                &.item--active{
+                                    .sublist__nav {
+                                        top: -50px;
+                                        &:before {
+                                            top:63px;
+                                        }
+                                    }
+                                }
+                            } 
+
+                            &.item--sociedad{
+                                &.item--active{
+                                    .sublist__nav {
+                                        top: -130px;
+                                        &:before {
+                                            top:142px;
+                                        }
+                                    }
+                                }
+                            }  
+
+                            &.item--opinion{
+                                &.item--active{
+                                    .sublist__nav {
+                                        top: -170px;
+                                        &:before {
+                                            top:182px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.item--deportes{
+                                &.item--active{
+                                    .sublist__nav {
+                                        top: -145px;
+                                        &:before {
+                                            top:157px;
+                                        }
+                                    }
+                                }
+                            }  
+
+                            &.item--lifestyle{
+                                &.item--active{
+                                    .sublist__nav {
+                                        top: -100px;
+                                        &:before {
+                                            top:112px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.item--espectaculos{
+                                &.item--active{
+                                    .sublist__nav {
+                                        top: -100px;
+                                        &:before {
+                                            top:112px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.item--impresa{
+                                &.item--active{
+                                    .sublist__nav {
+                                        top:inherit;
+                                        bottom: 0;
+                                        &:before {
+                                            top:inherit;
+                                            bottom: 13px;
+                                        }
+                                    }
+                                }
+                            } 
+
+                            &.item--revistas{
+                                &.item--active{
+                                    .sublist__nav {
+                                        top:inherit;
+                                        bottom: 0;
+                                        &:before {
+                                            top:inherit;
+                                            bottom: 13px;
+                                        }
+                                    }
+                                }
+                            }
+
+
+                        }
                         position: relative;
                         .link__item {
                             color: #000;
@@ -100,6 +259,7 @@
                             background: #f2f2f2;
                             .link__item {
                                 color: #006998;
+                                text-decoration: underline;
                             }
                         }
                         .sublist__nav {
@@ -114,6 +274,7 @@
                                     padding: 0 0 0 20px;
                                     @media (min-width:768px) {
                                         border: 0;
+                                        height: 40px;
                                     }
                                 }
                             }
@@ -121,6 +282,10 @@
                         .link__item {
                             border-bottom: 1px solid #d9d9d9;
                             height: 50px;
+                            @media (min-width:768px) {
+                                height: 40px;
+                                border-bottom: 0;
+                            }
                             width: calc(100% - 50px);
                             display: flex;
                             align-items: center;
@@ -130,6 +295,10 @@
                             background: transparent;
                             border-bottom: 1px solid #d9d9d9;
                             height: 50px;
+                            @media (min-width:768px) {
+                                height: 40px;
+                                border-bottom: 0;
+                            }
                             width: 50px;
                             display: flex;
                             align-items: center;
@@ -138,6 +307,10 @@
                             i {
                                 font-size: 20px;
                                 color: #3f3f3f;
+                                @media (min-width:768px) {
+                                    transform: rotate(-90deg);
+                                    font-size: 16px;
+                                }
                             }
                         }
                         &.item--mundo {
@@ -180,10 +353,11 @@
                                         width: 15px; 
                                         height: 15px; 
                                         left: -8px;
+                                        top: 13px;
                                         transform: rotate(136deg);
                                         position: absolute;
                                         background: #fff;
-                                        box-shadow: 2px 2px 2px 1px rgba(189,189,189, 0.2);
+                                        box-shadow: 2px 2px 2px 1px rgba(189,189,189, 0.4);
                                     }
                                 }
                             }
@@ -217,5 +391,7 @@
     }
 }
 body {
-    overflow: hidden;
+    &.dropdown {
+        overflow: hidden;
+    }
 }
