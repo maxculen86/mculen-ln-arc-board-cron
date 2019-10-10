@@ -49,7 +49,7 @@ const ErrorPage = props => {
         <div className="col-12 col-desksm-6 col-desk-6 footer-copyright__reserved">
           <p>Copyright 2019 SA LA NACION | Todos los derechos reservados</p>
         </div>
-        <div className="col-12 col-desksm-6 col-desk-6 footer-copyright__fiscal">
+        <div className="col-12 col-desksm-6 col-desk-6 footer-humor">
           <p>Visitá <a href="https://www.lanacion.com.ar/humor">Humor</a> en LA NACION</p>
         </div>
       </div>
