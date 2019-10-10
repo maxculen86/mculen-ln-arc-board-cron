@@ -15,10 +15,9 @@ const titleAndIconArticle = ({
 }) => {
     if (sections) {
         const sectionStyle = getSectionStyle(sections);
-
         return (
             <>
-                {sectionStyle.class && sectionStyle.section ? (
+                {sectionStyle.class && sectionStyle.path ? (
                     <IconBase sections={sections} />
                 ) : null}
                 <TitleArticle prefix={prefix} headlines={headlines} />

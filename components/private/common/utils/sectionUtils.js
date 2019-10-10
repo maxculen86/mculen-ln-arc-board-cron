@@ -44,13 +44,15 @@ export const getSectionStyle = sections => {
         return undefined;
     });
     let sectionClass;
+    let sectionPath;
     if (logoSection) {
         sectionClass =
             logoSection.additional_properties.original.style.section_style_name;
+        sectionPath = logoSection.path;
     }
     return {
         class: `${sectionClass === undefined ? undefined : sectionClass}`,
-        section: `${logoSection === undefined ? undefined : logoSection}`
+        path: `${sectionPath === undefined ? undefined : sectionPath}`
     };
 };
 
