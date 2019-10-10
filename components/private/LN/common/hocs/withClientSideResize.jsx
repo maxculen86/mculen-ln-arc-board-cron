@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
 
-function WithClientSideResize(WrappedImage, imageConfig) {
+function WithClientSideResize(WrappedImage, imagePreset) {
     return Consumer(
         class extends PureComponent {
             constructor(props) {
@@ -15,33 +15,31 @@ function WithClientSideResize(WrappedImage, imageConfig) {
                 const {
                     articleData: {
                         promo_items: {
-                            basic: { resized_urls, url }
+                            basic: { resized_urls: resizedUrls, url }
                         }
                     }
                 } = this.props;
 
-                console.log('--------- hoc client side', url);
-                if (!resized_urls) {
+                if (!resizedUrls) {
                     this.fetchContent({
                         resizedUrls: {
                             source: 'imageResizeSource',
-                            query: { url }
+                            query: { url, preset: imagePreset }
                         }
                     });
                 }
             }
 
             render() {
-                console.log('-----------------', this.props);
                 const { resizedUrls } = this.state;
                 const {
                     articleData: {
                         promo_items: { basic }
                     }
                 } = this.props;
-                console.log('--------- image client side render', resizedUrls);
 
-                // basic.resized_urls = resizedUrls;
+                if (!resizedUrls) return null;
+                basic.resized_urls = resizedUrls;
 
                 return <WrappedImage {...this.props} />;
             }

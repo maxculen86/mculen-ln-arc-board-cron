@@ -18,7 +18,6 @@ class index extends Component {
          * TODO: Hay que modular lliftigniter a un Command Pattern
          * TODO: Falta trackear
          * TODO: Falta revisar los css
-         * TODO: Falta handlear el resize de las images, puede ser con css
          */
         const $this = this;
 
@@ -107,14 +106,7 @@ class index extends Component {
 
     render = () => {
         const { articles } = this.state;
-        return (
-            <div className="row interest">
-                <h4 className="com-title-section-xl">Te puede interesar</h4>
-                <section className="row-gap-tablet-3 row-gap-desksm-3">
-                    <ArticleList articles={articles} />
-                </section>
-            </div>
-        );
+        return <ArticleList articles={articles} />;
     };
 }
 
