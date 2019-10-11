@@ -4,7 +4,7 @@ html{ height:100%; }
 
 body {
 
-@media (min-width: 64em) {
+@media (min-width: 1023px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,9 +16,13 @@ body {
     margin: 0 auto;
     background: url(https://www.lanacion.com.ar/error/liniers-vertical.jpg) no-repeat;
     height: 100vh;
-    background-position: bottom;
-    background-size: 100%;
-    @media (min-width: 64em) {
+    background-position: bottom 130px right 0px;
+    background-size: 90%;
+    margin:0!important;
+    @media (min-width: 450px) {
+        background-size:auto;
+    }
+        @media (min-width: 1023px) {
         background: none;
         height: auto;
     }
@@ -31,11 +35,11 @@ body {
                 color:#006998;
                 margin-bottom: 30px;
                 font-size: 17px;
-                @media (min-width: 64em) {
+                @media (min-width: 1023px) {
                     font-size: 29px;
                 }
             }
-            @media (min-width: 64em) {
+            @media (min-width: 1023px) {
                 >div:first-child {
                     text-align: right;
                     border-right: 1px solid #d9d9d9;
@@ -56,13 +60,12 @@ body {
                         display: block;
                         margin-top: 20px;
                     }
-                    @media (min-width: 64em) {
+                    @media (min-width: 1023px) {
                         &:first-child {
                             margin-right: 30px;
                         }
                         &:last-child {
                             display: inline;
-                            margin-top: 0;
                         }
                     }
                 }
@@ -78,7 +81,7 @@ body {
                 line-height: 30px;           
                 font-size: 16px;
                 font-family: Arial;
-                @media (min-width: 64em) {
+                @media (min-width: 1023px) {
                     font-size: 19px;
                     font-family: Georgia, 'Times New Roman', Times, serif;
                 }
@@ -92,7 +95,8 @@ body {
             //display: none;
             visibility: hidden;
             margin: 0 auto;
-            @media (min-width: 64em) {
+            width: 100%;
+            @media (min-width: 1023px) {
                 //display: block;
                 visibility: visible;
             }
@@ -103,9 +107,9 @@ body {
         font-size: 14px;
         line-height: 24px;
         position: absolute;
-        bottom: -120px;
-    
-        @media (min-width: 64em) {
+        bottom: 0;
+        width: 100%;
+        @media (min-width: 1023px) {
             position: relative;
             bottom: auto;
         }
@@ -113,7 +117,7 @@ body {
             padding: 20px 0;
             .footer-copyright__reserved {
                 color: #5e5e5e;
-                @media (min-width: 64em) {
+                @media (min-width: 1023px) {
                     order:1;
                 }
             }
@@ -121,7 +125,7 @@ body {
                 border-bottom: 1px solid #c9c9c9;
                 padding-bottom: 15px;
                 margin-bottom: 15px;
-                @media (min-width: 64em) {
+                @media (min-width: 1023px) {
                     text-align: right;
                     order:2;
                     margin: 0;
