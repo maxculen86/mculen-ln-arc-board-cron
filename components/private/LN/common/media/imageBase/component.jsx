@@ -26,11 +26,11 @@ const imageBase = ({ urlDefault, sources, altText, zoom, href }) => {
 imageBase.propTypes = {
     sources: PropTypes.arrayOf(
         PropTypes.shape({
-            media: PropTypes.string.isRequired,
+            media: PropTypes.string,
             class: PropTypes.string,
-            resizedUrl: PropTypes.string.isRequired
+            resizedUrl: PropTypes.string
         })
-    ).isRequired,
+    ),
     altText: PropTypes.string,
     zoom: PropTypes.bool,
     href: PropTypes.string
