@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
-import Arc404 from '../../private/OTT/common/error404';
+// import Arc404 from '../../private/OTT/common/error404';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
-
 import '../../resources/dist/css/ln/components/button.css';
-
-
 import '../../resources/dist/css/ln/pages/error.css';
 
 const ErrorPage = props => {
