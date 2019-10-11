@@ -9,7 +9,6 @@ import '../../resources/dist/css/ln/components/button.css';
 import '../../resources/dist/css/ln/pages/error.css';
 
 const ErrorPage = props => {
-    console.log('props **********', props);
     return (
         /* this.props.arcSite;
         if (this.props.arcSite == 'ott') return <Arc404 />; */
