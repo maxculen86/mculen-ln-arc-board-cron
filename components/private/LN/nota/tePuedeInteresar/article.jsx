@@ -10,7 +10,7 @@ const articleClientSide = ({ articleData }) => {
 
 articleClientSide.propTypes = {
     articleData: PropTypes.shape({
-        type: PropTypes.string
+        type: PropTypes.oneOf(['story'])
     }).isRequired
 };
 

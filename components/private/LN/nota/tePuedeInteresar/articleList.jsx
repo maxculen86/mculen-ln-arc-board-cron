@@ -9,7 +9,7 @@ const ArticleList = props => {
             <h4 className="com-title-section-xl">Te puede interesar</h4>
             <section className="row-gap-tablet-3 row-gap-desksm-3">
                 {articles.map(article => (
-                    <Article articleData={article} key={article.url} />
+                    <Article articleData={article} key={article._id} />
                 ))}
             </section>
         </div>

@@ -18,6 +18,7 @@ class index extends Component {
          * TODO: Hay que modular lliftigniter a un Command Pattern
          * TODO: Falta trackear
          * TODO: Falta revisar los css
+         * TODO: FALTAN TESTS
          */
         const $this = this;
 
