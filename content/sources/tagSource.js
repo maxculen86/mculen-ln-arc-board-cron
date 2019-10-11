@@ -6,8 +6,18 @@ const resolve = key => {
     return `/tags/search?term="${slug}"`;
 };
 
+const transform = data => {
+    if (!data.Payload.items.length) {
+        const err = new Error('Tag no encontrado');
+        err.statusCode = 404;
+        throw err;
+    }
+    return data;
+};
+
 export default {
     resolve,
+    transform,
     schemaName: 'tag-schema',
     params: {
         slug: 'text'

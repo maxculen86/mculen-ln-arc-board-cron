@@ -40,7 +40,7 @@
             justify-content: center;
             align-items: center;
             border: 1px solid $gris3;
-            .--border & {
+            .--border &, .aper-receta & {
                 border:none;
             }
             &:before {
