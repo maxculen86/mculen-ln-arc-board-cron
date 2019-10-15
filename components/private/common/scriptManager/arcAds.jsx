@@ -1,21 +1,13 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 
-const arcAds = ({ deployment, contextPath }) => {
-    return (
-        <script
-            src={deployment(`${contextPath}/resources/common/js/arcAds.js`)}
-        />
-    );
+const arcAds = ({ deployment }) => {
+    return <script src={deployment(`/pf/resources/common/js/arcAds.js`)} />;
 };
 
 arcAds.propTypes = {
-    deployment: PropTypes.func.isRequired,
-    contextPath: PropTypes.string
+    deployment: PropTypes.func.isRequired
 };
 
-arcAds.defaultProps = {
-    contextPath: ''
-};
-
-export default arcAds;
+export default Consumer(arcAds);
