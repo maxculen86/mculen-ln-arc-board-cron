@@ -1,3 +1,5 @@
+@import "types.scss";
+
 .ott {
     line-height: 1;
     @import "settings/reset.scss";
@@ -12,4 +14,5 @@
     @import "programa.scss";
     @import "box-4.scss";
     @import "404.scss";
+    margin: 0;
 }
