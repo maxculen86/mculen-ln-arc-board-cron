@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'fusion:prop-types';
 
 import '../../../../../resources/dist/css/ln/layouts/layout.css';
 import '../../../../../resources/dist/css/ln/base/helpers.css';
 import '../../../../../resources/dist/css/ln/modules/newsletter.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 
-const newLetter = props => {
+const NewLetter = props => {
     const [mail, setMail] = useState('');
     const [isSubscribe, setIsSubscribe] = useState(false);
     const { titulo, logueado, subscriptionsCallBack } = props;
@@ -24,16 +25,19 @@ const newLetter = props => {
                     <h2 className="com-title-section-m hlp-marginBottom-10">
                         {titulo}
                     </h2>
+                    {/* eslint-disable-next-line no-nested-ternary */}
                     {logueado ? (
                         isSubscribe ? (
                             <>
-                                <label htmlFor="" className="check">
+                                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                                <label className="check">
                                     ¡Gracias! Ya estás recibiendo este
                                     newsletter.
                                 </label>
                             </>
                         ) : (
                             <button
+                                type="button"
                                 onClick={() => setIsSubscribe(!isSubscribe)}
                                 className="--btn --bright"
                             >
@@ -45,7 +49,8 @@ const newLetter = props => {
                             <p className="hlp-text-left check hlp-marginBottom-10">
                                 {mail}
                             </p>
-                            <label htmlFor="" className="check">
+                            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                            <label className="check">
                                 ¡Gracias! A partir de ahora recibirás el
                                 newsletter.
                             </label>
@@ -59,6 +64,7 @@ const newLetter = props => {
                     )}
                 </div>
                 <div className="col-12 col-tablet-3 hlp-paddingHeight-40">
+                    {/* eslint-disable-next-line no-nested-ternary */}
                     {logueado ? null : isSubscribe ? null : (
                         // TODO: Falta validacion del input type="mail" y si va nulo
                         <>
@@ -72,6 +78,7 @@ const newLetter = props => {
                                 value={mail}
                             />
                             <button
+                                type="button"
                                 onClick={() => setIsSubscribe(!isSubscribe)}
                                 className="--btn --bright"
                             >
@@ -81,9 +88,14 @@ const newLetter = props => {
                     )}
                     {isSubscribe ? null : (
                         <div className="com-breadcrumb">
-                            <a className="hlp-bold hlp-marginBottom-15" href="">
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                            <a
+                                className="hlp-bold hlp-marginBottom-15"
+                                href="#"
+                            >
                                 Ver ejemplo
                             </a>
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <a href="#" onClick={subscriptionsCallBack}>
                                 {' '}
                                 Recibir otros Newsletters
@@ -97,14 +109,16 @@ const newLetter = props => {
     );
 };
 
-/* newLetter.propTypes = {
-    sections: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string,
-            name: PropTypes.string,
-            path: PropTypes.string
-        })
-    ).isRequired
-}; */
+NewLetter.propTypes = {
+    titulo: PropTypes.string,
+    logueado: PropTypes.bool,
+    subscriptionsCallBack: PropTypes.func
+};
 
-export default newLetter;
+NewLetter.defaultProps = {
+    titulo: '',
+    logueado: false,
+    subscriptionsCallBack: null
+};
+
+export default NewLetter;
