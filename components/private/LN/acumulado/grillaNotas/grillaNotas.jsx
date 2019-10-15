@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'fusion:prop-types';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import ArticleDate from '../../common/dateArticle';
 import BtnMasNotas from '../botonVerMasNotas';
@@ -98,7 +99,7 @@ class GrillaNotas extends Component {
                     <>
                         <ArticleMain
                             dataSection={DATA_SECTION}
-                            key={i}
+                            key={a._id}
                             articleData={a}
                             extraClasses={CLASS_W_100}
                         >
@@ -129,5 +130,29 @@ class GrillaNotas extends Component {
         );
     }
 }
+
+GrillaNotas.propTypes = {
+    articles: PropTypes.arrayOf(PropTypes.object),
+    hayMasNotas: PropTypes.number,
+    obtenerMasNotas: PropTypes.func,
+    globalContent: PropTypes.shape({
+        name: PropTypes.string
+    }).isRequired,
+    loading: PropTypes.bool,
+    isAdmin: PropTypes.bool,
+    siteProperties: PropTypes.shape({
+        bannerConfig: PropTypes.shape({
+            dfp_id: PropTypes.number.isRequired
+        })
+    }).isRequired
+};
+
+GrillaNotas.defaultProps = {
+    articles: [],
+    hayMasNotas: 0,
+    obtenerMasNotas: () => {},
+    loading: false,
+    isAdmin: false
+};
 
 export default WithAcuArticlesData(GrillaNotas, filter, 'notaM');
