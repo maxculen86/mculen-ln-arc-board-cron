@@ -73,7 +73,7 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
 
 Cuerpo.propTypes = {
     globalContent: PropTypes.shape({
-        content_elements: PropTypes.node.isRequired
+        content_elements: PropTypes.array.isRequired
     }).isRequired
 };
 
