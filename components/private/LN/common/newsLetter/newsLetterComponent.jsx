@@ -17,8 +17,8 @@ const NewLetter = props => {
                     logueado ? 'logueado' : ''
                 }${isSubscribe ? 'suscripto' : ''}`}
             >
-                <div className="col-tablet-2" />
-                <div className="col-12 col-tablet-5 hlp-paddingHeight-40 hlp-paddingRight-20 hlp-line">
+                <div className="col-tablet-1 col-desksm-2" />
+                <div className="col-12 col-tablet-6 col-desksm-5 hlp-paddingHeight-40 hlp-paddingRight-20 hlp-line">
                     <h2 className="com-title-section-s hlp-marginBottom-10 hlp-marginRight-5">
                         Newsletter
                     </h2>
@@ -63,7 +63,7 @@ const NewLetter = props => {
                         </p>
                     )}
                 </div>
-                <div className="col-12 col-tablet-3 hlp-paddingHeight-40">
+                <div className="col-12 col-tablet-4 col-desksm-3 hlp-paddingHeight-40">
                     {/* eslint-disable-next-line no-nested-ternary */}
                     {logueado ? null : isSubscribe ? null : (
                         // TODO: Falta validacion del input type="mail" y si va nulo
@@ -91,19 +91,23 @@ const NewLetter = props => {
                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <a
                                 className="hlp-bold hlp-marginBottom-15"
-                                href="#"
+                                href=""
+                                target="_blank"
                             >
                                 Ver ejemplo
                             </a>
                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                            <a href="#" onClick={subscriptionsCallBack}>
+                            <a
+                                href="https://newsletter.lanacion.com.ar/#/"
+                                onClick={subscriptionsCallBack}
+                            >
                                 {' '}
                                 Recibir otros Newsletters
                             </a>
                         </div>
                     )}
                 </div>
-                <div className="col-tablet-2" />
+                <div className="col-tablet-1 col-desksm-2" />
             </div>
         </>
     );
