@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - private - LN - common - TaxonomyImportantList Test de snapshot de taxonomy important list 1`] = `
+<div
+  class="com-tag cont_tags"
+>
+  <a
+    class="com-item"
+    href="/tema/asd-1"
+  >
+    asd 1
+  </a>
+  <a
+    class="com-item"
+    href="/tema/asd-2"
+  >
+    asd 2
+  </a>
+  <a
+    class="com-item"
+    href="/tema/asd-3"
+  >
+    asd 3
+  </a>
+</div>
+`;
