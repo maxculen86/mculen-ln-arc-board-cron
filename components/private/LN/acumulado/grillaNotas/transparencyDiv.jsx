@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'fusion:prop-types';
 
 class TransparencyDiv extends Component {
     constructor(props) {
@@ -31,12 +30,15 @@ class TransparencyDiv extends Component {
         const style = {
             heigth: `${height}px`
         };
-        return <div className="transparency" style={style} />;
+        return (
+            <div
+                data-event="LinkClick"
+                data-section="TransparencyNota"
+                className="transparency"
+                style={style}
+            />
+        );
     }
 }
-
-TransparencyDiv.propTypes = {
-    height: PropTypes.number.isRequired
-};
 
 export default TransparencyDiv;

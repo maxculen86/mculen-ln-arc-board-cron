@@ -7,9 +7,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
         class extends PureComponent {
             constructor(props) {
                 super(props);
-
                 const { page } = props;
-
                 const { articles, hayMasNotas } = this.getArticles(
                     ({
                         articles: articlesFetched,
@@ -55,7 +53,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 });
                 // Caclulo si hay mas notas y saco la q sobra
                 const articles = get(cached, 'content_elements', []);
-                const hayMasNotas = get(cached, 'next', false);
+                const hayMasNotas = get(cached, 'next', 0);
                 // Devuelvo otro fetched que ya tenga parte de la logica implementada
                 fetched.then(response => {
                     const articlesFetched = get(
@@ -63,7 +61,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         'content_elements',
                         []
                     );
-                    const hayMasNotasFetched = get(response, 'next', false);
+                    const hayMasNotasFetched = get(response, 'next', 0);
                     fetchedCallback({
                         articles: articlesFetched.slice(0, size),
                         hayMasNotas: hayMasNotasFetched

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import transparecyDiv from './transparencyDiv';
+import TransparencyDiv from './transparencyDiv';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import ArticleDate from '../../common/dateArticle';
 import BtnMasNotas from '../botonVerMasNotas';
@@ -9,11 +9,9 @@ import LoadingIcon from '../../common/loadingIcon';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import config from './bannerPositionsConfig.json';
-import TransparencyDiv from './transparencyDiv';
 
 const CLASS_W_100 = 'w-100-mobile';
-//TODO: Este data section hay que cambiarlo por uno generico para cuerpo de acumulado.
-const DATA_SECTION = 'CuerpoAcuRecetas';
+const DATA_SECTION = 'CuerpoAcu';
 class GrillaNotas extends Component {
     getBanner = (device, index) => {
         const position = index + 1;
@@ -77,13 +75,14 @@ class GrillaNotas extends Component {
                 );
             });
         }
+        const hayMasNotasBool = hayMasNotas > 0;
         return (
             <>
                 <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
                     {articlesComponents}
-                    {hayMasNotas && <TransparencyDiv />}
+                    {hayMasNotasBool && <TransparencyDiv />}
                 </section>
-                {hayMasNotas && (
+                {hayMasNotasBool && (
                     <section className="row">
                         <BtnMasNotas
                             onClickHandler={obtenerMasNotas}
