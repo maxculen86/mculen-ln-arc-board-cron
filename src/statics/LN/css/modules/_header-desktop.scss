@@ -5,6 +5,7 @@
 //=====================
 .header{
     display: none;
+    position: relative;
     @media ($media-l){
         display: block;
         border-bottom: 1px solid $gris2;
@@ -97,7 +98,7 @@
         }
 
         //active modo DARK-------
-        &.--dark{
+        &.--dark, .acu-revista & {
             background: rgba(0, 0, 0, 0.5);
             border: none;
             .header__left{      

@@ -1,5 +1,6 @@
 @import '../abstracts/variables';
 @import '../base/ohlala';
+@import '../base/brando';
 
 .fondo-revista {
     position: absolute;
@@ -13,16 +14,45 @@
         height: 550px;
     }
 }
-
-.mod-opening-revista {
-    margin-top: -85px;
-    padding-top: 85px;
-    position: relative;
-    z-index: -1;
-    [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
-        color: $blanco;
+.acu-revista {
+    .--bg-banner{
+        background: none;
+        z-index: 1;
+        position: relative;
     }
-    .com-link {
-        color: $blanco;
+    .mod-opening-revista {
+        background: #006998;
+        margin-top: -85px;
+        padding-top: 85px;
+        margin-top: -256px;
+        padding-top: 256px;
+        margin-bottom:-200px;
+        padding-bottom: 200px;
+
+        position: relative;
+        [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
+            color: $blanco;
+            font-size: 85px;
+        }
+        .com-link {
+            color: $blanco;
+        }
+        .anexo{
+            height: 100px;
+            background-color:#bbdefb;
+            font-size: 20px;
+            line-height:100px;
+            text-align:center;
+            margin-bottom: 20px;
+        }
+        .hlp-text-center {
+            margin-bottom: $px-40;
+        }
+        .com-share {
+            float: right;
+            a i {
+                color: $blanco!important;
+            }
+        }
     }
 }

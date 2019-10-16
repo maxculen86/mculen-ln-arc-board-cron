@@ -24,24 +24,25 @@ const layoutItems = [
 class LNAcumuladoLayout extends Component {
     render() {
         return (
-            <div id="wrapper acu-revista ohlala">
+            <div id="wrapper" className="acu-revista ohlala">
                 <Header />
                 <main>
                     {/* BANNERS: CABEZAL Y STICKY */}
                     {this.props.children[0]}
                     <div className="row mod-opening-revista">
                         <section className="lay">
+                            <div className="anexo">ANEXO 100%</div>
+                        </section>
+                        <section className="lay">
                             <div className="com-share">
-                                <div className="share-left">
-                                    <button href="" className="icon-facebook"></button>
-                                    <button href="" className="icon-twitter"></button>
-                                    <button href="" className="icon-instagram"></button>
-                                </div>
+                                <a href="https://www.facebook.com/ohlalarevista/" target="_blank" rel="noreferrer noopener"><i class="icon-facebook"></i></a>
+                                <a href="https://twitter.com/RevistaOhlala/" target="_blank" rel="noreferrer noopener"><i class="icon-twitter"></i></a>
+                                <a href="https://www.instagram.com/ohlalarevista/" target="_blank" rel="noreferrer noopener"><i class="icon-instagram"></i></a>
                             </div>
-                            <div className="logo hlp-text-center hlp-marginBottom-desk-40">
-                                <i className="logo-ohlala hlp-marginBottom-desk-10"></i>
+                            <div className="logo hlp-text-center">
+                                <i className="logo-ohlala"></i>
                             </div>
-                            <div className="hlp-text-center hlp-marginBottom-40">
+                            <div className="hlp-text-center">
                                 <a className="com-link" href=" ">Cocina healthy</a>
                                 <a className="com-link" href=" ">OHLALÁ! Viaja</a>
                                 <a className="com-link" href=" ">Project planner</a>
@@ -50,6 +51,13 @@ class LNAcumuladoLayout extends Component {
                             </div>
                         </section>
                     </div>
+                    <div className="lay">
+                        <section class="row-gap-tablet-2 row-gap-deskxl-2 hlp-degrade">
+                            <article class="mod-caja-nota  w-100-mobile" data-section="CuerpoAcu" data-event="LinkClick"><section class="cont-figure"><a class="figure"><picture class="content-pic picture "></picture></a></section><div class="mod-caja-nota__descrip"><h2 class="com-title-acu"><a>Headline- basic - 2-test</a></h2><h4 class="com-date">25 de Diciembre de 2019</h4></div></article>
+                            <article class="mod-caja-nota  w-100-mobile" data-section="CuerpoAcu" data-event="LinkClick"><section class="cont-figure"><a class="figure"><picture class="content-pic picture "></picture></a></section><div class="mod-caja-nota__descrip"><h2 class="com-title-acu"><a>Headline- basic - 2-test</a></h2><h4 class="com-date">25 de Diciembre de 2019</h4></div></article>
+                        </section>
+                    </div>
+
                     <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
