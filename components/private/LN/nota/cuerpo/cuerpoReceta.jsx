@@ -7,15 +7,15 @@ import Tips from './tips';
 const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
     let ingredients = [];
     let preparation = [];
-    let tips = [];
+    const tips = [];
 
     contentElements.forEach(element => {
         switch (element.type) {
-            case 'custom_embed':
+            case 'custom_embed': {
                 const { items, titleList } = element.embed.config;
                 switch (element.subtype) {
-                    case 'custom-ingrediente':
-                        let ings = [];
+                    case 'custom-ingrediente': {
+                        const ings = [];
                         items.map(item => ings.push(item));
                         ingredients = [
                             ...ingredients,
@@ -25,8 +25,9 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                             }
                         ];
                         break;
-                    case 'custom-preparacion':
-                        let prep = [];
+                    }
+                    case 'custom-preparacion': {
+                        const prep = [];
                         items.map(item => prep.push(item));
                         preparation = [
                             ...preparation,
@@ -36,10 +37,12 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                             }
                         ];
                         break;
+                    }
                     default:
                         break;
                 }
                 break;
+            }
             case 'text':
                 if (element.content.length > 10) {
                     tips.push({ description: element.content });
@@ -70,7 +73,7 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
 
 Cuerpo.propTypes = {
     globalContent: PropTypes.shape({
-        content_elements: PropTypes.node.isRequired
+        content_elements: PropTypes.array.isRequired
     }).isRequired
 };
 

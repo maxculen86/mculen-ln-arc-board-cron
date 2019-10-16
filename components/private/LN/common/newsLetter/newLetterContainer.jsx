@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import withNewsLetterData from '../hocs/withNewsLetterData';
 import NewsLetterComponent from './newsLetterComponent';
 
@@ -6,7 +7,7 @@ import NewsLetterComponent from './newsLetterComponent';
 // Otro container por encima que resuelva eso o una logica.
 const newLetter = props => {
     const {
-        service: { titulo, servicioId, suscripto },
+        service: { titulo },
         logueado,
         subscriptionsCallBack
     } = props;
@@ -19,6 +20,19 @@ const newLetter = props => {
             />
         </>
     );
+};
+
+newLetter.propTypes = {
+    logueado: PropTypes.bool,
+    service: PropTypes.shape({
+        titulo: PropTypes.string
+    }).isRequired,
+    subscriptionsCallBack: PropTypes.func
+};
+
+newLetter.defaultProps = {
+    logueado: false,
+    subscriptionsCallBack: null
 };
 
 export default withNewsLetterData(newLetter);
