@@ -9,7 +9,7 @@ const titleSection = ({ size, text }) => {
 
 titleSection.propTypes = {
     size: PropTypes.string.isRequired,
-    text: PropTypes.string
+    text: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 };
 
 titleSection.defaultProps = {

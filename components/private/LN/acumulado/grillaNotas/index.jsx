@@ -40,7 +40,7 @@ Index.propTypes = {
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
         })
-    }).isRequired
+    })
 };
 
 Index.defaultProps = {
@@ -49,6 +49,11 @@ Index.defaultProps = {
         Payload: undefined,
         _id: undefined,
         author_type: undefined
+    },
+    siteProperties: {
+        bannerConfig: {
+            dfp_id: 0
+        }
     }
 };
 
