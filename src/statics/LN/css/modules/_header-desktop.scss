@@ -99,6 +99,7 @@
         //active modo DARK-------
         &.--active-dark{
             background: rgba(0, 0, 0, 0.5);
+            border: none;
             .header__left{      
                 .com-hamburger{
                     &__bar{

@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../base/ohlala';
 
 .fondo-revista {
     position: absolute;
@@ -10,5 +11,18 @@
 @media ($media-l) {
     .fondo-revista {
         height: 550px;
+    }
+}
+
+.mod-opening-revista {
+    margin-top: -85px;
+    padding-top: 85px;
+    position: relative;
+    z-index: -1;
+    [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
+        color: $blanco;
+    }
+    .com-link {
+        color: $blanco;
     }
 }
