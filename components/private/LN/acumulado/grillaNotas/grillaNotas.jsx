@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
+import transparecyDiv from './transparencyDiv';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import ArticleDate from '../../common/dateArticle';
 import BtnMasNotas from '../botonVerMasNotas';
@@ -8,47 +9,12 @@ import LoadingIcon from '../../common/loadingIcon';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import config from './bannerPositionsConfig.json';
+import TransparencyDiv from './transparencyDiv';
 
 const CLASS_W_100 = 'w-100-mobile';
 //TODO: Este data section hay que cambiarlo por uno generico para cuerpo de acumulado.
 const DATA_SECTION = 'CuerpoAcuRecetas';
-const CLASS_TRANSPARENCY = 'transparency';
 class GrillaNotas extends Component {
-    componentDidMount() {
-        const { hayMasNotas } = this.props;
-        const divGrilla = document.querySelector('.hlp-degrade');
-        if (divGrilla && hayMasNotas) {
-            const transparencyDiv = document.createElement('div');
-            transparencyDiv.classList.add(CLASS_TRANSPARENCY);
-            divGrilla.appendChild(transparencyDiv);
-            this.setAlturaTransparency();
-            window.addEventListener('resize', () => {
-                this.setAlturaTransparency();
-            });
-        }
-    }
-
-    componentDidUpdate() {
-        const { hayMasNotas } = this.props;
-        const transparencyDiv = document.querySelector('.transparency');
-        if (!hayMasNotas && transparencyDiv) {
-            transparencyDiv.parentElement.removeChild(transparencyDiv);
-        } else {
-            this.setAlturaTransparency();
-        }
-    }
-
-    setAlturaTransparency = () => {
-        const articlesGrid = document.querySelectorAll(
-            '.hlp-degrade article.mod-caja-nota'
-        );
-        const articleGrid = articlesGrid[articlesGrid.length - 1];
-        const alturaArticle =
-            articleGrid.offsetHeight || articleGrid.clientHeight;
-        const transparecyDiv = document.querySelector('.transparency');
-        if (transparecyDiv) transparecyDiv.style.height = `${alturaArticle}px`;
-    };
-
     getBanner = (device, index) => {
         const position = index + 1;
         let bannerPosition = {};
@@ -115,6 +81,7 @@ class GrillaNotas extends Component {
             <>
                 <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
                     {articlesComponents}
+                    {hayMasNotas && <TransparencyDiv />}
                 </section>
                 {hayMasNotas && (
                     <section className="row">
