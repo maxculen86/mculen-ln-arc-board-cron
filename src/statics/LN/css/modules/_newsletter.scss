@@ -176,11 +176,11 @@
             background-repeat: no-repeat;
             background-size: 100%;
             &:first-child {
-                background-image: url('/pf/resources/dist/images/newsletter-lineas-trama-izq.svg');
+                background-image: url('../../img/newsletter-lineas-trama-izq.svg');
                 background-position: left bottom;
             }
             &:last-child {
-                background-image: url('/pf/resources/dist/images/newsletter-lineas-trama-der.svg');
+                background-image: url('../../img/newsletter-lineas-trama-der.svg');
                 background-position: right top;
             }
         }
