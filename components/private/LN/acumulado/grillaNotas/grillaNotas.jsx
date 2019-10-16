@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'fusion:prop-types';
+import TransparencyDiv from './transparencyDiv';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import ArticleDate from '../../common/dateArticle';
 import BtnMasNotas from '../botonVerMasNotas';
@@ -9,45 +11,8 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import config from './bannerPositionsConfig.json';
 
 const CLASS_W_100 = 'w-100-mobile';
-//TODO: Este data section hay que cambiarlo por uno generico para cuerpo de acumulado.
-const DATA_SECTION = 'CuerpoAcuRecetas';
-const CLASS_TRANSPARENCY = 'transparency';
+const DATA_SECTION = 'CuerpoAcu';
 class GrillaNotas extends Component {
-    componentDidMount() {
-        const { hayMasNotas } = this.props;
-        const divGrilla = document.querySelector('.hlp-degrade');
-        if (divGrilla && hayMasNotas) {
-            const transparencyDiv = document.createElement('div');
-            transparencyDiv.classList.add(CLASS_TRANSPARENCY);
-            divGrilla.appendChild(transparencyDiv);
-            this.setAlturaTransparency();
-            window.addEventListener('resize', () => {
-                this.setAlturaTransparency();
-            });
-        }
-    }
-
-    componentDidUpdate() {
-        const { hayMasNotas } = this.props;
-        const transparencyDiv = document.querySelector('.transparency');
-        if (!hayMasNotas && transparencyDiv) {
-            transparencyDiv.parentElement.removeChild(transparencyDiv);
-        } else {
-            this.setAlturaTransparency();
-        }
-    }
-
-    setAlturaTransparency = () => {
-        const articlesGrid = document.querySelectorAll(
-            '.hlp-degrade article.mod-caja-nota'
-        );
-        const articleGrid = articlesGrid[articlesGrid.length - 1];
-        const alturaArticle =
-            articleGrid.offsetHeight || articleGrid.clientHeight;
-        const transparecyDiv = document.querySelector('.transparency');
-        if (transparecyDiv) transparecyDiv.style.height = `${alturaArticle}px`;
-    };
-
     getBanner = (device, index) => {
         const position = index + 1;
         let bannerPosition = {};
@@ -98,7 +63,7 @@ class GrillaNotas extends Component {
                     <>
                         <ArticleMain
                             dataSection={DATA_SECTION}
-                            key={i}
+                            key={a._id}
                             articleData={a}
                             extraClasses={CLASS_W_100}
                         >
@@ -110,12 +75,14 @@ class GrillaNotas extends Component {
                 );
             });
         }
+        const hayMasNotasBool = hayMasNotas > 0;
         return (
             <>
                 <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
                     {articlesComponents}
+                    {hayMasNotasBool && <TransparencyDiv />}
                 </section>
-                {hayMasNotas && (
+                {hayMasNotasBool && (
                     <section className="row">
                         <BtnMasNotas
                             onClickHandler={obtenerMasNotas}
@@ -129,5 +96,29 @@ class GrillaNotas extends Component {
         );
     }
 }
+
+GrillaNotas.propTypes = {
+    articles: PropTypes.arrayOf(PropTypes.object),
+    hayMasNotas: PropTypes.number,
+    obtenerMasNotas: PropTypes.func,
+    globalContent: PropTypes.shape({
+        name: PropTypes.string
+    }).isRequired,
+    loading: PropTypes.bool,
+    isAdmin: PropTypes.bool,
+    siteProperties: PropTypes.shape({
+        bannerConfig: PropTypes.shape({
+            dfp_id: PropTypes.number.isRequired
+        })
+    }).isRequired
+};
+
+GrillaNotas.defaultProps = {
+    articles: [],
+    hayMasNotas: 0,
+    obtenerMasNotas: () => {},
+    loading: false,
+    isAdmin: false
+};
 
 export default WithAcuArticlesData(GrillaNotas, filter, 'notaM');

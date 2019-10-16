@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'fusion:prop-types';
 import HeaderDesktop from './headerDesktop';
 import HeaderMobile from './headerMobile';
 import NavBarMobile from '../navbar';
@@ -11,7 +12,8 @@ const CLASS_ACTIVE = '--active';
 let lastScrollPosition = 0;
 class Index extends Component {
     componentDidMount() {
-        const { device } = this.props.screenUtils;
+        const { screenUtils } = this.props;
+        const { device } = screenUtils;
         const idHeader = device === 'desktop' ? 'header' : 'header-mobile';
         const header = document.getElementById(idHeader);
         const vshare = document.getElementById('v-share');
@@ -41,7 +43,7 @@ class Index extends Component {
                 classList.add(CLASS_SCROLL_DOWN);
             }
             if (scrollPos < lastScrollPosition) {
-                //SCROLL UP
+                // SCROLL UP
                 classList.remove(CLASS_SCROLL_DOWN);
                 classList.add(CLASS_SCROLL_UP);
                 if (vshare) {
@@ -50,7 +52,7 @@ class Index extends Component {
                 wrapper.classList.remove(CLASS_SCROLL_DOWN);
                 wrapper.classList.add(CLASS_SCROLL_UP);
             } else {
-                //SCROLL DOWN
+                // SCROLL DOWN
                 classList.remove(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.remove(CLASS_SCROLL_UP);
@@ -88,5 +90,22 @@ class Index extends Component {
         );
     }
 }
+
+Index.propTypes = {
+    screenUtils: PropTypes.shape({
+        device: PropTypes.string
+    }).isRequired,
+    logueado: PropTypes.bool,
+    loginData: PropTypes.shape({
+        subcription: PropTypes.bool,
+        userName: PropTypes.string,
+        goToLoginUrl: PropTypes.func
+    }).isRequired,
+    goToLogout: PropTypes.func.isRequired
+};
+
+Index.defaultProps = {
+    logueado: false
+};
 
 export default withLoginData(WithScreenUtils(Index));
