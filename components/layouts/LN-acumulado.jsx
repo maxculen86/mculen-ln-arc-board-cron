@@ -27,30 +27,8 @@ class LNAcumuladoLayout extends Component {
             <div id="wrapper" className="acu-revista ohlala">
                 <Header />
                 <main>
-                    {/* BANNERS: CABEZAL Y STICKY */}
+                    {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {this.props.children[0]}
-                    <div className="row mod-opening-revista with-hl">
-                        <section className="lay">
-                            <div className="anexo">ANEXO 100%</div>
-                        </section>
-                        <section className="lay">
-                            <div className="com-share">
-                                <a href="https://www.facebook.com/ohlalarevista/" target="_blank" rel="noreferrer noopener"><i class="icon-facebook"></i></a>
-                                <a href="https://twitter.com/RevistaOhlala/" target="_blank" rel="noreferrer noopener"><i class="icon-twitter"></i></a>
-                                <a href="https://www.instagram.com/ohlalarevista/" target="_blank" rel="noreferrer noopener"><i class="icon-instagram"></i></a>
-                            </div>
-                            <div className="logo">
-                                <i className="logo-ohlala"></i>
-                            </div>
-                            <div className="links">
-                                <a className="com-link" href=" ">Cocina healthy</a>
-                                <a className="com-link" href=" ">OHLALÁ! Viaja</a>
-                                <a className="com-link" href=" ">Project planner</a>
-                                <a className="com-link" href=" ">Fábrica OHLALÁ!</a>
-                                <a className="com-link" href=" ">OHLALÁ! Fest</a>
-                            </div>
-                        </section>
-                    </div>
                     <div className="lay highlights">
                         <section className="row-gap-tablet-2 row-gap-deskxl-2">
                             <article className="mod-caja-nota --border w-100-mobile">
@@ -63,7 +41,9 @@ class LNAcumuladoLayout extends Component {
                                     <h2 className="com-title-acu">
                                         <a href="#">Headline- basic - 2-test</a>
                                     </h2>
-                                    <h4 className="com-date">25 de Diciembre de 2019</h4>
+                                    <h4 className="com-date">
+                                        25 de Diciembre de 2019
+                                    </h4>
                                 </div>
                             </article>
                             <article className="mod-caja-nota --border w-100-mobile">
@@ -76,7 +56,9 @@ class LNAcumuladoLayout extends Component {
                                     <h2 className="com-title-acu">
                                         <a href="#">Headline- basic - 2-test</a>
                                     </h2>
-                                    <h4 className="com-date">25 de Diciembre de 2019</h4>
+                                    <h4 className="com-date">
+                                        25 de Diciembre de 2019
+                                    </h4>
                                 </div>
                             </article>
                         </section>
