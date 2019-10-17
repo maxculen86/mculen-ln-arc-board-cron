@@ -14,7 +14,7 @@ function ImagePlaceholder({ href, zoom, children }) {
 }
 
 ImagePlaceholder.propTypes = {
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     zoom: PropTypes.bool,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
@@ -23,6 +23,7 @@ ImagePlaceholder.propTypes = {
 };
 
 ImagePlaceholder.defaultProps = {
+    href: '#',
     zoom: false,
     children: []
 };

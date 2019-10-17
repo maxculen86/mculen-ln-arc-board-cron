@@ -42,8 +42,21 @@ banner.propTypes = {
         sticky: PropTypes.bool,
         background: PropTypes.bool
     }).isRequired,
-    siteProperties: PropTypes.isRequired,
-    isAdmin: PropTypes.bool.isRequired
+    siteProperties: PropTypes.shape({
+        bannerConfig: PropTypes.shape({
+            dfp_id: PropTypes.number.isRequired
+        })
+    }),
+    isAdmin: PropTypes.bool
+};
+
+banner.defaultProps = {
+    isAdmin: false,
+    siteProperties: {
+        bannerConfig: {
+            dfp_id: 0
+        }
+    }
 };
 
 export default Consumer(banner);

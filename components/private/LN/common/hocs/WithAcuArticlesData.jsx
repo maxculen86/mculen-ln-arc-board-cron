@@ -1,10 +1,25 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 
 function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
     return Consumer(
         class extends PureComponent {
+            static get propTypes() {
+                return {
+                    page: PropTypes.number,
+                    globalContent: PropTypes.shape({
+                        type: PropTypes.string.isRequired,
+                        _id: PropTypes.string.isRequired
+                    }).isRequired
+                };
+            }
+
+            static get defaultProps() {
+                return { page: 1 };
+            }
+
             constructor(props) {
                 super(props);
                 const { page } = props;
@@ -74,6 +89,31 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 };
             };
 
+            setOrderAndCountTags = articles => {
+                const tags = articles
+                    .map(article => get(article, 'taxonomy.tags'))
+                    .filter(article => (article ? article.length !== 0 : false))
+                    .reduce((tagsFinal, article) => {
+                        article.map(
+                            art =>
+                                (tagsFinal[art.slug] = {
+                                    count:
+                                        tagsFinal[art.slug] &&
+                                        tagsFinal[art.slug].count
+                                            ? tagsFinal[art.slug].count + 1
+                                            : 1,
+                                    slug: art.slug,
+                                    text: art.text
+                                })
+                        );
+                        return tagsFinal;
+                    }, []);
+
+                return Object.keys(tags)
+                    .sort((a, b) => (tags[a].count < tags[b].count ? 1 : -1))
+                    .map(key => (tags[key] = tags[key]));
+            };
+
             obtenerMasNotas = () => {
                 const { page } = this.state;
                 const { articles } = this.state;
@@ -94,7 +134,9 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
             render() {
                 const { articles, hayMasNotas, loading } = this.state;
                 let articlesArray = articles;
-                const { type, _id } = this.props.globalContent;
+                const {
+                    globalContent: { type, _id }
+                } = this.props;
 
                 if (type === 'story') {
                     articlesArray = articles.filter(article => {
@@ -105,6 +147,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 return (
                     <WrappedArticles
                         articles={articlesArray}
+                        orderAndCountTags={this.setOrderAndCountTags(articles)}
                         obtenerMasNotas={this.obtenerMasNotas}
                         hayMasNotas={hayMasNotas}
                         loading={loading}

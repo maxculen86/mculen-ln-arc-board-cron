@@ -1,21 +1,89 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Consumer from 'fusion:consumer';
+import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
+import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 
 import '../../../../resources/dist/css/ln/components/title.css';
+import '../../../../resources/dist/css/ln/components/tag.css';
 
-function AcumuladoTitle({ globalContent }) {
-    let title = '';
-    if (globalContent.Payload) {
-        const tag = globalContent.Payload.items[0];
-        title = tag.name;
-    }
-    if (globalContent.node_type === 'section') title = globalContent.name;
-    if (globalContent.byline) title = globalContent.byline;
+const ItemSubSection = ({ id, navTitle, website }) => (
+    <li key={id}>
+        <a href={`${id}?_website=${website}`} title={navTitle}>
+            {navTitle}
+        </a>
+    </li>
+);
+
+const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
+    const [withCategory, setWithCategory] = useState('');
+    const [children, setChildren] = useState([]);
+    const [isPrimarySection, setIsPrimarySection] = useState(false);
+    const [title, setTitle] = useState('');
+
+    useEffect(() => {
+        setChildren(globalContent.children);
+
+        /**
+         * TODO: Para fase de 2Arc activar la siguiente funcion
+         * para mostrar tags y seccions 
+         setIsPrimarySection(
+             globalContent &&
+                 globalContent._id &&
+                 globalContent._id.split('/').splice(1).length === 1
+         );
+         if (children && children.length > 0) setWithCategory('with-category');
+         */
+
+        setTitle(() => {
+            const { Payload, node_type, byline, name } = globalContent;
+            if (Payload) return Payload.items[0].name;
+            if (node_type === 'section') return name;
+            if (byline) return byline;
+            return '';
+        });
+    }, [
+        children,
+        globalContent,
+        globalContent.Payload,
+        globalContent._id,
+        globalContent.byline,
+        globalContent.children,
+        globalContent.name,
+        globalContent.node_type
+    ]);
+
     return (
         <div className="com-titleWithfollow">
-            <h1 className="com-title-section-xl">{title}</h1>
+            <div className={withCategory}>
+                <h1 className="com-title-section-xl">{title}</h1>
+                {children && isPrimarySection && (
+                    <ol className="com-category">
+                        {children.map(({ _id, navigation, _website }) => (
+                            <ItemSubSection
+                                id={_id}
+                                navTitle={navigation.nav_title}
+                                website={_website}
+                            />
+                        ))}
+                    </ol>
+                )}
+            </div>
+            {children && orderAndCountTags && isPrimarySection && (
+                <ol className="cont_tags com-secondary-tag">
+                    {orderAndCountTags.map(tag => (
+                        <li key={tag}>
+                            <a
+                                href={`${children[0]._id}/${tag.slug}?_website=${children[0]._website}`}
+                                title={tag.text}
+                            >
+                                {tag.text}
+                            </a>
+                        </li>
+                    ))}
+                </ol>
+            )}
         </div>
     );
-}
+};
 
-export default Consumer(AcumuladoTitle);
+export default WithAcuArticlesData(Consumer(AcumuladoTitle), filter, 'notaM');
