@@ -111,7 +111,8 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
 
                 return Object.keys(tags)
                     .sort((a, b) => (tags[a].count < tags[b].count ? 1 : -1))
-                    .map(key => (tags[key] = tags[key]));
+                    .map(key => (tags[key] = tags[key]))
+                    .slice(0, 10);
             };
 
             obtenerMasNotas = () => {
