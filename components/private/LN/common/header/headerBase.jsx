@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
-export default function HeaderBase(props) {
+const HeaderBase = props => {
     const { id, className, children } = props;
     return (
         <header id={id} className={className}>
@@ -9,4 +10,16 @@ export default function HeaderBase(props) {
             </div>
         </header>
     );
-}
+};
+
+HeaderBase.propTypes = {
+    id: PropTypes.string.isRequired,
+    className: PropTypes.string.isRequired,
+    children: PropTypes.elementType
+};
+
+HeaderBase.defaultProps = {
+    children: `<></>`
+};
+
+export default HeaderBase;

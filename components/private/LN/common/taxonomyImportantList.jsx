@@ -33,7 +33,8 @@ TaxonomyImportantList.propTypes = {
             path: PropTypes.string
         })
     ).isRequired,
-    destacado: PropTypes.boolean.isRequired
+    destacado: PropTypes.boolean.isRequired,
+    type: PropTypes.string.isRequired
 };
 
 export default TaxonomyImportantList;

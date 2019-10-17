@@ -14,7 +14,6 @@ import '../../../../../resources/dist/css/ln/components/link.css';
 import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = props => {
-    console.log('PROPS::::', props.globalContent);
     const { byline, bio_page, image, longBio, twitter } = props.globalContent;
     return (
         <div className="wiki-autor row">

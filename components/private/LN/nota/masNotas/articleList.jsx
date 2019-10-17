@@ -7,7 +7,9 @@ import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 const ArticleList = props => {
     const { articles, border } = props;
     if (!articles) return null;
-    return articles.map(e => <ArticleMain articleData={e} border={border} />);
+    return articles.map(e => (
+        <ArticleMain articleData={e} border={border} key={e._id} />
+    ));
 };
 
 export default withAcuArticlesData(ArticleList, null, 'notaM');

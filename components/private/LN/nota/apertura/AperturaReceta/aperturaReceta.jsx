@@ -14,32 +14,44 @@ const aperturaReceta = props => {
         }
     } = props;
 
+    const primary = taxonomy.primary_section;
+
+    let listSections = [];
+    if (primary) {
+        listSections = taxonomy.sections.filter(x =>
+            x.additional_properties.original.ancestors.default.includes(
+                primary.additional_properties.original.ancestors.default[0]
+            )
+        );
+    }
+
     const hasMultimedia = !!(!!promoItems && promoItems.basic);
 
-    const aperturaConDatos = !!(
-        !!taxonomy &&
-        tags &&
-        promoItems &&
-        promoItems.receta
+    const aperturaVacio = !!(
+        tags.length === 0 &&
+        listSections.length === 0 &&
+        promoItems === undefined
     );
 
     return (
         <>
-            <div
-                className={`row aper-receta w-100 ${
-                    hasMultimedia ? '' : 'sin-foto'
-                }`}
-            >
-                {hasMultimedia ? (
-                    <AperturaConDestacado {...props} />
-                ) : (
-                    <AperturaSinDestacado
-                        tags={tags}
-                        taxonomy={taxonomy}
-                        receta={!!promoItems && promoItems.receta}
-                    />
-                )}
-            </div>
+            {aperturaVacio ? null : (
+                <div
+                    className={`row aper-receta w-100 ${
+                        hasMultimedia ? '' : 'sin-foto'
+                    }`}
+                >
+                    {hasMultimedia ? (
+                        <AperturaConDestacado {...props} />
+                    ) : (
+                        <AperturaSinDestacado
+                            tags={tags}
+                            taxonomy={taxonomy}
+                            receta={!!promoItems && promoItems.receta}
+                        />
+                    )}
+                </div>
+            )}
         </>
     );
 };
