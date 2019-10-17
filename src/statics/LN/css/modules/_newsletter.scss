@@ -32,6 +32,7 @@
     .com-breadcrumb {
         display: block;
         font-size: $px-16;
+        margin-bottom: 0;
         a {
             color: $blanco;
             border-color: $blanco;
@@ -53,6 +54,7 @@
             padding: 3px 6px;
             font-family: $font-arial;
             font-size: $px-12;
+            margin-top: $px-10;
         }
         .com-input {
             border: 1px solid #9d2827;
@@ -104,7 +106,6 @@
 
                 font-size: $font-14;
                 margin-top: $px-40;
-                margin-bottom: 0;
                     a {
                         display: inline-block;
                         margin-bottom: 0;

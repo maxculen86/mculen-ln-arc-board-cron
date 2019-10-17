@@ -22,6 +22,7 @@ const NewLetter = props => {
                     <h2 className="com-title-section-s hlp-marginBottom-10 hlp-marginRight-5">
                         Newsletter
                     </h2>
+
                     <h2 className="com-title-section-m hlp-marginBottom-10">
                         {titulo}
                     </h2>
@@ -29,7 +30,7 @@ const NewLetter = props => {
                         // TODO: Falta validacion del input type="mail" y si va nulo
                         <>
                             <input
-                                className="com-input hlp-marginBottom-30 hlp-marginRight-10"
+                                className="com-input hlp-marginBottom-20 hlp-marginRight-10"
                                 type="text"
                                 placeholder="Ingresá tu e-mail"
                                 onChange={event => {
