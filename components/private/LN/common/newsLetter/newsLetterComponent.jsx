@@ -40,7 +40,16 @@ const NewLetter = props => {
                             />
                             <button
                                 type="button"
-                                onClick={() => setIsSubscribe(!isSubscribe)}
+                                onClick={() => {
+                                    let regex = /\S+@\S+\.\S+/;
+                                    if (regex.test(mail)) {
+                                        console.log(mail + " is valid :)");
+                                        setIsSubscribe(!isSubscribe);
+                                      } else {
+                                        console.log(mail + " is NOT valid :(");
+                                      }
+                                    
+                                }}
                                 className="--btn --bright"
                             >
                                 recibir
@@ -78,7 +87,7 @@ const NewLetter = props => {
                             </label>
                         </>
                     ) : (
-                        <p></p>
+                        <p />
                     )}
                 </div>
                 <div className="col-12 col-tablet-4 col-desksm-3 hlp-paddingHeight-40">
