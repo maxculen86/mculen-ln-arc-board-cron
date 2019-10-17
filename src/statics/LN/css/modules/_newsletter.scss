@@ -14,7 +14,8 @@
             background-image: url('../../img/newsletter-lineas-trama-der.svg');
             background-position: right top;
             background-size: 40%;
-            background-repeat: no-repeat
+            background-repeat: no-repeat;
+            padding-bottom: $px-30;
         }
         &:nth-child(3) {
             padding-top: 0;
@@ -25,16 +26,27 @@
     }
     .com-input {
         width: 100%;
+        + .--btn {
+            display: inline-block;
+        }
+    }
+    .--btn {
+        display: block;
     }
     &.lay-full-width .com-input {
         width: 100%;
     }
     .com-breadcrumb {
         display: block;
-        font-size: $px-16;
+        font-size: $font-16;
+        line-height: $line-16;
+        margin-bottom: 0;
         a {
             color: $blanco;
             border-color: $blanco;
+            &:first-child {
+                color: $blanco;
+            }
         }
     }
     .hlp-line {
@@ -53,12 +65,14 @@
             padding: 3px 6px;
             font-family: $font-arial;
             font-size: $px-12;
+            margin-top: $px-10;
         }
         .com-input {
             border: 1px solid #9d2827;
-            background-image: url('/pf/resources/dist/images/x.svg');
+            background-image: url('../../img/x.svg');
             background-repeat: no-repeat;
             background-position: right 10px center;
+            margin-bottom: $px-10;
             &:after {
                 content: '\e912';
                 font-family: 'LNicons' !important;
@@ -68,7 +82,7 @@
         }
     }
     p.check {
-        background-image: url('/pf/resources/dist/images/check.svg');
+        background-image: url('../../img/check.svg');
         background-repeat: no-repeat;
         text-indent: 30px;
     }
@@ -95,17 +109,13 @@
                 background-position: right top;
                 background-size: 50%;
                 padding: $px-30 $px-20 0;
-                p {
-                    display: none;
-                }
+    
             }
             &:nth-child(3) {
                 padding: 0 $px-20 $px-30;
                 .com-breadcrumb{
-
                 font-size: $font-14;
-                margin-top: $px-40;
-                margin-bottom: 0;
+                margin-top: $px-30;
                     a {
                         display: inline-block;
                         margin-bottom: 0;
@@ -149,6 +159,9 @@
         &.lay-full-width .com-input {
             width: calc(100% - 120px);
         }
+        .--btn {
+            padding: $px-12 $px-30;
+        }
         .hlp-line {
             padding-right: $px-20;
             &:after {
@@ -157,6 +170,7 @@
         }
         .col-12:nth-child(2) {
             background-image: none;
+            padding-bottom: $px-40;
         }
         .col-12:nth-child(3) {
             padding-top: $px-40;
@@ -176,11 +190,11 @@
             background-repeat: no-repeat;
             background-size: 100%;
             &:first-child {
-                background-image: url('/pf/resources/dist/images/newsletter-lineas-trama-izq.svg');
+                background-image: url('../../img/newsletter-lineas-trama-izq.svg');
                 background-position: left bottom;
             }
             &:last-child {
-                background-image: url('/pf/resources/dist/images/newsletter-lineas-trama-der.svg');
+                background-image: url('../../img/newsletter-lineas-trama-der.svg');
                 background-position: right top;
             }
         }

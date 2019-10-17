@@ -20,6 +20,12 @@ export default `
                 ${image}
             }
         }
+        taxonomy {
+            tags {
+                text
+                slug
+            }
+        }
         credits {
             by {
                 name
