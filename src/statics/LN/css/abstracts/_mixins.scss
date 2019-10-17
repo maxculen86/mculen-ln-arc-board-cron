@@ -43,34 +43,35 @@
 }
 
 
-
+/* REVISTAS */
 @mixin revis($logo, $primario) {
-    
-
-  /*.acu article a.figure:before,
-article a.figure:before, */.cont-figure .figure .content-pic:before {
-    content: $logo;
-    color: $primario;
-    opacity: .2;
-}
-.com-tag a {
-    color: $primario;
-    border-color: $primario;
-    &:hover{
-        background: $primario;
-    }
-}
-.com-secondary-tag a,
-.com-secondary-tag a:after,
-[class^="logo-"]:not(.logo-la-nacion),
-[class*=" logo-"] {
-    color: $primario;
-}
-&.fondo-revista,
-.mod-newsletter {
-    background-color: $primario;
-}
-.mod-opening-revista {
-    background: $primario!important;
-}
+  .cont-figure .figure .content-pic:before {
+      content: $logo;
+      color: $primario;
+      opacity: .2;
+      font-size: $font-37;
+  }
+  .row-gap-deskxl-2 .cont-figure .figure .content-pic:before {
+    font-size: $font-80;
+  }
+  .com-tag a {
+      color: $primario;
+      border-color: $primario;
+      &:hover{
+          background: $primario;
+      }
+  }
+  .com-secondary-tag a,
+  .com-secondary-tag a:after,
+  [class^="logo-"]:not(.logo-la-nacion),
+  [class*=" logo-"] {
+      color: $primario;
+  }
+  &.fondo-revista,
+  .mod-newsletter {
+      background-color: $primario;
+  }
+  .mod-opening-revista {
+      background: $primario!important;
+  }
 }
