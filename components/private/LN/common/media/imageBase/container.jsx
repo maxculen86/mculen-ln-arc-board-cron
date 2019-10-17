@@ -23,7 +23,7 @@ imageArticle.propTypes = {
     image: PropTypes.shape({
         type: PropTypes.oneOf(['image']),
         url: PropTypes.string,
-        resized_urls: PropTypes.objectOf(PropTypes.string).isRequired
+        resized_urls: PropTypes.array.isRequired
     }).isRequired,
     altText: PropTypes.string,
     zoom: PropTypes.bool,

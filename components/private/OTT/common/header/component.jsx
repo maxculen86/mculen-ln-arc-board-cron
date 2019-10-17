@@ -45,14 +45,7 @@ class HeaderComponent extends PureComponent {
                             alt="lnmas.com.ar"
                             title="lnmas.com.ar"
                         >
-                            <img
-                                className="a"
-                                src={this.props.deployment(
-                                    `${
-                                        this.props.contextPath
-                                    }/resources/OTT/styles-grid/img/logo-lnmas.png`
-                                )}
-                            />
+                            LN+
                         </a>
                         <HamburgerButton className={'header__hamburguer'}>
                             ☰

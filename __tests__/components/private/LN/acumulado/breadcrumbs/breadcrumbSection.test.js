@@ -12,7 +12,7 @@ jest.mock(
 );
 
 import { mount } from 'enzyme';
-import BreadcrumbSection from '../../../../../../components/private/LN/acumulado/breadcrumbs/breadcrumbSection';
+import BreadcrumbSection from '../../../../../../components/private/LN/acumulado/breadcrumb/breadcrumbSection';
 
 describe('components - private - LN - acumulado - breadcrumbs - breadcrumbSection', () => {
     const globalContent = {

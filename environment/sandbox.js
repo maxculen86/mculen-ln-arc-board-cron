@@ -7,5 +7,7 @@ export default {
     SitioSeguroRegistracion: 'https://ingresar.lanacion.com.ar',
     LoginUrl: 'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback=',
     CookieExpiration: '8640000000',
-    DominioCookie: '.lanacion.com.ar'
+    DominioCookie: '.lanacion.com.ar',
+    RANKING_URL:
+        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/arcio/most-read/'
 };

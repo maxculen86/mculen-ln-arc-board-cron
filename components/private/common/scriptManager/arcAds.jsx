@@ -1,5 +1,13 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
+import PropTypes from 'fusion:prop-types';
 
-export default () => {
-    return <script src="/pf/resources/common/js/arcAds.js?d=45" />;
+const arcAds = ({ deployment }) => {
+    return <script src={deployment(`/pf/resources/common/js/arcAds.js`)} />;
 };
+
+arcAds.propTypes = {
+    deployment: PropTypes.func.isRequired
+};
+
+export default Consumer(arcAds);

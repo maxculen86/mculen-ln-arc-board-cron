@@ -32,10 +32,17 @@ media.propTypes = {
     mediaData: PropTypes.shape({
         type: PropTypes.string,
         _id: PropTypes.string
-    }).isRequired,
+    }),
     colNumber: PropTypes.number,
     zoom: PropTypes.bool,
     href: PropTypes.string
+};
+
+media.defaultProps = {
+    colNumber: null,
+    zoom: false,
+    href: null,
+    mediaData: null
 };
 
 export default media;

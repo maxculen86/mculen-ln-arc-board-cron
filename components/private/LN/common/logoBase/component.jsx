@@ -4,9 +4,15 @@ import PropTypes from 'fusion:prop-types';
 const logoBaseComponent = props => {
     const { path, styledNamed } = props;
     return (
-        <a href={path}>
-            <i className={`logo-${styledNamed}`} />
-        </a>
+        <>
+            {path ? (
+                <a href={path}>
+                    <i className={`logo-${styledNamed}`} />
+                </a>
+            ) : (
+                <i className={`logo-${styledNamed}`} />
+            )}
+        </>
     );
 };
 

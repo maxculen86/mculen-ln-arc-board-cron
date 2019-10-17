@@ -70,6 +70,12 @@ header.sticky .header__logo img {
 .header__logo {
     margin-right: 20px;
     z-index: 2;
+    background: url(../img/logo-lnmas.png) no-repeat;
+    background-size: 55px;
+    text-indent: -9999px;
+    height: 38px;
+    width: 65px;
+    transition: all 0.2s ease;
 }
 .header__logo img {
     height: 38px;

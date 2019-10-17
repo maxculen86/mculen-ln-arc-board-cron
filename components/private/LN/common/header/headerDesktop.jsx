@@ -13,7 +13,10 @@ const { SitioSeguroRegistracion } = API_ENV || {
 };
 
 const ItemAnchor = ({ url, text }) => {
-    const callURL = url => (location.href = url);
+    const callURL = address => {
+        // eslint-disable-next-line no-restricted-globals
+        location.href = address;
+    };
 
     return (
         <li>
@@ -22,6 +25,11 @@ const ItemAnchor = ({ url, text }) => {
             </a>
         </li>
     );
+};
+
+ItemAnchor.propTypes = {
+    url: PropTypes.string.isRequired,
+    text: PropTypes.text.isRequired
 };
 
 const enlaces = [
@@ -129,16 +137,19 @@ HeaderDesktop.propTypes = {
     logueado: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         subscription: PropTypes.bool,
-        userName: PropTypes.string
+        userName: PropTypes.string,
+        goToLoginUrl: PropTypes.func
     }),
-    goToLogout: PropTypes.func.isRequired
+    goToLogout: PropTypes.func
 };
 
 HeaderDesktop.defaultProps = {
     loginData: PropTypes.shape({
         subscription: false,
-        userName: ''
-    })
+        userName: '',
+        goToLoginUrl: null
+    }),
+    goToLogout: null
 };
 
 export default HeaderDesktop;

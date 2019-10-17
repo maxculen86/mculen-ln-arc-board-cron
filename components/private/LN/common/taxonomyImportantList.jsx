@@ -6,7 +6,7 @@ import '../../../../resources/dist/css/ln/components/tag.css';
 /**
  * Renderiza elementos relacionados destacados (como categorias o tags)
  */
-const TaxonomyImportantList = ({ list, destacado }) => {
+const TaxonomyImportantList = ({ list, destacado, type }) => {
     return (
         <div
             className={`${
@@ -14,7 +14,11 @@ const TaxonomyImportantList = ({ list, destacado }) => {
             }`}
         >
             {list.map(v => (
-                <a className="com-item" key={v.text} href={`/tema/${v.path}`}>
+                <a
+                    className="com-item"
+                    key={v.text}
+                    href={type === 'tag' ? `/tema/${v.path}` : `${v.path}`}
+                >
                     {v.text}
                 </a>
             ))}
@@ -29,7 +33,8 @@ TaxonomyImportantList.propTypes = {
             path: PropTypes.string
         })
     ).isRequired,
-    destacado: PropTypes.boolean.isRequired
+    destacado: PropTypes.boolean.isRequired,
+    type: PropTypes.string.isRequired
 };
 
 export default TaxonomyImportantList;
