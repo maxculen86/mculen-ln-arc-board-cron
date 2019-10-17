@@ -14,7 +14,8 @@
             background-image: url('../../img/newsletter-lineas-trama-der.svg');
             background-position: right top;
             background-size: 40%;
-            background-repeat: no-repeat
+            background-repeat: no-repeat;
+            padding-bottom: $px-30;
         }
         &:nth-child(3) {
             padding-top: 0;
@@ -31,11 +32,15 @@
     }
     .com-breadcrumb {
         display: block;
-        font-size: $px-16;
+        font-size: $font-16;
+        line-height: $line-16;
         margin-bottom: 0;
         a {
             color: $blanco;
             border-color: $blanco;
+            &:first-child {
+                color: $blanco;
+            }
         }
     }
     .hlp-line {
@@ -160,6 +165,7 @@
         }
         .col-12:nth-child(2) {
             background-image: none;
+            padding-bottom: $px-40;
         }
         .col-12:nth-child(3) {
             padding-top: $px-40;
