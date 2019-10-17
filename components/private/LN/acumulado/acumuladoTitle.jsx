@@ -22,13 +22,17 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
 
     useEffect(() => {
         setChildren(globalContent.children);
-        setIsPrimarySection(
-            globalContent &&
-                globalContent._id &&
-                globalContent._id.split('/').splice(1).length === 1
-        );
 
-        if (children && children.length > 0) setWithCategory('with-category');
+        /**
+         * TODO: Para fase de 2Arc activar la siguiente funcion
+         * para mostrar tags y seccions 
+         setIsPrimarySection(
+             globalContent &&
+                 globalContent._id &&
+                 globalContent._id.split('/').splice(1).length === 1
+         );
+         if (children && children.length > 0) setWithCategory('with-category');
+         */
 
         setTitle(() => {
             const { Payload, node_type, byline, name } = globalContent;
