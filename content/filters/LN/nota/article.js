@@ -97,6 +97,7 @@ export default `
     content_elements {
         _id
         type
+        level
         content
         ${image}
         ${customReceta}
