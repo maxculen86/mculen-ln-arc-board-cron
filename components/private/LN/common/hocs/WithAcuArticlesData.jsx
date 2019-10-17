@@ -79,7 +79,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
             setOrderAndCountTags = articles => {
                 const tags = articles
                     .map(article => get(article, 'taxonomy.tags'))
-                    .filter(article => article.length !== 0)
+                    .filter(article => (article ? article.length !== 0 : false))
                     .reduce((tagsFinal, article) => {
                         article.map(
                             art =>
