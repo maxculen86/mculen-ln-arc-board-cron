@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 import '../../../../../resources/dist/css/ln/components/button.css';
 
-export default function Button({ onClickHandler, name, loading, loadingIcon }) {
+const Button = ({ onClickHandler, name, loading, loadingIcon }) => {
     const disabledProp = {};
     if (loading) disabledProp.disabled = true;
     return (
@@ -17,4 +18,21 @@ export default function Button({ onClickHandler, name, loading, loadingIcon }) {
             </button>
         </div>
     );
-}
+};
+
+Button.propTypes = {
+    name: PropTypes.string.isRequired,
+    loading: PropTypes.boolean,
+    loadingIcon: PropTypes.oneOf([
+        PropTypes.node,
+        PropTypes.arrayOf(PropTypes.node)
+    ]),
+    onClickHandler: PropTypes.func.isRequired
+};
+
+Button.defaultProps = {
+    loading: false,
+    loadingIcon: []
+};
+
+export default Button;
