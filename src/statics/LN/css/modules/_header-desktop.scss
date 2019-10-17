@@ -99,56 +99,59 @@
 
         //active modo DARK-------
         &.--dark, .acu-revista & {
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
-            .header__left{      
-                .com-hamburger{
-                    &__bar{
-                        background-color: #fff;
-                    }
-                    &:before{
-                        color:#fff;
-                    }
-                }
-                .com-search{
-                    &__input{
-                        color:#fff;
-                        &::placeholder { 
-                            color: $gris3; 
+            &:not(.--scrollUp) {
+                background: rgba(0, 0, 0, 0.5);
+                border: none;
+                .header__left{      
+                    .com-hamburger{
+                        &__bar{
+                            background-color: #fff;
                         }
-                    }
-                    &__submit{
-                        background: #fff;
-                        color:$link;
-                    }
-                    .icon-search{
-                        color:#fff;
-                    }
-                }
-                
-            }
-            .header__middle{
-                .logo-la-nacion{
-                    color:#fff;
-                }
-            }
-            .header__right{
-                .com-usuario{
-                    &__name{
-                        color:#fff;
                         &:before{
-                            border-top: 2px solid #fff;
-                            border-left: 2px solid #fff;
+                            color:#fff;
                         }
                     }
-                    &__valueSuscrib{
-                        color:$gris3;
+                    .com-search{
+                        &__input{
+                            color:#fff;
+                            &::placeholder { 
+                                color: $gris3; 
+                            }
+                        }
+                        &__submit{
+                            background: #fff;
+                            color:$link;
+                        }
+                        .icon-search{
+                            color:#fff;
+                        }
                     }
                 }
-                .--btn.--secondary{
-                    background-color: transparent;
-                    border: 1px solid #fff;
-                    color: #fff;
+                    
+            
+                .header__middle{
+                    .logo-la-nacion{
+                        color:#fff;
+                    }
+                }
+                .header__right{
+                    .com-usuario{
+                        &__name{
+                            color:#fff;
+                            &:before{
+                                border-top: 2px solid #fff;
+                                border-left: 2px solid #fff;
+                            }
+                        }
+                        &__valueSuscrib{
+                            color:$gris3;
+                        }
+                    }
+                    .--btn.--secondary{
+                        background-color: transparent;
+                        border: 1px solid #fff;
+                        color: #fff;
+                    }
                 }
             }
         }

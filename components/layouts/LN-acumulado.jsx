@@ -39,10 +39,10 @@ class LNAcumuladoLayout extends Component {
                                 <a href="https://twitter.com/RevistaOhlala/" target="_blank" rel="noreferrer noopener"><i class="icon-twitter"></i></a>
                                 <a href="https://www.instagram.com/ohlalarevista/" target="_blank" rel="noreferrer noopener"><i class="icon-instagram"></i></a>
                             </div>
-                            <div className="logo hlp-text-center">
+                            <div className="logo">
                                 <i className="logo-ohlala"></i>
                             </div>
-                            <div className="hlp-text-center">
+                            <div className="links">
                                 <a className="com-link" href=" ">Cocina healthy</a>
                                 <a className="com-link" href=" ">OHLALÁ! Viaja</a>
                                 <a className="com-link" href=" ">Project planner</a>
@@ -51,10 +51,34 @@ class LNAcumuladoLayout extends Component {
                             </div>
                         </section>
                     </div>
-                    <div className="lay">
-                        <section class="row-gap-tablet-2 row-gap-deskxl-2 hlp-degrade">
-                            <article class="mod-caja-nota  w-100-mobile" data-section="CuerpoAcu" data-event="LinkClick"><section class="cont-figure"><a class="figure"><picture class="content-pic picture "></picture></a></section><div class="mod-caja-nota__descrip"><h2 class="com-title-acu"><a>Headline- basic - 2-test</a></h2><h4 class="com-date">25 de Diciembre de 2019</h4></div></article>
-                            <article class="mod-caja-nota  w-100-mobile" data-section="CuerpoAcu" data-event="LinkClick"><section class="cont-figure"><a class="figure"><picture class="content-pic picture "></picture></a></section><div class="mod-caja-nota__descrip"><h2 class="com-title-acu"><a>Headline- basic - 2-test</a></h2><h4 class="com-date">25 de Diciembre de 2019</h4></div></article>
+                    <div className="lay highlights">
+                        <section className="row-gap-tablet-2 row-gap-deskxl-2">
+                            <article className="mod-caja-nota --border w-100-mobile">
+                                <section className="cont-figure">
+                                    <a className="figure">
+                                        <picture className="content-pic picture"></picture>
+                                    </a>
+                                </section>
+                                <div className="mod-caja-nota__descrip">
+                                    <h2 className="com-title-acu">
+                                        <a href="#">Headline- basic - 2-test</a>
+                                    </h2>
+                                    <h4 className="com-date">25 de Diciembre de 2019</h4>
+                                </div>
+                            </article>
+                            <article className="mod-caja-nota --border w-100-mobile">
+                                <section className="cont-figure">
+                                    <a className="figure">
+                                        <picture className="content-pic picture"></picture>
+                                    </a>
+                                </section>
+                                <div className="mod-caja-nota__descrip">
+                                    <h2 className="com-title-acu">
+                                        <a href="#">Headline- basic - 2-test</a>
+                                    </h2>
+                                    <h4 className="com-date">25 de Diciembre de 2019</h4>
+                                </div>
+                            </article>
                         </section>
                     </div>
 
@@ -65,6 +89,7 @@ class LNAcumuladoLayout extends Component {
                                 {this.props.children[1]}
                             </div>
                             <div className="row">
+                                <div className="anexo">ANEXO 100%</div>
                                 {/* LUGAR PARA UN ANEXO Y TITULO */}
                                 {this.props.children[2]}
                             </div>

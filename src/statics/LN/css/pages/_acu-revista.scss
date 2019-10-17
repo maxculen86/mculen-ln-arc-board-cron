@@ -1,6 +1,4 @@
 @import '../abstracts/variables';
-@import '../base/ohlala';
-@import '../base/brando';
 
 .fondo-revista {
     position: absolute;
@@ -28,31 +26,64 @@
         padding-top: 256px;
         margin-bottom:-200px;
         padding-bottom: 200px;
-
         position: relative;
+
         [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
             color: $blanco;
-            font-size: 85px;
+            font-size: $font-40;
         }
+
+        
+
         .com-link {
             color: $blanco;
         }
-        .anexo{
-            height: 100px;
-            background-color:#bbdefb;
-            font-size: 20px;
-            line-height:100px;
-            text-align:center;
-            margin-bottom: 20px;
+        .com-link {
+            font-size: $font-17;
+            font-family: "SuecaSlab", "Georgia", "serif";
+            font-weight: 700;
+            margin-right: $px-40;
+            display: inline-block;
         }
-        .hlp-text-center {
-            margin-bottom: $px-40;
+
+        .logo, .links {
+            margin-bottom: $px-20;
         }
+        .links { display: none;}
         .com-share {
             float: right;
-            a i {
-                color: $blanco!important;
+            a {
+                margin-left: $px-10;
+                i {
+                    color: $blanco!important;
+                }
             }
         }
+        @media (min-width: 1023px) {
+            [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
+                font-size: $font-85;
+            }
+            .logo, .links {
+                display: block;
+                text-align: center;
+                margin-bottom: $px-40;
+            }
+            
+        }
+
     }
+    .highlights {
+        margin-bottom: $px-40;
+    }
+}
+
+.anexo{
+    display: block;
+    min-height: 100px;
+    width: 100%;
+    background-color:#bbdefb;
+    font-size: 20px;
+    line-height:100px;
+    text-align:center;
+    margin-bottom: 20px;
 }
