@@ -1,10 +1,25 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 
 function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
     return Consumer(
         class extends PureComponent {
+            static get propTypes() {
+                return {
+                    page: PropTypes.number,
+                    globalContent: PropTypes.shape({
+                        type: PropTypes.string.isRequired,
+                        _id: PropTypes.string.isRequired
+                    }).isRequired
+                };
+            }
+
+            static get defaultProps() {
+                return { page: 1 };
+            }
+
             constructor(props) {
                 super(props);
                 const { page } = props;
@@ -94,7 +109,9 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
             render() {
                 const { articles, hayMasNotas, loading } = this.state;
                 let articlesArray = articles;
-                const { type, _id } = this.props.globalContent;
+                const {
+                    globalContent: { type, _id }
+                } = this.props;
 
                 if (type === 'story') {
                     articlesArray = articles.filter(article => {
