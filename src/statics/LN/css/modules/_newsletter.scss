@@ -26,6 +26,12 @@
     }
     .com-input {
         width: 100%;
+        + .--btn {
+            display: inline-block;
+        }
+    }
+    .--btn {
+        display: block;
     }
     &.lay-full-width .com-input {
         width: 100%;
@@ -108,9 +114,8 @@
             &:nth-child(3) {
                 padding: 0 $px-20 $px-30;
                 .com-breadcrumb{
-
                 font-size: $font-14;
-                margin-top: $px-40;
+                margin-top: $px-30;
                     a {
                         display: inline-block;
                         margin-bottom: 0;
