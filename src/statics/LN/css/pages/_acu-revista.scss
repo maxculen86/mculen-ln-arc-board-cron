@@ -19,14 +19,19 @@
         position: relative;
     }
     .mod-opening-revista {
+        position: relative;
         background: #006998;
+        margin-bottom: $px-20;
+        
         margin-top: -85px;
         padding-top: 85px;
         margin-top: -256px;
         padding-top: 256px;
-        margin-bottom:-200px;
-        padding-bottom: 200px;
-        position: relative;
+
+        &.with-hl{
+            margin-bottom:-200px;
+            padding-bottom: 200px;
+        }
 
         [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
             color: $blanco;

@@ -29,7 +29,7 @@ class LNAcumuladoLayout extends Component {
                 <main>
                     {/* BANNERS: CABEZAL Y STICKY */}
                     {this.props.children[0]}
-                    <div className="row mod-opening-revista">
+                    <div className="row mod-opening-revista with-hl">
                         <section className="lay">
                             <div className="anexo">ANEXO 100%</div>
                         </section>
