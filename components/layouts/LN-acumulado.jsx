@@ -29,7 +29,7 @@ class LNAcumuladoLayout extends Component {
                 <main>
                     {/* BANNERS: CABEZAL Y STICKY */}
                     {this.props.children[0]}
-                    <div className="row mod-opening-revista with-hl">
+                    <div className="row mod-opening-revista -with-hl">
                         {/* ACÁ PONDRÍA LOS BANNERS: CABEZAL Y STICKY */}
                         <section className="lay">
                             <div className="com-anexo">ANEXO 100%</div>
@@ -41,7 +41,7 @@ class LNAcumuladoLayout extends Component {
                                 <a href="https://www.instagram.com/ohlalarevista/" target="_blank" rel="noreferrer noopener"><i class="icon-instagram"></i></a>
                             </div>
                             <div className="logo">
-                                <i className="logo-ohlala"></i>
+                                <i className="logo-revista"></i>
                             </div>
                             <div className="links">
                                 <a className="com-link" href=" ">Cocina healthy</a>
@@ -52,7 +52,8 @@ class LNAcumuladoLayout extends Component {
                             </div>
                         </section>
                     </div>
-                    <div className="lay highlights">
+                    <div className="row highlights">
+                        <div className="lay">
                         <section className="row-gap-tablet-2 row-gap-deskxl-2">
                             <article className="mod-caja-nota --border w-100-mobile">
                                 <section className="cont-figure">
@@ -82,7 +83,7 @@ class LNAcumuladoLayout extends Component {
                             </article>
                         </section>
                     </div>
-
+                    </div>
                     <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">

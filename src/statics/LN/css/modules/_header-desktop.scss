@@ -98,7 +98,7 @@
         }
 
         //active modo DARK-------
-        &.--dark, .acu-revista & {
+        &.--dark, .acu-revista &, .--hlp-transparent &  {
             &:not(.--scrollUp) {
                 background: rgba(0, 0, 0, 0.5);
                 border: none;

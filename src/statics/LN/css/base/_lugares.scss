@@ -2,7 +2,10 @@
 @import '../abstracts/mixins';
 
 .lugares {
-    $primario: $lugares;
+    $primario: $blanco;
     $logo: $logo-lugares;
     @include revis($logo, $primario);
+    .cont-figure .figure .content-pic:before, &.acu-revista .mod-opening-revista i.logo-revista, .mod-opening-revista .com-link, &.acu-revista .mod-opening-revista .com-share a i {
+        color: $negro!important;
+    }
 }
