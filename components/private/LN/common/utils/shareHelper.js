@@ -27,14 +27,16 @@ function popUpRedSocial(url) {
 //COMPARTIR EN NOTA ----------------------------------------------------------------------
 export function popUpCompartirNotaFB(notaId, dominio, titulo) {
     if (notaId.length > 0) {
-        FB.ui(
-            {
-                method: 'share',
-                mobile_iframe: true,
-                href: `${dominio}${notaId}`
-            },
-            function(response) {}
-        );
+        if (typeof FB !== 'undefined') {
+            FB.ui(
+                {
+                    method: 'share',
+                    mobile_iframe: true,
+                    href: `${dominio}${notaId}`
+                },
+                function(response) {}
+            );
+        }
         //popUpRedSocial(`//www.facebook.com/sharer.php?m2w&s=100&p[url]=${dominio}${notaId}`);
     } else {
         window.open('https://www.facebook.com/lanacion', '_blank');

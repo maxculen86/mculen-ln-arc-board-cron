@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Share Matches snapshot 1`] = `
+<div
+  class="com-share"
+  id="v-share"
+>
+  <div
+    class="share-left"
+  >
+    <button
+      class="icon-facebook"
+      type="button"
+    />
+    <button
+      class="icon-twitter"
+      type="button"
+    />
+    <button
+      class="icon-whatsapp"
+      id="whatsAppShareDesktop"
+      type="button"
+    />
+  </div>
+  <div
+    class="share-right"
+  >
+    <button
+      class="icon-mail"
+      type="button"
+    />
+    <button
+      class="icon-comment"
+      type="button"
+    />
+    <label
+      for=""
+    >
+      145
+    </label>
+  </div>
+</div>
+`;
