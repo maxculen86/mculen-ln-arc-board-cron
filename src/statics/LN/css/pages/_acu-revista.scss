@@ -35,7 +35,7 @@
 
         [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
             color: $blanco;
-            font-size: $font-40;
+            font-size: $font-33;
         }
 
         
@@ -64,6 +64,11 @@
                 }
             }
         }
+        @media (min-width: 768px) {
+            [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
+                font-size: $font-52;
+            }            
+        }
         @media (min-width: 1023px) {
             [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
                 font-size: $font-85;
@@ -82,7 +87,7 @@
     }
 }
 
-.anexo{
+.com-anexo{
     display: block;
     min-height: 100px;
     width: 100%;
