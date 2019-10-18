@@ -22,9 +22,40 @@ const NewLetter = props => {
                     <h2 className="com-title-section-s hlp-marginBottom-10 hlp-marginRight-5">
                         Newsletter
                     </h2>
+
                     <h2 className="com-title-section-m hlp-marginBottom-10">
                         {titulo}
                     </h2>
+                    {logueado ? null : isSubscribe ? null : (
+                        // TODO: Falta validacion del input type="mail" y si va nulo
+                        <>
+                            <input
+                                className="com-input hlp-marginBottom-20 hlp-marginRight-10"
+                                type="text"
+                                placeholder="Ingresá tu e-mail"
+                                onChange={event => {
+                                    setMail(event.target.value);
+                                }}
+                                value={mail}
+                            />
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    let regex = /\S+@\S+\.\S+/;
+                                    if (regex.test(mail)) {
+                                        console.log(mail + " is valid :)");
+                                        setIsSubscribe(!isSubscribe);
+                                      } else {
+                                        console.log(mail + " is NOT valid :(");
+                                      }
+                                    
+                                }}
+                                className="--btn --bright"
+                            >
+                                recibir
+                            </button>
+                        </>
+                    )}
                     {/* eslint-disable-next-line no-nested-ternary */}
                     {logueado ? (
                         isSubscribe ? (
@@ -56,36 +87,11 @@ const NewLetter = props => {
                             </label>
                         </>
                     ) : (
-                        <p>
-                            Los temas principales de cada jornada
-                            <br />
-                            seleccionados por los editores de LA NACION
-                        </p>
+                        <p />
                     )}
                 </div>
                 <div className="col-12 col-tablet-4 col-desksm-3 hlp-paddingHeight-40">
                     {/* eslint-disable-next-line no-nested-ternary */}
-                    {logueado ? null : isSubscribe ? null : (
-                        // TODO: Falta validacion del input type="mail" y si va nulo
-                        <>
-                            <input
-                                className="com-input hlp-marginBottom-30 hlp-marginRight-10"
-                                type="text"
-                                placeholder="Ingresá tu e-mail"
-                                onChange={event => {
-                                    setMail(event.target.value);
-                                }}
-                                value={mail}
-                            />
-                            <button
-                                type="button"
-                                onClick={() => setIsSubscribe(!isSubscribe)}
-                                className="--btn --bright"
-                            >
-                                recibir
-                            </button>
-                        </>
-                    )}
                     {isSubscribe ? null : (
                         <div className="com-breadcrumb">
                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

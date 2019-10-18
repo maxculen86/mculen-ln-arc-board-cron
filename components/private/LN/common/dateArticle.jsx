@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import '../../../../resources/dist/css/ln/components/date.css';
 
 const MONTHS = [
@@ -15,7 +16,8 @@ const MONTHS = [
     'Noviembre',
     'Diciembre'
 ];
-export default function DateArticle({ display_date, hasTime }) {
+
+function DateArticle({ display_date, hasTime }) {
     const date = new Date(display_date);
     return (
         <h4 className="com-date">
@@ -26,3 +28,14 @@ export default function DateArticle({ display_date, hasTime }) {
         </h4>
     );
 }
+
+DateArticle.propTypes = {
+    display_date: PropTypes.string.isRequired,
+    hasTime: PropTypes.bool
+};
+
+DateArticle.defaultProps = {
+    hasTime: false
+};
+
+export default DateArticle;

@@ -1,6 +1,6 @@
 {
     "name": "@ln/app",
-    "version": "0.2.0-r20191016",
+    "version": "0.2.0-r20191018",
     "description": "Arc+React App - LN - OTT",
     "private": true,
     "main": "index.js",

@@ -23,11 +23,15 @@ const { LoginUrl } =
 function withLoginData(WrappedComponent) {
     return class withAuthentication extends React.Component {
         static get propTypes() {
-            return { mockApi: PropTypes.func };
+            return {
+                mockApi: PropTypes.func
+            };
         }
 
         static get defaultProps() {
-            return { mockApi: undefined };
+            return {
+                mockApi: undefined
+            };
         }
 
         constructor(props) {
@@ -130,19 +134,19 @@ function withLoginData(WrappedComponent) {
 
             if (getCookie('token'))
                 apiIngresar.getMe().then(res => setUserData(res));
+
+            return true;
         };
 
         reMeHandler = (res, token, xvalue) => {
             switch (res.code) {
                 case '0000':
-                    const { Usuario } = JSON.parse(res.response) || {};
-
                     eraseCookie('token');
                     eraseCookie('xvalue');
 
                     setCookie('token', token);
                     setCookie('xvalue', xvalue);
-                    this.setupCookies(Usuario);
+                    this.setupCookies(JSON.parse(res.response) || {});
                     break;
                 case '0001':
                     /**
@@ -329,7 +333,7 @@ function withLoginData(WrappedComponent) {
                 newDate = time.replace('12', '00');
             }
             if (time.indexOf('p.m.') !== -1 && hours < 12) {
-                newDate = time.replace(hours, parseInt(hours) + 12);
+                newDate = time.replace(hours, parseInt(hours, 10) + 12);
             }
 
             return newDate.replace(/(a.m.|p.m.)/, '');
