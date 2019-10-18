@@ -12,19 +12,23 @@ const {
     DiccionarioCookiesAGuardar
 } = useCookie();
 
-const { LoginUrl } = API_ENV || {
-    LoginUrl: 'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback='
-};
+const { LoginUrl } =
+    ['array', 'object'].indexOf(typeof API_ENV) > 0
+        ? API_ENV
+        : {
+              LoginUrl:
+                  'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback='
+          };
 
 function withLoginData(WrappedComponent) {
     return class withAuthentication extends React.Component {
-        static propTypes = {
-            mockApi: PropTypes.func
-        };
+        static get propTypes() {
+            return { mockApi: PropTypes.func };
+        }
 
-        static defaultProps = {
-            mockApi: undefined
-        };
+        static get defaultProps() {
+            return { mockApi: undefined };
+        }
 
         constructor(props) {
             super(props);
@@ -214,9 +218,12 @@ function withLoginData(WrappedComponent) {
 
             try {
                 let result = true;
-                const { ReloginValidation } = API_ENV || {
-                    ReloginValidation: 8121600000
-                };
+                const { ReloginValidation } =
+                    ['array', 'object'].indexOf(typeof API_ENV) > 0
+                        ? API_ENV
+                        : {
+                              ReloginValidation: 8121600000
+                          };
 
                 // Se parsea cookie syncLfLN para que no tenga am/pm .
                 // Convirtiendo la hora en formato de 24hrs y no de 12hrs .

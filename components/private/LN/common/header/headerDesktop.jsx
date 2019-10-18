@@ -139,17 +139,8 @@ HeaderDesktop.propTypes = {
         subscription: PropTypes.bool,
         userName: PropTypes.string,
         goToLoginUrl: PropTypes.func
-    }),
-    goToLogout: PropTypes.func
-};
-
-HeaderDesktop.defaultProps = {
-    loginData: PropTypes.shape({
-        subscription: false,
-        userName: '',
-        goToLoginUrl: null
-    }),
-    goToLogout: null
+    }).isRequired,
+    goToLogout: PropTypes.func.isRequired
 };
 
 export default HeaderDesktop;
