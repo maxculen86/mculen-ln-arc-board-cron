@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import TitleAcu from '../titles/titleAcu';
 
 import '../../../../../resources/dist/css/ln/modules/caja-nota.css';
 
-// TODO: test pendiente. PorpTypes pendiente
-export default ({
+// TODO: test pendiente
+const ArticleBase = ({
     extraClasses,
-    articleData: { headlines, website_url, label },
+    articleData: { headlines, website_url: websiteUrl, label },
     mediaComponent,
     children,
     border,
@@ -29,10 +30,50 @@ export default ({
                 <TitleAcu
                     headlines={headlines}
                     volanta={volanta}
-                    href={website_url}
+                    href={websiteUrl}
                 />
                 {children}
             </div>
         </article>
     );
 };
+
+ArticleBase.propTypes = {
+    extraClasses: PropTypes.string,
+    articleData: PropTypes.shape({
+        headlines: PropTypes.shape({
+            basic: PropTypes.string
+        }),
+        website_url: PropTypes.string,
+        label: PropTypes.shape({
+            volanta: PropTypes.shape({
+                text: PropTypes.string
+            })
+        })
+    }),
+    mediaComponent: PropTypes.node,
+    children: PropTypes.node,
+    border: PropTypes.bool,
+    dataSection: PropTypes.string
+};
+
+ArticleBase.defaultProps = {
+    extraClasses: '',
+    articleData: {
+        headlines: {
+            basic: ''
+        },
+        website_url: undefined,
+        label: {
+            volanta: {
+                text: undefined
+            }
+        }
+    },
+    mediaComponent: <></>,
+    children: <></>,
+    border: false,
+    dataSection: ''
+};
+
+export default ArticleBase;

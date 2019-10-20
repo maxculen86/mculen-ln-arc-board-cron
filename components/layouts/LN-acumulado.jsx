@@ -10,7 +10,7 @@ import '../../resources/dist/css/ln/pages/acu.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 
-import '../../resources/dist/css/ln/pages/acu-revista.css';
+// import '../../resources/dist/css/ln/pages/acu-revista.css';
 
 const layoutItems = [
     'Pre-Apertura',
@@ -23,68 +23,74 @@ const layoutItems = [
 
 class LNAcumuladoLayout extends Component {
     render() {
+        const { children } = this.props;
         return (
             <div id="wrapper" className="acu-revista ohlala">
                 <Header />
                 <main>
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
-                    {this.props.children[0]}
-                    <div className="lay highlights">
-                        <section className="row-gap-tablet-2 row-gap-deskxl-2">
-                            <article className="mod-caja-nota --border w-100-mobile">
-                                <section className="cont-figure">
-                                    <a className="figure">
-                                        <picture className="content-pic picture"></picture>
-                                    </a>
-                                </section>
-                                <div className="mod-caja-nota__descrip">
-                                    <h2 className="com-title-acu">
-                                        <a href="#">Headline- basic - 2-test</a>
-                                    </h2>
-                                    <h4 className="com-date">
-                                        25 de Diciembre de 2019
-                                    </h4>
-                                </div>
-                            </article>
-                            <article className="mod-caja-nota --border w-100-mobile">
-                                <section className="cont-figure">
-                                    <a className="figure">
-                                        <picture className="content-pic picture"></picture>
-                                    </a>
-                                </section>
-                                <div className="mod-caja-nota__descrip">
-                                    <h2 className="com-title-acu">
-                                        <a href="#">Headline- basic - 2-test</a>
-                                    </h2>
-                                    <h4 className="com-date">
-                                        25 de Diciembre de 2019
-                                    </h4>
-                                </div>
-                            </article>
-                        </section>
+                    {children[0]}
+                    <div className="row highlights">
+                        <div className="lay">
+                            <section className="row-gap-tablet-2 row-gap-deskxl-2">
+                                <article className="mod-caja-nota --border w-100-mobile">
+                                    <section className="cont-figure">
+                                        <a className="figure">
+                                            <picture className="content-pic picture"></picture>
+                                        </a>
+                                    </section>
+                                    <div className="mod-caja-nota__descrip">
+                                        <h2 className="com-title-acu">
+                                            <a href="#">
+                                                Headline- basic - 2-test
+                                            </a>
+                                        </h2>
+                                        <h4 className="com-date">
+                                            25 de Diciembre de 2019
+                                        </h4>
+                                    </div>
+                                </article>
+                                <article className="mod-caja-nota --border w-100-mobile">
+                                    <section className="cont-figure">
+                                        <a className="figure">
+                                            <picture className="content-pic picture"></picture>
+                                        </a>
+                                    </section>
+                                    <div className="mod-caja-nota__descrip">
+                                        <h2 className="com-title-acu">
+                                            <a href="#">
+                                                Headline- basic - 2-test
+                                            </a>
+                                        </h2>
+                                        <h4 className="com-date">
+                                            25 de Diciembre de 2019
+                                        </h4>
+                                    </div>
+                                </article>
+                            </section>
+                        </div>
                     </div>
-
                     <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
                                 {/* BREADCRUMB */}
-                                {this.props.children[1]}
+                                {children[1]}
                             </div>
                             <div className="row">
-                                <div className="anexo">ANEXO 100%</div>
+                                <div className="com-anexo">ANEXO 100%</div>
                                 {/* LUGAR PARA UN ANEXO Y TITULO */}
-                                {this.props.children[2]}
+                                {children[2]}
                             </div>
                             <div className="row">
                                 {/* LINKS DE NAVEGACION */}
-                                {this.props.children[3]}
+                                {children[3]}
                             </div>
                             {/* NOTAS */}
-                            {this.props.children[4]}
+                            {children[4]}
                         </div>
                         <div className="sidebar__aside hlp-tablet-none">
                             {/* RANKING DE NOTAS */}
-                            {this.props.children[5]}
+                            {children[5]}
                         </div>
                     </div>
                 </main>

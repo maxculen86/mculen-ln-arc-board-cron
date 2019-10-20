@@ -45,14 +45,21 @@
 
 /* REVISTAS */
 @mixin revis($logo, $primario) {
+
+  &.acu-revista .mod-opening-revista i.logo-revista:before {
+    content: $logo;
+  }
+  
   .cont-figure .figure .content-pic:before {
       content: $logo;
       color: $primario;
       opacity: .2;
-      font-size: $font-37;
+      font-size: $font-35;
   }
-  .row-gap-deskxl-2 .cont-figure .figure .content-pic:before {
-    font-size: $font-80;
+  @media (min-width: 1023px) {
+    .row-gap-deskxl-2 .cont-figure .figure .content-pic:before {
+      font-size: $font-65;
+    }
   }
   .com-tag a {
       color: $primario;
@@ -67,8 +74,9 @@
   [class*=" logo-"] {
       color: $primario;
   }
+
   &.fondo-revista,
-  .mod-newsletter {
+  .mod-newsletter, .highlights:before {
       background-color: $primario;
   }
   .mod-opening-revista {

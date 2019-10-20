@@ -31,8 +31,9 @@
     //=================================
     // ------ESTADOS DEL HEADER------
     //=================================
-    &.--active-dark{
+    &.--dark, .acu-revista & {
         background: rgba(0, 0, 0, 0.5);
+        border: none;
         a{
             color:#fff;
             .logo-la-nacion{
