@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
+import HeaderRevista from '../private/LN/acumulado/cabezalRevista';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
@@ -30,6 +31,7 @@ class LNAcumuladoLayout extends Component {
                 <main>
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {children[0]}
+                    <HeaderRevista />
                     <div className="row highlights">
                         <div className="lay">
                             <section className="row-gap-tablet-2 row-gap-deskxl-2">

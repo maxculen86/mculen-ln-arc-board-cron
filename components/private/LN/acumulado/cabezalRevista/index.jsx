@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
 import LinkList from './linkList';
 import Social from './social';
 
@@ -10,7 +11,7 @@ class Index extends Component {
     componentDidMount() {
         const { globalContent } = this.props;
         const wrapper = document.getElementById('wrapper');
-        if (wrapper) {
+        if (wrapper && !wrapper.classList.contains(CLASS_ACU_REVISTA)) {
             const classRevista = this.normalizeNameToClass(globalContent.name);
             wrapper.classList.add(CLASS_ACU_REVISTA);
             wrapper.classList.add(classRevista);
@@ -24,6 +25,7 @@ class Index extends Component {
             .toLowerCase();
 
     render() {
+        console.log('globalContent:::', this.props.globalContent);
         const {
             children,
             globalContent: {
@@ -77,4 +79,4 @@ Index.defaultProps = {
     links: []
 };
 
-export default Index;
+export default Consumer(Index);
