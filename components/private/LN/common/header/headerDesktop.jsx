@@ -48,19 +48,24 @@ const enlaces = [
 ];
 
 const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
+    const { loading } = loginData;
     const { goToLoginUrl } = loginData;
     const [active, setActive] = useState('');
+    const [loadingUserData, setLoadingUserData] = useState(
+        loading ? ' hlp-none' : ''
+    );
 
     const toggleMenu = () =>
         active === '' ? setActive(' --active') : setActive('');
 
     useEffect(() => {
+        setLoadingUserData(loading ? ' hlp-none' : '');
         const menuUser = document.getElementById('menuUser');
 
         if (menuUser) menuUser.addEventListener('blur', e => setActive(''));
 
         window.addEventListener('scroll', e => setActive(''));
-    });
+    }, [loading]);
 
     return (
         <Header id="header" className="header">
@@ -73,7 +78,10 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                 </a>
             </div>
             <div className="col-4 header__right">
-                <div id="user-menu" className={`com-usuario${active}`}>
+                <div
+                    id="user-menu"
+                    className={`com-usuario${active}${loadingUserData}`}
+                >
                     {!loginData.subscription && (
                         <a
                             className="--btn --highlight hlp-marginRight-35"
@@ -138,7 +146,8 @@ HeaderDesktop.propTypes = {
     loginData: PropTypes.shape({
         subscription: PropTypes.bool,
         userName: PropTypes.string,
-        goToLoginUrl: PropTypes.func
+        goToLoginUrl: PropTypes.func,
+        loading: PropTypes.bool
     }).isRequired,
     goToLogout: PropTypes.func.isRequired
 };
