@@ -18,13 +18,9 @@ const AperturaConDestacado = props => {
 
     return (
         <>
-            {!!(promoItems.basic.url && promoItems.basic._id) && (
-                <Destacado basic={promoItems.basic} />
-            )}
+            <Destacado basic={promoItems.basic} />
             <div className="col-desksm-4 cont-aper">
-                {!!(taxonomy.sections && taxonomy.primary_section) && (
-                    <Sections taxonomy={taxonomy} destacado />
-                )}
+                <Sections taxonomy={taxonomy} destacado />
                 {!!promoItems && !!promoItems.receta && (
                     <DetalleReceta receta={promoItems.receta} />
                 )}

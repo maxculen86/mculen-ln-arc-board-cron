@@ -1,10 +1,24 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
-//todo: QUE FILTRE LA NOTA ACTUAL EN EL CASO DE NOTA
+
+// TODO: QUE FILTRE LA NOTA ACTUAL EN EL CASO DE NOTA
 function WithRankingArticlesData(WrappedArticles, filter) {
     return Consumer(
         class extends PureComponent {
+            static get propTypes() {
+                return {
+                    page: PropTypes.number
+                };
+            }
+
+            static get defaultProps() {
+                return {
+                    page: 1
+                };
+            }
+
             constructor(props) {
                 super(props);
 

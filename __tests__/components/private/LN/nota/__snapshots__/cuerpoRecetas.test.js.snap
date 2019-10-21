@@ -15,7 +15,7 @@ Array [
       </h4>
       <div>
         <h4
-          class="com-title-section-xs"
+          class="com-title-section-xs hlp-marginBottom-20"
         >
           Para la salsa
         </h4>
@@ -46,7 +46,7 @@ Array [
       </div>
       <div>
         <h4
-          class="com-title-section-xs"
+          class="com-title-section-xs hlp-marginBottom-20"
         >
           Para lo que sea
         </h4>
@@ -86,7 +86,7 @@ Array [
       </h4>
       <div>
         <h4
-          class="com-title-section-xs"
+          class="com-title-section-xs hlp-marginBottom-20"
         >
           Para la salsa
         </h4>
@@ -131,5 +131,8 @@ Array [
       </dl>
     </div>
   </div>,
+  <div
+    class="row subtitulos"
+  />,
 ]
 `;

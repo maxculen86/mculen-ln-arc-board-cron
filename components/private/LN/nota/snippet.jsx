@@ -24,7 +24,11 @@ const snippet = props => {
         : [];
     const date = display_date;
     const description = subheadlines.basic;
-    let image; let counterTime; let counterPortion; let ingredientes; let preparaciones;
+    let image;
+    let counterTime;
+    let counterPortion;
+    let ingredientes;
+    let preparaciones;
 
     if (promo_items && !!promo_items.receta && !!promo_items.basic) {
         image = promo_items.basic.url;
@@ -68,28 +72,24 @@ const snippet = props => {
         });
     }
 
-    return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-                __html: `var snippet = [
-                    {
-                        "@context": "http://schema.org",
-                        "@type": "Recipe",
-                        "author": "${autores}",
-                        "cookTime": "PT${counterTime}M",
-                        "datePublished": "${date}",
-                        "description": "${description}",
-                        "image": "${image}",
-                        "recipeIngredient": "${ingredientes}",
-                        "name": "${headlines.basic}",
-                        "recipeInstructions": "${preparaciones}",
-                        "recipeYield": "${counterPortion} porciones"
-                    }
-                ];`
-            }}
-        />
-    );
+    const data = {
+        __html: `
+            {
+                "@context": "https://schema.org",
+                "@type": "Recipe",
+                "author": "${autores}",
+                "cookTime": "PT${counterTime}M",
+                "datePublished": "${date}",
+                "description": "${description}",
+                "image": "${image}",
+                "recipeIngredient": "${ingredientes}",
+                "name": "${headlines.basic}",
+                "recipeInstructions": "${preparaciones}",
+                "recipeYield": "${counterPortion} porciones"
+            }`
+    };
+
+    return <script type="application/ld+json" dangerouslySetInnerHTML={data} />;
 };
 
 snippet.propTypes = {
@@ -117,3 +117,22 @@ snippet.propTypes = {
 };
 
 export default snippet;
+
+/* <script
+    type="text/javascript"
+    dangerouslySetInnerHTML={{
+        __html: `snippet = {
+            "@context": "http://schema.org",
+            "@type": "Recipe",
+            "author": "${autores}",
+            "cookTime": "PT${counterTime}M",
+            "datePublished": "${date}",
+            "description": "${description}",
+            "image": "${image}",
+            "recipeIngredient": "${ingredientes}",
+            "name": "${headlines.basic}",
+            "recipeInstructions": "${preparaciones}",
+            "recipeYield": "${counterPortion} porciones"
+            };`
+    }}
+/> */

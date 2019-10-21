@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'fusion:prop-types';
 import HeaderDesktop from './headerDesktop';
 import HeaderMobile from './headerMobile';
 import NavBarMobile from '../navbar';
@@ -11,50 +12,58 @@ const CLASS_ACTIVE = '--active';
 let lastScrollPosition = 0;
 class Index extends Component {
     componentDidMount() {
-        const { device } = this.props.screenUtils;
+        const { screenUtils } = this.props;
+        const { device } = screenUtils;
         const idHeader = device === 'desktop' ? 'header' : 'header-mobile';
         const header = document.getElementById(idHeader);
+        const vshare = document.getElementById('v-share');
+        const userMenu = document.getElementById('user-menu');
+        const wrapper = document.getElementById('wrapper');
         if (header) {
             const headerHeigth = header.clientHeight || header.offsetHeight;
             window.addEventListener('scroll', () =>
-                this.onScrollHandler(header, headerHeigth)
+                this.onScrollHandler(
+                    header,
+                    headerHeigth,
+                    vshare,
+                    userMenu,
+                    wrapper
+                )
             );
         }
     }
 
-    onScrollHandler = (header, height) => {
+    onScrollHandler = (header, height, vshare, userMenu, wrapper) => {
         const scrollPos = window.scrollY;
         const { classList } = header;
-        const vshare = document.getElementById('v-share');
-        const usermenu = document.getElementById('user-menu');
-        const wrap = document.getElementById('wrap');
-        if (usermenu) usermenu.classList.remove(CLASS_ACTIVE);
+
+        if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos > height) {
                 classList.add(CLASS_SCROLL_DOWN);
             }
             if (scrollPos < lastScrollPosition) {
-                //SCROLL UP
+                // SCROLL UP
                 classList.remove(CLASS_SCROLL_DOWN);
                 classList.add(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.add(CLASS_SCROLL_UP);
                 }
-                wrap.classList.remove(CLASS_SCROLL_DOWN);
-                wrap.classList.add(CLASS_SCROLL_UP);
+                wrapper.classList.remove(CLASS_SCROLL_DOWN);
+                wrapper.classList.add(CLASS_SCROLL_UP);
             } else {
-                //SCROLL DOWN
+                // SCROLL DOWN
                 classList.remove(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.remove(CLASS_SCROLL_UP);
                 }
-                wrap.classList.remove(CLASS_SCROLL_UP);
-                wrap.classList.add(CLASS_SCROLL_DOWN);
+                wrapper.classList.remove(CLASS_SCROLL_UP);
+                wrapper.classList.add(CLASS_SCROLL_DOWN);
             }
         } else {
             classList.remove(CLASS_SCROLL_UP);
             classList.remove(CLASS_SCROLL_DOWN);
-            wrap.classList.remove(CLASS_SCROLL_UP);
+            wrapper.classList.remove(CLASS_SCROLL_UP);
         }
         lastScrollPosition = scrollPos;
     };
@@ -81,5 +90,22 @@ class Index extends Component {
         );
     }
 }
+
+Index.propTypes = {
+    screenUtils: PropTypes.shape({
+        device: PropTypes.string
+    }).isRequired,
+    logueado: PropTypes.bool,
+    loginData: PropTypes.shape({
+        subcription: PropTypes.bool,
+        userName: PropTypes.string,
+        goToLoginUrl: PropTypes.func
+    }).isRequired,
+    goToLogout: PropTypes.func.isRequired
+};
+
+Index.defaultProps = {
+    logueado: false
+};
 
 export default withLoginData(WithScreenUtils(Index));

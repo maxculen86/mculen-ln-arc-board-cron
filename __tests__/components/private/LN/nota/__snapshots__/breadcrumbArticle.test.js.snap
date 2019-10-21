@@ -20,6 +20,11 @@ Array [
     >
       Recetas con ingredientes
     </a>
+    <a
+      href="/recetas/recetas-con-ingredientes/pollo"
+    >
+      Pollo
+    </a>
   </nav>,
   null,
 ]

@@ -39,6 +39,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border: 1px solid $gris3;
+            .--border &, .aper-receta & {
+                border:none;
+            }
             &:before {
                 font-family: 'LNlogos' !important;
                 content: "\e80a";

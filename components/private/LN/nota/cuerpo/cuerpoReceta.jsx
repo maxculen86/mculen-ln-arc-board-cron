@@ -7,15 +7,15 @@ import Tips from './tips';
 const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
     let ingredients = [];
     let preparation = [];
-    let tips = [];
+    const tips = [];
 
     contentElements.forEach(element => {
         switch (element.type) {
-            case 'custom_embed':
+            case 'custom_embed': {
                 const { items, titleList } = element.embed.config;
                 switch (element.subtype) {
-                    case 'custom-ingrediente':
-                        let ings = [];
+                    case 'custom-ingrediente': {
+                        const ings = [];
                         items.map(item => ings.push(item));
                         ingredients = [
                             ...ingredients,
@@ -25,8 +25,9 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                             }
                         ];
                         break;
-                    case 'custom-preparacion':
-                        let prep = [];
+                    }
+                    case 'custom-preparacion': {
+                        const prep = [];
                         items.map(item => prep.push(item));
                         preparation = [
                             ...preparation,
@@ -36,10 +37,12 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                             }
                         ];
                         break;
+                    }
                     default:
                         break;
                 }
                 break;
+            }
             case 'text':
                 if (element.content.length > 10) {
                     tips.push({ description: element.content });
@@ -49,7 +52,6 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                 break;
         }
     });
-
     return (
         <>
             <div className="row">
@@ -60,9 +62,40 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                     <ListPreparation preparation={preparation} />
                 </div>
             </div>
-
             <div className="row">
                 <Tips size="m" title="Tip" paragraphs={tips} />
+            </div>
+
+            <div className="row subtitulos">
+                {contentElements.map(element => {
+                    if (element.type === 'header') {
+                        if (element.content.length > 10) {
+                            switch (element.level) {
+                                case 1: {
+                                    return <h1>{element.content}</h1>;
+                                }
+                                case 2: {
+                                    return <h2>{element.content}</h2>;
+                                }
+                                case 3: {
+                                    return <h3>{element.content}</h3>;
+                                }
+                                case 4: {
+                                    return <h4>{element.content}</h4>;
+                                }
+                                case 5: {
+                                    return <h5>{element.content}</h5>;
+                                }
+                                case 6: {
+                                    return <h6>{element.content}</h6>;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                    return null;
+                })}
             </div>
         </>
     );
@@ -70,7 +103,7 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
 
 Cuerpo.propTypes = {
     globalContent: PropTypes.shape({
-        content_elements: PropTypes.node.isRequired
+        content_elements: PropTypes.array.isRequired
     }).isRequired
 };
 
