@@ -22,7 +22,10 @@
         }
     }
     h2 {
-        display: inline-block
+        display: inline-block;
+        &.com-title-section-m {
+            font-weight: 600;
+        }
     }
     .com-input {
         width: 100%;
@@ -161,7 +164,7 @@
             width: calc(100% - 120px);
         }
         .--btn {
-            padding: $px-12 $px-25;
+            padding: $px-11 $px-25;
         }
         .hlp-line {
             padding-right: $px-20;
