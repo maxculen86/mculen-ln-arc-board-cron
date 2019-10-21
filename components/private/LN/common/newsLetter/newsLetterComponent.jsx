@@ -9,6 +9,7 @@ import '../../../../../resources/dist/css/ln/components/button.css';
 const NewLetter = props => {
     const [mail, setMail] = useState('');
     const [isSubscribe, setIsSubscribe] = useState(false);
+    const [invalidFormat, setInvalidFormat] = useState(false);
     const { titulo, logueado, subscriptionsCallBack } = props;
     return (
         <>
@@ -38,17 +39,21 @@ const NewLetter = props => {
                                 }}
                                 value={mail}
                             />
+                            {invalidFormat && (
+                                <label className="alerta">
+                                    Ingresá un e-mail válido
+                                </label>
+                            )}
                             <button
                                 type="button"
                                 onClick={() => {
-                                    let regex = /\S+@\S+\.\S+/;
+                                    const regex = /\S+@\S+\.\S+/;
                                     if (regex.test(mail)) {
-                                        console.log(mail + " is valid :)");
-                                        setIsSubscribe(!isSubscribe);
-                                      } else {
-                                        console.log(mail + " is NOT valid :(");
-                                      }
-                                    
+                                        setInvalidFormat(false);
+                                        setIsSubscribe(true);
+                                    } else {
+                                        setInvalidFormat(true);
+                                    }
                                 }}
                                 className="--btn --bright"
                             >
