@@ -1,27 +1,34 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import WithNavigation from '../../../common/hocs/withNavigation';
 
-const LinkList = ({ links }) => {
-    const linksAnchors = links.map(el => (
-        <a className="com-link" href={el.url}>
-            {el.text}
-        </a>
-    ));
-    return (
-        <div className="links">
-            {/* MAXIMO 5 */}
-            {linksAnchors}
-        </div>
-    );
+const LinkList = ({ navigations, id }) => {
+    const nav = navigations.find(el => el._id === id);
+    console.log('NAVIGATION:::', nav);
+    let links = [];
+    if (nav) {
+        links = nav.children.map(el => (
+            <a className="com-link" href={el.url}>
+                {el.display_name}
+            </a>
+        ));
+    }
+    return <div className="links">{links}</div>;
 };
 
 LinkList.propTypes = {
-    links: PropTypes.arrayOf(
+    navigations: PropTypes.arrayOf(
         PropTypes.shape({
-            text: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired
+            _id: PropTypes.string.isRequired,
+            children: PropTypes.arrayOf(
+                PropTypes.shape({
+                    display_name: PropTypes.string.isRequired,
+                    url: PropTypes.string.isRequired
+                })
+            )
         })
-    ).isRequired
+    ).isRequired,
+    id: PropTypes.string.isRequired
 };
 
-export default LinkList;
+export default WithNavigation(LinkList, null, 'la-nacion-ar');

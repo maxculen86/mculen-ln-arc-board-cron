@@ -6,6 +6,7 @@ import Social from './social';
 
 import '../../../../../resources/dist/css/ln/pages/acu-revista.css';
 
+const HIERARCHY = 'Links-Acumulados';
 const CLASS_ACU_REVISTA = 'acu-revista';
 class Index extends Component {
     componentDidMount() {
@@ -25,11 +26,12 @@ class Index extends Component {
             .toLowerCase();
 
     render() {
-        console.log('globalContent:::', this.props.globalContent);
         const {
             children,
             globalContent: {
-                social: { twitter, facebook, instagram }
+                social: { twitter, facebook, instagram },
+                _website,
+                _id
             },
             links
         } = this.props;
@@ -46,7 +48,12 @@ class Index extends Component {
                     <div className="logo">
                         <i className="logo-revista" />
                     </div>
-                    <LinkList links={links} />
+                    <LinkList
+                        hierarchy={HIERARCHY}
+                        website={_website}
+                        id={_id}
+                        links={links}
+                    />
                 </section>
             </div>
         );
@@ -60,7 +67,9 @@ Index.propTypes = {
             facebook: PropTypes.string,
             instagram: PropTypes.string
         }),
-        name: PropTypes.string.isRequired
+        _website: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired
     }).isRequired,
     children: PropTypes.oneOf([
         PropTypes.arrayOf(PropTypes.node),
