@@ -4,7 +4,6 @@ import WithNavigation from '../../../common/hocs/withNavigation';
 
 const LinkList = ({ navigations, id }) => {
     const nav = navigations.find(el => el._id === id);
-    console.log('NAVIGATION:::', nav);
     let links = [];
     if (nav) {
         links = nav.children.map(el => (

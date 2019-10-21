@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import Consumer from 'fusion:consumer';
 import LinkList from './linkList';
 import Social from './social';
 
@@ -32,8 +31,7 @@ class Index extends Component {
                 social: { twitter, facebook, instagram },
                 _website,
                 _id
-            },
-            links
+            }
         } = this.props;
         return (
             <div className="row subheader-acu">
@@ -52,7 +50,6 @@ class Index extends Component {
                         hierarchy={HIERARCHY}
                         website={_website}
                         id={_id}
-                        links={links}
                     />
                 </section>
             </div>
@@ -74,18 +71,11 @@ Index.propTypes = {
     children: PropTypes.oneOf([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
-    ]),
-    links: PropTypes.arrayOf(
-        PropTypes.shape({
-            text: PropTypes.string,
-            ulr: PropTypes.string
-        })
-    )
+    ])
 };
 
 Index.defaultProps = {
-    children: [],
-    links: []
+    children: []
 };
 
-export default Consumer(Index);
+export default Index;
