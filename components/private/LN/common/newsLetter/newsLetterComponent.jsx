@@ -16,7 +16,9 @@ const NewLetter = props => {
             <div
                 className={`lay-full-width mod-newsletter hlp-marginBottom-40 row ${
                     logueado ? 'logueado' : ''
-                }${isSubscribe ? 'suscripto' : ''}`}
+                }${isSubscribe ? 'suscripto' : ''} ${
+                    invalidFormat ? 'error' : ''
+                }`}
             >
                 <div className="col-tablet-1 col-desksm-2" />
                 <div className="col-12 col-tablet-6 col-desksm-5 hlp-paddingHeight-40 hlp-paddingRight-20 hlp-line">
@@ -39,11 +41,6 @@ const NewLetter = props => {
                                 }}
                                 value={mail}
                             />
-                            {invalidFormat && (
-                                <label className="alerta">
-                                    Ingresá un e-mail válido
-                                </label>
-                            )}
                             <button
                                 type="button"
                                 onClick={() => {
@@ -59,6 +56,11 @@ const NewLetter = props => {
                             >
                                 recibir
                             </button>
+                            {invalidFormat && (
+                                <label className="alerta">
+                                    Ingresá un e-mail válido
+                                </label>
+                            )}
                         </>
                     )}
                     {/* eslint-disable-next-line no-nested-ternary */}
