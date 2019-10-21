@@ -17,8 +17,14 @@ const getTitle = globalContent => {
     else if (globalContent.Payload.items && globalContent.Payload.items.length)
         title = globalContent.Payload.items[0].name;
 
-    return title ? <>Más leídas de <strong>{title}</strong></> : <>Más leídas</>;
-    };
+    return title ? (
+        <>
+            Más leídas de <strong>{title}</strong>
+        </>
+    ) : (
+        <>Más leídas</>
+    );
+};
 
 const Ranking = ({ articles, size, dataSection, globalContent }) => {
     const titleText = getTitle(globalContent);

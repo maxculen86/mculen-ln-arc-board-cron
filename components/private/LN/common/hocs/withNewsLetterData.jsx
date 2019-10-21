@@ -34,10 +34,13 @@ function withNewsLetterData(WrappedComponent) {
                     )
                     .then(resData => {
                         this.setState({ service: resData });
-                    })
-                    .catch(error =>
+                    });
+                /**
+                 * Evaluar si es necesario el catch
+                 .catch(error =>
                         console.error('ERROR en la API ::::: ', error)
                     );
+                    */
             }
 
             render() {

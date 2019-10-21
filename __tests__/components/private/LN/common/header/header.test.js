@@ -11,8 +11,18 @@ jest.mock(
     () => 'mocked-mobile-navbar'
 );
 
+jest.mock(
+    '../../../../../../components/private/LN/common/hocs/withLoginData', 
+    () => Comp => props => (Comp ? <Comp {...props} /> : null)
+);
+
+/* jest.mock(
+    '../../../../../../components/private/common/hocs/withScreenUtils',
+    () => Comp => props => (Comp ? <Comp {...props} /> : null)
+); */
+
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render, shallow } from 'enzyme';
 import TestHelper from '../../../../../utils/testHelper';
 import Header from '../../../../../../components/private/LN/common/header';
 
@@ -23,8 +33,9 @@ const getUserLogout = () => ({
         userName: 'Sin nombre'
     }
 });
-/* 
-const getUserLoginWhitoutSubscription = () => ({
+
+
+/* const getUserLoginWithoutSubscription = () => ({
     logueado: true,
     loginData: {
         subscription: true,
@@ -32,14 +43,14 @@ const getUserLoginWhitoutSubscription = () => ({
     }
 });
 
-const getUserLoginWhitSubscription = () => ({
+const getUserLoginWithSubscription = () => ({
     logueado: true,
     loginData: {
         subscription: false,
         userName: 'Pedro Perez'
     }
-});
- */
+}); */
+
 describe('components - private - LN - common - header', () => {
     const child = <div>Soy un child</div>;
     const desktopSU = {
@@ -69,5 +80,61 @@ describe('components - private - LN - common - header', () => {
     it('Testeo que muestre el header mobile', () => {
         expect(componentMobile.find('mocked-mobile-header')).toBeTruthy();
         expect(componentMobile.find('mocked-mobile-navbar')).toBeTruthy();
+    });
+
+    it('Shows user menu on the top right corner when logged in', () => {
+        const componentDesktop = mount(
+            <Header screenUtils={desktopSU} logueado>
+                {child}
+            </Header>
+        );
+        expect(componentDesktop.find('ul.com-desplegable')).toBeTruthy();
+    });
+
+    it('Doesn\'t show user menu when logged out', () => {
+        const componentDesktop = mount(
+            <Header screenUtils={desktopSU}>
+                {child}
+            </Header>
+        );
+        expect(componentDesktop.find('ul.com-desplegable')).toHaveLength(0);
+    });
+
+    it('Renders with subscribed user', () => {
+        const componentDesktop = mount(
+            <Header 
+                screenUtils={desktopSU} 
+                logueado={true}
+                loginData={{
+                    subscription: true,
+                    userName: 'Pedro Perez'
+                }}
+            >
+                {child}
+            </Header>
+        );
+        
+        expect((componentDesktop).props().logueado).toEqual(true);
+        expect((componentDesktop).props().loginData.subscription).toEqual(true);
+        expect((componentDesktop).props().loginData.userName).toEqual('Pedro Perez');
+    });
+
+    it('Renders without subscribed user', () => {
+        const componentDesktop = mount(
+            <Header 
+                screenUtils={desktopSU} 
+                logueado={true}
+                loginData={{
+                    subscription: false,
+                    userName: 'Pedro Perez'
+                }}
+            >
+                {child}
+            </Header>
+        );
+
+        expect((componentDesktop).props().logueado).toEqual(true);
+        expect((componentDesktop).props().loginData.subscription).toEqual(false);
+        expect((componentDesktop).props().loginData.userName).toEqual('Pedro Perez');
     });
 });
