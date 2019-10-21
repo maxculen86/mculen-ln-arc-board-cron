@@ -4,5 +4,5 @@
 .jardin {
     $primario: $jardin;
     $logo: $logo-jardin;
-    @include revis($logo, $primario);
+    @include revista($logo, $primario);
 }

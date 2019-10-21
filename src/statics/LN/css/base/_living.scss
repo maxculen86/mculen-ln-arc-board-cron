@@ -4,5 +4,5 @@
 .living {
     $primario: $living;
     $logo: $logo-living;
-    @include revis($logo, $primario);
+    @include revista($logo, $primario);
 }

@@ -4,5 +4,5 @@
 .brando {
     $primario: $brando;
     $logo: $logo-brando;
-    @include revis($logo, $primario);
+    @include revista($logo, $primario);
 }

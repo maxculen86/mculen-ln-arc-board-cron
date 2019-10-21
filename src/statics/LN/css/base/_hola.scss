@@ -4,5 +4,5 @@
 .hola {
     $primario: $hola;
     $logo: $logo-hola;
-    @include revis($logo, $primario);
+    @include revista($logo, $primario);
 }

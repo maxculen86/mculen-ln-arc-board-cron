@@ -4,5 +4,5 @@
 .ohlala {
     $primario: $ohlala;
     $logo: $logo-ohlala;
-    @include revis($logo, $primario);
+    @include revista($logo, $primario);
 }

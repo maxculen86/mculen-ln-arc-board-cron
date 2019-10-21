@@ -4,7 +4,7 @@
 .rolling {
     $primario: $blanco;
     $logo: $logo-rolling;
-    @include revis($logo, $primario);
+    @include revista($logo, $primario);
     .cont-figure .figure .content-pic:before, &.acu-revista .subheader-acu i.logo-revista, .subheader-acu .com-link, &.acu-revista .subheader-acu .com-share a i {
         color: $negro!important;
     }

@@ -44,7 +44,7 @@
 
 
 /* REVISTAS */
-@mixin revis($logo, $primario) {
+@mixin revista($logo, $primario) {
 
   &.acu-revista .subheader-acu i.logo-revista:before {
     content: $logo;
