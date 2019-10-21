@@ -86,15 +86,15 @@
 
 
 @mixin headerBlanco {
-  background: #fff!important;
-  border-bottom: 1px solid #d9d9d9!important;
+  background: $blanco!important;
+  border-bottom: 1px solid $gris2!important;
   .logo-la-nacion {
       color: $ln!important;
   }
   .--btn.--secondary {
       background-color: $blanco!important;
-      border: 1px solid #0074c4!important;
-      color: #0074c4!important;
+      border: 1px solid $link!important;
+      color: $link!important;
   }
   .com-hamburger:before {
       color: $negro!important;
