@@ -43,7 +43,8 @@ function withLoginData(WrappedComponent) {
                     userName: 'Sin nombre',
                     goToLoginUrl: () => {
                         location.href = LoginUrl + window.btoa(location.href);
-                    }
+                    },
+                    loading: true
                 }
             };
         }
@@ -73,7 +74,8 @@ function withLoginData(WrappedComponent) {
                             userName: `${Usuario.UsuarioDetalleEmail.substring(
                                 0,
                                 16
-                            )}...`
+                            )}...`,
+                            loading: false
                         }
                     });
                 }
@@ -85,10 +87,6 @@ function withLoginData(WrappedComponent) {
 
             // TODO: Agregar aqui validadion de de diff de dias para hacer relogin
             /* 
-            
-            5. Cuando haces relogin tomar nuevo token y x-value
-            6. Llamar a getMe con nuevo token y xvalue en header
-
             Nota. Considerar casos de res.code para relogin
             Validar set Xvalue Token 
             Dejar -todo- nota para res.response.Usuario
@@ -132,8 +130,18 @@ function withLoginData(WrappedComponent) {
                 this.goToLogout();
             }
 
-            if (getCookie('token'))
-                apiIngresar.getMe().then(res => setUserData(res));
+            getCookie('token')
+                ? apiIngresar.getMe().then(res => setUserData(res))
+                : this.setState({
+                      loginData: {
+                          subscription: false,
+                          goToLoginUrl: () => {
+                              location.href =
+                                  LoginUrl + window.btoa(location.href);
+                          },
+                          loading: false
+                      }
+                  });
 
             return true;
         };
@@ -305,7 +313,8 @@ function withLoginData(WrappedComponent) {
                     userName: 'Sin nombre',
                     goToLoginUrl: () => {
                         location.href = LoginUrl + window.btoa(location.href);
-                    }
+                    },
+                    loading: false
                 }
             });
         };

@@ -48,7 +48,7 @@ exports[`layouts - La Nacion - Nota - Receta Test de snapshot para layout receta
           class="col-4 header__right"
         >
           <div
-            class="com-usuario"
+            class="com-usuario hlp-none"
             id="user-menu"
           >
             <a
