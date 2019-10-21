@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import Consumer from 'fusion:consumer';
 import LinkList from './linkList';
 import Social from './social';
 
@@ -79,4 +78,4 @@ Index.defaultProps = {
     children: []
 };
 
-export default Consumer(Index);
+export default Index;
