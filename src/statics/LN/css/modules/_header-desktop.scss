@@ -3,7 +3,7 @@
 //=====================
 // HEADER Desktop CORE
 //=====================
-.header{
+.header {
     display: none;
     position: relative;
     @media ($media-l){
@@ -98,7 +98,7 @@
         }
 
         //active modo DARK-------
-        &.--dark, .acu-revista &, .--hlp-transparent &  {
+        &.--dark, .acu-revista &, .--hlp-transparent & {
             &:not(.--scrollUp) {
                 background: rgba(0, 0, 0, 0.5);
                 border: none;
