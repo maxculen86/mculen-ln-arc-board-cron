@@ -36,7 +36,7 @@ class Index extends Component {
             links
         } = this.props;
         return (
-            <div className="row mod-opening-revista -with-hl">
+            <div className="row subheader-acu">
                 {/* LUGAR PARA EL ANEXO */}
                 {children}
                 <section className="lay">

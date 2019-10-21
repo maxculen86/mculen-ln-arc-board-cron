@@ -46,7 +46,7 @@
 /* REVISTAS */
 @mixin revis($logo, $primario) {
 
-  &.acu-revista .mod-opening-revista i.logo-revista:before {
+  &.acu-revista .subheader-acu i.logo-revista:before {
     content: $logo;
   }
   
@@ -76,10 +76,10 @@
   }
 
   &.fondo-revista,
-  .mod-newsletter, .highlights:before {
+  .mod-newsletter, .mod-opening:before {
       background-color: $primario;
   }
-  .mod-opening-revista {
+  .subheader-acu {
       background: $primario!important;
   }
 }

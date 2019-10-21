@@ -18,45 +18,35 @@
         z-index: 1;
         position: relative;
     }
-    .mod-opening-revista {
+    .subheader-acu {
         position: relative;
-        background: #006998;
+        background: $ln;
         margin-bottom: $px-20;
-        
-        margin-top: -85px;
-        padding-top: 85px;
-        margin-top: -256px;
-        padding-top: 256px;
-
-        &.with-hl{
-            margin-bottom:-200px;
-            padding-bottom: 200px;
-        }
+        margin-top: -400px;
+        padding-top: 400px;
 
         [class^="logo-"]:not(.logo-la-nacion), [class*=" logo-"] {
             color: $blanco;
             font-size: $font-33;
         }
 
-        
-
         .com-link {
             color: $blanco;
-        }
-        .com-link {
             font-size: $font-17;
             font-family: "SuecaSlab", "Georgia", "serif";
             font-weight: 700;
             margin-right: $px-40;
             display: inline-block;
         }
-
-        .logo, .links {
-            margin-bottom: $px-20;
+        .logo {
+            margin-top: -30px;
         }
-        .links { display: none;}
+        .links {
+            margin-bottom: $px-20;
+            display: none;
+        }
         .com-share {
-            float: right;
+            text-align: right;
             a {
                 margin-left: $px-10;
                 i {
@@ -82,7 +72,7 @@
         }
 
     }
-    .highlights {
+    .mod-opening {
         margin-bottom: $px-40;
         &:before {
             content: "";
@@ -91,6 +81,8 @@
             margin-top: -20px;
             position: absolute;
             z-index: -1;
+            margin: -20px -3000px 0;
+            padding: 0 3000px;
         }
     }
 }
