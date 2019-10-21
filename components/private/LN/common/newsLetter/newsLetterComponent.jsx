@@ -106,7 +106,7 @@ const NewLetter = props => {
                             onClick={subscriptionsCallBack}
                         >
                             {' '}
-                            Recibir otros Newsletters
+                            Otros Newsletters
                         </a>
                     </div>
                 </div>
