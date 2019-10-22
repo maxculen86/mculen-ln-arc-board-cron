@@ -5,8 +5,11 @@
     $primario: $blanco;
     $logo: $logo-rolling;
     @include revista($logo, $primario);
-    .cont-figure .figure .content-pic:before, &.acu-revista .subheader-acu i.logo-revista, .subheader-acu .com-link, &.acu-revista .subheader-acu .com-share a i {
+    .subheader-acu .com-link, &.acu-revista .subheader-acu .com-share a i {
         color: $negro!important;
+    }
+    .cont-figure .figure .content-pic:before, &.acu-revista .subheader-acu i.logo-revista {
+        color: $rolling;
     }
     .header {
         @include headerBlanco;
