@@ -26,6 +26,14 @@ export const getSectionStyle = sections => {
     };
 };
 
+export const getFirstParentSection = section => {
+    const parents = section._id.split('/').filter(x => x !== '');
+    if (!!parents && parents.length > 0) return parents[0];
+
+    return null;
+};
+
 export default {
-    getSectionClass: getSectionStyle
+    getSectionStyle,
+    getFirstParentSection
 };

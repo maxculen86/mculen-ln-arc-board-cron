@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import AperturaConDestacado from './AperturaConDestacado';
 import AperturaSinDestacado from './AperturaSinDestacado';
+import { getFirstParentSection } from '../../../../common/utils/sectionUtils';
 
 import '../../../../../../resources/dist/css/ln/layouts/grid.css';
 
@@ -18,11 +19,13 @@ const aperturaReceta = props => {
 
     let listSections = [];
     if (primary) {
-        listSections = taxonomy.sections.filter(x =>
-            x.additional_properties.original.ancestors.default.includes(
-                primary.additional_properties.original.ancestors.default[0]
-            )
-        );
+        const parentPrimarySection = getFirstParentSection(primary);
+        if (parentPrimarySection) {
+            listSections = taxonomy.sections.filter(x => {
+                const parentSection = getFirstParentSection(x);
+                return parentSection && parentSection === parentPrimarySection;
+            });
+        }
     }
 
     const hasMultimedia = !!(!!promoItems && promoItems.basic);
