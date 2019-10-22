@@ -30,50 +30,6 @@ class LNAcumuladoLayout extends Component {
                 <main>
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {children[0]}
-                    <div className="row">
-                        <div className="lay">
-                            {/* BREADCRUMB, TITULO Y APERTURA*/}
-                            {children[1]}
-                            <div className="mod-opening">
-                                <section className="row-gap-tablet-2 row-gap-deskxl-2">
-                                    <article className="mod-caja-nota --border w-100-mobile">
-                                        <section className="cont-figure">
-                                            <a className="figure">
-                                                <picture className="content-pic picture"></picture>
-                                            </a>
-                                        </section>
-                                        <div className="mod-caja-nota__descrip">
-                                            <h2 className="com-title-acu">
-                                                <a href="#">
-                                                    Headline- basic - 2-test
-                                                </a>
-                                            </h2>
-                                            <h4 className="com-date">
-                                                25 de Diciembre de 2019
-                                            </h4>
-                                        </div>
-                                    </article>
-                                    <article className="mod-caja-nota --border w-100-mobile">
-                                        <section className="cont-figure">
-                                            <a className="figure">
-                                                <picture className="content-pic picture"></picture>
-                                            </a>
-                                        </section>
-                                        <div className="mod-caja-nota__descrip">
-                                            <h2 className="com-title-acu">
-                                                <a href="#">
-                                                    Headline- basic - 2-test
-                                                </a>
-                                            </h2>
-                                            <h4 className="com-date">
-                                                25 de Diciembre de 2019
-                                            </h4>
-                                        </div>
-                                    </article>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
                     <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
