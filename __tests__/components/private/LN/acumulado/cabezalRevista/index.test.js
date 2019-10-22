@@ -19,6 +19,9 @@ describe('components - private - LN - acumulado - cabezalRevista', () => {
             instagram: 'https://www.instagram.com/revistaohlala',
             facebook: 'https://www.facebook.com/ohlalarevista'
         },
+        style: {
+            section_style_name: 'ohlala'
+        },
         name: 'Ohlala',
         _id: '/revistas/ohlala'
     };
