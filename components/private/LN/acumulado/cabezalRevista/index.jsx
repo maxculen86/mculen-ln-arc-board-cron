@@ -9,20 +9,17 @@ const HIERARCHY = 'Links-Acumulados';
 const CLASS_ACU_REVISTA = 'acu-revista';
 class Index extends Component {
     componentDidMount() {
-        const { globalContent } = this.props;
+        const {
+            globalContent: {
+                style: { section_style_name }
+            }
+        } = this.props;
         const wrapper = document.getElementById('wrapper');
         if (wrapper && !wrapper.classList.contains(CLASS_ACU_REVISTA)) {
-            const classRevista = this.normalizeNameToClass(globalContent.name);
             wrapper.classList.add(CLASS_ACU_REVISTA);
-            wrapper.classList.add(classRevista);
+            wrapper.classList.add(section_style_name);
         }
     }
-
-    normalizeNameToClass = name =>
-        name
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .toLowerCase();
 
     render() {
         const {
@@ -66,7 +63,10 @@ Index.propTypes = {
         }),
         _website: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        _id: PropTypes.string.isRequired
+        _id: PropTypes.string.isRequired,
+        style: PropTypes.shape({
+            section_style_name: PropTypes.string.isRequired
+        }).isRequired
     }).isRequired,
     children: PropTypes.oneOf([
         PropTypes.arrayOf(PropTypes.node),
