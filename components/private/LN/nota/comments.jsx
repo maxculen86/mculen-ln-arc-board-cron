@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
+import withLoginData from '../common/hocs/withLoginData';
 
 const Comments = props => {
     console.log('############ GLOBALCONTENT ##########: ', props.globalContent);
+    console.log('############ props ##########: ', props);
     const {
         globalContent: {
             _id,
@@ -59,6 +61,14 @@ const Comments = props => {
                     data-entrada={_id}
                     data-lf-siteId="356483"
                 />
+                {props.logueado && (
+                    <button
+                        type="button"
+                        onClick={() => {console.log('******||||||******')}}
+                    >
+                        Ingresar
+                    </button>
+                )}
                 <p className="legales">
                     Los comentarios publicados son de exclusiva responsabilidad
                     de sus autores y las consecuencias derivadas de ellos pueden
@@ -77,4 +87,4 @@ const Comments = props => {
     );
 };
 
-export default Comments;
+export default withLoginData(Comments);
