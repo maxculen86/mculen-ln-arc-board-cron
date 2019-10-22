@@ -12,7 +12,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/private/LN/common/hocs/withLoginData', 
+    '../../../../../../components/private/LN/common/hocs/withLoginData',
     () => Comp => props => (Comp ? <Comp {...props} /> : null)
 );
 
@@ -33,7 +33,6 @@ const getUserLogout = () => ({
         userName: 'Sin nombre'
     }
 });
-
 
 /* const getUserLoginWithoutSubscription = () => ({
     logueado: true,
@@ -91,19 +90,17 @@ describe('components - private - LN - common - header', () => {
         expect(componentDesktop.find('ul.com-desplegable')).toBeTruthy();
     });
 
-    it('Doesn\'t show user menu when logged out', () => {
+    it("Doesn't show user menu when logged out", () => {
         const componentDesktop = mount(
-            <Header screenUtils={desktopSU}>
-                {child}
-            </Header>
+            <Header screenUtils={desktopSU}>{child}</Header>
         );
         expect(componentDesktop.find('ul.com-desplegable')).toHaveLength(0);
     });
 
     it('Renders with subscribed user', () => {
         const componentDesktop = mount(
-            <Header 
-                screenUtils={desktopSU} 
+            <Header
+                screenUtils={desktopSU}
                 logueado={true}
                 loginData={{
                     subscription: true,
@@ -113,16 +110,18 @@ describe('components - private - LN - common - header', () => {
                 {child}
             </Header>
         );
-        
-        expect((componentDesktop).props().logueado).toEqual(true);
-        expect((componentDesktop).props().loginData.subscription).toEqual(true);
-        expect((componentDesktop).props().loginData.userName).toEqual('Pedro Perez');
+
+        expect(componentDesktop.props().logueado).toEqual(true);
+        expect(componentDesktop.props().loginData.subscription).toEqual(true);
+        expect(componentDesktop.props().loginData.userName).toEqual(
+            'Pedro Perez'
+        );
     });
 
     it('Renders without subscribed user', () => {
         const componentDesktop = mount(
-            <Header 
-                screenUtils={desktopSU} 
+            <Header
+                screenUtils={desktopSU}
                 logueado={true}
                 loginData={{
                     subscription: false,
@@ -133,8 +132,10 @@ describe('components - private - LN - common - header', () => {
             </Header>
         );
 
-        expect((componentDesktop).props().logueado).toEqual(true);
-        expect((componentDesktop).props().loginData.subscription).toEqual(false);
-        expect((componentDesktop).props().loginData.userName).toEqual('Pedro Perez');
+        expect(componentDesktop.props().logueado).toEqual(true);
+        expect(componentDesktop.props().loginData.subscription).toEqual(false);
+        expect(componentDesktop.props().loginData.userName).toEqual(
+            'Pedro Perez'
+        );
     });
 });

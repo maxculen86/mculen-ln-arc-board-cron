@@ -11,7 +11,7 @@ const props = {
         userName: 'Jhon Doe',
         goToLoginUrl: jest.fn()
     },
-    goToLogout: jest.fn() 
+    goToLogout: jest.fn()
 };
 
 beforeEach(() => {
@@ -28,8 +28,9 @@ describe('HeaderDesktop', () => {
     });
 
     it('Displays subscription status flawlessly', () => {
-        expect(component.find('.com-usuario__valueSuscrib').text())
-        .toMatch('Sin suscripción digital')
+        expect(component.find('.com-usuario__valueSuscrib').text()).toMatch(
+            'Sin suscripción digital'
+        );
     });
 
     it('Calls its logout function gracefully', () => {
@@ -40,7 +41,9 @@ describe('HeaderDesktop', () => {
     });
 
     it('Call its login function smoothly', () => {
-        component = mount(<HeaderDesktop {...{...props, ...{logueado: false}}} />);
+        component = mount(
+            <HeaderDesktop {...{ ...props, ...{ logueado: false } }} />
+        );
         const login = component.find('button');
         login.simulate('click');
         expect(props.loginData.goToLoginUrl).toHaveBeenCalled();

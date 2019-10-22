@@ -2,8 +2,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-// TODO: validar con el validador de google
-// TODO: se agrego decodeURIComponent a todos los items que vienen en Ingredientes y Preparación de PowerUps
 const snippet = props => {
     const {
         globalContent: {
@@ -58,6 +56,7 @@ const snippet = props => {
                     .map(item => decodeURIComponent(item))
                     .join(', ');
             }
+            return undefined;
         });
 
         const ingredients = content_elements.filter(
@@ -93,46 +92,33 @@ const snippet = props => {
 };
 
 snippet.propTypes = {
-    headlines: PropTypes.object.isRequired,
-    subheadlines: PropTypes.object.isRequired,
-    promo_items: PropTypes.shape({
-        receta: PropTypes.object,
-        basic: PropTypes.object
-    }),
-    content_elements: PropTypes.array.isRequired,
-    display_date: PropTypes.string.isRequired,
-    credits: PropTypes.shape({
-        by: PropTypes.shape({
-            authors: PropTypes.arrayOf(
-                PropTypes.shape({
-                    _id: PropTypes.string,
-                    name: PropTypes.string,
-                    type: PropTypes.string,
-                    slug: PropTypes.string,
-                    url: PropTypes.string
-                })
-            )
+    globalContent: PropTypes.shape({
+        headlines: PropTypes.shape({
+            basic: PropTypes.string
+        }),
+        subheadlines: PropTypes.shape({
+            basic: PropTypes.string
+        }),
+        promo_items: PropTypes.shape({
+            receta: PropTypes.object,
+            basic: PropTypes.object
+        }),
+        display_date: PropTypes.string.isRequired,
+        content_elements: PropTypes.array.isRequired,
+        credits: PropTypes.shape({
+            by: PropTypes.shape({
+                authors: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        _id: PropTypes.string,
+                        name: PropTypes.string,
+                        type: PropTypes.string,
+                        slug: PropTypes.string,
+                        url: PropTypes.string
+                    })
+                )
+            })
         })
-    })
+    }).isRequired
 };
 
 export default snippet;
-
-/* <script
-    type="text/javascript"
-    dangerouslySetInnerHTML={{
-        __html: `snippet = {
-            "@context": "http://schema.org",
-            "@type": "Recipe",
-            "author": "${autores}",
-            "cookTime": "PT${counterTime}M",
-            "datePublished": "${date}",
-            "description": "${description}",
-            "image": "${image}",
-            "recipeIngredient": "${ingredientes}",
-            "name": "${headlines.basic}",
-            "recipeInstructions": "${preparaciones}",
-            "recipeYield": "${counterPortion} porciones"
-            };`
-    }}
-/> */
