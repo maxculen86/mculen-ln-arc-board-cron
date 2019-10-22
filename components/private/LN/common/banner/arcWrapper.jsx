@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'fusion:prop-types';
 import { baseConfig } from './config';
 
 // TODO: faltan propTypes, probar import de acrAds.js aca
@@ -62,5 +63,26 @@ class ArcWrapper extends Component {
         );
     }
 }
+
+ArcWrapper.propTypes = {
+    id: PropTypes.string.isRequired,
+    dfpId: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    children: PropTypes.oneOf([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired,
+    dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
+        .isRequired,
+    slotName: PropTypes.string.isRequired,
+    targeting: PropTypes.shape({
+        seccion: PropTypes.string,
+        sitio: PropTypes.string
+    }).isRequired
+};
+
+ArcWrapper.defaultProps = {
+    className: ''
+};
 
 export default ArcWrapper;

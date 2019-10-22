@@ -10,6 +10,8 @@ import '../../resources/dist/css/ln/pages/acu.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 
+// import '../../resources/dist/css/ln/pages/acu-revista.css';
+
 const layoutItems = [
     'Pre-Apertura',
     'Breadcrumb',
@@ -21,32 +23,35 @@ const layoutItems = [
 
 class LNAcumuladoLayout extends Component {
     render() {
+        const { children } = this.props;
         return (
-            <div id="wrapper">
+            <div id="wrapper" className="">
                 <Header />
                 <main>
-                    {/* BANNERS: CABEZAL Y STICKY */}
-                    {this.props.children[0]}
+                    {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
+                    {children[0]}
+                    <div className="row">
+                        <div className="lay">
+                            {/* BREADCRUMB, TITULO Y APERTURA*/}
+                            {children[1]}
+                        </div>
+                    </div>
                     <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
-                                {/* BREADCRUMB */}
-                                {this.props.children[1]}
-                            </div>
-                            <div className="row">
-                                {/* LUGAR PARA UN ANEXO Y TITULO */}
-                                {this.props.children[2]}
+                                {/* LUGAR PARA UN ANEXO */}
+                                {children[2]}
                             </div>
                             <div className="row">
                                 {/* LINKS DE NAVEGACION */}
-                                {this.props.children[3]}
+                                {children[3]}
                             </div>
                             {/* NOTAS */}
-                            {this.props.children[4]}
+                            {children[4]}
                         </div>
                         <div className="sidebar__aside hlp-tablet-none">
                             {/* RANKING DE NOTAS */}
-                            {this.props.children[5]}
+                            {children[5]}
                         </div>
                     </div>
                 </main>

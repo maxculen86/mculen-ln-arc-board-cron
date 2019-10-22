@@ -1,27 +1,17 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 .rolling {
-    $primario: $rolling;
-    .acu article a.figure:before,
-    article a.figure:before {
-        content: '\e91b';
-        color: $primario;
+    $primario: $blanco;
+    $logo: $logo-rolling;
+    @include revista($logo, $primario);
+    .subheader-acu .com-link, &.acu-revista .subheader-acu .com-share a i {
+        color: $negro!important;
     }
-    .com-tag a {
-        color: $primario;
-        border-color: $primario;
-        &:hover{
-            background: $primario;
-        }
+    .cont-figure .figure .content-pic:before, &.acu-revista .subheader-acu i.logo-revista {
+        color: $rolling;
     }
-    .com-secondary-tag a,
-    .com-secondary-tag a:after,
-    [class^="logo-"],
-    [class*=" logo-"] {
-        color: $primario;
-    }
-    &.fondo-revista,
-    .mod-newsletter {
-        background-color: $primario;
+    .header {
+        @include headerBlanco;
     }
 }

@@ -9,16 +9,19 @@ import '../../../../../resources/dist/css/ln/components/button.css';
 const NewLetter = props => {
     const [mail, setMail] = useState('');
     const [isSubscribe, setIsSubscribe] = useState(false);
+    const [invalidFormat, setInvalidFormat] = useState(false);
     const { titulo, logueado, subscriptionsCallBack } = props;
     return (
         <>
             <div
                 className={`lay-full-width mod-newsletter hlp-marginBottom-40 row ${
                     logueado ? 'logueado' : ''
-                }${isSubscribe ? 'suscripto' : ''}`}
+                }${isSubscribe ? 'suscripto' : ''} ${
+                    invalidFormat ? 'error' : ''
+                }`}
             >
                 <div className="col-tablet-1 col-desksm-2" />
-                <div className="col-12 col-tablet-6 col-desksm-5 hlp-paddingHeight-40 hlp-paddingRight-20 hlp-line">
+                <div className="col-12 col-tablet-6 col-desksm-5 hlp-paddingHeight-30 hlp-paddingRight-20 hlp-line">
                     <h2 className="com-title-section-s hlp-marginBottom-10 hlp-marginRight-5">
                         Newsletter
                     </h2>
@@ -41,18 +44,23 @@ const NewLetter = props => {
                             <button
                                 type="button"
                                 onClick={() => {
-                                    let regex = /\S+@\S+\.\S+/;
+                                    const regex = /\S+@\S+\.\S+/;
                                     if (regex.test(mail)) {
-                                        console.log(mail + ' is valid :)');
-                                        setIsSubscribe(!isSubscribe);
+                                        setInvalidFormat(false);
+                                        setIsSubscribe(true);
                                     } else {
-                                        console.log(mail + ' is NOT valid :(');
+                                        setInvalidFormat(true);
                                     }
                                 }}
                                 className="--btn --bright"
                             >
                                 recibir
                             </button>
+                            {invalidFormat && (
+                                <label className="alerta">
+                                    Ingresá un e-mail válido
+                                </label>
+                            )}
                         </>
                     )}
                     {/* eslint-disable-next-line no-nested-ternary */}
@@ -89,7 +97,7 @@ const NewLetter = props => {
                         <p />
                     )}
                 </div>
-                <div className="col-12 col-tablet-4 col-desksm-3 hlp-paddingHeight-40">
+                <div className="col-12 col-tablet-4 col-desksm-3 hlp-paddingHeight-30">
                     {/* eslint-disable-next-line no-nested-ternary */}
                     <div className="com-breadcrumb">
                         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
