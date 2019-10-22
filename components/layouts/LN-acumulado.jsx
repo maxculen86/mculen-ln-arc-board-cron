@@ -30,6 +30,12 @@ class LNAcumuladoLayout extends Component {
                 <main>
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {children[0]}
+                    <div className="row">
+                        <div className="lay">
+                            {/* BREADCRUMB, TITULO Y APERTURA*/}
+                            {children[1]}
+                        </div>
+                    </div>
                     <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
