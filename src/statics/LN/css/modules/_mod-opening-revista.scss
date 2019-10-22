@@ -1,7 +1,6 @@
 @import '../abstracts/variables';
 
-
-.mod-opening-revista {
+.subheader-acu {
     .com-share {
         display: none;
     }
@@ -48,7 +47,7 @@
 }
 
 @media (min-width: 1025px) {
-    .mod-opening-revista {
+    .subheader-acu {
         [class^="logo-"] {
             color: $blanco;
             font-size: $font-80;
