@@ -9,6 +9,7 @@ import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/pages/acu.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
+import '../../resources/dist/css/ln/components/hour.css';
 
 // import '../../resources/dist/css/ln/pages/acu-revista.css';
 
@@ -38,6 +39,27 @@ class LNAcumuladoLayout extends Component {
                     </div>
                     <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
+<div className="row">
+    <section className="breaking-news">
+        {/* <article className="mod-caja-nota  w-100-mobile"> */}
+        <article className="mod-caja-nota  --list">
+            {/* Este componente es nuevo */}
+            <div className="com-hour">12:00</div>
+            <section className="cont-figure">
+                <a href="/platos-principales/una-nota-de-receta-nid10102019/" className="figure">
+                    <picture className="content-pic picture "></picture>
+                </a>
+            </section>
+            <div class="mod-caja-nota__descrip">
+                <h2 class="com-title-acu">
+                    <a href="/platos-principales/una-nota-de-receta-nid10102019/"><b>La escuela.</b> que tiene de escudo al Che Guevara y donde izan la bandera de Cuba</a>
+                </h2>
+                { /* Es componente no debería mostrarlo, podría ocultarlo con css */ } 
+                { /* <h4 class="com-date">10 de Octubre de 2019</h4> */ }
+            </div>
+        </article>
+    </section>
+</div>
                             <div className="row">
                                 {/* LUGAR PARA UN ANEXO */}
                                 {children[2]}
