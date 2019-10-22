@@ -21,11 +21,12 @@ TitleAcu.propTypes = {
         basic: PropTypes.string
     }).isRequired,
     volanta: PropTypes.string,
-    href: PropTypes.string.isRequired
+    href: PropTypes.string
 };
 
 TitleAcu.defaultProps = {
-    volanta: ''
+    volanta: '',
+    href: ''
 };
 
 export default TitleAcu;
