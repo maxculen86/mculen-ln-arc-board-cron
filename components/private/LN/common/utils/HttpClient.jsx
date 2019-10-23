@@ -1,7 +1,7 @@
-import { APIingresar } from 'fusion:environment';
+import { API_INGRESAR } from 'fusion:environment';
 
 // TODO: hacer esto generico, la url debe llegar por parametro
-const baseURL = `${APIingresar}`;
+const baseURL = `${API_INGRESAR}`;
 
 class Httpclient {
     constructor() {}

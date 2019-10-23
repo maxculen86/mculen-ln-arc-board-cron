@@ -1,4 +1,5 @@
 import Consumer from 'fusion:consumer';
+import env from 'fusion:environment';
 
 import React from 'react';
 import { render } from 'enzyme';
