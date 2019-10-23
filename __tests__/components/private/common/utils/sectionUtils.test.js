@@ -8,6 +8,6 @@ describe('Utils - SectionUtils', () => {
         const parent = getFirstParentSection({
             _id: '/recetas/platos-principales/carne'
         });
-        expect(parent).toBe('recetas');
+        expect(parent).toBe('/recetas');
     });
 });

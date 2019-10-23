@@ -13,7 +13,11 @@ const Sections = props => {
         if (parentPrimarySection) {
             listSections = taxonomy.sections.filter(x => {
                 const parentSection = getFirstParentSection(x);
-                return parentSection && parentSection === parentPrimarySection;
+                return (
+                    parentSection &&
+                    parentSection === parentPrimarySection &&
+                    x._id !== parentPrimarySection
+                );
             });
         }
     }
