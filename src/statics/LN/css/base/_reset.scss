@@ -142,6 +142,7 @@ body {
 
 #wrapper {
     position: relative;
+    overflow: hidden;
     margin-bottom: 80px;
     &.--scrollUp{
         padding-top: 67px;

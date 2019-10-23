@@ -1,27 +1,8 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 .jardin {
     $primario: $jardin;
-    .acu article a.figure:before,
-    article a.figure:before {
-        content: '\e922';
-        color: $primario;
-    }
-    .com-tag a {
-        color: $primario;
-        border-color: $primario;
-        &:hover{
-            background: $primario;
-        }
-    }
-    .com-secondary-tag a,
-    .com-secondary-tag a:after,
-    [class^="logo-"],
-    [class*=" logo-"] {
-        color: $primario;
-    }
-    &.fondo-revista,
-    .mod-newsletter {
-        background-color: $primario;
-    }
+    $logo: $logo-jardin;
+    @include revista($logo, $primario);
 }
