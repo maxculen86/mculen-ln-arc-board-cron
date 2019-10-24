@@ -53,7 +53,7 @@ articleMain.propTypes = {
         PropTypes.node
     ]),
     articleData: PropTypes.shape({
-        subtype: PropTypes.number,
+        subtype: PropTypes.string,
         website_url: PropTypes.string
     }).isRequired,
     dataSection: PropTypes.string,
