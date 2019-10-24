@@ -1,9 +1,4 @@
-import { API_ENV } from 'fusion:environment';
-
-const { CookieExpiration, DominioCookie } = API_ENV || {
-    CookieExpiration: '8640000000',
-    DominioCookie: '.lanacion.com.ar'
-};
+import { COOKIE_EXPIRATION, DOMINIO_COOKIE } from 'fusion:environment';
 
 const useCookie = () => {
     const DiccionarioCookiesAGuardar = [
@@ -30,7 +25,7 @@ const useCookie = () => {
     ];
 
     function eraseCookie(nameCookie) {
-        document.cookie = `${nameCookie}=false; expires=${new Date().toUTCString()}; domain=${DominioCookie}; path=/`;
+        document.cookie = `${nameCookie}=false; expires=${new Date().toUTCString()}; domain=${DOMINIO_COOKIE}; path=/`;
     }
 
     function setCookie(nameCookie, valueCookie, timeExpiration) {
@@ -47,14 +42,14 @@ const useCookie = () => {
          */
         let exp;
         if (!seconds) {
-            const secondsDefault = parseInt(CookieExpiration);
+            const secondsDefault = parseInt(COOKIE_EXPIRATION);
             const date = new Date();
             exp = new Date(date.setTime(date.getTime() + secondsDefault));
         } else {
             exp = new Date(new Date().getTime() + seconds);
         }
 
-        document.cookie = `${nameCookie}=${valueCookie}; expires=${exp.toUTCString()}; domain=${DominioCookie}; path=/`;
+        document.cookie = `${nameCookie}=${valueCookie}; expires=${exp.toUTCString()}; domain=${DOMINIO_COOKIE}; path=/`;
         return !!(
             document.cookie &&
             document.cookie.indexOf(`${nameCookie}=${valueCookie}`) !== -1

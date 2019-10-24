@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - AuthorAndDate Test de snapshot AuthorAndDate 1`] = `
+<div
+  class="col-12"
+>
+  <div
+    class="row mod-authordate"
+  >
+    <div
+      class="col-12"
+    >
+      <p
+        class="com-date"
+      >
+        21 de Febrero de 2019 • 13:00
+      </p>
+    </div>
+  </div>
+  <div
+    class="col-12"
+  >
+    <div
+      class="com-author"
+    >
+      <span>
+        Por 
+      </span>
+      <div
+        class="com-author"
+      >
+        <a
+          href="/autor/agustina__++**''''''¿¿_lomuto/"
+        >
+          Agustina Lomuto
+        </a>
+         y 
+      </div>
+      <div
+        class="com-author"
+      >
+        <a
+          href="/autor/diego-cabot"
+        >
+          Diego Cabot
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
