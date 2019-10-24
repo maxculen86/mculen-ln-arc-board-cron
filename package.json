@@ -1,6 +1,6 @@
 {
     "name": "@ln/app",
-    "version": "0.2.0-r20191022",
+    "version": "0.2.0-r20191024",
     "description": "Arc+React App - LN - OTT",
     "private": true,
     "main": "index.js",
@@ -26,6 +26,8 @@
         "doc": "react-doc-generator ./components/ -o ./components.md"
     },
     "dependencies": {
+        "crypto": "^1.0.1",
+        "jsonwebtoken": "^8.5.1",
         "lodash.get": "^4.4.2",
         "react": "16.8.6",
         "react-dom": "16.8.6",

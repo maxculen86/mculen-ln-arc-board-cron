@@ -43,6 +43,21 @@ class GrillaNotas extends Component {
         return undefined;
     };
 
+    getArticleClasses = article => {
+        let extraClasses = `${CLASS_W_100} `;
+        if (
+            article.taxonomy.primary_section.additional_properties.original &&
+            article.taxonomy.primary_section.additional_properties.original
+                .style &&
+            article.taxonomy.primary_section.additional_properties.original
+                .style.section_style_name
+        )
+            extraClasses +=
+                article.taxonomy.primary_section.additional_properties.original
+                    .style.section_style_name;
+        return extraClasses;
+    };
+
     render() {
         let articlesComponents = [];
         const {
@@ -59,13 +74,14 @@ class GrillaNotas extends Component {
                 const dateComponent = (
                     <ArticleDate display_date={a.display_date} />
                 );
+                const extraClasses = this.getArticleClasses(a);
                 return (
                     <>
                         <ArticleMain
                             dataSection={DATA_SECTION}
                             key={a._id}
                             articleData={a}
-                            extraClasses={CLASS_W_100}
+                            extraClasses={extraClasses}
                         >
                             {dateComponent}
                         </ArticleMain>
