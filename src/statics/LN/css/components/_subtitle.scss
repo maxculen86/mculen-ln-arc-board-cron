@@ -1,6 +1,5 @@
 @import '../abstracts/variables';
 
-
 /* subtitles */
 
 .com-subtitle-nota-1 {
@@ -41,6 +40,12 @@
         font-family: $font-SuecaSlab;
         font-size: $font-24;
         font-weight: 500;
+        line-height: $line-24;
+    }
+    .com-subtitle-nota-3 {
+        font-family: $font-arial;
+        font-size: $font-16;
+        font-weight: 700;
         line-height: $line-24;
     }
 }

@@ -1,0 +1,9 @@
+@import '../abstracts/variables';
+.blockquote {
+    background-color: $gris-1;
+    padding: $px-20 $px-23;
+    font-family: $font-suecasl;
+    font-size: $font-20;
+    line-height: $line-28;
+    margin-bottom: $px-30;
+}

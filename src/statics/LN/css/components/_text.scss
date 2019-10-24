@@ -1,8 +1,19 @@
 @import '../abstracts/variables';
-
-
 .text {
     font-family: $font-arial;
     font-size: $font-16;
     line-height: $line-23;
+    b {
+        font-weight: 700;
+    }
+    &.capital:first-letter {
+        font-family: $font-suecasl;
+        font-size: $font-55;
+    }
+    .noticia & {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: $font-19;
+        line-height: $line-30;
+        margin-bottom: $px-30;
+    }
 }
