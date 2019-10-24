@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProgramComponent from './component';
 import withImage from '../../../common/hocs/withImage';
 import withCorrectHref from '../../../common/hocs/withCorrectHref';
+
 class Program extends Component {
     render() {
         return (

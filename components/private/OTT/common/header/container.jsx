@@ -9,6 +9,7 @@ class Header extends Component {
         this.data = { 'data-event': 'LinkClick', 'data-section': 'HeaderOTT' };
         this.headerItems = this.getHeaderItems(props);
     }
+
     getHeaderItems(props) {
         return props.navigations.map(elem => {
             if (elem.node_type == 'link')
@@ -17,15 +18,17 @@ class Header extends Component {
                     description: elem.display_name,
                     alt: elem.display_name
                 };
-            else if (elem.node_type == 'section') {
+            if (elem.node_type == 'section') {
                 const href = elem.site ? elem.site.site_url : '/';
                 return { href: href, description: elem.name, alt: elem.name };
             }
         });
     }
+
     componentWillUpdate(nextProps, nextState) {
         this.headerItems = this.getHeaderItems(nextProps);
     }
+
     render() {
         return <HeaderComponent items={this.headerItems} data={this.data} />;
     }

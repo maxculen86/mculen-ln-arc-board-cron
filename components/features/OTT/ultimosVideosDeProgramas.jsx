@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import LastVideosByProgram from '../../private/OTT/programa/lastVideosByProgram';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
+import LastVideosByProgram from '../../private/OTT/programa/lastVideosByProgram';
 
 class UltimosVideosDeProgramas extends PureComponent {
     constructor(props) {
@@ -24,6 +24,7 @@ class UltimosVideosDeProgramas extends PureComponent {
                 break;
         }
     }
+
     render() {
         if (!this.sectionId) return null;
         return <LastVideosByProgram sectionId={this.sectionId} />;

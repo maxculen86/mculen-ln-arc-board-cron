@@ -1,6 +1,6 @@
 import React from 'react';
-import ShowMoreVideos from './showMoreVideos';
 import get from 'lodash.get';
+import ShowMoreVideos from './showMoreVideos';
 import Title from '../../../common/title';
 import VideoArticle from '../../common/videoArticle';
 
@@ -23,8 +23,8 @@ export default function LastVideosByProgams({
         );
     });
     return (
-        <section className={'slider'}>
-            <Title title={'Últimos Videos'} className={'section-title'} />
+        <section className="slider">
+            <Title title="Últimos Videos" className="section-title" />
             {currentItem}
             {hasNext && <ShowMoreVideos onClick={nextPageHandler} />}
         </section>
