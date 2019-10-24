@@ -1,0 +1,28 @@
+@import '../abstracts/variables';
+
+.comments {
+    margin-top: $px-20;
+    padding-top: $px-50;
+    border-top: 1px solid $gris3;
+    .comment-title {
+        font-weight: 700;
+    }
+    .comment-legal {
+        line-height: $px-24;
+    }
+    .comment-reminder {
+        background: #ffffbf;
+        font-size: $font-14;
+        text-align: center;
+        color: $gris5;
+        margin: $px-20 0;
+        padding: $px-25 0;
+    }
+    .item_link{
+        font-size: $font-14;
+        line-height: $font-30;
+        color: $link;
+        background: none;
+        margin-left: $px-10;
+    }
+}
