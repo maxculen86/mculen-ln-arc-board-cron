@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
-import { API_ENV } from 'fusion:environment';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
-
-const { SitioSeguroRegistracion } = API_ENV || {
-    SitioSeguroRegistracion: 'https://ingresar.lanacion.com.ar'
-};
 
 const ItemAnchor = ({ url, text }) => {
     const callURL = address => {
@@ -86,7 +82,8 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                         <a
                             className="--btn --highlight hlp-marginRight-35"
                             href={
-                                `${SitioSeguroRegistracion}/suscribirme` || '/'
+                                `${SITIO_SEGURO_REGISTRACION}/suscribirme` ||
+                                '/'
                             }
                         >
                             Suscribite
