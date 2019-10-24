@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { API_ENV } from 'fusion:environment';
+import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import Header from './headerBase';
 
 import '../../../../../resources/dist/css/ln/modules/header-mobile.css';
-
-const { SitioSeguroRegistracion } = API_ENV || {
-    SitioSeguroRegistracion: 'https://ingresar.lanacion.com.ar'
-};
 
 const HeaderMobile = ({ loginData }) => {
     return (
@@ -19,7 +15,7 @@ const HeaderMobile = ({ loginData }) => {
             </div>
             {!loginData.subscription && (
                 <div className="col-6 hlp-text-right">
-                    <a href={`${SitioSeguroRegistracion}/suscribirme` || '/'}>
+                    <a href={`${SITIO_SEGURO_REGISTRACION}/suscribirme` || '/'}>
                         Suscribite
                     </a>
                 </div>

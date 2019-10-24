@@ -170,8 +170,8 @@
  }
  
  .logo-brando:before {
-     content: "\e800";
- }
+    content: $logo-brando;
+}
  
  .logo-club:before {
      content: "\e801";
@@ -182,24 +182,24 @@
  }
  
  .logo-hola:before {
-     content: "\e803";
- }
+    content: $logo-hola;
+}
  
  .logo-hola-argentina:before {
      content: "\e804";
  }
  
  .logo-jardin:before {
-     content: "\e805";
- }
+    content: $logo-jardin;
+}
  
  .logo-la-nacion:before {
      content: "\e806";
  }
  
  .logo-living:before {
-     content: "\e807";
- }
+    content: $logo-living;
+}
  
  .logo-ln:before {
      content: "\e808";
@@ -214,17 +214,17 @@
  }
  
  .logo-lugares:before {
-     content: "\e80b";
- }
+    content: $logo-lugares;
+}
  
  .logo-negocios:before {
      content: "\e80c";
  }
  
  .logo-ohlala:before {
-     content: "\e80d";
+     content: $logo-ohlala;
  }
  
  .logo-rolling:before {
-     content: "\e80e";
- }
+    content: $logo-rolling;
+}

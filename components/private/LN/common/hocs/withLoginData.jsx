@@ -1,7 +1,11 @@
 /* eslint-disable no-restricted-globals */ // TODO: Modificar codigo para evitar excluir esta regla
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { API_ENV } from 'fusion:environment';
+import {
+    LOGIN_URL,
+    SITIO_SEGURO_REGISTRACION,
+    RELOGIN_VALIDATION
+} from 'fusion:environment';
 import apiIngresar from '../../../common/services/apIngresar';
 import useCookie from '../utils/useCookie';
 
@@ -11,14 +15,6 @@ const {
     eraseCookie,
     DiccionarioCookiesAGuardar
 } = useCookie();
-
-const { LoginUrl } =
-    ['array', 'object'].indexOf(typeof API_ENV) > 0
-        ? API_ENV
-        : {
-              LoginUrl:
-                  'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback='
-          };
 
 function withLoginData(WrappedComponent) {
     return class withAuthentication extends React.Component {
@@ -42,7 +38,7 @@ function withLoginData(WrappedComponent) {
                     subscription: false,
                     userName: 'Sin nombre',
                     goToLoginUrl: () => {
-                        location.href = LoginUrl + window.btoa(location.href);
+                        location.href = LOGIN_URL + window.btoa(location.href);
                     },
                     loading: true
                 }
@@ -137,7 +133,7 @@ function withLoginData(WrappedComponent) {
                           subscription: false,
                           goToLoginUrl: () => {
                               location.href =
-                                  LoginUrl + window.btoa(location.href);
+                                  LOGIN_URL + window.btoa(location.href);
                           },
                           loading: false
                       }
@@ -230,13 +226,6 @@ function withLoginData(WrappedComponent) {
 
             try {
                 let result = true;
-                const { ReloginValidation } =
-                    ['array', 'object'].indexOf(typeof API_ENV) > 0
-                        ? API_ENV
-                        : {
-                              ReloginValidation: 8121600000
-                          };
-
                 // Se parsea cookie syncLfLN para que no tenga am/pm .
                 // Convirtiendo la hora en formato de 24hrs y no de 12hrs .
                 // Cookie de ejemplo : 09/06/2017 06:52:46 p.m.
@@ -273,7 +262,7 @@ function withLoginData(WrappedComponent) {
                     }
                     if (
                         new Date() <
-                        new Date(syncDate.getTime() - ReloginValidation)
+                        new Date(syncDate.getTime() - RELOGIN_VALIDATION)
                     ) {
                         result = false;
                     }
@@ -292,10 +281,7 @@ function withLoginData(WrappedComponent) {
         };
 
         goToLogout = () => {
-            const { APIingresar } = API_ENV || {};
-            const urlApiIngresar =
-                APIingresar || 'https://ingresar.lanacion.com.ar';
-            const urlToLogout = `${urlApiIngresar}/logout/logout.html?pagina=${location.href}`;
+            const urlToLogout = `${SITIO_SEGURO_REGISTRACION}/logout/logout.html?pagina=${location.href}`;
 
             eraseCookie('shouldrelogin');
             eraseCookie('usuariodata');
@@ -312,7 +298,7 @@ function withLoginData(WrappedComponent) {
                     subscription: false,
                     userName: 'Sin nombre',
                     goToLoginUrl: () => {
-                        location.href = LoginUrl + window.btoa(location.href);
+                        location.href = LOGIN_URL + window.btoa(location.href);
                     },
                     loading: false
                 }
