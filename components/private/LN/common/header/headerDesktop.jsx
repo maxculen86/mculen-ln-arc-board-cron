@@ -15,7 +15,7 @@ const ItemAnchor = ({ url, text }) => {
     };
 
     return (
-        <li>
+        <li key={text}>
             <a onMouseDown={() => callURL(url)} href="javascript:void(0)">
                 {text}
             </a>

@@ -31,7 +31,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
     loading: false,
-    loadingIcon: []
+    loadingIcon: null
 };
 
 export default Button;

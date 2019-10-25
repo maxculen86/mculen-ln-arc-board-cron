@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import TransparencyDiv from './transparencyDiv';
-import ArticleMain from '../../common/articleTypes/articleMain';
-import ArticleDate from '../../common/dateArticle';
+import ArticleAcum from '../articleAcum';
 import BtnMasNotas from '../botonVerMasNotas';
 import Banner from '../../common/banner';
 import LoadingIcon from '../../common/loadingIcon';
@@ -71,22 +70,18 @@ class GrillaNotas extends Component {
             articlesComponents = articles.map((a, i) => {
                 const mobileBanner = this.getBanner('mobile', i);
                 const tabletBanner = this.getBanner('tablet', i);
-                const dateComponent = (
-                    <ArticleDate display_date={a.display_date} />
-                );
-                const extraClasses = this.getArticleClasses(a);
+
                 return (
                     <>
-                        <ArticleMain
-                            dataSection={DATA_SECTION}
+                        <ArticleAcum
                             key={a._id}
-                            articleData={a}
-                            extraClasses={extraClasses}
+                            dataSection={DATA_SECTION}
+                            extraClasses={CLASS_W_100}
+                            article={a}
                         >
-                            {dateComponent}
-                        </ArticleMain>
-                        {mobileBanner}
-                        {tabletBanner}
+                            {mobileBanner}
+                            {tabletBanner}
+                        </ArticleAcum>
                     </>
                 );
             });
