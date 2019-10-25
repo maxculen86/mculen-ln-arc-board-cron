@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import Title from '../private/common/title';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Title from '../private/common/title';
 
-export default class Grilla extends Component {
-    render() {
-        return (
-            <section className={'slider'}>
-                {this.props.customFields.title && (
-                    <Title
-                        className={'section-title'}
-                        title={this.props.customFields.title}
-                    />
-                )}
-                {this.props.children}
-            </section>
-        );
-    }
+const Grilla = () => {
+    return (
+        <section className="slider">
+            {this.props.customFields.title && (
+                <Title
+                    className="section-title"
+                    title={this.props.customFields.title}
+                />
+            )}
+            {this.props.children}
+        </section>
+    );
 }
 
 Grilla.propTypes = {
@@ -23,3 +21,5 @@ Grilla.propTypes = {
         title: PropTypes.string.tag({ label: 'Titulo' })
     })
 };
+
+export default Grilla;

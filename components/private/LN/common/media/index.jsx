@@ -6,6 +6,7 @@ import Placeholder from '../imagePlaceholder';
 
 // TODO: proptypes
 const media = ({ mediaData, colNumber, zoom, href }) => {
+    console.log('media *********', mediaData)
     // TODO: revisar implementacion de placeHolder
     let item = null;
     if (mediaData) {
@@ -15,7 +16,7 @@ const media = ({ mediaData, colNumber, zoom, href }) => {
                 item = <Image image={mediaData} href={href} zoom={zoom} />;
                 break;
             case 'video':
-                item = <VideoPlayer videoId={_id} />;
+                item = <VideoPlayer videoId={_id} mediaData={mediaData} />;
                 break;
             default:
                 break;

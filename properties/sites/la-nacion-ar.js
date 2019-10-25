@@ -23,6 +23,10 @@ export default {
         Comscore: {
             props: { config: { c1: '2', c2: '6906398' } },
             location: ['head']
+        },
+        Livefyre: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {
@@ -95,5 +99,8 @@ export default {
         facebook: {
             appID: '246891475813003'
         }
-    }
+    },
+    sharedKeyLF: 'Wi9J9hmEtpK9QRp5nY1SSSQ2FKE=',
+    loginUrl: '//qa-ingresar.lanacion.com.ar/ingresar/D/1/?callback=',
+    logoutUrl: '/logout.html'
 };

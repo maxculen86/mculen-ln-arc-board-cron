@@ -16,7 +16,7 @@ export default function ActivePrograms({ items }) {
     });
     return (
         <section>
-            <Title className={'section-title'} title={'Todos los programas'} />
+            <Title className="section-title" title="Todos los programas" />
             <Carousell>{currentItem}</Carousell>
         </section>
     );
