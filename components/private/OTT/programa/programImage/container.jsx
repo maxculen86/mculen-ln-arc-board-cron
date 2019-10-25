@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
+import get from 'lodash.get';
 import WithImage from '../../../../private/common/hocs/withImage';
 import ImageComponent from './component';
-import get from 'lodash.get';
 
 class ProgramImageContainer extends PureComponent {
     render() {

@@ -18,9 +18,9 @@ export default function SpecialVideo({ videos }) {
         );
     });
     return (
-        <section className={'especiales'}>
-            <h2 className={'section-title'}>LN+ Especiales</h2>
-            <section className={'box-4'}>{specialVideos}</section>
+        <section className="especiales">
+            <h2 className="section-title">LN+ Especiales</h2>
+            <section className="box-4">{specialVideos}</section>
         </section>
     );
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ImagenProgramComponent from '../../private/OTT/programa/programImage';
 import get from 'lodash.get';
 import Consumer from 'fusion:consumer';
+import ImagenProgramComponent from '../../private/OTT/programa/programImage';
 
 class ImagenPrograma extends Component {
     constructor(props) {
@@ -17,6 +17,7 @@ class ImagenPrograma extends Component {
             null
         );
     }
+
     render() {
         return <ImagenProgramComponent imageId={this.imageId} />;
     }
