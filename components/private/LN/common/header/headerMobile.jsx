@@ -31,10 +31,11 @@ HeaderMobile.propTypes = {
     })
 };
 
-HeaderMobile.defaultProps = {
-    loginData: PropTypes.shape({
-        subscription: false,
-        userName: ''
-    })
-};
+// HeaderMobile.defaultProps = {
+//     loginData: PropTypes.shape({
+//         subscription: false,
+//         userName: ''
+//     })
+// };
+
 export default HeaderMobile;

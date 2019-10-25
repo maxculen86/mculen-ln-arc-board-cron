@@ -85,8 +85,8 @@ Share.propTypes = {
     }).isRequired
 };
 
-Share.defaultProps = {
-    requestUri: ''
-};
+// Share.defaultProps = {
+//     requestUri: ''
+// };
 
 export default Share;

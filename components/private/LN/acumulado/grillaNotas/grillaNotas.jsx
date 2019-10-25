@@ -129,12 +129,12 @@ GrillaNotas.propTypes = {
     }).isRequired
 };
 
-GrillaNotas.defaultProps = {
-    articles: [],
-    hayMasNotas: 0,
-    obtenerMasNotas: () => {},
-    loading: false,
-    isAdmin: false
-};
+// GrillaNotas.defaultProps = {
+//     articles: [],
+//     hayMasNotas: 0,
+//     obtenerMasNotas: () => {},
+//     loading: false,
+//     isAdmin: false
+// };
 
 export default WithAcuArticlesData(GrillaNotas, filter, 'notaM');

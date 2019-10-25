@@ -60,11 +60,11 @@ articleMain.propTypes = {
     border: PropTypes.boolean
 };
 
-articleMain.defaultProps = {
-    extraClasses: '',
-    children: [],
-    dataSection: '',
-    border: false
-};
+// articleMain.defaultProps = {
+//     extraClasses: '',
+//     children: [],
+//     dataSection: '',
+//     border: false
+// };
 
 export default articleMain;

@@ -37,9 +37,9 @@ TypeList.propTypes = {
     children: PropTypes.node.isRequired
 };
 
-TypeList.defaultProps = {
-    ol: false
-};
+// TypeList.defaultProps = {
+//     ol: false
+// };
 
 ListItemsFactory.propTypes = {
     list: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -47,8 +47,8 @@ ListItemsFactory.propTypes = {
     listNumeric: PropTypes.bool
 };
 
-ListItemsFactory.defaultProps = {
-    listNumeric: false
-};
+// ListItemsFactory.defaultProps = {
+//     listNumeric: false
+// };
 
 export default ListItemsFactory;

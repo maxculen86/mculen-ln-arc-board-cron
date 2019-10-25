@@ -47,8 +47,8 @@ authorArticle.propTypes = {
     })
 };
 
-authorArticle.defaultProps = {
-    authors: []
-};
+// authorArticle.defaultProps = {
+//     authors: []
+// };
 
 export default authorArticle;

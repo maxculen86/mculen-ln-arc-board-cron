@@ -6,7 +6,7 @@ import Placeholder from '../imagePlaceholder';
 
 // TODO: proptypes
 const media = ({ mediaData, colNumber, zoom, href }) => {
-    console.log('media *********', mediaData)
+    console.log('media *********', mediaData);
     // TODO: revisar implementacion de placeHolder
     let item = null;
     if (mediaData) {
@@ -39,11 +39,11 @@ media.propTypes = {
     href: PropTypes.string
 };
 
-media.defaultProps = {
-    colNumber: null,
-    zoom: false,
-    href: null,
-    mediaData: null
-};
+// media.defaultProps = {
+//     colNumber: null,
+//     zoom: false,
+//     href: null,
+//     mediaData: null
+// };
 
 export default media;
