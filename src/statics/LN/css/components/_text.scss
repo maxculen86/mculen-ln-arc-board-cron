@@ -10,6 +10,10 @@
         font-family: $font-suecasl;
         font-size: $font-55;
     }
+    &.small {
+        font-size: $font-14;
+        color: $gris5;
+    }
     .noticia & {
         font-family: Georgia, 'Times New Roman', Times, serif;
         font-size: $font-19;
