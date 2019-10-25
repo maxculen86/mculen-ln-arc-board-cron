@@ -38,12 +38,7 @@ function withColections(WrappedComponent, filter, website) {
                     customFields: { idCollection }
                 } = this.props;
 
-                console.log(
-                    'TCL: extends -> componentDidMount -> idCollection',
-                    idCollection
-                );
-
-                //if (!idCollection) return;
+                if (!idCollection) return;
 
                 const { cached, fetched } = this.getContent({
                     sourceName: 'collectionsSource',
@@ -51,7 +46,7 @@ function withColections(WrappedComponent, filter, website) {
                     query: {
                         size,
                         website,
-                        id: 'OCTOV4V54FCFLJHOVB5IAJKHHM'
+                        id: idCollection
                     }
                 });
 

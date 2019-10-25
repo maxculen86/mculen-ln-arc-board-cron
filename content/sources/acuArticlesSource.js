@@ -64,7 +64,6 @@ const resolve = key => {
     }`;
     const final = `${basePath}${query}&size=${size || 30}&from=${from}
             &sort=publish_date:desc`;
-    console.log('TCL: final', final);
     return final;
 };
 

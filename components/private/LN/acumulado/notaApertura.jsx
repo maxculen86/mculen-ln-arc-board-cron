@@ -26,11 +26,11 @@ NotaApertura.propTypes = {
         PropTypes.shape({
             _id: PropTypes.string
         })
-    )
+    ).isRequired
 };
 
-NotaApertura.defaultProps = {
+/* NotaApertura.defaultProps = {
     articlesCollections: []
 };
-
+ */
 export default withCollections(NotaApertura, filter, 'la-nacion-ar');

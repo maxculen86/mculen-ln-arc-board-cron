@@ -119,7 +119,7 @@ AcumuladoTitle.propTypes = {
                 _website: PropTypes.string
             })
         )
-    }),
+    }).isRequired,
     orderAndCountTags: PropTypes.arrayOf(
         PropTypes.shape({
             tag: PropTypes.shape({

@@ -1,6 +1,5 @@
 const resolve = key => {
     const { id, website, size } = key;
-    console.log('TCL: { id, website, size }', { id, website, size });
     if (!id)
         throw new Error(
             'Debe definir un id para realizar la consulta - Collections Source'
