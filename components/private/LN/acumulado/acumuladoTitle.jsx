@@ -130,14 +130,14 @@ AcumuladoTitle.propTypes = {
     ).isRequired
 };
 
-AcumuladoTitle.defaultProps = {
-    globalContent: {
-        Payload: undefined,
-        byline: undefined,
-        name: undefined,
-        node_type: undefined,
-        children: []
-    }
-};
+// AcumuladoTitle.defaultProps = {
+//     globalContent: {
+//         Payload: undefined,
+//         byline: undefined,
+//         name: undefined,
+//         node_type: undefined,
+//         children: []
+//     }
+// };
 
 export default WithAcuArticlesData(Consumer(AcumuladoTitle), filter, 'notaM');

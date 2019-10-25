@@ -3,9 +3,9 @@ import LastVideosComponent from './component';
 import filter from '../../../../../content/filters/OTT/homeVideoItem';
 import withLastVideosHOC from '../../../common/hocs/withLastVideos';
 
-const LastVideos = () => {
-    if (!this.props.videos) return <></>;
-    return <LastVideosComponent videos={this.props.videos} />;
+const LastVideos = props => {
+    if (!props.videos) return <></>;
+    return <LastVideosComponent videos={props.videos} />;
 };
 
 export default withLastVideosHOC(LastVideos, filter, 'ott', true);

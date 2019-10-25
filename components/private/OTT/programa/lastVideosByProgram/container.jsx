@@ -5,16 +5,16 @@ import filter from '../../../../../content/filters/OTT/homeVideoItem';
 
 const PAGE_SIZE = 12;
 
-const LastVideosByProgram = () => {
-    if (!this.props.videos) return <></>;
+const LastVideosByProgram = props => {
+    if (!props.videos) return <></>;
     return (
         <LastVideosByProgramComponent
-            videos={this.props.videos}
-            nextPageHandler={this.props.nextPage}
-            hasNext={this.props.hasNextPage}
+            videos={props.videos}
+            nextPageHandler={props.nextPage}
+            hasNext={props.hasNextPage}
         />
     );
-}
+};
 
 export default withLastVideosBySection(
     LastVideosByProgram,

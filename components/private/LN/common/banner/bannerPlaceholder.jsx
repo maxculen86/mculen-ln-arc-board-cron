@@ -32,8 +32,8 @@ bannerPlaceholder.propTypes = {
     missDfpId: PropTypes.bool
 };
 
-bannerPlaceholder.defaultProps = {
-    missDfpId: false
-};
+// bannerPlaceholder.defaultProps = {
+//     missDfpId: false
+// };
 
 export default bannerPlaceholder;

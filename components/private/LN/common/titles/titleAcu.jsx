@@ -24,9 +24,9 @@ TitleAcu.propTypes = {
     href: PropTypes.string
 };
 
-TitleAcu.defaultProps = {
-    volanta: '',
-    href: ''
-};
+// TitleAcu.defaultProps = {
+//     volanta: '',
+//     href: ''
+// };
 
 export default TitleAcu;

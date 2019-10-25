@@ -4,8 +4,6 @@ import withLoginData from '../common/hocs/withLoginData';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
 const Comments = props => {
-    console.log('############ GLOBALCONTENT ##########: ', props.globalContent);
-    console.log('############ props ##########: ', props);
     const {
         globalContent: {
             _id,
@@ -56,7 +54,11 @@ const Comments = props => {
 
     return (
         <>
-            <section id="comentarios" className="comments" data-module="nota-sugeridas-comentarios">
+            <section
+                id="comentarios"
+                className="comments"
+                data-module="nota-sugeridas-comentarios"
+            >
                 <div
                     id="tokenLF"
                     data-id=""
@@ -64,18 +66,26 @@ const Comments = props => {
                     data-lf-siteId="356483"
                 />
                 {props.logueado && (
-                    <button
-                        type="button"
-                        onClick={() => {console.log('******||||||******')}}
-                    >
+                    <button type="button" onClick={() => {}}>
                         Ingresar
                     </button>
                 )}
-                    <h4 className="com-title-section-m comment-title">Enviá tu comentario <button className="item_link">Ver legales</button></h4>
-                    <p className="comment-legal">
-                        Los comentarios publicados son de exclusiva responsabilidad de sus autores y las consecuencias derivadas de ellos pueden ser pasibles de sanciones legales. Aquel usuario que incluya en sus mensajes algún comentario violatorio del reglamento será eliminado e inhabilitado para volver a comentar. Enviar un comentario implica la aceptación del Reglamento.
-                    </p>
-                    <div className="comment-reminder">Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
+                <h4 className="com-title-section-m comment-title">
+                    Enviá tu comentario{' '}
+                    <button className="item_link">Ver legales</button>
+                </h4>
+                <p className="comment-legal">
+                    Los comentarios publicados son de exclusiva responsabilidad
+                    de sus autores y las consecuencias derivadas de ellos pueden
+                    ser pasibles de sanciones legales. Aquel usuario que incluya
+                    en sus mensajes algún comentario violatorio del reglamento
+                    será eliminado e inhabilitado para volver a comentar. Enviar
+                    un comentario implica la aceptación del Reglamento.
+                </p>
+                <div className="comment-reminder">
+                    Para poder comentar tenés que ingresar con tu usuario de LA
+                    NACION.
+                </div>
                 <div className="livefyre" />
             </section>
         </>
