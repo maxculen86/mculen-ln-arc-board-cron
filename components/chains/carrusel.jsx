@@ -3,16 +3,16 @@ import PropTypes from 'fusion:prop-types';
 import Carousell from '../private/common/carousell';
 import Title from '../private/common/title';
 
-const Carrusel = () => {
+const Carrusel = props => {
     return (
         <section>
-            {this.props.customFields.title && (
+            {props.customFields.title && (
                 <Title
                     className={'section-title'}
-                    title={this.props.customFields.title}
+                    title={props.customFields.title}
                 />
             )}
-            <Carousell>{this.props.children}</Carousell>
+            <Carousell>{props.children}</Carousell>
         </section>
     );
 };
@@ -23,4 +23,4 @@ Carrusel.propTypes = {
     })
 };
 
-export default Carrusel
+export default Carrusel;
