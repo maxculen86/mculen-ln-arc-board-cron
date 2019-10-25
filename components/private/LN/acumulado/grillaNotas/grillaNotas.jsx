@@ -45,16 +45,17 @@ class GrillaNotas extends Component {
 
     getArticleClasses = article => {
         let extraClasses = `${CLASS_W_100} `;
-        if (
-            article.taxonomy.primary_section.additional_properties.original &&
-            article.taxonomy.primary_section.additional_properties.original
-                .style &&
-            article.taxonomy.primary_section.additional_properties.original
-                .style.section_style_name
-        )
-            extraClasses +=
-                article.taxonomy.primary_section.additional_properties.original
-                    .style.section_style_name;
+        const {
+            taxonomy: {
+                primary_section: {
+                    additional_properties: {
+                        original: { style }
+                    }
+                }
+            }
+        } = article;
+        if (style && style.section_style_name)
+            extraClasses += style.section_style_name;
         return extraClasses;
     };
 
