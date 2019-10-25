@@ -60,4 +60,31 @@ describe('components - private - LN - common - banner - index', () => {
                 .includes(props.selectedSlots.desktopSlot)
         ).toBe(true);
     });
+
+    const propsWithoutDfpId = {
+        siteProperties: {
+            bannerConfig: { dfp_id: 0 }
+        },
+        slotGroup: 'acumulado',
+        selectedSlots: {
+            desktopSlot: 'cabezal_dsk',
+            mobileSlot: 'sticky1_mob',
+            tabletSlot: 'cabezal_tab'
+        },
+        sticky: false,
+        background: true,
+        extraClasses: '',
+        screenUtils: {
+            device: 'desktop'
+        }
+    };
+
+    const componentNoDfp = mount(
+        <Banner {...propsWithoutDfpId} isAdmin={false} />
+    );
+    it('Testeo que el component este vacio y todos sus subcomponentes tambien cuando no hay dfp Id', () => {
+        expect(componentNoDfp.isEmptyRender()).toBe(true);
+        expect(componentNoDfp.find('mocked-bannerComponent').length).toBe(0);
+        expect(componentNoDfp.find('mocked-bannerPlaceholder').length).toBe(0);
+    });
 });
