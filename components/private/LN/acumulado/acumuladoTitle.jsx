@@ -36,10 +36,10 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
             // TODO: LLevar el lengt -1 a 1 cuando se active Navigation Arc2
             globalContent &&
                 globalContent._id &&
-                globalContent._id.split('/').splice(1).length === 1
+                globalContent._id.split('/').splice(1).length !== 1
         );
         // TODO: Cambiar < a > cuando se active Navigation Arc2
-        if (_children && _children.length > 0) setWithCategory('with-category');
+        if (_children && _children.length < 0) setWithCategory('with-category');
 
         setTitle(() => {
             const {
