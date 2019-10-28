@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AllPrograms from '../../private/OTT/common/allPrograms';
 
-class TodosLosProgramas extends Component {
-    render() {
-        return <AllPrograms />;
-    }
-}
+const TodosLosProgramas = () => {
+    return <AllPrograms />;
+};
 
 export default TodosLosProgramas;

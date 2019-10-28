@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import HeaderContainer from '../../private/OTT/common/header';
 import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
+import HeaderContainer from '../../private/OTT/common/header';
 
 class Header extends Component {
     constructor(props) {
@@ -9,6 +9,7 @@ class Header extends Component {
         const siteVars = getProperties(props.arcSite);
         this.headerHierarchy = siteVars.header.hierarchy;
     }
+
     render() {
         return <HeaderContainer hierarchy={this.headerHierarchy} />;
     }

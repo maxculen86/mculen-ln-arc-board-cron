@@ -31,6 +31,20 @@ const image = `
 const video = `
     type
     _id
+    publish_date
+    duration
+    headlines {
+        basic
+    }
+    streams {
+        height
+        url
+    }
+    promo_items {
+        basic {
+            url
+        }
+    }
     additional_properties {
         advertising {
             playAds

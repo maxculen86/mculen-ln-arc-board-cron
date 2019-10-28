@@ -15,12 +15,9 @@ export default function AllPrograms({ items }) {
         );
     });
     return (
-        <section className={'programas'}>
-            <section className={'slider'}>
-                <Title
-                    className={'section-title'}
-                    title={'Todos los programas'}
-                />
+        <section className="programas">
+            <section className="slider">
+                <Title className="section-title" title="Todos los programas" />
                 {currentItem}
             </section>
         </section>

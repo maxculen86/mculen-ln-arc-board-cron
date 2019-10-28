@@ -20,11 +20,11 @@ const titleAndIconArticle = ({
                 {sectionStyle.class && sectionStyle.path ? (
                     <IconBase sections={sections} />
                 ) : null}
-                <TitleArticle prefix={prefix} headlines={headlines} />
+                <TitleArticle prefix={prefix || ''} headlines={headlines} />
             </>
         );
     }
-    return <TitleArticle prefix={prefix} headlines={headlines} />;
+    return <TitleArticle prefix={prefix || ''} headlines={headlines} />;
 };
 
 titleAndIconArticle.propTypes = {

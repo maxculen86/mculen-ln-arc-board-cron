@@ -130,10 +130,10 @@ NewLetter.propTypes = {
     subscriptionsCallBack: PropTypes.func
 };
 
-NewLetter.defaultProps = {
-    titulo: '',
-    logueado: false,
-    subscriptionsCallBack: null
-};
+// NewLetter.defaultProps = {
+//     titulo: '',
+//     logueado: false,
+//     subscriptionsCallBack: null
+// };
 
 export default NewLetter;

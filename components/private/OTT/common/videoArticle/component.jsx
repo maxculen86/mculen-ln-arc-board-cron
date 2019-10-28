@@ -3,7 +3,7 @@ import LinkedTitle from '../../../common/linkedTitle';
 
 export default function VideoArticle({ href, description, imgSrc, date }) {
     return (
-        <article className={'article'}>
+        <article className="article">
             <a className="figure" href={href}>
                 <picture className="content-picture">
                     <source srcSet={imgSrc} />

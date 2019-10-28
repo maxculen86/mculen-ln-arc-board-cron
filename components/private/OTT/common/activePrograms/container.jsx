@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Component from './component';
 import withNavigation from '../../../common/hocs/withNavigation';
 import filter from '../../../../../content/filters/OTT/activeProgramsNavigations';
+
 class Container extends PureComponent {
     constructor(props) {
         super(props);
@@ -20,9 +21,11 @@ class Container extends PureComponent {
             };
         });
     };
+
     componentWillUpdate(nextProps) {
         this.items = this.getActiveProgramsItems(nextProps);
     }
+
     render() {
         return <Component items={this.items} />;
     }

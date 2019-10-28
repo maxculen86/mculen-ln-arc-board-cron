@@ -104,8 +104,8 @@ Index.propTypes = {
     goToLogout: PropTypes.func.isRequired
 };
 
-Index.defaultProps = {
-    logueado: false
-};
+// Index.defaultProps = {
+//     logueado: false
+// };
 
 export default withLoginData(WithScreenUtils(Index));

@@ -28,7 +28,7 @@ class Index extends Component {
 }
 
 Index.propTypes = {
-    size: PropTypes.number,
+    size: PropTypes.number.isRequired,
     globalContent: PropTypes.shape({
         Payload: PropTypes.shape({
             items: PropTypes.array
@@ -43,13 +43,13 @@ Index.propTypes = {
     })
 };
 
-Index.defaultProps = {
-    size: 30,
-    siteProperties: {
-        bannerConfig: {
-            dfp_id: 0
-        }
-    }
-};
+// Index.defaultProps = {
+//     size: 30,
+//     siteProperties: {
+//         bannerConfig: {
+//             dfp_id: 0
+//         }
+//     }
+// };
 
 export default Consumer(Index);

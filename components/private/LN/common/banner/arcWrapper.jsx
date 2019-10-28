@@ -81,8 +81,8 @@ ArcWrapper.propTypes = {
     }).isRequired
 };
 
-ArcWrapper.defaultProps = {
-    className: ''
-};
+// ArcWrapper.defaultProps = {
+//     className: ''
+// };
 
 export default ArcWrapper;

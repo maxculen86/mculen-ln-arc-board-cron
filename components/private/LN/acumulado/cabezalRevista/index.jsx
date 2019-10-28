@@ -74,8 +74,8 @@ Index.propTypes = {
     ])
 };
 
-Index.defaultProps = {
-    children: []
-};
+// Index.defaultProps = {
+//     children: []
+// };
 
 export default Index;

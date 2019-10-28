@@ -53,9 +53,9 @@ Ranking.propTypes = {
     dataSection: PropTypes.string
 };
 
-Ranking.defaultProps = {
-    size: 0,
-    dataSection: undefined
-};
+// Ranking.defaultProps = {
+//     size: 0,
+//     dataSection: undefined
+// };
 
 export default Consumer(withRankingArticlesData(Ranking));

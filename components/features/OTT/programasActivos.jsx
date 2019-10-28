@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ActiveProgramsContainer from '../../private/OTT/common/activePrograms';
 import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
+import ActiveProgramsContainer from '../../private/OTT/common/activePrograms';
 
 class ProgramasActivos extends Component {
     constructor(props) {

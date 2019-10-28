@@ -54,10 +54,10 @@ BreadcrumbBase.propTypes = {
     lastLinked: PropTypes.boolean
 };
 
-BreadcrumbBase.defaultProps = {
-    extraClasses: undefined,
-    dataSection: undefined,
-    lastLinked: false
-};
+// BreadcrumbBase.defaultProps = {
+//     extraClasses: undefined,
+//     dataSection: undefined,
+//     lastLinked: false
+// };
 
 export default BreadcrumbBase;

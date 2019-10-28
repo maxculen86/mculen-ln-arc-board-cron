@@ -12,8 +12,9 @@ titleSection.propTypes = {
     text: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 };
 
-titleSection.defaultProps = {
-    text: "I'm a fancy header"
-};
+// TODO: si es que el texto no es obligatorio realmente, poner un valor por defecto que "pueda" aparecer en produccion...
+// titleSection.defaultProps = {
+//     text: "I'm a fancy header"
+// };
 
 export default titleSection;
