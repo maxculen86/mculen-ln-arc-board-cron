@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Component from './component';
 import withSections from '../../../common/hocs/withSections';
 import filter from '../../../../../content/filters/OTT/allProgramsSections';
+
 class Container extends PureComponent {
     constructor(props) {
         super(props);
@@ -20,9 +21,11 @@ class Container extends PureComponent {
             };
         });
     };
+
     componentWillUpdate(nextProps) {
         this.items = this.getProgramsItems(nextProps);
     }
+
     render() {
         return <Component items={this.items} />;
     }

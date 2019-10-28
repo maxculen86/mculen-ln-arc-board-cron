@@ -56,9 +56,9 @@ VideoPlayer.propTypes = {
     apiEnv: PropTypes.string
 };
 
-VideoPlayer.defaultProps = {
-    enableAds: true,
-    loadVideoOnInit: true
-};
+// VideoPlayer.defaultProps = {
+//     enableAds: true,
+//     loadVideoOnInit: true
+// };
 
 export default Context(VideoPlayer);

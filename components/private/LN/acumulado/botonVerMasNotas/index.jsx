@@ -29,9 +29,9 @@ Button.propTypes = {
     onClickHandler: PropTypes.func.isRequired
 };
 
-Button.defaultProps = {
-    loading: false,
-    loadingIcon: []
-};
+// Button.defaultProps = {
+//     loading: false,
+//     loadingIcon: []
+// };
 
 export default Button;

@@ -53,18 +53,18 @@ articleMain.propTypes = {
         PropTypes.node
     ]),
     articleData: PropTypes.shape({
-        subtype: PropTypes.number,
+        subtype: PropTypes.string,
         website_url: PropTypes.string
     }).isRequired,
     dataSection: PropTypes.string,
     border: PropTypes.boolean
 };
 
-articleMain.defaultProps = {
-    extraClasses: '',
-    children: [],
-    dataSection: '',
-    border: false
-};
+// articleMain.defaultProps = {
+//     extraClasses: '',
+//     children: [],
+//     dataSection: '',
+//     border: false
+// };
 
 export default articleMain;

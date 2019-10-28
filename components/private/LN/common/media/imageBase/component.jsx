@@ -36,10 +36,10 @@ imageBase.propTypes = {
     href: PropTypes.string
 };
 
-imageBase.defaultProps = {
-    altText: '',
-    zoom: false,
-    href: ''
-};
+// imageBase.defaultProps = {
+//     altText: '',
+//     zoom: false,
+//     href: ''
+// };
 
 export default imageBase;

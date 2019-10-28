@@ -66,12 +66,10 @@ export default function loadOTTVideoStyles() {
             }
         },
         template: function powaShotTemplate(settings) {
-            let playText = '';
+            const playText = '';
 
-            let template = `
-                    <div class="powa-shot-image powa-shot-click powa-shot-click-play" style="background-image: url('${
-                        settings.image
-                    }')">
+            const template = `
+                    <div class="powa-shot-image powa-shot-click powa-shot-click-play" style="background-image: url('${settings.image}')">
                         <div class="powa-shot-play-btn powa-shot-click powa-shot-click-play"><span class="video-btn-play-powa icon-play">${playText}</span></div>
                     </div>`;
 

@@ -50,13 +50,13 @@ banner.propTypes = {
     isAdmin: PropTypes.bool
 };
 
-banner.defaultProps = {
-    isAdmin: false,
-    siteProperties: {
-        bannerConfig: {
-            dfp_id: 0
-        }
-    }
-};
+// banner.defaultProps = {
+//     isAdmin: false,
+//     siteProperties: {
+//         bannerConfig: {
+//             dfp_id: 0
+//         }
+//     }
+// };
 
 export default Consumer(banner);

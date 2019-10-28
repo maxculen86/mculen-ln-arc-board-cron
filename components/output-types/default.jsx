@@ -12,7 +12,15 @@ import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippetIndex';
 
-const scriptList = { GTM, Comscore, Microdata, ArcAds, FacebookSDK, PostBid, Livefyre };
+const scriptList = {
+    GTM,
+    Comscore,
+    Microdata,
+    ArcAds,
+    FacebookSDK,
+    PostBid,
+    Livefyre
+};
 
 const getBodyClass = props => {
     const { className = {} } = props;

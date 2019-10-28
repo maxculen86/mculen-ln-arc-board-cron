@@ -17,7 +17,9 @@ describe('components - private - LN - acumulado - grillaNotas', () => {
     };
     const child = <div>Soy un child</div>;
     const componentSection = mount(
-        <GrillaNotas globalContent={globalContentSection}>{child}</GrillaNotas>
+        <GrillaNotas globalContent={globalContentSection} size={30}>
+            {child}
+        </GrillaNotas>
     );
 
     TestHelper.testDoNotRenderChildren(componentSection, 'child');
@@ -34,7 +36,9 @@ describe('components - private - LN - acumulado - grillaNotas', () => {
         author_type: 'Estandar'
     };
     const componentAuthor = mount(
-        <GrillaNotas globalContent={globalContentAuthor}>{child}</GrillaNotas>
+        <GrillaNotas globalContent={globalContentAuthor} size={30}>
+            {child}
+        </GrillaNotas>
     );
 
     TestHelper.testDoNotRenderChildren(componentAuthor, 'child');

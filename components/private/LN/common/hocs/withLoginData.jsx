@@ -46,6 +46,7 @@ function withLoginData(WrappedComponent) {
         }
 
         componentDidMount = () => {
+            // TODO: los tests no deberia requerir que se modifique el codigo. Pendiente buscar otra manera
             const { mockApi } = this.props;
             if (mockApi) return mockApi;
 

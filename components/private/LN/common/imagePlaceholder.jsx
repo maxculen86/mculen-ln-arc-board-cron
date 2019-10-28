@@ -22,10 +22,10 @@ ImagePlaceholder.propTypes = {
     ])
 };
 
-ImagePlaceholder.defaultProps = {
-    href: '#',
-    zoom: false,
-    children: []
-};
+// ImagePlaceholder.defaultProps = {
+//     href: '#',
+//     zoom: false,
+//     children: []
+// };
 
 export default ImagePlaceholder;

@@ -9,13 +9,14 @@ class OTTDefaultLayout extends Component {
         return (
             <>
                 {this.props.children[0]}
-                <div className={'wrapper'}>
-                    <main className={'main'}>{this.props.children[1]}</main>
+                <div className="wrapper">
+                    <main className="main">{this.props.children[1]}</main>
                     <Footer />
                 </div>
             </>
         );
     }
+
     componentDidMount() {
         loadHeaderEvents();
     }
