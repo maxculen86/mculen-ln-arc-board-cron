@@ -7,23 +7,8 @@ const resolve = key => {
     if (!website)
         throw new Error('Debe indicar el website - Collections Source');
 
-    /* const query = `&body={
-        "query":{
-            "bool": {
-                "must": [
-                    {
-                        "term":
-                        {
-                            "type":"story"
-                        }
-                    }
-                ]
-            }
-        }
-    }`; */
-
-    return `/content/v4/collections/?_id=${id}&website=${website}&size=${size ||
-        4}&q=content_elements.type:story`;
+    return `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size ||
+        2}`;
 };
 export default {
     resolve,
