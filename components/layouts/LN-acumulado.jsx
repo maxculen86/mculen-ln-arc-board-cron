@@ -58,6 +58,42 @@ class LNAcumuladoLayout extends Component {
                 { /* <h4 class="com-date">10 de Octubre de 2019</h4> */ }
             </div>
         </article>
+
+        <article className="mod-caja-nota  --list">
+            {/* Este componente es nuevo */}
+            <div className="com-hour">12:00</div>
+            <section className="cont-figure">
+                <a href="/platos-principales/una-nota-de-receta-nid10102019/" className="figure">
+                    <picture className="content-pic picture "></picture>
+                </a>
+            </section>
+            <div class="mod-caja-nota__descrip">
+                <h2 class="com-title-acu">
+                    <a href="/platos-principales/una-nota-de-receta-nid10102019/"><b>La escuela.</b> que tiene de escudo al Che Guevara y donde izan la bandera de Cuba</a>
+                </h2>
+                { /* Es componente no debería mostrarlo, podría ocultarlo con css */ } 
+                { /* <h4 class="com-date">10 de Octubre de 2019</h4> */ }
+            </div>
+        </article>
+
+        <article className="mod-caja-nota  --list">
+            {/* Este componente es nuevo */}
+            <div className="com-hour">12:00</div>
+            <section className="cont-figure">
+                <a href="/platos-principales/una-nota-de-receta-nid10102019/" className="figure">
+                    <picture className="content-pic picture "></picture>
+                </a>
+            </section>
+            <div class="mod-caja-nota__descrip">
+                <h2 class="com-title-acu">
+                    <a href="/platos-principales/una-nota-de-receta-nid10102019/"><b>La escuela.</b> que tiene de escudo al Che Guevara y donde izan la bandera de Cuba</a>
+                </h2>
+                { /* Es componente no debería mostrarlo, podría ocultarlo con css */ } 
+                { /* <h4 class="com-date">10 de Octubre de 2019</h4> */ }
+            </div>
+        </article>
+
+        
     </section>
 </div>
                             <div className="row">
