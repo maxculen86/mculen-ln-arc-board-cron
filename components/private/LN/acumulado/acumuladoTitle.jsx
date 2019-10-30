@@ -3,25 +3,12 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
+import ListSectionsTitle from './acumuladoTitle/listSectionsTitle';
 import TagsNavigation from './tagsNavigation';
 import NotaApertura from './notaApertura';
 
 import '../../../../resources/dist/css/ln/components/title.css';
 import '../../../../resources/dist/css/ln/components/tag.css';
-
-const ItemSubSection = ({ id, navTitle, website }) => (
-    <li key={id}>
-        <a href={`${id}?_website=${website}`} title={navTitle}>
-            {navTitle}
-        </a>
-    </li>
-);
-
-ItemSubSection.propTypes = {
-    id: PropTypes.string.isRequired,
-    navTitle: PropTypes.string.isRequired,
-    website: PropTypes.string.isRequired
-};
 
 const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
     const [withCategory, setWithCategory] = useState('');
@@ -36,7 +23,7 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
             // TODO: LLevar el lengt -1 a 1 cuando se active Navigation Arc2
             globalContent &&
                 globalContent._id &&
-                globalContent._id.split('/').splice(1).length !== 1
+                globalContent._id.split('/').splice(1).length === -1
         );
         // TODO: Cambiar < a > cuando se active Navigation Arc2
         if (_children && _children.length < 0) setWithCategory('with-category');
@@ -69,24 +56,10 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
             <div className="com-titleWithfollow">
                 <div className={withCategory}>
                     <h1 className="com-title-section-xl">{title}</h1>
-                    {_children && isPrimarySection && (
-                        <ol className="com-category">
-                            {_children.map(
-                                ({ _id, navigation, _website, name }) => (
-                                    <ItemSubSection
-                                        key={_id}
-                                        id={_id}
-                                        navTitle={
-                                            navigation && navigation.nav_title
-                                                ? navigation.nav_title
-                                                : name
-                                        }
-                                        website={_website}
-                                    />
-                                )
-                            )}
-                        </ol>
-                    )}
+                    <ListSectionsTitle
+                        _children={_children}
+                        isPrimarySection={isPrimarySection}
+                    />
                 </div>
                 <TagsNavigation
                     _children={_children}
