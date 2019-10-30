@@ -8,6 +8,7 @@ const Tips = props => {
         <div className="com-tip">
             <h4 className={`com-title-section-${size}`}>{title}</h4>
             {paragraphs &&
+                paragraphs.length !== 0 &&
                 paragraphs.map(paragraph => (
                     <dl key={paragraph.title}>
                         <dt>{paragraph.title}</dt>

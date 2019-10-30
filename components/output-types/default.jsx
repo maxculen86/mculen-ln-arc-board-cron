@@ -7,7 +7,7 @@ import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
 import FacebookSDK from '../private/common/scriptManager/facebookSDK';
-import Livefyre from '../private/common/scriptManager/Livefire';
+import Livefyre from '../private/common/scriptManager/Livefyre';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippetIndex';

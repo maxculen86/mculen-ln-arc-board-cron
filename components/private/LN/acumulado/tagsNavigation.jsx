@@ -1,0 +1,50 @@
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
+
+const tagsNavigation = ({ _children, orderAndCountTags, isPrimarySection }) => {
+    return _children && orderAndCountTags && isPrimarySection ? (
+        <ol className="cont_tags com-secondary-tag">
+            {orderAndCountTags.map(tag => (
+                <li key={tag.slug}>
+                    <a
+                        href={`/pf/tema/${tag.slug}?_website=${_children._website}`}
+                        title={tag.text}
+                    >
+                        {tag.text}
+                    </a>
+                </li>
+            ))}
+        </ol>
+    ) : (
+        <></>
+    );
+};
+
+tagsNavigation.propTypes = {
+    _children: PropTypes.arrayOf(
+        PropTypes.shape({
+            _id: PropTypes.string,
+            _website: PropTypes.string
+        })
+    ),
+    orderAndCountTags: PropTypes.arrayOf(
+        PropTypes.shape({
+            tag: PropTypes.shape({
+                slug: PropTypes.string,
+                text: PropTypes.string
+            })
+        })
+    ),
+    isPrimarySection: PropTypes.bool
+};
+
+tagsNavigation.defaultProps = {
+    _children: {
+        _id: undefined,
+        _website: undefined
+    },
+    orderAndCountTags: [],
+    isPrimarySection: false
+};
+
+export default tagsNavigation;

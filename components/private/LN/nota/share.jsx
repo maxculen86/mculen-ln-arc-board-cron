@@ -26,22 +26,14 @@ const Share = props => {
                 <button
                     type="button"
                     onClick={() =>
-                        popUpCompartirNotaFB(
-                            requestUri,
-                            config.shareConfig.host,
-                            title
-                        )
+                        popUpCompartirNotaFB(requestUri, config.host, title)
                     }
                     className="icon-facebook"
                 />
                 <button
                     type="button"
                     onClick={() =>
-                        popUpCompartirNotaTW(
-                            requestUri,
-                            config.shareConfig.host,
-                            title
-                        )
+                        popUpCompartirNotaTW(requestUri, config.host, title)
                     }
                     className="icon-twitter"
                 />
@@ -49,10 +41,7 @@ const Share = props => {
                     type="button"
                     id="whatsAppShareDesktop"
                     onClick={() =>
-                        shareWhatsAppDesktop(
-                            requestUri,
-                            config.shareConfig.host
-                        )
+                        shareWhatsAppDesktop(requestUri, config.host)
                     }
                     className="icon-whatsapp"
                 />
@@ -63,10 +52,7 @@ const Share = props => {
                     type="button"
                     className="icon-mail"
                     onClick={() =>
-                        popUpCompartirMailTo(
-                            requestUri,
-                            config.shareConfig.host
-                        )
+                        popUpCompartirMailTo(requestUri, config.host)
                     }
                 />
                 <button type="button" className="icon-comment" />
@@ -77,7 +63,7 @@ const Share = props => {
 };
 
 Share.propTypes = {
-    requestUri: PropTypes.string,
+    requestUri: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         headlines: PropTypes.shape({
             basic: PropTypes.string

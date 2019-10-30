@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
@@ -32,7 +33,7 @@ class LNAcumuladoLayout extends Component {
                     {children[0]}
                     <div className="row">
                         <div className="lay">
-                            {/* BREADCRUMB, TITULO Y APERTURA*/}
+                            {/* BREADCRUMB, TITULO Y APERTURA */}
                             {children[1]}
                         </div>
                     </div>
@@ -60,6 +61,10 @@ class LNAcumuladoLayout extends Component {
         );
     }
 }
+
+LNAcumuladoLayout.propTypes = {
+    children: PropTypes.node.isRequired
+};
 
 LNAcumuladoLayout.sections = layoutItems;
 
