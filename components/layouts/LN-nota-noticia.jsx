@@ -11,7 +11,7 @@ import '../../resources/dist/css/ln/components/date.css';
 import '../../resources/dist/css/ln/components/tag.css';
 import '../../resources/dist/css/ln/components/author.css';
 import '../../resources/dist/css/ln/components/lead.css';
-import '../../resources/dist/css/ln/components/blockquote.css';
+// import '../../resources/dist/css/ln/components/blockquote.css';
 import '../../resources/dist/css/ln/components/subtitle.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
