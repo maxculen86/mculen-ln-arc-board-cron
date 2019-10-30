@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import customStrings from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
-import useCookie from '../../../LN/common/utils/useCookie';
+import handleCookie from '../../../LN/common/utils/handleCookie';
 import withLoginData from '../../../LN/common/hocs/withLoginData';
 
 import '../../../../../resources/dist/css/ln/modules/comments.css';
@@ -19,7 +19,7 @@ const Comments = props => {
             taxonomy: { tags }
         }
     } = props;
-    const { getCookie } = useCookie();
+    const { getCookie } = handleCookie();
 
     const metadata = {
         title: title,
