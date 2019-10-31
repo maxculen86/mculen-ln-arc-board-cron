@@ -40,7 +40,7 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
                 default:
                     break;
             }
-        } else if (element.content.length > 10) {
+        } else if (element.content) {
             tips.push({ element });
         }
     });
