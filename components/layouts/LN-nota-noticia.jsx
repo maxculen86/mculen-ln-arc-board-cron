@@ -11,12 +11,13 @@ import '../../resources/dist/css/ln/components/date.css';
 import '../../resources/dist/css/ln/components/tag.css';
 import '../../resources/dist/css/ln/components/author.css';
 import '../../resources/dist/css/ln/components/lead.css';
-// import '../../resources/dist/css/ln/components/blockquote.css';
 import '../../resources/dist/css/ln/components/subtitle.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/input.css';
 import '../../resources/dist/css/ln/modules/newsletter.css';
+import '../../resources/dist/css/ln/components/blockquote.css';
+import '../../resources/dist/css/ln/components/text.css';
 
 export default function lnNotaNoticia() {
     return (
@@ -60,7 +61,19 @@ export default function lnNotaNoticia() {
                                 </p>
                             </section>
 
-                            <p className="text capital">soy un texto</p>
+                            <p className="text capital">
+                                H soy un texto mas largo soy un texto mas largo
+                                soy un texto mas largo soy un texto mas largo H
+                                soy un texto mas largo soy un texto mas largo
+                                soy un texto mas largo soy un texto mas largo H
+                                soy un texto mas largo soy un texto mas largo
+                                soy un texto mas largo soy un texto mas largo H
+                                soy un texto mas largo soy un texto mas largo
+                                soy un texto mas largo soy un texto mas largo H
+                                soy un texto mas largo soy un texto mas largo
+                                soy un texto mas largo soy un texto mas largo
+                                soy un texto mas largo soy un texto mas largo
+                            </p>
                             <p className="text">
                                 soy un texto mas largo soy un texto mas largo
                                 soy un texto mas largo soy un texto mas largo
