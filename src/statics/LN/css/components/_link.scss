@@ -1,6 +1,4 @@
 @import '../abstracts/variables';
-
-
 .com-link {
     text-transform: uppercase;
     font-family: $font-arial;
@@ -22,6 +20,14 @@
     font-family: $font-arial;
     font-size: $font-12;
     color: $link;
+    p & {
+        font-size: $px-16;
+    }
+    .keep-reading & {
+        display: block;
+        font-size: $px-16;
+        margin-bottom: $px-30;
+    }
     .--small {
         font-size: $font-14;
         text-transform: initial;

@@ -18,6 +18,8 @@ import '../../resources/dist/css/ln/components/input.css';
 import '../../resources/dist/css/ln/modules/newsletter.css';
 import '../../resources/dist/css/ln/components/blockquote.css';
 import '../../resources/dist/css/ln/components/text.css';
+import '../../resources/dist/css/ln/components/link.css';
+import '../../resources/dist/css/ln/components/subtitles.css';
 
 export default function lnNotaNoticia() {
     return (
@@ -102,6 +104,44 @@ export default function lnNotaNoticia() {
                                 toneladas versus 22,10 millones de toneladas
                                 esperadas en el mercado.toneladas.
                             </blockquote>
+                            <div className="keep-reading">
+                                <h2 className="com-subtitle-nota-3">
+                                    Seguir leyendo
+                                </h2>
+                                <a className="link">
+                                    <strong>Villa La Angostura.</strong> Un
+                                    choque en la ruta de los 7 Lagos complica
+                                    más la situación
+                                </a>
+                                <a className="link">
+                                    <strong>Villa La Angostura.</strong> Un
+                                    choque en la ruta de los 7 Lagos complica
+                                    más la situación
+                                </a>
+                                <a className="link">
+                                    <strong>Villa La Angostura.</strong> Un
+                                    choque en la ruta de los 7 Lagos complica
+                                    más la situación
+                                </a>
+                            </div>
+                            <div class="com-tag cont_tags">
+                                <h2 className="com-subtitle-nota-3">Temas</h2>
+                                <a
+                                    class="com-item"
+                                    href="/recetas/platos-principales"
+                                >
+                                    Platos de comida principal
+                                </a>
+                                <a class="com-item" href="/recetas/carnes">
+                                    Carnes
+                                </a>
+                                <a
+                                    class="com-item"
+                                    href="/recetas/faciles-y-rapidas"
+                                >
+                                    Fáciles y rápidas
+                                </a>
+                            </div>
                         </div>
                         <div className="sidebar__aside"></div>
                     </div>
