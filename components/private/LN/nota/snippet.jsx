@@ -1,6 +1,8 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import { createResizer } from '../../common/utils/image/resizer';
 
 const snippet = props => {
     const {
@@ -27,23 +29,35 @@ const snippet = props => {
     let counterPortion;
     let ingredientes;
     let preparaciones;
+    let resizedUrl;
 
-    if (promo_items && !!promo_items.receta && !!promo_items.basic) {
-        image = promo_items.basic.url;
+    if (promo_items) {
+        if (!!promo_items.basic && promo_items.basic.type === 'image') {
+            image = promo_items.basic.url;
+            const resizer = createResizer(RESIZER_KEY, RESIZER_URL);
+            resizedUrl = resizer.resizeUrl(
+                image,
+                promo_items.basic.width,
+                promo_items.basic.height,
+                { height: 540, width: 960 }
+            );
+        }
 
-        counterTime =
-            promo_items.receta.subtype === 'custom-detalle-receta'
-                ? promo_items.receta.embed.config.title === 'detalle-receta'
-                    ? promo_items.receta.embed.config.counterTime
-                    : null
-                : null;
+        if (promo_items.receta) {
+            counterTime =
+                promo_items.receta.subtype === 'custom-detalle-receta'
+                    ? promo_items.receta.embed.config.title === 'detalle-receta'
+                        ? promo_items.receta.embed.config.counterTime
+                        : null
+                    : null;
 
-        counterPortion =
-            promo_items.receta.subtype === 'custom-detalle-receta'
-                ? promo_items.receta.embed.config.title === 'detalle-receta'
-                    ? promo_items.receta.embed.config.counterPortion
-                    : null
-                : null;
+            counterPortion =
+                promo_items.receta.subtype === 'custom-detalle-receta'
+                    ? promo_items.receta.embed.config.title === 'detalle-receta'
+                        ? promo_items.receta.embed.config.counterPortion
+                        : null
+                    : null;
+        }
     }
 
     if (content_elements) {
@@ -52,9 +66,7 @@ const snippet = props => {
         );
         preparaciones = preparacions.map(pre => {
             if (pre.embed.config.items) {
-                return pre.embed.config.items
-                    .map(item => decodeURIComponent(item))
-                    .join(', ');
+                return pre.embed.config.items.map(item => item).join(', ');
             }
             return undefined;
         });
@@ -64,10 +76,9 @@ const snippet = props => {
         );
         ingredientes = ingredients.map(pre => {
             if (pre.embed.config.items) {
-                return pre.embed.config.items
-                    .map(item => decodeURIComponent(item))
-                    .join(', ');
+                return pre.embed.config.items.map(item => item).join(', ');
             }
+            return undefined;
         });
     }
 
@@ -80,7 +91,7 @@ const snippet = props => {
                 "cookTime": "PT${counterTime}M",
                 "datePublished": "${date}",
                 "description": "${description}",
-                "image": "${image}",
+                "image": "${resizedUrl}",
                 "recipeIngredient": "${ingredientes}",
                 "name": "${headlines.basic}",
                 "recipeInstructions": "${preparaciones}",
