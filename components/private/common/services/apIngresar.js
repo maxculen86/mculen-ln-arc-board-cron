@@ -1,7 +1,7 @@
-import useCookie from '../../LN/common/utils/useCookie';
+import handleCookie from '../../LN/common/utils/handleCookie';
 
 const apiIngresar = () => {
-    const { getCookie } = useCookie();
+    const { getCookie } = handleCookie();
     const urlApi = 'https://api-ingresar.lanacion.com.ar/UsuarioV1/';
 
     const reLogin = (token, xvalue) =>

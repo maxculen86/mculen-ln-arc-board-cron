@@ -5,8 +5,10 @@ import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import customStrings from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
-import useCookie from '../../../LN/common/utils/useCookie';
+import handleCookie from '../../../LN/common/utils/handleCookie';
 import withLoginData from '../../../LN/common/hocs/withLoginData';
+
+import '../../../../../resources/dist/css/ln/modules/comments.css';
 
 const Comments = props => {
     const {
@@ -17,13 +19,13 @@ const Comments = props => {
             taxonomy: { tags }
         }
     } = props;
-    const { getCookie } = useCookie();
+    const { getCookie } = handleCookie();
 
     const metadata = {
-        "title": title,
-        "url": url,
-        "tags": tags.map(tag => tag.text).join(', '),
-        "type": "livecomment"
+        title: title,
+        url: url,
+        tags: tags.map(tag => tag.text).join(', '),
+        type: 'livecomment'
     };
 
     const payload = crypto
@@ -35,14 +37,14 @@ const Comments = props => {
         const LiveFyre = {};
 
         LiveFyre.networkConfig = {
-            network: 'la-nacion.fyre.co'
+            network: config.livefyre.network
         };
 
         LiveFyre.convConfig = {
-            siteId: '356483',
-            articleId: '1466383', // _id
+            siteId: config.livefyre.siteId,
+            articleId: _id, //'1466383'
             el: 'livefyre',
-            collectionMeta: jwt.sign(payload, config.sharedKeyLF, {
+            collectionMeta: jwt.sign(payload, config.livefyre.sharedKey, {
                 algorithm: 'HS256'
             }),
             datetimeFormat: {
@@ -164,14 +166,39 @@ const Comments = props => {
 
     return (
         <>
-            <section id="comentarios" data-module="nota-sugeridas-comentarios">
-                <h4> ENVÍA <b> TU COMENTARIO </b> </h4>
-                <a className="ver-legales"> Ver legales </a>
-                <div id="tokenLF" data-id="" data-entrada={_id} data-lf-siteid="356483"></div>
-                <p className="legales">Los comentarios publicados son de exclusiva responsabilidad de sus autores y las consecuencias derivadas de ellos pueden ser pasibles de sanciones legales. Aquel usuario que incluya en sus mensajes algún comentario violatorio del reglamento será eliminado e inhabilitado para volver a comentar. Enviar un comentario implica la aceptación del Reglamento.</p>
-                <div className="recordar-logueo">Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
-                <div>Para poder comentar tenés que ingresar con tu usuario de LA NACION.</div>
-                <div id="livefyre" />
+            <section
+                id="comentarios"
+                className="comments"
+                data-module="nota-sugeridas-comentarios"
+            >
+                <div
+                    id="tokenLF"
+                    data-id=""
+                    data-entrada={_id}
+                    data-lf-siteid={config.livefyre.siteId}
+                />
+                {props.logueado && (
+                    <button type="button" onClick={() => {}}>
+                        Ingresar
+                    </button>
+                )}
+                <h4 className="com-title-section-m comment-title">
+                    Enviá tu comentario{' '}
+                    <button className="item_link">Ver legales</button>
+                </h4>
+                <p className="comment-legal">
+                    Los comentarios publicados son de exclusiva responsabilidad
+                    de sus autores y las consecuencias derivadas de ellos pueden
+                    ser pasibles de sanciones legales. Aquel usuario que incluya
+                    en sus mensajes algún comentario violatorio del reglamento
+                    será eliminado e inhabilitado para volver a comentar. Enviar
+                    un comentario implica la aceptación del Reglamento.
+                </p>
+                <div className="comment-reminder">
+                    Para poder comentar tenés que ingresar con tu usuario de LA
+                    NACION.
+                </div>
+                <div className="livefyre" />
             </section>
         </>
     );

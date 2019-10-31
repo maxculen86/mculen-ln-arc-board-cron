@@ -18,7 +18,7 @@ const index = props => {
     switch (filter) {
         case '0':
             title =
-                subtype === '4' ? (
+                subtype === '7' ? (
                     <h4>Últimas Recetas</h4>
                 ) : (
                     <h4>{`Últimas Noticias`}</h4>
