@@ -44,19 +44,36 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
             tips.push({ element });
         }
     });
+
+    if (ingredients.length < 1 && preparation.length < 1 && tips.length < 1)
+        return <></>;
     return (
         <>
             <div className="row">
-                <div className="col-tablet-3 hlp-marginBottom-mobile-40">
-                    <ListIngredients ingredients={ingredients} />
-                </div>
-                <div className="col-tablet-8 offset-tablet-1">
-                    <ListPreparation preparation={preparation} />
-                </div>
+                {ingredients.length > 0 ? (
+                    <div className="col-tablet-3 hlp-marginBottom-mobile-40">
+                        <ListIngredients ingredients={ingredients} />
+                    </div>
+                ) : (
+                    <></>
+                )}
+
+                {preparation.length > 0 ? (
+                    <div className="col-tablet-8 offset-tablet-1">
+                        <ListPreparation preparation={preparation} />
+                    </div>
+                ) : (
+                    <></>
+                )}
             </div>
-            <div className="row">
-                <Tips size="m" title="Tip" paragraphs={tips} />
-            </div>
+
+            {tips.length > 0 ? (
+                <div className="row">
+                    <Tips size="m" title="Tip" paragraphs={tips} />
+                </div>
+            ) : (
+                <></>
+            )}
         </>
     );
 };

@@ -7,6 +7,7 @@ const listPreparacion = ({ preparation }) => {
         <>
             <h4 className="com-title-section-m">Preparación</h4>
             {preparation &&
+                preparation.length !== 0 &&
                 preparation.map(list => (
                     <ListItems
                         list={list.items}

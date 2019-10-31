@@ -1,6 +1,6 @@
 import { COOKIE_EXPIRATION, DOMINIO_COOKIE } from 'fusion:environment';
 
-const useCookie = () => {
+const handleCookie = () => {
     const DiccionarioCookiesAGuardar = [
         'usuariosexo',
         'usuarioemail',
@@ -77,4 +77,4 @@ const useCookie = () => {
     };
 };
 
-export default useCookie;
+export default handleCookie;

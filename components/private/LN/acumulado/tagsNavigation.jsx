@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+const path = '/pf/tema/';
+
 const tagsNavigation = ({ _children, orderAndCountTags, isPrimarySection }) => {
     return _children && orderAndCountTags && isPrimarySection ? (
         <ol className="cont_tags com-secondary-tag">
             {orderAndCountTags.map(tag => (
                 <li key={tag.slug}>
                     <a
-                        href={`/pf/tema/${tag.slug}?_website=${_children._website}`}
+                        href={`${path}${tag.slug}?_website=${_children._website}`}
                         title={tag.text}
                     >
                         {tag.text}
