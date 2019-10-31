@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Subtitle from './subtitle';
 import '../../../../../resources/dist/css/ln/components/tip.css';
 
 const Tips = props => {
@@ -8,12 +9,18 @@ const Tips = props => {
         <div className="com-tip">
             <h4 className={`com-title-section-${size}`}>{title}</h4>
             {paragraphs &&
-                paragraphs.map(paragraph => (
-                    <dl key={paragraph.title}>
-                        <dt>{paragraph.title}</dt>
-                        <dd>{paragraph.description}</dd>
-                    </dl>
-                ))}
+                paragraphs.map(paragraph =>
+                    paragraph.element.type === 'header' ? (
+                        <Subtitle
+                            key={paragraph.element._id}
+                            element={paragraph.element}
+                        />
+                    ) : (
+                        <span key={paragraph.element._id}>
+                            {paragraph.element.content}
+                        </span>
+                    )
+                )}
         </div>
     );
 };
