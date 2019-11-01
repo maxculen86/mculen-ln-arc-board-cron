@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
@@ -113,4 +112,4 @@ AcumuladoTitle.propTypes = {
 //     }
 // };
 
-export default WithAcuArticlesData(Consumer(AcumuladoTitle), filter, 'notaM');
+export default WithAcuArticlesData(AcumuladoTitle, filter, 'notaM');

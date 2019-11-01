@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import TransparencyDiv from './transparencyDiv';
-import ArticleAcum from '../articleAcum';
+import ArticlesAcum from './articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
 import Banner from '../../common/banner';
 import LoadingIcon from '../../common/loadingIcon';
@@ -9,8 +9,7 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import config from './bannerPositionsConfig.json';
 
-const CLASS_W_100 = 'w-100-mobile';
-const DATA_SECTION = 'CuerpoAcu';
+// const CLASS_W_100 = 'w-100-mobile';
 class GrillaNotas extends Component {
     getBanner = (device, index) => {
         const position = index + 1;
@@ -42,7 +41,8 @@ class GrillaNotas extends Component {
         return undefined;
     };
 
-    getArticleClasses = article => {
+    // TODO: Esta función no esta siendo usada por nadie considerar eliminar
+    /* getArticleClasses = article => {
         let extraClasses = `${CLASS_W_100} `;
         const {
             taxonomy: {
@@ -56,10 +56,9 @@ class GrillaNotas extends Component {
         if (style && style.section_style_name)
             extraClasses += style.section_style_name;
         return extraClasses;
-    };
+    }; */
 
     render() {
-        let articlesComponents = [];
         const {
             articles,
             hayMasNotas,
@@ -67,34 +66,17 @@ class GrillaNotas extends Component {
             globalContent,
             loading
         } = this.props;
-        if (articles && articles.length) {
-            articlesComponents = articles.map((a, i) => {
-                const mobileBanner = this.getBanner('mobile', i);
-                const tabletBanner = this.getBanner('tablet', i);
 
-                return (
-                    <>
-                        <ArticleAcum
-                            key={a._id}
-                            dataSection={DATA_SECTION}
-                            extraClasses={CLASS_W_100}
-                            article={a}
-                        >
-                            {mobileBanner}
-                            {tabletBanner}
-                        </ArticleAcum>
-                    </>
-                );
-            });
-        }
-        const hayMasNotasBool = hayMasNotas > 0;
         return (
             <>
                 <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-                    {articlesComponents}
-                    {hayMasNotasBool && <TransparencyDiv />}
+                    <ArticlesAcum
+                        getBanner={this.getBanner}
+                        articles={articles}
+                    />
+                    {hayMasNotas > 0 && <TransparencyDiv />}
                 </section>
-                {hayMasNotasBool && (
+                {hayMasNotas > 0 && (
                     <section className="row">
                         <BtnMasNotas
                             onClickHandler={obtenerMasNotas}
@@ -110,14 +92,14 @@ class GrillaNotas extends Component {
 }
 
 GrillaNotas.propTypes = {
-    articles: PropTypes.arrayOf(PropTypes.object),
-    hayMasNotas: PropTypes.number,
-    obtenerMasNotas: PropTypes.func,
+    articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    hayMasNotas: PropTypes.number.isRequired,
+    obtenerMasNotas: PropTypes.func.isRequired,
     globalContent: PropTypes.shape({
         name: PropTypes.string
     }).isRequired,
-    loading: PropTypes.bool,
-    isAdmin: PropTypes.bool,
+    loading: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
