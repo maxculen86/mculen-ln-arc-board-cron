@@ -38,8 +38,7 @@ class GrillaNotas extends Component {
         if (articlesGrid) {
             const articleGrid = articlesGrid[articlesGrid.length - 1];
             const alturaArticle =
-                articleGrid.offsalturaArticleetHeight ||
-                articleGrid.clientHeight;
+                articleGrid.offsetHeight || articleGrid.clientHeight;
             this.setState({ ...alturaArticle });
         }
     }
