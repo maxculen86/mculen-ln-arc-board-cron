@@ -19,6 +19,7 @@ import '../../resources/dist/css/ln/components/blockquote.css';
 import '../../resources/dist/css/ln/components/text.css';
 import '../../resources/dist/css/ln/components/link.css';
 import '../../resources/dist/css/ln/components/subtitle.css';
+import '../../resources/dist/css/ln/components/slider.css';
 
 export default function lnNotaNoticia() {
     return (
@@ -85,6 +86,69 @@ export default function lnNotaNoticia() {
                                     allowfullscreen
                                 ></iframe>
                             </div>
+
+                            <section className="slider">
+                                <button className="previous">Prev</button>
+                                <article className="article">
+                                    <a
+                                        className="figure"
+                                        href="/programas/mesa-chica"
+                                        alt="Ir a Mesa chica"
+                                        data-event="LinkClick"
+                                        data-section="LinksOTT"
+                                    >
+                                        <picture className="content-picture">
+                                            <source srcset="https://arc-anglerfish-arc2-prod-lanacionar.s3.amazonaws.com/public/XGGDACRVPFAYRBA2A5R4OA43KE.jpg" />
+                                            <img
+                                                className="lazy loaded"
+                                                alt="imagen-destacada"
+                                                data-src=""
+                                                data-was-processed="true"
+                                            />
+                                        </picture>
+                                    </a>
+                                    <h2 className="title">
+                                        <a
+                                            href="/programas/mesa-chica"
+                                            alt="Ir a Mesa chica"
+                                            data-event="LinkClick"
+                                            data-section="LinksOTT"
+                                        >
+                                            Mesa chica
+                                        </a>
+                                    </h2>
+                                </article>
+                                <article className="article">
+                                    <a
+                                        className="figure"
+                                        href="/programas/mesa-chica"
+                                        alt="Ir a Mesa chica"
+                                        data-event="LinkClick"
+                                        data-section="LinksOTT"
+                                    >
+                                        <picture className="content-picture">
+                                            <source srcset="https://arc-anglerfish-arc2-prod-lanacionar.s3.amazonaws.com/public/XGGDACRVPFAYRBA2A5R4OA43KE.jpg" />
+                                            <img
+                                                className="lazy loaded"
+                                                alt="imagen-destacada"
+                                                data-src=""
+                                                data-was-processed="true"
+                                            />
+                                        </picture>
+                                    </a>
+                                    <h2 className="title">
+                                        <a
+                                            href="/programas/mesa-chica"
+                                            alt="Ir a Mesa chica"
+                                            data-event="LinkClick"
+                                            data-section="LinksOTT"
+                                        >
+                                            Mesa chica
+                                        </a>
+                                    </h2>
+                                </article>
+                                <button className="next">Next</button>
+                            </section>
                             <p className="text">
                                 soy un texto mas largo soy un texto mas largo
                                 soy un texto mas largo soy un texto mas largo
@@ -93,7 +157,7 @@ export default function lnNotaNoticia() {
                                 soy un texto mas largo soy un texto mas largo
                                 soy un texto mas largo soy un texto mas largo
                             </p>
-                            <div class="externo"></div>
+                            <div className="externo"></div>
                             <p className="text">
                                 soy un texto mas largo soy un texto
                                 <b>mas largo soy un</b> texto mas largo soy un
@@ -105,13 +169,12 @@ export default function lnNotaNoticia() {
                                 texto mas largo soy un texto mas largo soy un
                                 texto mas largo soy un texto mas largo
                             </p>
-                            <div class="externo">
+                            <div className="externo">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13147.032931451173!2d-58.47448225000001!3d-34.53435279999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6a61cfe4d7f%3A0xc1ef0efa1c3ed2b1!2sKansas%20Grill!5e0!3m2!1sen!2sar!4v1572631280897!5m2!1sen!2sar"
                                     width="600"
                                     height="450"
                                     frameborder="0"
-                                    style="border:0;"
                                     allowfullscreen=""
                                 ></iframe>
                             </div>
@@ -124,6 +187,7 @@ export default function lnNotaNoticia() {
                                 toneladas versus 22,10 millones de toneladas
                                 esperadas en el mercado.toneladas.
                             </blockquote>
+
                             <div className="keep-reading">
                                 <h2 className="com-subtitle-nota-3">
                                     Seguir leyendo
@@ -144,19 +208,19 @@ export default function lnNotaNoticia() {
                                     más la situación
                                 </a>
                             </div>
-                            <div class="com-tag cont_tags">
+                            <div className="com-tag cont_tags">
                                 <h2 className="com-subtitle-nota-3">Temas</h2>
                                 <a
-                                    class="com-item"
+                                    className="com-item"
                                     href="/recetas/platos-principales"
                                 >
                                     Platos de comida principal
                                 </a>
-                                <a class="com-item" href="/recetas/carnes">
+                                <a className="com-item" href="/recetas/carnes">
                                     Carnes
                                 </a>
                                 <a
-                                    class="com-item"
+                                    className="com-item"
                                     href="/recetas/faciles-y-rapidas"
                                 >
                                     Fáciles y rápidas
