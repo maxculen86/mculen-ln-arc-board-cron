@@ -9,8 +9,41 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import config from './bannerPositionsConfig.json';
 
-// const CLASS_W_100 = 'w-100-mobile';
 class GrillaNotas extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { alturaArticle: 0 };
+
+        this.sectionGrillasNotasRef = React.createRef();
+
+        this.setAlturaArticle = this.setAlturaArticle.bind(this);
+    }
+
+    componentDidMount() {
+        this.setAlturaArticle();
+        window.addEventListener('resize', this.setAlturaArticle);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.setAlturaArticle);
+    }
+
+    setAlturaArticle() {
+        const { childNodes } = this.sectionGrillasNotasRef.current;
+        const articlesGrid =
+            childNodes &&
+            Object.values(childNodes).filter(el => el.localName === 'article');
+
+        if (articlesGrid) {
+            const articleGrid = articlesGrid[articlesGrid.length - 1];
+            const alturaArticle =
+                articleGrid.offsalturaArticleetHeight ||
+                articleGrid.clientHeight;
+            this.setState({ ...alturaArticle });
+        }
+    }
+
     getBanner = (device, index) => {
         const position = index + 1;
         let bannerPosition = {};
@@ -41,23 +74,6 @@ class GrillaNotas extends Component {
         return undefined;
     };
 
-    // TODO: Esta función no esta siendo usada por nadie considerar eliminar
-    /* getArticleClasses = article => {
-        let extraClasses = `${CLASS_W_100} `;
-        const {
-            taxonomy: {
-                primary_section: {
-                    additional_properties: {
-                        original: { style }
-                    }
-                }
-            }
-        } = article;
-        if (style && style.section_style_name)
-            extraClasses += style.section_style_name;
-        return extraClasses;
-    }; */
-
     render() {
         const {
             articles,
@@ -66,15 +82,21 @@ class GrillaNotas extends Component {
             globalContent,
             loading
         } = this.props;
+        const { alturaArticle } = this.state;
 
         return (
             <>
-                <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
+                <section
+                    className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade"
+                    ref={this.sectionGrillasNotasRef}
+                >
                     <ArticlesAcum
                         getBanner={this.getBanner}
                         articles={articles}
                     />
-                    {hayMasNotas > 0 && <TransparencyDiv />}
+                    {hayMasNotas > 0 && (
+                        <TransparencyDiv size={alturaArticle} />
+                    )}
                 </section>
                 {hayMasNotas > 0 && (
                     <section className="row">
