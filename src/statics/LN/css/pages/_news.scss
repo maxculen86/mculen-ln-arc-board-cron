@@ -1,0 +1,9 @@
+@import '../abstracts/variables';
+
+.nota {
+    &.noticia {
+      .com-epigrafe {
+        display: flex;
+      }
+    }
+  }
