@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from '../../common/utils/image/resizer';
+import SnippetRender from '../../common/snippet/snippetRender';
 
 const snippet = props => {
     const {
@@ -83,23 +84,20 @@ const snippet = props => {
     }
 
     const data = {
-        __html: `
-            {
-                "@context": "https://schema.org",
-                "@type": "Recipe",
-                "author": "${autores}",
-                "cookTime": "PT${counterTime}M",
-                "datePublished": "${date}",
-                "description": "${description}",
-                "image": "${resizedUrl}",
-                "recipeIngredient": "${ingredientes}",
-                "name": "${headlines.basic}",
-                "recipeInstructions": "${preparaciones}",
-                "recipeYield": "${counterPortion} porciones"
-            }`
+        '@context': 'https://schema.org',
+        '@type': 'Recipe',
+        author: `${autores}`,
+        cookTime: `PT${counterTime}M`,
+        datePublished: `${date}`,
+        description: `${description}`,
+        image: `${resizedUrl}`,
+        recipeIngredient: `${ingredientes}`,
+        name: `${headlines.basic}`,
+        recipeInstructions: `${preparaciones}`,
+        recipeYield: `${counterPortion} porciones`
     };
 
-    return <script type="application/ld+json" dangerouslySetInnerHTML={data} />;
+    return <SnippetRender data={data} />;
 };
 
 snippet.propTypes = {

@@ -1,17 +1,42 @@
+jest.mock(
+    '../../../../components/private/LN/nota/snippet',
+    () => 'snippet-mock'
+);
+
 import React from 'react';
 import { mount } from 'enzyme';
-import SnippetIndex from '../../../../components/private/common/snippetIndex';
+import SnippetIndex from '../../../../components/private/common/snippet/snippetIndex';
 import nota from '../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 
-describe('LN - Common - Snippet', () => {
-    it('Snippet nota recetas snapshot', () => {
-        const comp = mount(
-            <SnippetIndex
-                globalContent={nota}
-                arcSite="la-nacion-ar"
-                layout="LN-nota-receta"
-            />
-        );
-        expect(comp).toMatchSnapshot();
+describe('LN - Common - SnippetIndex - Render snippet valido', () => {
+    const comp = mount(
+        <SnippetIndex
+            globalContent={nota}
+            arcSite="la-nacion-ar"
+            layout="LN-nota-receta"
+        />
+    );
+
+    it('Dibuja el snippet solicitado', () => {
+        expect(comp.find('snippet-mock').length).not.toBe(0);
+    });
+
+    it('Le pasa las props', () => {
+        expect(comp.find('snippet-mock').prop('globalContent')).toBe(nota);
+    });
+});
+
+describe('LN - Common - SnippetIndex - Render snippet no configurado', () => {
+    const comp = mount(
+        <SnippetIndex
+            globalContent={nota}
+            arcSite="la-nacion-ar"
+            layout="layout-inexistente"
+        />
+    );
+
+    it('No dibuja nada', () => {
+        console.log('--------------', comp.first());
+        expect(comp.first().type()).toBe(null);
     });
 });
