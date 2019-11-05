@@ -22,10 +22,12 @@ export default function gallery() {
                         />
                     </picture>
                 </a>
-                <h2 className="title">
-                    Mesa chica es muy grande, ampliaremos cuando tengamos data
-                </h2>
-                <span className="source">Fuente: Info</span>
+                <section class="com-epigrafe">
+                    <p class="text">Epigrafe de foto</p>
+                    <p class="small">
+                        Fuente: LA NACION - Crédito: Enrique García Medina
+                    </p>
+                </section>
             </article>
             <article className="cont-figure">
                 <a
@@ -45,12 +47,17 @@ export default function gallery() {
                         />
                     </picture>
                 </a>
-                <h2 className="title">
-                    Mesa chica es muy grande, ampliaremos cuando tengamos data
-                </h2>
-                <span className="source">Fuente: Info</span>
+                <section class="com-epigrafe">
+                    <p class="text">Epigrafe de foto</p>
+                    <p class="small">
+                        Fuente: LA NACION - Crédito: Enrique García Medina
+                    </p>
+                </section>
             </article>
             <button className="next">Next</button>
+            <label htmlFor="" className="paginator">
+                2 de 8
+            </label>
         </section>
     );
 }
