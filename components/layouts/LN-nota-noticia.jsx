@@ -157,9 +157,9 @@ export default function lnNotaNoticia() {
                                 ></iframe>
                             </div>
 
-                            <section className="slider">
+                            <section className="com-slider">
                                 <button className="previous">Prev</button>
-                                <article className="article">
+                                <article className="cont-figure">
                                     <a
                                         className="figure"
                                         href="/programas/mesa-chica"
@@ -167,8 +167,8 @@ export default function lnNotaNoticia() {
                                         data-event="LinkClick"
                                         data-section="LinksOTT"
                                     >
-                                        <picture className="content-picture">
-                                            <source srcset="https://arc-anglerfish-arc2-prod-lanacionar.s3.amazonaws.com/public/XGGDACRVPFAYRBA2A5R4OA43KE.jpg" />
+                                        <picture className="content-pic">
+                                            <source srcset="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/272ELZPBAJAMTJ6NLZISAQ5S3Q.jpg" />
                                             <img
                                                 className="lazy loaded"
                                                 alt="imagen-destacada"
@@ -178,17 +178,12 @@ export default function lnNotaNoticia() {
                                         </picture>
                                     </a>
                                     <h2 className="title">
-                                        <a
-                                            href="/programas/mesa-chica"
-                                            alt="Ir a Mesa chica"
-                                            data-event="LinkClick"
-                                            data-section="LinksOTT"
-                                        >
-                                            Mesa chica
-                                        </a>
+                                        Mesa chica es muy grande, ampliaremos
+                                        cuando tengamos data
                                     </h2>
+                                    <span className="source">Fuente: Info</span>
                                 </article>
-                                <article className="article">
+                                <article className="cont-figure">
                                     <a
                                         className="figure"
                                         href="/programas/mesa-chica"
@@ -196,8 +191,8 @@ export default function lnNotaNoticia() {
                                         data-event="LinkClick"
                                         data-section="LinksOTT"
                                     >
-                                        <picture className="content-picture">
-                                            <source srcset="https://arc-anglerfish-arc2-prod-lanacionar.s3.amazonaws.com/public/XGGDACRVPFAYRBA2A5R4OA43KE.jpg" />
+                                        <picture className="content-pic">
+                                            <source srcset="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/272ELZPBAJAMTJ6NLZISAQ5S3Q.jpg" />
                                             <img
                                                 className="lazy loaded"
                                                 alt="imagen-destacada"
@@ -207,15 +202,10 @@ export default function lnNotaNoticia() {
                                         </picture>
                                     </a>
                                     <h2 className="title">
-                                        <a
-                                            href="/programas/mesa-chica"
-                                            alt="Ir a Mesa chica"
-                                            data-event="LinkClick"
-                                            data-section="LinksOTT"
-                                        >
-                                            Mesa chica
-                                        </a>
+                                        Mesa chica es muy grande, ampliaremos
+                                        cuando tengamos data
                                     </h2>
+                                    <span className="source">Fuente: Info</span>
                                 </article>
                                 <button className="next">Next</button>
                             </section>
