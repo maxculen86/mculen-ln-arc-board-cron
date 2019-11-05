@@ -36,7 +36,6 @@ describe('LN - Common - SnippetIndex - Render snippet no configurado', () => {
     );
 
     it('No dibuja nada', () => {
-        console.log('--------------', comp.first());
-        expect(comp.first().type()).toBe(null);
+        expect(comp.children().length).toBe(0);
     });
 });
