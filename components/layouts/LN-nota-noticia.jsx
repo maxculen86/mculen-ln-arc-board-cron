@@ -20,6 +20,8 @@ import '../../resources/dist/css/ln/components/text.css';
 import '../../resources/dist/css/ln/components/link.css';
 import '../../resources/dist/css/ln/components/subtitle.css';
 import '../../resources/dist/css/ln/components/slider.css';
+import '../../resources/dist/css/ln/components/epigraph.css';
+import '../../resources/dist/css/ln/components/appointment.css';
 
 export default function lnNotaNoticia() {
     return (
