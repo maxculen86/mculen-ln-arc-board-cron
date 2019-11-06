@@ -36,9 +36,7 @@ const Amp = props => {
         outputType
     } = props;
 
-    console.log('################ OUTPUT TYPE ############# ', outputType);
-
-    const Scripts = ScriptManager(scriptList, siteProperties.scripts);
+    //const Scripts = ScriptManager(scriptList, siteProperties.scripts);
 
     return (
         <html amp lang="es">
@@ -49,7 +47,7 @@ const Amp = props => {
                 </title>
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
-                <Scripts location="head" />
+                {/* <Scripts location="head" /> */}
                 <MetaTags />
                 <Libs />
                 <meta
@@ -59,10 +57,10 @@ const Amp = props => {
                 <script async src="https://cdn.ampproject.org/v0.js" />
             </head>
             <body>
-                <Scripts location="body-top" />
+                {/* <Scripts location="body-top" /> */}
                 <div id="fusion-app">{children}</div>
                 <Fusion />
-                <Scripts location="body-bottom" />
+                {/* <Scripts location="body-bottom" /> */}
             </body>
         </html>
     );

@@ -1,34 +1,17 @@
-import Consumer from 'fusion:consumer';
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Placeholder from '../../imagePlaceholder';
 
-const imageBase = ({
-    urlDefault,
-    sources,
-    altText,
-    zoom,
-    href,
-    outputType
-}) => {
+const imageBase = ({ urlDefault, sources, altText, zoom, href }) => {
     /**
      * TODO: Ver los sources para apertura con destacado, no se le esta pasando la prop al componente media.
      * Entonces no se le pueden setear srcset al tag amp-img
      * Adicional: dudas arquitectura tomando en cuenta la variante de "AMP".
      * Gut feeling: probablemente una buena decisión inicial hubiese sido utilizar el patrón comportamental strategy
      */
-    const amp = outputType === 'amp';
-    let srcset = '';
-    if (amp)
-        srcset = sources
-            .map(src => {
-                if (src.resizedUrl && src.option.width)
-                    return `${src.resizedUrl} ${src.option.width}w`;
-                return '';
-            })
-            .join(', ');
+
     const pic = (
-        <Placeholder href={href} zoom={zoom} amp={amp}>
+        <Placeholder href={href} zoom={zoom}>
             {sources &&
                 sources.map(x => {
                     return (
@@ -41,18 +24,7 @@ const imageBase = ({
                         />
                     );
                 })}
-            {amp ? (
-                <amp-img
-                    alt={altText}
-                    height="600"
-                    width="600"
-                    src={urlDefault}
-                    srcset={srcset}
-                    layout="fixed"
-                />
-            ) : (
-                <img src={urlDefault} className="content-img" alt={altText} />
-            )}
+            <img src={urlDefault} className="content-img" alt={altText} />
         </Placeholder>
     );
     return pic;
@@ -77,4 +49,4 @@ imageBase.propTypes = {
 //     href: ''
 // };
 
-export default Consumer(imageBase);
+export default imageBase;
