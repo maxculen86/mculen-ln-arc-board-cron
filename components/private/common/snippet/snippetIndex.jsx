@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import NotaSnippet from '../LN/nota/snippet';
+import NotaSnippet from '../../LN/nota/snippet';
 
 const config = {
     OTT: {},

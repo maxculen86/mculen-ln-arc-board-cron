@@ -1,5 +1,4 @@
 @import '../abstracts/variables';
-
 .mod-newsletter {
     background: $link;
     color: $blanco;
@@ -29,7 +28,7 @@
     }
     .com-input {
         width: 100%;
-        + .--btn {
+        +.--btn {
             display: inline-block;
         }
     }
@@ -100,6 +99,11 @@
         font-size: $px-16;
     }
     .sidebar__aside & {
+        &.error {
+            label {
+                margin-top: $px-10;
+            }
+        }
         .col-tablet-2 {
             display: none;
         }
@@ -112,13 +116,12 @@
                 background-position: right top;
                 background-size: 50%;
                 padding: $px-30 $px-20 0;
-    
             }
             &:nth-child(3) {
                 padding: 0 $px-20 $px-30;
-                .com-breadcrumb{
-                font-size: $font-14;
-                margin-top: $px-30;
+                .com-breadcrumb {
+                    font-size: $font-14;
+                    margin-top: $px-30;
                     a {
                         display: inline-block;
                         margin-bottom: 0;
@@ -129,7 +132,7 @@
                             margin-left: $px-5;
                         }
                     }
-                } 
+                }
             }
             h2:first-of-type {
                 margin-bottom: 0;
@@ -151,7 +154,6 @@
 
 //Valores de tablet para arriba
 @media (min-width: 768px) {
-    
     .mod-newsletter {
         padding: 0;
         &.error {
@@ -190,7 +192,7 @@
                 }
             }
         }
-        > div {
+        >div {
             background-repeat: no-repeat;
             background-size: 100%;
             &:first-child {
@@ -211,6 +213,7 @@
         padding: 0 $px-10;
     }
 }
+
 //Valores de desktop para arriba
 @media (min-width: 1280px) {
     .mod-newsletter {

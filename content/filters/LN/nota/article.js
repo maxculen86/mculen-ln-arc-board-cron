@@ -24,7 +24,9 @@ const image = `
     resized_urls {
         ${imageResizedUrl}             
     }
+    height
     url
+    width
     subtitle
 `;
 
