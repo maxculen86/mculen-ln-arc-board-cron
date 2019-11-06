@@ -5,7 +5,6 @@ import PropTypes from 'fusion:prop-types';
 import BlockQuote from './blockQuote';
 import Gallery from './gallery';
 import Html from './html';
-import Image from './image';
 import PullQuote from './pullQuote';
 import MasNotas from './masNotas';
 import Tags from './tags';
@@ -17,7 +16,6 @@ const Cuerpo = () => {
     resp.push(<BlockQuote />);
     resp.push(<Gallery />);
     resp.push(<Html />);
-    resp.push(<Image />);
     resp.push(<PullQuote />);
     resp.push(<MasNotas />);
     resp.push(<Tags />);
