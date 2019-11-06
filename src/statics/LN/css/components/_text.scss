@@ -7,8 +7,10 @@
     b {
         font-weight: 700;
     }
-    &.capital {
-        margin-top: $px-30;
+    .sidebar__main & {
+        &:first-of-type {
+            margin-top: $px-30;
+        }
     }
     &.small {
         font-size: $font-14;
@@ -18,14 +20,18 @@
 
 //Valores de tablet para arriba
 @media (min-width: 768px) {
-    .text.capital {
-        margin-top: $px-54;
-        &:first-letter {
-            font-family: $font-SuecaSlab;
-            font-size: $font-55;
-            line-height: $line-50;
-            float: left;
-            padding-right: $px-8;
+    .sidebar__main {
+        .col-deskxl-10 .row> {
+            .text:first-of-type {
+                margin-top: $px-54;
+                &:first-letter {
+                    font-family: $font-SuecaSlab;
+                    font-size: $font-55;
+                    line-height: $line-50;
+                    float: left;
+                    padding-right: $px-8;
+                }
+            }
         }
     }
 }

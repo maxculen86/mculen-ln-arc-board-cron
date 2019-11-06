@@ -57,7 +57,6 @@
             display: none;
         }
     }
-    &.suscripto {}
     &.error {
         label {
             display: block;
@@ -198,6 +197,7 @@
             &:first-child {
                 background-image: url('../../img/newsletter-lineas-trama-izq.svg');
                 background-position: left bottom;
+                background-size: 90%;
             }
             &:last-child {
                 background-image: url('../../img/newsletter-lineas-trama-der.svg');
