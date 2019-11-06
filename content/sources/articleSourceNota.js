@@ -1,7 +1,7 @@
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 
 const resolve = (key, a) => {
