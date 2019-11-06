@@ -1,11 +1,12 @@
 import React from 'react';
-import PictureSource from '../../../common/pictureSource';
 import get from 'lodash.get';
+import PictureSource from '../../../common/pictureSource';
+
 export default function Program({ href, description, image }) {
     const alt = `Ir a ${description}`;
     const imageUrl = get(image, 'url', null);
     return (
-        <article className={'article'}>
+        <article className="article">
             <a
                 className="figure"
                 href={href}
@@ -25,7 +26,7 @@ export default function Program({ href, description, image }) {
                     )}
                 </picture>
             </a>
-            <h2 className={'title'}>
+            <h2 className="title">
                 <a
                     href={href}
                     alt={alt}

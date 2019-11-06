@@ -12,8 +12,8 @@ class OTTHomeLayout extends PureComponent {
         return (
             <>
                 {this.props.children[0]}
-                <div className={'wrapper'}>
-                    <main className={'main'}>
+                <div className="wrapper">
+                    <main className="main">
                         <VideoOpening source={urlLiveVideo} />
                         {this.props.children[1]}
                         <LastVideos />
@@ -24,6 +24,7 @@ class OTTHomeLayout extends PureComponent {
             </>
         );
     }
+
     componentDidMount() {
         loadHeaderEvents();
     }

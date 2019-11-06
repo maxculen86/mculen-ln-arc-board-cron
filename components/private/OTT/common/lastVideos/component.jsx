@@ -1,7 +1,7 @@
 import React from 'react';
-import Carousell from '../../../common/carousell';
-import VideoArticle from '../../common/videoArticle';
 import get from 'lodash.get';
+import Carousell from '../../../common/carousell';
+import VideoArticle from '../videoArticle';
 import Title from '../../../common/title';
 
 export default function LastVideos({ videos }) {
@@ -19,8 +19,8 @@ export default function LastVideos({ videos }) {
         );
     });
     return (
-        <section className={'ultimos-videos'}>
-            <Title className={'section-title'} title={'Últimos videos'} />
+        <section className="ultimos-videos">
+            <Title className="section-title" title="Últimos videos" />
             <Carousell>{currentItem}</Carousell>
         </section>
     );

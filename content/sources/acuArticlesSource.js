@@ -4,14 +4,7 @@ import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 
 const resolve = key => {
-    const {
-        sectionId,
-        authorId,
-        tagId,
-        size,
-        page,
-        website
-    } = key;
+    const { sectionId, authorId, tagId, size, page, website } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
     const basePath = `/content/v4/search/published/?website=${website ||

@@ -30,9 +30,9 @@ newLetter.propTypes = {
     subscriptionsCallBack: PropTypes.func
 };
 
-newLetter.defaultProps = {
-    logueado: false,
-    subscriptionsCallBack: null
-};
+// newLetter.defaultProps = {
+//     logueado: false,
+//     subscriptionsCallBack: null
+// };
 
 export default withNewsLetterData(newLetter);

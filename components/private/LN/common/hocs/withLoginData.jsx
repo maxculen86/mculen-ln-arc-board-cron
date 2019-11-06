@@ -7,14 +7,14 @@ import {
     RELOGIN_VALIDATION
 } from 'fusion:environment';
 import apiIngresar from '../../../common/services/apIngresar';
-import useCookie from '../utils/useCookie';
+import handleCookie from '../utils/handleCookie';
 
 const {
     setCookie,
     getCookie,
     eraseCookie,
     DiccionarioCookiesAGuardar
-} = useCookie();
+} = handleCookie();
 
 function withLoginData(WrappedComponent) {
     return class withAuthentication extends React.Component {
@@ -46,6 +46,7 @@ function withLoginData(WrappedComponent) {
         }
 
         componentDidMount = () => {
+            // TODO: los tests no deberia requerir que se modifique el codigo. Pendiente buscar otra manera
             const { mockApi } = this.props;
             if (mockApi) return mockApi;
 

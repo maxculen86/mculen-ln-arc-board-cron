@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import VideoTabComponent from './component';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
+import VideoTabComponent from './component';
 import dateHelper from '../../common/utils/dateHelper';
 
 class VideoTab extends PureComponent {

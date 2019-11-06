@@ -35,7 +35,10 @@ jest.mock('fusion:consumer', component => {
                         return require(`./data/images/${query.id}`);
                         break;
                     case 'navigationTreeSource':
-                        return require(`./data/navigationTree/${query.website}`);
+                        let website = query.website
+                            ? query.website
+                            : 'la-nacion-ar';
+                        return require(`./data/navigationTree/${website}`);
                     case 'ottVideosSource':
                         return require(`./data/ottVideos/${query.ids[0]}`);
                         break;

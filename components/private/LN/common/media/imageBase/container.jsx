@@ -30,10 +30,10 @@ imageArticle.propTypes = {
     href: PropTypes.string
 };
 
-imageArticle.defaultProps = {
-    altText: '',
-    zoom: false,
-    href: ''
-};
+// imageArticle.defaultProps = {
+//     altText: '',
+//     zoom: false,
+//     href: ''
+// };
 
 export default imageArticle;

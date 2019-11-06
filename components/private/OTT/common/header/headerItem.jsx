@@ -7,8 +7,8 @@ export default withCorrectHref(function HeaderItem(props) {
             href={props.href}
             className="header__nav__link"
             alt={props.alt}
-            data-event={'LinkClick'}
-            data-section={'HeaderOTT'}
+            data-event="LinkClick"
+            data-section="HeaderOTT"
         >
             {props.description}
         </a>

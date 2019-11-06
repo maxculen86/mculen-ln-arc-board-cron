@@ -1,29 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
+import ListSectionsTitle from './acumuladoTitle/listSectionsTitle';
+import TagsNavigation from './tagsNavigation';
+import NotaApertura from './notaApertura';
 
 import '../../../../resources/dist/css/ln/components/title.css';
 import '../../../../resources/dist/css/ln/components/tag.css';
 
-const ItemSubSection = ({ id, navTitle, website }) => (
-    <li key={id}>
-        <a href={`${id}?_website=${website}`} title={navTitle}>
-            {navTitle}
-        </a>
-    </li>
-);
-
-ItemSubSection.propTypes = {
-    id: PropTypes.string.isRequired,
-    navTitle: PropTypes.string.isRequired,
-    website: PropTypes.string.isRequired
-};
-
 const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
     const [withCategory, setWithCategory] = useState('');
-    const [children, setChildren] = useState([]);
+    const [_children, setChildren] = useState([]);
     const [isPrimarySection, setIsPrimarySection] = useState(false);
     const [title, setTitle] = useState('');
 
@@ -37,7 +25,7 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
                 globalContent._id.split('/').splice(1).length === -1
         );
         // TODO: Cambiar < a > cuando se active Navigation Arc2
-        if (children && children.length < 0) setWithCategory('with-category');
+        if (_children && _children.length < 0) setWithCategory('with-category');
 
         setTitle(() => {
             const {
@@ -52,7 +40,7 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
             return '';
         });
     }, [
-        children,
+        _children,
         globalContent,
         globalContent.Payload,
         globalContent._id,
@@ -63,36 +51,23 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
     ]);
 
     return (
-        <div className="com-titleWithfollow">
-            <div className={withCategory}>
-                <h1 className="com-title-section-xl">{title}</h1>
-                {children && isPrimarySection && (
-                    <ol className="com-category">
-                        {children.map(({ _id, navigation, _website }) => (
-                            <ItemSubSection
-                                id={_id}
-                                navTitle={navigation.nav_title}
-                                website={_website}
-                            />
-                        ))}
-                    </ol>
-                )}
+        <>
+            <div className="com-titleWithfollow">
+                <div className={withCategory}>
+                    <h1 className="com-title-section-xl">{title}</h1>
+                    <ListSectionsTitle
+                        _children={_children}
+                        isPrimarySection={isPrimarySection}
+                    />
+                </div>
+                <TagsNavigation
+                    _children={_children}
+                    orderAndCountTags={orderAndCountTags}
+                    isPrimarySection={isPrimarySection}
+                />
             </div>
-            {children && orderAndCountTags && isPrimarySection && (
-                <ol className="cont_tags com-secondary-tag">
-                    {orderAndCountTags.map(tag => (
-                        <li key={tag}>
-                            <a
-                                href={`${children[0]._id}/${tag.slug}?_website=${children[0]._website}`}
-                                title={tag.text}
-                            >
-                                {tag.text}
-                            </a>
-                        </li>
-                    ))}
-                </ol>
-            )}
-        </div>
+            <NotaApertura />
+        </>
     );
 };
 
@@ -116,7 +91,7 @@ AcumuladoTitle.propTypes = {
                 _website: PropTypes.string
             })
         )
-    }),
+    }).isRequired,
     orderAndCountTags: PropTypes.arrayOf(
         PropTypes.shape({
             tag: PropTypes.shape({
@@ -127,14 +102,14 @@ AcumuladoTitle.propTypes = {
     ).isRequired
 };
 
-AcumuladoTitle.defaultProps = {
-    globalContent: {
-        Payload: undefined,
-        byline: undefined,
-        name: undefined,
-        node_type: undefined,
-        children: []
-    }
-};
+// AcumuladoTitle.defaultProps = {
+//     globalContent: {
+//         Payload: undefined,
+//         byline: undefined,
+//         name: undefined,
+//         node_type: undefined,
+//         children: []
+//     }
+// };
 
-export default WithAcuArticlesData(Consumer(AcumuladoTitle), filter, 'notaM');
+export default WithAcuArticlesData(AcumuladoTitle, filter, 'notaM');

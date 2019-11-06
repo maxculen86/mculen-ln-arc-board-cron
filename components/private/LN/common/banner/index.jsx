@@ -90,9 +90,9 @@ banner.propTypes = {
     }).isRequired
 };
 
-banner.defaultProps = {
-    sticky: false,
-    background: false
-};
+// banner.defaultProps = {
+//     sticky: false,
+//     background: false
+// };
 
 export default WithScreenUtils(banner);

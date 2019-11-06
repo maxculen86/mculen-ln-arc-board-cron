@@ -57,23 +57,23 @@ ArticleBase.propTypes = {
     dataSection: PropTypes.string
 };
 
-ArticleBase.defaultProps = {
-    extraClasses: '',
-    articleData: {
-        headlines: {
-            basic: ''
-        },
-        website_url: undefined,
-        label: {
-            volanta: {
-                text: undefined
-            }
-        }
-    },
-    mediaComponent: <></>,
-    children: <></>,
-    border: false,
-    dataSection: ''
-};
+// ArticleBase.defaultProps = {
+//     extraClasses: '',
+//     articleData: {
+//         headlines: {
+//             basic: ''
+//         },
+//         website_url: undefined,
+//         label: {
+//             volanta: {
+//                 text: undefined
+//             }
+//         }
+//     },
+//     mediaComponent: <></>,
+//     children: <></>,
+//     border: false,
+//     dataSection: ''
+// };
 
 export default ArticleBase;
