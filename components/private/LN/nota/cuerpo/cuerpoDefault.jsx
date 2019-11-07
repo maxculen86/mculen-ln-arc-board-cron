@@ -8,12 +8,15 @@ import Html from './html';
 import PullQuote from './pullQuote';
 import MasNotas from './masNotas';
 import Tags from './tags';
+import TextCapital from './text';
 
 // TODO: tests
 const Cuerpo = () => {
     const resp = [];
 
+    resp.push(<TextCapital />);
     resp.push(<BlockQuote />);
+    resp.push(<TextCapital />);
     resp.push(<Gallery />);
     resp.push(<Html />);
     resp.push(<PullQuote />);
