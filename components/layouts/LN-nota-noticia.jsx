@@ -41,18 +41,15 @@ const lnNotaNoticia = ({ children }) => {
                         </div>
                     </header>
                 </div>
-                <div className="row">
-                    <div className="lay-sidebar">
-                        <div className="sidebar-main">{children[2]}</div>
-                        {/* Tercera */}
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {children[5]}
-                        </div>
-                    </div>
-                </div>
                 <div className="lay-sidebar">
                     {/* Cuerpo */}
                     <div className="sidebar__main">
+                        <div className="row">
+                            <div className="col-12 ">
+                                {/*Bajada y autor fecha más apertura*/}
+                                {children[2]}
+                            </div>
+                        </div>
                         <div className="row">
                             <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
                                 {/* Left-Cuerpo Shared*/}
@@ -66,6 +63,10 @@ const lnNotaNoticia = ({ children }) => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    {/* Tercera */}
+                    <div className="sidebar__aside hlp-tablet-none">
+                        {children[5]}
                     </div>
                 </div>
             </main>
