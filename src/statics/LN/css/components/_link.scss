@@ -11,7 +11,7 @@
     &.--inline {
         display: inline-block;
         text-transform: initial;
-        font-size: $px-16;
+        font-size: $font-16;
         line-height: $px-23
     }
 }
@@ -21,11 +21,12 @@
     font-size: $font-12;
     color: $link;
     p & {
-        font-size: $px-16;
+        font-size: $font-16;
     }
     .keep-reading & {
         display: block;
-        font-size: $px-16;
+        font-size: $font-16;
+        line-height: $line-16;
         margin-bottom: $px-30;
     }
     .--small {
