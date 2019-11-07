@@ -33,7 +33,7 @@ const lnNotaNoticia = ({ children }) => {
             <Header />
             <main>
                 {children[0]}
-                <div className="lay-sidebar">
+                <div className="lay">
                     <header className="row titulo">
                         <div className="col-12">
                             {/* Titulo (breadcrumb, logo+titulo) */}

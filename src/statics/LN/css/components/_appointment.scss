@@ -69,9 +69,17 @@
                         font-size: 24px;
                         width: 100%;
                         margin-bottom: $px-25;
+                        text-align: center;
+                        @media (min-width: 768px) {
+                            text-align: left;
+                        }
                     }
                     .cont-firma-autor {
                         display: flex;
+                        justify-content: center;
+                        @media (min-width: 768px) {
+                            justify-content: flex-start;
+                        }
                         flex-wrap: nowrap;
                         width: 100%;
                         margin-bottom: $px-10;
@@ -82,6 +90,10 @@
                     }
                     .cont-data-firma {
                         display: flex;
+                        justify-content: center;
+                        @media (min-width: 768px) {
+                            justify-content: flex-start;
+                        }
                         flex-wrap: nowrap;
                         width: 100%;
                         .fecha-firma {
