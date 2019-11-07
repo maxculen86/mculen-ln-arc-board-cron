@@ -4,35 +4,41 @@ import PropTypes from 'fusion:prop-types';
 import ImageBase from './component';
 import AmpImage from '../../ampImage';
 
-const imageArticle = ({ image, altText, zoom, href, outputType }) => {
-    if (!image.url) return null;
-    const amp = outputType === 'amp';
+class ImageArticle extends React.Component {
+    componentDidMount() {}
 
-    const sources =
-        image.resized_urls && image.resized_urls.filter(v => !!v.option);
+    render() {
+        const { image, altText, zoom, href, outputType } = this.props;
 
-    return (
-        <>
-            {amp ? (
-                <AmpImage
-                    sources={sources}
-                    url={image.url}
-                    alt={altText || ''}
-                />
-            ) : (
-                <ImageBase
-                    urlDefault={image.url}
-                    sources={sources || []}
-                    altText={altText}
-                    zoom={zoom}
-                    href={href}
-                />
-            )}
-        </>
-    );
-};
+        if (!image.url) return null;
+        const amp = outputType === 'amp';
 
-imageArticle.propTypes = {
+        const sources =
+            image.resized_urls && image.resized_urls.filter(v => !!v.option);
+
+        return (
+            <>
+                {amp ? (
+                    <AmpImage
+                        sources={sources}
+                        url={image.url}
+                        alt={altText || ''}
+                    />
+                ) : (
+                    <ImageBase
+                        urlDefault={image.url}
+                        sources={sources || []}
+                        altText={altText}
+                        zoom={zoom}
+                        href={href}
+                    />
+                )}
+            </>
+        );
+    }
+}
+
+ImageArticle.propTypes = {
     outputType: PropTypes.string.isRequired,
     image: PropTypes.shape({
         type: PropTypes.oneOf(['image']),
@@ -44,10 +50,4 @@ imageArticle.propTypes = {
     href: PropTypes.string
 };
 
-// imageArticle.defaultProps = {
-//     altText: '',
-//     zoom: false,
-//     href: ''
-// };
-
-export default Consumer(imageArticle);
+export default Consumer(ImageArticle);
