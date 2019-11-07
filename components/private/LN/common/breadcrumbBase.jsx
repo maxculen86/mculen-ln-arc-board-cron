@@ -3,18 +3,27 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 
-const getListSections = (sections, extraOpts) =>
-    sections.map(section => (
-        <a key={section.path} href={section.path} {...extraOpts}>
-            {section.name}
-        </a>
-    ));
+const getListSections = (sections, extraOpts, host) =>
+    sections.map(section => {
+        const path =
+            section.name === 'LA NACION' && section.path === '/'
+                ? host
+                : section.path;
+        console.log('TCL: getListSections -> path', path);
+        console.log('TCL: getListSections -> section', section);
+        return (
+            <a key={path} href={path} {...extraOpts}>
+                {section.name}
+            </a>
+        );
+    });
 
 const BreadcrumbBase = ({
     sections,
     extraClasses,
     dataSection,
-    lastLinked
+    lastLinked,
+    host
 }) => {
     const extraOpts = {};
     if (dataSection) {
@@ -25,7 +34,7 @@ const BreadcrumbBase = ({
     if (!lastLinked && sections.length) {
         let finalSections = sections;
         finalSections = finalSections.slice(0, finalSections.length - 1);
-        listSections = getListSections(finalSections, extraOpts);
+        listSections = getListSections(finalSections, extraOpts, host);
         const lastSection = sections.slice(
             sections.length - 1,
             sections.length
@@ -33,7 +42,7 @@ const BreadcrumbBase = ({
         listSections.push(
             <span key={lastSection.path}>{lastSection.name}</span>
         );
-    } else listSections = getListSections(sections, extraOpts);
+    } else listSections = getListSections(sections, extraOpts, host);
     return (
         <nav className={`com-breadcrumb ${extraClasses || ''}`}>
             {listSections}
@@ -51,7 +60,8 @@ BreadcrumbBase.propTypes = {
     ).isRequired,
     extraClasses: PropTypes.string,
     dataSection: PropTypes.string,
-    lastLinked: PropTypes.boolean
+    lastLinked: PropTypes.boolean,
+    host: PropTypes.string.isRequired
 };
 
 // BreadcrumbBase.defaultProps = {

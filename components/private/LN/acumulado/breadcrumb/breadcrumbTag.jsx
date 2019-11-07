@@ -7,7 +7,7 @@ const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbTag({ tag, host }) {
     const sections = [
         {
-            path: '/',
+            path: host || '/',
             name: 'LA NACION'
         },
         {

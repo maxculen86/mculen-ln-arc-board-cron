@@ -65,8 +65,7 @@ export default function Footer({ year, handleOpenWindowEvent }) {
                 </div>
                 <div className="footer__bottom">
                     <p className="copyright">
-                        Copyright {year} SA LA NACION. Todos los derechos
-                        reservados
+                        {`Copyright ${year} SA LA NACION. Todos los derechos reservados`}
                     </p>
                 </div>
             </div>
