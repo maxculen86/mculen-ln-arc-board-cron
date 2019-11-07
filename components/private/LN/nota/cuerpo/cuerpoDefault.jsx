@@ -9,6 +9,9 @@ import PullQuote from './pullQuote';
 import MasNotas from './masNotas';
 import Tags from './tags';
 import TextCapital from './text';
+import Ordered from './ordered';
+import Unordered from './unordered';
+import Subtitles from './subtitles';
 
 // TODO: tests
 const Cuerpo = () => {
@@ -17,6 +20,9 @@ const Cuerpo = () => {
     resp.push(<TextCapital />);
     resp.push(<BlockQuote />);
     resp.push(<TextCapital />);
+    resp.push(<Subtitles />);
+    resp.push(<Ordered />);
+    resp.push(<Unordered />);
     resp.push(<Gallery />);
     resp.push(<Html />);
     resp.push(<PullQuote />);

@@ -81,6 +81,10 @@ section>.cont-figure>.figure:before {
     transition: 0.2s ease opacity
 }
 
+.com-slider .cont-figure .figure .content-pic>* {
+    max-width: 100%;
+}
+
 .previous {
     font-size: 0;
     line-height: 0;
