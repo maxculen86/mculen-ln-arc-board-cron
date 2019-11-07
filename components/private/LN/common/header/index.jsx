@@ -95,7 +95,7 @@ Index.propTypes = {
     screenUtils: PropTypes.shape({
         device: PropTypes.string
     }).isRequired,
-    logueado: PropTypes.bool,
+    logueado: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         subcription: PropTypes.bool,
         userName: PropTypes.string,

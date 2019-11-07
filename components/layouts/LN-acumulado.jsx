@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
@@ -11,8 +11,6 @@ import '../../resources/dist/css/ln/pages/acu.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 
-// import '../../resources/dist/css/ln/pages/acu-revista.css';
-
 const layoutItems = [
     'Pre-Apertura',
     'Breadcrumb',
@@ -22,48 +20,64 @@ const layoutItems = [
     'Aside'
 ];
 
-class LNAcumuladoLayout extends Component {
-    render() {
-        const { children } = this.props;
-        return (
-            <div id="wrapper" className="">
-                <Header />
-                <main>
-                    {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
-                    {children[0]}
-                    <div className="row">
-                        <div className="lay">
-                            {/* BREADCRUMB, TITULO Y APERTURA */}
-                            {children[1]}
-                        </div>
+const CLASS_ACU_REVISTA = 'acu-revista';
+const revistas = ['ohlala'];
+
+const LNAcumuladoLayout = ({ children, globalContent }) => {
+    const [classRevista, setClassRevista] = useState('');
+
+    useEffect(() => {
+        const { style } = globalContent;
+        const sectionStyleName =
+            style && style.section_style_name ? style.section_style_name : '';
+
+        revistas.indexOf(sectionStyleName || '') !== -1 &&
+            setClassRevista(`${CLASS_ACU_REVISTA} ${sectionStyleName}`);
+    }, [classRevista, globalContent]);
+
+    return (
+        <div id="wrapper" className={`${classRevista}`}>
+            <Header />
+            <main>
+                {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
+                {children[0]}
+                <div className="row">
+                    <div className="lay">
+                        {/* BREADCRUMB, TITULO Y APERTURA */}
+                        {children[1]}
                     </div>
-                    <div id="content-main" className="lay-sidebar">
-                        <div className="sidebar__main">
-                            <div className="row">
-                                {/* LUGAR PARA UN ANEXO */}
-                                {children[2]}
-                            </div>
-                            <div className="row">
-                                {/* LINKS DE NAVEGACION */}
-                                {children[3]}
-                            </div>
-                            {/* NOTAS */}
-                            {children[4]}
+                </div>
+                <div id="content-main" className="lay-sidebar">
+                    <div className="sidebar__main">
+                        <div className="row">
+                            {/* LUGAR PARA UN ANEXO */}
+                            {children[2]}
                         </div>
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {/* RANKING DE NOTAS */}
-                            {children[5]}
+                        <div className="row">
+                            {/* LINKS DE NAVEGACION */}
+                            {children[3]}
                         </div>
+                        {/* NOTAS */}
+                        {children[4]}
                     </div>
-                </main>
-                <Footer />
-            </div>
-        );
-    }
-}
+                    <div className="sidebar__aside hlp-tablet-none">
+                        {/* RANKING DE NOTAS */}
+                        {children[5]}
+                    </div>
+                </div>
+            </main>
+            <Footer />
+        </div>
+    );
+};
 
 LNAcumuladoLayout.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    globalContent: PropTypes.shape({
+        style: PropTypes.shape({
+            section_style_name: PropTypes.string
+        })
+    }).isRequired
 };
 
 LNAcumuladoLayout.sections = layoutItems;
