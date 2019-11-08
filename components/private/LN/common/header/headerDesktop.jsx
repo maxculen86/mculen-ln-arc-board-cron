@@ -56,11 +56,6 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout, host }) => {
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
-        const menuUser = document.getElementById('menuUser');
-
-        if (menuUser) menuUser.addEventListener('blur', e => setActive(''));
-
-        window.addEventListener('scroll', e => setActive(''));
     }, [loading]);
 
     return (
@@ -95,6 +90,8 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout, host }) => {
                             tabIndex="0"
                             role="button"
                             id="menuUser"
+                            onBlur={() => setActive('')}
+                            onScroll={() => setActive('')}
                         >
                             <p className="com-usuario__name">
                                 {loginData.userName}
@@ -110,7 +107,11 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout, host }) => {
                             )}
                             <ul className="com-desplegable">
                                 {enlaces.map(({ url, text }) => (
-                                    <ItemAnchor url={url} text={text} />
+                                    <ItemAnchor
+                                        key={text}
+                                        url={url}
+                                        text={text}
+                                    />
                                 ))}
                                 <li>
                                     <a

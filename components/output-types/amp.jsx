@@ -9,7 +9,7 @@ import ArcAds from '../private/common/scriptManager/arcAds';
 import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import Livefyre from '../private/common/scriptManager/Livefyre';
 import DataLayerIndex from '../private/common/dataLayerIndex';
-import SnippetIndex from '../private/common/snippetIndex';
+import SnippetIndex from '../private/common/snippet';
 
 const scriptList = {
     GTM,

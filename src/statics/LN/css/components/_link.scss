@@ -1,6 +1,4 @@
 @import '../abstracts/variables';
-
-
 .com-link {
     text-transform: uppercase;
     font-family: $font-arial;
@@ -13,7 +11,7 @@
     &.--inline {
         display: inline-block;
         text-transform: initial;
-        font-size: $px-16;
+        font-size: $font-16;
         line-height: $px-23
     }
 }
@@ -22,6 +20,15 @@
     font-family: $font-arial;
     font-size: $font-12;
     color: $link;
+    p & {
+        font-size: $font-16;
+    }
+    .keep-reading & {
+        display: block;
+        font-size: $font-16;
+        line-height: $line-16;
+        margin-bottom: $px-30;
+    }
     .--small {
         font-size: $font-14;
         text-transform: initial;

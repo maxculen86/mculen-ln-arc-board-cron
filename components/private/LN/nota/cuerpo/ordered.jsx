@@ -1,0 +1,33 @@
+import React from 'react';
+
+// BORRAR, ES SOLO PARA MOSTRAR EN LA DEMO DE NOTA NOTICIA
+
+export default function Ordered() {
+    return (
+        <ol className="com-ordered">
+            <li className="com-item">
+                Mezclar en un bowl la crema de leche con la lecha y la mostaza.
+                Salpimentar y reservar.
+            </li>
+            <li className="com-item">
+                Limpiar la coliflor y separar las cabecitas (o flores).
+            </li>
+            <li className="com-item">
+                Agregar la coliflor a la mezcla de crema de leche leche mostaza.
+                Mezclar bien.
+            </li>
+            <li className="com-item">
+                Verter la coliflor en una fuente apta para horno.
+            </li>
+            <li className="com-item">
+                Pasar los solomillos por la misma mezcla y disponerlos sobre la
+                coliflor.
+            </li>
+            <li className="com-item">
+                Poner las hojas de romero sobre los solomillos y cocinar a horno
+                a 180° durante unos 40min (o hasta que la carne este al punto de
+                cocción deseado)
+            </li>
+        </ol>
+    );
+}

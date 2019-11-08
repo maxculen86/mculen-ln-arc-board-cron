@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'lodash.get';
 import Carousell from '../../../common/carousell';
-import VideoArticle from "../videoArticle";
+import VideoArticle from '../videoArticle';
 import Title from '../../../common/title';
 
 export default function LastVideos({ videos }) {

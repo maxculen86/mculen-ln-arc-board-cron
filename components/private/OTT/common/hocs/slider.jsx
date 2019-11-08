@@ -25,7 +25,7 @@ export default function slider(WrappedComponent, pageSize) {
         }
 
         windowBetweenRanges(lowerRange, topRange) {
-            const {innerWidth} = window;
+            const { innerWidth } = window;
             if (!lowerRange && !topRange) return true;
             if (!lowerRange) return innerWidth <= topRange;
             if (!topRange) return innerWidth >= lowerRange;
