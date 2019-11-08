@@ -5,7 +5,7 @@ jest.mock(
 
 import React from 'react';
 import { mount } from 'enzyme';
-import SnippetIndex from '../../../../components/private/common/snippet/snippetIndex';
+import SnippetIndex from '../../../../components/private/common/snippet';
 import nota from '../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 
 describe('LN - Common - SnippetIndex - Render snippet valido', () => {
