@@ -5,11 +5,13 @@ function ImagePlaceholder({ href, zoom, children }) {
     let zoomClass = '';
     if (zoom) zoomClass = 'zoom';
     return (
-        <a href={href} className="figure">
-            <picture className={`content-pic picture ${zoomClass}`}>
-                {children}
-            </picture>
-        </a>
+        <>
+            <a href={href} className="figure">
+                <picture className={`content-pic picture ${zoomClass}`}>
+                    {children}
+                </picture>
+            </a>
+        </>
     );
 }
 
