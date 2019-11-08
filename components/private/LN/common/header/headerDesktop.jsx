@@ -56,11 +56,6 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
-        const menuUser = document.getElementById('menuUser');
-
-        if (menuUser) menuUser.addEventListener('blur', e => setActive(''));
-
-        window.addEventListener('scroll', e => setActive(''));
     }, [loading]);
 
     return (
@@ -89,12 +84,14 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                             Suscribite
                         </a>
                     )}
-                    {logueado && (
+                    {!logueado && (
                         <div
                             onMouseUp={toggleMenu}
                             tabIndex="0"
                             role="button"
                             id="menuUser"
+                            onBlur={() => setActive('')}
+                            onScroll={() => setActive('')}
                         >
                             <p className="com-usuario__name">
                                 {loginData.userName}
@@ -110,7 +107,11 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                             )}
                             <ul className="com-desplegable">
                                 {enlaces.map(({ url, text }) => (
-                                    <ItemAnchor url={url} text={text} />
+                                    <ItemAnchor
+                                        key={text}
+                                        url={url}
+                                        text={text}
+                                    />
                                 ))}
                                 <li>
                                     <a
@@ -123,7 +124,7 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                             </ul>
                         </div>
                     )}
-                    {!logueado && (
+                    {logueado && (
                         <button
                             type="button"
                             className="--btn --secondary"
