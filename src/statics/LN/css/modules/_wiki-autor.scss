@@ -1,5 +1,4 @@
 @import '../abstracts/variables';
-
 .wiki-autor {
     margin-bottom: $px-40;
     h1 {
@@ -7,17 +6,17 @@
     }
     label {
         font-family: $font-arial;
-        font-size: $px-14;
+        font-size: $font-14;
         line-height: $px-19;
         display: block
     }
     p {
         font-family: $font-arial;
-        font-size: $px-16;
+        font-size: $font-16;
         line-height: $px-23;
-        span{
+        span {
             display: block;
-            a{
+            a {
                 color: $ln;
             }
         }
@@ -33,10 +32,10 @@
         }
     }
     .wiki-calc {
-        width: calc(100% - 55px); 
+        width: calc(100% - 55px);
         margin-top: $px-5;
         label {
-            margin:$px-15 0 $px-20;
+            margin: $px-15 0 $px-20;
         }
     }
 }
