@@ -84,7 +84,7 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                             Suscribite
                         </a>
                     )}
-                    {!logueado && (
+                    {logueado && (
                         <div
                             onMouseUp={toggleMenu}
                             tabIndex="0"
@@ -124,7 +124,7 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                             </ul>
                         </div>
                     )}
-                    {logueado && (
+                    {!logueado && (
                         <button
                             type="button"
                             className="--btn --secondary"
