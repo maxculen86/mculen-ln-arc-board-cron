@@ -1,4 +1,5 @@
 import ArticleList from './articleList';
+import AcuTitle from './acuTitle';
 
 const index = props => {
     const {
@@ -7,7 +8,7 @@ const index = props => {
 
     return {
         paginar: next > 0,
-        titulo: 'Usar HOC de section para obtener la data del nombre',
+        titulo: AcuTitle(contentElements),
         notas: ArticleList(contentElements)
     };
 };
