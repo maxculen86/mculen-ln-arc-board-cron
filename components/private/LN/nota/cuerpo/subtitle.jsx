@@ -5,22 +5,22 @@ const Subtitle = props => {
     const { element } = props;
     switch (element.level) {
         case 1: {
-            return <h2>{element.content}</h2>;
+            return <h2 dangerouslySetInnerHTML={{ __html: element.content }} />;
         }
         case 2: {
-            return <h2>{element.content}</h2>;
+            return <h2 dangerouslySetInnerHTML={{ __html: element.content }} />;
         }
         case 3: {
-            return <h3>{element.content}</h3>;
+            return <h3 dangerouslySetInnerHTML={{ __html: element.content }} />;
         }
         case 4: {
-            return <h4>{element.content}</h4>;
+            return <h4 dangerouslySetInnerHTML={{ __html: element.content }} />;
         }
         case 5: {
-            return <h5>{element.content}</h5>;
+            return <h5 dangerouslySetInnerHTML={{ __html: element.content }} />;
         }
         case 6: {
-            return <h6>{element.content}</h6>;
+            return <h6 dangerouslySetInnerHTML={{ __html: element.content }} />;
         }
         default:
             return null;
