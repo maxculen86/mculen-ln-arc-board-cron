@@ -16,9 +16,12 @@ const Tips = props => {
                             element={paragraph.element}
                         />
                     ) : (
-                        <span key={paragraph.element._id}>
-                            {paragraph.element.content}
-                        </span>
+                        <span
+                            dangerouslySetInnerHTML={{
+                                __html: paragraph.element.content
+                            }}
+                            key={paragraph.element._id}
+                        ></span>
                     )
                 )}
         </div>
