@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 function BreadcrumbSchema({ sections, host }) {
-    console.log('TCL: BreadcrumbSchema -> host', host);
     const items = sections
         .map((el, i) => {
             return `

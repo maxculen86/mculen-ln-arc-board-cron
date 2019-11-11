@@ -9,8 +9,6 @@ const getListSections = (sections, extraOpts, host) =>
             section.name === 'LA NACION' && section.path === '/'
                 ? host
                 : section.path;
-        console.log('TCL: getListSections -> path', path);
-        console.log('TCL: getListSections -> section', section);
         return (
             <a key={path} href={path} {...extraOpts}>
                 {section.name}
