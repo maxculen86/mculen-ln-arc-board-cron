@@ -8,7 +8,11 @@ const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbSection({ sections, host }) {
     return (
         <>
-            <BreadCrumbBase sections={sections} dataSection={DATA_SECTION} />
+            <BreadCrumbBase
+                sections={sections}
+                dataSection={DATA_SECTION}
+                host={host}
+            />
             <BreadCrumbSchema sections={sections} host={host} />
         </>
     );

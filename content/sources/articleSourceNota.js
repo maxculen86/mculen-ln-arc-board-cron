@@ -40,6 +40,20 @@ const transform = (data, siteProps) => {
             presets
         });
     }
+    return tranformQuitarSectionsInvalidas(resp);
+};
+
+const tranformQuitarSectionsInvalidas = jsonArticle => {
+    const sections = get(jsonArticle, 'taxonomy.sections');
+    const resp = {
+        ...jsonArticle,
+        taxonomy: {
+            ...jsonArticle.taxonomy,
+            sections: sections
+                ? sections.filter(s => s.type === 'section')
+                : null
+        }
+    };
     return resp;
 };
 

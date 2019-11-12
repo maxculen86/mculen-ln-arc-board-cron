@@ -43,7 +43,7 @@ const enlaces = [
     }
 ];
 
-const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
+const HeaderDesktop = ({ logueado, loginData, goToLogout, host }) => {
     const { loading } = loginData;
     const { goToLoginUrl } = loginData;
     const [active, setActive] = useState('');
@@ -56,11 +56,6 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
-        const menuUser = document.getElementById('menuUser');
-
-        if (menuUser) menuUser.addEventListener('blur', e => setActive(''));
-
-        window.addEventListener('scroll', e => setActive(''));
     }, [loading]);
 
     return (
@@ -69,7 +64,7 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                 <Hamburguer />
             </div>
             <div className="col-4 header__middle">
-                <a href="/" className="header__middle__logo">
+                <a href={host || '/'} className="header__middle__logo">
                     <i className="logo-la-nacion" />
                 </a>
             </div>
@@ -95,6 +90,8 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                             tabIndex="0"
                             role="button"
                             id="menuUser"
+                            onBlur={() => setActive('')}
+                            onScroll={() => setActive('')}
                         >
                             <p className="com-usuario__name">
                                 {loginData.userName}
@@ -110,7 +107,11 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                             )}
                             <ul className="com-desplegable">
                                 {enlaces.map(({ url, text }) => (
-                                    <ItemAnchor url={url} text={text} />
+                                    <ItemAnchor
+                                        key={text}
+                                        url={url}
+                                        text={text}
+                                    />
                                 ))}
                                 <li>
                                     <a
@@ -146,7 +147,8 @@ HeaderDesktop.propTypes = {
         goToLoginUrl: PropTypes.func,
         loading: PropTypes.bool
     }).isRequired,
-    goToLogout: PropTypes.func.isRequired
+    goToLogout: PropTypes.func.isRequired,
+    host: PropTypes.string.isRequired
 };
 
 export default HeaderDesktop;

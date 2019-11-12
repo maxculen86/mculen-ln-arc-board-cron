@@ -8,6 +8,7 @@ const authorArticle = ({
         credits: { by }
     }
 }) => {
+    if (!by) return null;
     by = by.filter(author => author.type === 'author');
     return (
         <>

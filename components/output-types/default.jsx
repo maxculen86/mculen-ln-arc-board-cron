@@ -10,7 +10,7 @@ import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import Livefyre from '../private/common/scriptManager/Livefyre';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
-import SnippetIndex from '../private/common/snippet/snippetIndex';
+import SnippetIndex from '../private/common/snippet';
 
 const scriptList = {
     GTM,
