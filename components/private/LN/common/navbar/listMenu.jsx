@@ -9,6 +9,12 @@ import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
 // eslint-disable-next-line react/prop-types
 export default function ListMenu() {
+    const toglleDesplegable = () => {
+        document.body.classList.contains('dropdown')
+            ? document.body.classList.remove('dropdown')
+            : document.body.classList.add('dropdown');
+    };
+
     return (
         <>
             <Desplegable />
@@ -17,7 +23,10 @@ export default function ListMenu() {
                     <ItemHome />
                     <ItemClub />
                     <ItemMiCuenta />
-                    <button className="col-2 item-foo">
+                    <button
+                        className="col-2 item-foo"
+                        onClick={toglleDesplegable}
+                    >
                         <i className="icon-menu"></i>
                         <p>Menú</p>
                     </button>
