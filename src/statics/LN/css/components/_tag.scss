@@ -44,7 +44,7 @@
             display: inline-block;
             position: absolute;
             color: $ln;
-            right: -14px;
+            right: -$px-14;
             font-size: $font-25;
             line-height: $px-15;
         }
@@ -65,7 +65,7 @@
                 display: inline-block;
                 position: absolute;
                 color: $ln;
-                right: -14px;
+                right: -$px-14;
                 font-size: $font-25;
                 line-height: $px-15;
             }
@@ -78,7 +78,7 @@
 
 .with-category {
     width: 100%;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $gris3;
     margin-bottom: $px-20;
     display: inline-flex;
     flex-direction: row;

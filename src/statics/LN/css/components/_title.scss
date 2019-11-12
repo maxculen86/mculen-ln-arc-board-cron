@@ -26,14 +26,15 @@
     font-weight: 500;
     line-height: $line-22;
     letter-spacing: -0.29px;
-
     .com-ranking & {
-        margin-bottom: $px-13; 
+        margin-bottom: $px-13;
     }
 }
+
 h4.com-title-section-m {
     margin-bottom: $px-20;
 }
+
 .com-title-section-s {
     font-family: $font-SuecaSlab;
     font-size: $font-22;
@@ -41,7 +42,8 @@ h4.com-title-section-m {
     line-height: $line-22;
     letter-spacing: -0.29px;
 }
-h4.com-title-section-s{
+
+h4.com-title-section-s {
     margin-bottom: $px-20;
 }
 
@@ -94,10 +96,10 @@ h1.com-title-nota {
 .com-titleWithfollow {
     margin-bottom: 20px;
     @media (min-width: 768px) {
-        margin-bottom: 30px;
+        margin-bottom: $px-30;
     }
     @media (min-width: 1024px) {
-        margin-bottom: 40px;
+        margin-bottom: $px-40;
     }
     [class^="com-title"],
     [class*=" com-title"] {

@@ -1,17 +1,15 @@
 @import '../abstracts/variables';
-
-
 .com-title_list {
     font-family: SuecaSlab, Georgia;
     font-size: $font-24;
-    color: #000;
+    color: $negro;
 }
 
 .com-subtitle_list {
     font-family: Arial;
     font-size: $font-16;
     font-weight: bold;
-    color: #000;
+    color: $negro;
 }
 
 .com-unordered {
@@ -22,17 +20,17 @@
         font-family: $font-arial;
         font-size: $font-16;
         line-height: 30px;
-        margin-bottom: 25px;
-        color: #000;
+        margin-bottom: $px-25;
+        color: $negro;
         position: relative;
         &:before {
             content: "";
             width: $px-7;
             height: $px-7;
             border-radius: 50%;
-            top: 10px;
-            background-color: #000;
-            color: #fff;
+            top: $px-10;
+            background-color: $negro;
+            color: $blanco;
             position: absolute;
             left: 0;
             font-family: Arial, sans-serif;
