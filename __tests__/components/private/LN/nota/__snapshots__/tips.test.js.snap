@@ -5,7 +5,7 @@ exports[`Tips matches snapshot 1`] = `
   class="com-tip"
 >
   <h4
-    class="com-title-section-m"
+    class="com-title-section-s"
   >
     Tips
   </h4>
