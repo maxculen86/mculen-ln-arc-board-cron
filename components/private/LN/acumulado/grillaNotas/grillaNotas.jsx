@@ -101,7 +101,7 @@ class GrillaNotas extends Component {
                     <section className="row">
                         <BtnMasNotas
                             onClickHandler={obtenerMasNotas}
-                            name={globalContent.name}
+                            name={globalContent.name || ''}
                             loadingIcon={<LoadingIcon />}
                             loading={loading}
                         />
