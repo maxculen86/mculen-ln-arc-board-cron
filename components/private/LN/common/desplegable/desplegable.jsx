@@ -5,14 +5,17 @@ export default function Desplegable() {
     const despegableEl = useRef(null);
     const comDromdown = useRef(null);
 
-    const handleScroll = e => {
-        console.log(e);
-        console.log('TCL: Desplegable -> comDromdown', comDromdown);
+    const handleScroll = () => {
+        const handleScrollComdropdown = (addClass, removeClass) => {
+            const cD = comDromdown.current.classList;
 
-        /* comDromdown &&
-        comDromdown.current.classList.contains('scroll---active')
-            ? comDromdown.current.classList.add('scroll---active')
-            : comDromdown.current.classList.remove('scroll---active'); */
+            cD.add(addClass);
+            cD.remove(removeClass);
+        };
+
+        despegableEl && despegableEl.current.scrollTop === 0
+            ? handleScrollComdropdown('scroll--pasive', 'scroll--active')
+            : handleScrollComdropdown('scroll--active', 'scroll--pasive');
     };
 
     return (
