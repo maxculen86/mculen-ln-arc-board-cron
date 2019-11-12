@@ -52,7 +52,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 const sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
-                const size = get(this, 'props.size', 30) + 1;
+                const size = get(this, 'props.size', 30);
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
@@ -111,7 +111,8 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
 
                 return Object.keys(tags)
                     .sort((a, b) => (tags[a].count < tags[b].count ? 1 : -1))
-                    .map(key => (tags[key] = tags[key]));
+                    .map(key => (tags[key] = tags[key]))
+                    .slice(0, 10);
             };
 
             obtenerMasNotas = () => {

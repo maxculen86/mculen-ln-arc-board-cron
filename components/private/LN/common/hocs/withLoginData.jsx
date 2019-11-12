@@ -1,30 +1,34 @@
 /* eslint-disable no-restricted-globals */ // TODO: Modificar codigo para evitar excluir esta regla
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { API_ENV } from 'fusion:environment';
+import {
+    LOGIN_URL,
+    SITIO_SEGURO_REGISTRACION,
+    RELOGIN_VALIDATION
+} from 'fusion:environment';
 import apiIngresar from '../../../common/services/apIngresar';
-import useCookie from '../utils/useCookie';
+import handleCookie from '../utils/handleCookie';
 
 const {
     setCookie,
     getCookie,
     eraseCookie,
     DiccionarioCookiesAGuardar
-} = useCookie();
-
-const { LoginUrl } = API_ENV || {
-    LoginUrl: 'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback='
-};
+} = handleCookie();
 
 function withLoginData(WrappedComponent) {
     return class withAuthentication extends React.Component {
-        static propTypes = {
-            mockApi: PropTypes.func
-        };
+        static get propTypes() {
+            return {
+                mockApi: PropTypes.func
+            };
+        }
 
-        static defaultProps = {
-            mockApi: undefined
-        };
+        static get defaultProps() {
+            return {
+                mockApi: undefined
+            };
+        }
 
         constructor(props) {
             super(props);
@@ -34,13 +38,15 @@ function withLoginData(WrappedComponent) {
                     subscription: false,
                     userName: 'Sin nombre',
                     goToLoginUrl: () => {
-                        location.href = LoginUrl + window.btoa(location.href);
-                    }
+                        location.href = LOGIN_URL + window.btoa(location.href);
+                    },
+                    loading: true
                 }
             };
         }
 
         componentDidMount = () => {
+            // TODO: los tests no deberia requerir que se modifique el codigo. Pendiente buscar otra manera
             const { mockApi } = this.props;
             if (mockApi) return mockApi;
 
@@ -65,7 +71,8 @@ function withLoginData(WrappedComponent) {
                             userName: `${Usuario.UsuarioDetalleEmail.substring(
                                 0,
                                 16
-                            )}...`
+                            )}...`,
+                            loading: false
                         }
                     });
                 }
@@ -77,10 +84,6 @@ function withLoginData(WrappedComponent) {
 
             // TODO: Agregar aqui validadion de de diff de dias para hacer relogin
             /* 
-            
-            5. Cuando haces relogin tomar nuevo token y x-value
-            6. Llamar a getMe con nuevo token y xvalue en header
-
             Nota. Considerar casos de res.code para relogin
             Validar set Xvalue Token 
             Dejar -todo- nota para res.response.Usuario
@@ -124,21 +127,31 @@ function withLoginData(WrappedComponent) {
                 this.goToLogout();
             }
 
-            if (getCookie('token'))
-                apiIngresar.getMe().then(res => setUserData(res));
+            getCookie('token')
+                ? apiIngresar.getMe().then(res => setUserData(res))
+                : this.setState({
+                      loginData: {
+                          subscription: false,
+                          goToLoginUrl: () => {
+                              location.href =
+                                  LOGIN_URL + window.btoa(location.href);
+                          },
+                          loading: false
+                      }
+                  });
+
+            return true;
         };
 
         reMeHandler = (res, token, xvalue) => {
             switch (res.code) {
                 case '0000':
-                    const { Usuario } = JSON.parse(res.response) || {};
-
                     eraseCookie('token');
                     eraseCookie('xvalue');
 
                     setCookie('token', token);
                     setCookie('xvalue', xvalue);
-                    this.setupCookies(Usuario);
+                    this.setupCookies(JSON.parse(res.response) || {});
                     break;
                 case '0001':
                     /**
@@ -214,10 +227,6 @@ function withLoginData(WrappedComponent) {
 
             try {
                 let result = true;
-                const { ReloginValidation } = API_ENV || {
-                    ReloginValidation: 8121600000
-                };
-
                 // Se parsea cookie syncLfLN para que no tenga am/pm .
                 // Convirtiendo la hora en formato de 24hrs y no de 12hrs .
                 // Cookie de ejemplo : 09/06/2017 06:52:46 p.m.
@@ -254,7 +263,7 @@ function withLoginData(WrappedComponent) {
                     }
                     if (
                         new Date() <
-                        new Date(syncDate.getTime() - ReloginValidation)
+                        new Date(syncDate.getTime() - RELOGIN_VALIDATION)
                     ) {
                         result = false;
                     }
@@ -273,10 +282,7 @@ function withLoginData(WrappedComponent) {
         };
 
         goToLogout = () => {
-            const { APIingresar } = API_ENV || {};
-            const urlApiIngresar =
-                APIingresar || 'https://ingresar.lanacion.com.ar';
-            const urlToLogout = `${urlApiIngresar}/logout/logout.html?pagina=${location.href}`;
+            const urlToLogout = `${SITIO_SEGURO_REGISTRACION}/logout/logout.html?pagina=${location.href}`;
 
             eraseCookie('shouldrelogin');
             eraseCookie('usuariodata');
@@ -293,8 +299,9 @@ function withLoginData(WrappedComponent) {
                     subscription: false,
                     userName: 'Sin nombre',
                     goToLoginUrl: () => {
-                        location.href = LoginUrl + window.btoa(location.href);
-                    }
+                        location.href = LOGIN_URL + window.btoa(location.href);
+                    },
+                    loading: false
                 }
             });
         };
@@ -322,7 +329,7 @@ function withLoginData(WrappedComponent) {
                 newDate = time.replace('12', '00');
             }
             if (time.indexOf('p.m.') !== -1 && hours < 12) {
-                newDate = time.replace(hours, parseInt(hours) + 12);
+                newDate = time.replace(hours, parseInt(hours, 10) + 12);
             }
 
             return newDate.replace(/(a.m.|p.m.)/, '');

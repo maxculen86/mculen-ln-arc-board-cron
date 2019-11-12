@@ -15,7 +15,7 @@ const media = ({ mediaData, colNumber, zoom, href }) => {
                 item = <Image image={mediaData} href={href} zoom={zoom} />;
                 break;
             case 'video':
-                item = <VideoPlayer videoId={_id} />;
+                item = <VideoPlayer videoId={_id} mediaData={mediaData} />;
                 break;
             default:
                 break;
@@ -38,11 +38,11 @@ media.propTypes = {
     href: PropTypes.string
 };
 
-media.defaultProps = {
-    colNumber: null,
-    zoom: false,
-    href: null,
-    mediaData: null
-};
+// media.defaultProps = {
+//     colNumber: null,
+//     zoom: false,
+//     href: null,
+//     mediaData: null
+// };
 
 export default media;

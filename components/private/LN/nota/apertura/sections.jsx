@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
+import { getFirstParentSection } from '../../../common/utils/sectionUtils';
 
 const Sections = props => {
     const { taxonomy, destacado } = props;
@@ -8,11 +9,17 @@ const Sections = props => {
 
     let listSections = [];
     if (primary) {
-        listSections = taxonomy.sections.filter(x =>
-            x.additional_properties.original.ancestors.default.includes(
-                primary.additional_properties.original.ancestors.default[0]
-            )
-        );
+        const parentPrimarySection = getFirstParentSection(primary);
+        if (parentPrimarySection) {
+            listSections = taxonomy.sections.filter(x => {
+                const parentSection = getFirstParentSection(x);
+                return (
+                    parentSection &&
+                    parentSection === parentPrimarySection &&
+                    x._id !== parentPrimarySection
+                );
+            });
+        }
     }
 
     const listSectionsDespues = listSections.map(x => {

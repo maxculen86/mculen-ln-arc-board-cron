@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 function BreadcrumbSchema({ sections, host }) {
-    let items = sections
+    const items = sections
         .map((el, i) => {
             return `
         {
@@ -20,12 +21,27 @@ function BreadcrumbSchema({ sections, host }) {
                 "itemListElement": [${items}]
             }`
     };
-    return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={data}
-        ></script>
-    );
+    return <script type="application/ld+json" dangerouslySetInnerHTML={data} />;
 }
+
+BreadcrumbSchema.propTypes = {
+    sections: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            path: PropTypes.string
+        })
+    ).isRequired,
+    host: PropTypes.string.isRequired
+};
+
+// BreadcrumbSchema.defaultProps = {
+//     sections: [
+//         {
+//             name: undefined,
+//             path: undefined
+//         }
+//     ],
+//     host: ''
+// };
 
 export default BreadcrumbSchema;

@@ -109,7 +109,7 @@ const getRules = env => {
         },
         {
             test: /\.(ttf|eot|svg|woff(2?))(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            exclude: [/images/],
+            exclude: [/images/, /img/],
             use: [
                 {
                     loader: 'file-loader',
@@ -123,6 +123,7 @@ const getRules = env => {
         },
         {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+            exclude: [/fonts/],
             use: [
                 {
                     loader: 'file-loader',

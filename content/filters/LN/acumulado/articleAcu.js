@@ -25,6 +25,17 @@ export default `
                 text
                 slug
             }
+            primary_section {
+                _id
+                additional_properties {
+                    original {
+                        style {
+                            section_style_name
+                        }
+                    }
+                    
+                }
+            }
         }
         credits {
             by {

@@ -17,8 +17,8 @@ titleArticle.propTypes = {
     }).isRequired
 };
 
-titleArticle.defaultProps = {
-    prefix: ''
-};
+// titleArticle.defaultProps = {
+//     prefix: ''
+// };
 
 export default titleArticle;

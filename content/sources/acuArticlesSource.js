@@ -1,17 +1,10 @@
 import get from 'lodash.get';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
-    const {
-        sectionId,
-        authorId,
-        tagId,
-        size,
-        page,
-        website
-    } = key;
+    const { sectionId, authorId, tagId, size, page, website } = key;
     const arcSite = key['arc-site'];
     const from = ((page || 1) - 1) * size;
     const basePath = `/content/v4/search/published/?website=${website ||

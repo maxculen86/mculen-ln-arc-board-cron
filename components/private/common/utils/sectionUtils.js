@@ -1,62 +1,37 @@
 import get from 'lodash.get';
 
-export const primarySectionTreeResolver = ({
-    globalContent,
-    siteProperties
-}) => {
-    let allSections = [];
-    const getPrimaryTree = section => {
-        allSections.push({
-            name: section.name,
-            path: section.path,
-            type: 'category'
-        });
-        if (section.parent_id && section.parent_id !== '/') {
-            getPrimaryTree(
-                globalContent.taxonomy.sections.find(
-                    parent => parent._id === section.parent_id
-                )
-            );
-        }
-    };
-
-    if (globalContent.taxonomy.primary_section) {
-        getPrimaryTree(globalContent.taxonomy.primary_section);
-    }
-    allSections.push({
-        name: siteProperties.title,
-        path: '/',
-        type: 'site'
-    });
-    allSections = allSections.reverse();
-
-    return allSections;
-};
-
 export const getSectionStyle = sections => {
     const logoSection = sections.find(x => {
-        if (x.additional_properties.original.style) {
-            return get(
-                x,
-                'additional_properties.original.style.section_style_name'
-            );
-        }
-        return undefined;
+        return get(
+            x,
+            'additional_properties.original.style.section_style_name'
+        );
     });
     let sectionClass;
     let sectionPath;
     if (logoSection) {
-        sectionClass =
-            logoSection.additional_properties.original.style.section_style_name;
+        sectionClass = get(
+            logoSection,
+            'additional_properties.original.style.section_style_name',
+            null
+        );
         sectionPath = logoSection.path;
     }
     return {
-        class: `${sectionClass === undefined ? undefined : sectionClass}`,
-        path: `${sectionPath === undefined ? undefined : sectionPath}`
+        class: `${sectionClass || ''}`,
+        path: `${sectionPath || ''}`
     };
 };
 
+export const getFirstParentSection = section => {
+    if (section) {
+        const parents = section._id.split('/').filter(x => x !== '');
+        if (!!parents && parents.length > 0) return `/${parents[0]}`;
+    }
+    return null;
+};
+
 export default {
-    primarySectionTreeResolver,
-    getSectionClass: getSectionStyle
+    getSectionStyle,
+    getFirstParentSection
 };

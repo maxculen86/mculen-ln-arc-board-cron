@@ -7,7 +7,7 @@ const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbAutor({ author, host }) {
     const sections = [
         {
-            path: '/',
+            path: host || '/',
             name: 'LA NACION'
         },
         {

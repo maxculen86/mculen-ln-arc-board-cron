@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
 import HeaderDesktop from './headerDesktop';
 import HeaderMobile from './headerMobile';
 import NavBarMobile from '../navbar';
@@ -69,7 +70,13 @@ class Index extends Component {
     };
 
     render() {
-        const { screenUtils, logueado, loginData, goToLogout } = this.props;
+        const {
+            screenUtils,
+            logueado,
+            loginData,
+            goToLogout,
+            siteProperties: { host }
+        } = this.props;
         const isMobile = screenUtils.device !== 'desktop';
         return (
             <>
@@ -78,11 +85,12 @@ class Index extends Component {
                         logueado={logueado}
                         loginData={loginData}
                         goToLogout={goToLogout}
+                        host={host}
                     />
                 )}
                 {isMobile && (
                     <>
-                        <HeaderMobile loginData={loginData} />
+                        <HeaderMobile loginData={loginData} host={host} />
                         <NavBarMobile />
                     </>
                 )}
@@ -95,17 +103,20 @@ Index.propTypes = {
     screenUtils: PropTypes.shape({
         device: PropTypes.string
     }).isRequired,
-    logueado: PropTypes.bool,
+    logueado: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         subcription: PropTypes.bool,
         userName: PropTypes.string,
         goToLoginUrl: PropTypes.func
     }).isRequired,
-    goToLogout: PropTypes.func.isRequired
+    goToLogout: PropTypes.func.isRequired,
+    siteProperties: PropTypes.shape({
+        host: PropTypes.string
+    }).isRequired
 };
 
-Index.defaultProps = {
-    logueado: false
-};
+// Index.defaultProps = {
+//     logueado: false
+// };
 
-export default withLoginData(WithScreenUtils(Index));
+export default withLoginData(WithScreenUtils(Consumer(Index)));

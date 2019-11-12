@@ -3,6 +3,7 @@ export default {
     className: {
         body: 'ln'
     },
+    host: 'https://www.lanacion.com.ar',
     scripts: {
         GTM: {
             props: { id: 'GTM-GHV6' },
@@ -22,6 +23,10 @@ export default {
         },
         Comscore: {
             props: { config: { c1: '2', c2: '6906398' } },
+            location: ['head']
+        },
+        Livefyre: {
+            props: {},
             location: ['head']
         }
     },
@@ -91,9 +96,18 @@ export default {
         dfp_id: 133919216
     },
     shareConfig: {
-        host: 'https://www.lanacion.com.ar',
         facebook: {
             appID: '246891475813003'
         }
+    },
+    livefyre: {
+        siteId: '356483',
+        sharedKey: 'Wi9J9hmEtpK9QRp5nY1SSSQ2FKE=',
+        network: 'la-nacion.fyre.co'
+    },
+    loginUrl: '//qa-ingresar.lanacion.com.ar/ingresar/D/1/?callback=',
+    logoutUrl: '/logout.html',
+    lifigniter: {
+        clientId: '8561ps8ov66e7mim'
     }
 };

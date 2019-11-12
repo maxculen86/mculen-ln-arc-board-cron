@@ -1,9 +1,10 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import { createResizer } from '../../common/utils/image/resizer';
+import SnippetRender from '../../common/snippet/snippetRender';
 
-// TODO: validar con el validador de google
-// TODO: se agrego decodeURIComponent a todos los items que vienen en Ingredientes y Preparación de PowerUps
 const snippet = props => {
     const {
         globalContent: {
@@ -29,23 +30,35 @@ const snippet = props => {
     let counterPortion;
     let ingredientes;
     let preparaciones;
+    let resizedUrl;
 
-    if (promo_items && !!promo_items.receta && !!promo_items.basic) {
-        image = promo_items.basic.url;
+    if (promo_items) {
+        if (!!promo_items.basic && promo_items.basic.type === 'image') {
+            image = promo_items.basic.url;
+            const resizer = createResizer(RESIZER_KEY, RESIZER_URL);
+            resizedUrl = resizer.resizeUrl(
+                image,
+                promo_items.basic.width,
+                promo_items.basic.height,
+                { height: 540, width: 960 }
+            );
+        }
 
-        counterTime =
-            promo_items.receta.subtype === 'custom-detalle-receta'
-                ? promo_items.receta.embed.config.title === 'detalle-receta'
-                    ? promo_items.receta.embed.config.counterTime
-                    : null
-                : null;
+        if (promo_items.receta) {
+            counterTime =
+                promo_items.receta.subtype === 'custom-detalle-receta'
+                    ? promo_items.receta.embed.config.title === 'detalle-receta'
+                        ? promo_items.receta.embed.config.counterTime
+                        : null
+                    : null;
 
-        counterPortion =
-            promo_items.receta.subtype === 'custom-detalle-receta'
-                ? promo_items.receta.embed.config.title === 'detalle-receta'
-                    ? promo_items.receta.embed.config.counterPortion
-                    : null
-                : null;
+            counterPortion =
+                promo_items.receta.subtype === 'custom-detalle-receta'
+                    ? promo_items.receta.embed.config.title === 'detalle-receta'
+                        ? promo_items.receta.embed.config.counterPortion
+                        : null
+                    : null;
+        }
     }
 
     if (content_elements) {
@@ -54,10 +67,9 @@ const snippet = props => {
         );
         preparaciones = preparacions.map(pre => {
             if (pre.embed.config.items) {
-                return pre.embed.config.items
-                    .map(item => decodeURIComponent(item))
-                    .join(', ');
+                return pre.embed.config.items.map(item => item).join(', ');
             }
+            return undefined;
         });
 
         const ingredients = content_elements.filter(
@@ -65,74 +77,57 @@ const snippet = props => {
         );
         ingredientes = ingredients.map(pre => {
             if (pre.embed.config.items) {
-                return pre.embed.config.items
-                    .map(item => decodeURIComponent(item))
-                    .join(', ');
+                return pre.embed.config.items.map(item => item).join(', ');
             }
+            return undefined;
         });
     }
 
     const data = {
-        __html: `
-            {
-                "@context": "https://schema.org",
-                "@type": "Recipe",
-                "author": "${autores}",
-                "cookTime": "PT${counterTime}M",
-                "datePublished": "${date}",
-                "description": "${description}",
-                "image": "${image}",
-                "recipeIngredient": "${ingredientes}",
-                "name": "${headlines.basic}",
-                "recipeInstructions": "${preparaciones}",
-                "recipeYield": "${counterPortion} porciones"
-            }`
+        '@context': 'https://schema.org',
+        '@type': 'Recipe',
+        author: `${autores}`,
+        cookTime: `PT${counterTime}M`,
+        datePublished: `${date}`,
+        description: `${description}`,
+        image: `${resizedUrl}`,
+        recipeIngredient: `${ingredientes}`,
+        name: `${headlines.basic}`,
+        recipeInstructions: `${preparaciones}`,
+        recipeYield: `${counterPortion} porciones`
     };
 
-    return <script type="application/ld+json" dangerouslySetInnerHTML={data} />;
+    return <SnippetRender data={data} />;
 };
 
 snippet.propTypes = {
-    headlines: PropTypes.object.isRequired,
-    subheadlines: PropTypes.object.isRequired,
-    promo_items: PropTypes.shape({
-        receta: PropTypes.object,
-        basic: PropTypes.object
-    }),
-    content_elements: PropTypes.array.isRequired,
-    display_date: PropTypes.string.isRequired,
-    credits: PropTypes.shape({
-        by: PropTypes.shape({
-            authors: PropTypes.arrayOf(
-                PropTypes.shape({
-                    _id: PropTypes.string,
-                    name: PropTypes.string,
-                    type: PropTypes.string,
-                    slug: PropTypes.string,
-                    url: PropTypes.string
-                })
-            )
+    globalContent: PropTypes.shape({
+        headlines: PropTypes.shape({
+            basic: PropTypes.string
+        }),
+        subheadlines: PropTypes.shape({
+            basic: PropTypes.string
+        }),
+        promo_items: PropTypes.shape({
+            receta: PropTypes.object,
+            basic: PropTypes.object
+        }),
+        display_date: PropTypes.string.isRequired,
+        content_elements: PropTypes.array.isRequired,
+        credits: PropTypes.shape({
+            by: PropTypes.shape({
+                authors: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        _id: PropTypes.string,
+                        name: PropTypes.string,
+                        type: PropTypes.string,
+                        slug: PropTypes.string,
+                        url: PropTypes.string
+                    })
+                )
+            })
         })
-    })
+    }).isRequired
 };
 
 export default snippet;
-
-/* <script
-    type="text/javascript"
-    dangerouslySetInnerHTML={{
-        __html: `snippet = {
-            "@context": "http://schema.org",
-            "@type": "Recipe",
-            "author": "${autores}",
-            "cookTime": "PT${counterTime}M",
-            "datePublished": "${date}",
-            "description": "${description}",
-            "image": "${image}",
-            "recipeIngredient": "${ingredientes}",
-            "name": "${headlines.basic}",
-            "recipeInstructions": "${preparaciones}",
-            "recipeYield": "${counterPortion} porciones"
-            };`
-    }}
-/> */

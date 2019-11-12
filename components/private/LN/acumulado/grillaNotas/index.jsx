@@ -28,14 +28,14 @@ class Index extends Component {
 }
 
 Index.propTypes = {
-    size: PropTypes.number,
+    size: PropTypes.number.isRequired,
     globalContent: PropTypes.shape({
         Payload: PropTypes.shape({
             items: PropTypes.array
         }),
         _id: PropTypes.string,
         author_type: PropTypes.string
-    }),
+    }).isRequired,
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
@@ -43,18 +43,13 @@ Index.propTypes = {
     })
 };
 
-Index.defaultProps = {
-    size: 30,
-    globalContent: {
-        Payload: undefined,
-        _id: undefined,
-        author_type: undefined
-    },
-    siteProperties: {
-        bannerConfig: {
-            dfp_id: 0
-        }
-    }
-};
+// Index.defaultProps = {
+//     size: 30,
+//     siteProperties: {
+//         bannerConfig: {
+//             dfp_id: 0
+//         }
+//     }
+// };
 
 export default Consumer(Index);

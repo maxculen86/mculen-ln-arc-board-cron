@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
-import { API_ENV } from 'fusion:environment';
 import Header from './headerBase';
 import Hamburguer from './hamburger';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
-
-const { SitioSeguroRegistracion } = API_ENV || {
-    SitioSeguroRegistracion: 'https://ingresar.lanacion.com.ar'
-};
 
 const ItemAnchor = ({ url, text }) => {
     const callURL = address => {
@@ -19,7 +15,7 @@ const ItemAnchor = ({ url, text }) => {
     };
 
     return (
-        <li>
+        <li key={text}>
             <a onMouseDown={() => callURL(url)} href="javascript:void(0)">
                 {text}
             </a>
@@ -47,20 +43,20 @@ const enlaces = [
     }
 ];
 
-const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
+const HeaderDesktop = ({ logueado, loginData, goToLogout, host }) => {
+    const { loading } = loginData;
     const { goToLoginUrl } = loginData;
     const [active, setActive] = useState('');
+    const [loadingUserData, setLoadingUserData] = useState(
+        loading ? ' hlp-none' : ''
+    );
 
     const toggleMenu = () =>
         active === '' ? setActive(' --active') : setActive('');
 
     useEffect(() => {
-        const menuUser = document.getElementById('menuUser');
-
-        if (menuUser) menuUser.addEventListener('blur', e => setActive(''));
-
-        window.addEventListener('scroll', e => setActive(''));
-    });
+        setLoadingUserData(loading ? ' hlp-none' : '');
+    }, [loading]);
 
     return (
         <Header id="header" className="header">
@@ -68,17 +64,21 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                 <Hamburguer />
             </div>
             <div className="col-4 header__middle">
-                <a href="/" className="header__middle__logo">
+                <a href={host || '/'} className="header__middle__logo">
                     <i className="logo-la-nacion" />
                 </a>
             </div>
             <div className="col-4 header__right">
-                <div id="user-menu" className={`com-usuario${active}`}>
+                <div
+                    id="user-menu"
+                    className={`com-usuario${active}${loadingUserData}`}
+                >
                     {!loginData.subscription && (
                         <a
                             className="--btn --highlight hlp-marginRight-35"
                             href={
-                                `${SitioSeguroRegistracion}/suscribirme` || '/'
+                                `${SITIO_SEGURO_REGISTRACION}/suscribirme` ||
+                                '/'
                             }
                         >
                             Suscribite
@@ -90,6 +90,8 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                             tabIndex="0"
                             role="button"
                             id="menuUser"
+                            onBlur={() => setActive('')}
+                            onScroll={() => setActive('')}
                         >
                             <p className="com-usuario__name">
                                 {loginData.userName}
@@ -105,7 +107,11 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout }) => {
                             )}
                             <ul className="com-desplegable">
                                 {enlaces.map(({ url, text }) => (
-                                    <ItemAnchor url={url} text={text} />
+                                    <ItemAnchor
+                                        key={text}
+                                        url={url}
+                                        text={text}
+                                    />
                                 ))}
                                 <li>
                                     <a
@@ -138,18 +144,11 @@ HeaderDesktop.propTypes = {
     loginData: PropTypes.shape({
         subscription: PropTypes.bool,
         userName: PropTypes.string,
-        goToLoginUrl: PropTypes.func
-    }),
-    goToLogout: PropTypes.func
-};
-
-HeaderDesktop.defaultProps = {
-    loginData: PropTypes.shape({
-        subscription: false,
-        userName: '',
-        goToLoginUrl: null
-    }),
-    goToLogout: null
+        goToLoginUrl: PropTypes.func,
+        loading: PropTypes.bool
+    }).isRequired,
+    goToLogout: PropTypes.func.isRequired,
+    host: PropTypes.string.isRequired
 };
 
 export default HeaderDesktop;

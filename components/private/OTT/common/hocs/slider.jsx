@@ -9,13 +9,13 @@ export default function slider(WrappedComponent, pageSize) {
             const siteVars = getProperties(props.arcSite);
             this.sliderConfig = siteVars.sliderConfig;
             this.state = {
-                pageSize: pageSize,
+                pageSize,
                 currentStartIndex: 0,
                 totalCount: this.props.children.length,
                 hasNextPage: this.props.children.length > pageSize,
                 hasPrevPage: false
             };
-            this.DEFAULT_SLIDE_COUNT = 1; //pageSize - 1
+            this.DEFAULT_SLIDE_COUNT = 1; // pageSize - 1
             this.slider = {
                 nextButtonHandler: this.nextButtonHandler,
                 prevButtonHandler: this.prevButtonHandler,
@@ -25,7 +25,7 @@ export default function slider(WrappedComponent, pageSize) {
         }
 
         windowBetweenRanges(lowerRange, topRange) {
-            const innerWidth = window.innerWidth;
+            const { innerWidth } = window;
             if (!lowerRange && !topRange) return true;
             if (!lowerRange) return innerWidth <= topRange;
             if (!topRange) return innerWidth >= lowerRange;
@@ -73,9 +73,11 @@ export default function slider(WrappedComponent, pageSize) {
                 this.state.totalCount > nextCurrentIndex + this.state.pageSize
             );
         };
+
         hasPrevPage = nextCurrentIndex => {
             return nextCurrentIndex > 0;
         };
+
         nextButtonHandler = () => {
             this.setState({
                 currentStartIndex:
@@ -86,6 +88,7 @@ export default function slider(WrappedComponent, pageSize) {
                 hasPrevPage: true
             });
         };
+
         prevButtonHandler = () => {
             this.setState({
                 currentStartIndex:

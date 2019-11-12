@@ -1,10 +1,23 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import get from 'lodash.get';
 
 export default function WithNavigation(WrappedComponent) {
     return Consumer(
         class extends PureComponent {
+            static get propTypes() {
+                return {
+                    sectionId: PropTypes.string
+                };
+            }
+
+            static get defaultProps() {
+                return {
+                    sectionId: undefined
+                };
+            }
+
             constructor(props) {
                 super(props);
                 this.state = {

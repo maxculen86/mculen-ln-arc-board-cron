@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 import ArticleBase from './articleBase';
 import Media from '../media';
@@ -44,5 +45,26 @@ const articleMain = ({
         </ArticleBase>
     );
 };
+
+articleMain.propTypes = {
+    extraClasses: PropTypes.string,
+    children: PropTypes.oneOf([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]),
+    articleData: PropTypes.shape({
+        subtype: PropTypes.string,
+        website_url: PropTypes.string
+    }).isRequired,
+    dataSection: PropTypes.string,
+    border: PropTypes.boolean
+};
+
+// articleMain.defaultProps = {
+//     extraClasses: '',
+//     children: [],
+//     dataSection: '',
+//     border: false
+// };
 
 export default articleMain;

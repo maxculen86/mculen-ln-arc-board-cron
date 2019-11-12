@@ -1,25 +1,21 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { API_ENV } from 'fusion:environment';
+import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import Header from './headerBase';
 
 import '../../../../../resources/dist/css/ln/modules/header-mobile.css';
 
-const { SitioSeguroRegistracion } = API_ENV || {
-    SitioSeguroRegistracion: 'https://ingresar.lanacion.com.ar'
-};
-
-const HeaderMobile = ({ loginData }) => {
+const HeaderMobile = ({ loginData, host }) => {
     return (
         <Header id="header-mobile" className="header-mobile">
             <div className="col-6">
-                <a href="/" className="header-mobile__logo">
+                <a href={host} className="header-mobile__logo">
                     <i className="logo-la-nacion" />
                 </a>
             </div>
             {!loginData.subscription && (
                 <div className="col-6 hlp-text-right">
-                    <a href={`${SitioSeguroRegistracion}/suscribirme` || '/'}>
+                    <a href={`${SITIO_SEGURO_REGISTRACION}/suscribirme` || '/'}>
                         Suscribite
                     </a>
                 </div>
@@ -32,13 +28,15 @@ HeaderMobile.propTypes = {
     loginData: PropTypes.shape({
         subscription: PropTypes.bool,
         userName: PropTypes.string
-    })
+    }).isRequired,
+    host: PropTypes.string.isRequired
 };
 
-HeaderMobile.defaultProps = {
-    loginData: PropTypes.shape({
-        subscription: false,
-        userName: ''
-    })
-};
+// HeaderMobile.defaultProps = {
+//     loginData: PropTypes.shape({
+//         subscription: false,
+//         userName: ''
+//     })
+// };
+
 export default HeaderMobile;

@@ -18,8 +18,8 @@ HeaderBase.propTypes = {
     children: PropTypes.elementType
 };
 
-HeaderBase.defaultProps = {
-    children: `<></>`
-};
+// HeaderBase.defaultProps = {
+//     children: `<></>`
+// };
 
 export default HeaderBase;
