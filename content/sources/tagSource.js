@@ -6,7 +6,15 @@ const resolve = key => {
     return `/tags/search?term="${slug}"`;
 };
 
-const transform = data => {
+const transform = (data, query) => {
+    if (data.Payload && data.Payload.items && data.Payload.items[0]) {
+        if (data.Payload.items[0].slug !== query.slug) {
+            const err = new Error('Tag no encontrado');
+            err.statusCode = 404;
+            throw err;
+        }
+    }
+
     if (!data.Payload.items.length) {
         const err = new Error('Tag no encontrado');
         err.statusCode = 404;
