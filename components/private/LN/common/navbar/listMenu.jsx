@@ -8,7 +8,7 @@ import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
 const ListMenu = ({ showNav }) => {
     return (
-        <nav className={`com-nav-mobile ${showNav}`}>
+        <nav className={`com-nav-mobile${showNav}`}>
             <div className="row">
                 <ItemHome />
                 <ItemClub />
