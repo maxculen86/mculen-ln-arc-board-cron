@@ -2,8 +2,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import { createResizer } from '../../common/utils/image/resizer';
-import SnippetRender from '../../common/snippet/snippetRender';
+import { createResizer } from '../../../common/utils/image/resizer';
+import SnippetRender from '../../../common/snippet/snippetRender';
 
 const snippet = props => {
     const {
