@@ -21,7 +21,7 @@ const NewLetter = props => {
                 }`}
             >
                 <div className="col-tablet-1 col-desksm-2" />
-                <div className="col-12 col-tablet-6 col-desksm-5 hlp-paddingHeight-30 hlp-paddingRight-20 hlp-line">
+                <div className="col-12 col-tablet-6 col-desksm-4 hlp-paddingHeight-30 hlp-paddingRight-20 hlp-line">
                     <h2 className="com-title-section-s hlp-marginBottom-10 hlp-marginRight-5">
                         Newsletter
                     </h2>
@@ -97,7 +97,7 @@ const NewLetter = props => {
                         <p />
                     )}
                 </div>
-                <div className="col-12 col-tablet-4 col-desksm-3 hlp-paddingHeight-30">
+                <div className="col-12 col-tablet-4 col-desksm-4 hlp-paddingHeight-30">
                     {/* eslint-disable-next-line no-nested-ternary */}
                     <div className="com-breadcrumb">
                         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
