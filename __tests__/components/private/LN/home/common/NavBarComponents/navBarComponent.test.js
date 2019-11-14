@@ -8,7 +8,7 @@ jest.mock(
 );
 
 describe('private - LN - common - Navbar - listMenu', () => {
-    const component = render(<NavBar />);
+    const component = render(<NavBar showNav="" />);
     it('Test de snapshot NavBar', () => {
         expect(component).toMatchSnapshot();
     });

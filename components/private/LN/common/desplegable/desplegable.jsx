@@ -6,9 +6,8 @@ export default function Desplegable() {
     const comDromdown = useRef(null);
 
     const handleScroll = () => {
+        const cD = comDromdown.current.classList;
         const handleScrollComdropdown = (addClass, removeClass) => {
-            const cD = comDromdown.current.classList;
-
             cD.add(addClass);
             cD.remove(removeClass);
         };

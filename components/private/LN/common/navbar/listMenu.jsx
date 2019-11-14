@@ -1,14 +1,12 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react/button-has-type */
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import ItemHome from './itemHome';
 import ItemClub from './itemClub';
 import ItemMiCuenta from './itemMiCuenta';
 import Desplegable from '../desplegable/desplegable';
 import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
-// eslint-disable-next-line react/prop-types
-export default function ListMenu() {
+const ListMenu = ({ showNav }) => {
     const toglleDesplegable = () => {
         document.body.classList.contains('dropdown')
             ? document.body.classList.remove('dropdown')
@@ -18,20 +16,27 @@ export default function ListMenu() {
     return (
         <>
             <Desplegable />
-            <nav className="com-nav-mobile">
+            <nav className={`com-nav-mobile${showNav}`}>
                 <div className="row">
                     <ItemHome />
                     <ItemClub />
                     <ItemMiCuenta />
                     <button
+                        type="button"
                         className="col-2 item-foo"
                         onClick={toglleDesplegable}
                     >
-                        <i className="icon-menu"></i>
+                        <i className="icon-menu" />
                         <p>Menú</p>
                     </button>
                 </div>
             </nav>
         </>
     );
-}
+};
+
+ListMenu.propTypes = {
+    showNav: PropTypes.string.isRequired
+};
+
+export default ListMenu;
