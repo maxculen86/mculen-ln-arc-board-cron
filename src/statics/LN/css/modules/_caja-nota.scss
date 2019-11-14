@@ -1,18 +1,14 @@
 @import '../abstracts/variables';
-
 .mod-caja-nota {
     display: flex;
     align-content: flex-start;
     flex-direction: column;
-     
     .com-ranking & {
-        margin-bottom:$px-40;
+        margin-bottom: $px-40;
     }
-    
     a:hover {
         color: $ln;
     }
-
     //Estructura de vista tipo lista, text e img en una misma linea (como era en mobile antes)
     &.--lista {
         grid-template-columns: 1fr 141px;
@@ -84,32 +80,33 @@
 }
 
 .more-articles {
-    .com-title-section-xl{
+    .com-title-section-l {
         margin-bottom: $px-30;
         font-size: $font-30;
         line-height: $line-30;
     }
-    >section{
+    >section {
         margin-bottom: $px-40;
     }
 }
 
-.interest{
+.interest {
     padding-top: $px-54;
     border-top: 1px solid $gris3;
-    .com-title-section-xl{
+    .com-title-section-l {
         margin-bottom: $px-30;
         font-size: $font-30;
         line-height: $line-40;
     }
-    >section{
+    >section {
         margin-bottom: $px-40;
     }
 }
 
-.more-articles, .interest {
-    .mod-caja-nota{
-        .cont-figure{
+.more-articles,
+.interest {
+    .mod-caja-nota {
+        .cont-figure {
             margin: 0 -0.625rem;
             @media (min-width: 321px) {
                 margin: 0 -1.25rem;
@@ -118,8 +115,8 @@
                 margin: 0;
             }
         }
-        &.--border{
-            .cont-figure{
+        &.--border {
+            .cont-figure {
                 margin: 0!important;
             }
         }
@@ -127,7 +124,7 @@
 }
 
 @media (min-width: 1280px) {
-    .interest{
+    .interest {
         padding-top: $px-54;
         border-top: 1px solid $gris3;
     }

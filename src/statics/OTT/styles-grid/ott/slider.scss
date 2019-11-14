@@ -145,7 +145,7 @@ section>article>.figure:before {
     height: 20%;
     position: absolute;
     z-index: 2;
-    color: #fff;
+    color: $blanco;
     border-radius: 0 3px 3px 0;
     transition: background 0.2s ease;
 }
@@ -153,7 +153,7 @@ section>article>.figure:before {
 .previous:after {
     font-family: SuecaSlab, Helvetica, sans-serif;
     font-size: 1.8rem;
-    color: #fff;
+    color: $blanco;
     opacity: 1;
     z-index: 25;
     content: "<";
@@ -178,7 +178,7 @@ section>article>.figure:before {
     height: 20%;
     position: absolute;
     z-index: 2;
-    color: #fff;
+    color: $blanco;
     border-radius: 0 3px 3px 0;
     transition: background 0.2s ease;
 }
@@ -190,7 +190,7 @@ section>article>.figure:before {
 .next:after {
     font-family: SuecaSlab, Helvetica, sans-serif;
     font-size: 1.8rem;
-    color: #fff;
+    color: $blanco;
     opacity: 1;
     z-index: 25;
     content: ">";

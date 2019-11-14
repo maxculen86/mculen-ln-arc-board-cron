@@ -170,6 +170,7 @@ strong {
 
 [class^="logo-"]:not(.logo-la-nacion),
 [class*=" logo-"] {
+    margin-top: $px-20;
     margin-bottom: $px-12;
 }
 
