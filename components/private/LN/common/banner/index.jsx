@@ -19,7 +19,8 @@ const banner = props => {
         sticky,
         background,
         screenUtils,
-        extraClasses
+        extraClasses,
+        termicas
     } = props;
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
