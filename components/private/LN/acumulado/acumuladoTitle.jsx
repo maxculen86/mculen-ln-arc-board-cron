@@ -5,6 +5,7 @@ import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 import ListSectionsTitle from './acumuladoTitle/listSectionsTitle';
 import TagsNavigation from './tagsNavigation';
 import NotaApertura from './notaApertura';
+import capitalizeFirstLetter from '../../common/utils/capitalizeFirstLetter';
 
 import '../../../../resources/dist/css/ln/components/title.css';
 import '../../../../resources/dist/css/ln/components/tag.css';
@@ -27,18 +28,21 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
         // TODO: Cambiar < a > cuando se active Navigation Arc2
         if (_children && _children.length < 0) setWithCategory('with-category');
 
-        setTitle(() => {
-            const {
-                Payload,
-                node_type: nodeType,
-                byline,
-                name
-            } = globalContent;
-            if (Payload) return Payload.items[0].name;
-            if (nodeType === 'section') return name;
-            if (byline) return byline;
-            return '';
-        });
+        setTitle(
+            (() => {
+                const {
+                    Payload,
+                    node_type: nodeType,
+                    byline,
+                    name
+                } = globalContent;
+                if (Payload)
+                    return capitalizeFirstLetter(Payload.items[0].name);
+                if (nodeType === 'section') return capitalizeFirstLetter(name);
+                if (byline) return capitalizeFirstLetter(byline);
+                return '';
+            })()
+        );
     }, [
         _children,
         globalContent,

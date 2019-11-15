@@ -1,6 +1,5 @@
 @import '../abstracts/variables';
 
-
 /* share Sociales */
 
 .com-share {
@@ -21,7 +20,7 @@
     //scrollDown
     &.--scrollUp {
         transform: translateY(0);
-        top:70px;
+        top: $px-70;
     }
     .humor & {
         border: 0;
@@ -37,8 +36,8 @@
         button {
             display: inline-block;
             margin: 0 $px-15 0 0;
-            height: 25px;
-            width: 25px;
+            height: $px-25;
+            width: $px-25;
             &.icon-comment {
                 display: none;
             }
@@ -62,13 +61,13 @@
 
 .com-share button {
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: $px-30;
+    height: $px-30;
     background: initial;
     border: 0;
     font-size: $font-24;
     padding: 0;
-    margin-right: 17px;
+    margin-right: $px-17;
 }
 
 .com-share label {
@@ -82,18 +81,16 @@
 }
 
 //Valores de tablet para arriba
-@media (min-width: 768px) {
-
-}
+@media (min-width: 768px) {}
 
 //Valores de desk chico para arriba
 @media (min-width: 1024px) {
     .com-share {
         position: sticky;
         top: 40%;
-        top:10px;
+        top: $px-10;
         left: 0;
-        width: 30px;
+        width: $px-30;
         background: initial;
         border: 0;
         float: left;
@@ -105,8 +102,8 @@
     }
     .com-share button {
         display: block;
-        width: 30px;
-        height: 30px;
+        width: $px-30;
+        height: $px-30;
         background: initial;
         border: 0;
         font-size: $font-30;

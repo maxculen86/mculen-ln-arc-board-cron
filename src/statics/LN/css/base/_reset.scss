@@ -86,6 +86,8 @@ video {
     font: inherit;
     vertical-align: baseline;
 }
+
+
 /* HTML5 display-role reset for older browsers */
 
 article,
@@ -142,9 +144,9 @@ body {
 
 #wrapper {
     position: relative;
-    overflow: hidden;
+    //overflow: hidden;
     margin-bottom: 80px;
-    &.--scrollUp{
+    &.--scrollUp {
         padding-top: 67px;
     }
     @media (min-width: 1023px) {

@@ -25,7 +25,7 @@ const SnippetNoticia = props => {
               .join(', ')
         : [];
 
-    console.log('################### PROPS SNIPPET ################# ', props);
+    //console.log('################### PROPS SNIPPET ################# ', props);
 
     const data = {
         '@context': 'https://schema.org',

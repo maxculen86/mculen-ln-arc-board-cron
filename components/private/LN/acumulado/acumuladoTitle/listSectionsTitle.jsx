@@ -16,25 +16,22 @@ ItemSubSection.propTypes = {
 };
 
 const ListSectionsTitle = ({ _children, isPrimarySection }) => {
-    return (
-        _children &&
-        isPrimarySection && (
-            <ol className="com-category">
-                {_children.map(({ _id, navigation, _website, name }) => (
-                    <ItemSubSection
-                        key={_id}
-                        id={_id}
-                        navTitle={
-                            navigation && navigation.nav_title
-                                ? navigation.nav_title
-                                : name
-                        }
-                        website={_website}
-                    />
-                ))}
-            </ol>
-        )
-    );
+    return _children && isPrimarySection ? (
+        <ol className="com-category">
+            {_children.map(({ _id, navigation, _website, name }) => (
+                <ItemSubSection
+                    key={_id}
+                    id={_id}
+                    navTitle={
+                        navigation && navigation.nav_title
+                            ? navigation.nav_title
+                            : name
+                    }
+                    website={_website}
+                />
+            ))}
+        </ol>
+    ) : null;
 };
 
 ListSectionsTitle.propTypes = {
