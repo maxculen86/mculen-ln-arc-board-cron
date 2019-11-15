@@ -131,7 +131,7 @@
 
 .cont-figure-wiki {
     border-radius: 50%;
-    background: #fff;
+    background: $blanco;
     .figure {
         display: flex;
         width: 100%;
@@ -156,7 +156,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #fff;
+            background: $blanco;
             &:before {
                 font-family: 'LNlogos' !important;
                 content: "\e80a";
