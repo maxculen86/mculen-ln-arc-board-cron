@@ -31,9 +31,11 @@ const bannerComponent = ({
             bidding={bidding}
         />
     );
-    if (background) {
-        ad = <div className="banner w-100 --bg-banner">{ad}</div>;
+
+    if (background && ad) {
+        ad = <div className={`banner w-100 --bg-banner`}>{ad}</div>;
     }
+
     return ad;
 };
 

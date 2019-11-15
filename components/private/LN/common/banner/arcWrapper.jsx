@@ -6,6 +6,11 @@ import { baseConfig } from './config';
 class ArcWrapper extends Component {
     static arcAdsInstance = undefined;
 
+    constructor(props) {
+        super(props);
+        this.isEmpty = false;
+    }
+
     componentDidMount() {
         const arcAdsInstance = this.getArcAdsInstance();
         const {
@@ -43,12 +48,17 @@ class ArcWrapper extends Component {
     getArcAdsInstance() {
         if (!ArcWrapper.arcAdsInstance) {
             const { dfpId } = this.props;
-            ArcWrapper.arcAdsInstance = new ArcAds({
-                dfp: {
-                    id: dfpId
+            ArcWrapper.arcAdsInstance = new ArcAds(
+                {
+                    dfp: {
+                        id: dfpId
+                    },
+                    bidding: baseConfig.bidding
                 },
-                bidding: baseConfig.bidding
-            });
+                event => {
+                    this.isEmpty = event.isEmpty;
+                }
+            );
         }
 
         return ArcWrapper.arcAdsInstance;
@@ -56,6 +66,7 @@ class ArcWrapper extends Component {
 
     render() {
         const { id, children, className } = this.props;
+        if (this.isEmpty) return null;
         return (
             <div id={id} className={`banner ${className}`}>
                 {children}
