@@ -1,27 +1,61 @@
 import React, { useRef } from 'react';
+import pipe from '../../../common/utils/pipeUtil';
+import ListMenu from './listMenu';
 import '../../../../../resources/dist/css/ln/components/dropdown.css';
+
+const handleScroll = (despegableEl, comDromdown) => {
+    despegableEl && despegableEl.current.scrollTop === 0
+        ? pipe(
+              comDromdown.current.classList.add('scroll--pasive'),
+              comDromdown.current.classList.remove('scroll--active')
+          )
+        : pipe(
+              comDromdown.current.classList.add('scroll--active'),
+              comDromdown.current.classList.remove('scroll--pasive')
+          );
+};
+
+const menuData = [
+    {
+        el: 'ul',
+        extraClass: 'list__nav  first--nav',
+        childs: [
+            {
+                el: 'li',
+                extraClass: 'item--noticias',
+                name: 'Últimas noticias',
+                childs: [
+                    {
+                        el: 'ul',
+                        extraClass: 'sublist__nav',
+                        childs: [
+                            {
+                                el: 'li',
+                                name: ' Tránsito'
+                            },
+                            {
+                                el: 'li',
+                                name: ' Clima'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+];
 
 export default function Desplegable() {
     const despegableEl = useRef(null);
     const comDromdown = useRef(null);
 
-    const handleScroll = () => {
-        const cD = comDromdown.current.classList;
-        const handleScrollComdropdown = (addClass, removeClass) => {
-            cD.add(addClass);
-            cD.remove(removeClass);
-        };
-
-        despegableEl && despegableEl.current.scrollTop === 0
-            ? handleScrollComdropdown('scroll--pasive', 'scroll--active')
-            : handleScrollComdropdown('scroll--active', 'scroll--pasive');
-    };
-
     return (
         <div
             className="wrap-dropdown"
             ref={despegableEl}
-            onScroll={handleScroll}
+            onScroll={() => {
+                return handleScroll(despegableEl, comDromdown);
+            }}
         >
             <div className="com-dropdown" ref={comDromdown}>
                 <section className="header__dropdown row">
@@ -47,8 +81,16 @@ export default function Desplegable() {
                 </section>
                 <section className="menu__dropdown">
                     <nav className="nav__dropdown">
+                        {menuData.map(({ el, extraClass, name, childs }) => (
+                            <ListMenu
+                                el={el}
+                                extraClass={extraClass}
+                                name={name}
+                                childs={childs}
+                            />
+                        ))}
                         <ul className="list__nav  first--nav">
-                            <li className="item__nav item--noticias item--disabled">
+                            <li className="item__nav item--noticias item--active">
                                 <a href="" className="link__item">
                                     Últimas noticias
                                 </a>
