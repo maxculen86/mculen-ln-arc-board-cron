@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../../components/private/LN/nota/snippet',
+    '../../../../components/private/LN/nota/snippet/receta',
     () => 'snippet-mock'
 );
 

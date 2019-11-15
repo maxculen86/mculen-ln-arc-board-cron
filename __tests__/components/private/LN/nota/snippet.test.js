@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-import Snippet from '../../../../../components/private/LN/nota/snippet';
+import Snippet from '../../../../../components/private/LN/nota/snippet/receta';
 import recipeNoteWithCompleteAttrs from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import recipeNoteWithMissingAttrs from '../../../../../__mocks__/data/articles/recipeNoteWithMissingAttrs';
 
@@ -26,7 +26,10 @@ describe('snippet', () => {
     });
 
     it('renders ok with missing data', () => {
-        render(<Snippet globalContent={recipeNoteWithMissingAttrs} />, container)
+        render(
+            <Snippet globalContent={recipeNoteWithMissingAttrs} />,
+            container
+        );
         expect(container).toMatchSnapshot();
     });
 });
