@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 
+// TODO unit tests
 const SnippetNoticia = props => {
     const {
         requestUri,
@@ -27,9 +28,7 @@ const SnippetNoticia = props => {
               .join(', ')
         : [];
 
-    //const tags = tags.map(tag => tag.text). join(', ');
-
-    console.log('################### PROPS SNIPPET ################# ', props);
+    //console.log('################### PROPS SNIPPET ################# ', props);
 
     const data = {
         '@context': 'https://schema.org',
