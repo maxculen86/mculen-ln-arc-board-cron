@@ -3,15 +3,15 @@ import pipe from '../../../common/utils/pipeUtil';
 import ListMenu from './listMenu';
 import '../../../../../resources/dist/css/ln/components/dropdown.css';
 
-const handleScroll = (despegableEl, comDromdown) => {
-    despegableEl && despegableEl.current.scrollTop === 0
+const handleScroll = (despegableRef, comDromdownRef) => {
+    despegableRef && despegableRef.current.scrollTop === 0
         ? pipe(
-              comDromdown.current.classList.add('scroll--pasive'),
-              comDromdown.current.classList.remove('scroll--active')
+              comDromdownRef.current.classList.add('scroll--pasive'),
+              comDromdownRef.current.classList.remove('scroll--active')
           )
         : pipe(
-              comDromdown.current.classList.add('scroll--active'),
-              comDromdown.current.classList.remove('scroll--pasive')
+              comDromdownRef.current.classList.add('scroll--active'),
+              comDromdownRef.current.classList.remove('scroll--pasive')
           );
 };
 
@@ -40,24 +40,49 @@ const menuData = [
                         ]
                     }
                 ]
+            },
+            {
+                el: 'li',
+                extraClass: 'item--politica',
+                name: 'Política',
+                childs: [
+                    {
+                        el: 'ul',
+                        extraClass: 'sublist__nav',
+                        childs: [
+                            {
+                                el: 'li',
+                                name: 'Buenos Aires'
+                            },
+                            {
+                                el: 'li',
+                                name: ' Seguridad'
+                            },
+                            {
+                                el: 'li',
+                                name: ' Educación'
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }
 ];
 
 export default function Desplegable() {
-    const despegableEl = useRef(null);
-    const comDromdown = useRef(null);
+    const despegableRef = useRef();
+    const comDromdownRef = useRef();
 
     return (
         <div
             className="wrap-dropdown"
-            ref={despegableEl}
+            ref={despegableRef}
             onScroll={() => {
-                return handleScroll(despegableEl, comDromdown);
+                return handleScroll(despegableRef, comDromdownRef);
             }}
         >
-            <div className="com-dropdown" ref={comDromdown}>
+            <div className="com-dropdown" ref={comDromdownRef}>
                 <section className="header__dropdown row">
                     <div className="logo__dropdown col-10">
                         <i className="logo-la-nacion" />
