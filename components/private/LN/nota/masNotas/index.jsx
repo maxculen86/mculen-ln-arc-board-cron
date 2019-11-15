@@ -43,7 +43,7 @@ const index = props => {
     return (
         _id && (
             <div className="row more-articles">
-                <h2 className="com-title-section-xl">{title}</h2>
+                <h2 className="com-title-section-l">{title}</h2>
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
                         size={cantidadNotas}

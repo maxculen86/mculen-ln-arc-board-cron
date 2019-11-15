@@ -154,6 +154,13 @@
 //Valores de tablet para arriba
 @media (min-width: 768px) {
     .mod-newsletter {
+        main & {
+            >.col-12:nth-child(2),
+            >.col-12:nth-child(3) {
+                padding-top: $px-45;
+                padding-bottom: $px-45;
+            }
+        }
         padding: 0;
         &.error {
             label {
@@ -197,11 +204,12 @@
             &:first-child {
                 background-image: url('../../img/newsletter-lineas-trama-izq.svg');
                 background-position: left bottom;
-                background-size: 90%;
+                background-size: 100%;
             }
             &:last-child {
                 background-image: url('../../img/newsletter-lineas-trama-der.svg');
                 background-position: right top;
+                background-size: 100%;
             }
         }
     }
@@ -211,6 +219,10 @@
 @media (min-width: 1024px) {
     .mod-newsletter {
         padding: 0 $px-10;
+        >div:first-child,
+        >div:last-child {
+            background-size: 50%;
+        }
     }
 }
 

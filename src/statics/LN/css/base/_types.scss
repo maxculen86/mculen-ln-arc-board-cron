@@ -1,230 +1,240 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
- /* FONTS --------------- */
- @include font-face("SuecaSlab", suecaslab-medium-webfont, 500);
- @include font-face("SuecaSlab", suecaslab-bold-webfont, 700);
- @include font-face("LNicons", ln-icons, normal);
- @include font-face("LNlogos", ln-logos, normal);
- strong {
-     font-weight: 700;
- }
- 
- [class^="icon-"],
- [class*=" icon-"] {
-     /* use !important to prevent issues with browser extensions that change fonts */
-     font-family: 'LNicons' !important;
-     font-style: normal;
-     font-weight: normal;
-     font-variant: normal;
-     text-transform: none;
-     font-size: $font-32;
-     line-height: 1;
-     /* Better Font Rendering =========== */
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
- }
- 
- .icon-check:before {
-     content: "\e900";
- }
- 
- .icon-unlock:before {
-     content: "\e901";
- }
- 
- .icon-user:before {
-     content: "\e902";
- }
- 
- .icon-android:before {
-     content: "\e903";
- }
- 
- .icon-bullet:before {
-     content: "\e904";
- }
- 
- .icon-clap:before {
-     content: "\e905";
- }
- 
- .icon-close:before {
-     content: "\e906";
- }
- 
- .icon-club:before {
-     content: "\e907";
- }
- 
- .icon-comment:before {
-     content: "\e908";
- }
- 
- .icon-down:before {
-     content: "\e909";
- }
- 
- .icon-facebook:before {
-     content: "\e90a";
- }
- 
- .icon-home:before {
-     content: "\e90b";
- }
- 
- .icon-inbox:before {
-     content: "\e90c";
- }
- 
- .icon-instagram:before {
-     content: "\e90d";
- }
- 
- .icon-ios:before {
-     content: "\e90e";
- }
- 
- .icon-left:before {
-     content: "\e90f";
- }
- 
- .icon-lock:before {
-     content: "\e910";
- }
- 
- .icon-mail:before {
-     content: "\e911";
- }
- 
- .icon-menu:before {
-     content: "\e912";
- }
- 
- .icon-portion:before {
-     content: "\e913";
- }
- 
- .icon-right:before {
-     content: "\e914";
- }
- 
- .icon-rss:before {
-     content: "\e915";
- }
- 
- .icon-search:before {
-     content: "\e916";
- }
- 
- .icon-setting:before {
-     content: "\e917";
- }
- 
- .icon-star:before {
-     content: "\e918";
- }
- 
- .icon-time:before {
-     content: "\e919";
- }
- 
- .icon-twitter:before {
-     content: "\e91a";
- }
- 
- .icon-up:before {
-     content: "\e91b";
- }
- 
- .icon-whatsapp:before {
-     content: "\e91c";
- }
- 
- .icon-zoom:before {
-     content: "\e91d";
- }
- /*LOGOS*/
- 
- [class^="logo-"],
- [class*=" logo-"] {
-     /* use !important to prevent issues with browser extensions that change fonts */
-     font-family: 'LNlogos' !important;
-     font-style: normal;
-     font-weight: normal;
-     font-variant: normal;
-     text-transform: none;
-     font-size: $font-15;
-     display: inline-block;
-     @media (min-width: 768px) {
-         font-size: $font-26;
-     }
-     line-height: 1;
-     /* Better Font Rendering =========== */
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
- }
- [class^="logo-"]:not(.logo-la-nacion),
- [class*=" logo-"] {
+/* FONTS --------------- */
+
+@include font-face("SuecaSlab", suecaslab-medium-webfont, 500);
+@include font-face("SuecaSlab", suecaslab-bold-webfont, 700);
+@include font-face("LNicons", ln-icons, normal);
+@include font-face("LNlogos", ln-logos, normal);
+strong {
+    font-weight: 700;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'LNicons' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-size: $font-32;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-check:before {
+    content: "\e900";
+}
+
+.icon-unlock:before {
+    content: "\e901";
+}
+
+.icon-user:before {
+    content: "\e902";
+}
+
+.icon-android:before {
+    content: "\e903";
+}
+
+.icon-bullet:before {
+    content: "\e904";
+}
+
+.icon-clap:before {
+    content: "\e905";
+}
+
+.icon-close:before {
+    content: "\e906";
+}
+
+.icon-club:before {
+    content: "\e907";
+}
+
+.icon-comment:before {
+    content: "\e908";
+}
+
+.icon-down:before {
+    content: "\e909";
+}
+
+.icon-facebook:before {
+    content: "\e90a";
+}
+
+.icon-home:before {
+    content: "\e90b";
+}
+
+.icon-inbox:before {
+    content: "\e90c";
+}
+
+.icon-instagram:before {
+    content: "\e90d";
+}
+
+.icon-ios:before {
+    content: "\e90e";
+}
+
+.icon-left:before {
+    content: "\e90f";
+}
+
+.icon-lock:before {
+    content: "\e910";
+}
+
+.icon-mail:before {
+    content: "\e911";
+}
+
+.icon-menu:before {
+    content: "\e912";
+}
+
+.icon-portion:before {
+    content: "\e913";
+}
+
+.icon-right:before {
+    content: "\e914";
+}
+
+.icon-rss:before {
+    content: "\e915";
+}
+
+.icon-search:before {
+    content: "\e916";
+}
+
+.icon-setting:before {
+    content: "\e917";
+}
+
+.icon-star:before {
+    content: "\e918";
+}
+
+.icon-time:before {
+    content: "\e919";
+}
+
+.icon-twitter:before {
+    content: "\e91a";
+}
+
+.icon-up:before {
+    content: "\e91b";
+}
+
+.icon-whatsapp:before {
+    content: "\e91c";
+}
+
+.icon-zoom:before {
+    content: "\e91d";
+}
+
+
+/*LOGOS*/
+
+[class^="logo-"],
+[class*=" logo-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'LNlogos' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-size: $font-15;
+    display: inline-block;
+    @media (min-width: 768px) {
+        font-size: $font-26;
+    }
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="logo-"]:not(.logo-la-nacion),
+[class*=" logo-"] {
+    margin-top: $px-20;
     margin-bottom: $px-12;
- }
- 
- .logo-brando:before {
+}
+
+.logo-brando:before {
     content: $logo-brando;
 }
- 
- .logo-club:before {
-     content: "\e801";
- }
- 
- .logo-club-lanacion:before {
-     content: "\e802";
- }
- 
- .logo-hola:before {
+
+.logo-club:before {
+    content: "\e801";
+}
+
+.logo-club-lanacion:before {
+    content: "\e802";
+}
+
+.logo-hola:before {
     content: $logo-hola;
 }
- 
- .logo-hola-argentina:before {
-     content: "\e804";
- }
- 
- .logo-jardin:before {
+
+.logo-hola-argentina:before {
+    content: "\e804";
+}
+
+.logo-jardin:before {
     content: $logo-jardin;
 }
- 
- .logo-la-nacion:before {
-     content: "\e806";
- }
- 
- .logo-living:before {
+
+.logo-la-nacion:before {
+    content: "\e806";
+}
+
+.logo-living:before {
     content: $logo-living;
 }
- 
- .logo-ln:before {
-     content: "\e808";
- }
- 
- .logo-ln-mas:before {
-     content: "\e809";
- }
- 
- .logo-ln-placeholder:before {
-     content: "\e80a";
- }
- 
- .logo-lugares:before {
+
+.logo-ln:before {
+    content: "\e808";
+}
+
+.logo-ln-mas:before {
+    content: "\e809";
+}
+
+.logo-ln-placeholder:before {
+    content: "\e80a";
+}
+
+.logo-lugares:before {
     content: $logo-lugares;
 }
- 
- .logo-negocios:before {
-     content: "\e80c";
- }
- 
- .logo-ohlala:before {
-     content: $logo-ohlala;
- }
- 
- .logo-rolling:before {
+
+.logo-negocios:before {
+    content: "\e80c";
+}
+
+.logo-ohlala:before {
+    content: $logo-ohlala;
+}
+
+.logo-rolling:before {
     content: $logo-rolling;
+}
+
+.logo-bbc:before {
+    content: "\e80f";
+    color: #bb1919;
 }
