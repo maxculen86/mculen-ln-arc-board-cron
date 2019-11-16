@@ -1,6 +1,19 @@
-import React, { useRef, useState, useContext } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
-import ListMenuContext from './store/ListMenuContext';
+import { Store } from './store/listMenuContext';
+
+const addItemDisabled = _extraClass =>
+    _extraClass && _extraClass.search('item--') !== -1 ? ' item--disabled' : '';
+
+const getClasses = el => extraClass =>
+    el === 'li' ? `item__nav ${extraClass || ''}` : `${extraClass}`;
+
+const toggleItem = itemActive =>
+    itemActive === ' item--disabled' ? ' item--active' : ' item--disabled';
+
+const showMenu = dispatch => elRef => {
+    dispatch({ type: 'OFF_MENUS', elRef });
+};
 
 const getChilds = childs =>
     childs &&
@@ -15,27 +28,20 @@ const getChilds = childs =>
         );
     });
 
-const ListMenu = props => {
-    console.log('TCL: props', props);
-    const { el, extraClass, name, childs } = props;
-
+const ListMenu = ({ el, extraClass, name, childs }) => {
+    const { state, dispatch } = useContext(Store);
     const ts = new Date().getTime();
     const elRef = useRef();
-    const [itemActive, setItemActive] = useState(
-        extraClass && extraClass.search('item--') !== -1
-            ? ' item--disabled'
-            : ''
-    );
-    const classes =
-        el === 'li' ? `item__nav ${extraClass || ''}` : `${extraClass}`;
+    const [itemActive, setItemActive] = useState(addItemDisabled(extraClass));
+    const classes = getClasses(el)(extraClass);
 
-    const toggleItemMenu = () => {
-        setItemActive(
-            itemActive === ' item--disabled'
-                ? ' item--active'
-                : ' item--disabled'
-        );
-    };
+    useEffect(() => {
+        if (state.itemDisabled) {
+            setItemActive(addItemDisabled(extraClass));
+            elRef === state.elRef && setItemActive(toggleItem(itemActive));
+            dispatch({ type: 'DONE_OFF_MENUS' });
+        }
+    }, [dispatch, extraClass, itemActive, state.elRef, state.itemDisabled]);
 
     return el === 'ul' ? (
         <ul ref={elRef} className={`${classes || ''}`}>
@@ -52,8 +58,7 @@ const ListMenu = props => {
                 <button
                     type="button"
                     className="button__item"
-                    onClick={toggleItemMenu}
-                    onBlur={() => setItemActive(' item--disabled')}
+                    onClick={() => showMenu(dispatch)(elRef)}
                 >
                     <i className="icon-down" />
                 </button>
@@ -74,28 +79,6 @@ ListMenu.propTypes = {
 };
 
 ListMenu.defaultProps = {
-    name: undefined,
-    childs: undefined,
-    extraClass: undefined
-};
-
-const ListMenuComponent = ({ el, extraClass, name, childs }) => (
-    <ListMenuContext>
-        <ListMenu el={el} extraClass={extraClass} name={name} childs={childs} />
-    </ListMenuContext>
-);
-
-ListMenuComponent.propTypes = {
-    el: PropTypes.string.isRequired,
-    extraClass: PropTypes.string,
-    name: PropTypes.string,
-    childs: PropTypes.shape({
-        el: PropTypes.string.isRequired,
-        extraClass: PropTypes.string
-    })
-};
-
-ListMenuComponent.defaultProps = {
     name: undefined,
     childs: undefined,
     extraClass: undefined

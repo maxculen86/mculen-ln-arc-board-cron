@@ -65,6 +65,31 @@ const menuData = [
                         ]
                     }
                 ]
+            },
+            {
+                el: 'li',
+                extraClass: 'item--politica',
+                name: 'Economia',
+                childs: [
+                    {
+                        el: 'ul',
+                        extraClass: 'sublist__nav',
+                        childs: [
+                            {
+                                el: 'li',
+                                name: 'Buenos Aires'
+                            },
+                            {
+                                el: 'li',
+                                name: ' Cultura'
+                            },
+                            {
+                                el: 'li',
+                                name: ' Educación'
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }
