@@ -2,10 +2,10 @@ import React, { useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 /**
- * Se construye el Store que se usara se exportara
+ * Se construye el Store que se usara y se exportara
  * para este contexto
  */
-export const Store = React.createContext();
+export const MenuStore = React.createContext();
 
 /**
  *  Se inicializa el estado y se crea la funcion reducer
@@ -33,19 +33,21 @@ const reducer = (state, action) => {
  * @param {children} node
  */
 
-const ListMenuContext = ({ children }) => {
+const MenuContext = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <Store.Provider value={{ state, dispatch }}>{children}</Store.Provider>
+        <MenuStore.Provider value={{ state, dispatch }}>
+            {children}
+        </MenuStore.Provider>
     );
 };
 
-ListMenuContext.propTypes = {
+MenuContext.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.node,
         PropTypes.arrayOf(PropTypes.node)
     ]).isRequired
 };
 
-export default ListMenuContext;
+export default MenuContext;

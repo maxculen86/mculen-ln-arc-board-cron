@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
-import { Store } from './store/listMenuContext';
+import { MenuStore } from './store/menuContext';
 
-const addItemDisabled = _extraClass =>
+const disableItem = _extraClass =>
     _extraClass && _extraClass.search('item--') !== -1 ? ' item--disabled' : '';
 
 const getClasses = el => extraClass =>
@@ -29,17 +29,17 @@ const getChilds = childs =>
     });
 
 const ListMenu = ({ el, extraClass, name, childs }) => {
-    const { state, dispatch } = useContext(Store);
+    const { state, dispatch } = useContext(MenuStore);
     const ts = new Date().getTime();
     const elRef = useRef();
-    const [itemActive, setItemActive] = useState(addItemDisabled(extraClass));
+    const [itemActive, setItemActive] = useState(disableItem(extraClass));
     const classes = getClasses(el)(extraClass);
 
     useEffect(() => {
         if (state.itemDisabled) {
-            setItemActive(addItemDisabled(extraClass));
-            elRef === state.elRef && setItemActive(toggleItem(itemActive));
+            setItemActive(disableItem(extraClass));
             dispatch({ type: 'DONE_OFF_MENUS' });
+            elRef === state.elRef && setItemActive(toggleItem(itemActive));
         }
     }, [dispatch, extraClass, itemActive, state.elRef, state.itemDisabled]);
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ListMenu from './listMenu';
-import ListMenuContext from './store/listMenuContext';
+import MenuContext from './store/menuContext';
 
 const ListMenuComponent = ({ el, extraClass, name, childs }) => (
-    <ListMenuContext>
+    <MenuContext>
         <ListMenu el={el} extraClass={extraClass} name={name} childs={childs} />
-    </ListMenuContext>
+    </MenuContext>
 );
 
 ListMenuComponent.propTypes = {
