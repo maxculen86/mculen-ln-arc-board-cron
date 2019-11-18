@@ -6,7 +6,7 @@ const disableItem = _extraClass =>
     _extraClass && _extraClass.search('item--') !== -1 ? ' item--disabled' : '';
 
 const getClasses = el => extraClass =>
-    el === 'li' ? `item__nav ${extraClass || ''}` : `${extraClass}`;
+    el === 'li' ? `item__nav ${extraClass || ''}` : `${extraClass || ''}`;
 
 const toggleItem = itemActive =>
     itemActive === ' item--disabled' ? ' item--active' : ' item--disabled';
@@ -17,9 +17,10 @@ const showMenu = dispatch => elRef => {
 
 const getChilds = childs =>
     childs &&
-    childs.map(({ el, extraClass, name, childs: _childs }) => {
+    childs.map(({ _id, el, extraClass, name, childs: _childs }) => {
         return (
             <ListMenu
+                _id={_id}
                 el={el}
                 extraClass={extraClass}
                 name={name}
@@ -28,12 +29,15 @@ const getChilds = childs =>
         );
     });
 
-const ListMenu = ({ el, extraClass, name, childs }) => {
+const ListMenu = ({ _id, el, extraClass, name, childs }) => {
     const { state, dispatch } = useContext(MenuStore);
     const ts = new Date().getTime();
     const elRef = useRef();
     const [itemActive, setItemActive] = useState(disableItem(extraClass));
     const classes = getClasses(el)(extraClass);
+    const hasSubNavs = el === 'li' && childs && childs[0].childs.length > 0;
+
+    // TODO: armar url que venga del menuData o url
 
     useEffect(() => {
         if (state.itemDisabled) {
@@ -44,23 +48,26 @@ const ListMenu = ({ el, extraClass, name, childs }) => {
     }, [dispatch, extraClass, itemActive, state.elRef, state.itemDisabled]);
 
     return el === 'ul' ? (
-        <ul ref={elRef} className={`${classes || ''}`}>
+        <ul ref={elRef} className={classes}>
             {getChilds(childs)}
         </ul>
     ) : (
-        <li key={ts} ref={elRef} className={`${classes || ''}${itemActive}`}>
+        <li key={_id || ts} ref={elRef} className={`${classes}${itemActive}`}>
             {name && (
                 <a href="" className="link__item">
                     {name}
                 </a>
             )}
-            {el === 'li' && extraClass && (
+            {extraClass && (
                 <button
+                    disabled={!hasSubNavs}
                     type="button"
                     className="button__item"
                     onClick={() => showMenu(dispatch)(elRef)}
                 >
-                    <i className="icon-down" />
+                    <i
+                        className={`icon-down ${hasSubNavs ? '' : 'hlp-none'}`}
+                    />
                 </button>
             )}
             {getChilds(childs)}
@@ -69,6 +76,7 @@ const ListMenu = ({ el, extraClass, name, childs }) => {
 };
 
 ListMenu.propTypes = {
+    _id: PropTypes.string,
     el: PropTypes.string.isRequired,
     extraClass: PropTypes.string,
     name: PropTypes.string,
@@ -79,6 +87,7 @@ ListMenu.propTypes = {
 };
 
 ListMenu.defaultProps = {
+    _id: undefined,
     name: undefined,
     childs: undefined,
     extraClass: undefined

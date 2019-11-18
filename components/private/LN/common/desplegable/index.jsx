@@ -1,6 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
+import PropTypes from 'fusion:prop-types';
 import pipe from '../../../common/utils/pipeUtil';
 import ListMenu from './listMenu';
+import withNavigationMenu from '../hocs/withNavigationMenu';
 import '../../../../../resources/dist/css/ln/components/dropdown.css';
 
 const handleScroll = (despegableRef, comDromdownRef) => {
@@ -15,7 +17,8 @@ const handleScroll = (despegableRef, comDromdownRef) => {
           );
 };
 
-const menuData = [
+// TODO: Usar la siguiente data para hacer testing
+const _menuData = [
     {
         el: 'ul',
         extraClass: 'list__nav  first--nav',
@@ -95,7 +98,7 @@ const menuData = [
     }
 ];
 
-export default function Desplegable() {
+const Desplegable = ({ toglleDesplegable, menuData }) => {
     const despegableRef = useRef();
     const comDromdownRef = useRef();
 
@@ -112,7 +115,12 @@ export default function Desplegable() {
                     <div className="logo__dropdown col-10">
                         <i className="logo-la-nacion" />
                     </div>
-                    <div className="close__dropdown col-2">
+                    <div
+                        className="close__dropdown col-2"
+                        role="button"
+                        tabIndex="0"
+                        onMouseDown={toglleDesplegable}
+                    >
                         <i className="icon-close" />
                     </div>
                     <div className="search__dropdown row">
@@ -131,14 +139,15 @@ export default function Desplegable() {
                 </section>
                 <section className="menu__dropdown">
                     <nav className="nav__dropdown">
-                        {menuData.map(({ el, extraClass, name, childs }) => (
-                            <ListMenu
-                                el={el}
-                                extraClass={extraClass}
-                                name={name}
-                                childs={childs}
-                            />
-                        ))}
+                        {menuData &&
+                            menuData.map(({ el, extraClass, name, childs }) => (
+                                <ListMenu
+                                    el={el}
+                                    extraClass={extraClass}
+                                    name={name}
+                                    childs={childs}
+                                />
+                            ))}
                         <ul className="list__nav  first--nav">
                             <li className="item__nav item--noticias item--active">
                                 <a href="" className="link__item">
@@ -668,4 +677,43 @@ export default function Desplegable() {
             </div>
         </div>
     );
-}
+};
+
+Desplegable.propTypes = {
+    toglleDesplegable: PropTypes.func.isRequired,
+    menuData: PropTypes.arrayOf(
+        PropTypes.shape({
+            _id: PropTypes.string,
+            _website: PropTypes.string,
+            name: PropTypes.string,
+            display_name: PropTypes.string,
+            node_type: PropTypes.string,
+            url: PropTypes.string,
+            inactive: PropTypes.string,
+            children: PropTypes.arrayOf(
+                PropTypes.shape({
+                    _id: PropTypes.string,
+                    _website: PropTypes.string,
+                    name: PropTypes.string,
+                    display_name: PropTypes.string,
+                    node_type: PropTypes.string,
+                    url: PropTypes.string,
+                    inactive: PropTypes.string,
+                    children: PropTypes.arrayOf(
+                        PropTypes.shape({
+                            _id: PropTypes.string,
+                            _website: PropTypes.string,
+                            name: PropTypes.string,
+                            display_name: PropTypes.string,
+                            node_type: PropTypes.string,
+                            url: PropTypes.string,
+                            inactive: PropTypes.string
+                        })
+                    )
+                })
+            )
+        })
+    ).isRequired
+};
+
+export default withNavigationMenu(Desplegable, 'Header');

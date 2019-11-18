@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import ItemHome from './itemHome';
 import ItemClub from './itemClub';
 import ItemMiCuenta from './itemMiCuenta';
-import Desplegable from '../desplegable/desplegable';
+import Desplegable from '../desplegable';
 import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
 const ListMenu = ({ showNav }) => {
@@ -15,7 +15,7 @@ const ListMenu = ({ showNav }) => {
 
     return (
         <>
-            <Desplegable />
+            <Desplegable toglleDesplegable={toglleDesplegable} />
             <nav className={`com-nav-mobile${showNav}`}>
                 <div className="row">
                     <ItemHome />
