@@ -4,7 +4,7 @@ const index = ({ name, articles, next }) => {
     return {
         next,
         title: name,
-        articles: ArticleList({ articles })
+        articles: ArticleList(articles)
     };
 };
 
