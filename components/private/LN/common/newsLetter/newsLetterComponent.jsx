@@ -26,7 +26,7 @@ const NewLetter = props => {
                         Newsletter
                     </h2>
 
-                    <h2 className="com-title-section-m hlp-marginBottom-10">
+                    <h2 className="com-title-section-s hlp-marginBottom-10">
                         {titulo}
                     </h2>
                     {logueado ? null : isSubscribe ? null : (

@@ -1,12 +1,10 @@
 @import '../abstracts/variables';
-
-
 .com-author {
     display: inline-block;
     align-items: center;
-    margin-bottom: 40px;
-    @media (min-width:1024px) {
-        margin-bottom: 60px;
+    margin-bottom: $px-40;
+    @media (min-width: 1024px) {
+        margin-bottom: $px-60;
     }
     font-family: $font-arial;
     font-size: $font-16;
