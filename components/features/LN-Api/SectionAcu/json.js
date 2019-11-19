@@ -1,8 +1,50 @@
 import Consumer from 'fusion:consumer';
-import Acu from '../../../private/LN/api/acumulado';
+import IndexAcu from '../../../private/LN/api/acumulado';
+import browser from '../../../private/common/utils/browser';
 
-const acuSection = props => {
-    return Acu(props);
-};
+class AcuSection {
+    constructor(props) {
+        this.props = props;
+        const {
+            globalContent: { _id: id }
+        } = props;
+        this.state = {};
+        let size = Number.parseInt(
+            browser.getParameterByName('size', this.props.requestUri),
+            10
+        );
+        if (size > 100) size = 100;
+        const page = Number.parseInt(
+            browser.getParameterByName('page', this.props.requestUri),
+            10
+        );
+        this.fetchContent({
+            dataResp: {
+                source: 'acuArticlesSource',
+                query: {
+                    sectionId: id,
+                    imageConfig: 'notaM',
+                    size,
+                    page
+                }
+            }
+        });
+    }
 
-export default Consumer(acuSection);
+    render() {
+        if (!this.state.dataResp || !this.state.dataResp.content_elements)
+            return null;
+        const articles = this.state.dataResp.content_elements;
+        const {
+            globalContent: { name }
+        } = this.props;
+
+        return IndexAcu({
+            name,
+            articles,
+            next: this.state.dataResp.next > 0
+        });
+    }
+}
+
+export default Consumer(AcuSection);
