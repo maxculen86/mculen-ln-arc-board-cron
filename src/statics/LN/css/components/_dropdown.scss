@@ -308,6 +308,7 @@ body {
                                     width: calc(100% - 50px);
                                     display: flex;
                                     align-items: center;
+                                    flex-grow: 1;
                                     padding: 0 0 0 20px;
                                 }
                                 .button__item {
@@ -322,6 +323,7 @@ body {
                                     display: flex;
                                     align-items: center;
                                     justify-content: center;
+                                    flex-grow: 1;
         
                                     i {
                                         font-size: 20px;
