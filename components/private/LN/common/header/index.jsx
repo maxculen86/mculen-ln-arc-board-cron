@@ -6,6 +6,7 @@ import HeaderMobile from './headerMobile';
 import NavBarMobile from '../navbar';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import withLoginData from '../hocs/withLoginData';
+import Desplegable from '../desplegable';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -47,6 +48,12 @@ class Index extends Component {
             });
         }
     }
+
+    toglleDesplegable = () => {
+        document.body.classList.contains('dropdown')
+            ? document.body.classList.remove('dropdown')
+            : document.body.classList.add('dropdown');
+    };
 
     // TODO: Hacer refactor del siguiente metodo
     onScrollHandler = (header, height, vshare, userMenu, wrapper) => {
@@ -105,6 +112,7 @@ class Index extends Component {
             <>
                 {!isMobile && (
                     <HeaderDesktop
+                        toglleDesplegable={this.toglleDesplegable}
                         logueado={logueado}
                         loginData={loginData}
                         showNav
@@ -116,6 +124,7 @@ class Index extends Component {
                     <>
                         <HeaderMobile loginData={loginData} host={host} />
                         <NavBarMobile
+                            toglleDesplegable={this.toglleDesplegable}
                             showNav={
                                 scrollDirection.isScrollDown
                                     ? ` ${CLASS_SCROLL_DOWN}`
@@ -124,6 +133,7 @@ class Index extends Component {
                         />
                     </>
                 )}
+                <Desplegable toglleDesplegable={this.toglleDesplegable} />
             </>
         );
     }

@@ -105,12 +105,34 @@ const Desplegable = ({ toglleDesplegable, menuData }) => {
     return (
         <div
             className="wrap-dropdown"
+            style={{ zIndex: 19000, background: 'none' }}
             ref={despegableRef}
             onScroll={() => {
                 return handleScroll(despegableRef, comDromdownRef);
             }}
+            role="button"
+            tabIndex="0"
         >
-            <div className="com-dropdown" ref={comDromdownRef}>
+            <div
+                style={{
+                    background: 'rgba(0, 0, 0, 0.3)',
+                    width: '100vw',
+                    height: '100vh',
+                    position: 'absolute',
+                    top: '0',
+                    zIndex: '99999',
+                    display: 'block',
+                    overflowY: 'scroll'
+                }}
+                role="button"
+                tabIndex="0"
+                onMouseDown={toglleDesplegable}
+            />
+            <div
+                className="com-dropdown"
+                ref={comDromdownRef}
+                style={{ zIndex: 100001 }}
+            >
                 <section className="header__dropdown row">
                     <div className="logo__dropdown col-10">
                         <i className="logo-la-nacion" />
