@@ -63,29 +63,31 @@ const getChildren = (
 const transform = initialClass => data => {
     const { children } = data || {};
 
-    const dataMenu = !!children && [
-        {
-            el: 'ul',
-            extraClass: initialClass,
-            childs: children.map(child => getChildren(child))
-        }
-    ];
+    const dataMenu = !!children && {
+        el: 'ul',
+        extraClass: initialClass,
+        childs: children.map(child => getChildren(child))
+    };
 
     return dataMenu;
 };
 
-const withNavigationMenu = (WrappedComponent, _hierarchy) => {
+const withNavigationMenu = WrappedComponent => sourceMenu => {
     return Consumer(props => {
         const { arcSite } = props;
-        const menuData = useContent({
-            source: 'navigationSource',
-            filter,
-            query: {
-                website: arcSite,
-                hierarchy: _hierarchy
-            },
-            transform: transform('list__nav  first--nav')
-        });
+        const menuData = [
+            ...sourceMenu.map(({ hierarchy, initialClass }) =>
+                useContent({
+                    source: 'navigationSource',
+                    filter,
+                    query: {
+                        website: arcSite,
+                        hierarchy
+                    },
+                    transform: transform(initialClass)
+                })
+            )
+        ];
 
         return <WrappedComponent {...props} menuData={menuData} />;
     });

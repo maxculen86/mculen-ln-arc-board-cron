@@ -37,8 +37,6 @@ const ListMenu = ({ _id, el, extraClass, name, childs }) => {
     const classes = getClasses(el)(extraClass);
     const hasSubNavs = el === 'li' && childs && childs[0].childs.length > 0;
 
-    // TODO: armar url que venga del menuData o url
-
     useEffect(() => {
         if (state.itemDisabled) {
             setItemActive(disableItem(extraClass));
@@ -58,16 +56,13 @@ const ListMenu = ({ _id, el, extraClass, name, childs }) => {
                     {name}
                 </a>
             )}
-            {extraClass && (
+            {hasSubNavs && extraClass && (
                 <button
-                    disabled={!hasSubNavs}
                     type="button"
                     className="button__item"
                     onClick={() => showMenu(dispatch)(elRef)}
                 >
-                    <i
-                        className={`icon-down ${hasSubNavs ? '' : 'hlp-none'}`}
-                    />
+                    <i className="icon-down" />
                 </button>
             )}
             {getChilds(childs)}
