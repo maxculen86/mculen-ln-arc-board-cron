@@ -56,6 +56,7 @@ class ArcWrapper extends Component {
                     bidding: baseConfig.bidding
                 },
                 event => {
+                    console.log('evento banner callback: ', event);
                     this.isEmpty = event.isEmpty;
                 }
             );
