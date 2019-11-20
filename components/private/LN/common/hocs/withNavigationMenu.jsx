@@ -45,7 +45,7 @@ const getChildren = (
                   (displayName && displayName.toLowerCase()) ||
                   ''}`
             : undefined,
-        url,
+        url: url || _id,
         childs: !isSubNav
             ? !!children && [
                   {

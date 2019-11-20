@@ -19,7 +19,7 @@ const showMenu = dispatch => elRef => {
 
 const getChilds = childs =>
     childs &&
-    childs.map(({ _id, el, extraClass, name, childs: _childs }) => {
+    childs.map(({ _id, el, extraClass, name, childs: _childs, url }) => {
         return (
             <ListMenu
                 _id={_id}
@@ -27,11 +27,12 @@ const getChilds = childs =>
                 extraClass={extraClass}
                 name={name}
                 childs={_childs}
+                url={url}
             />
         );
     });
 
-const ListMenu = ({ _id, el, extraClass, name, childs }) => {
+const ListMenu = ({ _id, el, extraClass, name, childs, url }) => {
     const { state, dispatch } = useContext(MenuStore);
     const ts = new Date().getTime();
     const elRef = useRef();
@@ -56,7 +57,7 @@ const ListMenu = ({ _id, el, extraClass, name, childs }) => {
     ) : (
         <li key={_id || ts} ref={elRef} className={`${classes}${itemActive}`}>
             {name && (
-                <a href="" className="link__item">
+                <a href={url} className="link__item">
                     {name}
                 </a>
             )}
@@ -82,14 +83,16 @@ ListMenu.propTypes = {
     childs: PropTypes.shape({
         el: PropTypes.string.isRequired,
         extraClass: PropTypes.string
-    })
+    }),
+    url: PropTypes.string
 };
 
 ListMenu.defaultProps = {
     _id: undefined,
     name: undefined,
     childs: undefined,
-    extraClass: undefined
+    extraClass: undefined,
+    url: undefined
 };
 
 export default ListMenu;
