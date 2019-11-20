@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
@@ -10,7 +10,7 @@ import withLoginData from '../../../LN/common/hocs/withLoginData';
 
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
-const Comments = props => {
+const Comments = React.memo(props => {
     const {
         globalContent: {
             _id,
@@ -19,11 +19,17 @@ const Comments = props => {
             taxonomy: { tags }
         }
     } = props;
+    console.log('################## LAS PROPS EN COMMENT ######### : ', props);
     const { getCookie } = handleCookie();
 
+    const tokenCookie = getCookie('token') || '';
+    const loginCookie = getCookie('usuariodata') || '';
+    console.log('loginCookie: ', loginCookie);
+    const commentSection = useRef(null);
+
     const metadata = {
-        title: title,
-        url: url,
+        title,
+        url,
         tags: tags.map(tag => tag.text).join(', '),
         type: 'livecomment'
     };
@@ -34,135 +40,171 @@ const Comments = props => {
         .digest('hex');
 
     useEffect(() => {
-        const LiveFyre = {};
+        if (typeof window !== 'undefined') {
+            const LiveFyre = {};
 
-        LiveFyre.networkConfig = {
-            network: config.livefyre.network
-        };
+            LiveFyre.networkConfig = {
+                network: config.livefyre.network
+            };
 
-        LiveFyre.convConfig = {
-            siteId: config.livefyre.siteId,
-            articleId: _id, //'1466383'
-            el: 'livefyre',
-            collectionMeta: jwt.sign(payload, config.livefyre.sharedKey, {
-                algorithm: 'HS256'
-            }),
-            datetimeFormat: {
-                minutesUntilAbsoluteTime: 4,
-                absoluteFormat: 'HH:mm dd/MM/y'
-            },
-            editorCss: {
-                background: '#ccc',
-                color: 'red',
-                font:
-                    '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
-            }
-        };
-
-        LiveFyre.convConfig.initialNumVisible = '10';
-        LiveFyre.attachmentDelegate = embedObj => {
-            const providersToBlock = [
-                'slideshare',
-                'scribd',
-                'facebook',
-                'photobucket',
-                'twitter',
-                'imgur',
-                'tinypic',
-                'fbcdn',
-                'cloudfront',
-                'flickr',
-                '4.bp.blogspot',
-                '1.bp.blogspot',
-                'orig00.deviantart',
-                'tira-la-kadena.tumblr',
-                '41.media.tumblr',
-                'i.ytimg.',
-                'grand-hotel-calafate.tumblr',
-                'orig11.deviantart',
-                'orig07.deviantart',
-                'orig00.deviantart',
-                'orig10.deviantart',
-                'encrypted-tbn1',
-                'encrypted-tbn2'
-            ];
-            for (let i = 0, len = providersToBlock.length; i < len; i += 1) {
-                if (embedObj.provider_url.indexOf(providersToBlock[i]) > -1) {
-                    return false;
+            LiveFyre.convConfig = {
+                siteId: config.livefyre.siteId,
+                articleId: '1466383', //'1466383'
+                el: 'livefyre',
+                collectionMeta: jwt.sign(payload, config.livefyre.sharedKey, {
+                    algorithm: 'HS256'
+                }),
+                datetimeFormat: {
+                    minutesUntilAbsoluteTime: 4,
+                    absoluteFormat: 'HH:mm dd/MM/y'
+                },
+                editorCss: {
+                    background: '#ccc',
+                    color: 'red',
+                    font:
+                        '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
                 }
-            }
-            return true;
-        };
-        LiveFyre.networkConfig.attachmentDelegate = LiveFyre.attachmentDelegate;
-        LiveFyre.networkConfig.strings = customStrings;
-        LiveFyre.convConfig.postToButtons = ['tw', 'fb'];
+            };
 
-        Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
-            if (props.logueado) {
-                if (!LiveFyre.autenticado) {
-                    auth.authenticate({ livefyre: getCookie() });
+            LiveFyre.convConfig.initialNumVisible = '10';
+            LiveFyre.attachmentDelegate = embedObj => {
+                const providersToBlock = [
+                    'slideshare',
+                    'scribd',
+                    'facebook',
+                    'photobucket',
+                    'twitter',
+                    'imgur',
+                    'tinypic',
+                    'fbcdn',
+                    'cloudfront',
+                    'flickr',
+                    '4.bp.blogspot',
+                    '1.bp.blogspot',
+                    'orig00.deviantart',
+                    'tira-la-kadena.tumblr',
+                    '41.media.tumblr',
+                    'i.ytimg.',
+                    'grand-hotel-calafate.tumblr',
+                    'orig11.deviantart',
+                    'orig07.deviantart',
+                    'orig00.deviantart',
+                    'orig10.deviantart',
+                    'encrypted-tbn1',
+                    'encrypted-tbn2'
+                ];
+                for (
+                    let i = 0, len = providersToBlock.length;
+                    i < len;
+                    i += 1
+                ) {
+                    if (
+                        embedObj.provider_url.indexOf(providersToBlock[i]) > -1
+                    ) {
+                        return false;
+                    }
+                }
+                return true;
+            };
+            LiveFyre.networkConfig.attachmentDelegate =
+                LiveFyre.attachmentDelegate;
+            LiveFyre.networkConfig.strings = customStrings;
+            LiveFyre.convConfig.postToButtons = ['tw', 'fb'];
+
+            Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
+                const isUserLoggedIn = () => {
+                    if (tokenCookie !== '' && loginCookie !== '') {
+                        return true;
+                    }
+                    console.log('a ponerle la clase no-logueado');
+                    console.log(
+                        'seccion comentarios clases: ',
+                        commentSection.current.classList
+                    );
+                    commentSection.current.classList.add('no-logueado');
+                    return false;
+                };
+
+                if (isUserLoggedIn()) {
+                    console.log('a autenticarse papa');
+                    auth.authenticate({ livefyre: tokenCookie });
                     LiveFyre.autenticado = true;
                     LiveFyre.logueoUsuario = true;
                 }
-            }
 
-            /* eslint-disable no-new */
-            new Conv(LiveFyre.networkConfig, [LiveFyre.convConfig], widget => {
-                widget.on('commentPosted', data => {
-                    // console.log('GA: CommentPosted');
-                    // ga('send', 'event', 'livefyre', 'commentPosted');
-                });
-                widget.on('commentFlagged', data => {
-                    // console.log('GA: CommentFlagged');
-                    // ga('send', 'event', 'livefyre', 'commentFlagged');
-                });
-                widget.on('commentLiked', data => {
-                    // console.log('GA: CommentLiked');
-                    // ga('send', 'event', 'livefyre', 'commentLiked');
-                });
-                widget.on('commentShared', data => {
-                    // console.log('GA: CommentShared');
-                    // ga('send', 'event', 'livefyre', 'commentShared');
-                });
-                widget.on('socialMention', data => {
-                    // console.log('GA: SocialMention');
-                    // ga('send', 'event', 'livefyre', 'socialMention');
-                });
-                widget.on('showMore', data => {
-                    // console.log('GA: ShowMore');
-                    // ga('send', 'event', 'livefyre', 'verMas', 'verMas');
-                });
-                widget.on('initialRenderComplete', data => {
-                    if (props.logueado) {
-                        if (!LiveFyre.autenticado) {
-                            auth.authenticate({ livefyre: getCookie() });
-                            LiveFyre.autenticado = true;
-                            LiveFyre.logueoUsuario = true;
-                        }
-                    } else {
-                        fyre.conv.logout();
+                /* eslint-disable no-new */
+                new Conv(
+                    LiveFyre.networkConfig,
+                    [LiveFyre.convConfig],
+                    widget => {
+                        widget.on('userLoggedOut', () => {
+                            console.log('user has just taken off');
+                        });
+                        widget.on('userLoggedIn', data => {
+                            console.log('el usuario se logueo: ', data);
+                        });
+                        widget.on('commentPosted', data => {
+                            // console.log('GA: CommentPosted');
+                            // ga('send', 'event', 'livefyre', 'commentPosted');
+                        });
+                        widget.on('commentFlagged', data => {
+                            // console.log('GA: CommentFlagged');
+                            // ga('send', 'event', 'livefyre', 'commentFlagged');
+                        });
+                        widget.on('commentLiked', data => {
+                            // console.log('GA: CommentLiked');
+                            // ga('send', 'event', 'livefyre', 'commentLiked');
+                        });
+                        widget.on('commentShared', data => {
+                            // console.log('GA: CommentShared');
+                            // ga('send', 'event', 'livefyre', 'commentShared');
+                        });
+                        widget.on('socialMention', data => {
+                            // console.log('GA: SocialMention');
+                            // ga('send', 'event', 'livefyre', 'socialMention');
+                        });
+                        widget.on('showMore', data => {
+                            // console.log('GA: ShowMore');
+                            // ga('send', 'event', 'livefyre', 'verMas', 'verMas');
+                        });
+                        widget.on('initialRenderComplete', data => {
+                            console.log('initialRenderComplete');
+
+                            if (!LiveFyre.autenticado) {
+                                console.log(
+                                    'no estoy autenticado asi que me autentico :)'
+                                );
+                                auth.authenticate({ livefyre: tokenCookie });
+                                LiveFyre.autenticado = true;
+                                LiveFyre.logueoUsuario = true;
+                            } else {
+                                console.log('llama al logout');
+                                //fyre.conv.logout();
+                            }
+                        });
+                    }
+                );
+
+                auth.delegate({
+                    login: function(callback) {
+                        console.log('dispara callback de login');
+                        props.loginData.goToLoginUrl();
+                        callback(null, { livefyre: tokenCookie });
+                    },
+                    logout(finishLogout) {
+                        finishLogout(null);
+                    },
+                    viewProfile(author) {
+                        /* const authorId = author.id.match('[0-9]+');
+                        if (author.profileUrl != null && authorId.length > 0) {
+                            const win = window.open(author.profileUrl, '_blank');
+                            win.focus();
+                        } */
                     }
                 });
             });
-
-            auth.delegate({
-                login(callback) {
-                    props.loginData.goToLoginUrl();
-                    callback(null, { livefyre: getCookie() });
-                },
-                logout(finishLogout) {
-                    finishLogout(null);
-                },
-                viewProfile(author) {
-                    const authorId = author.id.match('[0-9]+');
-                    if (author.profileUrl != null && authorId.length > 0) {
-                        const win = window.open(author.profileUrl, '_blank');
-                        win.focus();
-                    }
-                }
-            });
-        });
-    }, []);
+        }
+    }, [loginCookie, tokenCookie]);
 
     return (
         <>
@@ -170,6 +212,7 @@ const Comments = props => {
                 id="comentarios"
                 className="comments"
                 data-module="nota-sugeridas-comentarios"
+                ref={commentSection}
             >
                 <div
                     id="tokenLF"
@@ -198,11 +241,11 @@ const Comments = props => {
                     Para poder comentar tenés que ingresar con tu usuario de LA
                     NACION.
                 </div>
-                <div className="livefyre" />
+                <div id="livefyre" />
             </section>
         </>
     );
-};
+});
 
 Comments.propTypes = {
     logueado: PropTypes.bool.isRequired,
