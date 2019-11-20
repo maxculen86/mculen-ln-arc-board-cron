@@ -5,8 +5,10 @@ import { MenuStore } from './store/menuContext';
 const disableItem = _extraClass =>
     _extraClass && _extraClass.search('item--') !== -1 ? ' item--disabled' : '';
 
-const getClasses = el => extraClass =>
-    el === 'li' ? `item__nav ${extraClass || ''}` : `${extraClass || ''}`;
+const getClasses = el => extraClass => hasChildren =>
+    el === 'li'
+        ? `item__nav${hasChildren} ${extraClass || ''}`
+        : `${extraClass || ''}`;
 
 const toggleItem = itemActive =>
     itemActive === ' item--disabled' ? ' item--active' : ' item--disabled';
@@ -34,8 +36,10 @@ const ListMenu = ({ _id, el, extraClass, name, childs }) => {
     const ts = new Date().getTime();
     const elRef = useRef();
     const [itemActive, setItemActive] = useState(disableItem(extraClass));
-    const classes = getClasses(el)(extraClass);
     const hasSubNavs = el === 'li' && childs && childs[0].childs.length > 0;
+    const classes = getClasses(el)(extraClass)(
+        hasSubNavs ? ' has--children' : ''
+    );
 
     useEffect(() => {
         if (state.itemDisabled) {
