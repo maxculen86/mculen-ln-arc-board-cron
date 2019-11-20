@@ -120,6 +120,7 @@ body {
                                 flex-wrap: wrap;                    
                                 font-weight: 700;
                                 font-size: 16px;
+
                                 &.item--active {
                                     background: #f2f2f2;
                                     .button__item {
@@ -144,8 +145,7 @@ body {
                                 }
                                 @media (min-width:768px){
                                     font-size: 14px;
-        
-                                    &.item--active {
+                                    &:hover {
                                         background: #f2f2f2;
                                         .link__item {
                                             color: #006998;
@@ -169,8 +169,21 @@ body {
                                             }
                                         }
                                     }
-        
+                                    
+                                    &.item--politica {
+                                        &:hover {
+                                            .sublist__nav {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+
                                     &.item--economia{
+                                        &:hover {
+                                            .sublist__nav {
+                                                display: block;
+                                            }
+                                        }
                                         &.item--active{
                                             .sublist__nav {
                                                 top: -50px;
@@ -283,6 +296,7 @@ body {
                                 }
                                 .sublist__nav {
                                     z-index: 1;
+                                    width: 100%;
                                     .item__nav {
                                         .link__item {
                                             border-bottom: 1px solid #d9d9d9;
@@ -354,14 +368,28 @@ body {
                                         display: none;
                                     }
                                 }
-                                &.item--active {
+
+                                @media (min-width:768px){
+                                    &.has--children {
+                                        &:hover {
+                                            .sublist__nav {
+                                                display: block;
+                                            }
+                                        }
+                                    }
+                                }
+
+
+                                &.item--disabled {
+                                    &:hover {
+
                                     .sublist__nav {
                                         width: 100%;
                                         @media (min-width:768px){
                                             position: absolute;
                                             left: 98%;
                                             top: 0;
-                                            width: 140px;
+                                            width: 160px;
                                             background: #fff;
                                             border-radius: 3px; 
                                             padding: 20px 0;
@@ -383,6 +411,8 @@ body {
                                         }
                                     }
                                 }
+                                                                    
+                            }
                             }
                         }
                     } 
