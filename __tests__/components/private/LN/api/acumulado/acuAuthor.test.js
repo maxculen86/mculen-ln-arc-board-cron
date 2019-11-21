@@ -10,13 +10,13 @@ describe('Json imagen en acumulado', () => {
             const author = resp[index];
             const originalData = authors[index];
             expect(author.id).toBe(originalData._id);
-            expect(author.nombre).toBe(originalData.name);
+            expect(author.name).toBe(originalData.name);
             if (author.image) {
                 expect(author.image.src).toBe(
                     originalData.image.resized_urls[0].resizedUrl
                 );
             }
-            expect(author.tipo).toBe(originalData.type === 'author' ? 1 : 2);
+            expect(author.type).toBe(originalData.type === 'author' ? 1 : 2);
         }
     });
 });
