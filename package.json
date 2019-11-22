@@ -1,6 +1,6 @@
 {
     "name": "@ln/app",
-    "version": "0.2.0-r20191114",
+    "version": "1.0.0-r20191125",
     "description": "Arc+React App - LN - OTT",
     "private": true,
     "main": "index.js",
@@ -34,7 +34,7 @@
         "thumbor": "0.1.5"
     },
     "devDependencies": {
-        "@arc-fusion/cli": "1.0.5",
+        "@arc-fusion/cli": "^1.0.7",
         "@babel/plugin-proposal-class-properties": "7.5.5",
         "@babel/preset-env": "7.6.2",
         "@babel/preset-react": "7.0.0",
