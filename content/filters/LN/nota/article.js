@@ -15,6 +15,7 @@ const section = `
             style {
                 section_style_name
             }
+            site
         }
     }
 }`;
@@ -109,6 +110,7 @@ export default `
         }
         sections ${section}
         primary_section ${section}
+        seo_keywords
     }
     content_elements {
         _id
@@ -118,5 +120,7 @@ export default `
         ${image}
         ${customReceta}
     }
-    display_date
+    display_date,
+    created_date,
+    first_publish_date
 }`;

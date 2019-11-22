@@ -92,6 +92,7 @@
                 height: 100%;
                 filter: brightness(100%);
                 transition: all .2s ease-in-out;
+                object-fit: cover;
                 &:hover {
                     transition: all .2s ease-in-out;
                     filter: brightness(110%);
@@ -110,10 +111,13 @@
 // }
 .externo {
     text-align: center;
-    margin: auto;
+    margin: 0 auto $px-50;
+
     iframe {
         max-width: 100%;
-        margin-bottom: $px-50;
+    }
+    twitter-widget {
+        margin: auto;
     }
 }
 

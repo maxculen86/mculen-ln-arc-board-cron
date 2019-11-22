@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import NotaSnippet from '../../LN/nota/snippet';
+import NotaSnippet from '../../LN/nota/snippet/receta';
+import NoticiaSnippet from '../../LN/nota/snippet/noticia';
 
 const config = {
     OTT: {},
     'la-nacion-ar': {
-        'LN-nota-receta': NotaSnippet
+        'LN-nota-receta': NotaSnippet,
+        'LN-nota-noticia': NoticiaSnippet
     }
 };
 
