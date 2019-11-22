@@ -58,7 +58,7 @@ const video = `
 `;
 
 const customReceta = `
-    subtype
+    subtype    
     embed {
         config {
             titleList
@@ -67,6 +67,65 @@ const customReceta = `
             items
             counterTime
             counterPortion
+        }
+    }
+`;
+
+const gallery = `
+    subtype
+    _id
+    publish_date
+    headlines {
+        basic
+    }
+    promo_items {
+        basic {
+            url
+            subtitle
+            credits {
+                affiliation {
+                    name
+                    type
+                }
+                by {
+                    byline
+                    name
+                    type
+                    referent {
+                        id
+                        provider
+                        type
+                    }
+                }
+            }
+        }
+    }
+    content_elements {
+        _id
+        subtitle
+        url
+        additional_properties {
+            galleryOrder
+            originalUrl
+        }
+        description {
+            basic
+        }
+        credits {
+            affiliation {
+                name
+                type
+            }
+            by {
+                byline
+                name
+                type
+                referent {
+                    id
+                    provider
+                    type
+                }
+            }
         }
     }
 `;
@@ -117,6 +176,7 @@ export default `
         content
         ${image}
         ${customReceta}
+        ${gallery}
     }
     display_date
 }`;

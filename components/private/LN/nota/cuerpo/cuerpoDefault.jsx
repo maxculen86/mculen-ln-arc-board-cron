@@ -14,20 +14,20 @@ import Unordered from './unordered';
 import Subtitles from './subtitles';
 
 // TODO: tests
-const Cuerpo = () => {
+const Cuerpo = props => {
     const resp = [];
 
-    resp.push(<TextCapital />);
+    /* resp.push(<TextCapital />);
     resp.push(<BlockQuote />);
     resp.push(<TextCapital />);
     resp.push(<Subtitles />);
     resp.push(<Ordered />);
-    resp.push(<Unordered />);
-    resp.push(<Gallery />);
-    resp.push(<Html />);
+    resp.push(<Unordered />); */
+    resp.push(<Gallery {...props} />);
+    /* resp.push(<Html />);
     resp.push(<PullQuote />);
     resp.push(<MasNotas />);
-    resp.push(<Tags />);
+    resp.push(<Tags />); */
 
     // contentElements.forEach(element => {
     //     switch (element.type) {
