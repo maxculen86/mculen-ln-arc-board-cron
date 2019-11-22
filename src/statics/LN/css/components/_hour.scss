@@ -6,7 +6,7 @@
     font-weight: 700;
     position: relative;
     &:before {
-        content: "";
+        content: '';
         width: $px-16;
         height: $px-16;
         border-radius: $px-15;
@@ -18,7 +18,7 @@
         position: absolute;
     }
     &.com-hour:after {
-        content: "";
+        content: '';
         width: $px-6;
         height: $px-6;
         border-radius: $px-5;
