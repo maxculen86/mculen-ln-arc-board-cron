@@ -9,12 +9,15 @@ const SnippetNoticia = props => {
         siteProperties,
         globalContent: {
             headlines,
-            taxonomy: { primary_section, seo_keywords },
-            promo_items,
+            taxonomy: {
+                primary_section: primarySection,
+                seo_keywords: seoKeywords
+            },
+            promo_items: promoItems,
             credits: { by },
-            created_date,
-            first_publish_date,
-            display_date
+            created_date: createdDate,
+            first_publish_date: firstPublishDate,
+            display_date: displayDate
         }
     } = props;
 
@@ -25,26 +28,19 @@ const SnippetNoticia = props => {
               .join(', ')
         : [];
 
-    //console.log('################### PROPS SNIPPET ################# ', props);
+    // console.log('################### PROPS SNIPPET ################# ', props);
 
     const data = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
         headline: `${headlines.basic}`,
         url: `${siteProperties.host}${requestUri}`,
-        thumbnailUrl: `${promo_items.basic.url}`,
-        image: {
-            '@context': 'https://schema.org',
-            '@type': 'ImageObject',
-            url: `${promo_items.basic.url}`,
-            height: `${promo_items.basic.height}`,
-            width: `${promo_items.basic.width}`
-        },
-        dateCreated: `${new Date(created_date).toUTCString()}`,
-        datePublished: `${new Date(first_publish_date).toUTCString()}`,
-        dateModified: `${new Date(display_date).toUTCString()}`,
-        mainEntityOfPage: `${siteProperties.host}${primary_section.path}`,
-        articleSection: `${primary_section.name}`,
+
+        dateCreated: `${new Date(createdDate).toUTCString()}`,
+        datePublished: `${new Date(firstPublishDate).toUTCString()}`,
+        dateModified: `${new Date(displayDate).toUTCString()}`,
+        mainEntityOfPage: `${siteProperties.host}${primarySection.path}`,
+        articleSection: `${primarySection.name}`,
         isAccessibleForFree: '',
         hasPart: {
             '@type': '',
@@ -58,7 +54,7 @@ const SnippetNoticia = props => {
         },
         author: authors,
         creator: authors,
-        keywords: seo_keywords,
+        keywords: seoKeywords,
         publisher: {
             '@type': 'Organization',
             name: `${siteProperties.title}`,
@@ -73,6 +69,18 @@ const SnippetNoticia = props => {
             }
         }
     };
+
+    if (promoItems.basic && promoItems.basic.type === 'image') {
+        console.log('-----------------------------', promoItems);
+        data.thumbnailUrl = `${promoItems.basic.url}`;
+        data.image = {
+            '@context': 'https://schema.org',
+            '@type': 'ImageObject',
+            url: `${promoItems.basic.url}`,
+            height: `${promoItems.basic.height}`,
+            width: `${promoItems.basic.width}`
+        };
+    }
 
     SnippetNoticia.propTypes = {
         requestUri: PropTypes.string.isRequired,
@@ -92,21 +100,24 @@ const SnippetNoticia = props => {
                 basic: PropTypes.shape({
                     url: PropTypes.string,
                     height: PropTypes.number,
-                    width: PropTypes.number
+                    width: PropTypes.number,
+                    type: PropTypes.string
                 })
             }),
             credits: PropTypes.shape({
-                by: PropTypes.shape({
-                    authors: PropTypes.arrayOf(
-                        PropTypes.shape({
-                            _id: PropTypes.string,
-                            name: PropTypes.string,
-                            type: PropTypes.string,
-                            slug: PropTypes.string,
-                            url: PropTypes.string
-                        })
-                    )
-                })
+                by: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        authors: PropTypes.arrayOf(
+                            PropTypes.shape({
+                                _id: PropTypes.string,
+                                name: PropTypes.string,
+                                type: PropTypes.string,
+                                slug: PropTypes.string,
+                                url: PropTypes.string
+                            })
+                        )
+                    })
+                )
             }),
             created_date: PropTypes.string,
             first_publish_date: PropTypes.string,

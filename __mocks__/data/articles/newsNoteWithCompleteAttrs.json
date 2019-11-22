@@ -35,7 +35,20 @@
                     "name": "Diego Cabot",
                     "slug": "diego-cabot",
                     "type": "author",
-                    "url": "/autor/diego-cabot/"
+                    "url": "/autor/diego-cabot/",
+                    "image": {
+                        "url": "https://bucket.glanacion.com/anexos/fotos/85/2089285.png",
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "class": "img-desktop",
+                                    "media": "(min-width: 768px)",
+                                    "type": "promo_items"
+                                },
+                                "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                            }
+                        ]
+                    }
                 },
                 {
                     "_id": "martin-lousteau",
