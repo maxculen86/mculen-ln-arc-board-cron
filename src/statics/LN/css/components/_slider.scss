@@ -17,6 +17,8 @@
     position: relative;
     margin-bottom: $px-60;
     overflow: hidden;
+    min-height: 700px;
+    max-height: 700px;
 }
 
 .com-slider:after {
