@@ -8,7 +8,9 @@ class ArcWrapper extends Component {
 
     constructor(props) {
         super(props);
-        this.isEmpty = false;
+        this.state = {
+            empty: false
+        };
     }
 
     componentDidMount() {
@@ -56,8 +58,8 @@ class ArcWrapper extends Component {
                     bidding: baseConfig.bidding
                 },
                 event => {
-                    console.log('evento banner callback: ', event);
-                    this.isEmpty = event.isEmpty;
+                    console.log('evento callback de arcads: ', event);
+                    if (event.isEmpty) this.setState({ empty: true });
                 }
             );
         }
@@ -67,12 +69,28 @@ class ArcWrapper extends Component {
 
     render() {
         const { id, children, className } = this.props;
-        if (this.isEmpty) return null;
-        return (
-            <div id={id} className={`banner ${className}`}>
-                {children}
-            </div>
-        );
+        const { empty } = this.state;
+
+        //console.log("el empty: ", empty);
+
+        if (empty) {
+            console.log('trigger onload seteado a false');
+            debugger;
+            this.props.onLoad(false);
+        } else {
+            console.log('trigger onload seteado a true');
+            debugger;
+            this.props.onLoad(true);
+        }
+
+        if (!empty)
+            return (
+                <div id={id} className={`banner ${className}`}>
+                    {children}
+                </div>
+            );
+
+        return null;
     }
 }
 
@@ -90,11 +108,8 @@ ArcWrapper.propTypes = {
     targeting: PropTypes.shape({
         seccion: PropTypes.string,
         sitio: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    onLoad: PropTypes.func.isRequired
 };
-
-// ArcWrapper.defaultProps = {
-//     className: ''
-// };
 
 export default ArcWrapper;
