@@ -1,6 +1,5 @@
 @import '../abstracts/variables';
 
-
 .com-input {
     color: $gris5;
     font-family: $font-arial;
@@ -10,10 +9,10 @@
     border-radius: 3px;
 }
 
-input[type=text]:focus {
-    transition: ease-in-out, all .35s ease-in-out;
+input[type='text']:focus {
+    transition: ease-in-out, all 0.35s ease-in-out;
 
-    &::placeholder{
-        opacity:.5;
+    &::placeholder {
+        opacity: 0.5;
     }
 }

@@ -50,7 +50,7 @@
     }
     //scrollDown
     &.--scrollUp {
-        bottom: 0
+        bottom: 0;
     }
     @media ($media-l) {
         display: none;

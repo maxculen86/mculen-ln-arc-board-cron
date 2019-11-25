@@ -21,17 +21,19 @@ export default function WithNavigation(WrappedComponent) {
             constructor(props) {
                 super(props);
                 this.state = {
-                    sections: []
+                    sections: [],
+                    termicas: {}
                 };
-                this.getNavigationTree().then(sections => {
+                this.getNavigationTree().then(({ sections, termicas }) => {
                     this.setState({
-                        sections
+                        sections,
+                        termicas
                     });
                 });
             }
 
             getNavigationTree = () => {
-                const website = get(this, 'props.globalContent._website', null);
+                const website = get(this, 'props.arcSite', null);
                 const { cached, fetched } = this.getContent({
                     sourceName: 'navigationTreeSource',
                     query: {
@@ -50,6 +52,7 @@ export default function WithNavigation(WrappedComponent) {
 
             getSectionTree = results => {
                 const sections = [];
+                const termicas = results.Termicas;
                 const { sectionId } = this.props;
                 sections.push({
                     id: results._id,
@@ -57,24 +60,32 @@ export default function WithNavigation(WrappedComponent) {
                     path: results._id
                 });
                 let section = results;
-                do {
-                    section = section.children.filter(el =>
-                        sectionId.includes(el._id)
-                    )[0];
-                    if (section) {
-                        sections.push({
-                            id: section._id,
-                            name: section.name,
-                            path: section._id
-                        });
-                    }
-                } while (section);
-                return sections;
+                if (sectionId) {
+                    do {
+                        section = section.children.filter(el =>
+                            sectionId.includes(el._id)
+                        )[0];
+                        if (section) {
+                            sections.push({
+                                id: section._id,
+                                name: section.name,
+                                path: section._id
+                            });
+                        }
+                    } while (section);
+                }
+                return { sections, termicas };
             };
 
             render() {
-                const { sections } = this.state;
-                return <WrappedComponent {...this.props} sections={sections} />;
+                const { sections, termicas } = this.state;
+                return (
+                    <WrappedComponent
+                        {...this.props}
+                        sections={sections}
+                        termicas={termicas}
+                    />
+                );
             }
         }
     );

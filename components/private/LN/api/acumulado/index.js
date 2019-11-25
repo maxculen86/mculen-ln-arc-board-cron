@@ -1,15 +1,10 @@
 import ArticleList from './articleList';
-import AcuTitle from './acuTitle';
 
-const index = props => {
-    const {
-        globalContent: { content_elements: contentElements, next }
-    } = props;
-
+const index = ({ name, articles, next }) => {
     return {
-        paginar: next > 0,
-        titulo: AcuTitle(contentElements),
-        notas: ArticleList(contentElements)
+        next,
+        title: name,
+        articles: ArticleList(articles)
     };
 };
 

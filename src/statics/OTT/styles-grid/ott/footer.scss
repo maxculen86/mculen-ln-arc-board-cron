@@ -1,4 +1,4 @@
-@import "settings/estructura.scss";
+@import 'settings/estructura.scss';
 .footer {
     @include flex;
     @include flex-row;
@@ -98,7 +98,7 @@
 }
 
 .icon-ios {
-    background-image: url("../img/icon-button-app-store.png");
+    background-image: url('../img/icon-button-app-store.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-color: transparent;
@@ -109,7 +109,7 @@
 }
 
 .icon-android {
-    background-image: url("../img/icon-button-google-play.png");
+    background-image: url('../img/icon-button-google-play.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-color: transparent;
@@ -124,7 +124,7 @@
 }
 
 .data-fiscal {
-    background-image: url("../img/data-fiscal.png");
+    background-image: url('../img/data-fiscal.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 54px;
@@ -185,36 +185,20 @@
         left: 0;
     }
     .footer__center .footer__up a:nth-child(1) {
-        @include grid-column(1,
-        2,
-        1);
-        @include grid-row(1,
-        2,
-        1);
+        @include grid-column(1, 2, 1);
+        @include grid-row(1, 2, 1);
     }
     .footer__center .footer__up a:nth-child(2) {
-        @include grid-column(2,
-        3,
-        1);
-        @include grid-row(1,
-        2,
-        1);
+        @include grid-column(2, 3, 1);
+        @include grid-row(1, 2, 1);
     }
     .footer__center .footer__up a:nth-child(4) {
-        @include grid-column(3,
-        4,
-        1);
-        @include grid-row(1,
-        2,
-        1);
+        @include grid-column(3, 4, 1);
+        @include grid-row(1, 2, 1);
     }
     .footer__center .footer__up a:nth-child(3) {
-        @include grid-column(1,
-        4,
-        1);
-        @include grid-row(2,
-        3,
-        1);
+        @include grid-column(1, 4, 1);
+        @include grid-row(2, 3, 1);
     }
     .footer__center .footer__up a {
         padding: $px-15 $px-10;
