@@ -37,6 +37,12 @@
         display: none;
     }
 }
+//visible desde 767
+@media (max-width: 48em - 1) {
+    .hlp-mobile-show {
+        display: inline-block;
+    }
+}
 
 // oculto
 @media ($media-xs) {

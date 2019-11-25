@@ -11,6 +11,9 @@
         color: $link;
         border-left: solid 1px $gris5;
         padding: 0 $px-9;
+        &:first-letter {
+            text-transform: capitalize;
+        }
         &:last-child {
             /*border-right: none;
             pointer-events: none;
