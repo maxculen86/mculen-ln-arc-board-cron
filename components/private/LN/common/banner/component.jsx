@@ -34,7 +34,6 @@ const bannerComponent = ({
             dimensions={dimensions}
             targeting={targeting}
             bidding={bidding}
-            onLoad={onLoad}
         />
     );
 
