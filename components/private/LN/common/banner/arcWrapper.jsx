@@ -9,7 +9,7 @@ class ArcWrapper extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            empty: false
+            empty: null
         };
     }
 
@@ -50,6 +50,7 @@ class ArcWrapper extends Component {
     getArcAdsInstance() {
         if (!ArcWrapper.arcAdsInstance) {
             const { dfpId } = this.props;
+
             ArcWrapper.arcAdsInstance = new ArcAds(
                 {
                     dfp: {
@@ -58,8 +59,9 @@ class ArcWrapper extends Component {
                     bidding: baseConfig.bidding
                 },
                 event => {
-                    console.log('evento callback de arcads: ', event);
-                    if (event.isEmpty) this.setState({ empty: true });
+                    if (event.isEmpty) {
+                        this.setState({ empty: true });
+                    }
                 }
             );
         }
@@ -71,19 +73,13 @@ class ArcWrapper extends Component {
         const { id, children, className } = this.props;
         const { empty } = this.state;
 
-        //console.log("el empty: ", empty);
-
-        if (empty) {
-            console.log('trigger onload seteado a false');
-            debugger;
+        /* if (empty) {
             this.props.onLoad(false);
-        } else {
-            console.log('trigger onload seteado a true');
-            debugger;
+        } else if(empty === false){
             this.props.onLoad(true);
-        }
+        } */
 
-        if (!empty)
+        if (empty === false)
             return (
                 <div id={id} className={`banner ${className}`}>
                     {children}

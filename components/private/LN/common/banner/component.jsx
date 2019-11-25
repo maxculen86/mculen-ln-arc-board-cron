@@ -18,13 +18,11 @@ const bannerComponent = ({
     device,
     extraClasses
 }) => {
-    const [showBanner, setShowBanner] = useState(false);
+    /* const [showBanner, setShowBanner] = useState(null);
 
     const onLoad = show => {
-        debugger;
-        console.log('show: ', show);
         setShowBanner(show);
-    };
+    }; */
     let ad = (
         <ArcAd
             className={`--${device}${
@@ -40,13 +38,11 @@ const bannerComponent = ({
         />
     );
 
-    console.log('showBanner: ', showBanner);
-
-    if (background && showBanner) {
+    if (background) {
         ad = <div className={`banner w-100 --bg-banner`}>{ad}</div>;
     }
 
-    return showBanner ? ad : <></>;
+    return ad;
 };
 
 bannerComponent.propTypes = {
