@@ -104,8 +104,7 @@ ArcWrapper.propTypes = {
     targeting: PropTypes.shape({
         seccion: PropTypes.string,
         sitio: PropTypes.string
-    }).isRequired,
-    onLoad: PropTypes.func.isRequired
+    }).isRequired
 };
 
 export default ArcWrapper;
