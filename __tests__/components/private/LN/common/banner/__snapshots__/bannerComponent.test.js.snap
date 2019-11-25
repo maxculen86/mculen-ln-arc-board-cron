@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - private - LN - common - banner - bannerComponent Test de snapshot 1`] = `
+<div
+  class="banner --undefined "
+/>
+`;

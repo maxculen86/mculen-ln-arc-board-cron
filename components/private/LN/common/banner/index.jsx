@@ -4,6 +4,7 @@ import BannerComponent from './component';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import { slotsConfig, getSlotsOptions } from './config';
 import PlaceHolder from './bannerPlaceholder';
+import WithNavigation from '../hocs/WithNavigation';
 
 import '../../../../../resources/dist/css/ln/components/banners.css';
 
@@ -18,7 +19,8 @@ const banner = props => {
         sticky,
         background,
         screenUtils,
-        extraClasses
+        extraClasses,
+        termicas
     } = props;
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
@@ -55,18 +57,22 @@ const banner = props => {
     }
 
     return (
-        <BannerComponent
-            device={screenUtils.device}
-            slotId={finalSlot}
-            dfpId={dfp_id}
-            slotName={finalConfig.slotName}
-            dimensions={finalConfig.dimensions}
-            targeting={finalConfig.targeting}
-            bidding={finalConfig.bidding}
-            sticky={sticky}
-            background={background}
-            extraClasses={extraClasses}
-        />
+        <>
+            {termicas.banners ? (
+                <BannerComponent
+                    device={screenUtils.device}
+                    slotId={finalSlot}
+                    dfpId={dfp_id}
+                    slotName={finalConfig.slotName}
+                    dimensions={finalConfig.dimensions}
+                    targeting={finalConfig.targeting}
+                    bidding={finalConfig.bidding}
+                    sticky={sticky}
+                    background={background}
+                    extraClasses={extraClasses}
+                />
+            ) : null}
+        </>
     );
 };
 
@@ -95,4 +101,4 @@ banner.propTypes = {
 //     background: false
 // };
 
-export default WithScreenUtils(banner);
+export default WithNavigation(WithScreenUtils(banner));

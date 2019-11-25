@@ -7,7 +7,7 @@
 }
 
 .slider:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 1000%;
     left: -500%;
@@ -38,7 +38,7 @@
     padding-right: 0.5rem;
 }
 
-.slider .article:nth-of-type(4n+4) {
+.slider .article:nth-of-type(4n + 4) {
     padding-right: 0;
 }
 
@@ -66,7 +66,7 @@
 }
 
 .slider .article span {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: $blanco;
     text-align: left;
     font-size: 0.8rem;
@@ -78,8 +78,8 @@
     display: block;
 }
 
-section>article>.figure:after {
-    content: "";
+section > article > .figure:after {
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
@@ -87,21 +87,21 @@ section>article>.figure:after {
     opacity: 0;
     right: 0;
     background-color: rgba(45, 45, 45, 0.6);
-    background-image: url("../img/play.png");
+    background-image: url('../img/play.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 3em;
     transition: 0.2s ease opacity;
 }
 
-section>article>.figure:before {
-    content: "";
+section > article > .figure:before {
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url("../img/placeholder.png");
+    background-image: url('../img/placeholder.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -109,7 +109,7 @@ section>article>.figure:before {
 }
 
 .programas .article .figure:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
@@ -120,7 +120,7 @@ section>article>.figure:before {
     transition: 0.2s ease opacity;
     font-size: 5em;
     font-family: SuecaSlab, Helvetica, sans-serif;
-    content: "+";
+    content: '+';
     color: rgba(91, 255, 230, 0.5);
     text-align: center;
     line-height: 1.5em;
@@ -156,7 +156,7 @@ section>article>.figure:before {
     color: $blanco;
     opacity: 1;
     z-index: 25;
-    content: "<";
+    content: '<';
     vertical-align: middle;
 }
 
@@ -193,7 +193,7 @@ section>article>.figure:before {
     color: $blanco;
     opacity: 1;
     z-index: 25;
-    content: ">";
+    content: '>';
     vertical-align: middle;
 }
 
@@ -208,12 +208,12 @@ section>article>.figure:before {
 
 @media (max-width: 1025px) {
     .slider .title a {
-        font-size: .97em;
+        font-size: 0.97em;
     }
     .section-title {
         font-size: 1.5em;
     }
-    section:not(.programas)>section>article>.figure::after {
+    section:not(.programas) > section > article > .figure::after {
         background-size: 5em;
     }
     #all .slider .article:last-of-type {
@@ -222,10 +222,10 @@ section>article>.figure:before {
     .slider .article {
         width: calc((100% - 1rem) / 3);
     }
-    .slider .article:nth-of-type(4n+4) {
+    .slider .article:nth-of-type(4n + 4) {
         padding-right: 0.5em;
     }
-    .slider .article:nth-of-type(3n+3) {
+    .slider .article:nth-of-type(3n + 3) {
         padding-right: 0;
     }
 }
@@ -247,12 +247,12 @@ section>article>.figure:before {
         line-height: 1.6em;
     }
     .slider .article {
-        width: calc((100% - .5rem) / 2);
+        width: calc((100% - 0.5rem) / 2);
     }
-    .slider .article:nth-of-type(3n+3) {
+    .slider .article:nth-of-type(3n + 3) {
         padding-right: 0.5em;
     }
-    .slider .article:nth-of-type(2n+2) {
+    .slider .article:nth-of-type(2n + 2) {
         padding-right: 0;
     }
     .next,

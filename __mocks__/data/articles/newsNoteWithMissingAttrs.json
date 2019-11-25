@@ -32,27 +32,7 @@
         "headlines": {
             "basic": "Mi paso por el yoga del infierno"
         },
-        "promo_items": {
-            "basic": {
-                "_id": "VASAYYYBLVFIJCFDSH22JS5X2Q",
-                "additional_properties": {},
-                "height": 950,
-                "resized_urls": [
-                    {
-                        "option": {
-                            "class": "img-desktop",
-                            "media": "(min-width: 768px)",
-                            "type": "promo_items"
-                        },
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
-                    }
-                ],
-                "subtitle": "france",
-                "type": "image",
-                "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
-                "width": 1484
-            }
-        },
+        "promo_items": {},
         "subheadlines": {
             "basic": "Bikram yoga"
         },
