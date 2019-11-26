@@ -71,7 +71,6 @@ const SnippetNoticia = props => {
     };
 
     if (promoItems.basic && promoItems.basic.type === 'image') {
-        console.log('-----------------------------', promoItems);
         data.thumbnailUrl = `${promoItems.basic.url}`;
         data.image = {
             '@context': 'https://schema.org',
