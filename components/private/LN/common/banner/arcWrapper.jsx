@@ -49,7 +49,7 @@ class ArcWrapper extends Component {
 
     getArcAdsInstance() {
         if (!ArcWrapper.arcAdsInstance) {
-            const { dfpId } = this.props;
+            const { dfpId, show } = this.props;
 
             ArcWrapper.arcAdsInstance = new ArcAds(
                 {
@@ -61,6 +61,7 @@ class ArcWrapper extends Component {
                 event => {
                     if (!event.isEmpty) {
                         this.setState({ empty: false });
+                        show();
                     }
                 }
             );
@@ -98,7 +99,8 @@ ArcWrapper.propTypes = {
     targeting: PropTypes.shape({
         seccion: PropTypes.string,
         sitio: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    show: PropTypes.func.isRequired
 };
 
 export default ArcWrapper;
