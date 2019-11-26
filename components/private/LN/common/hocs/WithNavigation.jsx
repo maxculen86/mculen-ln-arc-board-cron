@@ -67,11 +67,23 @@ export default function WithNavigation(WrappedComponent) {
                             }
                         } while (section);
                     }
+                    this.convertStringToBoolean(termicas);
                     this.setState({
                         sections,
                         termicas
                     });
                 }
+            };
+
+            convertStringToBoolean = termicas => {
+                Object.keys(termicas).forEach(function(key) {
+                    if (typeof termicas[key] === 'string') {
+                        termicas[key].toLowerCase().trim() === 'true'
+                            ? (termicas[key] = true)
+                            : (termicas[key] = false);
+                    }
+                });
+                return termicas;
             };
 
             render() {

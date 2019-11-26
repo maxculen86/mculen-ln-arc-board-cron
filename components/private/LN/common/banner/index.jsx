@@ -58,8 +58,7 @@ const banner = props => {
 
     return (
         <>
-            {/* TODO: pasar la conversion de las termicas a bool al ContentSource */}
-            {termicas.banners === 'true' ? (
+            {termicas.banners ? (
                 <BannerComponent
                     device={screenUtils.device}
                     slotId={finalSlot}
