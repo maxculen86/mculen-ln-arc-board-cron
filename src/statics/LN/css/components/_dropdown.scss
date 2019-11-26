@@ -1,4 +1,3 @@
-
 body {
     .wrap-dropdown {
         display: none;
@@ -6,7 +5,7 @@ body {
     &.dropdown {
         overflow: hidden;
         .wrap-dropdown {
-            background: rgba(0, 0, 0, .3);
+            background: rgba(0, 0, 0, 0.3);
             width: 100vw;
             height: 100vh;
             position: absolute;
@@ -14,29 +13,32 @@ body {
             z-index: 999;
             display: block;
             overflow-y: scroll;
+            @media (min-width: 768px) {
+                overflow: hidden;
+            }
             .com-dropdown {
-                background: #f4f4f4; 
+                background: #f4f4f4;
                 width: 100vw;
-                @media (min-width:768px){
+                @media (min-width: 768px) {
                     width: 280px;
                     max-height: 100vh;
-                    background: #fff; 
+                    background: #fff;
                 }
-                height: 100vh;        
+                height: 100vh;
                 display: block;
                 position: relative;
                 .header__dropdown {
                     background: #fff;
-                    margin-bottom: 10px; 
-                    @media (min-width:768px){
-                       margin-bottom: 0;
+                    margin-bottom: 10px;
+                    @media (min-width: 768px) {
+                        margin-bottom: 0;
                     }
-                    border: 1px solid #d9d9d9; 
+                    border: 1px solid #d9d9d9;
                     max-height: 130px;
                     z-index: 2;
                     .logo__dropdown {
                         padding: 15px 20px;
-                        @media (min-width:768px) {
+                        @media (min-width: 768px) {
                             padding: 10px 20px;
                         }
                         display: flex;
@@ -44,19 +46,20 @@ body {
                         align-items: center;
                         i {
                             color: #006998;
-                            @media (min-width:768px) {
+                            @media (min-width: 768px) {
                                 font-size: 18px;
                             }
                         }
                     }
                     .close__dropdown {
                         padding: 15px 20px;
-                        @media (min-width:768px) {
+                        @media (min-width: 768px) {
                             padding: 10px 20px;
                         }
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        cursor: pointer;
                         i {
                             font-size: 25px;
                             color: #3f3f3f;
@@ -65,10 +68,10 @@ body {
                     .search__dropdown {
                         border-top: 1px solid #d9d9d9;
                         padding: 15px 20px;
-                        @media (min-width:768px){
+                        @media (min-width: 768px) {
                             display: none;
                         }
-        
+
                         .content-input {
                             position: relative;
                             display: flex;
@@ -79,34 +82,33 @@ body {
                                 right: 10px;
                             }
                             .input-buscador {
-                                border: 1px solid #d9d9d9; 
+                                border: 1px solid #d9d9d9;
                                 width: 100%;
                                 display: flex;
                                 padding: 10px;
                                 border-radius: 3px;
                             }
                         }
-                        
                     }
                 }
                 .menu__dropdown {
-                    background: #f4f4f4; 
+                    background: #f4f4f4;
                     width: 100%;
                     z-index: 1;
                     .nav__dropdown {
                         .list__nav {
                             margin-bottom: 10px;
-                            @media (min-width:768px){
+                            @media (min-width: 768px) {
                                 margin-bottom: 0;
-                                border: 0; 
-                             }
-                            border: 1px solid #d9d9d9; 
+                                border: 0;
+                            }
+                            border: 1px solid #d9d9d9;
                             background: #fff;
                             &.secondary--nav {
-                                @media (min-width:768px){
-                                    border-top: 1px solid #d9d9d9; 
-                                 }
-                                
+                                @media (min-width: 768px) {
+                                    border-top: 1px solid #d9d9d9;
+                                }
+
                                 .item__nav {
                                     .link__item {
                                         color: #5a5a5a;
@@ -117,7 +119,7 @@ body {
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: center;
-                                flex-wrap: wrap;                    
+                                flex-wrap: wrap;
                                 font-weight: 700;
                                 font-size: 16px;
 
@@ -143,7 +145,7 @@ body {
                                         }
                                     }
                                 }
-                                @media (min-width:768px){
+                                @media (min-width: 768px) {
                                     font-size: 14px;
                                     &:hover {
                                         background: #f2f2f2;
@@ -169,7 +171,7 @@ body {
                                             }
                                         }
                                     }
-                                    
+
                                     &.item--politica {
                                         &:hover {
                                             .sublist__nav {
@@ -178,94 +180,94 @@ body {
                                         }
                                     }
 
-                                    &.item--economia{
+                                    &.item--economia {
                                         &:hover {
                                             .sublist__nav {
                                                 display: block;
                                             }
                                         }
-                                        &.item--active{
+                                        &.item--active {
                                             .sublist__nav {
                                                 top: -50px;
                                                 &:before {
-                                                    top:63px;
+                                                    top: 63px;
                                                 }
                                             }
                                         }
-                                    } 
-        
-                                    &.item--sociedad{
-                                        &.item--active{
+                                    }
+
+                                    &.item--sociedad {
+                                        &.item--active {
                                             .sublist__nav {
                                                 top: -130px;
                                                 &:before {
-                                                    top:142px;
+                                                    top: 142px;
                                                 }
                                             }
                                         }
-                                    }  
-        
-                                    &.item--opinion{
-                                        &.item--active{
+                                    }
+
+                                    &.item--opinion {
+                                        &.item--active {
                                             .sublist__nav {
                                                 top: -170px;
                                                 &:before {
-                                                    top:182px;
+                                                    top: 182px;
                                                 }
                                             }
                                         }
                                     }
-        
-                                    &.item--deportes{
-                                        &.item--active{
+
+                                    &.item--deportes {
+                                        &.item--active {
                                             .sublist__nav {
                                                 top: -145px;
                                                 &:before {
-                                                    top:157px;
-                                                }
-                                            }
-                                        }
-                                    }  
-        
-                                    &.item--lifestyle{
-                                        &.item--active{
-                                            .sublist__nav {
-                                                top: -100px;
-                                                &:before {
-                                                    top:112px;
+                                                    top: 157px;
                                                 }
                                             }
                                         }
                                     }
-        
-                                    &.item--espectaculos{
-                                        &.item--active{
+
+                                    &.item--lifestyle {
+                                        &.item--active {
                                             .sublist__nav {
                                                 top: -100px;
                                                 &:before {
-                                                    top:112px;
+                                                    top: 112px;
                                                 }
                                             }
                                         }
                                     }
-        
-                                    &.item--impresa{
-                                        &.item--active{
+
+                                    &.item--espectaculos {
+                                        &.item--active {
                                             .sublist__nav {
-                                                top:inherit;
+                                                top: -100px;
+                                                &:before {
+                                                    top: 112px;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.item--impresa {
+                                        &.item--active {
+                                            .sublist__nav {
+                                                top: inherit;
                                                 bottom: 0;
                                                 &:before {
-                                                    top:inherit;
+                                                    top: inherit;
                                                     bottom: 13px;
                                                 }
                                             }
                                         }
-                                    } 
-        
-                                    &.item--revistas{
-                                        &.item--active{
+                                    }
+
+                                    &.item--revistas {
+                                        &.item--active {
                                             .sublist__nav {
-                                                top:inherit;
+                                                top: inherit;
                                                 bottom: 0;
                                                 .item__nav {
                                                     .link__item {
@@ -274,14 +276,12 @@ body {
                                                     }
                                                 }
                                                 &:before {
-                                                    top:inherit;
+                                                    top: inherit;
                                                     bottom: 13px;
                                                 }
                                             }
                                         }
                                     }
-        
-        
                                 }
                                 position: relative;
                                 .link__item {
@@ -305,7 +305,7 @@ body {
                                             display: flex;
                                             align-items: center;
                                             padding: 0 0 0 20px;
-                                            @media (min-width:768px) {
+                                            @media (min-width: 768px) {
                                                 border: 0;
                                                 height: 40px;
                                             }
@@ -315,7 +315,7 @@ body {
                                 .link__item {
                                     border-bottom: 1px solid #d9d9d9;
                                     height: 50px;
-                                    @media (min-width:768px) {
+                                    @media (min-width: 768px) {
                                         height: 40px;
                                         border-bottom: 0;
                                     }
@@ -329,7 +329,7 @@ body {
                                     background: transparent;
                                     border-bottom: 1px solid #d9d9d9;
                                     height: 50px;
-                                    @media (min-width:768px) {
+                                    @media (min-width: 768px) {
                                         height: 40px;
                                         border-bottom: 0;
                                     }
@@ -338,11 +338,11 @@ body {
                                     align-items: center;
                                     justify-content: center;
                                     flex-grow: 1;
-        
+
                                     i {
                                         font-size: 20px;
                                         color: #3f3f3f;
-                                        @media (min-width:768px) {
+                                        @media (min-width: 768px) {
                                             transform: rotate(-90deg);
                                             font-size: 16px;
                                         }
@@ -369,7 +369,7 @@ body {
                                     }
                                 }
 
-                                @media (min-width:768px){
+                                @media (min-width: 768px) {
                                     &.has--children {
                                         &:hover {
                                             .sublist__nav {
@@ -379,47 +379,48 @@ body {
                                     }
                                 }
 
-
                                 &.item--disabled {
                                     &:hover {
-
-                                    .sublist__nav {
-                                        width: 100%;
-                                        @media (min-width:768px){
-                                            position: absolute;
-                                            left: 98%;
-                                            top: 0;
-                                            width: 160px;
-                                            background: #fff;
-                                            border-radius: 3px; 
-                                            padding: 20px 0;
-                                            -webkit-box-shadow: -1px 2px 5px 0px rgba(189,189,189,1);
-                                            -moz-box-shadow: -1px 2px 5px 0px rgba(189,189,189,1);
-                                            box-shadow: -1px 2px 5px 0px rgba(189,189,189,1);
-                                            &:before {
-                                                content:"";
-                                                display: block;
-                                                width: 15px; 
-                                                height: 15px; 
-                                                left: -8px;
-                                                top: 13px;
-                                                transform: rotate(136deg);
+                                        .sublist__nav {
+                                            width: 100%;
+                                            @media (min-width: 768px) {
                                                 position: absolute;
+                                                left: 98%;
+                                                top: 0;
+                                                width: 160px;
                                                 background: #fff;
-                                                box-shadow: 2px 2px 2px 1px rgba(189,189,189, 0.4);
+                                                border-radius: 3px;
+                                                padding: 20px 0;
+                                                -webkit-box-shadow: -1px 2px 5px
+                                                    0px rgba(189, 189, 189, 1);
+                                                -moz-box-shadow: -1px 2px 5px
+                                                    0px rgba(189, 189, 189, 1);
+                                                box-shadow: -1px 2px 5px 0px
+                                                    rgba(189, 189, 189, 1);
+                                                &:before {
+                                                    content: '';
+                                                    display: block;
+                                                    width: 15px;
+                                                    height: 15px;
+                                                    left: -8px;
+                                                    top: 13px;
+                                                    transform: rotate(136deg);
+                                                    position: absolute;
+                                                    background: #fff;
+                                                    box-shadow: 2px 2px 2px 1px
+                                                        rgba(189, 189, 189, 0.4);
+                                                }
                                             }
                                         }
                                     }
                                 }
-                                                                    
-                            }
                             }
                         }
-                    } 
-                } 
+                    }
+                }
                 &.scroll--active {
                     .header__dropdown {
-                        position: fixed;  
+                        position: fixed;
                         height: 0;
                         overflow: hidden;
                     }
@@ -430,7 +431,7 @@ body {
                 }
                 &.scroll--pasive {
                     .header__dropdown {
-                        position: fixed;  
+                        position: fixed;
                         height: inherit;
                         overflow: inherit;
                     }
