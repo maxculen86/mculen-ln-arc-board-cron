@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArcAd from './arcWrapper';
 
@@ -18,11 +18,6 @@ const bannerComponent = ({
     device,
     extraClasses
 }) => {
-    /* const [showBanner, setShowBanner] = useState(null);
-
-    const onLoad = show => {
-        setShowBanner(show);
-    }; */
     let ad = (
         <ArcAd
             className={`--${device}${
@@ -38,7 +33,7 @@ const bannerComponent = ({
     );
 
     if (background) {
-        ad = <div className={`banner w-100 --bg-banner`}>{ad}</div>;
+        ad = <div className="banner w-100 --bg-banner">{ad}</div>;
     }
 
     return ad;

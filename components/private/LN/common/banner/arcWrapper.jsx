@@ -9,7 +9,7 @@ class ArcWrapper extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            empty: null
+            empty: true
         };
     }
 
@@ -59,8 +59,8 @@ class ArcWrapper extends Component {
                     bidding: baseConfig.bidding
                 },
                 event => {
-                    if (event.isEmpty) {
-                        this.setState({ empty: true });
+                    if (!event.isEmpty) {
+                        this.setState({ empty: false });
                     }
                 }
             );
@@ -73,20 +73,14 @@ class ArcWrapper extends Component {
         const { id, children, className } = this.props;
         const { empty } = this.state;
 
-        /* if (empty) {
-            this.props.onLoad(false);
-        } else if(empty === false){
-            this.props.onLoad(true);
-        } */
-
-        if (empty === false)
-            return (
-                <div id={id} className={`banner ${className}`}>
-                    {children}
-                </div>
-            );
-
-        return null;
+        return (
+            <div
+                id={id}
+                className={`banner ${className} ${empty ? 'hlp-none' : ''}`}
+            >
+                {children}
+            </div>
+        );
     }
 }
 
