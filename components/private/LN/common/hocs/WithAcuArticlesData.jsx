@@ -12,7 +12,8 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                     globalContent: PropTypes.shape({
                         type: PropTypes.string.isRequired,
                         _id: PropTypes.string.isRequired
-                    }).isRequired
+                    }).isRequired,
+                    size: PropTypes.number.isRequired
                 };
             }
 
@@ -60,7 +61,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         sectionId,
                         authorId,
                         tagId,
-                        size,
+                        size: size + 1,
                         imageConfig,
                         page
                     },
@@ -78,13 +79,13 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                     );
                     const hayMasNotasFetched = get(response, 'next', 0);
                     fetchedCallback({
-                        articles: articlesFetched.slice(0, size),
+                        articles: articlesFetched.slice(0, size + 1),
                         hayMasNotas: hayMasNotasFetched
                     });
                 });
 
                 return {
-                    articles: articles.slice(0, size),
+                    articles: articles.slice(0, size + 1),
                     hayMasNotas
                 };
             };
@@ -140,9 +141,14 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 } = this.props;
 
                 if (type === 'story') {
-                    articlesArray = articles.filter(article => {
-                        return article._id !== _id;
-                    });
+                    if (articles.find(e => e._id === _id) !== undefined) {
+                        articlesArray = articles.filter(article => {
+                            return article._id !== _id;
+                        });
+                    } else {
+                        const { size } = this.props;
+                        articlesArray = articles.slice(0, size);
+                    }
                 }
 
                 return (
