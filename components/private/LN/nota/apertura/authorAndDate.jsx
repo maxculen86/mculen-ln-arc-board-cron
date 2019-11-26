@@ -9,10 +9,6 @@ const authorAndDate = props => {
         globalContent: { display_date, credits }
     } = props;
 
-    console.log('credits: ', credits.by);
-
-    console.log('Props de Author y Fecha: ', props);
-
     const [visible, setVisible] = useState(false);
 
     if (!visible && 'by' in credits) {
