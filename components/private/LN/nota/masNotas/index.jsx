@@ -12,8 +12,6 @@ const index = props => {
         }
     } = props;
 
-    console.log('PROPS DE MAS NOTAS: ', props);
-
     let title;
     let border = false;
 

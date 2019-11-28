@@ -64,7 +64,7 @@ const resolve = key => {
             }
     }`;
     const final = `${basePath}${query}&size=${cant}&from=${from}
-            &sort=publish_date:desc`;
+            &sort=display_date:desc`;
     return final;
 };
 
