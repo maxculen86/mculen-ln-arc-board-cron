@@ -114,16 +114,7 @@ const Desplegable = ({ toglleDesplegable, menuData }) => {
             tabIndex="0"
         >
             <div
-                style={{
-                    background: 'rgba(0, 0, 0, 0.3)',
-                    width: '100vw',
-                    height: '100vh',
-                    position: 'absolute',
-                    top: '0',
-                    zIndex: '99999',
-                    display: 'block',
-                    overflowY: 'scroll'
-                }}
+                className="overlay"
                 role="button"
                 tabIndex="0"
                 onMouseDown={toglleDesplegable}

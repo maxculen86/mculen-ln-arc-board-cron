@@ -16,9 +16,24 @@ body {
             @media (min-width: 768px) {
                 overflow: hidden;
             }
+            .overlay {
+                background: rgba(0, 0, 0, 0.3);
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                z-index: 99999;
+                display: block;
+                @media (max-width: 768px) {
+                    overflow-y: scroll;
+                }
+            }
             .com-dropdown {
                 background: #f4f4f4;
                 width: 100vw;
+                @media (max-width: 768px) {
+                    overflow-y: scroll;
+                }
                 @media (min-width: 768px) {
                     width: 280px;
                     max-height: 100vh;
@@ -26,7 +41,7 @@ body {
                 }
                 height: 100vh;
                 display: block;
-                position: relative;
+                position: fixed;
                 .header__dropdown {
                     background: #fff;
                     margin-bottom: 10px;
