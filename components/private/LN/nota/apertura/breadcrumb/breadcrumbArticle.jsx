@@ -21,7 +21,7 @@ const breadcrumbArticle = ({
     globalContent: {
         taxonomy: { primary_section, sections }
     },
-    siteProperties: { title: siteTitle, shareConfig }
+    siteProperties: { title: siteTitle, host }
 }) => {
     let allSections = [];
     if (primary_section) {
@@ -39,8 +39,9 @@ const breadcrumbArticle = ({
                 extraClasses=""
                 sections={allSections}
                 lastLinked
+                host={host}
             />
-            <BreadCrumbSchema sections={allSections} host={shareConfig.host} />
+            <BreadCrumbSchema sections={allSections} host={host} />
         </>
     );
 };

@@ -7,7 +7,7 @@
     line-height: $font-16;
     display: flex;
     justify-content: flex-end;
-    >button.--highlight {
+    > button.--highlight {
         margin-right: $px-35;
     }
     &__name {
@@ -18,7 +18,7 @@
         position: relative;
         margin-bottom: $px-5;
         &:before {
-            content: "";
+            content: '';
             width: $px-7;
             height: $px-7;
             border-top: 2px solid $link;
@@ -53,7 +53,7 @@
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     z-index: 100;
     &:before {
-        content: "";
+        content: '';
         transform: rotate(45deg);
         width: $px-12;
         height: $px-12;
@@ -64,10 +64,10 @@
         margin: -$px-8 auto 0;
         background: $blanco;
         display: block;
-        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2),
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     }
     &:after {
-        content: "";
+        content: '';
         width: $px-40;
         height: $px-10;
         position: absolute;
@@ -85,7 +85,7 @@
         }
         a {
             font-size: $font-14;
-            padding: .8em 2em;
+            padding: 0.8em 2em;
             width: auto;
             display: block;
             color: $link;

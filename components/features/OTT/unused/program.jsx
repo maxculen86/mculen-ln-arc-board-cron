@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ProgramContainer from '../../private/OTT/common/program/container';
 
-const Program = () => {
+const Program = props => {
     return (
         <ProgramContainer
-            description={this.props.customFields.description}
-            href={this.props.customFields.href}
-            imageId={this.props.customFields.imgId}
+            description={props.customFields.description}
+            href={props.customFields.href}
+            imageId={props.customFields.imgId}
         />
     );
 };

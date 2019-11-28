@@ -97,7 +97,7 @@ export default {
     },
     shareConfig: {
         facebook: {
-            appID: '246891475813003'
+            appID: '272582409596628'
         }
     },
     livefyre: {

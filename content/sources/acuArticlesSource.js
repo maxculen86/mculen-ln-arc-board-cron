@@ -6,7 +6,8 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 const resolve = key => {
     const { sectionId, authorId, tagId, size, page, website } = key;
     const arcSite = key['arc-site'];
-    const from = ((page || 1) - 1) * size;
+    const cant = size || 30;
+    const from = ((page || 1) - 1) * cant;
     const basePath = `/content/v4/search/published/?website=${website ||
         arcSite}`;
 
@@ -62,8 +63,8 @@ const resolve = key => {
                 }
             }
     }`;
-    const final = `${basePath}${query}&size=${size || 30}&from=${from}
-            &sort=publish_date:desc`;
+    const final = `${basePath}${query}&size=${cant}&from=${from}
+            &sort=display_date:desc`;
     return final;
 };
 

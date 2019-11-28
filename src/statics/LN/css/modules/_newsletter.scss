@@ -28,7 +28,7 @@
     }
     .com-input {
         width: 100%;
-        +.--btn {
+        + .--btn {
             display: inline-block;
         }
     }
@@ -78,7 +78,7 @@
                 content: '\e912';
                 font-family: 'LNicons' !important;
                 font-size: $font-14;
-                color: #9d2827
+                color: #9d2827;
             }
         }
     }
@@ -145,7 +145,7 @@
                 margin-bottom: $px-10;
             }
             .--btn {
-                display: block
+                display: block;
             }
         }
     }
@@ -155,8 +155,8 @@
 @media (min-width: 768px) {
     .mod-newsletter {
         main & {
-            >.col-12:nth-child(2),
-            >.col-12:nth-child(3) {
+            > .col-12:nth-child(2),
+            > .col-12:nth-child(3) {
                 padding-top: $px-45;
                 padding-bottom: $px-45;
             }
@@ -193,12 +193,12 @@
                     display: block;
                     padding: 0;
                     &:last-child {
-                        border: 0
+                        border: 0;
                     }
                 }
             }
         }
-        >div {
+        > div {
             background-repeat: no-repeat;
             background-size: 100%;
             &:first-child {
@@ -219,8 +219,8 @@
 @media (min-width: 1024px) {
     .mod-newsletter {
         padding: 0 $px-10;
-        >div:first-child,
-        >div:last-child {
+        > div:first-child,
+        > div:last-child {
             background-size: 50%;
         }
     }

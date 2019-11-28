@@ -2,13 +2,13 @@
 .wiki-autor {
     margin-bottom: $px-40;
     h1 {
-        display: inline
+        display: inline;
     }
     label {
         font-family: $font-arial;
         font-size: $font-14;
         line-height: $px-19;
-        display: block
+        display: block;
     }
     p {
         font-family: $font-arial;
@@ -43,10 +43,10 @@
 @media (min-width: 768px) {
     .wiki-autor {
         p {
-            display: block
+            display: block;
         }
         .wiki-calc {
-            width: calc(100% - 200px)
+            width: calc(100% - 200px);
         }
         .cont-figure-wiki {
             display: inline-block;

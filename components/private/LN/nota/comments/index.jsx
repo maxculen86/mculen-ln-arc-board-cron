@@ -5,8 +5,9 @@ import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import customStrings from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
-import handleCookie from '../../../LN/common/utils/handleCookie';
-import withLoginData from '../../../LN/common/hocs/withLoginData';
+import handleCookie from '../../common/utils/handleCookie';
+import withLoginData from '../../common/hocs/withLoginData';
+import WithNavigation from '../../common/hocs/WithNavigation';
 
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
@@ -17,13 +18,14 @@ const Comments = props => {
             canonical_url: url,
             headlines: { basic: title },
             taxonomy: { tags }
-        }
+        },
+        termicas
     } = props;
     const { getCookie } = handleCookie();
 
     const metadata = {
-        title: title,
-        url: url,
+        title,
+        url,
         tags: tags.map(tag => tag.text).join(', '),
         type: 'livecomment'
     };
@@ -42,7 +44,7 @@ const Comments = props => {
 
         LiveFyre.convConfig = {
             siteId: config.livefyre.siteId,
-            articleId: _id, //'1466383'
+            articleId: _id, // '1466383'
             el: 'livefyre',
             collectionMeta: jwt.sign(payload, config.livefyre.sharedKey, {
                 algorithm: 'HS256'
@@ -162,44 +164,47 @@ const Comments = props => {
                 }
             });
         });
-    }, []);
+    }, [_id, getCookie, payload, props.loginData, props.logueado]);
 
     return (
         <>
-            <section
-                id="comentarios"
-                className="comments"
-                data-module="nota-sugeridas-comentarios"
-            >
-                <div
-                    id="tokenLF"
-                    data-id=""
-                    data-entrada={_id}
-                    data-lf-siteid={config.livefyre.siteId}
-                />
-                {props.logueado && (
-                    <button type="button" onClick={() => {}}>
-                        Ingresar
-                    </button>
-                )}
-                <h4 className="com-title-section-m comment-title">
-                    Enviá tu comentario{' '}
-                    <button className="item_link">Ver legales</button>
-                </h4>
-                <p className="comment-legal">
-                    Los comentarios publicados son de exclusiva responsabilidad
-                    de sus autores y las consecuencias derivadas de ellos pueden
-                    ser pasibles de sanciones legales. Aquel usuario que incluya
-                    en sus mensajes algún comentario violatorio del reglamento
-                    será eliminado e inhabilitado para volver a comentar. Enviar
-                    un comentario implica la aceptación del Reglamento.
-                </p>
-                <div className="comment-reminder">
-                    Para poder comentar tenés que ingresar con tu usuario de LA
-                    NACION.
-                </div>
-                <div className="livefyre" />
-            </section>
+            {termicas.livefyre ? (
+                <section
+                    id="comentarios"
+                    className="comments"
+                    data-module="nota-sugeridas-comentarios"
+                >
+                    <div
+                        id="tokenLF"
+                        data-id=""
+                        data-entrada={_id}
+                        data-lf-siteid={config.livefyre.siteId}
+                    />
+                    {props.logueado && (
+                        <button type="button" onClick={() => {}}>
+                            Ingresar
+                        </button>
+                    )}
+                    <h4 className="com-title-section-m comment-title">
+                        Enviá tu comentario
+                        <button className="item_link">Ver legales</button>
+                    </h4>
+                    <p className="comment-legal">
+                        Los comentarios publicados son de exclusiva
+                        responsabilidad de sus autores y las consecuencias
+                        derivadas de ellos pueden ser pasibles de sanciones
+                        legales. Aquel usuario que incluya en sus mensajes algún
+                        comentario violatorio del reglamento será eliminado e
+                        inhabilitado para volver a comentar. Enviar un
+                        comentario implica la aceptación del Reglamento.
+                    </p>
+                    <div className="comment-reminder">
+                        Para poder comentar tenés que ingresar con tu usuario de
+                        LA NACION.
+                    </div>
+                    <div className="livefyre" />
+                </section>
+            ) : null}
         </>
     );
 };
@@ -227,4 +232,4 @@ Comments.propTypes = {
     }).isRequired
 };
 
-export default withLoginData(Comments);
+export default WithNavigation(withLoginData(Comments));

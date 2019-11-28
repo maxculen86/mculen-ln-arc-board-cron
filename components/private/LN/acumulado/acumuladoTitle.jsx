@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
-import ListSectionsTitle from './acumuladoTitle/listSectionsTitle';
-import TagsNavigation from './tagsNavigation';
+// import ListSectionsTitle from './acumuladoTitle/listSectionsTitle';
+// import TagsNavigation from './tagsNavigation';
 import NotaApertura from './notaApertura';
 import capitalizeFirstLetter from '../../common/utils/capitalizeFirstLetter';
 
 import '../../../../resources/dist/css/ln/components/title.css';
 import '../../../../resources/dist/css/ln/components/tag.css';
 
-const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
+const AcumuladoTitle = ({ globalContent, orderAndCountTags, customFields }) => {
+    const { prefixTitle } = customFields || {};
     const [withCategory, setWithCategory] = useState('');
     const [_children, setChildren] = useState([]);
     const [isPrimarySection, setIsPrimarySection] = useState(false);
@@ -20,10 +21,9 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
         setChildren(globalContent.children);
 
         setIsPrimarySection(
-            // TODO: LLevar el lengt -1 a 1 cuando se active Navigation Arc2
             globalContent &&
                 globalContent._id &&
-                globalContent._id.split('/').splice(1).length === -1
+                globalContent._id.split('/').splice(1).length === 1
         );
         // TODO: Cambiar < a > cuando se active Navigation Arc2
         if (_children && _children.length < 0) setWithCategory('with-category');
@@ -58,17 +58,29 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
         <>
             <div className="com-titleWithfollow">
                 <div className={withCategory}>
-                    <h1 className="com-title-section-xl">{title}</h1>
+                    <h1 className="com-title-section-xl">
+                        {!isPrimarySection &&
+                            title &&
+                            prefixTitle &&
+                            `${prefixTitle} `}
+                        {title}
+                    </h1>
+                    {/**
+                     * TODO: Activar cuando entre Arc2 de title
                     <ListSectionsTitle
                         _children={_children}
                         isPrimarySection={isPrimarySection}
                     />
+                     */}
                 </div>
-                <TagsNavigation
-                    _children={_children}
-                    orderAndCountTags={orderAndCountTags}
-                    isPrimarySection={isPrimarySection}
-                />
+                {/**
+                     * TODO: Activar cuando entre Arc2 del title
+                     <TagsNavigation
+                         _children={_children}
+                         orderAndCountTags={orderAndCountTags}
+                         isPrimarySection={isPrimarySection}
+                     />
+                     */}
             </div>
             <NotaApertura />
         </>
@@ -103,7 +115,8 @@ AcumuladoTitle.propTypes = {
                 text: PropTypes.string
             })
         })
-    ).isRequired
+    ).isRequired,
+    customFields: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 // AcumuladoTitle.defaultProps = {
