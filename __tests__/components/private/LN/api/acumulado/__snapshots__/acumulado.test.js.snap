@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Json Acumulado section. Test de integracion Test de snapshot 1`] = `
+Object {
+  "articles": Array [
+    Object {
+      "authors": Array [
+        Object {
+          "id": "diego-cabot",
+          "image": Object {
+            "id": undefined,
+            "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+          },
+          "name": "Diego Cabot",
+          "type": 1,
+        },
+        Object {
+          "id": "diego-lopez",
+          "name": "Diego Lopez",
+          "type": 1,
+        },
+      ],
+      "id": "B2EMM366VFGVHEPJDUVGBLCYX4",
+      "image": Object {
+        "id": "PWQEKVCUHJGJLBUDQOYDEII5XU",
+        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+      },
+      "subtype": "4",
+      "title": "Test de generacion de url",
+    },
+    Object {
+      "id": "I5ZEZLJLMZFJ7F7XW6JSLAQR4I",
+      "subtype": "1",
+      "title": "Receta de prueba con volanta",
+    },
+    Object {
+      "id": "RNDZITUWEBCT7DMVU5MZ5ANG3A",
+      "subtype": "1",
+      "title": "Mi paso por el yoga del infierno",
+    },
+    Object {
+      "id": "2CJ4Q5VQBZBXBFYADC75HMASDU",
+      "image": Object {
+        "id": "272ELZPBAJAMTJ6NLZISAQ5S3Q",
+        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+      },
+      "subtype": "1",
+      "title": "Probando Breaking news",
+    },
+    Object {
+      "id": "VSBWVU7WRVD5PONUYIORE3IUDQ",
+      "image": Object {
+        "id": "NNIYHDQG75GLJKANNW5AIC5FZA",
+        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+      },
+      "subtype": "4",
+      "title": "Diego template recetas",
+    },
+    Object {
+      "id": "AURFWI6AKZFGDLZJAVDRD5UTBY",
+      "subtype": "1",
+      "title": "Datos de prueba",
+    },
+    Object {
+      "authors": Array [
+        Object {
+          "id": "martin-lousteau",
+          "image": Object {
+            "id": undefined,
+            "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+          },
+          "name": "Martín Lousteau",
+          "type": 1,
+        },
+        Object {
+          "id": "adrian-ventura",
+          "image": Object {
+            "id": undefined,
+            "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+          },
+          "name": "Adrián Ventura",
+          "type": 1,
+        },
+      ],
+      "id": "H3EO6XS3YVHKPH33CXXUYWC5ME",
+      "subtype": "1",
+      "title": "nota de Guilleaaaa",
+    },
+    Object {
+      "authors": Array [
+        Object {
+          "id": "Cristian Grosso",
+          "name": undefined,
+          "type": 2,
+        },
+      ],
+      "id": "TWKFZQ6FCNF3ZKPHGGZPMSSOGQ",
+      "image": Object {
+        "id": "YQPFIZTCKVFKFDHNINT7IBBI6U",
+        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+      },
+      "subtype": "1",
+      "title": "Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local",
+    },
+    Object {
+      "id": "U4AWGFDWKJHHFHEUUBTOEX2VN4",
+      "image": Object {
+        "id": "YWOVDVKZYNDIPGHMIFLO4KBVXM",
+        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+      },
+      "subtype": "1",
+      "title": "Titulo nota de prueba",
+    },
+  ],
+  "next": true,
+  "title": "Recetas",
+}
+`;

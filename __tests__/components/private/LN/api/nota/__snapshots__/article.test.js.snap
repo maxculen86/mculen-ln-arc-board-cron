@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test json integracion Article Test snapshot article 1`] = `
+Object {
+  "apertura": Object {
+    "image": Object {
+      "id": "VASAYYYBLVFIJCFDSH22JS5X2Q",
+      "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+    },
+    "subTitle": "Bikram yoga",
+    "title": "Mi paso por el yoga del infierno",
+  },
+  "comments": true,
+  "entradaId": "841900",
+  "firstPublishDate": "2019-01-24T17:22:51.627Z",
+  "id": "RNDZITUWEBCT7DMVU5MZ5ANG3A",
+  "primarySection": Object {
+    "id": "/deportes",
+    "name": "Deportes",
+  },
+  "publishDate": undefined,
+  "subtype": "1",
+  "url": undefined,
+}
+`;
