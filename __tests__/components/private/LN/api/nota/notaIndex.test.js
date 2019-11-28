@@ -1,15 +1,23 @@
+jest.mock(
+    '../../../../../../components/private/LN/api/nota/sectionArticle',
+    () => {
+        return () => {
+            return 'primarySection-mock';
+        };
+    }
+);
+
+jest.mock(
+    '../../../../../../components/private/LN/api/nota/aperturaArticle',
+    () => {
+        return () => {
+            return 'apertura-mock';
+        };
+    }
+);
+
 import NotaIndex from '../../../../../../components/private/LN/api/nota';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
-
-//   id,
-//         subtype,
-//         url,
-//         comments: dataNota.comments ? dataNota.comments.allow_comments : true,
-//         entradaId,
-//         publishDate,
-//         firstPublishDate,
-//         pimarySection: primarySection ? Section(primarySection) : undefined,
-//         apertura: Apertura(dataNota)
 
 describe('Test de index en JSON de nota', () => {
     const resp = NotaIndex(article.globalContent);
@@ -25,5 +33,7 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.firstPublishDate).toBe(
             article.globalContent.first_publish_date
         );
+        expect(resp.primarySection).toBe('primarySection-mock');
+        expect(resp.apertura).toBe('apertura-mock');
     });
 });

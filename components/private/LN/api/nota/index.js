@@ -21,7 +21,7 @@ const indexNota = dataNota => {
         entradaId,
         publishDate,
         firstPublishDate,
-        pimarySection: primarySection ? Section(primarySection) : undefined,
+        primarySection: primarySection ? Section(primarySection) : undefined,
         apertura: Apertura(dataNota)
     };
 };
