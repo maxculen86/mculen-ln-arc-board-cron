@@ -1,4 +1,4 @@
-@import "settings/estructura.scss";
+@import 'settings/estructura.scss';
 header {
     @include flex;
     @include flex-row;
@@ -69,7 +69,7 @@ header.sticky .header__logo img {
     width: 100%;
     height: 2px;
     background: $ott-header-link;
-    content: "";
+    content: '';
     opacity: 0;
     transition: all 0.25s ease 0s;
 }

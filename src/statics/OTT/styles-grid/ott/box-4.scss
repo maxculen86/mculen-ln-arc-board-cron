@@ -7,7 +7,7 @@
 }
 
 .box-4:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 1000%;
     left: -500%;
@@ -35,12 +35,12 @@
     color: $blanco;
 }
 
-main>.mas-vistos>.section-title:after {
+main > .mas-vistos > .section-title:after {
     background: $negro;
 }
 
-main>section>.section-title:after {
-    content: "";
+main > section > .section-title:after {
+    content: '';
     position: absolute;
     width: 1000%;
     left: -500%;
@@ -89,7 +89,7 @@ main>section>.section-title:after {
 }
 
 .box-4 .article span {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: $blanco;
     text-align: left;
     font-size: 0.8rem;
@@ -125,7 +125,7 @@ main>section>.section-title:after {
     .section-title {
         font-size: 1.5em;
     }
-    section:not(.programas)>section>article>.figure::after {
+    section:not(.programas) > section > article > .figure::after {
         background-size: 5em;
     }
 }
