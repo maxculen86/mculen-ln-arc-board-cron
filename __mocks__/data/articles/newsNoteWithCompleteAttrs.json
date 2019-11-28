@@ -203,7 +203,20 @@
                 }
             ]
         },
-        "type": "story"
+        "type": "story",
+        "comments": {
+            "allow_comments": true
+        },
+        "label": {
+            "volanta": {
+                "text": "soy la volanta",
+                "display": true
+            },
+            "livefyre_entrada_id": {
+                "text": "841900",
+                "display": true
+            }
+        }
     },
     "globalContentConfig": {
         "source": "articleSourceNota",
