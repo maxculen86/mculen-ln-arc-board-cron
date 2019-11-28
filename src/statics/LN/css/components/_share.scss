@@ -68,6 +68,9 @@
     font-size: $font-24;
     padding: 0;
     margin-right: $px-17;
+    .humor & {
+        margin-right: $px-15;
+    }
 }
 
 .com-share label {
