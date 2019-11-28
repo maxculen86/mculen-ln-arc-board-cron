@@ -1,4 +1,4 @@
-import imageAcu from './acuImage';
+import imageAcu from '../common/image';
 
 const acuAuthor = author => {
     const { _id: id, name, image, type } = author;

@@ -1,4 +1,4 @@
-const acuImage = image => {
+const imageCommon = image => {
     const { _id: id, resized_urls: resizedUrls } = image;
 
     return {
@@ -7,4 +7,4 @@ const acuImage = image => {
     };
 };
 
-export default acuImage;
+export default imageCommon;
