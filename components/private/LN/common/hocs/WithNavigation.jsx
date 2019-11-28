@@ -24,14 +24,10 @@ export default function WithNavigation(WrappedComponent) {
                     sections: [],
                     termicas: {}
                 };
-                this.getNavigationTree().then(({ sections, termicas }) => {
-                    this.setState({
-                        sections,
-                        termicas
-                    });
-                });
+                this.getNavigationTree();
             }
 
+            // TODO: revisar esto!
             getNavigationTree = () => {
                 const website = get(this, 'props.arcSite', null);
                 const { cached, fetched } = this.getContent({
@@ -41,40 +37,53 @@ export default function WithNavigation(WrappedComponent) {
                     }
                 });
 
-                return new Promise(resolve => {
-                    if (cached) resolve(this.getSectionTree(cached));
-                    else
-                        fetched.then(result =>
-                            resolve(this.getSectionTree(result))
-                        );
-                });
+                if (cached) this.getSectionTree(cached);
+
+                fetched.then(result => this.getSectionTree(result));
             };
 
             getSectionTree = results => {
                 const sections = [];
-                const termicas = results.Termicas;
-                const { sectionId } = this.props;
-                sections.push({
-                    id: results._id,
-                    name: results.name,
-                    path: results._id
-                });
-                let section = results;
-                if (sectionId) {
-                    do {
-                        section = section.children.filter(el =>
-                            sectionId.includes(el._id)
-                        )[0];
-                        if (section) {
-                            sections.push({
-                                id: section._id,
-                                name: section.name,
-                                path: section._id
-                            });
-                        }
-                    } while (section);
+                if (results) {
+                    const termicas = results.Termicas;
+                    const { sectionId } = this.props;
+                    sections.push({
+                        id: results._id,
+                        name: results.name,
+                        path: results._id
+                    });
+                    let section = results;
+                    if (sectionId) {
+                        do {
+                            section = section.children.filter(el =>
+                                sectionId.includes(el._id)
+                            )[0];
+                            if (section) {
+                                sections.push({
+                                    id: section._id,
+                                    name: section.name,
+                                    path: section._id
+                                });
+                            }
+                        } while (section);
+                    }
+                    this.convertStringToBoolean(termicas);
+                    this.setState({
+                        sections,
+                        termicas
+                    });
                 }
-                return { sections, termicas };
+            };
+
+            convertStringToBoolean = termicas => {
+                Object.keys(termicas).forEach(function(key) {
+                    if (typeof termicas[key] === 'string') {
+                        termicas[key].toLowerCase().trim() === 'true'
+                            ? (termicas[key] = true)
+                            : (termicas[key] = false);
+                    }
+                });
+                return termicas;
             };
 
             render() {

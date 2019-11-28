@@ -17,7 +17,7 @@
         height: $px-3;
         border-radius: 3px;
         background-color: #000;
-        transition: transform .3s ease, opacity .3s ease;
+        transition: transform 0.3s ease, opacity 0.3s ease;
         &:nth-child(1) {
             transform-origin: right top;
         }
@@ -29,7 +29,7 @@
         }
     }
     &:before {
-        content: "MENÚ";
+        content: 'MENÚ';
         position: absolute;
         width: $px-60;
         left: $px-35;

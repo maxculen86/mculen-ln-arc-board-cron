@@ -16,7 +16,7 @@ article a.figure:before:not(.mod-caja-nota a.figure:before) {
     bottom: 0;
     margin: auto;
     z-index: 1;
-    opacity: .5;
+    opacity: 0.5;
     font-family: 'LNlogos' !important;
     font-style: normal;
     font-weight: normal;
@@ -34,7 +34,7 @@ article a.figure:before:not(.mod-caja-nota a.figure:before) {
     width: 100%;
 }
 
-.breaking-news{
+.breaking-news {
     border-left: 2px solid $gris4;
     padding-left: $px-20;
     &.hlp-degrade .transparency {
@@ -59,14 +59,14 @@ article a.figure:before:not(.mod-caja-nota a.figure:before) {
 }
 @keyframes b {
     0% {
-        transform: rotate(0deg)
+        transform: rotate(0deg);
     }
- 
-    to {
-        transform: rotate(1turn)
-    }
- }
 
- .mod-opening {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.mod-opening {
     margin-bottom: $px-40;
 }
