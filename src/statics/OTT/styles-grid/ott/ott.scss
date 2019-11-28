@@ -1,18 +1,18 @@
-@import "types.scss";
+@import 'types.scss';
 
 .ott {
     line-height: 1;
-    @import "settings/reset.scss";
-    @import "../atajos.scss";
-    @import "header.scss";
-    @import "footer.scss";
-    @import "settings/estructura.scss";
-    @import "settings/generales.scss";
-    @import "apertura.scss";
-    @import "slider.scss";
-    @import "acu.scss";
-    @import "programa.scss";
-    @import "box-4.scss";
-    @import "404.scss";
+    @import 'settings/reset.scss';
+    @import '../atajos.scss';
+    @import 'header.scss';
+    @import 'footer.scss';
+    @import 'settings/estructura.scss';
+    @import 'settings/generales.scss';
+    @import 'apertura.scss';
+    @import 'slider.scss';
+    @import 'acu.scss';
+    @import 'programa.scss';
+    @import 'box-4.scss';
+    @import '404.scss';
     margin: 0;
 }

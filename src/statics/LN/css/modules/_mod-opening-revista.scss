@@ -4,20 +4,20 @@
     .com-share {
         display: none;
     }
-    [class^="logo-"] {
+    [class^='logo-'] {
         color: $blanco;
         font-size: $font-35;
-        margin-right: $px-5
+        margin-right: $px-5;
     }
     .logo {
         text-align: left;
         display: flex;
-        margin-bottom: $px-10
+        margin-bottom: $px-10;
     }
     .--btn {
         border-color: $blanco;
         color: $blanco;
-        background-color: transparent
+        background-color: transparent;
     }
     .com-link {
         display: none;
@@ -48,7 +48,7 @@
 
 @media (min-width: 1025px) {
     .subheader-acu {
-        [class^="logo-"] {
+        [class^='logo-'] {
             color: $blanco;
             font-size: $font-80;
             display: block;
@@ -83,7 +83,7 @@
             text-align: center;
             display: inline-block;
             &:last-child {
-                margin-right: 0
+                margin-right: 0;
             }
         }
     }
