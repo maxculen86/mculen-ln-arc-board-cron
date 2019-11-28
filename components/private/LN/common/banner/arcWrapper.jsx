@@ -8,7 +8,9 @@ class ArcWrapper extends Component {
 
     constructor(props) {
         super(props);
-        this.isEmpty = false;
+        this.state = {
+            empty: true
+        };
     }
 
     componentDidMount() {
@@ -47,7 +49,8 @@ class ArcWrapper extends Component {
 
     getArcAdsInstance() {
         if (!ArcWrapper.arcAdsInstance) {
-            const { dfpId } = this.props;
+            const { dfpId, show } = this.props;
+
             ArcWrapper.arcAdsInstance = new ArcAds(
                 {
                     dfp: {
@@ -56,7 +59,10 @@ class ArcWrapper extends Component {
                     bidding: baseConfig.bidding
                 },
                 event => {
-                    this.isEmpty = event.isEmpty;
+                    if (!event.isEmpty) {
+                        this.setState({ empty: false });
+                        show();
+                    }
                 }
             );
         }
@@ -66,9 +72,13 @@ class ArcWrapper extends Component {
 
     render() {
         const { id, children, className } = this.props;
-        if (this.isEmpty) return null;
+        const { empty } = this.state;
+
         return (
-            <div id={id} className={`banner ${className}`}>
+            <div
+                id={id}
+                className={`banner ${className} ${empty ? 'hlp-none' : ''}`}
+            >
                 {children}
             </div>
         );
@@ -89,11 +99,8 @@ ArcWrapper.propTypes = {
     targeting: PropTypes.shape({
         seccion: PropTypes.string,
         sitio: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    show: PropTypes.func.isRequired
 };
-
-// ArcWrapper.defaultProps = {
-//     className: ''
-// };
 
 export default ArcWrapper;

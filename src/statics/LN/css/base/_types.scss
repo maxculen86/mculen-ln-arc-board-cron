@@ -3,16 +3,16 @@
 
 /* FONTS --------------- */
 
-@include font-face("SuecaSlab", suecaslab-medium-webfont, 500);
-@include font-face("SuecaSlab", suecaslab-bold-webfont, 700);
-@include font-face("LNicons", ln-icons, normal);
-@include font-face("LNlogos", ln-logos, normal);
+@include font-face('SuecaSlab', suecaslab-medium-webfont, 500);
+@include font-face('SuecaSlab', suecaslab-bold-webfont, 700);
+@include font-face('LNicons', ln-icons, normal);
+@include font-face('LNlogos', ln-logos, normal);
 strong {
     font-weight: 700;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^='icon-'],
+[class*=' icon-'] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'LNicons' !important;
     font-style: normal;
@@ -27,130 +27,129 @@ strong {
 }
 
 .icon-check:before {
-    content: "\e900";
+    content: '\e900';
 }
 
 .icon-unlock:before {
-    content: "\e901";
+    content: '\e901';
 }
 
 .icon-user:before {
-    content: "\e902";
+    content: '\e902';
 }
 
 .icon-android:before {
-    content: "\e903";
+    content: '\e903';
 }
 
 .icon-bullet:before {
-    content: "\e904";
+    content: '\e904';
 }
 
 .icon-clap:before {
-    content: "\e905";
+    content: '\e905';
 }
 
 .icon-close:before {
-    content: "\e906";
+    content: '\e906';
 }
 
 .icon-club:before {
-    content: "\e907";
+    content: '\e907';
 }
 
 .icon-comment:before {
-    content: "\e908";
+    content: '\e908';
 }
 
 .icon-down:before {
-    content: "\e909";
+    content: '\e909';
 }
 
 .icon-facebook:before {
-    content: "\e90a";
+    content: '\e90a';
 }
 
 .icon-home:before {
-    content: "\e90b";
+    content: '\e90b';
 }
 
 .icon-inbox:before {
-    content: "\e90c";
+    content: '\e90c';
 }
 
 .icon-instagram:before {
-    content: "\e90d";
+    content: '\e90d';
 }
 
 .icon-ios:before {
-    content: "\e90e";
+    content: '\e90e';
 }
 
 .icon-left:before {
-    content: "\e90f";
+    content: '\e90f';
 }
 
 .icon-lock:before {
-    content: "\e910";
+    content: '\e910';
 }
 
 .icon-mail:before {
-    content: "\e911";
+    content: '\e911';
 }
 
 .icon-menu:before {
-    content: "\e912";
+    content: '\e912';
 }
 
 .icon-portion:before {
-    content: "\e913";
+    content: '\e913';
 }
 
 .icon-right:before {
-    content: "\e914";
+    content: '\e914';
 }
 
 .icon-rss:before {
-    content: "\e915";
+    content: '\e915';
 }
 
 .icon-search:before {
-    content: "\e916";
+    content: '\e916';
 }
 
 .icon-setting:before {
-    content: "\e917";
+    content: '\e917';
 }
 
 .icon-star:before {
-    content: "\e918";
+    content: '\e918';
 }
 
 .icon-time:before {
-    content: "\e919";
+    content: '\e919';
 }
 
 .icon-twitter:before {
-    content: "\e91a";
+    content: '\e91a';
 }
 
 .icon-up:before {
-    content: "\e91b";
+    content: '\e91b';
 }
 
 .icon-whatsapp:before {
-    content: "\e91c";
+    content: '\e91c';
 }
 
 .icon-zoom:before {
-    content: "\e91d";
+    content: '\e91d';
 }
-
 
 /*LOGOS*/
 
-[class^="logo-"],
-[class*=" logo-"] {
+[class^='logo-'],
+[class*=' logo-'] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'LNlogos' !important;
     font-style: normal;
@@ -168,8 +167,8 @@ strong {
     -moz-osx-font-smoothing: grayscale;
 }
 
-[class^="logo-"]:not(.logo-la-nacion),
-[class*=" logo-"] {
+[class^='logo-']:not(.logo-la-nacion),
+[class*=' logo-'] {
     margin-top: $px-20;
     margin-bottom: $px-12;
 }
@@ -179,11 +178,11 @@ strong {
 }
 
 .logo-club:before {
-    content: "\e801";
+    content: '\e801';
 }
 
 .logo-club-lanacion:before {
-    content: "\e802";
+    content: '\e802';
 }
 
 .logo-hola:before {
@@ -191,7 +190,7 @@ strong {
 }
 
 .logo-hola-argentina:before {
-    content: "\e804";
+    content: '\e804';
 }
 
 .logo-jardin:before {
@@ -199,7 +198,7 @@ strong {
 }
 
 .logo-la-nacion:before {
-    content: "\e806";
+    content: '\e806';
 }
 
 .logo-living:before {
@@ -207,15 +206,15 @@ strong {
 }
 
 .logo-ln:before {
-    content: "\e808";
+    content: '\e808';
 }
 
 .logo-ln-mas:before {
-    content: "\e809";
+    content: '\e809';
 }
 
 .logo-ln-placeholder:before {
-    content: "\e80a";
+    content: '\e80a';
 }
 
 .logo-lugares:before {
@@ -223,7 +222,7 @@ strong {
 }
 
 .logo-negocios:before {
-    content: "\e80c";
+    content: '\e80c';
 }
 
 .logo-ohlala:before {
@@ -235,6 +234,6 @@ strong {
 }
 
 .logo-bbc:before {
-    content: "\e80f";
+    content: '\e80f';
     color: #bb1919;
 }

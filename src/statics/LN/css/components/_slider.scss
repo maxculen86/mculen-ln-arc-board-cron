@@ -22,7 +22,7 @@
 }
 
 .com-slider:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 1000%;
     left: -500%;
@@ -30,7 +30,7 @@
     top: 0;
     bottom: 0;
     z-index: -1;
-    background: #eae6e2
+    background: #eae6e2;
 }
 
 .com-slider .cont-figure {
@@ -53,8 +53,8 @@
     width: 100%;
 }
 
-section>.cont-figure>.figure:after {
-    content: "";
+section > .cont-figure > .figure:after {
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
@@ -66,11 +66,11 @@ section>.cont-figure>.figure:after {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 3em;
-    transition: 0.2s ease opacity
+    transition: 0.2s ease opacity;
 }
 
-section>.cont-figure>.figure:before {
-    content: "";
+section > .cont-figure > .figure:before {
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
@@ -80,10 +80,10 @@ section>.cont-figure>.figure:before {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    transition: 0.2s ease opacity
+    transition: 0.2s ease opacity;
 }
 
-.com-slider .cont-figure .figure .content-pic>* {
+.com-slider .cont-figure .figure .content-pic > * {
     max-width: 100%;
 }
 
@@ -103,7 +103,7 @@ section>.cont-figure>.figure:before {
     z-index: 2;
     color: $blanco;
     border-radius: 0 3px 3px 0;
-    transition: background 0.2s ease
+    transition: background 0.2s ease;
 }
 
 .previous:after {
@@ -112,12 +112,12 @@ section>.cont-figure>.figure:before {
     color: $blanco;
     opacity: 1;
     z-index: 25;
-    content: "<";
-    vertical-align: middle
+    content: '<';
+    vertical-align: middle;
 }
 
 .previous:hover {
-    background: rgba(0, 0, 0, 0.4)
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .next {
@@ -136,11 +136,11 @@ section>.cont-figure>.figure:before {
     z-index: 2;
     color: $blanco;
     border-radius: 0 3px 3px 0;
-    transition: background 0.2s ease
+    transition: background 0.2s ease;
 }
 
 .next:hover {
-    background: rgba(0, 0, 0, 0.4)
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .next:after {
@@ -149,8 +149,8 @@ section>.cont-figure>.figure:before {
     color: $blanco;
     opacity: 1;
     z-index: 25;
-    content: ">";
-    vertical-align: middle
+    content: '>';
+    vertical-align: middle;
 }
 
 .paginator {
