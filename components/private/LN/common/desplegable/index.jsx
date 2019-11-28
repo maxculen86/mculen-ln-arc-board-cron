@@ -1,12 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import pipe from '../../../common/utils/pipeUtil';
 import ListMenu from './listMenu';
 import withNavigationMenu from '../hocs/withNavigationMenu';
 import '../../../../../resources/dist/css/ln/components/dropdown.css';
 
-const handleScroll = (despegableRef, comDromdownRef) => {
-    despegableRef && despegableRef.current.scrollTop === 0
+const handleScroll = comDromdownRef => {
+    comDromdownRef && comDromdownRef.current.scrollTop === 0
         ? pipe(
               comDromdownRef.current.classList.add('scroll--pasive'),
               comDromdownRef.current.classList.remove('scroll--active')
@@ -102,12 +102,22 @@ const Desplegable = ({ toglleDesplegable, menuData }) => {
     const despegableRef = useRef();
     const comDromdownRef = useRef();
 
+    useEffect(() => {
+        window &&
+            window.addEventListener('resize', e => {
+                if (window.outerWidth >= 768) {
+                    comDromdownRef.current.classList.remove('scroll--pasive');
+                    comDromdownRef.current.classList.remove('scroll--active');
+                }
+            });
+    });
+
     return (
         <div
             className="wrap-dropdown"
             ref={despegableRef}
             onScroll={() => {
-                return handleScroll(despegableRef, comDromdownRef);
+                return handleScroll(comDromdownRef);
             }}
             role="button"
             tabIndex="0"

@@ -41,6 +41,7 @@ const ListMenu = ({ _id, el, extraClass, name, childs, url }) => {
     const classes = getClasses(el)(extraClass)(
         hasSubNavs ? ' has--children' : ''
     );
+    const [btnDisabled, setBtnDisabled] = useState(false);
 
     useEffect(() => {
         if (state.itemDisabled) {
@@ -49,6 +50,15 @@ const ListMenu = ({ _id, el, extraClass, name, childs, url }) => {
             elRef === state.elRef && setItemActive(toggleItem(itemActive));
         }
     }, [dispatch, extraClass, itemActive, state.elRef, state.itemDisabled]);
+
+    useEffect(() => {
+        window && setBtnDisabled(window.outerWidth >= 768);
+        window &&
+            window.addEventListener('resize', e => {
+                setItemActive(disableItem(extraClass));
+                setBtnDisabled(window.outerWidth >= 768);
+            });
+    }, [extraClass]);
 
     return el === 'ul' ? (
         <ul ref={elRef} className={classes}>
@@ -63,6 +73,7 @@ const ListMenu = ({ _id, el, extraClass, name, childs, url }) => {
             )}
             {hasSubNavs && extraClass && (
                 <button
+                    disabled={btnDisabled}
                     type="button"
                     className="button__item"
                     onClick={() => showMenu(dispatch)(elRef)}
