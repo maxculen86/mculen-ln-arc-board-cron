@@ -1,16 +1,8 @@
-const videoArticle = video => {
-    const { _id: id, streams } = video;
+import VideoCommon from '../common/video';
 
-    const orderedStreams = streams
-        .filter(v => v.stream_type === 'mp4')
-        .sort((a, b) => {
-            return a.width > b.width ? 1 : -1;
-        });
-    if (orderedStreams.length === 0) return null;
-    return {
-        id,
-        url: orderedStreams[0].url
-    };
+// TODO: agregar titulo, epigrafe, fuente, credito
+const videoArticle = video => {
+    return VideoCommon(video);
 };
 
 export default videoArticle;
