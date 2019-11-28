@@ -34,7 +34,7 @@
             margin: 0 0 1em 0;
         }
         &:before {
-            content: counter(item) "";
+            content: counter(item) '';
             counter-increment: item;
             width: $px-26;
             height: $px-36;

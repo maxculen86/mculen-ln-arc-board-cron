@@ -8,7 +8,7 @@
     font-weight: 500;
     line-height: $line-26;
     letter-spacing: -0.35px;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .com-title-section-l {
@@ -100,8 +100,8 @@ h1.com-title-nota {
     @media (min-width: 1024px) {
         margin-bottom: $px-40;
     }
-    [class^="com-title"],
-    [class*=" com-title"] {
+    [class^='com-title'],
+    [class*=' com-title'] {
         display: inline-block;
         margin-right: $px-10;
         vertical-align: middle;
@@ -191,6 +191,5 @@ h1.com-title-nota {
         line-height: $line-54;
     }
 }
-
 
 /* end titles section */

@@ -1,13 +1,18 @@
+import React from 'react';
 import VideoArticleComponent from './component';
 import withCorrectHref from '../../../common/hocs/withCorrectHref';
 
-const VideoArticle = props => {
+const VideoArticle = ({ description, imgSrc, href }) => {
     return (
-        <VideoArticleComponent
-            description={props.description}
-            imgSrc={props.imgSrc}
-            href={props.href}
-        />
+        description &&
+        imgSrc &&
+        href && (
+            <VideoArticleComponent
+                description={description}
+                imgSrc={imgSrc}
+                href={href}
+            />
+        )
     );
 };
 

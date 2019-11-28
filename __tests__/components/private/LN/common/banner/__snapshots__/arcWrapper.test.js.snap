@@ -2,7 +2,7 @@
 
 exports[`LaNacion - Common - Banner - ArcWrapper Test de snapShot 1`] = `
 <div
-  class="banner claseTest"
+  class="banner claseTest hlp-none"
   id="caja1_dsk"
 />
 `;

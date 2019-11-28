@@ -43,36 +43,36 @@ a {
 }
 
 .icon-android:before {
-    content: "b";
+    content: 'b';
 }
 
 .icon-facebook:before {
-    content: "k";
+    content: 'k';
 }
 
 .icon-instagram:before {
-    content: "l";
+    content: 'l';
 }
 
 .icon-ios:before {
-    content: "m";
+    content: 'm';
 }
 
 .icon-twitter:before {
-    content: "n";
+    content: 'n';
 }
 
 .icon-rss:before {
-    content: "q";
+    content: 'q';
 }
 
 .icon-play:before {
-    content: "r";
+    content: 'r';
     color: $blanco;
 }
 
-[class*=" icon-"]:before,
-[class^="icon-"]:before,
+[class*=' icon-']:before,
+[class^='icon-']:before,
 [data-icon]:before {
     font-family: ln10 !important;
     font-style: normal !important;

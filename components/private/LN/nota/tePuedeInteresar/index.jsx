@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ArticleList from './articleList';
+import WithNavigation from '../../common/hocs/WithNavigation';
 
 class index extends Component {
     constructor(props) {
@@ -107,8 +108,15 @@ class index extends Component {
 
     render = () => {
         const { articles } = this.state;
-        return <ArticleList articles={articles} />;
+        const { termicas } = this.props;
+        return (
+            <>
+                {termicas.liftigniter ? (
+                    <ArticleList articles={articles} />
+                ) : null}
+            </>
+        );
     };
 }
 
-export default index;
+export default WithNavigation(index);
