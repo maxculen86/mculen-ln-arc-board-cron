@@ -6,8 +6,6 @@ function withSlider(WrappedComponent, pageSize) {
     return class extends PureComponent {
         constructor(props) {
             super(props);
-            console.log('withSlider props /////', props);
-            console.log('withSlider pageSize /////', pageSize);
             const siteVars = getProperties(props.arcSite);
             this.sliderConfig = siteVars.sliderConfig;
             console.log(
@@ -21,10 +19,10 @@ function withSlider(WrappedComponent, pageSize) {
                     this.props.children.length > 1
                         ? this.props.children.length
                         : this.props.children[0].length,
-                hasNextPage:
-                    (this.props.children.length > 1
+                hasNextPage: this.props.children.length,
+                /* (this.props.children.length > 1
                         ? this.props.children.length
-                        : this.props.children[0].length) > pageSize,
+                        : this.props.children[0].length) > pageSize, */
                 hasPrevPage: false
             };
             this.DEFAULT_SLIDE_COUNT = 1; // pageSize - 1
@@ -56,7 +54,7 @@ function withSlider(WrappedComponent, pageSize) {
                     if (elem) {
                         if (elem.pageSize !== this.state.pageSize) {
                             this.setState({
-                                pageSize: elem.pageSize,
+                                // pageSize: elem.pageSize,
                                 hasNextPage:
                                     this.state.currentStartIndex +
                                         elem.pageSize <
@@ -117,8 +115,6 @@ function withSlider(WrappedComponent, pageSize) {
         };
 
         render() {
-            console.log('withSlider this.state /////', this.state);
-            console.log('withSlider this.props /////', this.props);
             return (
                 <WrappedComponent slider={this.slider} {...this.props}>
                     {this.props.children[0].slice(

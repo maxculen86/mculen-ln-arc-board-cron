@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import CarousellComponent from './component';
 import CarousellNextButton from './carousellNextButton';
 import CarousellPrevButton from './carousellPrevButton';
@@ -7,8 +7,6 @@ import Slider from '../hocs/withSlider';
 const DEFAULT_PAGESIZE = 1;
 
 const Carousell = props => {
-    console.log('Carousell children', props.children.length);
-    console.log('Carousell slider', props.slider);
     const { slider, children } = props;
     return (
         <CarousellComponent>
