@@ -1,4 +1,4 @@
-jest.mock('../../../../../../components/private/LN/api/acumulado/acuImage');
+jest.mock('../../../../../../components/private/LN/api/common/image');
 jest.mock('../../../../../../components/private/LN/api/acumulado/acuAuthor');
 
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';

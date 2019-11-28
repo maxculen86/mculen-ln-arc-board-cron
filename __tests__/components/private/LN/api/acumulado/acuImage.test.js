@@ -1,4 +1,4 @@
-import acuImage from '../../../../../../components/private/LN/api/acumulado/acuImage';
+import acuImage from '../../../../../../components/private/LN/api/common/image';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 
 describe('Json imagen en acumulado', () => {
