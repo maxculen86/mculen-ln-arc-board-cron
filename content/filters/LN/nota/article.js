@@ -41,7 +41,9 @@ const video = `
     }
     streams {
         height
+        width
         url
+        stream_type
     }
     promo_items {
         basic {
