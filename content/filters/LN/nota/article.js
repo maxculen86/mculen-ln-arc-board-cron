@@ -58,6 +58,18 @@ const video = `
     }
 `;
 
+const label = `
+    text
+`;
+
+const labels = `
+    label {
+        livefyre_entrada_id {
+            ${label}
+        }
+    }
+`;
+
 const customReceta = `
     subtype
     embed {
@@ -122,5 +134,8 @@ export default `
     }
     display_date,
     created_date,
-    first_publish_date
+    first_publish_date,
+    publish_date,
+    website_url,
+    ${labels}
 }`;
