@@ -3,9 +3,21 @@ import PropTypes from 'fusion:prop-types';
 import ListMenu from './listMenu';
 import MenuContext from './store/menuContext';
 
-const ListMenuComponent = ({ el, extraClass, name, childs }) => (
+const ListMenuComponent = ({
+    el,
+    extraClass,
+    name,
+    childs,
+    onResizeDeskTop
+}) => (
     <MenuContext>
-        <ListMenu el={el} extraClass={extraClass} name={name} childs={childs} />
+        <ListMenu
+            el={el}
+            extraClass={extraClass}
+            name={name}
+            childs={childs}
+            onResizeDeskTop={onResizeDeskTop}
+        />
     </MenuContext>
 );
 
@@ -16,7 +28,8 @@ ListMenuComponent.propTypes = {
     childs: PropTypes.shape({
         el: PropTypes.string.isRequired,
         extraClass: PropTypes.string
-    })
+    }),
+    onResizeDeskTop: PropTypes.bool.isRequired
 };
 
 ListMenuComponent.defaultProps = {

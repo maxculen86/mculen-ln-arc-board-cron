@@ -17,7 +17,7 @@ const showMenu = dispatch => elRef => {
     dispatch({ type: 'OFF_MENUS', elRef });
 };
 
-const getChilds = childs =>
+const getChilds = (childs, onResizeDeskTop) =>
     childs &&
     childs.map(({ _id, el, extraClass, name, childs: _childs, url }) => {
         return (
@@ -28,11 +28,20 @@ const getChilds = childs =>
                 name={name}
                 childs={_childs}
                 url={url}
+                onResizeDeskTop={onResizeDeskTop}
             />
         );
     });
 
-const ListMenu = ({ _id, el, extraClass, name, childs, url }) => {
+const ListMenu = ({
+    _id,
+    el,
+    extraClass,
+    name,
+    childs,
+    url,
+    onResizeDeskTop
+}) => {
     const { state, dispatch } = useContext(MenuStore);
     const ts = new Date().getTime();
     const elRef = useRef();
@@ -52,17 +61,13 @@ const ListMenu = ({ _id, el, extraClass, name, childs, url }) => {
     }, [dispatch, extraClass, itemActive, state.elRef, state.itemDisabled]);
 
     useEffect(() => {
-        window && setBtnDisabled(window.outerWidth >= 768);
-        window &&
-            window.addEventListener('resize', e => {
-                setItemActive(disableItem(extraClass));
-                setBtnDisabled(window.outerWidth >= 768);
-            });
-    }, [extraClass]);
+        !!onResizeDeskTop && setItemActive(disableItem(extraClass));
+        setBtnDisabled(onResizeDeskTop);
+    }, [extraClass, onResizeDeskTop]);
 
     return el === 'ul' ? (
         <ul ref={elRef} className={classes}>
-            {getChilds(childs)}
+            {getChilds(childs, onResizeDeskTop)}
         </ul>
     ) : (
         <li key={_id || ts} ref={elRef} className={`${classes}${itemActive}`}>
@@ -81,7 +86,7 @@ const ListMenu = ({ _id, el, extraClass, name, childs, url }) => {
                     <i className="icon-down" />
                 </button>
             )}
-            {getChilds(childs)}
+            {getChilds(childs, onResizeDeskTop)}
         </li>
     );
 };
@@ -95,7 +100,8 @@ ListMenu.propTypes = {
         el: PropTypes.string.isRequired,
         extraClass: PropTypes.string
     }),
-    url: PropTypes.string
+    url: PropTypes.string,
+    onResizeDeskTop: PropTypes.bool.isRequired
 };
 
 ListMenu.defaultProps = {

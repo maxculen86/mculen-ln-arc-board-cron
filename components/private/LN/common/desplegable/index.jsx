@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import pipe from '../../../common/utils/pipeUtil';
 import ListMenu from './listMenu';
@@ -99,13 +99,18 @@ const _menuData = [
 ];
 
 const Desplegable = ({ toglleDesplegable, menuData }) => {
+    const [onResizeDeskTop, setOnResizeDesktop] = useState(
+        window && window.outerWidth >= 768
+    );
     const despegableRef = useRef();
     const comDromdownRef = useRef();
 
     useEffect(() => {
         window &&
             window.addEventListener('resize', e => {
-                if (window.outerWidth >= 768) {
+                const _onResizeDesktop = window.outerWidth >= 768;
+                setOnResizeDesktop(_onResizeDesktop);
+                if (_onResizeDesktop) {
                     comDromdownRef.current.classList.remove('scroll--pasive');
                     comDromdownRef.current.classList.remove('scroll--active');
                 }
@@ -164,6 +169,7 @@ const Desplegable = ({ toglleDesplegable, menuData }) => {
                                     extraClass={extraClass}
                                     name={name}
                                     childs={childs}
+                                    onResizeDeskTop={onResizeDeskTop}
                                 />
                             ))}
                     </nav>
