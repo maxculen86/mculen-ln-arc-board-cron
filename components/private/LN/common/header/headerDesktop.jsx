@@ -43,7 +43,13 @@ const enlaces = [
     }
 ];
 
-const HeaderDesktop = ({ logueado, loginData, goToLogout, host }) => {
+const HeaderDesktop = ({
+    logueado,
+    loginData,
+    goToLogout,
+    host,
+    toglleDesplegable
+}) => {
     const { loading } = loginData;
     const { goToLoginUrl } = loginData;
     const [active, setActive] = useState('');
@@ -61,7 +67,7 @@ const HeaderDesktop = ({ logueado, loginData, goToLogout, host }) => {
     return (
         <Header id="header" className="header">
             <div className="col-4 header__left">
-                <Hamburguer />
+                <Hamburguer _onMouseDown={toglleDesplegable} />
             </div>
             <div className="col-4 header__middle">
                 <a href={host || '/'} className="header__middle__logo">
@@ -148,7 +154,8 @@ HeaderDesktop.propTypes = {
         loading: PropTypes.bool
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
-    host: PropTypes.string.isRequired
+    host: PropTypes.string.isRequired,
+    toglleDesplegable: PropTypes.func.isRequired
 };
 
 export default HeaderDesktop;
