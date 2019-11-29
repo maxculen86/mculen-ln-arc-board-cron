@@ -25,7 +25,6 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags, customFields }) => {
                 globalContent._id &&
                 globalContent._id.split('/').splice(1).length === 1
         );
-        // TODO: Cambiar < a > cuando se active Navigation Arc2
         if (_children && _children.length > 0) setWithCategory('with-category');
 
         setTitle(
@@ -65,12 +64,10 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags, customFields }) => {
                             `${prefixTitle} `}
                         {title}
                     </h1>
-                    <button className="arrow left-paddle"><i className="icon-left"></i></button>
                     <ListSectionsTitle
                         _children={_children}
                         isPrimarySection={isPrimarySection}
                     />
-                    <button className="arrow right-paddle"><i className="icon-right"></i></button>
                 </div>
                 <TagsNavigation
                     _children={_children}

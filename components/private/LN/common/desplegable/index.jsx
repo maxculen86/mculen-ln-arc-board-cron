@@ -128,6 +128,7 @@ const Desplegable = ({ toglleDesplegable, menuData }) => {
             tabIndex="0"
         >
             <div
+                aria-label="overrlay"
                 className="overlay"
                 role="button"
                 tabIndex="0"

@@ -96,14 +96,13 @@
         margin: 0 $px-10;
         &.left-paddle {
             margin-left: 0;
-            display:none;
         }
         i {
             font-size: $px-20;
             color: $ln;
         }
         &:after {
-            content: "";
+            content: '';
             transform: rotate(-45deg);
             width: $px-6;
             height: $px-6;
@@ -114,7 +113,7 @@
             left: $px-5;
         }
         &:before {
-            content: "MÁS CATEGORÍAS";
+            content: 'MÁS CATEGORÍAS';
             font-size: $px-9;
             font-weight: 700;
             width: $px-100;
@@ -126,7 +125,8 @@
             left: -45px;
             display: none;
         }
-        &:hover:before, &:hover:after {
+        &:hover:before,
+        &:hover:after {
             display: block;
         }
     }
