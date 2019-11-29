@@ -7,8 +7,9 @@ const gallery = props => {
         element => element.type === 'gallery'
     );
     const currentItem = galleryItems.map(gallery => {
+        let totalGallery = gallery.content_elements.length;
         return gallery.content_elements.map(photo => {
-            return <Item {...photo} />;
+            return <Item {...photo} totalGallery={totalGallery} />;
         });
     });
     return <Carousell>{currentItem}</Carousell>;

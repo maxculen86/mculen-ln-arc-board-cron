@@ -18,6 +18,12 @@
     }
 }
 
+.com-slider {
+    .text:first-of-type {
+        margin-top: 0;
+    }
+}
+
 //Valores de tablet para arriba
 @media (min-width: 768px) {
     .sidebar__main {

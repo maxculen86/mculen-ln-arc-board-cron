@@ -116,7 +116,11 @@ function withSlider(WrappedComponent, pageSize) {
 
         render() {
             return (
-                <WrappedComponent slider={this.slider} {...this.props}>
+                <WrappedComponent
+                    slider={this.slider}
+                    {...this.props}
+                    totalCount={this.state.totalCount}
+                >
                     {this.props.children[0].slice(
                         this.state.currentStartIndex,
                         this.state.currentStartIndex + this.state.pageSize
