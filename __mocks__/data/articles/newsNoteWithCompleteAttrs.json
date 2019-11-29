@@ -6,6 +6,31 @@
         "canonical_url": "/deportes/mi-paso-por-el-yoga-del-infierno-nid/",
         "content_elements": [
             {
+                "_id": "IWSLQC2RIFB4FBWN477LWYLEPY",
+                "type": "custom_embed",
+                "subtype": "custom-preparacion",
+                "additional_properties": {
+                    "_id": "T2IZYETBAZCU7OTU2WRZPCFVIA",
+                    "comments": []
+                },
+                "embed": {
+                    "id": "c991b4c4dea2f",
+                    "url": "https://www.lanacion.com.ar/",
+                    "config": {
+                        "titleList": "Para la salsa",
+                        "typeList": "preparacion",
+                        "items": [
+                            "Mezclar en un bowl la crema de leche con la lecha y la mostaza. Salpimentar y reservar.",
+                            "Limpiar la coliflor y separar las cabecitas (o flores).",
+                            "Agregar la coliflor a la mezcla de crema de leche   leche   mostaza. Mezclar bien.",
+                            "Verter la coliflor en una fuente apta para horno.",
+                            "Pasar los solomillos por la misma mezcla y disponerlos sobre la coliflor.",
+                            "Poner las hojas de romero sobre los solomillos y cocinar a horno a 180° durante unos 40min (o hasta que la carne este al punto de cocción deseado)"
+                        ]
+                    }
+                }
+            },
+            {
                 "_id": "M7SBSIZYZJAULJW6EDPQGXUJZY",
                 "content": "Qué calor. Y eso que es grande el salón. Qué espejo enorme, ojalá tuviera uno así en casa. A esa la conozco. ¿Es Paloma, la bailarina del Colón? Sí, es ella. Cómo se abre de piernas. Qué impresión. Somos varios. Creí que un viernes al mediodía iba a estar vacío. Soy la única que tiene la remera puesta. ¿Qué hago? Me la saco, tengo un top deportivo y me lo puse para eso. Sol me avisó que iba a transpirar así que mejor menos ropa. Esta mujer que entra debe ser la profesora. Qué calor. Así deben sentirse los pollos en el horno. Los hombres en short de lycra me dan un poco de risa. Me pesa el aire, ¿estoy respirando bien? La alfombra me da un poco de asco. ¿Cuánta gente la habrá pisoteado? ¿Tendrán los pies limpios? Huele a sudor viejo. Qué calor. Soy insoportable. Silencio. Ahí habla la profesora, basta Dolores. <i>Namaste</i>, qué bueno que vinieron, a conectarse con el cuerpo, a disfrutar... Basta de pensar. Cómo se sienten los 42 grados. ¿Con qué calefaccionarán? Sí, es mi primera vez en Bikram (el yoga de 90 minutos que se practica en una habitación caliente y con una humedad de 40 por ciento). Sí, mi toalla está estirada en el suelo. Sí, arriba del mat. Me paro en el medio, ok. Voy lento. Sí, si necesito parar, paro y me arrodillo. Perfecto.",
                 "type": "text"
@@ -20,6 +45,32 @@
                 "content": "La verdad",
                 "level": 1,
                 "type": "header"
+            },
+            {
+                "_id": "NLUQF2SUXRE3LN25BKDCKWUH6E",
+                "type": "custom_embed",
+                "subtype": "custom-ingrediente",
+                "additional_properties": {
+                    "_id": "UB2R25L4UFHI5NARLMQHQBDTKU",
+                    "comments": []
+                },
+                "embed": {
+                    "id": "2415bdcc3d815",
+                    "url": "https://www.lanacion.com.ar/",
+                    "config": {
+                        "titleList": "Para la salsa",
+                        "typeList": "ingredientes",
+                        "items": [
+                            "2 solomillos de cerdo (800gr)",
+                            "1 coliflor grande",
+                            "140ml de crema de leche",
+                            "60ml de leche",
+                            "4 cucharadas de mostaza en grano",
+                            "Romero",
+                            "Sal & pimienta"
+                        ]
+                    }
+                }
             },
             {
                 "_id": "LZY7O4G6RBFRRG5HZADQB5VDMY",
