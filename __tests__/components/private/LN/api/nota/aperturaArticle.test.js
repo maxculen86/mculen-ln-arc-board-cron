@@ -1,4 +1,3 @@
-import Image from '../../../../../../components/private/LN/api/nota/imageArticle';
 jest.mock(
     '../../../../../../components/private/LN/api/nota/imageArticle',
     () => {
@@ -12,6 +11,15 @@ jest.mock(
     () => {
         return () => {
             return 'video-mock';
+        };
+    }
+);
+
+jest.mock(
+    '../../../../../../components/private/LN/api/nota/aperturaReceta',
+    () => {
+        return () => {
+            return 'receta-mock';
         };
     }
 );
@@ -31,5 +39,10 @@ describe('Test de JSON de apertura en article', () => {
         article.globalContent.promo_items.basic.type = 'video';
         const resp = Apertura(article.globalContent);
         expect(resp.video).toBe('video-mock');
+    });
+
+    it('Rende detalle de receta', () => {
+        const resp = Apertura(article.globalContent);
+        expect(resp.receta).toBe('receta-mock');
     });
 });

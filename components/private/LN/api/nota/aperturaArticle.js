@@ -1,11 +1,12 @@
 import Image from './imageArticle';
 import Video from './videoArticle';
+import AperturaReceta from './aperturaReceta';
 
 const apertura = article => {
     const {
         headlines: { basic: titulo, mobile: tituloMobile },
         subheadlines: { basic: bajada },
-        promo_items: { basic: promoItem }
+        promo_items: { basic: promoItem, receta: recetaPromoItem }
     } = article;
 
     const resp = {
@@ -24,6 +25,14 @@ const apertura = article => {
             default:
                 break;
         }
+    }
+
+    if (
+        article.subtype === '7' &&
+        recetaPromoItem &&
+        recetaPromoItem.subtype === 'custom-detalle-receta'
+    ) {
+        resp.receta = AperturaReceta(recetaPromoItem);
     }
 
     return resp;
