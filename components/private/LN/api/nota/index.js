@@ -1,6 +1,7 @@
 import get from 'lodash.get';
 import Section from './sectionArticle';
 import Apertura from './aperturaArticle';
+import Cuerpo from './cuerpo';
 
 const indexNota = dataNota => {
     const {
@@ -22,7 +23,8 @@ const indexNota = dataNota => {
         publishDate,
         firstPublishDate,
         primarySection: primarySection ? Section(primarySection) : undefined,
-        apertura: Apertura(dataNota)
+        apertura: Apertura(dataNota),
+        content: Cuerpo(dataNota)
     };
 };
 
