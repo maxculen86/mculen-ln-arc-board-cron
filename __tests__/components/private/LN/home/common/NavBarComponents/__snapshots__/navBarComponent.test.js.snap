@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`private - LN - common - Navbar - listMenu Test de snapshot NavBar 1`] = `
-Array [
-  <desplegable-mock />,
-  <nav
-    class="com-nav-mobile"
+<nav
+  class="com-nav-mobile"
+>
+  <div
+    class="row"
   >
-    <div
-      class="row"
+    <a
+      class="col-2 item-foo"
+      href="https://www.lanacion.com.ar/"
     >
       <i
         class="icon-home"
@@ -28,7 +30,7 @@ Array [
       </p>
     </a>
     <a
-      class="col-4 item-foo"
+      class="col-3 item-foo"
       href="https://micuenta.lanacion.com.ar/mis-datos/"
     >
       <i

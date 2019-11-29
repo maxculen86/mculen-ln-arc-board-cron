@@ -27,7 +27,7 @@ const ListSectionsTitle = ({ _children, isPrimarySection }) => {
     const moveScroll = direction => {
         const cEl = categoryEl.current;
         const left =
-            direction === 'right' ? cEl.scrollLeft + 100 : cEl.scrollLeft - 100;
+            direction === 'right' ? cEl.scrollLeft + 150 : cEl.scrollLeft - 150;
 
         cEl.scrollTo({ left, behavior: 'smooth' });
         setShowBtnScrollLeft(left > 0 ? '' : ' hlp-none');
