@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import Author from './authorArticle';
@@ -6,9 +6,17 @@ import Date from '../../common/dateHeader';
 
 const authorAndDate = props => {
     const {
-        globalContent: { display_date }
+        globalContent: { display_date, credits }
     } = props;
 
+    const [visible, setVisible] = useState(false);
+
+    if (!visible && 'by' in credits) {
+        const by = credits.by.filter(author => author.type === 'author');
+        if (by.length > 0) setVisible(true);
+    }
+
+    if (!visible) return <></>;
     return (
         <div className="col-12">
             <div className="row mod-authordate">
@@ -27,7 +35,20 @@ const authorAndDate = props => {
 
 authorAndDate.propTypes = {
     globalContent: PropTypes.shape({
-        display_date: PropTypes.string
+        display_date: PropTypes.string,
+        credits: PropTypes.shape({
+            by: PropTypes.shape({
+                authors: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        _id: PropTypes.string,
+                        name: PropTypes.string,
+                        type: PropTypes.string,
+                        slug: PropTypes.string,
+                        url: PropTypes.string
+                    })
+                )
+            })
+        })
     }).isRequired
 };
 

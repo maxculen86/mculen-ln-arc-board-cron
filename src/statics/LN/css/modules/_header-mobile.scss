@@ -17,7 +17,7 @@
         }
     }
     a {
-        color: #0074c4;
+        color: $link;
         font-family: arial;
         text-transform: uppercase;
         font-size: $font-12;
@@ -33,9 +33,9 @@
         background: rgba(0, 0, 0, 0.5);
         border: none;
         a {
-            color: #fff;
+            color: $blanco;
             .logo-la-nacion {
-                color: #fff;
+                color: $blanco;
             }
         }
     }

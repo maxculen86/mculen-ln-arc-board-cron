@@ -12,6 +12,17 @@ const CLASS_SCROLL_DOWN = '--scrollDown';
 const CLASS_ACTIVE = '--active';
 let lastScrollPosition = 0;
 class Index extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            scrollDirection: {
+                isScrollDown: false,
+                isScrollUp: false
+            }
+        };
+    }
+
     componentDidMount() {
         const { screenUtils } = this.props;
         const { device } = screenUtils;
@@ -22,19 +33,25 @@ class Index extends Component {
         const wrapper = document.getElementById('wrapper');
         if (header) {
             const headerHeigth = header.clientHeight || header.offsetHeight;
-            window.addEventListener('scroll', () =>
-                this.onScrollHandler(
+            window.addEventListener('scroll', () => {
+                const { isScrollDown, isScrollUp } = this.onScrollHandler(
                     header,
                     headerHeigth,
                     vshare,
                     userMenu,
                     wrapper
-                )
-            );
+                );
+                this.setState({
+                    scrollDirection: { isScrollDown, isScrollUp }
+                });
+            });
         }
     }
 
+    // TODO: Hacer refactor del siguiente metodo
     onScrollHandler = (header, height, vshare, userMenu, wrapper) => {
+        let isScrollDown = false;
+        let isScrollUp = false;
         const scrollPos = window.scrollY;
         const { classList } = header;
 
@@ -44,6 +61,7 @@ class Index extends Component {
                 classList.add(CLASS_SCROLL_DOWN);
             }
             if (scrollPos < lastScrollPosition) {
+                isScrollUp = true;
                 // SCROLL UP
                 classList.remove(CLASS_SCROLL_DOWN);
                 classList.add(CLASS_SCROLL_UP);
@@ -53,6 +71,7 @@ class Index extends Component {
                 wrapper.classList.remove(CLASS_SCROLL_DOWN);
                 wrapper.classList.add(CLASS_SCROLL_UP);
             } else {
+                isScrollDown = true;
                 // SCROLL DOWN
                 classList.remove(CLASS_SCROLL_UP);
                 if (vshare) {
@@ -67,6 +86,8 @@ class Index extends Component {
             wrapper.classList.remove(CLASS_SCROLL_UP);
         }
         lastScrollPosition = scrollPos;
+
+        return { isScrollDown, isScrollUp };
     };
 
     render() {
@@ -77,13 +98,16 @@ class Index extends Component {
             goToLogout,
             siteProperties: { host }
         } = this.props;
+        const { scrollDirection } = this.state;
         const isMobile = screenUtils.device !== 'desktop';
+
         return (
             <>
                 {!isMobile && (
                     <HeaderDesktop
                         logueado={logueado}
                         loginData={loginData}
+                        showNav
                         goToLogout={goToLogout}
                         host={host}
                     />
@@ -91,7 +115,13 @@ class Index extends Component {
                 {isMobile && (
                     <>
                         <HeaderMobile loginData={loginData} host={host} />
-                        <NavBarMobile />
+                        <NavBarMobile
+                            showNav={
+                                scrollDirection.isScrollDown
+                                    ? ` ${CLASS_SCROLL_DOWN}`
+                                    : ''
+                            }
+                        />
                     </>
                 )}
             </>

@@ -16,7 +16,7 @@
             max-height: 100%;
             max-width: 100%;
             position: relative;
-            >* {
+            > * {
                 z-index: 1;
             }
             .content-multimedia {
@@ -45,7 +45,7 @@
             }
             &:before {
                 font-family: 'LNlogos' !important;
-                content: "\e80a";
+                content: '\e80a';
                 color: #d9d9d9;
                 font-size: 4.22em;
                 font-family: ln10;
@@ -67,7 +67,7 @@
                     font-family: 'LNicons' !important;
                     color: $blanco;
                     font-size: $font-25;
-                    content: "\e91d";
+                    content: '\e91d';
                     position: absolute;
                     width: $px-58;
                     height: $px-42;
@@ -81,7 +81,7 @@
                     align-items: center;
                 }
             }
-            >* {
+            > * {
                 z-index: 1;
             }
             .content-img {
@@ -91,9 +91,10 @@
                 width: 100%;
                 height: 100%;
                 filter: brightness(100%);
-                transition: all .2s ease-in-out;
+                transition: all 0.2s ease-in-out;
+                object-fit: cover;
                 &:hover {
-                    transition: all .2s ease-in-out;
+                    transition: all 0.2s ease-in-out;
                     filter: brightness(110%);
                 }
             }
@@ -110,10 +111,13 @@
 // }
 .externo {
     text-align: center;
-    margin: auto;
+    margin: 0 auto $px-50;
+
     iframe {
         max-width: 100%;
-        margin-bottom: $px-50;
+    }
+    twitter-widget {
+        margin: auto;
     }
 }
 
@@ -131,7 +135,7 @@
 
 .cont-figure-wiki {
     border-radius: 50%;
-    background: #fff;
+    background: $blanco;
     .figure {
         display: flex;
         width: 100%;
@@ -156,10 +160,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #fff;
+            background: $blanco;
             &:before {
                 font-family: 'LNlogos' !important;
-                content: "\e80a";
+                content: '\e80a';
                 color: #d9d9d9;
                 font-size: 43px;
                 @media (min-width: 768px) {

@@ -15,7 +15,7 @@ const articleItem = article => {
     const resp = {
         id,
         subtype,
-        titulo: tituloMobile || titulo
+        title: tituloMobile || titulo
     };
 
     if (image && image.type === 'image') {
@@ -23,7 +23,7 @@ const articleItem = article => {
     }
 
     if (authors && authors.length > 0) {
-        resp.autors = authors.map(v => Author(v));
+        resp.authors = authors.map(v => Author(v));
     }
 
     return resp;

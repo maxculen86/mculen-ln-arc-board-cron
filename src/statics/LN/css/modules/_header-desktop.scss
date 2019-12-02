@@ -1,41 +1,40 @@
 @import '../abstracts/variables';
-
 //=====================
 // HEADER Desktop CORE
 //=====================
 .header {
     display: none;
     position: relative;
-    @media ($media-l){
+    @media ($media-l) {
         display: block;
         border-bottom: 1px solid $gris2;
         padding-top: $px-13;
         padding-bottom: $px-13;
-        background: #fff;
+        background: $blanco;
         width: 100%;
         z-index: 10000;
         transition: all 0.25s;
         height: $px-65;
-        &__left{
+        &__left {
             display: grid;
             grid-template-columns: $px-100 1fr;
             align-items: center;
         }
-        &__middle{
+        &__middle {
             text-align: center;
-            .logo-la-nacion{
-                color:$ln;
+            .logo-la-nacion {
+                color: $ln;
                 font-size: $font-30;
             }
         }
-        &__right{
+        &__right {
             margin-left: auto;
             text-align: right;
         }
-        .header__middle{
+        .header__middle {
             display: flex;
             justify-content: center;
-            align-items: center
+            align-items: center;
         }
         //=================================
         // ------ESTADOS DEL HEADER------
@@ -45,112 +44,106 @@
             transform: translateY(-100%);
             //position: fixed;
         }
-
         //scrollDown
         &.--scrollUp {
             transform: translateY(0);
-            top:0;
+            top: 0;
             position: fixed;
         }
-
         //active del search-----
-        &.--active-search{
-            .header__left{
+        &.--active-search {
+            .header__left {
                 flex-basis: 60%;
                 max-width: 60%;
-                .com-search{
-                    &__submit{
+                .com-search {
+                    &__submit {
                         display: inline-block;
                     }
-                    &__input{
+                    &__input {
                         width: 75%;
                     }
-                    .icon-search{
+                    .icon-search {
                         display: none;
                     }
                 }
             }
-            .header__middle{
+            .header__middle {
                 display: none;
             }
         }
-
         //active menu-------
-        &.--active-menu{
+        &.--active-menu {
             .com-hamburger {
                 &__bar {
                     &:nth-child(1) {
-                    transform: translateY(0) rotate(-45deg);
+                        transform: translateY(0) rotate(-45deg);
                     }
-
                     &:nth-child(2) {
-                    opacity: 0;
+                        opacity: 0;
                     }
-
                     &:nth-child(3) {
-                    transform: translateY(0) rotate(45deg);
+                        transform: translateY(0) rotate(45deg);
                     }
                 }
-                &:before{
-                    content:"CERRAR";
+                &:before {
+                    content: 'CERRAR';
                 }
             }
         }
-
         //active modo DARK-------
-        &.--dark, .acu-revista &, .--hlp-transparent & {
+        &.--dark,
+        .acu-revista &,
+        .--hlp-transparent & {
             &:not(.--scrollUp) {
                 background: rgba(0, 0, 0, 0.5);
                 border: none;
-                .header__left{      
-                    .com-hamburger{
-                        &__bar{
-                            background-color: #fff;
+                .header__left {
+                    .com-hamburger {
+                        &__bar {
+                            background-color: $blanco;
                         }
-                        &:before{
-                            color:#fff;
+                        &:before {
+                            color: $blanco;
                         }
                     }
-                    .com-search{
-                        &__input{
-                            color:#fff;
-                            &::placeholder { 
-                                color: $gris3; 
+                    .com-search {
+                        &__input {
+                            color: $blanco;
+                            &::placeholder {
+                                color: $gris3;
                             }
                         }
-                        &__submit{
-                            background: #fff;
-                            color:$link;
+                        &__submit {
+                            background: $blanco;
+                            color: $link;
                         }
-                        .icon-search{
-                            color:#fff;
+                        .icon-search {
+                            color: $blanco;
                         }
                     }
                 }
-                    
-            
-                .header__middle{
-                    .logo-la-nacion{
-                        color:#fff;
+                .header__middle {
+                    .logo-la-nacion {
+                        color: $blanco;
                     }
                 }
-                .header__right{
-                    .com-usuario{
-                        &__name{
-                            color:#fff;
-                            &:before{
-                                border-top: 2px solid #fff;
-                                border-left: 2px solid #fff;
+                .header__right {
+                    .com-usuario {
+                        &__name {
+                            color: $blanco;
+                            &:before {
+                                border-top: 2px solid $blanco;
+                                border-left: 2px solid $blanco;
                             }
                         }
-                        &__valueSuscrib{
-                            color:$gris3;
+                        &__valueSuscrib {
+                            color: $gris3;
                         }
                     }
-                    .--btn.--secondary{
+                    .--btn.--secondary {
                         background-color: transparent;
-                        border: 1px solid #fff;
-                        color: #fff;
+                        border: 1px solid $blanco;
+                        color: $blanco;
                     }
                 }
             }

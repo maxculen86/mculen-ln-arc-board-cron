@@ -19,7 +19,7 @@ footer {
                 padding-bottom: 0;
             }
             .logo-la-nacion {
-                font-size: 22px;
+                font-size: $font-22;
                 color: $ln;
             }
             a {
@@ -52,7 +52,7 @@ footer {
             justify-content: center;
             align-items: center;
             a {
-                height: 35px;
+                height: $px-35;
             }
             @media ($media-l) {
                 order: 3;
@@ -127,12 +127,12 @@ footer {
                 align-items: center;
                 vertical-align: top;
                 text-align: left;
-                margin: -20px 0 20px 0;
+                margin: -$px-20 0 $px-20 0;
                 .img_gda {
-                    margin: 0 15px 0 -5px;
+                    margin: 0 $px-20 0 -$px-5;
                 }
                 a {
-                    margin-left: 15px;
+                    margin-left: $px-20;
                     .img_data-fiscal {
                         width: $px-35;
                     }
@@ -143,11 +143,11 @@ footer {
                 p {
                     text-align: right;
                     width: 100%;
-                    margin: -6px 0 0 0;
+                    margin: -$px-6 0 0 0;
                     display: block;
                     a {
                         float: right;
-                        margin-top: 8px;
+                        margin-top: $px-8;
                     }
                 }
             }

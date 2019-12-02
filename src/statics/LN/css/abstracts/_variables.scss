@@ -1,7 +1,7 @@
 /* COLUMNAS*/
 
 $cant-col: 12; //Cantidad de columnas
-$col-width: 100/$cant-col; //Ancho de columnas
+$col-width: 100 / $cant-col; //Ancho de columnas
 
 /* COLORES */
 
@@ -37,13 +37,9 @@ $placeholder: #f2f2f2;
 
 /* end Colores */
 
-$font-georgia: 'Georgia',
-'serif';
-$font-SuecaSlab: 'SuecaSlab',
-'Georgia',
-'serif';
-$font-arial: 'Arial',
-'sans-serif';
+$font-georgia: 'Georgia', 'serif';
+$font-SuecaSlab: 'SuecaSlab', 'Georgia', 'serif';
+$font-arial: 'Arial', 'sans-serif';
 //pixel
 $em: 0.0625em; //1px
 $rem: 0.0625rem; //1px
@@ -354,13 +350,13 @@ $line-100: $rem * 107;
 //=======================================
 // Media Querys
 //=======================================
-$media-xs: "min-width : 20em"; // 320px
-$media-s: "min-width : 22em"; // 360px
-$media-m: "min-width: 48em"; // 768px
-$media-l: "min-width: 64em"; // 1024px
-$media-lm: "min-width: 68.75em"; // 1100px
-$media-lg: "min-width: 80em"; // 1280px
-$media-xl: "min-width: 83.75em"; // 1340px
+$media-xs: 'min-width : 20em'; // 320px
+$media-s: 'min-width : 22em'; // 360px
+$media-m: 'min-width: 48em'; // 768px
+$media-l: 'min-width: 64em'; // 1024px
+$media-lm: 'min-width: 68.75em'; // 1100px
+$media-lg: 'min-width: 80em'; // 1280px
+$media-xl: 'min-width: 83.75em'; // 1340px
 //=======================================
 // Calles entre columnas
 //=======================================
@@ -370,18 +366,17 @@ $gap-xs: 0 $px-10;
 //=======================================
 // Aspect ratio
 //=======================================
-$picture: calc((2 / 3)* 100%);
-$square: calc((3 / 4)* 100%);
-$video: calc((9 / 16)* 100%);
-$cinema: calc((9 / 21)* 100%);
-$vertical-square: calc((13 / 12.19)* 100%);
-$vertical-video: calc((13 / 8.19)* 100%);
+$picture: calc((2 / 3) * 100%);
+$square: calc((3 / 4) * 100%);
+$video: calc((9 / 16) * 100%);
+$cinema: calc((9 / 21) * 100%);
+$vertical-square: calc((13 / 12.19) * 100%);
+$vertical-video: calc((13 / 8.19) * 100%);
 
-
-$logo-ohlala:'\e80d';
-$logo-brando:'\e800';
-$logo-lugares:'\e80b'; /*falta*/
-$logo-living:'\e807';
-$logo-hola:'\e803';
-$logo-jardin:'\e805';
-$logo-rolling:'\e80e';
+$logo-ohlala: '\e80d';
+$logo-brando: '\e800';
+$logo-lugares: '\e80b'; /*falta*/
+$logo-living: '\e807';
+$logo-hola: '\e803';
+$logo-jardin: '\e805';
+$logo-rolling: '\e80e';

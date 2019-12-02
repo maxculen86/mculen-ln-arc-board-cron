@@ -6,12 +6,12 @@
     padding: $px-11 $px-24;
     text-transform: uppercase;
     border-radius: 3px;
-    transition: opacity .2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
     &:focus {
         outline: 0;
     }
     &.--small {
-        padding: 8px 12px;
+        padding: $px-8 $px-12;
     }
     &.--primary {
         background-color: $link;
@@ -45,15 +45,15 @@
     }
     &:hover {
         opacity: 0.8;
-        transition: opacity .2s ease-in-out;
-        cursor: pointer
+        transition: opacity 0.2s ease-in-out;
+        cursor: pointer;
     }
 }
 
 button:hover {
     opacity: 0.8;
-    transition: opacity .2s ease-in-out;
-    cursor: pointer
+    transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 @media ($media-m) {

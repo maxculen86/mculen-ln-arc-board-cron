@@ -6,6 +6,13 @@ import { baseConfig } from './config';
 class ArcWrapper extends Component {
     static arcAdsInstance = undefined;
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            empty: true
+        };
+    }
+
     componentDidMount() {
         const arcAdsInstance = this.getArcAdsInstance();
         const {
@@ -42,13 +49,22 @@ class ArcWrapper extends Component {
 
     getArcAdsInstance() {
         if (!ArcWrapper.arcAdsInstance) {
-            const { dfpId } = this.props;
-            ArcWrapper.arcAdsInstance = new ArcAds({
-                dfp: {
-                    id: dfpId
+            const { dfpId, show } = this.props;
+
+            ArcWrapper.arcAdsInstance = new ArcAds(
+                {
+                    dfp: {
+                        id: dfpId
+                    },
+                    bidding: baseConfig.bidding
                 },
-                bidding: baseConfig.bidding
-            });
+                event => {
+                    if (!event.isEmpty) {
+                        this.setState({ empty: false });
+                        show();
+                    }
+                }
+            );
         }
 
         return ArcWrapper.arcAdsInstance;
@@ -56,8 +72,13 @@ class ArcWrapper extends Component {
 
     render() {
         const { id, children, className } = this.props;
+        const { empty } = this.state;
+
         return (
-            <div id={id} className={`banner ${className}`}>
+            <div
+                id={id}
+                className={`banner ${className} ${empty ? 'hlp-none' : ''}`}
+            >
                 {children}
             </div>
         );
@@ -78,11 +99,8 @@ ArcWrapper.propTypes = {
     targeting: PropTypes.shape({
         seccion: PropTypes.string,
         sitio: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    show: PropTypes.func.isRequired
 };
-
-// ArcWrapper.defaultProps = {
-//     className: ''
-// };
 
 export default ArcWrapper;
