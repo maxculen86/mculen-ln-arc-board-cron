@@ -3,14 +3,11 @@ jest.mock('../../../../../../components/private/LN/api/common/image', () => {
         return 'image-mock';
     };
 });
-jest.mock(
-    '../../../../../../components/private/LN/api/acumulado/acuAuthor',
-    () => {
-        return () => {
-            return 'author-mock';
-        };
-    }
-);
+jest.mock('../../../../../../components/private/LN/api/common/author', () => {
+    return () => {
+        return 'author-mock';
+    };
+});
 
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import AcuArticle from '../../../../../../components/private/LN/api/acumulado/article';

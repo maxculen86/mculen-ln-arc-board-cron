@@ -1,4 +1,4 @@
-import acuAuthor from '../../../../../../components/private/LN/api/acumulado/acuAuthor';
+import acuAuthor from '../../../../../../components/private/LN/api/common/author';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 
 describe('Json imagen en acumulado', () => {

@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 import Image from '../common/image';
-import Author from './acuAuthor';
+import Author from '../common/author';
 
 const articleItem = article => {
     const {

@@ -15,6 +15,22 @@ Object {
     },
     "titulo": "Mi paso por el yoga del infierno",
   },
+  "autores": Array [
+    Object {
+      "id": "diego-cabot",
+      "image": Object {
+        "id": undefined,
+        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+      },
+      "nombre": "Diego Cabot",
+      "tipo": 1,
+    },
+    Object {
+      "id": "martin-lousteau",
+      "nombre": "Martín Lousteau",
+      "tipo": 1,
+    },
+  ],
   "categoria": Object {
     "id": "/deportes",
     "nombre": "Deportes",

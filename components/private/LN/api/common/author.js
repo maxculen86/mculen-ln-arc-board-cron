@@ -1,6 +1,6 @@
-import imageAcu from '../common/image';
+import imageAcu from './image';
 
-const acuAuthor = author => {
+const authorCommon = author => {
     const { _id: id, name, image, type } = author;
 
     const resp = {
@@ -16,4 +16,4 @@ const acuAuthor = author => {
     return resp;
 };
 
-export default acuAuthor;
+export default authorCommon;
