@@ -23,8 +23,10 @@ const layoutItems = [
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
 
-const LNAcumuladoLayout = ({ children, globalContent }) => {
+const LNAcumuladoLayout = props => {
+    const { children, globalContent } = props;
     const [classRevista, setClassRevista] = useState('');
+    const [headerDark, setHeaderDark] = useState('');
 
     useEffect(() => {
         const { style } = globalContent;
@@ -33,11 +35,16 @@ const LNAcumuladoLayout = ({ children, globalContent }) => {
 
         revistas.indexOf(sectionStyleName || '') !== -1 &&
             setClassRevista(`${CLASS_ACU_REVISTA} ${sectionStyleName}`);
-    }, [classRevista, globalContent]);
+
+        const {
+            style: { headerdark }
+        } = globalContent || {};
+        setHeaderDark(headerdark && headerdark === 'true' ? ' --dark' : '');
+    }, [globalContent]);
 
     return (
         <div id="wrapper" className={`${classRevista}`}>
-            <Header />
+            <Header headerDark={headerDark} />
             <main>
                 {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                 {children[0]}

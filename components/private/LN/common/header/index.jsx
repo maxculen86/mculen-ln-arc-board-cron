@@ -103,6 +103,7 @@ class Index extends Component {
             logueado,
             loginData,
             goToLogout,
+            headerDark,
             siteProperties: { host }
         } = this.props;
         const { scrollDirection } = this.state;
@@ -118,6 +119,7 @@ class Index extends Component {
                         showNav
                         goToLogout={goToLogout}
                         host={host}
+                        headerDark={headerDark}
                     />
                 )}
                 {isMobile && (
@@ -152,7 +154,8 @@ Index.propTypes = {
     goToLogout: PropTypes.func.isRequired,
     siteProperties: PropTypes.shape({
         host: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    headerDark: PropTypes.string.isRequired
 };
 
 // Index.defaultProps = {

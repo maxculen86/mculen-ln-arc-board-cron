@@ -48,7 +48,8 @@ const HeaderDesktop = ({
     loginData,
     goToLogout,
     host,
-    toglleDesplegable
+    toglleDesplegable,
+    headerDark
 }) => {
     const { loading } = loginData;
     const { goToLoginUrl } = loginData;
@@ -65,7 +66,7 @@ const HeaderDesktop = ({
     }, [loading]);
 
     return (
-        <Header id="header" className="header">
+        <Header id="header" className={`header${headerDark}`}>
             <div className="col-4 header__left">
                 <Hamburguer _onMouseDown={toglleDesplegable} />
             </div>
@@ -155,7 +156,12 @@ HeaderDesktop.propTypes = {
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
     host: PropTypes.string.isRequired,
-    toglleDesplegable: PropTypes.func.isRequired
+    toglleDesplegable: PropTypes.func.isRequired,
+    headerDark: PropTypes.string
+};
+
+HeaderDesktop.defaultProps = {
+    headerDark: ''
 };
 
 export default HeaderDesktop;
