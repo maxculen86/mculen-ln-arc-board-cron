@@ -10,14 +10,14 @@ const apertura = article => {
     } = article;
 
     const resp = {
-        title: tituloMobile || titulo,
-        subTitle: bajada
+        titulo: tituloMobile || titulo,
+        bajada
     };
 
     if (promoItem) {
         switch (promoItem.type) {
             case 'image':
-                resp.image = Image(promoItem);
+                resp.imagen = Image(promoItem);
                 break;
             case 'video':
                 resp.video = Video(promoItem);

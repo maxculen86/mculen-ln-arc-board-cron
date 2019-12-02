@@ -30,9 +30,9 @@ import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompl
 describe('Test de JSON de apertura en article', () => {
     it('Render de atributos de apertura', () => {
         const resp = Apertura(article.globalContent);
-        expect(resp.title).toBe(article.globalContent.headlines.basic);
-        expect(resp.subTitle).toBe(article.globalContent.subheadlines.basic);
-        expect(resp.image).toBe('image-mock');
+        expect(resp.titulo).toBe(article.globalContent.headlines.basic);
+        expect(resp.bajada).toBe(article.globalContent.subheadlines.basic);
+        expect(resp.imagen).toBe('image-mock');
     });
 
     it('Render video destacado', () => {

@@ -5,8 +5,8 @@ const aperturaReceta = recetaData => {
     if (!data) return null;
 
     return {
-        time: data.counterTime,
-        portions: data.counterPortion
+        tiempo: data.counterTime,
+        porciones: data.counterPortion
     };
 };
 

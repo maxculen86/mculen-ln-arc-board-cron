@@ -25,15 +25,15 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.id).toBe(article.globalContent._id);
         expect(resp.subtype).toBe(article.globalContent.subtype);
         expect(resp.url).toBe(article.globalContent.website_url);
-        expect(resp.comments).toBe(true);
+        expect(resp.abiertoComentarios).toBe(true);
         expect(resp.entradaId).toBe(
             article.globalContent.label.livefyre_entrada_id.text
         );
-        expect(resp.publishDate).toBe(article.globalContent.publish_date);
-        expect(resp.firstPublishDate).toBe(
-            article.globalContent.first_publish_date
+        expect(resp.fechaActualizacion).toBe(
+            article.globalContent.publish_date
         );
-        expect(resp.primarySection).toBe('primarySection-mock');
+        expect(resp.fecha).toBe(article.globalContent.first_publish_date);
+        expect(resp.categoria).toBe('primarySection-mock');
         expect(resp.apertura).toBe('apertura-mock');
     });
 });

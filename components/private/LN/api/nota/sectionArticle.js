@@ -1,8 +1,8 @@
 const sectionArticle = section => {
-    const { _id: id, name } = section;
+    const { _id: id, name: nombre } = section;
     return {
         id,
-        name
+        nombre
     };
 };
 

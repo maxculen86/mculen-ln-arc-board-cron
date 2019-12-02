@@ -7,7 +7,7 @@ describe('Test de index en JSON de section en nota', () => {
         expect(resp.id).toBe(
             article.globalContent.taxonomy.primary_section._id
         );
-        expect(resp.name).toBe(
+        expect(resp.nombre).toBe(
             article.globalContent.taxonomy.primary_section.name
         );
     });

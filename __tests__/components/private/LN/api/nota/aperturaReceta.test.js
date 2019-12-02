@@ -4,10 +4,10 @@ import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompl
 describe('Test json apertura receta', () => {
     it('Test de render full', () => {
         const resp = AperturaReceta(article.globalContent.promo_items.receta);
-        expect(resp.time).toBe(
+        expect(resp.tiempo).toBe(
             article.globalContent.promo_items.receta.embed.config.counterTime
         );
-        expect(resp.portions).toBe(
+        expect(resp.porciones).toBe(
             article.globalContent.promo_items.receta.embed.config.counterPortion
         );
     });

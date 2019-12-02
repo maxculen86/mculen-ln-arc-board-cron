@@ -8,8 +8,8 @@ const indexNota = dataNota => {
         _id: id,
         subtype,
         website_url: url,
-        publish_date: publishDate,
-        first_publish_date: firstPublishDate,
+        publish_date: fechaActualizacion,
+        first_publish_date: fecha,
         taxonomy: { primary_section: primarySection }
     } = dataNota;
     const entradaId = get(dataNota, 'label.livefyre_entrada_id.text', id);
@@ -18,13 +18,15 @@ const indexNota = dataNota => {
         id,
         subtype,
         url,
-        comments: dataNota.comments ? dataNota.comments.allow_comments : true,
+        abiertoComentarios: dataNota.comments
+            ? dataNota.comments.allow_comments
+            : true,
         entradaId,
-        publishDate,
-        firstPublishDate,
-        primarySection: primarySection ? Section(primarySection) : undefined,
+        fechaActualizacion,
+        fecha,
+        categoria: primarySection ? Section(primarySection) : undefined,
         apertura: Apertura(dataNota),
-        content: Cuerpo(dataNota)
+        contenido: Cuerpo(dataNota)
     };
 };
 
