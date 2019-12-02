@@ -41,10 +41,10 @@
 // oculto
 @media ($media-xs) {
     .hlp-none {
-        display: none;
+        display: none!important;
     }
     .hlp-mobile-none {
-        display: none;
+        display: none!important;
     }
 }
 
