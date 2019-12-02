@@ -36,10 +36,14 @@ const LNAcumuladoLayout = props => {
         revistas.indexOf(sectionStyleName || '') !== -1 &&
             setClassRevista(`${CLASS_ACU_REVISTA} ${sectionStyleName}`);
 
-        const {
-            style: { headerdark }
-        } = globalContent || {};
-        setHeaderDark(headerdark && headerdark === 'true' ? ' --dark' : '');
+        const headerdark =
+            globalContent &&
+            globalContent.style &&
+            globalContent.style.headerdark
+                ? globalContent.style.headerdark
+                : '';
+
+        setHeaderDark(headerdark === 'true' ? ' --dark' : '');
     }, [globalContent]);
 
     return (
@@ -82,7 +86,8 @@ LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
-            section_style_name: PropTypes.string
+            section_style_name: PropTypes.string,
+            headerdark: PropTypes.string
         })
     }).isRequired
 };
