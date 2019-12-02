@@ -1,10 +1,20 @@
+import React from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
+
 import MasNotas from '../../private/LN/nota/masNotas';
 
-MasNotas.label = 'LN-Nota-masNotas';
+const masNotas = props => {
+    return (
+        <Static id="apertura-receta">
+            <MasNotas {...props} />
+        </Static>
+    );
+};
 
-MasNotas.propTypes = {
+masNotas.label = 'LN-Nota-masNotas';
+
+masNotas.propTypes = {
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
         filter: PropTypes.oneOf(Object.keys(MasNotas.filterTypes)).tag({
@@ -15,4 +25,4 @@ MasNotas.propTypes = {
     })
 };
 
-export default Consumer(MasNotas);
+export default Consumer(masNotas);
