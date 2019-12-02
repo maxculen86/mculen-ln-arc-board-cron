@@ -1,8 +1,13 @@
+import get from 'lodash.get';
+
 const customReceta = (listData, type) => {
+    const config = get(listData, 'embed.config');
+    if (!config) return null;
+
     return {
-        type,
-        title: listData.embed.config.titleList,
-        items: listData.embed.config.items
+        _t: type,
+        title: config.titleList,
+        items: config.items
     };
 };
 

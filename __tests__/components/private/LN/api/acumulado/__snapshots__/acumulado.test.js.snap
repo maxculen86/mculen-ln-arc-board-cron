@@ -7,6 +7,7 @@ Object {
       "autor": Object {
         "id": "diego-cabot",
         "image": Object {
+          "_t": "img",
           "id": undefined,
           "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         },
@@ -15,6 +16,7 @@ Object {
       },
       "id": "B2EMM366VFGVHEPJDUVGBLCYX4",
       "imagen": Object {
+        "_t": "img",
         "id": "PWQEKVCUHJGJLBUDQOYDEII5XU",
         "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
       },
@@ -34,6 +36,7 @@ Object {
     Object {
       "id": "2CJ4Q5VQBZBXBFYADC75HMASDU",
       "imagen": Object {
+        "_t": "img",
         "id": "272ELZPBAJAMTJ6NLZISAQ5S3Q",
         "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
       },
@@ -43,6 +46,7 @@ Object {
     Object {
       "id": "VSBWVU7WRVD5PONUYIORE3IUDQ",
       "imagen": Object {
+        "_t": "img",
         "id": "NNIYHDQG75GLJKANNW5AIC5FZA",
         "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
       },
@@ -58,6 +62,7 @@ Object {
       "autor": Object {
         "id": "martin-lousteau",
         "image": Object {
+          "_t": "img",
           "id": undefined,
           "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         },
@@ -71,6 +76,7 @@ Object {
     Object {
       "id": "TWKFZQ6FCNF3ZKPHGGZPMSSOGQ",
       "imagen": Object {
+        "_t": "img",
         "id": "YQPFIZTCKVFKFDHNINT7IBBI6U",
         "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
       },
@@ -80,6 +86,7 @@ Object {
     Object {
       "id": "U4AWGFDWKJHHFHEUUBTOEX2VN4",
       "imagen": Object {
+        "_t": "img",
         "id": "YWOVDVKZYNDIPGHMIFLO4KBVXM",
         "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
       },

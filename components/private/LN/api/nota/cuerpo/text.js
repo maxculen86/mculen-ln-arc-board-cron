@@ -1,6 +1,6 @@
 const text = data => {
     return {
-        type: 'text',
+        _t: 'text',
         text: data.content
     };
 };

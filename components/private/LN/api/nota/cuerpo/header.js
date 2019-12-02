@@ -1,6 +1,6 @@
 const header = data => {
     return {
-        type: 'header',
+        _t: 'h',
         level: data.level,
         text: data.content
     };
