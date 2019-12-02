@@ -1,8 +1,10 @@
 import Header from './header';
 import Text from './text';
+import Video from '../video';
+import Image from '../image';
 
 const defaultCuerpo = contentElements => {
-    const components = [Header, Text];
+    const components = [Text, Header, Image, Video];
 
     const resp = [];
 

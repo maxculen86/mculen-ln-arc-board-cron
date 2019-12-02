@@ -133,6 +133,7 @@ export default `
         content
         ${image}
         ${customReceta}
+        ${video}
     }
     display_date,
     created_date,
