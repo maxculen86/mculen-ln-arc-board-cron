@@ -61,7 +61,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         sectionId,
                         authorId,
                         tagId,
-                        size: size + 1,
+                        size,
                         imageConfig,
                         page
                     },
