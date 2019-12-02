@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import pipe from '../../../common/utils/pipeUtil';
 import ListMenu from './listMenu';
-import withNavigationMenu from '../hocs/withNavigationMenu';
 import '../../../../../resources/dist/css/ln/components/dropdown.css';
 
 const handleScroll = comDromdownRef => {
@@ -98,19 +97,14 @@ const _menuData = [
     }
 ];
 
-const Desplegable = ({ toglleDesplegable, menuData }) => {
-    const [onResizeDeskTop, setOnResizeDesktop] = useState(
-        window && window.outerWidth >= 768
-    );
+const Desplegable = ({ toglleDesplegable }) => {
     const despegableRef = useRef();
     const comDromdownRef = useRef();
 
     useEffect(() => {
         window &&
             window.addEventListener('resize', e => {
-                const _onResizeDesktop = window.outerWidth >= 768;
-                setOnResizeDesktop(_onResizeDesktop);
-                if (_onResizeDesktop) {
+                if (window.outerWidth >= 768) {
                     comDromdownRef.current.classList.remove('scroll--pasive');
                     comDromdownRef.current.classList.remove('scroll--active');
                 }
@@ -163,16 +157,7 @@ const Desplegable = ({ toglleDesplegable, menuData }) => {
                 </section>
                 <section className="menu__dropdown">
                     <nav className="nav__dropdown">
-                        {menuData &&
-                            menuData.map(({ el, extraClass, name, childs }) => (
-                                <ListMenu
-                                    el={el}
-                                    extraClass={extraClass}
-                                    name={name}
-                                    childs={childs}
-                                    onResizeDeskTop={onResizeDeskTop}
-                                />
-                            ))}
+                        <ListMenu />
                     </nav>
                 </section>
             </div>
@@ -181,57 +166,7 @@ const Desplegable = ({ toglleDesplegable, menuData }) => {
 };
 
 Desplegable.propTypes = {
-    toglleDesplegable: PropTypes.func.isRequired,
-    menuData: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string,
-            _website: PropTypes.string,
-            name: PropTypes.string,
-            display_name: PropTypes.string,
-            node_type: PropTypes.string,
-            url: PropTypes.string,
-            inactive: PropTypes.string,
-            children: PropTypes.arrayOf(
-                PropTypes.shape({
-                    _id: PropTypes.string,
-                    _website: PropTypes.string,
-                    name: PropTypes.string,
-                    display_name: PropTypes.string,
-                    node_type: PropTypes.string,
-                    url: PropTypes.string,
-                    inactive: PropTypes.string,
-                    children: PropTypes.arrayOf(
-                        PropTypes.shape({
-                            _id: PropTypes.string,
-                            _website: PropTypes.string,
-                            name: PropTypes.string,
-                            display_name: PropTypes.string,
-                            node_type: PropTypes.string,
-                            url: PropTypes.string,
-                            inactive: PropTypes.string
-                        })
-                    )
-                })
-            )
-        })
-    ).isRequired
+    toglleDesplegable: PropTypes.func.isRequired
 };
 
-/**
- * TODO: Buscar la forma de pasar lo siguiente
- * por customFields o properties del Site
- * TODO: pasar esto como parametro si a futuro se quiere
- * un menu para mobile o para desktop
- */
-const sourceMenu = [
-    {
-        hierarchy: 'Header-FirstNav',
-        initialClass: 'list__nav  first--nav'
-    },
-    {
-        hierarchy: 'Header-SecondaryNav',
-        initialClass: 'list__nav  secondary--nav'
-    }
-];
-
-export default withNavigationMenu(Desplegable)(sourceMenu);
+export default Desplegable;

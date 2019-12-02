@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
 
@@ -94,3 +94,4 @@ const withNavigationMenu = WrappedComponent => sourceMenu => {
 };
 
 export default withNavigationMenu;
+ */
