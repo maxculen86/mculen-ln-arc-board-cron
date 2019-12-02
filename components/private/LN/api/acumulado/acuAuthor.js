@@ -5,8 +5,8 @@ const acuAuthor = author => {
 
     const resp = {
         id,
-        name,
-        type: type === 'author' ? 1 : 2
+        nombre: name,
+        tipo: type === 'author' ? 1 : 2
     };
 
     if (image && image.url) {

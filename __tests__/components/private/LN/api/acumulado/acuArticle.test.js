@@ -21,11 +21,8 @@ describe('Test de articulo en Json acumulado', () => {
 
         expect(resp.id).toBe(article.globalContent._id);
         expect(resp.subtype).toBe(article.globalContent.subtype);
-        expect(resp.title).toBe(article.globalContent.headlines.basic);
-        expect(resp.image).toBe('image-mock');
-
-        resp.authors.forEach(v => {
-            expect(v).toBe('author-mock');
-        });
+        expect(resp.titulo).toBe(article.globalContent.headlines.basic);
+        expect(resp.imagen).toBe('image-mock');
+        expect(resp.autor).toBe('author-mock');
     });
 });

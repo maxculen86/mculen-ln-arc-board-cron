@@ -15,8 +15,8 @@ describe('Test de index en Json acumulado', () => {
     test('Test render', () => {
         const resp = AcuIndex(dataMock.name, dataMock.articles, dataMock.next);
 
-        expect(resp.next).toBe(dataMock.next);
-        expect(resp.title).toBe(dataMock.name);
-        expect(resp.articles).toBe('list-mock');
+        expect(resp.paginar).toBe(dataMock.next);
+        expect(resp.titulo).toBe(dataMock.name);
+        expect(resp.notas).toBe('list-mock');
     });
 });
