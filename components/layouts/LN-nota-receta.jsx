@@ -14,7 +14,6 @@ import '../../resources/dist/css/ln/layouts/layout.css';
 //TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
 //EL COMPONENTE Y EN OTROS NO
 import '../../resources/dist/css/ln/components/date.css';
-import '../../resources/dist/css/ln/components/tag.css';
 import '../../resources/dist/css/ln/components/author.css';
 import '../../resources/dist/css/ln/components/lead.css';
 import '../../resources/dist/css/ln/components/ordered.css';
