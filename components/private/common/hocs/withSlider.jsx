@@ -8,10 +8,6 @@ function withSlider(WrappedComponent, pageSize) {
             super(props);
             const siteVars = getProperties(props.arcSite);
             this.sliderConfig = siteVars.sliderConfig;
-            console.log(
-                'withSlider this.sliderConfig /////',
-                this.sliderConfig
-            );
             this.state = {
                 pageSize,
                 currentStartIndex: 0,

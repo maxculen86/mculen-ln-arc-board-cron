@@ -2,9 +2,9 @@ import React from 'react';
 import CarousellComponent from './component';
 import CarousellNextButton from './carousellNextButton';
 import CarousellPrevButton from './carousellPrevButton';
-import Slider from '../../OTT/common/hocs/slider';
+import Slider from '../../../common/hocs/withSlider';
 
-const DEFAULT_PAGESIZE = 4;
+const DEFAULT_PAGESIZE = 1;
 
 const Carousell = props => {
     const { slider, children } = props;

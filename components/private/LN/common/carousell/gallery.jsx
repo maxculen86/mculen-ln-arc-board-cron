@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousell from '../../../common/carousell';
+import Carousell from './index';
 import Item from './galleryItem';
 
 const gallery = props => {

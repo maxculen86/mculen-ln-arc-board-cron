@@ -1,5 +1,7 @@
 import React from 'react';
 
+// TODO: Se tiene que consumir a la API de author y mostrar los autores que no aparecen
+
 const galleryItem = props => {
     const {
         _id,
@@ -10,7 +12,7 @@ const galleryItem = props => {
         totalGallery
     } = props;
     return (
-        <section className="com-slider">
+        <section key={_id} className="com-slider">
             <article className="cont-figure">
                 <a className="figure" href={url}>
                     <picture className="content-pic">
