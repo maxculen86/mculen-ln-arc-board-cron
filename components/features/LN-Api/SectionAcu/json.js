@@ -46,11 +46,7 @@ class AcuSection {
             globalContent: { name }
         } = this.props;
 
-        return IndexAcu({
-            name,
-            articles,
-            next: this.state.dataResp.next > 0
-        });
+        return IndexAcu(name, articles, this.state.dataResp.next > 0);
     }
 }
 

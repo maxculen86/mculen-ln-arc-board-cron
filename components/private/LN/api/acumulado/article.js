@@ -1,6 +1,6 @@
 import get from 'lodash.get';
-import Image from './acuImage';
-import Author from './acuAuthor';
+import Image from '../common/image';
+import Author from '../common/author';
 
 const articleItem = article => {
     const {
@@ -15,15 +15,18 @@ const articleItem = article => {
     const resp = {
         id,
         subtype,
-        title: tituloMobile || titulo
+        titulo: tituloMobile || titulo
     };
 
     if (image && image.type === 'image') {
-        resp.image = Image(image);
+        resp.imagen = Image(image);
     }
 
-    if (authors && authors.length > 0) {
-        resp.authors = authors.map(v => Author(v));
+    if (authors) {
+        const authorsFixed = authors.filter(v => v.type === 'author');
+        if (authorsFixed.length > 0) {
+            resp.autor = Author(authorsFixed[0]);
+        }
     }
 
     return resp;
