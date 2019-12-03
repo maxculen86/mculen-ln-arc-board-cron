@@ -17,17 +17,17 @@ import Subtitles from './subtitles';
 const Cuerpo = props => {
     const resp = [];
 
-    /* resp.push(<TextCapital />);
+    resp.push(<TextCapital />);
     resp.push(<BlockQuote />);
     resp.push(<TextCapital />);
     resp.push(<Subtitles />);
     resp.push(<Ordered />);
-    resp.push(<Unordered />); */
+    resp.push(<Unordered />);
     resp.push(<Gallery {...props} />);
-    /* resp.push(<Html />);
+    resp.push(<Html />);
     resp.push(<PullQuote />);
     resp.push(<MasNotas />);
-    resp.push(<Tags />); */
+    resp.push(<Tags />);
 
     return resp;
 };
