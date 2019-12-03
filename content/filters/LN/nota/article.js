@@ -123,4 +123,9 @@ export default `
     display_date,
     created_date,
     first_publish_date
+    label {
+        livefyre_entrada_id {
+            text
+        }
+    }
 }`;

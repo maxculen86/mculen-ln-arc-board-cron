@@ -102,6 +102,10 @@ export default {
     },
     livefyre: {
         siteId: '356483',
+        recetas: {
+            siteId: '362870',
+            sharedKey: 'DsbAQWcjxhc0MSBNnQnlcbs8ZC8='
+        },
         sharedKey: 'Wi9J9hmEtpK9QRp5nY1SSSQ2FKE=',
         network: 'la-nacion.fyre.co'
     },

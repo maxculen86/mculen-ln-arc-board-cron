@@ -7,53 +7,74 @@ import customStrings from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../../LN/common/utils/handleCookie';
 import withLoginData from '../../../LN/common/hocs/withLoginData';
+import { LOGIN_URL } from 'fusion:environment';
 
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
-const Comments = React.memo(props => {
+const Comments = props => {
     const {
         globalContent: {
             _id,
             canonical_url: url,
             headlines: { basic: title },
-            taxonomy: { tags }
-        }
+            taxonomy: { tags },
+            label,
+            subtype
+        },
+        logueado
     } = props;
+
+    let oldID = false;
+
+    if (label.hasOwnProperty('livefyre_entrada_id')) {
+        oldID = label.livefyre_entrada_id.text;
+    }
+
     console.log('################## LAS PROPS EN COMMENT ######### : ', props);
     const { getCookie } = handleCookie();
 
-    const tokenCookie = getCookie('token') || '';
-    const loginCookie = getCookie('usuariodata') || '';
-    console.log('loginCookie: ', loginCookie);
+    const cookie = getCookie('usuario%5Flogtkn');
+
     const commentSection = useRef(null);
 
     const metadata = {
+        articleId: oldID || _id,
         title,
-        url,
-        tags: tags.map(tag => tag.text).join(', '),
-        type: 'livecomment'
+        url
     };
+
+    const LiveFyre = {};
 
     const payload = crypto
         .createHash('md5')
         .update(JSON.stringify(metadata))
         .digest('hex');
 
+    const sharedKey =
+        subtype === '7' && oldID
+            ? config.livefyre.recetas.sharedKey
+            : config.livefyre.sharedKey;
+
+    const collectionMeta = jwt.sign(payload, sharedKey, {
+        algorithm: 'HS256'
+    });
+
+    const siteId =
+        subtype === '7' && oldID
+            ? config.livefyre.recetas.siteId
+            : config.livefyre.siteId;
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            const LiveFyre = {};
-
             LiveFyre.networkConfig = {
                 network: config.livefyre.network
             };
 
             LiveFyre.convConfig = {
-                siteId: config.livefyre.siteId,
-                articleId: '1466383', //'1466383'
+                siteId,
+                articleId: oldID || _id, //'1466383', //'1466383'
                 el: 'livefyre',
-                collectionMeta: jwt.sign(payload, config.livefyre.sharedKey, {
-                    algorithm: 'HS256'
-                }),
+                collectionMeta,
                 datetimeFormat: {
                     minutesUntilAbsoluteTime: 4,
                     absoluteFormat: 'HH:mm dd/MM/y'
@@ -111,100 +132,66 @@ const Comments = React.memo(props => {
             LiveFyre.networkConfig.strings = customStrings;
             LiveFyre.convConfig.postToButtons = ['tw', 'fb'];
 
+            return () => {};
+        }
+    }, [_id, collectionMeta, cookie, oldID, siteId, logueado]);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
                 const isUserLoggedIn = () => {
-                    if (tokenCookie !== '' && loginCookie !== '') {
+                    if (cookie !== '') {
                         return true;
                     }
-                    console.log('a ponerle la clase no-logueado');
-                    console.log(
-                        'seccion comentarios clases: ',
-                        commentSection.current.classList
-                    );
                     commentSection.current.classList.add('no-logueado');
                     return false;
                 };
-
-                if (isUserLoggedIn()) {
-                    console.log('a autenticarse papa');
-                    auth.authenticate({ livefyre: tokenCookie });
-                    LiveFyre.autenticado = true;
-                    LiveFyre.logueoUsuario = true;
+                if (!isUserLoggedIn()) {
+                    auth.authenticate({ livefyre: cookie });
                 }
-
                 /* eslint-disable no-new */
                 new Conv(
                     LiveFyre.networkConfig,
                     [LiveFyre.convConfig],
                     widget => {
-                        widget.on('userLoggedOut', () => {
-                            console.log('user has just taken off');
-                        });
-                        widget.on('userLoggedIn', data => {
-                            console.log('el usuario se logueo: ', data);
-                        });
-                        widget.on('commentPosted', data => {
-                            // console.log('GA: CommentPosted');
-                            // ga('send', 'event', 'livefyre', 'commentPosted');
-                        });
-                        widget.on('commentFlagged', data => {
-                            // console.log('GA: CommentFlagged');
-                            // ga('send', 'event', 'livefyre', 'commentFlagged');
-                        });
-                        widget.on('commentLiked', data => {
-                            // console.log('GA: CommentLiked');
-                            // ga('send', 'event', 'livefyre', 'commentLiked');
-                        });
-                        widget.on('commentShared', data => {
-                            // console.log('GA: CommentShared');
-                            // ga('send', 'event', 'livefyre', 'commentShared');
-                        });
-                        widget.on('socialMention', data => {
-                            // console.log('GA: SocialMention');
-                            // ga('send', 'event', 'livefyre', 'socialMention');
-                        });
-                        widget.on('showMore', data => {
-                            // console.log('GA: ShowMore');
-                            // ga('send', 'event', 'livefyre', 'verMas', 'verMas');
-                        });
+                        widget.on('commentPosted', data => {});
+                        widget.on('commentFlagged', data => {});
+                        widget.on('commentLiked', data => {});
+                        widget.on('commentShared', data => {});
+                        widget.on('socialMention', data => {});
+                        widget.on('showMore', data => {});
                         widget.on('initialRenderComplete', data => {
-                            console.log('initialRenderComplete');
-
-                            if (!LiveFyre.autenticado) {
-                                console.log(
-                                    'no estoy autenticado asi que me autentico :)'
-                                );
-                                auth.authenticate({ livefyre: tokenCookie });
-                                LiveFyre.autenticado = true;
-                                LiveFyre.logueoUsuario = true;
+                            if (!auth.isAuthenticated()) {
+                                auth.authenticate({ livefyre: cookie });
                             } else {
-                                console.log('llama al logout');
-                                //fyre.conv.logout();
+                                fyre.conv.logout();
                             }
                         });
                     }
                 );
-
                 auth.delegate({
-                    login: function(callback) {
-                        console.log('dispara callback de login');
-                        props.loginData.goToLoginUrl();
-                        callback(null, { livefyre: tokenCookie });
+                    login(callback) {
+                        location.href = LOGIN_URL + window.btoa(location.href);
+                        callback(null, { livefyre: cookie });
                     },
                     logout(finishLogout) {
-                        finishLogout(null);
+                        props.goToLogout();
                     },
                     viewProfile(author) {
-                        /* const authorId = author.id.match('[0-9]+');
+                        const authorId = author.id.match('[0-9]+');
                         if (author.profileUrl != null && authorId.length > 0) {
-                            const win = window.open(author.profileUrl, '_blank');
+                            const win = window.open(
+                                author.profileUrl,
+                                '_blank'
+                            );
                             win.focus();
-                        } */
+                        }
                     }
                 });
             });
+            return () => {};
         }
-    }, [loginCookie, tokenCookie]);
+    }, []);
 
     return (
         <>
@@ -216,18 +203,16 @@ const Comments = React.memo(props => {
             >
                 <div
                     id="tokenLF"
-                    data-id=""
-                    data-entrada={_id}
-                    data-lf-siteid={config.livefyre.siteId}
+                    data-id={collectionMeta}
+                    data-entrada={oldID || _id}
+                    data-lf-siteid={siteId}
                 />
-                {props.logueado && (
-                    <button type="button" onClick={() => {}}>
-                        Ingresar
-                    </button>
-                )}
+
                 <h4 className="com-title-section-m comment-title">
                     Enviá tu comentario{' '}
-                    <button className="item_link">Ver legales</button>
+                    <button type="button" className="item_link">
+                        Ver legales
+                    </button>
                 </h4>
                 <p className="comment-legal">
                     Los comentarios publicados son de exclusiva responsabilidad
@@ -245,7 +230,7 @@ const Comments = React.memo(props => {
             </section>
         </>
     );
-});
+};
 
 Comments.propTypes = {
     logueado: PropTypes.bool.isRequired,
