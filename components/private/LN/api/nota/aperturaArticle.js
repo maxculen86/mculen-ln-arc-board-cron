@@ -1,5 +1,5 @@
-import Image from './imageArticle';
-import Video from './videoArticle';
+import Image from './image';
+import Video from './video';
 import AperturaReceta from './aperturaReceta';
 
 const apertura = article => {

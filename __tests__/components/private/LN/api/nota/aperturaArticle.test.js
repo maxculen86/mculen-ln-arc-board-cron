@@ -1,19 +1,13 @@
-jest.mock(
-    '../../../../../../components/private/LN/api/nota/imageArticle',
-    () => {
-        return () => {
-            return 'image-mock';
-        };
-    }
-);
-jest.mock(
-    '../../../../../../components/private/LN/api/nota/videoArticle',
-    () => {
-        return () => {
-            return 'video-mock';
-        };
-    }
-);
+jest.mock('../../../../../../components/private/LN/api/nota/image', () => {
+    return () => {
+        return 'image-mock';
+    };
+});
+jest.mock('../../../../../../components/private/LN/api/nota/video', () => {
+    return () => {
+        return 'video-mock';
+    };
+});
 
 jest.mock(
     '../../../../../../components/private/LN/api/nota/aperturaReceta',
