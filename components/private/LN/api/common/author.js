@@ -1,12 +1,12 @@
-import imageAcu from './acuImage';
+import imageAcu from './image';
 
-const acuAuthor = author => {
+const authorCommon = author => {
     const { _id: id, name, image, type } = author;
 
     const resp = {
         id,
-        name,
-        type: type === 'author' ? 1 : 2
+        nombre: name,
+        tipo: type === 'author' ? 1 : 2
     };
 
     if (image && image.url) {
@@ -16,4 +16,4 @@ const acuAuthor = author => {
     return resp;
 };
 
-export default acuAuthor;
+export default authorCommon;

@@ -1,5 +1,13 @@
-jest.mock('../../../../../../components/private/LN/api/acumulado/acuImage');
-jest.mock('../../../../../../components/private/LN/api/acumulado/acuAuthor');
+jest.mock('../../../../../../components/private/LN/api/common/image', () => {
+    return () => {
+        return 'image-mock';
+    };
+});
+jest.mock('../../../../../../components/private/LN/api/common/author', () => {
+    return () => {
+        return 'author-mock';
+    };
+});
 
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import AcuArticle from '../../../../../../components/private/LN/api/acumulado/article';
@@ -10,6 +18,8 @@ describe('Test de articulo en Json acumulado', () => {
 
         expect(resp.id).toBe(article.globalContent._id);
         expect(resp.subtype).toBe(article.globalContent.subtype);
-        expect(resp.title).toBe(article.globalContent.headlines.basic);
+        expect(resp.titulo).toBe(article.globalContent.headlines.basic);
+        expect(resp.imagen).toBe('image-mock');
+        expect(resp.autor).toBe('author-mock');
     });
 });

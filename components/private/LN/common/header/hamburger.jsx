@@ -7,7 +7,6 @@ const Hamburger = ({ _onMouseDown }) => {
     return (
         <div
             className="com-hamburger"
-            style={{ visibility: 'initial' }}
             role="button"
             tabIndex="0"
             onMouseDown={_onMouseDown}

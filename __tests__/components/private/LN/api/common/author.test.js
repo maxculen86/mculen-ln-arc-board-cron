@@ -1,4 +1,4 @@
-import acuAuthor from '../../../../../../components/private/LN/api/acumulado/acuAuthor';
+import acuAuthor from '../../../../../../components/private/LN/api/common/author';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 
 describe('Json imagen en acumulado', () => {
@@ -10,13 +10,13 @@ describe('Json imagen en acumulado', () => {
             const author = resp[index];
             const originalData = authors[index];
             expect(author.id).toBe(originalData._id);
-            expect(author.name).toBe(originalData.name);
-            if (author.image) {
-                expect(author.image.src).toBe(
+            expect(author.nombre).toBe(originalData.name);
+            if (author.imagen) {
+                expect(author.imagen.src).toBe(
                     originalData.image.resized_urls[0].resizedUrl
                 );
             }
-            expect(author.type).toBe(originalData.type === 'author' ? 1 : 2);
+            expect(author.tipo).toBe(originalData.type === 'author' ? 1 : 2);
         }
     });
 });
