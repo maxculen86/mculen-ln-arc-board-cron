@@ -7,7 +7,7 @@ export default function ItemClub() {
         <a
             href="https://micuenta.lanacion.com.ar/mis-datos/"
             // antes era col-3 cuando vuelva MENU
-            className="col-4 item-foo"
+            className="col-3 item-foo"
         >
             <i className="icon-comment" />
             <p>Mi Cuenta</p>

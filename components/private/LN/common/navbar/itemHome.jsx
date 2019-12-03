@@ -7,7 +7,7 @@ export default function ItemHome() {
         <a
             href="https://www.lanacion.com.ar/"
             // antes era col-2 cuando vuelva MENU
-            className="col-4 item-foo"
+            className="col-2 item-foo"
         >
             <i className="icon-home" />
             <p>Home</p>

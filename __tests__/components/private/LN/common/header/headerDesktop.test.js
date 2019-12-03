@@ -11,7 +11,9 @@ const props = {
         userName: 'Jhon Doe',
         goToLoginUrl: jest.fn()
     },
-    goToLogout: jest.fn()
+    goToLogout: jest.fn(),
+    toglleDesplegable: jest.fn(),
+    host: ''
 };
 
 beforeEach(() => {
