@@ -20,6 +20,7 @@ import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/input.css';
 import '../../resources/dist/css/ln/components/slider.css';
+import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/modules/newsletter.css';
 
 const pageBuilderSections = [
