@@ -72,6 +72,12 @@ export default {
                             media: '(min-width: 768px)',
                             class: 'img-desktop',
                             type: 'promo_items'
+                        },
+                        {
+                            width: 1033,
+                            media: '(min-width: 768px)',
+                            class: 'img-desktop',
+                            type: 'content_elements'
                         }
                     ]
                 }

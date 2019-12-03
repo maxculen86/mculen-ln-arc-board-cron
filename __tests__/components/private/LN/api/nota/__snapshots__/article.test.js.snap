@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test json integracion Article Test snapshot article 1`] = `
+Object {
+  "abiertoComentarios": true,
+  "apertura": Object {
+    "bajada": "Bikram yoga",
+    "imagen": Object {
+      "_t": "img",
+      "id": "VASAYYYBLVFIJCFDSH22JS5X2Q",
+      "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+    },
+    "receta": Object {
+      "porciones": "5",
+      "tiempo": "10",
+    },
+    "titulo": "Mi paso por el yoga del infierno",
+  },
+  "autores": Array [
+    Object {
+      "id": "diego-cabot",
+      "image": Object {
+        "_t": "img",
+        "id": undefined,
+        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+      },
+      "nombre": "Diego Cabot",
+      "tipo": 1,
+    },
+    Object {
+      "id": "martin-lousteau",
+      "nombre": "Martín Lousteau",
+      "tipo": 1,
+    },
+  ],
+  "categoria": Object {
+    "id": "/deportes",
+    "nombre": "Deportes",
+  },
+  "contenido": Array [
+    Object {
+      "_t": "ingredientes",
+      "items": Array [
+        "2 solomillos de cerdo (800gr)",
+        "1 coliflor grande",
+        "140ml de crema de leche",
+        "60ml de leche",
+        "4 cucharadas de mostaza en grano",
+        "Romero",
+        "Sal & pimienta",
+      ],
+      "title": "Para la salsa",
+    },
+    Object {
+      "_t": "preparacion",
+      "items": Array [
+        "Mezclar en un bowl la crema de leche con la lecha y la mostaza. Salpimentar y reservar.",
+        "Limpiar la coliflor y separar las cabecitas (o flores).",
+        "Agregar la coliflor a la mezcla de crema de leche   leche   mostaza. Mezclar bien.",
+        "Verter la coliflor en una fuente apta para horno.",
+        "Pasar los solomillos por la misma mezcla y disponerlos sobre la coliflor.",
+        "Poner las hojas de romero sobre los solomillos y cocinar a horno a 180° durante unos 40min (o hasta que la carne este al punto de cocción deseado)",
+      ],
+      "title": "Para la salsa",
+    },
+    Object {
+      "_t": "text",
+      "text": "Qué calor. Y eso que es grande el salón. Qué espejo enorme, ojalá tuviera uno así en casa. A esa la conozco. ¿Es Paloma, la bailarina del Colón? Sí, es ella. Cómo se abre de piernas. Qué impresión. Somos varios. Creí que un viernes al mediodía iba a estar vacío. Soy la única que tiene la remera puesta. ¿Qué hago? Me la saco, tengo un top deportivo y me lo puse para eso. Sol me avisó que iba a transpirar así que mejor menos ropa. Esta mujer que entra debe ser la profesora. Qué calor. Así deben sentirse los pollos en el horno. Los hombres en short de lycra me dan un poco de risa. Me pesa el aire, ¿estoy respirando bien? La alfombra me da un poco de asco. ¿Cuánta gente la habrá pisoteado? ¿Tendrán los pies limpios? Huele a sudor viejo. Qué calor. Soy insoportable. Silencio. Ahí habla la profesora, basta Dolores. <i>Namaste</i>, qué bueno que vinieron, a conectarse con el cuerpo, a disfrutar... Basta de pensar. Cómo se sienten los 42 grados. ¿Con qué calefaccionarán? Sí, es mi primera vez en Bikram (el yoga de 90 minutos que se practica en una habitación caliente y con una humedad de 40 por ciento). Sí, mi toalla está estirada en el suelo. Sí, arriba del mat. Me paro en el medio, ok. Voy lento. Sí, si necesito parar, paro y me arrodillo. Perfecto.",
+    },
+    Object {
+      "_t": "text",
+      "text": "<br/>",
+    },
+    Object {
+      "_t": "h",
+      "level": 1,
+      "text": "La verdad",
+    },
+    Object {
+      "_t": "text",
+      "text": "Arranco: entrecruzo los dedos de mis manos, los llevo por debajo de la pera y levanto los codos. Qué incómodo. Respiro con ritmo y con la boca abierta y muevo rápido el abdomen. ¿Toda esta gente comerá sano? ¿O se fumará un cigarrillo después de un chocolate antes de dormir, como yo? ¿Saldrán a correr? Yo no corro desde que mi profesora del colegio alemán, la tan temida Karin Müller, potente, rubia, blanca, rígida, me injuriaba telepáticamente por lo lenta, por lo floja. No corro porque si lo intento me duele el bazo. ¿Qué es el bazo? ¿Para qué sirve? Concentrate Dolores. Viniste porque quisiste. Qué calor. Me queman las venas. No, eso yo no lo puedo hacer. Lo intento. Pero no. Extiendo los brazos al frente como si estuviera en la primaria, en una fila, y quisiera tomar distancia, doblo las rodillas como para levantar algo del piso pero no, no lo hago. Me quedo a mitad de camino, con el torso erguido y me pongo en puntas de pie. Estoy temblando. Lo hice. Soy <i>Paramahansa Yogananda</i>. Qué ganas de reír. No aguanto. Me duele. Qué bronca. Odio a cada uno de los que están acá y disfrutan de desfondarse en el encierro, de desangrarse, de desintegrarse en nombre de la buena vida. Detesto que se sepan la rutina de memoria y levanten las piernas como si la piel no existiera y suden y sonrían y suden y se concentren y suden y se regocijen porque hacer yoga te cambia. Quiero escapar y comerme esa hamburguesa triple con papas fritas que no me gusta. Qué calor. Qué envidia. Yo paro un rato o me desmayo. No me até el flequillo y ahora lo tengo pegado a la frente. Esa señora tiene puesto un traje de baño. Qué genia. Y yo con estas calzas empapadas en la entrepierna. Nunca sudé ahí. Salgo y me tomo cinco litros de agua. Estoy mareada. No veo bien. No siento los huesos. ¿Habré muerto? No, la clase no seguiría. ¿Se habrán dado cuenta? Me muero acá, ahogada en mi sudor. No me despedí de nadie. No hice nada de mi vida. No siento. Basta Dolores. Pensá por qué te anotaste en yoga. Lo hice porque el otro día me bajé del colectivo y me dio un tirón en la ingle. Lo hice para terminar con las puntadas en la espalda, para sentir que hago algo por esa otra que también soy yo y que no quiere vivir sentada, frente a una computadora, frente a un libro. Me anoté porque quiero que me encante. Pero no ni loca hago eso. Mejor me arrodillo y miro a los demás separar las piernas, inclinarse hacia adelante, retorcerse a un costado, levantar un brazo, tocar el piso con el otro. Esta gente es de espuma. Qué calor. ¿Me habré deshidratado? Al fin al suelo. Me recuesto boca arriba sobre mi toalla mojada. La profesora dice que es la postura del cadáver.<i>Shavasana</i>. Me doy vuelta y levanto el pecho. Abro los brazos. Me molesta. <i>Shavasana</i>. ¿Todos podemos ser deportistas y sanos y sabios? ¿Se aprende o es algo con lo que se nace? Yo no lo tengo. Nunca duro más de un año en un gimnasio. <i>Shavasana</i>. Me siento, estiro las piernas y me tomo los talones. No llego. Apenas rozo mis rodillas. Estoy más tranquila. ¿Qué fue eso? ¿Me pasó algo? Qué increíble. ¿Reviví? Qué anchas son mis piernas, las heredé de la abuela María Elena. Aunque los tobillos gordos son de Iris. Eso me dice siempre mi madre. <i>Shavasana</i>. Terminó la clase. No me puedo poner de pie. Habré hecho 18 de las 26 posturas, de las 26 asanas. Qué colorada tengo la cara. Inventé un rojo. Qué ganas de gritar. Soy Cleopatra en la arena de Egipto comandando el mundo. El martes vuelvo. No, no vengo más.",
+    },
+  ],
+  "entradaId": "841900",
+  "fecha": "2019-01-24T17:22:51.627Z",
+  "fechaActualizacion": undefined,
+  "id": "RNDZITUWEBCT7DMVU5MZ5ANG3A",
+  "subtype": "7",
+  "url": undefined,
+}
+`;
