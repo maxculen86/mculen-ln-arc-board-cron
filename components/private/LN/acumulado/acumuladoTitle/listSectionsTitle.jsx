@@ -38,7 +38,7 @@ const ListSectionsTitle = ({ _children, isPrimarySection }) => {
         );
     };
 
-    return _children && isPrimarySection ? (
+    return _children && _children.length > 0 && isPrimarySection ? (
         <>
             <button
                 type="button"
