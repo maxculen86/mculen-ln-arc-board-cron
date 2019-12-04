@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
-const header = () => (
+const header = ({ host }) => (
     <section className="row footer-header">
         <section className="col-desksm-4 col-desk-6 footer-header__logo">
-            <a href="https://www.lanacion.com.ar/" className="">
+            <a href={host || '/'} className="">
                 <i className="logo-la-nacion" />
             </a>
         </section>
@@ -194,5 +195,9 @@ const header = () => (
         </section>
     </section>
 );
+
+header.propTypes = {
+    host: PropTypes.string.isRequired
+};
 
 export default header;

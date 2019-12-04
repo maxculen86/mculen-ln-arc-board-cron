@@ -1,18 +1,16 @@
 @import '../abstracts/variables';
-
-
 .com-breadcrumb {
     font-family: $font-arial;
     font-size: $font-14;
     display: none;
     flex-direction: row;
     align-items: center;
-    margin-bottom: $px-40;
+    margin-bottom: $px-20;
     color: $gris5;
     a {
         color: $link;
         border-left: solid 1px $gris5;
-        padding: 0 $px-6;
+        padding: 0 $px-9;
         &:last-child {
             /*border-right: none;
             pointer-events: none;
@@ -22,10 +20,10 @@
         &:first-child {
             padding-left: 0;
             border-left: 0;
-            color:$link;
+            color: $link;
         }
     }
-    span{
+    span {
         border-left: solid 1px $gris5;
         padding: 0 $px-6;
     }

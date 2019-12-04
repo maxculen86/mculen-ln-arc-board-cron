@@ -18,7 +18,7 @@ const index = props => {
     switch (filter) {
         case '0':
             title =
-                subtype === '4' ? (
+                subtype === '7' ? (
                     <h4>Últimas Recetas</h4>
                 ) : (
                     <h4>{`Últimas Noticias`}</h4>
@@ -41,7 +41,7 @@ const index = props => {
     return (
         _id && (
             <div className="row more-articles">
-                <h2 className="com-title-section-xl">{title}</h2>
+                <h2 className="com-title-section-l">{title}</h2>
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
                         size={cantidadNotas}

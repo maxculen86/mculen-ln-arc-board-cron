@@ -7,14 +7,14 @@ import {
     RELOGIN_VALIDATION
 } from 'fusion:environment';
 import apiIngresar from '../../../common/services/apIngresar';
-import useCookie from '../utils/useCookie';
+import handleCookie from '../utils/handleCookie';
 
 const {
     setCookie,
     getCookie,
     eraseCookie,
     DiccionarioCookiesAGuardar
-} = useCookie();
+} = handleCookie();
 
 function withLoginData(WrappedComponent) {
     return class withAuthentication extends React.Component {
@@ -240,9 +240,7 @@ function withLoginData(WrappedComponent) {
                     // La fecha está en DD/MM/YYYY . La convierto a MM/DD/YYYY ;
                     // let daysDate = arrFullDate[0];
                     const arrDays = arrFullDate[0].split('/');
-                    const daysDate = `${arrDays[1]}/${arrDays[0]}/${
-                        arrDays[2]
-                    }`;
+                    const daysDate = `${arrDays[1]}/${arrDays[0]}/${arrDays[2]}`;
 
                     const time = this.convertTo24Hour(
                         arrFullDate[1] + arrFullDate[2]

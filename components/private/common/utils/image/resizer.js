@@ -13,8 +13,8 @@ export const createResizer = (resizerKey, resizerUrl) => {
             );
 
         // Si me lo indican en las options, hago el resize aplicando ambos tamaños, si no, horizontal o vertial dependiendo imagen
-        let finalWidth = resizeOptions.width;
-        let finalHeight = resizeOptions.height;
+        let finalWidth = resizeOptions.width || 0;
+        let finalHeight = resizeOptions.height || 0;
         if (!resizeOptions.useFullSize) {
             if (originalWidth >= originalHeight) {
                 if (finalWidth) finalHeight = 0;

@@ -1,6 +1,4 @@
 @import '../abstracts/variables';
-
-
 .button-box {
     background: $gris1;
     display: flex;
@@ -15,11 +13,11 @@
         padding-left: $px-20;
         h2 {
             font-family: $font-SuecaSlab;
-            font-size: $px-20;
+            font-size: $font-20;
         }
         p {
             font-family: $font-arial;
-            font-size: $px-16;
+            font-size: $font-16;
         }
     }
     .content-button {

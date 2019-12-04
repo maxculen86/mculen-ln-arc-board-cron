@@ -13,15 +13,21 @@ import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
 import '../../../../../resources/dist/css/ln/base/helpers.css';
 
-const WikiAuthor = props => {
-    const { byline, bio_page, image, longBio, twitter } = props.globalContent;
+const WikiAuthor = ({ globalContent }) => {
+    const {
+        byline,
+        bio_page: bioPage,
+        image: { url },
+        longBio,
+        twitter
+    } = globalContent;
     return (
         <div className="wiki-autor row">
             <section id="" className="cont-figure-wiki">
-                <div href={bio_page} className="figure">
+                <div href={bioPage} className="figure">
                     <picture className="content-pic picture">
-                        {image && (
-                            <img src={image} alt="" className="content-img" />
+                        {url && (
+                            <img src={url} alt="" className="content-img" />
                         )}
                     </picture>
                 </div>

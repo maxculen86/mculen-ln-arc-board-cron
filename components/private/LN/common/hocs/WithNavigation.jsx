@@ -21,17 +21,15 @@ export default function WithNavigation(WrappedComponent) {
             constructor(props) {
                 super(props);
                 this.state = {
-                    sections: []
+                    sections: [],
+                    termicas: {}
                 };
-                this.getNavigationTree().then(sections => {
-                    this.setState({
-                        sections
-                    });
-                });
+                this.getNavigationTree();
             }
 
+            // TODO: revisar esto!
             getNavigationTree = () => {
-                const website = get(this, 'props.globalContent._website', null);
+                const website = get(this, 'props.arcSite', null);
                 const { cached, fetched } = this.getContent({
                     sourceName: 'navigationTreeSource',
                     query: {
@@ -39,42 +37,64 @@ export default function WithNavigation(WrappedComponent) {
                     }
                 });
 
-                return new Promise(resolve => {
-                    if (cached) resolve(this.getSectionTree(cached));
-                    else
-                        fetched.then(result =>
-                            resolve(this.getSectionTree(result))
-                        );
-                });
+                if (cached) this.getSectionTree(cached);
+
+                fetched.then(result => this.getSectionTree(result));
             };
 
             getSectionTree = results => {
                 const sections = [];
-                const { sectionId } = this.props;
-                sections.push({
-                    id: results._id,
-                    name: results.name,
-                    path: results._id
-                });
-                let section = results;
-                do {
-                    section = section.children.filter(el =>
-                        sectionId.includes(el._id)
-                    )[0];
-                    if (section) {
-                        sections.push({
-                            id: section._id,
-                            name: section.name,
-                            path: section._id
-                        });
+                if (results) {
+                    const termicas = results.Termicas;
+                    const { sectionId } = this.props;
+                    sections.push({
+                        id: results._id,
+                        name: results.name,
+                        path: results._id
+                    });
+                    let section = results;
+                    if (sectionId) {
+                        do {
+                            section = section.children.filter(el =>
+                                sectionId.includes(el._id)
+                            )[0];
+                            if (section) {
+                                sections.push({
+                                    id: section._id,
+                                    name: section.name,
+                                    path: section._id
+                                });
+                            }
+                        } while (section);
                     }
-                } while (section);
-                return sections;
+                    this.convertStringToBoolean(termicas);
+                    this.setState({
+                        sections,
+                        termicas
+                    });
+                }
+            };
+
+            convertStringToBoolean = termicas => {
+                Object.keys(termicas).forEach(function(key) {
+                    if (typeof termicas[key] === 'string') {
+                        termicas[key].toLowerCase().trim() === 'true'
+                            ? (termicas[key] = true)
+                            : (termicas[key] = false);
+                    }
+                });
+                return termicas;
             };
 
             render() {
-                const { sections } = this.state;
-                return <WrappedComponent {...this.props} sections={sections} />;
+                const { sections, termicas } = this.state;
+                return (
+                    <WrappedComponent
+                        {...this.props}
+                        sections={sections}
+                        termicas={termicas}
+                    />
+                );
             }
         }
     );

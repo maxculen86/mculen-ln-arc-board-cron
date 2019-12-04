@@ -1,4 +1,4 @@
-@import "settings/estructura.scss";
+@import 'settings/estructura.scss';
 header {
     @include flex;
     @include flex-row;
@@ -12,6 +12,7 @@ header {
     margin: auto;
     min-width: 1140px;
 }
+
 .header-wrapper {
     background: radial-gradient(ellipse at center, #322d59 0, #08142d 100%);
     max-width: 100% !important;
@@ -20,39 +21,47 @@ header {
     z-index: 3;
     margin: 0 !important;
 }
+
 header .wrapper {
     @include flex-row;
     margin: 0;
 }
+
 header.sticky {
     padding: 0.5rem 0;
 }
+
 header.sticky .header__logo img {
     height: 24px;
     width: 40px;
     transition: all 0.2s ease;
 }
+
 .header__nav {
     @include flex;
     @include flex-row;
     @include alit-center;
     z-index: 2;
 }
+
 .header__nav__link {
     font-family: $font-suecasm;
-    font-size: $px-12;
+    font-size: $font-12;
     color: $ott-header-link;
     margin-right: $px-16;
     position: relative;
     font-weight: 800;
 }
+
 .header__nav__link--live {
     color: $ott-header-link-vivo;
 }
+
 .header__nav__link:active:after,
 .header__nav__link:hover:after {
     opacity: 1;
 }
+
 .header__nav__link:after {
     position: absolute;
     top: $px-18;
@@ -60,13 +69,15 @@ header.sticky .header__logo img {
     width: 100%;
     height: 2px;
     background: $ott-header-link;
-    content: "";
+    content: '';
     opacity: 0;
     transition: all 0.25s ease 0s;
 }
+
 .header__nav__link--live:after {
     background: $ott-header-link-vivo;
 }
+
 .header__logo {
     margin-right: 20px;
     z-index: 2;
@@ -77,19 +88,23 @@ header.sticky .header__logo img {
     width: 65px;
     transition: all 0.2s ease;
 }
+
 .header__logo img {
     height: 38px;
     width: 65px;
     transition: all 0.2s ease;
 }
+
 .header__hamburguer {
     display: none;
 }
+
 @media (max-width: 1380px) {
     .header__nav__link {
         font-size: 0.9em;
     }
 }
+
 @media (max-width: 1200px) {
     .header {
         min-width: initial;
@@ -97,11 +112,13 @@ header.sticky .header__logo img {
         margin: 0 30px;
     }
 }
+
 @media (max-width: 1025px) {
     .header__nav__link {
         font-size: 0.8em;
     }
 }
+
 @media (max-width: 864px) {
     .header .wrapper {
         width: 100% !important;

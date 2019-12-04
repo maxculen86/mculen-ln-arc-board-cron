@@ -1,13 +1,18 @@
+import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import TePuedeInteresar from '../../private/LN/nota/tePuedeInteresar';
 
-TePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
+const tePuedeInteresar = props => {
+    return <TePuedeInteresar {...props} />;
+};
 
-TePuedeInteresar.propTypes = {
+tePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
+
+tePuedeInteresar.propTypes = {
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' })
     })
 };
 
-export default Consumer(TePuedeInteresar);
+export default Consumer(tePuedeInteresar);

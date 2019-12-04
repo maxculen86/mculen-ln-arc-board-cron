@@ -15,6 +15,7 @@ const section = `
             style {
                 section_style_name
             }
+            site
         }
     }
 }`;
@@ -24,7 +25,9 @@ const image = `
     resized_urls {
         ${imageResizedUrl}             
     }
+    height
     url
+    width
     subtitle
 `;
 
@@ -38,7 +41,9 @@ const video = `
     }
     streams {
         height
+        width
         url
+        stream_type
     }
     promo_items {
         basic {
@@ -51,6 +56,18 @@ const video = `
         }
         headlines {
             basic
+        }
+    }
+`;
+
+const label = `
+    text
+`;
+
+const labels = `
+    label {
+        livefyre_entrada_id {
+            ${label}
         }
     }
 `;
@@ -107,6 +124,7 @@ export default `
         }
         sections ${section}
         primary_section ${section}
+        seo_keywords
     }
     content_elements {
         _id
@@ -115,6 +133,12 @@ export default `
         content
         ${image}
         ${customReceta}
+        ${video}
     }
-    display_date
+    display_date,
+    created_date,
+    first_publish_date,
+    publish_date,
+    website_url,
+    ${labels}
 }`;

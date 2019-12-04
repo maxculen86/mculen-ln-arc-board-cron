@@ -1,15 +1,13 @@
 @import '../abstracts/variables';
-
-
 .com-nav-mobile {
     position: fixed;
     bottom: 0;
-    padding: 5px 10px 10px;
-    background: #fff;
+    padding: $px-5 $px-10 $px-10;
+    background: $blanco;
     z-index: 1500;
     border-top: 1px solid $gris2;
     width: 100%;
-    .row{
+    .row {
         max-width: 390px;
         margin: 0 auto;
         justify-content: space-between;
@@ -21,7 +19,10 @@
         align-items: center;
         background: transparent;
         //OCULTO HAMBURGUESA
-        &:last-child{display:none;}
+        // TODO: Recordar dejar oculto
+        &:last-child {
+            display: block;
+        }
         p {
             font-family: $font-arial;
             font-size: $font-11;
@@ -43,15 +44,14 @@
                 color: $ln;
             }
         }
-    } 
+    }
     //scrollUp
     &.--scrollDown {
         bottom: -200px;
     }
-
     //scrollDown
     &.--scrollUp {
-        bottom: 0
+        bottom: 0;
     }
     @media ($media-l) {
         display: none;

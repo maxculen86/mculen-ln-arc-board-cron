@@ -1,6 +1,5 @@
 @import '../abstracts/variables';
 
-
 /* subtitles */
 
 .com-subtitle-nota-1 {
@@ -16,6 +15,19 @@
     font-weight: 800;
     line-height: $line-16;
     letter-spacing: -0.21px;
+}
+
+.com-subtitle-nota-3 {
+    font-family: $font-arial;
+    font-size: $font-16;
+    font-weight: 700;
+    line-height: $line-24;
+    .keep-reading & {
+        margin-bottom: $px-30;
+    }
+    .sidebar__main .com-tag & {
+        margin-bottom: $px-10;
+    }
 }
 
 //Valores de tablet para arriba
@@ -48,9 +60,8 @@
 //Valores de desk para arriba
 @media (min-width: 1340px) {
     .com-subtitle-nota-2 {
-        font-weight: 800;
+        // font-weight: 800; sacamos esto porque en el zeplin de nota noticias no está
     }
 }
-
 
 /* end subtitles */

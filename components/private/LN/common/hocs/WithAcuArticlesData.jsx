@@ -12,7 +12,8 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                     globalContent: PropTypes.shape({
                         type: PropTypes.string.isRequired,
                         _id: PropTypes.string.isRequired
-                    }).isRequired
+                    }).isRequired,
+                    size: PropTypes.number.isRequired
                 };
             }
 
@@ -52,7 +53,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 const sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
-                const size = get(this, 'props.size', 30) + 1;
+                const size = get(this, 'props.size', 30);
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
@@ -78,13 +79,13 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                     );
                     const hayMasNotasFetched = get(response, 'next', 0);
                     fetchedCallback({
-                        articles: articlesFetched.slice(0, size),
+                        articles: articlesFetched.slice(0, size + 1),
                         hayMasNotas: hayMasNotasFetched
                     });
                 });
 
                 return {
-                    articles: articles.slice(0, size),
+                    articles: articles.slice(0, size + 1),
                     hayMasNotas
                 };
             };
@@ -140,9 +141,14 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 } = this.props;
 
                 if (type === 'story') {
-                    articlesArray = articles.filter(article => {
-                        return article._id !== _id;
-                    });
+                    if (articles.find(e => e._id === _id) !== undefined) {
+                        articlesArray = articles.filter(article => {
+                            return article._id !== _id;
+                        });
+                    } else {
+                        const { size } = this.props;
+                        articlesArray = articles.slice(0, size);
+                    }
                 }
 
                 return (

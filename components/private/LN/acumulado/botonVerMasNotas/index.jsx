@@ -13,7 +13,8 @@ const Button = ({ onClickHandler, name, loading, loadingIcon }) => {
                 className="--btn --secondary"
                 disabled={loading}
             >
-                VER MÁS NOTAS DE {name.toUpperCase()}
+                VER MÁS NOTAS
+                {name && ` DE ${name.toUpperCase()}`}
             </button>
         </div>
     );

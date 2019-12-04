@@ -5,11 +5,11 @@ import Header from './headerBase';
 
 import '../../../../../resources/dist/css/ln/modules/header-mobile.css';
 
-const HeaderMobile = ({ loginData }) => {
+const HeaderMobile = ({ loginData, host }) => {
     return (
         <Header id="header-mobile" className="header-mobile">
             <div className="col-6">
-                <a href="/" className="header-mobile__logo">
+                <a href={host} className="header-mobile__logo">
                     <i className="logo-la-nacion" />
                 </a>
             </div>
@@ -28,7 +28,8 @@ HeaderMobile.propTypes = {
     loginData: PropTypes.shape({
         subscription: PropTypes.bool,
         userName: PropTypes.string
-    })
+    }).isRequired,
+    host: PropTypes.string.isRequired
 };
 
 // HeaderMobile.defaultProps = {

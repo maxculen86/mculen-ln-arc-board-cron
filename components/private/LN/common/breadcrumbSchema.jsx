@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 function BreadcrumbSchema({ sections, host }) {
-    let items = sections
+    const items = sections
         .map((el, i) => {
             return `
         {
@@ -30,8 +30,8 @@ BreadcrumbSchema.propTypes = {
             name: PropTypes.string,
             path: PropTypes.string
         })
-    ),
-    host: PropTypes.string
+    ).isRequired,
+    host: PropTypes.string.isRequired
 };
 
 // BreadcrumbSchema.defaultProps = {

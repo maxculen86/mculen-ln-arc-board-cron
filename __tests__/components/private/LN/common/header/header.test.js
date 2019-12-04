@@ -1,3 +1,5 @@
+import Consumer from 'fusion:consumer';
+
 jest.mock(
     '../../../../../../components/private/LN/common/header/headerMobile',
     () => 'mocked-mobile-header'
@@ -14,6 +16,11 @@ jest.mock(
 jest.mock(
     '../../../../../../components/private/LN/common/hocs/withLoginData',
     () => Comp => props => (Comp ? <Comp {...props} /> : null)
+);
+
+jest.mock(
+    '../../../../../../components/private/LN/common/desplegable',
+    () => 'mocked-desplegable'
 );
 
 /* jest.mock(
@@ -33,6 +40,10 @@ const getUserLogout = () => ({
         userName: 'Sin nombre'
     }
 });
+
+const siteProperties = {
+    siteProperties: { host: 'https://www.lanacion.com.ar' }
+};
 
 /* const getUserLoginWithoutSubscription = () => ({
     logueado: true,
@@ -56,7 +67,11 @@ describe('components - private - LN - common - header', () => {
         device: 'desktop'
     };
     const componentDesktop = mount(
-        <Header screenUtils={desktopSU} mockApi={getUserLogout()}>
+        <Header
+            screenUtils={desktopSU}
+            mockApi={getUserLogout()}
+            {...siteProperties}
+        >
             {child}
         </Header>
     );
@@ -71,7 +86,11 @@ describe('components - private - LN - common - header', () => {
         device: 'desktop'
     };
     const componentMobile = mount(
-        <Header screenUtils={mobileSU} mockApi={getUserLogout()}>
+        <Header
+            screenUtils={mobileSU}
+            mockApi={getUserLogout()}
+            {...siteProperties}
+        >
             {child}
         </Header>
     );
@@ -83,7 +102,7 @@ describe('components - private - LN - common - header', () => {
 
     it('Shows user menu on the top right corner when logged in', () => {
         const componentDesktop = mount(
-            <Header screenUtils={desktopSU} logueado>
+            <Header screenUtils={desktopSU} logueado {...siteProperties}>
                 {child}
             </Header>
         );
@@ -92,7 +111,9 @@ describe('components - private - LN - common - header', () => {
 
     it("Doesn't show user menu when logged out", () => {
         const componentDesktop = mount(
-            <Header screenUtils={desktopSU}>{child}</Header>
+            <Header screenUtils={desktopSU} {...siteProperties}>
+                {child}
+            </Header>
         );
         expect(componentDesktop.find('ul.com-desplegable')).toHaveLength(0);
     });
@@ -106,6 +127,7 @@ describe('components - private - LN - common - header', () => {
                     subscription: true,
                     userName: 'Pedro Perez'
                 }}
+                {...siteProperties}
             >
                 {child}
             </Header>
@@ -127,6 +149,7 @@ describe('components - private - LN - common - header', () => {
                     subscription: false,
                     userName: 'Pedro Perez'
                 }}
+                {...siteProperties}
             >
                 {child}
             </Header>

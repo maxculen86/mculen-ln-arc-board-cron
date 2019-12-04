@@ -1,6 +1,5 @@
 @import '../abstracts/variables';
 
-
 /* lead */
 
 .com-lead-nota {
@@ -12,10 +11,12 @@
 }
 
 //Valores de tablet para arriba
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+}
 
 //Valores de desk chico para arriba
-@media (min-width: 1025px) {}
+@media (min-width: 1025px) {
+}
 
 //Valores de desk chico para arriba
 @media (min-width: 1280px) {
@@ -27,7 +28,7 @@
 }
 
 //Valores de desk para arriba
-@media (min-width: 1340px) {}
-
+@media (min-width: 1340px) {
+}
 
 /* end lead */

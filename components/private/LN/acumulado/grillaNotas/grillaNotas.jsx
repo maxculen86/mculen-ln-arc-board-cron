@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import TransparencyDiv from './transparencyDiv';
-import ArticleMain from '../../common/articleTypes/articleMain';
-import ArticleDate from '../../common/dateArticle';
+import ArticlesAcum from './articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
 import Banner from '../../common/banner';
 import LoadingIcon from '../../common/loadingIcon';
@@ -10,9 +9,40 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import config from './bannerPositionsConfig.json';
 
-const CLASS_W_100 = 'w-100-mobile';
-const DATA_SECTION = 'CuerpoAcu';
 class GrillaNotas extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { alturaArticle: 0 };
+
+        this.sectionGrillasNotasRef = React.createRef();
+
+        this.setAlturaArticle = this.setAlturaArticle.bind(this);
+    }
+
+    componentDidMount() {
+        this.setAlturaArticle();
+        window.addEventListener('resize', this.setAlturaArticle);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.setAlturaArticle);
+    }
+
+    setAlturaArticle() {
+        const { childNodes } = this.sectionGrillasNotasRef.current;
+        const articlesGrid =
+            childNodes &&
+            Object.values(childNodes).filter(el => el.localName === 'article');
+
+        if (articlesGrid) {
+            const articleGrid = articlesGrid[articlesGrid.length - 1];
+            const alturaArticle =
+                articleGrid.offsetHeight || articleGrid.clientHeight;
+            this.setState({ ...alturaArticle });
+        }
+    }
+
     getBanner = (device, index) => {
         const position = index + 1;
         let bannerPosition = {};
@@ -43,24 +73,7 @@ class GrillaNotas extends Component {
         return undefined;
     };
 
-    getArticleClasses = article => {
-        let extraClasses = `${CLASS_W_100} `;
-        const {
-            taxonomy: {
-                primary_section: {
-                    additional_properties: {
-                        original: { style }
-                    }
-                }
-            }
-        } = article;
-        if (style && style.section_style_name)
-            extraClasses += style.section_style_name;
-        return extraClasses;
-    };
-
     render() {
-        let articlesComponents = [];
         const {
             articles,
             hayMasNotas,
@@ -68,42 +81,27 @@ class GrillaNotas extends Component {
             globalContent,
             loading
         } = this.props;
-        if (articles && articles.length) {
-            articlesComponents = articles.map((a, i) => {
-                const mobileBanner = this.getBanner('mobile', i);
-                const tabletBanner = this.getBanner('tablet', i);
-                const dateComponent = (
-                    <ArticleDate display_date={a.display_date} />
-                );
-                const extraClasses = this.getArticleClasses(a);
-                return (
-                    <>
-                        <ArticleMain
-                            dataSection={DATA_SECTION}
-                            key={a._id}
-                            articleData={a}
-                            extraClasses={extraClasses}
-                        >
-                            {dateComponent}
-                        </ArticleMain>
-                        {mobileBanner}
-                        {tabletBanner}
-                    </>
-                );
-            });
-        }
-        const hayMasNotasBool = hayMasNotas > 0;
+        const { alturaArticle } = this.state;
+
         return (
             <>
-                <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-                    {articlesComponents}
-                    {hayMasNotasBool && <TransparencyDiv />}
+                <section
+                    className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade"
+                    ref={this.sectionGrillasNotasRef}
+                >
+                    <ArticlesAcum
+                        getBanner={this.getBanner}
+                        articles={articles}
+                    />
+                    {hayMasNotas > 0 && (
+                        <TransparencyDiv size={alturaArticle} />
+                    )}
                 </section>
-                {hayMasNotasBool && (
+                {hayMasNotas > 0 && (
                     <section className="row">
                         <BtnMasNotas
                             onClickHandler={obtenerMasNotas}
-                            name={globalContent.name}
+                            name={globalContent.name || ''}
                             loadingIcon={<LoadingIcon />}
                             loading={loading}
                         />
@@ -115,14 +113,14 @@ class GrillaNotas extends Component {
 }
 
 GrillaNotas.propTypes = {
-    articles: PropTypes.arrayOf(PropTypes.object),
-    hayMasNotas: PropTypes.number,
-    obtenerMasNotas: PropTypes.func,
+    articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    hayMasNotas: PropTypes.number.isRequired,
+    obtenerMasNotas: PropTypes.func.isRequired,
     globalContent: PropTypes.shape({
         name: PropTypes.string
     }).isRequired,
-    loading: PropTypes.bool,
-    isAdmin: PropTypes.bool,
+    loading: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired

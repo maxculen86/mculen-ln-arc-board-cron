@@ -1,12 +1,10 @@
 @import '../abstracts/variables';
-
-
 .--bg-banner {
-    background-color:#f3f3f3;
-    margin-bottom:$px-20;
-    &.w-100{
-        .banner{
-            display: flex!important;
+    background-color: #f3f3f3;
+    margin-bottom: $px-20;
+    &.w-100 {
+        .banner {
+            display: flex !important;
             justify-content: center;
             align-items: center;
         }
@@ -14,57 +12,52 @@
 }
 
 .banner {
-    &.--large { 
-        width:300px;
-        height:600px;
-        margin-bottom:$px-40;
-        
+    &.--large {
+        width: 300px;
+        height: 600px;
+        margin-bottom: $px-40;
     }
     &.--small {
-        width:300px;
-        height:250px;
-        margin:0px auto $px-20 auto;
-        margin-bottom:$px-40;
-        
+        width: 300px;
+        height: 250px;
+        margin: 0px auto $px-20 auto;
+        margin-bottom: $px-40;
     }
     &.--top {
-        width:320px;
-        height:auto;
-        display: flex!important;
+        width: 320px;
+        height: auto;
+        display: flex !important;
         justify-content: center;
         align-items: center;
     }
-
     &.--sticky {
-        width:300px;
-        height:$px-50;
+        width: 300px;
+        height: $px-50;
     }
-
     &.--tablet,
     &.--desktop {
-        display:none;
+        display: none;
     }
-
     &.--mobile {
-        display:block;
-        margin:0 -10px;
+        display: block;
+        margin: 0 -$px-10;
         background: #f3f3f3;
         text-align: center;
-        @media (min-width: 321px){
-            margin:0;
+        @media (min-width: 321px) {
+            margin: 0;
         }
-        &.--sticky{
+        &.--sticky {
             position: fixed;
-            margin: 0!important;
+            margin: 0 !important;
             left: 0;
             right: 0;
             top: -100px;
             width: 100%;
             z-index: 10000;
             transition: all 0.25s;
-            background-color:#f3f3f3;
-            &.--active{
-                #wrapper.--scrollDown &{
+            background-color: #f3f3f3;
+            &.--active {
+                #wrapper.--scrollDown & {
                     top: 0;
                 }
             }
@@ -74,21 +67,18 @@
 
 //Valores de tablet para arriba
 @media (min-width: 768px) {
-
     .banner {
         &.--desktop,
         &.--mobile {
-            display:none;
+            display: none;
         }
-    
         &.--tablet {
-            display:block;
-            margin:auto;
+            display: block;
+            margin: auto;
         }
-
         &.--top {
-            width:728px;
-            height:$px-90;
+            width: 728px;
+            height: $px-90;
         }
     }
 }
@@ -98,23 +88,20 @@
     .banner {
         &.--tablet,
         &.--mobile {
-            display:none;
+            display: none;
         }
-
         &.--desktop {
-            display:block;
-            margin-bottom:$px-20;
+            display: block;
+            margin-bottom: $px-20;
         }
-
         &.--top {
-            max-width:1260px;
-            width:100%;
-            margin:auto;
-            height: auto;     
+            max-width: 1260px;
+            width: 100%;
+            margin: auto;
+            height: auto;
         }
         &#caja2_dsk {
             margin-top: $px-30;
         }
     }
-
 }

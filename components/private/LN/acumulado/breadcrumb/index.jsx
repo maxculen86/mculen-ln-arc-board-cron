@@ -5,7 +5,7 @@ import BreadcrumbTag from './breadcrumbTag';
 import BreadcrumbSection from './breadcrumbSection';
 
 function Index({ globalContent, siteProperties }) {
-    const { host } = siteProperties.shareConfig;
+    const { host } = siteProperties;
     if (globalContent.Payload) {
         const tag = globalContent.Payload.items[0];
         return <BreadcrumbTag tag={tag} host={host} />;

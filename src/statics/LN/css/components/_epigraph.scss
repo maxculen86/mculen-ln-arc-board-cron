@@ -1,0 +1,20 @@
+@import '../abstracts/variables';
+.com-epigrafe {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $px-10 0 $px-20;
+    border-bottom: 1px solid #dedede;
+    background: $blanco;
+    p {
+        width: 100%;
+        margin-bottom: 0;
+        &.text {
+            font-family: Arial;
+            font-size: $font-16;
+        }
+        &.small {
+            color: #6e6e6e;
+            font-size: $font-14;
+        }
+    }
+}

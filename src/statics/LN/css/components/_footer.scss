@@ -1,9 +1,6 @@
 @import '../abstracts/variables';
-
-
 footer {
     margin-bottom: $px-20;
-    
     .footer-header {
         margin-bottom: $px-20;
         @media ($media-l) {
@@ -22,8 +19,8 @@ footer {
                 padding-bottom: 0;
             }
             .logo-la-nacion {
-                font-size: 22px;
-                color:$ln;
+                font-size: $font-22;
+                color: $ln;
             }
             a {
                 display: inline-flex;
@@ -54,8 +51,8 @@ footer {
             display: flex;
             justify-content: center;
             align-items: center;
-            a{
-                height: 35px;
+            a {
+                height: $px-35;
             }
             @media ($media-l) {
                 order: 3;
@@ -66,7 +63,6 @@ footer {
             }
         }
     }
-
     .footer-sitio {
         margin-bottom: $px-20;
         .footer-sitio__links {
@@ -90,7 +86,7 @@ footer {
             }
             p {
                 color: $gris5;
-                font-size: $px-14;
+                font-size: $font-14;
                 line-height: $px-20;
                 /*height: fit-content;
                 width: fit-content;*/
@@ -117,47 +113,41 @@ footer {
             }
         }
     }
-
     .footer-copyright {
         margin-bottom: $px-20;
-        .footer-copyright__fiscal {         
+        .footer-copyright__fiscal {
             p {
                 color: $gris5;
-                font-size: $px-14;
+                font-size: $font-14;
                 line-height: $px-20;
                 /*height: fit-content;
                 width: fit-content;*/
-
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
                 vertical-align: top;
                 text-align: left;
-                margin: -20px 0 20px 0;
-
+                margin: -$px-20 0 $px-20 0;
                 .img_gda {
-                    margin:0 15px 0 -5px;
+                    margin: 0 $px-20 0 -$px-5;
                 }
                 a {
-                    margin-left: 15px;
+                    margin-left: $px-20;
                     .img_data-fiscal {
                         width: $px-35;
                     }
                 }
-                
             }
-
             @media ($media-l) {
                 order: 2;
                 p {
                     text-align: right;
                     width: 100%;
-                    margin: -6px 0 0 0;
-                    display: block;        
+                    margin: -$px-6 0 0 0;
+                    display: block;
                     a {
                         float: right;
-                        margin-top: 8px;
+                        margin-top: $px-8;
                     }
                 }
             }

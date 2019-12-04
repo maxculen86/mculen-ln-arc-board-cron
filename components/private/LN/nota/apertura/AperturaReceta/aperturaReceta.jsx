@@ -35,8 +35,8 @@ const aperturaReceta = props => {
     const hasMultimedia = !!(!!promoItems && promoItems.basic);
 
     const aperturaVacio = !!(
-        tags.length === 0 &&
-        listSections.length === 0 &&
+        (!tags || tags.length === 0) &&
+        (!listSections || listSections.length === 0) &&
         promoItems === undefined
     );
 

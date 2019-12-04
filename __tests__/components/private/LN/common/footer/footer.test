@@ -1,0 +1,30 @@
+/* import React from 'react';
+import Consumer from 'fusion:consumer:fc';
+import { mount } from 'enzyme';
+import Footer from '../../../../../../components/private/LN/common/footer/index';
+ */
+/**
+ * TODO: Hacer generico el siguiente Mock para Consumer en caso de 
+ * tener componentes funcionales
+ * /
+const Consumer = jest.mock('fusion:consumer', component => {
+    return function(component) {
+        const siteProperties = { host: 'https://www.lanacion.com.ar'}
+        return props => (<component {...props} siteProperties={siteProperties} />);
+    }
+});*/
+
+/**
+ * Considerar importar el siguiente header en caso del footer sea usado con child
+ * para manjear header en el footer dinamico
+ * import Header from '../../../../../../components/private/LN/common/footer/header';
+ */
+
+
+// TODO: Inactivado porque falta actualizar el consumer en Mock para functional components
+/* describe('Footer - LaNacion', () => {
+    const component = mount(<Footer />);
+    it('Test de snapshot Detalle Receta', () => {
+        expect(component).toMatchSnapshot();
+    });
+}); */
