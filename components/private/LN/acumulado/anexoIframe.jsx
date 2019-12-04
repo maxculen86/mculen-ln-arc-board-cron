@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import pym from 'pym.js';
 
-const AnexoIframe = ({ title, url, id, styles }) => {
+const AnexoIframe = ({ url, id, styles }) => {
     useEffect(() => {
         if (window) {
             window.pym = pym;
             const pymIframe = new pym.Parent(`anexo-${id}`, url, {
-                title,
                 scrolling: 'no'
             });
 
@@ -30,7 +29,6 @@ const AnexoIframe = ({ title, url, id, styles }) => {
 
 AnexoIframe.propTypes = {
     id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     styles: PropTypes.string.isRequired
 };
