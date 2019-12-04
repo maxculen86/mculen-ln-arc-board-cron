@@ -4,7 +4,7 @@ import pym from 'pym.js';
 
 const AnexoIframe = ({ url, id, styles }) => {
     useEffect(() => {
-        if (window) {
+        if (window && url) {
             window.pym = pym;
             const pymIframe = new pym.Parent(`anexo-${id}`, url, {
                 scrolling: 'no'
@@ -29,8 +29,13 @@ const AnexoIframe = ({ url, id, styles }) => {
 
 AnexoIframe.propTypes = {
     id: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    styles: PropTypes.string.isRequired
+    url: PropTypes.string,
+    styles: PropTypes.string
+};
+
+AnexoIframe.defaultProps = {
+    url: undefined,
+    styles: ''
 };
 
 export default AnexoIframe;

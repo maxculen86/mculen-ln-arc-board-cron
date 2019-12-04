@@ -11,7 +11,7 @@ AnexoFeature.label = 'LN-Acumulado-AnexoEspeciales';
 AnexoFeature.propTypes = {
     id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
-        url: PropTypes.url.tag({ label: 'Url' }).isRequired
+        url: PropTypes.url.tag({ label: 'Url' })
     }).isRequired
 };
 
