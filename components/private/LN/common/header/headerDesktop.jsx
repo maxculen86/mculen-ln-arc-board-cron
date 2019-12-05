@@ -7,6 +7,7 @@ import Hamburguer from './hamburger';
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
+import useGlobal from '../hooks/useGlobal';
 
 const ItemAnchor = ({ url, text }) => {
     const callURL = address => {
@@ -57,6 +58,7 @@ const HeaderDesktop = ({
     const [loadingUserData, setLoadingUserData] = useState(
         loading ? ' hlp-none' : ''
     );
+    const { setLoggedIn } = useGlobal();
 
     const toggleMenu = () =>
         active === '' ? setActive(' --active') : setActive('');
@@ -64,6 +66,10 @@ const HeaderDesktop = ({
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
     }, [loading]);
+
+    useEffect(() => {
+        setLoggedIn(logueado);
+    }, [logueado]);
 
     return (
         <Header id="header" className={`header${headerDark}`}>
@@ -123,7 +129,10 @@ const HeaderDesktop = ({
                                 <li>
                                     <a
                                         href="javascript:void(0);"
-                                        onMouseDown={() => goToLogout()}
+                                        onMouseDown={() => {
+                                            setLoggedIn(false);
+                                            goToLogout();
+                                        }}
                                     >
                                         Salir
                                     </a>

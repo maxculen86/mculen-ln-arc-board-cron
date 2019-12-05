@@ -1,15 +1,17 @@
 /* eslint-disable no-undef */
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
+
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import customStrings from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../../LN/common/utils/handleCookie';
 import withLoginData from '../../../LN/common/hocs/withLoginData';
-import { LOGIN_URL } from 'fusion:environment';
+import useGlobal from '../../common/hooks/useGlobal';
 
 import '../../../../../resources/dist/css/ln/modules/comments.css';
+import '../../../../../src/statics/LN/css/base/_livefyre.scss';
 
 const Comments = props => {
     const {
@@ -21,8 +23,10 @@ const Comments = props => {
             label,
             subtype
         },
-        logueado
+        loginData
     } = props;
+
+    const { isLoggedIn } = useGlobal();
 
     let oldID = false;
 
@@ -30,7 +34,6 @@ const Comments = props => {
         oldID = label.livefyre_entrada_id.text;
     }
 
-    console.log('################## LAS PROPS EN COMMENT ######### : ', props);
     const { getCookie } = handleCookie();
 
     const cookie = getCookie('usuario%5Flogtkn');
@@ -51,7 +54,7 @@ const Comments = props => {
         .digest('hex');
 
     const sharedKey =
-        subtype === '7' && oldID
+        subtype === '7'
             ? config.livefyre.recetas.sharedKey
             : config.livefyre.sharedKey;
 
@@ -60,11 +63,22 @@ const Comments = props => {
     });
 
     const siteId =
-        subtype === '7' && oldID
+        subtype === '7'
             ? config.livefyre.recetas.siteId
             : config.livefyre.siteId;
 
-    useEffect(() => {
+    const onNodeChange = mutations => {
+        mutations.forEach(mutation => {
+            if (mutation.addedNodes.length > 0) {
+                const divs = mutation.addedNodes;
+                if (divs[0].className.indexOf('fyre-width-large') !== -1) {
+                    divs[0].remove();
+                }
+            }
+        });
+    };
+
+    useLayoutEffect(() => {
         if (typeof window !== 'undefined') {
             LiveFyre.networkConfig = {
                 network: config.livefyre.network
@@ -134,13 +148,14 @@ const Comments = props => {
 
             return () => {};
         }
-    }, [_id, collectionMeta, cookie, oldID, siteId, logueado]);
+    }, [_id, collectionMeta, cookie, oldID, siteId, isLoggedIn]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        console.log('pasa por el useEffect 2');
         if (typeof window !== 'undefined') {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
                 const isUserLoggedIn = () => {
-                    if (cookie !== '') {
+                    if (cookie !== '' && isLoggedIn) {
                         return true;
                     }
                     commentSection.current.classList.add('no-logueado');
@@ -163,15 +178,16 @@ const Comments = props => {
                         widget.on('initialRenderComplete', data => {
                             if (!auth.isAuthenticated()) {
                                 auth.authenticate({ livefyre: cookie });
-                            } else {
+                            } else if (!isLoggedIn) {
                                 fyre.conv.logout();
+                                auth.authenticate({ livefyre: cookie });
                             }
                         });
                     }
                 );
                 auth.delegate({
                     login(callback) {
-                        location.href = LOGIN_URL + window.btoa(location.href);
+                        loginData.goToLoginUrl();
                         callback(null, { livefyre: cookie });
                     },
                     logout(finishLogout) {
@@ -189,9 +205,21 @@ const Comments = props => {
                     }
                 });
             });
-            return () => {};
         }
-    }, []);
+        return () => {
+            console.log('cleanup');
+            const divs = document.getElementsByClassName('fyre');
+            for (let i = 0; i < divs.length; i++) {
+                divs[i].remove();
+            }
+
+            /* const observer = new MutationObserver(onNodeChange);
+            observer.observe(document.querySelector('#livefyre'), {
+                subtree: false,
+                childList: true
+            }); */
+        };
+    }, [isLoggedIn]);
 
     return (
         <>
