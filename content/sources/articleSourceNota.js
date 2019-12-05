@@ -44,6 +44,7 @@ const transform = (data, siteProps) => {
             presets
         });
     }
+
     return tranformQuitarSectionsInvalidas(resp);
 };
 

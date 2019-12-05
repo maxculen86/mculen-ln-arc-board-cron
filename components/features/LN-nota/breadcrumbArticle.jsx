@@ -1,6 +1,17 @@
+import React from 'react';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
+
 import BreadCrumbArticle from '../../private/LN/nota/apertura/breadcrumb/breadcrumbArticle';
 
-BreadCrumbArticle.label = 'LN-Nota-Breadcrumb';
+const breadCrumbArticle = props => {
+    return (
+        <Static id="Breadcrumb-article">
+            <BreadCrumbArticle {...props} />
+        </Static>
+    );
+};
 
-export default Consumer(BreadCrumbArticle);
+breadCrumbArticle.label = 'LN-Nota-Breadcrumb';
+
+export default Consumer(breadCrumbArticle);

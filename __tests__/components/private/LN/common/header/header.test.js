@@ -18,6 +18,11 @@ jest.mock(
     () => Comp => props => (Comp ? <Comp {...props} /> : null)
 );
 
+jest.mock(
+    '../../../../../../components/private/LN/common/desplegable',
+    () => 'mocked-desplegable'
+);
+
 /* jest.mock(
     '../../../../../../components/private/common/hocs/withScreenUtils',
     () => Comp => props => (Comp ? <Comp {...props} /> : null)
