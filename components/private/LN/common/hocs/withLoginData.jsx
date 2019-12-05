@@ -72,6 +72,10 @@ function withLoginData(WrappedComponent) {
                                 0,
                                 16
                             )}...`,
+                            goToLoginUrl: () => {
+                                location.href =
+                                    LOGIN_URL + window.btoa(location.href);
+                            },
                             loading: false
                         }
                     });
@@ -240,9 +244,7 @@ function withLoginData(WrappedComponent) {
                     // La fecha está en DD/MM/YYYY . La convierto a MM/DD/YYYY ;
                     // let daysDate = arrFullDate[0];
                     const arrDays = arrFullDate[0].split('/');
-                    const daysDate = `${arrDays[1]}/${arrDays[0]}/${
-                        arrDays[2]
-                    }`;
+                    const daysDate = `${arrDays[1]}/${arrDays[0]}/${arrDays[2]}`;
 
                     const time = this.convertTo24Hour(
                         arrFullDate[1] + arrFullDate[2]

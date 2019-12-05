@@ -156,6 +156,7 @@ const Comments = props => {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
                 const isUserLoggedIn = () => {
                     if (cookie !== '' && isLoggedIn) {
+                        commentSection.current.classList.remove('no-logueado');
                         return true;
                     }
                     commentSection.current.classList.add('no-logueado');
@@ -204,10 +205,10 @@ const Comments = props => {
                         }
                     }
                 });
+                if (!isLoggedIn) auth.logout();
             });
         }
         return () => {
-            console.log('cleanup');
             const divs = document.getElementsByClassName('fyre');
             for (let i = 0; i < divs.length; i++) {
                 divs[i].remove();
