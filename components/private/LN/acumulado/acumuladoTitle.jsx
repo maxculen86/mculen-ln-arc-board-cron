@@ -72,10 +72,17 @@ const AcumuladoTitle = props => {
 
         if (
             typeof hideSectionsList === 'undefined' &&
-            typeof hideTagsList === 'undefined'
+            typeof hideTagsList === 'undefined' &&
+            isPrimarySection
         )
             setWithCategory('with-category');
-    }, [_children, globalContent, hideSectionsList, hideTagsList]);
+    }, [
+        _children,
+        globalContent,
+        hideSectionsList,
+        hideTagsList,
+        isPrimarySection
+    ]);
 
     return (
         <>

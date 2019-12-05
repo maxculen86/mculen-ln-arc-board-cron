@@ -14,7 +14,7 @@ import '../../resources/dist/css/ln/components/hour.css';
 
 const layoutItems = [
     'Pre-Apertura',
-    'Breadcrumb',
+    'Breadcrumb/Titulo',
     'Apertura',
     'Links',
     'Notas',
