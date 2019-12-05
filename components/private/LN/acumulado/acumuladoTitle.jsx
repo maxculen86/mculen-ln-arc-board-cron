@@ -50,16 +50,13 @@ const AcumuladoTitle = props => {
             })()
         );
     }, [
-        _children,
         globalContent,
         globalContent.Payload,
         globalContent._id,
         globalContent.byline,
         globalContent.children,
         globalContent.name,
-        globalContent.node_type,
-        hideSectionsList,
-        hideTagsList
+        globalContent.node_type
     ]);
 
     useEffect(() => {
