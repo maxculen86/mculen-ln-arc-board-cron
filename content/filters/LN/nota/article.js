@@ -41,7 +41,9 @@ const video = `
     }
     streams {
         height
+        width
         url
+        stream_type
     }
     promo_items {
         basic {
@@ -54,6 +56,18 @@ const video = `
         }
         headlines {
             basic
+        }
+    }
+`;
+
+const label = `
+    text
+`;
+
+const labels = `
+    label {
+        livefyre_entrada_id {
+            ${label}
         }
     }
 `;
@@ -179,8 +193,12 @@ export default `
         ${image}
         ${customReceta}
         ${gallery}
+        ${video}
     }
     display_date,
     created_date,
-    first_publish_date
+    first_publish_date,
+    publish_date,
+    website_url,
+    ${labels}
 }`;

@@ -9,7 +9,8 @@ const articleMain = ({
     extraClasses,
     children,
     border,
-    dataSection
+    dataSection,
+    hourToDisplay
 }) => {
     let media = null;
     // TODO: validar tipo autor correcto
@@ -33,6 +34,10 @@ const articleMain = ({
         );
     }
 
+    const hourComponent = hourToDisplay ? (
+        <div className="com-hour">{hourToDisplay}</div>
+    ) : null;
+
     return (
         <ArticleBase
             articleData={articleData}
@@ -40,6 +45,7 @@ const articleMain = ({
             mediaComponent={media}
             border={border}
             dataSection={dataSection}
+            hourComponent={hourComponent}
         >
             {children}
         </ArticleBase>
@@ -57,7 +63,8 @@ articleMain.propTypes = {
         website_url: PropTypes.string
     }).isRequired,
     dataSection: PropTypes.string,
-    border: PropTypes.boolean
+    border: PropTypes.boolean,
+    hourToDisplay: PropTypes.string
 };
 
 // articleMain.defaultProps = {

@@ -2,20 +2,28 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
-// import ListSectionsTitle from './acumuladoTitle/listSectionsTitle';
-// import TagsNavigation from './tagsNavigation';
+import ListSectionsTitle from './acumuladoTitle/listSectionsTitle';
+import TagsNavigation from './tagsNavigation';
 import NotaApertura from './notaApertura';
 import capitalizeFirstLetter from '../../common/utils/capitalizeFirstLetter';
+import get from '../../common/utils/get';
 
 import '../../../../resources/dist/css/ln/components/title.css';
 import '../../../../resources/dist/css/ln/components/tag.css';
 
-const AcumuladoTitle = ({ globalContent, orderAndCountTags, customFields }) => {
+const AcumuladoTitle = props => {
+    const { globalContent, orderAndCountTags, customFields } = props;
     const { prefixTitle } = customFields || {};
     const [withCategory, setWithCategory] = useState('');
     const [_children, setChildren] = useState([]);
     const [isPrimarySection, setIsPrimarySection] = useState(false);
     const [title, setTitle] = useState('');
+    const [hideSectionsList] = useState(
+        get(globalContent, 'site.hidesectionslist', undefined)
+    );
+    const [hideTagsList] = useState(
+        get(globalContent, 'site.hidetagslist', undefined)
+    );
 
     useEffect(() => {
         setChildren(globalContent.children);
@@ -25,8 +33,6 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags, customFields }) => {
                 globalContent._id &&
                 globalContent._id.split('/').splice(1).length === 1
         );
-        // TODO: Cambiar < a > cuando se active Navigation Arc2
-        if (_children && _children.length < 0) setWithCategory('with-category');
 
         setTitle(
             (() => {
@@ -44,7 +50,6 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags, customFields }) => {
             })()
         );
     }, [
-        _children,
         globalContent,
         globalContent.Payload,
         globalContent._id,
@@ -53,6 +58,24 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags, customFields }) => {
         globalContent.name,
         globalContent.node_type
     ]);
+
+    useEffect(() => {
+        if (
+            (!!hideSectionsList || !!hideTagsList) &&
+            _children &&
+            _children.length > 0
+        )
+            setWithCategory('with-category');
+
+        if (hideSectionsList === 'true' && hideTagsList === 'true')
+            setWithCategory('');
+
+        if (
+            typeof hideSectionsList === 'undefined' &&
+            typeof hideTagsList === 'undefined'
+        )
+            setWithCategory('with-category');
+    }, [_children, globalContent, hideSectionsList, hideTagsList]);
 
     return (
         <>
@@ -65,22 +88,18 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags, customFields }) => {
                             `${prefixTitle} `}
                         {title}
                     </h1>
-                    {/**
-                     * TODO: Activar cuando entre Arc2 de title
                     <ListSectionsTitle
                         _children={_children}
                         isPrimarySection={isPrimarySection}
+                        hideSectionsList={hideSectionsList === 'true'}
                     />
-                     */}
                 </div>
-                {/**
-                     * TODO: Activar cuando entre Arc2 del title
-                     <TagsNavigation
-                         _children={_children}
-                         orderAndCountTags={orderAndCountTags}
-                         isPrimarySection={isPrimarySection}
-                     />
-                     */}
+                <TagsNavigation
+                    _children={_children}
+                    orderAndCountTags={orderAndCountTags}
+                    isPrimarySection={isPrimarySection}
+                    hideTagsList={hideTagsList === 'true'}
+                />
             </div>
             <NotaApertura />
         </>

@@ -3,24 +3,44 @@ import PropTypes from 'fusion:prop-types';
 import ArticleMain from '../common/articleTypes/articleMain';
 import ArticleDate from '../common/dateArticle';
 
+const setDecimal = num => (Number(num) > 10 ? num : `0${num}`);
+const getHour = date =>
+    `${setDecimal(date.getHours())}:${setDecimal(date.getMinutes())}`;
+
 function ArticleAcum({
     children,
     dataSection,
     article: { display_date: displayDate },
     article,
-    extraClasses
+    extraClasses,
+    typeArticle
 }) {
     return (
         <>
-            <ArticleMain
-                dataSection={dataSection}
-                key={`clone-${article._id}`}
-                articleData={article}
-                extraClasses={extraClasses}
-            >
-                <ArticleDate display_date={displayDate} />
-            </ArticleMain>
-            {children}
+            {typeArticle === 'ArticleMain' && (
+                <>
+                    <ArticleMain
+                        dataSection={dataSection}
+                        key={`clone-${article._id}`}
+                        articleData={article}
+                        extraClasses={extraClasses}
+                    >
+                        <ArticleDate display_date={displayDate} />
+                    </ArticleMain>
+                    {children}
+                </>
+            )}
+            {typeArticle === 'ArticleTimeLine' && (
+                <ArticleMain
+                    dataSection={dataSection}
+                    key={`clone-${article._id}`}
+                    articleData={article}
+                    extraClasses={`${extraClasses} --list`}
+                    hourToDisplay={
+                        displayDate && getHour(new Date(displayDate))
+                    }
+                />
+            )}
         </>
     );
 }
@@ -32,7 +52,8 @@ ArticleAcum.propTypes = {
         _id: PropTypes.string,
         display_date: PropTypes.string
     }).isRequired,
-    children: PropTypes.node
+    children: PropTypes.ndoe,
+    typeArticle: PropTypes.string.isRequired
 };
 
 ArticleAcum.defaultProps = {

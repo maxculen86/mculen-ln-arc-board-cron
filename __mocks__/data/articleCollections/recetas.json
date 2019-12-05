@@ -773,6 +773,16 @@
                     "associated_tasks": []
                 },
                 "type": "image",
+                "resized_urls": [
+                    {
+                        "option": {
+                            "class": "img-desktop",
+                            "media": "(min-width: 768px)",
+                            "type": "promo_items"
+                        },
+                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                    }
+                ],
                 "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg",
                 "version": "0.9.0",
                 "width": 2048
@@ -802,6 +812,16 @@
                     "name": "Diego Cabot",
                     "image": {
                         "url": "https://s3.amazonaws.com/arc-authors/lanacionar/4b2cbe7c-9d50-4451-9a08-6dd8c4f72339.png",
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "class": "img-desktop",
+                                    "media": "(min-width: 768px)",
+                                    "type": "promo_items"
+                                },
+                                "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                            }
+                        ],
                         "version": "0.5.8"
                     },
                     "url": "/autor/diego-cabot",
@@ -1537,6 +1557,16 @@
                 "promo_items": {
                     "basic": {
                         "type": "image",
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "class": "img-desktop",
+                                    "media": "(min-width: 768px)",
+                                    "type": "promo_items"
+                                },
+                                "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                            }
+                        ],
                         "version": "0.5.8",
                         "credits": {
                             "by": [
@@ -1644,6 +1674,16 @@
                 "subtitles": {},
                 "promo_image": {
                     "type": "image",
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "class": "img-desktop",
+                                "media": "(min-width: 768px)",
+                                "type": "promo_items"
+                            },
+                            "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                        }
+                    ],
                     "version": "0.5.8",
                     "credits": {
                         "by": [
@@ -3142,6 +3182,16 @@
                 },
                 "subtitle": "Nicolas",
                 "type": "image",
+                "resized_urls": [
+                    {
+                        "option": {
+                            "class": "img-desktop",
+                            "media": "(min-width: 768px)",
+                            "type": "promo_items"
+                        },
+                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                    }
+                ],
                 "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/272ELZPBAJAMTJ6NLZISAQ5S3Q.jpg",
                 "version": "0.9.0",
                 "width": 1033
@@ -4269,6 +4319,16 @@
                     "system": "Anglerfish"
                 },
                 "type": "image",
+                "resized_urls": [
+                    {
+                        "option": {
+                            "class": "img-desktop",
+                            "media": "(min-width: 768px)",
+                            "type": "promo_items"
+                        },
+                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                    }
+                ],
                 "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/NNIYHDQG75GLJKANNW5AIC5FZA.jpg",
                 "version": "0.9.0",
                 "width": 1280,
@@ -6061,6 +6121,16 @@
                     "name": "Martín Lousteau",
                     "image": {
                         "url": "https://bucket.glanacion.com/anexos/fotos/89/2089289.png",
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "class": "img-desktop",
+                                    "media": "(min-width: 768px)",
+                                    "type": "promo_items"
+                                },
+                                "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                            }
+                        ],
                         "version": "0.5.8"
                     },
                     "slug": "martin-lousteau",
@@ -6117,6 +6187,16 @@
                     "name": "Adrián Ventura",
                     "image": {
                         "url": "https://bucket.glanacion.com/anexos/fotos/04/2114304.jpg",
+                        "resized_urls": [
+                            {
+                                "option": {
+                                    "class": "img-desktop",
+                                    "media": "(min-width: 768px)",
+                                    "type": "promo_items"
+                                },
+                                "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                            }
+                        ],
                         "version": "0.5.8"
                     },
                     "slug": "adrian-ventura",
@@ -6327,6 +6407,16 @@
                 },
                 "subtitle": "River",
                 "type": "image",
+                "resized_urls": [
+                    {
+                        "option": {
+                            "class": "img-desktop",
+                            "media": "(min-width: 768px)",
+                            "type": "promo_items"
+                        },
+                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                    }
+                ],
                 "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
                 "version": "0.9.0",
                 "width": 345
@@ -7170,6 +7260,16 @@
                 },
                 "subtitle": "River",
                 "type": "image",
+                "resized_urls": [
+                    {
+                        "option": {
+                            "class": "img-desktop",
+                            "media": "(min-width: 768px)",
+                            "type": "promo_items"
+                        },
+                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                    }
+                ],
                 "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YQPFIZTCKVFKFDHNINT7IBBI6U.jpg",
                 "version": "0.9.0",
                 "width": 345
@@ -7359,6 +7459,16 @@
                 },
                 "status": "published",
                 "type": "image",
+                "resized_urls": [
+                    {
+                        "option": {
+                            "class": "img-desktop",
+                            "media": "(min-width: 768px)",
+                            "type": "promo_items"
+                        },
+                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                    }
+                ],
                 "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/4LNFPBJE4FEF5MBDLBHG2GNCBE.jpg",
                 "version": "0.9.0",
                 "width": 2000,
@@ -8093,6 +8203,16 @@
                     "system": "Anglerfish"
                 },
                 "type": "image",
+                "resized_urls": [
+                    {
+                        "option": {
+                            "class": "img-desktop",
+                            "media": "(min-width: 768px)",
+                            "type": "promo_items"
+                        },
+                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                    }
+                ],
                 "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/YWOVDVKZYNDIPGHMIFLO4KBVXM.jpeg",
                 "version": "0.9.0",
                 "width": 720,

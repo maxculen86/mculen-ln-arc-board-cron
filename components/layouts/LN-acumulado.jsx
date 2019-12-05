@@ -10,6 +10,7 @@ import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/pages/acu.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
+import '../../resources/dist/css/ln/components/hour.css';
 
 const layoutItems = [
     'Pre-Apertura',
@@ -23,8 +24,10 @@ const layoutItems = [
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
 
-const LNAcumuladoLayout = ({ children, globalContent }) => {
+const LNAcumuladoLayout = props => {
+    const { children, globalContent } = props;
     const [classRevista, setClassRevista] = useState('');
+    const [headerDark, setHeaderDark] = useState('');
 
     useEffect(() => {
         const { style } = globalContent;
@@ -33,11 +36,17 @@ const LNAcumuladoLayout = ({ children, globalContent }) => {
 
         revistas.indexOf(sectionStyleName || '') !== -1 &&
             setClassRevista(`${CLASS_ACU_REVISTA} ${sectionStyleName}`);
-    }, [classRevista, globalContent]);
+
+        setHeaderDark(
+            style && style.headerdark && style.headerdark === 'true'
+                ? ' --dark'
+                : ''
+        );
+    }, [globalContent]);
 
     return (
         <div id="wrapper" className={`${classRevista}`}>
-            <Header />
+            <Header headerDark={headerDark} />
             <main>
                 {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                 {children[0]}
@@ -75,7 +84,8 @@ LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
-            section_style_name: PropTypes.string
+            section_style_name: PropTypes.string,
+            headerdark: PropTypes.string
         })
     }).isRequired
 };

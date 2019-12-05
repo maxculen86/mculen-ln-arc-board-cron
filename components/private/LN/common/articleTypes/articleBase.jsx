@@ -8,6 +8,7 @@ import '../../../../../resources/dist/css/ln/modules/caja-nota.css';
 const ArticleBase = ({
     extraClasses,
     articleData: { headlines, website_url: websiteUrl, label },
+    hourComponent,
     mediaComponent,
     children,
     border,
@@ -25,6 +26,7 @@ const ArticleBase = ({
             className={`mod-caja-nota ${borderClass} ${extraClasses || ''}`}
             {...extraOpts}
         >
+            {hourComponent}
             {mediaComponent}
             <div className="mod-caja-nota__descrip">
                 <TitleAcu
@@ -51,6 +53,7 @@ ArticleBase.propTypes = {
             })
         })
     }),
+    hourComponent: PropTypes.node,
     mediaComponent: PropTypes.node,
     children: PropTypes.node,
     border: PropTypes.bool,

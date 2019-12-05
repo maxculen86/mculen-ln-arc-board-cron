@@ -90,26 +90,72 @@
         flex-wrap: nowrap;
         white-space: nowrap;
     }
+    .arrow {
+        display: none;
+        @media (min-width: 768px) {
+            display: block;
+            background: none;
+            position: relative;
+            margin: 0 $px-10;
+            &.left-paddle {
+                margin-left: 0;
+            }
+            i {
+                font-size: $px-20;
+                color: $ln;
+            }
+            &:after {
+                content: '';
+                transform: rotate(-45deg);
+                width: $px-6;
+                height: $px-6;
+                background: $ln;
+                display: none;
+                position: absolute;
+                top: $px-4;
+                left: $px-5;
+            }
+            &:before {
+                content: 'MÁS CATEGORÍAS';
+                font-size: $px-9;
+                font-weight: 700;
+                width: $px-100;
+                background: $ln;
+                color: $blanco;
+                padding: $px-4 0;
+                position: absolute;
+                top: -10px;
+                left: -45px;
+                display: none;
+            }
+            &:hover:before,
+            &:hover:after {
+                display: block;
+            }
+        }
+    }
     .com-category {
-        width: 100%;
-        max-width: 700px;
-        overflow: hidden;
-        display: inline-flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        li {
-            padding-right: $px-20;
-            padding-bottom: 1px;
+        display: none;
+        @media (min-width: 768px) {
+            width: 100%;
+            overflow-x: hidden;
             display: inline-flex;
+            flex-direction: row;
             flex-wrap: nowrap;
-            align-items: center;
-            a {
-                font-family: $font-SuecaSlab;
-                font-size: $font-18;
-                font-weight: 500;
-                line-height: $line-19;
-                letter-spacing: -0.32px;
-                white-space: nowrap;
+            li {
+                padding-right: $px-20;
+                padding-bottom: 1px;
+                display: inline-flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                a {
+                    font-family: $font-SuecaSlab;
+                    font-size: $font-18;
+                    font-weight: 500;
+                    line-height: $line-19;
+                    letter-spacing: -0.32px;
+                    white-space: nowrap;
+                }
             }
         }
     }
