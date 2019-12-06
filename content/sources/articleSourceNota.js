@@ -68,7 +68,7 @@ export default {
         url: 'text',
         id: 'text',
         website: 'text',
-        published: 'bool'
+        published: 'text'
     },
     filter,
     transform
