@@ -7,6 +7,7 @@ import Slider from '../../../common/hocs/withSlider';
 const DEFAULT_PAGESIZE = 1;
 
 const Carousell = props => {
+    console.log('props slider ***************** ', props);
     const { slider, children } = props;
     return (
         <CarousellComponent>

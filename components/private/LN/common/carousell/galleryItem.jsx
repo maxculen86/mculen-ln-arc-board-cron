@@ -3,6 +3,7 @@ import React from 'react';
 // TODO: Se tiene que consumir a la API de author y mostrar los autores que no aparecen
 
 const galleryItem = props => {
+    console.log(' totalGallery ------------------', props);
     const {
         _id,
         url,

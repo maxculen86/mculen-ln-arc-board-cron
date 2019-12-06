@@ -5,14 +5,19 @@ import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
 // TODO: proptypes
-const media = ({ mediaData, colNumber, zoom, href }) => {
+const media = ({ mediaData, colNumber, zoom, href, children }) => {
     // TODO: revisar implementacion de placeHolder
     let item = null;
     if (mediaData) {
         const { type, _id } = mediaData;
         switch (type) {
             case 'image':
-                item = <Image image={mediaData} href={href} zoom={zoom} />;
+                item = (
+                    <>
+                        <Image image={mediaData} href={href} zoom={zoom} />
+                        {children}
+                    </>
+                );
                 break;
             case 'video':
                 item = <VideoPlayer videoId={_id} mediaData={mediaData} />;
