@@ -31,6 +31,11 @@ exports[`Ranking matches snapshot 1`] = `
             <picture
               class="content-pic picture "
             >
+              <source
+                class="img-desktop"
+                media="(min-width: 768px)"
+                srcset="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+              />
               <img
                 class="content-img"
                 src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg"

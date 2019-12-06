@@ -6,27 +6,33 @@ import ListSectionsTitle from './acumuladoTitle/listSectionsTitle';
 import TagsNavigation from './tagsNavigation';
 import NotaApertura from './notaApertura';
 import capitalizeFirstLetter from '../../common/utils/capitalizeFirstLetter';
+import get from '../../common/utils/get';
 
 import '../../../../resources/dist/css/ln/components/title.css';
 import '../../../../resources/dist/css/ln/components/tag.css';
 
-const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
+const AcumuladoTitle = props => {
+    const { globalContent, orderAndCountTags, customFields } = props;
+    const { prefixTitle } = customFields || {};
     const [withCategory, setWithCategory] = useState('');
     const [_children, setChildren] = useState([]);
     const [isPrimarySection, setIsPrimarySection] = useState(false);
     const [title, setTitle] = useState('');
+    const [hideSectionsList] = useState(
+        get(globalContent, 'site.hidesectionslist', undefined)
+    );
+    const [hideTagsList] = useState(
+        get(globalContent, 'site.hidetagslist', undefined)
+    );
 
     useEffect(() => {
         setChildren(globalContent.children);
 
         setIsPrimarySection(
-            // TODO: LLevar el lengt -1 a 1 cuando se active Navigation Arc2
             globalContent &&
                 globalContent._id &&
-                globalContent._id.split('/').splice(1).length === -1
+                globalContent._id.split('/').splice(1).length === 1
         );
-        // TODO: Cambiar < a > cuando se active Navigation Arc2
-        if (_children && _children.length < 0) setWithCategory('with-category');
 
         setTitle(
             (() => {
@@ -44,7 +50,6 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
             })()
         );
     }, [
-        _children,
         globalContent,
         globalContent.Payload,
         globalContent._id,
@@ -54,20 +59,53 @@ const AcumuladoTitle = ({ globalContent, orderAndCountTags }) => {
         globalContent.node_type
     ]);
 
+    useEffect(() => {
+        if (
+            (!!hideSectionsList || !!hideTagsList) &&
+            _children &&
+            _children.length > 0
+        )
+            setWithCategory('with-category');
+
+        if (hideSectionsList === 'true' && hideTagsList === 'true')
+            setWithCategory('');
+
+        if (
+            typeof hideSectionsList === 'undefined' &&
+            typeof hideTagsList === 'undefined' &&
+            isPrimarySection
+        )
+            setWithCategory('with-category');
+    }, [
+        _children,
+        globalContent,
+        hideSectionsList,
+        hideTagsList,
+        isPrimarySection
+    ]);
+
     return (
         <>
             <div className="com-titleWithfollow">
                 <div className={withCategory}>
-                    <h1 className="com-title-section-xl">{title}</h1>
+                    <h1 className="com-title-section-xl">
+                        {!isPrimarySection &&
+                            title &&
+                            prefixTitle &&
+                            `${prefixTitle} `}
+                        {title}
+                    </h1>
                     <ListSectionsTitle
                         _children={_children}
                         isPrimarySection={isPrimarySection}
+                        hideSectionsList={hideSectionsList === 'true'}
                     />
                 </div>
                 <TagsNavigation
                     _children={_children}
                     orderAndCountTags={orderAndCountTags}
                     isPrimarySection={isPrimarySection}
+                    hideTagsList={hideTagsList === 'true'}
                 />
             </div>
             <NotaApertura />
@@ -103,7 +141,8 @@ AcumuladoTitle.propTypes = {
                 text: PropTypes.string
             })
         })
-    ).isRequired
+    ).isRequired,
+    customFields: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 // AcumuladoTitle.defaultProps = {

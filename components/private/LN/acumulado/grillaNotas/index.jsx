@@ -5,15 +5,15 @@ import GrillaNotas from './grillaNotas';
 
 class Index extends Component {
     render() {
-        const { siteProperties, size, globalContent } = this.props;
-        const { author_type, _id, Payload } = globalContent;
+        const { siteProperties, size, globalContent, typeArticle } = this.props;
+        const { author_type: authorType, _id, Payload } = globalContent;
         const tagId =
             Payload && Payload.items && Payload.items.length
                 ? Payload.items[0].slug
                 : undefined;
 
-        const sectionId = !author_type && !Payload ? _id : null;
-        const authorId = author_type ? _id : null;
+        const sectionId = !authorType && !Payload ? _id : null;
+        const authorId = authorType ? _id : null;
         return (
             <GrillaNotas
                 authorId={authorId}
@@ -22,6 +22,7 @@ class Index extends Component {
                 size={size}
                 page={1}
                 siteProperties={siteProperties}
+                typeArticle={typeArticle}
             />
         );
     }
@@ -29,6 +30,7 @@ class Index extends Component {
 
 Index.propTypes = {
     size: PropTypes.number.isRequired,
+    typeArticle: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         Payload: PropTypes.shape({
             items: PropTypes.array
@@ -40,7 +42,7 @@ Index.propTypes = {
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
         })
-    })
+    }).isRequired
 };
 
 // Index.defaultProps = {

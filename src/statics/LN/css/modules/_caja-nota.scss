@@ -88,7 +88,7 @@
         font-size: $font-30;
         line-height: $line-30;
     }
-    >section {
+    > section {
         margin-bottom: $px-40;
     }
 }
@@ -101,7 +101,7 @@
         font-size: $font-30;
         line-height: $line-40;
     }
-    >section {
+    > section {
         margin-bottom: $px-40;
     }
 }
@@ -120,7 +120,7 @@
         }
         &.--border {
             .cont-figure {
-                margin: 0!important;
+                margin: 0 !important;
             }
         }
     }

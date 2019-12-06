@@ -1,10 +1,21 @@
-import Consumer from 'fusion:consumer';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
+
 import TituloNota from '../../private/LN/nota/apertura/titleAndIconArticle';
 
-TituloNota.label = 'LN-Nota-Titulo';
+const tituloNota = props => {
+    return (
+        <Static id="apertura-receta">
+            <TituloNota {...props} />
+        </Static>
+    );
+};
 
-TituloNota.propTypes = {
+tituloNota.label = 'LN-Nota-Titulo';
+
+tituloNota.propTypes = {
     customFields: PropTypes.shape({
         prefix: PropTypes.string.tag({
             label: 'Prefijo',
@@ -13,4 +24,4 @@ TituloNota.propTypes = {
     })
 };
 
-export default Consumer(TituloNota);
+export default Consumer(tituloNota);

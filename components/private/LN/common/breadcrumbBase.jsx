@@ -6,7 +6,7 @@ import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 const getListSections = (sections, extraOpts, host) =>
     sections.map(section => {
         const path =
-            section.name === 'LA NACION' && section.path === '/'
+            section.name === 'LA NACION' && section.path === '/' && host
                 ? host
                 : section.path;
         return (
@@ -16,19 +16,17 @@ const getListSections = (sections, extraOpts, host) =>
         );
     });
 
-const BreadcrumbBase = ({
-    sections,
-    extraClasses,
-    dataSection,
-    lastLinked,
-    host
-}) => {
+const BreadcrumbBase = props => {
+    const { sections, extraClasses, dataSection, lastLinked, host } = props;
+
     const extraOpts = {};
+
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
     }
     let listSections = [];
+
     if (!lastLinked && sections.length) {
         let finalSections = sections;
         finalSections = finalSections.slice(0, finalSections.length - 1);
