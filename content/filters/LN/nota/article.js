@@ -29,6 +29,25 @@ const image = `
     url
     width
     subtitle
+    credits {
+        affiliation {
+            name
+            type
+        }
+        by {
+            byline
+            name
+            type
+            referent {
+                id
+                provider
+                type
+            }
+        }
+    }
+    description {
+        basic
+    }
 `;
 
 const video = `
@@ -81,53 +100,11 @@ const gallery = `
     }
     promo_items {
         basic {
-            url
-            subtitle
-            credits {
-                affiliation {
-                    name
-                    type
-                }
-                by {
-                    byline
-                    name
-                    type
-                    referent {
-                        id
-                        provider
-                        type
-                    }
-                }
-            }
+            ${image}
         }
     }
     content_elements {
-        _id
-        subtitle
-        url
-        additional_properties {
-            galleryOrder
-            originalUrl
-        }
-        description {
-            basic
-        }
-        credits {
-            affiliation {
-                name
-                type
-            }
-            by {
-                byline
-                name
-                type
-                referent {
-                    id
-                    provider
-                    type
-                }
-            }
-        }
+        ${image}
     }
 `;
 
