@@ -53,7 +53,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 const sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
-                const size = get(this, 'props.size', 30);
+                const size = get(this, 'props.size', 30) + 1;
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
@@ -79,13 +79,13 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                     );
                     const hayMasNotasFetched = get(response, 'next', 0);
                     fetchedCallback({
-                        articles: articlesFetched.slice(0, size + 1),
+                        articles: articlesFetched.slice(0, size),
                         hayMasNotas: hayMasNotasFetched
                     });
                 });
 
                 return {
-                    articles: articles.slice(0, size + 1),
+                    articles: articles.slice(0, size),
                     hayMasNotas
                 };
             };
