@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import ArticleMain from '../common/articleTypes/articleMain';
 import ArticleDate from '../common/dateArticle';
 
-const setDecimal = num => (Number(num) > 10 ? num : `0${num}`);
+const setDecimal = num => (num > 9 ? num : `0${num}`);
 const getHour = date =>
     `${setDecimal(date.getHours())}:${setDecimal(date.getMinutes())}`;
 
