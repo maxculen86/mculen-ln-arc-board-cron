@@ -6,16 +6,17 @@ function withSlider(WrappedComponent, pageSize) {
     return class extends PureComponent {
         constructor(props) {
             super(props);
+            console.log(
+                'props ******** withSlider ********* ',
+                this.props.children
+            );
             const siteVars = getProperties(props.arcSite);
             this.sliderConfig = siteVars.sliderConfig;
             this.state = {
                 pageSize,
                 currentStartIndex: 0,
-                totalCount:
-                    this.props.children.length > 1
-                        ? this.props.children.length
-                        : this.props.children[0].length,
-                hasNextPage: this.props.children.length,
+                totalCount: this.props.children.length,
+                hasNextPage: this.props.children.length > pageSize,
                 /* (this.props.children.length > 1
                         ? this.props.children.length
                         : this.props.children[0].length) > pageSize, */
@@ -48,6 +49,7 @@ function withSlider(WrappedComponent, pageSize) {
                         );
                     });
                     if (elem) {
+                        console.log('updatePageSize ************************');
                         if (elem.pageSize !== this.state.pageSize) {
                             this.setState({
                                 // pageSize: elem.pageSize,
@@ -111,13 +113,14 @@ function withSlider(WrappedComponent, pageSize) {
         };
 
         render() {
+            console.log('this.state ++++++++++', this.state);
             return (
                 <WrappedComponent
                     slider={this.slider}
                     {...this.props}
                     totalCount={this.state.totalCount}
                 >
-                    {this.props.children[0].slice(
+                    {this.props.children.slice(
                         this.state.currentStartIndex,
                         this.state.currentStartIndex + this.state.pageSize
                     )}

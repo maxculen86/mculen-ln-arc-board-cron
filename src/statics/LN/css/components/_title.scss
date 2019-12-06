@@ -92,6 +92,13 @@ h1.com-title-nota {
     }
 }
 
+.com-title-acu-last {
+    font-family: $font-SuecaSlab;
+    font-size: $font-20;
+    line-height: $line-24;
+    letter-spacing: -0.47px;
+}
+
 .com-titleWithfollow {
     margin-bottom: 20px;
     @media (min-width: 768px) {
@@ -137,6 +144,12 @@ h1.com-title-nota {
     .com-title-nota {
         font-size: $font-38;
         line-height: $line-48;
+    }
+    .com-title-acu-last {
+        font-family: $font-SuecaSlab;
+        font-size: $font-19;
+        line-height: $line-24;
+        letter-spacing: -0.45px;
     }
 }
 

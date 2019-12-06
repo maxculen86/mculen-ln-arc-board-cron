@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`] = `
+<div
+  class="com-hamburger"
+>
+  <span
+    class="com-hamburger__bar"
+  />
+  <span
+    class="com-hamburger__bar"
+  />
+  <span
+    class="com-hamburger__bar"
+  />
+</div>
+`;
