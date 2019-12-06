@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 //Importo componente HARCODEADOS
 import BlockQuote from './blockQuote';
-import Gallery from './gallery';
+import Gallery from '../../common/carousell/gallery';
 import Html from './html';
 import PullQuote from './pullQuote';
 import MasNotas from './masNotas';
@@ -14,7 +14,7 @@ import Unordered from './unordered';
 import Subtitles from './subtitles';
 
 // TODO: tests
-const Cuerpo = () => {
+const Cuerpo = props => {
     const resp = [];
 
     resp.push(<TextCapital />);
@@ -23,18 +23,11 @@ const Cuerpo = () => {
     resp.push(<Subtitles />);
     resp.push(<Ordered />);
     resp.push(<Unordered />);
-    resp.push(<Gallery />);
+    resp.push(<Gallery {...props} />);
     resp.push(<Html />);
     resp.push(<PullQuote />);
     resp.push(<MasNotas />);
     resp.push(<Tags />);
-
-    // contentElements.forEach(element => {
-    //     switch (element.type) {
-    //         default:
-    //             break;
-    //     }
-    // });
 
     return resp;
 };

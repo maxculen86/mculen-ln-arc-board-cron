@@ -5,7 +5,7 @@ html {
 
 body {
     @media (min-width: 1023px) {
-        display: flex;
+        display: grid;
         justify-content: center;
         align-items: center;
         height: 100%;

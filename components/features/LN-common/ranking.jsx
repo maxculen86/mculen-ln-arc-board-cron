@@ -1,9 +1,15 @@
 import React from 'react';
+import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
+
 import Ranking from '../../private/LN/common/ranking';
 
 const ranking = ({ customFields: { cantidadNotas, dataSection } }) => {
-    return <Ranking dataSection={dataSection} size={cantidadNotas} />;
+    return (
+        <Static id="ranking">
+            <Ranking dataSection={dataSection} size={cantidadNotas} />
+        </Static>
+    );
 };
 
 ranking.label = 'LN-Common-Ranking';

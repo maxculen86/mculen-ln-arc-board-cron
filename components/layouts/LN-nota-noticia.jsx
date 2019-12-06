@@ -24,6 +24,8 @@ import '../../resources/dist/css/ln/components/subtitle.css';
 import '../../resources/dist/css/ln/components/slider.css';
 import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/components/appointment.css';
+import '../../resources/dist/css/ln/components/colecciones.css';
+import '../../resources/dist/css/ln/components/carta-lectores.css';
 
 const lnNotaNoticia = ({ children }) => {
     return (
@@ -51,7 +53,7 @@ const lnNotaNoticia = ({ children }) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
+                            <div className="col-1 hlp-marginBottom-40 hlp-tablet-none hlp-mobile-show">
                                 {/* Left-Cuerpo Shared*/}
                                 {children[3]}
                             </div>

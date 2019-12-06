@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import TransparencyDiv from './transparencyDiv';
-import ArticlesAcum from './articlesAcum';
+import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
 import Banner from '../../common/banner';
 import LoadingIcon from '../../common/loadingIcon';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import config from './bannerPositionsConfig.json';
+
+const classNamesArticle = {
+    ArticleMain: 'row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade',
+    ArticleTimeLine: 'breaking-news hlp-degrade'
+};
 
 class GrillaNotas extends Component {
     constructor(props) {
@@ -35,7 +40,7 @@ class GrillaNotas extends Component {
             childNodes &&
             Object.values(childNodes).filter(el => el.localName === 'article');
 
-        if (articlesGrid) {
+        if (articlesGrid && articlesGrid.length > 0) {
             const articleGrid = articlesGrid[articlesGrid.length - 1];
             const alturaArticle =
                 articleGrid.offsetHeight || articleGrid.clientHeight;
@@ -79,19 +84,22 @@ class GrillaNotas extends Component {
             hayMasNotas,
             obtenerMasNotas,
             globalContent,
-            loading
+            loading,
+            typeArticle
         } = this.props;
         const { alturaArticle } = this.state;
+        const _typeArticle = !typeArticle ? 'ArticleMain' : typeArticle;
 
         return (
             <>
                 <section
-                    className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade"
+                    className={classNamesArticle[_typeArticle]}
                     ref={this.sectionGrillasNotasRef}
                 >
                     <ArticlesAcum
                         getBanner={this.getBanner}
                         articles={articles}
+                        typeArticle={_typeArticle}
                     />
                     {hayMasNotas > 0 && (
                         <TransparencyDiv size={alturaArticle} />
@@ -113,6 +121,7 @@ class GrillaNotas extends Component {
 }
 
 GrillaNotas.propTypes = {
+    typeArticle: PropTypes.string.isRequired,
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
     obtenerMasNotas: PropTypes.func.isRequired,

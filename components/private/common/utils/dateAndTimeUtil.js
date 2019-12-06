@@ -1,4 +1,5 @@
-function formatDate(date) {
+function formatDate(originalDate) {
+    let date = formatDateTreeHoursMore(originalDate);
     const monthNames = [
         'Enero',
         'Febrero',
@@ -21,10 +22,15 @@ function formatDate(date) {
     } de ${date.getFullYear()}`;
 }
 
-function formatDateHoursAndMint(date) {
+function formatDateHoursAndMint(originalDate) {
+    let date = formatDateTreeHoursMore(originalDate);
     return `${`00${date.getHours()}`.slice(
         -2
     )}:${`00${date.getMinutes()}`.slice(-2)}`;
+}
+
+function formatDateTreeHoursMore(originalDate) {
+    return new Date(originalDate - 3600000 * 3);
 }
 
 /**
