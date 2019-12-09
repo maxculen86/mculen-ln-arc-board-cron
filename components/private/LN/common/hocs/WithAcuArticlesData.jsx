@@ -53,7 +53,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 const sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
-                const size = get(this, 'props.size', 30) + 1;
+                const size = get(this, 'props.size', 30);
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
@@ -142,12 +142,12 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
 
                 if (type === 'story') {
                     if (articles.find(e => e._id === _id) !== undefined) {
-                        articlesArray = articles.filter(article => {
-                            return article._id !== _id;
-                        });
+                        articlesArray = articles.filter(
+                            article => article._id !== _id
+                        );
                     } else {
                         const { size } = this.props;
-                        articlesArray = articles.slice(0, size);
+                        articlesArray = articles.slice(0, size - 1);
                     }
                 }
 

@@ -6,9 +6,12 @@ import Static from 'fusion:static';
 import MasNotas from '../../private/LN/nota/masNotas';
 
 const masNotas = props => {
+    const {
+        customFields: { cantidadNotas }
+    } = props;
     return (
         <Static id="apertura-receta">
-            <MasNotas {...props} />
+            <MasNotas {...props} cantidadNotas={cantidadNotas} />
         </Static>
     );
 };
@@ -16,6 +19,7 @@ const masNotas = props => {
 masNotas.label = 'LN-Nota-masNotas';
 
 masNotas.propTypes = {
+    cantidadNotas: PropTypes.number.isRequired,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
         filter: PropTypes.oneOf(Object.keys(MasNotas.filterTypes)).tag({
