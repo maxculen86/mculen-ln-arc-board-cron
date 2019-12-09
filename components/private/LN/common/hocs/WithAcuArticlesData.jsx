@@ -53,7 +53,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 const sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
-                const size = get(this, 'props.size', 30) + 1;
+                const size = get(this, 'props.size', 30);
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
