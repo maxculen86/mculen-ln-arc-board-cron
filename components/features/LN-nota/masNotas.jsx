@@ -6,8 +6,9 @@ import Static from 'fusion:static';
 import MasNotas from '../../private/LN/nota/masNotas';
 
 const masNotas = props => {
+    const { id: featureId } = props;
     return (
-        <Static id="apertura-receta">
+        <Static id={featureId}>
             <MasNotas {...props} />
         </Static>
     );

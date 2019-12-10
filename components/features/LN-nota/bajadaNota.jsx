@@ -5,8 +5,9 @@ import Static from 'fusion:static';
 import BajadaNota from '../../private/LN/nota/apertura/bajadaNota';
 
 const bajadaNota = props => {
+    const { id: featureId } = props;
     return (
-        <Static id="bajada-nota">
+        <Static id={featureId}>
             <BajadaNota {...props} />
         </Static>
     );

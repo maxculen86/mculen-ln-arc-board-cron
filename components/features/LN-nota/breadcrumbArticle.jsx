@@ -5,8 +5,9 @@ import Static from 'fusion:static';
 import BreadCrumbArticle from '../../private/LN/nota/apertura/breadcrumb/breadcrumbArticle';
 
 const breadCrumbArticle = props => {
+    const { id: featureId } = props;
     return (
-        <Static id="Breadcrumb-article">
+        <Static id={featureId}>
             <BreadCrumbArticle {...props} />
         </Static>
     );
