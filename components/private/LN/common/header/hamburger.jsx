@@ -5,13 +5,7 @@ import '../../../../../resources/dist/css/ln/components/hamburger.css';
 
 const Hamburger = ({ _onMouseDown }) => {
     return (
-        <div
-            className="com-hamburger"
-            style={{ visibility: 'initial' }}
-            role="button"
-            tabIndex="0"
-            onMouseDown={_onMouseDown}
-        >
+        <div className="com-hamburger" onMouseDown={_onMouseDown}>
             <span className="com-hamburger__bar" />
             <span className="com-hamburger__bar" />
             <span className="com-hamburger__bar" />

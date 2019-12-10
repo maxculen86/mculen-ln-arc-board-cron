@@ -119,5 +119,13 @@ export default {
     logoutUrl: '/logout.html',
     lifigniter: {
         clientId: '8561ps8ov66e7mim'
-    }
+    },
+    sliderConfig: [
+        {
+            name: 'default',
+            lowerRange: null,
+            topRange: null,
+            pageSize: 1
+        }
+    ]
 };

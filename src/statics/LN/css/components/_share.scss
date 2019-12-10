@@ -4,7 +4,7 @@
 
 .com-share {
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     top: 0;
     left: 0;
     right: 0;
@@ -68,6 +68,9 @@
     font-size: $font-24;
     padding: 0;
     margin-right: $px-17;
+    .humor & {
+        margin-right: $px-15;
+    }
 }
 
 .com-share label {

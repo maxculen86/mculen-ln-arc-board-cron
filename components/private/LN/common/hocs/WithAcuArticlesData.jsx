@@ -79,13 +79,13 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                     );
                     const hayMasNotasFetched = get(response, 'next', 0);
                     fetchedCallback({
-                        articles: articlesFetched.slice(0, size + 1),
+                        articles: articlesFetched.slice(0, size),
                         hayMasNotas: hayMasNotasFetched
                     });
                 });
 
                 return {
-                    articles: articles.slice(0, size + 1),
+                    articles: articles.slice(0, size),
                     hayMasNotas
                 };
             };
@@ -142,12 +142,12 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
 
                 if (type === 'story') {
                     if (articles.find(e => e._id === _id) !== undefined) {
-                        articlesArray = articles.filter(article => {
-                            return article._id !== _id;
-                        });
+                        articlesArray = articles.filter(
+                            article => article._id !== _id
+                        );
                     } else {
                         const { size } = this.props;
-                        articlesArray = articles.slice(0, size);
+                        articlesArray = articles.slice(0, size - 1);
                     }
                 }
 

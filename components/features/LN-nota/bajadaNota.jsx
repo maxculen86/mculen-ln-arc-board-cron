@@ -1,7 +1,18 @@
+import React from 'react';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
+
 import BajadaNota from '../../private/LN/nota/apertura/bajadaNota';
 
-BajadaNota.static = true;
-BajadaNota.label = 'LN-Nota-Bajada';
+const bajadaNota = props => {
+    const { id: featureId } = props;
+    return (
+        <Static id={featureId}>
+            <BajadaNota {...props} />
+        </Static>
+    );
+};
 
-export default Consumer(BajadaNota);
+bajadaNota.label = 'LN-Nota-Bajada';
+
+export default Consumer(bajadaNota);

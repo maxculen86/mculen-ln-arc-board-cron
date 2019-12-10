@@ -15,12 +15,13 @@ import '../../resources/dist/css/ln/layouts/layout.css';
 //TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
 //EL COMPONENTE Y EN OTROS NO
 import '../../resources/dist/css/ln/components/date.css';
-import '../../resources/dist/css/ln/components/tag.css';
 import '../../resources/dist/css/ln/components/author.css';
 import '../../resources/dist/css/ln/components/lead.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/input.css';
+import '../../resources/dist/css/ln/components/slider.css';
+import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/modules/newsletter.css';
 
 const pageBuilderSections = [
@@ -102,7 +103,7 @@ class LNNotaReceta extends Component {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 <div className="row">
-                                    <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
+                                    <div className="col-1 hlp-marginBottom-40 hlp-tablet-none hlp-mobile-show">
                                         {/* Left-Cuerpo Shared*/}
                                         {children[3]}
                                     </div>

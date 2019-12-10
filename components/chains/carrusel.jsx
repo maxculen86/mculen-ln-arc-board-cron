@@ -6,12 +6,6 @@ import Title from '../private/common/title';
 const Carrusel = props => {
     return (
         <section>
-            {props.customFields.title && (
-                <Title
-                    className={'section-title'}
-                    title={props.customFields.title}
-                />
-            )}
             <Carousell>{props.children}</Carousell>
         </section>
     );

@@ -57,6 +57,21 @@ export const createResizer = (resizerKey, resizerUrl) => {
     };
 };
 
+export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
+    if (arcgallery.type !== 'gallery') {
+        throw new Error(
+            'Tipo de dato no valido. Se necesita un tipo "gallery"'
+        );
+    }
+
+    return {
+        ...arcgallery,
+        content_elements: arcgallery.content_elements.map(i =>
+            resizeArcImage(i, resizeOptions, resizer)
+        )
+    };
+};
+
 export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
@@ -97,9 +112,8 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
                         resized_urls: resizes
                     }
                 };
-            } else {
-                return c;
             }
+            return c;
         });
     });
     return resp;
@@ -147,10 +161,17 @@ export const addResizedUrls = (ansDoc, option) => {
                         resizer
                     );
                 }
+                if (elem.type === 'gallery') {
+                    return resizeArcGallery(
+                        elem,
+                        optionsContentElements,
+                        resizer
+                    );
+                }
                 return elem;
             })
     };
-    if (!!ansDoc.promo_items) {
+    if (ansDoc.promo_items) {
         respDoc.promo_items = resizePromoItems(
             ansDoc.promo_items,
             option.presets,
@@ -158,7 +179,7 @@ export const addResizedUrls = (ansDoc, option) => {
         );
     }
 
-    if (!!ansDoc.credits) {
+    if (ansDoc.credits) {
         respDoc.credits = resizeCredits(
             ansDoc.credits,
             option.presets,

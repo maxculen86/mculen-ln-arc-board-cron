@@ -29,6 +29,25 @@ const image = `
     url
     width
     subtitle
+    credits {
+        affiliation {
+            name
+            type
+        }
+        by {
+            byline
+            name
+            type
+            referent {
+                id
+                provider
+                type
+            }
+        }
+    }
+    description {
+        basic
+    }
 `;
 
 const video = `
@@ -73,7 +92,7 @@ const labels = `
 `;
 
 const customReceta = `
-    subtype
+    subtype    
     embed {
         config {
             titleList
@@ -83,6 +102,23 @@ const customReceta = `
             counterTime
             counterPortion
         }
+    }
+`;
+
+const gallery = `
+    subtype
+    _id
+    publish_date
+    headlines {
+        basic
+    }
+    promo_items {
+        basic {
+            ${image}
+        }
+    }
+    content_elements {
+        ${image}
     }
 `;
 
@@ -133,6 +169,7 @@ export default `
         content
         ${image}
         ${customReceta}
+        ${gallery}
         ${video}
     }
     display_date,

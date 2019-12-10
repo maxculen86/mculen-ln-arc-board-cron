@@ -1,8 +1,19 @@
+import React from 'react';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 
 import AperturaRecetaComponent from '../../private/LN/nota/apertura/AperturaReceta/aperturaReceta';
 
-AperturaRecetaComponent.label = 'LN-Nota-AperturaReceta';
-AperturaRecetaComponent.static = true;
+// Static component: debe tener un id UNICO en la pagina
+const aperturaReceta = props => {
+    const { id: featureId } = props;
+    return (
+        <Static id={featureId}>
+            <AperturaRecetaComponent {...props} />
+        </Static>
+    );
+};
 
-export default Consumer(AperturaRecetaComponent);
+aperturaReceta.label = 'LN-Nota-AperturaReceta';
+
+export default Consumer(aperturaReceta);

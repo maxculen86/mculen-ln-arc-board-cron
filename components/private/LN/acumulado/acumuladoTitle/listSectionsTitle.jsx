@@ -19,7 +19,11 @@ ItemSubSection.propTypes = {
  * TODO: Hacer de este componente un componente reutilizable de lista horizontal
  * @param {*} param
  */
-const ListSectionsTitle = ({ _children, isPrimarySection }) => {
+const ListSectionsTitle = ({
+    _children,
+    isPrimarySection,
+    hideSectionsList
+}) => {
     const [showBtnScrollLeft, setShowBtnScrollLeft] = useState(' hlp-none');
     const [showBtnScrollRight, setShowBtnScrollRight] = useState('');
     const categoryEl = useRef(null);
@@ -38,7 +42,10 @@ const ListSectionsTitle = ({ _children, isPrimarySection }) => {
         );
     };
 
-    return _children && isPrimarySection ? (
+    return !hideSectionsList &&
+        _children &&
+        _children.length > 0 &&
+        isPrimarySection ? (
         <>
             <button
                 type="button"
@@ -79,7 +86,8 @@ ListSectionsTitle.propTypes = {
             _website: PropTypes.string
         })
     ),
-    isPrimarySection: PropTypes.bool
+    isPrimarySection: PropTypes.bool,
+    hideSectionsList: PropTypes.bool
 };
 
 ListSectionsTitle.defaultProps = {

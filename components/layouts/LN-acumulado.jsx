@@ -10,10 +10,11 @@ import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/pages/acu.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
+import '../../resources/dist/css/ln/components/hour.css';
 
 const layoutItems = [
     'Pre-Apertura',
-    'Breadcrumb',
+    'Breadcrumb/Titulo',
     'Apertura',
     'Links',
     'Notas',
@@ -36,14 +37,11 @@ const LNAcumuladoLayout = props => {
         revistas.indexOf(sectionStyleName || '') !== -1 &&
             setClassRevista(`${CLASS_ACU_REVISTA} ${sectionStyleName}`);
 
-        const headerdark =
-            globalContent &&
-            globalContent.style &&
-            globalContent.style.headerdark
-                ? globalContent.style.headerdark
-                : '';
-
-        setHeaderDark(headerdark === 'true' ? ' --dark' : '');
+        setHeaderDark(
+            style && style.headerdark && style.headerdark === 'true'
+                ? ' --dark'
+                : ''
+        );
     }, [globalContent]);
 
     return (
@@ -52,22 +50,28 @@ const LNAcumuladoLayout = props => {
             <main>
                 {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                 {children[0]}
-                <div className="row">
-                    <div className="lay">
-                        {/* BREADCRUMB, TITULO Y APERTURA */}
-                        {children[1]}
+                {children[1] && (
+                    <div className="row">
+                        <div className="lay">
+                            {/* BREADCRUMB, TITULO Y APERTURA */}
+                            {children[1]}
+                        </div>
                     </div>
-                </div>
+                )}
                 <div id="content-main" className="lay-sidebar">
                     <div className="sidebar__main">
-                        <div className="row">
-                            {/* LUGAR PARA UN ANEXO */}
-                            {children[2]}
-                        </div>
-                        <div className="row">
-                            {/* LINKS DE NAVEGACION */}
-                            {children[3]}
-                        </div>
+                        {children[2] && (
+                            <div className="row">
+                                {/* LUGAR PARA UN ANEXO */}
+                                {children[2]}
+                            </div>
+                        )}
+                        {children[3] && (
+                            <div className="row">
+                                {/* LINKS DE NAVEGACION */}
+                                {children[3]}
+                            </div>
+                        )}
                         {/* NOTAS */}
                         {children[4]}
                     </div>
