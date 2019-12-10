@@ -17,7 +17,6 @@ function slider(WrappedComponent, pageSizeParam) {
                 const pageSize = configPageSize
                     ? configPageSize.pageSize
                     : pageSizeParam;
-                console.log('pageSoze----------------', configPageSize);
                 this.state = {
                     pageSize,
                     currentStartIndex: 0,
@@ -123,8 +122,6 @@ function slider(WrappedComponent, pageSizeParam) {
             };
 
             render() {
-                console.log('props ******** Slider ********* ', this.props);
-                console.log('state ******** Slider ********* ', this.state);
                 return (
                     <WrappedComponent slider={this.slider} {...this.props}>
                         {this.props.children.slice(
