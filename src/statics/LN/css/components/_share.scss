@@ -4,7 +4,7 @@
 
 .com-share {
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     top: 0;
     left: 0;
     right: 0;
@@ -29,7 +29,7 @@
         float: none;
         position: relative;
         vertical-align: bottom;
-        >.share-right button:first-child {
+        > .share-right button:first-child {
             border-top: 0;
             padding-top: 0;
         }
@@ -48,11 +48,11 @@
     }
 }
 
-.com-share>div {
+.com-share > div {
     display: inline-block;
 }
 
-.com-share>.share-right {
+.com-share > .share-right {
     float: right;
     button {
         margin-right: 0;
@@ -68,6 +68,9 @@
     font-size: $font-24;
     padding: 0;
     margin-right: $px-17;
+    .humor & {
+        margin-right: $px-15;
+    }
 }
 
 .com-share label {
@@ -81,7 +84,8 @@
 }
 
 //Valores de tablet para arriba
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+}
 
 //Valores de desk chico para arriba
 @media (min-width: 1024px) {
@@ -95,7 +99,7 @@
         border: 0;
         float: left;
     }
-    .com-share>.share-right {
+    .com-share > .share-right {
         float: initial;
         margin-right: initial;
         border-top: 1px solid $negro;
@@ -109,23 +113,22 @@
         font-size: $font-30;
         margin: $px-10 0;
         opacity: 0.8;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
         cursor: pointer;
         &:hover {
             color: $link;
         }
     }
     .com-share label {
-        margin-left: initial
+        margin-left: initial;
     }
     .com-share button.icon-comment,
-    .com-share button.icon-comment+label {
+    .com-share button.icon-comment + label {
         display: none;
     }
-    .com-share>.share-right button:first-child {
+    .com-share > .share-right button:first-child {
         margin: $px-10 0 0 0;
     }
 }
-
 
 /* end share Sociales */

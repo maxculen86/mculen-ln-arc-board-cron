@@ -1,10 +1,10 @@
 import ArticleList from './articleList';
 
-const index = ({ name, articles, next }) => {
+const index = (name, articles, next) => {
     return {
-        next,
-        title: name,
-        articles: ArticleList(articles)
+        paginar: next,
+        titulo: name,
+        notas: ArticleList(articles)
     };
 };
 

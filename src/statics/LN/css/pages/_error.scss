@@ -5,7 +5,7 @@ html {
 
 body {
     @media (min-width: 1023px) {
-        display: flex;
+        display: grid;
         justify-content: center;
         align-items: center;
         height: 100%;
@@ -14,11 +14,12 @@ body {
 
 .error404 {
     margin: 0 auto;
-    background: url(https://www.lanacion.com.ar/error/liniers-vertical.jpg) no-repeat;
+    background: url(https://www.lanacion.com.ar/error/liniers-vertical.jpg)
+        no-repeat;
     height: 100vh;
     background-position: bottom 130px right 0px;
     background-size: 90%;
-    margin: 0!important;
+    margin: 0 !important;
     @media (min-width: 450px) {
         background-size: auto;
     }
@@ -39,12 +40,12 @@ body {
                 }
             }
             @media (min-width: 1023px) {
-                >div:first-child {
+                > div:first-child {
                     text-align: right;
                     border-right: 1px solid #d9d9d9;
                     padding: 5px 30px 0 0;
                 }
-                >div:last-child {
+                > div:last-child {
                     padding: 10px 0 15px 30px;
                 }
             }

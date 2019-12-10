@@ -72,6 +72,12 @@ export default {
                             media: '(min-width: 768px)',
                             class: 'img-desktop',
                             type: 'promo_items'
+                        },
+                        {
+                            width: 1033,
+                            media: '(min-width: 768px)',
+                            class: 'img-desktop',
+                            type: 'content_elements'
                         }
                     ]
                 }
@@ -109,5 +115,13 @@ export default {
     logoutUrl: '/logout.html',
     lifigniter: {
         clientId: '8561ps8ov66e7mim'
-    }
+    },
+    sliderConfig: [
+        {
+            name: 'default',
+            lowerRange: null,
+            topRange: null,
+            pageSize: 1
+        }
+    ]
 };

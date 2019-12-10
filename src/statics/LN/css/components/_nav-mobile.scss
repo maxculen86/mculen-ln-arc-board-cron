@@ -19,8 +19,9 @@
         align-items: center;
         background: transparent;
         //OCULTO HAMBURGUESA
+        // TODO: Recordar dejar oculto
         &:last-child {
-            display: none;
+            display: block;
         }
         p {
             font-family: $font-arial;
@@ -50,7 +51,7 @@
     }
     //scrollDown
     &.--scrollUp {
-        bottom: 0
+        bottom: 0;
     }
     @media ($media-l) {
         display: none;

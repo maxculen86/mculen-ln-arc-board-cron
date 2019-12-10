@@ -10,13 +10,15 @@ TitleFeature.label = 'LN-Acumulado-Titulo';
 
 TitleFeature.propTypes = {
     customFields: PropTypes.shape({
-        idCollection: PropTypes.string.tag({ label: 'Id de collection' })
+        idCollection: PropTypes.string.tag({ label: 'Id de collection' }),
+        prefixTitle: PropTypes.string.tag({ label: 'Prefijo del titulo' })
     })
 };
 
 TitleFeature.defaultProps = {
     customFields: {
-        idCollection: undefined
+        idCollection: undefined,
+        prefixTitle: undefined
     }
 };
 

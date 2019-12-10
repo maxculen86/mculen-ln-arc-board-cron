@@ -29,6 +29,25 @@ const image = `
     url
     width
     subtitle
+    credits {
+        affiliation {
+            name
+            type
+        }
+        by {
+            byline
+            name
+            type
+            referent {
+                id
+                provider
+                type
+            }
+        }
+    }
+    description {
+        basic
+    }
 `;
 
 const video = `
@@ -41,7 +60,9 @@ const video = `
     }
     streams {
         height
+        width
         url
+        stream_type
     }
     promo_items {
         basic {
@@ -58,8 +79,20 @@ const video = `
     }
 `;
 
+const label = `
+    text
+`;
+
+const labels = `
+    label {
+        livefyre_entrada_id {
+            ${label}
+        }
+    }
+`;
+
 const customReceta = `
-    subtype
+    subtype    
     embed {
         config {
             titleList
@@ -69,6 +102,23 @@ const customReceta = `
             counterTime
             counterPortion
         }
+    }
+`;
+
+const gallery = `
+    subtype
+    _id
+    publish_date
+    headlines {
+        basic
+    }
+    promo_items {
+        basic {
+            ${image}
+        }
+    }
+    content_elements {
+        ${image}
     }
 `;
 
@@ -119,8 +169,13 @@ export default `
         content
         ${image}
         ${customReceta}
+        ${gallery}
+        ${video}
     }
     display_date,
     created_date,
-    first_publish_date
+    first_publish_date,
+    publish_date,
+    website_url,
+    ${labels}
 }`;

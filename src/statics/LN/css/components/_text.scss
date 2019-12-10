@@ -18,10 +18,16 @@
     }
 }
 
+.com-slider {
+    .text:first-of-type {
+        margin-top: 0;
+    }
+}
+
 //Valores de tablet para arriba
 @media (min-width: 768px) {
     .sidebar__main {
-        .col-deskxl-10 .row> {
+        .col-deskxl-10 .row > {
             .text:first-of-type {
                 margin-top: $px-54;
                 &:first-letter {

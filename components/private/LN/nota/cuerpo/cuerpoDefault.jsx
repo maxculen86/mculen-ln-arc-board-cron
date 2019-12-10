@@ -3,7 +3,8 @@ import PropTypes from 'fusion:prop-types';
 
 //Importo componente HARCODEADOS
 import BlockQuote from './blockQuote';
-import Gallery from './gallery';
+import Gallery from '../../common/carrousell';
+/* import Gallery from '../../common/carousell/gallery'; */
 import Html from './html';
 import PullQuote from './pullQuote';
 import MasNotas from './masNotas';
@@ -14,27 +15,26 @@ import Unordered from './unordered';
 import Subtitles from './subtitles';
 
 // TODO: tests
-const Cuerpo = () => {
+const Cuerpo = props => {
     const resp = [];
 
-    resp.push(<TextCapital />);
+    /* resp.push(<TextCapital />);
     resp.push(<BlockQuote />);
     resp.push(<TextCapital />);
     resp.push(<Subtitles />);
     resp.push(<Ordered />);
-    resp.push(<Unordered />);
-    resp.push(<Gallery />);
-    resp.push(<Html />);
-    resp.push(<PullQuote />);
-    resp.push(<MasNotas />);
-    resp.push(<Tags />);
-
-    // contentElements.forEach(element => {
-    //     switch (element.type) {
-    //         default:
-    //             break;
+    resp.push(<Unordered />); */
+    // console.log('------------------- cuerpo', props);
+    // props.globalContent.content_elements.forEach(element => {
+    //     if (element.type === 'gallery') {
+    //         resp.push(<Gallery {...element} />);
     //     }
     // });
+    /* resp.push(<Gallery {...props} />); */
+    /* resp.push(<Html />);
+    resp.push(<PullQuote />);
+    resp.push(<MasNotas />);
+    resp.push(<Tags />); */
 
     return resp;
 };

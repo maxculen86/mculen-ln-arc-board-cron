@@ -1,0 +1,1338 @@
+{
+    "_id": "XLHPSRHOAVDLRNP2LMCCEJM62Y",
+    "type": "story",
+    "version": "0.10.4",
+    "content_elements": [
+        {
+            "type": "video",
+            "_id": "e0f0ff58-b390-43b5-953d-59bbcefb602b",
+            "version": "0.8.0",
+            "canonical_url": "/video/maestria-en-periodismo-lnutdt-vide0f0ff5",
+            "canonical_website": "la-nacion-ar",
+            "short_url": "/video/maestria-en-periodismo-lnutdt-vide0f0ff5",
+            "created_date": "2019-09-24T01:30:31Z",
+            "last_updated_date": "2019-09-24T01:37:53Z",
+            "publish_date": "2019-09-24T01:37:59Z",
+            "first_publish_date": "2019-09-24T01:32:35Z",
+            "display_date": "2019-09-24T01:32:35Z",
+            "headlines": {
+                "basic": "Maestría en Periodismo LN/UTDT..."
+            },
+            "credits": {},
+            "taxonomy": {
+                "tags": [],
+                "primary_site": {
+                    "type": "site",
+                    "_id": "/sociedad",
+                    "version": "0.5.8",
+                    "name": "Sociedad",
+                    "path": "/sociedad",
+                    "primary": true
+                },
+                "sites": [
+                    {
+                        "type": "site",
+                        "_id": "/sociedad",
+                        "version": "0.5.8",
+                        "name": "Sociedad",
+                        "path": "/sociedad",
+                        "primary": true
+                    }
+                ],
+                "primary_section": {
+                    "type": "section",
+                    "_id": "/sociedad",
+                    "_website": "la-nacion-ar",
+                    "version": "0.6.0",
+                    "name": "Sociedad",
+                    "path": "/sociedad",
+                    "primary": true
+                },
+                "sections": [
+                    {
+                        "type": "section",
+                        "_id": "/sociedad",
+                        "_website": "la-nacion-ar",
+                        "version": "0.6.0",
+                        "name": "Sociedad",
+                        "path": "/sociedad",
+                        "primary": true
+                    }
+                ],
+                "seo_keywords": []
+            },
+            "promo_items": {
+                "basic": {
+                    "type": "image",
+                    "version": "0.5.8",
+                    "credits": {},
+                    "caption": "Maestr?a en Periodismo LN/UTDT",
+                    "url": "https://d3us6z9haan6vf.cloudfront.net/09-24-2019/t_1c5cc2dc5c9648a3a7c151b9db34e09b_name_file_1280x720_2000_v3_1_.jpg",
+                    "width": 1280,
+                    "height": 710
+                }
+            },
+            "related_content": {
+                "redirect": [],
+                "basic": []
+            },
+            "owner": {
+                "sponsored": false
+            },
+            "planning": {
+                "scheduling": {}
+            },
+            "revision": {
+                "published": true
+            },
+            "syndication": {
+                "search": true
+            },
+            "source": {
+                "system": "video center",
+                "edit_url": "https://sandbox.lanacionar.arcpublishing.com/goldfish/video/5d8971b7cff47e0009a28129"
+            },
+            "distributor": {
+                "category": "staff"
+            },
+            "tracking": {
+                "in_url_headline": "video"
+            },
+            "additional_properties": {
+                "subsection": "Sociedad",
+                "videoCategory": "ln---videos-digitales",
+                "anglerfishArcId": "XYCY37SYYZDU3K5WDE4LSY753Y",
+                "isWire": false,
+                "gifAsThumbnail": false,
+                "videoId": "5d8971b7cff47e0009a28129",
+                "vertical": false,
+                "embedContinuousPlay": true,
+                "published": true,
+                "imageResizerUrls": [],
+                "advertising": {
+                    "adInsertionUrls": null,
+                    "adSetUrls": null,
+                    "allowPrerollOnDomain": false,
+                    "autoPlayPreroll": false,
+                    "commercialAdNode": "/sociedad",
+                    "enableAdInsertion": false,
+                    "enableAutoPreview": true,
+                    "forceAd": false,
+                    "playAds": true,
+                    "playVideoAds": true,
+                    "videoAdZone": ""
+                },
+                "disableUpNext": false,
+                "videoAdZone": "",
+                "lastPublishedBy": {
+                    "name": "Gastón Roitberg",
+                    "email": "groitberg@lanacion.com.ar",
+                    "lastname": ""
+                },
+                "permalinkUrl": "/video/maestria-en-periodismo-lnutdt-vide0f0ff5",
+                "platform": "desktop",
+                "playVideoAds": true,
+                "XYCY37SYYZDU3K5WDE4LSY753Y": "09-24-2019/t_1c5cc2dc5c9648a3a7c151b9db34e09b_name_file_1280x720_2000_v3_1_.jpg",
+                "forceClosedCaptionsOn": false,
+                "doNotShowTranscripts": false,
+                "useVariants": false,
+                "has_published_copy": true,
+                "playlistTags": [],
+                "comments": [],
+                "_id": "I3GD5OHNSFAVVJ4OUBVRYQANSI"
+            },
+            "duration": 20117,
+            "video_type": "clip",
+            "streams": [
+                {
+                    "height": 356,
+                    "width": 640,
+                    "filesize": 1830821,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/09/24/5d8971b7cff47e0009a28129/t_ca149d7f203c42f6a933bd6cb1b4f465_name_WhatsApp_Video_2019_09_23_at_20_27_21/file_640x360-600.mp4",
+                    "bitrate": 600,
+                    "provider": "mediaconvert"
+                },
+                {
+                    "height": 710,
+                    "width": 1280,
+                    "filesize": 5311000,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/09/24/5d8971b7cff47e0009a28129/t_ca149d7f203c42f6a933bd6cb1b4f465_name_WhatsApp_Video_2019_09_23_at_20_27_21/file_1280x720-2000-v3_1.mp4",
+                    "bitrate": 2000,
+                    "provider": "mediaconvert"
+                }
+            ],
+            "subtitles": {},
+            "promo_image": {
+                "type": "image",
+                "version": "0.5.8",
+                "credits": {},
+                "caption": "Maestr?a en Periodismo LN/UTDT",
+                "url": "https://d3us6z9haan6vf.cloudfront.net/09-24-2019/t_1c5cc2dc5c9648a3a7c151b9db34e09b_name_file_1280x720_2000_v3_1_.jpg",
+                "width": 1280,
+                "height": 710
+            },
+            "embed_html": "<div class=\"powa\" id=\"powa-e0f0ff58-b390-43b5-953d-59bbcefb602b\" data-env=\"sandbox\" data-api=\"sandbox\" data-org=\"lanacionar\" data-uuid=\"e0f0ff58-b390-43b5-953d-59bbcefb602b\" data-aspect-ratio=\"0.562\"><script src=\"https://d1zp4l5vb5htxp.cloudfront.net/sandbox/powaBoot.js?org=lanacionar\"></script></div>",
+            "websites": {
+                "la-nacion-ar": {
+                    "website_section": {
+                        "path": "/sociedad",
+                        "_website": "la-nacion-ar",
+                        "name": "Sociedad",
+                        "_id": "/sociedad",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "primary": true
+                    },
+                    "website_url": "/video/maestria-en-periodismo-lnutdt-vide0f0ff5"
+                }
+            },
+            "subheadlines": {
+                "basic": "asdasd"
+            },
+            "description": {
+                "basic": "zxczxc"
+            }
+        },
+        {
+            "type": "video",
+            "_id": "e0f0ff58-b390-43b5-953d-59bbcefb602b",
+            "version": "0.8.0",
+            "canonical_url": "/video/maestria-en-periodismo-lnutdt-vide0f0ff5",
+            "canonical_website": "la-nacion-ar",
+            "short_url": "/video/maestria-en-periodismo-lnutdt-vide0f0ff5",
+            "created_date": "2019-09-24T01:30:31Z",
+            "last_updated_date": "2019-09-24T01:37:53Z",
+            "publish_date": "2019-09-24T01:37:59Z",
+            "first_publish_date": "2019-09-24T01:32:35Z",
+            "display_date": "2019-09-24T01:32:35Z",
+            "headlines": {
+                "basic": "Maestría en Periodismo LN/UTDT"
+            },
+            "credits": {},
+            "taxonomy": {
+                "tags": [],
+                "primary_site": {
+                    "type": "site",
+                    "_id": "/sociedad",
+                    "version": "0.5.8",
+                    "name": "Sociedad",
+                    "path": "/sociedad",
+                    "primary": true
+                },
+                "sites": [
+                    {
+                        "type": "site",
+                        "_id": "/sociedad",
+                        "version": "0.5.8",
+                        "name": "Sociedad",
+                        "path": "/sociedad",
+                        "primary": true
+                    }
+                ],
+                "primary_section": {
+                    "type": "section",
+                    "_id": "/sociedad",
+                    "_website": "la-nacion-ar",
+                    "version": "0.6.0",
+                    "name": "Sociedad",
+                    "path": "/sociedad",
+                    "primary": true
+                },
+                "sections": [
+                    {
+                        "type": "section",
+                        "_id": "/sociedad",
+                        "_website": "la-nacion-ar",
+                        "version": "0.6.0",
+                        "name": "Sociedad",
+                        "path": "/sociedad",
+                        "primary": true
+                    }
+                ],
+                "seo_keywords": []
+            },
+            "promo_items": {
+                "basic": {
+                    "type": "image",
+                    "version": "0.5.8",
+                    "credits": {},
+                    "caption": "Maestr?a en Periodismo LN/UTDT",
+                    "url": "https://d3us6z9haan6vf.cloudfront.net/09-24-2019/t_1c5cc2dc5c9648a3a7c151b9db34e09b_name_file_1280x720_2000_v3_1_.jpg",
+                    "width": 1280,
+                    "height": 710
+                }
+            },
+            "related_content": {
+                "redirect": [],
+                "basic": []
+            },
+            "owner": {
+                "sponsored": false
+            },
+            "planning": {
+                "scheduling": {}
+            },
+            "revision": {
+                "published": true
+            },
+            "syndication": {
+                "search": true
+            },
+            "source": {
+                "system": "video center",
+                "edit_url": "https://sandbox.lanacionar.arcpublishing.com/goldfish/video/5d8971b7cff47e0009a28129"
+            },
+            "distributor": {
+                "category": "staff"
+            },
+            "tracking": {
+                "in_url_headline": "video"
+            },
+            "additional_properties": {
+                "subsection": "Sociedad",
+                "videoCategory": "ln---videos-digitales",
+                "anglerfishArcId": "XYCY37SYYZDU3K5WDE4LSY753Y",
+                "isWire": false,
+                "gifAsThumbnail": false,
+                "videoId": "5d8971b7cff47e0009a28129",
+                "vertical": false,
+                "embedContinuousPlay": true,
+                "published": true,
+                "imageResizerUrls": [],
+                "advertising": {
+                    "adInsertionUrls": null,
+                    "adSetUrls": null,
+                    "allowPrerollOnDomain": false,
+                    "autoPlayPreroll": false,
+                    "commercialAdNode": "/sociedad",
+                    "enableAdInsertion": false,
+                    "enableAutoPreview": true,
+                    "forceAd": false,
+                    "playAds": true,
+                    "playVideoAds": true,
+                    "videoAdZone": ""
+                },
+                "disableUpNext": false,
+                "videoAdZone": "",
+                "lastPublishedBy": {
+                    "name": "Gastón Roitberg",
+                    "email": "groitberg@lanacion.com.ar",
+                    "lastname": ""
+                },
+                "permalinkUrl": "/video/maestria-en-periodismo-lnutdt-vide0f0ff5",
+                "platform": "desktop",
+                "playVideoAds": true,
+                "XYCY37SYYZDU3K5WDE4LSY753Y": "09-24-2019/t_1c5cc2dc5c9648a3a7c151b9db34e09b_name_file_1280x720_2000_v3_1_.jpg",
+                "forceClosedCaptionsOn": false,
+                "doNotShowTranscripts": false,
+                "useVariants": false,
+                "has_published_copy": true,
+                "playlistTags": [],
+                "comments": [],
+                "_id": "PCKTHRHNGJGX3HB6ZWL4PQHMPQ"
+            },
+            "duration": 20117,
+            "video_type": "clip",
+            "streams": [
+                {
+                    "height": 356,
+                    "width": 640,
+                    "filesize": 1830821,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/09/24/5d8971b7cff47e0009a28129/t_ca149d7f203c42f6a933bd6cb1b4f465_name_WhatsApp_Video_2019_09_23_at_20_27_21/file_640x360-600.mp4",
+                    "bitrate": 600,
+                    "provider": "mediaconvert"
+                },
+                {
+                    "height": 710,
+                    "width": 1280,
+                    "filesize": 5311000,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/09/24/5d8971b7cff47e0009a28129/t_ca149d7f203c42f6a933bd6cb1b4f465_name_WhatsApp_Video_2019_09_23_at_20_27_21/file_1280x720-2000-v3_1.mp4",
+                    "bitrate": 2000,
+                    "provider": "mediaconvert"
+                }
+            ],
+            "subtitles": {},
+            "promo_image": {
+                "type": "image",
+                "version": "0.5.8",
+                "credits": {},
+                "caption": "Maestr?a en Periodismo LN/UTDT",
+                "url": "https://d3us6z9haan6vf.cloudfront.net/09-24-2019/t_1c5cc2dc5c9648a3a7c151b9db34e09b_name_file_1280x720_2000_v3_1_.jpg",
+                "width": 1280,
+                "height": 710
+            },
+            "embed_html": "<div class=\"powa\" id=\"powa-e0f0ff58-b390-43b5-953d-59bbcefb602b\" data-env=\"sandbox\" data-api=\"sandbox\" data-org=\"lanacionar\" data-uuid=\"e0f0ff58-b390-43b5-953d-59bbcefb602b\" data-aspect-ratio=\"0.562\"><script src=\"https://d1zp4l5vb5htxp.cloudfront.net/sandbox/powaBoot.js?org=lanacionar\"></script></div>",
+            "websites": {
+                "la-nacion-ar": {
+                    "website_section": {
+                        "path": "/sociedad",
+                        "_website": "la-nacion-ar",
+                        "name": "Sociedad",
+                        "_id": "/sociedad",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "primary": true
+                    },
+                    "website_url": "/video/maestria-en-periodismo-lnutdt-vide0f0ff5"
+                }
+            }
+        },
+        {
+            "_id": "DEVYPICIDFCZVDLNCW7IIMNLRE",
+            "type": "header",
+            "level": 2,
+            "additional_properties": {
+                "_id": "UJ4GPVT6ABBVNFPVZ5TIKDZQYQ",
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "<b>TIP</b>"
+        },
+        {
+            "_id": "RHEU4AMHBFB3TBCY5FPPEZIXVM",
+            "type": "header",
+            "level": 2,
+            "additional_properties": {
+                "comments": [],
+                "inline_comments": [],
+                "_id": 1571334919075
+            },
+            "content": "<br/>"
+        },
+        {
+            "_id": "LYSFHDUN3FA73MZGYFM6XIZFPQ",
+            "type": "quote",
+            "content_elements": [
+                {
+                    "type": "text",
+                    "content": "kjsd,hdsfjsdfkjld-lkjsfls",
+                    "additional_properties": {
+                        "comments": [],
+                        "inline_comments": []
+                    },
+                    "_id": "YOLRKXMSUBAOJFCC7PMECNDZGQ"
+                }
+            ],
+            "subtype": "blockquote",
+            "citation": {
+                "type": "text",
+                "content": "nhnmhjh"
+            },
+            "additional_properties": {
+                "_id": "F6LXETY6MVF2FHPOMCPLHUIMZY",
+                "comments": []
+            }
+        },
+        {
+            "_id": "ZH62NUZKHFGTHFYKSWHQ24NJFM",
+            "type": "quote",
+            "subtype_label": "pullquote",
+            "content_elements": [],
+            "subtype": "pullquote",
+            "citation": {
+                "type": "text",
+                "content": ""
+            },
+            "additional_properties": {
+                "_id": "M7U2C6K3BBF3FDIPALQFVNYDLI",
+                "comments": []
+            }
+        },
+        {
+            "_id": "OA56WHKARVAVTEAT4BR5DEUTHA",
+            "type": "quote",
+            "content_elements": [],
+            "subtype": "blockquote",
+            "citation": {
+                "type": "text",
+                "content": ""
+            },
+            "additional_properties": {
+                "_id": "MI2X7C5BIVAO5KT2KE7EBIMVK4",
+                "comments": []
+            }
+        }
+    ],
+    "created_date": "2019-09-24T18:05:00.570Z",
+    "revision": {
+        "revision_id": "4A4RGJUAEBAXXOKB3A4JGFMFKI",
+        "parent_id": "X3CU3MCRPVELVGNUANXGFL3VLY",
+        "editions": ["default"],
+        "branch": "default",
+        "user_id": "dlopez@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2019-11-28T16:59:37.013Z",
+    "canonical_url": "/recetas/platos-principales/test-de-video-ln-nid/",
+    "headlines": {
+        "basic": "Test de video ln",
+        "mobile": "",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": "",
+        "meta_title": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "sandbox.lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": ""
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": "Bajada"
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "source": {
+        "system": "ellipsis",
+        "name": "lanacionar",
+        "source_type": "staff"
+    },
+    "label": {},
+    "taxonomy": {
+        "sites": [
+            {
+                "_id": "/recetas",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Recetas",
+                "path": "/recetas",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas",
+                        "name": "Recetas",
+                        "inactive": false,
+                        "parent": "/",
+                        "node_type": "section"
+                    }
+                }
+            },
+            {
+                "_id": "/recetas/platos-principales",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Platos de comida principal",
+                "description": null,
+                "path": "/recetas/platos-principales",
+                "parent_id": "/recetas",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas/platos-principales",
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": null,
+                            "rss": null,
+                            "instagram": null,
+                            "facebook": null
+                        },
+                        "navigation": {
+                            "nav_title": "Platos de comida principal"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/recetas/platos-de-comida-principal"]
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "name": "Platos de comida principal",
+                        "parent": "/recetas",
+                        "ancestors": ["/recetas"],
+                        "inactive": true,
+                        "node_type": "section",
+                        "inactive_date": 1571436811468
+                    }
+                }
+            },
+            {
+                "_id": "/revistas/hola",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Hola",
+                "description": null,
+                "path": "/revistas/hola",
+                "parent_id": "/revistas",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/revistas/hola",
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": "https://twitter.com/holacomar",
+                            "rss": null,
+                            "instagram": "https://www.instagram.com/holaarg",
+                            "facebook": "https://www.facebook.com/holargentina/"
+                        },
+                        "navigation": {
+                            "nav_title": "Hola"
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/revistas/hola"]
+                        },
+                        "style": {
+                            "section_style_name": "hola"
+                        },
+                        "name": "Hola",
+                        "parent": "/revistas",
+                        "ancestors": ["/revistas"],
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                }
+            },
+            {
+                "_id": "/revistas",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Revistas",
+                "description": null,
+                "path": "/revistas",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/revistas",
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": null,
+                            "rss": null,
+                            "instagram": null,
+                            "facebook": null
+                        },
+                        "navigation": {
+                            "nav_title": "Revistas"
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "name": "Revistas",
+                        "parent": "/",
+                        "_admin": {
+                            "alias_ids": ["/revistas"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                }
+            }
+        ],
+        "tags": [],
+        "sections": [
+            {
+                "_id": "/recetas",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Recetas",
+                "path": "/recetas",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas",
+                        "_website": "la-nacion-ar",
+                        "name": "Recetas",
+                        "inactive": false,
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/"
+                        },
+                        "node_type": "section",
+                        "order": {
+                            "Header-FirstNav": 1003
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/"]
+                        }
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./recetas"
+            },
+            {
+                "_id": "/recetas/platos-principales",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Platos de comida principal",
+                "description": null,
+                "path": "/recetas/platos-principales",
+                "parent_id": "/recetas",
+                "parent": {
+                    "default": "/recetas"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas/platos-principales",
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": null,
+                            "rss": null,
+                            "instagram": null,
+                            "facebook": null
+                        },
+                        "navigation": {
+                            "nav_title": "Platos de comida principal"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/recetas/platos-de-comida-principal"]
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Platos de comida principal",
+                        "parent": {
+                            "default": "/recetas"
+                        },
+                        "ancestors": {
+                            "default": ["/recetas"]
+                        },
+                        "inactive": true,
+                        "node_type": "section",
+                        "inactive_date": 1571436811468
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./recetas/platos-principales"
+            },
+            {
+                "_id": "/revistas/hola",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Hola",
+                "description": null,
+                "path": "/revistas/hola",
+                "parent_id": "/revistas",
+                "parent": {
+                    "default": "/revistas"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/revistas/hola",
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": "https://twitter.com/holacomar",
+                            "rss": null,
+                            "instagram": "https://www.instagram.com/holaarg",
+                            "facebook": "https://www.facebook.com/holargentina/"
+                        },
+                        "navigation": {
+                            "nav_title": "Hola"
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/revistas/hola"]
+                        },
+                        "style": {
+                            "section_style_name": "hola"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Hola",
+                        "parent": {
+                            "default": "/revistas",
+                            "Header-SecondaryNav": "/revistas"
+                        },
+                        "ancestors": {
+                            "default": ["/revistas"],
+                            "Header-SecondaryNav": ["/", "/revistas"]
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "order": {
+                            "Header-SecondaryNav": 2005
+                        }
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./revistas/hola"
+            },
+            {
+                "_id": "/revistas",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Revistas",
+                "description": null,
+                "path": "/revistas",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/revistas",
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": null,
+                            "rss": null,
+                            "instagram": null,
+                            "facebook": null
+                        },
+                        "navigation": {
+                            "nav_title": "Revistas"
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "name": "Revistas",
+                        "_website": "la-nacion-ar",
+                        "parent": {
+                            "default": "/",
+                            "Header-SecondaryNav": "/"
+                        },
+                        "ancestors": {
+                            "default": [],
+                            "Header-SecondaryNav": ["/"]
+                        },
+                        "_admin": {
+                            "alias_ids": ["/revistas"]
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "order": {
+                            "Header-SecondaryNav": 1003
+                        }
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./revistas"
+            }
+        ],
+        "primary_site": {
+            "_id": "/recetas/platos-principales",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Platos de comida principal",
+            "description": null,
+            "path": "/recetas/platos-principales",
+            "parent_id": "/recetas",
+            "additional_properties": {
+                "original": {
+                    "_id": "/recetas/platos-principales",
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "site": {
+                        "site_tagline": null,
+                        "site_title": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_description": null,
+                        "site_url": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "social": {
+                        "twitter": null,
+                        "rss": null,
+                        "instagram": null,
+                        "facebook": null
+                    },
+                    "navigation": {
+                        "nav_title": "Platos de comida principal"
+                    },
+                    "_admin": {
+                        "alias_ids": ["/recetas/platos-de-comida-principal"]
+                    },
+                    "Termicas": {
+                        "debug": "false"
+                    },
+                    "name": "Platos de comida principal",
+                    "parent": "/recetas",
+                    "ancestors": ["/recetas"],
+                    "inactive": true,
+                    "node_type": "section",
+                    "inactive_date": 1571436811468
+                }
+            }
+        },
+        "primary_section": {
+            "_id": "/recetas/platos-principales",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Platos de comida principal",
+            "description": null,
+            "path": "/recetas/platos-principales",
+            "parent_id": "/recetas",
+            "parent": {
+                "default": "/recetas"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/recetas/platos-principales",
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "site": {
+                        "site_tagline": null,
+                        "site_title": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_description": null,
+                        "site_url": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "social": {
+                        "twitter": null,
+                        "rss": null,
+                        "instagram": null,
+                        "facebook": null
+                    },
+                    "navigation": {
+                        "nav_title": "Platos de comida principal"
+                    },
+                    "_admin": {
+                        "alias_ids": ["/recetas/platos-de-comida-principal"]
+                    },
+                    "Termicas": {
+                        "debug": "false"
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Platos de comida principal",
+                    "parent": {
+                        "default": "/recetas"
+                    },
+                    "ancestors": {
+                        "default": ["/recetas"]
+                    },
+                    "inactive": true,
+                    "node_type": "section",
+                    "inactive_date": 1571436811468
+                }
+            }
+        }
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "promo_items": {
+        "basic": {
+            "type": "video",
+            "_id": "aaaf0286-a327-4c58-b5dd-a86ee20664b9",
+            "version": "0.8.0",
+            "canonical_url": "/video/video-test-fundacion-vidaaaf028",
+            "canonical_website": "la-nacion-ar",
+            "short_url": "/video/video-test-fundacion-vidaaaf028",
+            "created_date": "2019-07-03T18:26:52Z",
+            "last_updated_date": "2019-07-03T18:41:04Z",
+            "publish_date": "2019-07-03T18:41:08Z",
+            "first_publish_date": "2019-07-03T18:41:08Z",
+            "display_date": "2019-07-03T18:41:08Z",
+            "headlines": {
+                "basic": "Video test Fundacion"
+            },
+            "credits": {},
+            "taxonomy": {
+                "tags": [],
+                "primary_site": {
+                    "type": "site",
+                    "_id": "/comunidad",
+                    "version": "0.5.8",
+                    "name": "Comunidad",
+                    "path": "/comunidad",
+                    "primary": true
+                },
+                "sites": [
+                    {
+                        "type": "site",
+                        "_id": "/comunidad",
+                        "version": "0.5.8",
+                        "name": "Comunidad",
+                        "path": "/comunidad",
+                        "primary": true
+                    }
+                ],
+                "primary_section": {
+                    "type": "section",
+                    "_id": "/comunidad",
+                    "_website": "la-nacion-ar",
+                    "version": "0.6.0",
+                    "name": "Comunidad",
+                    "path": "/comunidad",
+                    "primary": true
+                },
+                "sections": [
+                    {
+                        "type": "section",
+                        "_id": "/comunidad",
+                        "_website": "la-nacion-ar",
+                        "version": "0.6.0",
+                        "name": "Comunidad",
+                        "path": "/comunidad",
+                        "primary": true
+                    }
+                ],
+                "seo_keywords": [" educacion", "comunidad"]
+            },
+            "promo_items": {
+                "basic": {
+                    "type": "image",
+                    "version": "0.5.8",
+                    "credits": {},
+                    "caption": "aaaaaaaaaaaaaa",
+                    "url": "https://d3us6z9haan6vf.cloudfront.net/07-03-2019/t_5b89787a87574952a639656166c96b58_name_file_1280x720_2000_v3_1_.jpg",
+                    "width": 1280,
+                    "height": 720
+                }
+            },
+            "related_content": {
+                "redirect": [],
+                "basic": []
+            },
+            "owner": {
+                "sponsored": false
+            },
+            "planning": {
+                "scheduling": {}
+            },
+            "revision": {
+                "published": true
+            },
+            "syndication": {
+                "search": true
+            },
+            "source": {
+                "system": "video center",
+                "edit_url": "https://sandbox.lanacionar.arcpublishing.com/goldfish/video/5d1cf36ccff47e0009434538"
+            },
+            "distributor": {
+                "category": "staff"
+            },
+            "tracking": {
+                "in_url_headline": "video"
+            },
+            "additional_properties": {
+                "subsection": "Comunidad",
+                "videoCategory": "ln---videos-digitales",
+                "anglerfishArcId": "BFCKUC3BHZDTJLQCSZPVHFZ3FU",
+                "isWire": false,
+                "gifAsThumbnail": false,
+                "videoId": "5d1cf36ccff47e0009434538",
+                "vertical": false,
+                "embedContinuousPlay": true,
+                "published": true,
+                "imageResizerUrls": [],
+                "advertising": {
+                    "adInsertionUrls": null,
+                    "adSetUrls": null,
+                    "allowPrerollOnDomain": false,
+                    "autoPlayPreroll": false,
+                    "commercialAdNode": "/comunidad",
+                    "enableAdInsertion": false,
+                    "enableAutoPreview": false,
+                    "forceAd": false,
+                    "playAds": false,
+                    "playVideoAds": false,
+                    "videoAdZone": ""
+                },
+                "disableUpNext": false,
+                "videoAdZone": "",
+                "lastPublishedBy": {
+                    "name": "Guillermo Sanchez",
+                    "email": "gsanchez@lanacion.com.ar",
+                    "lastname": ""
+                },
+                "permalinkUrl": "/video/video-test-fundacion-vidaaaf028",
+                "platform": "desktop",
+                "playVideoAds": false,
+                "forceClosedCaptionsOn": false,
+                "doNotShowTranscripts": false,
+                "useVariants": false,
+                "BFCKUC3BHZDTJLQCSZPVHFZ3FU": "07-03-2019/t_5b89787a87574952a639656166c96b58_name_file_1280x720_2000_v3_1_.jpg",
+                "playlistTags": []
+            },
+            "duration": 59178,
+            "video_type": "clip",
+            "streams": [
+                {
+                    "height": 360,
+                    "width": 640,
+                    "filesize": 5483110,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/07/03/5d1cf36ccff47e0009434538/t_07236383abe94640960a615f14abf80a_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_640x360-600.mp4",
+                    "bitrate": 600,
+                    "provider": "elastictranscoder"
+                },
+                {
+                    "height": 720,
+                    "width": 1280,
+                    "filesize": 15925161,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/07/03/5d1cf36ccff47e0009434538/t_07236383abe94640960a615f14abf80a_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4",
+                    "bitrate": 2000,
+                    "provider": "elastictranscoder"
+                }
+            ],
+            "subtitles": {},
+            "promo_image": {
+                "type": "image",
+                "version": "0.5.8",
+                "credits": {},
+                "caption": "aaaaaaaaaaaaaa",
+                "url": "https://d3us6z9haan6vf.cloudfront.net/07-03-2019/t_5b89787a87574952a639656166c96b58_name_file_1280x720_2000_v3_1_.jpg",
+                "width": 1280,
+                "height": 720
+            },
+            "embed_html": "<div class=\"powa\" id=\"powa-aaaf0286-a327-4c58-b5dd-a86ee20664b9\" data-env=\"sandbox\" data-api=\"sandbox\" data-org=\"lanacionar\" data-uuid=\"aaaf0286-a327-4c58-b5dd-a86ee20664b9\" data-aspect-ratio=\"0.562\"><script src=\"https://d1zp4l5vb5htxp.cloudfront.net/sandbox/powaBoot.js?org=lanacionar\"></script></div>",
+            "websites": {
+                "la-nacion-ar": {
+                    "website_section": {
+                        "path": "/comunidad",
+                        "_website": "la-nacion-ar",
+                        "name": "Comunidad",
+                        "_id": "/comunidad",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "primary": true
+                    },
+                    "website_url": "/video/video-test-fundacion-vidaaaf028"
+                }
+            }
+        }
+    },
+    "distributor": {
+        "name": "lanacionar",
+        "category": "staff",
+        "subcategory": ""
+    },
+    "canonical_website": "la-nacion-ar",
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "word_count_actual": 1,
+            "line_count_actual": 1,
+            "inch_count_actual": 1
+        },
+        "scheduling": {
+            "will_have_video": true
+        }
+    },
+    "display_date": "2019-09-27T17:54:26.103Z",
+    "credits": {
+        "by": [
+            {
+                "_id": "diego-cabot",
+                "type": "author",
+                "version": "0.5.8",
+                "name": "Diego Cabot",
+                "image": {
+                    "url": "https://s3.amazonaws.com/arc-authors/lanacionar/4b2cbe7c-9d50-4451-9a08-6dd8c4f72339.png",
+                    "version": "0.5.8"
+                },
+                "url": "/autor/diego-cabot/",
+                "slug": "diego-cabot",
+                "social_links": [
+                    {
+                        "site": "email",
+                        "url": "dcabot@lanacion.com.ar"
+                    },
+                    {
+                        "site": "twitter",
+                        "url": "@diegocabot"
+                    }
+                ],
+                "socialLinks": [
+                    {
+                        "site": "email",
+                        "url": "dcabot@lanacion.com.ar",
+                        "deprecated": true,
+                        "deprecation_msg": "Please use social_links."
+                    },
+                    {
+                        "site": "twitter",
+                        "url": "@diegocabot",
+                        "deprecated": true,
+                        "deprecation_msg": "Please use social_links."
+                    }
+                ],
+                "additional_properties": {
+                    "original": {
+                        "_id": "diego-cabot",
+                        "byline": "Diego Cabot",
+                        "firstName": "Diego",
+                        "lastName": "Cabot",
+                        "author_type": "Estándar",
+                        "email": "dcabot@lanacion.com.ar",
+                        "image": "https://s3.amazonaws.com/arc-authors/lanacionar/4b2cbe7c-9d50-4451-9a08-6dd8c4f72339.png",
+                        "twitter": "@diegocabot",
+                        "status": true,
+                        "role": "LA NACION",
+                        "longBio": "",
+                        "slug": "diego-cabot",
+                        "last_updated_date": "2019-10-04T21:01:19.377Z",
+                        "books": [],
+                        "podcasts": [],
+                        "education": [],
+                        "awards": [],
+                        "bio_page": "/autor/diego-cabot/",
+                        "type": "author"
+                    }
+                }
+            }
+        ]
+    },
+    "subtype": "7",
+    "first_publish_date": "2019-09-24T18:06:30.143Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/recetas/platos-principales",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Platos de comida principal",
+                "description": null,
+                "path": "/recetas/platos-principales",
+                "parent_id": "/recetas",
+                "parent": {
+                    "default": "/recetas"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/recetas/platos-principales",
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "site": {
+                            "site_tagline": null,
+                            "site_title": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_description": null,
+                            "site_url": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "social": {
+                            "twitter": null,
+                            "rss": null,
+                            "instagram": null,
+                            "facebook": null
+                        },
+                        "navigation": {
+                            "nav_title": "Platos de comida principal"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/recetas/platos-de-comida-principal"]
+                        },
+                        "Termicas": {
+                            "debug": "false"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Platos de comida principal",
+                        "parent": {
+                            "default": "/recetas"
+                        },
+                        "ancestors": {
+                            "default": ["/recetas"]
+                        },
+                        "inactive": true,
+                        "node_type": "section",
+                        "inactive_date": 1571436811468
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./recetas/platos-principales"
+            },
+            "website_url": "/recetas/platos-principales/test-de-video-ln-nid/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": true,
+        "publish_date": "2019-10-23T12:57:39.930Z"
+    },
+    "publish_date": "2019-11-28T16:59:37.053Z",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/recetas/platos-principales/test-de-video-ln-nid/"
+}

@@ -12,8 +12,6 @@ const index = props => {
         }
     } = props;
 
-    console.log('PROPS DE MAS NOTAS: ', props);
-
     let title;
     let border = false;
 
@@ -46,7 +44,7 @@ const index = props => {
                 <h2 className="com-title-section-l">{title}</h2>
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
-                        size={cantidadNotas}
+                        size={cantidadNotas + 1}
                         sectionId={filter === '1' ? _id : undefined}
                         website={_website}
                         destination="article"
