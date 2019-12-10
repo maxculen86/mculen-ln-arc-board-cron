@@ -24,12 +24,12 @@ const Cuerpo = props => {
     resp.push(<Subtitles />);
     resp.push(<Ordered />);
     resp.push(<Unordered />); */
-    console.log('------------------- cuerpo', props);
-    props.globalContent.content_elements.forEach(element => {
-        if (element.type === 'gallery') {
-            resp.push(<Gallery {...element} />);
-        }
-    });
+    // console.log('------------------- cuerpo', props);
+    // props.globalContent.content_elements.forEach(element => {
+    //     if (element.type === 'gallery') {
+    //         resp.push(<Gallery {...element} />);
+    //     }
+    // });
     /* resp.push(<Gallery {...props} />); */
     /* resp.push(<Html />);
     resp.push(<PullQuote />);
