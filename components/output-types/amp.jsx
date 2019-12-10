@@ -1,69 +1,90 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
+import { renderToString } from 'react-dom/server';
+import { DOMProperty } from 'react-dom';
 import PropTypes from 'fusion:prop-types';
-import ScriptManager from '../private/common/scriptManager';
-import GTM from '../private/common/scriptManager/googleTagManager';
-import Comscore from '../private/common/scriptManager/comscore';
-import Microdata from '../private/common/scriptManager/microdata';
-import PostBid from '../private/common/scriptManager/postbid';
-import ArcAds from '../private/common/scriptManager/arcAds';
-import FacebookSDK from '../private/common/scriptManager/facebookSDK';
-import Livefyre from '../private/common/scriptManager/Livefyre';
-import DataLayerIndex from '../private/common/dataLayerIndex';
-import SnippetIndex from '../private/common/snippet';
-
-const scriptList = {
-    GTM,
-    Comscore,
-    Microdata,
-    ArcAds,
-    FacebookSDK,
-    PostBid,
-    Livefyre
-};
 
 const Amp = props => {
-    const {
-        arcSite,
-        children,
-        contextPath,
-        deployment,
-        CssLinks,
-        Fusion,
-        Libs,
-        MetaTags,
-        metaValue,
-        siteProperties,
-        outputType
-    } = props;
+    const { children } = props;
+    const htmlRef = useRef(null);
 
-    //const Scripts = ScriptManager(scriptList, siteProperties.scripts);
+    /* DOMProperty.injectDOMPropertyConfig({
+        Properties: {
+            'amp': DOMProperty.MUST_USE_PROPERTY
+        }
+    }); */
+
+    useEffect(() => {
+        //ReactDOM.findDOMNode(htmlRef).setAttribute("amp", "");
+        //document.getElementsByTagName('html').setAttribute('amp', true);
+    }, []);
 
     return (
-        <html amp lang="es">
+        <html
+            lang="es"
+            ref={htmlRef}
+            dangerouslySetInnerHTML={{
+                __html: `
             <head>
                 <meta charset="utf-8" />
-                <title>
-                    {metaValue('title') || siteProperties.title || 'LA NACION'}
-                </title>
-                <DataLayerIndex {...props} />
-                <SnippetIndex {...props} />
-                {/* <Scripts location="head" /> */}
-                <MetaTags />
-                <Libs />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1, minimum-scale=1"
-                />
-                <script async src="https://cdn.ampproject.org/v0.js" />
+                <title>Recetas</title>
+                <link rel="canonical" href="self.html" />
+                <meta name="viewport" content="width=device-width,minimum-scale=1" />
+                <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+                <script async src="https://cdn.ampproject.org/v0.js"></script>
+                <style amp-custom>
+                    h1{ color: red; }
+                </style>
             </head>
             <body>
-                {/* <Scripts location="body-top" /> */}
-                <div id="fusion-app">{children}</div>
-                <Fusion />
-                {/* <Scripts location="body-bottom" /> */}
+                <div id="fusion-app">${renderToString(children)}</div>
+            </body>
+            `
+            }}
+        />
+    );
+
+    /* return (
+        <html amp lang="es"> 
+            <head>
+        <meta charset="utf-8" />
+        <title>Recetas</title>
+        <link rel="canonical" href="self.html" />
+        <meta name="viewport" content="width=device-width,minimum-scale=1" />
+        <style amp-boilerplate dangerouslySetInnerHTML={{
+            __html: `
+            body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
+                -moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
+                -ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
+                animation:-amp-start 8s steps(1,end) 0s 1 normal both}
+
+                @-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+                @-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}}
+                @-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+                @-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+                @keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+                `
+        }} />
+        <noscript>
+            <style amp-boilerplate dangerouslySetInnerHTML={{
+                __html: `
+                body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+                `
+            }} />
+        </noscript>
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <style amp-custom dangerouslySetInnerHTML={{
+            __html: `
+                h1{ color: red; }
+            `
+        }} />
+        
+            </head>
+            <body>
+                <div id="fusion-app">{props.children}</div>
             </body>
         </html>
-    );
+    ); */
 };
 
 Amp.propTypes = {
