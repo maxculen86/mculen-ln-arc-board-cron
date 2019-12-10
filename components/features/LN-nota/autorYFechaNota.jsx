@@ -6,8 +6,9 @@ import AuthorAndDate from '../../private/LN/nota/apertura/authorAndDate';
 
 // AuthorAndDate.static = true;
 const authorAndDate = props => {
+    const { id: featureId } = props;
     return (
-        <Static id="apertura-receta">
+        <Static id={featureId}>
             <AuthorAndDate {...props} />
         </Static>
     );

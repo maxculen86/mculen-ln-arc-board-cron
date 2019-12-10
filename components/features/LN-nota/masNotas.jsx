@@ -7,10 +7,11 @@ import MasNotas from '../../private/LN/nota/masNotas';
 
 const masNotas = props => {
     const {
-        customFields: { cantidadNotas }
+        customFields: { cantidadNotas },
+        id: featureId
     } = props;
     return (
-        <Static id="apertura-receta">
+        <Static id={featureId}>
             <MasNotas {...props} cantidadNotas={cantidadNotas} />
         </Static>
     );

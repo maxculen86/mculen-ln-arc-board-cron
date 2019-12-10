@@ -4,9 +4,12 @@ import PropTypes from 'fusion:prop-types';
 
 import Ranking from '../../private/LN/common/ranking';
 
-const ranking = ({ customFields: { cantidadNotas, dataSection } }) => {
+const ranking = ({
+    id: featureId,
+    customFields: { cantidadNotas, dataSection }
+}) => {
     return (
-        <Static id="ranking">
+        <Static id={featureId}>
             <Ranking dataSection={dataSection} size={cantidadNotas} />
         </Static>
     );

@@ -4,9 +4,10 @@ import React from 'react';
 import Static from 'fusion:static';
 import Imagen from '../../private/LN/nota/cuerpo/image';
 
-export default function aperturaNoticia() {
+export default function aperturaNoticia(props) {
+    const { id: featureId } = props;
     return (
-        <Static id="apertura-noticia">
+        <Static id={featureId}>
             <Imagen />
         </Static>
     );
