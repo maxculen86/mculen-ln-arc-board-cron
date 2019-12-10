@@ -17,6 +17,7 @@ const tagsNavigation = ({
             {orderAndCountTags.map(tag => (
                 <li key={tag.slug}>
                     <a
+                        //TODO: quitar _website de las urls
                         href={`${path}${tag.slug}?_website=${_children._website}`}
                         title={tag.text}
                     >
