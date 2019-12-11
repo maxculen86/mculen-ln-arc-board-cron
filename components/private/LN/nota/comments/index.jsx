@@ -26,8 +26,6 @@ const Comments = props => {
         loginData
     } = props;
 
-    console.log('props comentarios: ', props);
-
     const { isLoggedIn } = useGlobal();
 
     let oldID = false;
@@ -72,7 +70,8 @@ const Comments = props => {
     const onDOMChange = () => {
         const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
-        if (boxes.length > 1) lf.removeChild(lf.firstChild);
+        if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
+        //lf.removeChild(lf.firstChild);
     };
 
     useEffect(() => {
@@ -83,7 +82,7 @@ const Comments = props => {
 
             LiveFyre.convConfig = {
                 siteId,
-                articleId: oldID || _id, //'1466383', //'1466383'
+                articleId: oldID || _id,
                 el: 'livefyre',
                 collectionMeta,
                 datetimeFormat: {
@@ -149,12 +148,32 @@ const Comments = props => {
     useEffect(() => {
         if (typeof window !== 'undefined') {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
+                auth.delegate({
+                    login(callback) {
+                        loginData.goToLoginUrl();
+                        callback(null, { livefyre: cookie });
+                    },
+                    logout(finishLogout) {
+                        props.goToLogout();
+                    },
+                    viewProfile(author) {
+                        const authorId = author.id.match('[0-9]+');
+                        if (author.profileUrl != null && authorId.length > 0) {
+                            const win = window.open(
+                                author.profileUrl,
+                                '_blank'
+                            );
+                            win.focus();
+                        }
+                    }
+                });
                 const isUserLoggedIn = () => {
                     if (cookie !== '' && isLoggedIn) {
                         commentSection.current.classList.remove('no-logueado');
                         return true;
                     }
                     commentSection.current.classList.add('no-logueado');
+                    auth.logout();
                     return false;
                 };
                 if (!isUserLoggedIn()) {
@@ -182,31 +201,10 @@ const Comments = props => {
                         });
                     }
                 );
-                auth.delegate({
-                    login(callback) {
-                        loginData.goToLoginUrl();
-                        callback(null, { livefyre: cookie });
-                    },
-                    logout(finishLogout) {
-                        props.goToLogout();
-                    },
-                    viewProfile(author) {
-                        const authorId = author.id.match('[0-9]+');
-                        if (author.profileUrl != null && authorId.length > 0) {
-                            const win = window.open(
-                                author.profileUrl,
-                                '_blank'
-                            );
-                            win.focus();
-                        }
-                    }
-                });
-                if (!isLoggedIn) {
-                    auth.logout();
-                }
             });
         }
         return () => {
+            // TODO: ver como mejorar esto :c
             const observer = new MutationObserver(onDOMChange);
             observer.observe(document.querySelector('#livefyre'), {
                 subtree: false,
@@ -255,7 +253,6 @@ const Comments = props => {
 };
 
 Comments.propTypes = {
-    logueado: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         goToLoginUrl: PropTypes.func
     }).isRequired,
