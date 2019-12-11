@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import jwt from 'jsonwebtoken';
@@ -25,6 +25,8 @@ const Comments = props => {
         },
         loginData
     } = props;
+
+    console.log('props comentarios: ', props);
 
     const { isLoggedIn } = useGlobal();
 
@@ -67,18 +69,13 @@ const Comments = props => {
             ? config.livefyre.recetas.siteId
             : config.livefyre.siteId;
 
-    const onNodeChange = mutations => {
-        mutations.forEach(mutation => {
-            if (mutation.addedNodes.length > 0) {
-                const divs = mutation.addedNodes;
-                if (divs[0].className.indexOf('fyre-width-large') !== -1) {
-                    divs[0].remove();
-                }
-            }
-        });
+    const onDOMChange = () => {
+        const lf = document.getElementById('livefyre');
+        const boxes = lf.getElementsByClassName('fyre');
+        if (boxes.length > 1) lf.removeChild(lf.firstChild);
     };
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (typeof window !== 'undefined') {
             LiveFyre.networkConfig = {
                 network: config.livefyre.network
@@ -145,13 +142,11 @@ const Comments = props => {
                 LiveFyre.attachmentDelegate;
             LiveFyre.networkConfig.strings = customStrings;
             LiveFyre.convConfig.postToButtons = ['tw', 'fb'];
-
-            return () => {};
         }
+        return () => {};
     }, [_id, collectionMeta, cookie, oldID, siteId, isLoggedIn]);
 
-    useLayoutEffect(() => {
-        console.log('pasa por el useEffect 2');
+    useEffect(() => {
         if (typeof window !== 'undefined') {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
                 const isUserLoggedIn = () => {
@@ -165,6 +160,7 @@ const Comments = props => {
                 if (!isUserLoggedIn()) {
                     auth.authenticate({ livefyre: cookie });
                 }
+
                 /* eslint-disable no-new */
                 new Conv(
                     LiveFyre.networkConfig,
@@ -205,20 +201,17 @@ const Comments = props => {
                         }
                     }
                 });
-                if (!isLoggedIn) auth.logout();
+                if (!isLoggedIn) {
+                    auth.logout();
+                }
             });
         }
         return () => {
-            const divs = document.getElementsByClassName('fyre');
-            for (let i = 0; i < divs.length; i++) {
-                divs[i].remove();
-            }
-
-            /* const observer = new MutationObserver(onNodeChange);
+            const observer = new MutationObserver(onDOMChange);
             observer.observe(document.querySelector('#livefyre'), {
                 subtree: false,
                 childList: true
-            }); */
+            });
         };
     }, [isLoggedIn]);
 
