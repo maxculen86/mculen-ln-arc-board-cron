@@ -1,6 +1,8 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
+import { useContent } from 'fusion:content';
+
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 
@@ -45,7 +47,7 @@ const transform = (data, siteProps) => {
         });
     }
 
-    return tranformQuitarSectionsInvalidas(resp);
+    return resolveDeepRelations(tranformQuitarSectionsInvalidas(resp));
 };
 
 const tranformQuitarSectionsInvalidas = jsonArticle => {
@@ -60,6 +62,38 @@ const tranformQuitarSectionsInvalidas = jsonArticle => {
         }
     };
     return resp;
+};
+// TODO: juntar todos los transform en uno solo
+const resolveDeepRelations = jsonArticle => {
+    const resp = {
+        ...jsonArticle,
+        content_elements: jsonArticle.content_elements.map(elem => {
+            if (elem.type === 'gallery') {
+                return addGalleryData(elem);
+            }
+            return elem;
+        })
+    };
+
+    if (get(resp, 'promo_items.basic.type') === 'gallery') {
+        resp.promo_items.basic = addGalleryData(resp.promo_items.basic);
+    }
+    return resp;
+};
+
+const addGalleryData = gallery => {
+    const { _id: galleryId } = gallery;
+    const data = useContent({
+        source: 'galleryContentSource',
+        query: {
+            id: galleryId
+        }
+    });
+
+    return {
+        ...gallery,
+        ...data
+    };
 };
 
 export default {
