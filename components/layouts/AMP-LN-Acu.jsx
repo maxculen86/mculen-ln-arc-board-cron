@@ -4,7 +4,7 @@ class Amp extends React.Component {
     render() {
         return (
             <div className="amp">
-                <p>Chau</p>
+                <p>Hola AMP!</p>
             </div>
         );
     }
