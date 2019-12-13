@@ -4,7 +4,7 @@ import Subtitle from '../../../../../components/private/LN/nota/cuerpo/subtitle'
 
 describe('Subtitle', () => {
     const props = {
-        element: [
+        data: [
             {
                 level: 2,
                 content:
