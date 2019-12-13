@@ -1,7 +1,10 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import AMPIndex, { _AMPBoilerplate } from '../private/common/ampIndex';
+import AMPScripts, {
+    _AMPBoilerplate,
+    AMPCustomStyle
+} from '../private/common/ampIndex';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -29,14 +32,12 @@ const Amp = props => {
                     name="viewport"
                     content="width=device-width,minimum-scale=1,initial-scale=1"
                 />
-                <AMPIndex layout={layout} arcSite={arcSite} />
-                <Resource path="resources/dist/css/ln/base/amp.css">
-                    {({ data }) => {
-                        return data ? (
-                            <style amp-custom="amp-custom">{data}</style>
-                        ) : null;
-                    }}
-                </Resource>
+                <AMPScripts layout={layout} arcSite={arcSite} />
+                <AMPCustomStyle
+                    layout={layout}
+                    arcSite={arcSite}
+                    Resource={Resource}
+                />
                 <style amp-boilerplate="">{_AMPBoilerplate}</style>
                 <noscript
                     dangerouslySetInnerHTML={{

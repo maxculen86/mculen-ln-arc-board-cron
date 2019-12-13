@@ -4,6 +4,38 @@ import PropTypes from 'fusion:prop-types';
 export const _AMPBoilerplate =
     'body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}';
 
+const styleConfig = {
+    OTT: {},
+    'la-nacion-ar': {
+        'AMP-LN-Acu': 'resources/dist/css/ln/base/amp.css'
+    }
+};
+
+export const AMPCustomStyle = props => {
+    const { arcSite, layout, Resource } = props;
+
+    const sitio = styleConfig[arcSite];
+    if (!sitio) return null;
+
+    const StylesConfig = sitio[layout];
+
+    return (
+        <Resource path={StylesConfig}>
+            {({ data }) => {
+                return data ? (
+                    <style amp-custom="amp-custom">{data}</style>
+                ) : null;
+            }}
+        </Resource>
+    );
+};
+
+AMPCustomStyle.propTypes = {
+    arcSite: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired,
+    Resource: PropTypes.func.isRequired
+};
+
 const config = {
     OTT: {},
     'la-nacion-ar': {
@@ -24,7 +56,7 @@ const config = {
     }
 };
 
-const ampIndex = props => {
+const AMPScripts = props => {
     const scriptsToLoad = [];
     const { arcSite, layout } = props;
 
@@ -43,9 +75,9 @@ const ampIndex = props => {
     return scriptsToLoad;
 };
 
-ampIndex.propTypes = {
+AMPScripts.propTypes = {
     arcSite: PropTypes.string.isRequired,
     layout: PropTypes.string.isRequired
 };
 
-export default ampIndex;
+export default AMPScripts;
