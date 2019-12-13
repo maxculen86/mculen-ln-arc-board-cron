@@ -7,7 +7,7 @@ export const _AMPBoilerplate =
 const styleConfig = {
     OTT: {},
     'la-nacion-ar': {
-        'AMP-LN-Acu': 'resources/dist/css/ln/base/amp.css'
+        'AMP-LN-Acu': 'resources/dist/css/ln/amp/ampln-acu.css'
     }
 };
 
