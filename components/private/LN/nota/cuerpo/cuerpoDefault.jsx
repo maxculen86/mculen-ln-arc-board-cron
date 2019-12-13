@@ -17,8 +17,15 @@ import Subtitle from './subtitle';
 // TODO: tests
 const Cuerpo = props => {
     const resp = [];
-    const bodyComponents = [BlockQuote, Tags, Subtitle, Gallery];
-    const resp = [];
+    const bodyComponents = [
+        BlockQuote,
+        Tags,
+        Subtitle,
+        Gallery,
+        'aaaa',
+        'bbb',
+        'cccc'
+    ];
     props.globalContent.content_elements.forEach(element => {
         console.log('content_elements ************', element);
         console.log('bodyComponents ************', bodyComponents);
