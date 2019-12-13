@@ -27,14 +27,64 @@ import '../../resources/dist/css/ln/components/appointment.css';
 import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
+import '../../resources/dist/css/ln/components/storytelling.css';
 
 const lnNotaNoticia = ({ children }) => {
     return (
-        <div id="wrapper" className="nota noticia">
+        <div
+            id="wrapper"
+            className="nota noticia noticia-storytelling --hlp-transparent lugares"
+        >
             {/* TODO: sacar */}
             <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
             <Header />
             <main>
+                <section className="storytelling">
+                    <section id="" className="cont-figure">
+                        <div className="figure">
+                            <picture className="content-pic picture">
+                                <source
+                                    media="(min-width: 767px)"
+                                    srcset="//bucket1.glanacion.com/anexos/fotos/80/2760980w1920.jpg"
+                                ></source>
+                                <source
+                                    media="(min-width: 480px)"
+                                    srcset="//bucket1.glanacion.com/anexos/fotos/80/2760980w768.jpg"
+                                ></source>
+                                <img
+                                    className="content-img"
+                                    src="//bucket3.glanacion.com/anexos/fotos/66/2760966w480.jpg"
+                                    alt="srcset"
+                                />
+                            </picture>
+                        </div>
+                    </section>
+                    <div className="lay-sidebar">
+                        <div className="sidebar__main">
+                            <div className="row">
+                                <div className="col-1 hlp-marginBottom-40 hlp-tablet-none hlp-mobile-show"></div>
+                                <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                    <div className="storytelling-title">
+                                        <i class="logo-lugares"></i>
+                                        <h1>
+                                            Escapadas. 10 rutas argentinas
+                                            espectaculares que no conocías
+                                        </h1>
+                                    </div>
+                                    <section className="com-epigrafe">
+                                        <p className="text">Epigrafe de foto</p>
+                                        <p className="small">
+                                            Fuente: LA NACION - Crédito: Enrique
+                                            García Medina
+                                        </p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="sidebar__aside hlp-tablet-none"></div>
+                    </div>
+                </section>
                 {children[0]}
                 <div className="lay">
                     <header className="row titulo">
