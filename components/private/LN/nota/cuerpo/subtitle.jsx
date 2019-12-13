@@ -6,25 +6,55 @@ const Subtitle = props => {
     const { data } = props;
     switch (data.level) {
         case 1: {
-            return <h2 dangerouslySetInnerHTML={{ __html: data.content }} />;
+            return (
+                <h2
+                    className="com-subtitle-nota-1"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         case 2: {
-            return <h2 dangerouslySetInnerHTML={{ __html: data.content }} />;
+            return (
+                <h2
+                    className="com-subtitle-nota-1"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         case 3: {
-            return <h3 dangerouslySetInnerHTML={{ __html: data.content }} />;
+            return (
+                <h3
+                    className="com-subtitle-nota-2"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         case 4: {
-            return <h4 dangerouslySetInnerHTML={{ __html: data.content }} />;
+            return (
+                <h4
+                    className="com-subtitle-nota-3"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         case 5: {
-            return <h5 dangerouslySetInnerHTML={{ __html: data.content }} />;
+            return (
+                <h5
+                    className="com-subtitle-nota-3"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         case 6: {
-            return <h6 dangerouslySetInnerHTML={{ __html: data.content }} />;
+            return (
+                <h6
+                    className="com-subtitle-nota-3"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         default:
-            return <p>{data.content}</p>;
+            return <p className="text">{data.content}</p>;
     }
     /* return <h2>{data.content}</h2>; */
 };

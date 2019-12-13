@@ -11,10 +11,12 @@ import Tags from './tags';
 import TextCapital from './text';
 import Ordered from './ordered';
 import Unordered from './unordered';
+import Subtitles from './subtitles';
 import Subtitle from './subtitle';
 
 // TODO: tests
 const Cuerpo = props => {
+    const resp = [];
     const bodyComponents = [BlockQuote, Tags, Subtitle, Gallery];
     const resp = [];
     props.globalContent.content_elements.forEach(element => {
