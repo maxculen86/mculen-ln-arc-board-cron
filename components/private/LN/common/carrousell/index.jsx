@@ -3,16 +3,22 @@ import React from 'react';
 import Carrousell from '../../../common/carousell';
 import Media from './galleryItem';
 
-export default function index(galleryData) {
+const index = props => {
+    console.log('props ****************-----************', props);
+    const { data } = props;
     return (
         <Carrousell>
-            {galleryData.content_elements.map((v, i) => (
+            {data.content_elements.map((v, i) => (
                 <Media
                     mediaData={v}
                     galleryOrder={i}
-                    totalGallery={galleryData.content_elements.length}
+                    totalGallery={data.content_elements.length}
                 />
             ))}
         </Carrousell>
     );
-}
+};
+
+index.arcType = 'gallery';
+
+export default index;
