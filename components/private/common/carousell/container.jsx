@@ -2,7 +2,7 @@ import React from 'react';
 import CarousellComponent from './component';
 import CarousellNextButton from './carousellNextButton';
 import CarousellPrevButton from './carousellPrevButton';
-import Slider from '../../OTT/common/hocs/slider'; //TODO: sacar slider a Common Common
+import Slider from '../hocs/withSlider';
 
 const DEFAULT_PAGESIZE = 4;
 

@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 //Importo componente HARCODEADOS
 import BlockQuote from './blockQuote';
-import Gallery from '../../common/carrousellv2';
+import Gallery from '../../common/carrousell';
 /* import Gallery from '../../common/carousell/gallery'; */
 import Html from './html';
 import PullQuote from './pullQuote';
