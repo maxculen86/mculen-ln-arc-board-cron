@@ -33,7 +33,7 @@ const lnNotaNoticia = ({ children }) => {
     return (
         <div
             id="wrapper"
-            className="nota noticia noticia-storytelling --hlp-transparent lugares"
+            className="nota noticia noticia-storytelling --hlp-transparent"
         >
             {/* TODO: sacar */}
             <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
@@ -62,7 +62,7 @@ const lnNotaNoticia = ({ children }) => {
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
-                                <div className="col-1 hlp-marginBottom-40 hlp-tablet-none hlp-mobile-show"></div>
+                                <div className="col-1 hlp-marginBottom-40 hlp-tablet-none"></div>
                                 <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                     <div className="storytelling-title">
                                         <i class="logo-lugares"></i>
