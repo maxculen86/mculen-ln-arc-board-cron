@@ -1,7 +1,7 @@
+import { useContent } from 'fusion:content';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
-import { useContent } from 'fusion:content';
 
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
@@ -84,11 +84,13 @@ const resolveDeepRelations = jsonArticle => {
 const addGalleryData = gallery => {
     const { _id: galleryId } = gallery;
     const data = useContent({
-        source: 'galleryContentSource',
+        source: 'gallerySource',
         query: {
             id: galleryId
         }
     });
+
+    console.log('----------------GALERIA-------------------', data);
 
     return {
         ...gallery,
