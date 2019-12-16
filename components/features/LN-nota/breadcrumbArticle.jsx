@@ -2,7 +2,7 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 
-import BreadCrumbArticle from '../../private/LN/nota/apertura/breadcrumb/breadcrumbArticle';
+import BreadCrumbArticle from '../../private/LN/nota/breadcrumb/breadcrumbArticle';
 
 const breadCrumbArticle = props => {
     const { id: featureId } = props;
