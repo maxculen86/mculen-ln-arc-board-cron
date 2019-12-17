@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArcAd from './arcWrapper';
 
@@ -22,7 +22,8 @@ const bannerComponent = ({
     const show = () => {
         setVisible(true);
     };
-    let ad = (
+    // TODO: Borrar estos comentarios feos
+    /* let ad = (
         <ArcAd
             className={`--${device}${
                 sticky ? ' --sticky' : ''
@@ -35,9 +36,9 @@ const bannerComponent = ({
             bidding={bidding}
             show={show}
         />
-    );
+    ); */
 
-    if (background) {
+    /* if (background) {
         ad = (
             <div
                 className={`banner w-100 --bg-banner ${
@@ -49,7 +50,45 @@ const bannerComponent = ({
         );
     }
 
-    return ad;
+    return ad; */
+
+    return (
+        <>
+            {background ? (
+                <div
+                    className={`banner w-100 --bg-banner ${
+                        visible ? '' : 'hlp-none'
+                    }`}
+                >
+                    <ArcAd
+                        className={`--${device}${
+                            sticky ? ' --sticky' : ''
+                        } ${extraClasses || ''}`}
+                        id={slotId}
+                        dfpId={dfpId}
+                        slotName={slotName}
+                        dimensions={dimensions}
+                        targeting={targeting}
+                        bidding={bidding}
+                        show={show}
+                    />
+                </div>
+            ) : (
+                <ArcAd
+                    className={`--${device}${
+                        sticky ? ' --sticky' : ''
+                    } ${extraClasses || ''}`}
+                    id={slotId}
+                    dfpId={dfpId}
+                    slotName={slotName}
+                    dimensions={dimensions}
+                    targeting={targeting}
+                    bidding={bidding}
+                    show={show}
+                />
+            )}
+        </>
+    );
 };
 
 bannerComponent.propTypes = {
