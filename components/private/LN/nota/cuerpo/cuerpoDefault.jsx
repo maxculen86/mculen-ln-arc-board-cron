@@ -18,6 +18,12 @@ import Subtitles from './subtitles';
 const Cuerpo = props => {
     const resp = [];
 
+    props.globalContent.content_elements.forEach(e => {
+        if (e.type === 'gallery') {
+            resp.push(<Gallery {...e} />);
+        }
+    });
+
     /* resp.push(<TextCapital />);
     resp.push(<BlockQuote />);
     resp.push(<TextCapital />);

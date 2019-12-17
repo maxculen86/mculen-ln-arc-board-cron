@@ -1,16 +1,17 @@
-import { useContent } from 'fusion:content';
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import request from 'request-promise-native';
+import { CONTENT_BASE, RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
 
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
+import gallerySource from './gallerySource';
 
 const resolve = (key, a) => {
-    const { url, id, website, published } = key;
+    const { url, id, published } = key;
 
     const arcSite = key['arc-site'];
-    let basePath = `/content/v4/stories/?website=${website || arcSite}`;
+    let basePath = `/content/v4/stories/?website=${arcSite}`;
 
     if (published) basePath = `${basePath}&published=${published}`;
 
@@ -20,34 +21,50 @@ const resolve = (key, a) => {
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
+const fetch = query => {
+    return request({
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    }).then(response => {
+        return transform(response, query);
+    });
+};
+
 const transform = (data, siteProps) => {
-    const arcSite = siteProps['arc-site'];
-    const properties = getProperties(arcSite);
+    return new Promise((ok, err) => {
+        const arcSite = siteProps['arc-site'];
+        const properties = getProperties(arcSite);
 
-    let presets = get(
-        properties,
-        `imageConfig.resize.nota.bySubtype[${data.subtype}]`,
-        null
-    );
-
-    if (!presets) {
-        presets = get(
+        let presets = get(
             properties,
-            'imageConfig.resize.nota.bySubtype[default]',
+            `imageConfig.resize.nota.bySubtype[${data.subtype}]`,
             null
         );
-    }
 
-    let resp = data;
-    if (presets) {
-        resp = addResizedUrls(data, {
-            resizerSecret: RESIZER_KEY,
-            resizerUrl: RESIZER_URL,
-            presets
+        if (!presets) {
+            presets = get(
+                properties,
+                'imageConfig.resize.nota.bySubtype[default]',
+                null
+            );
+        }
+
+        let resp = data;
+        if (presets) {
+            resp = addResizedUrls(data, {
+                resizerSecret: RESIZER_KEY,
+                resizerUrl: RESIZER_URL,
+                presets
+            });
+        }
+
+        resolveDeepRelations(
+            tranformQuitarSectionsInvalidas(resp),
+            arcSite
+        ).then(article => {
+            ok(article);
         });
-    }
-
-    return resolveDeepRelations(tranformQuitarSectionsInvalidas(resp));
+    });
 };
 
 const tranformQuitarSectionsInvalidas = jsonArticle => {
@@ -64,48 +81,70 @@ const tranformQuitarSectionsInvalidas = jsonArticle => {
     return resp;
 };
 // TODO: juntar todos los transform en uno solo
-const resolveDeepRelations = jsonArticle => {
-    const resp = {
-        ...jsonArticle,
-        content_elements: jsonArticle.content_elements.map(elem => {
-            if (elem.type === 'gallery') {
-                return addGalleryData(elem);
-            }
-            return elem;
-        })
-    };
+const resolveDeepRelations = (jsonArticle, arcSite) => {
+    return new Promise((ok, err) => {
+        const promiseArr = [];
+        const resp = {
+            ...jsonArticle,
+            content_elements: jsonArticle.content_elements
+        };
 
-    if (get(resp, 'promo_items.basic.type') === 'gallery') {
-        resp.promo_items.basic = addGalleryData(resp.promo_items.basic);
-    }
-    return resp;
+        resp.content_elements.forEach((e, i) => {
+            if (e.type === 'gallery') {
+                promiseArr.push(
+                    addGalleryData(e, arcSite).then(g => {
+                        resp.content_elements[i] = g;
+                    })
+                );
+            }
+        });
+
+        if (get(resp, 'promo_items.basic.type') === 'gallery') {
+            promiseArr.push(
+                addGalleryData(resp.promo_items.basic, arcSite).then(g => {
+                    resp.promo_items.basic = g;
+                })
+            );
+        }
+
+        Promise.all(promiseArr).then(() => {
+            ok(resp);
+        });
+    });
 };
 
-const addGalleryData = gallery => {
-    const { _id: galleryId } = gallery;
-    const data = useContent({
-        source: 'gallerySource',
-        query: {
-            id: galleryId
-        }
+const addGalleryData = (gallery, arcSite) => {
+    return new Promise((ok, err) => {
+        const { _id: galleryId } = gallery;
+        gallerySource
+            .fetch({
+                id: galleryId,
+                'arc-site': arcSite,
+                includedFields: 'content_elements,content_elements.credits'
+            })
+            .then(g => {
+                const resp = {
+                    ...gallery
+                };
+
+                resp.content_elements = gallery.content_elements.map((v, i) => {
+                    return {
+                        ...v,
+                        ...g.content_elements[i]
+                    };
+                });
+                ok(resp);
+            });
     });
-
-    console.log('----------------GALERIA-------------------', data);
-
-    return {
-        ...gallery,
-        ...data
-    };
 };
 
 export default {
-    resolve,
+    fetch,
     params: {
         url: 'text',
         id: 'text',
-        website: 'text',
         published: 'text'
     },
     filter,
-    transform
+    ttl: 120
 };
