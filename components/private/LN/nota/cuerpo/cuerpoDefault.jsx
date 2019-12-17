@@ -26,14 +26,22 @@ const Cuerpo = props => {
         'bbb',
         'cccc'
     ];
-    props.globalContent.content_elements.forEach(element => {
+
+    const capitalindex = props.globalContent.content_elements.findIndex(
+        v => v.type === 'text'
+    );
+    props.globalContent.content_elements.forEach((element, i) => {
         console.log('content_elements ************', element);
         console.log('bodyComponents ************', bodyComponents);
         const Component = bodyComponents.find(
             bc => bc.arcType === element.type
         );
         if (Component) {
-            resp.push(<Component data={element} />);
+            if (capitalindex === i) {
+                resp.push(<Component data={element} capital />);
+            } else {
+                resp.push(<Component data={element} />);
+            }
         }
     });
 

@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const Subtitle = props => {
-    console.log('props ****************-----************', props);
-    const { data } = props;
+    const { data, capital } = props;
     switch (data.level) {
         case 1: {
             return (
@@ -54,7 +53,11 @@ const Subtitle = props => {
             );
         }
         default:
-            return <p className="text">{data.content}</p>;
+            return (
+                <p className={`text${capital ? ` capital` : ''}`}>
+                    {data.content}
+                </p>
+            );
     }
     /* return <h2>{data.content}</h2>; */
 };
@@ -66,7 +69,8 @@ Subtitle.propTypes = {
         content: PropTypes.string.isRequired,
         level: PropTypes.number.isRequired,
         type: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    capital: PropTypes.boolean
 };
 
 export default Subtitle;
