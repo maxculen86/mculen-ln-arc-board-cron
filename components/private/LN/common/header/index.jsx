@@ -25,11 +25,12 @@ class Index extends Component {
     }
 
     componentDidMount() {
+        //debugger;
         const { screenUtils } = this.props;
         const { device } = screenUtils;
         const idHeader = device === 'desktop' ? 'header' : 'header-mobile';
         const header = document.getElementById(idHeader);
-        const vshare = document.getElementById('v-share');
+        //const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
         const wrapper = document.getElementById('wrapper');
         if (header) {
@@ -38,7 +39,7 @@ class Index extends Component {
                 const { isScrollDown, isScrollUp } = this.onScrollHandler(
                     header,
                     headerHeigth,
-                    vshare,
+                    //vshare,
                     userMenu,
                     wrapper
                 );
@@ -56,11 +57,12 @@ class Index extends Component {
     };
 
     // TODO: Hacer refactor del siguiente metodo
-    onScrollHandler = (header, height, vshare, userMenu, wrapper) => {
+    onScrollHandler = (header, height, userMenu, wrapper) => {
         let isScrollDown = false;
         let isScrollUp = false;
         const scrollPos = window.scrollY;
         const { classList } = header;
+        const vshare = document.getElementById('v-share');
 
         if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
