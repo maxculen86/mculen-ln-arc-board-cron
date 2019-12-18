@@ -1,6 +1,6 @@
 /* no logueado */
-section#comentarios.no-logueado .fyre-editor-container,
-section#comentarios.no-logueado .fyre-comment-reply {
+section#comments.no-logueado .fyre-editor-container,
+section#comments.no-logueado .fyre-comment-reply {
     display: none;
 }
 section#comunidad .recordar-logueo {
@@ -326,7 +326,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     background: url('https://contenidos.lanacion.com.ar/_ui/desktop/imgs/layout/fondos/livefyre-sprite-0.png')
         no-repeat scroll 5px -251px transparent;
 }
-/* comentarios */
+/* comments */
 .fyre-editor .fyre-editor-container .fyre-editor-editable.editable {
     color: #4d4d4d;
     margin-bottom: 12px;
@@ -344,10 +344,6 @@ a.fyre-user-profile-link.fyre-user-loggedin {
 .fyre .fyre-comment-divider {
     margin: 0px 0 18px 0;
 }
-/*.fyre .fyre-comment-article, .fyre .fyre-comment-stream {
-    padding-top:10px;
-}
-*/
 .fyre .fyre-moderator,
 .fyre .fyre-comment-author-tag {
     background-color: #a3a7b3;
@@ -451,7 +447,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     background-color: #fff;
     padding-right: 5px;
 }
-/* ver mÃ¡s comentarios */
+/* ver mÃ¡s comments */
 .fyre .fyre-stream-more {
     background: url('https://contenidos.lanacion.com.ar/_ui/desktop/imgs/layout/fondos/livefyre-sprite-0.png')
         0 -178px transparent;
@@ -528,7 +524,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     color: #9d2829;
     margin-bottom: 15px;
 }
-/* encabezado comentarios */
+/* encabezado comments */
 .encabezado-comments {
     background: url('https://contenidos.lanacion.com.ar/_ui/desktop/imgs/layout/fondos/enviar-comentario.png')
         no-repeat 0 5px;
@@ -541,7 +537,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
 .encabezado-comments a:visited {
     color: #335577;
 }
-.encabezado-comments .tutorial-comentarios {
+.encabezado-comments .tutorial-comments {
     float: right;
     margin-left: 5px;
     display: none;
@@ -641,55 +637,9 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     border: 1px solid #dadada;
     border-radius: 0;
 }
-/* CAMBIO EN ALERTAS .fyre .fyre-comment-reply-wrapper.fyre-comment-reply-highlight .fyre-comment-reply-count {
-    background-color:#fff;
-    border:none;
-    -webkit-border-radius:0;
-    -moz-border-radius:0;
-    -ms-border-radius:0;
-    -o-border-radius:0;
-    border-radius:0;
-    -webkit-box-shadow:none;
-    -moz-box-shadow:none;
-    -ms-box-shadow:none;
-    -o-box-shadow:none;
-    box-shadow:none;
-    color: #ffffff;
-    font-size: 10px;
-    background-image:none;
-    filter:none;
-    color:#9D2829;
-    font-weight:bold;
-    font-size:12px;
-}
- .fyre-velocity-next .fyre-velocity-count {
-    background-color:#9D2829;
-    border:0;
-    -webkit-box-shadow:none;
-    -moz-box-shadow:none;
-    -ms-box-shadow:none;
-    -o-box-shadow:none;
-    box-shadow:none;
-    background-image:none;
-    filter:none;
-}
- .fyre-velocity {
-    background:#F5F5F5;
-    -webkit-border-radius:0;
-    -moz-border-radius:0;
-    -ms-border-radius:0;
-    -o-border-radius:0;
-    border-radius:0;
-    border: 1px solid #dadada;
-    color:#335577;
-}
- .fyre-velocity-text:hover, a.fyre-velocity-refresh, a.fyre-velocity-refresh:hover {
-    color:#335577;
-}
 */
 /* nombre usuario */
-.fyre-hovercard-display-name,
-.fyre-hovercard-username {
+.fyre-hovercard-display-name, .fyre-hovercard-username {
     display: none !important;
 }
 /* modales */
@@ -831,7 +781,7 @@ footer#pie {
 }
 /********************************* celus ********************************/
 @media screen and (min-width: 100px) and (max-width: 640px) {
-    .encabezado-comments .tutorial-comentarios {
+    .encabezado-comments .tutorial-comments {
         display: none;
     }
     .fyre .fyre-comment-reply,
