@@ -111,9 +111,9 @@ class index extends Component {
         const { termicas } = this.props;
         return (
             <>
-                {/* {termicas.liftigniter ? ( */}
-                <ArticleList articles={articles} />
-                {/* ) : null} */}
+                {termicas.liftigniter ? (
+                    <ArticleList articles={articles} />
+                ) : null}
             </>
         );
     };
