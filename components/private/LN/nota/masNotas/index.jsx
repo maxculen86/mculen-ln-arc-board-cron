@@ -2,6 +2,7 @@ import React from 'react';
 import ArticleList from './articleList';
 
 const index = props => {
+    console.log(' --------- ___ -------------- ', props);
     const {
         customFields: { cantidadNotas, filter },
         globalContent: {
@@ -26,12 +27,15 @@ const index = props => {
             break;
         case '1':
             border = true;
-            title = (
-                <>
-                    Más recetas de
-                    <strong>{` ${sectionName}`}</strong>
-                </>
-            );
+            title =
+                subtype === '7' ? (
+                    <>
+                        Más recetas de
+                        <strong>{` ${sectionName}`}</strong>
+                    </>
+                ) : (
+                    <h4>{`Más notas de`}</h4>
+                );
             break;
         default:
             title = <h4>{`Últimas notas de ${sectionName}`}</h4>;
@@ -39,6 +43,9 @@ const index = props => {
     }
 
     const size = cantidadNotas || 30;
+    let sectionId = null;
+    if (filter === '1') sectionId = _id;
+    else if (filter === '0' && subtype === '7') sectionId = '/recetas';
 
     return (
         _id && (
@@ -47,7 +54,7 @@ const index = props => {
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
                         size={size + 1}
-                        sectionId={filter === '1' ? _id : undefined}
+                        sectionId={sectionId}
                         website={_website}
                         destination="article"
                         border={border}
