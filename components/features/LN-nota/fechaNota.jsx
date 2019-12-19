@@ -4,15 +4,15 @@ import Static from 'fusion:static';
 
 import AuthorAndDate from '../../private/LN/nota/author/authorAndDate';
 
-const authorAndDate = props => {
+const dateNota = props => {
     const { id: featureId } = props;
     return (
         <Static id={featureId}>
-            <AuthorAndDate {...props} />
+            <AuthorAndDate {...props} date />
         </Static>
     );
 };
 
-authorAndDate.label = 'LN-Nota-AutorYFecha';
+dateNota.label = 'LN-Nota-FechaNota';
 
-export default Consumer(authorAndDate);
+export default Consumer(dateNota);
