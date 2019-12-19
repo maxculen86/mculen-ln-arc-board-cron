@@ -3,7 +3,5 @@
 exports[`components - private - LN - common - banner - bannerComponent Test de snapshot 1`] = `
 <div
   class="banner --undefined "
->
-   
-</div>
+/>
 `;
