@@ -10,4 +10,31 @@ describe('features - LaNacion - Nota - AuthorAndDate', () => {
     it('Test de snapshot AuthorAndDate', () => {
         expect(component).toMatchSnapshot();
     });
+
+    it('displays accurately the number of authors', () => {
+        const props = {
+            globalContent: {
+                credits: {
+                    by: [
+                        {
+                            _id: '1',
+                            name: 'Juan ',
+                            type: 'author',
+                            slug: 'juan-odd',
+                            url: 'https://www.lanacion.com.ar'
+                        },
+                        {
+                            _id: '2',
+                            name: 'Maria ',
+                            type: 'author',
+                            slug: 'maria-odd',
+                            url: ''
+                        }
+                    ]
+                }
+            }
+        };
+        const wrapper = shallow(<AuthorAndDate {...props} />);
+        expect(wrapper.find('.mod-authordate')).toHaveLength(1);
+    });
 });
