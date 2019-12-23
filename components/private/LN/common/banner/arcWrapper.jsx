@@ -8,9 +8,6 @@ class ArcWrapper extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            empty: true
-        };
     }
 
     componentDidMount() {
@@ -47,6 +44,10 @@ class ArcWrapper extends Component {
         );
     }
 
+    shouldComponentUpdate() {
+        return false;
+    }
+
     getArcAdsInstance() {
         if (!ArcWrapper.arcAdsInstance) {
             const { dfpId, show } = this.props;
@@ -60,7 +61,6 @@ class ArcWrapper extends Component {
                 },
                 event => {
                     if (!event.isEmpty) {
-                        this.setState({ empty: false });
                         show();
                     }
                 }
@@ -72,13 +72,9 @@ class ArcWrapper extends Component {
 
     render() {
         const { id, children, className } = this.props;
-        const { empty } = this.state;
 
         return (
-            <div
-                id={id}
-                className={`banner ${className} ${empty ? 'hlp-none' : ''}`}
-            >
+            <div id={id} className={`banner ${className}`}>
                 {children}
             </div>
         );

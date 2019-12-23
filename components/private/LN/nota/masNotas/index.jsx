@@ -19,7 +19,7 @@ const index = props => {
         case '0':
             title =
                 subtype === '7' ? (
-                    <h4>Últimas Recetas</h4>
+                    'Últimas Recetas'
                 ) : (
                     <h4>{`Últimas Noticias`}</h4>
                 );
@@ -38,13 +38,15 @@ const index = props => {
             break;
     }
 
+    const size = cantidadNotas || 30;
+
     return (
         _id && (
             <div className="row more-articles">
                 <h2 className="com-title-section-l">{title}</h2>
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
-                        size={cantidadNotas + 1}
+                        size={size + 1}
                         sectionId={filter === '1' ? _id : undefined}
                         website={_website}
                         destination="article"
