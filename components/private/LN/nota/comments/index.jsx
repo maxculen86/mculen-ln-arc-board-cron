@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
 
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
@@ -11,6 +12,7 @@ import withLoginData from '../../../LN/common/hocs/withLoginData';
 import useGlobal from '../../common/hooks/useGlobal';
 
 import '../../../../../resources/dist/css/ln/modules/comments.css';
+//TODO: ver como hacer para no cargar este asset y que use el que se carga dinamico
 import '../../../../../src/statics/LN/css/base/_livefyre.scss';
 
 const Comments = props => {
@@ -72,6 +74,17 @@ const Comments = props => {
         const boxes = lf.getElementsByClassName('fyre');
         if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
         //lf.removeChild(lf.firstChild);
+
+        const styles = document.getElementById('comments');
+        if (styles) styles.remove();
+        const link = document.createElement('link');
+        link.id = 'comments';
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = props.deployment(
+            '/pf/resources/dist/css/ln/base/livefyre.css'
+        );
+        document.getElementsByTagName('head')[0].appendChild(link);
     };
 
     useEffect(() => {
@@ -202,14 +215,16 @@ const Comments = props => {
                     }
                 );
             });
-        }
-        return () => {
+
             // TODO: ver como mejorar esto :c
             const observer = new MutationObserver(onDOMChange);
             observer.observe(document.querySelector('#livefyre'), {
                 subtree: false,
                 childList: true
             });
+        }
+        return () => {
+            //observer.disconnect();
         };
     }, [isLoggedIn]);
 
@@ -271,7 +286,8 @@ Comments.propTypes = {
                 })
             )
         })
-    }).isRequired
+    }).isRequired,
+    deployment: PropTypes.func.isRequired
 };
 
-export default withLoginData(Comments);
+export default Consumer(withLoginData(Comments));
