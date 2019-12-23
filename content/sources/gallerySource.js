@@ -13,12 +13,9 @@ const resolve = key => {
 
 const fetch = query => {
     const url = `${CONTENT_BASE}${resolve(query)}`;
-    console.log('---------------------gallerySource', url);
     return request({
         uri: url,
         json: true
-    }).then(response => {
-        return response;
     });
 };
 
@@ -27,6 +24,5 @@ export default {
     params: {
         id: 'text',
         includeFields: 'text'
-    },
-    ttl: 120
+    }
 };

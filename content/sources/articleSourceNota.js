@@ -31,43 +31,37 @@ const fetch = query => {
 };
 
 const transform = (data, siteProps) => {
-    return new Promise((ok, err) => {
-        const arcSite = siteProps['arc-site'];
-        const properties = getProperties(arcSite);
+    const arcSite = siteProps['arc-site'];
+    const properties = getProperties(arcSite);
 
-        let presets = get(
+    let presets = get(
+        properties,
+        `imageConfig.resize.nota.bySubtype[${data.subtype}]`,
+        null
+    );
+
+    if (!presets) {
+        presets = get(
             properties,
-            `imageConfig.resize.nota.bySubtype[${data.subtype}]`,
+            'imageConfig.resize.nota.bySubtype[default]',
             null
         );
+    }
 
-        if (!presets) {
-            presets = get(
-                properties,
-                'imageConfig.resize.nota.bySubtype[default]',
-                null
-            );
-        }
-
-        let resp = data;
-        if (presets) {
-            resp = addResizedUrls(data, {
-                resizerSecret: RESIZER_KEY,
-                resizerUrl: RESIZER_URL,
-                presets
-            });
-        }
-
-        resolveDeepRelations(
-            tranformQuitarSectionsInvalidas(resp),
-            arcSite
-        ).then(article => {
-            ok(article);
+    let resp = data;
+    if (presets) {
+        resp = addResizedUrls(data, {
+            resizerSecret: RESIZER_KEY,
+            resizerUrl: RESIZER_URL,
+            presets
         });
-    });
+    }
+
+    return transformContent(resp, arcSite);
 };
 
-const tranformQuitarSectionsInvalidas = jsonArticle => {
+const transformContent = (jsonArticle, arcSite) => {
+    const promiseArr = [];
     const sections = get(jsonArticle, 'taxonomy.sections');
     const resp = {
         ...jsonArticle,
@@ -78,64 +72,51 @@ const tranformQuitarSectionsInvalidas = jsonArticle => {
                 : null
         }
     };
-    return resp;
-};
-// TODO: juntar todos los transform en uno solo
-const resolveDeepRelations = (jsonArticle, arcSite) => {
-    return new Promise((ok, err) => {
-        const promiseArr = [];
-        const resp = {
-            ...jsonArticle,
-            content_elements: jsonArticle.content_elements
-        };
 
-        resp.content_elements.forEach((e, i) => {
-            if (e.type === 'gallery') {
-                promiseArr.push(
-                    addGalleryData(e, arcSite).then(g => {
-                        resp.content_elements[i] = g;
-                    })
-                );
-            }
-        });
-
-        if (get(resp, 'promo_items.basic.type') === 'gallery') {
+    resp.content_elements.forEach((e, i) => {
+        if (e.type === 'gallery') {
             promiseArr.push(
-                addGalleryData(resp.promo_items.basic, arcSite).then(g => {
-                    resp.promo_items.basic = g;
+                addGalleryData(e, arcSite).then(g => {
+                    resp.content_elements[i] = g;
                 })
             );
         }
+    });
 
-        Promise.all(promiseArr).then(() => {
-            ok(resp);
-        });
+    if (get(resp, 'promo_items.basic.type') === 'gallery') {
+        promiseArr.push(
+            addGalleryData(resp.promo_items.basic, arcSite).then(g => {
+                resp.promo_items.basic = g;
+            })
+        );
+    }
+    return Promise.all(promiseArr).then(() => {
+        return resp;
     });
 };
 
 const addGalleryData = (gallery, arcSite) => {
-    return new Promise((ok, err) => {
-        const { _id: galleryId } = gallery;
-        gallerySource
-            .fetch({
-                id: galleryId,
-                'arc-site': arcSite,
-                includedFields: 'content_elements,content_elements.credits'
-            })
-            .then(g => {
-                const resp = {
-                    ...gallery
-                };
+    const { _id: galleryId } = gallery;
+    return gallerySource
+        .fetch({
+            id: galleryId,
+            'arc-site': arcSite,
+            includedFields: 'content_elements,content_elements.credits'
+        })
+        .then(fetchedGallery => {
+            const resp = {
+                ...gallery
+            };
 
-                resp.content_elements = gallery.content_elements.map((v, i) => {
-                    return {
-                        ...v,
-                        ...g.content_elements[i]
-                    };
-                });
-                ok(resp);
+            resp.content_elements = gallery.content_elements.map((v, i) => {
+                return {
+                    ...v,
+                    ...fetchedGallery.content_elements[i]
+                };
             });
-    });
+
+            return resp;
+        });
 };
 
 export default {
@@ -145,6 +126,5 @@ export default {
         id: 'text',
         published: 'text'
     },
-    filter,
-    ttl: 120
+    filter
 };
