@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Context from 'fusion:context';
+import Static from 'fusion:static';
 import getProperties from 'fusion:properties';
 import HeaderContainer from '../../private/OTT/common/header';
 
@@ -11,9 +12,14 @@ class Header extends Component {
     }
 
     render() {
-        return <HeaderContainer hierarchy={this.headerHierarchy} />;
+        const { id: featureId } = this.props;
+
+        return (
+            // <Static id={featureId}>
+            <HeaderContainer hierarchy={this.headerHierarchy} />
+            // </Static>
+        );
     }
 }
-Header.static = true;
 
 export default Context(Header);

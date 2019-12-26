@@ -9,6 +9,26 @@ import loadOTTVideoStyles from '../private/OTT/ficha/ottVideoStyles';
 const layoutItems = ['Header', 'Bloque-1', 'Bloque-2'];
 
 class OTTFichaLayout extends Component {
+    componentDidMount() {
+        loadHeaderEvents();
+        if (
+            this.props.globalContent &&
+            this.props.globalContent.type === 'video'
+        ) {
+            loadOTTVideoStyles();
+            loadOTTVideoAnalytics(
+                this.props.globalContent.headlines.basic,
+                this.props.globalContent._id
+            );
+
+            const videoScript = document.createElement('script');
+            videoScript.src =
+                'https://dzyf5jtgd0sxp.cloudfront.net/powaBoot.js';
+            videoScript.async = true;
+            document.head.appendChild(videoScript);
+        }
+    }
+
     render() {
         return (
             <>
@@ -23,26 +43,8 @@ class OTTFichaLayout extends Component {
                         <Footer />
                     </div>
                 </div>
-                {this.props.globalContent &&
-                    this.props.globalContent.type == 'video' && (
-                        <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
-                    )}
             </>
         );
-    }
-
-    componentDidMount() {
-        loadHeaderEvents();
-        if (
-            this.props.globalContent &&
-            this.props.globalContent.type === 'video'
-        ) {
-            loadOTTVideoStyles();
-            loadOTTVideoAnalytics(
-                this.props.globalContent.headlines.basic,
-                this.props.globalContent._id
-            );
-        }
     }
 }
 

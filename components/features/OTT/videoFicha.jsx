@@ -1,10 +1,14 @@
 import React from 'react';
+import Static from 'fusion:static';
 import VideoTabContainer from '../../private/OTT/ficha/videoTab';
 
-const VideoFicha = () => {
-    return <VideoTabContainer />;
+const VideoFicha = props => {
+    const { id: featureId } = props;
+    return (
+        // <Static id={featureId}>
+        <VideoTabContainer />
+        // </Static>
+    );
 };
-
-VideoFicha.static = true;
 
 export default VideoFicha;
