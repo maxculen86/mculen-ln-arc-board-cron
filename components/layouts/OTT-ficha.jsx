@@ -31,23 +31,20 @@ class OTTFichaLayout extends Component {
 
     render() {
         return (
-            <>
-                <div id="acumulado">
-                    {this.props.children[0]}
-                    <div className="wrapper">
-                        <main className="main">
-                            {this.props.children[1]}
-                            <LastVideos />
-                            {this.props.children[2]}
-                        </main>
-                        <Footer />
-                    </div>
+            <div id="acumulado">
+                {this.props.children[0]}
+                <div className="wrapper">
+                    <main className="main">
+                        {this.props.children[1]}
+                        <LastVideos />
+                        {this.props.children[2]}
+                    </main>
+                    <Footer />
                 </div>
-            </>
+            </div>
         );
     }
 }
+OTTFichaLayout.sections = layoutItems;
 
 export default Consumer(OTTFichaLayout);
-
-OTTFichaLayout.sections = layoutItems;

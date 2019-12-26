@@ -1,139 +1,111 @@
-import React, { PureComponent } from 'react';
+import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 
 function withSlider(WrappedComponent, pageSizeParam) {
-    return Consumer(
-        class extends PureComponent {
-            constructor(props) {
-                super(props);
-                const siteVars = getProperties(props.arcSite);
-                this.sliderConfig = siteVars.sliderConfig;
-                const configPageSize =
-                    this.sliderConfig &&
-                    this.sliderConfig.find(v =>
-                        this.windowBetweenRanges(v.lowerRange, v.topRange)
-                    );
-                const pageSize = configPageSize
-                    ? configPageSize.pageSize
-                    : pageSizeParam;
-                this.state = {
-                    pageSize,
-                    currentStartIndex: 0,
-                    totalCount: this.props.children.length,
-                    hasNextPage: this.props.children.length > pageSize,
-                    hasPrevPage: false
-                };
-                this.DEFAULT_SLIDE_COUNT = 1; // pageSize - 1
-                this.slider = {
-                    nextButtonHandler: this.nextButtonHandler,
-                    prevButtonHandler: this.prevButtonHandler,
-                    hasNextPage: () => this.state.hasNextPage,
-                    hasPrevPage: () => this.state.hasPrevPage
-                };
-            }
+    return Consumer(props => {
+        const DEFAULT_SLIDE_COUNT = 1;
+        // TODO: corregir para devolver algo desde server
+        if (typeof window !== 'object') return null;
 
-            // TODO: revisar porque window no esta disponible en servidor
-            windowBetweenRanges(lowerRange, topRange) {
-                const { innerWidth } = window;
-                if (!lowerRange && !topRange) return true;
-                if (!lowerRange) return innerWidth <= topRange;
-                if (!topRange) return innerWidth >= lowerRange;
-                return innerWidth >= lowerRange && innerWidth <= topRange;
-            }
+        const windowBetweenRanges = (lowerRange, topRange) => {
+            const { innerWidth } = window;
+            if (!lowerRange && !topRange) return true;
+            if (!lowerRange) return innerWidth <= topRange;
+            if (!topRange) return innerWidth >= lowerRange;
+            return innerWidth >= lowerRange && innerWidth <= topRange;
+        };
 
-            updatePageSize() {
-                if (this.sliderConfig)
-                    for (
-                        let index = 0;
-                        index < this.sliderConfig.length;
-                        index++
-                    ) {
-                        const elem = this.sliderConfig.find(elem => {
-                            return this.windowBetweenRanges(
-                                elem.lowerRange,
-                                elem.topRange
+        // Levanto config de paginacion
+        const siteVars = getProperties(props.arcSite);
+        const { sliderConfig } = siteVars;
+
+        const configPageSize =
+            sliderConfig &&
+            sliderConfig.find(v =>
+                windowBetweenRanges(v.lowerRange, v.topRange)
+            );
+
+        // Defino estados
+        const [pageSize, setPageSize] = useState(
+            configPageSize ? configPageSize.pageSize : pageSizeParam
+        );
+        const [currentStartIndex, setCurrentStartIndex] = useState(0);
+        const [hasNextPage, setHasNextPage] = useState(
+            props.children.length > pageSize
+        );
+        const [hasPrevPage, setHasPrevPage] = useState(false);
+
+        const totalCount = props.children.length;
+
+        // Defino funciones auxiliares
+        const getHasNextPage = nextCurrentIndex => {
+            return totalCount > nextCurrentIndex + pageSize;
+        };
+
+        const getHasPrevPage = nextCurrentIndex => {
+            return nextCurrentIndex > 0;
+        };
+
+        const nextButtonHandler = () => {
+            const newPage = currentStartIndex + DEFAULT_SLIDE_COUNT;
+            setCurrentStartIndex(newPage);
+            setHasNextPage(getHasNextPage(newPage));
+            setHasPrevPage(true);
+        };
+
+        const prevButtonHandler = () => {
+            const newPage = currentStartIndex - DEFAULT_SLIDE_COUNT;
+            setCurrentStartIndex(newPage);
+            setHasPrevPage(getHasPrevPage(newPage));
+            setHasNextPage(
+                currentStartIndex - DEFAULT_SLIDE_COUNT + pageSize < totalCount
+            );
+        };
+
+        // Escucho eventos de resize
+        useEffect(() => {
+            const updatePageSize = () => {
+                if (sliderConfig) {
+                    // for (let index = 0; index < sliderConfig.length; index++) {
+                    const elem = sliderConfig.find(e => {
+                        return windowBetweenRanges(e.lowerRange, e.topRange);
+                    });
+                    if (elem) {
+                        if (elem.pageSize !== pageSize) {
+                            setPageSize(elem.pageSize);
+                            setHasNextPage(
+                                currentStartIndex + elem.pageSize < totalCount
                             );
-                        });
-                        if (elem) {
-                            if (elem.pageSize != this.state.pageSize) {
-                                this.setState({
-                                    pageSize: elem.pageSize,
-                                    hasNextPage:
-                                        this.state.currentStartIndex +
-                                            elem.pageSize <
-                                        this.state.totalCount
-                                });
-                            }
-                            break;
                         }
+                        // break;
                     }
-            }
-
-            componentDidMount() {
-                this.updatePageSize();
-                window.addEventListener(
-                    'resize',
-                    this.updatePageSize.bind(this)
-                );
-            }
-
-            componentWillUnmount() {
-                window.removeEventListener(
-                    'resize',
-                    this.updatePageSize.bind(this)
-                );
-            }
-
-            hasNextPage = nextCurrentIndex => {
-                return (
-                    this.state.totalCount >
-                    nextCurrentIndex + this.state.pageSize
-                );
+                }
             };
 
-            hasPrevPage = nextCurrentIndex => {
-                return nextCurrentIndex > 0;
-            };
+            updatePageSize();
+            window.addEventListener('resize', updatePageSize);
 
-            nextButtonHandler = () => {
-                this.setState({
-                    currentStartIndex:
-                        this.state.currentStartIndex + this.DEFAULT_SLIDE_COUNT,
-                    hasNextPage: this.hasNextPage(
-                        this.state.currentStartIndex + this.DEFAULT_SLIDE_COUNT
-                    ),
-                    hasPrevPage: true
-                });
+            return () => {
+                window.removeEventListener('resize', updatePageSize);
             };
+        }, [pageSize, currentStartIndex, totalCount, sliderConfig]);
 
-            prevButtonHandler = () => {
-                this.setState({
-                    currentStartIndex:
-                        this.state.currentStartIndex - this.DEFAULT_SLIDE_COUNT,
-                    hasPrevPage: this.hasPrevPage(
-                        this.state.currentStartIndex - this.DEFAULT_SLIDE_COUNT
-                    ),
-                    hasNextPage:
-                        this.state.currentStartIndex -
-                            this.DEFAULT_SLIDE_COUNT +
-                            this.state.pageSize <
-                        this.state.totalCount
-                });
-            };
-
-            render() {
-                return (
-                    <WrappedComponent slider={this.slider} {...this.props}>
-                        {this.props.children.slice(
-                            this.state.currentStartIndex,
-                            this.state.currentStartIndex + this.state.pageSize
-                        )}
-                    </WrappedComponent>
-                );
-            }
-        }
-    );
+        const slider = {
+            nextButtonHandler,
+            prevButtonHandler,
+            hasNextPage: () => hasNextPage,
+            hasPrevPage: () => hasPrevPage
+        };
+        return (
+            <WrappedComponent slider={slider} {...props}>
+                {props.children.slice(
+                    currentStartIndex,
+                    currentStartIndex + pageSize
+                )}
+            </WrappedComponent>
+        );
+    });
 }
 
 export default withSlider;
