@@ -15,9 +15,9 @@ class Header extends Component {
         const { id: featureId } = this.props;
 
         return (
-            // <Static id={featureId}>
-            <HeaderContainer hierarchy={this.headerHierarchy} />
-            // </Static>
+            <Static id={featureId}>
+                <HeaderContainer hierarchy={this.headerHierarchy} />
+            </Static>
         );
     }
 }

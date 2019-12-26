@@ -5,9 +5,9 @@ import VideoTabContainer from '../../private/OTT/ficha/videoTab';
 const VideoFicha = props => {
     const { id: featureId } = props;
     return (
-        // <Static id={featureId}>
-        <VideoTabContainer />
-        // </Static>
+        <Static id={featureId}>
+            <VideoTabContainer />
+        </Static>
     );
 };
 
