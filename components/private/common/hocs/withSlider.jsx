@@ -2,19 +2,30 @@ import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 
+const DEFAULT_SLIDE_COUNT = 1;
+
+// Defino funciones auxiliares
+const getHasNextPage = (totalCount, nextCurrentIndex, pageSize) => {
+    return totalCount > nextCurrentIndex + pageSize;
+};
+
+const getHasPrevPage = nextCurrentIndex => {
+    return nextCurrentIndex > 0;
+};
+
+const windowBetweenRanges = (lowerRange, topRange) => {
+    const { innerWidth } = window;
+    if (!lowerRange && !topRange) return true;
+    if (!lowerRange) return innerWidth <= topRange;
+    if (!topRange) return innerWidth >= lowerRange;
+    return innerWidth >= lowerRange && innerWidth <= topRange;
+};
+
+// HOC
 function withSlider(WrappedComponent, pageSizeParam) {
     return Consumer(props => {
-        const DEFAULT_SLIDE_COUNT = 1;
         // TODO: corregir para devolver algo desde server
         if (typeof window !== 'object') return null;
-
-        const windowBetweenRanges = (lowerRange, topRange) => {
-            const { innerWidth } = window;
-            if (!lowerRange && !topRange) return true;
-            if (!lowerRange) return innerWidth <= topRange;
-            if (!topRange) return innerWidth >= lowerRange;
-            return innerWidth >= lowerRange && innerWidth <= topRange;
-        };
 
         // Levanto config de paginacion
         const siteVars = getProperties(props.arcSite);
@@ -38,19 +49,11 @@ function withSlider(WrappedComponent, pageSizeParam) {
 
         const totalCount = props.children.length;
 
-        // Defino funciones auxiliares
-        const getHasNextPage = nextCurrentIndex => {
-            return totalCount > nextCurrentIndex + pageSize;
-        };
-
-        const getHasPrevPage = nextCurrentIndex => {
-            return nextCurrentIndex > 0;
-        };
-
+        // Funciones auxiliares para alterar state
         const nextButtonHandler = () => {
             const newPage = currentStartIndex + DEFAULT_SLIDE_COUNT;
             setCurrentStartIndex(newPage);
-            setHasNextPage(getHasNextPage(newPage));
+            setHasNextPage(getHasNextPage(totalCount, newPage, pageSize));
             setHasPrevPage(true);
         };
 
@@ -67,7 +70,6 @@ function withSlider(WrappedComponent, pageSizeParam) {
         useEffect(() => {
             const updatePageSize = () => {
                 if (sliderConfig) {
-                    // for (let index = 0; index < sliderConfig.length; index++) {
                     const elem = sliderConfig.find(e => {
                         return windowBetweenRanges(e.lowerRange, e.topRange);
                     });
@@ -78,7 +80,6 @@ function withSlider(WrappedComponent, pageSizeParam) {
                                 currentStartIndex + elem.pageSize < totalCount
                             );
                         }
-                        // break;
                     }
                 }
             };
