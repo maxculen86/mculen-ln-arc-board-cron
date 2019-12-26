@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 
@@ -12,8 +12,6 @@ import withLoginData from '../../../LN/common/hocs/withLoginData';
 import useGlobal from '../../common/hooks/useGlobal';
 
 import '../../../../../resources/dist/css/ln/modules/comments.css';
-//TODO: ver como hacer para no cargar este asset y que use el que se carga dinamico
-import '../../../../../src/statics/LN/css/base/_livefyre.scss';
 
 const Comments = props => {
     const {
@@ -29,6 +27,8 @@ const Comments = props => {
     } = props;
 
     const { isLoggedIn } = useGlobal();
+    const [stylesLoaded, setStylesLoaded] = useState(false);
+    const [showLegal, setShowLegal] = useState(false);
 
     let oldID = false;
 
@@ -75,16 +75,19 @@ const Comments = props => {
         if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
         //lf.removeChild(lf.firstChild);
 
-        const styles = document.getElementById('comments');
-        if (styles) styles.remove();
-        const link = document.createElement('link');
-        link.id = 'comments';
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = props.deployment(
-            '/pf/resources/dist/css/ln/base/livefyre.css'
-        );
-        document.getElementsByTagName('head')[0].appendChild(link);
+        if (!stylesLoaded) {
+            const styles = document.getElementById('comments');
+            if (styles) styles.remove();
+            const link = document.createElement('link');
+            link.id = 'comments';
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = props.deployment(
+                '/pf/resources/dist/css/ln/base/livefyre.css'
+            );
+            document.getElementsByTagName('head')[0].appendChild(link);
+            setStylesLoaded(true);
+        }
     };
 
     useEffect(() => {
@@ -226,7 +229,7 @@ const Comments = props => {
         return () => {
             //observer.disconnect();
         };
-    }, [isLoggedIn]);
+    }, [isLoggedIn, cookie]);
 
     return (
         <>
@@ -236,27 +239,44 @@ const Comments = props => {
                 data-module="nota-sugeridas-comentarios"
                 ref={commentSection}
             >
-                <div
-                    id="tokenLF"
-                    data-id={collectionMeta}
-                    data-entrada={oldID || _id}
-                    data-lf-siteid={siteId}
-                />
+                <div className="techo">
+                    <div
+                        id="tokenLF"
+                        data-id={collectionMeta}
+                        data-entrada={oldID || _id}
+                        data-lf-siteid={siteId}
+                    />
 
-                <h4 className="com-title-section-m comment-title">
-                    Enviá tu comentario{' '}
-                    <button type="button" className="item_link">
-                        Ver legales
-                    </button>
-                </h4>
-                <p className="comment-legal">
-                    Los comentarios publicados son de exclusiva responsabilidad
-                    de sus autores y las consecuencias derivadas de ellos pueden
-                    ser pasibles de sanciones legales. Aquel usuario que incluya
-                    en sus mensajes algún comentario violatorio del reglamento
-                    será eliminado e inhabilitado para volver a comentar. Enviar
-                    un comentario implica la aceptación del Reglamento.
-                </p>
+                    <h4>
+                        {/* className="com-title-section-m comment-title" */}
+                        Enviá <b>tu comentario </b>
+                        <button
+                            type="button"
+                            className="item_link ver-legales"
+                            onClick={() =>
+                                showLegal
+                                    ? setShowLegal(false)
+                                    : setShowLegal(true)
+                            }
+                        >
+                            {' '}
+                            Ver legales
+                        </button>
+                    </h4>
+                </div>
+
+                {showLegal && (
+                    <p className="comment-legal">
+                        Los comentarios publicados son de exclusiva
+                        responsabilidad de sus autores y las consecuencias
+                        derivadas de ellos pueden ser pasibles de sanciones
+                        legales. Aquel usuario que incluya en sus mensajes algún
+                        comentario violatorio del reglamento será eliminado e
+                        inhabilitado para volver a comentar. Enviar comentario
+                        implica la aceptación del Reglamento.
+                    </p>
+                )}
+
                 <div className="comment-reminder">
                     Para poder comentar tenés que ingresar con tu usuario de LA
                     NACION.
