@@ -43,3 +43,22 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .comments {
+        .comment-title {
+            text-transform: uppercase;
+            margin-bottom: $px-10;
+            font-family: $font-SuecaSlab;
+            font-size: $font-14;
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .comments {
+        .item_link {
+            margin-left: 0;
+        }
+    }
+}
