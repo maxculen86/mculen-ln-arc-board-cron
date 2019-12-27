@@ -2,7 +2,6 @@ import React from 'react';
 import ArticleList from './articleList';
 
 const index = props => {
-    console.log(' --------- ___ -------------- ', props);
     const {
         customFields: { cantidadNotas, filter },
         globalContent: {

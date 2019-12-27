@@ -11,7 +11,6 @@ class ArcWrapper extends Component {
     }
 
     componentDidMount() {
-        console.log('mounts arcWrapper component');
         const arcAdsInstance = this.getArcAdsInstance();
         const {
             id,

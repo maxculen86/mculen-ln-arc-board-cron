@@ -4,7 +4,6 @@ import Carrousell from '../../../common/carousell';
 import Media from './galleryItem';
 
 const index = props => {
-    console.log('props ****************-----************', props);
     const { data } = props;
     return (
         <Carrousell>
