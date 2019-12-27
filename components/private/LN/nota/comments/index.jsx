@@ -7,8 +7,8 @@ import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import customStrings from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
-import handleCookie from '../../../LN/common/utils/handleCookie';
-import withLoginData from '../../../LN/common/hocs/withLoginData';
+import handleCookie from '../../common/utils/handleCookie';
+import withLoginData from '../../common/hocs/withLoginData';
 import useGlobal from '../../common/hooks/useGlobal';
 
 import '../../../../../resources/dist/css/ln/modules/comments.css';
@@ -22,6 +22,7 @@ const Comments = props => {
             label,
             subtype
         },
+        logueado,
         loginData
     } = props;
 
@@ -69,10 +70,10 @@ const Comments = props => {
             : config.livefyre.siteId;
 
     const onDOMChange = () => {
-        const lf = document.getElementById('livefyre');
+        /* const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
         if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
-        //lf.removeChild(lf.firstChild);
+        // lf.removeChild(lf.firstChild);
 
         if (!stylesLoaded) {
             const styles = document.getElementById('comments');
@@ -85,11 +86,16 @@ const Comments = props => {
                 '/pf/resources/dist/css/ln/base/livefyre.css'
             );
             document.getElementsByTagName('head')[0].appendChild(link);
+
+            if (cookie && cookie !== '')
+                commentSection.current.classList.remove('no-logueado');
+
             setStylesLoaded(true);
-        }
+        } */
     };
 
     useEffect(() => {
+        console.log('la prop logueado: ', logueado);
         if (typeof window !== 'undefined') {
             LiveFyre.networkConfig = {
                 network: config.livefyre.network
@@ -158,9 +164,20 @@ const Comments = props => {
             LiveFyre.convConfig.postToButtons = ['tw', 'fb'];
         }
         return () => {};
-    }, [_id, collectionMeta, cookie, oldID, siteId, isLoggedIn]);
+    }, [
+        _id,
+        collectionMeta,
+        cookie,
+        oldID,
+        siteId,
+        logueado,
+        LiveFyre.networkConfig,
+        LiveFyre.convConfig,
+        LiveFyre.attachmentDelegate
+    ]); // isLoggedIn
 
     useEffect(() => {
+        console.log('se ejecuta el useEffect');
         if (typeof window !== 'undefined') {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
                 auth.delegate({
@@ -183,11 +200,21 @@ const Comments = props => {
                     }
                 });
                 const isUserLoggedIn = () => {
-                    if (cookie !== '' && isLoggedIn) {
-                        commentSection.current.classList.remove('no-logueado');
+                    // debugger;
+                    console.log('la cookie: ', cookie);
+                    if (cookie && cookie !== '') {
+                        // && isLoggedIn
+                        // commentSection.current.classList.remove('no-logueado');
                         return true;
                     }
-                    commentSection.current.classList.add('no-logueado');
+                    // Preguntar si ya no tiene la clase no-logueado para agregarla
+                    if (
+                        !commentSection.current.classList.contains(
+                            'no-logueado'
+                        )
+                    )
+                        commentSection.current.classList.add('no-logueado');
+
                     auth.logout();
                     return false;
                 };
@@ -209,7 +236,8 @@ const Comments = props => {
                         widget.on('initialRenderComplete', data => {
                             if (!auth.isAuthenticated()) {
                                 auth.authenticate({ livefyre: cookie });
-                            } else if (!isLoggedIn) {
+                            } else if (!isUserLoggedIn()) {
+                                //! isLoggedIn
                                 fyre.conv.logout();
                                 auth.authenticate({ livefyre: cookie });
                             }
@@ -226,8 +254,17 @@ const Comments = props => {
             });
         }
         return () => {};
-    }, [isLoggedIn, cookie]);
+    }, [
+        LiveFyre.convConfig,
+        LiveFyre.networkConfig,
+        cookie,
+        loginData,
+        onDOMChange,
+        props,
+        logueado
+    ]); // isLoggedIn
 
+    console.log('cookie me rendereo PAPA');
     return (
         <>
             <section
@@ -273,7 +310,7 @@ const Comments = props => {
                     </p>
                 )}
 
-                {!isLoggedIn && (
+                {!logueado && (
                     <div className="comment-reminder">
                         Para poder comentar tenés que ingresar con tu usuario de
                         LA NACION.
@@ -286,6 +323,7 @@ const Comments = props => {
 };
 
 Comments.propTypes = {
+    logueado: PropTypes.bool.isRequired,
     loginData: PropTypes.shape({
         goToLoginUrl: PropTypes.func
     }).isRequired,

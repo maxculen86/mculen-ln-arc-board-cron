@@ -58,7 +58,7 @@ const HeaderDesktop = ({
     const [loadingUserData, setLoadingUserData] = useState(
         loading ? ' hlp-none' : ''
     );
-    const { setLoggedIn } = useGlobal();
+    //const { setLoggedIn } = useGlobal();
 
     const toggleMenu = () =>
         active === '' ? setActive(' --active') : setActive('');
@@ -67,9 +67,9 @@ const HeaderDesktop = ({
         setLoadingUserData(loading ? ' hlp-none' : '');
     }, [loading]);
 
-    useEffect(() => {
+    /* useEffect(() => {
         setLoggedIn(logueado);
-    }, [logueado]);
+    }, [logueado]); */
 
     return (
         <Header id="header" className={`header${headerDark}`}>
@@ -130,7 +130,7 @@ const HeaderDesktop = ({
                                     <a
                                         href="javascript:void(0);"
                                         onMouseDown={() => {
-                                            setLoggedIn(false);
+                                            //setLoggedIn(false);
                                             goToLogout();
                                         }}
                                     >

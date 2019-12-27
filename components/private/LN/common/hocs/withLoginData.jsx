@@ -284,6 +284,7 @@ function withLoginData(WrappedComponent) {
         };
 
         goToLogout = () => {
+            console.log('cookie llamamos al LOGOUT :)');
             const urlToLogout = `${SITIO_SEGURO_REGISTRACION}/logout/logout.html?pagina=${location.href}`;
 
             eraseCookie('shouldrelogin');
@@ -339,6 +340,10 @@ function withLoginData(WrappedComponent) {
 
         render() {
             const { logueado, loginData } = this.state;
+            console.log(
+                'cookie rendereamos el WRAPPER :), logueado esta en :',
+                logueado
+            );
             return (
                 <WrappedComponent
                     logueado={logueado}
