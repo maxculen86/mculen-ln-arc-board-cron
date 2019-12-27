@@ -9,7 +9,6 @@ import customStrings from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
 import withLoginData from '../../common/hocs/withLoginData';
-import useGlobal from '../../common/hooks/useGlobal';
 
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
@@ -26,7 +25,6 @@ const Comments = props => {
         loginData
     } = props;
 
-    const { isLoggedIn } = useGlobal();
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
 
@@ -70,7 +68,7 @@ const Comments = props => {
             : config.livefyre.siteId;
 
     const onDOMChange = () => {
-        /* const lf = document.getElementById('livefyre');
+        const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
         if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
         // lf.removeChild(lf.firstChild);
@@ -91,11 +89,10 @@ const Comments = props => {
                 commentSection.current.classList.remove('no-logueado');
 
             setStylesLoaded(true);
-        } */
+        }
     };
 
     useEffect(() => {
-        console.log('la prop logueado: ', logueado);
         if (typeof window !== 'undefined') {
             LiveFyre.networkConfig = {
                 network: config.livefyre.network
@@ -177,7 +174,6 @@ const Comments = props => {
     ]); // isLoggedIn
 
     useEffect(() => {
-        console.log('se ejecuta el useEffect');
         if (typeof window !== 'undefined') {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
                 auth.delegate({
@@ -201,7 +197,6 @@ const Comments = props => {
                 });
                 const isUserLoggedIn = () => {
                     // debugger;
-                    console.log('la cookie: ', cookie);
                     if (cookie && cookie !== '') {
                         // && isLoggedIn
                         // commentSection.current.classList.remove('no-logueado');
@@ -215,7 +210,7 @@ const Comments = props => {
                     )
                         commentSection.current.classList.add('no-logueado');
 
-                    auth.logout();
+                    // auth.logout();
                     return false;
                 };
                 if (!isUserLoggedIn()) {
@@ -264,7 +259,6 @@ const Comments = props => {
         logueado
     ]); // isLoggedIn
 
-    console.log('cookie me rendereo PAPA');
     return (
         <>
             <section
