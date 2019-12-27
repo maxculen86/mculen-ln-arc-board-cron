@@ -19,7 +19,6 @@ const Comments = props => {
             _id,
             canonical_url: url,
             headlines: { basic: title },
-            taxonomy: { tags },
             label,
             subtype
         },
@@ -219,16 +218,14 @@ const Comments = props => {
                 );
             });
 
-            // TODO: ver como mejorar esto :c
+            // TODO: ver como mejorar esto :/
             const observer = new MutationObserver(onDOMChange);
             observer.observe(document.querySelector('#livefyre'), {
                 subtree: false,
                 childList: true
             });
         }
-        return () => {
-            //observer.disconnect();
-        };
+        return () => {};
     }, [isLoggedIn, cookie]);
 
     return (
@@ -276,10 +273,12 @@ const Comments = props => {
                     </p>
                 )}
 
-                <div className="comment-reminder">
-                    Para poder comentar tenés que ingresar con tu usuario de LA
-                    NACION.
-                </div>
+                {!isLoggedIn && (
+                    <div className="comment-reminder">
+                        Para poder comentar tenés que ingresar con tu usuario de
+                        LA NACION.
+                    </div>
+                )}
                 <div id="livefyre" />
             </section>
         </>
@@ -296,15 +295,12 @@ Comments.propTypes = {
         headlines: PropTypes.shape({
             basic: PropTypes.string
         }),
-        taxonomy: PropTypes.shape({
-            tags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    description: PropTypes.string,
-                    slug: PropTypes.string,
-                    text: PropTypes.string
-                })
-            )
-        })
+        label: PropTypes.shape({
+            livefyre_entrada_id: PropTypes.shape({
+                text: PropTypes.string
+            })
+        }),
+        subtype: PropTypes.string
     }).isRequired,
     deployment: PropTypes.func.isRequired
 };
