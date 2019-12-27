@@ -76,8 +76,6 @@ class ArcWrapper extends Component {
 
         return (
             <div id={id} className={`banner ${className}`}>
-                {' '}
-                {/* ${empty ? 'hlp-none' : ''} */}
                 {children}
             </div>
         );

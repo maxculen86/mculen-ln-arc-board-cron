@@ -43,9 +43,6 @@ const index = props => {
     }
 
     const size = cantidadNotas || 30;
-    let sectionId = null;
-    if (filter === '1') sectionId = _id;
-    else if (filter === '0' && subtype === '7') sectionId = '/recetas';
 
     return (
         _id && (
@@ -54,7 +51,7 @@ const index = props => {
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
                         size={size + 1}
-                        sectionId={sectionId}
+                        sectionId={filter === '1' ? _id : undefined}
                         website={_website}
                         destination="article"
                         border={border}
