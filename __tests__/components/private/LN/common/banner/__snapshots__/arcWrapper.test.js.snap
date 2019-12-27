@@ -4,7 +4,5 @@ exports[`LaNacion - Common - Banner - ArcWrapper Test de snapShot 1`] = `
 <div
   class="banner claseTest"
   id="caja1_dsk"
->
-   
-</div>
+/>
 `;
