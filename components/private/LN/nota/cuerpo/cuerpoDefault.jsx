@@ -16,7 +16,10 @@ import Subtitle from './subtitle';
 
 // TODO: tests
 const Cuerpo = props => {
-    const resp = [];
+    const {
+        globalContent: { content_elements: contentElements }
+    } = props;
+    console.log('TCL: contentElements', contentElements);
     const bodyComponents = [
         BlockQuote,
         Tags,
@@ -27,22 +30,21 @@ const Cuerpo = props => {
         'cccc'
     ];
 
-    const capitalindex = props.globalContent.content_elements.findIndex(
-        v => v.type === 'text'
-    );
-    props.globalContent.content_elements.forEach((element, i) => {
+    const capitalIndex = contentElements.findIndex(v => v.type === 'text');
+    const resp = contentElements.map((element, i) => {
         console.log('content_elements ************', element);
         console.log('bodyComponents ************', bodyComponents);
         const Component = bodyComponents.find(
             bc => bc.arcType === element.type
         );
         if (Component) {
-            if (capitalindex === i) {
-                resp.push(<Component data={element} capital />);
-            } else {
-                resp.push(<Component data={element} />);
+            if (capitalIndex === i) {
+                return <Component data={element} capital />;
             }
+            return <Component data={element} />;
         }
+
+        return <></>;
     });
 
     /* resp.push(<TextCapital />);
@@ -51,18 +53,17 @@ const Cuerpo = props => {
     resp.push(<Subtitles />);
     resp.push(<Ordered />);
     resp.push(<Unordered />); */
-    /* console.log('------------------- cuerpo', props);
-    props.globalContent.content_elements.forEach(element => {
-        if (element.type === 'gallery') {
-            resp.push(<Gallery {...element} />);
-        }
-    }); */
+    // console.log('------------------- cuerpo', props);
+    // contentElements.forEach(element => {
+    //     if (element.type === 'gallery') {
+    //         resp.push(<Gallery {...element} />);
+    //     }
+    // });
     /* resp.push(<Gallery {...props} />); */
     /* resp.push(<Html />);
     resp.push(<PullQuote />);
     resp.push(<MasNotas />);
     resp.push(<Tags />); */
-    console.log('resp ************', resp);
     return resp;
 };
 
