@@ -247,8 +247,7 @@ const Comments = props => {
                         data-lf-siteid={siteId}
                     />
 
-                    <h4>
-                        {/* className="com-title-section-m comment-title" */}
+                    <h4 className="comment-title">
                         Enviá <b>tu comentario </b>
                         <button
                             type="button"
