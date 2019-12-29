@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
@@ -23,7 +24,10 @@ export const AMPCustomStyle = props => {
         <Resource path={StylesConfig}>
             {({ data }) => {
                 return data ? (
-                    <style amp-custom="amp-custom">{data}</style>
+                    <style
+                        amp-custom="amp-custom"
+                        dangerouslySetInnerHTML={{ __html: data }}
+                    />
                 ) : null;
             }}
         </Resource>
@@ -51,6 +55,15 @@ const config = {
             {
                 customElement: 'amp-iframe',
                 src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
+            },
+            {
+                customElement: 'amp-video',
+                src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js'
+            },
+            {
+                type: 'LN-home/AMPStory',
+                customElement: 'amp-story',
+                src: 'https://cdn.ampproject.org/v0/amp-story-1.0.js'
             }
         ]
     }
@@ -58,7 +71,7 @@ const config = {
 
 const AMPScripts = props => {
     const scriptsToLoad = [];
-    const { arcSite, layout } = props;
+    const { arcSite, layout, contentFeatures } = props;
 
     const sitio = config[arcSite];
     if (!sitio) return null;
@@ -66,10 +79,13 @@ const AMPScripts = props => {
     const ScriptsConfig = sitio[layout];
 
     ScriptsConfig &&
-        ScriptsConfig.forEach(({ customElement, src }) => {
-            scriptsToLoad.push(
-                <script async custom-element={customElement} src={src} />
-            );
+        ScriptsConfig.forEach(({ customElement, src, type }) => {
+            const loadScript = type ? contentFeatures.find(e => e === type) : 1;
+
+            loadScript &&
+                scriptsToLoad.push(
+                    <script async custom-element={customElement} src={src} />
+                );
         });
 
     return scriptsToLoad;

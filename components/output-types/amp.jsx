@@ -19,8 +19,14 @@ const Amp = props => {
         metaValue,
         Resource,
         layout,
-        siteProperties: { title }
+        siteProperties: { title },
+        renderables
     } = props;
+
+    const contentFeatures = renderables
+        .filter(item => item.collection === 'features')
+        .map(item => item.type);
+
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
             <head>
@@ -32,7 +38,11 @@ const Amp = props => {
                     name="viewport"
                     content="width=device-width,minimum-scale=1,initial-scale=1"
                 />
-                <AMPScripts layout={layout} arcSite={arcSite} />
+                <AMPScripts
+                    layout={layout}
+                    arcSite={arcSite}
+                    contentFeatures={contentFeatures}
+                />
                 <AMPCustomStyle
                     layout={layout}
                     arcSite={arcSite}
@@ -44,6 +54,10 @@ const Amp = props => {
                         __html:
                             '<style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>'
                     }}
+                />
+                <link
+                    href="https://fonts.googleapis.com/css?family=Oswald:200,300,400"
+                    rel="stylesheet"
                 />
             </head>
             <body>{children}</body>
@@ -59,7 +73,8 @@ Amp.propTypes = {
     layout: PropTypes.string.isRequired,
     siteProperties: PropTypes.shape({
         title: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    renderables: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default Amp;
