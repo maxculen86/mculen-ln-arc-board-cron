@@ -28,7 +28,7 @@ const index = props => {
                         <strong>{` ${sectionName}`}</strong>
                     </>
                 ) : (
-                    <h4>{`Más notas de`}</h4>
+                    <h4>{`Más notas de ${sectionName}`}</h4>
                 );
             break;
         default:
