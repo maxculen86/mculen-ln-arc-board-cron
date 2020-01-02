@@ -7,7 +7,7 @@ const index = props => {
         globalContent: {
             subtype,
             taxonomy: {
-                primary_section: { _id, _website, name: sectionName }
+                primary_section: { _id, parent_id, _website, name: sectionName }
             }
         }
     } = props;
@@ -28,15 +28,27 @@ const index = props => {
                         <strong>{` ${sectionName}`}</strong>
                     </>
                 ) : (
-                    <h4>{`Más notas de ${sectionName}`}</h4>
+                    <>
+                        Más notas de
+                        <strong>{` ${sectionName}`}</strong>
+                    </>
                 );
             break;
         default:
-            title = <h4>{`Últimas notas de ${sectionName}`}</h4>;
+            title = (
+                <>
+                    Últimas notas de
+                    <strong>{` ${sectionName}`}</strong>
+                </>
+            );
             break;
     }
 
     const size = cantidadNotas || 30;
+    let sectionId = null;
+    if (filter === '1') sectionId = _id;
+    else if (filter === '0' && subtype === '7') sectionId = '/recetas';
+    else if (filter === '0' && subtype === '1') sectionId = parent_id;
 
     return (
         _id && (
@@ -45,7 +57,7 @@ const index = props => {
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
                         size={size + 1}
-                        sectionId={filter === '1' ? _id : undefined}
+                        sectionId={sectionId}
                         website={_website}
                         destination="article"
                         border={border}
