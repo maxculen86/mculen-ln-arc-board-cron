@@ -169,10 +169,6 @@ const amp = props => {
                     </p>
                 </AmpStoryGridLayer>
             </AmpStoryPage>
-            <amp-story-bookend
-                src={getAssets('bookend.json')}
-                layout="nodisplay"
-            />
         </AmpStory>
     );
 };
