@@ -101,7 +101,8 @@ class LNNotaReceta extends Component {
                         {/* Cuerpo */}
                         <div className="sidebar__main">
                             <div className="row">
-                                <div className="col-1 hlp-marginBottom-40 hlp-tablet-none hlp-mobile-show">
+                                <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
+                                    {/* hlp-mobile-show */}
                                     {/* Left-Cuerpo Shared*/}
                                     {children[3]}
                                 </div>

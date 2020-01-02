@@ -22,6 +22,7 @@ const bannerComponent = ({
     const show = () => {
         setVisible(true);
     };
+    // TODO: Borrar estos comentarios feos
     let ad = (
         <ArcAd
             className={`--${device}${
