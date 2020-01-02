@@ -72,6 +72,10 @@ function withLoginData(WrappedComponent) {
                                 0,
                                 16
                             )}...`,
+                            goToLoginUrl: () => {
+                                location.href =
+                                    LOGIN_URL + window.btoa(location.href);
+                            },
                             loading: false
                         }
                     });
@@ -285,6 +289,8 @@ function withLoginData(WrappedComponent) {
             eraseCookie('shouldrelogin');
             eraseCookie('usuariodata');
 
+            if (fyre) fyre.conv.logout();
+
             const ifrm = document.createElement('iframe');
             ifrm.setAttribute('src', urlToLogout);
             ifrm.style.width = '0px';
@@ -335,6 +341,7 @@ function withLoginData(WrappedComponent) {
 
         render() {
             const { logueado, loginData } = this.state;
+
             return (
                 <WrappedComponent
                     logueado={logueado}
