@@ -1,11 +1,17 @@
 /* eslint-disable no-undef */
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+    useEffect,
+    useRef,
+    useState,
+    useCallback,
+    useMemo
+} from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
-import customStrings from './strings';
+import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
 import withLoginData from '../../common/hocs/withLoginData';
@@ -22,83 +28,79 @@ const Comments = props => {
             subtype
         },
         logueado,
-        loginData
+        loginData,
+        deployment
     } = props;
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
-
-    let oldID = false;
-
-    if (label.hasOwnProperty('livefyre_entrada_id')) {
-        oldID = label.livefyre_entrada_id.text;
-    }
-
     const { getCookie } = handleCookie();
-
     const cookie = getCookie('usuario%5Flogtkn');
-
     const commentSection = useRef(null);
 
-    const metadata = {
-        articleId: oldID || _id,
-        title,
-        url
-    };
+    const oldID = useMemo(
+        () =>
+            label && label.livefyre_entrada_id
+                ? label.livefyre_entrada_id.text
+                : false,
+        [label]
+    );
 
-    const LiveFyre = {};
+    const metadata = useMemo(
+        () => ({
+            articleId: oldID || _id,
+            title,
+            url
+        }),
+        [_id, oldID, title, url]
+    );
 
-    const payload = crypto
-        .createHash('md5')
-        .update(JSON.stringify(metadata))
-        .digest('hex');
+    const payload = useMemo(
+        () =>
+            crypto
+                .createHash('md5')
+                .update(JSON.stringify(metadata))
+                .digest('hex'),
+        [metadata]
+    );
 
-    const sharedKey =
-        subtype === '7'
-            ? config.livefyre.recetas.sharedKey
-            : config.livefyre.sharedKey;
+    const sharedKey = useMemo(
+        () =>
+            subtype === '7'
+                ? config.livefyre.recetas.sharedKey
+                : config.livefyre.sharedKey,
+        [subtype]
+    );
 
-    const collectionMeta = jwt.sign(payload, sharedKey, {
-        algorithm: 'HS256'
-    });
+    const collectionMeta = useMemo(
+        () =>
+            jwt.sign(payload, sharedKey, {
+                algorithm: 'HS256'
+            }),
+        [payload, sharedKey]
+    );
 
-    const siteId =
-        subtype === '7'
-            ? config.livefyre.recetas.siteId
-            : config.livefyre.siteId;
+    const siteId = useMemo(
+        () =>
+            subtype === '7'
+                ? config.livefyre.recetas.siteId
+                : config.livefyre.siteId,
+        [subtype]
+    );
 
-    const onDOMChange = () => {
-        const lf = document.getElementById('livefyre');
-        const boxes = lf.getElementsByClassName('fyre');
-        if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
-        // lf.removeChild(lf.firstChild);
-
-        if (!stylesLoaded) {
-            const styles = document.getElementById('comments');
-            if (styles) styles.remove();
-            const link = document.createElement('link');
-            link.id = 'comments';
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = props.deployment(
-                '/pf/resources/dist/css/ln/base/livefyre.css'
-            );
-            document.getElementsByTagName('head')[0].appendChild(link);
-
-            if (cookie && cookie !== '')
-                commentSection.current.classList.remove('no-logueado');
-
-            setStylesLoaded(true);
-        }
-    };
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            LiveFyre.networkConfig = {
-                network: config.livefyre.network
-            };
-
-            LiveFyre.convConfig = {
+    console.log('se instanciamos configuracion de LF');
+    const LiveFyre = useMemo(
+        () => ({
+            networkConfig: {
+                network: config.livefyre.network,
+                strings: messages,
+                attachmentDelegate: embedObj => {
+                    return providersToBlock.some(
+                        provider => !!embedObj.provider_url.includes(provider)
+                    );
+                }
+            },
+            convConfig: {
                 siteId,
                 articleId: oldID || _id,
                 el: 'livefyre',
@@ -112,68 +114,55 @@ const Comments = props => {
                     color: 'red',
                     font:
                         '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
-                }
-            };
+                },
+                initialNumVisible: '10',
+                postToButtons: ['tw', 'fb']
+            }
+        }),
+        [_id, collectionMeta, oldID, siteId]
+    );
+    console.log('stylesLoaded antes useCallback: ', stylesLoaded);
 
-            LiveFyre.convConfig.initialNumVisible = '10';
-            LiveFyre.attachmentDelegate = embedObj => {
-                const providersToBlock = [
-                    'slideshare',
-                    'scribd',
-                    'facebook',
-                    'photobucket',
-                    'twitter',
-                    'imgur',
-                    'tinypic',
-                    'fbcdn',
-                    'cloudfront',
-                    'flickr',
-                    '4.bp.blogspot',
-                    '1.bp.blogspot',
-                    'orig00.deviantart',
-                    'tira-la-kadena.tumblr',
-                    '41.media.tumblr',
-                    'i.ytimg.',
-                    'grand-hotel-calafate.tumblr',
-                    'orig11.deviantart',
-                    'orig07.deviantart',
-                    'orig00.deviantart',
-                    'orig10.deviantart',
-                    'encrypted-tbn1',
-                    'encrypted-tbn2'
-                ];
-                for (
-                    let i = 0, len = providersToBlock.length;
-                    i < len;
-                    i += 1
-                ) {
-                    if (
-                        embedObj.provider_url.indexOf(providersToBlock[i]) > -1
-                    ) {
-                        return false;
-                    }
-                }
-                return true;
-            };
-            LiveFyre.networkConfig.attachmentDelegate =
-                LiveFyre.attachmentDelegate;
-            LiveFyre.networkConfig.strings = customStrings;
-            LiveFyre.convConfig.postToButtons = ['tw', 'fb'];
+    const onCommentsLoad = useCallback(() => {
+        //console.log("se ejecuta ondomchange");
+        const lf = document.getElementById('livefyre');
+        const boxes = lf.getElementsByClassName('fyre');
+        if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
+
+        console.log('stylesLoaded: ', stylesLoaded);
+
+        if (!stylesLoaded) {
+            const styles = document.getElementById('comments');
+            if (styles) styles.remove();
+            const link = document.createElement('link');
+            link.id = 'comments';
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = deployment(
+                '/pf/resources/dist/css/ln/base/livefyre.css'
+            );
+            document.getElementsByTagName('head')[0].appendChild(link);
+
+            if (cookie && cookie !== '')
+                commentSection.current.classList.remove('no-logueado');
+
+            console.log('se cargan los estilos custom');
+            if (!stylesLoaded) setStylesLoaded(true);
         }
-        return () => {};
-    }, [
-        _id,
-        collectionMeta,
-        cookie,
-        oldID,
-        siteId,
-        logueado,
-        LiveFyre.networkConfig,
-        LiveFyre.convConfig,
-        LiveFyre.attachmentDelegate
-    ]); // isLoggedIn
+    }, [cookie, deployment, stylesLoaded]);
+
+    // TODO: ver como mejorar esto :/
+    const observer = useRef(new MutationObserver(onCommentsLoad));
+    useEffect(() => {
+        observer.current.observe(document.querySelector('#livefyre'), {
+            subtree: false,
+            childList: true
+        });
+        return () => observer.current.disconnect();
+    });
 
     useEffect(() => {
+        console.log('se ejecuta el useEffect');
         if (typeof window !== 'undefined') {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
                 auth.delegate({
@@ -196,68 +185,50 @@ const Comments = props => {
                     }
                 });
                 const isUserLoggedIn = () => {
-                    // debugger;
                     if (cookie && cookie !== '') {
-                        // && isLoggedIn
-                        // commentSection.current.classList.remove('no-logueado');
                         return true;
                     }
-                    // Preguntar si ya no tiene la clase no-logueado para agregarla
                     if (
                         !commentSection.current.classList.contains(
                             'no-logueado'
                         )
                     )
                         commentSection.current.classList.add('no-logueado');
-
-                    // auth.logout();
                     return false;
                 };
                 if (!isUserLoggedIn()) {
                     auth.authenticate({ livefyre: cookie });
                 }
 
-                /* eslint-disable no-new */
-                new Conv(
-                    LiveFyre.networkConfig,
-                    [LiveFyre.convConfig],
-                    widget => {
-                        widget.on('commentPosted', data => {});
-                        widget.on('commentFlagged', data => {});
-                        widget.on('commentLiked', data => {});
-                        widget.on('commentShared', data => {});
-                        widget.on('socialMention', data => {});
-                        widget.on('showMore', data => {});
-                        widget.on('initialRenderComplete', data => {
-                            if (!auth.isAuthenticated()) {
-                                auth.authenticate({ livefyre: cookie });
-                            } else if (!isUserLoggedIn()) {
-                                //! isLoggedIn
-                                fyre.conv.logout();
-                                auth.authenticate({ livefyre: cookie });
+                if (typeof fyre !== 'undefined') {
+                    if (!fyre.conv.ready.hasFired()) {
+                        /* eslint-disable no-new */
+                        new Conv(
+                            LiveFyre.networkConfig,
+                            [LiveFyre.convConfig],
+                            widget => {
+                                widget.on('commentPosted', data => {});
+                                widget.on('commentFlagged', data => {});
+                                widget.on('commentLiked', data => {});
+                                widget.on('commentShared', data => {});
+                                widget.on('socialMention', data => {});
+                                widget.on('showMore', data => {});
+                                widget.on('initialRenderComplete', data => {
+                                    if (!auth.isAuthenticated()) {
+                                        auth.authenticate({ livefyre: cookie });
+                                    } else if (!isUserLoggedIn()) {
+                                        fyre.conv.logout();
+                                        auth.authenticate({ livefyre: cookie });
+                                    }
+                                });
                             }
-                        });
+                        );
                     }
-                );
-            });
-
-            // TODO: ver como mejorar esto :/
-            const observer = new MutationObserver(onDOMChange);
-            observer.observe(document.querySelector('#livefyre'), {
-                subtree: false,
-                childList: true
+                }
             });
         }
         return () => {};
-    }, [
-        LiveFyre.convConfig,
-        LiveFyre.networkConfig,
-        cookie,
-        loginData,
-        onDOMChange,
-        props,
-        logueado
-    ]); // isLoggedIn
+    }, [LiveFyre.convConfig, LiveFyre.networkConfig, cookie, loginData, props]);
 
     return (
         <>
@@ -276,7 +247,8 @@ const Comments = props => {
                     />
 
                     <h4 className="comment-title">
-                        Enviá <b>tu comentario </b>
+                        Enviá&nbsp;
+                        <b>tu comentario </b>
                         <button
                             type="button"
                             className="item_link ver-legales"
