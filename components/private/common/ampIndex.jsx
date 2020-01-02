@@ -61,7 +61,7 @@ const config = {
                 src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js'
             },
             {
-                type: 'LN-home/AMPStory',
+                checkInclusion: 'LN-home/AMPStory',
                 customElement: 'amp-story',
                 src: 'https://cdn.ampproject.org/v0/amp-story-1.0.js'
             }
@@ -79,8 +79,10 @@ const AMPScripts = props => {
     const ScriptsConfig = sitio[layout];
 
     ScriptsConfig &&
-        ScriptsConfig.forEach(({ customElement, src, type }) => {
-            const loadScript = type ? contentFeatures.find(e => e === type) : 1;
+        ScriptsConfig.forEach(({ customElement, src, checkInclusion }) => {
+            const loadScript = checkInclusion
+                ? contentFeatures.find(e => e === checkInclusion)
+                : 1;
 
             loadScript &&
                 scriptsToLoad.push(
