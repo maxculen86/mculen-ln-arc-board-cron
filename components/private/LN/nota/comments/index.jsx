@@ -8,14 +8,12 @@ import React, {
 } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
 import withLoginData from '../../common/hocs/withLoginData';
-
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
 const Comments = props => {
@@ -88,8 +86,7 @@ const Comments = props => {
         [subtype]
     );
 
-    console.log('se instanciamos configuracion de LF');
-    const LiveFyre = useMemo(
+    const LiveFyreConfig = useMemo(
         () => ({
             networkConfig: {
                 network: config.livefyre.network,
@@ -121,15 +118,15 @@ const Comments = props => {
         }),
         [_id, collectionMeta, oldID, siteId]
     );
-    console.log('stylesLoaded antes useCallback: ', stylesLoaded);
+
+    const onShowLegal = () => {
+        showLegal ? setShowLegal(false) : setShowLegal(true);
+    };
 
     const onCommentsLoad = useCallback(() => {
-        //console.log("se ejecuta ondomchange");
         const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
         if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
-
-        console.log('stylesLoaded: ', stylesLoaded);
 
         if (!stylesLoaded) {
             const styles = document.getElementById('comments');
@@ -146,7 +143,6 @@ const Comments = props => {
             if (cookie && cookie !== '')
                 commentSection.current.classList.remove('no-logueado');
 
-            console.log('se cargan los estilos custom');
             if (!stylesLoaded) setStylesLoaded(true);
         }
     }, [cookie, deployment, stylesLoaded]);
@@ -162,7 +158,6 @@ const Comments = props => {
     });
 
     useEffect(() => {
-        console.log('se ejecuta el useEffect');
         if (typeof window !== 'undefined') {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
                 auth.delegate({
@@ -204,8 +199,8 @@ const Comments = props => {
                     if (!fyre.conv.ready.hasFired()) {
                         /* eslint-disable no-new */
                         new Conv(
-                            LiveFyre.networkConfig,
-                            [LiveFyre.convConfig],
+                            LiveFyreConfig.networkConfig,
+                            [LiveFyreConfig.convConfig],
                             widget => {
                                 widget.on('commentPosted', data => {});
                                 widget.on('commentFlagged', data => {});
@@ -228,7 +223,13 @@ const Comments = props => {
             });
         }
         return () => {};
-    }, [LiveFyre.convConfig, LiveFyre.networkConfig, cookie, loginData, props]);
+    }, [
+        LiveFyreConfig.convConfig,
+        LiveFyreConfig.networkConfig,
+        cookie,
+        loginData,
+        props
+    ]);
 
     return (
         <>
@@ -252,11 +253,7 @@ const Comments = props => {
                         <button
                             type="button"
                             className="item_link ver-legales"
-                            onClick={() =>
-                                showLegal
-                                    ? setShowLegal(false)
-                                    : setShowLegal(true)
-                            }
+                            onClick={onShowLegal}
                         >
                             {' '}
                             Ver legales
