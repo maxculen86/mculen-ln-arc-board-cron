@@ -1,4 +1,4 @@
-export default {
+const messages = {
     editProfile: 'Editar perfil',
     modQ: 'Configuración de notificaciones',
     signIn: 'Ingresar',
@@ -183,3 +183,31 @@ export default {
     mentionTwitterConnect: 'Twitter',
     mentionTwitterFetching: 'Cargando Contactos'
 };
+
+const providersToBlock = [
+    'slideshare',
+    'scribd',
+    'facebook',
+    'photobucket',
+    'twitter',
+    'imgur',
+    'tinypic',
+    'fbcdn',
+    'cloudfront',
+    'flickr',
+    '4.bp.blogspot',
+    '1.bp.blogspot',
+    'orig00.deviantart',
+    'tira-la-kadena.tumblr',
+    '41.media.tumblr',
+    'i.ytimg.',
+    'grand-hotel-calafate.tumblr',
+    'orig11.deviantart',
+    'orig07.deviantart',
+    'orig00.deviantart',
+    'orig10.deviantart',
+    'encrypted-tbn1',
+    'encrypted-tbn2'
+];
+
+export { messages, providersToBlock };
