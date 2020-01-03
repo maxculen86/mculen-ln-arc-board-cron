@@ -46,9 +46,10 @@ const index = props => {
 
     const size = cantidadNotas || 30;
     let sectionId = null;
+    let excludeSectionId = false;
     if (filter === '1') sectionId = _id;
     else if (filter === '0' && subtype === '7') sectionId = '/recetas';
-    else if (filter === '0' && subtype === '1') sectionId = parent_id;
+    else if (filter === '0' && subtype === '1') excludeSectionId = true;
 
     return (
         _id && (
@@ -61,6 +62,7 @@ const index = props => {
                         website={_website}
                         destination="article"
                         border={border}
+                        excludeSectionId={excludeSectionId}
                     />
                 </section>
             </div>

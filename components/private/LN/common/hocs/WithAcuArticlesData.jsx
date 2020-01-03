@@ -53,6 +53,11 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
+                const excludeSectionId = get(
+                    this,
+                    'props.excludeSectionId',
+                    false
+                );
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
@@ -62,7 +67,8 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         tagId,
                         size,
                         imageConfig,
-                        page
+                        page,
+                        excludeSectionId
                     },
                     filter
                 });
