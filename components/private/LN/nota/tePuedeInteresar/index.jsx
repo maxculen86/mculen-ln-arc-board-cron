@@ -73,10 +73,14 @@ class index extends Component {
             }
         };
 
+        const size = this.props.customFields.cantidadNotas
+            ? this.props.customFields.cantidadNotas
+            : 18;
+
         $p('init', '8561ps8ov66e7mim', customConfig);
         // $p('send', 'pageview');
         $p('register', {
-            max: 18,
+            max: size,
             widget: 'li-nacion-recommended-item-template-1',
             callback: resp => {
                 const items = resp ? this.transformArticles(resp.items) : [];

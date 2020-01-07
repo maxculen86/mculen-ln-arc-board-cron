@@ -7,6 +7,7 @@ const paths = require('./paths');
 const sites = {
     OTT: [{ '[site]/style': 'style.scss' }],
     LN: [
+        { '[site]/amp': 'css/amp/*.scss' },
         { '[site]/base': 'css/base/*.scss' },
         { '[site]/abstracts': 'css/abstracts/*.scss' },
         {

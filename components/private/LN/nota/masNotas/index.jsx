@@ -7,7 +7,7 @@ const index = props => {
         globalContent: {
             subtype,
             taxonomy: {
-                primary_section: { _id, _website, name: sectionName }
+                primary_section: { _id, parent_id, _website, name: sectionName }
             }
         }
     } = props;
@@ -17,28 +17,39 @@ const index = props => {
 
     switch (filter) {
         case '0':
-            title =
-                subtype === '7' ? (
-                    'Últimas Recetas'
-                ) : (
-                    <h4>{`Últimas Noticias`}</h4>
-                );
+            title = subtype === '7' ? 'Últimas Recetas' : 'Últimas Noticias';
             break;
         case '1':
             border = true;
+            title =
+                subtype === '7' ? (
+                    <>
+                        Más recetas de
+                        <strong>{` ${sectionName}`}</strong>
+                    </>
+                ) : (
+                    <>
+                        Más notas de
+                        <strong>{` ${sectionName}`}</strong>
+                    </>
+                );
+            break;
+        default:
             title = (
                 <>
-                    Más recetas de
+                    Últimas notas de
                     <strong>{` ${sectionName}`}</strong>
                 </>
             );
             break;
-        default:
-            title = <h4>{`Últimas notas de ${sectionName}`}</h4>;
-            break;
     }
 
     const size = cantidadNotas || 30;
+    let sectionId = null;
+    let excludeSectionId = false;
+    if (filter === '1') sectionId = _id;
+    else if (filter === '0' && subtype === '7') sectionId = '/recetas';
+    else if (filter === '0' && subtype === '1') excludeSectionId = true;
 
     return (
         _id && (
@@ -47,10 +58,11 @@ const index = props => {
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     <ArticleList
                         size={size + 1}
-                        sectionId={filter === '1' ? _id : undefined}
+                        sectionId={sectionId}
                         website={_website}
                         destination="article"
                         border={border}
+                        excludeSectionId={excludeSectionId}
                     />
                 </section>
             </div>
