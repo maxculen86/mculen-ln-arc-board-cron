@@ -6,7 +6,6 @@ import { getSectionStyle } from '../private/common/utils/sectionUtils';
 
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import { GlobalProvider } from '../private/LN/common/context/GlobalContext';
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
@@ -76,71 +75,69 @@ class LNNotaReceta extends Component {
         const { children } = this.props;
 
         return (
-            <GlobalProvider>
-                <div id="wrapper" className="nota">
-                    {/* TODO: sacar */}
-                    <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
-                    <Header />
-                    <main>
-                        {/* Pre-Titulo: Banners */}
-                        {children[0]}
-                        <div
-                            className={`lay ${this.sectionClass &&
-                                this.sectionClass.class}`}
-                        >
-                            {/* TODO: confirmar */}
-                            <header className="row titulo">
-                                <div className="col-12">
-                                    {/* Titulo (breadcrumb, logo+titulo) */}
-                                    {children[1]}
+            <div id="wrapper" className="nota">
+                {/* TODO: sacar */}
+                <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
+                <Header />
+                <main>
+                    {/* Pre-Titulo: Banners */}
+                    {children[0]}
+                    <div
+                        className={`lay ${this.sectionClass &&
+                            this.sectionClass.class}`}
+                    >
+                        {/* TODO: confirmar */}
+                        <header className="row titulo">
+                            <div className="col-12">
+                                {/* Titulo (breadcrumb, logo+titulo) */}
+                                {children[1]}
+                            </div>
+                        </header>
+                        {/* Apertura */}
+                        {children[2]}
+                    </div>
+
+                    <div className="lay-sidebar">
+                        {/* Cuerpo */}
+                        <div className="sidebar__main">
+                            <div className="row">
+                                <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
+                                    {/* hlp-mobile-show */}
+                                    {/* Left-Cuerpo Shared*/}
+                                    {children[3]}
                                 </div>
-                            </header>
-                            {/* Apertura */}
-                            {children[2]}
-                        </div>
 
-                        <div className="lay-sidebar">
-                            {/* Cuerpo */}
-                            <div className="sidebar__main">
-                                <div className="row">
-                                    <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
-                                        {/* hlp-mobile-show */}
-                                        {/* Left-Cuerpo Shared*/}
-                                        {children[3]}
+                                <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                    <div className="row">
+                                        {/* Pos-Apertura */}
+                                        {children[4]}
                                     </div>
-
-                                    <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                        <div className="row">
-                                            {/* Pos-Apertura */}
-                                            {children[4]}
-                                        </div>
-                                        {children[5]}
-                                    </div>
+                                    {children[5]}
                                 </div>
                             </div>
-                            {/* Tercera */}
-                            <div className="sidebar__aside hlp-tablet-none">
-                                {children[6]}
-                            </div>
                         </div>
-
-                        {/* TODO: revisar clases del newsLetter Full-Break */}
-                        {children[7]}
-
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {/* Bottom */}
-                                {children[8]}
-                            </div>
-                            <div className="sidebar__aside">
-                                {/* Bottom-Tercera */}
-                                {children[9]}
-                            </div>
+                        {/* Tercera */}
+                        <div className="sidebar__aside hlp-tablet-none">
+                            {children[6]}
                         </div>
-                    </main>
-                    <Footer />
-                </div>
-            </GlobalProvider>
+                    </div>
+
+                    {/* TODO: revisar clases del newsLetter Full-Break */}
+                    {children[7]}
+
+                    <div className="lay-sidebar">
+                        <div className="sidebar__main">
+                            {/* Bottom */}
+                            {children[8]}
+                        </div>
+                        <div className="sidebar__aside">
+                            {/* Bottom-Tercera */}
+                            {children[9]}
+                        </div>
+                    </div>
+                </main>
+                <Footer />
+            </div>
         );
     }
 }
