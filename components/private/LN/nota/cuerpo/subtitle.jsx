@@ -2,25 +2,16 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const Subtitle = props => {
-    const { data, capital } = props;
+    const { data } = props;
     switch (data.level) {
-        case 1: {
+        case 1:
             return (
                 <h2
                     className="com-subtitle-nota-1"
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 />
             );
-        }
         case 2: {
-            return (
-                <h2
-                    className="com-subtitle-nota-1"
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                />
-            );
-        }
-        case 3: {
             return (
                 <h3
                     className="com-subtitle-nota-2"
@@ -28,6 +19,7 @@ const Subtitle = props => {
                 />
             );
         }
+        case 3:
         case 4: {
             return (
                 <h4
@@ -54,15 +46,15 @@ const Subtitle = props => {
         }
         default:
             return (
-                <p className={`text${capital ? ` capital` : ''}`}>
-                    {data.content}
-                </p>
+                <h2
+                    className="com-subtitle-nota-1"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
             );
     }
-    /* return <h2>{data.content}</h2>; */
 };
 
-Subtitle.arcType = 'text';
+Subtitle.arcType = 'header';
 
 Subtitle.propTypes = {
     data: PropTypes.shape({
