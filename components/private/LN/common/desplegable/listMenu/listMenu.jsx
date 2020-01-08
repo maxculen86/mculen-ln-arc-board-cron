@@ -19,7 +19,7 @@ const showMenu = dispatch => elRef => {
 
 const getChilds = (childs, onResizeDeskTop) =>
     childs &&
-    childs.map(({ _id, el, extraClass, name, childs: _childs, url }) => {
+    childs.map(({ _id, el, extraClass, name, childs: _childs, url, site }) => {
         return (
             <ListMenu
                 _id={_id}
@@ -29,6 +29,7 @@ const getChilds = (childs, onResizeDeskTop) =>
                 childs={_childs}
                 url={url}
                 onResizeDeskTop={onResizeDeskTop}
+                site={site}
             />
         );
     });
@@ -40,8 +41,10 @@ const ListMenu = ({
     name,
     childs,
     url,
+    site,
     onResizeDeskTop
 }) => {
+    const siteUrl = site && site.site_url ? site.site_url : undefined;
     const { state, dispatch } = useContext(MenuStore);
     const ts = new Date().getTime();
     const elRef = useRef();
@@ -72,7 +75,7 @@ const ListMenu = ({
     ) : (
         <li key={_id || ts} ref={elRef} className={`${classes}${itemActive}`}>
             {name && (
-                <a href={url} className="link__item">
+                <a href={siteUrl || url} className="link__item">
                     {name}
                 </a>
             )}
@@ -96,6 +99,9 @@ ListMenu.propTypes = {
     el: PropTypes.string.isRequired,
     extraClass: PropTypes.string,
     name: PropTypes.string,
+    site: PropTypes.shape({
+        site_url: PropTypes.string
+    }).isRequired,
     childs: PropTypes.shape({
         el: PropTypes.string.isRequired,
         extraClass: PropTypes.string
