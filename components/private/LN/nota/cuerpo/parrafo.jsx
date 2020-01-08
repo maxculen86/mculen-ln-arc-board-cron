@@ -12,13 +12,17 @@ const Parrafo = ({ data, capital }) => {
     const content = setBoldText(setItalicText(data.content));
 
     return (
-        <p
-            className={`text${capital ? ` capital` : ''}`}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-                __html: content
-            }}
-        />
+        <>
+            {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
+                <p
+                    className={`text${capital ? ` capital` : ''}`}
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                        __html: content
+                    }}
+                />
+            )}
+        </>
     );
 };
 
