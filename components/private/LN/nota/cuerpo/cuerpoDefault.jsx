@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-//Importo componente HARCODEADOS
+// Importo componente HARCODEADOS
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';
-/* import Gallery from '../../common/carousell/gallery'; */
 import Html from './html';
 import PullQuote from './pullQuote';
 import MasNotas from './masNotas';
@@ -13,10 +12,43 @@ import TextCapital from './text';
 import Ordered from './ordered';
 import Unordered from './unordered';
 import Subtitles from './subtitles';
+import Subtitle from './subtitle';
+import Paragraph from './parrafo';
 
 // TODO: tests
 const Cuerpo = props => {
-    const resp = [];
+    const {
+        globalContent: { content_elements: contentElements }
+    } = props;
+    console.log('TCL: contentElements', contentElements);
+    const bodyComponents = [
+        Paragraph,
+        BlockQuote,
+        Tags,
+        Subtitle,
+        Gallery,
+        'aaaa',
+        'bbb',
+        'cccc'
+    ];
+
+    const capitalIndex = contentElements.findIndex(v => v.type === 'text');
+    console.log('capitalIndex: ', capitalIndex);
+    const resp = contentElements.map((element, i) => {
+        /* console.log('content_elements ************', element);
+        console.log('bodyComponents ************', bodyComponents); */
+        const Component = bodyComponents.find(
+            bc => bc.arcType === element.type
+        );
+        if (Component) {
+            if (capitalIndex === i) {
+                return <Component data={element} capital />;
+            }
+            return <Component data={element} />;
+        }
+
+        return <></>;
+    });
 
     /* resp.push(<TextCapital />);
     resp.push(<BlockQuote />);
@@ -25,7 +57,7 @@ const Cuerpo = props => {
     resp.push(<Ordered />);
     resp.push(<Unordered />); */
     // console.log('------------------- cuerpo', props);
-    // props.globalContent.content_elements.forEach(element => {
+    // contentElements.forEach(element => {
     //     if (element.type === 'gallery') {
     //         resp.push(<Gallery {...element} />);
     //     }
@@ -35,7 +67,6 @@ const Cuerpo = props => {
     resp.push(<PullQuote />);
     resp.push(<MasNotas />);
     resp.push(<Tags />); */
-
     return resp;
 };
 

@@ -4,6 +4,6 @@ exports[`features - LaNacion - Nota - BlockQuote Test de snapshot BlockQuote 1`]
 <blockquote
   class="blockquote"
 >
-  Para la nueva campaña, según el USDA quedarían como remanente final unas 21,63 millones de toneladas versus 22,10 millones de toneladas esperadas en el mercado.toneladas.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla elit, fermentum non neque sed, feugiat interdum ligula. Nulla odio lacus, pretium quis lacus in, dapibus elementum purus. 
 </blockquote>
 `;

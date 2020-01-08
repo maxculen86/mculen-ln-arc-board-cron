@@ -117,9 +117,6 @@ const gallery = `
             ${image}
         }
     }
-    content_elements {
-        ${image}
-    }
 `;
 
 export default `
@@ -171,6 +168,11 @@ export default `
         ${customReceta}
         ${gallery}
         ${video}
+        content_elements {
+            _id
+            content
+            ${image}
+        }
     }
     display_date,
     created_date,

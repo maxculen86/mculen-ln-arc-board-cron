@@ -4,7 +4,15 @@ import getProperties from 'fusion:properties';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
-    const { sectionId, authorId, tagId, size, page, website } = key;
+    const {
+        sectionId,
+        excludeSectionId,
+        authorId,
+        tagId,
+        size,
+        page,
+        website
+    } = key;
     const arcSite = key['arc-site'];
     const cant = size || 30;
     const from = ((page || 1) - 1) * cant;
@@ -46,6 +54,27 @@ const resolve = key => {
             }
         }`;
 
+    const notSectionFiltered =
+        excludeSectionId &&
+        `,"must_not":[
+            {
+                "nested":{
+                    "path":"taxonomy.sections",
+                    "query":{
+                        "bool":{
+                            "must":[
+                                {
+                                    "term":{
+                                        "taxonomy.sections._id":"/recetas"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ]`;
+
     const query = `&body={
             "query":{
                 "bool": {
@@ -60,6 +89,7 @@ const resolve = key => {
                         ${sectionFilter || ''}
                         ${tagFilter || ''}
                     ]
+                    ${notSectionFiltered || ''}
                 }
             }
     }`;

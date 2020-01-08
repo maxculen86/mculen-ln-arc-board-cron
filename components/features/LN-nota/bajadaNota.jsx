@@ -2,7 +2,7 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 
-import BajadaNota from '../../private/LN/nota/apertura/bajadaNota';
+import BajadaNota from '../../private/LN/nota/bajada';
 
 const bajadaNota = props => {
     const { id: featureId } = props;

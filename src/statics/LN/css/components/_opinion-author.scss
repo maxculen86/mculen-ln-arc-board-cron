@@ -1,0 +1,63 @@
+@import '../abstracts/variables';
+.opinion-autor {
+    h1 {
+        display: inline;
+    }
+    label {
+        font-family: $font-arial;
+        font-size: $font-14;
+        line-height: $px-20;
+        color: #6e6e6e;
+        display: block;
+        text-transform: uppercase;
+    }
+
+    .cont-figure {
+        display: inline-block;
+        margin-right: $px-10;
+        margin-bottom: $px-20;
+        background-color: initial;
+        background-image: 'url(../img/lapicera.svg)';
+        .figure {
+            width: 45px;
+            height: 45px;
+            .content-pic {
+                background-color: initial;
+                border: 0;
+                &:before {
+                    font-size: 80px;
+                }
+                img {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+    .opinion-calc {
+        width: calc(100% - 55px);
+        display: grid;
+        align-self: center;
+        label {
+            margin: $px-5 0 $px-20;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .opinion-autor {
+        p {
+            display: block;
+        }
+        .opinion-calc {
+            width: calc(100% - 200px);
+        }
+        .cont-figure {
+            display: inline-block;
+            margin-right: $px-18;
+            .figure {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    }
+}
