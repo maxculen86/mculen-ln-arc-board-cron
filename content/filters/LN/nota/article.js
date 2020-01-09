@@ -164,6 +164,10 @@ export default `
         type
         level
         content
+        citation {
+            type
+            content
+        }
         ${image}
         ${customReceta}
         ${gallery}
