@@ -4,10 +4,10 @@ import PropTypes from 'fusion:prop-types';
 // TODO: cambiar parrafo por paragraph y hacer test unitario
 const Parrafo = ({ data, capital }) => {
     const setBoldText = text =>
-        text.replace('<b>', '<strong>').replace('</b>', '</strong>');
+        text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
 
     const setItalicText = text =>
-        text.replace('<i>', '<em>').replace('</i>', '</em>');
+        text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
 
     const content = setBoldText(setItalicText(data.content));
 

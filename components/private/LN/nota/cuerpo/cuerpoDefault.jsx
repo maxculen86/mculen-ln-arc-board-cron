@@ -23,6 +23,7 @@ const Cuerpo = props => {
     console.log('TCL: contentElements', contentElements);
     const bodyComponents = [
         Paragraph,
+        PullQuote,
         BlockQuote,
         Tags,
         Subtitle,
@@ -33,13 +34,12 @@ const Cuerpo = props => {
     ];
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
-    console.log('capitalIndex: ', capitalIndex);
+
     const resp = contentElements.map((element, i) => {
-        /* console.log('content_elements ************', element);
-        console.log('bodyComponents ************', bodyComponents); */
-        const Component = bodyComponents.find(
-            bc => bc.arcType === element.type
-        );
+        const Component = bodyComponents.find(bc => {
+            if (element.type === 'quote') return bc.arcType === element.subtype;
+            return bc.arcType === element.type;
+        });
         if (Component) {
             if (capitalIndex === i) {
                 return <Component data={element} capital />;

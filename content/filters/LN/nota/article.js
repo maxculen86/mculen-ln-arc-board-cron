@@ -170,6 +170,10 @@ export default `
         }
         level
         content
+        citation {
+            type
+            content
+        }
         ${image}
         ${customReceta}
         ${gallery}
