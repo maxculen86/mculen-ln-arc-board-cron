@@ -15,7 +15,9 @@
         line-height: $px-23;
     }
 }
-
+.element-paragraph a {
+    color: $link;
+}
 .link {
     font-family: $font-arial;
     font-size: $font-12;
