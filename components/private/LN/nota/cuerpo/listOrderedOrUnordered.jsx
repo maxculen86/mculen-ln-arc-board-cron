@@ -6,8 +6,9 @@ const ListOrderedOrUnordered = ({ data }) => {
         case 'ordered':
             return (
                 <ul className="com-ordered">
-                    {data.items.map((element, i) => (
+                    {data.items.map(element => (
                         <li
+                            key={element._id}
                             className="com-item"
                             dangerouslySetInnerHTML={{
                                 __html: element.content
@@ -19,8 +20,9 @@ const ListOrderedOrUnordered = ({ data }) => {
         case 'unordered': {
             return (
                 <ul className="com-unordered">
-                    {data.items.map((element, i) => (
+                    {data.items.map(element => (
                         <li
+                            key={element._id}
                             className="com-item"
                             dangerouslySetInnerHTML={{
                                 __html: element.content
@@ -33,8 +35,9 @@ const ListOrderedOrUnordered = ({ data }) => {
         default:
             return (
                 <ul className="com-unordered">
-                    {data.items.map((element, i) => (
+                    {data.items.map(element => (
                         <li
+                            key={element._id}
                             className="com-item"
                             dangerouslySetInnerHTML={{
                                 __html: element.content
