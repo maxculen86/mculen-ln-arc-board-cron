@@ -15,7 +15,9 @@ const Parrafo = ({ data, capital }) => {
         <>
             {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
                 <p
-                    className={`text${capital ? ` capital` : ''}`}
+                    className={`text element-paragraph${
+                        capital ? ` capital` : ''
+                    }`}
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{
                         __html: content
