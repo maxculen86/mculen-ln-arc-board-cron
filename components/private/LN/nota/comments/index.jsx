@@ -14,6 +14,7 @@ import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
 import withLoginData from '../../common/hocs/withLoginData';
+import withNavigation from '../../common/hocs/WithNavigation';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
 const Comments = props => {
@@ -27,8 +28,11 @@ const Comments = props => {
         },
         logueado,
         loginData,
-        deployment
+        deployment,
+        termicas
     } = props;
+
+    if (!termicas.livefyre) return <></>;
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
@@ -303,7 +307,10 @@ Comments.propTypes = {
         }),
         subtype: PropTypes.string
     }).isRequired,
-    deployment: PropTypes.func.isRequired
+    deployment: PropTypes.func.isRequired,
+    termicas: PropTypes.shape({
+        livefyre: PropTypes.bool
+    }).isRequired
 };
 
-export default Consumer(withLoginData(Comments));
+export default Consumer(withNavigation(withLoginData(Comments)));
