@@ -10,7 +10,7 @@ import MasNotas from './masNotas';
 import Tags from './tags';
 import TextCapital from './text';
 import Ordered from './ordered';
-import Unordered from './unordered';
+import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitles from './subtitles';
 import Subtitle from './subtitle';
 import Paragraph from './parrafo';
@@ -27,7 +27,7 @@ const Cuerpo = props => {
         Tags,
         Subtitle,
         Gallery,
-        'aaaa',
+        ListOrderedOrUnordered,
         'bbb',
         'cccc'
     ];

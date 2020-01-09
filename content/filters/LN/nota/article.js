@@ -162,6 +162,12 @@ export default `
     content_elements {
         _id
         type
+        list_type
+        items {
+            _id
+            content
+            type
+        }
         level
         content
         ${image}
