@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph Matches snapshot 1`] = `
+<p
+  class="text element-paragraph capital"
+>
+  Lorem ipsum dolor sit amet, 
+  <strong>
+    consectetur
+  </strong>
+   adipiscing elit. Donec 
+                    nulla elit, fermentum non neque sed, feugiat interdum 
+  <em>
+    ligula
+  </em>
+</p>
+`;
