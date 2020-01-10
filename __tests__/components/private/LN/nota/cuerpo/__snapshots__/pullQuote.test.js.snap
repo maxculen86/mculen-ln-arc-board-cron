@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PullQuote Matches snapshot 1`] = `
+<section
+  class="com-cita autor"
+>
+  <section
+    class="cont-cita"
+  >
+    <h2
+      class="title-cita"
+    >
+      <p
+        class="text element-paragraph"
+      >
+        "Lorem ipsum dolor sit amet, 
+        <strong>
+          consectetur
+        </strong>
+         adipiscing elit. Donec 
+                          nulla elit, fermentum non neque sed, feugiat interdum 
+        <em>
+          ligula
+        </em>
+        "
+      </p>
+    </h2>
+    <div
+      class="cont-firma-autor"
+    >
+       
+      <h3
+        class="nombre-firma"
+      >
+        Erwe Von Esse
+      </h3>
+    </div>
+  </section>
+</section>
+`;
