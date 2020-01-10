@@ -88,6 +88,10 @@ const labels = `
         livefyre_entrada_id {
             ${label}
         }
+        volanta {
+            text
+            display
+        }
     }
 `;
 
