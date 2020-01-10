@@ -7,6 +7,7 @@ import TituloNota from '../../private/LN/nota/apertura/titleAndIconArticle';
 
 const tituloNota = props => {
     const { id: featureId } = props;
+
     return (
         <Static id={featureId}>
             <TituloNota {...props} />

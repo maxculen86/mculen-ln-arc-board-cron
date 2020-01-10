@@ -10,7 +10,8 @@ const titleAndIconArticle = ({
     customFields: { prefix },
     globalContent: {
         taxonomy: { sections },
-        headlines
+        headlines,
+        label
     }
 }) => {
     if (sections) {
@@ -20,11 +21,21 @@ const titleAndIconArticle = ({
                 {sectionStyle.class && sectionStyle.path ? (
                     <IconBase sections={sections} />
                 ) : null}
-                <TitleArticle prefix={prefix || ''} headlines={headlines} />
+                <TitleArticle
+                    prefix={prefix || ''}
+                    headlines={headlines}
+                    label={label}
+                />
             </>
         );
     }
-    return <TitleArticle prefix={prefix || ''} headlines={headlines} />;
+    return (
+        <TitleArticle
+            prefix={prefix || ''}
+            headlines={headlines}
+            label={label}
+        />
+    );
 };
 
 titleAndIconArticle.propTypes = {
@@ -35,6 +46,11 @@ titleAndIconArticle.propTypes = {
         })
     }).isRequired,
     globalContent: PropTypes.shape({
+        label: PropTypes.shape({
+            volanta: PropTypes.shape({
+                text: PropTypes.string
+            })
+        }),
         headlines: PropTypes.shape({
             basic: PropTypes.string.isRequired
         }).isRequired,
