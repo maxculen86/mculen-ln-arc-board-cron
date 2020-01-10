@@ -51,6 +51,26 @@ const lnNotaNoticia = ({ children }) => {
                             <div className="col-12 ">
                                 {/*Bajada y autor fecha más apertura*/}
                                 {children[2]}
+
+                                <div className="opinion-autor row">
+                                    <section id="" className="cont-figure">
+                                        <div className="figure">
+                                            <picture className="content-pic picture">
+                                                <img
+                                                    src="https://bucket1.glanacion.com/anexos/fotos/12/2089212w82.png"
+                                                    alt=""
+                                                    className="content-img"
+                                                />
+                                            </picture>
+                                        </div>
+                                    </section>
+                                    <div className="opinion-calc">
+                                        <h1 className="link hlp-bold">
+                                            <a href="">Bruno Pittón</a>
+                                        </h1>
+                                        <label>PARA LA NACION</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="row">
@@ -63,25 +83,6 @@ const lnNotaNoticia = ({ children }) => {
                                 <div className="row">
                                     {/* Pos-Apertura */}
                                     {children[4]}
-                                    <div className="opinion-autor row">
-                                        <section id="" className="cont-figure">
-                                            <div className="figure">
-                                                <picture className="content-pic picture">
-                                                    <img
-                                                        src="https://bucket1.glanacion.com/anexos/fotos/12/2089212w82.png"
-                                                        alt=""
-                                                        className="content-img"
-                                                    />
-                                                </picture>
-                                            </div>
-                                        </section>
-                                        <div className="opinion-calc">
-                                            <h1 className="link hlp-bold">
-                                                <a href="">Bruno Pittón</a>
-                                            </h1>
-                                            <label>PARA LA NACION</label>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
