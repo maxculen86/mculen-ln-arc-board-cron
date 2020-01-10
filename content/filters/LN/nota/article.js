@@ -29,6 +29,7 @@ const image = `
     url
     width
     subtitle
+    caption
     credits {
         affiliation {
             name
