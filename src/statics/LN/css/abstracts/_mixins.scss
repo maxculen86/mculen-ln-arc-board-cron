@@ -82,25 +82,25 @@
         background-color: $primario;
     }
     .subheader-acu {
-        background: $primario !important;
+        background: $primario;
     }
 }
 
 @mixin headerBlanco {
-    background: $blanco !important;
-    border-bottom: 1px solid $gris2 !important;
+    background: $blanco;
+    border-bottom: 1px solid $gris2;
     .logo-la-nacion {
-        color: $ln !important;
+        color: $ln;
     }
     .--btn.--secondary {
-        background-color: $blanco !important;
-        border: 1px solid $link !important;
-        color: $link !important;
+        background-color: $blanco;
+        border: 1px solid $link;
+        color: $link;
     }
     .com-hamburger:before {
-        color: $negro !important;
+        color: $negro;
     }
     .com-hamburger__bar {
-        background: $negro !important;
+        background: $negro;
     }
 }

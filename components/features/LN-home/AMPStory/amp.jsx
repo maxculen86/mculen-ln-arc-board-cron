@@ -352,8 +352,9 @@ const amp = props => {
                                         className="figure content-pic picture zoom"
                                     >
                                         <amp-img
-                                            width="500"
-                                            height="500"
+                                            width="3"
+                                            height="2"
+                                            layout="responsive"
                                             src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/272ELZPBAJAMTJ6NLZISAQ5S3Q.jpg"
                                             alt=""
                                         ></amp-img>

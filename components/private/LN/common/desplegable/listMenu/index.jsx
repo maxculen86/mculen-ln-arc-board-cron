@@ -95,6 +95,7 @@ const sourceMenu = [
 const ListMenuComponent = props => {
     const { arcSite } = props;
     const [onResizeDeskTop, setOnResizeDesktop] = useState();
+    const isAmp = true;
     const menuData = [
         ...sourceMenu.map(({ hierarchy, initialClass }) =>
             useContent({
@@ -118,7 +119,8 @@ const ListMenuComponent = props => {
 
     return (
         <MenuContext>
-            {menuData &&
+            {!isAmp &&
+                menuData &&
                 menuData.map(({ el, extraClass, name, childs }) => (
                     <ListMenu
                         el={el}
@@ -128,6 +130,9 @@ const ListMenuComponent = props => {
                         onResizeDeskTop={onResizeDeskTop}
                     />
                 ))}
+            {isAmp()
+            // amp desp
+            }
         </MenuContext>
     );
 };

@@ -156,23 +156,23 @@ a.fyre-user-profile-link.fyre-user-loggedin {
 .fyre-share-button,
 .fyre-embed-button,
 .fyre-raw-button {
-    text-shadow: none !important;
-    color: #fff !important;
+    text-shadow: none;
+    color: #fff;
 }
 .fyre-editor-toolbar .goog-toolbar > div.fyre-button-left-hover,
 .fyre-editor-toolbar .goog-toolbar > div.fyre-button-left-hover,
 .fyre-editor-toolbar .goog-toolbar > div.fyre-button-right-hover,
 .fyre-editor .fyre-editor-toolbar .goog-toolbar > div.fyre-button-left-hover {
     background: #797d8c;
-    background-color: #797d8c !important;
+    background-color: #797d8c;
     color: #fff;
     background-image: none;
-    filter: none !important;
+    filter: none;
 }
 .fyre-editor .fyre-editor-toolbar .goog-toolbar > div {
-    filter: none !important;
-    color: #fff !important;
-    background-image: none !important;
+    filter: none;
+    color: #fff;
+    background-image: none;
 }
 /* botÃ³n editar */
 .fyre-editor .fyre-editor-toolbar .goog-toolbar > div.fyre-format-button > div,
@@ -356,7 +356,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     margin-right: 60px;
 }
 .fyre .fyre-comment p em {
-    font-style: italic !important;
+    font-style: italic;
 }
 .fyre .fyre-comment strong {
     font-weight: bold;
@@ -371,7 +371,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     border-bottom: 1px solid #dadada;
 }
 .fyre .fyre-stream-sort a {
-    color: #0075c4 !important;
+    color: #0075c4;
     font: normal 14px/20px Arial, sans-serif;
     padding-right: 20px;
 }
@@ -594,7 +594,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     filter: none;
 }
 .fyre-notifier-counter.blue {
-    background: #982728 !important;
+    background: #982728;
     border: none;
     text-shadow: none;
     filter: none;
@@ -690,7 +690,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
 /* nombre usuario */
 .fyre-hovercard-display-name,
 .fyre-hovercard-username {
-    display: none !important;
+    display: none;
 }
 /* modales */
 .fyre-modal {
@@ -743,7 +743,7 @@ a.fyre-user-profile-link.fyre-user-loggedin {
 .fyre-widget .fyre-logo-drop,
 .fyre-widget .fyre-logo-help,
 .fyre-widget .fyre-help {
-    display: none !important;
+    display: none;
 }
 /* Style the bottom logo */
 #powered_by_livefyre_new a {
@@ -774,20 +774,20 @@ a.fyre-user-profile-link.fyre-user-loggedin {
     font-size: 11px;
     width: 97px;
     border: 1px solid #0074c4;
-    background-color: #fff !important;
-    color: #0074c4 !important;
+    background-color: #fff;
+    color: #0074c4;
     margin: 0;
     padding: 10px 5px;
     font-weight: normal;
     text-align: center;
 }
 .fyre .fyre-login-bar a:hover {
-    background-color: #0074c4 !important;
-    color: #fff !important;
+    background-color: #0074c4;
+    color: #fff;
     opacity: 0.7;
 }
 footer#pie {
-    padding: 0 20px !important;
+    padding: 0 20px;
 }
 /* Avatares */
 .fyre .fyre-comment-user img.fyre-user-avatar {
@@ -797,7 +797,7 @@ footer#pie {
 /********************************** no print ******************************/
 @media print {
     section#comunidad {
-        display: none !important;
+        display: none;
     }
 }
 /********************************* celus y tabletas ***********************/
@@ -822,7 +822,7 @@ footer#pie {
         opacity: 0.7;
     }
     section#comunidad {
-        width: auto !important;
+        width: auto;
         padding: 0 0px 30px 0px;
     }
     .fyre .fyre-comment p {
@@ -843,6 +843,6 @@ footer#pie {
     }
     .fyre .fyre-comment-action-button,
     .fyre a.fyre-mobile-action-button {
-        height: 30px !important;
+        height: 30px;
     }
 }
