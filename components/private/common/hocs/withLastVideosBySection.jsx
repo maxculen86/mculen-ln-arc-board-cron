@@ -58,9 +58,12 @@ function withLastVideosBySection(
                     }
                 } else this.state.lastCachedItemsCount = 0;
 
+                // TODO: Revisar porque se construye dos veces y la primera vez es undefined
                 fetched.then(response => {
+                    if (!response) return;
                     let fetchedVideos = get(response, 'content_elements', null);
                     fetchedVideos = fetchedVideos.slice(0); //copy data
+                    // TODO: Arreglar esto ( Debe ir this.setState )
                     this.state.hasNext = get(response, 'next', null) != null;
                     if (fetchedVideos) {
                         this.setState(ps => {
