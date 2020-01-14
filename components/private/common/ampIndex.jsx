@@ -28,7 +28,9 @@ export const AMPCustomStyle = props => {
                 return data ? (
                     <style
                         amp-custom="amp-custom"
-                        dangerouslySetInnerHTML={{ __html: data }}
+                        dangerouslySetInnerHTML={{
+                            __html: data.replace('@charset "UTF-8";', '')
+                        }}
                     />
                 ) : null;
             }}

@@ -5,12 +5,16 @@ Se deja la siguiente linea
 @import './amp-story';
 
 // @import '../../../../../resources/dist/css/ln/base.css';
+@import '../../../../../resources/dist/css/ln/base/reset.css';
+@import '../../../../../resources/dist/css/ln/base/types.css';
+//@import '../../../../../resources/dist/css/ln/base/helpers.css'; chequear que saltan 2 errores de amp
 @import '../../../../../resources/dist/css/ln/layouts/grid.css';
 @import '../../../../../resources/dist/css/ln/layouts/layout.css';
 
 // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
 // EL COMPONENTE Y EN OTROS NO
 @import '../../../../../resources/dist/css/ln/components/button.css';
+// @import '../../../../../resources/dist/css/ln/components/share.css'; chequear que saltan 2 errores de amp
 @import '../../../../../resources/dist/css/ln/components/date.css';
 @import '../../../../../resources/dist/css/ln/components/tag.css';
 @import '../../../../../resources/dist/css/ln/components/author.css';
