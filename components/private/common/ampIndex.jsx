@@ -8,7 +8,9 @@ export const _AMPBoilerplate =
 const styleConfig = {
     OTT: {},
     'la-nacion-ar': {
-        'AMP-LN-Acu': 'resources/dist/css/ln/amp/ampln-acu.css'
+        'AMP-LN-Acu': 'resources/dist/css/ln/amp/ampln-acu.css',
+        'AMP-LN-Acu-Noticias':
+            'resources/dist/css/ln/amp/ampln-acu-noticias.css'
     }
 };
 
@@ -59,12 +61,12 @@ const config = {
             {
                 customElement: 'amp-video',
                 src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js'
-            },
-            {
+            }
+            /*             {
                 checkInclusion: 'LN-home/AMPStory',
                 customElement: 'amp-story',
                 src: 'https://cdn.ampproject.org/v0/amp-story-1.0.js'
-            }
+            } */
         ]
     }
 };
