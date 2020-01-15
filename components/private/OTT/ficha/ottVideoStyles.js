@@ -1,5 +1,5 @@
 export default function loadOTTVideoStyles() {
-    window.PowaSettings = {};
+    window.PoWaSettings = {};
     window.PoWaSettings.promo = {
         style: {
             backgroundColor: 'black',
