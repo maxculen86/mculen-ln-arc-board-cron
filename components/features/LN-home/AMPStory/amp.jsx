@@ -25,11 +25,12 @@ const amp = props => {
                 <div className="lay">
                     <div className="row">
                         <div className="col-4 header__left">
-                            <div className="com-hamburger">
-                                <span className="com-hamburger__bar"></span>
-                                <span className="com-hamburger__bar"></span>
-                                <span className="com-hamburger__bar"></span>
-                            </div>
+                            <button
+                                on="tap:sidebar-left.toggle"
+                                class="icon-menu"
+                            >
+                                Menú
+                            </button>
                         </div>
                         <div className="col-4 header__middle">
                             <a
@@ -59,13 +60,13 @@ const amp = props => {
                 </div>
             </header>
             <div class="nav">
-                <a href="" class="iconamp-home">
+                <a href="" class="icon-home">
                     Home
                 </a>
-                <a href="" class="iconamp-club">
+                <a href="" class="icon-club">
                     Club LA NACIÓN
                 </a>
-                <a href="" class="iconamp-cuenta">
+                <a href="" class="icon-cuenta">
                     Mi cuenta
                 </a>
                 <amp-sidebar
@@ -336,7 +337,7 @@ const amp = props => {
                         </li>
                     </ul>
                 </amp-sidebar>
-                <button on="tap:sidebar-left.toggle" class="iconamp-menu">
+                <button on="tap:sidebar-left.toggle" class="icon-menu">
                     Menú
                 </button>
                 <div id="target-element-left"></div>
