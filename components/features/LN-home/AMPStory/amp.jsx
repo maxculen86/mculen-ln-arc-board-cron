@@ -8,6 +8,7 @@ import '../../../../resources/dist/css/ln/amp/amp-story.css';
 
 const AmpImg = 'amp-img';
 const AmpVideo = 'amp-video';
+const AmpAcordeon = 'amp-accordion';
 
 const _getAssetsPath = contextPath => deployment => assets => {
     const path = `${contextPath}/resources/amp/assets`;
@@ -1129,10 +1130,7 @@ const amp = props => {
                                     </a>
                                 </li>
                                 <li class="menu_li desplegable">
-                                    <amp-accordion
-                                        class="sample"
-                                        expand-single-section
-                                    >
+                                    <amp-accordion class="sample">
                                         <section>
                                             <h2 class="iconamp-des">
                                                 Secciones
