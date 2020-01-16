@@ -58,274 +58,288 @@ const amp = props => {
                     </div>
                 </div>
             </header>
-            <div className="wrap-dropdown" role="button" tabindex="0">
-                <div
-                    aria-label="overrlay"
-                    className="overlay"
-                    role="button"
-                    tabindex="0"
-                ></div>
-                <div className="com-dropdown">
-                    <section className="header__dropdown row">
-                        <div className="logo__dropdown col-10">
-                            <i className="logo-la-nacion"></i>
-                        </div>
-                        <div
-                            className="close__dropdown col-2"
-                            role="button"
-                            tabindex="0"
-                        >
-                            <i className="icon-close"></i>
-                        </div>
-                        <div className="search__dropdown row">
-                            <div className="col-12 content-input">
-                                <input
-                                    type="search"
-                                    name="busqueda"
-                                    id="txtBusqueda"
-                                    data-id="buscador"
-                                    className="input-buscador"
-                                    placeholder="Buscar"
-                                ></input>
-                                <i className="icon-search"></i>
-                            </div>
-                        </div>
-                    </section>
-                    <section className="menu__dropdown">
-                        <nav className="nav__dropdown">
-                            <ul className="list__nav  first--nav">
-                                <li className="item__nav has--children item--economía item--disabled">
-                                    <a href="/economia" className="link__item">
-                                        Economía
-                                    </a>
-                                    <button
-                                        type="button"
-                                        className="button__item"
-                                        disabled=""
-                                    >
-                                        <i className="icon-down"></i>
-                                    </button>
-                                    <ul className="sublist__nav">
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/economia/campo"
-                                                className="link__item"
-                                            >
-                                                Campo
+            <div class="nav">
+                <a href="" class="iconamp-home">
+                    Home
+                </a>
+                <a href="" class="iconamp-club">
+                    Club LA NACIÓN
+                </a>
+                <a href="" class="iconamp-cuenta">
+                    Mi cuenta
+                </a>
+                <amp-sidebar
+                    id="sidebar-left"
+                    class="sample-sidebar"
+                    layout="nodisplay"
+                    side="left"
+                >
+                    <button
+                        on="tap:sidebar-left.close"
+                        class="icon-close"
+                    ></button>
+                    <ul class="menu-nav">
+                        <li class="menu_li">
+                            <a href="https://www.lanacion.com.ar/ultimas-noticias">
+                                Últimas noticias
+                            </a>
+                        </li>
+                        <li class="menu_li desplegable">
+                            <amp-accordion class="sample">
+                                <section>
+                                    <h2 class="icon-down">Secciones</h2>
+                                    <ul class="menu">
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/politica">
+                                                Política
                                             </a>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li className="item__nav has--children item--sociedad item--disabled">
-                                    <a href="/sociedad" className="link__item">
-                                        Sociedad
-                                    </a>
-                                    <button
-                                        type="button"
-                                        className="button__item"
-                                        disabled=""
-                                    >
-                                        <i className="icon-down"></i>
-                                    </button>
-                                    <ul className="sublist__nav">
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/sociedad/seguridad"
-                                                className="link__item"
-                                            >
-                                                Seguridad
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/economia">
+                                                Economía
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/sociedad/educacion"
-                                                className="link__item"
-                                            >
-                                                Educacion
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/sociedad">
+                                                Sociedad
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/sociedad/buenos-aires"
-                                                className="link__item"
-                                            >
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/buenos-aires">
                                                 Buenos Aires
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/sociedad/comunidad"
-                                                className="link__item"
-                                            >
-                                                Comunidad
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/seguridad">
+                                                Seguridad
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/sociedad/salud"
-                                                className="link__item"
-                                            >
-                                                Salud
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/el-mundo">
+                                                El Mundo
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/sociedad/cultura"
-                                                className="link__item"
-                                            >
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/opinion">
+                                                Opinión
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/editoriales">
+                                                Editoriales
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/deportes">
+                                                Deportes
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/espectaculos">
+                                                Espectáculos
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/lifestyle">
+                                                Lifestyle
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/economia/campo">
+                                                Campo
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/moda-y-belleza">
+                                                Moda y Belleza
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/turismo">
+                                                Turismo
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/cultura">
                                                 Cultura
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/sociedad/ciencia"
-                                                className="link__item"
-                                            >
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/educacion">
+                                                Educación
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/salud">
+                                                Salud
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/ciencia">
                                                 Ciencia
                                             </a>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li className="item__nav has--children item--recetas item--disabled">
-                                    <a href="/recetas" className="link__item">
-                                        Recetas
-                                    </a>
-                                    <button
-                                        type="button"
-                                        className="button__item"
-                                        disabled=""
-                                    >
-                                        <i className="icon-down"></i>
-                                    </button>
-                                    <ul className="sublist__nav">
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/recetas/celiacos-sin-gluten"
-                                                className="link__item"
-                                            >
-                                                Celíacos sin gluten
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/comunidad">
+                                                Comunidad
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/recetas/carnes"
-                                                className="link__item"
-                                            >
-                                                Carnes
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/propiedades">
+                                                Propiedades
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/recetas/postres"
-                                                className="link__item"
-                                            >
-                                                Postres
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/arquitectura">
+                                                Arquitectura
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/recetas/ensaladas"
-                                                className="link__item"
-                                            >
-                                                Ensaladas
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/autos">
+                                                Autos
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/recetas/veganas"
-                                                className="link__item"
-                                            >
-                                                Veganas
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/tecnologia">
+                                                Tecnología
+                                            </a>
+                                        </li>
+                                        <li class="menu_secciones">
+                                            <a href="https://www.lanacion.com.ar/data">
+                                                LA NACION Data
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
-                            </ul>
-                            <ul className="list__nav  secondary--nav">
-                                <li className="item__nav item--brando item--disabled">
-                                    <a
-                                        href="/revistas/brando"
-                                        className="link__item"
-                                    >
-                                        Brando
-                                    </a>
-                                    <ul className="sublist__nav"></ul>
-                                </li>
-                                <li className="item__nav item--algo item--disabled">
-                                    <a
-                                        href="https://www.lanacion.com.ar/"
-                                        className="link__item"
-                                    >
-                                        Algo
-                                    </a>
-                                    <ul className="sublist__nav"></ul>
-                                </li>
-                                <li className="item__nav has--children item--revistas item--disabled">
-                                    <a href="/revistas" className="link__item">
-                                        Revistas
-                                    </a>
-                                    <button
-                                        type="button"
-                                        className="button__item"
-                                        disabled=""
-                                    >
-                                        <i className="icon-down"></i>
-                                    </button>
-                                    <ul className="sublist__nav">
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/revistas/revista-rolling-stone"
-                                                className="link__item"
-                                            >
-                                                Rolling Stone
+                                </section>
+                                <section>
+                                    <h2 class="icon-down">Revistas</h2>
+                                    <ul class="menu">
+                                        <li class="menu_revistas">
+                                            <a href="https://www.lanacion.com.ar/revista-ohlala">
+                                                OHLALÁ!
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/revistas/revista-living"
-                                                className="link__item"
-                                            >
-                                                Living
+                                        <li class="menu_revistas">
+                                            <a href="https://www.lanacion.com.ar/revista-hola">
+                                                ¡HOLA!
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/revistas/ohlala"
-                                                className="link__item"
-                                            >
-                                                Ohlala
+                                        <li class="menu_revistas">
+                                            <a href="https://www.lanacion.com.ar/revista-rolling-stone">
+                                                RollingStone
                                             </a>
                                         </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/revistas/revista-jardin"
-                                                className="link__item"
-                                            >
-                                                Jardin
-                                            </a>
-                                        </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/revistas/hola"
-                                                className="link__item"
-                                            >
-                                                Hola
-                                            </a>
-                                        </li>
-                                        <li className="item__nav ">
-                                            <a
-                                                href="/revistas/revista-lugares"
-                                                className="link__item"
-                                            >
+                                        <li class="menu_revistas">
+                                            <a href="https://www.lanacion.com.ar/revista-lugares">
                                                 Lugares
                                             </a>
                                         </li>
+                                        <li class="menu_revistas">
+                                            <a href="https://www.lanacion.com.ar/revista-living">
+                                                Living
+                                            </a>
+                                        </li>
+                                        <li class="menu_revistas">
+                                            <a href="https://www.lanacion.com.ar/revista-brando">
+                                                Brando
+                                            </a>
+                                        </li>
+                                        <li class="menu_revistas">
+                                            <a href="https://www.lanacion.com.ar/revista-jardin">
+                                                Jardín
+                                            </a>
+                                        </li>
                                     </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </section>
-                </div>
+                                </section>
+                                <section>
+                                    <h2 class="icon-down">Servicios</h2>
+                                    <ul class="menu">
+                                        <li class="menu_servicios">
+                                            <a href="https://www.lanacion.com.ar/horoscopo">
+                                                Horóscopo
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://servicios.lanacion.com.ar/pronostico-del-tiempo">
+                                                Pronóstico
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://www.lanacion.com.ar/dolar-hoy">
+                                                Dólar hoy
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://www.lanacion.com.ar/feriados">
+                                                Feriados
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres">
+                                                Fúnebres
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://servicios.lanacion.com.ar/loterias">
+                                                Loterías y quinielas
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://www.lanacion.com.ar/cartelera-de-cine">
+                                                Cartelera de cine
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://www.lanacion.com.ar/cartelera-de-teatro">
+                                                Cartelera de teatro
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://recetas.lanacion.com.ar/">
+                                                Cocina y Recetas
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://remates.lanacion.com.ar">
+                                                Remates Ganaderos
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://servicios.lanacion.com.ar/transito">
+                                                Tránsito
+                                            </a>
+                                        </li>
+                                        <li class="menu_servicios">
+                                            <a href="https://www.lanacion.com.ar/politica/donde-voto-padron-electoral-2019-nid2213214">
+                                                Dónde Voto
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </amp-accordion>
+                        </li>
+                        <li class="menu_li">
+                            <a href="#">Edición impresa</a>
+                        </li>
+                        <li class="menu_li">
+                            <a
+                                href="https://lnmas.lanacion.com.ar/"
+                                target="_blank"
+                            >
+                                LN+
+                            </a>
+                        </li>
+                        <li class="menu_li">
+                            <a href="https://club.lanacion.com.ar/">
+                                Club LA NACIÓN
+                            </a>
+                        </li>
+                    </ul>
+                </amp-sidebar>
+                <button on="tap:sidebar-left.toggle" class="iconamp-menu">
+                    Menú
+                </button>
+                <div id="target-element-left"></div>
             </div>
             <main>
                 <div className="lay">
@@ -340,38 +354,12 @@ const amp = props => {
                             <h1 className="com-title-nota">
                                 Pruebas de la migración
                             </h1>
-                            <div class="com-tag cont_tags">
-                                <a class="com-item" href="/recetas/tortas">
-                                    Tortas
-                                </a>
-                                <a class="com-item" href="/recetas/veganas">
-                                    Veganas
-                                </a>
-                            </div>
                         </div>
                     </header>
                 </div>
                 <div className="lay-sidebar">
                     <div className="sidebar__main">
                         <div className="row">
-                            <div class="col-12">
-                                <div class="row mod-authordate">
-                                    <div class="col-12">
-                                        <p class="com-date">
-                                            13 de Diciembre de 2019 • 15:51
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="com-author">
-                                        <span>Por </span>
-                                        <div class="com-author">
-                                            <span> Mauro Massimino </span>
-                                            <a href="#"> Mauro Massimino </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div className="col-12 ">
                                 <section className="cont-figure">
                                     <a
@@ -428,6 +416,33 @@ const amp = props => {
                                 </div>
                             </div>
                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                <div className="row">
+                                    <div class="col-12">
+                                        <div class="row mod-authordate">
+                                            <div class="col-12">
+                                                <p class="com-date">
+                                                    13 de Diciembre de 2019 •
+                                                    15:51
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="com-author">
+                                                <span>Por </span>
+                                                <div class="com-author">
+                                                    <span>
+                                                        {' '}
+                                                        Mauro Massimino{' '}
+                                                    </span>
+                                                    <a href="#">
+                                                        {' '}
+                                                        Mauro Massimino{' '}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="row">
                                     <p className="text capital">
                                         That said, &lt;a
@@ -1100,301 +1115,6 @@ const amp = props => {
                             </p>
                         </section>
                     </section>
-                </div>
-
-                <div class="layout">
-                    <div class="nav">
-                        <a href="" class="iconamp-home">
-                            Home
-                        </a>
-                        <a href="" class="iconamp-club">
-                            Club LA NACIÓN
-                        </a>
-                        <a href="" class="iconamp-cuenta">
-                            Mi cuenta
-                        </a>
-                        <amp-sidebar
-                            id="sidebar-left"
-                            class="sample-sidebar"
-                            layout="nodisplay"
-                            side="left"
-                        >
-                            <button
-                                on="tap:sidebar-left.close"
-                                class="iconam-cerrar"
-                            ></button>
-                            <ul class="menu-nav">
-                                <li class="menu_li">
-                                    <a href="https://www.lanacion.com.ar/ultimas-noticias">
-                                        Últimas noticias
-                                    </a>
-                                </li>
-                                <li class="menu_li desplegable">
-                                    <amp-accordion class="sample">
-                                        <section>
-                                            <h2 class="iconamp-des">
-                                                Secciones
-                                            </h2>
-                                            <ul class="menu">
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/politica">
-                                                        Política
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/economia">
-                                                        Economía
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/sociedad">
-                                                        Sociedad
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/buenos-aires">
-                                                        Buenos Aires
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/seguridad">
-                                                        Seguridad
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/el-mundo">
-                                                        El Mundo
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/opinion">
-                                                        Opinión
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/editoriales">
-                                                        Editoriales
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/deportes">
-                                                        Deportes
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/espectaculos">
-                                                        Espectáculos
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/lifestyle">
-                                                        Lifestyle
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/economia/campo">
-                                                        Campo
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/moda-y-belleza">
-                                                        Moda y Belleza
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/turismo">
-                                                        Turismo
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/cultura">
-                                                        Cultura
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/educacion">
-                                                        Educación
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/salud">
-                                                        Salud
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/ciencia">
-                                                        Ciencia
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/comunidad">
-                                                        Comunidad
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/propiedades">
-                                                        Propiedades
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/arquitectura">
-                                                        Arquitectura
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/autos">
-                                                        Autos
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/tecnologia">
-                                                        Tecnología
-                                                    </a>
-                                                </li>
-                                                <li class="menu_secciones">
-                                                    <a href="https://www.lanacion.com.ar/data">
-                                                        LA NACION Data
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </section>
-                                        <section>
-                                            <h2 class="iconamp-des">
-                                                Revistas
-                                            </h2>
-                                            <ul class="menu">
-                                                <li class="menu_revistas">
-                                                    <a href="https://www.lanacion.com.ar/revista-ohlala">
-                                                        OHLALÁ!
-                                                    </a>
-                                                </li>
-                                                <li class="menu_revistas">
-                                                    <a href="https://www.lanacion.com.ar/revista-hola">
-                                                        ¡HOLA!
-                                                    </a>
-                                                </li>
-                                                <li class="menu_revistas">
-                                                    <a href="https://www.lanacion.com.ar/revista-rolling-stone">
-                                                        RollingStone
-                                                    </a>
-                                                </li>
-                                                <li class="menu_revistas">
-                                                    <a href="https://www.lanacion.com.ar/revista-lugares">
-                                                        Lugares
-                                                    </a>
-                                                </li>
-                                                <li class="menu_revistas">
-                                                    <a href="https://www.lanacion.com.ar/revista-living">
-                                                        Living
-                                                    </a>
-                                                </li>
-                                                <li class="menu_revistas">
-                                                    <a href="https://www.lanacion.com.ar/revista-brando">
-                                                        Brando
-                                                    </a>
-                                                </li>
-                                                <li class="menu_revistas">
-                                                    <a href="https://www.lanacion.com.ar/revista-jardin">
-                                                        Jardín
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </section>
-                                        <section>
-                                            <h2 class="iconamp-des">
-                                                Servicios
-                                            </h2>
-                                            <ul class="menu">
-                                                <li class="menu_servicios">
-                                                    <a href="https://www.lanacion.com.ar/horoscopo">
-                                                        Horóscopo
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://servicios.lanacion.com.ar/pronostico-del-tiempo">
-                                                        Pronóstico
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://www.lanacion.com.ar/dolar-hoy">
-                                                        Dólar hoy
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://www.lanacion.com.ar/feriados">
-                                                        Feriados
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres">
-                                                        Fúnebres
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://servicios.lanacion.com.ar/loterias">
-                                                        Loterías y quinielas
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://www.lanacion.com.ar/cartelera-de-cine">
-                                                        Cartelera de cine
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://www.lanacion.com.ar/cartelera-de-teatro">
-                                                        Cartelera de teatro
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://recetas.lanacion.com.ar/">
-                                                        Cocina y Recetas
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://remates.lanacion.com.ar">
-                                                        Remates Ganaderos
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://servicios.lanacion.com.ar/transito">
-                                                        Tránsito
-                                                    </a>
-                                                </li>
-                                                <li class="menu_servicios">
-                                                    <a href="https://www.lanacion.com.ar/politica/donde-voto-padron-electoral-2019-nid2213214">
-                                                        Dónde Voto
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </section>
-                                    </amp-accordion>
-                                </li>
-                                <li class="menu_li">
-                                    <a href="#">Edición impresa</a>
-                                </li>
-                                <li class="menu_li">
-                                    <a
-                                        href="https://lnmas.lanacion.com.ar/"
-                                        target="_blank"
-                                    >
-                                        LN+
-                                    </a>
-                                </li>
-                                <li class="menu_li">
-                                    <a href="https://club.lanacion.com.ar/">
-                                        Club LA NACIÓN
-                                    </a>
-                                </li>
-                            </ul>
-                        </amp-sidebar>
-                        <button
-                            on="tap:sidebar-left.toggle"
-                            class="iconamp-menu"
-                        >
-                            Menú
-                        </button>
-                        <div id="target-element-left"></div>
-                    </div>
                 </div>
             </footer>
         </div>
