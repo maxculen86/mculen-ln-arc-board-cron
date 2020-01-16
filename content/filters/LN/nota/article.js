@@ -46,6 +46,16 @@ const image = `
             }
         }
     }
+    vanity_credits {
+        affiliation {
+            name
+            type
+        }
+        by {
+            name
+            type
+        }
+    }
     description {
         basic
     }
@@ -76,6 +86,32 @@ const video = `
         }
         headlines {
             basic
+        }
+    }
+    credits {
+        affiliation {
+            name
+            type
+        }
+        by {
+            byline
+            name
+            type
+            referent {
+                id
+                provider
+                type
+            }
+        }
+    }
+    vanity_credits {
+        affiliation {
+            name
+            type
+        }
+        by {
+            name
+            type
         }
     }
 `;

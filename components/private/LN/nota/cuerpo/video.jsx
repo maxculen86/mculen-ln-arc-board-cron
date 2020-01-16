@@ -7,6 +7,7 @@ const image = ({ data }) => {
     return (
         <>
             <Media mediaData={data} colNumber={12}>
+                {/* TODO: componentizar creditos y epigrafe y llamarlos aca */}
                 <section className="com-epigrafe">
                     <p className="text">{data.caption}</p>
                     <p className="small">
@@ -33,13 +34,13 @@ const image = ({ data }) => {
     );
 };
 
-image.arcType = 'image';
+image.arcType = 'video';
 
 image.propTypes = {
     data: PropTypes.shape({
-        caption: PropTypes.string.isRequired,
-        vanity_credits: PropTypes.arrayOf,
-        credits: PropTypes.arrayOf,
+        content: PropTypes.string.isRequired,
+        list_type: PropTypes.string.isRequired,
+        items: PropTypes.arrayOf.isRequired,
         type: PropTypes.string.isRequired
     }).isRequired
 };
