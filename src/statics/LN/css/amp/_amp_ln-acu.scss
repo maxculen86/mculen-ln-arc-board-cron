@@ -2,37 +2,37 @@
 Se deja la siguiente linea
 @import '../base/brando';
 */
-@import './amp-story';
 
-// @import '../../../../../resources/dist/css/ln/base.css';
-@import '../../../../../resources/dist/css/ln/base/reset.css';
-@import '../../../../../resources/dist/css/ln/base/types.css';
-//@import '../../../../../resources/dist/css/ln/base/helpers.css'; chequear que saltan 2 errores de amp
-@import '../../../../../resources/dist/css/ln/layouts/grid.css';
-@import '../../../../../resources/dist/css/ln/layouts/layout.css';
+// @import '../../../../../src/statics/LN/css/base.scss';
+@import '../../../../../src/statics/LN/css/base/reset.scss';
+@import '../../../../../src/statics/LN/css/base/types.scss';
+
+//@import '../../../../../resources/dist/css/base/helpers.scss'; chequear que saltan 2 errores de amp
+@import '../../../../../src/statics/LN/css/layouts/grid.scss';
+@import '../../../../../src/statics/LN/css/layouts/layout.scss';
 
 // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
 // EL COMPONENTE Y EN OTROS NO
-@import '../../../../../resources/dist/css/ln/components/button.css';
-// @import '../../../../../resources/dist/css/ln/components/share.css'; chequear que saltan 2 errores de amp
-@import '../../../../../resources/dist/css/ln/components/date.css';
-@import '../../../../../resources/dist/css/ln/components/tag.css';
-@import '../../../../../resources/dist/css/ln/components/author.css';
-@import '../../../../../resources/dist/css/ln/components/lead.css';
-@import '../../../../../resources/dist/css/ln/components/ordered.css';
-@import '../../../../../resources/dist/css/ln/components/unordered.css';
-@import '../../../../../resources/dist/css/ln/components/breadcrumb.css';
-@import '../../../../../resources/dist/css/ln/components/input.css';
-@import '../../../../../resources/dist/css/ln/modules/newsletter.css';
-@import '../../../../../resources/dist/css/ln/components/blockquote.css';
-@import '../../../../../resources/dist/css/ln/components/text.css';
-@import '../../../../../resources/dist/css/ln/components/link.css';
-@import '../../../../../resources/dist/css/ln/components/subtitle.css';
-@import '../../../../../resources/dist/css/ln/components/title.css';
-@import '../../../../../resources/dist/css/ln/components/epigraph.css';
-@import '../../../../../resources/dist/css/ln/components/appointment.css';
-@import '../../../../../resources/dist/css/ln/components/footer.css';
-//@import '../../../../../resources/dist/css/ln/components/colecciones.css';
-//@import '../../../../../resources/dist/css/ln/components/carta-lectores.css';
-//@import '../../../../../resources/dist/css/ln/components/dropdown.css';
-//@import '../../../../../resources/dist/css/ln/components/nav-amp.css';
+@import '../../../../../src/statics/LN/css/components/button.scss';
+// @import '../../../../../src/statics/LN/css/components/share.scss'; chequear que saltan 2 errores de amp
+@import '../../../../../src/statics/LN/css/components/date.scss';
+@import '../../../../../src/statics/LN/css/components/tag.scss';
+@import '../../../../../src/statics/LN/css/components/author.scss';
+@import '../../../../../src/statics/LN/css/components/lead.scss';
+@import '../../../../../src/statics/LN/css/components/ordered.scss';
+@import '../../../../../src/statics/LN/css/components/unordered.scss';
+@import '../../../../../src/statics/LN/css/components/breadcrumb.scss';
+@import '../../../../../src/statics/LN/css/components/input.scss';
+@import '../../../../../src/statics/LN/css/modules/newsletter.scss';
+@import '../../../../../src/statics/LN/css/components/blockquote.scss';
+@import '../../../../../src/statics/LN/css/components/text.scss';
+@import '../../../../../src/statics/LN/css/components/link.scss';
+@import '../../../../../src/statics/LN/css/components/subtitle.scss';
+@import '../../../../../src/statics/LN/css/components/title.scss';
+@import '../../../../../src/statics/LN/css/components/epigraph.scss';
+@import '../../../../../src/statics/LN/css/components/appointment.scss';
+@import '../../../../../src/statics/LN/css/components/footer.scss';
+//@import '../../../../../src/statics/LN/css/components/colecciones.scss';
+//@import '../../../../../src/statics/LN/css/components/carta-lectores.scss';
+//@import '../../../../../src/statics/LN/css/components/dropdown.scss';
+@import '../../../../../src/statics/LN/css/components/nav-amp.scss';
