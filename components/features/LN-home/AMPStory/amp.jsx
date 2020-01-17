@@ -735,7 +735,7 @@ const amp = props => {
                                             <section className="cont-figure">
                                                 <a className="figure">
                                                     <amp-img
-                                                        src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/272ELZPBAJAMTJ6NLZISAQ5S3Q.jpg"
+                                                        src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/2JPPEPJ5BBA3HIVSSAXXUQFXWE.jpg"
                                                         width="3"
                                                         height="2"
                                                         layout="responsive"
@@ -781,7 +781,7 @@ const amp = props => {
                                             <section className="cont-figure">
                                                 <a className="figure">
                                                     <amp-img
-                                                        src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/272ELZPBAJAMTJ6NLZISAQ5S3Q.jpg"
+                                                        src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/P7D6Y47WNNFFJFHCEGMXLOM4MM.jpg"
                                                         width="3"
                                                         height="2"
                                                         layout="responsive"
