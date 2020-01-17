@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Context from 'fusion:context';
 
-import '../../../../resources/dist/css/ln/amp/amp-story.css';
-
 // TODO: Armar la siguiente lista en archivos de constantes AMP
 
 const AmpImg = 'amp-img';
@@ -353,7 +351,7 @@ const amp = props => {
                                 <a href="/economia">Economía</a>
                             </nav>
                             <h1 className="com-title-nota">
-                                Pruebas de la migración
+                                Mar del Plata tiene el mar mas frío
                             </h1>
                         </div>
                     </header>
@@ -376,10 +374,15 @@ const amp = props => {
                                         ></amp-img>
                                     </a>
                                     <section className="com-epigrafe">
-                                        <p className="text">Epigrafe de foto</p>
+                                        <p className="text">
+                                            En Mar del Plata, el agua registra
+                                            la temperatura media más baja en
+                                            seis años. Ayer la marea subió más
+                                            de la altura promedio
+                                        </p>
                                         <p className="small">
-                                            Fuente: LA NACION - Crédito: Enrique
-                                            García Medina
+                                            Fuente: LA NACION - Crédito:
+                                            Sebastián Blanco
                                         </p>
                                     </section>
                                 </section>
@@ -418,6 +421,10 @@ const amp = props => {
                             </div>
                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                 <div className="row">
+                                    <h3 class="com-lead-nota">
+                                        Pasta y carne, una combinación apta para
+                                        el invierno.
+                                    </h3>
                                     <div class="col-12">
                                         <div class="row mod-authordate">
                                             <div class="col-12">
@@ -431,13 +438,9 @@ const amp = props => {
                                             <div class="com-author">
                                                 <span>Por </span>
                                                 <div class="com-author">
-                                                    <span>
-                                                        {' '}
-                                                        Mauro Massimino{' '}
-                                                    </span>
                                                     <a href="#">
                                                         {' '}
-                                                        Mauro Massimino{' '}
+                                                        Nestor Ortigoza{' '}
                                                     </a>
                                                 </div>
                                             </div>
@@ -446,38 +449,33 @@ const amp = props => {
                                 </div>
                                 <div className="row">
                                     <p className="text capital">
-                                        That said, &lt;a
-                                        href="https://www.google.com/"
-                                        target=_blank&gt;Google&lt;/a&gt; will
-                                        tell you everything you need to know. An
-                                        interview can be a very useful tool as
-                                        well, but don’t waste time asking &lt;a
-                                        href="https://www.lanacion.com.ar/"
-                                        target=_blank&gt;Lanacion.com&lt;/a&gt;
-                                        syntax or &lt;a
-                                        href="https://www.google.com/"
-                                        target=_blank&gt;language&lt;/a&gt;
-                                        quirks. You need to see the big picture.
-                                        Ask about
+                                        MAR DEL PLATA.- Entre escollera y
+                                        escollera, apenas 14 turistas enfrentan
+                                        las olas en Playa Grande cuando recién
+                                        empieza una tarde nublada y con un
+                                        viento fresco que molesta. El resto son
+                                        unos 20 surfistas que a mitad de enero
+                                        todavía ni intentaron sacarse el traje
+                                        de neoprene.
                                     </p>
-                                    <p className="text">
-                                        That said,{' '}
-                                        <b>asda dhasuidash dsuiahd saui d</b>no
-                                        single will{' '}
-                                        <em> asda dhasuidash dsuiahd saui d</em>{' '}
-                                        tell you everything you need to &lt;a
-                                        href="https://www.lanacion.com.ar/"
-                                        target=_blank&gt;know&lt;/a&gt;. An
-                                        &lt;i&gt;interview&lt;/i&gt; can be a
-                                        very useful tool as well, but don’t
-                                        waste &lt;b&gt;time&lt;/b&gt; asking
-                                        about syntax or language quirks. You
-                                        need to see the big picture. Ask about
-                                    </p>
-                                    <p className="text">&lt;br/&gt;</p>
                                     <h2 className="com-subtitle-nota-1">
                                         soy un subtitulo de nota 1
                                     </h2>
+                                    <p className="text">
+                                        En este comienzo de año,{' '}
+                                        <b>
+                                            el tiempo en la costa está muy
+                                            inestable,
+                                        </b>{' '}
+                                        el sol acompaña poco y el precio se paga
+                                        en el mar, que desde el mes pasado y
+                                        hasta estos días registra la temperatura
+                                        promedio más baja de los últimos seis
+                                        años. Así lo indica un informe del
+                                        Gabinete de Oceanografía Física del
+                                        Instituto Nacional de Investigación de
+                                        Desarrollo Pesquero (Inidep).
+                                    </p>
                                     <h4 class="com-subtitle_list">
                                         Recetas con:
                                     </h4>
@@ -676,24 +674,12 @@ const amp = props => {
                                         </div>
                                     </div>
                                     <blockquote className="blockquote">
-                                        &lt;b&gt;Lorem ipsum dolor sit
-                                        amet&lt;/b&gt;, consectetur adipiscing
-                                        elit. Donec nulla elit, fermentum non
-                                        neque sed, feugiat interdum
-                                        &lt;i&gt;ligula&lt;/i&gt;. Nulla odio
-                                        lacus, pretium quis lacus in, dapibus
-                                        elementum purus.
+                                        "La temperatura del mar está más baja
+                                        que nunca", afirma la oceanógrafa
+                                        Graciela Molinari.
                                     </blockquote>
-                                    <p className="text">
-                                        That said, no single exercise will tell
-                                        you everything you need to know. An
-                                        interview can be a very useful tool as
-                                        well, but don’t waste time asking about
-                                        syntax or language quirks. You need to
-                                        see the big picture. Ask about
-                                    </p>
 
-                                    <div class="col-12">
+                                    <div class="col-12 hlp-marginBottom-20">
                                         <amp-carousel
                                             width="450"
                                             height="300"
@@ -769,6 +755,32 @@ const amp = props => {
                                                 </p>
                                             </section>
                                         </amp-carousel>
+                                    </div>
+                                    <p className="text">
+                                        That said, no single exercise will tell
+                                        you everything you need to know. An
+                                        interview can be a very useful tool as
+                                        well, but don’t waste time asking about
+                                        syntax or language quirks. You need to
+                                        see the big picture. Ask about
+                                    </p>
+
+                                    <div class="com-tag cont_tags">
+                                        <h2 className="com-subtitle-nota-3">
+                                            Temas
+                                        </h2>
+                                        <a
+                                            class="com-item"
+                                            href="/recetas/carnes"
+                                        >
+                                            Mar del Plata
+                                        </a>
+                                        <a
+                                            class="com-item"
+                                            href="/recetas/platos-de-comida-principal"
+                                        >
+                                            Vacaciones
+                                        </a>
                                     </div>
                                 </div>
                             </div>
