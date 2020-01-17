@@ -25,6 +25,7 @@ import '../../resources/dist/css/ln/components/slider.css';
 import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/components/appointment.css';
 import '../../resources/dist/css/ln/components/colecciones.css';
+import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
 
 const lnNotaNoticia = ({ children }) => {
