@@ -36,7 +36,10 @@
         text-transform: initial;
     }
     .opinion-calc & {
-        font-size: $font-16;
+        font-size: $font-14;
+        @media (min-width: 768px) {
+            font-size: $font-16;
+        }
     }
 }
 
