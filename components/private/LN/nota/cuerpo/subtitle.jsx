@@ -7,14 +7,14 @@ const Subtitle = props => {
         case 1:
             return (
                 <h2
-                    className="com-subtitle-nota-1"
+                    className="com-subtitle-nota-1 w-100"
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 />
             );
         case 2: {
             return (
                 <h3
-                    className="com-subtitle-nota-2"
+                    className="com-subtitle-nota-2 w-100"
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 />
             );
@@ -23,7 +23,7 @@ const Subtitle = props => {
         case 4: {
             return (
                 <h4
-                    className="com-subtitle-nota-3"
+                    className="com-subtitle-nota-3 w-100"
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 />
             );
@@ -31,7 +31,7 @@ const Subtitle = props => {
         case 5: {
             return (
                 <h5
-                    className="com-subtitle-nota-3"
+                    className="com-subtitle-nota-3 w-100"
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 />
             );
@@ -39,7 +39,7 @@ const Subtitle = props => {
         case 6: {
             return (
                 <h6
-                    className="com-subtitle-nota-3"
+                    className="com-subtitle-nota-3 w-100"
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 />
             );
@@ -47,7 +47,7 @@ const Subtitle = props => {
         default:
             return (
                 <h2
-                    className="com-subtitle-nota-1"
+                    className="com-subtitle-nota-1 w-100"
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 />
             );

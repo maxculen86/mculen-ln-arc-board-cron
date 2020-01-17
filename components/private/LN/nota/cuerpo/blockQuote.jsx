@@ -12,7 +12,7 @@ const blockQuote = ({ data }) => {
     } = data;
     return (
         subtype === 'blockquote' /* pullquote */ && (
-            <blockquote className="blockquote">
+            <blockquote className="blockquote w-100">
                 <Paragraph data={{ content }} />
             </blockquote>
         )

@@ -19,7 +19,7 @@ const ListOrderedOrUnordered = ({ data }) => {
             );
         case 'unordered': {
             return (
-                <ul className="com-unordered">
+                <ul className="com-unordered w-100">
                     {data.items.map(element => (
                         <li
                             key={element._id}
@@ -34,7 +34,7 @@ const ListOrderedOrUnordered = ({ data }) => {
         }
         default:
             return (
-                <ul className="com-unordered">
+                <ul className="com-unordered w-100">
                     {data.items.map(element => (
                         <li
                             key={element._id}
