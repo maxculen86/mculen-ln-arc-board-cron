@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
+import get from '../../../common/utils/get';
 
 function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
     return Consumer(
@@ -48,12 +48,16 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
             }
 
             getArticles = (fetchedCallback, page) => {
-                // HACK: No hace falta usar lodash.get
                 const website = get(this, 'props.website', null);
                 const sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
+                const excludeSectionId = get(
+                    this,
+                    'props.excludeSectionId',
+                    false
+                );
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
@@ -63,7 +67,8 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         tagId,
                         size,
                         imageConfig,
-                        page
+                        page,
+                        excludeSectionId
                     },
                     filter
                 });
@@ -92,28 +97,27 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
 
             setOrderAndCountTags = articles => {
                 const tags = articles
-                    .map(article => get(article, 'taxonomy.tags'))
-                    .filter(article => (article ? article.length !== 0 : false))
-                    .reduce((tagsFinal, article) => {
-                        article.map(
-                            art =>
-                                (tagsFinal[art.slug] = {
-                                    count:
-                                        tagsFinal[art.slug] &&
-                                        tagsFinal[art.slug].count
-                                            ? tagsFinal[art.slug].count + 1
-                                            : 1,
-                                    slug: art.slug,
-                                    text: art.text
-                                })
-                        );
-                        return tagsFinal;
+                    .map(article => get(article, 'taxonomy.tags', []))
+                    .reduce((tagsGrouped, _tags) => {
+                        const tagsReduced = { ...tagsGrouped };
+                        _tags.forEach(tag => {
+                            tagsReduced[tag.slug] = {
+                                count:
+                                    tagsReduced[tag.slug] &&
+                                    tagsReduced[tag.slug].count
+                                        ? tagsReduced[tag.slug].count + 1
+                                        : 1,
+                                slug: tag.slug,
+                                text: tag.text
+                            };
+                        });
+                        return tagsReduced;
                     }, []);
 
                 return Object.keys(tags)
                     .sort((a, b) => (tags[a].count < tags[b].count ? 1 : -1))
-                    .map(key => (tags[key] = tags[key]))
-                    .slice(0, 10);
+                    .slice(0, 10)
+                    .map(key => tags[key]);
             };
 
             obtenerMasNotas = () => {

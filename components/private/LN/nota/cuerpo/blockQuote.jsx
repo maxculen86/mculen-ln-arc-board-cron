@@ -1,11 +1,34 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
-export default function blockQuote() {
+import Paragraph from './parrafo';
+
+const blockQuote = ({ data }) => {
+    const {
+        content_elements: {
+            0: { content }
+        },
+        subtype
+    } = data;
     return (
-        <blockquote className="blockquote">
-            Para la nueva campaña, según el USDA quedarían como remanente final
-            unas 21,63 millones de toneladas versus 22,10 millones de toneladas
-            esperadas en el mercado.toneladas.
-        </blockquote>
+        subtype === 'blockquote' /* pullquote */ && (
+            <blockquote className="blockquote w-100">
+                <Paragraph data={{ content }} />
+            </blockquote>
+        )
     );
-}
+};
+
+blockQuote.arcType = 'blockquote';
+
+blockQuote.propTypes = {
+    data: PropTypes.shape({
+        content_elements: PropTypes.arrayOf(
+            PropTypes.shape({
+                content: PropTypes.string
+            })
+        )
+    }).isRequired
+};
+
+export default blockQuote;

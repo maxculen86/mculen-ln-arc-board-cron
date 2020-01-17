@@ -26,7 +26,6 @@ import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/components/appointment.css';
 import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
-import '../../resources/dist/css/ln/components/opinion-author.css';
 
 const lnNotaNoticia = ({ children }) => {
     return (
@@ -75,6 +74,7 @@ const lnNotaNoticia = ({ children }) => {
                         </div>
                         <div className="row">
                             <div className="col-1 hlp-marginBottom-40 hlp-tablet-none hlp-mobile-show">
+                                {/* hlp-mobile-show */}
                                 {/* Left-Cuerpo Shared*/}
                                 {children[3]}
                             </div>

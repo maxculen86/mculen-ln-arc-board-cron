@@ -6,7 +6,9 @@ import Date from '../../common/dateHeader';
 
 const authorAndDate = props => {
     const {
-        globalContent: { display_date, credits }
+        globalContent: { display_date, credits },
+        date,
+        author
     } = props;
 
     const [visible, setVisible] = useState(false);
@@ -17,6 +19,26 @@ const authorAndDate = props => {
     }
 
     if (!visible) return <></>;
+    if (date)
+        return (
+            <div className="col-12">
+                <div className="row mod-authordate">
+                    <div className="col-12">
+                        <Date display_date={display_date} />
+                    </div>
+                </div>
+            </div>
+        );
+    if (author)
+        return (
+            <div className="col-12">
+                <div className="col-12">
+                    <div className="com-author">
+                        <Author {...props} />
+                    </div>
+                </div>
+            </div>
+        );
     return (
         <div className="col-12">
             <div className="row mod-authordate">
@@ -49,7 +71,9 @@ authorAndDate.propTypes = {
                 )
             })
         })
-    }).isRequired
+    }).isRequired,
+    date: PropTypes.boolean,
+    author: PropTypes.boolean
 };
 
 export default authorAndDate;
