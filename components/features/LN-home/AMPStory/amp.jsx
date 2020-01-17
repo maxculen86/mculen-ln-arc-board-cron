@@ -88,7 +88,7 @@ const amp = props => {
                         <li class="menu_li desplegable">
                             <amp-accordion class="sample">
                                 <section>
-                                    <h2 class="icon-down">Secciones</h2>
+                                    <h2 class="icon-des">Secciones</h2>
                                     <ul class="menu">
                                         <li class="menu_secciones">
                                             <a href="https://www.lanacion.com.ar/politica">

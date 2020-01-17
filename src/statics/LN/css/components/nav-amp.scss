@@ -1,38 +1,10 @@
-@font-face {
-    font-family: 'icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(../../fonts/ln-icons.ttf) format('truetype');
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-    color: #000;
-}
-
 .layout {
     display: block;
     width: 100vw;
     height: 100vh;
     position: relative;
 }
-/* ////////////////////////header*/
 
-.susription {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    color: #0074c4;
-}
 /* ////////////////////////FOOTER-NAV*/
 
 amp-sidebar {
@@ -63,55 +35,69 @@ amp-sidebar {
     text-decoration: none;
     width: calc(100% / 4);
 }
+.nav button.icon-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
 
-.iconamp-menu {
+button.icon-menu {
+    font-family: 'arial';
     background: transparent;
     border: none;
     width: calc(100% / 4);
-    font-size: 11px;
+    font-size: 12px;
+    cursor: pointer;
 }
-
-.iconamp-home:before {
-    font-family: 'icons';
-    content: '\e90c';
+button.icon-menu:before {
+    font-family: 'LNicons';
+    font-size: 18px;
+}
+a.icon-home {
+    font-family: 'arial';
+    font-size: 12px;
+}
+a.icon-home:before {
     font-size: 30px;
     display: block;
+    font-family: 'LNicons';
 }
 
-.nav a.iconamp-club {
+a.icon-club {
     width: calc(100% / 3);
+    font-family: 'arial';
+    font-size: 12px;
 }
 
-.iconamp-club:before {
-    font-family: 'icons';
-    content: '\e911';
+a.icon-club:before {
     font-size: 30px;
     display: block;
+    font-family: 'LNicons';
 }
 
-.iconamp-cuenta:before {
-    font-family: 'icons';
-    content: '\e905';
+a.icon-cuenta {
+    font-family: 'arial';
+    font-size: 12px;
+}
+
+a.icon-cuenta:before {
     font-size: 30px;
     display: block;
+    font-family: 'LNicons';
 }
 
-.iconamp-menu:before {
-    font-family: 'icons';
-    content: '\e905';
-    font-size: 30px;
-    display: block;
-}
-
-.iconam-cerrar {
+.icon-cerrar {
     position: absolute;
     right: 10px;
     top: 10px;
+    font-family: 'LNicons';
 }
 
-.iconam-cerrar:before {
-    font-family: 'icons';
-    content: '\e912';
+a.icon-cerrar:before {
+    font-family: 'LNicons';
     font-size: 20px;
     display: block;
 }
@@ -141,7 +127,7 @@ amp-sidebar {
     background: #fff;
 }
 
-.iconamp-des:before {
+.icon-des:before {
     font-family: 'icons';
     content: '\e907';
     font-size: 20px;
@@ -150,7 +136,7 @@ amp-sidebar {
     right: 10px;
 }
 
-.iconamp-des[aria-expanded='true']:before {
+.icon-des[aria-expanded='true']:before {
     transform: rotate(90deg);
 }
 
