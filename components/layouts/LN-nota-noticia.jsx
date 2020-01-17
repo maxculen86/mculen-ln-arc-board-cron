@@ -52,7 +52,7 @@ const lnNotaNoticia = ({ children }) => {
                                 {/*Bajada y autor fecha más apertura*/}
                                 {children[2]}
 
-                                <div className="opinion-autor row">
+                                {/* <div className="opinion-autor row">
                                     <section id="" className="cont-figure">
                                         <div className="figure">
                                             <picture className="content-pic picture">
@@ -70,7 +70,7 @@ const lnNotaNoticia = ({ children }) => {
                                         </h1>
                                         <label>PARA LA NACION</label>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="row">
