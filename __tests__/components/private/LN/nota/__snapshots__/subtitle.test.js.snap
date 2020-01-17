@@ -2,6 +2,6 @@
 
 exports[`Subtitle matches snapshot 1`] = `
 <h2
-  class="com-subtitle-nota-1"
+  class="com-subtitle-nota-1 w-100"
 />
 `;

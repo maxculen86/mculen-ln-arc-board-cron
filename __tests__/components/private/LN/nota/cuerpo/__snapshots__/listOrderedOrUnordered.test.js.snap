@@ -2,7 +2,7 @@
 
 exports[`features - LaNacion - Nota - unordered Test de snapshot ListOrderedOrUnordered 1`] = `
 <ul
-  class="com-unordered"
+  class="com-unordered w-100"
 >
   <li
     class="com-item"
