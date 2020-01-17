@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - unordered Test de snapshot ListOrderedOrUnordered 1`] = `
+<ul
+  class="com-unordered"
+>
+  <li
+    class="com-item"
+  >
+    hola
+  </li>
+  <li
+    class="com-item"
+  >
+    chau
+  </li>
+</ul>
+`;

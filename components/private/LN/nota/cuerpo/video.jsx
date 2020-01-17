@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 
-const image = ({ data }) => {
+const video = ({ data }) => {
+    console.log('data image *********************', data);
     return (
         <>
             <Media mediaData={data} colNumber={12}>
@@ -32,15 +33,15 @@ const image = ({ data }) => {
     );
 };
 
-image.arcType = 'image';
+video.arcType = 'video';
 
-image.propTypes = {
+video.propTypes = {
     data: PropTypes.shape({
-        caption: PropTypes.string.isRequired,
-        vanity_credits: PropTypes.arrayOf,
-        credits: PropTypes.arrayOf,
+        content: PropTypes.string.isRequired,
+        list_type: PropTypes.string.isRequired,
+        items: PropTypes.arrayOf.isRequired,
         type: PropTypes.string.isRequired
     }).isRequired
 };
 
-export default image;
+export default video;

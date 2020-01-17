@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+import Paragraph from './parrafo';
+
 const blockQuote = ({ data }) => {
     const {
         content_elements: {
@@ -9,11 +11,24 @@ const blockQuote = ({ data }) => {
         subtype
     } = data;
     return (
-        subtype === 'pullquote' && (
-            <blockquote className="blockquote">{content}</blockquote>
+        subtype === 'blockquote' /* pullquote */ && (
+            <blockquote className="blockquote">
+                <Paragraph data={{ content }} />
+            </blockquote>
         )
     );
 };
-blockQuote.arcType = 'quote';
+
+blockQuote.arcType = 'blockquote';
+
+blockQuote.propTypes = {
+    data: PropTypes.shape({
+        content_elements: PropTypes.arrayOf(
+            PropTypes.shape({
+                content: PropTypes.string
+            })
+        )
+    }).isRequired
+};
 
 export default blockQuote;

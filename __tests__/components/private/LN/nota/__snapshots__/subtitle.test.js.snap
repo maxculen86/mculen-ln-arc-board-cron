@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Subtitle matches snapshot 1`] = `
-<p
-  class="text"
+<h2
+  class="com-subtitle-nota-1"
 />
 `;

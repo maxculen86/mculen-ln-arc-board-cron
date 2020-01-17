@@ -4,39 +4,40 @@ import PropTypes from 'fusion:prop-types';
 // Importo componente HARCODEADOS
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';
+import Image from './image';
+import Video from './video';
 import Html from './html';
 import PullQuote from './pullQuote';
 import MasNotas from './masNotas';
 import Tags from './tags';
-import TextCapital from './text';
 import Ordered from './ordered';
-import Unordered from './unordered';
-import Subtitles from './subtitles';
+import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitle from './subtitle';
+import Paragraph from './parrafo';
 
 // TODO: tests
 const Cuerpo = props => {
     const {
         globalContent: { content_elements: contentElements }
     } = props;
-    console.log('TCL: contentElements', contentElements);
     const bodyComponents = [
+        Paragraph,
+        PullQuote,
         BlockQuote,
         Tags,
         Subtitle,
         Gallery,
-        'aaaa',
-        'bbb',
-        'cccc'
+        ListOrderedOrUnordered,
+        Image
     ];
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
+
     const resp = contentElements.map((element, i) => {
-        console.log('content_elements ************', element);
-        console.log('bodyComponents ************', bodyComponents);
-        const Component = bodyComponents.find(
-            bc => bc.arcType === element.type
-        );
+        const Component = bodyComponents.find(bc => {
+            if (element.type === 'quote') return bc.arcType === element.subtype;
+            return bc.arcType === element.type;
+        });
         if (Component) {
             if (capitalIndex === i) {
                 return <Component data={element} capital />;
@@ -46,24 +47,6 @@ const Cuerpo = props => {
 
         return <></>;
     });
-
-    /* resp.push(<TextCapital />);
-    resp.push(<BlockQuote />);
-    resp.push(<TextCapital />);
-    resp.push(<Subtitles />);
-    resp.push(<Ordered />);
-    resp.push(<Unordered />); */
-    // console.log('------------------- cuerpo', props);
-    // contentElements.forEach(element => {
-    //     if (element.type === 'gallery') {
-    //         resp.push(<Gallery {...element} />);
-    //     }
-    // });
-    /* resp.push(<Gallery {...props} />); */
-    /* resp.push(<Html />);
-    resp.push(<PullQuote />);
-    resp.push(<MasNotas />);
-    resp.push(<Tags />); */
     return resp;
 };
 

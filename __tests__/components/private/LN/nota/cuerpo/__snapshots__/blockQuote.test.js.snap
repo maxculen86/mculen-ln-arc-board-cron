@@ -1,9 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`features - LaNacion - Nota - BlockQuote Test de snapshot BlockQuote 1`] = `
-<blockquote
-  class="blockquote"
->
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla elit, fermentum non neque sed, feugiat interdum ligula. Nulla odio lacus, pretium quis lacus in, dapibus elementum purus. 
-</blockquote>
-`;
+exports[`features - LaNacion - Nota - BlockQuote Test de snapshot BlockQuote 1`] = `null`;
