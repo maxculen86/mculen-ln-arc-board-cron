@@ -359,6 +359,31 @@ const amp = props => {
                 <div className="lay-sidebar">
                     <div className="sidebar__main">
                         <div className="row">
+                            <h3 class="com-lead-nota">
+                                Según un relevamiento, el mes pasado cayó 1,3°C
+                                y este, 1,2°C; de acuerdo con los oceanógrafos,
+                                el descenso se debe a los vientos, que impulsan
+                                corrientes frías, y a la poca presencia del sol
+                            </h3>
+                            <div class="col-12">
+                                <div class="row mod-authordate">
+                                    <div class="col-12">
+                                        <p class="com-date">
+                                            13 de Diciembre de 2019 • 15:51
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="com-author">
+                                        <span>Por </span>
+                                        <div class="com-author">
+                                            <a href="#">Nestor Ortigoza</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
                             <div className="col-12 ">
                                 <section className="cont-figure">
                                     <a
@@ -421,33 +446,6 @@ const amp = props => {
                             </div>
                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                 <div className="row">
-                                    <h3 class="com-lead-nota">
-                                        Pasta y carne, una combinación apta para
-                                        el invierno.
-                                    </h3>
-                                    <div class="col-12">
-                                        <div class="row mod-authordate">
-                                            <div class="col-12">
-                                                <p class="com-date">
-                                                    13 de Diciembre de 2019 •
-                                                    15:51
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="com-author">
-                                                <span>Por </span>
-                                                <div class="com-author">
-                                                    <a href="#">
-                                                        {' '}
-                                                        Nestor Ortigoza{' '}
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row">
                                     <p className="text capital">
                                         MAR DEL PLATA.- Entre escollera y
                                         escollera, apenas 14 turistas enfrentan
@@ -462,14 +460,62 @@ const amp = props => {
                                         soy un subtitulo de nota 1
                                     </h2>
                                     <p className="text">
-                                        En este comienzo de año,{' '}
+                                        En este comienzo de año,
                                         <b>
                                             el tiempo en la costa está muy
                                             inestable,
-                                        </b>{' '}
+                                        </b>
                                         el sol acompaña poco y el precio se paga
                                         en el mar, que desde el mes pasado y
-                                        hasta estos días registra la temperatura
+                                        <a href="#" class="link">
+                                            {' '}
+                                            hasta estos días registra la
+                                            temperatura{' '}
+                                        </a>
+                                        promedio más baja de los últimos seis
+                                        años. Así lo indica un informe del
+                                        Gabinete de Oceanografía Física del
+                                        Instituto Nacional de Investigación de
+                                        Desarrollo Pesquero (Inidep).
+                                    </p>
+                                    <h2 className="com-subtitle-nota-2">
+                                        soy un subtitulo de nota 2
+                                    </h2>
+                                    <p className="text">
+                                        En este comienzo de año,
+                                        <b>
+                                            el tiempo en la costa está muy
+                                            inestable,
+                                        </b>
+                                        el sol acompaña poco y el precio se paga
+                                        en el mar, que desde el mes pasado y
+                                        <a href="#" class="link">
+                                            {' '}
+                                            hasta estos días registra la
+                                            temperatura{' '}
+                                        </a>
+                                        promedio más baja de los últimos seis
+                                        años. Así lo indica un informe del
+                                        Gabinete de Oceanografía Física del
+                                        Instituto Nacional de Investigación de
+                                        Desarrollo Pesquero (Inidep).
+                                    </p>
+                                    <h2 className="com-subtitle-nota-3">
+                                        soy un subtitulo de nota 3
+                                    </h2>
+                                    <p className="text">
+                                        En este comienzo de año,
+                                        <b>
+                                            el tiempo en la costa está muy
+                                            inestable,
+                                        </b>
+                                        el sol acompaña poco y el precio se paga
+                                        en el mar, que desde el mes pasado y
+                                        <a href="#" class="link">
+                                            {' '}
+                                            hasta estos días registra la
+                                            temperatura{' '}
+                                        </a>
                                         promedio más baja de los últimos seis
                                         años. Así lo indica un informe del
                                         Gabinete de Oceanografía Física del
