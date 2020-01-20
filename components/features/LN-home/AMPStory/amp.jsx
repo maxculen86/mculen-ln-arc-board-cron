@@ -64,7 +64,7 @@ const amp = props => {
                 <a href="" class="icon-club">
                     Club LA NACIÓN
                 </a>
-                <a href="" class="icon-cuenta">
+                <a href="" class="icon-club">
                     Mi cuenta
                 </a>
                 <amp-sidebar
