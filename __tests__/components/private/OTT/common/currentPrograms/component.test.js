@@ -1,4 +1,4 @@
-import Consumer from 'fusion:consumer';
+import Consumer from 'fusion:consumer:fc';
 import getProperties from 'fusion:properties';
 
 //retorno un elemento que luego busco en el container
