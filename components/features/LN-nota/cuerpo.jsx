@@ -2,14 +2,40 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Cuerpo from '../../private/LN/nota/cuerpo';
-import {
-    getSlotsOptions,
-    slotsConfig
-} from '../../private/LN/common/banner/config';
+import { getSlotsOptions } from '../../private/LN/common/banner/config';
 
 const cuerpo = props => {
-    buildBodyCustomFields();
-    return <Cuerpo {...props} />;
+    const bannerConfig = groupBannerConfig(props);
+    const properties = {
+        ...props,
+        bannerConfig
+    };
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    return <Cuerpo {...properties} />;
+};
+
+// TODO: improve this function's algorithm
+const groupBannerConfig = props => {
+    const optionsSet = Object.keys(props.customFields);
+
+    const numberGroups = optionsSet
+        .filter(el => el.startsWith('position'))
+        .map(el => el.substring(el.length - 1, el.length));
+
+    const config = [];
+
+    numberGroups.forEach(n => {
+        const configKeys = optionsSet.filter(el => el.endsWith(n));
+        const configOpt = {};
+
+        configKeys.forEach(ck => {
+            configOpt[ck.substring(0, ck.length - 1)] = props.customFields[ck];
+        });
+
+        config.push(configOpt);
+    });
+
+    return config;
 };
 
 cuerpo.label = 'LN-nota-Cuerpo';
@@ -23,7 +49,7 @@ function buildBodyCustomFields() {
             name: 'position',
             type: 'number',
             info: 'After which paragraph do you want the banner to show?',
-            min: 1,
+            min: 0,
             max: 6
         },
         { name: 'sticky', type: 'bool', info: 'Banner sticky?' },
@@ -54,7 +80,7 @@ function buildBodyCustomFields() {
                     Object.assign(result, {
                         [`${attribute.name}${i + 1}`]: PropTypes.bool.tag({
                             label: attribute.name,
-                            defaultValue: '',
+                            defaultValue: false,
                             description: attribute.info,
                             group: `Banner ${i + 1}`
                         })
@@ -64,7 +90,7 @@ function buildBodyCustomFields() {
                     Object.assign(result, {
                         [`${attribute.name}${i + 1}`]: PropTypes.number.tag({
                             label: attribute.name,
-                            defaultValue: '',
+                            defaultValue: 0,
                             description: attribute.info,
                             max: attribute.max,
                             min: attribute.min,
@@ -76,11 +102,11 @@ function buildBodyCustomFields() {
         });
     });
 
-    return PropTypes.shape(Object.assign(result));
+    return Object.assign(result);
 }
 
 cuerpo.propTypes = {
-    customFields: buildBodyCustomFields()
+    customFields: PropTypes.shape(buildBodyCustomFields()).isRequired
 };
 
 export default Consumer(cuerpo);

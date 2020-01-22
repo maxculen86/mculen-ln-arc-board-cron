@@ -17,7 +17,9 @@ import Paragraph from './parrafo';
 
 // TODO: tests
 const Cuerpo = props => {
+    console.log('########## PROPS DE CUERPO ##########:', props);
     const {
+        bannerConfig,
         globalContent: { content_elements: contentElements }
     } = props;
     const bodyComponents = [
@@ -31,11 +33,20 @@ const Cuerpo = props => {
         Image
     ];
 
+    const paragraphsCount = contentElements.filter(el => el.type === 'text')
+        .length;
+
+    let paragraphsRenderCount = 0;
+
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
     const resp = contentElements.map((element, i) => {
         const Component = bodyComponents.find(bc => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
+            if (element.type === 'text') {
+                // Keep on thinking the logic
+                // paragraphsRenderCount += 1;
+            }
             return bc.arcType === element.type;
         });
         if (Component) {
