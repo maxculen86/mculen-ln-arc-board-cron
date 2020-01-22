@@ -5,11 +5,137 @@
     position: relative;
 }
 
-/* ////////////////////////FOOTER-NAV*/
+/* ////////////////////////SIDEBAR*/
+
+html {
+    &.i-amphtml-scroll-disabled {
+        .nav {
+            .icon-menu {
+                &:before {
+                    content: '\e906';
+                }
+            }
+        }
+    }
+}
 
 amp-sidebar {
-    width: 200px;
+    //Sidebar
+    width: 100%;
+    max-width: 100%;
+    background: #f4f4f4;
+
+    .header_sidebar {
+        //Header
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: #fff;
+        border-bottom: solid 1px #eaeaea;
+        margin-bottom: 10px;
+
+        .logo-la-nacion {
+            //Logo LN
+            font-size: 15px;
+            color: #006998;
+        }
+        .icon-close {
+            //Ícono cerrar
+            background: transparent;
+            font-size: 28px;
+        }
+    }
+
+    .menu-nav {
+        //Menú
+        height: calc(100% - 130px);
+
+        .menu_li {
+            background: #fff;
+
+            a {
+                font-family: arial;
+                width: 100%;
+                text-align: left;
+                padding: 15px 20px;
+                border-top: 0;
+                border-bottom: 1px solid #dfdfdf;
+                display: block;
+                color: #3f3f3f;
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            &.desplegable {
+                .page-title {
+                    width: 50%;
+                }
+
+                h2 {
+                    display: flex;
+                    align-items: center;
+                    font-family: arial;
+
+                    font-weight: normal;
+                    text-align: left;
+                    border-top: 0;
+                    border-bottom: 1px solid #dfdfdf;
+                    background: #fff;
+                    color: #3f3f3f;
+                    font-weight: bold;
+                    font-size: 16px;
+
+                    &.icon-right:before {
+                        top: calc(50% - 10px);
+                        font-family: 'LNicons';
+                        font-size: 20px;
+                        display: block;
+                        position: absolute;
+                        right: 15px;
+                    }
+                    &.icon-right[aria-expanded='true'] {
+                        background-color: #f2f2f2;
+                        text-decoration: underline;
+
+                        a {
+                            color: #0074c4;
+                            padding: 15px 20px;
+                        }
+
+                        &::before {
+                            transform: rotate(90deg);
+                        }
+                    }
+                    a.url-link {
+                        display: inline-flex;
+                        width: 80%;
+                        border-bottom: 0;
+                    }
+                }
+            }
+
+            .menu {
+                .menu_secciones {
+                    a {
+                        font-family: arial;
+                        width: 100%;
+                        text-align: left;
+                        padding: 15px 40px;
+                        border-top: 0;
+                        border-bottom: 1px solid #dfdfdf;
+                        display: block;
+                        color: #3f3f3f;
+                        font-weight: normal;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
 }
+
+/* ////////////////////////FOOTER-NAV*/
 
 .nav {
     border-top: 1px solid #cccccc;
@@ -25,68 +151,80 @@ amp-sidebar {
     font-size: 11px;
     background: #ffffff;
     z-index: 9999999999999999;
-}
 
-.nav a {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    width: calc(100% / 4);
-}
-.nav button.icon-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    cursor: pointer;
-}
+    button {
+        &.icon-menu {
+            font-family: 'arial';
+            background: transparent;
+            border: none;
+            width: calc(100% / 4.5);
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            cursor: pointer;
 
-button.icon-menu {
-    font-family: 'arial';
-    background: transparent;
-    border: none;
-    width: calc(100% / 4);
-    font-size: 12px;
-    cursor: pointer;
-}
-button.icon-menu:before {
-    font-family: 'LNicons';
-    font-size: 30px;
-}
-a.icon-home {
-    font-family: 'arial';
-    font-size: 12px;
-}
-a.icon-home:before {
-    font-size: 30px;
-    display: block;
-    font-family: 'LNicons';
-}
+            &:before {
+                font-size: 30px;
+                display: block;
+                font-family: 'LNicons';
+            }
+        }
+    }
 
-a.icon-club {
-    width: calc(100% / 3);
-    font-family: 'arial';
-    font-size: 12px;
-}
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        width: calc(100% / 4);
 
-a.icon-club:before {
-    font-size: 30px;
-    display: block;
-    font-family: 'LNicons';
-}
+        &.icon-home {
+            font-family: 'arial';
+            font-size: 12px;
 
-a.icon-cuenta {
-    font-family: 'arial';
-    font-size: 12px;
-}
+            &:before {
+                font-size: 30px;
+                display: block;
+                font-family: 'LNicons';
+            }
+        }
+        &.icon-club {
+            width: calc(100% / 2.8);
+            font-family: 'arial';
+            font-size: 12px;
 
-a.icon-cuenta:before {
-    font-size: 30px;
-    display: block;
-    font-family: 'LNicons';
+            &:before {
+                font-size: 30px;
+                display: block;
+                font-family: 'LNicons';
+            }
+        }
+        &.icon-user {
+            width: calc(100% / 2.8);
+            font-family: 'arial';
+            font-size: 12px;
+
+            &:before {
+                font-size: 30px;
+                display: block;
+                font-family: 'LNicons';
+            }
+        }
+        &.icon-cuenta {
+            font-family: 'arial';
+            font-size: 12px;
+
+            &:before {
+                font-size: 30px;
+                display: block;
+                font-family: 'LNicons';
+            }
+        }
+    }
 }
 
 .icon-cerrar {
@@ -95,51 +233,61 @@ a.icon-cuenta:before {
     top: 10px;
     font-family: 'LNicons';
 }
-
 a.icon-cerrar:before {
     font-family: 'LNicons';
     font-size: 20px;
     display: block;
 }
-
-.menu-nav {
-    margin-top: 40px;
+.header {
+    display: none;
 }
-
-.menu-nav li a {
-    font-family: arial;
-    font-size: 14px;
-    width: 100%;
-    text-align: left;
-    padding: 10px 20px;
-    border-top: 0;
-    border-bottom: 1px solid #dfdfdf;
+@media (min-width: 768px) {
+    amp-sidebar {
+        width: 40%;
+        max-width: 40%;
+    }
 }
+@media (min-width: 1024px) {
+    .header {
+        display: flex;
+        padding: 20px 0;
 
-.menu-nav li h2 {
-    font-family: arial;
-    font-size: 14px;
-    font-weight: normal;
-    text-align: left;
-    padding: 10px 20px;
-    border-top: 0;
-    border-bottom: 1px solid #dfdfdf;
-    background: #fff;
-}
+        .lay {
+            .row {
+                align-items: center;
+                .logo-la-nacion {
+                    //Logo LN
+                    font-size: 25px;
+                    color: #006998;
+                }
+            }
+        }
 
-.icon-des:before {
-    font-family: 'icons';
-    content: '\e907';
-    font-size: 20px;
-    display: block;
-    position: absolute;
-    right: 10px;
-}
+        button {
+            &.icon-menu {
+                font-family: 'arial';
+                background: transparent;
+                border: none;
+                font-size: 15px;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                cursor: pointer;
 
-.icon-des[aria-expanded='true']:before {
-    transform: rotate(90deg);
-}
-
-#sidebar-left {
-    background: #ffffff;
+                &:before {
+                    font-size: 30px;
+                    display: block;
+                    font-family: 'LNicons';
+                }
+            }
+        }
+    }
+    amp-sidebar {
+        width: 25%;
+        max-width: 25%;
+    }
+    .nav {
+        display: none;
+    }
 }
