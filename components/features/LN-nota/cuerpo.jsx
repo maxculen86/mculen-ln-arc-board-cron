@@ -8,67 +8,79 @@ import {
 } from '../../private/LN/common/banner/config';
 
 const cuerpo = props => {
+    buildBodyCustomFields();
     return <Cuerpo {...props} />;
 };
 
 cuerpo.label = 'LN-nota-Cuerpo';
 
+function buildBodyCustomFields() {
+    const attributes = [
+        { name: 'desktop', type: 'list', info: 'Placement on desktop' },
+        { name: 'mobile', type: 'list', info: 'Placement on mobile' },
+        { name: 'tablet', type: 'list', info: 'Placement on tablet' },
+        {
+            name: 'position',
+            type: 'number',
+            info: 'After which paragraph do you want the banner to show?',
+            min: 1,
+            max: 6
+        },
+        { name: 'sticky', type: 'bool', info: 'Banner sticky?' },
+        {
+            name: 'background',
+            type: 'bool',
+            info: 'Should it have a background layer?'
+        }
+    ];
+    const result = {};
+    [...Array(6)].map((item, i) => {
+        return attributes.map(attribute => {
+            // eslint-disable-next-line default-case
+            switch (attribute.type) {
+                case 'list':
+                    Object.assign(result, {
+                        [`${attribute.name}${i + 1}`]: PropTypes.oneOf(
+                            getSlotsOptions()
+                        ).tag({
+                            label: attribute.name,
+                            defaultValue: '',
+                            description: attribute.info,
+                            group: `Banner ${i + 1}`
+                        })
+                    });
+                    break;
+                case 'bool':
+                    Object.assign(result, {
+                        [`${attribute.name}${i + 1}`]: PropTypes.bool.tag({
+                            label: attribute.name,
+                            defaultValue: '',
+                            description: attribute.info,
+                            group: `Banner ${i + 1}`
+                        })
+                    });
+                    break;
+                case 'number':
+                    Object.assign(result, {
+                        [`${attribute.name}${i + 1}`]: PropTypes.number.tag({
+                            label: attribute.name,
+                            defaultValue: '',
+                            description: attribute.info,
+                            max: attribute.max,
+                            min: attribute.min,
+                            group: `Banner ${i + 1}`
+                        })
+                    });
+                    break;
+            }
+        });
+    });
+
+    return PropTypes.shape(Object.assign(result));
+}
+
 cuerpo.propTypes = {
-    customFields: PropTypes.shape({
-        myNumberField: PropTypes.number.tag({
-            label: {
-                en: 'My Number',
-                es: 'Mi Número'
-            },
-            group: 'examples',
-            hidden: false,
-            max: 100,
-            min: 0,
-            step: 5
-        }),
-        mySelectField: PropTypes.oneOf(['foo', 'bar', 'baz']).tag({
-            defaultValue: 'bar',
-            description: 'This custom field is useless',
-            group: 'examples',
-            labels: { foo: 'Foo', bar: 'Bar', baz: 'Baz' }
-        }),
-        mySelectField2: PropTypes.oneOf(['foo', 'bar', 'baz']).tag({
-            defaultValue: 'bar',
-            description: 'This custom field is useless',
-            group: 'examples3',
-            labels: { foo: 'Foo', bar: 'Bar', baz: 'Baz' }
-        }),
-        desktop1: PropTypes.oneOf(getSlotsOptions()).tag({
-            defaultValue: '',
-            description: 'Cualquier cosa',
-            group: 'Banner 1'
-        }),
-        mobile1: PropTypes.oneOf(getSlotsOptions()).tag({
-            defaultValue: '',
-            description: 'Cualquier cosa',
-            group: 'Banner 1'
-        }),
-        tablet1: PropTypes.oneOf(getSlotsOptions()).tag({
-            defaultValue: '',
-            description: 'Cualquier cosa',
-            group: 'Banner 1'
-        }),
-        desktop2: PropTypes.oneOf(getSlotsOptions()).tag({
-            defaultValue: '',
-            description: 'Cualquier cosa',
-            group: 'Banner 2'
-        }),
-        mobile2: PropTypes.oneOf(getSlotsOptions()).tag({
-            defaultValue: '',
-            description: 'Cualquier cosa',
-            group: 'Banner 2'
-        }),
-        tablet3: PropTypes.oneOf(getSlotsOptions()).tag({
-            defaultValue: '',
-            description: 'Cualquier cosa',
-            group: 'Banner 2'
-        })
-    })
+    customFields: buildBodyCustomFields()
 };
 
 export default Consumer(cuerpo);
