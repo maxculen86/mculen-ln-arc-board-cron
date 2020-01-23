@@ -68,15 +68,17 @@ const SnippetNoticia = props => {
         }
     };
 
-    if (promoItems.basic && promoItems.basic.type === 'image') {
-        data.thumbnailUrl = `${promoItems.basic.url}`;
-        data.image = {
-            '@context': 'https://schema.org',
-            '@type': 'ImageObject',
-            url: `${promoItems.basic.url}`,
-            height: `${promoItems.basic.height}`,
-            width: `${promoItems.basic.width}`
-        };
+    if (promoItems) {
+        if (promoItems.basic && promoItems.basic.type === 'image') {
+            data.thumbnailUrl = `${promoItems.basic.url}`;
+            data.image = {
+                '@context': 'https://schema.org',
+                '@type': 'ImageObject',
+                url: `${promoItems.basic.url}`,
+                height: `${promoItems.basic.height}`,
+                width: `${promoItems.basic.width}`
+            };
+        }
     }
 
     SnippetNoticia.propTypes = {
