@@ -14,11 +14,14 @@ import Ordered from './ordered';
 import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitle from './subtitle';
 import Paragraph from './parrafo';
+import Banner from '../../common/banner';
 
 // TODO: tests
 const Cuerpo = props => {
     console.log('########## PROPS DE CUERPO ##########:', props);
     const {
+        isAdmin,
+        siteProperties,
         bannerConfig,
         globalContent: { content_elements: contentElements }
     } = props;
@@ -36,23 +39,53 @@ const Cuerpo = props => {
     const paragraphsCount = contentElements.filter(el => el.type === 'text')
         .length;
 
-    let paragraphsRenderCount = 0;
+    let paragraphPosition = 0;
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
     const resp = contentElements.map((element, i) => {
         const Component = bodyComponents.find(bc => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
-            if (element.type === 'text') {
-                // Keep on thinking the logic
-                // paragraphsRenderCount += 1;
-            }
             return bc.arcType === element.type;
         });
         if (Component) {
-            if (capitalIndex === i) {
-                return <Component data={element} capital />;
+            if (Component.arcType === 'text') {
+                paragraphPosition += 1;
+                return (
+                    <>
+                        {bannerConfig &&
+                            bannerConfig.map(banner => {
+                                if (banner.position === paragraphPosition) {
+                                    return (
+                                        <>
+                                            <Component
+                                                data={element}
+                                                capital={capitalIndex === i}
+                                            />
+                                            <Banner
+                                                siteProperties={siteProperties}
+                                                isAdmin={isAdmin}
+                                                slotGroup="nota"
+                                                devices="nota"
+                                                selectedSlots={{
+                                                    desktopSlot: banner.desktop,
+                                                    mobileSlot: banner.mobile,
+                                                    tabletSlot: banner.tablet
+                                                }}
+                                                sticky={banner.sticky}
+                                                background={banner.background}
+                                            />
+                                        </>
+                                    );
+                                }
+                                return <></>;
+                            })}
+                    </>
+                );
             }
+            /* if (capitalIndex === i) {
+                return <Component data={element} capital />;
+            } */
             return <Component data={element} />;
         }
 
