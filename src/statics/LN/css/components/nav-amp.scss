@@ -7,18 +7,6 @@
 
 /* ////////////////////////SIDEBAR*/
 
-html {
-    &.i-amphtml-scroll-disabled {
-        .nav {
-            .icon-menu {
-                &:before {
-                    content: '\e906';
-                }
-            }
-        }
-    }
-}
-
 amp-sidebar {
     //Sidebar
     width: 100%;
@@ -170,6 +158,7 @@ amp-sidebar {
                 font-size: 30px;
                 display: block;
                 font-family: 'LNicons';
+                content: '\e912';
             }
         }
     }
@@ -239,12 +228,65 @@ a.icon-cerrar:before {
     display: block;
 }
 .header {
-    display: none;
+    padding: 20px 0;
+    border-bottom: 1px solid #cccccc;
+    .header__middle {
+        display: flex;
+        align-items: center;
+        .header__middle__logo {
+            .logo-la-nacion {
+                //Logo LN
+                color: #006998;
+                &:before {
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+
+    button {
+        &.icon-menu {
+            display: none;
+        }
+    }
+    .suscribir__header {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 0;
+        background: transparent;
+        color: #006998;
+        font-weight: normal;
+        border: none;
+        &:hover {
+            padding-right: 0;
+            background: transparent;
+            color: #006998;
+            border: none;
+        }
+    }
 }
+
 @media (min-width: 768px) {
     amp-sidebar {
         width: 40%;
         max-width: 40%;
+    }
+    .header {
+        .suscribir__header {
+            display: inline-block;
+            justify-content: inherit;
+            text-align: center;
+            padding: 0.625rem 1.5rem;
+            background-color: #ffff24;
+            border: 1px solid #cccccc;
+            color: #000000;
+            &:hover {
+                background: #000000;
+                border-color: #000000;
+                color: #ffffff;
+                padding: 0.625rem 1.5rem;
+            }
+        }
     }
 }
 @media (min-width: 1024px) {
@@ -257,8 +299,10 @@ a.icon-cerrar:before {
                 align-items: center;
                 .logo-la-nacion {
                     //Logo LN
-                    font-size: 25px;
                     color: #006998;
+                    &:before {
+                        font-size: 25px;
+                    }
                 }
             }
         }

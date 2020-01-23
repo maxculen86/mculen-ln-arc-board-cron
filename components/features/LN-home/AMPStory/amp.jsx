@@ -22,15 +22,15 @@ const amp = props => {
             <header id="header" className="header">
                 <div className="lay">
                     <div className="row">
-                        <div className="col-4 header__left">
+                        <div className="col-desksm-4 header__left hlp-mobile-none">
                             <button
                                 on="tap:sidebar-left.toggle"
-                                class="icon-menu"
+                                className="icon-menu"
                             >
                                 Menú
                             </button>
                         </div>
-                        <div className="col-4 header__middle">
+                        <div className="col-6 col-desksm-4 header__middle">
                             <a
                                 href="https://www.lanacion.com.ar"
                                 className="header__middle__logo"
@@ -38,33 +38,46 @@ const amp = props => {
                                 <i className="logo-la-nacion"></i>
                             </a>
                         </div>
-                        <div className="col-4 header__right">
+                        <div className="offset-2 offset-tablet-0 col-4 col-tablet-6 col-desksm-4 header__right">
                             <div id="user-menu" className="com-usuario">
-                                <a
-                                    className="--btn --highlight hlp-marginRight-35"
-                                    href="https://ingresar.lanacion.com.ar/suscribirme"
-                                >
-                                    Suscribite
-                                </a>
-                                <button
-                                    type="button"
-                                    className="--btn --secondary"
-                                >
-                                    Ingresar
-                                </button>
+                                <div className="row">
+                                    <div className="col-12 col-tablet-6">
+                                        <a
+                                            className="suscribir__header --btn --highlight"
+                                            href="https://suscripciones.lanacion.com.ar/suscribirme"
+                                        >
+                                            Suscribite
+                                        </a>
+                                    </div>
+                                    <div className="col-tablet-6 hlp-mobile-none">
+                                        <button
+                                            type="button"
+                                            className="--btn --secondary"
+                                        >
+                                            Ingresar
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
+
+            <amp-position-observer
+                on="scroll:spinAnimation.seekTo(percent=event.percent)"
+                intersection-ratios="1"
+                layout="nodisplay"
+            ></amp-position-observer>
+
             <amp-sidebar
                 id="sidebar-left"
-                class="sample-sidebar"
+                className="sample-sidebar"
                 layout="nodisplay"
                 side="left"
             >
                 {' '}
-                <section class="header_sidebar">
+                <section className="header_sidebar">
                     <a
                         href="https://www.lanacion.com.ar"
                         className="header__middle__logo"
@@ -73,34 +86,34 @@ const amp = props => {
                     </a>
                     <button
                         on="tap:sidebar-left.close"
-                        class="icon-close"
+                        className="icon-close"
                     ></button>
                 </section>
-                <ul class="menu-nav">
-                    <li class="menu_li desplegable">
-                        <amp-accordion class="sample">
+                <ul className="menu-nav">
+                    <li className="menu_li desplegable">
+                        <amp-accordion className="sample">
                             <section>
-                                <h2 class="icon-right">
+                                <h2 className="icon-right">
                                     <a
                                         href="https://www.lanacion.com.ar/ultimas-noticias"
-                                        class="url-link"
+                                        className="url-link"
                                     >
                                         Últimas noticias
                                     </a>
                                 </h2>
 
-                                <ul class="menu">
-                                    <li class="menu_secciones">
+                                <ul className="menu">
+                                    <li className="menu_secciones">
                                         <a href="https://www.lanacion.com.ar/transito">
                                             Tránsito
                                         </a>
                                     </li>
-                                    <li class="menu_secciones">
+                                    <li className="menu_secciones">
                                         <a href="https://servicios.lanacion.com.ar/pronostico-del-tiempo">
                                             Clima
                                         </a>
                                     </li>
-                                    <li class="menu_secciones">
+                                    <li className="menu_secciones">
                                         <a href="https://www.lanacion.com.ar/data">
                                             LN-data
                                         </a>
@@ -109,34 +122,34 @@ const amp = props => {
                             </section>
                         </amp-accordion>
                     </li>
-                    <li class="menu_li">
+                    <li className="menu_li">
                         <a href="https://www.lanacion.com.ar/politica">
                             Política
                         </a>
                     </li>
-                    <li class="menu_li desplegable">
-                        <amp-accordion class="sample">
+                    <li className="menu_li desplegable">
+                        <amp-accordion className="sample">
                             <section>
-                                <h2 class="icon-right">
+                                <h2 className="icon-right">
                                     <a
                                         href="https://www.lanacion.com.ar/economia"
-                                        class="url-link"
+                                        className="url-link"
                                     >
                                         Economía
                                     </a>
                                 </h2>
-                                <ul class="menu">
-                                    <li class="menu_secciones">
+                                <ul className="menu">
+                                    <li className="menu_secciones">
                                         <a href="https://www.lanacion.com.ar/dolar-hoy">
                                             Dolar hoy
                                         </a>
                                     </li>
-                                    <li class="menu_secciones">
+                                    <li className="menu_secciones">
                                         <a href="https://www.lanacion.com.ar/economia/campo">
                                             Campo
                                         </a>
                                     </li>
-                                    <li class="menu_secciones">
+                                    <li className="menu_secciones">
                                         <a href="https://www.lanacion.com.ar/propiedades">
                                             Propiedades
                                         </a>
@@ -548,10 +561,10 @@ const amp = props => {
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="com-author">
+                                <div className="col-12">
+                                    <div className="com-author">
                                         <span>Por </span>
-                                        <div class="com-author">
+                                        <div>
                                             <a href="#">Nestor Ortigoza</a>
                                         </div>
                                     </div>
@@ -631,11 +644,57 @@ const amp = props => {
                                         todavía ni intentaron sacarse el traje
                                         de neoprene.
                                     </p>
-                                    <div className="row">
-                                        <div className="banner --small">
-                                            banner
+                                    <div className="w-100 --bg-banner">
+                                        <div
+                                            id="caja1_amp"
+                                            className="banner --small"
+                                        >
+                                            BANNER
                                         </div>
                                     </div>
+                                    <p className="text">
+                                        Promedio más baja de los últimos seis
+                                        años. Así lo indica un informe del
+                                        Gabinete de Oceanografía Física del
+                                        Instituto Nacional de Investigación de
+                                        Desarrollo Pesquero (Inidep).
+                                    </p>
+                                    <p className="text">
+                                        Promedio más baja de los últimos seis
+                                        años. Así lo indica un informe del
+                                        Gabinete de Oceanografía Física del
+                                        Instituto Nacional de Investigación de
+                                        Desarrollo Pesquero (Inidep).
+                                    </p>
+                                    <p className="text">
+                                        Promedio más baja de los últimos seis
+                                        años. Así lo indica un informe del
+                                        Gabinete de Oceanografía Física del
+                                        Instituto Nacional de Investigación de
+                                        Desarrollo Pesquero (Inidep).
+                                    </p>
+                                    <div className="w-100 --bg-banner">
+                                        <div
+                                            id="caja2_amp"
+                                            className="banner --small"
+                                        >
+                                            BANNER
+                                        </div>
+                                    </div>
+                                    <p className="text">
+                                        Promedio más baja de los últimos seis
+                                        años. Así lo indica un informe del
+                                        Gabinete de Oceanografía Física del
+                                        Instituto Nacional de Investigación de
+                                        Desarrollo Pesquero (Inidep).
+                                    </p>
+                                    <p className="text">
+                                        Promedio más baja de los últimos seis
+                                        años. Así lo indica un informe del
+                                        Gabinete de Oceanografía Física del
+                                        Instituto Nacional de Investigación de
+                                        Desarrollo Pesquero (Inidep).
+                                    </p>
                                     <h2 className="com-subtitle-nota-1">
                                         soy un subtitulo de nota 1
                                     </h2>
@@ -647,7 +706,7 @@ const amp = props => {
                                         </b>
                                         el sol acompaña poco y el precio se paga
                                         en el mar, que desde el mes pasado y
-                                        <a href="#" class="link">
+                                        <a href="#" className="link">
                                             {' '}
                                             hasta estos días registra la
                                             temperatura{' '}
@@ -669,7 +728,7 @@ const amp = props => {
                                         </b>
                                         el sol acompaña poco y el precio se paga
                                         en el mar, que desde el mes pasado y
-                                        <a href="#" class="link">
+                                        <a href="#" className="link">
                                             {' '}
                                             hasta estos días registra la
                                             temperatura{' '}
@@ -691,7 +750,7 @@ const amp = props => {
                                         </b>
                                         el sol acompaña poco y el precio se paga
                                         en el mar, que desde el mes pasado y
-                                        <a href="#" class="link">
+                                        <a href="#" className="link">
                                             {' '}
                                             hasta estos días registra la
                                             temperatura{' '}
@@ -702,130 +761,130 @@ const amp = props => {
                                         Instituto Nacional de Investigación de
                                         Desarrollo Pesquero (Inidep).
                                     </p>
-                                    <h4 class="com-subtitle_list">
+                                    <h4 className="com-subtitle_list">
                                         Recetas con:
                                     </h4>
-                                    <div class="row">
-                                        <div class="col-tablet-3 hlp-marginBottom-mobile-40">
-                                            <h4 class="com-title-section-s">
+                                    <div className="row">
+                                        <div className="col-tablet-3 hlp-marginBottom-mobile-40">
+                                            <h4 className="com-title-section-s">
                                                 Ingredientes
                                             </h4>
                                             <div>
-                                                <h4 class="com-title-section-xs hlp-marginBottom-20">
+                                                <h4 className="com-title-section-xs hlp-marginBottom-20">
                                                     Para la torta
                                                 </h4>
-                                                <ul class="com-unordered">
-                                                    <li class="com-item">
+                                                <ul className="com-unordered">
+                                                    <li className="com-item">
                                                         aceite de girasol, 90 cc
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         azúcar integral
                                                         organica, 400 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         tofu, 130 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         leche de almendras, 85
                                                         cc
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         harina 0000 organica,
                                                         400 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         ralladura de naranja, 20
                                                         gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         puré de moras, 500 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         esencia de vainilla, 12
                                                         gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         moras enteras, 200 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         polvo de hornear, 20 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         sal marina, 3 gr
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div>
-                                                <h4 class="com-title-section-xs hlp-marginBottom-20">
+                                                <h4 className="com-title-section-xs hlp-marginBottom-20">
                                                     Para la garrapiñada de
                                                     avellanas
                                                 </h4>
-                                                <ul class="com-unordered">
-                                                    <li class="com-item">
+                                                <ul className="com-unordered">
+                                                    <li className="com-item">
                                                         avellanas, 200 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         agua, 200 cc
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         azúcar, 200 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         vainilla, 200 cc
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         sal, una pizca{' '}
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div>
-                                                <h4 class="com-title-section-xs hlp-marginBottom-20">
+                                                <h4 className="com-title-section-xs hlp-marginBottom-20">
                                                     Para la terminación
                                                 </h4>
-                                                <ul class="com-unordered">
-                                                    <li class="com-item">
+                                                <ul className="com-unordered">
+                                                    <li className="com-item">
                                                         moras frescas, c/n
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         arándanos frescos, c/n
                                                     </li>
                                                 </ul>
                                             </div>
                                             <div>
-                                                <h4 class="com-title-section-xs hlp-marginBottom-20">
+                                                <h4 className="com-title-section-xs hlp-marginBottom-20">
                                                     Para la crema “chantilly”
                                                 </h4>
-                                                <ul class="com-unordered">
-                                                    <li class="com-item">
+                                                <ul className="com-unordered">
+                                                    <li className="com-item">
                                                         tofu, 220 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         azucar organica, 80 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         vainilla, 15 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         aceite de coco neutro,
                                                         50 gr
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         leche de almendras, 30
                                                         gr
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-tablet-8 offset-tablet-1">
-                                            <h4 class="com-title-section-m">
+                                        <div className="col-tablet-8 offset-tablet-1">
+                                            <h4 className="com-title-section-m">
                                                 Preparación
                                             </h4>
                                             <div>
-                                                <h4 class="com-title-section-xs hlp-marginBottom-20">
+                                                <h4 className="com-title-section-xs hlp-marginBottom-20">
                                                     Para la chantilly:{' '}
                                                 </h4>
-                                                <ol class="com-ordered">
-                                                    <li class="com-item">
+                                                <ol className="com-ordered">
+                                                    <li className="com-item">
                                                         Colocar todos los
                                                         ingredientes dentro de
                                                         una licuadora. Licuar
@@ -837,11 +896,11 @@ const amp = props => {
                                                 </ol>
                                             </div>
                                             <div>
-                                                <h4 class="com-title-section-xs hlp-marginBottom-20">
+                                                <h4 className="com-title-section-xs hlp-marginBottom-20">
                                                     Para la garrapiñada:{' '}
                                                 </h4>
-                                                <ol class="com-ordered">
-                                                    <li class="com-item">
+                                                <ol className="com-ordered">
+                                                    <li className="com-item">
                                                         en una cacerolita sobre
                                                         el fuego, agregar el
                                                         agua y el azúcar.
@@ -860,15 +919,15 @@ const amp = props => {
                                                 </ol>
                                             </div>
                                             <div>
-                                                <h4 class="com-title-section-xs hlp-marginBottom-20">
+                                                <h4 className="com-title-section-xs hlp-marginBottom-20">
                                                     Para la torta:{' '}
                                                 </h4>
-                                                <ol class="com-ordered">
-                                                    <li class="com-item">
+                                                <ol className="com-ordered">
+                                                    <li className="com-item">
                                                         precalentar el horno a
                                                         170 ºC{' '}
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         Mezclar por un lado el
                                                         azúcar con el aceite en
                                                         un bowl. Por otro lado
@@ -888,7 +947,7 @@ const amp = props => {
                                                         cocinar a 160ºC. Por 60
                                                         minutos aproximadamente.
                                                     </li>
-                                                    <li class="com-item">
+                                                    <li className="com-item">
                                                         Retirar del horno y
                                                         enfriar. Terminar con la
                                                         crema “chantilly” de
@@ -905,7 +964,7 @@ const amp = props => {
                                         Graciela Molinari.
                                     </blockquote>
 
-                                    <div class="col-12 hlp-marginBottom-20">
+                                    <div className="col-12 hlp-marginBottom-20">
                                         <amp-carousel
                                             width="450"
                                             height="300"
@@ -991,18 +1050,18 @@ const amp = props => {
                                         see the big picture. Ask about
                                     </p>
 
-                                    <div class="com-tag cont_tags">
+                                    <div className="com-tag cont_tags">
                                         <h2 className="com-subtitle-nota-3">
                                             Temas
                                         </h2>
                                         <a
-                                            class="com-item"
+                                            className="com-item"
                                             href="/recetas/carnes"
                                         >
                                             Mar del Plata
                                         </a>
                                         <a
-                                            class="com-item"
+                                            className="com-item"
                                             href="/recetas/platos-de-comida-principal"
                                         >
                                             Vacaciones
@@ -1016,47 +1075,47 @@ const amp = props => {
                 </div>
             </main>
             <footer>
-                <div class="lay">
-                    <section class="row footer-header">
-                        <section class="col-desksm-4 col-desk-6 footer-header__logo">
-                            <a href="https://www.lanacion.com.ar" class="">
-                                <i class="logo-la-nacion"></i>
+                <div className="lay">
+                    <section className="row footer-header">
+                        <section className="col-desksm-4 col-desk-6 footer-header__logo">
+                            <a href="https://www.lanacion.com.ar" className="">
+                                <i className="logo-la-nacion"></i>
                             </a>
                         </section>
-                        <section class="col-12 col-desksm-4 col-desk-3 footer-header__redes">
+                        <section className="col-12 col-desksm-4 col-desk-3 footer-header__redes">
                             <a
                                 href="https://www.facebook.com/lanacion"
                                 target="_blank"
                                 rel="noreferrer noopener"
                             >
-                                <i class="icon-facebook"></i>
+                                <i className="icon-facebook"></i>
                             </a>
                             <a
                                 href="https://twitter.com/LANACION"
                                 target="_blank"
                                 rel="noreferrer noopener"
                             >
-                                <i class="icon-twitter"></i>
+                                <i className="icon-twitter"></i>
                             </a>
                             <a
                                 href="https://www.instagram.com/lanacioncom/"
                                 target="_blank"
                                 rel="noreferrer noopener"
                             >
-                                <i class="icon-instagram"></i>
+                                <i className="icon-instagram"></i>
                             </a>
                             <a
                                 href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
                                 target="_blank"
                                 rel="noreferrer noopener"
                             >
-                                <i class="icon-rss"></i>
+                                <i className="icon-rss"></i>
                             </a>
                         </section>
-                        <section class="col-12 col-desksm-4 col-desk-3 footer-header__app">
+                        <section className="col-12 col-desksm-4 col-desk-3 footer-header__app">
                             <a
                                 href="https://play.google.com/store/apps/details?id=app.lanacion.activity&amp;hl=es_419"
-                                class="app_play"
+                                className="app_play"
                                 target="_blank"
                                 rel="noreferrer noopener"
                             >
@@ -1233,7 +1292,7 @@ const amp = props => {
                             </a>
                             <a
                                 href="https://apps.apple.com/ar/app/la-nacion/id410689702"
-                                class="app_ios"
+                                className="app_ios"
                                 target="_blank"
                                 rel="noreferrer noopener"
                             >
@@ -1264,29 +1323,29 @@ const amp = props => {
                             </a>
                         </section>
                     </section>
-                    <section class="row footer-sitio">
-                        <section class="col-desksm-9 col-deskxl-8 footer-sitio__links">
+                    <section className="row footer-sitio">
+                        <section className="col-desksm-9 col-deskxl-8 footer-sitio__links">
                             <a
                                 href="http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html"
-                                class="item_link"
+                                className="item_link"
                             >
                                 Mapa del sitio
                             </a>
                             <a
                                 href="https://micuenta.lanacion.com.ar/ayuda"
-                                class="item_link"
+                                className="item_link"
                             >
                                 Ayuda
                             </a>
                             <a
                                 href="https://micuenta.lanacion.com.ar/tyc"
-                                class="item_link"
+                                className="item_link"
                             >
                                 Términos y condiciones
                             </a>
                             <a
                                 href="https://www.lanacion.in/"
-                                class="item_link"
+                                className="item_link"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -1294,17 +1353,17 @@ const amp = props => {
                             </a>
                             <a
                                 href="https://suscripciones.lanacion.com.ar/suscribirme/"
-                                class="item_link"
+                                className="item_link"
                             >
                                 Suscribirse al diario impreso
                             </a>
                         </section>
-                        <section class="col-desksm-3 col-deskxl-4 footer-sitio__captcha">
+                        <section className="col-desksm-3 col-deskxl-4 footer-sitio__captcha">
                             <p>
                                 <span>Protegido por reCAPTCHA:</span>
                                 <a
                                     href="https://policies.google.com/terms?hl=es-419"
-                                    class="condition"
+                                    className="condition"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -1312,7 +1371,7 @@ const amp = props => {
                                 </a>
                                 <a
                                     href="https://policies.google.com/privacy?hl=es-419"
-                                    class="private"
+                                    className="private"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -1321,15 +1380,15 @@ const amp = props => {
                             </p>
                         </section>
                     </section>
-                    <section class="row footer-copyright">
-                        <section class="col-desksm-6 col-desk-6 footer-copyright__fiscal">
+                    <section className="row footer-copyright">
+                        <section className="col-desksm-6 col-desk-6 footer-copyright__fiscal">
                             <p>
                                 <amp-img
                                     width="38"
                                     height="21"
                                     src="https://static.glanacion.com/v2/ln/img/gda.jpg"
                                     alt="gda"
-                                    class="img_gda"
+                                    className="img_gda"
                                 ></amp-img>
                                 Miembro de GDA.Grupo de Diarios América
                                 <a
@@ -1342,12 +1401,12 @@ const amp = props => {
                                         height="48"
                                         src="https://static.glanacion.com/v2/ln/img/data.jpg"
                                         alt="Data fiscal"
-                                        class="img_data-fiscal"
+                                        className="img_data-fiscal"
                                     ></amp-img>
                                 </a>
                             </p>
                         </section>
-                        <section class="col-desksm-6 col-desk-6 footer-copyright__reserved">
+                        <section className="col-desksm-6 col-desk-6 footer-copyright__reserved">
                             <p>
                                 Copyright 2019 SA LA NACION | Todos los derechos
                                 reservados
