@@ -48,10 +48,12 @@ class ArcWrapper extends Component {
             mutations.forEach(mutation => {
                 const nodes = mutation.addedNodes;
                 nodes.forEach(node => {
-                    if (node.localName === 'iframe')
+                    if (node.localName === 'iframe') {
                         this.banner.current.parentNode.classList.remove(
                             'hlp-none'
                         );
+                        this.banner.current.classList.remove('hlp-none');
+                    }
                 });
             });
         });
@@ -91,7 +93,11 @@ class ArcWrapper extends Component {
         const { id, children, className } = this.props;
 
         return (
-            <div id={id} className={`banner ${className}`} ref={this.banner}>
+            <div
+                id={id}
+                className={`banner ${className} hlp-none`}
+                ref={this.banner}
+            >
                 {children}
             </div>
         );
