@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
-import VideoPlayerComponent from './component';
 import PropTypes from 'fusion:prop-types';
 import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
 import { API_ENV } from 'fusion:environment';
+import VideoPlayerComponent from './component';
 
 //TODO: prueba de concepto. Test pendientes para cuando definan que se necesita hacer y que no
 //en un player de video

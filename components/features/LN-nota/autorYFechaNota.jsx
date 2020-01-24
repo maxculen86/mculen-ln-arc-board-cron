@@ -2,9 +2,8 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 
-import AuthorAndDate from '../../private/LN/nota/apertura/authorAndDate';
+import AuthorAndDate from '../../private/LN/nota/author/authorAndDate';
 
-// AuthorAndDate.static = true;
 const authorAndDate = props => {
     const { id: featureId } = props;
     return (

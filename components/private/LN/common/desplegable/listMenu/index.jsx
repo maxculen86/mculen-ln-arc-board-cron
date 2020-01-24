@@ -14,6 +14,9 @@ const filter = `
         node_type
         url
         inactive
+        site {
+            site_url
+        }
         children {
             _id
             _website
@@ -22,6 +25,9 @@ const filter = `
             node_type
             url
             inactive
+            site {
+                site_url
+            }
             children {
                 _id
                 _website
@@ -30,13 +36,16 @@ const filter = `
                 node_type
                 url
                 inactive
+                site {
+                    site_url
+                }
             } 
         }
     }
 `;
 
 const getChildren = (
-    { _id, name, display_name: displayName, url, children },
+    { _id, name, display_name: displayName, url, children, site },
     isSubNav
 ) => {
     return {
@@ -49,6 +58,7 @@ const getChildren = (
                   ''}`
             : undefined,
         url: url || _id,
+        site,
         childs: !isSubNav
             ? !!children && [
                   {
@@ -119,13 +129,14 @@ const ListMenuComponent = props => {
     return (
         <MenuContext>
             {menuData &&
-                menuData.map(({ el, extraClass, name, childs }) => (
+                menuData.map(({ el, extraClass, name, childs, site }) => (
                     <ListMenu
                         el={el}
                         extraClass={extraClass}
                         name={name}
                         childs={childs}
                         onResizeDeskTop={onResizeDeskTop}
+                        site={site}
                     />
                 ))}
         </MenuContext>

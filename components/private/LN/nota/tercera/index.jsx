@@ -10,7 +10,7 @@ const index = props => {
 
     if (subtype === '1') return <TerceraDefault {...props} />;
 
-    return <>VACIOOOO !!!!!!!!!!!!!!!!!!</>;
+    return <></>;
 };
 
 index.propTypes = {

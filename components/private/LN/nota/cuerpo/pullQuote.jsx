@@ -1,6 +1,50 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
-export default function pullQuote() {
+import Paragraph from './parrafo';
+
+const pullQuote = props => {
+    const {
+        data: {
+            citation: { content: author },
+            content_elements: {
+                0: { content }
+            },
+            subtype
+        }
+    } = props;
+    return (
+        subtype === 'pullquote' && (
+            <section className="com-cita autor w-100">
+                <section className="cont-cita">
+                    <h2 className="title-cita">
+                        <Paragraph data={{ content: `"${content}"` }} />
+                    </h2>
+                    <div className="cont-firma-autor">
+                        {' '}
+                        <h3 className="nombre-firma">{`${author}`}</h3>
+                    </div>
+                </section>
+            </section>
+        )
+    );
+};
+
+pullQuote.arcType = 'pullquote';
+
+pullQuote.propTypes = {
+    data: PropTypes.shape({
+        content_elements: PropTypes.arrayOf(
+            PropTypes.shape({
+                content: PropTypes.string
+            })
+        )
+    }).isRequired
+};
+
+export default pullQuote;
+
+/* export default function pullQuote() {
     return (
         <div className="row">
             <section className="com-cita autor">
@@ -97,4 +141,4 @@ export default function pullQuote() {
             </section>
         </div>
     );
-}
+} */

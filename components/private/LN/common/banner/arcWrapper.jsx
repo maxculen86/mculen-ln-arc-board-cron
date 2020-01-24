@@ -8,6 +8,7 @@ class ArcWrapper extends Component {
 
     constructor(props) {
         super(props);
+        this.banner = React.createRef();
     }
 
     componentDidMount() {
@@ -42,6 +43,22 @@ class ArcWrapper extends Component {
             dfpId,
             bidding
         );
+
+        const mutationObserver = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                const nodes = mutation.addedNodes;
+                nodes.forEach(node => {
+                    if (node.localName === 'iframe')
+                        this.banner.current.parentNode.classList.remove(
+                            'hlp-none'
+                        );
+                });
+            });
+        });
+        mutationObserver.observe(this.banner.current, {
+            childList: true,
+            subtree: true
+        });
     }
 
     shouldComponentUpdate() {
@@ -50,7 +67,7 @@ class ArcWrapper extends Component {
 
     getArcAdsInstance() {
         if (!ArcWrapper.arcAdsInstance) {
-            const { dfpId, show } = this.props;
+            const { dfpId } = this.props;
 
             ArcWrapper.arcAdsInstance = new ArcAds(
                 {
@@ -61,7 +78,7 @@ class ArcWrapper extends Component {
                 },
                 event => {
                     if (!event.isEmpty) {
-                        show();
+                        // console.log("banner instance event: ", event);
                     }
                 }
             );
@@ -74,7 +91,7 @@ class ArcWrapper extends Component {
         const { id, children, className } = this.props;
 
         return (
-            <div id={id} className={`banner ${className}`}>
+            <div id={id} className={`banner ${className}`} ref={this.banner}>
                 {children}
             </div>
         );
