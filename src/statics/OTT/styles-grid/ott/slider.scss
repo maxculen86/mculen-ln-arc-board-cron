@@ -124,7 +124,7 @@ section > article > .figure:before {
     color: rgba(91, 255, 230, 0.5);
     text-align: center;
     line-height: 1.5em;
-    background-image: initial !important;
+    background-image: initial;
 }
 
 .slider .article .figure:hover:after {

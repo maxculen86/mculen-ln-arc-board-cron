@@ -7,7 +7,7 @@
     @include revista($logo, $primario);
     .subheader-acu .com-link,
     &.acu-revista .subheader-acu .com-share a i {
-        color: $negro !important;
+        color: $negro;
     }
     .cont-figure .figure .content-pic:before,
     &.acu-revista .subheader-acu i.logo-revista {

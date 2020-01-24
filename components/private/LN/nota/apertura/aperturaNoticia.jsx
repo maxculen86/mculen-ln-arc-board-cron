@@ -8,19 +8,25 @@ const aperturaNoticia = ({ basic }) => {
         <>
             <Media mediaData={basic} colNumber={12}>
                 {/* TODO: componentizar creditos y epigrafe y llamarlos aca */}
-                <section className="com-epigrafe">
-                    <p className="text">{basic.caption}</p>
-                    <p className="small">
-                        Fuente:{' '}
-                        {basic.credits.affiliation.map(fuente => (
-                            <>{fuente.name}</>
-                        ))}{' '}
-                        - Crédito:{' '}
-                        {basic.credits.by.map(credito => (
-                            <>{credito.name}</>
-                        ))}
-                    </p>
-                </section>
+                {basic && (
+                    <section className="com-epigrafe">
+                        {basic.caption && (
+                            <p className="text">{basic.caption}</p>
+                        )}
+                        {basic.credits.affiliation.length > 0 && (
+                            <p className="small">
+                                Fuente:
+                                {basic.credits.affiliation.map(fuente => (
+                                    <>{fuente.name}</>
+                                ))}
+                                - Crédito:
+                                {basic.credits.by.map(credito => (
+                                    <>{credito.name}</>
+                                ))}
+                            </p>
+                        )}
+                    </section>
+                )}
             </Media>
         </>
     );
