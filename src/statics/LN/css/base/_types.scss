@@ -7,7 +7,9 @@
 @include font-face('SuecaSlab', suecaslab-bold-webfont, 700);
 @include font-face('LNicons', ln-icons, normal);
 @include font-face('LNlogos', ln-logos, normal);
-strong {
+
+strong,
+.element-paragraph b {
     font-weight: 700;
 }
 

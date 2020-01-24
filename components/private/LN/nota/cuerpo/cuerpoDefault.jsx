@@ -1,41 +1,52 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-//Importo componente HARCODEADOS
+// Importo componente HARCODEADOS
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';
-/* import Gallery from '../../common/carousell/gallery'; */
+import Image from './image';
+import Video from './video';
 import Html from './html';
 import PullQuote from './pullQuote';
 import MasNotas from './masNotas';
 import Tags from './tags';
-import TextCapital from './text';
 import Ordered from './ordered';
-import Unordered from './unordered';
-import Subtitles from './subtitles';
+import ListOrderedOrUnordered from './listOrderedOrUnordered';
+import Subtitle from './subtitle';
+import Paragraph from './parrafo';
 
 // TODO: tests
 const Cuerpo = props => {
-    const resp = [];
+    const {
+        globalContent: { content_elements: contentElements }
+    } = props;
+    const bodyComponents = [
+        Paragraph,
+        PullQuote,
+        BlockQuote,
+        Tags,
+        Subtitle,
+        Gallery,
+        ListOrderedOrUnordered,
+        Image
+    ];
 
-    /* resp.push(<TextCapital />);
-    resp.push(<BlockQuote />);
-    resp.push(<TextCapital />);
-    resp.push(<Subtitles />);
-    resp.push(<Ordered />);
-    resp.push(<Unordered />); */
-    // console.log('------------------- cuerpo', props);
-    // props.globalContent.content_elements.forEach(element => {
-    //     if (element.type === 'gallery') {
-    //         resp.push(<Gallery {...element} />);
-    //     }
-    // });
-    /* resp.push(<Gallery {...props} />); */
-    /* resp.push(<Html />);
-    resp.push(<PullQuote />);
-    resp.push(<MasNotas />);
-    resp.push(<Tags />); */
+    const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
+    const resp = contentElements.map((element, i) => {
+        const Component = bodyComponents.find(bc => {
+            if (element.type === 'quote') return bc.arcType === element.subtype;
+            return bc.arcType === element.type;
+        });
+        if (Component) {
+            if (capitalIndex === i) {
+                return <Component data={element} capital />;
+            }
+            return <Component data={element} />;
+        }
+
+        return <></>;
+    });
     return resp;
 };
 

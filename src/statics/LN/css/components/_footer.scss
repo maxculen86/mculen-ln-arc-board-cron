@@ -31,8 +31,12 @@ footer {
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: $px-10;
+            margin-bottom: $px-20;
             @media ($media-l) {
                 order: 1;
+                margin-top: 0;
+                margin-bottom: 0;
             }
             @media (min-width: 1024px) {
                 justify-content: flex-start;

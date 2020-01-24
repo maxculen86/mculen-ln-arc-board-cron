@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import pym from 'pym.js';
+import '../../../../resources/dist/css/ln/pages/acu-revista.css';
 
 const AnexoIframe = ({ url, id, styles }) => {
     useEffect(() => {
