@@ -110,9 +110,21 @@
                 "_id": 1550690199877
             },
             "address": {},
+            "caption": "Epigrafe",
             "created_date": "2018-09-20T14:08:26Z",
-            "credits": {
-                "affiliation": []
+            "vanity_credits": {
+                "by": [
+                    {
+                        "type": "author",
+                        "name": "Credito"
+                    }
+                ],
+                "affiliation": [
+                    {
+                        "type": "author",
+                        "name": "Fuente"
+                    }
+                ]
             },
             "height": 230,
             "last_updated_date": "2018-09-20T14:08:26Z",

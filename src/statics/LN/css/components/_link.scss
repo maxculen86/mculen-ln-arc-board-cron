@@ -15,7 +15,9 @@
         line-height: $px-23;
     }
 }
-
+.element-paragraph a {
+    color: $link;
+}
 .link {
     font-family: $font-arial;
     font-size: $font-12;
@@ -32,6 +34,12 @@
     .--small {
         font-size: $font-14;
         text-transform: initial;
+    }
+    .opinion-calc & {
+        font-size: $font-14;
+        @media (min-width: 768px) {
+            font-size: $font-16;
+        }
     }
 }
 

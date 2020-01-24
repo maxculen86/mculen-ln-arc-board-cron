@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArcAd from './arcWrapper';
 
@@ -18,10 +18,6 @@ const bannerComponent = ({
     device,
     extraClasses
 }) => {
-    const [visible, setVisible] = useState(false);
-    const show = () => {
-        setVisible(true);
-    };
     // TODO: Borrar estos comentarios feos
     let ad = (
         <ArcAd
@@ -34,20 +30,11 @@ const bannerComponent = ({
             dimensions={dimensions}
             targeting={targeting}
             bidding={bidding}
-            show={show}
         />
     );
 
     if (background) {
-        ad = (
-            <div
-                className={`banner w-100 --bg-banner ${
-                    visible ? '' : 'hlp-none'
-                }`}
-            >
-                {ad}
-            </div>
-        );
+        ad = <div className="banner w-100 --bg-banner hlp-none">{ad}</div>;
     }
 
     return ad;

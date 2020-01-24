@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import BreadcrumbComponent from '../../../common/breadcrumbBase';
-import BreadCrumbSchema from '../../../common/breadcrumbSchema';
+import BreadcrumbComponent from '../../common/breadcrumbBase';
+import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
 const getPrimaryTree = (sections, section, resultSections) => {
     resultSections.push({

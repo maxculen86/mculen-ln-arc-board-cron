@@ -7,6 +7,11 @@ const registerAdFn = jest.fn();
 global.ArcAds = jest.fn().mockImplementationOnce(() => ({
     registerAd: registerAdFn
 }));
+global.MutationObserver = class {
+    constructor(callback) {}
+    disconnect() {}
+    observe(element, initObject) {}
+};
 
 describe('LaNacion - Common - Banner - ArcWrapper', () => {
     const slotId = 'caja1_dsk';
