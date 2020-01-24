@@ -8,7 +8,9 @@ import AperturaNoticia from '../../private/LN/nota/apertura/aperturaNoticia';
 const aperturaNoticia = ({ id: featureId, globalContent }) => {
     return (
         <Static id={featureId}>
-            <AperturaNoticia basic={globalContent.promo_items.basic} />
+            {globalContent.promo_items && (
+                <AperturaNoticia basic={globalContent.promo_items.basic} />
+            )}
         </Static>
     );
 };
