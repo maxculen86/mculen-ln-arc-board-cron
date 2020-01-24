@@ -18,6 +18,7 @@ import Paragraph from './parrafo';
 // TODO: tests
 const Cuerpo = props => {
     const {
+        outputType,
         globalContent: { content_elements: contentElements }
     } = props;
     const bodyComponents = [
@@ -30,6 +31,7 @@ const Cuerpo = props => {
         ListOrderedOrUnordered,
         Image
     ];
+    console.log('PASA POR CUERPO DEFAULT');
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
@@ -42,7 +44,7 @@ const Cuerpo = props => {
             if (capitalIndex === i) {
                 return <Component data={element} capital />;
             }
-            return <Component data={element} />;
+            return <Component data={element} outputType={outputType} />;
         }
 
         return <></>;

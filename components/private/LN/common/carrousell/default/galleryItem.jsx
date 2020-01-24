@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaBase from '../media';
+import MediaBase from '../../media';
 
 export default function galleryItem({ mediaData, galleryOrder, totalGallery }) {
     return (

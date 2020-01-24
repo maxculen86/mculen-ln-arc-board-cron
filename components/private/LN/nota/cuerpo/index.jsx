@@ -8,6 +8,7 @@ const index = props => {
     const {
         globalContent: { subtype }
     } = props;
+    console.log('PASA POR CUERPO EN FEATURES');
 
     if (subtype === '7') return <CuerpoReceta {...props} />;
 

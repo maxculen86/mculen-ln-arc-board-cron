@@ -1,23 +1,19 @@
-// TODO: usar este como carrousell y renombrar
 import React from 'react';
-import Carrousell from '../../../common/carousell';
-import Media from './galleryItem';
+import PropTypes from 'fusion:prop-types';
+import Carrousell from './default';
+import CarrousellAmp from './amp';
 
 const index = props => {
-    const { data } = props;
-    return (
-        <Carrousell>
-            {data.content_elements.map((v, i) => (
-                <Media
-                    mediaData={v}
-                    galleryOrder={i}
-                    totalGallery={data.content_elements.length}
-                />
-            ))}
-        </Carrousell>
-    );
+    const { outputType, data } = props;
+    console.log('PASA POR GALERIA INDEX');
+
+    if (outputType === 'amp') return <CarrousellAmp />;
+    return <Carrousell />;
+    //return <></>;
 };
 
-index.arcType = 'gallery';
+index.propTypes = {
+    outputType: PropTypes.string.isRequired
+};
 
 export default index;
