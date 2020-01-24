@@ -18,7 +18,6 @@ import Banner from '../../common/banner';
 
 // TODO: tests
 const Cuerpo = props => {
-    console.log('########## PROPS DE CUERPO ##########:', props);
     const {
         isAdmin,
         siteProperties,
@@ -53,15 +52,16 @@ const Cuerpo = props => {
                 paragraphPosition += 1;
                 return (
                     <>
+                        <Component
+                            data={element}
+                            capital={capitalIndex === i}
+                        />
                         {bannerConfig &&
+                            paragraphsCount > 1 &&
                             bannerConfig.map(banner => {
                                 if (banner.position === paragraphPosition) {
                                     return (
                                         <>
-                                            <Component
-                                                data={element}
-                                                capital={capitalIndex === i}
-                                            />
                                             <Banner
                                                 siteProperties={siteProperties}
                                                 isAdmin={isAdmin}
@@ -78,15 +78,12 @@ const Cuerpo = props => {
                                         </>
                                     );
                                 }
-                                return <></>;
+                                return null;
                             })}
                     </>
                 );
             }
-            /* if (capitalIndex === i) {
-                return <Component data={element} capital />;
-            } */
-            return <Component data={element} />;
+            return <Component data={element} capital={capitalIndex === i} />;
         }
 
         return <></>;
