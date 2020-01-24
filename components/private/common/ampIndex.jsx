@@ -67,6 +67,10 @@ const config = {
             {
                 customElement: 'amp-accordion',
                 src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
+            },
+            {
+                customElement: 'amp-ad',
+                src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
             }
             /*             {
                 checkInclusion: 'LN-home/AMPStory',
