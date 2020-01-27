@@ -67,6 +67,21 @@ const amp = props => {
                 </div>
             </header>
 
+            <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
+                <amp-ad
+                    id="sticky_amp"
+                    type="sticky"
+                    class="banner"
+                    width="300"
+                    height="50"
+                    data-aax_size="300x50"
+                >
+                    <div placeholder>
+                        <b>Anuncio publicitario</b>
+                    </div>
+                </amp-ad>
+            </div>
+
             <amp-sidebar
                 id="sidebar-left"
                 class="sample-sidebar"
@@ -583,6 +598,7 @@ const amp = props => {
                                             alt=""
                                         ></amp-img>
                                     </a>
+
                                     <section className="com-epigrafe">
                                         <p className="text">
                                             En Mar del Plata, el agua registra
@@ -595,47 +611,6 @@ const amp = props => {
                                             Sebastián Blanco
                                         </p>
                                     </section>
-
-                                    <div className="w-100 --bg-banner hlp-desksm-none content-sticky">
-                                        <amp-position-observer
-                                            on="enter:carouselTransition.start"
-                                            intersection-ratios="0.8"
-                                            layout="nodisplay"
-                                        ></amp-position-observer>
-                                        <amp-ad
-                                            id="sticky_amp"
-                                            type="sticky"
-                                            class="banner"
-                                            width="300"
-                                            height="50"
-                                            data-aax_size="300x50"
-                                        >
-                                            <div placeholder>
-                                                <b>Anuncio publicitario</b>
-                                            </div>
-                                        </amp-ad>
-
-                                        <amp-animation
-                                            id="carouselTransition"
-                                            layout="nodisplay"
-                                            dangerouslySetInnerHTML={{
-                                                __html: `<script type="application/json">
-                                                            {
-                                                                "duration": "500ms",
-                                                                "fill": "both",
-                                                                "easing": "ease-in",
-                                                                "delay": "200ms",
-                                                                "animations": [{
-                                                                    "selector": ".content-sticky",
-                                                                    "keyframes": [{
-                                                                    "transform": "translateX(0%);"
-                                                                    }]
-                                                                }]
-                                                            }
-                                                        </script>`
-                                            }}
-                                        />
-                                    </div>
                                 </section>
                             </div>
                         </div>

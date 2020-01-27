@@ -71,15 +71,6 @@ const config = {
             {
                 customElement: 'amp-ad',
                 src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
-            },
-            {
-                customElement: 'amp-position-observer',
-                src:
-                    'https://cdn.ampproject.org/v0/amp-position-observer-0.1.js'
-            },
-            {
-                customElement: 'amp-animation',
-                src: 'https://cdn.ampproject.org/v0/amp-animation-0.1.js'
             } /*
             {
                 checkInclusion: 'LN-home/AMPStory',
