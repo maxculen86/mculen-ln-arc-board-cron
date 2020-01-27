@@ -19,10 +19,12 @@ const image = ({ data }) => {
                               ))}{' '}
                         - Crédito:{' '}
                         {data.credits
-                            ? data.credits.by.map(credito => (
+                            ? data.credits.by &&
+                              data.credits.by.map(credito => (
                                   <>{credito.name}</>
                               ))
-                            : data.vanity_credits.by.map(credito => (
+                            : data.vanity_credits.by &&
+                              data.vanity_credits.by.map(credito => (
                                   <>{credito.name}</>
                               ))}
                     </p>
@@ -38,7 +40,7 @@ image.propTypes = {
     data: PropTypes.shape({
         caption: PropTypes.string.isRequired,
         vanity_credits: PropTypes.arrayOf,
-        credits: PropTypes.arrayOf,
+        //credits: PropTypes.arrayOf,
         type: PropTypes.string.isRequired
     }).isRequired
 };

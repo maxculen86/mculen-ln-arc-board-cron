@@ -10,7 +10,8 @@ const styleConfig = {
     'la-nacion-ar': {
         'AMP-LN-Acu': 'resources/dist/css/ln/amp/ampln-acu.css',
         'AMP-LN-Acu-Noticias':
-            'resources/dist/css/ln/amp/ampln-acu-noticias.css'
+            'resources/dist/css/ln/amp/ampln-acu-noticias.css',
+        'LN-nota-noticia': 'resources/dist/css/ln/amp/ampln-acu.css'
     }
 };
 

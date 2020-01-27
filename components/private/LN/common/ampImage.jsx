@@ -2,15 +2,20 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const AmpImage = props => {
-    const { sources, url, alt } = props;
+    const { sources, url, alt, width } = props;
 
-    const srcset = sources
+    // TODO: ver este tema de source sets con maquetacion
+    let srcset = sources
         .map(src => {
             if (src.resizedUrl && src.option.width)
                 return `${src.resizedUrl} ${src.option.width}w`;
             return '';
         })
         .join(', ');
+
+    // Si no tiene source sets le seteo uno temporal
+    if (srcset.length < 1) srcset = `${url} ${width}w`;
+
     return (
         <>
             <amp-img
@@ -36,7 +41,8 @@ AmpImage.propTypes = {
         })
     ).isRequired,
     url: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
+    alt: PropTypes.string.isRequired,
+    width: PropTypes.number
 };
 
 export default AmpImage;

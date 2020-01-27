@@ -4,10 +4,10 @@ import PropTypes from 'fusion:prop-types';
 const index = props => {
     const { data } = props;
 
-    // TODO: ask the markup team for sizes
+    // TODO: ask the markup team for sizes ( they should probably come from a configuration file or as props, who knows ... )
     return (
         <>
-            <amp-carousel width="450" height="300" layout="fixed" type="slides">
+            <amp-carousel width="750" height="500" layout="fixed" type="slides">
                 {data.content_elements.map(image => (
                     <amp-img
                         media={image.resized_urls.media}

@@ -23,6 +23,7 @@ class ImageArticle extends React.Component {
                         sources={sources}
                         url={image.url}
                         alt={altText || ''}
+                        width={image.width}
                     />
                 ) : (
                     <ImageBase
@@ -43,7 +44,8 @@ ImageArticle.propTypes = {
     image: PropTypes.shape({
         type: PropTypes.oneOf(['image']),
         url: PropTypes.string,
-        resized_urls: PropTypes.array.isRequired
+        resized_urls: PropTypes.array.isRequired,
+        width: PropTypes.number
     }).isRequired,
     altText: PropTypes.string,
     zoom: PropTypes.bool,

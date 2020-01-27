@@ -28,8 +28,8 @@ const Cuerpo = props => {
         Tags,
         Subtitle,
         Gallery,
-        ListOrderedOrUnordered
-        /* Image */
+        ListOrderedOrUnordered,
+        Image
     ];
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
