@@ -75,6 +75,12 @@ const config = {
                 customElement: 'amp-story',
                 src: 'https://cdn.ampproject.org/v0/amp-story-1.0.js'
             } */
+        ],
+        'LN-nota-noticia': [
+            {
+                customElement: 'amp-carousel',
+                src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'
+            }
         ]
     }
 };

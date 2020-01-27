@@ -1,23 +1,22 @@
 import React from 'react';
-import Image from '../../media/imageBase';
+import PropTypes from 'fusion:prop-types';
 
 const index = props => {
     const { data } = props;
-    console.log(
-        '######################  CARROUSELL AMP ################# :',
-        data.content_elements
-    );
+
+    // TODO: ask the markup team for sizes
     return (
         <>
-            <div>ACA TOY</div>
-            <amp-carousel
-                width="450"
-                height="300"
-                layout="responsive"
-                type="slides"
-            >
-                {data.content_elements.map((v, i) => (
-                    <Image image={v} href={v.url} />
+            <amp-carousel width="450" height="300" layout="fixed" type="slides">
+                {data.content_elements.map(image => (
+                    <amp-img
+                        media={image.resized_urls.media}
+                        src={image.url}
+                        width={image.width}
+                        height={image.height}
+                        layout="responsive"
+                        alt={image.caption}
+                    />
                 ))}
             </amp-carousel>
         </>
@@ -25,5 +24,21 @@ const index = props => {
 };
 
 index.arcType = 'gallery';
+
+index.propTypes = {
+    data: PropTypes.shape({
+        content_elements: PropTypes.arrayOf(
+            PropTypes.shape({
+                url: PropTypes.string,
+                width: PropTypes.number,
+                height: PropTypes.number,
+                caption: PropTypes.string,
+                resized_urls: PropTypes.shape({
+                    media: PropTypes.string
+                })
+            }).isRequired
+        )
+    }).isRequired
+};
 
 export default index;
