@@ -32,7 +32,7 @@ const lnNotaNoticia = ({ children }) => {
     return (
         <div id="wrapper" className="nota noticia">
             {/* TODO: sacar */}
-            <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
+            {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
             <Header />
             <main>
                 {children[0]}

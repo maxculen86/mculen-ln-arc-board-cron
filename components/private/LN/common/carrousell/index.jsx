@@ -5,12 +5,14 @@ import CarrousellAmp from './amp';
 
 const index = props => {
     const { outputType, data } = props;
-    console.log('PASA POR GALERIA INDEX');
+    console.log('GALERIA INDEX');
 
-    if (outputType === 'amp') return <CarrousellAmp />;
-    return <Carrousell />;
-    //return <></>;
+    if (outputType === 'amp') return <CarrousellAmp data={data} />;
+    return <Carrousell data={data} />;
+    //return <>ACA TOY</>;
 };
+
+index.arcType = 'gallery';
 
 index.propTypes = {
     outputType: PropTypes.string.isRequired

@@ -28,8 +28,8 @@ const Cuerpo = props => {
         Tags,
         Subtitle,
         Gallery,
-        ListOrderedOrUnordered,
-        Image
+        ListOrderedOrUnordered
+        /* Image */
     ];
     console.log('PASA POR CUERPO DEFAULT');
 
@@ -37,16 +37,19 @@ const Cuerpo = props => {
 
     const resp = contentElements.map((element, i) => {
         const Component = bodyComponents.find(bc => {
+            console.log('############## ARCTYPE: ', bc.arcType);
             if (element.type === 'quote') return bc.arcType === element.subtype;
             return bc.arcType === element.type;
         });
         if (Component) {
             if (capitalIndex === i) {
+                console.log('RETORNA UNO');
                 return <Component data={element} capital />;
             }
+            console.log('RETORNA OTRO');
             return <Component data={element} outputType={outputType} />;
         }
-
+        console.log('NO RETORNA UN COÑO');
         return <></>;
     });
     return resp;
