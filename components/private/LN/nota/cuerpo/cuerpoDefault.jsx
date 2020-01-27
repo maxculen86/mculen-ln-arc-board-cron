@@ -14,10 +14,14 @@ import Ordered from './ordered';
 import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitle from './subtitle';
 import Paragraph from './parrafo';
+import Banner from '../../common/banner';
 
 // TODO: tests
 const Cuerpo = props => {
     const {
+        isAdmin,
+        siteProperties,
+        bannerConfig,
         globalContent: { content_elements: contentElements }
     } = props;
     const bodyComponents = [
@@ -31,6 +35,11 @@ const Cuerpo = props => {
         Image
     ];
 
+    const paragraphsCount = contentElements.filter(el => el.type === 'text')
+        .length;
+
+    let paragraphPosition = 0;
+
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
     const resp = contentElements.map((element, i) => {
@@ -39,10 +48,42 @@ const Cuerpo = props => {
             return bc.arcType === element.type;
         });
         if (Component) {
-            if (capitalIndex === i) {
-                return <Component data={element} capital />;
+            if (Component.arcType === 'text') {
+                paragraphPosition += 1;
+                return (
+                    <>
+                        <Component
+                            data={element}
+                            capital={capitalIndex === i}
+                        />
+                        {bannerConfig &&
+                            paragraphsCount > 1 &&
+                            bannerConfig.map(banner => {
+                                if (banner.position === paragraphPosition) {
+                                    return (
+                                        <>
+                                            <Banner
+                                                siteProperties={siteProperties}
+                                                isAdmin={isAdmin}
+                                                slotGroup="nota"
+                                                devices="nota"
+                                                selectedSlots={{
+                                                    desktopSlot: banner.desktop,
+                                                    mobileSlot: banner.mobile,
+                                                    tabletSlot: banner.tablet
+                                                }}
+                                                sticky={banner.sticky}
+                                                background={banner.background}
+                                            />
+                                        </>
+                                    );
+                                }
+                                return null;
+                            })}
+                    </>
+                );
             }
-            return <Component data={element} />;
+            return <Component data={element} capital={capitalIndex === i} />;
         }
 
         return <></>;

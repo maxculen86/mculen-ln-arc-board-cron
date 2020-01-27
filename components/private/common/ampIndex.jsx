@@ -22,7 +22,7 @@ export const AMPCustomStyle = props => {
 
     const StylesConfig = sitio[layout];
 
-    return (
+    return StylesConfig ? (
         <Resource path={StylesConfig}>
             {({ data }) => {
                 return data ? (
@@ -35,7 +35,7 @@ export const AMPCustomStyle = props => {
                 ) : null;
             }}
         </Resource>
-    );
+    ) : null;
 };
 
 AMPCustomStyle.propTypes = {

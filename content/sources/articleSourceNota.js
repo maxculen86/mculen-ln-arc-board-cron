@@ -1,5 +1,10 @@
 import request from 'request-promise-native';
-import { CONTENT_BASE, RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import {
+    CONTENT_BASE,
+    RESIZER_KEY,
+    RESIZER_URL,
+    ARC_ACCESS_TOKEN
+} from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
 
@@ -22,10 +27,17 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
-    return request({
+    const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
-    }).then(response => {
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+
+    return request(opt).then(response => {
         return transform(response, query);
     });
 };

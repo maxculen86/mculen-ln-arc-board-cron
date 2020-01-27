@@ -6,27 +6,52 @@ const image = ({ data }) => {
     return (
         <>
             <Media mediaData={data} colNumber={12}>
-                <section className="com-epigrafe">
-                    <p className="text">{data.caption}</p>
-                    <p className="small">
-                        Fuente:{' '}
-                        {data.credits
-                            ? data.credits.affiliation.map(fuente => (
-                                  <>{fuente.name}</>
-                              ))
-                            : data.vanity_credits.affiliation.map(fuente => (
-                                  <>{fuente.name}</>
-                              ))}{' '}
-                        - Crédito:{' '}
-                        {data.credits
-                            ? data.credits.by.map(credito => (
-                                  <>{credito.name}</>
-                              ))
-                            : data.vanity_credits.by.map(credito => (
-                                  <>{credito.name}</>
-                              ))}
-                    </p>
-                </section>
+                {data && (
+                    <section className="com-epigrafe">
+                        {data.caption && <p className="text">{data.caption}</p>}
+                        {data.vanity_credits &&
+                            data.vanity_credits.affiliation.length && (
+                                <p className="small">
+                                    Fuente:{' '}
+                                    {data.credits
+                                        ? data.credits.affiliation.map(
+                                              fuente => <>{fuente.name}</>
+                                          )
+                                        : data.vanity_credits.affiliation.map(
+                                              fuente => <>{fuente.name}</>
+                                          )}{' '}
+                                    - Crédito:{' '}
+                                    {data.credits
+                                        ? data.credits.by.map(credito => (
+                                              <>{credito.name}</>
+                                          ))
+                                        : data.vanity_credits.by.map(
+                                              credito => <>{credito.name}</>
+                                          )}
+                                </p>
+                            )}
+                        {data.credits && data.credits.affiliation.length && (
+                            <p className="small">
+                                Fuente:{' '}
+                                {data.credits
+                                    ? data.credits.affiliation.map(fuente => (
+                                          <>{fuente.name}</>
+                                      ))
+                                    : data.vanity_credits.affiliation.map(
+                                          fuente => <>{fuente.name}</>
+                                      )}{' '}
+                                - Crédito:{' '}
+                                {data.credits
+                                    ? data.credits.by.map(credito => (
+                                          <>{credito.name}</>
+                                      ))
+                                    : data.vanity_credits.by.map(credito => (
+                                          <>{credito.name}</>
+                                      ))}
+                            </p>
+                        )}
+                    </section>
+                )}
             </Media>
         </>
     );
