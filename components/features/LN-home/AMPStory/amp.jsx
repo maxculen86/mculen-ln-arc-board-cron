@@ -8,6 +8,8 @@ const AmpImg = 'amp-img';
 const AmpVideo = 'amp-video';
 const AmpAcordeon = 'amp-accordion';
 const AmpAd = 'amp-ad';
+const AmpObserver = 'amp-position-observer';
+const AmpAnimation = 'amp-animation';
 
 const _getAssetsPath = contextPath => deployment => assets => {
     const path = `${contextPath}/resources/amp/assets`;
@@ -19,11 +21,11 @@ const amp = props => {
     const getAssets = _getAssetsPath(contextPath)(deployment);
 
     return (
-        <div id="wrapper" className="nota noticia">
+        <div id="wrapper" className="nota noticia amp">
             <header id="header" className="header">
                 <div className="lay">
                     <div className="row">
-                        <div className="col-desksm-4 header__left hlp-mobile-none">
+                        <div className="col-desksm-4 header__left">
                             <button
                                 on="tap:sidebar-left.toggle"
                                 className="icon-menu"
@@ -509,6 +511,9 @@ const amp = props => {
                 <a href="https://www.lanacion.com.ar/" class="icon-home">
                     Home
                 </a>
+                <button on="tap:sidebar-left.toggle" class="icon-menu">
+                    Secciones
+                </button>
                 <a href="https://club.lanacion.com.ar/" class="icon-club">
                     Club LA NACIÓN
                 </a>
@@ -518,9 +523,6 @@ const amp = props => {
                 >
                     Mi cuenta
                 </a>
-                <button on="tap:sidebar-left.toggle" class="icon-menu">
-                    Menú
-                </button>
                 <div id="target-element-left"></div>
             </div>
             <main>
@@ -593,6 +595,47 @@ const amp = props => {
                                             Sebastián Blanco
                                         </p>
                                     </section>
+
+                                    <div className="w-100 --bg-banner hlp-desksm-none content-sticky">
+                                        <amp-position-observer
+                                            on="enter:carouselTransition.start"
+                                            intersection-ratios="0.8"
+                                            layout="nodisplay"
+                                        ></amp-position-observer>
+                                        <amp-ad
+                                            id="sticky_amp"
+                                            type="sticky"
+                                            class="banner"
+                                            width="300"
+                                            height="50"
+                                            data-aax_size="300x50"
+                                        >
+                                            <div placeholder>
+                                                <b>Anuncio publicitario</b>
+                                            </div>
+                                        </amp-ad>
+
+                                        <amp-animation
+                                            id="carouselTransition"
+                                            layout="nodisplay"
+                                            dangerouslySetInnerHTML={{
+                                                __html: `<script type="application/json">
+                                                            {
+                                                                "duration": "500ms",
+                                                                "fill": "both",
+                                                                "easing": "ease-in",
+                                                                "delay": "200ms",
+                                                                "animations": [{
+                                                                    "selector": ".content-sticky",
+                                                                    "keyframes": [{
+                                                                    "transform": "translateX(0%);"
+                                                                    }]
+                                                                }]
+                                                            }
+                                                        </script>`
+                                            }}
+                                        />
+                                    </div>
                                 </section>
                             </div>
                         </div>
