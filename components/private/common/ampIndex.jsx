@@ -36,9 +36,7 @@ export const AMPCustomStyle = props => {
                 ) : null;
             }}
         </Resource>
-    ) : (
-        <></>
-    );
+    ) : null;
 };
 
 AMPCustomStyle.propTypes = {
@@ -70,8 +68,12 @@ const config = {
             {
                 customElement: 'amp-accordion',
                 src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
-            }
-            /*             {
+            },
+            {
+                customElement: 'amp-ad',
+                src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
+            } /*
+            {
                 checkInclusion: 'LN-home/AMPStory',
                 customElement: 'amp-story',
                 src: 'https://cdn.ampproject.org/v0/amp-story-1.0.js'

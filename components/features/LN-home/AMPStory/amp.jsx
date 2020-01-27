@@ -7,6 +7,9 @@ import Context from 'fusion:context';
 const AmpImg = 'amp-img';
 const AmpVideo = 'amp-video';
 const AmpAcordeon = 'amp-accordion';
+const AmpAd = 'amp-ad';
+const AmpObserver = 'amp-position-observer';
+const AmpAnimation = 'amp-animation';
 
 const _getAssetsPath = contextPath => deployment => assets => {
     const path = `${contextPath}/resources/amp/assets`;
@@ -18,11 +21,11 @@ const amp = props => {
     const getAssets = _getAssetsPath(contextPath)(deployment);
 
     return (
-        <div id="wrapper" className="nota noticia">
+        <div id="wrapper" className="nota noticia amp">
             <header id="header" className="header">
                 <div className="lay">
                     <div className="row">
-                        <div className="col-desksm-4 header__left hlp-mobile-none">
+                        <div className="col-desksm-4 header__left">
                             <button
                                 on="tap:sidebar-left.toggle"
                                 className="icon-menu"
@@ -64,15 +67,24 @@ const amp = props => {
                 </div>
             </header>
 
-            <amp-position-observer
-                on="scroll:spinAnimation.seekTo(percent=event.percent)"
-                intersection-ratios="1"
-                layout="nodisplay"
-            ></amp-position-observer>
+            <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
+                <amp-ad
+                    id="sticky_amp"
+                    type="sticky"
+                    class="banner"
+                    width="300"
+                    height="50"
+                    data-aax_size="300x50"
+                >
+                    <div placeholder>
+                        <b>Anuncio publicitario</b>
+                    </div>
+                </amp-ad>
+            </div>
 
             <amp-sidebar
                 id="sidebar-left"
-                className="sample-sidebar"
+                class="sample-sidebar"
                 layout="nodisplay"
                 side="left"
             >
@@ -91,7 +103,7 @@ const amp = props => {
                 </section>
                 <ul className="menu-nav">
                     <li className="menu_li desplegable">
-                        <amp-accordion className="sample">
+                        <amp-accordion class="sample">
                             <section>
                                 <h2 className="icon-right">
                                     <a
@@ -128,7 +140,7 @@ const amp = props => {
                         </a>
                     </li>
                     <li className="menu_li desplegable">
-                        <amp-accordion className="sample">
+                        <amp-accordion class="sample">
                             <section>
                                 <h2 className="icon-right">
                                     <a
@@ -514,6 +526,9 @@ const amp = props => {
                 <a href="https://www.lanacion.com.ar/" class="icon-home">
                     Home
                 </a>
+                <button on="tap:sidebar-left.toggle" class="icon-menu">
+                    Secciones
+                </button>
                 <a href="https://club.lanacion.com.ar/" class="icon-club">
                     Club LA NACIÓN
                 </a>
@@ -523,9 +538,6 @@ const amp = props => {
                 >
                     Mi cuenta
                 </a>
-                <button on="tap:sidebar-left.toggle" class="icon-menu">
-                    Menú
-                </button>
                 <div id="target-element-left"></div>
             </div>
             <main>
@@ -586,6 +598,7 @@ const amp = props => {
                                             alt=""
                                         ></amp-img>
                                     </a>
+
                                     <section className="com-epigrafe">
                                         <p className="text">
                                             En Mar del Plata, el agua registra
@@ -645,12 +658,18 @@ const amp = props => {
                                         de neoprene.
                                     </p>
                                     <div className="w-100 --bg-banner">
-                                        <div
+                                        <amp-ad
                                             id="caja1_amp"
-                                            className="banner --small"
+                                            type="caja1"
+                                            class="banner"
+                                            width="300"
+                                            height="250"
+                                            data-aax_size="300x250"
                                         >
-                                            BANNER
-                                        </div>
+                                            <div placeholder>
+                                                <b>Anuncio publicitario</b>
+                                            </div>
+                                        </amp-ad>
                                     </div>
                                     <p className="text">
                                         Promedio más baja de los últimos seis
@@ -674,12 +693,18 @@ const amp = props => {
                                         Desarrollo Pesquero (Inidep).
                                     </p>
                                     <div className="w-100 --bg-banner">
-                                        <div
+                                        <amp-ad
                                             id="caja2_amp"
-                                            className="banner --small"
+                                            type="caja2"
+                                            class="banner"
+                                            width="300"
+                                            height="250"
+                                            data-aax_size="300x250"
                                         >
-                                            BANNER
-                                        </div>
+                                            <div placeholder>
+                                                <b>Anuncio publicitario</b>
+                                            </div>
+                                        </amp-ad>
                                     </div>
                                     <p className="text">
                                         Promedio más baja de los últimos seis
@@ -688,6 +713,20 @@ const amp = props => {
                                         Instituto Nacional de Investigación de
                                         Desarrollo Pesquero (Inidep).
                                     </p>
+                                    <amp-embed
+                                        type="Embebido"
+                                        width="400"
+                                        height="300"
+                                        layout="responsive"
+                                        data-publisher="amp-demo"
+                                        data-mode="thumbnails-a"
+                                        data-placement="Ads"
+                                        data-article="auto"
+                                    >
+                                        <div placeholder>
+                                            <b>Embebido</b>
+                                        </div>
+                                    </amp-embed>
                                     <p className="text">
                                         Promedio más baja de los últimos seis
                                         años. Así lo indica un informe del
@@ -1388,7 +1427,7 @@ const amp = props => {
                                     height="21"
                                     src="https://static.glanacion.com/v2/ln/img/gda.jpg"
                                     alt="gda"
-                                    className="img_gda"
+                                    class="img_gda"
                                 ></amp-img>
                                 Miembro de GDA.Grupo de Diarios América
                                 <a
@@ -1401,7 +1440,7 @@ const amp = props => {
                                         height="48"
                                         src="https://static.glanacion.com/v2/ln/img/data.jpg"
                                         alt="Data fiscal"
-                                        className="img_data-fiscal"
+                                        class="img_data-fiscal"
                                     ></amp-img>
                                 </a>
                             </p>
