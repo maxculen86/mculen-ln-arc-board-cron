@@ -11,6 +11,7 @@ import getProperties from 'fusion:properties';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
+import relatedSource from './relatedSource';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -74,6 +75,7 @@ const transform = (data, siteProps) => {
 
 const transformContent = (jsonArticle, arcSite) => {
     const promiseArr = [];
+    const followMoreArr = [];
     const sections = get(jsonArticle, 'taxonomy.sections');
     const resp = {
         ...jsonArticle,
@@ -95,6 +97,18 @@ const transformContent = (jsonArticle, arcSite) => {
         }
     });
 
+    resp.related_content.basic.forEach((e, i) => {
+        console.log(' ******************** e', e);
+        if (e.type === 'reference') {
+            followMoreArr.push(
+                addFollowAnotherNoteData(e, arcSite).then(g => {
+                    resp.related_content.basic[i] = g;
+                })
+            );
+            console.log(' ******************** followMoreArr', followMoreArr);
+        }
+    });
+
     if (get(resp, 'promo_items.basic.type') === 'gallery') {
         promiseArr.push(
             addGalleryData(resp.promo_items.basic, arcSite).then(g => {
@@ -102,7 +116,7 @@ const transformContent = (jsonArticle, arcSite) => {
             })
         );
     }
-    return Promise.all(promiseArr).then(() => {
+    return Promise.all([promiseArr, followMoreArr]).then(() => {
         return resp;
     });
 };
@@ -126,6 +140,32 @@ const addGalleryData = (gallery, arcSite) => {
                     ...fetchedGallery.content_elements[i]
                 };
             });
+
+            return resp;
+        });
+};
+
+const addFollowAnotherNoteData = (anotherNoteData, arcSite) => {
+    const { _id: referenceId } = anotherNoteData;
+    return relatedSource
+        .fetch({
+            id: referenceId,
+            'arc-site': arcSite,
+            includedFields: 'headlines,label'
+        })
+        .then(fetchedRelated => {
+            const resp = {
+                ...anotherNoteData
+            };
+            console.log(' ******************** fetchedRelated', fetchedRelated);
+            resp.related_content.basic = anotherNoteData.related_content.basic.map(
+                (v, i) => {
+                    return {
+                        ...v,
+                        ...fetchedRelated.related_content.basic[i]
+                    };
+                }
+            );
 
             return resp;
         });
