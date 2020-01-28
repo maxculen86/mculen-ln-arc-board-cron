@@ -75,7 +75,6 @@ const transform = (data, siteProps) => {
 
 const transformContent = (jsonArticle, arcSite) => {
     const promiseArr = [];
-    const followMoreArr = [];
     const sections = get(jsonArticle, 'taxonomy.sections');
     const resp = {
         ...jsonArticle,
@@ -98,14 +97,12 @@ const transformContent = (jsonArticle, arcSite) => {
     });
 
     resp.related_content.basic.forEach((e, i) => {
-        console.log(' ******************** e', e);
         if (e.type === 'reference') {
-            followMoreArr.push(
-                addFollowAnotherNoteData(e, arcSite).then(g => {
+            promiseArr.push(
+                addFollowAnotherNoteData(e, arcSite, i).then(g => {
                     resp.related_content.basic[i] = g;
                 })
             );
-            console.log(' ******************** followMoreArr', followMoreArr);
         }
     });
 
@@ -116,7 +113,7 @@ const transformContent = (jsonArticle, arcSite) => {
             })
         );
     }
-    return Promise.all([promiseArr, followMoreArr]).then(() => {
+    return Promise.all(promiseArr).then(() => {
         return resp;
     });
 };
@@ -145,29 +142,26 @@ const addGalleryData = (gallery, arcSite) => {
         });
 };
 
-const addFollowAnotherNoteData = (anotherNoteData, arcSite) => {
-    const { _id: referenceId } = anotherNoteData;
+const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
+    /* const { _id: referenceId } = anotherNoteData; */
     return relatedSource
         .fetch({
-            id: referenceId,
+            id: anotherNoteData._id,
             'arc-site': arcSite,
             includedFields: 'headlines,label'
         })
         .then(fetchedRelated => {
+            const { headlines, label } = fetchedRelated;
             const resp = {
-                ...anotherNoteData
+                ...anotherNoteData,
+                headlines,
+                label
             };
-            console.log(' ******************** fetchedRelated', fetchedRelated);
-            resp.related_content.basic = anotherNoteData.related_content.basic.map(
-                (v, i) => {
-                    return {
-                        ...v,
-                        ...fetchedRelated.related_content.basic[i]
-                    };
-                }
-            );
 
             return resp;
+        })
+        .catch(e => {
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', e);
         });
 };
 
