@@ -200,6 +200,16 @@ export default `
         primary_section ${section}
         seo_keywords
     }
+    related_content {
+        basic {
+            type
+            _id
+            headlines {
+                basic
+            }
+            ${labels}
+        }
+    }
     content_elements {
         _id
         type
