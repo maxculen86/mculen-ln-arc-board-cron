@@ -16,7 +16,8 @@ const bannerComponent = ({
     sticky,
     background,
     device,
-    extraClasses
+    extraClasses,
+    outputType
 }) => {
     // TODO: Borrar estos comentarios feos
     let ad = (
@@ -35,6 +36,24 @@ const bannerComponent = ({
 
     if (background) {
         ad = <div className="banner w-100 --bg-banner hlp-none">{ad}</div>;
+    }
+
+    if (outputType === 'amp') {
+        ad = (
+            <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
+                <amp-ad
+                    id="sticky_amp"
+                    type="sticky"
+                    class="banner"
+                    width="300"
+                    height="50"
+                    data-aax_size="300x50"
+                >
+                    {/* <div placeholder>{ad}</div> */}
+                    {ad}
+                </amp-ad>
+            </div>
+        );
     }
 
     return ad;
