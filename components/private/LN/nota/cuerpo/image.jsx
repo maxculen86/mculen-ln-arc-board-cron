@@ -17,12 +17,14 @@ const image = ({ data }) => {
                                         ? data.credits.affiliation.map(
                                               fuente => <>{fuente.name}</>
                                           )
-                                        : data.vanity_credits.affiliation.map(
+                                        : data.vanity_credits &&
+                                          data.vanity_credits.affiliation.map(
                                               fuente => <>{fuente.name}</>
                                           )}{' '}
                                     - Crédito:{' '}
                                     {data.credits
-                                        ? data.credits.by.map(credito => (
+                                        ? data.credits.by &&
+                                          data.credits.by.map(credito => (
                                               <>{credito.name}</>
                                           ))
                                         : data.vanity_credits.by.map(
@@ -42,7 +44,8 @@ const image = ({ data }) => {
                                       )}{' '}
                                 - Crédito:{' '}
                                 {data.credits
-                                    ? data.credits.by.map(credito => (
+                                    ? data.credits.by &&
+                                      data.credits.by.map(credito => (
                                           <>{credito.name}</>
                                       ))
                                     : data.vanity_credits.by.map(credito => (
