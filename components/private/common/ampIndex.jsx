@@ -95,6 +95,10 @@ const config = {
             {
                 customElement: 'amp-sidebar',
                 src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
+            },
+            {
+                customElement: 'amp-analytics',
+                src: 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js'
             }
         ]
     }

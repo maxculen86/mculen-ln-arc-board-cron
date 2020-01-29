@@ -119,7 +119,7 @@ const pageBuilderSections = [
 lnNotaNoticia.sections = pageBuilderSections;
 
 lnNotaNoticia.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
     outputType: PropTypes.string.isRequired
 };
 

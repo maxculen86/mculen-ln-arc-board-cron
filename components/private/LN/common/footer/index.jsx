@@ -71,42 +71,22 @@ const Index = ({ outputType, siteProperties: { host } }) => {
                 <section className="row footer-copyright">
                     <section className="col-desksm-6 col-desk-6 footer-copyright__fiscal">
                         <p>
-                            {outputType === 'amp' ? (
-                                <amp-img
-                                    alt="gda"
-                                    src="https://static.glanacion.com/v2/ln/img/gda.jpg"
-                                    width="30"
-                                    height="41"
-                                    layout="fixed"
-                                />
-                            ) : (
-                                <img
-                                    src="https://static.glanacion.com/v2/ln/img/gda.jpg"
-                                    alt="gda"
-                                    className="img_gda"
-                                />
-                            )}
+                            <img
+                                src="https://static.glanacion.com/v2/ln/img/gda.jpg"
+                                alt="gda"
+                                className="img_gda"
+                            />
                             Miembro de GDA.Grupo de Diarios América
                             <a
                                 href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {outputType === 'amp' ? (
-                                    <amp-img
-                                        alt="Data fiscal"
-                                        src="https://static.glanacion.com/v2/ln/img/data.jpg"
-                                        width="30"
-                                        height="41"
-                                        layout="fixed"
-                                    />
-                                ) : (
-                                    <img
-                                        src="https://static.glanacion.com/v2/ln/img/data.jpg"
-                                        alt="Data fiscal"
-                                        className="img_data-fiscal"
-                                    />
-                                )}
+                                <img
+                                    src="https://static.glanacion.com/v2/ln/img/data.jpg"
+                                    alt="Data fiscal"
+                                    className="img_data-fiscal"
+                                />
                             </a>
                         </p>
                     </section>
