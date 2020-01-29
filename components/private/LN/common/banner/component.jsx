@@ -49,8 +49,7 @@ const bannerComponent = ({
                     height="50"
                     data-aax_size="300x50"
                 >
-                    {/* <div placeholder>{ad}</div> */}
-                    {ad}
+                    <div placeholder>{ad}</div>
                 </amp-ad>
             </div>
         );

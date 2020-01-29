@@ -20,11 +20,11 @@ const AmpImage = props => {
         <>
             <amp-img
                 alt={alt}
-                height="600"
-                width="600"
+                height="853.33"
+                width="1280"
                 src={url}
                 srcset={srcset}
-                layout="fixed"
+                layout="responsive"
             />
         </>
     );

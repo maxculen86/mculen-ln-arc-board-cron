@@ -83,6 +83,18 @@ const config = {
             {
                 customElement: 'amp-carousel',
                 src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'
+            },
+            {
+                customElement: 'amp-ad',
+                src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
+            },
+            {
+                customElement: 'amp-accordion',
+                src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
+            },
+            {
+                customElement: 'amp-sidebar',
+                src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
             }
         ]
     }

@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Header from './header';
+import FooterAMP from './footerAMP';
 import '../../../../../resources/dist/css/ln/components/footer.css';
 
 const Index = ({ outputType, siteProperties: { host } }) => {
+    if (outputType === 'amp') return <FooterAMP />;
     return (
         <footer>
             <div className="lay">
