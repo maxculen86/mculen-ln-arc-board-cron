@@ -75,7 +75,7 @@ function WithColumnistData(WrappedColumnist, filter) {
                     <WrappedColumnist
                         authors={authors}
                         obtenerMasNotas={this.obtenerMasNotas}
-                        mostrarBtnMasNotas={mostrarBtnMasNotas}
+                        mostrarBtnMasNotas={!mostrarBtnMasNotas}
                     />
                 );
             }
