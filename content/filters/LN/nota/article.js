@@ -208,6 +208,7 @@ export default `
                 basic
             }
             ${labels}
+            website_url
         }
     }
     content_elements {

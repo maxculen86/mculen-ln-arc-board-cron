@@ -1,9 +1,25 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
 
-const Index = props => {
-    console.log('--------------- props', props);
-    return <>SEGUIR LEYENDO</>;
+const Index = ({ related_content }) => {
+    let links = [];
+    if (related_content) {
+        links = related_content.map(el => (
+            <>
+                <a href={el.website_url} className="com-link">
+                    {el.label && el.label.volanta
+                        ? `${el.label.volanta.text} `
+                        : ''}
+                    {el.headlines.basic}
+                </a>
+                <br />
+            </>
+        ));
+    }
+    return (
+        <>
+            <div className="links">{links}</div>
+        </>
+    );
 };
 
-export default Consumer(Index);
+export default Index;

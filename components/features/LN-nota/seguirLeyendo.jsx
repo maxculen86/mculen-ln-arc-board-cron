@@ -8,7 +8,9 @@ const seguirLeyendo = props => {
     return (
         <Static id="LN-Nota-SeguirLeyendo">
             <h4 className="com-subtitle_list">Seguir Leyendo:</h4>
-            <SeguirLeyendo {...props} />
+            <SeguirLeyendo
+                related_content={props.globalContent.related_content.basic}
+            />
         </Static>
     );
 };

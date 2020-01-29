@@ -143,19 +143,19 @@ const addGalleryData = (gallery, arcSite) => {
 };
 
 const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
-    /* const { _id: referenceId } = anotherNoteData; */
     return relatedSource
         .fetch({
             id: anotherNoteData._id,
             'arc-site': arcSite,
-            includedFields: 'headlines,label'
+            includedFields: 'headlines,label,website_url'
         })
         .then(fetchedRelated => {
-            const { headlines, label } = fetchedRelated;
+            const { headlines, label, website_url } = fetchedRelated;
             const resp = {
                 ...anotherNoteData,
                 headlines,
-                label
+                label,
+                website_url
             };
 
             return resp;
