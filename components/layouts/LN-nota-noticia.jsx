@@ -97,6 +97,17 @@ const lnNotaNoticia = ({ children, outputType }) => {
                         {children[5]}
                     </div>
                 </div>
+
+                <div className="lay-sidebar">
+                    <div className="sidebar__main">
+                        {/* Bottom */}
+                        {children[8]}
+                    </div>
+                    <div className="sidebar__aside">
+                        {/* Bottom-Tercera */}
+                        {children[9]}
+                    </div>
+                </div>
             </main>
             <Footer />
         </div>
