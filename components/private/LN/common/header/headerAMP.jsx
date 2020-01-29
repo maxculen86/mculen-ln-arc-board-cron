@@ -487,6 +487,24 @@ const headerAMP = props => {
                     </li>
                 </ul>
             </amp-sidebar>
+            <div className="nav">
+                <a href="https://www.lanacion.com.ar/" className="icon-home">
+                    Home
+                </a>
+                <button on="tap:sidebar-left.toggle" className="icon-menu">
+                    Secciones
+                </button>
+                <a href="https://club.lanacion.com.ar/" className="icon-club">
+                    Club LA NACIÓN
+                </a>
+                <a
+                    href="https://micuenta.lanacion.com.ar/mis-datos"
+                    className="icon-user"
+                >
+                    Mi cuenta
+                </a>
+                <div id="target-element-left"></div>
+            </div>
         </>
     );
 };
