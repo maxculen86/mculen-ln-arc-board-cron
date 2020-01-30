@@ -15,24 +15,33 @@ const index = props => {
     let title;
     let border = false;
 
+    const getSectionTitle = noteType => {
+        let prefix = '';
+        switch (Number(noteType)) {
+            case 1:
+                prefix = 'Más sobre ';
+                break;
+            case 7:
+                prefix = 'Más recetas de ';
+                break;
+            default:
+                prefix = 'Más notas de ';
+        }
+        return prefix;
+    };
+
     switch (filter) {
         case '0':
             title = subtype === '7' ? 'Últimas Recetas' : 'Últimas Noticias';
             break;
         case '1':
             border = true;
-            title =
-                subtype === '7' ? (
-                    <>
-                        Más recetas de
-                        <strong>{` ${sectionName}`}</strong>
-                    </>
-                ) : (
-                    <>
-                        Más notas de
-                        <strong>{` ${sectionName}`}</strong>
-                    </>
-                );
+            title = (
+                <>
+                    {getSectionTitle(subtype)}
+                    <strong>{` ${sectionName}`}</strong>
+                </>
+            );
             break;
         default:
             title = (

@@ -59,26 +59,27 @@ const banner = props => {
 
     return (
         <>
-            {/* {termicas.banners ? ( */}
-            <BannerComponent
-                device={screenUtils.device}
-                slotId={finalSlot}
-                dfpId={dfp_id}
-                slotName={finalConfig.slotName}
-                dimensions={finalConfig.dimensions}
-                targeting={finalConfig.targeting}
-                bidding={finalConfig.bidding}
-                sticky={sticky}
-                background={background}
-                extraClasses={extraClasses}
-                outputType={outputType}
-            />
-            {/* ) : null} */}
+            {termicas.banners ? (
+                <BannerComponent
+                    device={screenUtils.device}
+                    slotId={finalSlot}
+                    dfpId={dfp_id}
+                    slotName={finalConfig.slotName}
+                    dimensions={finalConfig.dimensions}
+                    targeting={finalConfig.targeting}
+                    bidding={finalConfig.bidding}
+                    sticky={sticky}
+                    background={background}
+                    extraClasses={extraClasses}
+                    outputType={outputType}
+                />
+            ) : null}
         </>
     );
 };
 
 banner.propTypes = {
+    outputType: PropTypes.string,
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
