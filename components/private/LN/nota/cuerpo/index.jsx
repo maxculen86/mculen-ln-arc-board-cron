@@ -15,6 +15,13 @@ const index = props => {
 };
 
 index.propTypes = {
+    bannerConfig: PropTypes.shape({
+        background: PropTypes.bool,
+        desktop: PropTypes.string,
+        position: PropTypes.number,
+        sticky: PropTypes.bool,
+        table: PropTypes.string
+    }),
     globalContent: PropTypes.shape({
         subtype: PropTypes.number.isRequired
     }).isRequired
