@@ -1,5 +1,13 @@
 @import '../abstracts/variables';
 .com-author {
+    .noticia & {
+        margin-bottom: $px-20;
+        @media (min-width: 1024px) {
+            margin-bottom: $px-30;
+        }
+    }
+
+    //display: inline-flex; Fede: lo cambié porque rompia en las noticias el autor (Por tal)
     display: inline-block;
     align-items: center;
     margin-bottom: $px-40;
@@ -9,11 +17,9 @@
     font-family: $font-arial;
     font-size: $font-16;
     font-weight: 600;
-    .com-author {
-        margin-bottom: 0;
-    }
     a {
         color: $link;
+        margin-left: $px-5;
         @media (min-width: 768px) {
             font-size: $font-16;
         }

@@ -72,7 +72,7 @@
         &.--border {
             .mod-caja-nota__descrip {
                 @media ($media-m) {
-                    padding: $px-15 !important;
+                    padding: $px-15;
                 }
             }
         }
@@ -120,7 +120,7 @@
         }
         &.--border {
             .cont-figure {
-                margin: 0 !important;
+                margin: 0;
             }
         }
     }

@@ -4,6 +4,7 @@ import Consumer from 'fusion:consumer';
 import HeaderDesktop from './headerDesktop';
 import HeaderMobile from './headerMobile';
 import NavBarMobile from '../navbar';
+import HeaderAMP from './headerAMP';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import withLoginData from '../hocs/withLoginData';
 import Desplegable from '../desplegable';
@@ -101,6 +102,7 @@ class Index extends Component {
 
     render() {
         const {
+            outputType,
             screenUtils,
             logueado,
             loginData,
@@ -110,6 +112,9 @@ class Index extends Component {
         } = this.props;
         const { scrollDirection } = this.state;
         const isMobile = screenUtils.device !== 'desktop';
+
+        if (outputType === 'amp')
+            return <HeaderAMP toglleDesplegable={this.toglleDesplegable} />;
 
         return (
             <>
@@ -144,6 +149,7 @@ class Index extends Component {
 }
 
 Index.propTypes = {
+    outputType: PropTypes.string.isRequired,
     screenUtils: PropTypes.shape({
         device: PropTypes.string
     }).isRequired,

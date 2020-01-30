@@ -15,11 +15,11 @@ header {
 
 .header-wrapper {
     background: radial-gradient(ellipse at center, #322d59 0, #08142d 100%);
-    max-width: 100% !important;
+    max-width: 100%;
     position: sticky;
     top: 0;
     z-index: 3;
-    margin: 0 !important;
+    margin: 0;
 }
 
 header .wrapper {
@@ -121,12 +121,12 @@ header.sticky .header__logo img {
 
 @media (max-width: 864px) {
     .header .wrapper {
-        width: 100% !important;
+        width: 100%;
         @include flex-row;
     }
     .header.open .wrapper {
         @include flex-column;
-        width: auto !important;
+        width: auto;
     }
     .header__nav {
         height: 0;

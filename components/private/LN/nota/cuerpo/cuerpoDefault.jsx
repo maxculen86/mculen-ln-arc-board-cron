@@ -22,6 +22,7 @@ const Cuerpo = props => {
         isAdmin,
         siteProperties,
         bannerConfig,
+        outputType,
         globalContent: { content_elements: contentElements }
     } = props;
     const bodyComponents = [
@@ -83,7 +84,13 @@ const Cuerpo = props => {
                     </>
                 );
             }
-            return <Component data={element} capital={capitalIndex === i} />;
+            return (
+                <Component
+                    data={element}
+                    capital={capitalIndex === i}
+                    outputType={outputType}
+                />
+            );
         }
 
         return <></>;

@@ -44,7 +44,7 @@
                 border: none;
             }
             &:before {
-                font-family: 'LNlogos' !important;
+                font-family: 'LNlogos';
                 content: '\e80a';
                 color: #d9d9d9;
                 font-size: 4.22em;
@@ -64,7 +64,7 @@
             }
             &.zoom {
                 &:after {
-                    font-family: 'LNicons' !important;
+                    font-family: 'LNicons';
                     color: $blanco;
                     font-size: $font-25;
                     content: '\e91d';
@@ -147,10 +147,10 @@
             opacity: 1;
         }
         .picture {
-            width: 45px !important;
+            width: 45px;
             height: 45px;
             @media (min-width: 768px) {
-                width: 80px !important;
+                width: 80px;
                 height: 80px;
             }
             border-radius: 50%;
@@ -166,7 +166,7 @@
             align-items: center;
             background: $blanco;
             &:before {
-                font-family: 'LNlogos' !important;
+                font-family: 'LNlogos';
                 content: '\e80a';
                 color: #d9d9d9;
                 font-size: 43px;

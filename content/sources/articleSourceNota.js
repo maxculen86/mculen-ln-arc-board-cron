@@ -11,6 +11,7 @@ import getProperties from 'fusion:properties';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
+import relatedSource from './relatedSource';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -95,6 +96,16 @@ const transformContent = (jsonArticle, arcSite) => {
         }
     });
 
+    resp.related_content.basic.forEach((e, i) => {
+        if (e.type === 'reference') {
+            promiseArr.push(
+                addFollowAnotherNoteData(e, arcSite, i).then(g => {
+                    resp.related_content.basic[i] = g;
+                })
+            );
+        }
+    });
+
     if (get(resp, 'promo_items.basic.type') === 'gallery') {
         promiseArr.push(
             addGalleryData(resp.promo_items.basic, arcSite).then(g => {
@@ -128,6 +139,29 @@ const addGalleryData = (gallery, arcSite) => {
             });
 
             return resp;
+        });
+};
+
+const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
+    return relatedSource
+        .fetch({
+            id: anotherNoteData._id,
+            'arc-site': arcSite,
+            includedFields: 'headlines,label,website_url'
+        })
+        .then(fetchedRelated => {
+            const { headlines, label, website_url } = fetchedRelated;
+            const resp = {
+                ...anotherNoteData,
+                headlines,
+                label,
+                website_url
+            };
+
+            return resp;
+        })
+        .catch(e => {
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', e);
         });
 };
 

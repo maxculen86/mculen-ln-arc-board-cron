@@ -30,6 +30,11 @@
     }
 }
 
+[class^='com-subtitle'] {
+    // Se agrega porque en amp quedan pegados los subtitulos
+    margin-bottom: $px-10;
+}
+
 //Valores de tablet para arriba
 @media (min-width: 768px) {
     .com-subtitle-nota-2 {

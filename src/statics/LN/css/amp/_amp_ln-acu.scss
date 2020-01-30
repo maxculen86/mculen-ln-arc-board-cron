@@ -1,10 +1,34 @@
-/** 
-Se deja la siguiente linea
-@import '../base/brando';
-*/
-@import './amp-story';
+@import '../../../../../src/statics/LN/css/base/reset.scss';
+@import '../../../../../src/statics/LN/css/base/types.scss';
 
-body {
-    background: #202125;
-    color: white;
-}
+//@import '../../../../../src/statics/LN/css/base/helpers.scss';
+@import '../../../../../src/statics/LN/css/base/helpers-amp.scss'; //se usan solo los helpers necesarios
+@import '../../../../../src/statics/LN/css/layouts/grid.scss';
+@import '../../../../../src/statics/LN/css/layouts/layout.scss';
+
+// TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
+// EL COMPONENTE Y EN OTROS NO
+@import '../../../../../src/statics/LN/css/components/button.scss';
+@import '../../../../../src/statics/LN/css/components/share.scss';
+@import '../../../../../src/statics/LN/css/components/date.scss';
+@import '../../../../../src/statics/LN/css/components/tag.scss';
+@import '../../../../../src/statics/LN/css/components/author.scss';
+@import '../../../../../src/statics/LN/css/components/lead.scss';
+@import '../../../../../src/statics/LN/css/components/ordered.scss';
+@import '../../../../../src/statics/LN/css/components/unordered.scss';
+@import '../../../../../src/statics/LN/css/components/breadcrumb.scss';
+@import '../../../../../src/statics/LN/css/components/input.scss';
+@import '../../../../../src/statics/LN/css/components/blockquote.scss';
+@import '../../../../../src/statics/LN/css/components/text.scss';
+@import '../../../../../src/statics/LN/css/components/link.scss';
+@import '../../../../../src/statics/LN/css/components/subtitle.scss';
+@import '../../../../../src/statics/LN/css/components/title.scss';
+@import '../../../../../src/statics/LN/css/components/epigraph.scss';
+@import '../../../../../src/statics/LN/css/components/appointment.scss';
+@import '../../../../../src/statics/LN/css/components/footer.scss';
+@import '../../../../../src/statics/LN/css/components/nav-amp.scss';
+@import '../../../../../src/statics/LN/css/components/banners.scss';
+//@import '../../../../../src/statics/LN/css/components/colecciones.scss';
+//@import '../../../../../src/statics/LN/css/components/carta-lectores.scss';
+//@import '../../../../../src/statics/LN/css/components/dropdown.scss';
+//@import '../../../../../src/statics/LN/css/modules/newsletter.scss';
