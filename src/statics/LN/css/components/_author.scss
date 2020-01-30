@@ -7,7 +7,8 @@
         }
     }
 
-    display: inline-flex;
+    //display: inline-flex; Fede: lo cambié porque rompia en las noticias el autor (Por tal)
+    display: inline-block;
     align-items: center;
     margin-bottom: $px-40;
     @media (min-width: 1024px) {
