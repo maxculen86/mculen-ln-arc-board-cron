@@ -3,53 +3,57 @@ import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 
 const image = ({ data }) => {
+    const credits = data.credits.by.length > 1 ? 'Créditos' : 'Crédito';
     return (
         <>
             <Media mediaData={data} colNumber={12}>
                 {data && (
                     <section className="com-epigrafe">
                         {data.caption && <p className="text">{data.caption}</p>}
-                        {data.vanity_credits &&
-                            data.vanity_credits.affiliation.length && (
-                                <p className="small">
-                                    Fuente:{' '}
-                                    {data.credits
-                                        ? data.credits.affiliation.map(
-                                              fuente => <>{fuente.name}</>
-                                          )
-                                        : data.vanity_credits.affiliation.map(
-                                              fuente => <>{fuente.name}</>
-                                          )}{' '}
-                                    - Crédito:{' '}
-                                    {data.credits
-                                        ? data.credits.by.map(credito => (
-                                              <>{credito.name}</>
-                                          ))
-                                        : data.vanity_credits.by.map(
-                                              credito => <>{credito.name}</>
-                                          )}
-                                </p>
+                        <p className="small">
+                            {data.distributor ? (
+                                <>
+                                    Fuente:
+                                    {data.distributor.name}
+                                </>
+                            ) : (
+                                ''
                             )}
-                        {data.credits && data.credits.affiliation.length && (
-                            <p className="small">
-                                Fuente:{' '}
-                                {data.credits
-                                    ? data.credits.affiliation.map(fuente => (
-                                          <>{fuente.name}</>
-                                      ))
-                                    : data.vanity_credits.affiliation.map(
-                                          fuente => <>{fuente.name}</>
-                                      )}{' '}
-                                - Crédito:{' '}
-                                {data.credits
-                                    ? data.credits.by.map(credito => (
-                                          <>{credito.name}</>
-                                      ))
-                                    : data.vanity_credits.by.map(credito => (
-                                          <>{credito.name}</>
-                                      ))}
-                            </p>
-                        )}
+                            {data.vanity_credits &&
+                                data.vanity_credits.affiliation.length &&
+                                (data.credits
+                                    ? data.vanity_credits.by.map(
+                                          (credito, i) => {
+                                              return (
+                                                  <>
+                                                      {i === 0
+                                                          ? ` - ${credits}: `
+                                                          : ', '}
+                                                      {credito.type === 'author'
+                                                          ? credito.name
+                                                          : credito.referent.id}
+                                                  </>
+                                              );
+                                          }
+                                      )
+                                    : '')}
+                            {data.credits &&
+                                data.credits.by &&
+                                (data.credits
+                                    ? data.credits.by.map((credito, i) => {
+                                          return (
+                                              <>
+                                                  {i === 0
+                                                      ? ` - ${credits}: `
+                                                      : ', '}
+                                                  {credito.type === 'author'
+                                                      ? credito.name
+                                                      : credito.referent.id}
+                                              </>
+                                          );
+                                      })
+                                    : '')}
+                        </p>
                     </section>
                 )}
             </Media>
@@ -62,6 +66,7 @@ image.arcType = 'image';
 image.propTypes = {
     data: PropTypes.shape({
         caption: PropTypes.string.isRequired,
+        distributor: PropTypes.string.isRequired,
         vanity_credits: PropTypes.arrayOf,
         credits: PropTypes.arrayOf,
         type: PropTypes.string.isRequired

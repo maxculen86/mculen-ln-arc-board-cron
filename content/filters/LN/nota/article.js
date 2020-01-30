@@ -30,6 +30,9 @@ const image = `
     width
     subtitle
     caption
+    distributor {
+        name
+    }
     credits {
         affiliation {
             name

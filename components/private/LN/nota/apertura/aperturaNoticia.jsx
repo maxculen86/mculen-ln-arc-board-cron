@@ -4,27 +4,59 @@ import Media from '../../common/media';
 
 // TODO: name destacadoEnApertura
 const aperturaNoticia = ({ basic }) => {
+    const credits = basic.credits.by.length > 1 ? 'Créditos' : 'Crédito';
     return (
         <>
             <Media mediaData={basic} colNumber={12}>
-                {/* TODO: componentizar creditos y epigrafe y llamarlos aca */}
                 {basic && (
                     <section className="com-epigrafe">
                         {basic.caption && (
                             <p className="text">{basic.caption}</p>
                         )}
-                        {basic.credits.affiliation.length > 0 && (
-                            <p className="small">
-                                Fuente:
-                                {basic.credits.affiliation.map(fuente => (
-                                    <>{fuente.name}</>
-                                ))}
-                                - Crédito:
-                                {basic.credits.by.map(credito => (
-                                    <>{credito.name}</>
-                                ))}
-                            </p>
-                        )}
+                        <p className="small">
+                            {basic.distributor ? (
+                                <>
+                                    Fuente:
+                                    {basic.distributor.name}
+                                </>
+                            ) : (
+                                ''
+                            )}
+                            {basic.vanity_credits &&
+                                basic.vanity_credits.affiliation.length &&
+                                (basic.credits
+                                    ? basic.vanity_credits.by.map(
+                                          (credito, i) => {
+                                              return (
+                                                  <>
+                                                      {i === 0
+                                                          ? ` - ${credits}: `
+                                                          : ', '}
+                                                      {credito.type === 'author'
+                                                          ? credito.name
+                                                          : credito.referent.id}
+                                                  </>
+                                              );
+                                          }
+                                      )
+                                    : '')}
+                            {basic.credits &&
+                                basic.credits.by &&
+                                (basic.credits
+                                    ? basic.credits.by.map((credito, i) => {
+                                          return (
+                                              <>
+                                                  {i === 0
+                                                      ? ` - ${credits}: `
+                                                      : ', '}
+                                                  {credito.type === 'author'
+                                                      ? credito.name
+                                                      : credito.referent.id}
+                                              </>
+                                          );
+                                      })
+                                    : '')}
+                        </p>
                     </section>
                 )}
             </Media>
@@ -34,8 +66,10 @@ const aperturaNoticia = ({ basic }) => {
 
 aperturaNoticia.propTypes = {
     basic: PropTypes.shape({
+        distributor: PropTypes.string.isRequired,
         caption: PropTypes.string,
-        credits: PropTypes.string
+        vanity_credits: PropTypes.arrayOf,
+        credits: PropTypes.arrayOf
     })
 };
 
