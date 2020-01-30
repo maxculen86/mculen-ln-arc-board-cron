@@ -4,7 +4,7 @@ import TaxonomyComponent from '../../common/taxonomyImportantList';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
 
 const Sections = props => {
-    const { taxonomy, destacado } = props;
+    const { taxonomy, destacado, temas } = props;
     const primary = taxonomy.primary_section;
 
     let listSections = [];
@@ -28,9 +28,11 @@ const Sections = props => {
             text: x.name
         };
     });
-
     return (
         <>
+            {temas && listSectionsDespues.length && (
+                <h4 className="com-subtitle_list">Temas</h4>
+            )}
             {listSectionsDespues ? (
                 <TaxonomyComponent
                     list={listSectionsDespues}
@@ -52,7 +54,8 @@ Sections.propTypes = {
         ).isRequired,
         primary_section: PropTypes.object.isRequired
     }).isRequired,
-    destacado: PropTypes.boolean.isRequired
+    destacado: PropTypes.boolean.isRequired,
+    temas: PropTypes.boolean.isRequired
 };
 
 export default Sections;
