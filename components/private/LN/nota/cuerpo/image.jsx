@@ -68,7 +68,7 @@ image.propTypes = {
         caption: PropTypes.string.isRequired,
         distributor: PropTypes.string.isRequired,
         vanity_credits: PropTypes.arrayOf,
-        credits: PropTypes.arrayOf,
+        //credits: PropTypes.arrayOf,
         type: PropTypes.string.isRequired
     }).isRequired
 };

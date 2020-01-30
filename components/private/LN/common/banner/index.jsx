@@ -10,6 +10,7 @@ import '../../../../../resources/dist/css/ln/components/banners.css';
 
 const banner = props => {
     const {
+        outputType,
         siteProperties: {
             bannerConfig: { dfp_id }
         },
@@ -70,6 +71,7 @@ const banner = props => {
                     sticky={sticky}
                     background={background}
                     extraClasses={extraClasses}
+                    outputType={outputType}
                 />
             ) : null}
         </>
@@ -77,6 +79,7 @@ const banner = props => {
 };
 
 banner.propTypes = {
+    outputType: PropTypes.string,
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired

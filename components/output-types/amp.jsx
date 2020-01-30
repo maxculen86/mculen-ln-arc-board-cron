@@ -19,7 +19,14 @@ const Amp = props => {
         metaValue,
         Resource,
         layout,
-        siteProperties: { title },
+        siteProperties: {
+            title,
+            scripts: {
+                GTM: {
+                    props: { id }
+                }
+            }
+        },
         renderables
     } = props;
 
@@ -60,7 +67,13 @@ const Amp = props => {
                     rel="stylesheet"
                 />
             </head>
-            <body>{children}</body>
+            <body>
+                <amp-analytics
+                    config={`https://www.googletagmanager.com/amp.json?id=${id}`}
+                    data-credentials="include"
+                />
+                {children}
+            </body>
         </html>
     );
 };
@@ -72,7 +85,14 @@ Amp.propTypes = {
     Resource: PropTypes.node.isRequired,
     layout: PropTypes.string.isRequired,
     siteProperties: PropTypes.shape({
-        title: PropTypes.string
+        title: PropTypes.string,
+        scripts: PropTypes.shape({
+            GTM: PropTypes.shape({
+                props: PropTypes.shape({
+                    id: PropTypes.string
+                })
+            })
+        })
     }).isRequired,
     renderables: PropTypes.arrayOf(PropTypes.object).isRequired
 };

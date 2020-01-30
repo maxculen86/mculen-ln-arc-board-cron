@@ -3,10 +3,10 @@
 exports[`AmpImage Matches snapshot 1`] = `
 <amp-img
   alt="Test image"
-  height="600"
-  layout="fixed"
+  height="853.33"
+  layout="responsive"
   src="http://lorempixel.com/400/200"
   srcset="http://lorempixel.com/400/200 600w"
-  width="600"
+  width="1280"
 />
 `;

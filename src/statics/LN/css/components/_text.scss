@@ -8,9 +8,12 @@
     b {
         font-weight: 700;
     }
-    .sidebar__main & {
-        &:first-of-type {
-            margin-top: $px-30;
+    &.capital {
+        //Se agrega la clase capital para que solamente tome el primer parrafo
+        .sidebar__main & {
+            &:first-of-type {
+                margin-top: $px-30;
+            }
         }
     }
     &.small {

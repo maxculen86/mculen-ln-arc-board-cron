@@ -4,9 +4,16 @@
     margin-bottom: $px-20;
     &.w-100 {
         .banner {
-            display: flex !important;
+            display: flex;
             justify-content: center;
             align-items: center;
+        }
+        &.content-sticky {
+            .amp & {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
         }
     }
 }
@@ -26,7 +33,7 @@
     &.--top {
         width: 320px;
         height: auto;
-        display: flex !important;
+        display: flex;
         justify-content: center;
         align-items: center;
     }
@@ -48,7 +55,7 @@
         }
         &.--sticky {
             position: fixed;
-            margin: 0 !important;
+            margin: 0;
             left: 0;
             right: 0;
             top: -100px;

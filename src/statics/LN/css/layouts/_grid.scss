@@ -3,70 +3,6 @@
 //Tener en cuenta que
 // el min valora mucho el orden
 // siempre menor resolucion primero
-//=======================================
-// IMAGEN QUE SE ESCAPA DE MARGENES al 100%
-//=======================================
-.w-100 {
-    width: calc(100% + 20px) !important;
-    margin-left: -$px-10;
-    &.banner {
-        margin-left: 0;
-        margin-top: -$px-20;
-        width: 100% !important;
-    }
-}
-
-@media ($media-s) {
-    .w-100 {
-        width: calc(100% + 40px) !important;
-        margin-left: -$px-20;
-    }
-}
-
-@media ($media-m) {
-    .w-100 {
-        width: calc(100% + 60px) !important;
-        margin-left: -$px-30;
-    }
-}
-
-@media ($media-l) {
-    .w-100 {
-        width: 100% !important;
-        margin-left: 0;
-    }
-}
-
-.w-100-mobile {
-    width: calc(100% + 20px) !important;
-    margin-left: -$px-10;
-    //se agrega media max porq este valor solo debe venir en mobile y en las otras resoluciones
-    //traer el valor de otras clases, entonces no se puede darle un valor en resoluciones que no sea mobile.
-    @media screen and (max-width: 47em) {
-        border: none !important;
-    }
-}
-
-@media ($media-s) {
-    .w-100-mobile {
-        width: calc(100% + 40px) !important;
-        margin-left: -$px-20;
-    }
-}
-
-@media ($media-m) {
-    .w-100-mobile {
-        width: 100% !important;
-        margin-left: 0;
-    }
-}
-
-@media ($media-l) {
-    .w-100-mobile {
-        width: 100% !important;
-        margin-left: 0;
-    }
-}
 
 //=======================================
 // GRilla sin Gap
@@ -79,7 +15,68 @@
     flex-wrap: wrap;
     width: 100%;
 }
+//=======================================
+// IMAGEN QUE SE ESCAPA DE MARGENES al 100%
+//=======================================
+.w-100 {
+    width: calc(100% + 20px);
+    margin-left: -$px-10;
+    &.banner {
+        margin-left: 0;
+        margin-top: -$px-20;
+        width: 100%;
+    }
+}
 
+@media ($media-l) {
+    .w-100 {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+@media ($media-m) {
+    .w-100 {
+        width: calc(100% + 60px);
+        margin-left: -$px-30;
+    }
+}
+@media ($media-s) {
+    .w-100 {
+        width: calc(100% + 40px);
+        margin-left: -$px-20;
+    }
+}
+
+.w-100-mobile {
+    width: calc(100% + 20px);
+    margin-left: -$px-10;
+    //se agrega media max porq este valor solo debe venir en mobile y en las otras resoluciones
+    //traer el valor de otras clases, entonces no se puede darle un valor en resoluciones que no sea mobile.
+    @media screen and (max-width: 47em) {
+        border: none;
+    }
+}
+
+@media ($media-l) {
+    .w-100-mobile {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media ($media-m) {
+    .w-100-mobile {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media ($media-s) {
+    .w-100-mobile {
+        width: calc(100% + 40px);
+        margin-left: -$px-20;
+    }
+}
 // Particion de 12
 .col-1,
 .col-2,
