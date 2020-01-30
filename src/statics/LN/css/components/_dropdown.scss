@@ -6,6 +6,7 @@ body {
     }
     &.dropdown {
         overflow: hidden;
+        margin-right: 1.063rem;
         .wrap-dropdown {
             background: none;
             width: 100vw;
@@ -461,5 +462,14 @@ body {
                 }
             }
         }
+    }
+}
+@media all and (max-height: 800px) {
+    .secondary--nav .item__nav {
+        position: inherit;
+    }
+    .secondary--nav .sublist__nav {
+        bottom: -20px !important;
+        top: auto !important;
     }
 }
