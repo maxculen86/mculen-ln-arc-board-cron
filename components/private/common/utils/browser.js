@@ -5,7 +5,7 @@ const getParameterByName = (parameter, urlP) => {
             throw new Error('El parametro de Url es obligatorio en SSR');
         url = window.location.href;
     }
-    const name = parameter.replace(/[\[\]]/g, '\\$&');
+    const name = parameter && parameter.replace(/[\[\]]/g, '\\$&');
 
     const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`);
     const results = regex.exec(url);

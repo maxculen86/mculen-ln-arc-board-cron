@@ -1,4 +1,6 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
+import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import '../../resources/dist/css/ln/base.css';
@@ -27,12 +29,14 @@ import '../../resources/dist/css/ln/components/appointment.css';
 import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
+import '../../resources/dist/css/ln/components/nav-amp.css';
 
-const lnNotaNoticia = ({ children }) => {
+const lnNotaNoticia = ({ children, outputType }) => {
+    const amp = outputType === 'amp' ? 'amp' : '';
     return (
-        <div id="wrapper" className="nota noticia">
+        <div id="wrapper" className={`nota noticia ${amp}`}>
             {/* TODO: sacar */}
-            <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
+            {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
             <Header />
             <main>
                 {children[0]}
@@ -93,6 +97,17 @@ const lnNotaNoticia = ({ children }) => {
                         {children[5]}
                     </div>
                 </div>
+
+                <div className="lay-sidebar">
+                    <div className="sidebar__main">
+                        {/* Bottom */}
+                        {children[8]}
+                    </div>
+                    <div className="sidebar__aside">
+                        {/* Bottom-Tercera */}
+                        {children[9]}
+                    </div>
+                </div>
             </main>
             <Footer />
         </div>
@@ -114,4 +129,9 @@ const pageBuilderSections = [
 
 lnNotaNoticia.sections = pageBuilderSections;
 
-export default lnNotaNoticia;
+lnNotaNoticia.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    outputType: PropTypes.string.isRequired
+};
+
+export default Consumer(lnNotaNoticia);

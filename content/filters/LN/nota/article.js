@@ -30,6 +30,9 @@ const image = `
     width
     subtitle
     caption
+    distributor {
+        name
+    }
     credits {
         affiliation {
             name
@@ -199,6 +202,17 @@ export default `
         sections ${section}
         primary_section ${section}
         seo_keywords
+    }
+    related_content {
+        basic {
+            type
+            _id
+            headlines {
+                basic
+            }
+            ${labels}
+            website_url
+        }
     }
     content_elements {
         _id

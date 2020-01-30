@@ -16,7 +16,8 @@ const bannerComponent = ({
     sticky,
     background,
     device,
-    extraClasses
+    extraClasses,
+    outputType
 }) => {
     // TODO: Borrar estos comentarios feos
     let ad = (
@@ -35,6 +36,24 @@ const bannerComponent = ({
 
     if (background) {
         ad = <div className="banner w-100 --bg-banner hlp-none">{ad}</div>;
+    }
+
+    if (outputType === 'amp') {
+        ad = (
+            <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
+                <amp-ad
+                    id="sticky_amp"
+                    type="doubleclick"
+                    class="banner"
+                    width="300"
+                    height="50"
+                    data-slot="/133919216/AMP/ROS/caja2_amp"
+                    json={`'{"targeting":{"tags": ["ca_economia|pe_alberto_fernandez|te_fmi|se_comunidad_de_negocios|au_rafael_mathus_ruiz"], "tags_nuevos":["ca_economia","pe_alberto_fernandez","te_fmi","se_comunidad_de_negocios","au_rafael_mathus_ruiz"] }`}
+                >
+                    <div placeholder></div>
+                </amp-ad>
+            </div>
+        );
     }
 
     return ad;

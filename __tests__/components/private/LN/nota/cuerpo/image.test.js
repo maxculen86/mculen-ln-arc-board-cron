@@ -63,6 +63,20 @@ describe('features - La Nacion - Components - Nota - Apertura - Destacado ', () 
                 }
             ]
         },
+        credits: {
+            by: [
+                {
+                    type: 'author',
+                    name: 'Credito'
+                }
+            ],
+            affiliation: [
+                {
+                    type: 'author',
+                    name: 'Fuente'
+                }
+            ]
+        },
         height: 230,
         last_updated_date: '2018-09-20T14:08:26Z',
         licensable: false,
