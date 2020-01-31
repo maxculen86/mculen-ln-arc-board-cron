@@ -5,6 +5,7 @@ import ArticleBase from './articleBase';
 import Media from '../media';
 
 const articleMain = ({
+    outputType,
     articleData,
     extraClasses,
     children,
@@ -20,6 +21,7 @@ const articleMain = ({
             <Media
                 mediaData={articleData.by.credits}
                 href={articleData.website_url}
+                outputType={outputType}
             />
         );
     } else {
@@ -30,6 +32,7 @@ const articleMain = ({
             <Media
                 mediaData={type === 'image' ? imagenDestacada : null}
                 href={articleData.website_url}
+                outputType={outputType}
             />
         );
     }
@@ -53,6 +56,7 @@ const articleMain = ({
 };
 
 articleMain.propTypes = {
+    outputType: PropTypes.string,
     extraClasses: PropTypes.string,
     children: PropTypes.oneOf([
         PropTypes.arrayOf(PropTypes.node),

@@ -1,21 +1,31 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-function ImagePlaceholder({ href, zoom, children }) {
+function ImagePlaceholder({ href, zoom, children, outputType }) {
     let zoomClass = '';
     if (zoom) zoomClass = 'zoom';
+
+    const image = (
+        <picture className={`content-pic picture ${zoomClass}`}>
+            {children}
+        </picture>
+    );
+
     return (
         <>
-            <a href={href} className="figure">
-                <picture className={`content-pic picture ${zoomClass}`}>
-                    {children}
-                </picture>
-            </a>
+            {outputType === 'amp' ? (
+                <noscript>{image}</noscript>
+            ) : (
+                <a href={href} className="figure">
+                    {image}
+                </a>
+            )}
         </>
     );
 }
 
 ImagePlaceholder.propTypes = {
+    outputType: PropTypes.string,
     href: PropTypes.string,
     zoom: PropTypes.bool,
     children: PropTypes.oneOfType([

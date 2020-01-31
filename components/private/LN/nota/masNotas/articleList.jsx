@@ -5,10 +5,15 @@ import articleFiltered from '../../../../../content/filters/LN/nota/articleFilte
 import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 
 const ArticleList = props => {
-    const { articles, border } = props;
+    const { articles, border, outputType } = props;
     if (!articles) return null;
     return articles.map(e => (
-        <ArticleMain articleData={e} border={border} key={e._id} />
+        <ArticleMain
+            articleData={e}
+            border={border}
+            key={e._id}
+            outputType={outputType}
+        />
     ));
 };
 

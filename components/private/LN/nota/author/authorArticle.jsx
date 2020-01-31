@@ -15,7 +15,7 @@ const authorArticle = ({
             {by && by.length > 0 ? <span>Por </span> : ''}
             {by &&
                 by.map((authorNota, i) => (
-                    <div key={authorNota._id} className="com-author">
+                    <span key={authorNota._id} className="">
                         {authorNota.url && authorNota.url !== '' ? (
                             <a href={authorNota.url}>{authorNota.name}</a>
                         ) : (
@@ -26,7 +26,7 @@ const authorArticle = ({
                         ) : (
                             <>{i === by.length - 2 ? ' y\u00A0' : ''}</>
                         )}
-                    </div>
+                    </span>
                 ))}
         </>
     );

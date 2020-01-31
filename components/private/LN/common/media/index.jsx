@@ -5,7 +5,7 @@ import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
 // TODO: proptypes
-const media = ({ mediaData, colNumber, zoom, href, children }) => {
+const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
     // TODO: revisar implementacion de placeHolder
     let item = null;
     if (mediaData) {
@@ -28,12 +28,13 @@ const media = ({ mediaData, colNumber, zoom, href, children }) => {
     }
     const colClass = colNumber ? `col-desksm-${colNumber} ` : '';
     if (!item) {
-        item = <Placeholder zoom={zoom} href={href} />;
+        item = <Placeholder zoom={zoom} href={href} outputType={outputType} />;
     }
     return <section className={`${colClass}cont-figure`}>{item}</section>;
 };
 
 media.propTypes = {
+    outputType: PropTypes.string,
     mediaData: PropTypes.shape({
         type: PropTypes.string,
         _id: PropTypes.string

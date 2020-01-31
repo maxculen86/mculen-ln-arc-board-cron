@@ -26,8 +26,8 @@ exports[`features - LaNacion - Nota - AuthorAndDate Test de snapshot AuthorAndDa
       <span>
         Por 
       </span>
-      <div
-        class="com-author"
+      <span
+        class=""
       >
         <a
           href="/autor/agustina__++**''''''¿¿_lomuto/"
@@ -35,16 +35,16 @@ exports[`features - LaNacion - Nota - AuthorAndDate Test de snapshot AuthorAndDa
           Agustina Lomuto
         </a>
          y 
-      </div>
-      <div
-        class="com-author"
+      </span>
+      <span
+        class=""
       >
         <a
           href="/autor/diego-cabot"
         >
           Diego Cabot
         </a>
-      </div>
+      </span>
     </div>
   </div>
 </div>

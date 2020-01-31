@@ -6,9 +6,11 @@ const Index = ({ related_content }) => {
         links = related_content.map(el => (
             <>
                 <a href={el.website_url} className="com-link">
-                    {el.label && el.label.volanta
-                        ? `${el.label.volanta.text} `
-                        : ''}
+                    <span className="hlp-bold">
+                        {el.label && el.label.volanta
+                            ? `${el.label.volanta.text} `
+                            : ''}
+                    </span>
                     {el.headlines.basic}
                 </a>
                 <br />

@@ -11,8 +11,7 @@ const temas = props => {
     } = props;
     return (
         <Static id={featureId}>
-            <h4 className="com-subtitle_list">Temas</h4>
-            <Temas taxonomy={taxonomy} destacado />
+            <Temas taxonomy={taxonomy} destacado temas />
         </Static>
     );
 };
