@@ -1,21 +1,41 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 
-function ImagePlaceholder({ href, zoom, children }) {
+function ImagePlaceholder({ href, zoom, children, outputType }) {
     let zoomClass = '';
     if (zoom) zoomClass = 'zoom';
+
+    // TODO: Figure out a better way of approaching this wrapper thing
+    const Wrapper = props => (
+        <>
+            {outputType === 'amp' ? (
+                <noscript>{props.children}</noscript>
+            ) : (
+                <a href={props.href} className="figure" />
+            )}
+        </>
+    );
+
     return (
         <>
-            <a href={href} className="figure">
+            <Wrapper href={href}>
                 <picture className={`content-pic picture ${zoomClass}`}>
                     {children}
                 </picture>
-            </a>
+            </Wrapper>
+
+            {/* <a href={href} className="figure">
+                <picture className={`content-pic picture ${zoomClass}`}>
+                    {children}
+                </picture>
+            </a> */}
         </>
     );
 }
 
 ImagePlaceholder.propTypes = {
+    outputType: PropTypes.string,
     href: PropTypes.string,
     zoom: PropTypes.bool,
     children: PropTypes.oneOfType([
@@ -30,4 +50,4 @@ ImagePlaceholder.propTypes = {
 //     children: []
 // };
 
-export default ImagePlaceholder;
+export default Consumer(ImagePlaceholder);
