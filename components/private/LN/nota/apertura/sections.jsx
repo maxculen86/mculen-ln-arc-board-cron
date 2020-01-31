@@ -31,7 +31,7 @@ const Sections = props => {
     return (
         <>
             {temas && listSectionsDespues.length && (
-                <h4 className="com-subtitle_list">Temas</h4>
+                <h4 className="com-subtitle_list w-100">Temas</h4>
             )}
             {listSectionsDespues ? (
                 <TaxonomyComponent
