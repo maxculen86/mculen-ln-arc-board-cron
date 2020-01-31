@@ -5,30 +5,21 @@ function ImagePlaceholder({ href, zoom, children, outputType }) {
     let zoomClass = '';
     if (zoom) zoomClass = 'zoom';
 
-    // TODO: Figure out a better way of approaching this wrapper thing
-    const Wrapper = props => (
-        <>
-            {outputType === 'amp' ? (
-                <noscript>{props.children}</noscript>
-            ) : (
-                <a href={props.href} className="figure" />
-            )}
-        </>
+    const image = (
+        <picture className={`content-pic picture ${zoomClass}`}>
+            {children}
+        </picture>
     );
 
     return (
         <>
-            <Wrapper href={href}>
-                <picture className={`content-pic picture ${zoomClass}`}>
-                    {children}
-                </picture>
-            </Wrapper>
-
-            {/* <a href={href} className="figure">
-                <picture className={`content-pic picture ${zoomClass}`}>
-                    {children}
-                </picture>
-            </a> */}
+            {outputType === 'amp' ? (
+                <noscript>{image}</noscript>
+            ) : (
+                <a href={href} className="figure">
+                    {image}
+                </a>
+            )}
         </>
     );
 }
