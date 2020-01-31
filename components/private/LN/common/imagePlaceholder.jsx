@@ -1,5 +1,4 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 
 function ImagePlaceholder({ href, zoom, children, outputType }) {
@@ -50,4 +49,4 @@ ImagePlaceholder.propTypes = {
 //     children: []
 // };
 
-export default Consumer(ImagePlaceholder);
+export default ImagePlaceholder;
