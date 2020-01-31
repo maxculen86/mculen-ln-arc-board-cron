@@ -35,6 +35,6 @@ describe('features - LaNacion - Nota - AuthorNota', () => {
             }
         };
         const wrapper = mount(<AuthorArticle {...props} />);
-        expect(wrapper.find('.com-author')).toHaveLength(2);
+        expect(wrapper.find('.com-author')).toHaveLength(0);
     });
 });
