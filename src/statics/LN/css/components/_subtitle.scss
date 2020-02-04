@@ -23,7 +23,8 @@
     font-weight: 700;
     line-height: $line-24;
     .keep-reading & {
-        margin-bottom: $px-30;
+        margin-bottom: $px-10;
+        margin-top: $px-10;
     }
     .sidebar__main .com-tag & {
         margin-bottom: $px-10;
@@ -43,6 +44,12 @@
         font-weight: 600;
         line-height: $line-22;
         letter-spacing: 0px;
+    }
+    .com-subtitle-nota-3 {
+        .keep-reading & {
+            margin-bottom: $px-20;
+            margin-top: $px-30;
+        }
     }
 }
 
