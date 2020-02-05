@@ -13,14 +13,20 @@
     border: 1px solid $gris1;
     overflow: hidden;
     transition: all 0.25s;
-    //scrollUp
+    display: none;
+    @media (min-width: 768px) {
+        display: block;
+    }
+
+    //scrollDown Se esconde fuera de la pantalla
     &.--scrollDown {
         transform: translateY(-100%);
     }
-    //scrollDown
+    //scrollUp Se muestra en la posición 0
     &.--scrollUp {
         transform: translateY(0);
-        top: $px-70;
+        display: block;
+        top: 0;
     }
     .humor & {
         border: 0;
