@@ -2,7 +2,7 @@
 @import '../../../../../src/statics/LN/css/base/types.scss';
 
 //@import '../../../../../src/statics/LN/css/base/helpers.scss';
-@import '../../../../../src/statics/LN/css/base/helpers-amp.scss'; //se usan solo los helpers necesarios
+
 @import '../../../../../src/statics/LN/css/layouts/grid.scss';
 @import '../../../../../src/statics/LN/css/layouts/layout.scss';
 
@@ -32,3 +32,5 @@
 //@import '../../../../../src/statics/LN/css/components/carta-lectores.scss';
 //@import '../../../../../src/statics/LN/css/components/dropdown.scss';
 //@import '../../../../../src/statics/LN/css/modules/newsletter.scss';
+
+@import '../../../../../src/statics/LN/css/base/helpers-amp.scss'; //se usan solo los helpers necesarios
