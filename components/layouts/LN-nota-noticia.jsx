@@ -30,6 +30,8 @@ import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
 import '../../resources/dist/css/ln/components/nav-amp.css';
+import '../../resources/dist/css/ln/components/banners.css';
+import '../../resources/dist/css/ln/base/helpers.css';
 
 const lnNotaNoticia = ({ children, outputType }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
