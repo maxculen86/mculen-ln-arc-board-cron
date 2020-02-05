@@ -13,7 +13,7 @@
     border: 1px solid $gris1;
     overflow: hidden;
     transition: all 0.25s;
-    display: none;
+    display: none; // Sólo se muestra cuando se inicia scroll
     @media (min-width: 768px) {
         display: block;
     }
@@ -22,7 +22,7 @@
     &.--scrollDown {
         transform: translateY(-100%);
     }
-    //scrollUp Se muestra en la posición 0
+    //scrollUp Se muestra en la posición 0 (Sacar la clase cuando vuelva al punto 0)
     &.--scrollUp {
         transform: translateY(0);
         display: block;
