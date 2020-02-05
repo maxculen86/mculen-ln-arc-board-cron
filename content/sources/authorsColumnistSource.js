@@ -42,8 +42,8 @@ const transform = data => {
 export default {
     resolve,
     params: {
-        website: 'text',
-        last: 'text'
+        id: 'text',
+        website: 'text'
     },
     transform
 };
