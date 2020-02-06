@@ -291,6 +291,8 @@ a.icon-cerrar:before {
 @media (min-width: 1024px) {
     .header {
         display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 20px 0;
 
         .lay {

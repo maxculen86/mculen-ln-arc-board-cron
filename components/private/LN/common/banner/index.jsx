@@ -6,8 +6,6 @@ import { slotsConfig, getSlotsOptions } from './config';
 import PlaceHolder from './bannerPlaceholder';
 import WithNavigation from '../hocs/WithNavigation';
 
-import '../../../../../resources/dist/css/ln/components/banners.css';
-
 const banner = props => {
     const {
         outputType,
