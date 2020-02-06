@@ -36,6 +36,8 @@ const Cuerpo = props => {
         Image
     ];
 
+    console.log('########### BANNER CONFIG EN CUERPO DEFAULT: ', bannerConfig);
+
     const paragraphsCount = contentElements.filter(el => el.type === 'text')
         .length;
 
@@ -66,7 +68,11 @@ const Cuerpo = props => {
                                             <Banner
                                                 siteProperties={siteProperties}
                                                 isAdmin={isAdmin}
-                                                slotGroup="nota"
+                                                slotGroup={
+                                                    outputType === 'amp'
+                                                        ? 'amp'
+                                                        : 'nota'
+                                                }
                                                 devices="nota"
                                                 selectedSlots={{
                                                     desktopSlot: banner.desktop,

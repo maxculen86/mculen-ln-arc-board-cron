@@ -19,6 +19,7 @@ const bannerComponent = ({
     extraClasses,
     outputType
 }) => {
+    console.log('BANNER PROPS: ', slotId, dfpId, slotName, targeting);
     // TODO: Borrar estos comentarios feos
     let ad = (
         <ArcAd
@@ -39,19 +40,27 @@ const bannerComponent = ({
     }
 
     if (outputType === 'amp') {
+        /**
+         * Para armar JSON con targeting:
+         * Tomar en consideración :
+         * - TAGS de la nota
+         * - SECTIONS de la nota
+         * - Que carajos es espacio patrocinado ?
+         * - Debo tomar en cuenta personas ? En ARC se setean ?
+         * - Que es topico ? Donde esta eso en ARC ?
+         * - Probar poner te_CATEGORIA o te_TAG
+         */
         ad = (
             <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
                 <amp-ad
                     id="sticky_amp"
                     type="doubleclick"
                     class="banner"
-                    width="300"
-                    height="50"
-                    data-slot="/133919216/AMP/ROS/caja2_amp"
-                    json={`'{"targeting":{"tags": ["ca_economia|pe_alberto_fernandez|te_fmi|se_comunidad_de_negocios|au_rafael_mathus_ruiz"], "tags_nuevos":["ca_economia","pe_alberto_fernandez","te_fmi","se_comunidad_de_negocios","au_rafael_mathus_ruiz"] }`}
-                >
-                    <div placeholder></div>
-                </amp-ad>
+                    width={dimensions.width}
+                    height={dimensions.height}
+                    data-slot={`/133919216/AMP/ROS/${slotId}`}
+                    json={`'{"targeting":{"tags": ["ca_turismo|ca_comun|"], "tags_nuevos":["ca_turismo","ca_comun",""] }`}
+                />
             </div>
         );
     }

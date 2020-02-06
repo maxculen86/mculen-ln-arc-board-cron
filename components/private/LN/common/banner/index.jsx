@@ -32,11 +32,18 @@ const banner = props => {
         return null;
     };
 
+    console.log('####### slotsConfig: ', slotsConfig);
+    console.log('####### isAdmin: ', isAdmin);
+    console.log('####### ScreenUtils: ', screenUtils);
+    console.log('####### desktopSlot: ', desktopSlot);
+    console.log('####### slotGroup: ', slotGroup);
+
     const finalSlot = getSlotForDevice();
     const finalConfig = slotsConfig[slotGroup][finalSlot];
+    console.log('##### finalSlot: ', finalSlot);
+    console.log('######### finalConfig: ', finalConfig);
 
     if (!finalConfig) return null;
-
     if (!dfp_id) {
         if (!isAdmin) {
             return null;
@@ -54,24 +61,24 @@ const banner = props => {
             />
         );
     }
-
+    console.log('A RENDEREAR EL BANNER PAPA');
     return (
         <>
-            {termicas.banners ? (
-                <BannerComponent
-                    device={screenUtils.device}
-                    slotId={finalSlot}
-                    dfpId={dfp_id}
-                    slotName={finalConfig.slotName}
-                    dimensions={finalConfig.dimensions}
-                    targeting={finalConfig.targeting}
-                    bidding={finalConfig.bidding}
-                    sticky={sticky}
-                    background={background}
-                    extraClasses={extraClasses}
-                    outputType={outputType}
-                />
-            ) : null}
+            {/* {termicas.banners ? ( */}
+            <BannerComponent
+                device={screenUtils.device}
+                slotId={finalSlot}
+                dfpId={dfp_id}
+                slotName={finalConfig.slotName}
+                dimensions={finalConfig.dimensions}
+                targeting={finalConfig.targeting}
+                bidding={finalConfig.bidding}
+                sticky={sticky}
+                background={background}
+                extraClasses={extraClasses}
+                outputType={outputType}
+            />
+            {/* ) : null} */}
         </>
     );
 };
@@ -84,7 +91,7 @@ banner.propTypes = {
         })
     }).isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    slotGroup: PropTypes.oneOf(['nota', 'home', 'acumulado']).isRequired,
+    slotGroup: PropTypes.oneOf(['nota', 'home', 'acumulado', 'amp']).isRequired,
     selectedSlots: PropTypes.shape({
         desktopSlot: PropTypes.oneOf(getSlotsOptions()),
         mobileSlot: PropTypes.oneOf(getSlotsOptions()),
