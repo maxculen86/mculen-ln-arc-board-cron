@@ -7,6 +7,7 @@ import PlaceHolder from './bannerPlaceholder';
 import WithNavigation from '../hocs/WithNavigation';
 
 const banner = props => {
+    console.log(' ¿¿¿¿¿¿¿¿¿ props ¿¿¿¿¿', props);
     const {
         outputType,
         siteProperties: {
