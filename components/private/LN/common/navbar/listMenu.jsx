@@ -10,16 +10,16 @@ const ListMenu = ({ showNav, toglleDesplegable }) => {
         <nav className={`com-nav-mobile${showNav}`}>
             <div className="row">
                 <ItemHome />
-                <ItemClub />
-                <ItemMiCuenta />
                 <button
                     type="button"
-                    className="col-2 item-foo"
+                    className="col-3 item-foo"
                     onClick={toglleDesplegable}
                 >
                     <i className="icon-menu" />
-                    <p>Menú</p>
+                    <p>Secciones</p>
                 </button>
+                <ItemClub />
+                <ItemMiCuenta />
             </div>
         </nav>
     );
