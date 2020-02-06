@@ -29,8 +29,14 @@ import '../../resources/dist/css/ln/components/appointment.css';
 import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
-import '../../resources/dist/css/ln/components/nav-amp.css';
+
+/*Se debe importar para AMP*/
+//import '../../resources/dist/css/ln/components/nav-amp.css';
+
+/*Se debe importar por layouts*/
 import '../../resources/dist/css/ln/components/banners.css';
+
+/*Se debe dejar último los helpers*/
 import '../../resources/dist/css/ln/base/helpers.css';
 
 const lnNotaNoticia = ({ children, outputType }) => {
