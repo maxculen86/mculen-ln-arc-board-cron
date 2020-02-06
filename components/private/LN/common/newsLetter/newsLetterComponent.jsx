@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import '../../../../../resources/dist/css/ln/layouts/layout.css';
-import '../../../../../resources/dist/css/ln/base/helpers.css';
+//import '../../../../../resources/dist/css/ln/base/helpers.css';
 import '../../../../../resources/dist/css/ln/modules/newsletter.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 

@@ -3,10 +3,15 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import '../../resources/dist/css/ln/base.css';
+import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
+import '../../resources/dist/css/ln/base/reset.css';
+import '../../resources/dist/css/ln/base/types.css';
+import '../../resources/dist/css/ln/base/helpers.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
+import '../../resources/dist/css/ln/modules/header-desktop.css';
+import '../../resources/dist/css/ln/modules/header-mobile.css';
 
 // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
 // EL COMPONENTE Y EN OTROS NO
