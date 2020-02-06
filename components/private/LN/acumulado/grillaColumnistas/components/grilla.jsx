@@ -41,6 +41,6 @@ GrillaColumnistas.propTypes = {
     authors: PropTypes.arrayOf(PropTypes.object).isRequired,
     obtenerMasNotas: PropTypes.func.isRequired,
     mostrarBtnMasNotas: PropTypes.bool.isRequired,
-    customFields: PropTypes.object
+    customFields: PropTypes.object.isRequired
 };
 export default GrillaColumnistas;
