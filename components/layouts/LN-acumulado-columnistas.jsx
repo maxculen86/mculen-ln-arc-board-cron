@@ -24,7 +24,7 @@ const layoutItems = [
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
 
-const LNAcumuladoLayout = props => {
+const LNAcumuladoColumnistasLayout = props => {
     const { children, globalContent } = props;
     const [classRevista, setClassRevista] = useState('');
     const [headerDark, setHeaderDark] = useState('');
@@ -86,7 +86,7 @@ const LNAcumuladoLayout = props => {
     );
 };
 
-LNAcumuladoLayout.propTypes = {
+LNAcumuladoColumnistasLayout.propTypes = {
     children: PropTypes.node.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
@@ -96,6 +96,6 @@ LNAcumuladoLayout.propTypes = {
     }).isRequired
 };
 
-LNAcumuladoLayout.sections = layoutItems;
+LNAcumuladoColumnistasLayout.sections = layoutItems;
 
-export default Consumer(LNAcumuladoLayout);
+export default Consumer(LNAcumuladoColumnistasLayout);

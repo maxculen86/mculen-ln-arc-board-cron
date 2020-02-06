@@ -19,10 +19,12 @@ function WithColumnistData(WrappedColumnist, filter) {
                         last
                     }
                 });
+
                 this.state = {
                     last,
                     authors: cached.authors,
-                    mostrarBtnMasNotas: cached.more
+                    mostrarBtnMasNotas: cached.more,
+                    customFields: this.props.customFields || {}
                 };
 
                 fetched.then(response => {
@@ -35,8 +37,7 @@ function WithColumnistData(WrappedColumnist, filter) {
             }
 
             obtenerMasNotas = () => {
-                const { last } = this.state;
-                const { authors } = this.state;
+                const { authors, last } = this.state;
 
                 const { cached, fetched } = this.getContent({
                     sourceName: 'authorsColumnistSource',
@@ -48,34 +49,38 @@ function WithColumnistData(WrappedColumnist, filter) {
 
                 if (cached && cached.authors) {
                     cached.authors.forEach(authr => authors.push(authr));
-                    const mostrarBtnMasNotas = cached.more;
+
                     this.setState({
                         last,
                         authors,
-                        mostrarBtnMasNotas
+                        mostrarBtnMasNotas: cached.more
                     });
                 }
 
                 fetched.then(response => {
                     if (response.authors) {
                         response.authors.forEach(authr => authors.push(authr));
-                        const mostrarBtnMasNotas = response.more;
                         this.setState({
                             last: response.last,
                             authors,
-                            mostrarBtnMasNotas
+                            mostrarBtnMasNotas: response.more
                         });
                     }
                 });
             };
 
             render() {
-                const { authors, mostrarBtnMasNotas } = this.state;
+                const {
+                    authors,
+                    customFields,
+                    mostrarBtnMasNotas
+                } = this.state;
                 return (
                     <WrappedColumnist
                         authors={authors}
                         obtenerMasNotas={this.obtenerMasNotas}
                         mostrarBtnMasNotas={!mostrarBtnMasNotas}
+                        customFields={customFields}
                     />
                 );
             }

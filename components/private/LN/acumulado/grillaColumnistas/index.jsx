@@ -1,10 +1,12 @@
 import PropTypes from 'fusion:prop-types';
 import GrillaColumnistas from './components/grilla';
+import WithColumnistData from '../hocs/WithColumnistData';
 
 GrillaColumnistas.propTypes = {
-    customFields: PropTypes.shape({
-        test: PropTypes.string
-    })
+    authors: PropTypes.arrayOf(PropTypes.object).isRequired,
+    obtenerMasNotas: PropTypes.func.isRequired,
+    mostrarBtnMasNotas: PropTypes.bool.isRequired,
+    customFields: PropTypes.object
 };
 
-export default GrillaColumnistas;
+export default WithColumnistData(GrillaColumnistas);
