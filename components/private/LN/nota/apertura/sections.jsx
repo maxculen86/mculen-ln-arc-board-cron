@@ -29,18 +29,22 @@ const Sections = props => {
         };
     });
     return (
-        <>
-            {temas && listSectionsDespues.length && (
-                <h4 className="com-subtitle_list w-100">Temas</h4>
-            )}
-            {listSectionsDespues ? (
-                <TaxonomyComponent
-                    list={listSectionsDespues}
-                    destacado={destacado}
-                    type="section"
-                />
-            ) : null}
-        </>
+        <div className="row">
+            <div className="col-12">
+                <>
+                    {temas && listSectionsDespues.length && (
+                        <h4 className="com-subtitle_list">Temas</h4>
+                    )}
+                    {listSectionsDespues ? (
+                        <TaxonomyComponent
+                            list={listSectionsDespues}
+                            destacado={destacado}
+                            type="section"
+                        />
+                    ) : null}
+                </>
+            </div>
+        </div>
     );
 };
 

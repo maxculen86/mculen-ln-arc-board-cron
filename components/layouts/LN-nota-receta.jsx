@@ -32,6 +32,8 @@ import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/components/appointment.css';
 import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
+import '../../resources/dist/css/ln/components/banners.css';
+import '../../resources/dist/css/ln/base/helpers.css';
 
 /*Se debe importar para AMP*/
 //import '../../resources/dist/css/ln/components/nav-amp.css';

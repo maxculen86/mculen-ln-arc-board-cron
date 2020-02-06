@@ -11,7 +11,7 @@ import '../../../../../resources/dist/css/ln/components/author.css';
 
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
-import '../../../../../resources/dist/css/ln/base/helpers.css';
+//import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ globalContent }) => {
     const {
