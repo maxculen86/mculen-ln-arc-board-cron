@@ -8,7 +8,7 @@ const BannerSticky = ({ outputType, isAdmin, siteProperties }) => {
     var lastScroll = 0;
 
     useEffect(() => {
-        const contentMain = document.getElementByClassName('amp');
+        const contentMain = document.getElementsByClassName('amp');
         const stickyAMP = document.getElementById('sticky_amp');
         if (stickyAMP && contentMain) {
             window.addEventListener('scroll', () =>
