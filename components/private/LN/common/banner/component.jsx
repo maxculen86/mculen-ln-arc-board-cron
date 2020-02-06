@@ -50,19 +50,26 @@ const bannerComponent = ({
          * - Que es topico ? Donde esta eso en ARC ?
          * - Probar poner te_CATEGORIA o te_TAG
          */
+
         ad = (
-            <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
-                <amp-ad
-                    id="sticky_amp"
-                    type="doubleclick"
-                    class="banner"
-                    width={dimensions.width}
-                    height={dimensions.height}
-                    data-slot={`/133919216/AMP/ROS/${slotId}`}
-                    json={`'{"targeting":{"tags": ["ca_turismo|ca_comun|"], "tags_nuevos":["ca_turismo","ca_comun",""] }`}
-                />
-            </div>
+            <amp-ad
+                id="sticky_amp"
+                type="doubleclick"
+                class="banner"
+                width={dimensions.width}
+                height={dimensions.height}
+                data-slot={`/133919216/AMP/ROS/${slotId}`}
+                json={`{"targeting":{"tags": ["ca_turismo|ca_comun|ca_viajes|te_ohlala_viaja"], "tags_nuevos":["ca_turismo","ca_comun","ca_viajes","te_ohlala_viaja"] }`}
+            />
         );
+
+        if (sticky) {
+            ad = (
+                <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
+                    <amp-sticky-ad layout="nodisplay">{ad}</amp-sticky-ad>
+                </div>
+            );
+        }
     }
 
     return ad;
