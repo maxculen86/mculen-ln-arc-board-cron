@@ -98,7 +98,7 @@
         }
         &.--desktop {
             display: block;
-            margin-bottom: $px-20;
+            margin-bottom: $px-30;
         }
         &.--top {
             max-width: 1260px;
@@ -107,7 +107,8 @@
             height: auto;
         }
         &#caja2_dsk {
-            margin-top: $px-30;
+            margin-top: $px-40;
+            margin-bottom: $px-40;
         }
     }
 }
