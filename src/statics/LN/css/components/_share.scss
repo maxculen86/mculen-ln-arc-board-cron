@@ -5,7 +5,7 @@
 .com-share {
     position: fixed;
     z-index: 10;
-    top: 0;
+    top: -50px;
     left: 0;
     right: 0;
     width: 100%;
@@ -13,7 +13,6 @@
     border: 1px solid $gris1;
     overflow: hidden;
     transition: all 0.25s;
-    display: none; // Sólo se muestra cuando se inicia scroll
     @media (min-width: 768px) {
         display: block;
     }

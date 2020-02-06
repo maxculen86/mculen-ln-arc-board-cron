@@ -90,7 +90,7 @@ class Index extends Component {
                 wrapper.classList.remove(CLASS_SCROLL_UP);
                 wrapper.classList.add(CLASS_SCROLL_DOWN);
             }
-            if (scrollPos < 100) {
+            if (scrollPos < 10) {
                 vshare.classList.remove(CLASS_SCROLL_UP);
                 classList.remove(CLASS_SCROLL_UP);
                 classList.remove(CLASS_SCROLL_DOWN);
