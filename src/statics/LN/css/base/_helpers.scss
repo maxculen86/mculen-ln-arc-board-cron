@@ -80,6 +80,9 @@
         display: none;
     }
 }
+.hlp-none.banner {
+    display: none !important; //no se encuentra donde se pisa el archivo helpers, por eso agregamos esta clase
+}
 
 //=============================
 // MARGIN TOP
