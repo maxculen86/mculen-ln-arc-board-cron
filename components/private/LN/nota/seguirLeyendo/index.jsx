@@ -5,7 +5,7 @@ const Index = ({ related_content }) => {
     if (related_content) {
         links = related_content.map(el => (
             <>
-                <a href={el.website_url} className="com-link">
+                <a href={el.website_url} className="link">
                     <span className="hlp-bold">
                         {el.label && el.label.volanta
                             ? `${el.label.volanta.text} `
@@ -13,7 +13,6 @@ const Index = ({ related_content }) => {
                     </span>
                     {el.headlines.basic}
                 </a>
-                <br />
             </>
         ));
     }
