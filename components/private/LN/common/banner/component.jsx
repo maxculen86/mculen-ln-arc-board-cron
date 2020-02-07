@@ -112,7 +112,11 @@ bannerComponent.propTypes = {
     // TODO: ver como verifiar que sean de estos tipos pero sin hacer shape ya que no importa en este paso que tienen esas props adentro
     dimensions: PropTypes.array.isRequired,
     targeting: PropTypes.object.isRequired,
-    bidding: PropTypes.object.isRequired
+    bidding: PropTypes.object.isRequired,
+    taxonomy: PropTypes.shape({
+        sections: PropTypes.arrayOf(PropTypes.string),
+        tags: PropTypes.arrayOf(PropTypes.string)
+    })
 };
 
 export default bannerComponent;
