@@ -32,10 +32,10 @@ const Sections = props => {
         <div className="row">
             <div className="col-12">
                 <>
-                    {temas && listSectionsDespues.length && (
+                    {temas && listSectionsDespues.length > 0 && (
                         <h4 className="com-subtitle_list">Temas</h4>
                     )}
-                    {listSectionsDespues ? (
+                    {temas && listSectionsDespues ? (
                         <TaxonomyComponent
                             list={listSectionsDespues}
                             destacado={destacado}
