@@ -12,7 +12,7 @@ import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/hour.css';
 
-const layoutItems = ['Contenido'];
+const layoutItemsColumnistas = ['Autores'];
 
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
@@ -60,7 +60,9 @@ const LNAcumuladoColumnistasLayout = props => {
                             </div>
                         */}
                         {/* Espacio para el contenido */}
-                        {children[0]}
+                        <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
+                            {children[0]}
+                        </section>
                     </div>
                 </div>
             </main>
@@ -79,6 +81,6 @@ LNAcumuladoColumnistasLayout.propTypes = {
     }).isRequired
 };
 
-LNAcumuladoColumnistasLayout.sections = layoutItems;
+LNAcumuladoColumnistasLayout.sections = layoutItemsColumnistas;
 
 export default Consumer(LNAcumuladoColumnistasLayout);

@@ -1,0 +1,12 @@
+import PropTypes from 'fusion:prop-types';
+import CajaAutor from '../../private/LN/acumulado/author/cajaAuthor';
+
+CajaAutor.label = 'LN-Caja-Autor';
+CajaAutor.propTypes = {
+    customFields: PropTypes.shape({
+        author: PropTypes.string.tag({
+            label: 'Ingrese el autor'
+        })
+    })
+};
+export default CajaAutor;
