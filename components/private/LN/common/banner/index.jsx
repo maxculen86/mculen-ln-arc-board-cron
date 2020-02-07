@@ -9,6 +9,7 @@ import WithNavigation from '../hocs/WithNavigation';
 const banner = props => {
     console.log(' ¿¿¿¿¿¿¿¿¿ props ¿¿¿¿¿', props);
     const {
+        taxonomy,
         outputType,
         siteProperties: {
             bannerConfig: { dfp_id }
@@ -78,6 +79,7 @@ const banner = props => {
                 background={background}
                 extraClasses={extraClasses}
                 outputType={outputType}
+                taxonomy={taxonomy}
             />
             {/* ) : null} */}
         </>

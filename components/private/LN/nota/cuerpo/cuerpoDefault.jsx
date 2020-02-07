@@ -23,7 +23,7 @@ const Cuerpo = props => {
         siteProperties,
         bannerConfig,
         outputType,
-        globalContent: { content_elements: contentElements }
+        globalContent: { taxonomy, content_elements: contentElements }
     } = props;
     const bodyComponents = [
         Paragraph,
@@ -66,6 +66,7 @@ const Cuerpo = props => {
                                     return (
                                         <>
                                             <Banner
+                                                taxonomy={taxonomy}
                                                 siteProperties={siteProperties}
                                                 isAdmin={isAdmin}
                                                 slotGroup={
