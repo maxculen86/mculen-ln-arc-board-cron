@@ -93,13 +93,13 @@ const bannerComponent = ({
             />
         );
 
-        if (sticky) {
+        /* if (sticky) {
             ad = (
                 <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
                     <amp-sticky-ad layout="nodisplay">{ad}</amp-sticky-ad>
                 </div>
             );
-        }
+        } */
     }
 
     return ad;

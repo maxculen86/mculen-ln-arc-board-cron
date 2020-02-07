@@ -7,7 +7,7 @@ import PlaceHolder from './bannerPlaceholder';
 import WithNavigation from '../hocs/WithNavigation';
 
 const banner = props => {
-    console.log(' ¿¿¿¿¿¿¿¿¿ props ¿¿¿¿¿', props);
+    /* console.log(' ¿¿¿¿¿¿¿¿¿ props ¿¿¿¿¿', props); */
     const {
         taxonomy,
         outputType,
@@ -34,16 +34,16 @@ const banner = props => {
         return null;
     };
 
-    console.log('####### slotsConfig: ', slotsConfig);
+    /* console.log('####### slotsConfig: ', slotsConfig);
     console.log('####### isAdmin: ', isAdmin);
     console.log('####### ScreenUtils: ', screenUtils);
     console.log('####### desktopSlot: ', desktopSlot);
-    console.log('####### slotGroup: ', slotGroup);
+    console.log('####### slotGroup: ', slotGroup); */
 
     const finalSlot = getSlotForDevice();
     const finalConfig = slotsConfig[slotGroup][finalSlot];
-    console.log('##### finalSlot: ', finalSlot);
-    console.log('######### finalConfig: ', finalConfig);
+    /* console.log('##### finalSlot: ', finalSlot);
+    console.log('######### finalConfig: ', finalConfig); */
 
     if (!finalConfig) return null;
     if (!dfp_id) {
@@ -63,7 +63,7 @@ const banner = props => {
             />
         );
     }
-    console.log('A RENDEREAR EL BANNER PAPA');
+
     return (
         <>
             {/* {termicas.banners ? ( */}
