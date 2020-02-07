@@ -1,3 +1,4 @@
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import CajaAutor from '../../private/LN/acumulado/author/cajaAuthor';
 
@@ -9,4 +10,4 @@ CajaAutor.propTypes = {
         })
     })
 };
-export default CajaAutor;
+export default Consumer(CajaAutor);
