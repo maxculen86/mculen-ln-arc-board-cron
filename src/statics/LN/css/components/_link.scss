@@ -55,4 +55,8 @@ a {
         transition: all 0.2s ease-in-out;
         cursor: pointer;
     }
+    .com-ordered &,
+    .com-unordered & {
+        color: $link;
+    }
 }

@@ -90,6 +90,9 @@
 
 //Valores de tablet para arriba
 @media (min-width: 768px) {
+    .com-share.--scrollUp {
+        top: $px-80;
+    }
 }
 
 //Valores de desk chico para arriba
@@ -116,7 +119,7 @@
         background: initial;
         border: 0;
         font-size: $font-30;
-        margin: $px-10 0;
+        margin-bottom: $px-16;
         opacity: 0.8;
         transition: all 0.2s ease-in-out;
         cursor: pointer;
