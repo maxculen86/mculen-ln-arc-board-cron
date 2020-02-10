@@ -40,25 +40,30 @@ const bannerComponent = ({
         return outcome;
     };
 
-    let ad = (
-        <ArcAd
-            className={`--${device}${
-                sticky ? ' --sticky' : ''
-            } ${extraClasses || ''}`}
-            id={slotId}
-            dfpId={dfpId}
-            slotName={slotName}
-            dimensions={dimensions}
-            targeting={targeting}
-            bidding={bidding}
-        />
-    );
+    let ad = <></>;
 
-    if (background) {
-        ad = <div className="banner w-100 --bg-banner hlp-none">{ad}</div>;
+    if (outputType === 'default') {
+        ad = (
+            <ArcAd
+                className={`--${device}${
+                    sticky ? ' --sticky' : ''
+                } ${extraClasses || ''}`}
+                id={slotId}
+                dfpId={dfpId}
+                slotName={slotName}
+                dimensions={dimensions}
+                targeting={targeting}
+                bidding={bidding}
+            />
+        );
+
+        if (background) {
+            ad = <div className="banner w-100 --bg-banner hlp-none">{ad}</div>;
+        }
     }
 
     if (outputType === 'amp') {
+        if (!slotId.includes('amp')) return <></>;
         /**
          * Para armar json con targeting:
          * Tomar en cuenta sections y tags
