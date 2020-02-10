@@ -24,6 +24,7 @@
 .com-ordered {
     padding-left: 0;
     counter-reset: item;
+    width: 100%;
     .com-item {
         list-style-type: none;
         padding-left: 2em;
