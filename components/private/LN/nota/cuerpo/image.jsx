@@ -3,7 +3,9 @@ import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 
 const image = ({ data }) => {
-    const credits = data.credits.by.length > 1 ? 'Créditos' : 'Crédito';
+    console.log('DATA ***************************', data.credits);
+    const credits =
+        data.credits.by && data.credits.by.length > 1 ? 'Créditos' : 'Crédito';
     return (
         <>
             <Media mediaData={data} colNumber={12}>
@@ -19,6 +21,7 @@ const image = ({ data }) => {
                             ) : (
                                 ''
                             )}
+                            {data.distributor ? ' - ' : ''}
                             {data.vanity_credits &&
                                 data.vanity_credits.affiliation.length &&
                                 (data.credits
@@ -27,7 +30,7 @@ const image = ({ data }) => {
                                               return (
                                                   <>
                                                       {i === 0
-                                                          ? ` - ${credits}: `
+                                                          ? `credits: `
                                                           : ', '}
                                                       {credito.type === 'author'
                                                           ? credito.name

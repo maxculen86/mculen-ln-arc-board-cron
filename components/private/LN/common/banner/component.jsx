@@ -17,10 +17,28 @@ const bannerComponent = ({
     background,
     device,
     extraClasses,
-    outputType
+    outputType,
+    taxonomy
 }) => {
-    console.log('BANNER PROPS: ', slotId, dfpId, slotName, targeting);
-    // TODO: Borrar estos comentarios feos
+    const { sections, tags } = taxonomy
+        ? taxonomy
+        : {
+              sections: [],
+              tags: []
+          };
+
+    const buildTargeting = (source, prefix = 'ca_', string = '') => {
+        let outcome = string;
+        source.forEach((element, i) => {
+            if (element.name)
+                outcome += prefix.concat(element.name.toLowerCase());
+            if (element.text)
+                outcome += prefix.concat(element.text.toLowerCase());
+            if (i < source.length - 1) outcome += '|';
+        });
+        return outcome;
+    };
+
     let ad = (
         <ArcAd
             className={`--${device}${
@@ -41,15 +59,27 @@ const bannerComponent = ({
 
     if (outputType === 'amp') {
         /**
-         * Para armar JSON con targeting:
-         * Tomar en consideración :
-         * - TAGS de la nota
-         * - SECTIONS de la nota
-         * - Que carajos es espacio patrocinado ?
-         * - Debo tomar en cuenta personas ? En ARC se setean ?
-         * - Que es topico ? Donde esta eso en ARC ?
-         * - Probar poner te_CATEGORIA o te_TAG
+         * Para armar json con targeting:
+         * Tomar en cuenta sections y tags
+         * - {"targeting":{"tags": ["ca_turismo|ca_comun|ca_viajes|te_ohlala_viaja"], "tags_nuevos":["ca_turismo","ca_comun","ca_viajes","te_ohlala_viaja"] }
          */
+
+        const json = {
+            targeting: {
+                tags: [
+                    `${buildTargeting(sections, 'ca_', '')}${buildTargeting(
+                        tags,
+                        'te_',
+                        ''
+                    )}`
+                ],
+                tags_nuevos: sections
+                    .map(section => 'ca_'.concat(section.name).toLowerCase())
+                    .concat(
+                        tags.map(tag => 'te_'.concat(tag.text).toLowerCase())
+                    )
+            }
+        };
 
         ad = (
             <amp-ad
@@ -59,17 +89,17 @@ const bannerComponent = ({
                 width={dimensions.width}
                 height={dimensions.height}
                 data-slot={`/133919216/AMP/ROS/${slotId}`}
-                json={`{"targeting":{"tags": ["ca_turismo|ca_comun|ca_viajes|te_ohlala_viaja"], "tags_nuevos":["ca_turismo","ca_comun","ca_viajes","te_ohlala_viaja"] }`}
+                json={`${JSON.stringify(json)}`}
             />
         );
 
-        if (sticky) {
+        /* if (sticky) {
             ad = (
                 <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
                     <amp-sticky-ad layout="nodisplay">{ad}</amp-sticky-ad>
                 </div>
             );
-        }
+        } */
     }
 
     return ad;
@@ -82,7 +112,11 @@ bannerComponent.propTypes = {
     // TODO: ver como verifiar que sean de estos tipos pero sin hacer shape ya que no importa en este paso que tienen esas props adentro
     dimensions: PropTypes.array.isRequired,
     targeting: PropTypes.object.isRequired,
-    bidding: PropTypes.object.isRequired
+    bidding: PropTypes.object.isRequired,
+    taxonomy: PropTypes.shape({
+        sections: PropTypes.arrayOf(PropTypes.string),
+        tags: PropTypes.arrayOf(PropTypes.string)
+    })
 };
 
 export default bannerComponent;
