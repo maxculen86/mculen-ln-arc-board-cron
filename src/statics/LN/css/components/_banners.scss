@@ -1,18 +1,15 @@
 @import '../abstracts/variables';
 .--bg-banner {
-    background-color: #f3f3f3;
-    margin-bottom: $px-20;
     &.w-100 {
-        .banner {
+        .amp & {
+            margin-bottom: $px-20;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        &.content-sticky {
-            .amp & {
-                position: sticky;
-                top: 0;
-                z-index: 1000;
+            transform: scaleX(1.15);
+            margin-left: inherit;
+            @media (min-width: 768px) {
+                transform: inherit;
             }
         }
     }

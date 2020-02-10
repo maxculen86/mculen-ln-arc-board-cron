@@ -145,7 +145,7 @@ amp-sidebar {
             font-family: 'arial';
             background: transparent;
             border: none;
-            width: calc(100% / 4.5);
+            width: calc(100% / 4);
             font-size: 12px;
             display: flex;
             flex-direction: column;
@@ -169,11 +169,11 @@ amp-sidebar {
         justify-content: center;
         text-align: center;
         text-decoration: none;
-        width: calc(100% / 4);
 
         &.icon-home {
             font-family: 'arial';
             font-size: 12px;
+            width: calc(100% / 5);
 
             &:before {
                 font-size: 30px;
@@ -182,7 +182,7 @@ amp-sidebar {
             }
         }
         &.icon-club {
-            width: calc(100% / 2.8);
+            width: calc(100% / 3);
             font-family: 'arial';
             font-size: 12px;
 
@@ -193,7 +193,7 @@ amp-sidebar {
             }
         }
         &.icon-user {
-            width: calc(100% / 2.8);
+            width: calc(100% / 4);
             font-family: 'arial';
             font-size: 12px;
 
