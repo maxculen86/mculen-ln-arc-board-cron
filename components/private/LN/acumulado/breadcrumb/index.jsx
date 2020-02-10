@@ -4,23 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import BreadcrumbAutor from './breadcrumbAutor';
 import BreadcrumbTag from './breadcrumbTag';
 import BreadcrumbSection from './breadcrumbSection';
-import BreadcrumbAutorColumnista from './breadcrumbAutorColumnista';
-
-function isExist(toSearch, textToSearch) {
-    return toSearch.indexOf(textToSearch);
-}
-
-function isColumnist(globalContentConfig) {
-    let flag = false;
-    // Esta validación verifica si la consulta viene del site o del admin de Arc
-    if (globalContentConfig.query.uri) {
-        flag = isExist(globalContentConfig.query.uri, 'columnistas');
-    } else if (globalContentConfig.query.id) {
-        flag = isExist(globalContentConfig.query.id, 'columnistas');
-    }
-
-    return flag;
-}
+import BreadcrumbCustom from './BreadcrumbCustom';
 
 const renderBreadCrumbTag = (globalContent, host) => {
     const tag = globalContent.Payload.items[0];
@@ -42,6 +26,15 @@ function isRender(
     title,
     customFields
 ) {
+    if (customFields && customFields.sectionName)
+        return (
+            <BreadcrumbCustom
+                customFields={customFields}
+                host={host}
+                title={title}
+            />
+        );
+
     if (globalContent.Payload) return renderBreadCrumbTag(globalContent, host);
 
     if (globalContent.node_type === 'section')
@@ -49,16 +42,9 @@ function isRender(
 
     if (globalContent.byline) return renderBreadcrumbAutor(globalContent, host);
 
-    if (isColumnist(globalContentConfig))
-        return (
-            <BreadcrumbAutorColumnista
-                customFields={customFields}
-                host={host}
-                title={title}
-            />
-        );
-
-    throw new Error('Breadcrumb invalido en esta página. ');
+    throw new Error(
+        'Breadcrumb invalido en esta página. Verificar si hay un content source asociado o si ha completado el nombre de la sección'
+    );
 }
 
 function Index(props) {

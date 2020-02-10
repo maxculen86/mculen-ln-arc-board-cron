@@ -1,7 +1,7 @@
 import React from 'react';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 
-function BreadcrumbAutorColumnista(props) {
+function BreadcrumbCustom(props) {
     const { customFields, host, title } = props;
     const sections = [
         {
@@ -19,4 +19,4 @@ function BreadcrumbAutorColumnista(props) {
     );
 }
 
-export default BreadcrumbAutorColumnista;
+export default BreadcrumbCustom;

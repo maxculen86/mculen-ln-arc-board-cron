@@ -3,11 +3,11 @@ import { createResizer } from '../../components/private/common/utils/image/resiz
 import filter from '../filters/LN/acumulado/authorColumnist';
 
 const resolve = key => {
-    const { _id, byline, website } = key;
-    //if (!_id || byline) throw new Error('El id de autor es necesario. ');
+    const { _id, website } = key;
+    if (!_id) throw new Error('El id de autor es necesario. ');
     const arcSite = key['arc-site'];
-    const path = `/author/v2/author-service?website=${website ||
-        arcSite}&byline=${byline}`;
+    const path = `/author/v1/author-service?website=${website ||
+        arcSite}&_id=${_id}`;
     return path;
 };
 

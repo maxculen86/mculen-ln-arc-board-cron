@@ -17,8 +17,6 @@ const masNotas = props => {
     );
 };
 
-console.log('MasNotas FILTERRRRRR', MasNotas.filterTypes);
-
 masNotas.label = 'LN-Nota-masNotas';
 
 masNotas.propTypes = {

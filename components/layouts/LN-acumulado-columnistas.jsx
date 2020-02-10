@@ -12,7 +12,7 @@ import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/hour.css';
 
-const layoutItemsColumnistas = ['Autores'];
+const layoutItemsColumnistas = ['Breadcrumb', 'Titulo', 'Autores'];
 
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
@@ -44,24 +44,24 @@ const LNAcumuladoColumnistasLayout = props => {
                 {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                 <div className="lay-sidebar">
                     <div className="sidebar__main">
-                        {/* Espacio para breadcrum
-                            <div class="row">
-                                <div class="col-12">
-                                    <nav class="com-breadcrumb hlp-marginBottom-30">
-                                        <a href="">LA NACION</a>
-                                        <a href="">Columnistas</a>
-                                    </nav>
-                                </div>
-                                <div class="col-12">
-                                    <div class="com-titleWithfollow hlp-marginBottom-30">
-                                        <h1 class="com-title-section-xl">Columnistas</h1>
+                        {
+                            /* Espacio para breadcrum */
+                            <div className="row">
+                                <div className="col-12">{children[0]}</div>
+
+                                <div className="col-12">
+                                    <div className="com-titleWithfollow hlp-marginBottom-30">
+                                        <h1 className="com-title-section-xl">
+                                            Columnistas
+                                        </h1>
                                     </div>
+                                    {children[1]}
                                 </div>
                             </div>
-                        */}
+                        }
                         {/* Espacio para el contenido */}
                         <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-                            {children[0]}
+                            {children[2]}
                         </section>
                     </div>
                 </div>
