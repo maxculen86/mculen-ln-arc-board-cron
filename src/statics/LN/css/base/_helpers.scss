@@ -37,6 +37,15 @@
         display: none;
     }
 }
+
+.hlp-mobile-show {
+    &.col-1 {
+        margin-bottom: 0;
+        @media (min-width: 768px) {
+            margin-bottom: $px-40;
+        }
+    }
+}
 //visible desde 767
 @media (max-width: 48em - 1) {
     .hlp-mobile-show {
