@@ -82,24 +82,27 @@ const bannerComponent = ({
             }
         };
 
-        let className = 'w-100 --bg-banner';
-        if (sticky) {
-            className = 'content-sticky w-100 --bg-banner hlp-desksm-none';
-        }
-
         ad = (
-            <div className={className}>
-                <amp-ad
-                    id={`${slotId}`}
-                    type="doubleclick"
-                    class="banner"
-                    width={dimensions.width}
-                    height={dimensions.height}
-                    data-slot={`/133919216/AMP/ROS/${slotId}`}
-                    json={`${JSON.stringify(json)}`}
-                />
-            </div>
+            <amp-ad
+                id={`${slotId}`}
+                type="doubleclick"
+                class="banner"
+                width={dimensions.width}
+                height={dimensions.height}
+                data-slot={`/133919216/AMP/ROS/${slotId}`}
+                json={`${JSON.stringify(json)}`}
+            />
         );
+
+        if (sticky) {
+            ad = (
+                <div className="w-100 --bg-banner hlp-desksm-none">
+                    <amp-sticky-ad layout="nodisplay">{ad}</amp-sticky-ad>
+                </div>
+            );
+        } else {
+            ad = <div className="w-100 --bg-banner">{ad}</div>;
+        }
     }
 
     return ad;
