@@ -29,6 +29,7 @@ const bannerComponent = ({
 
     const buildTargeting = (source, prefix = 'ca_', string = '') => {
         let outcome = string;
+        if (outcome.length > 0) outcome += '|';
         source.forEach((element, i) => {
             if (element.name)
                 outcome += prefix.concat(element.name.toLowerCase());
@@ -81,25 +82,24 @@ const bannerComponent = ({
             }
         };
 
-        ad = (
-            <amp-ad
-                id="sticky_amp"
-                type="doubleclick"
-                class="banner"
-                width={dimensions.width}
-                height={dimensions.height}
-                data-slot={`/133919216/AMP/ROS/${slotId}`}
-                json={`${JSON.stringify(json)}`}
-            />
-        );
+        let className = 'w-100 --bg-banner';
+        if (sticky) {
+            className = 'content-sticky w-100 --bg-banner hlp-desksm-none';
+        }
 
-        /* if (sticky) {
-            ad = (
-                <div className="content-sticky w-100 --bg-banner hlp-desksm-none">
-                    <amp-sticky-ad layout="nodisplay">{ad}</amp-sticky-ad>
-                </div>
-            );
-        } */
+        ad = (
+            <div className={className}>
+                <amp-ad
+                    id={`${slotId}`}
+                    type="doubleclick"
+                    class="banner"
+                    width={dimensions.width}
+                    height={dimensions.height}
+                    data-slot={`/133919216/AMP/ROS/${slotId}`}
+                    json={`${JSON.stringify(json)}`}
+                />
+            </div>
+        );
     }
 
     return ad;

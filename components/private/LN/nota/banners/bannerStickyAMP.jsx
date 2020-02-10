@@ -18,6 +18,7 @@ const BannerSticky = ({
             }}
             isAdmin={isAdmin}
             taxonomy={taxonomy}
+            sticky
         />
     );
 };
