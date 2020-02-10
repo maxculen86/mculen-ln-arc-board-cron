@@ -12,6 +12,12 @@
         font-size: $font-14;
         color: $gris5;
     }
+    .blockquote & {
+        margin-bottom: 0;
+    }
+    .com-cita & {
+        font-size: $font-24;
+    }
 }
 
 .com-slider {
