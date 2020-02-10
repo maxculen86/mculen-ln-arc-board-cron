@@ -24,7 +24,7 @@ exports[`features - LaNacion - Nota - AuthorAndDate Test de snapshot AuthorAndDa
       class="com-author"
     >
       <span>
-        Por 
+        Por
       </span>
       <span
         class=""
@@ -34,7 +34,7 @@ exports[`features - LaNacion - Nota - AuthorAndDate Test de snapshot AuthorAndDa
         >
           Agustina Lomuto
         </a>
-         y 
+         y
       </span>
       <span
         class=""
