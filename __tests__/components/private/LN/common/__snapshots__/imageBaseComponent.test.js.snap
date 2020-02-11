@@ -2,7 +2,7 @@
 
 exports[`features - La Nacion - components - common - BaseImage Test snapshot 1`] = `
 <a
-  class="figure"
+  class="figure contain-horizontal"
   href="http://www.lanacion.com.ar/unaNota"
 >
   <picture

@@ -121,7 +121,6 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 };
 
 const resizePromoItems = (promoItems, resizeOptions, resizer) => {
-    console.log('##################3', resizeOptions);
     const resp = {};
     const optionsFinal = resizeOptions.promo_items.sizes;
     Object.keys(promoItems).forEach(key => {
