@@ -24,9 +24,9 @@ const image = ({ data }) => {
                             {data.distributor && data.distributor.name !== ''
                                 ? `Fuente: ${data.distributor.name}`
                                 : ''}
-                            {data.distributor &&
-                            data.distributor.name !== '' &&
-                            data.credits.by
+                            {(data.distributor &&
+                                data.distributor.name !== '') ||
+                            (data.credits.by && data.credits.by.name !== '')
                                 ? ' - '
                                 : ''}
                             {data.vanity_credits &&

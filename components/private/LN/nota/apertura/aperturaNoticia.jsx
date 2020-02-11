@@ -31,7 +31,7 @@ const aperturaNoticia = ({ basic }) => {
                                 : ''}
                             {(basic.distributor &&
                                 basic.distributor.name !== '') ||
-                            basic.credits.by
+                            (basic.credits.by && basic.credits.by.name !== '')
                                 ? ' - '
                                 : ''}
                             {basic.vanity_credits &&

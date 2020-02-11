@@ -20,7 +20,7 @@ const imageBase = ({
      */
 
     const pic = (
-        <Placeholder href={href} zoom={zoom}>
+        <Placeholder href={href} zoom={zoom} isVertical={isVertical}>
             {sources &&
                 sources.map(x => {
                     return (
@@ -30,7 +30,6 @@ const imageBase = ({
                             srcSet={x.resizedUrl}
                             className={x.option.class}
                             alt={altText}
-                            isVertical={isVertical}
                         />
                     );
                 })}
