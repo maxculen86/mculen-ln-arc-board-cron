@@ -25,6 +25,7 @@ const AmpImage = props => {
     return (
         <div className={isVertical ? 'contain-vertical' : 'contain-horizontal'}>
             <amp-img
+                class="contain"
                 alt={alt}
                 height={height}
                 width={width}

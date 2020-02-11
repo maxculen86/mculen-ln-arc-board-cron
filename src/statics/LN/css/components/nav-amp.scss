@@ -336,3 +336,32 @@ a.icon-cerrar:before {
         display: none;
     }
 }
+
+.contain-vertical {
+    background: #efefef;
+    position: relative;
+    width: 100%;
+    height: 100vw;
+    @media (min-width: 768px) {
+        height: calc(100vw - 360px);
+    }
+    @media (min-width: 1024px) {
+        height: calc(100vw - 512px);
+    }
+    @media (min-width: 1280px) {
+        height: calc(100vw - 768px);
+    }
+
+    .contain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            object-fit: contain;
+            top: inherit;
+            left: inherit;
+            bottom: inherit;
+            right: inherit;
+        }
+    }
+}
