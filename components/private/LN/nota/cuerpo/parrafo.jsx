@@ -3,6 +3,9 @@ import PropTypes from 'fusion:prop-types';
 
 // TODO: cambiar parrafo por paragraph y hacer test unitario
 const Parrafo = ({ data, capital }) => {
+    const startsWithForbiddenChars = text =>
+        text.startsWith('(') || text.startsWith('"');
+
     const setBoldText = text =>
         text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
 
@@ -16,7 +19,9 @@ const Parrafo = ({ data, capital }) => {
             {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
                 <p
                     className={`text element-paragraph${
-                        capital ? ` capital` : ''
+                        capital && !startsWithForbiddenChars(content)
+                            ? ` capital`
+                            : ''
                     }`}
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{
