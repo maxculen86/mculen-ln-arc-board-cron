@@ -34,65 +34,121 @@ export default {
         resize: {
             nota: {
                 bySubtype: {
-                    7: [
-                        {
-                            width: 1033,
-                            media: '(min-width: 768px)',
-                            class: 'img-desktop',
-                            type: 'promo_items'
+                    7: {
+                        Normal: {
+                            promo_items: {
+                                sizes: [
+                                    {
+                                        width: 1033,
+                                        height: 1280,
+                                        media: '(min-width: 768px)',
+                                        class: 'img-desktop'
+                                    },
+                                    {
+                                        width: 768,
+                                        height: 200,
+                                        media: '(min-width: 740px)',
+                                        class: 'img-desktop-sm'
+                                    },
+                                    {
+                                        width: 340,
+                                        height: 100,
+                                        media: '(min-width: 320px)',
+                                        class: 'img-mobile'
+                                    }
+                                ]
+                            },
+                            content_elements: {
+                                sizes: [
+                                    {
+                                        width: 768,
+                                        height: 200,
+                                        media: '(min-width: 740px)',
+                                        class: 'img-desktop-sm'
+                                    },
+                                    {
+                                        width: 340,
+                                        height: 100,
+                                        media: '(min-width: 320px)',
+                                        class: 'img-mobile'
+                                    }
+                                ]
+                            },
+                            credits: {
+                                sizes: []
+                            }
                         },
-                        {
-                            width: 768,
-                            media: '(min-width: 740px)',
-                            class: 'img-desktop-sm',
-                            type: 'promo_items'
-                        },
-                        {
-                            width: 340,
-                            media: '(min-width: 320px)',
-                            class: 'img-mobile',
-                            type: 'promo_items'
-                        },
-                        {
-                            width: 768,
-                            media: '(min-width: 740px)',
-                            class: 'img-desktop-sm',
-                            type: 'content_elements'
-                        },
-                        {
-                            width: 340,
-                            media: '(min-width: 320px)',
-                            class: 'img-mobile',
-                            type: 'content_elements'
+                        Amp: {
+                            promo_items: {
+                                containerSize: {
+                                    horizontal: {
+                                        height: '853.33',
+                                        width: '1280'
+                                    },
+                                    vertical: {
+                                        width: '853.33',
+                                        height: '1280'
+                                    }
+                                },
+                                sizes: [
+                                    {
+                                        width: 1033,
+                                        height: 1280,
+                                        class: 'img-desktop'
+                                    },
+                                    {
+                                        width: 768,
+                                        height: 200,
+                                        class: 'img-desktop-sm'
+                                    },
+                                    {
+                                        width: 340,
+                                        height: 100,
+                                        class: 'img-mobile'
+                                    }
+                                ]
+                            },
+                            content_elements: {}
                         }
-                    ],
-                    default: [
-                        {
-                            width: 1033,
-                            media: '(min-width: 768px)',
-                            class: 'img-desktop',
-                            type: 'promo_items'
+                    },
+                    default: {
+                        promo_items: {
+                            sizes: [
+                                {
+                                    width: 1033,
+                                    height: 768,
+                                    media: '(min-width: 768px)',
+                                    class: 'img-desktop'
+                                }
+                            ]
                         },
-                        {
-                            width: 1033,
-                            media: '(min-width: 768px)',
-                            class: 'img-desktop',
-                            type: 'content_elements'
+                        content_elements: {
+                            sizes: [
+                                {
+                                    width: 1033,
+                                    height: 768,
+                                    media: '(min-width: 768px)',
+                                    class: 'img-desktop'
+                                }
+                            ]
                         }
-                    ]
+                    }
                 }
             },
             notaM: [
                 {
                     width: 600,
+                    height: 300,
                     media: '(min-width: 64em)'
                 },
                 {
                     width: 520,
+                    height: 200,
                     media: '(min-width: 48em)'
                 },
                 {
                     width: 375,
+                    height: 100,
                     media: '(min-width: 20em)'
                 }
             ]

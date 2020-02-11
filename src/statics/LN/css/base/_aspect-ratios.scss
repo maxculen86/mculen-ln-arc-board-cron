@@ -202,3 +202,11 @@
         }
     }
 }
+
+.contain-vertical {
+    .content-pic {
+        &.picture {
+            padding-top: calc((3 / 2) * 100%);
+        }
+    }
+}

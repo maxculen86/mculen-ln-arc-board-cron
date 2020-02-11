@@ -36,8 +36,6 @@ const Cuerpo = props => {
         Image
     ];
 
-    console.log('########### BANNER CONFIG EN CUERPO DEFAULT: ', bannerConfig);
-
     const paragraphsCount = contentElements.filter(el => el.type === 'text')
         .length;
 
