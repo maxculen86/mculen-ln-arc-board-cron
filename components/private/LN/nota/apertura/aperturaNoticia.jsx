@@ -4,24 +4,36 @@ import Media from '../../common/media';
 
 // TODO: name destacadoEnApertura
 const aperturaNoticia = ({ basic }) => {
-    const credits = basic.credits.by.length > 1 ? 'Créditos' : 'Crédito';
+    const credits = basic.credits.by
+        ? basic.credits.by.length > 1
+            ? 'Créditos'
+            : 'Crédito'
+        : '';
     return (
         <>
             <Media mediaData={basic} colNumber={12}>
                 {basic && (
-                    <section className="com-epigrafe">
+                    <section
+                        className={
+                            basic.caption ||
+                            basic.distributor ||
+                            basic.credits.by
+                                ? 'com-epigrafe'
+                                : ''
+                        }
+                    >
                         {basic.caption && (
                             <p className="text">{basic.caption}</p>
                         )}
                         <p className="small">
-                            {basic.distributor ? (
-                                <>
-                                    Fuente:
-                                    {basic.distributor.name}
-                                </>
-                            ) : (
-                                ''
-                            )}
+                            {basic.distributor && basic.distributor.name !== ''
+                                ? `Fuente: ${basic.distributor.name}`
+                                : ''}
+                            {(basic.distributor &&
+                                basic.distributor.name !== '') ||
+                            basic.credits.by
+                                ? ' - '
+                                : ''}
                             {basic.vanity_credits &&
                                 basic.vanity_credits.affiliation.length &&
                                 (basic.credits
@@ -47,7 +59,7 @@ const aperturaNoticia = ({ basic }) => {
                                           return (
                                               <>
                                                   {i === 0
-                                                      ? ` - ${credits}: `
+                                                      ? `${credits}: `
                                                       : ', '}
                                                   {credito.type === 'author'
                                                       ? credito.name
@@ -66,7 +78,7 @@ const aperturaNoticia = ({ basic }) => {
 
 aperturaNoticia.propTypes = {
     basic: PropTypes.shape({
-        distributor: PropTypes.string.isRequired,
+        distributor: PropTypes.string,
         caption: PropTypes.string,
         vanity_credits: PropTypes.arrayOf,
         credits: PropTypes.arrayOf

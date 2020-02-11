@@ -1,3 +1,5 @@
+import get from 'lodash.get';
+
 export const createResizer = (resizerKey, resizerUrl) => {
     const Thumbor = require('thumbor');
 
@@ -37,6 +39,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
         originalHeight,
         presets
     ) => {
+        // console.log()
         const resp = [];
         presets.forEach(opt => {
             resp.push({
@@ -91,9 +94,7 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
 
 const resizeCredits = (credits, resizeOptions, resizer) => {
     const resp = {};
-    const optionsFinal = resizeOptions.some(v => v.type === 'credits')
-        ? resizeOptions.filter(v => v.type === 'credits')
-        : resizeOptions.filter(v => !v.type);
+    const optionsFinal = get(resizeOptions, 'credits.sizes');
 
     Object.keys(credits).forEach(key => {
         const credit = credits[key];
@@ -120,10 +121,9 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 };
 
 const resizePromoItems = (promoItems, resizeOptions, resizer) => {
+    console.log('##################3', resizeOptions);
     const resp = {};
-    const optionsFinal = resizeOptions.some(v => v.type === 'promo_items')
-        ? resizeOptions.filter(v => v.type === 'promo_items')
-        : resizeOptions.filter(v => !v.type);
+    const optionsFinal = resizeOptions.promo_items.sizes;
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
         if (pi.type === 'image') {
@@ -143,11 +143,7 @@ export const addResizedUrls = (ansDoc, option) => {
 
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
-    const optionsContentElements = option.presets.some(
-        v => v.type === 'content_elements'
-    )
-        ? option.presets.filter(v => v.type === 'content_elements')
-        : option.presets.filter(v => !v.type);
+    const optionsContentElements = option.presets.content_elements.sizes;
 
     const respDoc = {
         ...ansDoc,

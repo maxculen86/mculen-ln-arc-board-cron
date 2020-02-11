@@ -3,25 +3,32 @@ import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 
 const image = ({ data }) => {
-    console.log('DATA ***************************', data.credits);
-    const credits =
-        data.credits.by && data.credits.by.length > 1 ? 'Créditos' : 'Crédito';
+    const credits = data.credits.by
+        ? data.credits.by.length > 1
+            ? 'Créditos'
+            : 'Crédito'
+        : '';
     return (
         <>
             <Media mediaData={data} colNumber={12}>
                 {data && (
-                    <section className="com-epigrafe">
+                    <section
+                        className={
+                            data.caption || data.distributor || data.credits.by
+                                ? 'com-epigrafe'
+                                : ''
+                        }
+                    >
                         {data.caption && <p className="text">{data.caption}</p>}
                         <p className="small">
-                            {data.distributor ? (
-                                <>
-                                    Fuente:
-                                    {data.distributor.name}
-                                </>
-                            ) : (
-                                ''
-                            )}
-                            {data.distributor ? ' - ' : ''}
+                            {data.distributor && data.distributor.name !== ''
+                                ? `Fuente: ${data.distributor.name}`
+                                : ''}
+                            {data.distributor &&
+                            data.distributor.name !== '' &&
+                            data.credits.by
+                                ? ' - '
+                                : ''}
                             {data.vanity_credits &&
                                 data.vanity_credits.affiliation.length &&
                                 (data.credits
@@ -47,7 +54,7 @@ const image = ({ data }) => {
                                           return (
                                               <>
                                                   {i === 0
-                                                      ? ` - ${credits}: `
+                                                      ? `${credits}: `
                                                       : ', '}
                                                   {credito.type === 'author'
                                                       ? credito.name
@@ -68,10 +75,10 @@ image.arcType = 'image';
 
 image.propTypes = {
     data: PropTypes.shape({
-        caption: PropTypes.string.isRequired,
-        distributor: PropTypes.string.isRequired,
+        caption: PropTypes.string,
+        distributor: PropTypes.string,
         vanity_credits: PropTypes.arrayOf,
-        //credits: PropTypes.arrayOf,
+        credits: PropTypes.arrayOf,
         type: PropTypes.string.isRequired
     }).isRequired
 };

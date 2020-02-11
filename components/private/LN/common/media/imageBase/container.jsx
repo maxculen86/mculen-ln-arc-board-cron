@@ -8,6 +8,7 @@ class ImageArticle extends React.Component {
     componentDidMount() {}
 
     render() {
+        console.log('this.props.image **********', this.props.image.height);
         const { image, altText, zoom, href, outputType } = this.props;
 
         if (!image.url) return null;
@@ -24,6 +25,7 @@ class ImageArticle extends React.Component {
                         url={image.url}
                         alt={altText || ''}
                         width={image.width}
+                        height={image.height}
                     />
                 ) : (
                     <ImageBase
@@ -45,7 +47,8 @@ ImageArticle.propTypes = {
         type: PropTypes.oneOf(['image']),
         url: PropTypes.string,
         resized_urls: PropTypes.array.isRequired,
-        width: PropTypes.number
+        width: PropTypes.number,
+        height: PropTypes.number
     }).isRequired,
     altText: PropTypes.string,
     zoom: PropTypes.bool,
