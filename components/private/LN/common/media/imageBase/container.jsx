@@ -34,6 +34,8 @@ class ImageArticle extends React.Component {
                         altText={altText}
                         zoom={zoom}
                         href={href}
+                        width={image.width}
+                        height={image.height}
                     />
                 )}
             </>
