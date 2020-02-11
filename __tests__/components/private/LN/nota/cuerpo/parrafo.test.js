@@ -25,6 +25,17 @@ describe('Paragraph', () => {
         expect(paragraph).toMatchSnapshot();
     });
 
+    it('Does not apply `capital` class if text starts with forbidden chars', () => {
+        const data = {
+            type: 'text',
+            content: `"Maecenas pulvinar, arcu eu lacinia consectetur, erat leo 
+                      egestas augue, id volutpat lorem tellus ac magna.`
+        };
+
+        component = mount(<Paragraph data={data} capital />);
+        expect(component.find('p').hasClass('capital')).toBe(false);
+    });
+
     it('Applies `capital` class to paragraph in order to upper-case the first letter', () => {
         expect(component.find('p').hasClass('capital')).toBe(true);
     });
