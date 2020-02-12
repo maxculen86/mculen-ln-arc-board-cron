@@ -21,9 +21,6 @@ class LNHomeLayout extends Component {
             <>
                 <Header />
                 <main>
-                    <div className="row">
-                        <div className="lay">BREADCRUMB, TITULO Y APERTURA</div>
-                    </div>
                     <div id="content-main" className="lay-sidebar">
                         <div className="row">
                             {this.props.children[0]}
