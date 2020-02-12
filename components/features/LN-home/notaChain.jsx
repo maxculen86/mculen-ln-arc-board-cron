@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 
-export const Nota = ({ content }) => (
+const Nota = ({ content }) => (
     <p>{content && content.headlines && content.headlines.basic}</p>
 );
 
@@ -15,6 +15,7 @@ Nota.propTypes = {
 };
 
 const NotaChain = props => {
+    console.log('NotaChain', props);
     const {
         customFields: { idnota: id }
     } = props;
