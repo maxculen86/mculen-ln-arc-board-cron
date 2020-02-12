@@ -204,9 +204,16 @@
 }
 
 .contain-vertical {
+    .cuerpo__nota & {
+        .content-pic {
+            &.picture {
+                padding-top: calc((3 / 2) * 100%);
+            }
+        }
+    }
     .content-pic {
         &.picture {
-            padding-top: calc((3 / 2) * 100%);
+            padding-top: calc((2 / 3) * 100%);
         }
     }
 }

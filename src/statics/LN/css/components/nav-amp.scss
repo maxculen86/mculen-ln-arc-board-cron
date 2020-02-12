@@ -343,6 +343,10 @@ a.icon-cerrar:before {
     width: 100%;
     padding-top: calc((2 / 3) * 100%);
 
+    .cuerpo__nota & {
+        padding-top: calc((3 / 2) * 100%);
+    }
+
     /*height: 100vw;
     @media (min-width: 768px) {
         height: calc(100vw - 360px);

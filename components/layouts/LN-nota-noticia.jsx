@@ -90,20 +90,23 @@ const lnNotaNoticia = ({ children, outputType }) => {
                                 </div> */}
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-1 hlp-marginBottom-40 hlp-tablet-none hlp-mobile-show">
-                                {/* hlp-mobile-show */}
-                                {/* Left-Cuerpo Shared*/}
-                                {children[3]}
-                            </div>
-
-                            <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                <div className="row">
-                                    {/* Pos-Apertura */}
-                                    {children[4]}
+                        <section className="cuerpo__nota">
+                            <div className="row">
+                                <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                    {/* hlp-mobile-show */}
+                                    {/* Left-Cuerpo Shared*/}
+                                    {children[3]}
+                                </div>
+                                <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                    <div className="row">
+                                        <div className="col-12">
+                                            {/* Pos-Apertura */}
+                                            {children[4]}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
                     {/* Tercera */}
                     <div className="sidebar__aside hlp-tablet-none">
