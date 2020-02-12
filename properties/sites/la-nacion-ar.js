@@ -108,7 +108,9 @@ export default {
                                     }
                                 ]
                             },
-                            content_elements: {}
+                            content_elements: {
+                                sizes: []
+                            }
                         }
                     },
                     default: {
@@ -131,27 +133,34 @@ export default {
                                     class: 'img-desktop'
                                 }
                             ]
+                        },
+                        credits: {
+                            sizes: []
                         }
                     }
                 }
             },
-            notaM: [
-                {
-                    width: 600,
-                    height: 300,
-                    media: '(min-width: 64em)'
-                },
-                {
-                    width: 520,
-                    height: 200,
-                    media: '(min-width: 48em)'
-                },
-                {
-                    width: 375,
-                    height: 100,
-                    media: '(min-width: 20em)'
+            notaM: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 600,
+                            height: 300,
+                            media: '(min-width: 64em)'
+                        },
+                        {
+                            width: 520,
+                            height: 200,
+                            media: '(min-width: 48em)'
+                        },
+                        {
+                            width: 375,
+                            height: 100,
+                            media: '(min-width: 20em)'
+                        }
+                    ]
                 }
-            ]
+            }
         }
     },
     bannerConfig: {

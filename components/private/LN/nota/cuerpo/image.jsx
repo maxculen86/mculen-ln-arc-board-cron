@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 
 const image = ({ data }) => {
-    console.log('data.credits.by.name', data.credits.by);
     const credits = data.credits.by
         ? data.credits.by.length > 1
             ? 'Créditos'

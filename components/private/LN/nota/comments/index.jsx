@@ -48,7 +48,6 @@ const Comments = props => {
         [label]
     );
 
-    console.log('TCL: oldID', oldID);
     if (!oldID) return null;
 
     const metadata = useMemo(

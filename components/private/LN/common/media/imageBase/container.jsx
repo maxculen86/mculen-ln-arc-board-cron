@@ -8,7 +8,6 @@ class ImageArticle extends React.Component {
     componentDidMount() {}
 
     render() {
-        console.log('this.props.image **********', this.props.image.height);
         const { image, altText, zoom, href, outputType } = this.props;
 
         if (!image.url) return null;

@@ -1,3 +1,5 @@
+//TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
+
 import get from 'lodash.get';
 
 export const createResizer = (resizerKey, resizerUrl) => {
@@ -41,17 +43,19 @@ export const createResizer = (resizerKey, resizerUrl) => {
     ) => {
         // console.log()
         const resp = [];
-        presets.forEach(opt => {
-            resp.push({
-                resizedUrl: resizeUrl(
-                    originalUrl,
-                    originalWidth,
-                    originalHeight,
-                    opt
-                ),
-                option: opt
+        if (presets) {
+            presets.forEach(opt => {
+                resp.push({
+                    resizedUrl: resizeUrl(
+                        originalUrl,
+                        originalWidth,
+                        originalHeight,
+                        opt
+                    ),
+                    option: opt
+                });
             });
-        });
+        }
         return resp;
     };
     return {
@@ -94,7 +98,7 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
 
 const resizeCredits = (credits, resizeOptions, resizer) => {
     const resp = {};
-    const optionsFinal = get(resizeOptions, 'credits.sizes');
+    const optionsFinal = get(resizeOptions, 'credits.sizes', []);
 
     Object.keys(credits).forEach(key => {
         const credit = credits[key];
@@ -122,7 +126,7 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 
 const resizePromoItems = (promoItems, resizeOptions, resizer) => {
     const resp = {};
-    const optionsFinal = resizeOptions.promo_items.sizes;
+    const optionsFinal = get(resizeOptions, 'promo_items.sizes', []);
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
         if (pi.type === 'image') {
@@ -142,7 +146,11 @@ export const addResizedUrls = (ansDoc, option) => {
 
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
-    const optionsContentElements = option.presets.content_elements.sizes;
+    const optionsContentElements = get(
+        option,
+        'presets.content_elements.sizes',
+        []
+    );
 
     const respDoc = {
         ...ansDoc,

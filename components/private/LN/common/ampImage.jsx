@@ -7,7 +7,6 @@ const AmpImage = props => {
     const isVertical = height > width;
 
     // TODO: ver este tema de source sets con maquetacion
-    console.log('sources ************* ', sources);
     let srcset = sources
         .map(src => {
             if (src.resizedUrl && !isVertical)
