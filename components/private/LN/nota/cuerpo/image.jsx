@@ -24,8 +24,8 @@ const image = ({ data }) => {
                             {data.distributor && data.distributor.name !== ''
                                 ? `Fuente: ${data.distributor.name}`
                                 : ''}
-                            {(data.distributor &&
-                                data.distributor.name !== '') ||
+                            {data.distributor &&
+                            data.distributor.name !== '' &&
                             data.credits.by !== undefined
                                 ? ' - '
                                 : ''}
