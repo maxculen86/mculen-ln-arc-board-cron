@@ -14,7 +14,14 @@ function ImagePlaceholder({ href, zoom, children, outputType, isVertical }) {
     return (
         <>
             {outputType === 'amp' ? (
-                <noscript>{image}</noscript>
+                <a
+                    href={href}
+                    className={`figure ${
+                        isVertical ? 'contain-vertical' : 'contain-horizontal'
+                    }`}
+                >
+                    <div className="content-pic picture"></div>
+                </a>
             ) : (
                 <a
                     href={href}

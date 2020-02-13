@@ -1,6 +1,31 @@
 @import '../abstracts/variables';
 .cont-figure {
     background-color: $placeholder;
+    .amp & {
+        .content-pic {
+            padding-top: $picture;
+            &:before {
+                font-family: 'LNlogos';
+                content: '\e80a';
+                color: #d9d9d9;
+                font-size: 4.22em;
+                //font-family: ln10;
+                font-style: normal;
+                font-weight: 400;
+                font-variant: normal;
+                text-transform: none;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+        }
+    }
+
     .figure {
         display: flex;
         width: 100%;
