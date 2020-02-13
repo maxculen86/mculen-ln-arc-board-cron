@@ -27,12 +27,15 @@ const aperturaNoticia = ({ basic }) => {
                         )}
                         <p className="small">
                             {basic.distributor && basic.distributor.name !== ''
-                                ? `Fuente: ${basic.distributor.name}`
+                                ? `Fuente: ${
+                                      basic.distributor.name
+                                          ? basic.distributor.name
+                                          : 'LA NACION'
+                                  }`
                                 : ''}
-                            {(basic.distributor &&
-                                basic.distributor.name !== '') ||
-                            (basic.credits.by !== undefined &&
-                                basic.credits.by.name !== '')
+                            {basic.distributor &&
+                            basic.distributor.name !== '' &&
+                            basic.credits.by !== undefined
                                 ? ' - '
                                 : ''}
                             {basic.vanity_credits &&

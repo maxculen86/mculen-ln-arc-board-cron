@@ -88,6 +88,13 @@
     margin-right: $px-10;
 }
 
+//Valores de tablet para arriba
+@media (min-width: 768px) {
+    .com-share.--scrollUp {
+        top: $px-80;
+    }
+}
+
 //Valores de desk chico para arriba
 @media (min-width: 1024px) {
     .com-share {
