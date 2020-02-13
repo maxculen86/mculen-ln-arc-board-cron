@@ -16,7 +16,7 @@ NoteCard.propTypes = {
 
 const NoteFeature = props => {
     const {
-        customFields: { idnota: id }
+        customFields: { idNota: id }
     } = props;
 
     const content = useContent({
@@ -31,7 +31,7 @@ NoteFeature.label = 'LN Home NoteCard';
 
 NoteFeature.propTypes = {
     customFields: PropTypes.shape({
-        idnota: PropTypes.string.tag({
+        idNota: PropTypes.string.tag({
             label: 'Ingresar id de nota',
             description: 'Ingrese aquí el id de la nota'
         })
