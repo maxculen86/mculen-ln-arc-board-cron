@@ -47,7 +47,7 @@ describe('components - private - LN - common - banner - index', () => {
         expect(componentNoAdmin.find('mocked-bannerPlaceholder').length).toBe(
             0
         );
-        expect(bannerComponent.length).toBe(1);
+        expect(bannerComponent.length).toBe(0);
     });
 
     it('chequeo que tome el desktop como slot', () => {
