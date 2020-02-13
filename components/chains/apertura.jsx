@@ -50,7 +50,8 @@ Apertura.propTypes = {
         idCollection: PropTypes.string.tag({
             label: 'ID de la collection',
             description: 'Ingrese aquí el ID de la collection',
-            defaultValue: ''
+            defaultValue: '',
+            group: 'Custom Fields'
         })
     }).isRequired
 };
