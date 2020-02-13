@@ -31,9 +31,9 @@ import '../../resources/dist/css/ln/components/subtitle.css';
 import '../../resources/dist/css/ln/components/slider.css';
 import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/components/appointment.css';
-import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
-import '../../resources/dist/css/ln/components/carta-lectores.css';
+//import '../../resources/dist/css/ln/components/colecciones.css';
+//import '../../resources/dist/css/ln/components/carta-lectores.css';
 
 /*Se debe importar para AMP*/
 //import '../../resources/dist/css/ln/components/nav-amp.css';
