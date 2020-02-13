@@ -9,20 +9,28 @@ class AcuSection {
         const {
             globalContent: { _id: id },
             isAdmin,
-            customFields: { size: sizeCf, page: pageCf }
+            customFields: { size: sizeCf, page: pageCf, paramUrlId }
         } = props;
         this.state = {};
 
         let size = !isAdmin
             ? Number.parseInt(
-                  browser.getParamFrom('params', 'size', this.props.requestUri),
+                  browser.getParamFrom(
+                      paramUrlId,
+                      'size',
+                      this.props.requestUri
+                  ),
                   10
               )
             : sizeCf;
         if (size > 100) size = 100;
         const page = !isAdmin
             ? Number.parseInt(
-                  browser.getParamFrom('params', 'page', this.props.requestUri),
+                  browser.getParamFrom(
+                      paramUrlId,
+                      'page',
+                      this.props.requestUri
+                  ),
                   10
               )
             : pageCf;
