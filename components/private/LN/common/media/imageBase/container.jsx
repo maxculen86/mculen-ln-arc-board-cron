@@ -9,6 +9,7 @@ class ImageArticle extends React.Component {
 
     render() {
         const { image, altText, zoom, href, outputType } = this.props;
+        console.log(' |||||||||||||||||||| href={href}', this.props);
 
         if (!image.url) return null;
         const amp = outputType === 'amp';
@@ -25,6 +26,7 @@ class ImageArticle extends React.Component {
                         alt={altText || ''}
                         width={image.width}
                         height={image.height}
+                        href={href}
                     />
                 ) : (
                     <ImageBase

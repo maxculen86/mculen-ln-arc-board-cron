@@ -20,7 +20,7 @@ function ImagePlaceholder({ href, zoom, children, outputType, isVertical }) {
                         isVertical ? 'contain-vertical' : 'contain-horizontal'
                     }`}
                 >
-                    <div className="content-pic picture"></div>
+                    <div className="content-pic picture" />
                 </a>
             ) : (
                 <a
