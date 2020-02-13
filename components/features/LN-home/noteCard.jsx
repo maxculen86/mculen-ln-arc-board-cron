@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 
-const Nota = ({ content }) => (
+export const NoteCard = ({ content }) => (
     <p>{content && content.headlines && content.headlines.basic}</p>
 );
 
-Nota.propTypes = {
+NoteCard.propTypes = {
     content: PropTypes.shape({
         headlines: PropTypes.shape({
             basic: PropTypes.string
@@ -14,8 +14,7 @@ Nota.propTypes = {
     }).isRequired
 };
 
-const NotaChain = props => {
-    console.log('NotaChain', props);
+const NoteFeature = props => {
     const {
         customFields: { idnota: id }
     } = props;
@@ -25,17 +24,18 @@ const NotaChain = props => {
         query: { id }
     });
 
-    return <Nota content={content} />;
+    return <NoteCard content={content} />;
 };
 
-NotaChain.label = 'LN-HOME-NOTA';
-NotaChain.propTypes = {
+NoteFeature.label = 'LN Home NoteCard';
+
+NoteFeature.propTypes = {
     customFields: PropTypes.shape({
         idnota: PropTypes.string.tag({
             label: 'Ingresar id de nota',
             description: 'Ingrese aquí el id de la nota'
         })
-    })
+    }).isRequired
 };
 
-export default NotaChain;
+export default NoteFeature;
