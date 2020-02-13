@@ -1,42 +1,28 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
-import Nota from '../features/LN-home/notaChain';
-/*
-    Reutilizo collection
-*/
+import { NoteCard } from '../features/LN-home/noteCard';
+
 const CollectionsNotes = props => {
-    // console.log('CollectionsNotes', props);
-    // const { idCollection : id } = props;
-    // collectionsNotes from useContent
+    const { idCollection: id } = props;
+
     const content = useContent({
         source: 'collectionsV2Source',
-        query: { id: props.idCollection }
+        query: { id }
     });
+
     if (content) {
-        const arr = [];
-        content.content_elements.map(item => {
-            arr.push({
-                idnota: item._id,
-                headlines: item.headlines ? item.headlines : '',
-                subheadlines: item.subheadlines ? item.subheadlines.basic : ''
-            });
-        });
-        return <Nota customFields={arr} />;
-        console.log(content);
+        const { content_elements: contentElements } = content;
+        return contentElements
+            ? contentElements.map(_content => <NoteCard content={_content} />)
+            : [];
     }
-    return null;
-    // iterar collectionsNotes
-    // armar array de Nota con cada nota de la collection
+
+    return [];
 };
 
-const hasIdCollection = idCollection => {
-    let flag = false;
-    if (typeof idCollection === 'string' && idCollection != '') {
-        flag = true;
-    }
-    return flag;
+CollectionsNotes.propTypes = {
+    idCollection: PropTypes.string.isRequired
 };
 
 const Apertura = props => {
@@ -45,20 +31,28 @@ const Apertura = props => {
         customFields: { idCollection }
     } = props;
 
-    if (hasIdCollection(idCollection)) {
-        return <CollectionsNotes idCollection={idCollection} />;
+    if (idCollection && idCollection !== '') {
+        return (
+            <section>
+                <CollectionsNotes idCollection={idCollection} />
+            </section>
+        );
     }
 
     return <section>{children}</section>;
 };
 
+Apertura.label = 'LN Home Apertura';
+
 Apertura.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
     customFields: PropTypes.shape({
         idCollection: PropTypes.string.tag({
             label: 'ID de la collection',
-            description: 'Ingrese aquí el ID de la collection'
+            description: 'Ingrese aquí el ID de la collection',
+            defaultValue: ''
         })
-    })
+    }).isRequired
 };
 
-export default Consumer(Apertura);
+export default Apertura;

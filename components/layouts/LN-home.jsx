@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React, { Component } from 'react';
+import React from 'react';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 
@@ -12,28 +12,23 @@ import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/hour.css';
 
-const layoutItems = ['BloqueBomba', 'BloqueCuerpo'];
-
-// eslint-disable-next-line react/prefer-stateless-function
-class LNHomeLayout extends Component {
-    render() {
-        return (
-            <>
-                <Header />
-                <main>
-                    <div id="content-main" className="lay-sidebar">
-                        <div className="row">
-                            {this.props.children[0]}
-                            {this.props.children[1]}
-                        </div>
+const LNHomeLayout = ({ children }) => {
+    return (
+        <>
+            <Header />
+            <main>
+                <div id="content-main" className="lay-sidebar">
+                    <div className="row">
+                        {children[0]}
+                        {children[1]}
                     </div>
-                </main>
-                <Footer />
-            </>
-        );
-    }
-}
+                </div>
+            </main>
+            <Footer />
+        </>
+    );
+};
 
-LNHomeLayout.sections = layoutItems;
+LNHomeLayout.sections = ['Sección Bomba', 'Cuerpo'];
 
 export default LNHomeLayout;
