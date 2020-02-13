@@ -36,6 +36,23 @@ describe('Paragraph', () => {
         expect(component.find('p').hasClass('capital')).toBe(false);
     });
 
+    it('Sets target _blank attribute on external links', () => {
+        const data = {
+            type: 'text',
+            content: `
+            <p>
+                Lorem ipsum dolor sit amet <a href="https://www.lanacion.com.ar/something">I'm a link</a>
+                malesuada sit amet velit ut, porttitor viverra tortor. 
+                <a href="https://www.google.com.ar">I'm external</a>
+            </p>`
+        };
+        component = mount(<Paragraph data={data} />);
+        const {
+            dangerouslySetInnerHTML: { __html: html }
+        } = component.find('p').props();
+        expect(html).toContain(`target='_blank'>I'm external`);
+    });
+
     it('Applies `capital` class to paragraph in order to upper-case the first letter', () => {
         expect(component.find('p').hasClass('capital')).toBe(true);
     });
