@@ -12,19 +12,21 @@ class AcuSection {
             customFields: { size: sizeCf, page: pageCf }
         } = props;
         this.state = {};
+
         let size = !isAdmin
             ? Number.parseInt(
-                  browser.getParameterByName('size', this.props.requestUri),
+                  browser.getParamFrom('params', 'size', this.props.requestUri),
                   10
               )
             : sizeCf;
         if (size > 100) size = 100;
         const page = !isAdmin
             ? Number.parseInt(
-                  browser.getParameterByName('page', this.props.requestUri),
+                  browser.getParamFrom('params', 'page', this.props.requestUri),
                   10
               )
             : pageCf;
+
         this.fetchContent({
             dataResp: {
                 source: 'acuArticlesSource',
