@@ -16,6 +16,9 @@
 }
 
 .banner {
+    display: flex;
+    justify-content: center;
+
     &.--large {
         width: 300px;
         height: 600px;
@@ -94,7 +97,6 @@
             display: none;
         }
         &.--desktop {
-            display: block;
             margin-bottom: $px-30;
         }
         &.--top {
