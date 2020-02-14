@@ -5,6 +5,9 @@
     line-height: $line-21;
     margin-bottom: $px-24;
     width: 100%;
+    &:last-of-type {
+        margin-bottom: $px-32;
+    }
     b {
         font-weight: 700;
     }
