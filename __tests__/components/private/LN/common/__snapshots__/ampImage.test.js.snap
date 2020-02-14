@@ -1,15 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AmpImage Matches snapshot 1`] = `
-<div
-  class="contain-horizontal"
+<a
+  class="figure contain-horizontal"
+  href="https://www.lanacion.com.ar/ultimas-noticias"
 >
-  <amp-img
-    alt="Test image"
-    class="contain"
-    layout="responsive"
-    src="http://lorempixel.com/400/200"
-    srcset="http://lorempixel.com/400/200 undefinedw"
-  />
-</div>
+  <div
+    class="content-pic picture"
+  >
+    <amp-img
+      alt="Test image"
+      class="contain"
+      layout="fill"
+      src="http://lorempixel.com/400/200"
+    />
+  </div>
+</a>
 `;
