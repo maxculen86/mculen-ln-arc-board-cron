@@ -73,6 +73,12 @@
     font-size: $font-24;
     padding: 0;
     margin-right: $px-17;
+    &.icon-comment {
+        display: none;
+        & + label {
+            display: none;
+        }
+    }
     .humor & {
         margin-right: $px-15;
     }
@@ -89,7 +95,7 @@
 }
 
 //Valores de tablet para arriba
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .com-share.--scrollUp {
         top: $px-80;
     }

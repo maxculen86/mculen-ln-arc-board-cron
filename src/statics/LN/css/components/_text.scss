@@ -1,8 +1,8 @@
 @import '../abstracts/variables';
 .text {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: $font-20;
-    line-height: $line-21;
+    font-size: $font-18;
+    line-height: $px-30;
     margin-bottom: $px-24;
     width: 100%;
     &:last-of-type {

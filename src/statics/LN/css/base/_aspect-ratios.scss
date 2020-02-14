@@ -17,6 +17,19 @@
     .figure {
         display: flex;
         width: 100%;
+
+        &.contain-vertical {
+            .content-pic {
+                &.picture {
+                    .contain {
+                        object-fit: cover;
+                        img {
+                            object-fit: inherit;
+                        }
+                    }
+                }
+            }
+        }
         &:hover {
             opacity: 1;
         }
