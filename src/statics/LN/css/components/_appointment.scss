@@ -69,13 +69,14 @@
                         padding: $px-30 0;
                     }
                     .title-cita {
-                        font-family: SuecaSlab, Georgia;
-                        font-size: $font-24;
                         width: 100%;
                         text-align: center;
+                        .text {
+                            font-family: $font-SuecaSlab;
+                            font-size: $font-24;
+                        }
                         @media (min-width: 768px) {
                             text-align: left;
-                            margin-bottom: $px-25;
                         }
                     }
                     .cont-firma-autor {

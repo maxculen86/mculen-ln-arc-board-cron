@@ -19,12 +19,13 @@
     padding-left: 0;
     list-style: none;
     width: 100%;
+    margin-bottom: $px-32;
     .com-item {
         padding-left: 1em;
         font-family: $font-arial;
         font-size: $font-16;
-        line-height: 30px;
-        margin-bottom: $px-20;
+        line-height: $line-30;
+        margin-bottom: $px-8;
         color: $negro;
         position: relative;
         &:before {
