@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const AmpImage = props => {
-    console.log(' props ########### ', props);
     const { sources, url, alt, width, height, href } = props;
-
-    console.log(' props ########### ', href);
 
     const isVertical = height > width;
 
@@ -29,7 +26,7 @@ const AmpImage = props => {
             className={`figure ${
                 isVertical ? 'contain-vertical' : 'contain-horizontal'
             }`}
-            href="https://www.lanacion.com.ar/ultimas-noticias"
+            href={href}
         >
             <div className="content-pic picture">
                 <amp-img
@@ -59,6 +56,7 @@ AmpImage.propTypes = {
     ).isRequired,
     url: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
     width: PropTypes.number,
     height: PropTypes.number
 };
