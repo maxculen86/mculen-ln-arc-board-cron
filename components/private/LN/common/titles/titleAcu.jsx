@@ -9,7 +9,7 @@ const TitleAcu = ({ headlines: { basic }, volanta, href }) => {
     return (
         <h2 className="com-title-acu">
             <a href={href}>
-                <b>{volantaComponent}</b>
+                {volantaComponent}
                 {basic}
             </a>
         </h2>
