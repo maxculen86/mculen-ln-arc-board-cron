@@ -1,14 +1,24 @@
 @import '../abstracts/variables';
 .cont-figure {
     background-color: $placeholder;
+
+    .cuerpo__nota & {
+        .figure {
+            &.contain-vertical {
+                .content-pic {
+                    &.picture {
+                        padding-top: calc((3 / 2) * 100%);
+                    }
+                }
+            }
+        }
+    }
+
     .figure {
         display: flex;
         width: 100%;
         &:hover {
             opacity: 1;
-        }
-        .picture {
-            padding-top: $picture;
         }
         /*.content-video {
             width: 100%;
@@ -41,6 +51,7 @@
             border: 1px solid $gris3;
 
             padding-top: $picture;
+
             .--border &,
             .aper-receta & {
                 border: none;
@@ -108,13 +119,6 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
-.square {
-    padding-top: $square;
-}
-
-// .video {
-//     padding-top: $video;
-// }
 .externo {
     text-align: center;
     margin: 0 auto $px-50;
@@ -125,18 +129,6 @@
     twitter-widget {
         margin: auto;
     }
-}
-
-.cinema {
-    padding-top: $cinema;
-}
-
-.vertical-square {
-    padding-top: $vertical-square;
-}
-
-.vertical-video {
-    padding-top: $vertical-video;
 }
 
 .cont-figure-wiki {
@@ -204,8 +196,13 @@
         }
     }
 }
-
+/*
 .contain-vertical {
+    .content-pic {
+        &.picture {
+            padding-top: calc((2 / 3) * 100%);
+        }
+    }
     .cuerpo__nota & {
         .content-pic {
             &.picture {
@@ -213,9 +210,5 @@
             }
         }
     }
-    .content-pic {
-        &.picture {
-            padding-top: calc((2 / 3) * 100%);
-        }
-    }
 }
+*/

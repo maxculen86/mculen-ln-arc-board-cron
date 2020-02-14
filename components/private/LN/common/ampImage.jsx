@@ -38,9 +38,9 @@ const AmpImage = props => {
                     height={height}
                     width={width}
                     src={url}
-                    srcset={srcset}
-                    layout={isVertical ? 'fill' : 'responsive'}
-                />
+                    //srcset={srcset}
+                    layout="fill"
+                ></amp-img>
             </div>
         </a>
     );
