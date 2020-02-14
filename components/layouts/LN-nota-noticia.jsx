@@ -109,7 +109,7 @@ const lnNotaNoticia = ({ children, outputType }) => {
                         </section>
                     </div>
                     {/* Tercera */}
-                    <div className="sidebar__aside hlp-tablet-none">
+                    <div className="sidebar__aside hlp-desklm-none">
                         {children[5]}
                     </div>
                 </div>

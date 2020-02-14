@@ -141,7 +141,7 @@ class LNNotaReceta extends Component {
                             </section>
                         </div>
                         {/* Tercera */}
-                        <div className="sidebar__aside hlp-tablet-none">
+                        <div className="sidebar__aside hlp-desklm-none">
                             {children[6]}
                         </div>
                     </div>
