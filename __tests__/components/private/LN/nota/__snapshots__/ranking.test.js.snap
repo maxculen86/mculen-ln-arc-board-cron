@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ranking matches snapshot 1`] = `
+<div
+  class="com-ranking hlp-mobile-none"
+>
+  <h2
+    class="com-title-section-m"
+  >
+    Más leídas de 
+    <strong>
+      Pollo
+    </strong>
+  </h2>
+  <ul
+    class="com-ordered"
+  >
+    <li
+      class="com-item"
+    >
+      <article
+        class="mod-caja-nota --border  "
+      >
+        <section
+          class="cont-figure"
+        >
+          <a
+            class="figure contain-horizontal"
+            href="/autos/test-de-generacion-de-url/"
+          >
+            <picture
+              class="content-pic picture "
+            >
+              <source
+                class="img-desktop"
+                media="(min-width: 768px)"
+                srcset="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+              />
+              <img
+                class="content-img"
+                src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg"
+              />
+            </picture>
+          </a>
+        </section>
+        <div
+          class="mod-caja-nota__descrip"
+        >
+          <h2
+            class="com-title-acu"
+          >
+            <a
+              href="/autos/test-de-generacion-de-url/"
+            >
+              Test de generacion de url
+            </a>
+          </h2>
+        </div>
+      </article>
+    </li>
+    <li
+      class="com-item"
+    >
+      <article
+        class="mod-caja-nota --border  "
+      >
+        <section
+          class="cont-figure"
+        >
+          <a
+            class="figure contain-horizontal"
+            href="/recetas/receta-de-prueba-con-volanta/"
+          >
+            <picture
+              class="content-pic picture "
+            />
+          </a>
+        </section>
+        <div
+          class="mod-caja-nota__descrip"
+        >
+          <h2
+            class="com-title-acu"
+          >
+            <a
+              href="/recetas/receta-de-prueba-con-volanta/"
+            >
+              <b>
+                Esto es una volanta !!! 
+              </b>
+              Receta de prueba con volanta
+            </a>
+          </h2>
+        </div>
+      </article>
+    </li>
+    <li
+      class="com-item"
+    >
+      <article
+        class="mod-caja-nota --border  "
+      >
+        <section
+          class="cont-figure"
+        >
+          <a
+            class="figure contain-horizontal"
+            href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
+          >
+            <picture
+              class="content-pic picture "
+            />
+          </a>
+        </section>
+        <div
+          class="mod-caja-nota__descrip"
+        >
+          <h2
+            class="com-title-acu"
+          >
+            <a
+              href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
+            >
+              Mi paso por el yoga del infierno
+            </a>
+          </h2>
+        </div>
+      </article>
+    </li>
+  </ul>
+</div>
+`;
