@@ -47,28 +47,18 @@ const transform = (data, siteProps) => {
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
 
-    let presets = get(
+    const presetsDefault = get(properties, `imageConfig.resize.default`, null);
+    const presets = get(
         properties,
         `imageConfig.resize.nota.bySubtype[${data.subtype}]`,
         null
     );
 
-    if (!presets) {
-        presets = get(
-            properties,
-            'imageConfig.resize.nota.bySubtype[default]',
-            null
-        );
-    }
-
-    let resp = data;
-    if (presets) {
-        resp = addResizedUrls(data, {
-            resizerSecret: RESIZER_KEY,
-            resizerUrl: RESIZER_URL,
-            presets
-        });
-    }
+    const resp = addResizedUrls(data, {
+        resizerSecret: RESIZER_KEY,
+        resizerUrl: RESIZER_URL,
+        presets: presets || presetsDefault
+    });
 
     return transformContent(resp, arcSite);
 };

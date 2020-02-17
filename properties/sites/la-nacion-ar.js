@@ -113,29 +113,83 @@ export default {
                             }
                         }
                     },
-                    default: {
-                        promo_items: {
-                            sizes: [
-                                {
-                                    width: 1033,
-                                    height: 768,
-                                    media: '(min-width: 768px)',
-                                    class: 'img-desktop'
-                                }
-                            ]
+                    1: {
+                        Normal: {
+                            promo_items: {
+                                sizes: [
+                                    {
+                                        width: 1033,
+                                        height: 1280,
+                                        media: '(min-width: 768px)',
+                                        class: 'img-desktop'
+                                    },
+                                    {
+                                        width: 768,
+                                        height: 200,
+                                        media: '(min-width: 740px)',
+                                        class: 'img-desktop-sm'
+                                    },
+                                    {
+                                        width: 340,
+                                        height: 100,
+                                        media: '(min-width: 320px)',
+                                        class: 'img-mobile'
+                                    }
+                                ]
+                            },
+                            content_elements: {
+                                sizes: [
+                                    {
+                                        width: 768,
+                                        height: 200,
+                                        media: '(min-width: 740px)',
+                                        class: 'img-desktop-sm'
+                                    },
+                                    {
+                                        width: 340,
+                                        height: 100,
+                                        media: '(min-width: 320px)',
+                                        class: 'img-mobile'
+                                    }
+                                ]
+                            },
+                            credits: {
+                                sizes: []
+                            }
                         },
-                        content_elements: {
-                            sizes: [
-                                {
-                                    width: 1033,
-                                    height: 768,
-                                    media: '(min-width: 768px)',
-                                    class: 'img-desktop'
-                                }
-                            ]
-                        },
-                        credits: {
-                            sizes: []
+                        Amp: {
+                            promo_items: {
+                                containerSize: {
+                                    horizontal: {
+                                        height: '853.33',
+                                        width: '1280'
+                                    },
+                                    vertical: {
+                                        width: '853.33',
+                                        height: '1280'
+                                    }
+                                },
+                                sizes: [
+                                    {
+                                        width: 1033,
+                                        height: 1280,
+                                        class: 'img-desktop'
+                                    },
+                                    {
+                                        width: 768,
+                                        height: 200,
+                                        class: 'img-desktop-sm'
+                                    },
+                                    {
+                                        width: 340,
+                                        height: 100,
+                                        class: 'img-mobile'
+                                    }
+                                ]
+                            },
+                            content_elements: {
+                                sizes: []
+                            }
                         }
                     }
                 }
@@ -160,7 +214,15 @@ export default {
                         }
                     ]
                 }
-            }
+            },
+            default: [
+                {
+                    width: 1033,
+                    height: 768,
+                    media: '(min-width: 768px)',
+                    class: 'img-desktop'
+                }
+            ]
         }
     },
     bannerConfig: {

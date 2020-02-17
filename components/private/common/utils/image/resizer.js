@@ -1,6 +1,8 @@
-//TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
+// TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
 import get from 'lodash.get';
+// import getProperties from 'fusion:properties';
+// import { useAppContext } from 'fusion:context';
 
 export const createResizer = (resizerKey, resizerUrl) => {
     const Thumbor = require('thumbor');
@@ -41,21 +43,20 @@ export const createResizer = (resizerKey, resizerUrl) => {
         originalHeight,
         presets
     ) => {
-        // console.log()
         const resp = [];
-        if (presets) {
-            presets.forEach(opt => {
-                resp.push({
-                    resizedUrl: resizeUrl(
-                        originalUrl,
-                        originalWidth,
-                        originalHeight,
-                        opt
-                    ),
-                    option: opt
-                });
+        const finalPreset = presets;
+
+        finalPreset.forEach(opt => {
+            resp.push({
+                resizedUrl: resizeUrl(
+                    originalUrl,
+                    originalWidth,
+                    originalHeight,
+                    opt
+                ),
+                option: opt
             });
-        }
+        });
         return resp;
     };
     return {
@@ -84,7 +85,6 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
         );
-
     return {
         ...arcImage,
         resized_urls: resizer.resizeUrls(
@@ -98,7 +98,14 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
 
 const resizeCredits = (credits, resizeOptions, resizer) => {
     const resp = {};
-    const optionsFinal = get(resizeOptions, 'credits.sizes', []);
+    const optionsFinal = get(resizeOptions, 'Normal.credits.sizes', [
+        {
+            width: 1033,
+            height: 768,
+            media: '(min-width: 768px)',
+            class: 'img-desktop'
+        }
+    ]);
 
     Object.keys(credits).forEach(key => {
         const credit = credits[key];
@@ -126,7 +133,14 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 
 const resizePromoItems = (promoItems, resizeOptions, resizer) => {
     const resp = {};
-    const optionsFinal = get(resizeOptions, 'promo_items.sizes', []);
+    const optionsFinal = get(resizeOptions, 'Normal.promo_items.sizes', [
+        {
+            width: 1033,
+            height: 768,
+            media: '(min-width: 768px)',
+            class: 'img-desktop'
+        }
+    ]);
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
         if (pi.type === 'image') {
@@ -148,8 +162,15 @@ export const addResizedUrls = (ansDoc, option) => {
 
     const optionsContentElements = get(
         option,
-        'presets.content_elements.sizes',
-        []
+        'presets.Normal.content_elements.sizes',
+        [
+            {
+                width: 1033,
+                height: 768,
+                media: '(min-width: 768px)',
+                class: 'img-desktop'
+            }
+        ]
     );
 
     const respDoc = {
