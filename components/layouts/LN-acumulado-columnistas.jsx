@@ -12,23 +12,22 @@ import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/hour.css';
 
-const layoutItemsColumnistas = ['Breadcrumb', 'Titulo', 'Autores'];
+const layoutItemsColumnistas = [
+    'Pre-Apertura',
+    'Breadcrumb/Titulo',
+    'Autores',
+    'Aside'
+];
 
-const CLASS_ACU_REVISTA = 'acu-revista';
-const revistas = ['ohlala'];
-
+/**
+ * TODO: Consultar con daro para integrar un solo acumulado
+ */
 const LNAcumuladoColumnistasLayout = props => {
     const { children, globalContent } = props;
-    const [classRevista, setClassRevista] = useState('');
     const [headerDark, setHeaderDark] = useState('');
 
     useEffect(() => {
         const { style } = globalContent;
-        const sectionStyleName =
-            style && style.section_style_name ? style.section_style_name : '';
-
-        revistas.indexOf(sectionStyleName || '') !== -1 &&
-            setClassRevista(`${CLASS_ACU_REVISTA} ${sectionStyleName}`);
 
         setHeaderDark(
             style && style.headerdark && style.headerdark === 'true'
@@ -38,31 +37,28 @@ const LNAcumuladoColumnistasLayout = props => {
     }, [globalContent]);
 
     return (
-        <div id="wrapper" className={`${classRevista}`}>
+        <div id="wrapper">
             <Header headerDark={headerDark} />
             <main>
                 {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
+                {children[0]}
                 <div className="lay-sidebar">
                     <div className="sidebar__main">
                         {
                             /* Espacio para breadcrum */
                             <div className="row">
-                                <div className="col-12">{children[0]}</div>
-
-                                <div className="col-12">
-                                    <div className="com-titleWithfollow hlp-marginBottom-30">
-                                        <h1 className="com-title-section-xl">
-                                            Columnistas
-                                        </h1>
-                                    </div>
-                                    {children[1]}
-                                </div>
+                                <div className="col-12">{children[1]}</div>
                             </div>
                         }
                         {/* Espacio para el contenido */}
                         <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
                             {children[2]}
                         </section>
+                    </div>
+                    <div className="sidebar__aside">
+                        <div className="banner --desktop --large">
+                            {children[3]}
+                        </div>
                     </div>
                 </div>
             </main>

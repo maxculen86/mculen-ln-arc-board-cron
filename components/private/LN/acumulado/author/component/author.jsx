@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 const Author = ({ authors }) => {
     return (
         <article className="mod-caja-autorAcu" key={authors._id}>
-            <a
-                href={`/autor/${authors.slug}/?_website=la-nacion-ar`}
-                title={`${authors.byline}`}
-            >
+            <a href={`/autor/${authors.slug}/`} title={`${authors.byline}`}>
                 <h3 className="com-title-section-autor hlp-marginBottom-10">
                     {`${authors.byline}`}
                 </h3>
@@ -31,6 +29,18 @@ const Author = ({ authors }) => {
             </a>
         </article>
     );
+};
+
+Author.propTypes = {
+    authors: PropTypes.shape({
+        _id: PropTypes.string,
+        slug: PropTypes.string,
+        byline: PropTypes.string,
+        role: PropTypes.string,
+        image: PropTypes.shape({
+            url: PropTypes.string
+        })
+    }).isRequired
 };
 
 export default Author;
