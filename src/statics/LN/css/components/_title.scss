@@ -199,6 +199,15 @@ h1.com-title-nota {
         letter-spacing: -0.32px;
     }
     .com-title-acu {
+        font-size: $font-14;
+        line-height: $line-15;
+        letter-spacing: -0.6px;
+    }
+}
+
+//Valores de tamaño para 3 cajas con borde y padding + tercera
+@media (min-width: 1100px) {
+    .com-title-acu {
         font-size: $font-17;
         line-height: $line-17;
         letter-spacing: -0.4px;
