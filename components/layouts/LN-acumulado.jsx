@@ -11,6 +11,7 @@ import '../../resources/dist/css/ln/pages/acu.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/hour.css';
+import '../../resources/dist/css/ln/components/banners.css';
 
 const layoutItems = [
     'Pre-Apertura',
