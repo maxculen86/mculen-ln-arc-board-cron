@@ -4,12 +4,10 @@ import { useContent } from 'fusion:content';
 import { NoteCard } from '../../../features/LN-home/noteCard';
 
 const FeedNotes = feedName => {
-    console.log(feedName);
     const content = useContent({
-        source: 'acuArticlesSource',
-        query: { sectionFilter: feedName }
+        source: 'feedArticlesSource',
+        query: { sectionId: feedName }
     });
-
     if (content) {
         const { content_elements: contentElements } = content;
         return contentElements
