@@ -7,9 +7,7 @@
     padding-bottom: $px-30;
     border-top: 1px solid $gris3;
     border-bottom: 1px solid $gris3;
-    & > div:not(:last-child) {
-        margin-bottom: $px-30;
-    }
+    margin-bottom: $px-30;
     dt,
     dd {
         display: inline;

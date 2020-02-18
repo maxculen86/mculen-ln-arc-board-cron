@@ -48,7 +48,7 @@ exports[`OTT - layout - header - components Snapshot Test 1`] = `
     siteProperties={Object {}}
   >
     <div
-      className="header-wrapper wrapper"
+      className="header-wrapper"
     >
       <header
         className="header"
