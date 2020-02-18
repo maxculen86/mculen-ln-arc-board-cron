@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import FocalFactory from '../private/LN/home/templatesContainers/focalFactory';
-import CollectionsNotes from '../private/LN/home/collectionsNotes';
+import FeedNotes from '../private/LN/home/feedNotes';
 
 const hasChildren = children =>
     ['array', 'object'].indexOf(typeof children) && children.length > 0;
 
-const Apertura = props => {
+const Feed = props => {
     const {
         children,
-        customFields: { idCollection, directionFocal }
+        customFields: { feedName, directionFocal }
     } = props;
 
-    if (idCollection && idCollection !== '') {
-        const Notes = CollectionsNotes(idCollection);
+    if (feedName && feedName !== '') {
+        const Notes = FeedNotes(feedName);
         return (
             <div className="row hlp-margintop-50">
                 <div className="lay">
@@ -43,14 +43,14 @@ const Apertura = props => {
     );
 };
 
-Apertura.label = 'LN Home Apertura';
+Feed.label = 'LN Home Feed';
 
-Apertura.propTypes = {
+Feed.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     customFields: PropTypes.shape({
-        idCollection: PropTypes.string.tag({
-            label: 'ID de la collection',
-            description: 'Ingrese aquí el ID de la collection',
+        feedName: PropTypes.string.tag({
+            label: 'Ingrese el Nombre del Feed',
+            description: 'Ingrese el Nombre del Feed ej: "deportes" ',
             defaultValue: '',
             group: 'Custom Fields'
         }),
@@ -68,4 +68,4 @@ Apertura.propTypes = {
     }).isRequired
 };
 
-export default Apertura;
+export default Feed;
