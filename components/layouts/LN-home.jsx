@@ -12,6 +12,7 @@ import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/hour.css';
 
+const section = ['Sección Bomba', 'Cuerpo'];
 const LNHomeLayout = ({ children }) => {
     return (
         <>
@@ -29,6 +30,6 @@ const LNHomeLayout = ({ children }) => {
     );
 };
 
-LNHomeLayout.sections = ['Sección Bomba', 'Cuerpo'];
+LNHomeLayout.sections = section;
 
 export default LNHomeLayout;

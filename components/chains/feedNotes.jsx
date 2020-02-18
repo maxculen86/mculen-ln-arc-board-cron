@@ -9,11 +9,16 @@ const hasChildren = children =>
 const Feed = props => {
     const {
         children,
-        customFields: { feedName, directionFocal }
+        customFields: { feedName, feedNameList, directionFocal }
     } = props;
 
-    if (feedName && feedName !== '') {
-        const Notes = FeedNotes(feedName);
+    if (
+        (feedName && feedName !== '') ||
+        (feedNameList && feedNameList !== '')
+    ) {
+        const feed = feedNameList !== '' ? feedNameList : feedName;
+
+        const Notes = FeedNotes(feed);
         return (
             <div className="row hlp-margintop-50">
                 <div className="lay">
@@ -50,10 +55,22 @@ Feed.propTypes = {
     customFields: PropTypes.shape({
         feedName: PropTypes.string.tag({
             label: 'Ingrese el Nombre del Feed',
-            description: 'Ingrese el Nombre del Feed ej: "deportes" ',
+            description: 'Ingrese el Nombre del Feed ej: "/espectaculos" ',
             defaultValue: '',
             group: 'Custom Fields'
-        }),
+        }).isRequired,
+        feedNameList: PropTypes.oneOf([
+            '/espectaculos',
+            '/deportes/futbol'
+        ]).tag({
+            description: 'Seleccione aquí el tipo de focal',
+            labels: {
+                '/espectaculos': 'Espectaculos',
+                '/deportes/futbol': 'Futbol'
+            },
+            defaultValue: '',
+            group: 'Custom Fields'
+        }).isRequired,
         directionFocal: PropTypes.oneOf(['FocalDerecho', 'FocalIzquierdo']).tag(
             {
                 label: {
