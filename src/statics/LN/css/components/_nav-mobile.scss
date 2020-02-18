@@ -50,7 +50,7 @@
     &.--scrollUp {
         bottom: 0;
     }
-    @media ($media-l) {
+    /*@media ($media-l) {
         display: none;
-    }
+    }*/ // en tablet landscape se ve mal sin esto
 }
