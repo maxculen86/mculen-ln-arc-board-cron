@@ -5,7 +5,7 @@
     line-height: $px-30;
     margin-bottom: $px-24;
     width: 100%;
-    &:last-of-type {
+    &.element-paragraph:last-of-type {
         margin-bottom: $px-32;
     }
     b {

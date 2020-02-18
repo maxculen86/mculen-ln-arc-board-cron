@@ -80,6 +80,7 @@
         }
         &.--tablet {
             margin: auto;
+            display: block;
         }
         &.--top {
             width: 728px;
@@ -97,6 +98,7 @@
         }
         &.--desktop {
             margin-bottom: $px-30;
+            display: block;
         }
         &.--top {
             max-width: 1260px;
@@ -108,5 +110,13 @@
             margin-top: $px-40;
             margin-bottom: $px-40;
         }
+    }
+}
+
+.hlp-none.banner {
+    &.--mobile,
+    &.--tablet,
+    &.--desktop {
+        display: none; //no se encuentra donde se pisa el archivo helpers, por eso agregamos esta clase
     }
 }
