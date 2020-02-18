@@ -45,7 +45,6 @@
         display: none;
     }
     &.--mobile {
-        display: block;
         margin: 0 -$px-10;
         background: #f3f3f3;
         text-align: center;
@@ -80,6 +79,7 @@
         }
         &.--tablet {
             margin: auto;
+            display: flex;
         }
         &.--top {
             width: 728px;
@@ -97,6 +97,7 @@
         }
         &.--desktop {
             margin-bottom: $px-30;
+            display: flex;
         }
         &.--top {
             max-width: 1260px;
