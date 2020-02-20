@@ -53,9 +53,11 @@ const LNAcumuladoLayout = props => {
                 {children[0]}
                 {children[1] && (
                     <div className="row">
-                        <div className="lay">
-                            {/* BREADCRUMB, TITULO Y APERTURA */}
-                            {children[1]}
+                        <div className="col-12">
+                            <div className="lay">
+                                {/* BREADCRUMB, TITULO Y APERTURA */}
+                                {children[1]}
+                            </div>
                         </div>
                     </div>
                 )}
@@ -63,14 +65,18 @@ const LNAcumuladoLayout = props => {
                     <div className="sidebar__main">
                         {children[2] && (
                             <div className="row">
-                                {/* LUGAR PARA UN ANEXO */}
-                                {children[2]}
+                                <div className="col-12">
+                                    {/* LUGAR PARA UN ANEXO */}
+                                    {children[2]}
+                                </div>
                             </div>
                         )}
                         {children[3] && (
                             <div className="row">
-                                {/* LINKS DE NAVEGACION */}
-                                {children[3]}
+                                <div className="col-12">
+                                    {/* LINKS DE NAVEGACION */}
+                                    {children[3]}
+                                </div>
                             </div>
                         )}
                         {/* NOTAS */}

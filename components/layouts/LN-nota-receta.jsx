@@ -101,7 +101,7 @@ class LNNotaReceta extends Component {
                     {/* Pre-Titulo: Banners */}
                     {children[0]}
                     <div
-                        className={`lay ${this.sectionClass &&
+                        className={`lay col-12 ${this.sectionClass &&
                             this.sectionClass.class}`}
                     >
                         {/* TODO: confirmar */}
