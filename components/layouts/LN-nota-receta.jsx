@@ -38,9 +38,6 @@ import '../../resources/dist/css/ln/base/helpers.css';
 /*Se debe importar para AMP*/
 //import '../../resources/dist/css/ln/components/nav-amp.css';
 
-/*Se debe importar por layouts*/
-import '../../resources/dist/css/ln/components/banners.css';
-
 /*Se debe dejar último los helpers*/
 import '../../resources/dist/css/ln/base/helpers.css';
 
