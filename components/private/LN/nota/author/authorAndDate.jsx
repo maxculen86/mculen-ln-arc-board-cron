@@ -7,7 +7,6 @@ import Date from '../../common/dateHeader';
 const authorAndDate = props => {
     const {
         globalContent: { display_date, credits },
-        date,
         author
     } = props;
 
@@ -18,8 +17,8 @@ const authorAndDate = props => {
         if (by.length > 0) setVisible(true);
     }
 
-    if (!visible) return <></>;
-    if (date)
+    if (!visible && !display_date) return <></>;
+    if (display_date)
         return (
             <div className="col-12">
                 <div className="row mod-authordate">
