@@ -58,7 +58,13 @@ const bannerComponent = ({
         );
 
         if (background) {
-            ad = <div className="banner w-100 --bg-banner hlp-none">{ad}</div>;
+            ad = (
+                <div className="row">
+                    <div className="col-12">
+                        <div className="banner --bg-banner hlp-none">{ad}</div>
+                    </div>
+                </div>
+            );
         }
     }
 
@@ -101,12 +107,24 @@ const bannerComponent = ({
 
         if (sticky) {
             ad = (
-                <div className="w-100 --bg-banner hlp-desksm-none">
-                    <amp-sticky-ad layout="nodisplay">{ad}</amp-sticky-ad>
+                <div className="row">
+                    <div className="col-12">
+                        <div className="--bg-banner hlp-desksm-none">
+                            <amp-sticky-ad layout="nodisplay">
+                                {ad}
+                            </amp-sticky-ad>
+                        </div>
+                    </div>
                 </div>
             );
         } else {
-            ad = <div className="w-100 --bg-banner">{ad}</div>;
+            ad = (
+                <div className="row">
+                    <div className="col-12">
+                        <div className="--bg-banner">{ad}</div>
+                    </div>
+                </div>
+            );
         }
     }
 

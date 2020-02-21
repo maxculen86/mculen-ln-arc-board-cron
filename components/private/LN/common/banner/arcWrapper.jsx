@@ -93,12 +93,16 @@ class ArcWrapper extends Component {
         const { id, children, className } = this.props;
 
         return (
-            <div
-                id={id}
-                className={`banner ${className} hlp-none`}
-                ref={this.banner}
-            >
-                {children}
+            <div className="row">
+                <div className="col-12">
+                    <div
+                        id={id}
+                        className={`banner ${className} hlp-none`}
+                        ref={this.banner}
+                    >
+                        {children}
+                    </div>
+                </div>
             </div>
         );
     }
