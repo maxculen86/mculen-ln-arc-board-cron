@@ -95,12 +95,14 @@ class ArcWrapper extends Component {
         return (
             <div className="row">
                 <div className="col-12">
-                    <div
-                        id={id}
-                        className={`banner ${className} hlp-none`}
-                        ref={this.banner}
-                    >
-                        {children}
+                    <div className="--bg-banner">
+                        <div
+                            id={id}
+                            className={`banner ${className} hlp-none`}
+                            ref={this.banner}
+                        >
+                            {children}
+                        </div>
                     </div>
                 </div>
             </div>
