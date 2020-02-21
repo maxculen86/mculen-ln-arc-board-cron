@@ -154,7 +154,7 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         articlesArray = articles.slice(0, size - 1);
                     }
                 }
-                /* console.log("######## ARTICLESARRAY: ", articlesArray); */
+
                 return (
                     <WrappedArticles
                         articles={articlesArray}

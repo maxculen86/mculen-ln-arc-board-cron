@@ -48,16 +48,17 @@ const transform = (data, siteProps) => {
     const properties = getProperties(arcSite);
 
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
-    const presets = get(
-        properties,
-        `imageConfig.resize.nota.bySubtype[${data.subtype}]`,
-        null
-    );
+    const presetsXL = get(properties, `imageConfig.resize.xl`, null);
+    const presetsL = get(properties, `imageConfig.resize.l`, null);
 
     const resp = addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
         resizerUrl: RESIZER_URL,
-        presets: presets || presetsDefault
+        presets: {
+            promoItems: presetsXL.promo_items || presetsDefault,
+            contentElements: presetsL.content_elements || presetsDefault,
+            presetsDefault
+        }
     });
 
     return transformContent(resp, arcSite);
@@ -86,15 +87,17 @@ const transformContent = (jsonArticle, arcSite) => {
         }
     });
 
-    resp.related_content.basic.forEach((e, i) => {
-        if (e.type === 'reference') {
-            promiseArr.push(
-                addFollowAnotherNoteData(e, arcSite, i).then(g => {
-                    resp.related_content.basic[i] = g;
-                })
-            );
-        }
-    });
+    if (resp && resp.related_content && resp.related_content.basic) {
+        resp.related_content.basic.forEach((e, i) => {
+            if (e.type === 'reference') {
+                promiseArr.push(
+                    addFollowAnotherNoteData(e, arcSite, i).then(g => {
+                        resp.related_content.basic[i] = g;
+                    })
+                );
+            }
+        });
+    }
 
     if (get(resp, 'promo_items.basic.type') === 'gallery') {
         promiseArr.push(

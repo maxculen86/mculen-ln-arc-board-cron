@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import AmpImage from '../../ampImage';
 
 const index = props => {
     const { data } = props;
@@ -8,16 +9,21 @@ const index = props => {
     return (
         <>
             <amp-carousel width="750" height="500" layout="fixed" type="slides">
-                {data.content_elements.map(image => (
-                    <amp-img
-                        media={image.resized_urls.media}
-                        src={image.url}
-                        width={image.width}
-                        height={image.height}
-                        layout="responsive"
-                        alt={image.caption}
-                    />
-                ))}
+                {data.content_elements.map(image => {
+                    const sources =
+                        image.resized_urls &&
+                        image.resized_urls.filter(v => !!v.option);
+                    return (
+                        <AmpImage
+                            alt={image.caption || ''}
+                            height={image.height}
+                            width={image.width}
+                            url={image.url}
+                            sources={sources}
+                            layout="responsive"
+                        />
+                    );
+                })}
             </amp-carousel>
         </>
     );

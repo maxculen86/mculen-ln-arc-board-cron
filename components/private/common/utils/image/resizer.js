@@ -98,12 +98,11 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
 
 const resizeCredits = (credits, resizeOptions, resizer) => {
     const resp = {};
-    const optionsFinal = get(resizeOptions, 'Normal.credits.sizes', [
+    const optionsFinal = get(resizeOptions, 'sizes', [
         {
-            width: 1033,
-            height: 768,
-            media: '(min-width: 768px)',
-            class: 'img-desktop'
+            width: 768,
+            height: 513,
+            media: '(min-width: 768px)'
         }
     ]);
 
@@ -133,14 +132,15 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 
 const resizePromoItems = (promoItems, resizeOptions, resizer) => {
     const resp = {};
-    const optionsFinal = get(resizeOptions, 'Normal.promo_items.sizes', [
+    // TODO: Pasar valor por defecto como constante
+    const optionsFinal = get(resizeOptions, 'sizes', [
         {
-            width: 1033,
-            height: 768,
-            media: '(min-width: 768px)',
-            class: 'img-desktop'
+            width: 768,
+            height: 513,
+            media: '(min-width: 768px)'
         }
     ]);
+
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
         if (pi.type === 'image') {
@@ -160,18 +160,7 @@ export const addResizedUrls = (ansDoc, option) => {
 
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
-    const optionsContentElements = get(
-        option,
-        'presets.Normal.content_elements.sizes',
-        [
-            {
-                width: 1033,
-                height: 768,
-                media: '(min-width: 768px)',
-                class: 'img-desktop'
-            }
-        ]
-    );
+    const optionsContentElements = option.presets.contentElements.sizes;
 
     const respDoc = {
         ...ansDoc,
@@ -198,15 +187,16 @@ export const addResizedUrls = (ansDoc, option) => {
     if (ansDoc.promo_items) {
         respDoc.promo_items = resizePromoItems(
             ansDoc.promo_items,
-            option.presets,
+            option.presets.promoItems,
             resizer
         );
     }
 
+    // TODO: Buscar caso de uso de credits y validar
     if (ansDoc.credits) {
         respDoc.credits = resizeCredits(
             ansDoc.credits,
-            option.presets,
+            option.presetsDefault,
             resizer
         );
     }
