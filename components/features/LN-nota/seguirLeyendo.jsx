@@ -16,6 +16,7 @@ const seguirLeyendo = props => {
                                     Seguir Leyendo
                                 </h4>
                                 <SeguirLeyendo
+                                    //////Armar el componente del subtitulooooo
                                     related_content={
                                         props.globalContent.related_content
                                             .basic

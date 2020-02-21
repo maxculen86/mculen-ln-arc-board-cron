@@ -83,8 +83,12 @@ const LNAcumuladoLayout = props => {
                         {children[4]}
                     </div>
                     <div className="sidebar__aside hlp-desklm-none">
-                        {/* RANKING DE NOTAS */}
-                        {children[5]}
+                        <div className="row">
+                            <div className="col-12">
+                                {/* RANKING DE NOTAS */}
+                                {children[5]}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>

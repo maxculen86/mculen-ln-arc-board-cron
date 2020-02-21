@@ -54,12 +54,12 @@ const lnNotaNoticia = ({ children, outputType }) => {
             <main>
                 {children[0]}
                 <div className="lay">
-                    <header className="row titulo">
+                    <div className="row">
                         <div className="col-12">
                             {/* Titulo (breadcrumb, logo+titulo) */}
                             {children[1]}
                         </div>
-                    </header>
+                    </div>
                 </div>
                 <div className="lay-sidebar">
                     {/* Cuerpo */}
