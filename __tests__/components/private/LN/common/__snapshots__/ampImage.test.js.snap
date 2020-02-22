@@ -12,6 +12,7 @@ exports[`AmpImage Matches snapshot 1`] = `
       class="contain"
       layout="fill"
       src="http://lorempixel.com/400/200"
+      srcset="http://lorempixel.com/400/200 undefinedw"
     />
   </div>
 </a>
