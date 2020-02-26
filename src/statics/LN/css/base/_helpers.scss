@@ -32,11 +32,6 @@
 // DISPLAY NONE
 //=============================
 //oculto hasta 1024
-
-.hlp-none {
-    display: none;
-}
-
 @media (max-width: 64em - 1) {
     .hlp-tablet-none {
         display: none;
@@ -60,6 +55,9 @@
 
 // oculto
 @media ($media-xs) {
+    .hlp-none {
+        display: none;
+    }
     .hlp-mobile-none {
         display: none;
     }
@@ -96,9 +94,9 @@
         display: none;
     }
 }
-//.hlp-none.banner {
-//   display: none !important; //no se encuentra donde se pisa el archivo helpers, por eso agregamos esta clase
-//}
+.hlp-none.banner {
+    display: none !important; //no se encuentra donde se pisa el archivo helpers, por eso agregamos esta clase
+}
 
 //=============================
 // MARGIN TOP

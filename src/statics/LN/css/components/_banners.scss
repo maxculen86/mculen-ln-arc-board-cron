@@ -1,4 +1,30 @@
 @import '../abstracts/variables';
+$media-xs: '(min-width: 20em) and (max-width:  22.4375em)'; // 320px iphone
+$media-s: '(min-width: 22.5em) and (max-width: 47.9375em)'; // 360px Mobile
+$media-m: '(min-width: 48em) and (max-width: 63.9375em)'; // 768px tablet
+$media-l: '(min-width: 64em) and (max-width: 68.6875em)'; // 1024px Desk sm
+$media-xl: '(min-width: 68.75em) and (max-width: 79.9375em)'; // 1100px Desk con tercera
+$media-xxl: '(min-width: 80em)'; // 1280px Desk
+@function min($screen) {
+    $result: null;
+
+    @if $screen == media-xs {
+        $result: '(min-width: 20em)';
+    }
+    @if $screen == media-s {
+        $result: '(min-width: 22.5em)';
+    }
+    @if $screen == media-m {
+        $result: '(min-width: 48em)';
+    }
+    @if $screen == media-l {
+        $result: '(min-width: 64em)';
+    }
+    @if $screen == media-xl {
+        $result: '(min-width: 68.75em)';
+    }
+    @return $result;
+}
 
 .--bg-banner {
     display: flex;
@@ -8,40 +34,84 @@
         margin-bottom: $px-20;
         transform: scaleX(1.15);
         margin-left: inherit;
-        @media (media-m) {
+        @media #{min(media-m)} {
             transform: inherit;
         }
     }
 
     .banner {
         margin: 0;
-        &.--sticky {
-            position: fixed;
-            margin: 0;
-            left: 0;
-            right: 0;
-            top: -100px;
-            z-index: 10000;
-            transition: all 0.25s;
-            background-color: #f3f3f3;
-            &.--active {
-                #wrapper.--scrollDown & {
-                    top: 0;
+        /*
+        &.--tablet,
+        &.--desktop {
+            display: none;
+        }
+        &.--mobile {
+            margin: 0 -$px-10;
+            background: #f3f3f3;
+
+            &.--sticky {
+                position: fixed;
+                margin: 0;
+                left: 0;
+                right: 0;
+                top: -100px;
+                z-index: 10000;
+                transition: all 0.25s;
+                background-color: #f3f3f3;
+                &.--active {
+                    #wrapper.--scrollDown & {
+                        top: 0;
+                    }
                 }
             }
         }
+        &.hlp-none {
+            &.--mobile,
+            &.--tablet,
+            &.--desktop {
+                display: none; //no se encuentra donde se pisa el archivo helpers, por eso agregamos esta clase
+            }
+        }
+        */
     }
 }
-@media ($media-l) {
+/*
+@media #{$media-m} {
+    .--bg-banner {
+        .banner {
+            &.--desktop,
+            &.--mobile {
+                display: none;
+            }
+            &.--tablet {
+                display: flex;
+            }
+        }
+    }  
+}
+*/
+@media #{min(media-l)} {
     .banner {
+        /*
+        &.--tablet,
+        &.--mobile {
+            display: none;
+        }
+        &.--desktop {
+            display: flex;
+        }
+        */
         &#caja2_dsk {
             margin-top: $px-40;
             margin-bottom: $px-40;
         }
-        &.--desktop {
-            background-color: #f7f7f7;
-            text-align: center;
-            margin-bottom: 0;
+        &#cabezal_dsk {
+            .a--bg-banner & {
+                background-color: #f7f7f7;
+                text-align: center;
+                margin-bottom: 0;
+            }
         }
     }
 }
