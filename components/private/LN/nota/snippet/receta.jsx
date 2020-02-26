@@ -86,15 +86,15 @@ const snippet = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
-        author: `${autores}`,
-        cookTime: `PT${counterTime}M`,
-        datePublished: `${date}`,
-        description: `${description}`,
-        image: `${resizedUrl}`,
-        recipeIngredient: `${ingredientes}`,
-        name: `${headlines.basic}`,
-        recipeInstructions: `${preparaciones}`,
-        recipeYield: `${counterPortion} porciones`
+        author: `${autores || ''}`,
+        cookTime: counterTime ? `PT${counterTime}M` : '',
+        datePublished: `${date || ''}`,
+        description: `${description || ''}`,
+        image: `${resizedUrl || ''}`, // TODO: traer imagen del PlaceHolder en caso de no traer data
+        recipeIngredient: `${ingredientes || ''}`,
+        name: `${headlines.basic || 'LA NACION - recetas'}`,
+        recipeInstructions: `${preparaciones || ''}`,
+        recipeYield: counterPortion ? `${counterPortion} porciones` : ''
     };
 
     return <SnippetRender data={data} />;
