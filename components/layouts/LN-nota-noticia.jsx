@@ -52,7 +52,8 @@ const lnNotaNoticia = ({ children, outputType }) => {
             {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
             <Header />
             <main>
-                {children[0]}
+                <div className="dsk_cabezal">{children[0]}</div>
+
                 <div className="lay">
                     <div className="row">
                         <div className="col-12">

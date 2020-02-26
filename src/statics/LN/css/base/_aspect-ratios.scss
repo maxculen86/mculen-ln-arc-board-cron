@@ -8,7 +8,7 @@
                 &.contain-vertical {
                     .content-pic {
                         &.picture {
-                            padding-top: calc((2 / 3) * 100%);
+                            padding-top: $picture;
                         }
                     }
                 }
@@ -21,7 +21,7 @@
             &.contain-vertical {
                 .content-pic {
                     &.picture {
-                        padding-top: calc((3 / 2) * 100%);
+                        padding-top: $vertical-picture;
                     }
                 }
             }

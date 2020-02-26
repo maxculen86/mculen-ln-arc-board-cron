@@ -245,7 +245,7 @@
 }
 
 //Valores de desk para arriba
-@media ($media-lg) {
+@media ($media-xxl) {
     .col-deskxl {
         -ms-flex-preferred-size: 0;
         flex-basis: 0;
@@ -347,7 +347,7 @@
     }
 }
 
-@media ($media-lg) {
+@media ($media-xxl) {
     //columnas de 4
     .row-gap-deskxl-4 {
         grid-template-columns: 1fr 1fr 1fr 1fr;
