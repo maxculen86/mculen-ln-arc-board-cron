@@ -4,8 +4,6 @@ import PropTypes from 'fusion:prop-types';
 import Cuerpo from '../../private/LN/nota/cuerpo';
 import { getSlotsOptions } from '../../private/LN/common/banner/config';
 
-// console.log("################333 SLOTOPTIONSCUERPO: ", getSlotsOptions());
-
 const cuerpo = props => {
     const bannerConfig = groupBannerConfig(props);
     const properties = {

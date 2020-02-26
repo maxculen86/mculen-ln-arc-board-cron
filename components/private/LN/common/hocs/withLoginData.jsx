@@ -289,8 +289,6 @@ function withLoginData(WrappedComponent) {
             eraseCookie('shouldrelogin');
             eraseCookie('usuariodata');
 
-            if (fyre) fyre.conv.logout();
-
             const ifrm = document.createElement('iframe');
             ifrm.setAttribute('src', urlToLogout);
             ifrm.style.width = '0px';
@@ -308,6 +306,8 @@ function withLoginData(WrappedComponent) {
                     loading: false
                 }
             });
+
+            if (['undefined'].indexOf(typeof fyre)) fyre.conv.logout();
         };
 
         /**

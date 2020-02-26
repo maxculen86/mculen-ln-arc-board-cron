@@ -125,7 +125,7 @@ export default {
                             media: '(min-width: 360px)'
                         },
                         {
-                            width: 360,
+                            width: 310,
                             height: 203,
                             media: '(min-width: 320px)'
                         }
@@ -154,7 +154,7 @@ export default {
                             media: '(min-width: 360px)'
                         },
                         {
-                            width: 360,
+                            width: 310,
                             height: 203,
                             media: '(min-width: 320px)'
                         }
@@ -194,7 +194,7 @@ export default {
                             media: '(min-width: 360px)'
                         },
                         {
-                            width: 360,
+                            width: 310,
                             height: 203,
                             media: '(min-width: 320px)'
                         }
@@ -223,7 +223,7 @@ export default {
                             media: '(min-width: 360px)'
                         },
                         {
-                            width: 360,
+                            width: 310,
                             height: 203,
                             media: '(min-width: 320px)'
                         }

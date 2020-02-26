@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 
 const AmpImage = props => {
     const { sources, url, alt, width, height, href, layout } = props;
-
     const isVertical = height > width;
 
     // TODO: ver este tema de source sets con maquetacion
@@ -11,11 +10,13 @@ const AmpImage = props => {
         const {
             option: { width: _w, height: _h }
         } = src;
+
         if (src.resizedUrl && !isVertical && _w)
             return `${src.resizedUrl} ${src.option.width}w`;
-        if (src.resizedUrl && isVertical && _h) {
+
+        if (src.resizedUrl && isVertical && _h)
             return `${src.resizedUrl} ${src.option.height}w`;
-        }
+
         return '';
     });
     srcset = srcset && srcset.length > 1 ? srcset.join(', ') : srcset;
@@ -60,7 +61,12 @@ AmpImage.propTypes = {
     alt: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired
+    height: PropTypes.number.isRequired,
+    layout: PropTypes.string
+};
+
+AmpImage.defaultProps = {
+    layout: undefined
 };
 
 export default AmpImage;

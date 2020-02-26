@@ -25,7 +25,6 @@ const Parrafo = ({ data, capital }) => {
 
     const content = setExternalLinks(setBoldText(setItalicText(data.content)));
 
-    console.log('content :::::::::::::::::', data);
     return (
         <>
             {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>

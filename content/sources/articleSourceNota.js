@@ -77,15 +77,17 @@ const transformContent = (jsonArticle, arcSite) => {
         }
     };
 
-    resp.content_elements.forEach((e, i) => {
-        if (e.type === 'gallery') {
-            promiseArr.push(
-                addGalleryData(e, arcSite).then(g => {
-                    resp.content_elements[i] = g;
-                })
-            );
-        }
-    });
+    if (resp && resp.content_elements) {
+        resp.content_elements.forEach((e, i) => {
+            if (e.type === 'gallery') {
+                promiseArr.push(
+                    addGalleryData(e, arcSite).then(g => {
+                        resp.content_elements[i] = g;
+                    })
+                );
+            }
+        });
+    }
 
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((e, i) => {
@@ -154,7 +156,7 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
             return resp;
         })
         .catch(e => {
-            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', e);
+            console.log('TCL: addFollowAnotherNoteData -> e', e);
         });
 };
 
