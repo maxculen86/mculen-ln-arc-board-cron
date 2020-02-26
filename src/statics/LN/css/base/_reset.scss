@@ -152,14 +152,14 @@ body {
     @media (min-width: 1023px) {
         margin-bottom: 0;
         &.--scrollUp {
-            padding-top: 67px;
+            padding-top: 64px;
         }
     }
 }
 
 main {
     position: relative;
-    padding: 20px 0 30px;
+    padding-bottom: 30px;
     @media (min-width: 768px) {
         padding-bottom: 40px;
     }

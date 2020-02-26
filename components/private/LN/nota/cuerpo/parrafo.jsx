@@ -4,8 +4,7 @@ import config from '../../../../../properties/sites/la-nacion-ar';
 
 // TODO: cambiar parrafo por paragraph
 const Parrafo = ({ data, capital }) => {
-    const startsWithForbiddenChars = text =>
-        text.startsWith('(') || text.startsWith('"');
+    const isLetter = text => text.match(/^[A-Za-z]/);
 
     const setBoldText = text =>
         text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
@@ -26,14 +25,13 @@ const Parrafo = ({ data, capital }) => {
 
     const content = setExternalLinks(setBoldText(setItalicText(data.content)));
 
+    console.log('content :::::::::::::::::', data);
     return (
         <>
             {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
                 <p
                     className={`text element-paragraph${
-                        capital && !startsWithForbiddenChars(content)
-                            ? ` capital`
-                            : ''
+                        capital && isLetter(content) ? ` capital` : ''
                     }`}
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{

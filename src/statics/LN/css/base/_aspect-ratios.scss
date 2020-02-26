@@ -2,6 +2,20 @@
 .cont-figure {
     background-color: $placeholder;
 
+    .more-articles & {
+        .cuerpo__nota & {
+            .figure {
+                &.contain-vertical {
+                    .content-pic {
+                        &.picture {
+                            padding-top: calc((2 / 3) * 100%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .cuerpo__nota & {
         .figure {
             &.contain-vertical {
@@ -206,19 +220,3 @@
         }
     }
 }
-/*
-.contain-vertical {
-    .content-pic {
-        &.picture {
-            padding-top: calc((2 / 3) * 100%);
-        }
-    }
-    .cuerpo__nota & {
-        .content-pic {
-            &.picture {
-                padding-top: calc((3 / 2) * 100%);
-            }
-        }
-    }
-}
-*/

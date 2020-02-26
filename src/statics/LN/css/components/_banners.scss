@@ -1,122 +1,117 @@
 @import '../abstracts/variables';
-.--bg-banner {
-    &.w-100 {
-        .amp & {
-            margin-bottom: $px-20;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: scaleX(1.15);
-            margin-left: inherit;
-            @media (min-width: 768px) {
-                transform: inherit;
-            }
-        }
+$media-xs: '(min-width: 20em) and (max-width:  22.4375em)'; // 320px iphone
+$media-s: '(min-width: 22.5em) and (max-width: 47.9375em)'; // 360px Mobile
+$media-m: '(min-width: 48em) and (max-width: 63.9375em)'; // 768px tablet
+$media-l: '(min-width: 64em) and (max-width: 68.6875em)'; // 1024px Desk sm
+$media-xl: '(min-width: 68.75em) and (max-width: 79.9375em)'; // 1100px Desk con tercera
+$media-xxl: '(min-width: 80em)'; // 1280px Desk
+@function min($screen) {
+    $result: null;
+
+    @if $screen == media-xs {
+        $result: '(min-width: 20em)';
     }
+    @if $screen == media-s {
+        $result: '(min-width: 22.5em)';
+    }
+    @if $screen == media-m {
+        $result: '(min-width: 48em)';
+    }
+    @if $screen == media-l {
+        $result: '(min-width: 64em)';
+    }
+    @if $screen == media-xl {
+        $result: '(min-width: 68.75em)';
+    }
+    @return $result;
 }
 
-.banner {
+.--bg-banner {
     display: flex;
     justify-content: center;
-
-    &.--large {
-        width: 300px;
-        height: 600px;
-        margin-bottom: $px-40;
-    }
-    &.--small {
-        width: 300px;
-        height: 250px;
-        margin: 0px auto $px-40 auto;
-    }
-    &.--top {
-        width: 320px;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    &.--sticky {
-        width: 300px;
-        height: $px-50;
-    }
-    &.--tablet,
-    &.--desktop {
-        display: none;
-    }
-    &.--mobile {
-        display: block;
-        margin: 0 -$px-10;
-        background: #f3f3f3;
-        text-align: center;
-        @media (min-width: 321px) {
-            margin: 0;
+    align-items: center;
+    .amp & {
+        margin-bottom: $px-20;
+        transform: scaleX(1.15);
+        margin-left: inherit;
+        @media #{min(media-m)} {
+            transform: inherit;
         }
-        &.--sticky {
-            position: fixed;
-            margin: 0;
-            left: 0;
-            right: 0;
-            top: -100px;
-            width: 100%;
-            z-index: 10000;
-            transition: all 0.25s;
-            background-color: #f3f3f3;
-            &.--active {
-                #wrapper.--scrollDown & {
-                    top: 0;
+    }
+
+    .banner {
+        margin: 0;
+        /*
+        &.--tablet,
+        &.--desktop {
+            display: none;
+        }
+        &.--mobile {
+            margin: 0 -$px-10;
+            background: #f3f3f3;
+
+            &.--sticky {
+                position: fixed;
+                margin: 0;
+                left: 0;
+                right: 0;
+                top: -100px;
+                z-index: 10000;
+                transition: all 0.25s;
+                background-color: #f3f3f3;
+                &.--active {
+                    #wrapper.--scrollDown & {
+                        top: 0;
+                    }
                 }
             }
         }
+        &.hlp-none {
+            &.--mobile,
+            &.--tablet,
+            &.--desktop {
+                display: none; //no se encuentra donde se pisa el archivo helpers, por eso agregamos esta clase
+            }
+        }
+        */
     }
 }
-
-//Valores de tablet para arriba
-@media (min-width: 768px) {
-    .banner {
-        &.--desktop,
-        &.--mobile {
-            display: none;
+/*
+@media #{$media-m} {
+    .--bg-banner {
+        .banner {
+            &.--desktop,
+            &.--mobile {
+                display: none;
+            }
+            &.--tablet {
+                display: flex;
+            }
         }
-        &.--tablet {
-            margin: auto;
-            display: block;
-        }
-        &.--top {
-            width: 728px;
-            height: $px-90;
-        }
-    }
+    }  
 }
-
-//Valores de desk chico para arriba
-@media (min-width: 1024px) {
+*/
+@media #{min(media-l)} {
     .banner {
+        /*
         &.--tablet,
         &.--mobile {
             display: none;
         }
         &.--desktop {
-            margin-bottom: $px-30;
-            display: block;
+            display: flex;
         }
-        &.--top {
-            max-width: 1260px;
-            width: 100%;
-            margin: auto;
-            height: auto;
-        }
+        */
         &#caja2_dsk {
             margin-top: $px-40;
             margin-bottom: $px-40;
         }
-    }
-}
-
-.hlp-none.banner {
-    &.--mobile,
-    &.--tablet,
-    &.--desktop {
-        display: none; //no se encuentra donde se pisa el archivo helpers, por eso agregamos esta clase
+        &#cabezal_dsk {
+            .a--bg-banner & {
+                background-color: #f7f7f7;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        }
     }
 }

@@ -38,9 +38,6 @@ import '../../resources/dist/css/ln/base/helpers.css';
 /*Se debe importar para AMP*/
 //import '../../resources/dist/css/ln/components/nav-amp.css';
 
-/*Se debe importar por layouts*/
-import '../../resources/dist/css/ln/components/banners.css';
-
 /*Se debe dejar último los helpers*/
 import '../../resources/dist/css/ln/base/helpers.css';
 
@@ -104,7 +101,7 @@ class LNNotaReceta extends Component {
                     {/* Pre-Titulo: Banners */}
                     {children[0]}
                     <div
-                        className={`lay ${this.sectionClass &&
+                        className={`lay col-12 ${this.sectionClass &&
                             this.sectionClass.class}`}
                     >
                         {/* TODO: confirmar */}
