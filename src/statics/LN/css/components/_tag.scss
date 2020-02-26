@@ -92,7 +92,9 @@
         white-space: nowrap;
     }
     .arrow {
-        display: none;
+        &.hlp-none {
+            display: none;
+        }
         @media (min-width: 768px) {
             display: block;
             background: none;
