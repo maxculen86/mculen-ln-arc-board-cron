@@ -3,7 +3,7 @@
 /* titles section */
 
 .com-title-section-xl {
-    font-family: $font-SuecaSlab;
+    font-family: $font-Suecas;
     font-size: $font-22;
     font-weight: 500;
     line-height: $line-26;
@@ -12,7 +12,7 @@
 }
 
 .com-title-section-l {
-    font-family: $font-SuecaSlab;
+    font-family: $font-Suecas;
     font-size: $font-22;
     font-weight: 500;
     line-height: $line-22;
@@ -20,7 +20,7 @@
 }
 
 .com-title-section-m {
-    font-family: $font-SuecaSlab;
+    font-family: $font-Suecas;
     font-size: $font-22;
     font-weight: 800;
     line-height: $line-22;
@@ -35,7 +35,7 @@ h4.com-title-section-m {
 }
 
 .com-title-section-s {
-    font-family: $font-SuecaSlab;
+    font-family: $font-Suecas;
     font-size: $font-22;
     font-weight: 500;
     line-height: $line-22;
@@ -55,7 +55,7 @@ h4.com-title-section-s {
 }
 
 .com-title-nota {
-    font-family: $font-SuecaSlab;
+    font-family: $font-Suecas;
     font-size: $font-24;
     line-height: $line-33;
 }
@@ -80,7 +80,7 @@ h1.com-title-nota {
 }
 
 .com-title-acu-humor {
-    font-family: $font-SuecaSlab;
+    font-family: $font-Suecas;
     font-size: $font-16;
     font-weight: 800;
     line-height: $line-16;
@@ -93,7 +93,7 @@ h1.com-title-nota {
 }
 
 .com-title-acu-last {
-    font-family: $font-SuecaSlab;
+    font-family: $font-Suecas;
     font-size: $font-20;
     line-height: $line-24;
     letter-spacing: -0.47px;
@@ -117,7 +117,7 @@ h1.com-title-nota {
 }
 
 .com-title-section-autor {
-    font-family: $font-SuecaSlab;
+    font-family: $font-Suecas;
     font-size: $font-20;
     font-weight: 600;
     line-height: $line-20;
@@ -127,7 +127,7 @@ h1.com-title-nota {
 //Valores de tablet para arriba
 @media (min-width: 360px) {
     .com-title-acu {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-17;
         line-height: $line-21;
     }
@@ -136,7 +136,7 @@ h1.com-title-nota {
 //Valores de tablet para arriba
 @media (min-width: 768px) {
     .com-title-acu {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-17;
         line-height: $line-17;
         letter-spacing: -0.4px;
@@ -146,7 +146,7 @@ h1.com-title-nota {
         line-height: $line-48;
     }
     .com-title-acu-last {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-19;
         line-height: $line-24;
         letter-spacing: -0.45px;
@@ -156,35 +156,35 @@ h1.com-title-nota {
 //Valores de desk chico para arriba
 @media (min-width: 1024px) {
     .com-title-section-xxl {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-40;
         font-weight: 500;
         line-height: $line-40;
         letter-spacing: -0.53px;
     }
     .com-title-section-xl {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-30;
         font-weight: 500;
         line-height: $line-40;
         letter-spacing: -0.4px;
     }
     .com-title-section-l {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-25;
         font-weight: 500;
         line-height: $line-40;
         letter-spacing: -0.4px;
     }
     .com-title-section-m {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-24;
         font-weight: 800;
         line-height: $line-24;
         letter-spacing: -0.32px;
     }
     .com-title-section-s {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-24;
         font-weight: 500;
         line-height: $line-24;

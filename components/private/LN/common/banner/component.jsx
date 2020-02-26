@@ -61,7 +61,7 @@ const bannerComponent = ({
             ad = (
                 <div className="row">
                     <div className="col-12">
-                        <div className="banner --bg-banner hlp-none">{ad}</div>
+                        <div className="--bg-banner hlp-none">{ad}</div>
                     </div>
                 </div>
             );

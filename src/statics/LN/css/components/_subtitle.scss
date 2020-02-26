@@ -3,7 +3,7 @@
 /* subtitles */
 
 .com-subtitle-nota-1 {
-    font-family: $font-SuecaSlab;
+    font-family: $font-Suecas;
     font-size: $font-22;
     font-weight: 500;
     line-height: $line-22;
@@ -36,7 +36,7 @@
 //Valores de tablet para arriba
 @media (min-width: 768px) {
     .com-subtitle-nota-2 {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-22;
         font-weight: 600;
         line-height: $line-22;
@@ -48,13 +48,13 @@
 //Valores de desk chico para arriba
 @media (min-width: 1025px) {
     .com-subtitle-nota-1 {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-24;
         font-weight: 700;
         line-height: $line-24;
     }
     .com-subtitle-nota-2 {
-        font-family: $font-SuecaSlab;
+        font-family: $font-Suecas;
         font-size: $font-24;
         font-weight: 500;
         line-height: $line-24;
@@ -62,10 +62,11 @@
 }
 
 //Valores de desk para arriba
-@media (min-width: 1340px) {
+/*@media (min-width: 1340px) {
     .com-subtitle-nota-2 {
         // font-weight: 800; sacamos esto porque en el zeplin de nota noticias no está
     }
 }
+*/
 
 /* end subtitles */
