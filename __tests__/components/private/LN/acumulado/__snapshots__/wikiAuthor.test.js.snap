@@ -4,35 +4,38 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
 <div
   class="wiki-autor row"
 >
-  <section
-    class="cont-figure-wiki"
-    id=""
-  >
-    <div
-      class="figure"
-      href="https://google.com"
-    >
-      <picture
-        class="content-pic picture"
-      />
-    </div>
-  </section>
   <div
-    class="wiki-calc"
+    class="col-12"
   >
-    <h1
-      class="com-title-section-xl"
+    <section
+      class="cont-figure-wiki"
+      id=""
     >
-      Joaquín Morales Solá
-    </h1>
-    <label>
-      LA NACION
-    </label>
-  </div>
-  <p
-    class="hlp-mobile-none col-12"
-  >
-    Ejerce el periodismo desde los 16 años cuando ingresó al
+      <div
+        class="figure"
+        href="https://google.com"
+      >
+        <picture
+          class="content-pic picture"
+        />
+      </div>
+    </section>
+    <div
+      class="wiki-calc"
+    >
+      <h1
+        class="com-title-section-xl"
+      >
+        Joaquín Morales Solá
+      </h1>
+      <label>
+        LA NACION
+      </label>
+    </div>
+    <p
+      class="hlp-mobile-none col-12"
+    >
+      Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
                 ser prosecretario de la sección Política. Durante 12 años
                 fue segundo jefe de Redacción y autor de la columna política
@@ -50,16 +53,17 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 vicepresidente Chacho Alvarez, sobre la trama secreta de los
                 sobornos en el Senado, las causas de su renuncia y los
                 errores que condujeron al fracaso de la Alianza.
-    <span>
-      Twitter: 
-      <a
-        href="https://twitter.com/@moralessola"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        @moralessola
-      </a>
-    </span>
-  </p>
+      <span>
+        Twitter: 
+        <a
+          href="https://twitter.com/@moralessola"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          @moralessola
+        </a>
+      </span>
+    </p>
+  </div>
 </div>
 `;

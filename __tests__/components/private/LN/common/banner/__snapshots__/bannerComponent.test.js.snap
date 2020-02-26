@@ -2,6 +2,18 @@
 
 exports[`components - private - LN - common - banner - bannerComponent Test de snapshot 1`] = `
 <div
-  class="banner --undefined  hlp-none"
-/>
+  class="row"
+>
+  <div
+    class="col-12"
+  >
+    <div
+      class="--bg-banner"
+    >
+      <div
+        class="banner --undefined  hlp-none"
+      />
+    </div>
+  </div>
+</div>
 `;

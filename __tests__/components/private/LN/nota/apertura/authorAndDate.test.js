@@ -35,6 +35,6 @@ describe('features - LaNacion - Nota - AuthorAndDate', () => {
             }
         };
         const wrapper = shallow(<AuthorAndDate {...props} />);
-        expect(wrapper.find('.mod-authordate')).toHaveLength(1);
+        expect(wrapper.find('.mod-authordate')).toHaveLength(0);
     });
 });
