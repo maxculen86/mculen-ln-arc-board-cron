@@ -107,7 +107,7 @@ const bannerComponent = ({
 
         if (sticky) {
             ad = (
-                <div className="row">
+                <div className="row sticky-amp">
                     <div className="col-12">
                         <div className="--bg-banner hlp-desksm-none">
                             <amp-sticky-ad layout="nodisplay">

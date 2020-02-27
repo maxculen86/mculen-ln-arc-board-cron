@@ -15,7 +15,6 @@
             transform: inherit;
         }
     }
-
     .banner {
         margin: 0;
         &.--sticky {
@@ -35,6 +34,18 @@
         }
     }
 }
+.row.sticky-amp {
+    position: fixed;
+    bottom: 55px;
+    left: 0;
+    .--bg-banner {
+        margin-bottom: 0;
+    }
+    @media ($media-m) {
+        bottom: 0;
+    }
+}
+
 @media ($media-l) {
     .banner {
         &#caja2_dsk {
