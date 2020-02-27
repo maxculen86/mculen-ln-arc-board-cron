@@ -1,9 +1,11 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from '../../../common/utils/image/resizer';
 import SnippetRender from '../../../common/snippet/snippetRender';
+import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 const snippet = props => {
     const {
@@ -14,8 +16,13 @@ const snippet = props => {
             credits: { by },
             display_date,
             content_elements
-        }
+        },
+        contextPath,
+        deployment
     } = props;
+    const PLACERHOLDER = getAssetsPath(contextPath)(deployment)(
+        'data-fiscal.png'
+    );
 
     const autores = by
         ? by
@@ -90,7 +97,7 @@ const snippet = props => {
         cookTime: counterTime ? `PT${counterTime}M` : '',
         datePublished: `${date || ''}`,
         description: `${description || ''}`,
-        image: `${resizedUrl || ''}`, // TODO: traer imagen del PlaceHolder en caso de no traer data
+        image: `${resizedUrl || PLACERHOLDER}`, // TODO: traer imagen del PlaceHolder en caso de no traer data
         recipeIngredient: `${ingredientes || ''}`,
         name: `${headlines.basic || 'LA NACION - recetas'}`,
         recipeInstructions: `${preparaciones || ''}`,
@@ -130,4 +137,4 @@ snippet.propTypes = {
     }).isRequired
 };
 
-export default snippet;
+export default Context(snippet);
