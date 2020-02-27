@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
-import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
-import filter from '../../../../content/filters/LN/acumulado/articleAcu';
-import ListSectionsTitle from './acumuladoTitle/listSectionsTitle';
-import TagsNavigation from './tagsNavigation';
-import NotaApertura from './notaApertura';
-import capitalizeFirstLetter from '../../common/utils/capitalizeFirstLetter';
-import get from '../../common/utils/get';
+import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
+import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
+import ListSectionsTitle from './listSectionsTitle';
+import TagsNavigation from '../tagsNavigation';
+import NotaApertura from '../notaApertura';
+import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
+import get from '../../../common/utils/get';
 
-import '../../../../resources/dist/css/ln/components/title.css';
-import '../../../../resources/dist/css/ln/components/tag.css';
+import '../../../../../resources/dist/css/ln/components/title.css';
+import '../../../../../resources/dist/css/ln/components/tag.css';
 
 const AcumuladoTitle = props => {
     const { globalContent, orderAndCountTags, customFields } = props;
