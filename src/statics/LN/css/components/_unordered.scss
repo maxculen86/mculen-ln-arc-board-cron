@@ -25,12 +25,15 @@
         margin-bottom: $px-8;
         color: $negro;
         position: relative;
+        &::first-letter {
+            text-transform: uppercase;
+        }
         &:before {
             content: '';
             width: $px-7;
             height: $px-7;
             border-radius: 50%;
-            top: $px-10;
+            top: $px-14;
             background-color: $negro;
             color: $blanco;
             position: absolute;
