@@ -29,8 +29,9 @@ exports[`snippet noticia renders alright with missing data 1`] = `
     "name": "",
     "productID": ""
   },
-  "author": [],
-  "creator": [],
+  "author": "",
+  "creator": "",
+  "keywords": "",
   "publisher": {
     "@type": "Organization",
     "name": "LA NACION",
@@ -79,12 +80,7 @@ exports[`snippet noticia renders nicely with complete data 1`] = `
   },
   "author": "Diego Cabot, Martín Lousteau",
   "creator": "Diego Cabot, Martín Lousteau",
-  "keywords": [
-    "Test",
-    "Test2",
-    "Another Keyword",
-    "Carne con Papa"
-  ],
+  "keywords": "Test,Test2,Another Keyword,Carne con Papa",
   "publisher": {
     "@type": "Organization",
     "name": "LA NACION",
