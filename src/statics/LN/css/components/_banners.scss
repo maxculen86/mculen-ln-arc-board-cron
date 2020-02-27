@@ -4,6 +4,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    .col-deskxl-10 & {
+        margin-bottom: $px-24;
+    }
     .amp & {
         margin-bottom: $px-20;
         transform: scaleX(1.15);
