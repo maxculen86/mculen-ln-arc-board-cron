@@ -20,9 +20,7 @@ const snippet = props => {
         contextPath,
         deployment
     } = props;
-    const PLACERHOLDER = getAssetsPath(contextPath)(deployment)(
-        'data-fiscal.png'
-    );
+    const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
 
     const autores = by
         ? by
