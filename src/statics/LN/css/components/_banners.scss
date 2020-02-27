@@ -4,6 +4,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    .col-deskxl-10 & {
+        margin-bottom: $px-24;
+    }
     .amp & {
         margin-bottom: $px-20;
         transform: scaleX(1.15);
@@ -12,7 +15,6 @@
             transform: inherit;
         }
     }
-
     .banner {
         margin: 0;
         &.--sticky {
@@ -32,6 +34,18 @@
         }
     }
 }
+.row.sticky-amp {
+    position: fixed;
+    bottom: 55px;
+    left: 0;
+    .--bg-banner {
+        margin-bottom: 0;
+    }
+    @media ($media-m) {
+        bottom: 0;
+    }
+}
+
 @media ($media-l) {
     .banner {
         &#caja2_dsk {
