@@ -97,7 +97,7 @@ const snippet = props => {
         description: `${description || ''}`,
         image: `${resizedUrl || PLACERHOLDER}`, // TODO: traer imagen del PlaceHolder en caso de no traer data
         recipeIngredient: `${ingredientes || ''}`,
-        name: `${headlines.basic || 'LA NACION - recetas'}`,
+        name: `${headlines.basic || 'LA NACION - Recetas'}`,
         recipeInstructions: `${preparaciones || ''}`,
         recipeYield: counterPortion ? `${counterPortion} porciones` : ''
     };

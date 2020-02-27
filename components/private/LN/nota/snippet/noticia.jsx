@@ -31,14 +31,14 @@ const SnippetNoticia = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
-        headline: `${headlines.basic}`,
-        url: `${siteProperties.host}${requestUri}`,
+        headline: `${headlines.basic || 'LA NACION - Noticia'}`,
+        url: `${siteProperties.host}${requestUri || ''}`,
 
-        dateCreated: `${new Date(createdDate).toUTCString()}`,
-        datePublished: `${new Date(firstPublishDate).toUTCString()}`,
-        dateModified: `${new Date(displayDate).toUTCString()}`,
-        mainEntityOfPage: `${siteProperties.host}${primarySection.path}`,
-        articleSection: `${primarySection.name}`,
+        dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
+        datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
+        dateModified: `${new Date(displayDate).toUTCString() || ''}`,
+        mainEntityOfPage: `${siteProperties.host}${primarySection.path || ''}`,
+        articleSection: `${primarySection.name || ''}`,
         isAccessibleForFree: '',
         hasPart: {
             '@type': '',
@@ -50,13 +50,13 @@ const SnippetNoticia = props => {
             name: '',
             productID: ''
         },
-        author: authors,
-        creator: authors,
-        keywords: seoKeywords,
+        author: `${authors || ''}`,
+        creator: `${authors || ''}`,
+        keywords: `${seoKeywords || ''}`,
         publisher: {
             '@type': 'Organization',
-            name: `${siteProperties.title}`,
-            url: `${siteProperties.host}`,
+            name: `${siteProperties.title || ''}`,
+            url: `${siteProperties.host || ''}`,
             logo: {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
@@ -70,13 +70,13 @@ const SnippetNoticia = props => {
 
     if (promoItems) {
         if (promoItems.basic && promoItems.basic.type === 'image') {
-            data.thumbnailUrl = `${promoItems.basic.url}`;
+            data.thumbnailUrl = `${promoItems.basic.url || ''}`;
             data.image = {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                url: `${promoItems.basic.url}`,
-                height: `${promoItems.basic.height}`,
-                width: `${promoItems.basic.width}`
+                url: `${promoItems.basic.url || ''}`,
+                height: `${promoItems.basic.height || ''}`,
+                width: `${promoItems.basic.width || ''}`
             };
         }
     }
