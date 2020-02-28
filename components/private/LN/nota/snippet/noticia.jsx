@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
+import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 const SnippetNoticia = props => {
     const {
@@ -18,8 +19,11 @@ const SnippetNoticia = props => {
             created_date: createdDate,
             first_publish_date: firstPublishDate,
             display_date: displayDate
-        }
+        },
+        contextPath,
+        deployment
     } = props;
+    const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
 
     const authors = by
         ? by
@@ -60,8 +64,7 @@ const SnippetNoticia = props => {
             logo: {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                url:
-                    'https://static.lanacion.com.ar/v1/ln/imgs/layout/logos/logo-ln-amp.png',
+                url: `${LOGO_AMP}`,
                 height: 41,
                 width: 391
             }
@@ -121,7 +124,9 @@ const SnippetNoticia = props => {
             created_date: PropTypes.string,
             first_publish_date: PropTypes.string,
             display_date: PropTypes.string
-        }).isRequired
+        }).isRequired,
+        deployment: PropTypes.func.isRequired,
+        contextPath: PropTypes.string.isRequired
     };
 
     return (

@@ -132,7 +132,9 @@ snippet.propTypes = {
                 )
             })
         })
-    }).isRequired
+    }).isRequired,
+    deployment: PropTypes.func.isRequired,
+    contextPath: PropTypes.string.isRequired
 };
 
 export default Context(snippet);
