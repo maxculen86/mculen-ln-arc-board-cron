@@ -54,3 +54,9 @@
         display: none;
     }*/ // en tablet landscape se ve mal sin esto
 }
+
+@media ($media-l) {
+    .com-nav-mobile {
+        display: none;
+    }
+}
