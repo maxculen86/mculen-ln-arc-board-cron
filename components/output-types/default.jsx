@@ -11,6 +11,7 @@ import Livefyre from '../private/common/scriptManager/Livefyre';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
+import Robot from '../private/common/robot';
 
 const scriptList = {
     GTM,
@@ -41,7 +42,8 @@ const Default = props => {
         Libs,
         MetaTags,
         metaValue,
-        siteProperties
+        siteProperties,
+        globalContent: { canonical_url, subtype }
     } = props;
 
     const Scripts = ScriptManager(scriptList, siteProperties.scripts);
@@ -56,6 +58,7 @@ const Default = props => {
                 <SnippetIndex {...props} />
                 <Scripts location="head" />
                 <MetaTags />
+                <Robot subtype={subtype} canonicalUrl={canonical_url} />
                 <Libs />
                 {/* Para OTT carga los styles por front */}
                 {arcSite === 'ott' ? (

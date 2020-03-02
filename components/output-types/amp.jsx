@@ -5,6 +5,7 @@ import AMPScripts, {
     _AMPBoilerplate,
     AMPCustomStyle
 } from '../private/common/ampIndex';
+import Robot from '../private/common/robot';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -29,7 +30,8 @@ const Amp = props => {
         },
         renderables,
         deployment,
-        contextPath
+        contextPath,
+        globalContent: { canonical_url, subtype }
     } = props;
 
     const contentFeatures = renderables
@@ -73,6 +75,7 @@ const Amp = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
+                <Robot subtype={subtype} canonicalUrl={canonical_url} />
             </head>
             <body>
                 <amp-analytics
