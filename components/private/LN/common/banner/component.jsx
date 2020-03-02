@@ -20,12 +20,10 @@ const bannerComponent = ({
     outputType,
     taxonomy
 }) => {
-    const { sections, tags } = taxonomy
-        ? taxonomy
-        : {
-              sections: [],
-              tags: []
-          };
+    const { sections, tags } = taxonomy || {
+        sections: [],
+        tags: []
+    };
 
     const buildTargeting = (source, prefix = 'ca_', string = '') => {
         let outcome = string;
@@ -44,28 +42,23 @@ const bannerComponent = ({
 
     if (outputType === 'default') {
         ad = (
-            <ArcAd
-                className={`--${device}${
-                    sticky ? ' --sticky' : ''
-                } ${extraClasses || ''}`}
-                id={slotId}
-                dfpId={dfpId}
-                slotName={slotName}
-                dimensions={dimensions}
-                targeting={targeting}
-                bidding={bidding}
-            />
-        );
-
-        if (background) {
-            ad = (
-                <div className="row">
-                    <div className="col-12">
-                        <div className="banner --bg-banner hlp-none">{ad}</div>
-                    </div>
+            <div className="row">
+                <div className="col-12">
+                    <ArcAd
+                        className={`--${device}${
+                            sticky ? ' --sticky' : ''
+                        } ${extraClasses || ''}`}
+                        id={slotId}
+                        dfpId={dfpId}
+                        slotName={slotName}
+                        dimensions={dimensions}
+                        targeting={targeting}
+                        bidding={bidding}
+                        bgBanner={background ? '--bg-banner' : ''}
+                    />
                 </div>
-            );
-        }
+            </div>
+        );
     }
 
     if (outputType === 'amp') {
