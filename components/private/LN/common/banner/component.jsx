@@ -45,7 +45,7 @@ const bannerComponent = ({
             <div className="row">
                 <div className="col-12">
                     <ArcAd
-                        className={`--${device}${
+                        className={`${device ? `--${device}` : ''}${
                             sticky ? ' --sticky' : ''
                         } ${extraClasses || ''}`}
                         id={slotId}

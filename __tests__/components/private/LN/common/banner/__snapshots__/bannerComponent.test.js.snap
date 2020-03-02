@@ -8,10 +8,10 @@ exports[`components - private - LN - common - banner - bannerComponent Test de s
     class="col-12"
   >
     <div
-      class="--bg-banner"
+      class="banner   "
     >
       <div
-        class="banner --undefined  hlp-none"
+        class="hlp-none"
       />
     </div>
   </div>
