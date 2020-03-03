@@ -4,7 +4,7 @@ import get from 'lodash.get';
 // import getProperties from 'fusion:properties';
 // import { useAppContext } from 'fusion:context';
 
-const focusImage = (focalPoint, thumborInstance) => {
+const focusImage = (width, height, focalPoint, thumborInstance) => {
     const [x, y] = focalPoint;
     // left, top, right, bottom: https://thumbor.readthedocs.io/en/latest/focal.html
     const rect = [x - 5, y + 5, x + 5, y - 5];
@@ -27,28 +27,21 @@ export const createResizer = (resizerKey, resizerUrl) => {
                 'Se requiere width o heigth para realizar el resize'
             );
         // Si me lo indican en las options, hago el resize aplicando ambos tamaños, si no, horizontal o vertial dependiendo imagen
-        let finalWidth = resizeOptions.width || 0;
-        let finalHeight = resizeOptions.height || 0;
-        if (!resizeOptions.useFullSize) {
-            if (originalWidth >= originalHeight) {
-                if (finalWidth) finalHeight = 0;
-            } else if (finalHeight) finalWidth = 0;
-        }
-
-        const thumbor = new Thumbor(resizerKey, resizerUrl);
         const cleanedUrl = originalUrl.replace(/(^\w+:|^)\/\//, '');
 
-        const newUrl = thumbor
-            .setImagePath(cleanedUrl)
-            .resize(finalWidth, finalHeight);
+        const thumbor = new Thumbor(resizerKey, resizerUrl);
 
-        /* Filter Focal Point */
-        if (focalPoint) {
-            focusImage(focalPoint, newUrl);
+        if (!focalPoint || !originalWidth || !originalHeight) {
+            thumbor.smartCrop(true);
+        } else {
+            focusImage(originalWidth, originalHeight, focalPoint, thumbor);
         }
-        // Porque hace esto?
 
-        return newUrl.buildUrl();
+        thumbor.setImagePath(cleanedUrl);
+
+        const { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
+
+        return thumbor.resize(newWidth, newHeight).buildUrl();
     };
 
     const resizeUrls = (
@@ -68,7 +61,6 @@ export const createResizer = (resizerKey, resizerUrl) => {
                 opt,
                 focalPoint
             );
-            console.log('createResizer -> resizedUrl', resizedUrl);
             resp.push({
                 resizedUrl,
                 option: opt
@@ -98,8 +90,8 @@ export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
 };
 
 const getFocalPoint = function getFocalPoint(element) {
-    var additionalProperties = element.additional_properties || {};
-    var focalPoint = additionalProperties.focal_point || {};
+    const additionalProperties = element.additional_properties || {};
+    const focalPoint = additionalProperties.focal_point || {};
     return focalPoint.min;
 };
 
