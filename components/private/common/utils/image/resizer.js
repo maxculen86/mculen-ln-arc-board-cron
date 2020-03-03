@@ -4,20 +4,28 @@ import get from 'lodash.get';
 // import getProperties from 'fusion:properties';
 // import { useAppContext } from 'fusion:context';
 
+const focusImage = (focalPoint, thumborInstance) => {
+    const [x, y] = focalPoint;
+    // left, top, right, bottom: https://thumbor.readthedocs.io/en/latest/focal.html
+    const rect = [x - 5, y + 5, x + 5, y - 5];
+    const focalFilter = `focal(${rect[0]}x${rect[1]}:${rect[2]}x${rect[3]})`;
+    return thumborInstance.filter(focalFilter);
+};
+
 export const createResizer = (resizerKey, resizerUrl) => {
-    const Thumbor = require('thumbor');
+    const Thumbor = require('thumbor-lite');
 
     const resizeUrl = (
         originalUrl,
         originalWidth,
         originalHeight,
-        resizeOptions
+        resizeOptions,
+        focalPoint
     ) => {
         if (!resizeOptions.width && !resizeOptions.height)
             throw new Error(
                 'Se requiere width o heigth para realizar el resize'
             );
-
         // Si me lo indican en las options, hago el resize aplicando ambos tamaños, si no, horizontal o vertial dependiendo imagen
         let finalWidth = resizeOptions.width || 0;
         let finalHeight = resizeOptions.height || 0;
@@ -28,32 +36,41 @@ export const createResizer = (resizerKey, resizerUrl) => {
         }
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
-        // Porque hace esto?
         const cleanedUrl = originalUrl.replace(/(^\w+:|^)\/\//, '');
+
         const newUrl = thumbor
             .setImagePath(cleanedUrl)
-            .resize(finalWidth, finalHeight)
-            .buildUrl();
-        return newUrl;
+            .resize(finalWidth, finalHeight);
+
+        /* Filter Focal Point */
+        if (focalPoint) {
+            focusImage(focalPoint, newUrl);
+        }
+        // Porque hace esto?
+
+        return newUrl.buildUrl();
     };
 
     const resizeUrls = (
         originalUrl,
         originalWidth,
         originalHeight,
-        presets
+        presets,
+        focalPoint
     ) => {
         const resp = [];
         const finalPreset = presets;
-
         finalPreset.forEach(opt => {
+            const resizedUrl = resizeUrl(
+                originalUrl,
+                originalWidth,
+                originalHeight,
+                opt,
+                focalPoint
+            );
+            console.log('createResizer -> resizedUrl', resizedUrl);
             resp.push({
-                resizedUrl: resizeUrl(
-                    originalUrl,
-                    originalWidth,
-                    originalHeight,
-                    opt
-                ),
+                resizedUrl,
                 option: opt
             });
         });
@@ -80,18 +97,26 @@ export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
     };
 };
 
+const getFocalPoint = function getFocalPoint(element) {
+    var additionalProperties = element.additional_properties || {};
+    var focalPoint = additionalProperties.focal_point || {};
+    return focalPoint.min;
+};
+
 export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
         );
+
     return {
         ...arcImage,
         resized_urls: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
             arcImage.height,
-            resizeOptions
+            resizeOptions,
+            getFocalPoint(arcImage) || undefined
         )
     };
 };
