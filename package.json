@@ -33,8 +33,7 @@
         "react": "16.8.6",
         "react-dom": "16.8.6",
         "request-promise-native": "^1.0.8",
-        "thumbor": "0.1.5",
-        "thumbor-lite": "^0.1.6"
+        "thumbor": "0.1.5"
     },
     "devDependencies": {
         "@arc-fusion/cli": "1.0.7",

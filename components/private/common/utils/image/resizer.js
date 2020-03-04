@@ -13,7 +13,7 @@ const focusImage = (width, height, focalPoint, thumborInstance) => {
 };
 
 export const createResizer = (resizerKey, resizerUrl) => {
-    const Thumbor = require('thumbor-lite');
+    const Thumbor = require('thumbor');
 
     const resizeUrl = (
         originalUrl,
