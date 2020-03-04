@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import { NoteCard } from '../../../features/LN-home/noteCard';
+import NoteCard from '../../../features/LN-home/noteFeature';
 
 const CollectionsNotes = idCollection => {
     const content = useContent({

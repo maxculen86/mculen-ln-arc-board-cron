@@ -13,7 +13,7 @@ const Apertura = props => {
     } = props;
 
     if (idCollection && idCollection !== '') {
-        const Notes = CollectionsNotes(idCollection);
+        const Notes = <CollectionsNotes idCollection={idCollection} />;
         return (
             <div className="row hlp-margintop-50">
                 <div className="lay">
@@ -27,9 +27,12 @@ const Apertura = props => {
 
     if (!hasChildren(children))
         throw new Error(
-            'Texto de error que solo sale en PageBuilder. En este caso por no tener id Definido o Features agregados'
+            'En este caso por no tener id Definido o Features agregados'
         );
-
+    if (!directionFocal)
+        throw new Error(
+            'Se debe seleccionar la dirección focal de la apretura'
+        );
     return (
         hasChildren(children) && (
             <div className="row hlp-margintop-50">
