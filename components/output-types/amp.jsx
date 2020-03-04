@@ -31,8 +31,9 @@ const Amp = props => {
         renderables,
         deployment,
         contextPath,
-        globalContent: { canonical_url, subtype }
+        globalContent
     } = props;
+    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
 
     const contentFeatures = renderables
         .filter(item => item.collection === 'features')
@@ -75,9 +76,7 @@ const Amp = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
-                {canonical_url && canonical_url !== undefined && (
-                    <Robot subtype={subtype} canonicalUrl={canonical_url} />
-                )}
+                <Robot subtype={subtype} canonicalUrl={canonicalUrl} />
             </head>
             <body>
                 <amp-analytics

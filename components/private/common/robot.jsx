@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const Robot = ({ subtype, canonicalUrl }) => {
+const Robot = ({ subtype, canonicalUrl, arcSite }) => {
+    if (arcSite && arcSite !== 'la-nacion-ar' && !subtype && !canonicalUrl)
+        return <></>;
+
     return (
-        subtype !== '7' &&
+        subtype === '1' &&
         canonicalUrl && (
             <>
                 <meta name="robots" content="noindex, nofollow" />
