@@ -58,7 +58,7 @@ const Default = props => {
                 <SnippetIndex {...props} />
                 <Scripts location="head" />
                 <MetaTags />
-                {canonical_url && (
+                {canonical_url && canonical_url !== undefined && (
                     <Robot subtype={subtype} canonicalUrl={canonical_url} />
                 )}
                 <Libs />

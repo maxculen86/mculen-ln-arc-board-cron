@@ -75,7 +75,9 @@ const Amp = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
-                <Robot subtype={subtype} canonicalUrl={canonical_url} />
+                {canonical_url && canonical_url !== undefined && (
+                    <Robot subtype={subtype} canonicalUrl={canonical_url} />
+                )}
             </head>
             <body>
                 <amp-analytics
