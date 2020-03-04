@@ -8,7 +8,7 @@ const Robot = ({ subtype, canonicalUrl }) => {
                 <meta name="robots" content="noindex, nofollow" />
                 <link
                     rel="canonical"
-                    href={`https://www.lanacion.com.ar/${canonicalUrl}`}
+                    href={`https://www.lanacion.com.ar${canonicalUrl}`}
                 />
             </>
         )
