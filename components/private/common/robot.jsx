@@ -3,7 +3,8 @@ import PropTypes from 'fusion:prop-types';
 
 const Robot = ({ subtype, canonicalUrl }) => {
     return (
-        subtype !== '7' && (
+        subtype !== '7' &&
+        canonicalUrl && (
             <>
                 <meta name="robots" content="noindex, nofollow" />
                 <link

@@ -58,7 +58,9 @@ const Default = props => {
                 <SnippetIndex {...props} />
                 <Scripts location="head" />
                 <MetaTags />
-                <Robot subtype={subtype} canonicalUrl={canonical_url} />
+                {canonical_url && (
+                    <Robot subtype={subtype} canonicalUrl={canonical_url} />
+                )}
                 <Libs />
                 {/* Para OTT carga los styles por front */}
                 {arcSite === 'ott' ? (
