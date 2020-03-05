@@ -45,7 +45,6 @@ const Amp = props => {
                 <meta charset="utf-8" />
                 <script async src="https://cdn.ampproject.org/v0.js" />
                 <title>{metaValue('title') || title || 'LA NACION'}</title>
-                <link rel="canonical" href="https://lanacion.com.ar/" />
                 <meta
                     name="viewport"
                     content="width=device-width,minimum-scale=1,initial-scale=1"
