@@ -18,7 +18,8 @@ const bannerComponent = ({
     device,
     extraClasses,
     outputType,
-    taxonomy
+    taxonomy,
+    bannerTercera
 }) => {
     const { sections, tags } = taxonomy || {
         sections: [],
@@ -42,8 +43,8 @@ const bannerComponent = ({
 
     if (outputType === 'default') {
         ad = (
-            <div className="row">
-                <div className="col-12">
+            <>
+                {bannerTercera ? (
                     <ArcAd
                         className={`${device ? `--${device}` : ''}${
                             sticky ? ' --sticky' : ''
@@ -56,8 +57,25 @@ const bannerComponent = ({
                         bidding={bidding}
                         bgBanner={background ? '--bg-banner' : ''}
                     />
-                </div>
-            </div>
+                ) : (
+                    <div className="row">
+                        <div className="col-12">
+                            <ArcAd
+                                className={`${device ? `--${device}` : ''}${
+                                    sticky ? ' --sticky' : ''
+                                } ${extraClasses || ''}`}
+                                id={slotId}
+                                dfpId={dfpId}
+                                slotName={slotName}
+                                dimensions={dimensions}
+                                targeting={targeting}
+                                bidding={bidding}
+                                bgBanner={background ? '--bg-banner' : ''}
+                            />
+                        </div>
+                    </div>
+                )}
+            </>
         );
     }
 

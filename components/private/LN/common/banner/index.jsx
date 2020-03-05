@@ -7,7 +7,6 @@ import PlaceHolder from './bannerPlaceholder';
 import WithNavigation from '../hocs/WithNavigation';
 
 const banner = props => {
-    /* console.log(' ¿¿¿¿¿¿¿¿¿ props ¿¿¿¿¿', props); */
     const {
         taxonomy,
         outputType,
@@ -21,7 +20,8 @@ const banner = props => {
         background,
         screenUtils,
         extraClasses,
-        termicas
+        termicas,
+        bannerTercera
     } = props;
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
@@ -34,16 +34,8 @@ const banner = props => {
         return null;
     };
 
-    /* console.log('####### slotsConfig: ', slotsConfig);
-    console.log('####### isAdmin: ', isAdmin);
-    console.log('####### ScreenUtils: ', screenUtils);
-    console.log('####### desktopSlot: ', desktopSlot);
-    console.log('####### slotGroup: ', slotGroup); */
-
     const finalSlot = getSlotForDevice();
     const finalConfig = slotsConfig[slotGroup][finalSlot];
-    /* console.log('##### finalSlot: ', finalSlot);
-    console.log('######### finalConfig: ', finalConfig); */
 
     if (!finalConfig) return null;
     if (!dfp_id) {
@@ -66,22 +58,23 @@ const banner = props => {
 
     return (
         <>
-            {/* {termicas.banners ? ( */}
-            <BannerComponent
-                device={screenUtils.device}
-                slotId={finalSlot}
-                dfpId={dfp_id}
-                slotName={finalConfig.slotName}
-                dimensions={finalConfig.dimensions}
-                targeting={finalConfig.targeting}
-                bidding={finalConfig.bidding}
-                sticky={sticky}
-                background={background}
-                extraClasses={extraClasses}
-                outputType={outputType}
-                taxonomy={taxonomy}
-            />
-            {/* ) : null} */}
+            {termicas.banners ? (
+                <BannerComponent
+                    device={screenUtils.device}
+                    slotId={finalSlot}
+                    dfpId={dfp_id}
+                    slotName={finalConfig.slotName}
+                    dimensions={finalConfig.dimensions}
+                    targeting={finalConfig.targeting}
+                    bidding={finalConfig.bidding}
+                    sticky={sticky}
+                    background={background}
+                    extraClasses={extraClasses}
+                    outputType={outputType}
+                    taxonomy={taxonomy}
+                    bannerTercera={bannerTercera}
+                />
+            ) : null}
         </>
     );
 };
@@ -101,15 +94,11 @@ banner.propTypes = {
         tabletSlot: PropTypes.oneOf(getSlotsOptions())
     }).isRequired,
     sticky: PropTypes.bool,
+    bannerTercera: PropTypes.bool,
     background: PropTypes.bool,
     screenUtils: PropTypes.shape({
         device: PropTypes.string
     }).isRequired
 };
-
-// banner.defaultProps = {
-//     sticky: false,
-//     background: false
-// };
 
 export default WithNavigation(WithScreenUtils(banner));

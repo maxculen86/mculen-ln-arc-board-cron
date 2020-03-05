@@ -111,9 +111,6 @@ const lnNotaNoticia = ({ children, outputType }) => {
                     {/* Tercera */}
                     <div className="sidebar__aside hlp-desklm-none">
                         {children[5]}
-                        {/* Banner4 Sticky */}
-
-                        <div id="caja4_dsk" className="banner"></div>
                     </div>
                 </div>
 
