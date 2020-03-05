@@ -11,5 +11,7 @@ export default {
     COOKIE_EXPIRATION: '8640000000',
     DOMINIO_COOKIE: '.lanacion.com.ar',
     RANKING_URL:
-        'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/most-read/'
+        'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/most-read/',
+    LANACIONAR_URLASSETS:
+        'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com'
 };

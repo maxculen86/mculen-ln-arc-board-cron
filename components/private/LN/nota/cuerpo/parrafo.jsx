@@ -1,22 +1,36 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import config from '../../../../../properties/sites/la-nacion-ar';
 
-// TODO: cambiar parrafo por paragraph y hacer test unitario
+// TODO: cambiar parrafo por paragraph
 const Parrafo = ({ data, capital }) => {
+    const isLetter = text => text.match(/^[A-Za-z]/);
+
     const setBoldText = text =>
         text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
 
     const setItalicText = text =>
         text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
 
-    const content = setBoldText(setItalicText(data.content));
+    const setExternalLinks = text =>
+        text.replace(
+            /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
+            (match, href, string) => {
+                if (!href.includes(config.host)) {
+                    return `<a ${href} target='_blank'>${string}</a>`;
+                }
+                return `<a ${href}>${string}</a>`;
+            }
+        );
+
+    const content = setExternalLinks(setBoldText(setItalicText(data.content)));
 
     return (
         <>
             {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
                 <p
                     className={`text element-paragraph${
-                        capital ? ` capital` : ''
+                        capital && isLetter(content) ? ` capital` : ''
                     }`}
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{

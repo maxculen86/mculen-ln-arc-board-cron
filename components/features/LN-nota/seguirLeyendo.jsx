@@ -9,12 +9,22 @@ const seguirLeyendo = props => {
         <Static id="LN-Nota-SeguirLeyendo">
             {props.globalContent.related_content.basic.length > 0 && (
                 <>
-                    <h4 className="com-subtitle_list w-100">Seguir Leyendo:</h4>
-                    <SeguirLeyendo
-                        related_content={
-                            props.globalContent.related_content.basic
-                        }
-                    />
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="keep-reading">
+                                <h4 className="com-subtitle-nota-3">
+                                    Seguir Leyendo
+                                </h4>
+                                <SeguirLeyendo
+                                    //////Armar el componente del subtitulooooo
+                                    related_content={
+                                        props.globalContent.related_content
+                                            .basic
+                                    }
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </>
             )}
         </Static>

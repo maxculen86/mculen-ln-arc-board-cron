@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
+import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 const SnippetNoticia = props => {
     const {
@@ -18,8 +19,11 @@ const SnippetNoticia = props => {
             created_date: createdDate,
             first_publish_date: firstPublishDate,
             display_date: displayDate
-        }
+        },
+        contextPath,
+        deployment
     } = props;
+    const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
 
     const authors = by
         ? by
@@ -31,14 +35,14 @@ const SnippetNoticia = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
-        headline: `${headlines.basic}`,
-        url: `${siteProperties.host}${requestUri}`,
+        headline: `${headlines.basic || 'LA NACION - Noticia'}`,
+        url: `${siteProperties.host}${requestUri || ''}`,
 
-        dateCreated: `${new Date(createdDate).toUTCString()}`,
-        datePublished: `${new Date(firstPublishDate).toUTCString()}`,
-        dateModified: `${new Date(displayDate).toUTCString()}`,
-        mainEntityOfPage: `${siteProperties.host}${primarySection.path}`,
-        articleSection: `${primarySection.name}`,
+        dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
+        datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
+        dateModified: `${new Date(displayDate).toUTCString() || ''}`,
+        mainEntityOfPage: `${siteProperties.host}${primarySection.path || ''}`,
+        articleSection: `${primarySection.name || ''}`,
         isAccessibleForFree: '',
         hasPart: {
             '@type': '',
@@ -50,18 +54,17 @@ const SnippetNoticia = props => {
             name: '',
             productID: ''
         },
-        author: authors,
-        creator: authors,
-        keywords: seoKeywords,
+        author: `${authors || ''}`,
+        creator: `${authors || ''}`,
+        keywords: `${seoKeywords || ''}`,
         publisher: {
             '@type': 'Organization',
-            name: `${siteProperties.title}`,
-            url: `${siteProperties.host}`,
+            name: `${siteProperties.title || ''}`,
+            url: `${siteProperties.host || ''}`,
             logo: {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                url:
-                    'https://static.lanacion.com.ar/v1/ln/imgs/layout/logos/logo-ln-amp.png',
+                url: `${LOGO_AMP}`,
                 height: 41,
                 width: 391
             }
@@ -70,13 +73,13 @@ const SnippetNoticia = props => {
 
     if (promoItems) {
         if (promoItems.basic && promoItems.basic.type === 'image') {
-            data.thumbnailUrl = `${promoItems.basic.url}`;
+            data.thumbnailUrl = `${promoItems.basic.url || ''}`;
             data.image = {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                url: `${promoItems.basic.url}`,
-                height: `${promoItems.basic.height}`,
-                width: `${promoItems.basic.width}`
+                url: `${promoItems.basic.url || ''}`,
+                height: `${promoItems.basic.height || ''}`,
+                width: `${promoItems.basic.width || ''}`
             };
         }
     }
@@ -121,7 +124,9 @@ const SnippetNoticia = props => {
             created_date: PropTypes.string,
             first_publish_date: PropTypes.string,
             display_date: PropTypes.string
-        }).isRequired
+        }).isRequired,
+        deployment: PropTypes.func.isRequired,
+        contextPath: PropTypes.string.isRequired
     };
 
     return (

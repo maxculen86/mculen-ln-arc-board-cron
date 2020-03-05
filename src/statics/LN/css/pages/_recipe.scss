@@ -27,6 +27,9 @@
     @media ($media-l) {
         margin-bottom: $px-80;
     }
+    @media ($media-m) {
+        margin-bottom: $px-40;
+    }
 
     .cont-figure {
         @media ($media-l) {

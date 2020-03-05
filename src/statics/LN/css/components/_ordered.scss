@@ -15,15 +15,12 @@
     line-height: $line-22;
     font-weight: bold;
     color: $negro;
-    .sidebar__main & {
-        margin-top: $px-10;
-        margin-bottom: $px-10;
-    }
 }
 
 .com-ordered {
     padding-left: 0;
     counter-reset: item;
+    width: 100%;
     .com-item {
         list-style-type: none;
         padding-left: 2em;

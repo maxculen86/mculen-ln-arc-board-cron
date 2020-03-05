@@ -2,7 +2,7 @@
 @import '../../../../../src/statics/LN/css/base/types.scss';
 
 //@import '../../../../../src/statics/LN/css/base/helpers.scss';
-@import '../../../../../src/statics/LN/css/base/helpers-amp.scss'; //se usan solo los helpers necesarios
+
 @import '../../../../../src/statics/LN/css/layouts/grid.scss';
 @import '../../../../../src/statics/LN/css/layouts/layout.scss';
 
@@ -26,9 +26,13 @@
 @import '../../../../../src/statics/LN/css/components/epigraph.scss';
 @import '../../../../../src/statics/LN/css/components/appointment.scss';
 @import '../../../../../src/statics/LN/css/components/footer.scss';
+@import '../../../../../src/statics/LN/css/base/aspect-ratios.scss';
 @import '../../../../../src/statics/LN/css/components/nav-amp.scss';
 @import '../../../../../src/statics/LN/css/components/banners.scss';
+@import '../../../../../src/statics/LN/css/modules/caja-nota.scss';
 //@import '../../../../../src/statics/LN/css/components/colecciones.scss';
 //@import '../../../../../src/statics/LN/css/components/carta-lectores.scss';
 //@import '../../../../../src/statics/LN/css/components/dropdown.scss';
 //@import '../../../../../src/statics/LN/css/modules/newsletter.scss';
+
+@import '../../../../../src/statics/LN/css/base/helpers-amp.scss'; //se usan solo los helpers necesarios

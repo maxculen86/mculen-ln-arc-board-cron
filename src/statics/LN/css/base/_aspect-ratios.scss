@@ -1,16 +1,50 @@
 @import '../abstracts/variables';
 .cont-figure {
     background-color: $placeholder;
+
+    .more-articles & {
+        .cuerpo__nota & {
+            .figure {
+                &.contain-vertical {
+                    .content-pic {
+                        &.picture {
+                            padding-top: calc((2 / 3) * 100%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .cuerpo__nota & {
+        .figure {
+            &.contain-vertical {
+                .content-pic {
+                    &.picture {
+                        padding-top: calc((3 / 2) * 100%);
+                    }
+                }
+            }
+        }
+    }
+
     .figure {
         display: flex;
         width: 100%;
+        .content-pic {
+            &.picture {
+                .contain {
+                    object-fit: cover;
+                    img {
+                        object-fit: inherit;
+                    }
+                }
+            }
+        }
         &:hover {
             opacity: 1;
         }
-        .picture {
-            padding-top: $picture;
-        }
-        .content-video {
+        /*.content-video {
             width: 100%;
             background: $gris1;
             max-height: 100%;
@@ -27,7 +61,7 @@
                 width: 100%;
                 background: #000;
             }
-        }
+        }*/
         .content-pic {
             width: 100%;
             background: $gris1;
@@ -39,6 +73,9 @@
             justify-content: center;
             align-items: center;
             border: 1px solid $gris3;
+
+            padding-top: $picture;
+
             .--border &,
             .aper-receta & {
                 border: none;
@@ -106,13 +143,6 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
-.square {
-    padding-top: $square;
-}
-
-// .video {
-//     padding-top: $video;
-// }
 .externo {
     text-align: center;
     margin: 0 auto $px-50;
@@ -123,18 +153,6 @@
     twitter-widget {
         margin: auto;
     }
-}
-
-.cinema {
-    padding-top: $cinema;
-}
-
-.vertical-square {
-    padding-top: $vertical-square;
-}
-
-.vertical-video {
-    padding-top: $vertical-video;
 }
 
 .cont-figure-wiki {
@@ -156,7 +174,7 @@
             border-radius: 50%;
         }
         .content-pic {
-            width: 100%;
+            //width: 100%;
             max-height: 100%;
             max-width: 100%;
             position: relative;
@@ -173,7 +191,7 @@
                 @media (min-width: 768px) {
                     font-size: 78px;
                 }
-                font-family: ln10;
+                //font-family: ln10;
                 font-style: normal;
                 text-transform: none;
                 -webkit-font-smoothing: antialiased;

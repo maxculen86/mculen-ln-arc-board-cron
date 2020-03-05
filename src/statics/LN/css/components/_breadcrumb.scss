@@ -1,11 +1,12 @@
 @import '../abstracts/variables';
 .com-breadcrumb {
+    margin-top: $px-30;
     font-family: $font-arial;
     font-size: $font-14;
     display: none;
     flex-direction: row;
     align-items: center;
-    margin-bottom: $px-20;
+    margin-bottom: $px-24;
     color: $gris5;
     a {
         color: $link;

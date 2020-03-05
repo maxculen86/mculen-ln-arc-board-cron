@@ -12,7 +12,7 @@ const authorArticle = ({
     by = by.filter(author => author.type === 'author');
     return (
         <>
-            {by && by.length > 0 ? <span>Por </span> : ''}
+            {by && by.length > 0 ? <span>Por</span> : ''}
             {by &&
                 by.map((authorNota, i) => (
                     <span key={authorNota._id} className="">
@@ -22,9 +22,9 @@ const authorArticle = ({
                             <span> {authorNota.name} </span>
                         )}
                         {i < by.length - 2 ? (
-                            <>{', \u00A0'}</>
+                            <>{','}</>
                         ) : (
-                            <>{i === by.length - 2 ? ' y\u00A0' : ''}</>
+                            <>{i === by.length - 2 ? ' y' : ''}</>
                         )}
                     </span>
                 ))}

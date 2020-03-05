@@ -20,9 +20,6 @@
         background: transparent;
         //OCULTO HAMBURGUESA
         // TODO: Recordar dejar oculto
-        &:last-child {
-            display: block;
-        }
         p {
             font-family: $font-arial;
             font-size: $font-11;
@@ -53,7 +50,13 @@
     &.--scrollUp {
         bottom: 0;
     }
-    @media ($media-l) {
+    /*@media ($media-l) {
+        display: none;
+    }*/ // en tablet landscape se ve mal sin esto
+}
+
+@media ($media-l) {
+    .com-nav-mobile {
         display: none;
     }
 }

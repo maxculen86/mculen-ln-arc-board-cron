@@ -22,9 +22,6 @@
     font-size: $font-16;
     font-weight: 700;
     line-height: $line-24;
-    .keep-reading & {
-        margin-bottom: $px-30;
-    }
     .sidebar__main .com-tag & {
         margin-bottom: $px-10;
     }
@@ -32,7 +29,8 @@
 
 [class^='com-subtitle'] {
     // Se agrega porque en amp quedan pegados los subtitulos
-    margin-bottom: $px-10;
+    margin-bottom: $px-16;
+    width: 100%;
 }
 
 //Valores de tablet para arriba
@@ -43,6 +41,7 @@
         font-weight: 600;
         line-height: $line-22;
         letter-spacing: 0px;
+        margin-bottom: $px-16;
     }
 }
 
@@ -63,10 +62,11 @@
 }
 
 //Valores de desk para arriba
-@media (min-width: 1340px) {
+/*@media (min-width: 1340px) {
     .com-subtitle-nota-2 {
         // font-weight: 800; sacamos esto porque en el zeplin de nota noticias no está
     }
 }
+*/
 
 /* end subtitles */

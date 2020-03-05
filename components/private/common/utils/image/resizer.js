@@ -1,3 +1,9 @@
+// TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
+
+import get from 'lodash.get';
+// import getProperties from 'fusion:properties';
+// import { useAppContext } from 'fusion:context';
+
 export const createResizer = (resizerKey, resizerUrl) => {
     const Thumbor = require('thumbor');
 
@@ -38,7 +44,9 @@ export const createResizer = (resizerKey, resizerUrl) => {
         presets
     ) => {
         const resp = [];
-        presets.forEach(opt => {
+        const finalPreset = presets;
+
+        finalPreset.forEach(opt => {
             resp.push({
                 resizedUrl: resizeUrl(
                     originalUrl,
@@ -77,7 +85,6 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
         );
-
     return {
         ...arcImage,
         resized_urls: resizer.resizeUrls(
@@ -91,9 +98,13 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
 
 const resizeCredits = (credits, resizeOptions, resizer) => {
     const resp = {};
-    const optionsFinal = resizeOptions.some(v => v.type === 'credits')
-        ? resizeOptions.filter(v => v.type === 'credits')
-        : resizeOptions.filter(v => !v.type);
+    const optionsFinal = get(resizeOptions, 'sizes', [
+        {
+            width: 768,
+            height: 513,
+            media: '(min-width: 768px)'
+        }
+    ]);
 
     Object.keys(credits).forEach(key => {
         const credit = credits[key];
@@ -121,9 +132,15 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 
 const resizePromoItems = (promoItems, resizeOptions, resizer) => {
     const resp = {};
-    const optionsFinal = resizeOptions.some(v => v.type === 'promo_items')
-        ? resizeOptions.filter(v => v.type === 'promo_items')
-        : resizeOptions.filter(v => !v.type);
+    // TODO: Pasar valor por defecto como constante
+    const optionsFinal = get(resizeOptions, 'sizes', [
+        {
+            width: 768,
+            height: 513,
+            media: '(min-width: 768px)'
+        }
+    ]);
+
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
         if (pi.type === 'image') {
@@ -143,11 +160,7 @@ export const addResizedUrls = (ansDoc, option) => {
 
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
-    const optionsContentElements = option.presets.some(
-        v => v.type === 'content_elements'
-    )
-        ? option.presets.filter(v => v.type === 'content_elements')
-        : option.presets.filter(v => !v.type);
+    const optionsContentElements = option.presets.contentElements.sizes;
 
     const respDoc = {
         ...ansDoc,
@@ -174,15 +187,16 @@ export const addResizedUrls = (ansDoc, option) => {
     if (ansDoc.promo_items) {
         respDoc.promo_items = resizePromoItems(
             ansDoc.promo_items,
-            option.presets,
+            option.presets.promoItems,
             resizer
         );
     }
 
+    // TODO: Buscar caso de uso de credits y validar
     if (ansDoc.credits) {
         respDoc.credits = resizeCredits(
             ansDoc.credits,
-            option.presets,
+            option.presetsDefault,
             resizer
         );
     }

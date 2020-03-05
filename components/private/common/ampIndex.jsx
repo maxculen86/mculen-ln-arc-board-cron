@@ -99,6 +99,10 @@ const config = {
             {
                 customElement: 'amp-analytics',
                 src: 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js'
+            },
+            {
+                customElement: 'amp-sticky-ad',
+                src: 'https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'
             }
         ]
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const path = '/pf/tema/';
+const path = '/tema/';
 
 const tagsNavigation = ({
     _children,
@@ -16,7 +16,7 @@ const tagsNavigation = ({
         <ol className="cont_tags com-secondary-tag">
             {orderAndCountTags.map(tag => (
                 <li key={tag.slug}>
-                    <a href={`${path}${tag.slug}`} title={tag.text}>
+                    <a href={`${path}${tag.slug}/`} title={tag.text}>
                         {tag.text}
                     </a>
                 </li>

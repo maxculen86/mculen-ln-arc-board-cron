@@ -27,7 +27,9 @@ const Amp = props => {
                 }
             }
         },
-        renderables
+        renderables,
+        deployment,
+        contextPath
     } = props;
 
     const contentFeatures = renderables
@@ -66,6 +68,11 @@ const Amp = props => {
                     href="https://fonts.googleapis.com/css?family=Oswald:200,300,400"
                     rel="stylesheet"
                 />
+                <link
+                    rel="icon"
+                    type="image/x-icon"
+                    href={deployment(`${contextPath}/resources/favicon.ico`)}
+                />
             </head>
             <body>
                 <amp-analytics
@@ -94,7 +101,9 @@ Amp.propTypes = {
             })
         })
     }).isRequired,
-    renderables: PropTypes.arrayOf(PropTypes.object).isRequired
+    renderables: PropTypes.arrayOf(PropTypes.object).isRequired,
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired
 };
 
 export default Amp;

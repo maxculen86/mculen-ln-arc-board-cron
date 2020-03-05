@@ -6,9 +6,9 @@ export default function ItemClub() {
     return (
         <a
             href="https://micuenta.lanacion.com.ar/mis-datos/"
-            className="col-4 item-foo"
+            className="col-3 item-foo"
         >
-            <i className="icon-comment" />
+            <i className="icon-user" />
             <p>Mi Cuenta</p>
         </a>
     );

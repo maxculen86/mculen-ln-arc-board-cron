@@ -10,7 +10,8 @@ describe('components - private - LN - common - banner - bannerComponent', () => 
             seccion: 'acumulado'
         },
         dimensions: [[1, 1]],
-        missDfpId: false
+        missDfpId: false,
+        outputType: 'default'
     };
     const componentHtml = shallow(<BannerComponent {...bannerProps} />);
     it('Testeo que se dibuje banner como fondo', () => {

@@ -1,5 +1,6 @@
 @import '../abstracts/variables';
 .com-tag {
+    margin-bottom: $px-32;
     a {
         font-family: $font-arial;
         font-size: $font-12;
@@ -10,10 +11,10 @@
         margin-bottom: $px-10;
         text-transform: uppercase;
         display: inline-block;
-        border-color: $ln;
-        color: $ln;
+        border-color: $link;
+        color: $link;
         &:hover {
-            background: $ln;
+            background: $link;
             color: $blanco;
         }
         &:last-of-type {
@@ -43,7 +44,7 @@
             content: '·';
             display: inline-block;
             position: absolute;
-            color: $ln;
+            color: $link;
             right: -$px-14;
             font-size: $font-25;
             line-height: $px-15;
@@ -64,7 +65,7 @@
                 content: '·';
                 display: inline-block;
                 position: absolute;
-                color: $ln;
+                color: $link;
                 right: -$px-14;
                 font-size: $font-25;
                 line-height: $px-15;
@@ -91,7 +92,9 @@
         white-space: nowrap;
     }
     .arrow {
-        display: none;
+        &.hlp-none {
+            display: none;
+        }
         @media (min-width: 768px) {
             display: block;
             background: none;
@@ -102,14 +105,14 @@
             }
             i {
                 font-size: $px-20;
-                color: $ln;
+                color: $link;
             }
             &:after {
                 content: '';
                 transform: rotate(-45deg);
                 width: $px-6;
                 height: $px-6;
-                background: $ln;
+                background: $link;
                 display: none;
                 position: absolute;
                 top: $px-4;
@@ -120,7 +123,7 @@
                 font-size: $px-9;
                 font-weight: 700;
                 width: $px-100;
-                background: $ln;
+                background: $link;
                 color: $blanco;
                 padding: $px-4 0;
                 position: absolute;

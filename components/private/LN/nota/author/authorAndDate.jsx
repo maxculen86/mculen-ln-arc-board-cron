@@ -7,8 +7,9 @@ import Date from '../../common/dateHeader';
 const authorAndDate = props => {
     const {
         globalContent: { display_date, credits },
+        author,
         date,
-        author
+        authorDate
     } = props;
 
     const [visible, setVisible] = useState(false);
@@ -18,40 +19,42 @@ const authorAndDate = props => {
         if (by.length > 0) setVisible(true);
     }
 
-    if (!visible) return <></>;
-    if (date)
-        return (
-            <div className="col-12">
-                <div className="row mod-authordate">
-                    <div className="col-12">
-                        <Date display_date={display_date} />
-                    </div>
-                </div>
-            </div>
-        );
-    if (author)
-        return (
-            <div className="col-12">
-                <div className="col-12">
-                    <div className="com-author">
-                        <Author {...props} />
-                    </div>
-                </div>
-            </div>
-        );
+    if (!visible && !display_date) return <></>;
     return (
-        <div className="col-12">
-            <div className="row mod-authordate">
+        <>
+            {date && (
                 <div className="col-12">
-                    <Date display_date={display_date} />
+                    <div className="row mod-authordate">
+                        <div className="col-12">
+                            <Date display_date={display_date} />
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="col-12">
-                <div className="com-author">
-                    <Author {...props} />
+            )}
+            {author && (
+                <div className="col-12">
+                    <div className="col-12">
+                        <div className="com-author">
+                            <Author {...props} />
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            )}
+            {authorDate && (
+                <div className="col-12">
+                    <div className="row mod-authordate">
+                        <div className="col-12">
+                            <Date display_date={display_date} />
+                        </div>
+                    </div>
+                    <div className="col-12">
+                        <div className="com-author">
+                            <Author {...props} />
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 
