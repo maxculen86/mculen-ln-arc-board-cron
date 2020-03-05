@@ -1,5 +1,13 @@
 import PropTypes from 'fusion:prop-types';
 
+export const getLead = (customData, defaultData) =>
+    (customData && customData.lead) ||
+    (defaultData &&
+        defaultData.label &&
+        defaultData.label.volanta &&
+        defaultData.label.volanta.display &&
+        defaultData.label.volanta.text);
+
 export const getTitle = (customData, defaultData) =>
     (customData && customData.title) ||
     (defaultData && defaultData.headlines && defaultData.headlines.basic);
