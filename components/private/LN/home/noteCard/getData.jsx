@@ -23,11 +23,11 @@ getTitle.propTypes = {
     })
 };
 
-export const getDescription = (customData, defaultData) =>
+export const getSubhead = (customData, defaultData) =>
     (customData && customData.description) ||
     (defaultData && defaultData.subheadlines && defaultData.subheadlines.basic);
 
-getDescription.propTypes = {
+getSubhead.propTypes = {
     defaultData: PropTypes.shape({
         subheadlines: PropTypes.shape({
             basic: PropTypes.string
