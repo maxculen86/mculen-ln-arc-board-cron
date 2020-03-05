@@ -15,7 +15,7 @@ const pullQuote = props => {
     } = props;
     return (
         subtype === 'pullquote' && (
-            <section className="com-cita autor w-100">
+            <section className="com-cita autor">
                 <section className="cont-cita">
                     <h2 className="title-cita">
                         <Paragraph data={{ content: `"${content}"` }} />

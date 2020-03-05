@@ -5,7 +5,7 @@
 .com-share {
     position: fixed;
     z-index: 10;
-    top: 0;
+    top: -50px;
     left: 0;
     right: 0;
     width: 100%;
@@ -13,15 +13,21 @@
     border: 1px solid $gris1;
     overflow: hidden;
     transition: all 0.25s;
-    //scrollUp
+    @media (min-width: 768px) {
+        display: block;
+    }
+
+    //scrollDown Se esconde fuera de la pantalla
     &.--scrollDown {
         transform: translateY(-100%);
     }
-    //scrollDown
+    //scrollUp Se muestra en la posición 0 (Sacar la clase cuando vuelva al punto 0)
     &.--scrollUp {
         transform: translateY(0);
-        top: $px-70;
+        display: block;
+        top: 0;
     }
+    // Se muestra en la page Humor
     .humor & {
         border: 0;
         display: inline-block;
@@ -46,45 +52,46 @@
             display: none;
         }
     }
-}
-
-.com-share > div {
-    display: inline-block;
-}
-
-.com-share > .share-right {
-    float: right;
+    div {
+        display: inline-block;
+    }
+    .share-right {
+        float: right;
+        button {
+            margin-right: 0;
+        }
+    }
     button {
-        margin-right: 0;
+        display: inline-block;
+        background: initial;
+        border: 0;
+        font-size: $font-28;
+        padding: $px-10;
+        &.icon-comment {
+            display: none;
+            & + label {
+                display: none;
+            }
+        }
+        .humor & {
+            margin-right: $px-15;
+        }
+    }
+    label {
+        display: inline-block;
+        font-family: $font-arial;
+        font-size: $font-11;
+        line-height: $line-14;
+        vertical-align: super;
+        color: $link;
+        margin-right: $px-10;
     }
 }
-
-.com-share button {
-    display: inline-block;
-    width: $px-30;
-    height: $px-30;
-    background: initial;
-    border: 0;
-    font-size: $font-24;
-    padding: 0;
-    margin-right: $px-17;
-    .humor & {
-        margin-right: $px-15;
+@media (min-width: 1020px) and (max-width: 1025px) and (orientation: landscape) {
+    /* For landscape layouts only */
+    .col-1 .com-share {
+        display: none;
     }
-}
-
-.com-share label {
-    display: inline-block;
-    font-family: $font-arial;
-    font-size: $font-11;
-    line-height: $line-14;
-    vertical-align: super;
-    color: $link;
-    margin-right: $px-10;
-}
-
-//Valores de tablet para arriba
-@media (min-width: 768px) {
 }
 
 //Valores de desk chico para arriba
@@ -94,41 +101,45 @@
         top: 40%;
         top: $px-10;
         left: 0;
-        width: $px-30;
         background: initial;
         border: 0;
         float: left;
-    }
-    .com-share > .share-right {
-        float: initial;
-        margin-right: initial;
-        border-top: 1px solid $negro;
-    }
-    .com-share button {
-        display: block;
-        width: $px-30;
-        height: $px-30;
-        background: initial;
-        border: 0;
-        font-size: $font-30;
-        margin: $px-10 0;
-        opacity: 0.8;
-        transition: all 0.2s ease-in-out;
-        cursor: pointer;
-        &:hover {
-            color: $link;
+
+        &.--scrollUp {
+            top: $px-80;
+        }
+        .share-right {
+            float: initial;
+            margin-right: initial;
+            border-top: 1px solid $negro;
+            button {
+                &:first-child {
+                    margin: $px-10 0 0 0;
+                }
+            }
+        }
+        label {
+            margin-left: initial;
+        }
+        button {
+            display: block;
+            background: initial;
+            border: 0;
+            font-size: $font-30;
+            padding: $px-10;
+            margin-bottom: $px-5;
+            opacity: 0.8;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            &:hover {
+                color: $link;
+            }
+            &.icon-comment {
+                display: none;
+                label {
+                    display: none;
+                }
+            }
         }
     }
-    .com-share label {
-        margin-left: initial;
-    }
-    .com-share button.icon-comment,
-    .com-share button.icon-comment + label {
-        display: none;
-    }
-    .com-share > .share-right button:first-child {
-        margin: $px-10 0 0 0;
-    }
 }
-
-/* end share Sociales */

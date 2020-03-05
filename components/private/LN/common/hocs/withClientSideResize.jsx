@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 
-function WithClientSideResize(WrappedImage, imagePreset) {
+function WithClientSideResize(WrappedImage, imagePreset, imagepresetType) {
     class ClientSideResizer extends PureComponent {
         constructor(props) {
             super(props);
@@ -23,7 +23,11 @@ function WithClientSideResize(WrappedImage, imagePreset) {
                 this.fetchContent({
                     resizedUrls: {
                         source: 'imageResizeSource',
-                        query: { url, preset: imagePreset }
+                        query: {
+                            url,
+                            preset: imagePreset,
+                            presetType: imagepresetType
+                        }
                     }
                 });
             }

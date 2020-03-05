@@ -90,15 +90,13 @@ class ArcWrapper extends Component {
     }
 
     render() {
-        const { id, children, className } = this.props;
+        const { id, children, className, bgBanner } = this.props;
 
         return (
-            <div
-                id={id}
-                className={`banner ${className} hlp-none`}
-                ref={this.banner}
-            >
-                {children}
+            <div className={`banner ${bgBanner} ${className}`}>
+                <div id={id} className="hlp-none" ref={this.banner}>
+                    {children}
+                </div>
             </div>
         );
     }
@@ -107,7 +105,8 @@ class ArcWrapper extends Component {
 ArcWrapper.propTypes = {
     id: PropTypes.string.isRequired,
     dfpId: PropTypes.string.isRequired,
-    className: PropTypes.string,
+    className: PropTypes.string.isRequired,
+    bgBanner: PropTypes.string.isRequired,
     children: PropTypes.oneOf([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node

@@ -1,12 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AmpImage Matches snapshot 1`] = `
-<amp-img
-  alt="Test image"
-  height="853.33"
-  layout="responsive"
-  src="http://lorempixel.com/400/200"
-  srcset="http://lorempixel.com/400/200 600w"
-  width="1280"
-/>
+<a
+  class="figure contain-horizontal"
+>
+  <div
+    class="content-pic picture"
+  >
+    <amp-img
+      alt="Test image"
+      class="contain"
+      layout="fill"
+      src="http://lorempixel.com/400/200"
+      srcset="http://lorempixel.com/400/200 undefinedw"
+    />
+  </div>
+</a>
 `;

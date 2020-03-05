@@ -14,4 +14,4 @@ articleClientSide.propTypes = {
     }).isRequired
 };
 
-export default WithClientSideResize(articleClientSide, 'notaM');
+export default WithClientSideResize(articleClientSide, 'notaM', 'promo_items');

@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 
 const video = ({ data }) => {
-    console.log('data image *********************', data);
     return (
         <>
             <Media mediaData={data} colNumber={12}>

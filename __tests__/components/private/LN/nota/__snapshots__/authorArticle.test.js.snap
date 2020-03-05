@@ -3,7 +3,7 @@
 exports[`features - LaNacion - Nota - AuthorNota Test de snapshot TituloNota 1`] = `
 Array [
   <span>
-    Por 
+    Por
   </span>,
   <span
     class=""
@@ -13,7 +13,7 @@ Array [
     >
       Agustina Lomuto
     </a>
-     y 
+     y
   </span>,
   <span
     class=""

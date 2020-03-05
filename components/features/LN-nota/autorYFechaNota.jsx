@@ -8,7 +8,7 @@ const authorAndDate = props => {
     const { id: featureId } = props;
     return (
         <Static id={featureId}>
-            <AuthorAndDate {...props} />
+            <AuthorAndDate {...props} authorDate />
         </Static>
     );
 };

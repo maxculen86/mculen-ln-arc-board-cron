@@ -98,7 +98,7 @@ const resolve = key => {
     return final;
 };
 
-const getPresets = siteProps => {
+/* const getPresets = siteProps => {
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
 
@@ -109,15 +109,23 @@ const getPresets = siteProps => {
     );
     return presets;
 };
-
+ */
 const transform = (data, siteProps) => {
     const respData = data;
-    const presets = getPresets(siteProps);
+    const properties = getProperties(siteProps['arc-site']);
+
+    const presetsDefault = get(properties, `imageConfig.resize.default`, null);
+    const presetsM = get(properties, `imageConfig.resize.m`, null);
+
     respData.content_elements = data.content_elements.map(v => {
         return addResizedUrls(v, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,
-            presets
+            presets: {
+                promoItems: presetsM.promo_items || presetsDefault,
+                contentElements: presetsM.content_elements || presetsDefault,
+                presetsDefault
+            }
         });
     });
     return respData;

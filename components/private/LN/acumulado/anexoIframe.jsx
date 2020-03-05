@@ -21,7 +21,7 @@ const AnexoIframe = ({ url, id, styles }) => {
     return url ? (
         <>
             {styles !== '' && <style>{styles}</style>}
-            <div id={`anexo-${id}`} className="com-anexo pym w-100" />
+            <div id={`anexo-${id}`} className="com-anexo pym" />
         </>
     ) : (
         <></>

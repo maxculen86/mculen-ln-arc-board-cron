@@ -2,7 +2,16 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Placeholder from '../../imagePlaceholder';
 
-const imageBase = ({ urlDefault, sources, altText, zoom, href }) => {
+const imageBase = ({
+    urlDefault,
+    sources,
+    altText,
+    zoom,
+    href,
+    height,
+    width
+}) => {
+    const isVertical = height > width;
     /**
      * TODO: Ver los sources para apertura con destacado, no se le esta pasando la prop al componente media.
      * Entonces no se le pueden setear srcset al tag amp-img
@@ -11,7 +20,7 @@ const imageBase = ({ urlDefault, sources, altText, zoom, href }) => {
      */
 
     const pic = (
-        <Placeholder href={href} zoom={zoom}>
+        <Placeholder href={href} zoom={zoom} isVertical={isVertical}>
             {sources &&
                 sources.map(x => {
                     return (

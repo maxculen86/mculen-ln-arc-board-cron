@@ -18,19 +18,25 @@ const Index = props => {
     } = props;
     return (
         <div className="row subheader-acu">
-            {/* LUGAR PARA EL ANEXO */}
-            {children}
-            <section className="lay">
-                <Social
-                    twitter={twitter}
-                    facebook={facebook}
-                    instagram={instagram}
-                />
-                <div className="logo">
-                    <i className="logo-revista" />
-                </div>
-                <LinkList hierarchy={HIERARCHY} website={_website} id={_id} />
-            </section>
+            <div className="col-12">
+                {/* LUGAR PARA EL ANEXO */}
+                {children}
+                <section className="lay">
+                    <Social
+                        twitter={twitter}
+                        facebook={facebook}
+                        instagram={instagram}
+                    />
+                    <div className="logo">
+                        <i className="logo-revista" />
+                    </div>
+                    <LinkList
+                        hierarchy={HIERARCHY}
+                        website={_website}
+                        id={_id}
+                    />
+                </section>
+            </div>
         </div>
     );
 };

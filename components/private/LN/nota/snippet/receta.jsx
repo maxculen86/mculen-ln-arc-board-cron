@@ -1,9 +1,11 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from '../../../common/utils/image/resizer';
 import SnippetRender from '../../../common/snippet/snippetRender';
+import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 const snippet = props => {
     const {
@@ -14,8 +16,11 @@ const snippet = props => {
             credits: { by },
             display_date,
             content_elements
-        }
+        },
+        contextPath,
+        deployment
     } = props;
+    const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
 
     const autores = by
         ? by
@@ -86,15 +91,15 @@ const snippet = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
-        author: `${autores}`,
-        cookTime: `PT${counterTime}M`,
-        datePublished: `${date}`,
-        description: `${description}`,
-        image: `${resizedUrl}`,
-        recipeIngredient: `${ingredientes}`,
-        name: `${headlines.basic}`,
-        recipeInstructions: `${preparaciones}`,
-        recipeYield: `${counterPortion} porciones`
+        author: `${autores || ''}`,
+        cookTime: counterTime ? `PT${counterTime}M` : '',
+        datePublished: `${date || ''}`,
+        description: `${description || ''}`,
+        image: `${resizedUrl || PLACERHOLDER}`, // TODO: traer imagen del PlaceHolder en caso de no traer data
+        recipeIngredient: `${ingredientes || ''}`,
+        name: `${headlines.basic || 'LA NACION - Recetas'}`,
+        recipeInstructions: `${preparaciones || ''}`,
+        recipeYield: counterPortion ? `${counterPortion} porciones` : ''
     };
 
     return <SnippetRender data={data} />;
@@ -127,7 +132,9 @@ snippet.propTypes = {
                 )
             })
         })
-    }).isRequired
+    }).isRequired,
+    deployment: PropTypes.func.isRequired,
+    contextPath: PropTypes.string.isRequired
 };
 
-export default snippet;
+export default Context(snippet);

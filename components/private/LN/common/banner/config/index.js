@@ -1,8 +1,10 @@
 import notaConfig from './nota';
 import homeConfig from './home';
 import acuConfig from './acumulado';
+import ampConfig from './amp';
 
 export const getSlotsOptions = () => {
+    //debugger;
     let opt = [];
     Object.keys(slotsConfig).forEach(v => {
         opt = opt.concat(Object.keys(slotsConfig[v]));
@@ -17,7 +19,8 @@ export const getSlotsOptions = () => {
 export const slotsConfig = {
     nota: notaConfig,
     home: homeConfig,
-    acumulado: acuConfig
+    acumulado: acuConfig,
+    amp: ampConfig
 };
 
 export const baseConfig = {
