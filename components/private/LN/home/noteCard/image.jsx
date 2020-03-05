@@ -18,7 +18,9 @@ const Image = ({ imageId }) => {
     }, [content]);
 
     return (
-        <img src={imageUrl} className="img-desktop" alt="imagen-destacada" />
+        <picture>
+            <img alt="imagen-destacada" srcSet={imageUrl || ''} />
+        </picture>
     );
 };
 
