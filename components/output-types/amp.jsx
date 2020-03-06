@@ -31,8 +31,9 @@ const Amp = props => {
         renderables,
         deployment,
         contextPath,
-        globalContent: { canonical_url, subtype }
+        globalContent
     } = props;
+    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
 
     const contentFeatures = renderables
         .filter(item => item.collection === 'features')
@@ -44,7 +45,6 @@ const Amp = props => {
                 <meta charset="utf-8" />
                 <script async src="https://cdn.ampproject.org/v0.js" />
                 <title>{metaValue('title') || title || 'LA NACION'}</title>
-                <link rel="canonical" href="https://lanacion.com.ar/" />
                 <meta
                     name="viewport"
                     content="width=device-width,minimum-scale=1,initial-scale=1"
@@ -75,9 +75,7 @@ const Amp = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
-                {canonical_url && canonical_url !== undefined && (
-                    <Robot subtype={subtype} canonicalUrl={canonical_url} />
-                )}
+                <Robot subtype={subtype} canonicalUrl={canonicalUrl} />
             </head>
             <body>
                 <amp-analytics
