@@ -13,7 +13,7 @@ const Apertura = props => {
     } = props;
 
     if (idCollection && idCollection !== '') {
-        const Notes = <CollectionsNotes idCollection={idCollection} />;
+        const Notes = CollectionsNotes(idCollection);
         return (
             <div className="row hlp-margintop-50">
                 <div className="lay">
