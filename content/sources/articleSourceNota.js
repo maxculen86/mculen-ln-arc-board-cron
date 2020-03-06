@@ -12,6 +12,7 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
+import Redirect from './utils/redirect';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -39,6 +40,10 @@ const fetch = query => {
     }
 
     return request(opt).then(response => {
+        if (response.type === 'redirect' && response.redirect_url) {
+            throw new Redirect(response.redirect_url, 301);
+        }
+
         return transform(response, query);
     });
 };
