@@ -11,8 +11,11 @@ const bannerTercera = ({
     siteProperties,
     isAdmin,
     customFields: { group, desktop, mobile, tablet, sticky, background },
-    globalContent: { content_elements: contentElements }
+    globalContent: { content_elements: contentElements },
+    termicas
 }) => {
+    const { banners } = termicas || {};
+
     const paragraphsCount = contentElements.filter(el => el.type === 'text')
         .length;
 
@@ -32,6 +35,7 @@ const bannerTercera = ({
                     sticky={sticky}
                     background={background}
                     bannerTercera={paragraphsCount > 4}
+                    banners={banners}
                 />
             ) : (
                 <></>

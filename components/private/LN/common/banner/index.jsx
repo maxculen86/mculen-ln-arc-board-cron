@@ -20,7 +20,7 @@ const banner = props => {
         background,
         screenUtils,
         extraClasses,
-        termicas,
+        banners,
         bannerTercera
     } = props;
 
@@ -58,7 +58,7 @@ const banner = props => {
 
     return (
         <>
-            {termicas.banners ? (
+            {banners ? (
                 <BannerComponent
                     device={screenUtils.device}
                     slotId={finalSlot}
