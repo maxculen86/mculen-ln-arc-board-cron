@@ -12,62 +12,62 @@ const snippet = props => {
         globalContent: {
             headlines,
             subheadlines,
-            promo_items,
-            credits: { by },
-            display_date,
-            content_elements
+            promo_items: promoItems,
+            credits,
+            display_date: displayDate,
+            content_elements: contentElements
         },
         contextPath,
         deployment
     } = props;
     const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
-
+    const { by } = credits || {};
+    const { basic: headLinesBasic } = headlines || {};
+    const { basic: subheadLinesBasic } = subheadlines || {};
     const autores = by
         ? by
               .filter(v => v.type === 'author')
               .map(v => v.name)
               .join(', ')
         : [];
-    const date = display_date;
-    const description = subheadlines.basic;
-    let image;
+    const date = displayDate;
+    const description = subheadLinesBasic;
     let counterTime;
     let counterPortion;
     let ingredientes;
     let preparaciones;
     let resizedUrl;
 
-    if (promo_items) {
-        if (!!promo_items.basic && promo_items.basic.type === 'image') {
-            image = promo_items.basic.url;
+    if (promoItems) {
+        const { basic } = promoItems;
+        const { type, url, width, height } = basic || {};
+        if (type && type === 'image') {
             const resizer = createResizer(RESIZER_KEY, RESIZER_URL);
-            resizedUrl = resizer.resizeUrl(
-                image,
-                promo_items.basic.width,
-                promo_items.basic.height,
-                { height: 540, width: 960 }
-            );
+            resizedUrl = resizer.resizeUrl(url, width, height, {
+                height: 540,
+                width: 960
+            });
         }
 
-        if (promo_items.receta) {
+        if (promoItems.receta) {
             counterTime =
-                promo_items.receta.subtype === 'custom-detalle-receta'
-                    ? promo_items.receta.embed.config.title === 'detalle-receta'
-                        ? promo_items.receta.embed.config.counterTime
+                promoItems.receta.subtype === 'custom-detalle-receta'
+                    ? promoItems.receta.embed.config.title === 'detalle-receta'
+                        ? promoItems.receta.embed.config.counterTime
                         : null
                     : null;
 
             counterPortion =
-                promo_items.receta.subtype === 'custom-detalle-receta'
-                    ? promo_items.receta.embed.config.title === 'detalle-receta'
-                        ? promo_items.receta.embed.config.counterPortion
+                promoItems.receta.subtype === 'custom-detalle-receta'
+                    ? promoItems.receta.embed.config.title === 'detalle-receta'
+                        ? promoItems.receta.embed.config.counterPortion
                         : null
                     : null;
         }
     }
 
-    if (content_elements) {
-        const preparacions = content_elements.filter(
+    if (contentElements) {
+        const preparacions = contentElements.filter(
             preparacion => preparacion.subtype === 'custom-preparacion'
         );
         preparaciones = preparacions.map(pre => {
@@ -77,7 +77,7 @@ const snippet = props => {
             return undefined;
         });
 
-        const ingredients = content_elements.filter(
+        const ingredients = contentElements.filter(
             ingrediente => ingrediente.subtype === 'custom-ingrediente'
         );
         ingredientes = ingredients.map(pre => {
@@ -97,7 +97,7 @@ const snippet = props => {
         description: `${description || ''}`,
         image: `${resizedUrl || PLACERHOLDER}`, // TODO: traer imagen del PlaceHolder en caso de no traer data
         recipeIngredient: `${ingredientes || ''}`,
-        name: `${headlines.basic || 'LA NACION - Recetas'}`,
+        name: `${headLinesBasic || 'LA NACION - Recetas'}`,
         recipeInstructions: `${preparaciones || ''}`,
         recipeYield: counterPortion ? `${counterPortion} porciones` : ''
     };
