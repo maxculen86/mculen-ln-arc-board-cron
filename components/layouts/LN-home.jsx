@@ -12,7 +12,7 @@ import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/hour.css';
 
-const section = ['Sección Bomba', 'Cuerpo'];
+const section = ['Sección Apertura', 'Sección Caja de Tema'];
 const LNHomeLayout = ({ children }) => {
     return (
         <>
