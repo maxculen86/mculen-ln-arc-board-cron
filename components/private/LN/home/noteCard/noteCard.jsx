@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Image from './image';
+import Article from './article';
 
 import {
     getLead,
@@ -10,7 +11,10 @@ import {
     getImageId
 } from './getData';
 
-const NoteCard = ({ content, customFields }) => {
+const getOpeningNote = (collection, type, imageId, title, lead) =>
+    collection === 'chains' && type === 'apertura' && title && imageId;
+
+const NoteCard = ({ content, customFields, collection, type }) => {
     const [lead, setLead] = useState(getLead(customFields, content));
     const [title, setTitle] = useState(getTitle(customFields, content));
     const [imageId, setImageId] = useState(getImageId(customFields, content));
@@ -25,44 +29,27 @@ const NoteCard = ({ content, customFields }) => {
         setImageId(getImageId(customFields, content));
     }, [content, customFields]);
 
-    if (!content) throw Error('No se encontró contenido');
-    if (!(title && (imageId || subhead)))
+    // if (!content) throw Error('No se encontró contenido');
+    if (!(title && (imageId || subhead))) {
         throw Error(
-            'La nota debe contar con una imagen o description y con un título'
+            'La nota debe contar con una imagen o bajada y con un título'
         );
+    }
+
+    if (collection && type && title && imageId) {
+        console.log(getOpeningNote(collection, type, imageId, title, lead));
+    }
+
     // TODO: separar en otro componente que solo renderee el artículo
     // TODO: agregar las urls correspondientes para los <a></a>
     return (
-        <article className="mod-article w-100-mobile firma-autor">
-            <div className="com-media">
-                <a href="" title={title}>
-                    <Image imageId={imageId} />
-                </a>
-            </div>
-            <div className="com-description">
-                <h1 className="com-title">
-                    <a href="" title={title}>
-                        {lead && <em className="com-volanta">{lead}</em>}
-                        {title}
-                    </a>
-                </h1>
-
-                {subhead && (
-                    <p className="com-subhead">
-                        <a href="" title={title}>
-                            {subhead}
-                        </a>
-                    </p>
-                )}
-                {authors && (
-                    <strong className="com-author">
-                        <a href="/" title={authors}>
-                            {authors}
-                        </a>
-                    </strong>
-                )}
-            </div>
-        </article>
+        <Article
+            title={title}
+            imageId={imageId}
+            lead={lead}
+            subhead={subhead}
+            authors={authors}
+        />
     );
 };
 
@@ -89,7 +76,20 @@ NoteCard.propTypes = {
         title: PropTypes.string,
         description: PropTypes.string,
         authors: PropTypes.string
-    }).isRequired
+    }),
+    collection: PropTypes.string,
+    type: PropTypes.string,
+    childProps: PropTypes.arrayOf(PropTypes.node)
 };
 
-export default NoteCard;
+NoteCard.defaultProps = {
+    customFields: {
+        imageId: undefined,
+        lead: undefined,
+        title: undefined,
+        description: undefined,
+        authors: undefined
+    }
+};
+
+export default Consumer(NoteCard);
