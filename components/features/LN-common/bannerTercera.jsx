@@ -16,8 +16,9 @@ const bannerTercera = ({
 }) => {
     const { banners } = termicas || {};
 
-    const paragraphsCount = contentElements.filter(el => el.type === 'text')
-        .length;
+    const paragraphsCount = contentElements.filter(
+        el => el.content !== '<br/>' && el.type === 'text'
+    ).length;
 
     return (
         <>
