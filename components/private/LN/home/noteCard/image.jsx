@@ -19,7 +19,7 @@ const Image = ({ imageId }) => {
 
     return (
         <picture>
-            <img alt="imagen-destacada" srcSet={imageUrl || ''} />
+            {imageUrl && <img alt="imagen-destacada" srcSet={imageUrl} />}
         </picture>
     );
 };

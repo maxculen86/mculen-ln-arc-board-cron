@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import FocalIzquierdo from './focalIzquierdo';
 import FocalDerecho from './focalDerecho';
+import './focalFactory.css';
 
 const FocalFactory = ({ directionFocal, children }) => {
     if (directionFocal === 'FocalDerecho')
