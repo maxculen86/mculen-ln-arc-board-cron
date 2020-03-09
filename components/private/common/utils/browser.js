@@ -15,4 +15,16 @@ const getParameterByName = (parameter, urlP) => {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 };
 
-export default { getParameterByName };
+// Utilizado en las apis para extraer parametros de la url
+const getParamFrom = (urlSectionName, paramName, requestUri) => {
+    const regex = new RegExp(
+        `/${urlSectionName}(.*;|=)${paramName}:([0-9a-zA-Z]+)[;|/]`
+    );
+    const result = regex.exec(requestUri);
+    if (!result) return null;
+    if (!result[2]) return null;
+
+    return result[2];
+};
+
+export default { getParameterByName, getParamFrom };

@@ -30,7 +30,9 @@ describe('components - private - LN - common - banner - index', () => {
         extraClasses: '',
         screenUtils: {
             device: 'desktop'
-        }
+        },
+        bannerTercera: false,
+        banners: true
     };
     //Component con admin en true
     const componentAdmin = mount(<Banner {...props} isAdmin={true} />);

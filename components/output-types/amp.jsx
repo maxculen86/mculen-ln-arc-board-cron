@@ -5,6 +5,7 @@ import AMPScripts, {
     _AMPBoilerplate,
     AMPCustomStyle
 } from '../private/common/ampIndex';
+import Robot from '../private/common/robot';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -29,8 +30,10 @@ const Amp = props => {
         },
         renderables,
         deployment,
-        contextPath
+        contextPath,
+        globalContent
     } = props;
+    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
 
     const contentFeatures = renderables
         .filter(item => item.collection === 'features')
@@ -42,7 +45,6 @@ const Amp = props => {
                 <meta charset="utf-8" />
                 <script async src="https://cdn.ampproject.org/v0.js" />
                 <title>{metaValue('title') || title || 'LA NACION'}</title>
-                <link rel="canonical" href="https://lanacion.com.ar/" />
                 <meta
                     name="viewport"
                     content="width=device-width,minimum-scale=1,initial-scale=1"
@@ -72,6 +74,11 @@ const Amp = props => {
                     rel="icon"
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
+                />
+                <Robot
+                    subtype={subtype}
+                    canonicalUrl={canonicalUrl}
+                    arcSite={arcSite}
                 />
             </head>
             <body>
