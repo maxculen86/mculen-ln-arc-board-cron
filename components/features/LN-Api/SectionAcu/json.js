@@ -3,6 +3,8 @@ import PropTypes from 'fusion:prop-types';
 import IndexAcu from '../../../private/LN/api/acumulado';
 import browser from '../../../private/common/utils/browser';
 
+// URL de ejemplo: http://localhost/api/v1/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
+// Resolver: ^\/api\/v1\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
 class AcuSection {
     constructor(props) {
         this.props = props;
