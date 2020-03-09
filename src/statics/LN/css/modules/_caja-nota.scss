@@ -80,13 +80,10 @@
 }
 
 .more-articles {
-    .sidebar__main & {
-        margin-top: $px-40;
-    }
+    margin-bottom: $px-32;
     .com-title-section-l {
-        margin-bottom: $px-30;
-        font-size: $font-30;
-        line-height: $line-30;
+        margin-bottom: $px-24;
+        line-height: $line-24;
     }
     > section {
         margin-bottom: $px-40;
@@ -94,11 +91,10 @@
 }
 
 .interest {
-    padding-top: $px-54;
+    padding-top: $px-40;
     border-top: 1px solid $gris3;
     .com-title-section-l {
-        margin-bottom: $px-30;
-        font-size: $font-30;
+        margin-bottom: $px-24;
         line-height: $line-40;
     }
     > section {
@@ -123,12 +119,5 @@
                 margin: 0;
             }
         }
-    }
-}
-
-@media (min-width: 1280px) {
-    .interest {
-        padding-top: $px-54;
-        border-top: 1px solid $gris3;
     }
 }

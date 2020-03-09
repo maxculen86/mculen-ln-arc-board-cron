@@ -1,68 +1,73 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from '../../../common/utils/image/resizer';
 import SnippetRender from '../../../common/snippet/snippetRender';
+import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 const snippet = props => {
     const {
         globalContent: {
             headlines,
             subheadlines,
-            promo_items,
-            credits: { by },
-            display_date,
-            content_elements
-        }
+            promo_items: promoItems,
+            credits,
+            display_date: displayDate,
+            content_elements: contentElements
+        },
+        contextPath,
+        deployment
     } = props;
-
+    const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
+    const { by } = credits || {};
+    const { basic: headLinesBasic } = headlines || {};
+    const { basic: subheadLinesBasic } = subheadlines || {};
     const autores = by
         ? by
               .filter(v => v.type === 'author')
               .map(v => v.name)
               .join(', ')
         : [];
-    const date = display_date;
-    const description = subheadlines.basic;
-    let image;
+    const date = displayDate;
+    const description = subheadLinesBasic;
     let counterTime;
     let counterPortion;
     let ingredientes;
     let preparaciones;
     let resizedUrl;
 
-    if (promo_items) {
-        if (!!promo_items.basic && promo_items.basic.type === 'image') {
-            image = promo_items.basic.url;
+    if (promoItems) {
+        const { basic } = promoItems;
+        const { type, url, width, height } = basic || {};
+        if (type && type === 'image') {
             const resizer = createResizer(RESIZER_KEY, RESIZER_URL);
-            resizedUrl = resizer.resizeUrl(
-                image,
-                promo_items.basic.width,
-                promo_items.basic.height,
-                { height: 540, width: 960 }
-            );
+            resizedUrl = resizer.resizeUrl(url, width, height, {
+                height: 540,
+                width: 960
+            });
         }
 
-        if (promo_items.receta) {
+        if (promoItems.receta) {
             counterTime =
-                promo_items.receta.subtype === 'custom-detalle-receta'
-                    ? promo_items.receta.embed.config.title === 'detalle-receta'
-                        ? promo_items.receta.embed.config.counterTime
+                promoItems.receta.subtype === 'custom-detalle-receta'
+                    ? promoItems.receta.embed.config.title === 'detalle-receta'
+                        ? promoItems.receta.embed.config.counterTime
                         : null
                     : null;
 
             counterPortion =
-                promo_items.receta.subtype === 'custom-detalle-receta'
-                    ? promo_items.receta.embed.config.title === 'detalle-receta'
-                        ? promo_items.receta.embed.config.counterPortion
+                promoItems.receta.subtype === 'custom-detalle-receta'
+                    ? promoItems.receta.embed.config.title === 'detalle-receta'
+                        ? promoItems.receta.embed.config.counterPortion
                         : null
                     : null;
         }
     }
 
-    if (content_elements) {
-        const preparacions = content_elements.filter(
+    if (contentElements) {
+        const preparacions = contentElements.filter(
             preparacion => preparacion.subtype === 'custom-preparacion'
         );
         preparaciones = preparacions.map(pre => {
@@ -72,7 +77,7 @@ const snippet = props => {
             return undefined;
         });
 
-        const ingredients = content_elements.filter(
+        const ingredients = contentElements.filter(
             ingrediente => ingrediente.subtype === 'custom-ingrediente'
         );
         ingredientes = ingredients.map(pre => {
@@ -86,15 +91,15 @@ const snippet = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
-        author: `${autores}`,
-        cookTime: `PT${counterTime}M`,
-        datePublished: `${date}`,
-        description: `${description}`,
-        image: `${resizedUrl}`,
-        recipeIngredient: `${ingredientes}`,
-        name: `${headlines.basic}`,
-        recipeInstructions: `${preparaciones}`,
-        recipeYield: `${counterPortion} porciones`
+        author: `${autores || ''}`,
+        cookTime: counterTime ? `PT${counterTime}M` : '',
+        datePublished: `${date || ''}`,
+        description: `${description || ''}`,
+        image: `${resizedUrl || PLACERHOLDER}`, // TODO: traer imagen del PlaceHolder en caso de no traer data
+        recipeIngredient: `${ingredientes || ''}`,
+        name: `${headLinesBasic || 'LA NACION - Recetas'}`,
+        recipeInstructions: `${preparaciones || ''}`,
+        recipeYield: counterPortion ? `${counterPortion} porciones` : ''
     };
 
     return <SnippetRender data={data} />;
@@ -127,7 +132,9 @@ snippet.propTypes = {
                 )
             })
         })
-    }).isRequired
+    }).isRequired,
+    deployment: PropTypes.func.isRequired,
+    contextPath: PropTypes.string.isRequired
 };
 
-export default snippet;
+export default Context(snippet);

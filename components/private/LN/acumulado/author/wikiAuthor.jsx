@@ -11,7 +11,7 @@ import '../../../../../resources/dist/css/ln/components/author.css';
 
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
-import '../../../../../resources/dist/css/ln/base/helpers.css';
+//import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ globalContent }) => {
     const {
@@ -23,34 +23,36 @@ const WikiAuthor = ({ globalContent }) => {
     } = globalContent;
     return (
         <div className="wiki-autor row">
-            <section id="" className="cont-figure-wiki">
-                <div href={bioPage} className="figure">
-                    <picture className="content-pic picture">
-                        {url && (
-                            <img src={url} alt="" className="content-img" />
-                        )}
-                    </picture>
+            <div className="col-12">
+                <section id="" className="cont-figure-wiki">
+                    <div href={bioPage} className="figure">
+                        <picture className="content-pic picture">
+                            {url && (
+                                <img src={url} alt="" className="content-img" />
+                            )}
+                        </picture>
+                    </div>
+                </section>
+                <div className="wiki-calc">
+                    <h1 className="com-title-section-xl">{byline}</h1>
+                    <label>LA NACION</label>
                 </div>
-            </section>
-            <div className="wiki-calc">
-                <h1 className="com-title-section-xl">{byline}</h1>
-                <label>LA NACION</label>
+                <p className="hlp-mobile-none col-12">
+                    {longBio}
+                    {twitter && (
+                        <span>
+                            Twitter:&nbsp;
+                            <a
+                                href={`https://twitter.com/${twitter}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {twitter}
+                            </a>
+                        </span>
+                    )}
+                </p>
             </div>
-            <p className="hlp-mobile-none col-12">
-                {longBio}
-                {twitter && (
-                    <span>
-                        Twitter:&nbsp;
-                        <a
-                            href={`https://twitter.com/${twitter}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {twitter}
-                        </a>
-                    </span>
-                )}
-            </p>
         </div>
     );
 };

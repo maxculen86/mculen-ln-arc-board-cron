@@ -42,10 +42,12 @@ const ErrorPage = ({ siteProperties: { host } }) => (
         <main>
             <div className="lay">
                 <div className="row">
-                    <img
-                        src="https://www.lanacion.com.ar/error/liniers-horizontal.jpg"
-                        alt="Imagen de Liniers"
-                    />
+                    <div className="col-12">
+                        <img
+                            src="https://www.lanacion.com.ar/error/liniers-horizontal.jpg"
+                            alt="Imagen de Liniers"
+                        />
+                    </div>
                 </div>
             </div>
         </main>

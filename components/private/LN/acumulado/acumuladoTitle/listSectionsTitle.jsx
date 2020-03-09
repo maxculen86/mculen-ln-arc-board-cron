@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 const ItemSubSection = ({ id, navTitle, website }) => (
     <li key={id}>
         <h3>
-            <a href={`${id}?_website=${website}`} title={navTitle}>
+            <a href={`${id}/`} title={navTitle}>
                 {navTitle}
             </a>
         </h3>

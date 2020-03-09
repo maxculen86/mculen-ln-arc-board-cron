@@ -24,6 +24,8 @@ class ImageArticle extends React.Component {
                         url={image.url}
                         alt={altText || ''}
                         width={image.width}
+                        height={image.height}
+                        href={this.props.href}
                     />
                 ) : (
                     <ImageBase
@@ -32,6 +34,8 @@ class ImageArticle extends React.Component {
                         altText={altText}
                         zoom={zoom}
                         href={href}
+                        width={image.width}
+                        height={image.height}
                     />
                 )}
             </>
@@ -45,7 +49,8 @@ ImageArticle.propTypes = {
         type: PropTypes.oneOf(['image']),
         url: PropTypes.string,
         resized_urls: PropTypes.array.isRequired,
-        width: PropTypes.number
+        width: PropTypes.number,
+        height: PropTypes.number
     }).isRequired,
     altText: PropTypes.string,
     zoom: PropTypes.bool,

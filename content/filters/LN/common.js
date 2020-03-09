@@ -3,6 +3,8 @@ export const imageResizedUrl = `
     height
     resizedUrl
     option {
+        width
+        height
         media
         class
         type

@@ -12,6 +12,7 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
+import Redirect from './utils/redirect';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -39,6 +40,10 @@ const fetch = query => {
     }
 
     return request(opt).then(response => {
+        if (response.type === 'redirect' && response.redirect_url) {
+            throw new Redirect(response.redirect_url, 301);
+        }
+
         return transform(response, query);
     });
 };
@@ -47,28 +52,19 @@ const transform = (data, siteProps) => {
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
 
-    let presets = get(
-        properties,
-        `imageConfig.resize.nota.bySubtype[${data.subtype}]`,
-        null
-    );
+    const presetsDefault = get(properties, `imageConfig.resize.default`, null);
+    const presetsXL = get(properties, `imageConfig.resize.xl`, null);
+    const presetsL = get(properties, `imageConfig.resize.l`, null);
 
-    if (!presets) {
-        presets = get(
-            properties,
-            'imageConfig.resize.nota.bySubtype[default]',
-            null
-        );
-    }
-
-    let resp = data;
-    if (presets) {
-        resp = addResizedUrls(data, {
-            resizerSecret: RESIZER_KEY,
-            resizerUrl: RESIZER_URL,
-            presets
-        });
-    }
+    const resp = addResizedUrls(data, {
+        resizerSecret: RESIZER_KEY,
+        resizerUrl: RESIZER_URL,
+        presets: {
+            promoItems: presetsXL.promo_items || presetsDefault,
+            contentElements: presetsL.content_elements || presetsDefault,
+            presetsDefault
+        }
+    });
 
     return transformContent(resp, arcSite);
 };
@@ -86,25 +82,29 @@ const transformContent = (jsonArticle, arcSite) => {
         }
     };
 
-    resp.content_elements.forEach((e, i) => {
-        if (e.type === 'gallery') {
-            promiseArr.push(
-                addGalleryData(e, arcSite).then(g => {
-                    resp.content_elements[i] = g;
-                })
-            );
-        }
-    });
+    if (resp && resp.content_elements) {
+        resp.content_elements.forEach((e, i) => {
+            if (e.type === 'gallery') {
+                promiseArr.push(
+                    addGalleryData(e, arcSite).then(g => {
+                        resp.content_elements[i] = g;
+                    })
+                );
+            }
+        });
+    }
 
-    resp.related_content.basic.forEach((e, i) => {
-        if (e.type === 'reference') {
-            promiseArr.push(
-                addFollowAnotherNoteData(e, arcSite, i).then(g => {
-                    resp.related_content.basic[i] = g;
-                })
-            );
-        }
-    });
+    if (resp && resp.related_content && resp.related_content.basic) {
+        resp.related_content.basic.forEach((e, i) => {
+            if (e.type === 'reference') {
+                promiseArr.push(
+                    addFollowAnotherNoteData(e, arcSite, i).then(g => {
+                        resp.related_content.basic[i] = g;
+                    })
+                );
+            }
+        });
+    }
 
     if (get(resp, 'promo_items.basic.type') === 'gallery') {
         promiseArr.push(
@@ -161,7 +161,7 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
             return resp;
         })
         .catch(e => {
-            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', e);
+            console.log('TCL: addFollowAnotherNoteData -> e', e);
         });
 };
 

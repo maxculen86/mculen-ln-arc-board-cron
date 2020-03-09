@@ -6,10 +6,10 @@ import { slotsConfig, getSlotsOptions } from './config';
 import PlaceHolder from './bannerPlaceholder';
 import WithNavigation from '../hocs/WithNavigation';
 
-import '../../../../../resources/dist/css/ln/components/banners.css';
-
 const banner = props => {
+    /* console.log(' ¿¿¿¿¿¿¿¿¿ props ¿¿¿¿¿', props); */
     const {
+        taxonomy,
         outputType,
         siteProperties: {
             bannerConfig: { dfp_id }
@@ -34,11 +34,18 @@ const banner = props => {
         return null;
     };
 
+    /* console.log('####### slotsConfig: ', slotsConfig);
+    console.log('####### isAdmin: ', isAdmin);
+    console.log('####### ScreenUtils: ', screenUtils);
+    console.log('####### desktopSlot: ', desktopSlot);
+    console.log('####### slotGroup: ', slotGroup); */
+
     const finalSlot = getSlotForDevice();
     const finalConfig = slotsConfig[slotGroup][finalSlot];
+    /* console.log('##### finalSlot: ', finalSlot);
+    console.log('######### finalConfig: ', finalConfig); */
 
     if (!finalConfig) return null;
-
     if (!dfp_id) {
         if (!isAdmin) {
             return null;
@@ -59,21 +66,22 @@ const banner = props => {
 
     return (
         <>
-            {termicas.banners ? (
-                <BannerComponent
-                    device={screenUtils.device}
-                    slotId={finalSlot}
-                    dfpId={dfp_id}
-                    slotName={finalConfig.slotName}
-                    dimensions={finalConfig.dimensions}
-                    targeting={finalConfig.targeting}
-                    bidding={finalConfig.bidding}
-                    sticky={sticky}
-                    background={background}
-                    extraClasses={extraClasses}
-                    outputType={outputType}
-                />
-            ) : null}
+            {/* {termicas.banners ? ( */}
+            <BannerComponent
+                device={screenUtils.device}
+                slotId={finalSlot}
+                dfpId={dfp_id}
+                slotName={finalConfig.slotName}
+                dimensions={finalConfig.dimensions}
+                targeting={finalConfig.targeting}
+                bidding={finalConfig.bidding}
+                sticky={sticky}
+                background={background}
+                extraClasses={extraClasses}
+                outputType={outputType}
+                taxonomy={taxonomy}
+            />
+            {/* ) : null} */}
         </>
     );
 };
@@ -86,7 +94,7 @@ banner.propTypes = {
         })
     }).isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    slotGroup: PropTypes.oneOf(['nota', 'home', 'acumulado']).isRequired,
+    slotGroup: PropTypes.oneOf(['nota', 'home', 'acumulado', 'amp']).isRequired,
     selectedSlots: PropTypes.shape({
         desktopSlot: PropTypes.oneOf(getSlotsOptions()),
         mobileSlot: PropTypes.oneOf(getSlotsOptions()),

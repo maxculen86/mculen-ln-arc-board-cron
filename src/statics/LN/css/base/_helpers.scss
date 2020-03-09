@@ -37,6 +37,15 @@
         display: none;
     }
 }
+
+.hlp-mobile-show {
+    &.col-1 {
+        margin-bottom: 0;
+        @media (min-width: 768px) {
+            margin-bottom: $px-40;
+        }
+    }
+}
 //visible desde 767
 @media (max-width: 48em - 1) {
     .hlp-mobile-show {
@@ -68,6 +77,11 @@
         display: none;
     }
 }
+// @media (max-width: 68.75em - 1) {
+//     .hlp-desklm-none {
+//         display: none;
+//     }
+// }
 
 @media ($media-xl) {
     .hlp-mobile-none {
@@ -79,6 +93,9 @@
     .hlp-desk-none {
         display: none;
     }
+}
+.hlp-none.banner {
+    display: none !important; //no se encuentra donde se pisa el archivo helpers, por eso agregamos esta clase
 }
 
 //=============================

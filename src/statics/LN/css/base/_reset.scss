@@ -149,22 +149,19 @@ body {
     position: relative;
     //overflow: hidden;
     margin-bottom: 80px;
-    &.--scrollUp {
-        padding-top: 67px;
-    }
     @media (min-width: 1023px) {
         margin-bottom: 0;
+        &.--scrollUp {
+            padding-top: 64px;
+        }
     }
 }
 
 main {
     position: relative;
-    padding: 20px 0 30px;
+    padding-bottom: 30px;
     @media (min-width: 768px) {
-        padding-bottom: 50px;
-    }
-    @media (min-width: 1025px) {
-        padding-bottom: 50px;
+        padding-bottom: 40px;
     }
 }
 

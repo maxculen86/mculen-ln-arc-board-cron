@@ -32,7 +32,7 @@ class HeaderComponent extends PureComponent {
         const { arcSite, contextPath } = this.props;
 
         return (
-            <div className="header-wrapper wrapper">
+            <div className="header-wrapper">
                 <header className="header">
                     <div className="wrapper">
                         <a

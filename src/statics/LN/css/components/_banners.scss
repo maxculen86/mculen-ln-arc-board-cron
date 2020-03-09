@@ -1,65 +1,28 @@
 @import '../abstracts/variables';
-.--bg-banner {
-    background-color: #f3f3f3;
-    margin-bottom: $px-20;
-    &.w-100 {
-        .banner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        &.content-sticky {
-            .amp & {
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-            }
-        }
-    }
-}
 
-.banner {
-    &.--large {
-        width: 300px;
-        height: 600px;
-        margin-bottom: $px-40;
+.--bg-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .col-deskxl-10 & {
+        margin-bottom: $px-24;
     }
-    &.--small {
-        width: 300px;
-        height: 250px;
-        margin: 0px auto $px-20 auto;
-        margin-bottom: $px-40;
-    }
-    &.--top {
-        width: 320px;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    &.--sticky {
-        width: 300px;
-        height: $px-50;
-    }
-    &.--tablet,
-    &.--desktop {
-        display: none;
-    }
-    &.--mobile {
-        display: block;
-        margin: 0 -$px-10;
-        background: #f3f3f3;
-        text-align: center;
-        @media (min-width: 321px) {
-            margin: 0;
+    .amp & {
+        margin-bottom: $px-20;
+        transform: scaleX(1.15);
+        margin-left: inherit;
+        @media (media-m) {
+            transform: inherit;
         }
+    }
+    .banner {
+        margin: 0;
         &.--sticky {
             position: fixed;
             margin: 0;
             left: 0;
             right: 0;
             top: -100px;
-            width: 100%;
             z-index: 10000;
             transition: all 0.25s;
             background-color: #f3f3f3;
@@ -71,44 +34,28 @@
         }
     }
 }
-
-//Valores de tablet para arriba
-@media (min-width: 768px) {
-    .banner {
-        &.--desktop,
-        &.--mobile {
-            display: none;
-        }
-        &.--tablet {
-            display: block;
-            margin: auto;
-        }
-        &.--top {
-            width: 728px;
-            height: $px-90;
-        }
+.row.sticky-amp {
+    position: fixed;
+    bottom: 55px;
+    left: 0;
+    .--bg-banner {
+        margin-bottom: 0;
+    }
+    @media ($media-m) {
+        bottom: 0;
     }
 }
 
-//Valores de desk chico para arriba
-@media (min-width: 1024px) {
+@media ($media-l) {
     .banner {
-        &.--tablet,
-        &.--mobile {
-            display: none;
+        &#caja2_dsk {
+            margin-top: $px-40;
+            margin-bottom: $px-40;
         }
         &.--desktop {
-            display: block;
-            margin-bottom: $px-20;
-        }
-        &.--top {
-            max-width: 1260px;
-            width: 100%;
-            margin: auto;
-            height: auto;
-        }
-        &#caja2_dsk {
-            margin-top: $px-30;
+            background-color: #f7f7f7;
+            text-align: center;
+            margin-bottom: 0;
         }
     }
 }
