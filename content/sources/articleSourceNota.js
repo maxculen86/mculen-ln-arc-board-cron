@@ -48,6 +48,8 @@ const fetch = query => {
     });
 };
 
+// Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
+// directamente nosotros desde el fetch
 const transform = (data, siteProps) => {
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
