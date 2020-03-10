@@ -43,8 +43,9 @@ const Default = props => {
         MetaTags,
         metaValue,
         siteProperties,
-        globalContent: { canonical_url, subtype }
+        globalContent
     } = props;
+    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
 
     const Scripts = ScriptManager(scriptList, siteProperties.scripts);
 
@@ -58,7 +59,11 @@ const Default = props => {
                 <SnippetIndex {...props} />
                 <Scripts location="head" />
                 <MetaTags />
-                <Robot subtype={subtype} canonicalUrl={canonical_url} />
+                <Robot
+                    subtype={subtype}
+                    canonicalUrl={canonicalUrl}
+                    arcSite={arcSite}
+                />
                 <Libs />
                 {/* Para OTT carga los styles por front */}
                 {arcSite === 'ott' ? (

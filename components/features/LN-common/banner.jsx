@@ -10,8 +10,11 @@ import {
 const banner = ({
     siteProperties,
     isAdmin,
-    customFields: { group, desktop, mobile, tablet, sticky, background }
+    customFields: { group, desktop, mobile, tablet, sticky, background },
+    termicas
 }) => {
+    const { banners } = termicas || {};
+
     return (
         <Banner
             siteProperties={siteProperties}
@@ -25,6 +28,7 @@ const banner = ({
             }}
             sticky={sticky}
             background={background}
+            banners={banners}
         />
     );
 };

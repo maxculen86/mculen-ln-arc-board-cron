@@ -3,28 +3,40 @@ import PropTypes from 'fusion:prop-types';
 import IndexAcu from '../../../private/LN/api/acumulado';
 import browser from '../../../private/common/utils/browser';
 
+// URL de ejemplo: http://localhost/api/v1/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
+// Resolver: ^\/api\/v1\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
 class AcuSection {
     constructor(props) {
         this.props = props;
         const {
             globalContent: { _id: id },
             isAdmin,
-            customFields: { size: sizeCf, page: pageCf }
+            customFields: { size: sizeCf, page: pageCf, paramUrlId }
         } = props;
         this.state = {};
+
         let size = !isAdmin
             ? Number.parseInt(
-                  browser.getParameterByName('size', this.props.requestUri),
+                  browser.getParamFrom(
+                      paramUrlId,
+                      'size',
+                      this.props.requestUri
+                  ),
                   10
               )
             : sizeCf;
         if (size > 100) size = 100;
         const page = !isAdmin
             ? Number.parseInt(
-                  browser.getParameterByName('page', this.props.requestUri),
+                  browser.getParamFrom(
+                      paramUrlId,
+                      'page',
+                      this.props.requestUri
+                  ),
                   10
               )
             : pageCf;
+
         this.fetchContent({
             dataResp: {
                 source: 'acuArticlesSource',

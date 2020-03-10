@@ -1,12 +1,14 @@
 import get from 'lodash.get';
 
 export const getSectionStyle = sections => {
-    const logoSection = sections.find(x => {
-        return get(
-            x,
-            'additional_properties.original.style.section_style_name'
-        );
-    });
+    const logoSection =
+        sections &&
+        sections.find(x => {
+            return get(
+                x,
+                'additional_properties.original.style.section_style_name'
+            );
+        });
     let sectionClass;
     let sectionPath;
     if (logoSection) {

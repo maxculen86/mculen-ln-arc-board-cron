@@ -1,13 +1,16 @@
+import get from 'lodash.get';
 import Image from './image';
 import Video from './video';
 import AperturaReceta from './aperturaReceta';
 
 const apertura = article => {
     const {
-        headlines: { basic: titulo, mobile: tituloMobile },
-        subheadlines: { basic: bajada },
-        promo_items: { basic: promoItem, receta: recetaPromoItem }
+        headlines: { basic: titulo, mobile: tituloMobile }
     } = article;
+
+    const promoItem = get(article, 'promo_items.basic');
+    const recetaPromoItem = get(article, 'promo_items.receta');
+    const bajada = get(article, 'subheadlines.basic');
 
     const resp = {
         titulo: tituloMobile || titulo,

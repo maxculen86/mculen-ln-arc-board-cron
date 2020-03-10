@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const titleArticle = ({ label, headlines: { basic }, prefix }) => {
+const titleArticle = ({ label, headlines, prefix }) => {
+    const { basic } = headlines || {};
     return (
         <h1 className="com-title-nota">
             {prefix !== '' ? `${prefix}\u00A0` : prefix}

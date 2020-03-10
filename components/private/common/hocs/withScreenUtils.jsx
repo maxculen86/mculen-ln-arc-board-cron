@@ -5,7 +5,6 @@ export default WrappedComponent => {
     return class extends PureComponent {
         constructor(props) {
             super(props);
-
             this.device = this.getDevice();
         }
 
