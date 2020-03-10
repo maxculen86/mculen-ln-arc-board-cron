@@ -1,11 +1,11 @@
 jest.mock(
-    './../../../../../../components/chains/apertura',
+    '../../../components/chains/apertura/apertura.js',
     () => 'mock-component'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
-import Apertura from './../../../../../../components/chains/apertura';
+import Apertura from '../../../components/chains/apertura/apertura';
 
 describe('Test del Chain - <Apertura />', () => {
     const idCollection = 'KHDMT2RDBFD2BNJM3W6GSAAWXE';
