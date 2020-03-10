@@ -39,4 +39,4 @@ ArticleList.propTypes = {
     outputType: PropTypes.string
 };
 
-export default withAcuArticlesData(ArticleList, null, 'notaM');
+export default withAcuArticlesData(ArticleList, null, 'notaM', true);
