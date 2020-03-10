@@ -3,46 +3,56 @@ import PropTypes from 'fusion:prop-types';
 import FocalFactory from '../private/LN/home/templatesContainers/focalFactory';
 import CollectionsNotes from '../private/LN/home/collectionsNotes';
 
-const hasChildren = children =>
-    ['array', 'object'].indexOf(typeof children) && children.length > 0;
+// TODO: Extraer las funciones validateChildren y validateFeatures en otro archivo (definir en qué carpetas se guardarán para luego ser importadas acá)
+const validateChildren = children => {
+    if (['array', 'object'].indexOf(typeof children) && !children.length)
+        throw Error(
+            'En este caso por no tener id Definido o Features agregados'
+        );
+};
+
+const validateFeatures = childProps => {
+    childProps.forEach(childProp => {
+        if (
+            !(
+                childProp.collection === 'features' &&
+                childProp.type === 'LN-home/noteFeature'
+            )
+        )
+            throw Error(
+                'El Chain Apertura sólo admite Features del tipo LN Home NoteCard'
+            );
+    });
+};
+
+const isValidChildren = (childProps, children) => {
+    validateChildren(children);
+    validateFeatures(childProps);
+    return true;
+};
 
 const Apertura = props => {
     const {
         children,
+        childProps,
         customFields: { idCollection, directionFocal }
     } = props;
 
-    if (idCollection && idCollection !== '') {
-        const Notes = CollectionsNotes(idCollection);
-        return (
-            <div className="row hlp-margintop-50">
-                <div className="lay">
-                    <FocalFactory directionFocal={directionFocal}>
-                        {Notes}
-                    </FocalFactory>
-                </div>
-            </div>
-        );
-    }
+    isValidChildren(childProps, children);
 
-    if (!hasChildren(children))
-        throw new Error(
-            'En este caso por no tener id Definido o Features agregados'
-        );
-    if (!directionFocal)
-        throw new Error(
-            'Se debe seleccionar la dirección focal de la apretura'
-        );
+    const notes =
+        idCollection && idCollection !== ''
+            ? CollectionsNotes(idCollection)
+            : children;
+
     return (
-        hasChildren(children) && (
-            <div className="row hlp-margintop-50">
-                <div className="lay">
-                    <FocalFactory directionFocal={directionFocal}>
-                        {children}
-                    </FocalFactory>
-                </div>
+        <div className="row hlp-margintop-50">
+            <div className="lay">
+                <FocalFactory directionFocal={directionFocal}>
+                    {notes}
+                </FocalFactory>
             </div>
-        )
+        </div>
     );
 };
 
@@ -50,6 +60,7 @@ Apertura.label = 'LN Home Apertura';
 
 Apertura.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    childProps: PropTypes.arrayOf(PropTypes.node).isRequired,
     customFields: PropTypes.shape({
         idCollection: PropTypes.string.tag({
             label: 'ID de la collection',
@@ -64,7 +75,7 @@ Apertura.propTypes = {
                     FocalIzquierdo: 'Focal Izquierdo'
                 },
                 description: 'Seleccione aquí el tipo de focal',
-                defaultValue: 'FocalDerecho',
+                defaultValue: 'FocalIzquierdo',
                 group: 'Custom Fields'
             }
         )

@@ -11,7 +11,7 @@ const NoteFeature = ({ customFields }) => {
         query: { id }
     });
     if (!id) throw Error('El campo Id de la Nota es obligatorio.');
-    if (!content) throw Error(`No se encuentran resultados para el id ${id}.`);
+    // if (!content) throw Error(`No se encuentran resultados para el id ${id}.`);
     return <NoteCard content={content} customFields={customFields} />;
 };
 
@@ -27,6 +27,7 @@ NoteFeature.propTypes = {
         imageId: PropTypes.string.tag({
             label: 'Ingresar id de imagen',
             description: 'Ingrese aquí el id de la imagen',
+            default: undefined,
             group: 'Custom Fields'
         }),
         lead: PropTypes.string.tag({
@@ -37,16 +38,19 @@ NoteFeature.propTypes = {
         title: PropTypes.string.tag({
             label: 'Título',
             description: 'Ingrese aquí el texto del título',
+            default: undefined,
             group: 'Custom Fields'
         }),
         description: PropTypes.string.tag({
             label: 'Bajada',
             description: 'Ingrese aquí el texto de la bajada',
+            default: undefined,
             group: 'Custom Fields'
         }),
         authors: PropTypes.string.tag({
             label: 'Marquesina',
             description: 'Ingrese aquí el texto de la marquesina',
+            default: undefined,
             group: 'Custom Fields'
         })
     }).isRequired

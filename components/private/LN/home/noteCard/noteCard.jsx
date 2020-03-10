@@ -11,10 +11,7 @@ import {
     getImageId
 } from './getData';
 
-const getOpeningNote = (collection, type, imageId, title, lead) =>
-    collection === 'chains' && type === 'apertura' && title && imageId;
-
-const NoteCard = ({ content, customFields, collection, type }) => {
+const NoteCard = ({ content, customFields, isOpening }) => {
     const [lead, setLead] = useState(getLead(customFields, content));
     const [title, setTitle] = useState(getTitle(customFields, content));
     const [imageId, setImageId] = useState(getImageId(customFields, content));
@@ -29,18 +26,18 @@ const NoteCard = ({ content, customFields, collection, type }) => {
         setImageId(getImageId(customFields, content));
     }, [content, customFields]);
 
-    // if (!content) throw Error('No se encontró contenido');
+    if (isOpening && (!title || !imageId))
+        throw Error(
+            'El título e imagen son obligatorios para un artículo de apertura'
+        );
+
+    if (!content) throw Error('No se encontró contenido');
+
     if (!(title && (imageId || subhead))) {
         throw Error(
             'La nota debe contar con una imagen o bajada y con un título'
         );
     }
-
-    if (collection && type && title && imageId) {
-        console.log(getOpeningNote(collection, type, imageId, title, lead));
-    }
-
-    // TODO: separar en otro componente que solo renderee el artículo
     // TODO: agregar las urls correspondientes para los <a></a>
     return (
         <Article
@@ -75,11 +72,10 @@ NoteCard.propTypes = {
         lead: PropTypes.string,
         title: PropTypes.string,
         description: PropTypes.string,
-        authors: PropTypes.string
+        authors: PropTypes.string,
+        isOpening: PropTypes.bool
     }),
-    collection: PropTypes.string,
-    type: PropTypes.string,
-    childProps: PropTypes.arrayOf(PropTypes.node)
+    isOpening: PropTypes.bool
 };
 
 NoteCard.defaultProps = {
@@ -89,7 +85,8 @@ NoteCard.defaultProps = {
         title: undefined,
         description: undefined,
         authors: undefined
-    }
+    },
+    isOpening: undefined
 };
 
 export default Consumer(NoteCard);

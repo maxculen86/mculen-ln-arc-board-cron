@@ -12,7 +12,9 @@ const CollectionsNotes = idCollection => {
     if (content) {
         const { content_elements: contentElements } = content;
         return contentElements
-            ? contentElements.map(_content => <NoteCard content={_content} />)
+            ? contentElements.map((_content, index) => (
+                  <NoteCard content={_content} isOpening={index === 0} />
+              ))
             : [];
     }
 
