@@ -20,35 +20,35 @@ NoteFeature.label = 'LN Home NoteCard';
 NoteFeature.propTypes = {
     customFields: PropTypes.shape({
         noteId: PropTypes.string.tag({
-            label: 'Ingresar id de nota',
+            name: 'Ingresar id de nota',
             description: 'Ingrese aquí el id de la nota',
             group: 'Custom Fields'
         }),
         imageId: PropTypes.string.tag({
-            label: 'Ingresar id de imagen',
+            name: 'Ingresar id de imagen',
             description: 'Ingrese aquí el id de la imagen',
             default: undefined,
             group: 'Custom Fields'
         }),
         lead: PropTypes.string.tag({
-            label: 'Volanta',
+            name: 'Volanta',
             description: 'Ingrese aquí el texto de la volanta',
             group: 'Custom Fields'
         }),
         title: PropTypes.string.tag({
-            label: 'Título',
+            name: 'Título',
             description: 'Ingrese aquí el texto del título',
             default: undefined,
             group: 'Custom Fields'
         }),
         description: PropTypes.string.tag({
-            label: 'Bajada',
+            name: 'Bajada',
             description: 'Ingrese aquí el texto de la bajada',
             default: undefined,
             group: 'Custom Fields'
         }),
         authors: PropTypes.string.tag({
-            label: 'Marquesina',
+            name: 'Marquesina',
             description: 'Ingrese aquí el texto de la marquesina',
             default: undefined,
             group: 'Custom Fields'
