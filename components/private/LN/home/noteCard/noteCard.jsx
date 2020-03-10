@@ -31,7 +31,7 @@ const NoteCard = ({ content, customFields, isOpening }) => {
             'El título e imagen son obligatorios para un artículo de apertura'
         );
 
-    if (!content) throw Error('No se encontró contenido');
+    // if (!content) throw Error('No se encontró contenido');
 
     if (!(title && (imageId || subhead))) {
         throw Error(
