@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Image from './image';
-// import './article.css';
 
 const Article = ({ title, imageId, lead, subhead, authors }) => {
-    console.log(
-        'Article -> title, imageId, lead, subhead, authors ',
-        title,
-        imageId,
-        lead,
-        subhead,
-        authors
-    );
     return (
         <article className="mod-article w-100-mobile firma-autor">
             <div className="com-media">
