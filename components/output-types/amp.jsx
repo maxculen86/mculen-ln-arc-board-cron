@@ -83,7 +83,7 @@ const Amp = props => {
             </head>
             <body>
                 <amp-analytics
-                    config={`https://www.googletagmanager.com/amp.json?id=${id}`}
+                    config={`https://www.googletagmanager.com/amp.json?id=${id}&gtm.url=SOURCE_URL`}
                     data-credentials="include"
                 />
                 {children}
