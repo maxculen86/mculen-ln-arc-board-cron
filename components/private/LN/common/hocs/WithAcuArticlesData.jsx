@@ -3,7 +3,12 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import get from '../../../common/utils/get';
 
-function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
+function WithAcuArticlesData(
+    WrappedArticles,
+    filter,
+    imageConfig,
+    promoItemsOnly = false
+) {
     return Consumer(
         class extends PureComponent {
             static get propTypes() {
@@ -68,7 +73,8 @@ function WithAcuArticlesData(WrappedArticles, filter, imageConfig) {
                         size,
                         imageConfig,
                         page,
-                        excludeSectionId
+                        excludeSectionId,
+                        promoItemsOnly
                     },
                     filter
                 });
