@@ -62,21 +62,15 @@ const index = props => {
 
     return (
         _id && (
-            <div className="row more-articles">
-                <div className="col-12">
-                    <h2 className="com-title-section-l">{title}</h2>
-                    <section className="row-gap-tablet-3 row-gap-desksm-3">
-                        <ArticleList
-                            size={size + 1}
-                            sectionId={sectionId}
-                            website={_website}
-                            destination="article"
-                            border={border}
-                            excludeSectionId={excludeSectionId}
-                        />
-                    </section>
-                </div>
-            </div>
+            <ArticleList
+                title={title}
+                size={size + 1}
+                sectionId={sectionId}
+                website={_website}
+                destination="article"
+                border={border}
+                excludeSectionId={excludeSectionId}
+            />
         )
     );
 };

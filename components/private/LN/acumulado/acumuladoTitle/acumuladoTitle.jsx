@@ -13,7 +13,7 @@ import '../../../../../resources/dist/css/ln/components/tag.css';
 
 const AcumuladoTitle = props => {
     const { globalContent, orderAndCountTags, customFields } = props;
-    const { prefixTitle } = customFields || {};
+    const { prefixTitle, replaceTitle } = customFields || {};
     const [withCategory, setWithCategory] = useState('');
     const [_children, setChildren] = useState([]);
     const [isPrimarySection, setIsPrimarySection] = useState(false);
@@ -42,6 +42,7 @@ const AcumuladoTitle = props => {
                     byline,
                     name
                 } = globalContent;
+                if (replaceTitle) return capitalizeFirstLetter(replaceTitle);
                 if (Payload)
                     return capitalizeFirstLetter(Payload.items[0].name);
                 if (nodeType === 'section') return capitalizeFirstLetter(name);
@@ -56,7 +57,8 @@ const AcumuladoTitle = props => {
         globalContent.byline,
         globalContent.children,
         globalContent.name,
-        globalContent.node_type
+        globalContent.node_type,
+        replaceTitle
     ]);
 
     useEffect(() => {

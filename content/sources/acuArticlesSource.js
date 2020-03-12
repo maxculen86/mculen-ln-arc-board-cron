@@ -7,6 +7,7 @@ const resolve = key => {
     const {
         sectionId,
         excludeSectionId,
+        promoItemsOnly,
         authorId,
         tagId,
         size,
@@ -75,6 +76,19 @@ const resolve = key => {
             }
         ]`;
 
+    const suggestFilter =
+        promoItemsOnly &&
+        `
+        ,{
+            "constant_score": {
+                "filter": {
+                    "exists": {
+                        "field": "promo_items.basic.url"
+                    }
+                }
+            }
+        }`;
+
     const query = `&body={
             "query":{
                 "bool": {
@@ -84,7 +98,12 @@ const resolve = key => {
                             {
                                 "type":"story"
                             }
+                        },{
+                            "term": {
+                                "revision.published": true
+                            }
                         }
+                        ${suggestFilter || ''}
                         ${authorFilter || ''}
                         ${sectionFilter || ''}
                         ${tagFilter || ''}
