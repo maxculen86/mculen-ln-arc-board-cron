@@ -6,6 +6,7 @@ import AMPScripts, {
     AMPCustomStyle
 } from '../private/common/ampIndex';
 import Robot from '../private/common/robot';
+import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -35,9 +36,10 @@ const Amp = props => {
     } = props;
     const { canonical_url: canonicalUrl, subtype } = globalContent || {};
 
-    const contentFeatures = renderables
-        .filter(item => item.collection === 'features')
-        .map(item => item.type);
+    const contentFeatures = getCollectionsFromRenderables(
+        renderables,
+        'features'
+    );
 
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
