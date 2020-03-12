@@ -1,11 +1,11 @@
 jest.mock(
-    './../../../../../../components/private/LN/home/noteCard/noteCard.jsx',
+    './../../../../../../components/private/LN/home/components/noteCard/noteCard.jsx',
     () => 'mock-component'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
-import NoteCard from './../../../../../../components/private/LN/home/noteCard/noteCard';
+import NoteCard from './../../../../../../components/private/LN/home/components/noteCard/noteCard';
 
 describe('Test del Feature - <NoteCard />', () => {
     const noteId = 'TXQ62BPYN5AEFKLPRNM66WS63I';

@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import NoteCard from '../../private/LN/home/noteCard/noteCard';
+import NoteCard from '../../private/LN/home/components/noteCard/noteCard';
+import get from '../../private/common/utils/get';
 
-const NoteFeature = ({ customFields }) => {
+const validateIsOpening = (tree, id) => {
+    const childrenChainApertura = get(
+        tree,
+        'children[0].children[0].children[0].props.id'
+    );
+    return !!(childrenChainApertura === id);
+};
+
+const NoteFeature = ({ customFields, id: idNoteFeature, tree }) => {
+    const [isOpening, setIsOpening] = useState();
     const { noteId: id } = customFields;
+
+    useEffect(() => {
+        setIsOpening(validateIsOpening(tree, idNoteFeature));
+    }, [tree, idNoteFeature]);
 
     const content = useContent({
         source: 'articleSourceNota',
@@ -12,12 +27,20 @@ const NoteFeature = ({ customFields }) => {
     });
     if (!id) throw Error('El campo Id de la Nota es obligatorio.');
     // if (!content) throw Error(`No se encuentran resultados para el id ${id}.`);
-    return <NoteCard content={content} customFields={customFields} />;
+    return (
+        <NoteCard
+            content={content}
+            customFields={customFields}
+            isOpening={isOpening}
+        />
+    );
 };
 
 NoteFeature.label = 'LN Home NoteCard';
 
 NoteFeature.propTypes = {
+    id: PropTypes.string.isRequired,
+    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
     customFields: PropTypes.shape({
         noteId: PropTypes.string.tag({
             name: 'Ingresar id de nota',
@@ -56,4 +79,4 @@ NoteFeature.propTypes = {
     }).isRequired
 };
 
-export default NoteFeature;
+export default Consumer(NoteFeature);

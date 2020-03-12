@@ -5,11 +5,13 @@ import Image from './image';
 const Article = ({ title, imageId, lead, subhead, authors }) => {
     return (
         <article className="mod-article w-100-mobile firma-autor">
-            <div className="com-media">
-                <a href="" title={title}>
-                    <Image imageId={imageId} />
-                </a>
-            </div>
+            {imageId !== null && (
+                <div className="com-media">
+                    <a href="" title={title}>
+                        <Image imageId={imageId} />
+                    </a>
+                </div>
+            )}
             <div className="com-description">
                 <h2 className="com-title">
                     <a href="" title={title}>

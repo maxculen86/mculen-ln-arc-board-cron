@@ -3,46 +3,34 @@ import PropTypes from 'fusion:prop-types';
 import FocalFactory from '../private/LN/home/templatesContainers/focalFactory';
 import CollectionsNotes from '../private/LN/home/collectionsNotes';
 
-// TODO: Extraer las funciones validateChildren y validateFeatures en otro archivo (definir en qué carpetas se guardarán para luego ser importadas acá)
-const validateChildren = children => {
+const validateChildren = (children, childProps) => {
     if (['array', 'object'].indexOf(typeof children) && !children.length)
         throw Error(
             'En este caso por no tener id Definido o Features agregados'
         );
-};
 
-const validateFeatures = childProps => {
-    childProps.forEach(childProp => {
-        if (
-            !(
-                childProp.collection === 'features' &&
-                childProp.type === 'LN-home/noteFeature'
+    childProps &&
+        childProps.forEach(childProp => {
+            if (
+                childProp.collection !== 'features' ||
+                childProp.type !== 'LN-home/noteFeature'
             )
-        )
-            throw Error(
-                'El Chain Apertura sólo admite Features del tipo LN Home NoteCard'
-            );
-    });
+                throw Error(
+                    'El Chain Apertura sólo admite Features del tipo LN Home NoteCard'
+                );
+        });
 };
 
-const isValidChildren = (childProps, children) => {
-    validateChildren(children);
-    validateFeatures(childProps);
-    return true;
-};
-
-const Apertura = props => {
-    const {
-        children,
-        childProps,
-        customFields: { idCollection, directionFocal }
-    } = props;
-
-    isValidChildren(childProps, children);
+const Apertura = ({
+    children,
+    childProps,
+    customFields: { idCollection, directionFocal }
+}) => {
+    validateChildren(children, childProps);
 
     const notes =
         idCollection && idCollection !== ''
-            ? CollectionsNotes(idCollection)
+            ? CollectionsNotes(idCollection, 'apertura')
             : children;
 
     return (

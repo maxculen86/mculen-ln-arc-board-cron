@@ -11,7 +11,7 @@ import {
     getImageId
 } from './getData';
 
-const NoteCard = ({ content, customFields, isOpening }) => {
+const NoteCard = ({ content, customFields, isOpening, belongsTo }) => {
     const [lead, setLead] = useState(getLead(customFields, content));
     const [title, setTitle] = useState(getTitle(customFields, content));
     const [imageId, setImageId] = useState(getImageId(customFields, content));
@@ -23,15 +23,15 @@ const NoteCard = ({ content, customFields, isOpening }) => {
         setTitle(getTitle(customFields, content));
         setSubhead(getSubhead(customFields, content));
         setAuthors(getAuthors(customFields, content));
-        setImageId(getImageId(customFields, content));
-    }, [content, customFields]);
+        setImageId(getImageId(customFields, content, belongsTo));
+    }, [belongsTo, content, customFields, subhead]);
 
-    if (isOpening && (!title || !imageId))
+    // if (!content) throw Error('No se encontró contenido');
+
+    if (isOpening && belongsTo === 'apertura' && (!title || !imageId))
         throw Error(
             'El título e imagen son obligatorios para un artículo de apertura'
         );
-
-    // if (!content) throw Error('No se encontró contenido');
 
     if (!(title && (imageId || subhead))) {
         throw Error(
@@ -42,7 +42,13 @@ const NoteCard = ({ content, customFields, isOpening }) => {
     return (
         <Article
             title={title}
-            imageId={imageId}
+            imageId={
+                belongsTo === 'caja tema' &&
+                subhead &&
+                (imageId || imageId === undefined)
+                    ? null
+                    : imageId
+            }
             lead={lead}
             subhead={subhead}
             authors={authors}
@@ -75,7 +81,8 @@ NoteCard.propTypes = {
         authors: PropTypes.string,
         isOpening: PropTypes.bool
     }),
-    isOpening: PropTypes.bool
+    isOpening: PropTypes.bool,
+    belongsTo: PropTypes.string
 };
 
 NoteCard.defaultProps = {
@@ -86,7 +93,8 @@ NoteCard.defaultProps = {
         description: undefined,
         authors: undefined
     },
-    isOpening: undefined
+    isOpening: undefined,
+    belongsTo: undefined
 };
 
 export default Consumer(NoteCard);
