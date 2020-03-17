@@ -28,6 +28,10 @@ export default {
         Livefyre: {
             props: {},
             location: ['head']
+        },
+        LiftIgniter: {
+            props: {},
+            location: ['body-top']
         }
     },
     imageConfig: {

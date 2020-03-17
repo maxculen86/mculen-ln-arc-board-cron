@@ -7,7 +7,7 @@ export const ERRORS = {
     PROPS: 'Debe especificar props: location o name'
 };
 
-export default (components, settings = {}) => {
+export default (globalContent = {}, components, settings = {}) => {
     if (
         !components ||
         typeof components !== 'object' ||
@@ -36,7 +36,13 @@ export default (components, settings = {}) => {
 
                 if (!Script) return false;
 
-                return <Script location={location} {...properties} />;
+                return (
+                    <Script
+                        location={location}
+                        {...properties}
+                        globalContent={globalContent}
+                    />
+                );
             })
             .filter(Boolean);
         return scripts;

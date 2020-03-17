@@ -8,6 +8,7 @@ import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
 import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import Livefyre from '../private/common/scriptManager/Livefyre';
+import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -20,7 +21,8 @@ const scriptList = {
     ArcAds,
     FacebookSDK,
     PostBid,
-    Livefyre
+    Livefyre,
+    LiftIgniter
 };
 
 const getBodyClass = props => {
@@ -45,9 +47,13 @@ const Default = props => {
         siteProperties,
         globalContent
     } = props;
-    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
+    const { canonical_url: canonicalUrl, subtype } = globalContent || {}; //console.log("############ PROPS DEFAULT: ", props);
 
-    const Scripts = ScriptManager(scriptList, siteProperties.scripts);
+    const Scripts = ScriptManager(
+        globalContent,
+        scriptList,
+        siteProperties.scripts
+    );
 
     return (
         <html lang="es">
@@ -57,7 +63,7 @@ const Default = props => {
                 </title>
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
-                <Scripts location="head" />
+                <Scripts location="head" {...props} />
                 <MetaTags />
                 <Robot
                     subtype={subtype}
