@@ -6,6 +6,14 @@ jest.mock(
 import React from 'react';
 import { mount } from 'enzyme';
 import NoteCard from './../../../../../../components/private/LN/home/components/noteCard/noteCard';
+import {
+    getLead,
+    getTitle,
+    getSubhead,
+    getAuthors,
+    getImageId,
+    getUrl
+} from './../../../../../../components/private/LN/home/components/noteCard/getData';
 
 describe('Test del Feature - <NoteCard />', () => {
     const noteId = 'TXQ62BPYN5AEFKLPRNM66WS63I';
@@ -14,6 +22,7 @@ describe('Test del Feature - <NoteCard />', () => {
     const title = 'Este es un titulo';
     const description = 'Esta es una bajada';
     const authors = 'Estos son los autores';
+    const url = '/una_url_valida/';
 
     const content = {
         headlines: { basic: 'Titulo de la Nota' },
@@ -23,7 +32,8 @@ describe('Test del Feature - <NoteCard />', () => {
                 resized_urls: 'url_de_la_imagen.jpg'
             }
         },
-        credits: { by: [{ name: 'Nombre Apellido' }] }
+        credits: { by: [{ name: 'Nombre Apellido' }] },
+        canonical_url: url
     };
 
     const customFields = {
@@ -56,10 +66,13 @@ describe('Test del Feature - <NoteCard />', () => {
         expect(mock.props('customFields').customFields.imageId).toBeTruthy();
         expect(mock.props('customFields').customFields.imageId).toBe(imageId);
     });
-    it('Recibe de customFields el campo obligatorio title y bajada', () => {
-        expect(mock.props('customFields').customFields.title).toBeTruthy();
-        expect(mock.props('customFields').customFields.title).toBe(title);
-        expect(mock.props('customFields').customFields.imageId).toBeTruthy();
-        expect(mock.props('customFields').customFields.imageId).toBe(imageId);
+    it('Obtención de datos desde getData', () => {
+        expect(getLead).toBeTruthy();
+        expect(getLead(customFields, content)).toBe(lead);
+        expect(getTitle(customFields, content)).toBe(title);
+        expect(getSubhead(customFields, content)).toBe(description);
+        expect(getAuthors(customFields, content)).toBe(authors);
+        expect(getImageId(customFields, content)).toBe(imageId);
+        expect(getUrl(content)).toBe(url);
     });
 });

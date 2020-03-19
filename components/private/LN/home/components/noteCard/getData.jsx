@@ -97,3 +97,11 @@ export const getDefaultAuthors = authorList => {
     const message = authorMessage ? authorMessage.concat('.') : '';
     return message;
 };
+
+export const getUrl = defaultData => defaultData && defaultData.canonical_url;
+
+getUrl.propTypes = {
+    defaultData: PropTypes.shape({
+        canonical_url: PropTypes.string
+    })
+};

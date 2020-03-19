@@ -8,7 +8,8 @@ import {
     getTitle,
     getSubhead,
     getAuthors,
-    getImageId
+    getImageId,
+    getUrl
 } from './getData';
 
 const NoteCard = ({ content, customFields, isOpening, belongsTo }) => {
@@ -17,6 +18,7 @@ const NoteCard = ({ content, customFields, isOpening, belongsTo }) => {
     const [imageId, setImageId] = useState(getImageId(customFields, content));
     const [authors, setAuthors] = useState(getAuthors(customFields, content));
     const [subhead, setSubhead] = useState(getSubhead(customFields, content));
+    const [url, setUrl] = useState(getSubhead(customFields, content));
 
     useEffect(() => {
         setLead(getLead(customFields, content));
@@ -24,6 +26,7 @@ const NoteCard = ({ content, customFields, isOpening, belongsTo }) => {
         setSubhead(getSubhead(customFields, content));
         setAuthors(getAuthors(customFields, content));
         setImageId(getImageId(customFields, content, belongsTo));
+        setUrl(getUrl(content));
     }, [belongsTo, content, customFields, subhead]);
 
     // if (!content) throw Error('No se encontró contenido');
@@ -52,6 +55,7 @@ const NoteCard = ({ content, customFields, isOpening, belongsTo }) => {
             lead={lead}
             subhead={subhead}
             authors={authors}
+            url={url}
         />
     );
 };
@@ -79,7 +83,8 @@ NoteCard.propTypes = {
         title: PropTypes.string,
         description: PropTypes.string,
         authors: PropTypes.string,
-        isOpening: PropTypes.bool
+        isOpening: PropTypes.bool,
+        canonical_url: PropTypes.string
     }),
     isOpening: PropTypes.bool,
     belongsTo: PropTypes.string
