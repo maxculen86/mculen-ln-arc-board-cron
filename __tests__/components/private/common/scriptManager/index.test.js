@@ -75,7 +75,7 @@ describe('ScriptManager genera un builder', () => {
         }
     };
 
-    const Script = ScriptManager(components, config);
+    const Script = ScriptManager(null, components, config);
 
     it('al que debe indicarse nombre o posicion', () => {
         const error = 'Debe especificar props: location o name';
