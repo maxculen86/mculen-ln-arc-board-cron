@@ -1,30 +1,50 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
+
 import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
+
 import ThemeBox from '../private/LN/home/components/ThemeBox/themeBox';
 import CollectionsNotes from '../private/LN/home/collectionsNotes';
+import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
-const CajaTema = ({ customFields: { idCollection, title, notesQuantity } }) => {
-    if (!idCollection)
-        throw Error('Se requiere el id de la colección de la caja de temas');
+const CajaTema = ({
+    id: featureId,
+    isAdmin,
+    customFields: { idCollection, title, notesQuantity }
+}) => {
+    const error = idCollection
+        ? null
+        : {
+              type: 'warning',
+              message: 'Se requiere el id de la colección de la caja de temas'
+          };
+
+    if (isAdmin && !!error) {
+        return <PageBuilderMessage type={error.type} message={error.message} />;
+    }
 
     const notes = CollectionsNotes(idCollection, 'caja tema').slice(
         0,
         parseInt(notesQuantity.charAt(0))
     );
+
     if (notes)
         return (
+            // <Static id={featureId}>
             <div className="row hlp-margintop-50">
                 <div className="lay">
                     <ThemeBox title={title} notes={notes} />
                 </div>
             </div>
+            // </Static>
         );
 };
 
 CajaTema.label = 'LN Home CajaTema';
 
 CajaTema.propTypes = {
+    isAdmin: PropTypes.bool.isRequired,
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     childProps: PropTypes.arrayOf(PropTypes.node).isRequired,
     customFields: PropTypes.shape({

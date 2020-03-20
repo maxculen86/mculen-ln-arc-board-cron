@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
+
 import Article from './article';
+import PageBuilderMessage from '../../common/components/pageBuilderMessage/pageBuilderMessage';
 
 import {
     getLead,
@@ -12,13 +16,39 @@ import {
     getUrl
 } from './getData';
 
-const NoteCard = ({ content, customFields, isOpening, belongsTo }) => {
+const validateNoteCard = (isOpening, belongsTo, title, imageId, subhead) => {
+    if (isOpening && belongsTo === 'apertura' && (!title || !imageId)) {
+        return {
+            type: 'warning',
+            message:
+                'El título e imagen son obligatorios para un artículo de apertura'
+        };
+    }
+    if (!(title && (imageId || subhead))) {
+        return {
+            type: 'warning',
+            message:
+                'La nota debe contar con una imagen o bajada y con un título'
+        };
+    }
+    return null;
+};
+
+const NoteCard = ({
+    id: featureId,
+    isAdmin,
+    content,
+    customFields,
+    isOpening,
+    belongsTo
+}) => {
     const [lead, setLead] = useState(getLead(customFields, content));
     const [title, setTitle] = useState(getTitle(customFields, content));
     const [imageId, setImageId] = useState(getImageId(customFields, content));
     const [authors, setAuthors] = useState(getAuthors(customFields, content));
     const [subhead, setSubhead] = useState(getSubhead(customFields, content));
-    const [url, setUrl] = useState(getSubhead(customFields, content));
+    const [url, setUrl] = useState(getUrl(content));
+    const [error, setError] = useState();
 
     useEffect(() => {
         setLead(getLead(customFields, content));
@@ -27,22 +57,22 @@ const NoteCard = ({ content, customFields, isOpening, belongsTo }) => {
         setAuthors(getAuthors(customFields, content));
         setImageId(getImageId(customFields, content, belongsTo));
         setUrl(getUrl(content));
-    }, [belongsTo, content, customFields, subhead]);
+    }, [content, customFields, belongsTo]);
+
+    useEffect(() => {
+        setError(
+            validateNoteCard(isOpening, belongsTo, title, imageId, subhead)
+        );
+    }, [belongsTo, imageId, isOpening, subhead, title]);
 
     // if (!content) throw Error('No se encontró contenido');
 
-    if (isOpening && belongsTo === 'apertura' && (!title || !imageId))
-        throw Error(
-            'El título e imagen son obligatorios para un artículo de apertura'
-        );
-
-    if (!(title && (imageId || subhead))) {
-        throw Error(
-            'La nota debe contar con una imagen o bajada y con un título'
-        );
+    if (isAdmin && !!error) {
+        return <PageBuilderMessage type={error.type} message={error.message} />;
     }
-    // TODO: agregar las urls correspondientes para los <a></a>
+
     return (
+        // <Static id={featureId}>
         <Article
             title={title}
             imageId={
@@ -57,10 +87,13 @@ const NoteCard = ({ content, customFields, isOpening, belongsTo }) => {
             authors={authors}
             url={url}
         />
+        // </Static>
     );
 };
 
 NoteCard.propTypes = {
+    id: PropTypes.string.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     content: PropTypes.shape({
         headlines: PropTypes.shape({
             basic: PropTypes.string

@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
+import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+
+// Es importante mantener el orden de las secciones tanto en el layout como en su configuración para su validación
+import sectionsConfig from './config/LN-home.config';
+import validateLayoutChildren from './validations/LN-home-validation';
 
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
@@ -15,57 +20,39 @@ import '../../resources/dist/css/ln/components/hour.css';
 
 const section = ['Sección Apertura', 'Sección Caja de Tema'];
 
-const validateTree = (treeChildren, allowed) => {
-    // console.log('validateTree -> treeChildren, allowed', treeChildren, allowed);
-    allowed &&
-        allowed.map((allowedChain, index) => {
-            const sectionsChildren =
-                treeChildren &&
-                treeChildren[index] &&
-                treeChildren[index].children;
-            // console.log('validateTree -> sectionsChildren', sectionsChildren);
-            sectionsChildren &&
-                sectionsChildren.map(child => {
-                    // console.log('validateTree -> child', child);
-                    if (
-                        child.collection !== allowedChain.collection ||
-                        child.type !== allowedChain.type
-                    )
-                        throw Error(
-                            `${allowedChain.name} sólo admite ${allowedChain.collection} del tipo ${allowedChain.type}`
-                        );
-                });
-        });
-};
+const LNHomeLayout = ({ isAdmin, children, renderables }) => {
+    const [errors, setErrors] = useState();
 
-const LNHomeLayout = ({ children, tree: { children: treeChildren } }) => {
-    // Es importante mantener el orden de allowedChains para validationTree()
-    const allowedChains = [
-        {
-            name: 'Sección Apertura',
-            collection: 'chains',
-            type: 'apertura'
-        },
-        {
-            name: 'Sección Caja de Tema',
-            collection: 'chains',
-            type: 'cajaTema'
-        }
-    ];
     useEffect(() => {
-        // console.log("LNHomeLayout -> treeChildren", treeChildren)
-        validateTree(treeChildren, allowedChains);
-    }, [allowedChains, treeChildren]);
+        setErrors(validateLayoutChildren(renderables, sectionsConfig));
+    }, [renderables]);
 
+    const sectionErrors =
+        !!errors &&
+        errors.map(
+            errorsBySection =>
+                errorsBySection &&
+                errorsBySection.filter(error => error !== undefined)
+        );
+
+    const elements =
+        sectionErrors &&
+        sectionErrors.map((errorElements, index) =>
+            errorElements.length && isAdmin
+                ? errorElements.map(error => (
+                      <PageBuilderMessage
+                          type={error.type}
+                          message={error.message}
+                      />
+                  ))
+                : children[index]
+        );
     return (
         <>
             <Header />
             <main>
                 <div id="content-main" className="lay-sidebar">
-                    <div className="row">
-                        {children[0]}
-                        {children[1]}
-                    </div>
+                    <div className="row">{elements}</div>
                 </div>
             </main>
             <Footer />

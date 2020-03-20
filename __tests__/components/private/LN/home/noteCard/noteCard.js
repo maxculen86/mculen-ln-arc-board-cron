@@ -57,7 +57,7 @@ describe('Test del Feature - <NoteCard />', () => {
         expect(mock.props('content').content).toEqual(content);
     });
     it('Recibe customFields', () => {
-        expect(mock.props('content')).toBeTruthy();
+        expect(mock.props('customFields')).toBeTruthy();
         expect(mock.props('customFields').customFields).toEqual(customFields);
     });
     it('Recibe de customFields el campo obligatorio title e imageId', () => {

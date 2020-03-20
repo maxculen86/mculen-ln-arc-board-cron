@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Sección Apertura",
+        "index": 0,
+        "allowedChains": ["apertura"]
+    },
+    {
+        "name": "Sección Caja de Tema",
+        "index": 1,
+        "allowedChains": ["cajaTema"]
+    }
+]

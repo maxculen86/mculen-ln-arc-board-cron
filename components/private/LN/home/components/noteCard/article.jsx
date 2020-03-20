@@ -1,9 +1,22 @@
 import React from 'react';
+
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
+
 import Image from './image';
 
-const Article = ({ title, imageId, lead, subhead, authors, url }) => {
+const Article = ({
+    id: featureId,
+    title,
+    imageId,
+    lead,
+    subhead,
+    authors,
+    url
+}) => {
     return (
+        // <Static id={featureId}>
         <article className="mod-article w-100-mobile firma-autor">
             {imageId !== null && (
                 <div className="com-media">
@@ -35,10 +48,12 @@ const Article = ({ title, imageId, lead, subhead, authors, url }) => {
                 )}
             </div>
         </article>
+        // </Static>
     );
 };
 
 Article.propTypes = {
+    id: PropTypes.string.isRequired,
     title: PropTypes.string,
     imageId: PropTypes.string,
     lead: PropTypes.string,
@@ -56,4 +71,4 @@ Article.defaultProps = {
     url: '/'
 };
 
-export default Article;
+export default Consumer(Article);
