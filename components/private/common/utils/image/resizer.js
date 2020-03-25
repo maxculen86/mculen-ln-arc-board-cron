@@ -31,7 +31,10 @@ export const createResizer = (resizerKey, resizerUrl) => {
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
 
-        if (!focalPoint || !originalWidth || !originalHeight) {
+        if (
+            (!focalPoint || !originalWidth || !originalHeight) &&
+            !resizeOptions.isNotSmart
+        ) {
             thumbor.smartCrop(true);
         } else {
             focusImage(originalWidth, originalHeight, focalPoint, thumbor);
@@ -150,7 +153,9 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 
 const resizePromoItems = (promoItems, resizeOptions, resizer) => {
     const resp = {};
+
     // TODO: Pasar valor por defecto como constante
+
     const optionsFinal = get(resizeOptions, 'sizes', [
         {
             width: 768,
@@ -175,7 +180,6 @@ export const addResizedUrls = (ansDoc, option) => {
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
-
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
     const optionsContentElements = option.presets.contentElements.sizes;

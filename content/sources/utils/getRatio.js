@@ -7,9 +7,10 @@ const addAspectRatioUsingCalcHeight = (width = 1) => {
 
 // setea las medidas para que el resizer cropee en 3:2
 const addAspectRatio = (items = []) =>
-    items.sizes.map(item => ({
+    items.map(item => ({
         ...item,
-        height: addAspectRatioUsingCalcHeight(item.width)
+        height: addAspectRatioUsingCalcHeight(item.width),
+        isNotSmart: true
     }));
 
 export default addAspectRatio;

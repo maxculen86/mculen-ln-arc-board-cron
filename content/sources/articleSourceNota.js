@@ -59,10 +59,11 @@ const transform = (data, siteProps) => {
     const notesWithRatio = ['1', '7'];
 
     // Si el subType es recetas o noticias applico el ratio
-    const promoItemsRatio = notesWithRatio.indexOf(data.subtype)
-        ? addAspectRatio(presetsXL.promo_items)
-        : presetsXL.promo_items || presetsDefault;
 
+    const promoItemsRatio =
+        notesWithRatio.indexOf(data.subtype) === 0
+            ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
+            : presetsXL.promo_items.size || presetsDefault.size;
     const resp = addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
         resizerUrl: RESIZER_URL,
@@ -72,7 +73,6 @@ const transform = (data, siteProps) => {
             presetsDefault
         }
     });
-
     return transformContent(resp, arcSite);
 };
 
