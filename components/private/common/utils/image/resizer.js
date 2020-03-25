@@ -45,7 +45,6 @@ export const createResizer = (resizerKey, resizerUrl) => {
     ) => {
         const resp = [];
         const finalPreset = presets;
-
         finalPreset.forEach(opt => {
             resp.push({
                 resizedUrl: resizeUrl(
@@ -57,6 +56,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
                 option: opt
             });
         });
+
         return resp;
     };
     return {
