@@ -169,7 +169,7 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
             return resp;
         })
         .catch(e => {
-            console.log('TCL: addFollowAnotherNoteData -> e', e);
+            // console.log('TCL: addFollowAnotherNoteData -> e', e);
         });
 };
 
