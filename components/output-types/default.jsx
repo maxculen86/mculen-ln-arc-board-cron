@@ -13,17 +13,30 @@ import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
 import Robot from '../private/common/robot';
+import pipe from '../private/common/utils/pipeUtil';
 
-const scriptList = {
-    GTM,
-    Comscore,
-    Microdata,
-    ArcAds,
-    FacebookSDK,
-    PostBid,
-    Livefyre,
-    LiftIgniter
-};
+const scriptList = [
+    { component: { name: 'GTM', function: GTM }, feature: 'none' },
+    { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
+    { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
+    {
+        component: { name: 'ArcAds', function: ArcAds },
+        feature: 'LN-common/banner'
+    },
+    {
+        component: { name: 'FacebookSDK', function: FacebookSDK },
+        feature: 'LN-nota/share'
+    },
+    { component: { name: 'PostBid', function: PostBid }, feature: 'none' },
+    {
+        component: { name: 'Livefyre', function: Livefyre },
+        feature: 'LN-nota/comments'
+    },
+    {
+        component: { name: 'LiftIgniter', function: LiftIgniter },
+        feature: 'none'
+    }
+];
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -45,13 +58,41 @@ const Default = props => {
         MetaTags,
         metaValue,
         siteProperties,
+        renderables,
         globalContent
     } = props;
-    const { canonical_url: canonicalUrl, subtype } = globalContent || {}; //console.log("############ PROPS DEFAULT: ", props);
+    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
+
+    const getPageBuilderFeatures = renderables =>
+        renderables.filter(renderable => renderable.collection === 'features');
+
+    const getScriptsFilterFunction = scripts => features =>
+        scripts
+            .filter(
+                script =>
+                    features.find(
+                        feature => feature.type === script.feature
+                    ) !== undefined || script.feature === 'none'
+            )
+            .map(element => element.component)
+            .reduce(
+                (accumulator, value) => ({
+                    ...accumulator,
+                    [value.name]: value.function
+                }),
+                {}
+            );
+
+    const getScriptsToBeLoaded = getScriptsFilterFunction(scriptList);
+
+    const scripts = pipe(
+        getPageBuilderFeatures,
+        getScriptsToBeLoaded
+    )(renderables);
 
     const Scripts = ScriptManager(
         globalContent,
-        scriptList,
+        scripts,
         siteProperties.scripts
     );
 
