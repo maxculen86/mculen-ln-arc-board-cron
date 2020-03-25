@@ -16,7 +16,6 @@ import Redirect from './utils/redirect';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
-
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
 
