@@ -21,20 +21,25 @@ const scriptList = [
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
     {
         component: { name: 'ArcAds', function: ArcAds },
-        feature: 'LN-common/banner'
+        feature: [
+            'LN-common/banner',
+            'LN-nota/bannerStickyNota',
+            'LN-common/bannerTercera',
+            'LN-acumulado/bannerSticky'
+        ]
     },
     {
         component: { name: 'FacebookSDK', function: FacebookSDK },
-        feature: 'LN-nota/share'
+        feature: ['LN-nota/share']
     },
     { component: { name: 'PostBid', function: PostBid }, feature: 'none' },
     {
         component: { name: 'Livefyre', function: Livefyre },
-        feature: 'LN-nota/comments'
+        feature: ['LN-nota/comments']
     },
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },
-        feature: 'none'
+        feature: ['LN-nota/tePuedeInteresar']
     }
 ];
 
@@ -70,8 +75,8 @@ const Default = props => {
         scripts
             .filter(
                 script =>
-                    features.find(
-                        feature => feature.type === script.feature
+                    features.find(feature =>
+                        script.feature.includes(feature.type)
                     ) !== undefined || script.feature === 'none'
             )
             .map(element => element.component)
