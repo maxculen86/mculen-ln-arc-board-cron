@@ -16,7 +16,7 @@ class LiftIgniter extends Component {
                     primary_section: { name: tematica },
                     tags
                 },
-                syndication: { search, external_distribution },
+                // syndication: { search, external_distribution },
                 label
             }
         } = this.props;
@@ -57,10 +57,10 @@ LiftIgniter.propTypes = {
                 })
             )
         }),
-        syndication: PropTypes.shape({
+        /* syndication: PropTypes.shape({
             external_distribution: PropTypes.bool,
             search: PropTypes.bool
-        }),
+        }), */
         label: PropTypes.shape({
             no_recomendar: PropTypes.shape({
                 text: PropTypes.string
