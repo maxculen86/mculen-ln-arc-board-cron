@@ -23,7 +23,12 @@ describe('Liftigniter', () => {
                     }
                 ]
             },
-            syndication: { search: false, external_distribution: false }
+            syndication: { search: false, external_distribution: false },
+            label: {
+                no_recomendar: {
+                    text: false
+                }
+            }
         }
     };
     it('Builds the json object accordingly', () => {
@@ -31,7 +36,7 @@ describe('Liftigniter', () => {
 
         const output = JSON.stringify({
             noShow: true,
-            noIndex: true,
+            noIndex: false,
             tematica: 'Turismo',
             tags: ['comun', 'turismo']
         });
