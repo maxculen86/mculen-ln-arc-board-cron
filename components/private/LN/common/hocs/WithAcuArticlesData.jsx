@@ -70,7 +70,7 @@ function WithAcuArticlesData(
                         sectionId,
                         authorId,
                         tagId,
-                        size,
+                        size: size.tripleSize,
                         imageConfig,
                         page,
                         excludeSectionId,
@@ -90,13 +90,13 @@ function WithAcuArticlesData(
                     );
                     const hayMasNotasFetched = get(response, 'next', 0);
                     fetchedCallback({
-                        articles: articlesFetched.slice(0, size),
+                        articles: articlesFetched.slice(0, size.tripleSize),
                         hayMasNotas: hayMasNotasFetched
                     });
                 });
 
                 return {
-                    articles: articles.slice(0, size),
+                    articles: articles.slice(0, size.tripleSize),
                     hayMasNotas
                 };
             };
@@ -153,11 +153,20 @@ function WithAcuArticlesData(
                 if (type === 'story') {
                     if (articles.find(e => e._id === _id) !== undefined) {
                         articlesArray = articles.filter(
-                            article => article._id !== _id
+                            article =>
+                                article._id !== _id &&
+                                (!article.label.no_recomendar ||
+                                    article.label.no_recomendar === 'false')
                         );
                     } else {
                         const { size } = this.props;
-                        articlesArray = articles.slice(0, size - 1);
+                        articlesArray = articles
+                            .filter(
+                                article =>
+                                    !article.label.no_recomendar ||
+                                    article.label.no_recomendar === 'false'
+                            )
+                            .slice(0, size.originalSize);
                     }
                 }
 
