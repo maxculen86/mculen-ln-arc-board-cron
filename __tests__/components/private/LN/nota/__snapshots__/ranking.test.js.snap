@@ -38,6 +38,7 @@ exports[`Ranking matches snapshot 1`] = `
               />
               <img
                 class="content-img"
+                loading="lazy"
                 src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg"
               />
             </picture>
