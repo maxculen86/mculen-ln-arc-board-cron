@@ -80,13 +80,26 @@ export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
     };
 };
 
+const getCanonincalURL = urlOrigin => {
+    return urlOrigin.replace(/^.*\/\/[^\/]+/, '');
+};
+
 export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
         );
+    const test = getCanonincalURL(
+        resizer.resizeUrl(arcImage.url, arcImage.width, arcImage.height, {
+            width: 768,
+            height: 513,
+            media: '(min-width: 768px)'
+        })
+    );
+    // console.log('++++++++++++++++++++++ urlOrigin', test);
     return {
         ...arcImage,
+        url: test,
         resized_urls: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
