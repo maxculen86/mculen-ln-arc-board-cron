@@ -1,11 +1,11 @@
 jest.mock(
-    './../../../../../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx',
+    './../../../../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx',
     () => 'mock-component'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
-import PageBuilderMessage from './../../../../../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx';
+import PageBuilderMessage from './../../../../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx';
 
 describe('Test del componente - <PageBuilderMessage />', () => {
     const type = 'danger';

@@ -1,7 +1,8 @@
 import PropTypes from 'fusion:prop-types';
 
-// TODO: Acá se deberá retornar la clase que corresponde agregar según el tipo del mensaje
-export const getClass = type => type;
+export const getClass = type => {
+    return `--${type}`;
+};
 
 getClass.propTypes = {
     type: PropTypes.string.isRequired

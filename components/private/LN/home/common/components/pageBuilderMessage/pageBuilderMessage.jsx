@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 
-import './pageBuilderMessage.scss';
+import '../../../../../../../resources/dist/css/ln/modules/mod-warning.css';
 import { getClass, getTitle } from './getData';
 
 const PageBuilderMessage = ({ id: idFeature, type, message }) => {
@@ -12,9 +12,9 @@ const PageBuilderMessage = ({ id: idFeature, type, message }) => {
     const title = getTitle(type);
     return (
         // <Static id={idFeature}>
-        <div className={`oaerror ${className}`}>
-            <strong>{title}</strong>
-            {` - ${message}`}
+        <div className={`mod-warning ${className}`}>
+            <h2 className="title">{title}</h2>
+            <p className="text">{message}</p>
         </div>
         // </Static>
     );
