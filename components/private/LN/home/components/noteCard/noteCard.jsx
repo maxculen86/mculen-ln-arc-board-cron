@@ -7,7 +7,7 @@ import Static from 'fusion:static';
 import Article from './article';
 import PageBuilderMessage from '../../common/components/pageBuilderMessage/pageBuilderMessage';
 
-import validateNoteCard from './validation';
+import { validateNoteCard } from './validation';
 import {
     getLead,
     getTitle,
