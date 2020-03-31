@@ -12,13 +12,11 @@ class LiftIgniter extends Component {
     render() {
         const {
             globalContent: {
-                taxonomy: {
-                    primary_section: { name: tematica },
-                    tags
-                },
+                taxonomy: { primary_section: primarySection, tags },
                 syndication: { search, external_distribution }
             }
         } = this.props;
+        const { name: tematica } = primarySection || {};
 
         const script = {
             noShow: true, // syndication.search || false
