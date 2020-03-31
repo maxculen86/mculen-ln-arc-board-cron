@@ -9,8 +9,9 @@ import CollectionsNotes from '../private/LN/home/collectionsNotes';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const validateChildren = (children, childProps) => {
+    let error;
     if (['array', 'object'].indexOf(typeof children) && !children.length)
-        return {
+        error = {
             type: 'warning',
             message:
                 'Se requiere el id de la colección de la apertura o features agregados manualmente'
@@ -22,13 +23,13 @@ const validateChildren = (children, childProps) => {
                 childProp.collection !== 'features' ||
                 childProp.type !== 'LN-home/noteFeature'
             )
-                return {
+                error = {
                     type: 'warning',
                     message:
                         'El Chain Apertura sólo admite Features del tipo LN Home NoteCard'
                 };
         });
-    return null;
+    return error;
 };
 
 const Apertura = ({
@@ -60,11 +61,13 @@ const Apertura = ({
             </div>
             // </Static>
         );
+    return <></>;
 };
 
 Apertura.label = 'LN Home Apertura';
 
 Apertura.propTypes = {
+    id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     childProps: PropTypes.arrayOf(PropTypes.node).isRequired,

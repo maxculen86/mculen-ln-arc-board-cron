@@ -18,11 +18,12 @@ const validateIsOpening = (tree, id) => {
 };
 
 const validateNoteFeature = (id, content) => {
-    if (!id)
-        return {
-            type: 'warning',
-            message: 'El campo Id de la Nota es obligatorio.'
-        };
+    return !id
+        ? {
+              type: 'warning',
+              message: 'El campo Id de la Nota es obligatorio.'
+          }
+        : null;
 };
 
 const NoteFeature = ({ isAdmin, customFields, id: idNoteFeature, tree }) => {

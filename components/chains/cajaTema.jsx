@@ -24,29 +24,28 @@ const CajaTema = ({
         return <PageBuilderMessage type={error.type} message={error.message} />;
     }
 
-    const notes = CollectionsNotes(idCollection, 'caja tema').slice(
-        0,
-        parseInt(notesQuantity.charAt(0))
-    );
+    const notes = CollectionsNotes(idCollection, 'caja tema');
+    const limit = parseInt(notesQuantity.charAt(0), 10);
+    const elements = notes ? notes.slice(0, limit) : null;
 
-    if (notes)
+    if (elements)
         return (
             // <Static id={featureId}>
             <div className="row hlp-margintop-50">
                 <div className="lay">
-                    <ThemeBox title={title} notes={notes} />
+                    <ThemeBox title={title} notes={elements} />
                 </div>
             </div>
             // </Static>
         );
+    return <></>;
 };
 
 CajaTema.label = 'LN Home CajaTema';
 
 CajaTema.propTypes = {
+    id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    childProps: PropTypes.arrayOf(PropTypes.node).isRequired,
     customFields: PropTypes.shape({
         idCollection: PropTypes.string.tag({
             label: 'ID de la collection',

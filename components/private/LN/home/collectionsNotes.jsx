@@ -11,18 +11,19 @@ const CollectionsNotes = (idCollection, type) => {
 
     if (content) {
         const { content_elements: contentElements } = content;
-        return contentElements
-            ? contentElements.map((_content, index) => (
-                  <NoteCard
-                      content={_content}
-                      isOpening={index === 0}
-                      belongsTo={type}
-                  />
-              ))
-            : [];
+        const elements =
+            content && contentElements
+                ? contentElements.map((_content, index) => (
+                      <NoteCard
+                          content={_content}
+                          isOpening={index === 0}
+                          belongsTo={type}
+                      />
+                  ))
+                : [];
+        return elements;
     }
-
-    return [];
+    return null;
 };
 
 CollectionsNotes.propTypes = {
