@@ -16,6 +16,22 @@
             transform: inherit;
         }
     }
+    &.--sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        background: rgba(204, 204, 204, 0.2);
+        top: $px-10;
+
+        .--scrollUp & {
+            top: $px-80;
+        }
+
+        &.--active {
+            #wrapper.--scrollDown & {
+                top: 0;
+            }
+        }
+    }
     .banner {
         margin: 0;
         &.--sticky {
@@ -27,6 +43,7 @@
             z-index: 10000;
             transition: all 0.25s;
             background-color: #f3f3f3;
+
             &.--active {
                 #wrapper.--scrollDown & {
                     top: 0;
