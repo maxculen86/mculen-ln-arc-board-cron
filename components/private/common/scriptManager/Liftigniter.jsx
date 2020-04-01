@@ -15,8 +15,7 @@ class LiftIgniter extends Component {
                 taxonomy: {
                     primary_section: { name: tematica },
                     tags
-                },
-                syndication: { search, external_distribution }
+                }
             }
         } = this.props;
 
