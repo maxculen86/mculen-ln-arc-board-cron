@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/forbid-prop-types     */
 /* eslint-disable react/no-this-in-sfc        */
@@ -33,12 +34,19 @@ class Ads extends PureComponent {
         if (!Ads.instance) {
             const { dfpId } = this.props;
 
-            Ads.instance = new ArcAds({
-                dfp: {
-                    id: dfpId
+            Ads.instance = new ArcAds(
+                {
+                    dfp: {
+                        id: dfpId
+                    },
+                    bidding: baseConfig.bidding
                 },
-                bidding: baseConfig.bidding
-            });
+                event => {
+                    if (window.googletag && googletag.pubadsReady) {
+                        googletag.pubads().collapseEmptyDivs(true);
+                    }
+                }
+            );
         }
 
         return Ads.instance;
@@ -50,8 +58,8 @@ class Ads extends PureComponent {
         const { id, children } = this.props;
 
         return (
-            <div className="banner">
-                <div id={id}>{children}</div>
+            <div className={`banner --bg-banner --sticky`}>
+                <div>{children}</div>
             </div>
         );
     }
@@ -64,7 +72,7 @@ Ads.propTypes = {
     dimensions: PropTypes.array.isRequired,
     targeting: PropTypes.object.isRequired,
     bidding: PropTypes.object.isRequired,
-    background: PropTypes.bool,
+    background: PropTypes.string,
     children: PropTypes.arrayOf(PropTypes.nodes)
 };
 

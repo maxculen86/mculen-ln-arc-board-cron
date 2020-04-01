@@ -1,7 +1,7 @@
 import React from 'react';
 import Ads from '../../../ads';
 
-const Sticky2Mob = props => {
+const Sticky2Mob = React.memo(props => {
     const {
         slotId: id,
         slotName,
@@ -32,6 +32,6 @@ const Sticky2Mob = props => {
             </div>
         </div>
     );
-};
+});
 
 export default Sticky2Mob;

@@ -1,10 +1,5 @@
 /* eslint-disable react/require-default-props */
 
-/**
- * Banner Manager
- * I'm responsible of calling the right factory
- */
-
 import React from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
@@ -18,13 +13,9 @@ const BannerManager = props => {
     const { outputType, config } = props;
 
     if (outputType === 'amp') {
-        // Calls amp banner factory
         // return AmpFactory(config);
     }
 
-    //console.log("############# config: ", config);
-
-    // Calls default banner factory
     const Component = DefaultFactory(config);
 
     return <Component />;
