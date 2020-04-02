@@ -21,7 +21,13 @@ const CajaTema = ({
           };
 
     if (isAdmin && !!error) {
-        return <PageBuilderMessage type={error.type} message={error.message} />;
+        return (
+            <PageBuilderMessage
+                key={featureId}
+                type={error.type}
+                message={error.message}
+            />
+        );
     }
 
     const notes = CollectionsNotes(idCollection, 'caja tema');

@@ -47,7 +47,13 @@ const Apertura = ({
             : children;
 
     if (isAdmin && !!error) {
-        return <PageBuilderMessage type={error.type} message={error.message} />;
+        return (
+            <PageBuilderMessage
+                key={featureId}
+                type={error.type}
+                message={error.message}
+            />
+        );
     }
     if (notes)
         return (
@@ -70,7 +76,7 @@ Apertura.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    childProps: PropTypes.arrayOf(PropTypes.node).isRequired,
+    childProps: PropTypes.arrayOf(PropTypes.object).isRequired,
     customFields: PropTypes.shape({
         idCollection: PropTypes.string.tag({
             label: 'ID de la collection',

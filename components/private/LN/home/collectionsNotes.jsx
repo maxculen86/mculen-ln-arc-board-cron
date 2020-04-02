@@ -15,6 +15,7 @@ const CollectionsNotes = (idCollection, type) => {
             content && contentElements
                 ? contentElements.map((_content, index) => (
                       <NoteCard
+                          key={`${idCollection}${index}`}
                           content={_content}
                           isOpening={index === 0}
                           belongsTo={type}

@@ -42,7 +42,15 @@ const NoteFeature = ({ isAdmin, customFields, id: idNoteFeature, tree }) => {
     }, [tree, idNoteFeature, content, id]);
 
     if (isAdmin && !!error) {
-        return <PageBuilderMessage type={error.type} message={error.message} />;
+        return (
+            <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+                <PageBuilderMessage
+                    key={idNoteFeature}
+                    type={error.type}
+                    message={error.message}
+                />
+            </div>
+        );
     }
 
     // if (!content) throw Error(`No se encuentran resultados para el id ${id}.`);
@@ -65,7 +73,7 @@ NoteFeature.label = 'LN Home NoteCard';
 NoteFeature.propTypes = {
     isAdmin: PropTypes.bool.isRequired,
     id: PropTypes.string.isRequired,
-    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
+    tree: PropTypes.arrayOf(PropTypes.object),
     customFields: PropTypes.shape({
         noteId: PropTypes.string.tag({
             name: 'Ingresar id de nota',

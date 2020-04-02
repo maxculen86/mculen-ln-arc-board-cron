@@ -51,7 +51,13 @@ const NoteCard = ({
     // if (!content) throw Error('No se encontró contenido');
 
     if (isAdmin && !!error) {
-        return <PageBuilderMessage type={error.type} message={error.message} />;
+        return (
+            <PageBuilderMessage
+                key={featureId}
+                type={error.type}
+                message={error.message}
+            />
+        );
     }
 
     return (
