@@ -30,6 +30,9 @@
     span {
         border-left: solid 1px $gris5;
         padding: 0 $px-6;
+        &:first-letter {
+            text-transform: capitalize;
+        }
     }
     p {
         border-left: solid 1px $gris5;

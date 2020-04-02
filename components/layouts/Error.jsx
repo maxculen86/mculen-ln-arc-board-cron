@@ -65,7 +65,7 @@ const ErrorPage = ({ siteProperties: { host } }) => (
                     </div>
                     <div className="col-12 col-desksm-6 col-desk-6 footer-copyright__reserved">
                         <p>
-                            Copyright 2019 SA LA NACION | Todos los derechos
+                            Copyright 2020 SA LA NACION | Todos los derechos
                             reservados
                         </p>
                     </div>
