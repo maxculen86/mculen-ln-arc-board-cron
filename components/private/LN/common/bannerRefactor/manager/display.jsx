@@ -1,10 +1,3 @@
-/**
- * Display manager
- * I'm responsible of gathering display information
- * I only need to know what to display either the placeholder or the banner component itself.
- * In order to display the banner a call to the banner manager must be made.
- */
-
 import React from 'react';
 import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../hocs/WithNavigation';
@@ -15,8 +8,6 @@ import BannerManager from './banner';
 
 const DisplayManager = props => {
     const {
-        taxonomy,
-        outputType,
         siteProperties: {
             bannerConfig: { dfp_id: dfpID }
         },
@@ -41,10 +32,12 @@ const DisplayManager = props => {
 
     const getSlotForDevice = screen => slots =>
         slots.find(slot => slot.name === screen.device)
-            ? slots.find(slot => slot.name === screen.device).slot
+            ? slots.find(slot => slot.name === screen.device).slot || null
             : null;
 
     const finalSlot = getSlotForDevice(screenUtils)(bannerSlots);
+
+    if (finalSlot === null || finalSlot === 'NINGUNO') return null;
 
     const finalConfig = slotsConfig[slotGroup][finalSlot];
 

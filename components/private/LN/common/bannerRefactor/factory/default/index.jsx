@@ -7,8 +7,6 @@ import Sticky2Mob from './types/sticky2Mob';
 export default config => {
     const { slotId: type } = config;
 
-    // console.log("############ CONFIG EN FACTORY: ", config);
-
     return props => {
         switch (type) {
             case 'sticky1_mob':
