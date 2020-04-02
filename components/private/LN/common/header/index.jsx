@@ -8,6 +8,8 @@ import HeaderAMP from './headerAMP';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import withLoginData from '../hocs/withLoginData';
 import Desplegable from '../desplegable';
+import Scroll from '../../../common/utils/scroll';
+import debounce from '../../../common/utils/debounce';
 
 const CLASS_SCROLL_UP = '--scrollUp';
 const CLASS_SCROLL_DOWN = '--scrollDown';
@@ -36,18 +38,21 @@ class Index extends Component {
         const wrapper = document.getElementById('wrapper');
         if (header) {
             const headerHeigth = header.clientHeight || header.offsetHeight;
-            window.addEventListener('scroll', () => {
-                const { isScrollDown, isScrollUp } = this.onScrollHandler(
-                    header,
-                    headerHeigth,
-                    //vshare,
-                    userMenu,
-                    wrapper
-                );
-                this.setState({
-                    scrollDirection: { isScrollDown, isScrollUp }
-                });
-            });
+            window.addEventListener(
+                'scroll',
+                debounce(() => {
+                    const { isScrollDown, isScrollUp } = this.onScrollHandler(
+                        header,
+                        headerHeigth,
+                        // vshare,
+                        userMenu,
+                        wrapper
+                    );
+                    this.setState({
+                        scrollDirection: { isScrollDown, isScrollUp }
+                    });
+                })
+            );
         }
     }
 
@@ -59,8 +64,9 @@ class Index extends Component {
 
     // TODO: Hacer refactor del siguiente metodo
     onScrollHandler = (header, height, userMenu, wrapper) => {
-        let isScrollDown = false;
-        let isScrollUp = false;
+        const { isScrollUp, isScrollDown } = Scroll.getScrollDirection(
+            lastScrollPosition
+        );
         const scrollPos = window.scrollY;
         const { classList } = header;
         const vshare = document.getElementById('v-share');
@@ -70,34 +76,34 @@ class Index extends Component {
             if (scrollPos > height) {
                 classList.add(CLASS_SCROLL_DOWN);
             }
-            if (scrollPos < lastScrollPosition) {
-                isScrollUp = true;
-                // SCROLL UP
+            if (isScrollUp) {
                 classList.remove(CLASS_SCROLL_DOWN);
                 classList.add(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.add(CLASS_SCROLL_UP);
                 }
-                wrapper.classList.remove(CLASS_SCROLL_DOWN);
-                wrapper.classList.add(CLASS_SCROLL_UP);
+                if (wrapper) {
+                    wrapper.classList.remove(CLASS_SCROLL_DOWN);
+                    wrapper.classList.add(CLASS_SCROLL_UP);
+                }
             } else {
-                isScrollDown = true;
-                // SCROLL DOWN
                 classList.remove(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.remove(CLASS_SCROLL_UP);
                 }
-                wrapper.classList.remove(CLASS_SCROLL_UP);
-                wrapper.classList.add(CLASS_SCROLL_DOWN);
+                if (wrapper) {
+                    wrapper.classList.remove(CLASS_SCROLL_UP);
+                    wrapper.classList.add(CLASS_SCROLL_DOWN);
+                }
             }
             if (scrollPos < 10) {
                 if (vshare) vshare.classList.remove(CLASS_SCROLL_UP);
                 classList.remove(CLASS_SCROLL_UP);
                 classList.remove(CLASS_SCROLL_DOWN);
-                wrapper.classList.remove(CLASS_SCROLL_UP);
+                if (wrapper) wrapper.classList.remove(CLASS_SCROLL_UP);
             }
-        } else {
         }
+
         lastScrollPosition = scrollPos;
 
         return { isScrollDown, isScrollUp };
