@@ -10,43 +10,52 @@ import { slotsConfig } from '../../../config';
 
 import Sticky2Mob from './sticky2Mob';
 
+const isVisibleInViewport = element => {
+    const bounds = element.getBoundingClientRect();
+    return (
+        bounds.top >= 0 &&
+        bounds.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight)
+    );
+};
+
+const hideElement = element => {
+    if (window.getComputedStyle(element).display !== 'none') {
+        element.style.display = 'none';
+    }
+};
+
+const showElement = element => {
+    if (window.getComputedStyle(element).display !== 'flex') {
+        element.style.display = 'flex';
+    }
+};
+
 const Sticky1Mob = props => {
     const scrollPos = useRef(0);
 
     const sticky1 = useRef();
-    const sticky2 = useRef();
 
     useLayoutEffect(() => {
+        const sticky2 = document.getElementById('sticky2_mob').parentElement;
+
+        hideElement(sticky2);
+
         const handleScroll = () => {
             const windowY = window.scrollY;
             if (windowY < scrollPos.current) {
-                // Scrolls up
+                // scrolls up
                 scrollPos.current = windowY;
-                const bounding = sticky1.current.getBoundingClientRect();
-                if (
-                    bounding.top >= 0 &&
-                    bounding.bottom <=
-                        (window.innerHeight ||
-                            document.documentElement.clientHeight)
-                ) {
-                    // If sticky1 is within the viewport
-                    sticky2.current.classList.add('hlp-none');
+                if (isVisibleInViewport(sticky1.current)) {
+                    // if sticky one is in the viewport
+                    hideElement(sticky2);
                 }
             } else if (windowY >= scrollPos.current) {
-                // Scrolls down
+                // scrolls down
                 scrollPos.current = windowY;
-                const bounding = sticky1.current.getBoundingClientRect();
-                if (
-                    !(
-                        bounding.top >= 0 &&
-                        bounding.bottom <=
-                            (window.innerHeight ||
-                                document.documentElement.clientHeight)
-                    )
-                ) {
-                    // If sticky1 is out of the viewport
-                    sticky1.current.classList.add('hlp-none');
-                    sticky2.current.classList.remove('hlp-none');
+                if (!isVisibleInViewport(sticky1.current)) {
+                    // if sticky one is out of the viewport
+                    showElement(sticky2);
                 }
             }
         };
@@ -87,9 +96,7 @@ const Sticky1Mob = props => {
 
     return (
         <>
-            <div ref={sticky2} className="hlp-none">
-                <Sticky2Mob {...config} />
-            </div>
+            <Sticky2Mob {...config} />
             <div ref={sticky1}>
                 <div className={`--bg-banner --${device}`}>
                     <div id="sticky1_mob" className="banner">
