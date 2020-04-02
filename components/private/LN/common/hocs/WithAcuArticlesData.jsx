@@ -155,16 +155,16 @@ function WithAcuArticlesData(
                         articlesArray = articles.filter(
                             article =>
                                 article._id !== _id &&
-                                (!article.label.no_recomendar ||
-                                    article.label.no_recomendar === 'false')
+                                (!article.label.recomendar ||
+                                    article.label.recomendar === 'true')
                         );
                     } else {
                         const { size } = this.props;
                         articlesArray = articles
                             .filter(
                                 article =>
-                                    !article.label.no_recomendar ||
-                                    article.label.no_recomendar === 'false'
+                                    !article.label.recomendar ||
+                                    article.label.recomendar === 'true'
                             )
                             .slice(0, size.originalSize);
                     }

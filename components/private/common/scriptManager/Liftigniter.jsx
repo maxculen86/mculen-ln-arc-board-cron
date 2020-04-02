@@ -20,9 +20,7 @@ class LiftIgniter extends Component {
 
         const script = {
             noShow: true,
-            noIndex: label.no_recomendar
-                ? Boolean(label.no_recomendar.text)
-                : true,
+            noIndex: label.recomendar ? Boolean(label.recomendar.text) : true,
             tematica,
             tags: tags.map(tag => tag.text)
         };
@@ -59,7 +57,7 @@ LiftIgniter.propTypes = {
             search: PropTypes.bool
         }), */
         label: PropTypes.shape({
-            no_recomendar: PropTypes.shape({
+            recomendar: PropTypes.shape({
                 text: PropTypes.string
             })
         })

@@ -25,7 +25,7 @@ describe('Liftigniter', () => {
             },
             syndication: { search: false, external_distribution: false },
             label: {
-                no_recomendar: {
+                recomendar: {
                     text: false
                 }
             }
