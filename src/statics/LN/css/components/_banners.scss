@@ -21,6 +21,7 @@
         position: sticky;
         background: rgba(204, 204, 204, 0.2);
         top: 0;
+        z-index: 100;
 
         .--scrollUp & {
             top: $px-50;

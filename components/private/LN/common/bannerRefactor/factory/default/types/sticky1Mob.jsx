@@ -36,6 +36,9 @@ const Sticky1Mob = props => {
 
     const sticky1 = useRef();
 
+    const { device } = props;
+    if (device !== 'mobile') return null;
+
     useLayoutEffect(() => {
         const sticky2 = document.getElementById('sticky2_mob').parentElement;
 
@@ -69,7 +72,6 @@ const Sticky1Mob = props => {
         slotId: id,
         slotName,
         dimensions,
-        device,
         dfpId,
         targeting,
         sticky,
