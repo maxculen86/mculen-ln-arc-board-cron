@@ -203,6 +203,10 @@ export default `
         primary_section ${section}
         seo_keywords
     }
+    syndication {
+        external_distribution
+        search
+    }
     related_content {
         basic {
             type

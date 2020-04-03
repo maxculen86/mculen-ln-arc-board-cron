@@ -29,6 +29,7 @@ exports[`features - La Nacion - components - common - BaseImage Test snapshot 1`
     <img
       alt="texto alternativo"
       class="content-img"
+      loading="lazy"
     />
   </picture>
 </a>

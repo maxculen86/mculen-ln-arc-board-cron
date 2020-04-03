@@ -8,20 +8,40 @@ import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
 import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import Livefyre from '../private/common/scriptManager/Livefyre';
+import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
 import Robot from '../private/common/robot';
+import pipe from '../private/common/utils/pipeUtil';
 
-const scriptList = {
-    GTM,
-    Comscore,
-    Microdata,
-    ArcAds,
-    FacebookSDK,
-    PostBid,
-    Livefyre
-};
+const scriptList = [
+    { component: { name: 'GTM', function: GTM }, feature: 'none' },
+    { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
+    { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
+    {
+        component: { name: 'ArcAds', function: ArcAds },
+        feature: [
+            'LN-common/banner',
+            'LN-nota/bannerStickyNota',
+            'LN-common/bannerTercera',
+            'LN-acumulado/bannerSticky'
+        ]
+    },
+    {
+        component: { name: 'FacebookSDK', function: FacebookSDK },
+        feature: ['LN-nota/share']
+    },
+    { component: { name: 'PostBid', function: PostBid }, feature: 'none' },
+    {
+        component: { name: 'Livefyre', function: Livefyre },
+        feature: ['LN-nota/comments']
+    },
+    {
+        component: { name: 'LiftIgniter', function: LiftIgniter },
+        feature: ['LN-nota/tePuedeInteresar']
+    }
+];
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -43,11 +63,43 @@ const Default = props => {
         MetaTags,
         metaValue,
         siteProperties,
+        renderables,
         globalContent
     } = props;
     const { canonical_url: canonicalUrl, subtype } = globalContent || {};
 
-    const Scripts = ScriptManager(scriptList, siteProperties.scripts);
+    const getPageBuilderFeatures = renderables =>
+        renderables.filter(renderable => renderable.collection === 'features');
+
+    const getScriptsFilterFunction = scripts => features =>
+        scripts
+            .filter(
+                script =>
+                    features.find(feature =>
+                        script.feature.includes(feature.type)
+                    ) !== undefined || script.feature === 'none'
+            )
+            .map(element => element.component)
+            .reduce(
+                (accumulator, value) => ({
+                    ...accumulator,
+                    [value.name]: value.function
+                }),
+                {}
+            );
+
+    const getScriptsToBeLoaded = getScriptsFilterFunction(scriptList);
+
+    const scripts = pipe(
+        getPageBuilderFeatures,
+        getScriptsToBeLoaded
+    )(renderables);
+
+    const Scripts = ScriptManager(
+        globalContent,
+        scripts,
+        siteProperties.scripts
+    );
 
     return (
         <html lang="es">
@@ -57,7 +109,7 @@ const Default = props => {
                 </title>
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
-                <Scripts location="head" />
+                <Scripts location="head" {...props} />
                 <MetaTags />
                 <Robot
                     subtype={subtype}

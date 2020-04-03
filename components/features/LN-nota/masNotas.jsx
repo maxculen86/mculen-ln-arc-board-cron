@@ -20,7 +20,7 @@ const masNotas = props => {
 masNotas.label = 'LN-Nota-masNotas';
 
 masNotas.propTypes = {
-    cantidadNotas: PropTypes.number.isRequired,
+    cantidadNotas: PropTypes.number,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
         filter: PropTypes.oneOf(Object.keys(MasNotas.filterTypes)).tag({

@@ -11,8 +11,6 @@ export default class Livefyre extends Component {
     }
 
     render() {
-        return (
-            <script async defer src="https://cdn.livefyre.com/Livefyre.js" />
-        );
+        return <script src="https://cdn.livefyre.com/Livefyre.js" />;
     }
 }

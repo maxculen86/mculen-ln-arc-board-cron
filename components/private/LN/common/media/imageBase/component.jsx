@@ -33,7 +33,12 @@ const imageBase = ({
                         />
                     );
                 })}
-            <img src={urlDefault} className="content-img" alt={altText} />
+            <img
+                src={urlDefault}
+                className="content-img"
+                loading="lazy"
+                alt={altText}
+            />
         </Placeholder>
     );
     return pic;

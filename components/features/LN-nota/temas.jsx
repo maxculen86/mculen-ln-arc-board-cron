@@ -2,16 +2,17 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 
-import Temas from '../../private/LN/nota/apertura/sections';
+import Temas from '../../private/LN/nota/apertura/tags';
 
 const temas = props => {
     const {
         globalContent: { taxonomy },
         id: featureId
     } = props;
+    const { tags } = taxonomy || {};
     return (
         <Static id={featureId}>
-            <Temas taxonomy={taxonomy} destacado temas />
+            <Temas tags={tags} destacado temas />
         </Static>
     );
 };
