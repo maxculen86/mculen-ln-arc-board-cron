@@ -53,7 +53,12 @@ const index = props => {
             break;
     }
 
-    const size = cantidadNotas || 30;
+    const getTripleSize = size => ({
+        tripleSize: size * 3,
+        originalSize: size
+    });
+
+    const size = getTripleSize(cantidadNotas || 30);
     let sectionId = null;
     let excludeSectionId = false;
     if (filter === '1') sectionId = _id;
@@ -64,7 +69,7 @@ const index = props => {
         _id && (
             <ArticleList
                 title={title}
-                size={size + 1}
+                size={size}
                 sectionId={sectionId}
                 website={_website}
                 destination="article"
