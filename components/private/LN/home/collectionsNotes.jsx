@@ -3,6 +3,15 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import NoteCard from './components/noteCard/noteCard';
 
+const getNoteCard = (key, content, isOpening, type) => (
+    <NoteCard
+        key={key}
+        content={content}
+        isOpening={isOpening}
+        belongsTo={type}
+    />
+);
+
 const CollectionsNotes = (idCollection, type) => {
     const content = useContent({
         source: 'collectionsV2Source',
@@ -13,14 +22,14 @@ const CollectionsNotes = (idCollection, type) => {
         const { content_elements: contentElements } = content;
         const elements =
             content && contentElements
-                ? contentElements.map((_content, index) => (
-                      <NoteCard
-                          key={`${idCollection}${index}`}
-                          content={_content}
-                          isOpening={index === 0}
-                          belongsTo={type}
-                      />
-                  ))
+                ? contentElements.map((_content, index) =>
+                      getNoteCard(
+                          `${idCollection}${index}`,
+                          _content,
+                          index === 0,
+                          type
+                      )
+                  )
                 : [];
         return elements;
     }

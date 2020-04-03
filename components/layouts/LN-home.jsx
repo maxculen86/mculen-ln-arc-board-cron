@@ -20,6 +20,18 @@ import '../../resources/dist/css/ln/components/hour.css';
 
 const section = ['Sección Apertura', 'Sección Caja de Tema'];
 
+const getNotificacion = error => (
+    <div
+        style={{
+            marginTop: '10px',
+            marginBottom: '10px',
+            width: '100%'
+        }}
+    >
+        <PageBuilderMessage type={error.type} message={error.message} />
+    </div>
+);
+
 const LNHomeLayout = ({ isAdmin, children, renderables }) => {
     const [errors, setErrors] = useState();
 
@@ -39,12 +51,7 @@ const LNHomeLayout = ({ isAdmin, children, renderables }) => {
         sectionErrors &&
         sectionErrors.map((errorElements, index) =>
             errorElements.length && isAdmin
-                ? errorElements.map(error => (
-                      <PageBuilderMessage
-                          type={error.type}
-                          message={error.message}
-                      />
-                  ))
+                ? errorElements.map(error => getNotificacion(error))
                 : children[index]
         );
     return (
