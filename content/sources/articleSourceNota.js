@@ -7,7 +7,7 @@ import {
 } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
-
+import addAspectRatio from './utils/getRatio';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
@@ -16,7 +16,6 @@ import Redirect from './utils/redirect';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
-
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
 
@@ -38,7 +37,6 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
-
     return request(opt).then(response => {
         if (response.type === 'redirect' && response.redirect_url) {
             throw new Redirect(response.redirect_url, 301);
@@ -58,16 +56,23 @@ const transform = (data, siteProps) => {
     const presetsXL = get(properties, `imageConfig.resize.xl`, null);
     const presetsL = get(properties, `imageConfig.resize.l`, null);
 
+    const notesWithRatio = ['1', '7'];
+
+    // Si el subType es recetas o noticias applico el ratio
+
+    const promoItemsRatio =
+        notesWithRatio.indexOf(data.subtype) === 0
+            ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
+            : presetsXL.promo_items.size || presetsDefault.size;
     const resp = addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
         resizerUrl: RESIZER_URL,
         presets: {
-            promoItems: presetsXL.promo_items || presetsDefault,
+            promoItems: promoItemsRatio,
             contentElements: presetsL.content_elements || presetsDefault,
             presetsDefault
         }
     });
-
     return transformContent(resp, arcSite);
 };
 
@@ -163,7 +168,7 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
             return resp;
         })
         .catch(e => {
-            console.log('TCL: addFollowAnotherNoteData -> e', e);
+            // console.log('TCL: addFollowAnotherNoteData -> e', e);
         });
 };
 

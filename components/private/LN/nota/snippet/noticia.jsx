@@ -24,6 +24,7 @@ const SnippetNoticia = props => {
         deployment
     } = props;
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
+    const { path, name } = primarySection || {};
 
     const authors = by
         ? by
@@ -41,8 +42,8 @@ const SnippetNoticia = props => {
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
         dateModified: `${new Date(displayDate).toUTCString() || ''}`,
-        mainEntityOfPage: `${siteProperties.host}${primarySection.path || ''}`,
-        articleSection: `${primarySection.name || ''}`,
+        mainEntityOfPage: `${siteProperties.host}${path || ''}`,
+        articleSection: `${name || ''}`,
         isAccessibleForFree: '',
         hasPart: {
             '@type': '',

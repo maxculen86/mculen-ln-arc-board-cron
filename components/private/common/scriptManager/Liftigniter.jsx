@@ -12,17 +12,15 @@ class LiftIgniter extends Component {
     render() {
         const {
             globalContent: {
-                taxonomy: {
-                    primary_section: { name: tematica },
-                    tags
-                },
-                syndication: { search, external_distribution }
+                taxonomy: { primary_section: primarySection, tags },
+                label
             }
         } = this.props;
+        const { name: tematica } = primarySection || {};
 
         const script = {
-            noShow: true, // syndication.search || false
-            noIndex: true, // syndication.search || false
+            noShow: true,
+            noIndex: label.recomendar ? Boolean(label.recomendar.text) : true,
             tematica,
             tags: tags.map(tag => tag.text)
         };
@@ -54,9 +52,14 @@ LiftIgniter.propTypes = {
                 })
             )
         }),
-        syndication: PropTypes.shape({
+        /* syndication: PropTypes.shape({
             external_distribution: PropTypes.bool,
             search: PropTypes.bool
+        }), */
+        label: PropTypes.shape({
+            recomendar: PropTypes.shape({
+                text: PropTypes.string
+            })
         })
     })
 };
