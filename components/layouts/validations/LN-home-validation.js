@@ -13,7 +13,7 @@ const validateLayoutChildren = (renderables, config) => {
                     return !sectionConfig.allowedChains.includes(child.type)
                         ? {
                               type: 'warning',
-                              message: `El Chain ${child.type} no es soportado por la ${sectionConfig.name}`
+                              message: `El componente ${child.type} no es soportado por la ${sectionConfig.name}`
                           }
                         : null;
                 })

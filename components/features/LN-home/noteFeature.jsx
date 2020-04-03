@@ -18,12 +18,19 @@ const validateIsOpening = (tree, id) => {
 };
 
 const validateNoteFeature = (id, content) => {
-    return !id
-        ? {
-              type: 'warning',
-              message: 'El campo Id de la Nota es obligatorio.'
-          }
-        : null;
+    let error;
+    if (!content)
+        error = {
+            type: 'info',
+            message: 'Cargando...'
+        };
+
+    if (!id)
+        error = {
+            type: 'warning',
+            message: 'El campo Id de la Nota es obligatorio.'
+        };
+    return error;
 };
 
 const NoteFeature = ({ isAdmin, customFields, id: idNoteFeature, tree }) => {
@@ -32,8 +39,8 @@ const NoteFeature = ({ isAdmin, customFields, id: idNoteFeature, tree }) => {
     const { noteId: id } = customFields;
 
     const content = useContent({
-        source: 'articleSourceNota',
-        query: { id }
+        source: 'articleSourceHome',
+        query: { id, published: true }
     });
 
     useEffect(() => {
@@ -43,7 +50,13 @@ const NoteFeature = ({ isAdmin, customFields, id: idNoteFeature, tree }) => {
 
     if (isAdmin && !!error) {
         return (
-            <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+            <div
+                style={{
+                    marginTop: '10px',
+                    marginBottom: '10px',
+                    width: '100%'
+                }}
+            >
                 <PageBuilderMessage
                     key={idNoteFeature}
                     type={error.type}
@@ -53,19 +66,19 @@ const NoteFeature = ({ isAdmin, customFields, id: idNoteFeature, tree }) => {
         );
     }
 
-    // if (!content) throw Error(`No se encuentran resultados para el id ${id}.`);
-
     // Se agrega el belongsTo como 'apertura' porque por el momento solo apertura puede ser de tipo manual
-    return (
-        // <Static id={idNoteFeature}>
-        <NoteCard
-            content={content}
-            customFields={customFields}
-            belongsTo="apertura"
-            isOpening={isOpening}
-        />
-        // </Static>
-    );
+    if (!error)
+        return (
+            // <Static id={idNoteFeature}>
+            <NoteCard
+                content={content}
+                customFields={customFields}
+                belongsTo="apertura"
+                isOpening={isOpening}
+            />
+            // </Static>
+        );
+    return <></>;
 };
 
 NoteFeature.label = 'LN Home NoteCard';
@@ -73,7 +86,9 @@ NoteFeature.label = 'LN Home NoteCard';
 NoteFeature.propTypes = {
     isAdmin: PropTypes.bool.isRequired,
     id: PropTypes.string.isRequired,
-    tree: PropTypes.arrayOf(PropTypes.object),
+    tree: PropTypes.shape({
+        children: PropTypes.array
+    }).isRequired,
     customFields: PropTypes.shape({
         noteId: PropTypes.string.tag({
             name: 'Ingresar id de nota',

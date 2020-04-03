@@ -40,23 +40,33 @@ const NoteCard = ({
         setAuthors(getAuthors(customFields, content));
         setImageId(getImageId(customFields, content, belongsTo));
         setUrl(getUrl(content));
-    }, [content, customFields, belongsTo]);
-
-    useEffect(() => {
         setError(
-            validateNoteCard(isOpening, belongsTo, title, imageId, subhead)
+            validateNoteCard(
+                isOpening,
+                belongsTo,
+                title,
+                imageId,
+                subhead,
+                content
+            )
         );
-    }, [belongsTo, imageId, isOpening, subhead, title]);
-
-    // if (!content) throw Error('No se encontró contenido');
+    }, [content, customFields, belongsTo, isOpening, title, imageId, subhead]);
 
     if (isAdmin && !!error) {
         return (
-            <PageBuilderMessage
-                key={featureId}
-                type={error.type}
-                message={error.message}
-            />
+            <div
+                style={{
+                    marginTop: '10px',
+                    marginBottom: '10px',
+                    width: '100%'
+                }}
+            >
+                <PageBuilderMessage
+                    key={featureId}
+                    type={error.type}
+                    message={error.message}
+                />
+            </div>
         );
     }
 

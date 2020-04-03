@@ -8,33 +8,76 @@ import ThemeBox from '../private/LN/home/components/ThemeBox/themeBox';
 import CollectionsNotes from '../private/LN/home/collectionsNotes';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
+const validate = (idCollection, notesQuantity) => {
+    let error;
+    if (!notesQuantity)
+        error = {
+            type: 'warning',
+            message:
+                'Se requiere el número de notas a mostrar en la caja de temas'
+        };
+    if (!idCollection)
+        error = {
+            type: 'warning',
+            message: 'Se requiere el id de la colección de la caja de temas'
+        };
+    return error;
+};
+
 const CajaTema = ({
     id: featureId,
     isAdmin,
     customFields: { idCollection, title, notesQuantity }
 }) => {
-    const error = idCollection
-        ? null
-        : {
-              type: 'warning',
-              message: 'Se requiere el id de la colección de la caja de temas'
-          };
+    const error = validate(idCollection, notesQuantity);
 
     if (isAdmin && !!error) {
         return (
-            <PageBuilderMessage
-                key={featureId}
-                type={error.type}
-                message={error.message}
-            />
+            <div
+                style={{
+                    marginTop: '10px',
+                    marginBottom: '10px',
+                    width: '100%'
+                }}
+            >
+                <PageBuilderMessage
+                    key={featureId}
+                    type={error.type}
+                    message={error.message}
+                />
+            </div>
         );
     }
 
     const notes = CollectionsNotes(idCollection, 'caja tema');
-    const limit = parseInt(notesQuantity.charAt(0), 10);
-    const elements = notes ? notes.slice(0, limit) : null;
+    const limit = notesQuantity ? parseInt(notesQuantity.charAt(0), 10) : null;
+    const missingNotes = notes ? limit - notes.length : limit;
 
-    if (elements)
+    if (isAdmin && notes && missingNotes) {
+        for (let i = 0; i <= missingNotes; i += 1) {
+            notes.push(
+                <div
+                    style={{
+                        marginTop: '10px',
+                        marginBottom: '10px',
+                        width: '100%'
+                    }}
+                >
+                    <PageBuilderMessage
+                        key={`${featureId}${i}`}
+                        type="warning"
+                        message={`Falta cargar ${missingNotes} nota${
+                            missingNotes > 1 ? 's' : ''
+                        }`}
+                    />
+                </div>
+            );
+        }
+    }
+
+    const elements = notes && limit ? notes.slice(0, limit) : null;
+
+    if (elements && elements.length >= limit)
         return (
             // <Static id={featureId}>
             <div className="row hlp-margintop-50">

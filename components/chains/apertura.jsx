@@ -8,9 +8,13 @@ import FocalFactory from '../private/LN/home/templatesContainers/focalFactory';
 import CollectionsNotes from '../private/LN/home/collectionsNotes';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
-const validateChildren = (children, childProps) => {
+const validate = (children, childProps, idCollection, directionFocal) => {
     let error;
-    if (['array', 'object'].indexOf(typeof children) && !children.length)
+    if (
+        ['array', 'object'].indexOf(typeof children) &&
+        !children.length &&
+        !idCollection
+    )
         error = {
             type: 'warning',
             message:
@@ -29,6 +33,12 @@ const validateChildren = (children, childProps) => {
                         'El Chain Apertura sólo admite Features del tipo LN Home NoteCard'
                 };
         });
+
+    if (!directionFocal)
+        error = {
+            type: 'warning',
+            message: 'Seleccione la dirección focal de la apertura'
+        };
     return error;
 };
 
@@ -39,29 +49,63 @@ const Apertura = ({
     childProps,
     customFields: { idCollection, directionFocal }
 }) => {
-    const error = validateChildren(children, childProps);
-
-    const notes =
-        idCollection && idCollection !== ''
-            ? CollectionsNotes(idCollection, 'apertura')
-            : children;
+    const error = validate(children, childProps, idCollection, directionFocal);
 
     if (isAdmin && !!error) {
         return (
-            <PageBuilderMessage
-                key={featureId}
-                type={error.type}
-                message={error.message}
-            />
+            <div
+                style={{
+                    marginTop: '10px',
+                    marginBottom: '10px',
+                    width: '100%'
+                }}
+            >
+                <PageBuilderMessage
+                    key={featureId}
+                    type={error.type}
+                    message={error.message}
+                />
+            </div>
         );
     }
-    if (notes)
+
+    const notes = idCollection
+        ? CollectionsNotes(idCollection, 'apertura')
+        : children;
+
+    const missingNotes = notes ? 6 - notes.length : 6;
+
+    if (isAdmin && notes && missingNotes) {
+        for (let i = 0; i <= missingNotes; i += 1) {
+            notes.push(
+                <div
+                    style={{
+                        marginTop: '10px',
+                        marginBottom: '10px',
+                        width: '100%'
+                    }}
+                >
+                    <PageBuilderMessage
+                        key={`${featureId}${i}`}
+                        type="warning"
+                        message={`Falta cargar ${missingNotes} nota${
+                            missingNotes > 1 ? 's' : ''
+                        }`}
+                    />
+                </div>
+            );
+        }
+    }
+
+    const elements = notes && 6 ? notes.slice(0, 6) : null;
+
+    if (elements && elements.length >= 6 && !error)
         return (
             // <Static id={featureId}>
             <div className="row hlp-margintop-50">
                 <div className="lay">
                     <FocalFactory directionFocal={directionFocal}>
-                        {notes}
+                        {elements}
                     </FocalFactory>
                 </div>
             </div>

@@ -85,14 +85,14 @@ describe('Test de funcionalidad LN-home-validation del layout - <LNHomeLayout />
             {
                 type: 'warning',
                 message:
-                    'El Chain cajaTema no es soportado por la Sección Apertura'
+                    'El componente cajaTema no es soportado por la Sección Apertura'
             }
         ],
         [
             {
                 type: 'warning',
                 message:
-                    'El Chain apertura no es soportado por la Sección Caja de Tema'
+                    'El componente apertura no es soportado por la Sección Caja de Tema'
             }
         ]
     ];

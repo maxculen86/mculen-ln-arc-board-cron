@@ -13,6 +13,10 @@ describe('Test de funcionalidad validateNoteCard del componente - <NoteCard />',
         message:
             'El título e imagen son obligatorios para un artículo de apertura'
     };
+    const invalidContent = {
+        type: 'warning',
+        message: 'No se encontró contenido'
+    };
 
     it('Validación de una nota común sin imagen ni bajada', () => {
         const isOpening = false;
@@ -20,8 +24,22 @@ describe('Test de funcionalidad validateNoteCard del componente - <NoteCard />',
         const title = 'Un título.';
         const imageId = undefined;
         const subhead = undefined;
+        const content = {
+            isOpening,
+            belongsTo,
+            title,
+            imageId,
+            subhead
+        };
         expect(
-            validateNoteCard(isOpening, belongsTo, title, imageId, subhead)
+            validateNoteCard(
+                isOpening,
+                belongsTo,
+                title,
+                imageId,
+                subhead,
+                content
+            )
         ).toStrictEqual(invalidNoteCard);
     });
     it('Validación de una nota apertura sin imagen', () => {
@@ -30,34 +48,119 @@ describe('Test de funcionalidad validateNoteCard del componente - <NoteCard />',
         const title = 'Un título.';
         const imageId = undefined;
         const subhead = 'Una bajada.';
+        const content = {
+            isOpening,
+            belongsTo,
+            title,
+            imageId,
+            subhead
+        };
         expect(
-            validateNoteCard(isOpening, belongsTo, title, imageId, subhead)
+            validateNoteCard(
+                isOpening,
+                belongsTo,
+                title,
+                imageId,
+                subhead,
+                content
+            )
         ).toStrictEqual(invalidApertura);
     });
     it('Validación de una nota común sin errores', () => {
-        let isOpening = false;
-        let belongsTo = 'apertura';
-        let title = 'Un título.';
+        const isOpening = false;
+        const belongsTo = 'apertura';
+        const title = 'Un título.';
         let imageId = 'id_imagen';
         let subhead = undefined;
+        const content = {
+            isOpening,
+            belongsTo,
+            title,
+            imageId,
+            subhead
+        };
         expect(
-            validateNoteCard(isOpening, belongsTo, title, imageId, subhead)
-        ).toStrictEqual(null);
+            validateNoteCard(
+                isOpening,
+                belongsTo,
+                title,
+                imageId,
+                subhead,
+                content
+            )
+        ).toStrictEqual(undefined);
 
         imageId = undefined;
         subhead = 'Una Bajada.';
         expect(
-            validateNoteCard(isOpening, belongsTo, title, imageId, subhead)
-        ).toStrictEqual(null);
+            validateNoteCard(
+                isOpening,
+                belongsTo,
+                title,
+                imageId,
+                subhead,
+                content
+            )
+        ).toStrictEqual(undefined);
     });
     it('Validación de una nota apertura sin errores', () => {
-        let isOpening = true;
-        let belongsTo = 'apertura';
-        let title = 'Un título.';
-        let imageId = 'id_imagen';
-        let subhead = 'Una bajada.';
+        const isOpening = true;
+        const belongsTo = 'apertura';
+        const title = 'Un título.';
+        const imageId = 'id_imagen';
+        const subhead = 'Una bajada.';
+        const content = {
+            isOpening,
+            belongsTo,
+            title,
+            imageId,
+            subhead
+        };
         expect(
-            validateNoteCard(isOpening, belongsTo, title, imageId, subhead)
-        ).toStrictEqual(null);
+            validateNoteCard(
+                isOpening,
+                belongsTo,
+                title,
+                imageId,
+                subhead,
+                content
+            )
+        ).toStrictEqual(undefined);
+    });
+    it('Validación de una nota sin contenido', () => {
+        const isOpening = false;
+        const belongsTo = 'apertura';
+        const title = 'Un título.';
+        const imageId = 'id_imagen';
+        const subhead = undefined;
+        let content = undefined;
+        expect(
+            validateNoteCard(
+                isOpening,
+                belongsTo,
+                title,
+                imageId,
+                subhead,
+                content
+            )
+        ).toStrictEqual(invalidContent);
+
+        content = {
+            isOpening,
+            belongsTo,
+            title,
+            imageId,
+            subhead
+        };
+        expect(
+            validateNoteCard(
+                isOpening,
+                belongsTo,
+                title,
+                imageId,
+                subhead,
+                content
+            )
+        ).toStrictEqual(undefined);
     });
 });
