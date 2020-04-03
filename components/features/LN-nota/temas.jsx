@@ -6,11 +6,10 @@ import Temas from '../../private/LN/nota/apertura/tags';
 
 const temas = props => {
     const {
-        globalContent: {
-            taxonomy: { tags }
-        },
+        globalContent: { taxonomy },
         id: featureId
     } = props;
+    const { tags } = taxonomy || {};
     return (
         <Static id={featureId}>
             <Temas tags={tags} destacado temas />
