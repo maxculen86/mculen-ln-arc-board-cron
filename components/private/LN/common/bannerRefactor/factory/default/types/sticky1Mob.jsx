@@ -10,13 +10,9 @@ import { slotsConfig } from '../../../config';
 
 import Sticky2Mob from './sticky2Mob';
 
-const isVisibleInViewport = element => {
+const isNotVisibleInViewport = element => {
     const bounds = element.getBoundingClientRect();
-    return (
-        bounds.top >= 0 &&
-        bounds.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight)
-    );
+    return bounds.top < -100 && bounds.bottom < 0;
 };
 
 const hideElement = element => {
@@ -49,14 +45,11 @@ const Sticky1Mob = props => {
             if (windowY < scrollPos.current) {
                 // scrolls up
                 scrollPos.current = windowY;
-                if (isVisibleInViewport(sticky1.current)) {
-                    // if sticky one is in the viewport
-                    hideElement(sticky2);
-                }
+                hideElement(sticky2);
             } else if (windowY >= scrollPos.current) {
                 // scrolls down
                 scrollPos.current = windowY;
-                if (!isVisibleInViewport(sticky1.current)) {
+                if (isNotVisibleInViewport(sticky1.current)) {
                     // if sticky one is out of the viewport
                     showElement(sticky2);
                 }
@@ -66,7 +59,7 @@ const Sticky1Mob = props => {
         window.addEventListener('scroll', handleScroll);
 
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [scrollPos.current]);
+    }, []);
 
     const {
         slotId: id,
