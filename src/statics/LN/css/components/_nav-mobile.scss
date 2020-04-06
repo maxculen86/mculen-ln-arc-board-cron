@@ -41,6 +41,9 @@
                 color: $ln;
             }
         }
+        &:first-child {
+            margin: -$px-5;
+        }
     }
     //scrollUp
     &.--scrollDown {
