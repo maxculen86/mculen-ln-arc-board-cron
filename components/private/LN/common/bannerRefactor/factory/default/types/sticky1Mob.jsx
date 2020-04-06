@@ -16,14 +16,20 @@ const isNotVisibleInViewport = element => {
 };
 
 const hideElement = element => {
-    if (window.getComputedStyle(element).display !== 'none') {
+    /* if (window.getComputedStyle(element).display !== 'none') {
         element.style.display = 'none';
+    } */
+    if (element.classList.contains('--active')) {
+        element.classList.remove('--active');
     }
 };
 
 const showElement = element => {
-    if (window.getComputedStyle(element).display !== 'flex') {
+    /* if (window.getComputedStyle(element).display !== 'flex') {
         element.style.display = 'flex';
+    } */
+    if (!element.classList.contains('--active')) {
+        element.classList.add('--active');
     }
 };
 
