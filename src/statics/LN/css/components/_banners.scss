@@ -20,16 +20,18 @@
         position: -webkit-sticky;
         position: sticky;
         background: rgba(204, 204, 204, 0.2);
+        background-color: #f3f3f3;
+        z-index: 130;
         top: 0;
-        z-index: 100;
+        display: none;
 
         .--scrollUp & {
-            top: $px-50;
+            display: none;
         }
 
         &.--active {
-            #wrapper.--scrollDown & {
-                top: 0;
+            .--scrollDown & {
+                display: flex;
             }
         }
     }
