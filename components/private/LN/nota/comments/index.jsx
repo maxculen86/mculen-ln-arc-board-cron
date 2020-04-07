@@ -48,8 +48,6 @@ const Comments = props => {
         [label]
     );
 
-    if (!oldID) return null;
-
     const metadata = useMemo(
         () => ({
             articleId: oldID || _id,
