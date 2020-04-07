@@ -1,5 +1,5 @@
 import { parse } from 'node-html-parser';
-import walkerBuilder from '../../../../common/utils/walker';
+import walkerBuilder from '../../../../../common/utils/walker';
 
 const htmlText = text => {
     const rootTagName = 'root';

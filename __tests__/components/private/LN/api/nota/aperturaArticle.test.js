@@ -1,16 +1,16 @@
-jest.mock('../../../../../../components/private/LN/api/nota/image', () => {
+jest.mock('../../../../../../components/private/LN/api/v1/nota/image', () => {
     return () => {
         return 'image-mock';
     };
 });
-jest.mock('../../../../../../components/private/LN/api/nota/video', () => {
+jest.mock('../../../../../../components/private/LN/api/v1/nota/video', () => {
     return () => {
         return 'video-mock';
     };
 });
 
 jest.mock(
-    '../../../../../../components/private/LN/api/nota/aperturaReceta',
+    '../../../../../../components/private/LN/api/v1/nota/aperturaReceta',
     () => {
         return () => {
             return 'receta-mock';
@@ -18,7 +18,7 @@ jest.mock(
     }
 );
 
-import Apertura from '../../../../../../components/private/LN/api/nota/aperturaArticle';
+import Apertura from '../../../../../../components/private/LN/api/v1/nota/aperturaArticle';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 
 describe('Test de JSON de apertura en article', () => {
