@@ -51,7 +51,7 @@ class AcuSection {
 
         this.versions = {
             1: IndexAcuV1,
-            Default: () => IndexAcuV1
+            Default: IndexAcuV1
         };
     }
 
