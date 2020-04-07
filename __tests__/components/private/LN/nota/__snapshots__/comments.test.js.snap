@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comments Matches snapshot 1`] = `
+<section
+  class="comments"
+  data-module="nota-sugeridas-comentarios"
+  id="comentarios"
+>
+  <div
+    class="techo"
+  >
+    <div
+      data-entrada="RDCAIGB3WNHJVHSBLDT367MU3Q"
+      data-id="eyJhbGciOiJIUzI1NiJ9.MTU1NjY5YWZmMmUyYWE0NjJjMWE1ZjI1MWI5YTEwM2U.IRuyevM6kT8BK5BTyQ64JRkBQsCj00_L4gqzpSlS72U"
+      data-lf-siteid="356483"
+      id="tokenLF"
+    />
+    <h4
+      class="comment-title"
+    >
+      Enviá 
+      <b>
+        tu comentario 
+      </b>
+      <button
+        class="item_link ver-legales"
+        type="button"
+      >
+         Ver legales
+      </button>
+    </h4>
+  </div>
+  <div
+    id="livefyre"
+  />
+</section>
+`;

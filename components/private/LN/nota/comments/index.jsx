@@ -32,7 +32,7 @@ const Comments = props => {
         termicas
     } = props;
 
-    if (!termicas.livefyre) return <></>;
+    //if (!termicas.livefyre) return <></>;
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
