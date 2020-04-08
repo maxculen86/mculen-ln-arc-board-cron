@@ -22,6 +22,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
         resizeOptions,
         focalPoint
     ) => {
+        console.log('arcImage ************ ', originalUrl);
         if (!resizeOptions.width && !resizeOptions.height)
             throw new Error(
                 'Se requiere width o heigth para realizar el resize'
@@ -44,7 +45,8 @@ export const createResizer = (resizerKey, resizerUrl) => {
 
         const { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
 
-        return thumbor.resize(newWidth, newHeight).buildUrl();
+        // return thumbor.resize(newWidth, newHeight).buildUrl();
+        return getCanonincalURL(thumbor.resize(newWidth, newHeight).buildUrl());
     };
 
     const resizeUrls = (

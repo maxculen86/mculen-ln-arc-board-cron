@@ -18,6 +18,9 @@ const resolve = (key, a) => {
     const { url, id, published } = key;
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
+    console.log('resolve -> basePath ********************', CONTENT_BASE);
+
+    //console.log("location ********************", window)
 
     if (published) basePath = `${basePath}&published=${published}`;
 
@@ -38,6 +41,7 @@ const fetch = query => {
         };
     }
     return request(opt).then(response => {
+        console.log('response ********************', response);
         if (response.type === 'redirect' && response.redirect_url) {
             throw new Redirect(response.redirect_url, 301);
         }
