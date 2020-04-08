@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-undef */
 import React, {
     useEffect,
@@ -29,10 +30,13 @@ const Comments = props => {
         logueado,
         loginData,
         deployment,
-        termicas
+        termicas,
+        testing
     } = props;
 
-    //if (!termicas.livefyre) return <></>;
+    if (!testing) {
+        if (!termicas.livefyre) return <></>;
+    }
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
@@ -310,7 +314,8 @@ Comments.propTypes = {
     deployment: PropTypes.func.isRequired,
     termicas: PropTypes.shape({
         livefyre: PropTypes.bool
-    }).isRequired
+    }).isRequired,
+    testing: PropTypes.bool
 };
 
-export default Consumer(withNavigation(withLoginData(Comments)));
+export default withNavigation(withLoginData(Comments));

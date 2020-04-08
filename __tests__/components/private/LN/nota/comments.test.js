@@ -1,4 +1,5 @@
 import Consumer from 'fusion:consumer';
+
 import React from 'react';
 import { render, mount } from 'enzyme';
 
@@ -24,6 +25,10 @@ global.Livefyre = {
     require: () => {}
 };
 
+global.termicas = {
+    livefyre: true
+};
+
 describe('Comments', () => {
     const props = {
         globalContent: {
@@ -38,12 +43,13 @@ describe('Comments', () => {
         },
         deployment: () => {},
         termicas: {
-            livefyre: true
+            livefyre: true,
+            comentarios: true
         }
     };
 
     it('Matches snapshot', () => {
-        const comments = render(<Comments {...props} />);
+        const comments = render(<Comments {...props} testing />);
         expect(comments).toMatchSnapshot();
     });
 

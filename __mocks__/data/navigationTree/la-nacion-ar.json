@@ -2,7 +2,11 @@
     "_id": "/",
     "Termicas": {
         "comentarios": "false",
-        "debug": "true"
+        "debug": "true",
+        "livefyre": "true",
+        "banners": "true",
+        "liftigniter": "true",
+        "testing": "true"
     },
     "bannerConfig": {
         "dfp_id": "133919216"
