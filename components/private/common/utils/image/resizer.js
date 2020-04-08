@@ -1,7 +1,7 @@
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
 import get from 'lodash.get';
-import { IS_DEV } from 'fusion:environment';
+import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
 // import getProperties from 'fusion:properties';
 // import { useAppContext } from 'fusion:context';
 
@@ -44,9 +44,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
         thumbor.setImagePath(cleanedUrl);
 
         const { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
-        console.log('IS_DEV *************** ', IS_DEV);
-        console.log('IS_DEV *************** ', typeof IS_DEV);
-        return IS_DEV === 'true'
+        return IS_DEV === 'true' || IS_SANDBOX === 'true'
             ? thumbor.resize(newWidth, newHeight).buildUrl()
             : getCanonincalURL(thumbor.resize(newWidth, newHeight).buildUrl());
     };
@@ -115,13 +113,30 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
 
     return {
         ...arcImage,
-        url: getCanonincalURL(
-            resizer.resizeUrl(arcImage.url, arcImage.width, arcImage.height, {
-                width: 768,
-                height: 513,
-                media: '(min-width: 768px)'
-            })
-        ),
+        url:
+            IS_DEV === 'true' || IS_SANDBOX === 'true'
+                ? resizer.resizeUrl(
+                      arcImage.url,
+                      arcImage.width,
+                      arcImage.height,
+                      {
+                          width: 768,
+                          height: 513,
+                          media: '(min-width: 768px)'
+                      }
+                  )
+                : getCanonincalURL(
+                      resizer.resizeUrl(
+                          arcImage.url,
+                          arcImage.width,
+                          arcImage.height,
+                          {
+                              width: 768,
+                              height: 513,
+                              media: '(min-width: 768px)'
+                          }
+                      )
+                  ),
         resized_urls: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
