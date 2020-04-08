@@ -7,7 +7,7 @@ import {
 } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
-
+import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import Redirect from './utils/redirect';
@@ -81,5 +81,6 @@ export default {
         id: 'text',
         published: 'text'
     },
-    filter
+    filter,
+    ttl: sourceSetting.articleSourceHome.ttl
 };
