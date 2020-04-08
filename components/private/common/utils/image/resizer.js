@@ -1,6 +1,7 @@
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
 import get from 'lodash.get';
+import { IS_DEV } from 'fusion:environment';
 // import getProperties from 'fusion:properties';
 // import { useAppContext } from 'fusion:context';
 
@@ -22,7 +23,6 @@ export const createResizer = (resizerKey, resizerUrl) => {
         resizeOptions,
         focalPoint
     ) => {
-        console.log('arcImage ************ ', originalUrl);
         if (!resizeOptions.width && !resizeOptions.height)
             throw new Error(
                 'Se requiere width o heigth para realizar el resize'
@@ -44,9 +44,11 @@ export const createResizer = (resizerKey, resizerUrl) => {
         thumbor.setImagePath(cleanedUrl);
 
         const { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
-
-        // return thumbor.resize(newWidth, newHeight).buildUrl();
-        return getCanonincalURL(thumbor.resize(newWidth, newHeight).buildUrl());
+        console.log('IS_DEV *************** ', IS_DEV);
+        console.log('IS_DEV *************** ', typeof IS_DEV);
+        return IS_DEV === 'true'
+            ? thumbor.resize(newWidth, newHeight).buildUrl()
+            : getCanonincalURL(thumbor.resize(newWidth, newHeight).buildUrl());
     };
 
     const resizeUrls = (
