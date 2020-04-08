@@ -1,7 +1,8 @@
 import Consumer from 'fusion:consumer';
 
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 jest.mock(
     '../../../../../components/private/common/hocs/withNavigation',
@@ -25,10 +26,6 @@ global.Livefyre = {
     require: () => {}
 };
 
-global.termicas = {
-    livefyre: true
-};
-
 describe('Comments', () => {
     const props = {
         globalContent: {
@@ -49,8 +46,8 @@ describe('Comments', () => {
     };
 
     it('Matches snapshot', () => {
-        const comments = render(<Comments {...props} testing />);
-        expect(comments).toMatchSnapshot();
+        const comments = mount(<Comments {...props} />);
+        expect(toJson(comments)).toMatchSnapshot();
     });
 
     it('Receives props accordingly', () => {

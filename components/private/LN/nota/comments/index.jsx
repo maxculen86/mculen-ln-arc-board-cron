@@ -30,13 +30,10 @@ const Comments = props => {
         logueado,
         loginData,
         deployment,
-        termicas,
-        testing
+        termicas
     } = props;
 
-    if (!testing) {
-        if (!termicas.livefyre) return <></>;
-    }
+    if (!termicas.livefyre) return <></>;
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
@@ -314,8 +311,7 @@ Comments.propTypes = {
     deployment: PropTypes.func.isRequired,
     termicas: PropTypes.shape({
         livefyre: PropTypes.bool
-    }).isRequired,
-    testing: PropTypes.bool
+    }).isRequired
 };
 
 export default withNavigation(withLoginData(Comments));
