@@ -1,12 +1,12 @@
 import React from 'react';
-import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
-import WithNavigation from '../../hocs/WithNavigation';
-import { slotsConfig } from '../config';
-import Placeholder from '../placeholder';
+import WithScreenUtils from '../../../common/hocs/withScreenUtils';
+import WithNavigation from '../hocs/WithNavigation';
+import { slotsConfig } from './config';
+import Placeholder from './placeholder';
 
-import BannerManager from './banner';
+import BannerManager from './manager/banner';
 
-const DisplayManager = props => {
+const index = props => {
     const {
         siteProperties: {
             bannerConfig: { dfp_id: dfpID }
@@ -71,8 +71,8 @@ const DisplayManager = props => {
             />
         );
     }
-
+    console.log('llamamos a banner manager');
     return <BannerManager config={config} />;
 };
 
-export default WithNavigation(WithScreenUtils(DisplayManager));
+export default WithNavigation(WithScreenUtils(index));
