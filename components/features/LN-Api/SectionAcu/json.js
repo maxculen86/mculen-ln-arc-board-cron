@@ -49,9 +49,10 @@ class AcuSection {
             }
         });
 
+        // Responde al resolver que permite pasar las versiones existentes
+        // Regex actual: ^\/api\/v([1]+)\/notas\/bySection(\/((?!params).)+)\/(.*\/)$
         this.versions = {
-            1: IndexAcuV1,
-            Default: IndexAcuV1
+            1: IndexAcuV1
         };
     }
 
@@ -63,9 +64,9 @@ class AcuSection {
             globalContent: { name }
         } = this.props;
 
-        const indexAcu =
-            this.versions[browser.getApiVersion(this.props.requestUri)] ||
-            this.versions.Default;
+        const indexAcu = this.versions[
+            browser.getApiVersion(this.props.requestUri)
+        ];
 
         return indexAcu(name, articles, this.state.dataResp.next > 0);
     }

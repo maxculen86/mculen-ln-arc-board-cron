@@ -6,16 +6,17 @@ class JsonArticle {
     constructor(props) {
         this.props = props;
 
+        // Responde al resolver que permite pasar las versiones existentes
+        // Regex actual: ^/api/v([1]+)/notas/byId/(.+)/$
         this.versions = {
-            1: IndexNotaV1,
-            Default: IndexNotaV1
+            1: IndexNotaV1
         };
     }
 
     render() {
-        const indexNota =
-            this.versions[browser.getApiVersion(this.props.requestUri)] ||
-            this.versions.Default;
+        const indexNota = this.versions[
+            browser.getApiVersion(this.props.requestUri)
+        ];
 
         const { globalContent } = this.props;
         return indexNota(globalContent);
