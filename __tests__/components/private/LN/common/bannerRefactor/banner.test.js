@@ -13,6 +13,16 @@ jest.mock('fusion:context', Component => {
 
 import Context from 'fusion:context';
 
+jest.mock(
+    '../../../../../../components/private/common/hocs/withNavigation',
+    () => Comp => props => (Comp ? <Comp {...props} /> : null)
+);
+
+jest.mock(
+    '../../../../../../components/private/LN/common/hocs/withLoginData',
+    () => Comp => props => (Comp ? <Comp {...props} /> : null)
+);
+
 import Banner from '../../../../../../components/private/LN/common/bannerRefactor';
 
 describe('Banner', () => {
@@ -37,7 +47,7 @@ describe('Banner', () => {
             }
         };
 
-        const component = shallow(
+        const component = mount(
             <Banner
                 siteProperties={siteProps}
                 isAdmin={false}
@@ -45,7 +55,7 @@ describe('Banner', () => {
             />
         );
 
-        console.log(component.html());
+        console.log(component);
 
         /* setTimeout(() => {
             component.update();
