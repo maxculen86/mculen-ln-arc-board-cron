@@ -1,14 +1,23 @@
-const DEFAULT = {
-    TYPE: 'website',
-    TITLE: 'LA NACION',
-    DESCRIPTION: '',
-    IMAGE:
-        'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/pf/resources/images/bco.png?d=29',
-    URL: process.env.SITE_LANACION,
-    FB_APP_ID: ''
-};
+import getAssetsPath from '../utils/getAssetsPath';
 
-const getData = ({ siteProperties, metaValue, globalContent }) => {
+const getData = ({
+    siteProperties,
+    metaValue,
+    globalContent,
+    contextPath,
+    deployment
+}) => {
+    const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
+        'placeholderLN.jpg'
+    );
+    const DEFAULT = {
+        TYPE: 'website',
+        TITLE: 'LA NACION',
+        DESCRIPTION: '',
+        IMAGE: PLACEHOLDER,
+        URL: process.env.SITE_LANACION,
+        FB_APP_ID: ''
+    };
     const data = {
         type:
             globalContent &&
@@ -21,7 +30,9 @@ const getData = ({ siteProperties, metaValue, globalContent }) => {
             (globalContent && globalContent.subheadlines.basic) ||
             DEFAULT.DESCRIPTION,
         image:
-            globalContent && globalContent.promo_items.basic.type === 'image'
+            globalContent &&
+            globalContent.promo_items.basic.type === 'image' &&
+            globalContent.promo_items.basic.url
                 ? globalContent.promo_items.basic.url
                 : DEFAULT.IMAGE,
         url:
