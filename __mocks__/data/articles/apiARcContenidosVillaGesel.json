@@ -1,0 +1,170 @@
+{
+    "template": 1,
+    "id": 2332595,
+    "externo": false,
+    "url": "seguridad/duele-ver-imagen-estos-chicos-saliendo-dijo-nid2332595",
+    "sitioId": 1,
+    "abiertoComentarios": true,
+    "entradaId": 1505172,
+    "fecha": "2020-02-10 22:29:00",
+    "fechaActualizacion": "2020-02-10 22:29:00",
+    "tienePelicula": false,
+    "categoria": {
+        "id": 7775,
+        "valor": "Seguridad"
+    },
+    "apertura": {
+        "titulo": "\"Duele ver la imagen de estos chicos saliendo\", dijo la novia de Fernando Báez Sosa",
+        "bajada": "",
+        "autores": [
+            {
+                "id": 13352,
+                "permanente": true,
+                "tipo": 3,
+                "externo": false,
+                "comentable": true,
+                "valor": "Valeria Presa",
+                "mail": "",
+                "twitter": "",
+                "medio": ""
+            }
+        ],
+        "imagenes": [
+            {
+                "_t": "img",
+                "id": 3182139,
+                "extension": "jpg",
+                "src": "/anexos/fotos/39/3182139.jpg",
+                "alto": 1333,
+                "ancho": 2000,
+                "credito": "Rodrigo Néspolo",
+                "epigrafe": "Julieta Rossi, novia de Fernando Báez Sosa",
+                "fuente": "LA NACION",
+                "destacar": true
+            }
+        ],
+        "tagDestacado": {
+            "id": 67565,
+            "valor": "Asesinato en Villa Gesell",
+            "tipoId": 1,
+            "tipoDescripcion": "Tópico",
+            "formatoId": 1
+        }
+    },
+    "contenido": [
+        {
+            "_t": "p",
+            "valor": [
+                "En un día tan difícil",
+                {
+                    "_t": "b",
+                    "valor": " para ella y para la familia"
+                },
+                " de Fernando Báez, Julieta Rossi la novia de la víctima del crimen ocurrido el 18 de enero pasado en Villa Gesell, dijo a LA NACION que le causó dolor ver la liberación de dos de los ",
+                {
+                    "_t": "i",
+                    "valor": "diez acusados del homicidio"
+                },
+                ". También adelantó que está organizando, junto con amigos y familiares, una marcha hacia el ",
+                {
+                    "_t": "a",
+                    "href": "http://www.lanacion.com.ar",
+                    "valor": "Congreso para pedir"
+                },
+                " justicia. Será el 18, ",
+                {
+                    "_t": "b",
+                    "valor": {
+                        "_t": "i",
+                        "valor": "cuando se cumpla"
+                    }
+                },
+                " un mes del asesinato."
+            ]
+        },
+        {
+            "_t": "p",
+            "valor": [
+                "\"Es doloroso, desespera. ",
+                {
+                    "_t": "b",
+                    "valor": {
+                        "_t": "i",
+                        "valor": "Duele mucho ver la imagen de estos chicos saliendo"
+                    }
+                },
+                ". Para mí tendrían que estar adentro, pero la verdad si la fiscal lo cree así vamos a tener que creer en ella\", contó Julieta."
+            ]
+        },
+        {
+            "_t": "p",
+            "valor": [
+                {
+                    "_t": "a",
+                    "href": "http://www.lanacion.com.ar",
+                    "valor": "También, en medio de un proceso muy doloroso"
+                },
+                ", relató que tuvo la oportunidad de hablar con la fiscal Verónica Zamboni el día del hecho y en ese momento la encargada de la investigación le dijo que \"iba a hacer todo lo posible para que los culpables paguen\". Por este motivo Julieta afirmó que elige creer y pensar que los culpables son los que quedaron presos dentro del penal de Dolores. \"Ojalá hubieran quedado los diez presos, pero bueno...\", se resignó la joven."
+            ]
+        },
+        {
+            "_t": "p",
+            "valor": {
+                "_t": "img",
+                "id": 3182139,
+                "extension": "jpg",
+                "src": "/anexos/fotos/39/3182139.jpg",
+                "alto": 1333,
+                "ancho": 2000,
+                "credito": "Rodrigo Néspolo",
+                "epigrafe": "Julieta Rossi, novia de Fernando Báez Sosa ",
+                "fuente": "LA NACION",
+                "embebidoNormal": true
+            }
+        },
+        {
+            "_t": "p",
+            "valor": {
+                "_t": "img",
+                "id": 3187342,
+                "extension": "jpg",
+                "src": "/anexos/fotos/42/3187342.jpg",
+                "alto": 1333,
+                "ancho": 2000,
+                "credito": "Tomas Cuesta",
+                "epigrafe": "Julieta Rossi, novia de Fernando Báez Sosa ",
+                "fuente": "LA NACION",
+                "embebidoNormal": true
+            }
+        },
+        {
+            "_t": "p",
+            "valor": "Julieta afirmó que aún no recibió ninguna comunicación por parte de las familias de los diez rugbiers y reconoció que no se encuentra \"bien emocionalmente para recibir sus mensajes\". En diálogo con la agencia de noticias Télam también dijo que en abril volverá a la facultad para seguir estudiando Derecho, carrera que iban a realizar junto a Fernando, y que aún no pudo volver a su rutina. \"Hacía danzas, pero en este momento no tengo ganas de hacer nada más que pegar carteles e ir a las marchas\", afirmó."
+        },
+        {
+            "_t": "sub",
+            "valor": "Marcha, al mes del crimen"
+        },
+        {
+            "_t": "p",
+            "valor": "Precisamente, el 18 de este mes se realizará una marcha para pedir justicia por Fernando. \"Es un pedido de justicia por Fer, obvio, pero también por todas las víctimas de violencia. La idea va a ser también hablar un poco de todo eso\", contó."
+        },
+        {
+            "_t": "p",
+            "valor": "Su esperanza es que, principalmente luego de las marchas, \"la gente cambie un poco su cabeza\" y que no haya tanta violencia. Ya gestionaron el permiso ante la Ciudad, y Julieta señaló que el jefe de gobierno porteño, Horacio Rodríguez Larreta, les dijo que haría gestiones para conseguirles un escenario de modo que el diácono del colegio Marianista, de Caballito -donde terminaron la secundaria ella y Fernando- pueda oficiar una misa y para exhibir un video acerca de otras victimas de violencia."
+        },
+        {
+            "_t": "p",
+            "valor": "Por último, reclamó: \"Se tiene que entender que es la vida de una persona lo que está en juego y no podemos arrebatarla así como así. Pido concientización y memoria por todas las víctimas. Tenemos que recordar que Fernando no fue el primero, pero sí tiene que ser el último\"."
+        }
+    ],
+    "relacionados": {
+        "categorias": [
+            {
+                "id": 7775,
+                "valor": "Seguridad",
+                "nivel": 1
+            }
+        ]
+    }
+}
