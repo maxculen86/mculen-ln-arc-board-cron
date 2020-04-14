@@ -14,7 +14,7 @@ const getData = ({
     deployment
 }) => {
     const isArticle = isNote(globalContent);
-
+    const { SITE_LANACION } = process.env;
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN.jpg'
     );
@@ -23,7 +23,7 @@ const getData = ({
         TITLE: 'LA NACION',
         DESCRIPTION: '',
         IMAGE: PLACEHOLDER,
-        URL: process.env.SITE_LANACION,
+        URL: SITE_LANACION,
         FB_APP_ID: ''
     };
 
@@ -40,10 +40,12 @@ const getData = ({
             globalContent &&
             globalContent.promo_items.basic.type === 'image' &&
             globalContent.promo_items.basic.url
-                ? globalContent.promo_items.basic.url
+                ? `${SITE_LANACION}${globalContent.promo_items.basic.url}`
                 : DEFAULT.IMAGE,
         url:
-            (globalContent && globalContent.canonical_url) ||
+            (globalContent &&
+                globalContent.canonical_url &&
+                `${SITE_LANACION}${globalContent.canonical_url}`) ||
             siteProperties.host
         // TODO: considerar agregar el fbAppId para evitar los warning del depurador de FB
         // fbAppId:
