@@ -28,10 +28,7 @@ describe('Common - getMetasOG function', () => {
             },
             siteProperties: {
                 title: 'LA NACION',
-                host: 'https://www.lanacion.com.ar',
-                shareConfig: {
-                    facebook: { appID: 272582409596628 }
-                }
+                host: 'https://www.lanacion.com.ar'
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Arroz chaufa de mariscos' : '';
@@ -64,10 +61,6 @@ describe('Common - getMetasOG function', () => {
                 property: 'og:url',
                 content:
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
-            },
-            {
-                name: 'fb:app_id',
-                content: 272582409596628
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);
@@ -81,10 +74,7 @@ describe('Common - getMetasOG function', () => {
         const props = {
             siteProperties: {
                 title: 'LA NACION',
-                host: 'https://www.lanacion.com.ar',
-                shareConfig: {
-                    facebook: { appID: 272582409596628 }
-                }
+                host: 'https://www.lanacion.com.ar'
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'LA NACION' : '';
@@ -117,10 +107,6 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:url',
                 content: 'https://www.lanacion.com.ar'
-            },
-            {
-                name: 'fb:app_id',
-                content: 272582409596628
             }
         ];
 

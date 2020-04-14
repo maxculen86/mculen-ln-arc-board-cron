@@ -1,5 +1,11 @@
 import getAssetsPath from '../utils/getAssetsPath';
 
+const isNote = globalContent =>
+    !!(
+        globalContent &&
+        (globalContent.subtype === '1' || globalContent.subtype === '7')
+    );
+
 const getData = ({
     siteProperties,
     metaValue,
@@ -7,28 +13,29 @@ const getData = ({
     contextPath,
     deployment
 }) => {
+    const isArticle = isNote(globalContent);
+
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN.jpg'
     );
+
     const DEFAULT = {
-        TYPE: 'website',
         TITLE: 'LA NACION',
         DESCRIPTION: '',
         IMAGE: PLACEHOLDER,
         URL: process.env.SITE_LANACION,
         FB_APP_ID: ''
     };
-    const data = {
-        type:
-            globalContent &&
-            (globalContent.subtype === '1' || globalContent.subtype === '7')
-                ? 'article'
-                : DEFAULT.TYPE,
-        title: metaValue('title') || siteProperties.title || DEFAULT.TITLE,
-        description:
-            (globalContent && globalContent.subheadlines.basic) ||
-            metaValue('description') ||
-            DEFAULT.DESCRIPTION,
+
+    return {
+        type: isArticle ? 'article' : 'website',
+        title: isArticle
+            ? (globalContent && globalContent.headlines.basic) || DEFAULT.TITLE
+            : metaValue('title') || siteProperties.title || DEFAULT.TITLE,
+        description: isArticle
+            ? (globalContent && globalContent.subheadlines.basic) ||
+              DEFAULT.DESCRIPTION
+            : metaValue('description') || DEFAULT.DESCRIPTION,
         image:
             globalContent &&
             globalContent.promo_items.basic.type === 'image' &&
@@ -37,12 +44,12 @@ const getData = ({
                 : DEFAULT.IMAGE,
         url:
             (globalContent && globalContent.canonical_url) ||
-            siteProperties.host,
-        fbAppId:
-            (siteProperties && siteProperties.shareConfig.facebook.appID) ||
-            DEFAULT.FB_APP_ID
+            siteProperties.host
+        // TODO: considerar agregar el fbAppId para evitar los warning del depurador de FB
+        // fbAppId:
+        //     (siteProperties && siteProperties.shareConfig.facebook.appID) ||
+        //     DEFAULT.FB_APP_ID;
     };
-    return data;
 };
 
 const getMetasOG = props => {
@@ -68,11 +75,10 @@ const getMetasOG = props => {
         {
             property: 'og:url',
             content: data.url
-        },
-        {
-            name: 'fb:app_id',
-            content: data.fbAppId
         }
+        // TODO: considerar agregar el fbAppId para evitar los warning del depurador de FB
+        //     name: 'fb:app_id',
+        //     content: data.fbAppId
     ];
     return metas;
 };
