@@ -1,3 +1,4 @@
+import { SITE_LANACION } from 'fusion:environment';
 import getAssetsPath from '../utils/getAssetsPath';
 
 const isNote = globalContent =>
@@ -14,7 +15,6 @@ const getData = ({
     deployment
 }) => {
     const isArticle = isNote(globalContent);
-    const { SITE_LANACION } = process.env;
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN.jpg'
     );

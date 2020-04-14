@@ -1,3 +1,4 @@
+import { SITE_LANACION } from 'fusion:environment';
 import getMetasOG from '../../../../../components/private/common/metaTags/getMetasOG';
 import getAssetsPath from '../../../../../components/private/common/utils/getAssetsPath';
 
@@ -7,8 +8,6 @@ describe('Common - getMetasOG function', () => {
     });
 
     it('metas de tipo articulo', () => {
-        const { SITE_LANACION } = process.env;
-
         const props = {
             globalContent: {
                 _id: 'EZYG5OEVH5HSJJCUMJO5XAHTTA',
@@ -66,8 +65,6 @@ describe('Common - getMetasOG function', () => {
     });
 
     it('metas de tipo website', () => {
-        const { SITE_LANACION } = process.env;
-
         const props = {
             siteProperties: {
                 title: 'LA NACION'
