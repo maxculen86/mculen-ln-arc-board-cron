@@ -1,4 +1,5 @@
 import getMetasOG from '../../../../../components/private/common/metaTags/getMetasOG';
+import getAssetsPath from '../../../../../components/private/common/utils/getAssetsPath';
 
 describe('Common - getMetasOG function', () => {
     it('es una function', () => {
@@ -34,6 +35,10 @@ describe('Common - getMetasOG function', () => {
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Arroz chaufa de mariscos' : '';
+            },
+            contextPath: '/pf',
+            deployment: function deployment() {
+                return '$LATEST';
             }
         };
 
@@ -83,6 +88,10 @@ describe('Common - getMetasOG function', () => {
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'LA NACION' : '';
+            },
+            contextPath: '/pf',
+            deployment: function deployment() {
+                return '$LATEST';
             }
         };
 
@@ -101,12 +110,13 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image',
-                content:
-                    'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/pf/resources/images/bco.png?d=29'
+                content: getAssetsPath(props.contextPath)(props.deployment)(
+                    'placeholderLN.jpg'
+                )
             },
             {
                 property: 'og:url',
-                content: process.env.SITE_LANACION
+                content: 'https://www.lanacion.com.ar'
             },
             {
                 name: 'fb:app_id',
