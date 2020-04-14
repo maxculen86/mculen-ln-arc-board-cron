@@ -46,7 +46,7 @@ const getData = ({
             (globalContent &&
                 globalContent.canonical_url &&
                 `${SITE_LANACION}${globalContent.canonical_url}`) ||
-            siteProperties.host
+            DEFAULT.SITE_LANACION
         // TODO: considerar agregar el fbAppId para evitar los warning del depurador de FB
         // fbAppId:
         //     (siteProperties && siteProperties.shareConfig.facebook.appID) ||

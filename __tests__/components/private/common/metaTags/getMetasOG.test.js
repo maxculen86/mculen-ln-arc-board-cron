@@ -7,6 +7,8 @@ describe('Common - getMetasOG function', () => {
     });
 
     it('metas de tipo articulo', () => {
+        const { SITE_LANACION } = process.env;
+
         const props = {
             globalContent: {
                 _id: 'EZYG5OEVH5HSJJCUMJO5XAHTTA',
@@ -27,8 +29,7 @@ describe('Common - getMetasOG function', () => {
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
             },
             siteProperties: {
-                title: 'LA NACION',
-                host: 'https://www.lanacion.com.ar'
+                title: 'LA NACION'
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Arroz chaufa de mariscos' : '';
@@ -54,27 +55,22 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image',
-                content:
-                    '/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg'
+                content: `${SITE_LANACION}/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg`
             },
             {
                 property: 'og:url',
-                content:
-                    '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
+                content: `${SITE_LANACION}/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);
     });
 
     it('metas de tipo website', () => {
-        const process = {
-            env: { SITE_LANACION: 'https://www.lanacion.com.ar' }
-        };
+        const { SITE_LANACION } = process.env;
 
         const props = {
             siteProperties: {
-                title: 'LA NACION',
-                host: 'https://www.lanacion.com.ar'
+                title: 'LA NACION'
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'LA NACION' : '';
@@ -106,7 +102,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: 'https://www.lanacion.com.ar'
+                content: SITE_LANACION
             }
         ];
 
