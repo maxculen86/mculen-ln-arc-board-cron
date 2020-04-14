@@ -11,7 +11,7 @@
  * */
 const PropTypes = require('../node_modules/prop-types');
 
-const { taggable } = require('./fusion:taggables');
+const { taggable } = require('./fusion-taggables');
 
 const isPropTypeSelfRef = key => {
     return ['PropTypes', 'checkPropTypes'].includes(key);
@@ -33,7 +33,7 @@ const FusionPropTypes = Object.assign(
         .map(key => {
             return { [key]: taggable(PropTypes[key], key) };
         }),
-    require('./fusion:custom-types')
+    require('./fusion-custom-types')
 );
 
 // The basic JSON.stringify function ignores functions

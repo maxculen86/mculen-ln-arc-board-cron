@@ -1,5 +1,5 @@
-const isRequired = require('./fusion:is-required');
-const { taggablePrimitive } = require('./fusion:taggables');
+const isRequired = require('./fusion-is-required');
+const { taggablePrimitive } = require('./fusion-taggables');
 
 const json = (props, propName, componentName) => {
     const prop = props[propName];
