@@ -26,8 +26,8 @@ const getData = ({
                 : DEFAULT.TYPE,
         title: metaValue('title') || siteProperties.title || DEFAULT.TITLE,
         description:
-            metaValue('description') ||
             (globalContent && globalContent.subheadlines.basic) ||
+            metaValue('description') ||
             DEFAULT.DESCRIPTION,
         image:
             globalContent &&
