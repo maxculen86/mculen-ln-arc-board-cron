@@ -7,5 +7,5 @@ export default {
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
     SITE_LANACION:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/6VOdwXVPP3zI6Uy0Zzs0ejy1LTa8nZMCpCr'
+        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com'
 };
