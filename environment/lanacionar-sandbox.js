@@ -5,5 +5,7 @@ export default {
     RANKING_URL:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/arcio/most-read/',
     LANACIONAR_URLASSETS:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com'
+        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+    SITE_LANACION:
+        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/6VOdwXVPP3zI6Uy0Zzs0ejy1LTa8nZMCpCr'
 };
