@@ -24,11 +24,13 @@
         "zip": "npm run build && fusion zip",
         "full-reset-all": "fusion clean && npm run clean && rm -rf node_modules/* --verbose && npm i && npm test",
         "doc": "react-doc-generator ./components/ -o ./components.md",
-        "api-watch": "nodemon -w  ./src/api.js --exec 'clear && npm run api'",
+        "api-watch": "nodemon -w  ./src/api.js -w ./components/private/LN/api/v1 --exec \"npm run api\" ",
         "api": "ncc run ./src/api.js -q"
     },
     "dependencies": {
+        "@zeit/ncc": "^0.22.1",
         "crypto": "1.0.1",
+        "husky": "^4.2.5",
         "jsonwebtoken": "8.5.1",
         "lodash.get": "4.4.2",
         "node-html-parser": "1.2.14",
@@ -64,7 +66,6 @@
         "file-loader": "3.0.1",
         "git-branch-is": "3.1.0",
         "glob": "7.1.6",
-        "husky": "3.1.0",
         "jest": "24.9.0",
         "jest-enzyme": "7.1.1",
         "lint-staged": "9.4.3",
