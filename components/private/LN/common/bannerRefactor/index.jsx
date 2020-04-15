@@ -59,6 +59,7 @@ const index = props => {
         if (!isAdmin) {
             return null;
         }
+
         return <Placeholder missDfpId />;
     }
 
@@ -71,7 +72,7 @@ const index = props => {
             />
         );
     }
-    console.log('llamamos a banner manager');
+
     return <BannerManager config={config} />;
 };
 

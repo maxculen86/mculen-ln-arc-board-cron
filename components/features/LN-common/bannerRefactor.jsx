@@ -38,7 +38,6 @@ const Banner = props => {
         background,
         show
     };
-    console.log('#### SiteProperties: ', siteProperties, '###BANNER: ', banner);
 
     return (
         <BannerComponent
