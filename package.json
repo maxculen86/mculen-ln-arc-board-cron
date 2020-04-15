@@ -23,7 +23,9 @@
         "fusion": "fusion",
         "zip": "npm run build && fusion zip",
         "full-reset-all": "fusion clean && npm run clean && rm -rf node_modules/* --verbose && npm i && npm test",
-        "doc": "react-doc-generator ./components/ -o ./components.md"
+        "doc": "react-doc-generator ./components/ -o ./components.md",
+        "api-watch": "nodemon -w  ./src/api.js --exec 'clear && npm run api'",
+        "api": "ncc run ./src/api.js -q"
     },
     "dependencies": {
         "crypto": "1.0.1",
@@ -67,8 +69,10 @@
         "jest-enzyme": "7.1.1",
         "lint-staged": "9.4.3",
         "mini-css-extract-plugin": "0.8.0",
+        "ncc": "^0.3.6",
         "node-sass": "4.13.0",
         "node-sass-glob-importer": "5.3.2",
+        "nodemon": "^2.0.3",
         "prettier": "1.19.1",
         "react-doc-generator": "1.2.5",
         "resolve-url-loader": "3.1.1",
