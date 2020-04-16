@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
-import pipe from '../../../common/utils/pipeUtil';
+import { pipe } from '../../../common/utils/functional';
 import ListMenu from './listMenu';
 import '../../../../../resources/dist/css/ln/components/dropdown.css';
 

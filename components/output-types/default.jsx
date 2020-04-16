@@ -13,7 +13,7 @@ import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
 import Robot from '../private/common/robot';
-import pipe from '../private/common/utils/pipeUtil';
+import { pipe } from '../private/common/utils/functional';
 
 const scriptList = [
     { component: { name: 'GTM', function: GTM }, feature: 'none' },

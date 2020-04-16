@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
-import pipe from '../../../../private/common/utils/pipeUtil';
+
+import { compose } from '../../../common/utils/functional';
 
 // TODO: cambiar parrafo por paragraph
 const Parrafo = ({ data, capital }) => {
@@ -24,7 +25,7 @@ const Parrafo = ({ data, capital }) => {
             }
         );
 
-    const content = pipe(
+    const content = compose(
         setItalicText,
         setBoldText,
         setExternalLinks
