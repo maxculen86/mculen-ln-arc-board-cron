@@ -1,26 +1,20 @@
 import notaConfig from './nota';
 import homeConfig from './home';
 import acuConfig from './acumulado';
-import ampConfig from './amp';
 
-export const getSlotsOptions = () => {
-    //debugger;
-    let opt = [];
-    Object.keys(slotsConfig).forEach(v => {
-        opt = opt.concat(Object.keys(slotsConfig[v]));
-    });
-    opt = opt.filter((v, i) => {
-        return opt.indexOf(v) === i;
-    });
-    opt.push('NINGUNO');
-    return opt;
-};
+export const getSlotsOptions = resolution =>
+    Object.keys(slotsConfig)
+        .map(v => Object.keys(slotsConfig[v]))
+        .reduce((accumulator, value) => [
+            ...new Set([...accumulator, ...value])
+        ])
+        .filter(c => c.endsWith(resolution) || c.endsWith('amp'))
+        .sort();
 
 export const slotsConfig = {
     nota: notaConfig,
     home: homeConfig,
-    acumulado: acuConfig,
-    amp: ampConfig
+    acumulado: acuConfig
 };
 
 export const baseConfig = {

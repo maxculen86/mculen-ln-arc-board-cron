@@ -55,9 +55,9 @@ Banner.propTypes = {
         group: PropTypes.oneOf(Object.keys(slotsConfig)).tag({
             label: 'Ubicacion'
         }).isRequired,
-        desktop: PropTypes.oneOf(getSlotsOptions()),
-        mobile: PropTypes.oneOf(getSlotsOptions()),
-        tablet: PropTypes.oneOf(getSlotsOptions()),
+        desktop: PropTypes.oneOf(getSlotsOptions('dsk')),
+        mobile: PropTypes.oneOf(getSlotsOptions('mob')),
+        tablet: PropTypes.oneOf(getSlotsOptions('tab')),
         sticky: PropTypes.bool,
         background: PropTypes.bool
     }).isRequired,
