@@ -163,6 +163,16 @@ const Comments = props => {
     });
 
     useEffect(() => {
+        if (showLegal) {
+            commentSection.current.classList.remove('arrow-down');
+            commentSection.current.classList.add('arrow-up');
+        } else {
+            commentSection.current.classList.remove('arrow-up');
+            commentSection.current.classList.add('arrow-down');
+        }
+    }, [showLegal]);
+
+    useEffect(() => {
         if (typeof window !== 'undefined') {
             Livefyre.require(['fyre.conv#3', 'auth'], (Conv, auth) => {
                 auth.delegate({
@@ -240,7 +250,7 @@ const Comments = props => {
         <>
             <section
                 id="comentarios"
-                className="comments"
+                className="comments arrow-down"
                 data-module="nota-sugeridas-comentarios"
                 ref={commentSection}
             >
