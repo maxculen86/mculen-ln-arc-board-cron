@@ -4,6 +4,7 @@
     margin-top: $px-20;
     padding-top: $px-50;
     border-top: 1px solid $gris3;
+
     .comment-title {
         text-transform: uppercase;
         margin-bottom: $px-10;
@@ -32,14 +33,24 @@
         color: $link;
         background: none;
         margin-left: $px-15;
-
-        &:after {
-            font-family: $font-icons;
-            content: '\e909';
-            font-size: $font-14;
-            position: relative;
-            top: $px-2;
-            left: $px-3;
+    }
+    &.arrow-down {
+        .ver-legales {
+            &:after {
+                font-family: $font-icons;
+                content: '\e909';
+                font-size: $font-14;
+                position: relative;
+                top: $px-2;
+                left: $px-3;
+            }
+        }
+    }
+    &.arrow-up {
+        .ver-legales {
+            &:after {
+                transform: rotate(180deg);
+            }
         }
     }
 }
