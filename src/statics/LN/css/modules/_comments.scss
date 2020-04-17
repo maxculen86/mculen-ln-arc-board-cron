@@ -6,6 +6,7 @@
     border-top: 1px solid $gris3;
 
     .comment-title {
+        position: relative;
         text-transform: uppercase;
         margin-bottom: $px-10;
         font-family: $font-SuecaSlab;
@@ -36,20 +37,28 @@
     }
     &.arrow-down {
         .ver-legales {
+            position: relative;
             &:after {
                 font-family: $font-icons;
                 content: '\e909';
                 font-size: $font-14;
-                position: relative;
+                position: absolute;
                 top: $px-2;
-                left: $px-3;
+                right: 0;
             }
         }
     }
     &.arrow-up {
         .ver-legales {
+            position: relative;
             &:after {
                 transform: rotate(180deg);
+                font-family: $font-icons;
+                content: '\e909';
+                font-size: $font-14;
+                position: absolute;
+                top: $px-2;
+                right: 0;
             }
         }
     }
