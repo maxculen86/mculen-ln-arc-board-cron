@@ -18,6 +18,16 @@ const getData = ({
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN.jpg'
     );
+    const {
+        headlines = {},
+        subheadlines = {},
+        promo_items: promoItems = {},
+        canonical_url: canonicalUrl
+    } = globalContent || {};
+    const { basic: headlinesBasic } = headlines;
+    const { basic: subheadlinesBasic } = subheadlines;
+    const { basic: promoItemsBasic = {} } = promoItems;
+    const { type: typeBasicPI, url: urlBasicPI } = promoItemsBasic;
 
     const DEFAULT = {
         TITLE: 'LA NACION',
@@ -30,22 +40,17 @@ const getData = ({
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
-            ? (globalContent && globalContent.headlines.basic) || DEFAULT.TITLE
+            ? headlinesBasic || DEFAULT.TITLE
             : metaValue('title') || siteProperties.title || DEFAULT.TITLE,
         description: isArticle
-            ? (globalContent && globalContent.subheadlines.basic) ||
-              DEFAULT.DESCRIPTION
+            ? subheadlinesBasic || DEFAULT.DESCRIPTION
             : metaValue('description') || DEFAULT.DESCRIPTION,
         image:
-            globalContent &&
-            globalContent.promo_items.basic.type === 'image' &&
-            globalContent.promo_items.basic.url
-                ? `${SITE_LANACION}${globalContent.promo_items.basic.url}`
+            typeBasicPI === 'image' && urlBasicPI
+                ? `${SITE_LANACION}${urlBasicPI}`
                 : DEFAULT.IMAGE,
         url:
-            (globalContent &&
-                globalContent.canonical_url &&
-                `${SITE_LANACION}${globalContent.canonical_url}`) ||
+            (canonicalUrl && `${SITE_LANACION}${canonicalUrl}`) ||
             DEFAULT.SITE_LANACION
         // TODO: considerar agregar el fbAppId para evitar los warning del depurador de FB
         // fbAppId:
