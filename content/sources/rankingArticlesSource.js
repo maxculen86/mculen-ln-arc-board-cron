@@ -1,8 +1,9 @@
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getProperties from 'fusion:properties';
-import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
 import { RESIZER_KEY, RESIZER_URL, RANKING_URL } from 'fusion:environment';
 import get from 'lodash.get';
+import SourceSetSizes from '../../components/private/LN/home/common/config/sourceSets';
+import sourceSetting from './utils/sourceSetting';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 // TODO: ver filtro en API por "?website=${website || arcSite}"
 // TODO: Faltaria el filtrar ára que traiga solo 6 resultados
@@ -44,5 +45,6 @@ export default {
         page: 'text',
         website: 'text'
     },
-    transform
+    transform,
+    ttl: sourceSetting.rankingArticlesSource.ttl
 };
