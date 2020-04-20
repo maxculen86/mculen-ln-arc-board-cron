@@ -1,5 +1,4 @@
 // import { transform } from "@babel/core";
-import getProperties from 'fusion:properties';
 
 const resolve = key => {
     const { id, website } = key;
@@ -37,12 +36,6 @@ const transform = (data, query) => {
     return data;
 };
 
-const ttlValue = () => {
-    const properties = getProperties('la-nacion-ar');
-    const value = properties.ttlConfig.sectionSource.ttl;
-    return value;
-};
-
 export default {
     resolve,
     schemaName: 'section-schema',
@@ -50,6 +43,5 @@ export default {
         id: 'text',
         website: 'text'
     },
-    transform,
-    ttl: ttlValue()
+    transform
 };

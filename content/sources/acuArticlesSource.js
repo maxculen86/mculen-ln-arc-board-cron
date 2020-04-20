@@ -1,7 +1,6 @@
 import get from 'lodash.get';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
-import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
@@ -160,6 +159,5 @@ export default {
         website: 'text',
         imageConfig: 'text'
     },
-    transform,
-    ttl: sourceSetting.acuArticlesSource.ttl
+    transform
 };

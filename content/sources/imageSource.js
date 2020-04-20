@@ -1,9 +1,7 @@
-import getProperties from 'fusion:properties';
-import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import SourceSetSizes from '../../components/private/OTT/programa/programImage/sourceSets.json';
-import sourceSetting from './utils/sourceSetting';
-// import { SSL_OP_ALL } from 'constants';
+//import { SSL_OP_ALL } from 'constants';
 
 const resolve = key => {
     const { id } = key;
@@ -28,7 +26,7 @@ const transform = data => {
     return addResizedUrls(data, {
         resizerSecret: RESIZER_SECRET,
         resizerUrl: RESIZER_URL,
-        presets
+        presets: presets
     });
 };
 
@@ -37,7 +35,6 @@ export default {
     schemaName: 'image-schema',
     params: {
         id: 'text'
-    },
-    ttl: sourceSetting.imageSource.ttl
-    // transform
+    }
+    //transform
 };

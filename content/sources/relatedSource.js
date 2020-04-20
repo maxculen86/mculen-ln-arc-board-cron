@@ -1,7 +1,5 @@
-import getProperties from 'fusion:properties';
-import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import request from 'request-promise-native';
-import sourceSetting from './utils/sourceSetting';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 
 const resolve = (key, a) => {
     const { includedFields, id } = key;
@@ -33,6 +31,5 @@ export default {
     params: {
         id: 'text',
         includeFields: 'text'
-    },
-    ttl: sourceSetting.relatedSource.ttl
+    }
 };

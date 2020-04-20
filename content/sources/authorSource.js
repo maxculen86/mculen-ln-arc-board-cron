@@ -1,5 +1,4 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import sourceSetting from './utils/sourceSetting';
 import { createResizer } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/acumulado/author';
 
@@ -46,6 +45,5 @@ export default {
         website: 'text'
     },
     filter,
-    transform,
-    ttl: sourceSetting.authorSource.ttl
+    transform
 };

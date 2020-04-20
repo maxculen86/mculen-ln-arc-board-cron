@@ -14,12 +14,6 @@ const resolve = key => {
     return `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size ||
         2}`;
 };
-const ttlValue = () => {
-    const properties = getProperties('la-nacion-ar');
-    const value = properties.ttlConfig.authorSource.ttl;
-    return value;
-};
-
 export default {
     resolve,
     params: {
