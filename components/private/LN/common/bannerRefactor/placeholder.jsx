@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 
 const Placeholder = props => {
     const { slotName, targeting, dimensions, missDfpId } = props;
+    console.log('PROPS EN PLACEHOLDER:', props);
 
     const style = {
         alignItems: 'center',
@@ -15,19 +16,21 @@ const Placeholder = props => {
 
     if (missDfpId) {
         return (
-            <div id="placeholder" style={style}>
+            <div id="placeholder" className="no-dfpid" style={style}>
                 FALTA DFP ID
             </div>
         );
     }
 
     return (
-        <div id="placeholder" style={style}>
-            <h2>Banner</h2>
-            <p>{`Slot: ${slotName}`}</p>
-            <p>{`Targeting: ${JSON.stringify(targeting)}`}</p>
-            <p>{`Dimensions: ${JSON.stringify(dimensions)}`}</p>
-        </div>
+        <>
+            <div id="placeholder" style={style}>
+                <h2>Banner</h2>
+                <p>{`Slot: ${slotName}`}</p>
+                <p>{`Targeting: ${JSON.stringify(targeting)}`}</p>
+                <p>{`Dimensions: ${JSON.stringify(dimensions)}`}</p>
+            </div>
+        </>
     );
 };
 

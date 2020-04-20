@@ -13,6 +13,8 @@ const Sticky2Mob = React.memo(props => {
         bidding
     } = props;
 
+    if (device !== 'mobile') return null;
+
     const ad = (
         <Ads
             id={id}

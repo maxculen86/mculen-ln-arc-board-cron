@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-undef */
 import React, {
     useEffect,
@@ -17,6 +18,8 @@ import withLoginData from '../../common/hocs/withLoginData';
 import withNavigation from '../../common/hocs/WithNavigation';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
+import useGlobal from '../../../common/hooks/useGlobal';
+
 const Comments = props => {
     const {
         globalContent: {
@@ -31,6 +34,8 @@ const Comments = props => {
         deployment,
         termicas
     } = props;
+
+    const { isAuth } = useGlobal();
 
     if (!termicas.livefyre) return <></>;
 
@@ -47,8 +52,6 @@ const Comments = props => {
                 : false,
         [label]
     );
-
-    if (!oldID) return null;
 
     const metadata = useMemo(
         () => ({
@@ -132,7 +135,14 @@ const Comments = props => {
     const onCommentsLoad = useCallback(() => {
         const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
-        if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
+        if (boxes.length > 1) {
+            [].slice.call(boxes).forEach((box, index) => {
+                if (index < boxes.length - 1) {
+                    boxes[index].classList.add('hlp-none');
+                }
+            });
+            //lf.firstChild.classList.add('hlp-none');
+        }
 
         if (!stylesLoaded) {
             const styles = document.getElementById('comments');
@@ -153,7 +163,6 @@ const Comments = props => {
         }
     }, [cookie, deployment, stylesLoaded]);
 
-    // TODO: ver como mejorar esto :/
     const observer = useRef(new MutationObserver(onCommentsLoad));
     useEffect(() => {
         observer.current.observe(document.querySelector('#livefyre'), {
@@ -162,6 +171,16 @@ const Comments = props => {
         });
         return () => observer.current.disconnect();
     });
+
+    useEffect(() => {
+        if (showLegal) {
+            commentSection.current.classList.remove('arrow-down');
+            commentSection.current.classList.add('arrow-up');
+        } else {
+            commentSection.current.classList.remove('arrow-up');
+            commentSection.current.classList.add('arrow-down');
+        }
+    }, [showLegal]);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -241,7 +260,7 @@ const Comments = props => {
         <>
             <section
                 id="comentarios"
-                className="comments"
+                className="comments arrow-down"
                 data-module="nota-sugeridas-comentarios"
                 ref={commentSection}
             >
@@ -279,7 +298,7 @@ const Comments = props => {
                     </p>
                 )}
 
-                {!logueado && (
+                {!isAuth && (
                     <div className="comment-reminder">
                         Para poder comentar tenés que ingresar con tu usuario de
                         LA NACION.
@@ -315,4 +334,4 @@ Comments.propTypes = {
     }).isRequired
 };
 
-export default Consumer(withNavigation(withLoginData(Comments)));
+export default withNavigation(withLoginData(Comments));

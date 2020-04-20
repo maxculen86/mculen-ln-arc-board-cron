@@ -4,7 +4,9 @@
     margin-top: $px-20;
     padding-top: $px-50;
     border-top: 1px solid $gris3;
+
     .comment-title {
+        position: relative;
         text-transform: uppercase;
         margin-bottom: $px-10;
         font-family: $font-SuecaSlab;
@@ -32,14 +34,32 @@
         color: $link;
         background: none;
         margin-left: $px-15;
-
-        &:after {
-            font-family: $font-icons;
-            content: '\e909';
-            font-size: $font-14;
+    }
+    &.arrow-down {
+        .ver-legales {
             position: relative;
-            top: $px-2;
-            left: $px-3;
+            &:after {
+                font-family: $font-icons;
+                content: '\e909';
+                font-size: $font-14;
+                position: absolute;
+                top: $px-2;
+                right: -1.25rem;
+            }
+        }
+    }
+    &.arrow-up {
+        .ver-legales {
+            position: relative;
+            &:after {
+                transform: rotate(180deg);
+                font-family: $font-icons;
+                content: '\e909';
+                font-size: $font-14;
+                position: absolute;
+                top: $px-2;
+                right: -1.25rem;
+            }
         }
     }
 }

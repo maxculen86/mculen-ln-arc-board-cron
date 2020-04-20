@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comments Matches snapshot 1`] = `
+<element
+  deployment={[Function]}
+  globalContent={
+    Object {
+      "_id": "RDCAIGB3WNHJVHSBLDT367MU3Q",
+      "canonical_url": "/turismo/ocio-y-negocios-nid30032020/",
+      "headlines": Object {
+        "basic": "Testing comments",
+      },
+      "subtype": 1,
+    }
+  }
+  loginData={
+    Object {
+      "goToLoginUrl": [Function],
+    }
+  }
+  logueado={true}
+  termicas={
+    Object {
+      "comentarios": true,
+      "livefyre": true,
+    }
+  }
+>
+  <Component
+    deployment={[Function]}
+    globalContent={
+      Object {
+        "_id": "RDCAIGB3WNHJVHSBLDT367MU3Q",
+        "canonical_url": "/turismo/ocio-y-negocios-nid30032020/",
+        "headlines": Object {
+          "basic": "Testing comments",
+        },
+        "subtype": 1,
+      }
+    }
+    loginData={
+      Object {
+        "goToLoginUrl": [Function],
+      }
+    }
+    logueado={true}
+    sections={Array []}
+    termicas={Object {}}
+  >
+    <Comments
+      deployment={[Function]}
+      globalContent={
+        Object {
+          "_id": "RDCAIGB3WNHJVHSBLDT367MU3Q",
+          "canonical_url": "/turismo/ocio-y-negocios-nid30032020/",
+          "headlines": Object {
+            "basic": "Testing comments",
+          },
+          "subtype": 1,
+        }
+      }
+      loginData={
+        Object {
+          "goToLoginUrl": [Function],
+        }
+      }
+      logueado={true}
+      sections={Array []}
+      termicas={Object {}}
+    />
+  </Component>
+</element>
+`;

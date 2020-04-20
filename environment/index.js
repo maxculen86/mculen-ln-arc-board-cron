@@ -13,5 +13,6 @@ export default {
     RANKING_URL:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/most-read/',
     LANACIONAR_URLASSETS:
-        'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com'
+        'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',
+    SITE_LANACION: 'https://www.lanacion.com.ar'
 };

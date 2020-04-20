@@ -29,6 +29,7 @@ export default class Comscore extends Component {
 
         const nodes = [
             <script
+                defer
                 type="text/javascript"
                 dangerouslySetInnerHTML={{ __html: script }}
             />,
