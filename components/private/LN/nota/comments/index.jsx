@@ -135,7 +135,14 @@ const Comments = props => {
     const onCommentsLoad = useCallback(() => {
         const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
-        if (boxes.length > 1) lf.firstChild.classList.add('hlp-none');
+        if (boxes.length > 1) {
+            [].slice.call(boxes).forEach((box, index) => {
+                if (index < boxes.length - 1) {
+                    boxes[index].classList.add('hlp-none');
+                }
+            });
+            //lf.firstChild.classList.add('hlp-none');
+        }
 
         if (!stylesLoaded) {
             const styles = document.getElementById('comments');
