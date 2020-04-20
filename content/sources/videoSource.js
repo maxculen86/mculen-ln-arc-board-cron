@@ -1,10 +1,18 @@
+import getProperties from 'fusion:properties';
+
 const resolve = key => {
     const { id, url, website } = key;
     const basePath = `/content/v4/videos?website=${website}`;
 
     if (id) return `${basePath}&_id=${id}`;
-    else if (url) return `${basePath}&website_url=${url}`;
-    else throw new Error('Debe definir url o id para obtener el video');
+    if (url) return `${basePath}&website_url=${url}`;
+    throw new Error('Debe definir url o id para obtener el video');
+};
+
+const ttlValue = () => {
+    const properties = getProperties('la-nacion-ar');
+    const value = properties.ttlConfig.videoSource.ttl;
+    return value;
 };
 export default {
     resolve,
@@ -13,5 +21,6 @@ export default {
         id: 'text',
         url: 'text',
         website: 'text'
-    }
+    },
+    ttl: ttlValue()
 };

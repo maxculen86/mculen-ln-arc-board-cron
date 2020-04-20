@@ -2,6 +2,7 @@ import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import get from 'lodash.get';
 import { createResizer } from '../../components/private/common/utils/image/resizer';
+import sourceSetting from './utils/sourceSetting';
 
 const fetch = key => {
     const { url, preset, presetType } = key;
@@ -37,5 +38,6 @@ export default {
         preset: 'text',
         presetType: 'text'
     },
-    transform
+    transform,
+    ttl: sourceSetting.imageResizeSource.ttl
 };
