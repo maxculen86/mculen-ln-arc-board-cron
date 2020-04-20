@@ -13,7 +13,11 @@ const Image = ({ id: featureId, imageId }) => {
     });
 
     useEffect(() => {
-        setImageUrl(content && content.url);
+        setImageUrl(
+            content &&
+                content.additional_properties &&
+                content.additional_properties.resizeUrl
+        );
     }, [content]);
 
     return (
