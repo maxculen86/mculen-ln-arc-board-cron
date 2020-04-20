@@ -17,7 +17,7 @@ const TaxonomyImportantList = ({ list, destacado, type }) => {
                 <a
                     className="com-item"
                     key={v.text}
-                    href={type === 'tag' ? `/tema/${v.path}` : `${v.path}`}
+                    href={type === 'tag' ? `/tema/${v.path}/` : `${v.path}/`}
                 >
                     {v.text}
                 </a>

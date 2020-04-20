@@ -10,7 +10,7 @@ const getListSections = (sections, extraOpts, host) =>
                 ? host
                 : section.path;
         return (
-            <a key={path} href={path} {...extraOpts}>
+            <a key={path} href={`${path}/`} {...extraOpts}>
                 {section.name}
             </a>
         );
