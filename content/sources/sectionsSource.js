@@ -11,11 +11,15 @@ const ttlValue = () => {
     const value = properties.ttlConfig.sectionsSource.ttl;
     return value;
 };
+
+/**
+ * TODO: Revisar ttl para este contentSource
+ */
+
 export default {
     resolve,
     schemaName: 'sections-schema',
     params: {
         website: 'text'
-    },
-    ttl: ttlValue()
+    }
 };

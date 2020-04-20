@@ -20,11 +20,14 @@ const ttlValue = () => {
     return value;
 };
 
+/**
+ * TODO: Revisar ttl para este contentSource
+ */
+
 export default {
     resolve,
     schemaName: 'videos-schema',
     params: {
         query: 'text'
-    },
-    ttl: ttlValue()
+    }
 };
