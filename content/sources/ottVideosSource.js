@@ -1,3 +1,5 @@
+import sourceSetting from './utils/sourceSetting';
+
 const resolve = key => {
     const { ids, website, published } = key;
 
@@ -9,6 +11,7 @@ const resolve = key => {
         ','
     )}&published=${published}`;
 };
+
 export default {
     resolve,
     schemaName: 'video-schema',
@@ -16,5 +19,6 @@ export default {
         ids: 'text',
         website: 'text',
         published: 'bool'
-    }
+    },
+    ttl: sourceSetting.ottVideosSource.ttl
 };

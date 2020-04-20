@@ -27,6 +27,7 @@ class LiftIgniter extends Component {
 
         return (
             <script
+                defer
                 id="liftigniter-metadata"
                 type="application/json"
                 // eslint-disable-next-line react/no-danger

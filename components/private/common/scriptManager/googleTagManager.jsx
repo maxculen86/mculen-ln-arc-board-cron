@@ -20,6 +20,7 @@ export default class GTM extends Component {
             case 'head':
                 this.nodes = [
                     <script
+                        defer
                         type="text/javascript"
                         dangerouslySetInnerHTML={{ __html: script }}
                     />,

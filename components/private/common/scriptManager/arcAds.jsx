@@ -3,7 +3,9 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 
 const arcAds = ({ deployment }) => {
-    return <script src={deployment(`/pf/resources/common/js/arcAds.js`)} />;
+    return (
+        <script defer src={deployment(`/pf/resources/common/js/arcAds.js`)} />
+    );
 };
 
 arcAds.propTypes = {

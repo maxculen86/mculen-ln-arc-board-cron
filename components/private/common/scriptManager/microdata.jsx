@@ -21,6 +21,7 @@ export default class Microdata extends Component {
 
         return (
             <script
+                defer
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: script }}
             />

@@ -44,32 +44,35 @@ import '../../resources/dist/css/ln/components/banners.css';
 /*Se debe dejar último los helpers*/
 import '../../resources/dist/css/ln/base/helpers.css';
 
+import { GlobalProvider } from '../private/common/context/globalContext';
+
 const lnNotaNoticia = ({ children, outputType }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     return (
-        <div id="wrapper" className={`nota noticia ${amp}`}>
-            {/* TODO: sacar */}
-            {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
-            <Header />
-            <main>
-                {children[0]}
-                <div className="lay">
-                    <div className="row">
-                        <div className="col-12">
-                            {/* Titulo (breadcrumb, logo+titulo) */}
-                            {children[1]}
+        <GlobalProvider>
+            <div id="wrapper" className={`nota noticia ${amp}`}>
+                {/* TODO: sacar */}
+                {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
+                <Header />
+                <main>
+                    {children[0]}
+                    <div className="lay">
+                        <div className="row">
+                            <div className="col-12">
+                                {/* Titulo (breadcrumb, logo+titulo) */}
+                                {children[1]}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="lay-sidebar">
-                    {/* Cuerpo */}
-                    <div className="sidebar__main">
-                        <div className="row">
-                            <div className="col-12 ">
-                                {/*Bajada y autor fecha más apertura*/}
-                                {children[2]}
+                    <div className="lay-sidebar">
+                        {/* Cuerpo */}
+                        <div className="sidebar__main">
+                            <div className="row">
+                                <div className="col-12 ">
+                                    {/*Bajada y autor fecha más apertura*/}
+                                    {children[2]}
 
-                                {/* <div className="opinion-autor row">
+                                    {/* <div className="opinion-autor row">
                                     <section id="" className="cont-figure">
                                         <div className="figure">
                                             <picture className="content-pic picture">
@@ -88,45 +91,46 @@ const lnNotaNoticia = ({ children, outputType }) => {
                                         <label>PARA LA NACION</label>
                                     </div>
                                 </div> */}
-                            </div>
-                        </div>
-                        <section className="cuerpo__nota">
-                            <div className="row">
-                                <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
-                                    {/* hlp-mobile-show */}
-                                    {/* Left-Cuerpo Shared*/}
-                                    {children[3]}
                                 </div>
-                                <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                    <div className="row">
-                                        <div className="col-12">
-                                            {/* Pos-Apertura */}
-                                            {children[4]}
+                            </div>
+                            <section className="cuerpo__nota">
+                                <div className="row">
+                                    <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                        {/* hlp-mobile-show */}
+                                        {/* Left-Cuerpo Shared*/}
+                                        {children[3]}
+                                    </div>
+                                    <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                        <div className="row">
+                                            <div className="col-12">
+                                                {/* Pos-Apertura */}
+                                                {children[4]}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+                        </div>
+                        {/* Tercera */}
+                        <div className="sidebar__aside hlp-desklm-none">
+                            {children[5]}
+                        </div>
                     </div>
-                    {/* Tercera */}
-                    <div className="sidebar__aside hlp-desklm-none">
-                        {children[5]}
-                    </div>
-                </div>
 
-                <div className="lay-sidebar">
-                    <div className="sidebar__main">
-                        {/* Bottom */}
-                        {children[8]}
+                    <div className="lay-sidebar">
+                        <div className="sidebar__main">
+                            {/* Bottom */}
+                            {children[8]}
+                        </div>
+                        <div className="sidebar__aside">
+                            {/* Bottom-Tercera */}
+                            {children[9]}
+                        </div>
                     </div>
-                    <div className="sidebar__aside">
-                        {/* Bottom-Tercera */}
-                        {children[9]}
-                    </div>
-                </div>
-            </main>
-            <Footer />
-        </div>
+                </main>
+                <Footer />
+            </div>
+        </GlobalProvider>
     );
 };
 
