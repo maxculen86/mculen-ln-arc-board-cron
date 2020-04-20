@@ -1,12 +1,12 @@
 import React from 'react';
-import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
-import WithNavigation from '../../hocs/WithNavigation';
-import { slotsConfig } from '../config';
-import Placeholder from '../placeholder';
+import WithScreenUtils from '../../../common/hocs/withScreenUtils';
+import WithNavigation from '../hocs/WithNavigation';
+import { slotsConfig } from './config';
+import Placeholder from './placeholder';
 
-import BannerManager from './banner';
+import BannerManager from './manager/banner';
 
-const DisplayManager = props => {
+const index = props => {
     const {
         siteProperties: {
             bannerConfig: { dfp_id: dfpID }
@@ -59,6 +59,7 @@ const DisplayManager = props => {
         if (!isAdmin) {
             return null;
         }
+
         return <Placeholder missDfpId />;
     }
 
@@ -75,4 +76,4 @@ const DisplayManager = props => {
     return <BannerManager config={config} />;
 };
 
-export default WithNavigation(WithScreenUtils(DisplayManager));
+export default WithNavigation(WithScreenUtils(index));

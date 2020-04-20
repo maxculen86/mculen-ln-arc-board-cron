@@ -55,13 +55,9 @@ class Ads extends PureComponent {
     static instance = undefined;
 
     render() {
-        const { id, children } = this.props;
+        const { children } = this.props;
 
-        return (
-            <div className={`banner --bg-banner --sticky`}>
-                <div>{children}</div>
-            </div>
-        );
+        return <div>{children}</div>;
     }
 }
 

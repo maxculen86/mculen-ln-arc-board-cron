@@ -9,7 +9,7 @@
 import React from 'react';
 import { useFusionContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import DisplayManager from '../../private/LN/common/bannerRefactor/manager/display';
+import BannerComponent from '../../private/LN/common/bannerRefactor';
 import {
     getSlotsOptions,
     slotsConfig
@@ -40,7 +40,7 @@ const Banner = props => {
     };
 
     return (
-        <DisplayManager
+        <BannerComponent
             siteProperties={siteProperties}
             isAdmin={isAdmin}
             banner={banner}
