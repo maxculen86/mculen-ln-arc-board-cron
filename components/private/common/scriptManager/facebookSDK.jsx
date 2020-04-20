@@ -29,6 +29,7 @@ export default class FacebookSDK extends Component {
             <>
                 <script async defer src="//connect.facebook.net/en_US/sdk.js" />
                 <script
+                    defer
                     type="text/javascript"
                     dangerouslySetInnerHTML={{ __html: script }}
                 />

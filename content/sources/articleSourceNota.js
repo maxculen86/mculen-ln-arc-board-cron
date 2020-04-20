@@ -8,6 +8,7 @@ import {
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
 import addAspectRatio from './utils/getRatio';
+import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
@@ -179,5 +180,6 @@ export default {
         id: 'text',
         published: 'text'
     },
-    filter
+    filter,
+    ttl: sourceSetting.articleSourceNota.ttl
 };

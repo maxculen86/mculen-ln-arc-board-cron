@@ -1,5 +1,6 @@
 import request from 'request-promise-native';
-import { CONTENT_BASE } from 'fusion:environment';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import sourceSetting from './utils/sourceSetting';
 
 const resolve = key => {
     const { id, includedFields } = key;
@@ -12,11 +13,16 @@ const resolve = key => {
 };
 
 const fetch = query => {
-    const url = `${CONTENT_BASE}${resolve(query)}`;
-    return request({
-        uri: url,
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
-    });
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    return request(opt);
 };
 
 export default {
@@ -24,5 +30,6 @@ export default {
     params: {
         id: 'text',
         includeFields: 'text'
-    }
+    },
+    ttl: sourceSetting.gallerySource.ttl
 };

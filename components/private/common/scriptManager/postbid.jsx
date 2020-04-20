@@ -12,7 +12,10 @@ export default class PostBid extends Component {
 
     render() {
         return (
-            <script src="//swh.lanacion.com.ar/programmatic_ln/postbid_ln.js" />
+            <script
+                defer
+                src="//swh.lanacion.com.ar/programmatic_ln/postbid_ln.js"
+            />
         );
     }
 }
