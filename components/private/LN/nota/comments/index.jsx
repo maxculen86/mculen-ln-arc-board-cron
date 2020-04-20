@@ -18,6 +18,8 @@ import withLoginData from '../../common/hocs/withLoginData';
 import withNavigation from '../../common/hocs/WithNavigation';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
+import useGlobal from '../../../common/hooks/useGlobal';
+
 const Comments = props => {
     const {
         globalContent: {
@@ -32,6 +34,8 @@ const Comments = props => {
         deployment,
         termicas
     } = props;
+
+    const { isAuth } = useGlobal();
 
     if (!termicas.livefyre) return <></>;
 
@@ -152,7 +156,6 @@ const Comments = props => {
         }
     }, [cookie, deployment, stylesLoaded]);
 
-    // TODO: ver como mejorar esto :/
     const observer = useRef(new MutationObserver(onCommentsLoad));
     useEffect(() => {
         observer.current.observe(document.querySelector('#livefyre'), {
@@ -288,7 +291,7 @@ const Comments = props => {
                     </p>
                 )}
 
-                {!logueado && (
+                {!isAuth && (
                     <div className="comment-reminder">
                         Para poder comentar tenés que ingresar con tu usuario de
                         LA NACION.
