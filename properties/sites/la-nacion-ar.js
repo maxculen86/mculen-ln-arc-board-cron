@@ -542,58 +542,5 @@ export default {
             topRange: null,
             pageSize: 1
         }
-    ],
-    ttlConfig: {
-        articleSourceHome: {
-            ttl: 120
-        },
-        articleSourceNota: {
-            ttl: 240
-        },
-        acuArticlesSource: {
-            ttl: 120
-        },
-        authorSource: {
-            ttl: 3600
-        },
-        authorsColumnistSource: {
-            ttl: 600
-        },
-        collectionSource: {
-            ttl: 120
-        },
-        gallerySource: {
-            ttl: 600
-        },
-        imageResizeSource: {
-            ttl: 600
-        },
-        imageSource: {
-            ttl: 600
-        },
-        ottVideosSource: {
-            ttl: 300
-        },
-        rankingArticlesSource: {
-            ttl: 300
-        },
-        relatedSource: {
-            ttl: 600
-        },
-        sectionSource: {
-            ttl: 900
-        },
-        sectionsSource: {
-            ttl: 900
-        },
-        tagSource: {
-            ttl: 900
-        },
-        videoSource: {
-            ttl: 600
-        },
-        videoSearchSource: {
-            ttl: 600
-        }
-    }
+    ]
 };

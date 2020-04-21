@@ -43,6 +43,10 @@ const ttlValue = () => {
     return value;
 };
 
+/**
+ * TODO: Revisar ttl para este contentSource
+ */
+
 export default {
     resolve,
     schemaName: 'section-schema',
@@ -50,6 +54,5 @@ export default {
         id: 'text',
         website: 'text'
     },
-    transform,
-    ttl: ttlValue()
+    transform
 };

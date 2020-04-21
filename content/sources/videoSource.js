@@ -14,6 +14,11 @@ const ttlValue = () => {
     const value = properties.ttlConfig.videoSource.ttl;
     return value;
 };
+
+/**
+ * TODO: Revisar ttl para este contentSource
+ */
+
 export default {
     resolve,
     schemaName: 'video-schema',
@@ -21,6 +26,5 @@ export default {
         id: 'text',
         url: 'text',
         website: 'text'
-    },
-    ttl: ttlValue()
+    }
 };

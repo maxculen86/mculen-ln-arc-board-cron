@@ -30,6 +30,10 @@ const ttlValue = () => {
     return value;
 };
 
+/**
+ * TODO: Revisar ttl para este contentSource
+ */
+
 export default {
     resolve,
     transform,
@@ -37,6 +41,5 @@ export default {
     params: {
         slug: 'text'
     },
-    filter,
-    ttl: ttlValue()
+    filter
 };
