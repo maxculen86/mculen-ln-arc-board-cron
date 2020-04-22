@@ -18,6 +18,15 @@ jest.mock(
     }
 );
 
+jest.mock(
+    '../../../../../../components/private/LN/api/v1/common/author',
+    () => {
+        return () => {
+            return 'author-mock';
+        };
+    }
+);
+
 import Apertura from '../../../../../../components/private/LN/api/v1/nota/aperturaArticle';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 
@@ -26,7 +35,9 @@ describe('Test de JSON de apertura en article', () => {
         const resp = Apertura(article.globalContent);
         expect(resp.titulo).toBe(article.globalContent.headlines.basic);
         expect(resp.bajada).toBe(article.globalContent.subheadlines.basic);
-        expect(resp.imagen).toBe('image-mock');
+        resp.imagenes.forEach(image => {
+            expect(image).toBe('image-mock');
+        });
     });
 
     it('Render video destacado', () => {
@@ -35,8 +46,15 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.video).toBe('video-mock');
     });
 
-    it('Rende detalle de receta', () => {
+    it('Render detalle de receta', () => {
         const resp = Apertura(article.globalContent);
         expect(resp.receta).toBe('receta-mock');
+    });
+
+    it('Render autor del articulo', () => {
+        const resp = Apertura(article.globalContent);
+        resp.autores.forEach(element => {
+            expect(element).toBe('author-mock');
+        });
     });
 });

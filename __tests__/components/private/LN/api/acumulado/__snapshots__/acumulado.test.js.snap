@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Json Acumulado section. Test de integracion Test de snapshot 1`] = `
+exports[`Json Acumulado section. Test de integracion Test de snapshot Recetas 1`] = `
 Object {
   "notas": Array [
     Object {
@@ -14,6 +14,7 @@ Object {
         "nombre": "Diego Cabot",
         "tipo": 1,
       },
+      "fecha": "2019-08-21 07:55:38",
       "id": "B2EMM366VFGVHEPJDUVGBLCYX4",
       "imagen": Object {
         "_t": "img",
@@ -24,16 +25,19 @@ Object {
       "titulo": "Test de generacion de url",
     },
     Object {
+      "fecha": "2019-08-7 12:19:14",
       "id": "I5ZEZLJLMZFJ7F7XW6JSLAQR4I",
       "subtype": "1",
       "titulo": "Receta de prueba con volanta",
     },
     Object {
+      "fecha": "2019-01-24 11:22:51",
       "id": "RNDZITUWEBCT7DMVU5MZ5ANG3A",
       "subtype": "1",
       "titulo": "Mi paso por el yoga del infierno",
     },
     Object {
+      "fecha": "2019-01-30 13:13:14",
       "id": "2CJ4Q5VQBZBXBFYADC75HMASDU",
       "imagen": Object {
         "_t": "img",
@@ -44,6 +48,7 @@ Object {
       "titulo": "Probando Breaking news",
     },
     Object {
+      "fecha": "2019-06-3 12:52:41",
       "id": "VSBWVU7WRVD5PONUYIORE3IUDQ",
       "imagen": Object {
         "_t": "img",
@@ -54,6 +59,7 @@ Object {
       "titulo": "Diego template recetas",
     },
     Object {
+      "fecha": "2019-08-7 13:00:55",
       "id": "AURFWI6AKZFGDLZJAVDRD5UTBY",
       "subtype": "1",
       "titulo": "Datos de prueba",
@@ -69,11 +75,13 @@ Object {
         "nombre": "Martín Lousteau",
         "tipo": 1,
       },
+      "fecha": "2019-07-23 15:05:16",
       "id": "H3EO6XS3YVHKPH33CXXUYWC5ME",
       "subtype": "1",
       "titulo": "nota de Guilleaaaa",
     },
     Object {
+      "fecha": "2018-09-20 08:08:49",
       "id": "TWKFZQ6FCNF3ZKPHGGZPMSSOGQ",
       "imagen": Object {
         "_t": "img",
@@ -84,6 +92,7 @@ Object {
       "titulo": "Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local",
     },
     Object {
+      "fecha": "2019-07-17 07:34:09",
       "id": "U4AWGFDWKJHHFHEUUBTOEX2VN4",
       "imagen": Object {
         "_t": "img",

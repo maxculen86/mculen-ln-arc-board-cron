@@ -24,7 +24,7 @@
         "zip": "npm run build && fusion zip",
         "full-reset-all": "fusion clean && npm run clean && rm -rf node_modules/* --verbose && npm i && npm test",
         "doc": "react-doc-generator ./components/ -o ./components.md",
-        "api-watch": "nodemon -w  ./src/api.js -w ./components/private/LN/api/v1 --exec \"npm run api\" ",
+        "api-watch": "nodemon -w  ./src/api.js -w ./components/private/LN/api/v1 --exec \"cls npm run api\" ",
         "api": "ncc run ./src/api.js -q"
     },
     "dependencies": {
