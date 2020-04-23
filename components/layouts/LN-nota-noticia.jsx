@@ -12,6 +12,7 @@ import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 import '../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../resources/dist/css/ln/modules/header-mobile.css';
+import ModAutor from '../private/common/mod-autor';
 
 // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
 // EL COMPONENTE Y EN OTROS NO
@@ -68,6 +69,14 @@ const lnNotaNoticia = ({ children, outputType }) => {
                         {/* Cuerpo */}
                         <div className="sidebar__main">
                             <div className="row">
+                                <div className="col-12">
+                                    <ModAutor
+                                        autor="Juan I. Irigoyen"
+                                        foto="foto"
+                                        classCondition="--autor"
+                                        medio="La Nación"
+                                    />
+                                </div>
                                 <div className="col-12 ">
                                     {/*Bajada y autor fecha más apertura*/}
                                     {children[2]}
