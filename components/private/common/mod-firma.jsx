@@ -1,25 +1,32 @@
-import React, { Children } from 'react';
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
+
 import ComLink from './com-link';
 
 const ModFirma = props => {
     const { autor, classCondition } = props;
-
     return (
         <div className="container-firma">
-            <ComLink
-                textname={autor}
-                link="#"
-                classCondition={classCondition}
-            />
-            <ComLink textname={autor} classCondition={classCondition} />
-            <ComLink
-                textname={autor}
-                link="#"
-                classCondition={classCondition}
-            />
-            <ComLink textname={autor} classCondition={classCondition} />
+            {autor &&
+                autor.map(author => (
+                    <ComLink
+                        textname={author.name}
+                        link={author.link}
+                        classCondition={classCondition}
+                    />
+                ))}
         </div>
     );
+};
+
+ModFirma.propTypes = {
+    autor: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            link: PropTypes.string
+        })
+    ).isRequired,
+    classCondition: PropTypes.string.isRequired
 };
 
 export default ModFirma;

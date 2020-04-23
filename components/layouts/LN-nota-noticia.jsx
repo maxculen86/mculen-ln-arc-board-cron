@@ -99,16 +99,16 @@ const lnNotaNoticia = ({ children, outputType }) => {
                         <section className="cuerpo__nota">
                             <div className="row">
                                 {/* BreadCrumb */}
-                                {typeof window !== 'undefined' &&
+                                {/* {typeof window !== 'undefined' &&
                                     window.screen.width >= 768 && (
                                         <div className="row bread">
                                             <div className="col-12">
                                                 <Modbreadcrumb />
                                             </div>
                                         </div>
-                                    )}
+                                    )} */}
                                 {/* FirmaAutor */}
-                                <div className="row FirmaAutor">
+                                {/* <div className="row FirmaAutor">
                                     <div className="col-12">
                                         <ModAutor
                                             autor="Juan I. Irigoyen"
@@ -130,8 +130,6 @@ const lnNotaNoticia = ({ children, outputType }) => {
                                             medio="La Nación"
                                         />
                                     </div>
-                                    {/* 
-                                    PRUEBA DARO*/}
                                     <div className="col-12">
                                         <ModFigure
                                             src="https://bucket3.glanacion.com/anexos/fotos/17/3237517.jpg"
@@ -141,7 +139,7 @@ const lnNotaNoticia = ({ children, outputType }) => {
                                             classCondition="--zoom"
                                         />
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
                                     {/* hlp-mobile-show */}
                                     {/* Left-Cuerpo Shared*/}

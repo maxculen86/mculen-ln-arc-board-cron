@@ -1,0 +1,132 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-shadow */
+/* eslint-disable react/jsx-props-no-spreading */
+
+import React from 'react';
+import Context from 'fusion:context';
+import PropTypes from 'fusion:prop-types';
+
+import Firma from '../../private/LN/nota/firma';
+
+const compose = (...fns) => x => fns.reduceRight((y, f) => f(y), x);
+
+const place = Object.freeze({ Top: 'Top', Bottom: 'Bottom' });
+
+const filterByAuthor = authors =>
+    authors.filter(author => author.type === 'author');
+
+const renderAsList = (authors, position) =>
+    authors.length > 1 || position === place.Bottom;
+
+const getPropsBuilderFromContentElements = position => contentElements =>
+    position === place.Top
+        ? [{ authors: [], photo: null, medio: null }]
+        : contentElements
+              .filter(
+                  contentElement =>
+                      contentElement.additional_properties.nodeType === 'firma'
+              )
+              .map(author => ({ name: author.content }))
+              .reduce(
+                  (accumulator, value) => ({
+                      ...accumulator,
+                      authors: [{ name: value.name }],
+                      photo: null,
+                      medio: null
+                  }),
+                  {}
+              );
+
+const getPropsBuilder = position => authors =>
+    authors
+        .map(author => ({
+            name: author.name,
+            link: author.url || null,
+            photo: author.image,
+            medio: author.additional_properties.original
+        }))
+        .reduce(
+            (accumulator, value) => {
+                const props = {
+                    ...accumulator,
+                    ...{
+                        authors: [
+                            ...accumulator.authors,
+                            ...[
+                                {
+                                    ...{ name: value.name },
+                                    ...{ link: value.link }
+                                }
+                            ]
+                        ]
+                    },
+                    ...{
+                        photo: renderAsList(authors, position)
+                            ? null
+                            : value.photo.url
+                    },
+                    ...{
+                        medio: renderAsList(authors, position)
+                            ? null
+                            : value.medio.role
+                    }
+                };
+                return props;
+            },
+            { authors: [], photo: null, medio: null }
+        );
+
+const FirmaFeature = props => {
+    const {
+        customFields: { position },
+        globalContent: {
+            content_elements: contentElements,
+            credits: { by: authors }
+        }
+    } = props;
+
+    const constructProps = authors
+        ? getPropsBuilder(position)
+        : getPropsBuilderFromContentElements(position);
+
+    const data = authors
+        ? compose(constructProps, filterByAuthor)(authors)
+        : compose(constructProps)(contentElements);
+
+    return <Firma {...data} />;
+};
+
+FirmaFeature.propTypes = {
+    customFields: PropTypes.shape({
+        position: PropTypes.oneOf([place.Top, place.Bottom]).tag({
+            label: 'Ubicacion'
+        }).isRequired
+    }).isRequired,
+    globalContent: PropTypes.shape({
+        content_elements: PropTypes.arrayOf(
+            PropTypes.shape({
+                _id: PropTypes.string,
+                type: PropTypes.string,
+                additional_properties: PropTypes.shape({
+                    nodeType: PropTypes.string
+                }),
+                content: PropTypes.string
+            })
+        ).isRequired,
+        credits: PropTypes.shape({
+            by: PropTypes.shape({
+                image: PropTypes.shape({
+                    url: PropTypes.string
+                }),
+                name: PropTypes.string,
+                slug: PropTypes.string,
+                type: PropTypes.string,
+                _id: PropTypes.string
+            })
+        })
+    }).isRequired
+};
+
+FirmaFeature.label = 'LN-Nota-Firma';
+
+export default Context(FirmaFeature);
