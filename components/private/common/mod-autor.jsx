@@ -9,13 +9,13 @@ import ComImage from './com-image';
 import '../../../resources/dist/css/ln/modules/mod-autor.css';
 
 const ModAutor = props => {
-    const { autor, medio, foto, classCondition } = props;
+    const { autor, medio, foto, classCondition, amp } = props;
 
     return (
         <section className="mod-autor">
             {foto && (
                 <div className="container-img">
-                    <ComImage src={foto} alt="" />
+                    <ComImage src={foto} alt="" amp={amp} />
                 </div>
             )}
             <div className="container-text">
@@ -35,7 +35,8 @@ ModAutor.propTypes = {
     ).isRequired,
     classCondition: PropTypes.string.isRequired,
     foto: PropTypes.string,
-    medio: PropTypes.string
+    medio: PropTypes.string,
+    amp: PropTypes.bool
 };
 
 export default ModAutor;

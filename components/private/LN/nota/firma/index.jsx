@@ -5,7 +5,7 @@ import PropTypes from 'fusion:prop-types';
 import ModAutor from '../../../common/mod-autor';
 
 const Firma = props => {
-    const { authors, photo, medio } = props;
+    const { authors, photo, medio, amp } = props;
 
     if (authors.length < 1) return null;
 
@@ -17,6 +17,7 @@ const Firma = props => {
                     foto={photo}
                     classCondition="--autor"
                     medio={medio}
+                    amp={amp}
                 />
             </div>
         </div>
@@ -31,7 +32,8 @@ Firma.propTypes = {
         })
     ).isRequired,
     photo: PropTypes.string,
-    medio: PropTypes.string
+    medio: PropTypes.string,
+    amp: PropTypes.bool
 };
 
 export default Firma;

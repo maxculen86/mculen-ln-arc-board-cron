@@ -78,6 +78,7 @@ const getPropsBuilder = position => authors =>
 
 const FirmaFeature = props => {
     const {
+        outputType,
         customFields: { position },
         globalContent: {
             content_elements: contentElements,
@@ -93,10 +94,13 @@ const FirmaFeature = props => {
         ? compose(constructProps, filterByAuthor)(authors)
         : compose(constructProps)(contentElements);
 
-    return <Firma {...data} />;
+    const amp = outputType === 'amp';
+
+    return <Firma {...data} amp={amp} />;
 };
 
 FirmaFeature.propTypes = {
+    outputType: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         position: PropTypes.oneOf([place.Top, place.Bottom]).tag({
             label: 'Ubicacion'

@@ -10,6 +10,7 @@ const ModFirma = props => {
             {autor &&
                 autor.map(author => (
                     <ComLink
+                        key={author.name}
                         textname={author.name}
                         link={author.link}
                         classCondition={classCondition}
