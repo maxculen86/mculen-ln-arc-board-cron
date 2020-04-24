@@ -29,4 +29,4 @@ ModImage.propTypes = {
     alt: PropTypes.string
 };
 
-export default ComImage;
+export default ModImage;

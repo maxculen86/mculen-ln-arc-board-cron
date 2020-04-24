@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
+import ComFigcaption from '../../../common/com-figcaption';
+import ComText from '../../../common/com-text';
 
 const image = ({ data }) => {
     const credits = data.credits.by
@@ -8,67 +10,69 @@ const image = ({ data }) => {
             ? 'Créditos'
             : 'Crédito'
         : '';
+    const distributors =
+        data.distributor && data.distributor.name !== ''
+            ? `Fuente: ${
+                  data.distributor.name ? data.distributor.name : 'LA NACION'
+              }`
+            : '';
+    const semicolon =
+        data.distributor &&
+        data.distributor.name !== '' &&
+        data.credits.by !== undefined
+            ? ' - '
+            : '';
+    const creditos =
+        data.credits &&
+        data.credits.by !== undefined &&
+        (data.credits
+            ? data.credits.by.map((credito, i) => {
+                  const semicolonCredits =
+                      credito.type === 'author' || credito.type === 'reference'
+                          ? ', '
+                          : '';
+                  const totalCredits = `${i === 0 ? `${credits}: ` : ''}${
+                      credito.type === 'author'
+                          ? credito.name
+                          : credito.type === 'reference'
+                          ? credito.referent.id
+                          : ''
+                  }`;
+                  return totalCredits;
+              })
+            : '');
+    const vanityCreditos =
+        data.vanity_credits &&
+        data.vanity_credits.affiliation.length &&
+        (data.credits
+            ? data.vanity_credits.by.map((credito, i) => {
+                  const totalVanityCredits = `${i === 0 ? `credits: ` : ', '}${
+                      credito.type === 'author'
+                          ? credito.name
+                          : credito.referent.id
+                  }`;
+                  return totalVanityCredits;
+              })
+            : '');
+    const fuenteCredito = `${distributors}${semicolon}${
+        data.credits && data.credits.by ? creditos : ''
+    }`;
     return (
         <>
             <Media mediaData={data} colNumber={12}>
                 {data && (
-                    <section
-                        className={
-                            data.caption || data.distributor || data.credits.by
-                                ? 'com-epigrafe'
-                                : ''
-                        }
-                    >
-                        {data.caption && <p className="text">{data.caption}</p>}
-                        <p className="small">
-                            {data.distributor && data.distributor.name !== ''
-                                ? `Fuente: ${
-                                      data.distributor.name
-                                          ? data.distributor.name
-                                          : 'LA NACION'
-                                  }`
-                                : ''}
-                            {data.distributor &&
-                            data.distributor.name !== '' &&
-                            data.credits.by !== undefined
-                                ? ' - '
-                                : ''}
-                            {data.vanity_credits &&
-                                data.vanity_credits.affiliation.length &&
-                                (data.credits
-                                    ? data.vanity_credits.by.map(
-                                          (credito, i) => {
-                                              return (
-                                                  <>
-                                                      {i === 0
-                                                          ? `credits: `
-                                                          : ', '}
-                                                      {credito.type === 'author'
-                                                          ? credito.name
-                                                          : credito.referent.id}
-                                                  </>
-                                              );
-                                          }
-                                      )
-                                    : '')}
-                            {data.credits &&
-                                data.credits.by &&
-                                (data.credits
-                                    ? data.credits.by.map((credito, i) => {
-                                          return (
-                                              <>
-                                                  {i === 0
-                                                      ? `${credits}: `
-                                                      : ', '}
-                                                  {credito.type === 'author'
-                                                      ? credito.name
-                                                      : credito.referent.id}
-                                              </>
-                                          );
-                                      })
-                                    : '')}
-                        </p>
-                    </section>
+                    <ComFigcaption>
+                        {data.caption && (
+                            <ComText
+                                classCondition="--caption"
+                                textname={data.caption}
+                            />
+                        )}
+                        <ComText
+                            classCondition="--credit"
+                            textname={fuenteCredito}
+                        />
+                    </ComFigcaption>
                 )}
             </Media>
         </>
