@@ -57,7 +57,8 @@
             width: 100%;
         }
     }
-    .container-img {
+    .container-img,
+    .mod-image {
         @include flex(inline);
         background: $gris4;
         width: px(80);
