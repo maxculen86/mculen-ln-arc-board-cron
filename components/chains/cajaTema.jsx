@@ -77,7 +77,7 @@ const CajaTema = ({
 
     const elements = notes && limit ? notes.slice(0, limit) : null;
 
-    if (elements && elements.length >= limit)
+    if (elements && elements.length >= limit && !error)
         return (
             // <Static id={featureId}>
             <div className="row hlp-margintop-50">
