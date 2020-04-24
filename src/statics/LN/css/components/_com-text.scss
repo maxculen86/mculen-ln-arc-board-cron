@@ -26,17 +26,16 @@
         line-height: 1;
         border-left: solid 1px $gris5;
     }
-    &.--autor {
-        .mod-autor & {
-            line-height: px(24);
-            font-size: px(16);
-            font-weight: bold;
-            color: $negro;
-        }
+    .mod-autor & {
+        line-height: px(24);
+        font-size: px(16);
+        font-weight: bold;
+        color: $negro;
     }
     &.--medio {
         .mod-autor & {
             text-transform: uppercase;
+            font-weight: normal;
         }
     }
 }

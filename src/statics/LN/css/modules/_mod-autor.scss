@@ -21,16 +21,21 @@
                     padding-right: px(5);
                     color: $negro;
                 }
-                &:first-child {
+                &:only-child {
                     &:before {
                         content: none;
                     }
                 }
-                &:last-child {
+                &:not(:only-child):last-child {
                     &:before {
                         content: 'y';
                         padding: 0 px(5);
                         color: $negro;
+                    }
+                }
+                &:not(:only-child):first-child {
+                    &:before {
+                        content: none;
                     }
                 }
                 &:first-child {
@@ -56,6 +61,7 @@
         height: px(80);
         border-radius: 50%;
         margin-right: $spacing-sm;
+        overflow: hidden;
         .img,
         .com-image {
             width: px(80);

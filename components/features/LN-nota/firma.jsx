@@ -8,7 +8,7 @@ import PropTypes from 'fusion:prop-types';
 
 import Firma from '../../private/LN/nota/firma';
 
-const compose = (...fns) => x => fns.reduceRight((y, f) => f(y), x);
+import { compose } from '../../private/common/utils/functional';
 
 const place = Object.freeze({ Top: 'Top', Bottom: 'Bottom' });
 

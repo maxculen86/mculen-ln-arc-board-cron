@@ -17,6 +17,12 @@ const ComImage = props => {
     );
 };
 
+/* function sizeValidator(props, propName, componentName){
+    if (props['amp']) {
+
+    }
+} */
+
 ComImage.propTypes = {
     src: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
