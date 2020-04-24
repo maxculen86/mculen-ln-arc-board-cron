@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import ComFigure from './com-figure';
-import ModImage from './mod-image';
+import ModPicture from './mod-picture';
 import ModFigcaption from './mod-figcaption';
 
 import '../../../resources/dist/css/ln/modules/mod-figure.css';
@@ -13,7 +13,7 @@ const ModFigure = props => {
 
     return (
         <ComFigure classCondition={classCondition}>
-            <ModImage media={media} srcset={srcset} src={src} alt={title} />
+            <ModPicture media={media} srcset={srcset} src={src} alt={title} />
             <ModFigcaption title={title} credit={credit} />
         </ComFigure>
     );

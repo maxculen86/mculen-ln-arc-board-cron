@@ -5,7 +5,7 @@ const ComPicture = props => {
     const { classCondition, children } = props;
     if (!children) return null;
     return (
-        <picture className={`mod-image ${classCondition || ''}`}>
+        <picture className={`mod-picture ${classCondition || ''}`}>
             {children}
         </picture>
     );

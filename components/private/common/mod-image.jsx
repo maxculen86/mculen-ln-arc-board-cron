@@ -1,30 +1,32 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
-import ComPicture from './com-picture';
-import ComSource from './com-source';
+import ComLink from './com-link';
 import ComImage from './com-image';
 
-import '../../../resources/dist/css/ln/modules/mod-image.css';
+import '../../../resources/dist/css/ln/components/mod-image.css';
 
 const ModImage = props => {
-    const { media, src, srcset, alt, classCondition } = props;
-    if (!src || !srcset) return null;
+    const { link, target, src, alt } = props;
+
+    if (!link || !src) return null;
 
     return (
-        <ComPicture classCondition={classCondition}>
-            <ComSource media={media} srcset={srcset} />
+        <ComLink
+            link={link}
+            title={alt}
+            target={target}
+            classCondition={`mod-image`}
+        >
             <ComImage src={src} alt={alt} />
-        </ComPicture>
+        </ComLink>
     );
 };
 
 ModImage.propTypes = {
+    link: PropTypes.string.isRequired,
+    target: PropTypes.string,
     src: PropTypes.string.isRequired,
-    srcset: PropTypes.string.isRequired,
-    media: PropTypes.string,
-    alt: PropTypes.string,
-    classCondition: PropTypes.string
+    alt: PropTypes.string
 };
 
-export default ModImage;
+export default ComImage;
