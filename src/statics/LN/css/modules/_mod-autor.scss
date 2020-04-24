@@ -20,6 +20,7 @@
                     content: ',';
                     padding-right: px(5);
                     color: $negro;
+                    font-weight: 100;
                 }
                 &:only-child {
                     &:before {
@@ -31,6 +32,7 @@
                         content: 'y';
                         padding: 0 px(5);
                         color: $negro;
+                        font-weight: 100;
                     }
                 }
                 &:not(:only-child):first-child {
@@ -44,6 +46,7 @@
                             content: 'Por';
                             padding-right: px(5);
                             color: $negro;
+                            font-weight: 100;
                         }
                     }
                 }
