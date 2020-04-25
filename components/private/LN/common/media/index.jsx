@@ -1,22 +1,27 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Image from './imageBase';
+import ComFigure from '../../../common/com-figure';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
-// TODO: proptypes
 const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
     // TODO: revisar implementacion de placeHolder
     let item = null;
+    const isVertical = mediaData.height > mediaData.width;
     if (mediaData) {
         const { type, _id } = mediaData;
         switch (type) {
             case 'image':
                 item = (
-                    <>
+                    <ComFigure
+                        classCondition={` ${
+                            isVertical ? '--vertical' : '--horizontal'
+                        }`}
+                    >
                         <Image image={mediaData} href={href} zoom={zoom} />
                         {children}
-                    </>
+                    </ComFigure>
                 );
                 break;
             case 'video':
@@ -43,12 +48,5 @@ media.propTypes = {
     zoom: PropTypes.bool,
     href: PropTypes.string
 };
-
-// media.defaultProps = {
-//     colNumber: null,
-//     zoom: false,
-//     href: null,
-//     mediaData: null
-// };
 
 export default media;
