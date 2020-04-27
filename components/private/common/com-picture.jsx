@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+import '../../../resources/dist/css/ln/modules/mod-picture.css';
+
 const ComPicture = props => {
     const { classCondition, children } = props;
     if (!children) return null;

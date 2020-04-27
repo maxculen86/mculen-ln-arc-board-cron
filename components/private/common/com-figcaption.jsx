@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+import '../../../resources/dist/css/ln/modules/mod-figcaption.css';
+
 const ComFigcaption = props => {
     const { children } = props;
     if (!children) return null;

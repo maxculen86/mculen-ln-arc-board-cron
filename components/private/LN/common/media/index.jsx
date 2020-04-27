@@ -38,7 +38,7 @@ const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
     if (!item) {
         item = <Placeholder zoom={zoom} href={href} outputType={outputType} />;
     }
-    return <section className={`${colClass}cont-figure`}>{item}</section>;
+    return <section className={`${colClass}`}>{item}</section>;
 };
 
 media.propTypes = {
