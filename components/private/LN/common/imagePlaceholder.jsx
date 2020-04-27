@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import ComPicture from '../../common/com-picture';
+import ComFigure from '../../common/com-figure';
+import ModFigcaption from '../../common/mod-figcaption';
 
 function ImagePlaceholder({ href, zoom, children, outputType, isVertical }) {
     let zoomClass = '';
-    if (zoom) zoomClass = 'zoom';
+    if (zoom) zoomClass = '--zoom';
 
     const image = (
-        <picture className={`content-pic picture ${zoomClass}`}>
-            {children}
-        </picture>
+        <ComPicture classCondition={zoomClass}>{children}</ComPicture>
     );
 
     return (
@@ -23,14 +24,7 @@ function ImagePlaceholder({ href, zoom, children, outputType, isVertical }) {
                     <div className="content-pic picture" />
                 </a>
             ) : (
-                <a
-                    href={href}
-                    className={`figure ${
-                        isVertical ? 'contain-vertical' : 'contain-horizontal'
-                    }`}
-                >
-                    {image}
-                </a>
+                <>{image}</>
             )}
         </>
     );

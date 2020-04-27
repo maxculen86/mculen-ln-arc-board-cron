@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Placeholder from '../../imagePlaceholder';
+import ComImage from '../../../../common/com-image';
+import ComSource from '../../../../common/com-source';
 
 const imageBase = ({
     urlDefault,
@@ -24,19 +26,29 @@ const imageBase = ({
             {sources &&
                 sources.map(x => {
                     return (
-                        <source
+                        // <source
+                        //    key={x.option.media}
+                        //    media={x.option.media}
+                        //    srcSet={x.resizedUrl}
+                        //    className={x.option.class}
+                        //    alt={altText}
+                        // />
+                        <ComSource
                             key={x.option.media}
                             media={x.option.media}
-                            srcSet={x.resizedUrl}
-                            className={x.option.class}
-                            alt={altText}
+                            srcset={x.resizedUrl}
                         />
                     );
                 })}
-            <img
+            {/* <img
                 src={urlDefault}
                 className="content-img"
                 loading="lazy"
+                alt={altText}
+            /> */}
+            <ComImage
+                src={urlDefault}
+                //loading="lazy"
                 alt={altText}
             />
         </Placeholder>
