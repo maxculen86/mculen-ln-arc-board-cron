@@ -4,7 +4,7 @@ import Media from '../../common/media';
 import ComFigcaption from '../../../common/com-figcaption';
 import ComText from '../../../common/com-text';
 
-const image = ({ data }) => {
+const image = ({ data, withZoom }) => {
     const credits = data.credits.by
         ? data.credits.by.length > 1
             ? 'Créditos'
@@ -59,7 +59,7 @@ const image = ({ data }) => {
     }`;
     return (
         <>
-            <Media mediaData={data} colNumber={12}>
+            <Media mediaData={data} withZoom={withZoom} colNumber={12}>
                 {data && (
                     <ComFigcaption>
                         {data.caption && (
@@ -88,7 +88,8 @@ image.propTypes = {
         vanity_credits: PropTypes.arrayOf,
         credits: PropTypes.arrayOf,
         type: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    withZoom: PropTypes.string.isRequired
 };
 
 export default image;

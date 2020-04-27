@@ -5,12 +5,22 @@ import ComFigure from '../../../common/com-figure';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
-const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
-    console.log('media -> mediaData', mediaData.width);
-    console.log('media -> mediaData', mediaData.height);
+const media = ({
+    mediaData,
+    colNumber,
+    withZoom,
+    href,
+    children,
+    outputType
+}) => {
+    console.log('withZoom', withZoom);
+    const { height = 0, width = 0 } = mediaData || {};
+    const isVertical = height > width;
+
     // TODO: revisar implementacion de placeHolder
+
     let item = null;
-    const isVertical = mediaData.height > mediaData.width;
+
     if (mediaData) {
         const { type, _id } = mediaData;
         switch (type) {
@@ -20,7 +30,7 @@ const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
                         classCondition={` ${
                             isVertical ? '--vertical' : '--horizontal'
                         }`}
-                        zoom={zoom}
+                        withZoom={withZoom}
                     >
                         <Image image={mediaData} href={href} />
                         {children}
@@ -42,14 +52,22 @@ const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
 };
 
 media.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]),
     outputType: PropTypes.string,
     mediaData: PropTypes.shape({
         type: PropTypes.string,
         _id: PropTypes.string
+    }).isRequired,
+    colNumber: PropTypes.number.isRequired,
+    withZoom: PropTypes.bool.tag({
+        defaultValue: false
     }),
-    colNumber: PropTypes.number,
-    zoom: PropTypes.bool,
-    href: PropTypes.string
+    href: PropTypes.string.tag({
+        defaultValue: ''
+    })
 };
 
 export default media;

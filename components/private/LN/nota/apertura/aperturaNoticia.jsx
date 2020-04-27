@@ -31,14 +31,13 @@ const aperturaNoticia = ({ basic }) => {
                   const totalCredits = `${i === 0 ? `${credits}: ` : ''}${
                       credito.type === 'author'
                           ? credito.name
-                          : credito.type === 'reference'
-                          ? credito.referent.id
-                          : ''
+                          : credito.referent.id
                   }`;
                   return totalCredits;
               })
             : '');
-    const vanityCreditos =
+
+    /*     const vanityCreditos =
         basic.vanity_credits &&
         basic.vanity_credits.affiliation.length &&
         (basic.credits
@@ -50,12 +49,14 @@ const aperturaNoticia = ({ basic }) => {
                   }`;
                   return totalVanityCredits;
               })
-            : '');
+            : ''); */
+
     const fuenteCredito = `${distributors}${semicolon}${
         basic.credits && basic.credits.by ? creditos : ''
     }`;
+
     return (
-        <Media mediaData={basic} colNumber={12}>
+        <Media mediaData={basic} colNumber={12} withZoom="--zoom">
             {basic && (
                 <ComFigcaption>
                     {basic.caption && (
