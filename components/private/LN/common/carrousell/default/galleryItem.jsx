@@ -2,6 +2,7 @@ import React from 'react';
 import Media from '../../media';
 import ComFigcaption from '../../../../common/com-figcaption';
 import ComText from '../../../../common/com-text';
+import EpigrafeAndCreditsData from '../../../../common/utils/epigrafeAndCreditsData';
 
 export default function galleryItem({
     mediaData,
@@ -9,56 +10,7 @@ export default function galleryItem({
     totalGallery,
     withZoom
 }) {
-    const credits = mediaData.credits
-        ? mediaData.credits.by.length > 1
-            ? 'Créditos'
-            : 'Crédito'
-        : '';
-    const distributors =
-        mediaData.distributor && mediaData.distributor.name !== ''
-            ? `Fuente: ${
-                  mediaData.distributor.name
-                      ? mediaData.distributor.name
-                      : 'LA NACION'
-              }`
-            : '';
-    const semicolon =
-        mediaData.distributor &&
-        mediaData.distributor.name !== '' &&
-        mediaData.credits.by !== undefined
-            ? ' - '
-            : '';
-    const creditos =
-        mediaData.credits &&
-        mediaData.credits.by &&
-        (mediaData.credits
-            ? mediaData.credits.by.map((credito, i) => {
-                  const totalCredits = `${i === 0 ? `${credits}: ` : ''}${
-                      credito.type === 'author'
-                          ? credito.name
-                          : credito.type === 'reference'
-                          ? credito.referent.id
-                          : ''
-                  }`;
-                  return totalCredits;
-              })
-            : '');
-    const vanityCreditos =
-        mediaData.vanity_credits &&
-        mediaData.vanity_credits.affiliation.length &&
-        (mediaData.credits
-            ? mediaData.vanity_credits.by.map((credito, i) => {
-                  const totalVanityCredits = `${i === 0 ? `credits: ` : ', '}${
-                      credito.type === 'author'
-                          ? credito.name
-                          : credito.referent.id
-                  }`;
-                  return totalVanityCredits;
-              })
-            : '');
-    const fuenteCredito = `${distributors}${semicolon}${
-        mediaData.credits && mediaData.credits.by ? creditos : ''
-    }`;
+    const credito = EpigrafeAndCreditsData(mediaData);
     return (
         <>
             <Media mediaData={mediaData} withZoom={withZoom}>
@@ -70,10 +22,7 @@ export default function galleryItem({
                                 textname={mediaData.caption}
                             />
                         )}
-                        <ComText
-                            classCondition="--credit"
-                            textname={fuenteCredito}
-                        />
+                        <ComText classCondition="--credit" textname={credito} />
                     </ComFigcaption>
                 )}
                 <p className="paginator">

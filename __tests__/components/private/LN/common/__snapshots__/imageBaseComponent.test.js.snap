@@ -2,7 +2,7 @@
 
 exports[`features - La Nacion - components - common - BaseImage Test snapshot 1`] = `
 <picture
-  class="mod-picture --zoom"
+  class="mod-picture "
 >
   <source
     media="(min-width: 768px)"

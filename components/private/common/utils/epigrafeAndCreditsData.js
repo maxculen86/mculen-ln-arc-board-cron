@@ -1,9 +1,10 @@
 const epigrafeAndCreditsData = data => {
-    const credits = data.credits.by
-        ? data.credits.by.length > 1
-            ? 'Créditos'
-            : 'Crédito'
-        : '';
+    const credits =
+        data.credits && data.credits.by
+            ? data.credits.by.length > 1
+                ? 'Créditos'
+                : 'Crédito'
+            : '';
     const distributors =
         data.distributor && data.distributor.name !== ''
             ? `Fuente: ${
