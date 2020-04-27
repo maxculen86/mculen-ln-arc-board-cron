@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-figure.css';
 
-const ComFigure = ({ withZoom, children }) => {
+const ComFigure = ({ classCondition, withZoom, children }) => {
     const [active, setActive] = useState(false);
     const handleClick = () => {
         if (withZoom) {
@@ -16,7 +16,7 @@ const ComFigure = ({ withZoom, children }) => {
             role="button"
             onClick={handleClick}
             onKeyDown={handleClick}
-            className={`mod-figure ${withZoom || ''} ${
+            className={`mod-figure ${classCondition} ${withZoom || ''} ${
                 withZoom && active ? '--active' : ''
             }`}
         >
@@ -29,7 +29,8 @@ const ComFigure = ({ withZoom, children }) => {
 
 ComFigure.propTypes = {
     children: PropTypes.elementType.isRequired,
-    withZoom: PropTypes.string.isRequired
+    withZoom: PropTypes.string.isRequired,
+    classCondition: PropTypes.string.isRequired
 };
 
 export default ComFigure;
