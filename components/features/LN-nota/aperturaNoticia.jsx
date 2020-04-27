@@ -4,7 +4,7 @@ import Consumer from 'fusion:consumer';
 import AperturaNoticia from '../../private/LN/nota/apertura/aperturaNoticia';
 
 const aperturaNoticia = ({ id: featureId, globalContent = {} }) => {
-    const { promoItems = {} } = globalContent;
+    const { promo_items: promoItems = {} } = globalContent;
     const { basic } = promoItems;
 
     return promoItems && <AperturaNoticia basic={basic} />;
