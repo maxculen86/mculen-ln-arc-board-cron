@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaBase from '../../media';
+import Media from '../../media';
 import ComFigcaption from '../../../../common/com-figcaption';
 import ComText from '../../../../common/com-text';
 
@@ -61,8 +61,7 @@ export default function galleryItem({
     }`;
     return (
         <>
-            <MediaBase mediaData={mediaData} withZoom={withZoom}>
-                {/* TODO: componentizar creditos y epigrafe y llamarlos aca */}
+            <Media mediaData={mediaData} withZoom={withZoom}>
                 {mediaData && (
                     <ComFigcaption>
                         {mediaData.caption && (
@@ -82,7 +81,7 @@ export default function galleryItem({
                     &nbsp;de&nbsp;
                     {totalGallery}
                 </p>
-            </MediaBase>
+            </Media>
         </>
     );
 }
