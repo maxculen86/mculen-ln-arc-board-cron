@@ -1,36 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - La Nacion - components - common - BaseImage Test snapshot 1`] = `
-<a
-  class="figure contain-horizontal"
-  href="http://www.lanacion.com.ar/unaNota"
+<picture
+  class="mod-picture --zoom"
 >
-  <picture
-    class="content-pic picture zoom"
-  >
-    <source
-      alt="texto alternativo"
-      class="desktop"
-      media="(min-width: 768px)"
-      srcset="http://urldeprueba.com/imagenes/imagen1.jpeg"
-    />
-    <source
-      alt="texto alternativo"
-      class="desktop-sm"
-      media="(min-width: 360px)"
-      srcset="http://urldeprueba.com/imagenes/imagen2.jpeg"
-    />
-    <source
-      alt="texto alternativo"
-      class="mobile"
-      media="(min-width: 240px)"
-      srcset="http://urldeprueba.com/imagenes/imagen2.jpeg"
-    />
-    <img
-      alt="texto alternativo"
-      class="content-img"
-      loading="lazy"
-    />
-  </picture>
-</a>
+  <source
+    media="(min-width: 768px)"
+    srcset="http://urldeprueba.com/imagenes/imagen1.jpeg"
+  />
+  <source
+    media="(min-width: 360px)"
+    srcset="http://urldeprueba.com/imagenes/imagen2.jpeg"
+  />
+  <source
+    media="(min-width: 240px)"
+    srcset="http://urldeprueba.com/imagenes/imagen2.jpeg"
+  />
+</picture>
 `;

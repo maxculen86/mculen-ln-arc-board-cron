@@ -6,6 +6,8 @@ import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
 const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
+    console.log('media -> mediaData', mediaData.width);
+    console.log('media -> mediaData', mediaData.height);
     // TODO: revisar implementacion de placeHolder
     let item = null;
     const isVertical = mediaData.height > mediaData.width;
@@ -18,8 +20,9 @@ const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
                         classCondition={` ${
                             isVertical ? '--vertical' : '--horizontal'
                         }`}
+                        zoom={zoom}
                     >
-                        <Image image={mediaData} href={href} zoom={zoom} />
+                        <Image image={mediaData} href={href} />
                         {children}
                     </ComFigure>
                 );
