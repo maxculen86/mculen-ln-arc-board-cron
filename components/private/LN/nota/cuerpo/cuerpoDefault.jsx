@@ -48,6 +48,7 @@ const Cuerpo = props => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
             return bc.arcType === element.type;
         });
+
         if (Component) {
             if (Component.arcType === 'text') {
                 paragraphPosition += 1;

@@ -21,7 +21,7 @@ index.propTypes = {
         position: PropTypes.number,
         sticky: PropTypes.bool,
         table: PropTypes.string
-    }),
+    }).isRequired,
     globalContent: PropTypes.shape({
         subtype: PropTypes.number.isRequired
     }).isRequired

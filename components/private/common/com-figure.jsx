@@ -3,28 +3,33 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-figure.css';
 
-const ComFigure = props => {
-    const { classCondition, children, zoom } = props;
-    console.log('zoom *** ', zoom);
+const ComFigure = ({ withZoom, children }) => {
+    const [active, setActive] = useState(false);
+    const handleClick = () => {
+        if (withZoom) {
+            setActive(!active);
+        }
+    };
 
-    const [active, setActive] = useState('');
-    let zoomClass = '';
-    if (zoom) zoomClass = '--zoom';
-    if (!children) return null;
-    return (
+    return children ? (
         <figure
-            onClick={() => setActive(active ? '--active' : '')}
-            className={`mod-figure ${zoomClass || '--zoom'} ${active}`}
+            role="button"
+            onClick={handleClick}
+            onKeyDown={handleClick}
+            className={`mod-figure ${withZoom || ''} ${
+                withZoom && active ? '--active' : ''
+            }`}
         >
             {children}
         </figure>
+    ) : (
+        <></>
     );
 };
 
 ComFigure.propTypes = {
     children: PropTypes.elementType.isRequired,
-    zoom: PropTypes.bool.isRequired,
-    classCondition: PropTypes.string
+    withZoom: PropTypes.string.isRequired
 };
 
 export default ComFigure;
