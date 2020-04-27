@@ -3,7 +3,12 @@ import MediaBase from '../../media';
 import ComFigcaption from '../../../../common/com-figcaption';
 import ComText from '../../../../common/com-text';
 
-export default function galleryItem({ mediaData, galleryOrder, totalGallery }) {
+export default function galleryItem({
+    mediaData,
+    galleryOrder,
+    totalGallery,
+    withZoom
+}) {
     const credits = mediaData.credits
         ? mediaData.credits.by.length > 1
             ? 'Créditos'
@@ -56,7 +61,7 @@ export default function galleryItem({ mediaData, galleryOrder, totalGallery }) {
     }`;
     return (
         <>
-            <MediaBase mediaData={mediaData}>
+            <MediaBase mediaData={mediaData} withZoom={withZoom}>
                 {/* TODO: componentizar creditos y epigrafe y llamarlos aca */}
                 {mediaData && (
                     <ComFigcaption>

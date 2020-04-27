@@ -1,17 +1,18 @@
 // TODO: usar este como carrousell y renombrar
 import React from 'react';
 import Carrousell from '../../../../common/carousell';
-import Media from './galleryItem';
+import GalleryItem from './galleryItem';
 
 const index = props => {
-    const { data } = props;
+    const { data, withZoom } = props;
     return (
         <Carrousell>
             {data.content_elements.map((v, i) => (
-                <Media
+                <GalleryItem
                     mediaData={v}
                     galleryOrder={i}
                     totalGallery={data.content_elements.length}
+                    withZoom={withZoom}
                 />
             ))}
         </Carrousell>
