@@ -21,13 +21,11 @@
             display: none;
         }
     }
-    .--zoom & {
-        &.--active {
-            color: $blanco;
-            bottom: px(32);
-            position: absolute;
-            width: 100%;
-            text-align: center;
-        }
+    .--zoom.--active & {
+        color: $blanco;
+        bottom: px(32);
+        position: absolute;
+        width: 100%;
+        text-align: center;
     }
 }
