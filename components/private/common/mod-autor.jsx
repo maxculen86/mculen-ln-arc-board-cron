@@ -5,18 +5,26 @@ import PropTypes from 'fusion:prop-types';
 
 import ModFirma from './mod-firma';
 import ModMedio from './mod-medio';
-import ComImage from './com-image';
+import ModImage from './mod-image';
 
 import '../../../resources/dist/css/ln/modules/mod-autor.css';
 
 const ModAutor = props => {
     const { autor, medio, foto, classCondition, amp } = props;
-    const sizes = amp ? { width: 80, height: 80 } : {};
+    const author =
+        autor.length === 1
+            ? autor.reduce((acc, val) => ({ name: val.name, link: val.link }))
+            : null;
     return (
         <section className="mod-autor">
             {foto && (
                 <div className="container-img">
-                    <ComImage src={foto} alt="" amp={amp} {...sizes} />
+                    <ModImage
+                        link={author.link}
+                        src={foto}
+                        alt={author.name}
+                        amp={amp}
+                    />
                 </div>
             )}
             <div className="container-text">
