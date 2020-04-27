@@ -50,6 +50,19 @@ const Cuerpo = props => {
         });
 
         if (Component) {
+            if (
+                Component.arcType === 'image' ||
+                Component.arcType === 'gallery'
+            ) {
+                return (
+                    <Component
+                        data={element}
+                        capital={capitalIndex === i}
+                        outputType={outputType}
+                        withZoom="--zoom"
+                    />
+                );
+            }
             if (Component.arcType === 'text') {
                 paragraphPosition += 1;
                 return (
