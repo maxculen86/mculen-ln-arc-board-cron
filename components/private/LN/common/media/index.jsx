@@ -15,9 +15,6 @@ const media = ({
 }) => {
     const { height = 0, width = 0 } = mediaData || {};
     const isVertical = height > width;
-
-    // TODO: revisar implementacion de placeHolder
-
     let item = null;
 
     if (mediaData) {
@@ -30,6 +27,7 @@ const media = ({
                             isVertical ? '--vertical' : '--horizontal'
                         }`}
                         withZoom={withZoom}
+                        width={width}
                     >
                         <Image image={mediaData} href={href} />
                         {children}

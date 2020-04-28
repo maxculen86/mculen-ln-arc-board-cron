@@ -1,15 +1,11 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import Media from '../../media';
 import ComFigcaption from '../../../../common/com-figcaption';
 import ComText from '../../../../common/com-text';
 import EpigrafeAndCreditsData from '../../../../common/utils/epigrafeAndCreditsData';
 
-export default function galleryItem({
-    mediaData,
-    galleryOrder,
-    totalGallery,
-    withZoom
-}) {
+const galleryItem = ({ mediaData, galleryOrder, totalGallery, withZoom }) => {
     const credito = EpigrafeAndCreditsData(mediaData);
     return (
         <>
@@ -33,4 +29,18 @@ export default function galleryItem({
             </Media>
         </>
     );
-}
+};
+
+galleryItem.propTypes = {
+    mediaData: PropTypes.shape({
+        distributor: PropTypes.string,
+        caption: PropTypes.string,
+        vanity_credits: PropTypes.arrayOf,
+        credits: PropTypes.arrayOf
+    }).isRequired,
+    withZoom: PropTypes.string.isRequired,
+    totalGallery: PropTypes.number.isRequired,
+    galleryOrder: PropTypes.number.isRequired
+};
+
+export default galleryItem;

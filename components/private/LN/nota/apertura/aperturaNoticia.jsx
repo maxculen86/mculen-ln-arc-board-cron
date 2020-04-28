@@ -6,6 +6,7 @@ import ComText from '../../../common/com-text';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
 const aperturaNoticia = ({ basic }) => {
+    console.log('aperturaNoticia -> basic *********** ', basic);
     const credito = EpigrafeAndCreditsData(basic);
 
     return (
