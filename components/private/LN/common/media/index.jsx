@@ -43,7 +43,7 @@ const media = ({
     }
     const colClass = colNumber ? `col-desksm-${colNumber} ` : '';
     if (!item) {
-        item = <Placeholder zoom={zoom} href={href} outputType={outputType} />;
+        item = <Placeholder href={href} outputType={outputType} />;
     }
     return <section className={`${colClass}`}>{item}</section>;
 };

@@ -22,27 +22,26 @@ exports[`Ranking matches snapshot 1`] = `
         class="mod-caja-nota --border  "
       >
         <section
-          class="cont-figure"
+          class=""
         >
-          <a
-            class="figure contain-horizontal"
-            href="/autos/test-de-generacion-de-url/"
+          <figure
+            class="mod-figure  --horizontal  "
+            role="button"
           >
             <picture
-              class="content-pic picture "
+              class="mod-picture "
             >
               <source
-                class="img-desktop"
                 media="(min-width: 768px)"
                 srcset="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
               />
               <img
-                class="content-img"
+                class="com-image"
                 loading="lazy"
                 src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg"
               />
             </picture>
-          </a>
+          </figure>
         </section>
         <div
           class="mod-caja-nota__descrip"
@@ -66,17 +65,8 @@ exports[`Ranking matches snapshot 1`] = `
         class="mod-caja-nota --border  "
       >
         <section
-          class="cont-figure"
-        >
-          <a
-            class="figure contain-horizontal"
-            href="/recetas/receta-de-prueba-con-volanta/"
-          >
-            <picture
-              class="content-pic picture "
-            />
-          </a>
-        </section>
+          class=""
+        />
         <div
           class="mod-caja-nota__descrip"
         >
@@ -102,17 +92,8 @@ exports[`Ranking matches snapshot 1`] = `
         class="mod-caja-nota --border  "
       >
         <section
-          class="cont-figure"
-        >
-          <a
-            class="figure contain-horizontal"
-            href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
-          >
-            <picture
-              class="content-pic picture "
-            />
-          </a>
-        </section>
+          class=""
+        />
         <div
           class="mod-caja-nota__descrip"
         >
