@@ -49,20 +49,13 @@ const Cuerpo = props => {
             return bc.arcType === element.type;
         });
 
+        const { arcType = '' } = Component || {};
+        const extraProps =
+            ['image', 'gallery'].findIndex(el => el === (arcType || '')) !== -1
+                ? { withZoom: '--zoom' }
+                : {};
+
         if (Component) {
-            if (
-                Component.arcType === 'image' ||
-                Component.arcType === 'gallery'
-            ) {
-                return (
-                    <Component
-                        data={element}
-                        capital={capitalIndex === i}
-                        outputType={outputType}
-                        withZoom="--zoom"
-                    />
-                );
-            }
             if (Component.arcType === 'text') {
                 paragraphPosition += 1;
                 return (
@@ -108,6 +101,7 @@ const Cuerpo = props => {
                     data={element}
                     capital={capitalIndex === i}
                     outputType={outputType}
+                    {...extraProps}
                 />
             );
         }

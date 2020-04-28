@@ -13,7 +13,6 @@ const media = ({
     children,
     outputType
 }) => {
-    console.log('withZoom', withZoom);
     const { height = 0, width = 0 } = mediaData || {};
     const isVertical = height > width;
 
