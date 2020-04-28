@@ -20,7 +20,7 @@ const renderAsList = (authors, position) =>
 
 const getPropsBuilderFromContentElements = position => contentElements =>
     position === place.Top
-        ? [{ authors: [], photo: null, medio: null }]
+        ? { authors: [], photo: null, medio: null }
         : contentElements
               .filter(
                   contentElement =>

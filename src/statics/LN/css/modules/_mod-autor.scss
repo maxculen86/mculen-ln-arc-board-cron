@@ -37,7 +37,12 @@
                 }
                 &:not(:only-child):first-child {
                     &:before {
-                        content: none;
+                        content: 'Por';
+                    }
+                }
+                &:first-child {
+                    &:before {
+                        content: 'Por';
                     }
                 }
                 &:first-child {
@@ -55,6 +60,15 @@
         .container-medio {
             @include flex(flex);
             width: 100%;
+        }
+    }
+    .container-img + .container-text {
+        .container-firma {
+            &:first-child {
+                &:before {
+                    content: none;
+                }
+            }
         }
     }
     .container-img,

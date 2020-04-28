@@ -36,8 +36,9 @@ const Cuerpo = props => {
         Image
     ];
 
-    const paragraphsCount = contentElements.filter(el => el.type === 'text')
-        .length;
+    const paragraphsCount = contentElements.filter(
+        el => el.type === 'text' && !el.additional_properties.nodeType
+    ).length;
 
     let paragraphPosition = 0;
 
@@ -50,6 +51,7 @@ const Cuerpo = props => {
         });
         if (Component) {
             if (Component.arcType === 'text') {
+                if (element.additional_properties.nodeType) return <></>;
                 paragraphPosition += 1;
                 return (
                     <>
