@@ -86,13 +86,15 @@ const FirmaFeature = props => {
         }
     } = props;
 
-    const constructProps = authors
-        ? getPropsBuilder(position)
-        : getPropsBuilderFromContentElements(position);
+    const constructProps =
+        authors && authors.length > 0
+            ? getPropsBuilder(position)
+            : getPropsBuilderFromContentElements(position);
 
-    const data = authors
-        ? compose(constructProps, filterByAuthor)(authors)
-        : compose(constructProps)(contentElements);
+    const data =
+        authors && authors.length > 0
+            ? compose(constructProps, filterByAuthor)(authors)
+            : compose(constructProps)(contentElements);
 
     const amp = outputType === 'amp';
 
