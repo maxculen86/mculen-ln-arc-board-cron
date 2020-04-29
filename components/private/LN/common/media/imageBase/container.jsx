@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import ImageBase from './component';
 import AmpImage from '../../ampImage';
 
-const ImageArticle = ({ image, altText, zoom, href, outputType }) => {
+const ImageArticle = ({ image, altText, zoom, href, outputType, active }) => {
     if (!image.url) return null;
     const amp = outputType === 'amp';
 
@@ -27,6 +27,7 @@ const ImageArticle = ({ image, altText, zoom, href, outputType }) => {
                 />
             ) : (
                 <ImageBase
+                    active={active}
                     urlDefault={image.url}
                     sources={sources || []}
                     altText={altText}
@@ -53,6 +54,7 @@ ImageArticle.propTypes = {
     }).isRequired,
     altText: PropTypes.string,
     zoom: PropTypes.bool,
+    active: PropTypes.bool.isRequired,
     href: PropTypes.string
 };
 

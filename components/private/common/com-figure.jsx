@@ -8,19 +8,13 @@ const ComFigure = ({
     withZoom,
     children,
     width,
-    itsGallery
+    itsGallery,
+    handleClick,
+    active
 }) => {
-    console.log('itsGallery *************** ', itsGallery);
     const refContainer = useRef();
-    const [active, setActive] = useState(false);
 
     const [zoom, setZoom] = useState(false);
-
-    const handleClick = () => {
-        if (withZoom) {
-            setActive(!active);
-        }
-    };
 
     useEffect(() => {
         if (withZoom) {
@@ -60,7 +54,9 @@ ComFigure.propTypes = {
     withZoom: PropTypes.string.isRequired,
     classCondition: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
-    itsGallery: PropTypes.bool.isRequired
+    itsGallery: PropTypes.bool.isRequired,
+    active: PropTypes.bool.isRequired,
+    handleClick: PropTypes.func.isRequired
 };
 
 export default ComFigure;

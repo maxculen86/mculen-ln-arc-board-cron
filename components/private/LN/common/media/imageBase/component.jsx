@@ -12,7 +12,8 @@ const imageBase = ({
     zoom,
     href,
     height,
-    width
+    width,
+    active
 }) => {
     const isVertical = height > width;
     /**
@@ -24,7 +25,8 @@ const imageBase = ({
 
     const pic = (
         <Placeholder href={href} zoom={zoom} isVertical={isVertical}>
-            {sources &&
+            {!active &&
+                sources &&
                 sources.map(x => {
                     return (
                         <ComSource
@@ -34,8 +36,9 @@ const imageBase = ({
                         />
                     );
                 })}
-            <ComImage src={urlDefault} alt={altText} />
-            {sourcesZoom &&
+            {!active && <ComImage src={urlDefault} alt={altText} />}
+            {active &&
+                sourcesZoom &&
                 sourcesZoom.map(x => {
                     return (
                         <ComSource
@@ -45,7 +48,13 @@ const imageBase = ({
                         />
                     );
                 })}
-            <ComImage className="--imageZoom" src={urlDefault} alt={altText} />
+            {active && (
+                <ComImage
+                    classCondition="--large"
+                    src={urlDefault}
+                    alt={altText}
+                />
+            )}
         </Placeholder>
     );
     return pic;

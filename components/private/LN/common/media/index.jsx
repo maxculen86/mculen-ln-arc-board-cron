@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
@@ -17,6 +17,13 @@ const media = ({
     const { height = 0, width = 0 } = mediaData || {};
     const isVertical = height > width;
     let item = null;
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        if (withZoom) {
+            setActive(!active);
+        }
+    };
 
     if (mediaData) {
         const { type, _id } = mediaData;
@@ -30,8 +37,10 @@ const media = ({
                         withZoom={withZoom}
                         width={width}
                         itsGallery={itsGallery}
+                        handleClick={handleClick}
+                        active={active}
                     >
-                        <Image image={mediaData} href={href} />
+                        <Image active={active} image={mediaData} href={href} />
                         {children}
                     </ComFigure>
                 );
