@@ -6,7 +6,7 @@ import '../../../resources/dist/css/ln/modules/mod-figcaption.css';
 const ComFigcaption = props => {
     const { children } = props;
     if (!children) return null;
-    return <figcaption className={`mod-figcaption`}>{children}</figcaption>;
+    return <figcaption className="mod-figcaption">{children}</figcaption>;
 };
 
 ComFigcaption.propTypes = {

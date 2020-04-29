@@ -76,8 +76,8 @@ const transform = (data, siteProps) => {
         presets: {
             promoItems: promoItemsRatio,
             contentElements: presetsL.content_elements || presetsDefault,
-            zoomSizes: presetsXXL.promo_items,
-            presetsDefault
+            presetsDefault,
+            zoomSizes: presetsXXL.promo_items.sizes
         }
     });
     return transformContent(resp, arcSite);
