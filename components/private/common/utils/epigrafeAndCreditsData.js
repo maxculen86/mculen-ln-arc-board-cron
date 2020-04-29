@@ -1,28 +1,25 @@
 const epigrafeAndCreditsData = data => {
-    const credits =
-        data.credits && data.credits.by
-            ? data.credits.by.length > 1
+    const { credits, distributor } = data;
+    const creditoss =
+        credits && credits.by
+            ? credits.by.length > 1
                 ? 'Créditos'
                 : 'Crédito'
             : '';
     const distributors =
-        data.distributor && data.distributor.name !== ''
-            ? `Fuente: ${
-                  data.distributor.name ? data.distributor.name : 'LA NACION'
-              }`
+        distributor && distributor.name !== ''
+            ? `Fuente: ${distributor.name ? distributor.name : 'LA NACION'}`
             : '';
     const semicolon =
-        data.distributor &&
-        data.distributor.name !== '' &&
-        data.credits.by !== undefined
+        distributor && distributor.name !== '' && credits.by !== undefined
             ? ' - '
             : '';
     const creditos =
-        data.credits &&
-        data.credits.by !== undefined &&
-        (data.credits
-            ? data.credits.by.map((credito, i) => {
-                  const totalCredits = `${i === 0 ? `${credits}: ` : ''}${
+        credits &&
+        credits.by !== undefined &&
+        (credits
+            ? credits.by.map((credito, i) => {
+                  const totalCredits = `${i === 0 ? `${creditoss}: ` : ''}${
                       credito.type === 'author'
                           ? credito.name
                           : credito.referent.id
@@ -45,7 +42,7 @@ const epigrafeAndCreditsData = data => {
               })
             : ''); */
     const fuenteCredito = `${distributors}${semicolon}${
-        data.credits && data.credits.by ? creditos : ''
+        credits && credits.by ? creditos : ''
     }`;
     return fuenteCredito;
 };
