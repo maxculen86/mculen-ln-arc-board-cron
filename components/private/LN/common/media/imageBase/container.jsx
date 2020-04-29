@@ -4,48 +4,46 @@ import PropTypes from 'fusion:prop-types';
 import ImageBase from './component';
 import AmpImage from '../../ampImage';
 
-class ImageArticle extends React.Component {
-    componentDidMount() {}
+const ImageArticle = () => {
+    const { image, altText, zoom, href, outputType } = this.props;
 
-    render() {
-        const { image, altText, zoom, href, outputType } = this.props;
+    if (!image.url) return null;
+    const amp = outputType === 'amp';
 
-        if (!image.url) return null;
-        const amp = outputType === 'amp';
+    const sources =
+        image.resized_urls && image.resized_urls.filter(v => !!v.option);
+    const sourcesZoom =
+        image.resized_urls_zoom &&
+        image.resized_urls_zoom.filter(v => !!v.option);
 
-        const sources =
-            image.resized_urls && image.resized_urls.filter(v => !!v.option);
-        const sourcesZoom =
-            image.resized_urls_zoom &&
-            image.resized_urls_zoom.filter(v => !!v.option);
+    console.log('ImageArticle -> render -> sourcesZoom', sourcesZoom);
 
-        return (
-            <>
-                {amp ? (
-                    <AmpImage
-                        sources={sources}
-                        url={image.url}
-                        alt={altText || ''}
-                        width={image.width}
-                        height={image.height}
-                        href={this.props.href}
-                    />
-                ) : (
-                    <ImageBase
-                        urlDefault={image.url}
-                        sources={sources || []}
-                        altText={altText}
-                        zoom={zoom}
-                        sourcesZoom={sourcesZoom}
-                        href={href}
-                        width={image.width}
-                        height={image.height}
-                    />
-                )}
-            </>
-        );
-    }
-}
+    return (
+        <>
+            {amp ? (
+                <AmpImage
+                    sources={sources}
+                    url={image.url}
+                    alt={altText || ''}
+                    width={image.width}
+                    height={image.height}
+                    href={this.props.href}
+                />
+            ) : (
+                <ImageBase
+                    urlDefault={image.url}
+                    sources={sources || []}
+                    altText={altText}
+                    zoom={zoom}
+                    sourcesZoom={sourcesZoom}
+                    href={href}
+                    width={image.width}
+                    height={image.height}
+                />
+            )}
+        </>
+    );
+};
 
 ImageArticle.propTypes = {
     outputType: PropTypes.string.isRequired,
