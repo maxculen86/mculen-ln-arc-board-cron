@@ -7,6 +7,7 @@ import ComSource from '../../../../common/com-source';
 const imageBase = ({
     urlDefault,
     sources,
+    sourcesZoom = [],
     altText,
     zoom,
     href,
@@ -47,6 +48,29 @@ const imageBase = ({
                 alt={altText}
             /> */}
             <ComImage
+                src={urlDefault}
+                //loading="lazy"
+                alt={altText}
+            />
+            {sourcesZoom &&
+                sourcesZoom.map(x => {
+                    return (
+                        // <source
+                        //    key={x.option.media}
+                        //    media={x.option.media}
+                        //    srcSet={x.resizedUrl}
+                        //    className={x.option.class}
+                        //    alt={altText}
+                        // />
+                        <ComSource
+                            key={x.option.media}
+                            media={x.option.media}
+                            srcset={x.resizedUrl}
+                        />
+                    );
+                })}
+            <ComImage
+                className="--imageZoom"
                 src={urlDefault}
                 //loading="lazy"
                 alt={altText}
