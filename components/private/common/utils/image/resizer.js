@@ -80,7 +80,12 @@ export const createResizer = (resizerKey, resizerUrl) => {
     };
 };
 
-export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
+export const resizeArcGallery = (
+    arcgallery,
+    resizeOptions,
+    resizer,
+    zoomSizes
+) => {
     if (arcgallery.type !== 'gallery') {
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "gallery"'
@@ -90,7 +95,7 @@ export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
     return {
         ...arcgallery,
         content_elements: arcgallery.content_elements.map(i =>
-            resizeArcImage(i, resizeOptions, resizer)
+            resizeArcImage(i, resizeOptions, resizer, zoomSizes)
         )
     };
 };
@@ -105,7 +110,7 @@ const getFocalPoint = function getFocalPoint(element) {
     return focalPoint.min;
 };
 
-export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
+export const resizeArcImage = (arcImage, resizeOptions, resizer, zoomSizes) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
@@ -142,6 +147,13 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
             arcImage.width,
             arcImage.height,
             resizeOptions,
+            getFocalPoint(arcImage) || undefined
+        ),
+        resized_urls_zoom: resizer.resizeUrls(
+            arcImage.url,
+            arcImage.width,
+            arcImage.height,
+            zoomSizes,
             getFocalPoint(arcImage) || undefined
         )
     };
@@ -181,7 +193,7 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
     return resp;
 };
 
-const resizePromoItems = (promoItems, resizeOptions, resizer) => {
+const resizePromoItems = (promoItems, resizeOptions, resizer, zoomSizes) => {
     const resp = {};
 
     // TODO: Pasar valor por defecto como constante
@@ -197,7 +209,7 @@ const resizePromoItems = (promoItems, resizeOptions, resizer) => {
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
         if (pi.type === 'image') {
-            resp[key] = resizeArcImage(pi, optionsFinal, resizer);
+            resp[key] = resizeArcImage(pi, optionsFinal, resizer, zoomSizes);
         } else {
             resp[key] = pi;
         }
@@ -210,6 +222,7 @@ export const addResizedUrls = (ansDoc, option) => {
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
+    const { zoomSizes } = option.presets;
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
     const optionsContentElements = option.presets.contentElements.sizes;
@@ -223,14 +236,16 @@ export const addResizedUrls = (ansDoc, option) => {
                     return resizeArcImage(
                         elem,
                         optionsContentElements,
-                        resizer
+                        resizer,
+                        zoomSizes
                     );
                 }
                 if (elem.type === 'gallery') {
                     return resizeArcGallery(
                         elem,
                         optionsContentElements,
-                        resizer
+                        resizer,
+                        zoomSizes
                     );
                 }
                 return elem;
@@ -240,7 +255,8 @@ export const addResizedUrls = (ansDoc, option) => {
         respDoc.promo_items = resizePromoItems(
             ansDoc.promo_items,
             option.presets.promoItems,
-            resizer
+            resizer,
+            zoomSizes
         );
     }
 

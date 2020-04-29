@@ -54,6 +54,11 @@ const transform = (data, siteProps) => {
     const properties = getProperties(arcSite);
 
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
+    const presetsXXL = get(
+        properties,
+        `imageConfig.resize.xxl`,
+        presetsDefault
+    );
     const presetsXL = get(properties, `imageConfig.resize.xl`, null);
     const presetsL = get(properties, `imageConfig.resize.l`, null);
 
@@ -71,6 +76,7 @@ const transform = (data, siteProps) => {
         presets: {
             promoItems: promoItemsRatio,
             contentElements: presetsL.content_elements || presetsDefault,
+            zoomSizes: presetsXXL.promo_items,
             presetsDefault
         }
     });
