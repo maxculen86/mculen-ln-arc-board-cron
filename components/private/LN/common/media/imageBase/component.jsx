@@ -35,17 +35,7 @@ const imageBase = ({
                     );
                 })}
             <ComImage src={urlDefault} alt={altText} />
-            {sourcesZoom &&
-                sourcesZoom.map(x => {
-                    return (
-                        <ComSource
-                            key={x.option.media}
-                            media={x.option.media}
-                            srcset={x.resizedUrl}
-                        />
-                    );
-                })}
-            <ComImage className="--imageZoom" src={urlDefault} alt={altText} />
+            <ComImage classCondition="--large" src={urlDefault} alt={altText} />
         </Placeholder>
     );
     return pic;
