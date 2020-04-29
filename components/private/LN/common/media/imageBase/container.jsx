@@ -15,6 +15,9 @@ class ImageArticle extends React.Component {
 
         const sources =
             image.resized_urls && image.resized_urls.filter(v => !!v.option);
+        const sourcesZoom =
+            image.resized_urls_zoom &&
+            image.resized_urls_zoom.filter(v => !!v.option);
 
         return (
             <>
@@ -33,6 +36,7 @@ class ImageArticle extends React.Component {
                         sources={sources || []}
                         altText={altText}
                         zoom={zoom}
+                        sourcesZoom={sourcesZoom}
                         href={href}
                         width={image.width}
                         height={image.height}
