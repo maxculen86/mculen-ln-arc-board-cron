@@ -7,7 +7,7 @@ import ComSource from '../../../../common/com-source';
 const imageBase = ({
     urlDefault,
     sources,
-    sourcesZoom = [],
+    sourcesZoom,
     altText,
     zoom,
     href,
@@ -27,13 +27,6 @@ const imageBase = ({
             {sources &&
                 sources.map(x => {
                     return (
-                        // <source
-                        //    key={x.option.media}
-                        //    media={x.option.media}
-                        //    srcSet={x.resizedUrl}
-                        //    className={x.option.class}
-                        //    alt={altText}
-                        // />
                         <ComSource
                             key={x.option.media}
                             media={x.option.media}
@@ -41,27 +34,10 @@ const imageBase = ({
                         />
                     );
                 })}
-            {/* <img
-                src={urlDefault}
-                className="content-img"
-                loading="lazy"
-                alt={altText}
-            /> */}
-            <ComImage
-                src={urlDefault}
-                //loading="lazy"
-                alt={altText}
-            />
+            <ComImage src={urlDefault} alt={altText} />
             {sourcesZoom &&
                 sourcesZoom.map(x => {
                     return (
-                        // <source
-                        //    key={x.option.media}
-                        //    media={x.option.media}
-                        //    srcSet={x.resizedUrl}
-                        //    className={x.option.class}
-                        //    alt={altText}
-                        // />
                         <ComSource
                             key={x.option.media}
                             media={x.option.media}
@@ -69,12 +45,7 @@ const imageBase = ({
                         />
                     );
                 })}
-            <ComImage
-                className="--imageZoom"
-                src={urlDefault}
-                //loading="lazy"
-                alt={altText}
-            />
+            <ComImage className="--imageZoom" src={urlDefault} alt={altText} />
         </Placeholder>
     );
     return pic;
@@ -92,11 +63,5 @@ imageBase.propTypes = {
     zoom: PropTypes.bool,
     href: PropTypes.string
 };
-
-// imageBase.defaultProps = {
-//     altText: '',
-//     zoom: false,
-//     href: ''
-// };
 
 export default imageBase;
