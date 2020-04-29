@@ -35,16 +35,26 @@
                         font-weight: 100;
                     }
                 }
-                &:not(:only-child):first-child {
-                    &:before {
-                        content: 'Por';
-                    }
-                }
-                &:first-child {
-                    &:before {
-                        content: 'Por';
-                    }
-                }
+                // &:not(:only-child):first-child {
+                //     &:before {
+                //         content: 'Por';
+                //     }
+                // }
+                // &:first-child {
+                //     &:before {
+                //         content: 'Por';
+                //     }
+                // }
+                // &:first-child {
+                //     &:before {
+                //         .cuerpo__nota & {
+                //             content: 'Por';
+                //             padding-right: px(5);
+                //             color: $negro;
+                //             font-weight: 100;
+                //         }
+                //     }
+                // }
                 &:first-child {
                     &:before {
                         .cuerpo__nota & {
