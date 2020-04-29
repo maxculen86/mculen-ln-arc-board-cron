@@ -22,7 +22,7 @@
                     color: $negro;
                     font-weight: 100;
                 }
-                &:only-child {
+                &:first-child {
                     &:before {
                         content: none;
                     }

@@ -20,7 +20,7 @@ const ComImage = props => {
             ) : (
                 <img
                     src={src}
-                    srcset={srcset}
+                    srcSet={srcset}
                     className="com-image"
                     alt={alt}
                 />
