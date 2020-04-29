@@ -3,7 +3,13 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-figure.css';
 
-const ComFigure = ({ classCondition, withZoom, children, width }) => {
+const ComFigure = ({
+    classCondition,
+    withZoom,
+    children,
+    width,
+    itsGallery
+}) => {
     const refContainer = useRef();
     const [active, setActive] = useState(false);
 

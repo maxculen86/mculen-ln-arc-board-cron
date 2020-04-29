@@ -13,6 +13,7 @@ const index = props => {
                     galleryOrder={i}
                     totalGallery={data.content_elements.length}
                     withZoom={withZoom}
+                    itsGallery
                 />
             ))}
         </Carrousell>
