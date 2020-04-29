@@ -9,6 +9,11 @@
     .mod-media & {
         position: absolute;
         object-fit: cover;
+        .mod-autor & {
+            width: px(80);
+            height: px(80);
+            display: block;
+        }
     }
     &:hover {
         filter: brightness(1.1);

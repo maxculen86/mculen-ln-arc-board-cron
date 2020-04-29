@@ -5,7 +5,7 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-image.css';
 
 const ComImage = props => {
-    const { src, alt, amp, width, height } = props;
+    const { src, srcset, alt, amp, width, height } = props;
     if (!src) return null;
     return (
         <>
@@ -15,9 +15,15 @@ const ComImage = props => {
                     layout="fixed"
                     width={width}
                     height={height}
+                    class="com-image"
                 />
             ) : (
-                <img src={src} className="com-image" alt={alt} />
+                <img
+                    src={src}
+                    srcset={srcset}
+                    className="com-image"
+                    alt={alt}
+                />
             )}
         </>
     );
@@ -30,6 +36,7 @@ const sizeProps = (props, propName) =>
 
 ComImage.propTypes = {
     src: PropTypes.string.isRequired,
+    srcset: PropTypes.string,
     alt: PropTypes.string.isRequired,
     amp: PropTypes.bool.isRequired,
     width: sizeProps,

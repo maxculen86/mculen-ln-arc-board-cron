@@ -81,20 +81,20 @@
             }
         }
     }
-    .container-img,
-    .mod-image {
-        @include flex(inline);
-        background: $gris4;
-        width: px(80);
-        height: px(80);
-        border-radius: 50%;
-        margin-right: $spacing-sm;
-        overflow: hidden;
-        .img,
-        .com-image {
-            width: px(80);
-            height: px(80);
-            display: block;
-        }
-    }
+    // .container-img,
+    // .mod-image {
+    //     @include flex(inline);
+    //     background: $gris4;
+    //     width: px(80);
+    //     height: px(80);
+    //     border-radius: 50%;
+    //     margin-right: $spacing-sm;
+    //     overflow: hidden;
+    //     // .img,
+    //     // .com-image {
+    //     //     width: px(80);
+    //     //     height: px(80);
+    //     //     display: block;
+    //     // }
+    // }
 }
