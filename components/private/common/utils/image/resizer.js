@@ -5,14 +5,6 @@ import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
 // import getProperties from 'fusion:properties';
 // import { useAppContext } from 'fusion:context';
 
-const focusImage = (width, height, focalPoint, thumborInstance) => {
-    const [x, y] = focalPoint;
-    // left, top, right, bottom: https://thumbor.readthedocs.io/en/latest/focal.html
-    const rect = [x - 5, y + 5, x + 5, y - 5];
-    const focalFilter = `focal(${rect[0]}x${rect[1]}:${rect[2]}x${rect[3]})`;
-    return thumborInstance.filter(focalFilter);
-};
-
 export const createResizer = (resizerKey, resizerUrl) => {
     const Thumbor = require('thumbor');
 
@@ -33,12 +25,18 @@ export const createResizer = (resizerKey, resizerUrl) => {
         const thumbor = new Thumbor(resizerKey, resizerUrl);
 
         if (
-            (!focalPoint || !originalWidth || !originalHeight) &&
-            !resizeOptions.isNotSmart
+            focalPoint &&
+            (originalWidth || originalHeight) &&
+            resizeOptions.isNotSmart
         ) {
-            thumbor.smartCrop(true);
+            const [x, y] = focalPoint;
+            // left, top, right, bottom: https://thumbor.readthedocs.io/en/latest/focal.html
+            const rect = [x - 5, y + 5, x + 5, y - 5];
+            thumbor.filter(
+                `focal(${rect[0]}x${rect[1]}:${rect[2]}x${rect[3]})`
+            );
         } else {
-            focusImage(originalWidth, originalHeight, focalPoint, thumbor);
+            thumbor.smartCrop(true);
         }
 
         thumbor.setImagePath(cleanedUrl);
