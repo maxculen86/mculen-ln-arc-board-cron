@@ -5,11 +5,21 @@ import ComFigcaption from '../../../../common/com-figcaption';
 import ComText from '../../../../common/com-text';
 import EpigrafeAndCreditsData from '../../../../common/utils/epigrafeAndCreditsData';
 
-const galleryItem = ({ mediaData, galleryOrder, totalGallery, withZoom }) => {
+const galleryItem = ({
+    mediaData,
+    galleryOrder,
+    totalGallery,
+    withZoom,
+    itsGallery
+}) => {
     const credito = EpigrafeAndCreditsData(mediaData);
     return (
         <>
-            <Media mediaData={mediaData} withZoom={withZoom}>
+            <Media
+                mediaData={mediaData}
+                withZoom={withZoom}
+                itsGallery={itsGallery}
+            >
                 {mediaData && (
                     <ComFigcaption>
                         {mediaData.caption && (
@@ -40,7 +50,8 @@ galleryItem.propTypes = {
     }).isRequired,
     withZoom: PropTypes.string.isRequired,
     totalGallery: PropTypes.number.isRequired,
-    galleryOrder: PropTypes.number.isRequired
+    galleryOrder: PropTypes.number.isRequired,
+    itsGallery: PropTypes.bool.isRequired
 };
 
 export default galleryItem;
