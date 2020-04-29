@@ -69,7 +69,7 @@ const transform = (data, siteProps) => {
     const promoItemsRatio =
         notesWithRatio.indexOf(data.subtype) === 0
             ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
-            : presetsXL.promo_items.size || presetsDefault.size;
+            : presetsXL.promo_items.sizes || presetsDefault;
     const resp = addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
         resizerUrl: RESIZER_URL,
