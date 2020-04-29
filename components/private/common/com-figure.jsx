@@ -10,6 +10,7 @@ const ComFigure = ({
     width,
     itsGallery
 }) => {
+    console.log('itsGallery *************** ', itsGallery);
     const refContainer = useRef();
     const [active, setActive] = useState(false);
 
@@ -43,9 +44,9 @@ const ComFigure = ({
             role="button"
             onClick={handleClick}
             onKeyDown={handleClick}
-            className={`mod-figure ${classCondition} ${zoom ? withZoom : ''} ${
-                withZoom && active && zoom ? '--active' : ''
-            }`}
+            className={`mod-figure ${classCondition} ${
+                itsGallery || zoom ? withZoom : ''
+            } ${withZoom && active && (itsGallery || zoom) ? '--active' : ''}`}
         >
             {children}
         </figure>
@@ -58,7 +59,8 @@ ComFigure.propTypes = {
     children: PropTypes.elementType.isRequired,
     withZoom: PropTypes.string.isRequired,
     classCondition: PropTypes.string.isRequired,
-    width: PropTypes.number.isRequired
+    width: PropTypes.number.isRequired,
+    itsGallery: PropTypes.bool.isRequired
 };
 
 export default ComFigure;

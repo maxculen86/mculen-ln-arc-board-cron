@@ -9,6 +9,7 @@ const media = ({
     mediaData,
     colNumber,
     withZoom,
+    itsGallery,
     href,
     children,
     outputType
@@ -28,6 +29,7 @@ const media = ({
                         }`}
                         withZoom={withZoom}
                         width={width}
+                        itsGallery={itsGallery}
                     >
                         <Image image={mediaData} href={href} />
                         {children}
@@ -59,6 +61,7 @@ media.propTypes = {
         _id: PropTypes.string
     }).isRequired,
     colNumber: PropTypes.number.isRequired,
+    itsGallery: PropTypes.bool.isRequired,
     withZoom: PropTypes.bool.tag({
         defaultValue: false
     }),
