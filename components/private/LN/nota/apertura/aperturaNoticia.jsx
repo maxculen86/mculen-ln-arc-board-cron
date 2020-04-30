@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
+import getCreditsTitle from '../../common/utils/getCreditsTitle';
 
 // TODO: name destacadoEnApertura
 const aperturaNoticia = ({ basic }) => {
-    let credits = basic.credits.by ? 'Crédito' : '';
-    credits =
-        basic.credits.by && basic.credits.by.length > 1
-            ? `${credits}s`
-            : credits;
+    const credits = getCreditsTitle(basic);
 
     return (
         <Media mediaData={basic} colNumber={12}>
