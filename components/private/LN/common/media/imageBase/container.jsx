@@ -25,11 +25,14 @@ class ImageArticle extends React.PureComponent {
                 {amp ? (
                     <AmpImage
                         sources={sources}
+                        sourcesZoom={sourcesZoom || []}
                         url={image.url}
                         alt={altText || ''}
                         width={image.width}
                         height={image.height}
                         href={href}
+                        zoom={zoom}
+                        active={active}
                     />
                 ) : (
                     <ImageBase
