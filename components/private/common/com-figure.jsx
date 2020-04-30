@@ -20,9 +20,6 @@ const ComFigure = ({
         if (withZoom) {
             setZoom(width > refContainer.current.clientWidth);
         }
-    }, [width, withZoom]);
-
-    useEffect(() => {
         function handleResize() {
             if (withZoom) {
                 setZoom(width > refContainer.current.clientWidth);
