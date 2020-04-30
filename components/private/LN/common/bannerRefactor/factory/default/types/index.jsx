@@ -27,7 +27,6 @@ const index = React.forwardRef((props, ref) => {
             background={background ? '--bg-banner' : ''}
         />
     );
-    console.log('al return papa');
 
     return (
         <>

@@ -13,8 +13,6 @@ import withStickyFromTo from '../../decorators/withStickyFromTo';
 export default config => {
     const { slotId: type } = config;
 
-    console.log('confg en default:', config);
-
     return props => {
         switch (type) {
             case 'sticky1_mob':
@@ -24,9 +22,8 @@ export default config => {
             case 'cabezal_dsk':
                 const Banner = withStickyFromTo(Default)('caja1_dsk');
                 return <Banner {...config} />;
-            // return <Default {...config} />;
+            //return <Default {...config} />;
             default:
-                console.log('pasa pordefault');
                 return <Default {...config} />;
         }
     };

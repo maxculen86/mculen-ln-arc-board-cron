@@ -1,65 +1,59 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/forbid-prop-types     */
-/* eslint-disable react/no-this-in-sfc        */
-
-import React, { PureComponent } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { baseConfig } from './config';
 
-class Ads extends PureComponent {
-    componentDidMount() {
-        const instance = this.getAdsInstance();
-        const {
-            id,
-            slotName,
-            dimensions,
-            targeting,
-            bidding,
-            display,
-            background
-        } = this.props;
+const Ads = React.memo(props => {
+    const ref = useRef();
 
-        instance.registerAd({
-            id,
-            slotName,
-            dimensions,
-            display,
-            targeting,
-            bidding
-        });
-    }
+    const {
+        id,
+        slotName,
+        dimensions,
+        targeting,
+        bidding,
+        display,
+        background,
+        dfpId,
+        breakpoints,
+        refresh,
+        children
+    } = props;
 
-    getAdsInstance() {
-        if (!Ads.instance) {
-            const { dfpId } = this.props;
-
-            Ads.instance = new ArcAds(
-                {
-                    dfp: {
-                        id: dfpId
-                    },
-                    bidding: baseConfig.bidding
+    if (!ref.current) {
+        ref.current = new ArcAds(
+            {
+                dfp: {
+                    id: dfpId
                 },
-                event => {
-                    if (window.googletag && googletag.pubadsReady) {
+                bidding: baseConfig.bidding
+            },
+            event => {
+                /* if (window.googletag && googletag.pubadsReady) {
                         googletag.pubads().collapseEmptyDivs(true);
-                    }
-                }
-            );
-        }
+                    } */
+            }
+        );
 
-        return Ads.instance;
+        ref.current.registerAd(
+            {
+                id,
+                slotName,
+                dimensions,
+                display,
+                targeting,
+                sizemap: {
+                    breakpoints,
+                    refresh
+                },
+                bidding
+            },
+            dfpId,
+            bidding
+        );
     }
 
-    static instance = undefined;
-
-    render() {
-        const { children } = this.props;
-
-        return <div>{children}</div>;
-    }
-}
+    return <div>{children}</div>;
+});
 
 Ads.propTypes = {
     id: PropTypes.string.isRequired,

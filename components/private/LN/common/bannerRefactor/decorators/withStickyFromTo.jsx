@@ -54,7 +54,7 @@ export default Component => Target => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    return props => {
+    return React.memo(props => {
         return <Component {...props} ref={ref} />;
-    };
+    });
 };
