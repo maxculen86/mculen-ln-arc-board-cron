@@ -33,8 +33,8 @@ const ComFigure = ({
         <figure
             ref={refContainer}
             role="button"
-            onClick={handleClick}
-            onKeyDown={handleClick}
+            onClick={zoom && handleClick}
+            onKeyDown={zoom && handleClick}
             className={`mod-figure ${classCondition} ${
                 itsGallery || zoom ? withZoom : ''
             } ${withZoom && active && (itsGallery || zoom) ? '--active' : ''}`}
