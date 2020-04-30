@@ -31,7 +31,7 @@ const index = React.forwardRef((props, ref) => {
     return (
         <>
             <div className={`--bg-banner --${device}`} ref={ref}>
-                <div id={id} className="banner">
+                <div id={id} className="banner hlp-none">
                     {ad}
                 </div>
             </div>

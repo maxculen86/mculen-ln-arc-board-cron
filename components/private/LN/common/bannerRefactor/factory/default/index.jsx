@@ -23,6 +23,9 @@ export default config => {
                 const Banner = withStickyFromTo(Default)('caja1_dsk');
                 return <Banner {...config} />;
             //return <Default {...config} />;
+            /* case 'caja1_dsk':
+                const Box = withStickyFromTo(Default)('caja2_dsk');
+                return <Box {...config} />; */
             default:
                 return <Default {...config} />;
         }
