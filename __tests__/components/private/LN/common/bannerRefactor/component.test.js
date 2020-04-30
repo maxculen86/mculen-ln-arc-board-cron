@@ -1,7 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
-import Ads from '../../../../../../components/private/LN/common/bannerRefactor/ads';
+import { mount, render, shallow } from 'enzyme';
+import Banner from '../../../../../../components/private/LN/common/bannerRefactor/factory/default/types';
 
 import { slotsConfig } from '../../../../../../components/private/LN/common/bannerRefactor/config';
 
@@ -16,11 +15,11 @@ global.MutationObserver = class {
     observe(element, initObject) {}
 };
 
-describe('Ads', () => {
-    const config = slotsConfig['nota']['sticky1_mob'];
+describe('Banner', () => {
+    const config = slotsConfig['nota']['cabezal_dsk'];
 
     const props = {
-        id: 'sticky1_mob',
+        id: 'cabezal_dsk',
         slotName: config.slotName,
         dimensions: config.dimensions,
         targeting: {
@@ -28,13 +27,12 @@ describe('Ads', () => {
             seccion: 'nota'
         },
         bidding: config.bidding,
-        display: null,
+        display: 'all',
         background: true
     };
 
-    it('Gets called', () => {
-        shallow(<Ads {...props} />);
-        expect(global.ArcAds).toHaveBeenCalledTimes(1);
-        expect(registerAdFn).toHaveBeenCalled();
+    it('Matches snapshot', () => {
+        const component = render(<Banner {...props} />);
+        expect(component).toMatchSnapshot();
     });
 });
