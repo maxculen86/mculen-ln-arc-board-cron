@@ -22,31 +22,18 @@ class ImageArticle extends React.PureComponent {
 
         return (
             <>
-                {amp ? (
-                    <AmpImage
-                        sources={sources}
-                        sourcesZoom={sourcesZoom || []}
-                        url={image.url}
-                        alt={altText || ''}
-                        width={image.width}
-                        height={image.height}
-                        href={href}
-                        zoom={zoom}
-                        active={active}
-                    />
-                ) : (
-                    <ImageBase
-                        active={active}
-                        urlDefault={image.url}
-                        sources={sources || []}
-                        altText={altText}
-                        zoom={zoom}
-                        sourcesZoom={sourcesZoom || []}
-                        href={href}
-                        width={image.width}
-                        height={image.height}
-                    />
-                )}
+                <ImageBase
+                    active={active}
+                    urlDefault={image.url}
+                    sources={sources || []}
+                    altText={altText}
+                    zoom={zoom}
+                    sourcesZoom={sourcesZoom || []}
+                    href={href}
+                    width={image.width}
+                    height={image.height}
+                    amp={amp}
+                />
             </>
         );
     }

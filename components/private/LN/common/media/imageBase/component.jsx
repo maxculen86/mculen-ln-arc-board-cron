@@ -13,7 +13,8 @@ const imageBase = ({
     href,
     height,
     width,
-    active
+    active,
+    amp
 }) => {
     const isVertical = height > width;
     /**
@@ -36,7 +37,15 @@ const imageBase = ({
                         />
                     );
                 })}
-            {!active && <ComImage src={urlDefault} alt={altText} />}
+            {!active && (
+                <ComImage
+                    src={urlDefault}
+                    alt={altText}
+                    amp={amp}
+                    height={height}
+                    width={width}
+                />
+            )}
             {active &&
                 sourcesZoom &&
                 sourcesZoom.map(x => {
@@ -53,6 +62,9 @@ const imageBase = ({
                     classCondition="--large"
                     src={urlDefault}
                     alt={altText}
+                    amp={amp}
+                    height={height}
+                    width={width}
                 />
             )}
         </Placeholder>
