@@ -17,17 +17,20 @@ const ComFigure = ({
     const [zoom, setZoom] = useState(false);
 
     useEffect(() => {
-        if (withZoom) {
+        if (itsGallery) {
+            setZoom(true);
+        }
+        if (!itsGallery && withZoom) {
             setZoom(width > refContainer.current.clientWidth);
         }
         function handleResize() {
-            if (withZoom) {
+            if (!itsGallery && withZoom) {
                 setZoom(width > refContainer.current.clientWidth);
             }
         }
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, [width, withZoom]);
+    }, [itsGallery, width, withZoom]);
 
     return children ? (
         <figure
@@ -35,9 +38,9 @@ const ComFigure = ({
             role="button"
             onClick={zoom && handleClick}
             onKeyDown={zoom && handleClick}
-            className={`mod-figure ${classCondition} ${
-                itsGallery || zoom ? withZoom : ''
-            } ${withZoom && active && (itsGallery || zoom) ? '--active' : ''}`}
+            className={`mod-figure ${classCondition} ${zoom ? withZoom : ''} ${
+                withZoom && active && zoom ? '--active' : ''
+            }`}
         >
             {children}
         </figure>
