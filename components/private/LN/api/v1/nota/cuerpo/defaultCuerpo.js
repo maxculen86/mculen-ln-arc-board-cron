@@ -11,7 +11,8 @@ const defaultCuerpo = contentElements => {
     contentElements.forEach(v => {
         const selectedComponent = components.find(c => c.type === v.type);
         if (selectedComponent) {
-            resp.push(selectedComponent(v));
+            const render = selectedComponent(v);
+            if (render) resp.push(selectedComponent(v));
         }
     });
     return resp;

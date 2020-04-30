@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import IndexAcu from '../../../private/LN/api/acumulado';
+import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 
 // URL de ejemplo: http://localhost/api/v1/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
@@ -48,6 +48,12 @@ class AcuSection {
                 }
             }
         });
+
+        // Responde al resolver que permite pasar las versiones existentes
+        // Regex actual: ^\/api\/v([1]+)\/notas\/bySection(\/((?!params).)+)\/(.*\/)$
+        this.versions = {
+            1: IndexAcuV1
+        };
     }
 
     render() {
@@ -58,7 +64,11 @@ class AcuSection {
             globalContent: { name }
         } = this.props;
 
-        return IndexAcu(name, articles, this.state.dataResp.next > 0);
+        const indexAcu = this.versions[
+            browser.getApiVersion(this.props.requestUri)
+        ];
+
+        return indexAcu(name, articles, this.state.dataResp.next > 0);
     }
 }
 

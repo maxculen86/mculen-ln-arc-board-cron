@@ -1,4 +1,4 @@
-import AperturaReceta from '../../../../../../components/private/LN/api/nota/aperturaReceta';
+import AperturaReceta from '../../../../../../components/private/LN/api/v1/nota/aperturaReceta';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 
 describe('Test json apertura receta', () => {

@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../../../../components/private/LN/api/nota/sectionArticle',
+    '../../../../../../components/private/LN/api/v1/nota/sectionArticle',
     () => {
         return () => {
             return 'primarySection-mock';
@@ -8,7 +8,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/private/LN/api/nota/aperturaArticle',
+    '../../../../../../components/private/LN/api/v1/nota/aperturaArticle',
     () => {
         return () => {
             return 'apertura-mock';
@@ -16,7 +16,7 @@ jest.mock(
     }
 );
 
-import NotaIndex from '../../../../../../components/private/LN/api/nota';
+import NotaIndex from '../../../../../../components/private/LN/api/v1/nota';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 
 describe('Test de index en JSON de nota', () => {
