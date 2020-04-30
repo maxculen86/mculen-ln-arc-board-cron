@@ -3,11 +3,14 @@
 
 .mod-figcaption {
     display: block;
-    padding-bottom: px(8);
+    position: relative;
+    margin-top: px(8);
+
     .--caption {
         display: block;
-        padding-top: px(8);
         line-height: px(24);
+        padding-bottom: px(8);
+
         &:empty {
             display: none;
         }
@@ -16,7 +19,8 @@
         display: block;
         color: #6e6e6e;
         font-size: px(15);
-        padding-top: px(8);
+        padding-bottom: px(8);
+
         &:empty {
             display: none;
         }

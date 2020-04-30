@@ -29,13 +29,13 @@ const galleryItem = ({
                             />
                         )}
                         <ComText classCondition="--credit" textname={credito} />
+                        <p className="paginator">
+                            {galleryOrder + 1}
+                            &nbsp;de&nbsp;
+                            {totalGallery}
+                        </p>
                     </ComFigcaption>
                 )}
-                <p className="paginator">
-                    {galleryOrder + 1}
-                    &nbsp;de&nbsp;
-                    {totalGallery}
-                </p>
             </Media>
         </>
     );

@@ -107,7 +107,7 @@
         position: absolute;
         z-index: 2;
         color: $blanco;
-        transition: background 0.2s ease;
+        transition: all 0.2s ease;
         &:after {
             font-family: SuecaSlab, Helvetica, sans-serif;
             font-size: 1.8rem;
@@ -140,7 +140,7 @@
         position: absolute;
         z-index: 2;
         color: $blanco;
-        transition: background 0.2s ease;
+        transition: all 0.2s ease;
 
         &:hover {
             background: rgba(0, 0, 0, 0.4);
@@ -162,8 +162,8 @@
         font-size: $font-12;
         padding: $px-3 $px-5;
         color: $blanco;
-        bottom: $px-40;
         position: absolute;
         right: 0;
+        top: 0;
     }
 }
