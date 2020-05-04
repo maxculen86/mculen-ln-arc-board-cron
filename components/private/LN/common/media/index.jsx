@@ -52,7 +52,8 @@ const media = ({
                 break;
         }
     }
-    const colClass = colNumber ? `col-desksm-${colNumber} ` : '';
+    //const colClass = colNumber ? `col-desksm-${colNumber} ` : '';
+    const colClass = '';
     if (!item) {
         item = <Placeholder href={href} outputType={outputType} />;
     }
