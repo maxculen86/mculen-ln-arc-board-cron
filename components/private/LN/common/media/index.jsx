@@ -53,16 +53,10 @@ const media = ({
                 break;
         }
     }
-    //const colClass = colNumber ? `col-desksm-${colNumber} ` : '';
     if (!item) {
         item = <Placeholder href={href} outputType={outputType} />;
     }
-    //return <section className={`mod-media ${colClass}`}>{item}</section>;
-    return (
-        <ModMedia withZoom={withZoom} classCondition="--zoom">
-            {item}
-        </ModMedia>
-    );
+    return <ModMedia withZoom={withZoom}>{item}</ModMedia>;
 };
 
 media.propTypes = {

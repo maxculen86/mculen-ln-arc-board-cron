@@ -5,7 +5,9 @@ import React from 'react';
 const ModMedia = props => {
     const { children, classCondition, withZoom, active, media } = props;
     return (
-        <section className={`mod-media ${classCondition || ''}`}>
+        <section
+            className={`mod-media ${withZoom || ''} ${classCondition || ''}`}
+        >
             {children}
         </section>
     );

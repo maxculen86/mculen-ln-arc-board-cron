@@ -9,7 +9,7 @@ const aperturaNoticia = ({ basic }) => {
     const credito = EpigrafeAndCreditsData(basic);
 
     return (
-        <Media mediaData={basic} colNumber={12} withZoom="--zoom">
+        <Media mediaData={basic} withZoom="--zoom">
             {basic && (
                 <ComFigcaption>
                     {basic.caption && (
