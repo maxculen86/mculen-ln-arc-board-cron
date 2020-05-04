@@ -26,7 +26,8 @@
         display: none;
 
         .--scrollUp & {
-            display: none;
+            display: flex;
+            top: 65px;
         }
 
         &.--active {

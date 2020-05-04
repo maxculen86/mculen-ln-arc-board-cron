@@ -21,6 +21,8 @@ const hide = element => {
     }
 };
 
+const componentDidReachTop = component => component.offsetTop <= 10;
+
 const componentDidReachTarget = (component, target) =>
     component.offsetTop + component.clientHeight > target.offsetTop;
 
@@ -34,10 +36,16 @@ export default Component => Target => {
             const handleScroll = () => {
                 const windowY = window.scrollY;
                 const target = document.getElementById(`${Target}`);
+
                 show(ref.current);
+                if (componentDidReachTop(ref.current)) {
+                    hide(ref.current);
+                }
+
                 if (windowY < scrollPosition.current) {
                     scrollPosition.current = windowY;
-                    hide(ref.current);
+                    if (componentDidReachTarget(ref.current, target))
+                        hide(ref.current);
                 } else if (windowY >= scrollPosition.current) {
                     scrollPosition.current = windowY;
                     if (!componentDidReachTarget(ref.current, target)) {
