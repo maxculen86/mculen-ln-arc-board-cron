@@ -2,14 +2,14 @@ import React from 'react';
 import ModMedia from '../../common/mod-media';
 import CarousellNextButton from './carousellNextButton';
 import CarousellPrevButton from './carousellPrevButton';
-import Slider from '../hocs/withSlider';
+import withSlider from '../hocs/withSlider';
 
 const DEFAULT_PAGESIZE = 4;
 
 const Carousell = props => {
-    const { slider, children, withZoom } = props;
+    const { slider, children, itsGallery, media, width } = props;
     return (
-        <ModMedia classCondition="--slider" withZoom={withZoom}>
+        <ModMedia classCondition="--slider" withZoom={itsGallery && '--zoom'}>
             {slider.hasPrevPage() && (
                 <CarousellPrevButton onClick={slider.prevButtonHandler} />
             )}
@@ -21,4 +21,4 @@ const Carousell = props => {
     );
 };
 
-export default Slider(Carousell, DEFAULT_PAGESIZE);
+export default withSlider(Carousell, DEFAULT_PAGESIZE);

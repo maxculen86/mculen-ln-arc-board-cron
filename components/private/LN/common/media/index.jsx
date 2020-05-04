@@ -56,7 +56,15 @@ const media = ({
     if (!item) {
         item = <Placeholder href={href} outputType={outputType} />;
     }
-    return <ModMedia withZoom={withZoom}>{item}</ModMedia>;
+    return (
+        <>
+            {itsGallery ? (
+                <>{item}</>
+            ) : (
+                <ModMedia withZoom={withZoom}>{item}</ModMedia>
+            )}
+        </>
+    );
 };
 
 media.propTypes = {

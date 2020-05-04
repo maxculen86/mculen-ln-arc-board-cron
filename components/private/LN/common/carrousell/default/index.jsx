@@ -6,7 +6,7 @@ import GalleryItem from './galleryItem';
 const index = props => {
     const { data, withZoom } = props;
     return (
-        <Carrousell withZoom={withZoom}>
+        <Carrousell itsGallery>
             {data.content_elements.map((v, i) => (
                 <GalleryItem
                     mediaData={v}
