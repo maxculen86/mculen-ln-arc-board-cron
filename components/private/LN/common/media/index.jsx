@@ -56,7 +56,7 @@ const media = ({
     if (!item) {
         item = <Placeholder href={href} outputType={outputType} />;
     }
-    return <section className={`${colClass}`}>{item}</section>;
+    return <section className={`mod-media ${colClass}`}>{item}</section>;
 };
 
 media.propTypes = {

@@ -6,10 +6,10 @@
     width: 100%;
     //height: 100%;
 
-    .mod-media & {
-        position: absolute;
-        object-fit: cover;
-    }
+    // .mod-media & {
+    //     position: absolute;
+    //     object-fit: cover;
+    // }
     &:hover {
         filter: brightness(1.1);
     }
