@@ -15,7 +15,6 @@ const index = React.forwardRef((props, ref) => {
         bidding,
         device
     } = props;
-    console.log('props: ', props);
 
     const ad = (
         <Ads
