@@ -1,4 +1,4 @@
-import Image from '../../../../../../components/private/LN/api/common/image';
+import Image from '../../../../../../components/private/LN/api/v1/common/image';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 
 describe('Json imagen common', () => {

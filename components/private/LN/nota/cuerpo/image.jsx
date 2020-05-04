@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
+import getCreditsTitle from '../../common/utils/getCreditsTitle';
 
 const image = ({ data }) => {
-    const credits = data.credits.by
-        ? data.credits.by.length > 1
-            ? 'Créditos'
-            : 'Crédito'
-        : '';
+    const credits = getCreditsTitle(data);
+
     return (
         <>
             <Media mediaData={data} colNumber={12}>
