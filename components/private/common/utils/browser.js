@@ -27,4 +27,17 @@ const getParamFrom = (urlSectionName, paramName, requestUri) => {
     return result[2];
 };
 
-export default { getParameterByName, getParamFrom };
+const getApiVersion = urlP => {
+    let url = urlP;
+    if (!url) {
+        if (typeof window === 'undefined')
+            throw new Error('El parametro de Url es obligatorio en SSR');
+        url = window.location.href;
+    }
+
+    const versionRegex = new RegExp('/api/v([0-9]+)/');
+    const regexResult = versionRegex.exec(url);
+    return regexResult[1];
+};
+
+export default { getParameterByName, getApiVersion, getParamFrom };

@@ -1,4 +1,4 @@
-import Nota from '../../../../../../components/private/LN/api/nota';
+import Nota from '../../../../../../components/private/LN/api/v1/nota';
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 
 describe('Test json integracion Article', () => {

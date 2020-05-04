@@ -1,4 +1,4 @@
-import Video from '../../../../../../components/private/LN/api/common/video';
+import Video from '../../../../../../components/private/LN/api/v1/common/video';
 import article from '../../../../../../__mocks__/data/articles/XLHPSRHOAVDLRNP2LMCCEJM62Y.json';
 
 describe('Json video common', () => {
