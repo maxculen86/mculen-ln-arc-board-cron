@@ -17,7 +17,6 @@ const BannerManager = props => {
     }
 
     const Component = DefaultFactory(config);
-    console.log('banner component');
     return <Component />;
 };
 
