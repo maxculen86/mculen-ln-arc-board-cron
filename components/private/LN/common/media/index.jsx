@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
+import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
@@ -53,11 +54,15 @@ const media = ({
         }
     }
     //const colClass = colNumber ? `col-desksm-${colNumber} ` : '';
-    const colClass = '';
     if (!item) {
         item = <Placeholder href={href} outputType={outputType} />;
     }
-    return <section className={`mod-media ${colClass}`}>{item}</section>;
+    //return <section className={`mod-media ${colClass}`}>{item}</section>;
+    return (
+        <ModMedia withZoom={withZoom} classCondition="--zoom">
+            {item}
+        </ModMedia>
+    );
 };
 
 media.propTypes = {
