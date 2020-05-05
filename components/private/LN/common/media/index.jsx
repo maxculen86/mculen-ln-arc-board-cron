@@ -72,11 +72,11 @@ const media = ({
             {itsGallery ? (
                 <>{item}</>
             ) : (
-                <p ref={refContainer}>
+                <div ref={refContainer}>
                     <ModMedia zoom={zoom} withZoom={withZoom} active={active}>
                         {item}
                     </ModMedia>
-                </p>
+                </div>
             )}
         </>
         // <>
