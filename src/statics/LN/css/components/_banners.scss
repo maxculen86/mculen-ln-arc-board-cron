@@ -26,8 +26,7 @@
         display: none;
 
         .--scrollUp & {
-            display: flex;
-            top: 65px;
+            display: none;
         }
 
         &.--active {
@@ -70,6 +69,14 @@
 }
 
 @media ($media-l) {
+    .--bg-banner {
+        &.--sticky {
+            .--scrollUp & {
+                display: flex;
+                top: px(65);
+            }
+        }
+    }
     .banner {
         &#caja2_dsk {
             margin-top: $px-40;
