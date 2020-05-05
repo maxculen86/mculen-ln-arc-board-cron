@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
@@ -13,18 +13,13 @@ const media = ({
     itsGallery,
     href,
     children,
-    outputType
+    outputType,
+    handleClick,
+    active
 }) => {
     const { height = 0, width = 0 } = mediaData || {};
     const isVertical = height > width;
     let item = null;
-    const [active, setActive] = useState(false);
-
-    const handleClick = () => {
-        if (withZoom) {
-            setActive(!active);
-        }
-    };
 
     if (mediaData) {
         const { type, _id } = mediaData;
@@ -39,7 +34,6 @@ const media = ({
                         width={width}
                         itsGallery={itsGallery}
                         handleClick={handleClick}
-                        active={active}
                     >
                         <Image active={active} image={mediaData} href={href} />
                         {children}
@@ -61,7 +55,9 @@ const media = ({
             {itsGallery ? (
                 <>{item}</>
             ) : (
-                <ModMedia withZoom={withZoom}>{item}</ModMedia>
+                <ModMedia width={width} withZoom={withZoom} active={active}>
+                    {item}
+                </ModMedia>
             )}
         </>
     );
@@ -79,6 +75,8 @@ media.propTypes = {
     }).isRequired,
     colNumber: PropTypes.number.isRequired,
     itsGallery: PropTypes.bool.isRequired,
+    active: PropTypes.bool.isRequired,
+    handleClick: PropTypes.func.isRequired,
     withZoom: PropTypes.bool.tag({
         defaultValue: false
     }),

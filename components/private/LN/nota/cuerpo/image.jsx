@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComFigcaption from '../../../common/com-figcaption';
@@ -7,9 +7,21 @@ import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData
 
 const image = ({ data, withZoom }) => {
     const credito = EpigrafeAndCreditsData(data);
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        setActive(!active);
+    };
+
     return (
         <>
-            <Media mediaData={data} withZoom={withZoom} colNumber={12}>
+            <Media
+                mediaData={data}
+                withZoom={withZoom}
+                colNumber={12}
+                handleClick={handleClick}
+                active={active}
+            >
                 {data && (
                     <ComFigcaption>
                         {data.caption && (

@@ -10,7 +10,9 @@ const galleryItem = ({
     galleryOrder,
     totalGallery,
     withZoom,
-    itsGallery
+    itsGallery,
+    handleClick,
+    active
 }) => {
     const credito = EpigrafeAndCreditsData(mediaData);
     return (
@@ -19,6 +21,8 @@ const galleryItem = ({
                 mediaData={mediaData}
                 withZoom={withZoom}
                 itsGallery={itsGallery}
+                handleClick={handleClick}
+                active={active}
             >
                 {mediaData && (
                     <ComFigcaption>
@@ -51,7 +55,9 @@ galleryItem.propTypes = {
     withZoom: PropTypes.string.isRequired,
     totalGallery: PropTypes.number.isRequired,
     galleryOrder: PropTypes.number.isRequired,
-    itsGallery: PropTypes.bool.isRequired
+    itsGallery: PropTypes.bool.isRequired,
+    active: PropTypes.bool.isRequired,
+    handleClick: PropTypes.func.isRequired
 };
 
 export default galleryItem;
