@@ -21,29 +21,31 @@ exports[`Ranking matches snapshot 1`] = `
       <article
         class="mod-caja-nota --border  "
       >
-        <section
-          class="mod-media  "
-          role="button"
-        >
-          <figure
-            class="mod-figure  --horizontal"
+        <div>
+          <section
+            class="mod-media   "
             role="button"
           >
-            <picture
-              class="mod-picture "
+            <figure
+              class="mod-figure  --horizontal"
+              role="button"
             >
-              <source
-                media="(min-width: 768px)"
-                srcset="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
-              />
-              <img
-                class="com-image "
-                loading="lazy"
-                src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg"
-              />
-            </picture>
-          </figure>
-        </section>
+              <picture
+                class="mod-picture "
+              >
+                <source
+                  media="(min-width: 768px)"
+                  srcset="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                />
+                <img
+                  class="com-image "
+                  loading="lazy"
+                  src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg"
+                />
+              </picture>
+            </figure>
+          </section>
+        </div>
         <div
           class="mod-caja-nota__descrip"
         >
@@ -65,10 +67,12 @@ exports[`Ranking matches snapshot 1`] = `
       <article
         class="mod-caja-nota --border  "
       >
-        <section
-          class="mod-media  "
-          role="button"
-        />
+        <div>
+          <section
+            class="mod-media   "
+            role="button"
+          />
+        </div>
         <div
           class="mod-caja-nota__descrip"
         >
@@ -93,10 +97,12 @@ exports[`Ranking matches snapshot 1`] = `
       <article
         class="mod-caja-nota --border  "
       >
-        <section
-          class="mod-media  "
-          role="button"
-        />
+        <div>
+          <section
+            class="mod-media   "
+            role="button"
+          />
+        </div>
         <div
           class="mod-caja-nota__descrip"
         >
