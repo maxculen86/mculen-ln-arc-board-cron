@@ -68,30 +68,32 @@ const media = ({
         item = <Placeholder href={href} outputType={outputType} />;
     }
     return (
-        // <>
-        //     {itsGallery ? (
-        //         <>{item}</>
-        //     ) : (
-        //         <ModMedia width={width} withZoom={withZoom} active={active}>
-        //             {item}
-        //         </ModMedia>
-        //     )}
-        // </>
         <>
             {itsGallery ? (
                 <>{item}</>
             ) : (
-                <section
-                    ref={refContainer}
-                    role="button"
-                    className={`mod-media ${itsGallery ? '--zoom' : ''}${
-                        zoom ? withZoom : ''
-                    } ${active ? '--active' : ''}`}
-                >
-                    {item}
-                </section>
+                <p ref={refContainer}>
+                    <ModMedia zoom={zoom} withZoom={withZoom} active={active}>
+                        {item}
+                    </ModMedia>
+                </p>
             )}
         </>
+        // <>
+        //     {itsGallery ? (
+        //         <>{item}</>
+        //     ) : (
+        //         <section
+        //             ref={refContainer}
+        //             role="button"
+        //             className={`mod-media ${itsGallery ? '--zoom' : ''}${
+        //                 zoom ? withZoom : ''
+        //             } ${active ? '--active' : ''}`}
+        //         >
+        //             {item}
+        //         </section>
+        //     )}
+        // </>
     );
 };
 
