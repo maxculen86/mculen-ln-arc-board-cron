@@ -30,7 +30,12 @@ const index = React.forwardRef((props, ref) => {
 
     return (
         <>
-            <div className={`--bg-banner --${device}`} ref={ref}>
+            <div
+                className={`--bg-banner --${device} ${
+                    sticky ? '--sticky' : ''
+                }`}
+                ref={ref}
+            >
                 {ad}
             </div>
         </>

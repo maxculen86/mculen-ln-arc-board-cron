@@ -14,6 +14,14 @@ const dsk_300x600_sizes = [
 const dsk_300x250_sizes = [[300, 250]];
 
 export default {
+    adhesion_dsk: {
+        slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
+        dimensions: [
+            [728, 90],
+            [920, 100]
+        ],
+        targeting: defaultTargeting
+    },
     megatop_dsk: {
         slotName: 'la_nacion_desktop/Nota/megatop_dsk',
         dimensions: [[800, 600], 'fluid'],
