@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
@@ -17,9 +17,24 @@ const media = ({
     handleClick,
     active
 }) => {
+    const refContainer = useRef();
+    const [zoom, setZoom] = useState(false);
     const { height = 0, width = 0 } = mediaData || {};
     const isVertical = height > width;
     let item = null;
+
+    useEffect(() => {
+        if (!itsGallery && withZoom) {
+            setZoom(width > refContainer.current.clientWidth);
+        }
+        function handleResize() {
+            if (!itsGallery && withZoom) {
+                setZoom(width > refContainer.current.clientWidth);
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [itsGallery, withZoom, width]);
 
     if (mediaData) {
         const { type, _id } = mediaData;
@@ -33,7 +48,9 @@ const media = ({
                         withZoom={withZoom}
                         width={width}
                         itsGallery={itsGallery}
-                        handleClick={handleClick}
+                        handleClick={
+                            itsGallery || zoom ? handleClick : () => {}
+                        }
                     >
                         <Image active={active} image={mediaData} href={href} />
                         {children}
@@ -51,13 +68,28 @@ const media = ({
         item = <Placeholder href={href} outputType={outputType} />;
     }
     return (
+        // <>
+        //     {itsGallery ? (
+        //         <>{item}</>
+        //     ) : (
+        //         <ModMedia width={width} withZoom={withZoom} active={active}>
+        //             {item}
+        //         </ModMedia>
+        //     )}
+        // </>
         <>
             {itsGallery ? (
                 <>{item}</>
             ) : (
-                <ModMedia width={width} withZoom={withZoom} active={active}>
+                <section
+                    ref={refContainer}
+                    role="button"
+                    className={`mod-media ${itsGallery ? '--zoom' : ''}${
+                        zoom ? withZoom : ''
+                    } ${active ? '--active' : ''}`}
+                >
                     {item}
-                </ModMedia>
+                </section>
             )}
         </>
     );
