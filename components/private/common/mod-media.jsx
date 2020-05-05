@@ -17,7 +17,9 @@ const ModMedia = props => {
             role="button"
             className={`mod-media ${itsGallery ? '--zoom' : ''}${
                 zoom ? withZoom : ''
-            } ${zoom && active ? '--active' : ''} ${classCondition || ''}`}
+            } ${
+                (itsGallery || zoom) && active ? '--active' : ''
+            } ${classCondition || ''}`}
         >
             {children}
         </section>
