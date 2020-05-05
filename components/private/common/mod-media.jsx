@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import '../../../resources/dist/css/ln/modules/mod-media.css';
+import '../../../resources/dist/css/ln/modules/mod-media.css';
 
 const ModMedia = props => {
     const {

@@ -92,9 +92,9 @@
     .previous {
         font-size: 0;
         line-height: 0;
-        top: calc(150px - 28px);
+        top: calc(50% - 28px);
         @media (min-width: 768px) {
-            top: calc(250px - 28px);
+            top: calc(50% - 28px);
         }
         left: 0;
         display: block;
@@ -125,9 +125,9 @@
     .next {
         font-size: 0;
         line-height: 0;
-        top: calc(150px - 28px);
+        top: calc(50% - 28px);
         @media (min-width: 768px) {
-            top: calc(250px - 28px);
+            top: calc(50% - 28px);
         }
         right: 0;
         display: block;
