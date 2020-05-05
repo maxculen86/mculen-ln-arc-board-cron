@@ -27,12 +27,10 @@
     }
     .--zoom.--active & {
         color: $blanco;
-        //bottom: px(32);
-        //position: absolute;
         width: 100%;
         text-align: center;
-        &.--slider {
-            text-align: left;
-        }
+    }
+    .--zoom.--active.--slider & {
+        text-align: left;
     }
 }

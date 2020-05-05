@@ -3,63 +3,29 @@
 
 .mod-media {
     position: relative;
-    margin-bottom: px(32);
-
     //overflow: hidden;
     // display: flex;
     // justify-content: center;
     // align-items: center;
+    .cuerpo__nota & {
+        margin-bottom: px(32);
+    }
 
-    &.--zoom {
-        cursor: pointer;
-
-        &::before {
-            //@extend .icon-zoom;
-            font-family: 'LNicons';
-            content: '\e928';
-            color: $blanco;
-            background: rgba(0, 0, 0, 0.7);
-            font-size: px(16);
-            width: px(31);
-            height: px(24);
-            position: absolute;
-            top: px(8);
-            right: px(8);
-            z-index: 10;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            @media ($media-l) {
-                font-size: px(25);
-                width: px(40);
-                height: px(30);
-                display: none;
-            }
-        }
-        &:hover::before {
-            display: flex;
-        }
-
-        &.--active {
-            position: fixed;
-            z-index: 999999;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: auto;
-            height: auto;
-            max-width: none;
-            margin: 0 auto;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            &::before {
-                content: '\e902';
-                display: flex;
-            }
-        }
+    &.--zoom.--active {
+        position: fixed;
+        z-index: 999999;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        max-width: none;
+        margin: 0 auto;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.9);
+        justify-content: center;
+        align-items: center;
+        display: flex;
     }
 }
