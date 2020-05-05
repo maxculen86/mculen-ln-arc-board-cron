@@ -33,11 +33,11 @@ const galleryItem = ({
                             />
                         )}
                         <ComText classCondition="--credit" textname={credito} />
-                        <p className="paginator">
+                        <ComText classCondition="--paginator">
                             {galleryOrder + 1}
                             &nbsp;de&nbsp;
                             {totalGallery}
-                        </p>
+                        </ComText>
                     </ComFigcaption>
                 )}
             </Media>

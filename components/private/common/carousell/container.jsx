@@ -2,6 +2,7 @@ import React from 'react';
 import ModMedia from '../mod-media';
 import CarousellNextButton from './carousellNextButton';
 import CarousellPrevButton from './carousellPrevButton';
+import ComButton from '../../common/com-button';
 import withSlider from '../hocs/withSlider';
 
 const DEFAULT_PAGESIZE = 4;
@@ -15,11 +16,19 @@ const Carousell = props => {
             active={active}
         >
             {slider.hasPrevPage() && (
-                <CarousellPrevButton onClick={slider.prevButtonHandler} />
+                // <CarousellPrevButton onClick={slider.prevButtonHandler} />
+                <ComButton
+                    onClick={slider.prevButtonHandler}
+                    classCondition="previous icon-left"
+                ></ComButton>
             )}
             {children}
             {slider.hasNextPage() && (
-                <CarousellNextButton onClick={slider.nextButtonHandler} />
+                // <CarousellNextButton onClick={slider.nextButtonHandler} />
+                <ComButton
+                    onClick={slider.nextButtonHandler}
+                    classCondition="next icon-right"
+                ></ComButton>
             )}
         </ModMedia>
     );
