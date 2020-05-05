@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/components/com-image.css';
+import '../../../resources/dist/css/ln/modules/mod-media.css';
 
 const ComImage = props => {
     const { src, alt, classCondition, amp, width, height } = props;
