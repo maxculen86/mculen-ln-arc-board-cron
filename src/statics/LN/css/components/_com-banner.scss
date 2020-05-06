@@ -11,10 +11,7 @@
         width: 920px;
         background: red;
     }
-    &#caja1_mob {
-        max-width: px(300);
-        max-height: px(50);
-    }
+
     &#caja1_dsk {
         max-width: px(300);
         max-height: px(600);
@@ -30,19 +27,7 @@
         max-width: px(300);
         max-height: px(250);
     }
-    &#caja1_tab,
-    #ad {
-        max-width: px(728);
-        max-height: px(90);
-    }
-    &#sticky_mob1 {
-        max-width: px(320);
-        max-height: px(100);
-    }
-    &#sticky_mob2 {
-        max-width: px(320);
-        max-height: px(50);
-    }
+
     &#cabezal_dsk,
     #cinturon1_dsk,
     #cinturon2_dsk,
@@ -66,5 +51,22 @@
     &#caja_producto1_dsk {
         max-width: 100%;
         max-height: 100%;
+    }
+    &#caja1_tab,
+    #ad {
+        max-width: px(728);
+        max-height: px(90);
+    }
+    &#caja1_mob {
+        max-width: px(300);
+        max-height: px(50);
+    }
+    &#sticky_mob1 {
+        max-width: px(320);
+        max-height: px(100);
+    }
+    &#sticky_mob2 {
+        max-width: px(320);
+        max-height: px(50);
     }
 }

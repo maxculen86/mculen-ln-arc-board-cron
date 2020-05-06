@@ -7,6 +7,7 @@
     width: 100%;
     max-width: 100%;
     overflow: hidden;
+    position: relative;
     &.--bg-banner {
         background: repeating-linear-gradient(
             45deg,
@@ -43,11 +44,29 @@
             width: 100%;
         }
     }
+    &.--close {
+        .icon-close {
+            width: px(20);
+            height: px(20);
+            background: $negro;
+            position: absolute;
+            top: 0;
+            right: px(1);
+            color: $blanco;
+            font-size: px(16);
+        }
+    }
 }
 @media ($media-l) {
     .mod-banner {
+        width: calc(100% - 380px);
         &.--fixed {
             bottom: px(0);
         }
+    }
+}
+@media ($media-lm) {
+    .mod-banner {
+        width: calc(100% - 362px);
     }
 }

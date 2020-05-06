@@ -72,6 +72,13 @@ const lnNotaNoticia = ({ children, outputType }) => {
                         <div className="sidebar__main">
                             <div className="row">
                                 <div className="col-12 ">
+                                    <div class="mod-banner --fixed --close">
+                                        <button class="icon-close"></button>
+                                        <div
+                                            id="adhesion_dsk"
+                                            className="com-banner"
+                                        ></div>
+                                    </div>
                                     {/*Bajada y autor fecha más apertura*/}
                                     {children[2]}
 
