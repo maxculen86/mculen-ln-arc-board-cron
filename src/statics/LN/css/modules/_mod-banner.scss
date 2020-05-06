@@ -1,0 +1,53 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+.mod-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    &.--bg-banner {
+        background: repeating-linear-gradient(
+            45deg,
+            #fff,
+            #fff,
+            #fff,
+            #fff 4px,
+            #dbdbdb 6px
+        );
+        width: 100%;
+    }
+    &.--sticky {
+        position: sticky;
+        &.--bg-banner {
+            background: rgba(204, 204, 204, 1);
+            width: 100%;
+        }
+        .--scrollDown & {
+            top: $px-10;
+        }
+        .--scrollUp & {
+            top: $px-80;
+        }
+    }
+    &.--fixed {
+        position: fixed;
+        bottom: px(60);
+        z-index: 100;
+        .--scrollDown & {
+            bottom: px(0);
+        }
+        &.--bg-banner {
+            background: rgba(204, 204, 204, 1);
+            width: 100%;
+        }
+    }
+}
+@media ($media-l) {
+    .mod-banner {
+        &.--fixed {
+            bottom: px(0);
+        }
+    }
+}

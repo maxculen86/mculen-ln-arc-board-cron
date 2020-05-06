@@ -81,7 +81,7 @@ const Ads = props => {
     }, [id]);
 
     return (
-        <div id={id} className="banner">
+        <div id={id} className="com-banner">
             {/* hlp-none */}
             <div>{children}</div>
         </div>
