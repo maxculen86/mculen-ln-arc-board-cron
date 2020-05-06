@@ -7,7 +7,6 @@
     width: 100%;
     max-width: 100%;
     /* overflow: hidden; */
-    /* position: relative; */
     &.--bg-banner {
         background: repeating-linear-gradient(
             45deg,
@@ -27,6 +26,11 @@
         }
         .--scrollDown & {
             top: $px-10;
+        }
+        .sidebar__aside & {
+            .--scrollDown & {
+                top: 0;
+            }
         }
         .--scrollUp & {
             top: $px-80;
@@ -60,6 +64,9 @@
 @media ($media-l) {
     .mod-banner {
         width: calc(100% - 380px);
+        .sidebar__aside & {
+            width: 100%;
+        }
         &.--fixed {
             bottom: px(0);
         }
@@ -68,5 +75,8 @@
 @media ($media-lm) {
     .mod-banner {
         width: calc(100% - 362px);
+        .sidebar__aside & {
+            width: 100%;
+        }
     }
 }
