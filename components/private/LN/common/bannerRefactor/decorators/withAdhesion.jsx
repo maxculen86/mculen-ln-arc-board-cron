@@ -6,6 +6,8 @@ import { useFusionContext } from 'fusion:context';
 
 import withLoginData from '../../hocs/withLoginData';
 
+const stickComponent = element => element.classList.add('--fixed');
+
 export default Component => {
     return React.memo(props => {
         const scrollPosition = useRef(0);
@@ -20,7 +22,9 @@ export default Component => {
         const { outputType } = fusionContext;
 
         useLayoutEffect(() => {
-            const handleScroll = () => {
+            stickComponent(ref.current);
+
+            const onScroll = () => {
                 const windowY = window.scrollY;
                 if (windowY < scrollPosition.current) {
                     scrollPosition.current = windowY;
@@ -31,10 +35,10 @@ export default Component => {
                 }
             };
 
-            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('scroll', onScroll);
 
-            return () => window.removeEventListener('scroll', handleScroll);
-        }, []);
+            return () => window.removeEventListener('scroll', onScroll);
+        }, [ref]);
 
         return outputType !== 'amp' ? <Component {...props} ref={ref} /> : null;
     });

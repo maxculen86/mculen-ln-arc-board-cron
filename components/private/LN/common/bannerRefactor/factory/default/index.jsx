@@ -33,10 +33,10 @@ function getBannerForStoryTemplate(config) {
                     ...config
                 }
             );
-        case CAJA_1_DSK:
-        case MEGATOP_DSK:
         case ADHESION_DSK:
             return createElement(withAdhesion(Default), { ...config });
+        case CAJA_1_DSK:
+        case MEGATOP_DSK:
         default:
             return <Default {...config} />;
     }

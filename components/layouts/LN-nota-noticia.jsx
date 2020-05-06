@@ -35,6 +35,9 @@ import '../../resources/dist/css/ln/components/opinion-author.css';
 //import '../../resources/dist/css/ln/components/colecciones.css';
 //import '../../resources/dist/css/ln/components/carta-lectores.css';
 
+import '../../resources/dist/css/ln/modules/mod-banner.css';
+import '../../resources/dist/css/ln/components/com-banner.css';
+
 /*Se debe importar para AMP*/
 //import '../../resources/dist/css/ln/components/nav-amp.css';
 
