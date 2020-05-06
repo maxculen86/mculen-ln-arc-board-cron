@@ -25,8 +25,8 @@ const fetch = query => {
 
 const resolve = key => {
     const { url } = key;
+    const id = new RegExp('/([0-9]+)').exec(url)[1];
 
-    const id = url.replace(/\//g, '');
     const arcSite = key['arc-site'];
     const basePath = `/content/v4/search/published/?website=${arcSite}&body={
         "query": {
