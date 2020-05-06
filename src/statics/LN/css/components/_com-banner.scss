@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 .com-banner {
     display: block;
-    /* overflow: hidden; */
+    overflow: hidden;
     &#adhesion_dsk {
         max-width: px(920);
         max-height: px(100);
@@ -65,8 +65,13 @@
         max-width: px(320);
         max-height: px(100);
     }
+    &#adhesion_mob,
     &#sticky_mob2 {
         max-width: px(320);
         max-height: px(50);
+
+        height: 50px;
+        width: 320px;
+        background: red;
     }
 }
