@@ -6,7 +6,7 @@
     align-items: center;
     width: 100%;
     max-width: 100%;
-    /* overflow: hidden; */
+    overflow: hidden;
     &.--bg-banner {
         background: repeating-linear-gradient(
             45deg,
@@ -25,11 +25,11 @@
             width: 100%;
         }
         .--scrollDown & {
-            top: $px-10;
+            top: 0;
         }
         .sidebar__aside & {
             .--scrollDown & {
-                top: 0;
+                top: $px-10;
             }
         }
         .--scrollUp & {

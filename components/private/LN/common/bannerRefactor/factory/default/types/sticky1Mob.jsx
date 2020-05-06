@@ -99,8 +99,8 @@ const Sticky1Mob = props => {
         <>
             <Sticky2Mob {...config} />
             <div ref={sticky1}>
-                <div className={`--bg-banner --${device}`}>
-                    <div id="sticky1_mob" className="banner">
+                <div className={`mod-banner --bg-banner --${device}`}>
+                    <div id="sticky1_mob" className="com-banner">
                         {ad}
                     </div>
                 </div>
