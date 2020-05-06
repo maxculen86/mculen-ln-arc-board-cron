@@ -31,9 +31,9 @@ const index = React.forwardRef((props, ref) => {
     return (
         <>
             <div
-                className={`mod-banner --bg-banner --${device} ${
-                    sticky ? '--sticky' : ''
-                }`}
+                className={`mod-banner ${background ? '--bg-banner' : ''}
+                    ${sticky ? '--sticky' : ''}
+                `}
                 ref={ref}
             >
                 {ad}

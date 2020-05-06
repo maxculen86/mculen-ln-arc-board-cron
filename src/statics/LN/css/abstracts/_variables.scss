@@ -392,3 +392,12 @@ $logo-living: '\e807';
 $logo-hola: '\e803';
 $logo-jardin: '\e805';
 $logo-rolling: '\e80e';
+
+@function px($base, $exponent: 1) {
+    // px(16)
+    $result: 0.0625;
+    @for $_ from 1 through $exponent {
+        $result: $result * $base;
+    }
+    @return #{$result}rem;
+}

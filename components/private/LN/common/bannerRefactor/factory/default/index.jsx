@@ -15,7 +15,8 @@ import {
     STICKY_1_MOB,
     STICKY_2_MOB,
     MEGATOP_DSK,
-    ADHESION_DSK
+    ADHESION_DSK,
+    ADHESION_MOB
 } from '../constants';
 
 import withStickyFromPointToPoint from '../../decorators/withStickyFromPointToPoint';
@@ -33,6 +34,7 @@ function getBannerForStoryTemplate(config) {
                     ...config
                 }
             );
+        case ADHESION_MOB:
         case ADHESION_DSK:
             return createElement(withAdhesion(Default), { ...config });
         case CAJA_1_DSK:

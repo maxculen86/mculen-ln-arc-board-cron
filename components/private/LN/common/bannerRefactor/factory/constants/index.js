@@ -9,3 +9,4 @@ export const STICKY_1_MOB = 'sticky1_mob';
 export const STICKY_2_MOB = 'sticky2_mob';
 export const MEGATOP_DSK = 'megatop_dsk';
 export const ADHESION_DSK = 'adhesion_dsk';
+export const ADHESION_MOB = 'adhesion_mob';

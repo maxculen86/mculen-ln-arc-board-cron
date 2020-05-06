@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign            */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-curly-spacing      */
 
@@ -8,16 +9,24 @@ import withLoginData from '../../hocs/withLoginData';
 
 const stickComponent = element => element.classList.add('--fixed');
 
+const hide = element => {
+    element.style.display = 'none';
+};
+
+const show = element => {
+    element.style.display = 'block';
+};
+
 export default Component => {
-    return React.memo(props => {
+    return withLoginData(props => {
         const scrollPosition = useRef(0);
 
         const ref = React.createRef();
         const fusionContext = useFusionContext();
 
-        /* const {
+        const {
             loginData: { subscription }
-        } = props; */
+        } = props;
 
         const { outputType } = fusionContext;
 
@@ -28,10 +37,10 @@ export default Component => {
                 const windowY = window.scrollY;
                 if (windowY < scrollPosition.current) {
                     scrollPosition.current = windowY;
-                    console.log('going up');
+                    hide(ref.current);
                 } else if (windowY >= scrollPosition.current) {
                     scrollPosition.current = windowY;
-                    console.log('going down');
+                    show(ref.current);
                 }
             };
 
@@ -39,6 +48,8 @@ export default Component => {
 
             return () => window.removeEventListener('scroll', onScroll);
         }, [ref]);
+
+        if (subscription) return null;
 
         return outputType !== 'amp' ? <Component {...props} ref={ref} /> : null;
     });
