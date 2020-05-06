@@ -11,7 +11,7 @@
         &::before {
             //@extend .icon-zoom;
             font-family: 'LNicons';
-            content: '\e928';
+            content: '\e91d';
             color: $blanco;
             background: rgba(0, 0, 0, 0.7);
             font-size: px(16);
@@ -38,7 +38,7 @@
     .--active & {
         position: initial;
         &::before {
-            content: '\e902';
+            content: '\e906';
             display: flex;
         }
     }

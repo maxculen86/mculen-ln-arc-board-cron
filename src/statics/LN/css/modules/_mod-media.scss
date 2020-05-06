@@ -28,4 +28,95 @@
         align-items: center;
         display: flex;
     }
+
+    &.--slider {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        position: relative;
+        width: 100%;
+
+        .cont-figure {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-item-align: start;
+            align-self: flex-start;
+            width: 100%;
+            background-color: initial;
+            min-height: 300px;
+            //max-height: 300px;
+            @media (min-width: 768px) {
+                max-height: 600px;
+            }
+            .figure .content-pic > * {
+                max-width: 100%;
+                object-fit: contain;
+                min-height: 100%;
+            }
+        }
+
+        > section {
+            width: 100%;
+            > .cont-figure > .figure {
+                pointer-events: none;
+                min-height: 300px;
+
+                @media (min-width: 768px) {
+                    min-height: 500px;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    opacity: 0;
+                    right: 0;
+                    background-color: rgba(45, 45, 45, 0.6);
+                    background-image: url(/pf/resources/dist/images/32b5d57d16b6854dec721a5325614df0.png?d=16);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: 3em;
+                    transition: 0.2s ease opacity;
+                }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-image: url(/pf/resources/dist/images/44ded6da71e1b5c45ef04e5434741dbd.png?d=16);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
+                    transition: 0.2s ease opacity;
+                }
+            }
+        }
+    }
 }

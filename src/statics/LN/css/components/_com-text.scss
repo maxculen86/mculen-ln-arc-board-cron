@@ -39,6 +39,16 @@
             text-transform: uppercase;
         }
     }
+    &.--paginator {
+        background: $negro;
+        font-family: $font-arial;
+        font-size: $font-12;
+        padding: $px-3 $px-5;
+        color: $blanco;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
 }
 
 @media ($media-m) {

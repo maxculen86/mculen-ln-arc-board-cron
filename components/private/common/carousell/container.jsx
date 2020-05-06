@@ -19,7 +19,7 @@ const Carousell = props => {
                 // <CarousellPrevButton onClick={slider.prevButtonHandler} />
                 <ComButton
                     onClick={slider.prevButtonHandler}
-                    classCondition="previous icon-left"
+                    classCondition="icon-left"
                 ></ComButton>
             )}
             {children}
@@ -27,7 +27,7 @@ const Carousell = props => {
                 // <CarousellNextButton onClick={slider.nextButtonHandler} />
                 <ComButton
                     onClick={slider.nextButtonHandler}
-                    classCondition="next icon-right"
+                    classCondition="icon-right"
                 ></ComButton>
             )}
         </ModMedia>

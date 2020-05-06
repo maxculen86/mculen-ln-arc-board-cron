@@ -5,7 +5,77 @@
     font-family: $font-arial;
     transition: opacity 0.2s ease-in-out;
     @include flex(flex, row, center, center);
+
     .--slider & {
         background: $negro;
+
+        &.icon-left {
+            //font-size: 0;
+            //line-height: 0;
+            top: calc(50% - 48px);
+            @media (min-width: 768px) {
+                top: calc(50% - 28px);
+            }
+            left: 0;
+            display: block;
+            padding: 0;
+            cursor: pointer;
+            border: none;
+            background: rgba(0, 0, 0, 0.9);
+            width: $px-46;
+            height: $px-57;
+            position: absolute;
+            z-index: 2;
+            color: $blanco;
+            transition: all 0.2s ease;
+            // &:after {
+            //     font-family: SuecaSlab, Helvetica, sans-serif;
+            //     font-size: 1.8rem;
+            //     color: $blanco;
+            //     opacity: 1;
+            //     z-index: 25;
+            //     content: '<';
+            //     vertical-align: middle;
+            // }
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.4);
+            }
+        }
+        &.icon-right {
+            //font-size: 0;
+            //line-height: 0;
+            top: calc(50% - 48px);
+            @media (min-width: 768px) {
+                top: calc(50% - 28px);
+            }
+
+            right: 0;
+            display: block;
+            padding: 0;
+            cursor: pointer;
+            border: none;
+            background: rgba(0, 0, 0, 0.9);
+            width: $px-46;
+            height: $px-57;
+            position: absolute;
+            z-index: 2;
+            color: $blanco;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.4);
+            }
+
+            // &:after {
+            //     font-family: SuecaSlab, Helvetica, sans-serif;
+            //     font-size: 1.8rem;
+            //     color: $blanco;
+            //     opacity: 1;
+            //     z-index: 25;
+            //     content: '>';
+            //     vertical-align: middle;
+            // }
+        }
     }
 }
