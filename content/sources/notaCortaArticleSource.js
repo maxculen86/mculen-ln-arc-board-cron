@@ -2,7 +2,7 @@ import get from 'lodash.get';
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import Redirect from './utils/redirect';
-import NotFound from './utils/notFound';
+import ArticleSourceNota from './articleSourceNota';
 
 const fetch = query => {
     const opt = {
@@ -14,20 +14,19 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
-
     return request(opt).then(response => {
         const url = get(response, 'content_elements[0].website_url');
         if (!url) {
-            throw new NotFound();
-        } else {
-            throw new Redirect(url, 301);
+            return ArticleSourceNota.fetch(query);
         }
+        throw new Redirect(url, 301);
     });
 };
 
 const resolve = key => {
-    const { id } = key;
+    const { url } = key;
 
+    const id = url.replace(/\//g, '');
     const arcSite = key['arc-site'];
     const basePath = `/content/v4/search/published/?website=${arcSite}&body={
         "query": {
@@ -53,6 +52,6 @@ const resolve = key => {
 export default {
     fetch,
     params: {
-        id: 'text'
+        url: 'text'
     }
 };
