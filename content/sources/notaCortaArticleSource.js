@@ -2,6 +2,7 @@ import get from 'lodash.get';
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import Redirect from './utils/redirect';
+import NotFound from './utils/notFound';
 
 const fetch = query => {
     const opt = {
@@ -17,7 +18,7 @@ const fetch = query => {
     return request(opt).then(response => {
         const url = get(response, 'content_elements[0].website_url');
         if (!url) {
-            throw new Redirect('', 404);
+            throw new NotFound();
         } else {
             throw new Redirect(url, 301);
         }
