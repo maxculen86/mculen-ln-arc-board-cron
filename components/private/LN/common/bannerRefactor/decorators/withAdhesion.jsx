@@ -14,7 +14,7 @@ const hide = element => {
 };
 
 const show = element => {
-    element.style.display = 'block';
+    element.style.display = 'flex';
 };
 
 export default Component => {

@@ -21,6 +21,7 @@ import {
 
 import withStickyFromPointToPoint from '../../decorators/withStickyFromPointToPoint';
 import withAdhesion from '../../decorators/withAdhesion';
+import withCloseButton from '../../decorators/withCloseButton';
 
 function getBannerForStoryTemplate(config) {
     const { slotId } = config;
