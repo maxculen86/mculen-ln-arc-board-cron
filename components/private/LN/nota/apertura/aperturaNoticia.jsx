@@ -19,6 +19,7 @@ const aperturaNoticia = ({ basic }) => {
             withZoom="--zoom"
             handleClick={handleClick}
             active={active}
+            isApertura
         >
             {basic && (
                 <ComFigcaption>

@@ -15,12 +15,15 @@ const media = ({
     children,
     outputType,
     handleClick,
+    isApertura,
     active
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
     const { height = 0, width = 0 } = mediaData || {};
     const isVertical = height > width;
+    isApertura ? (isVertical = false) : isVertical;
+    console.log('dddddddddddd ', isVertical);
     let item = null;
 
     useEffect(() => {
@@ -42,7 +45,7 @@ const media = ({
             case 'image':
                 item = (
                     <ComFigure
-                        classCondition={` ${
+                        classCondition={`${
                             isVertical ? '--vertical' : '--horizontal'
                         }`}
                         withZoom={withZoom}
@@ -79,21 +82,6 @@ const media = ({
                 </div>
             )}
         </>
-        // <>
-        //     {itsGallery ? (
-        //         <>{item}</>
-        //     ) : (
-        //         <section
-        //             ref={refContainer}
-        //             role="button"
-        //             className={`mod-media ${itsGallery ? '--zoom' : ''}${
-        //                 zoom ? withZoom : ''
-        //             } ${active ? '--active' : ''}`}
-        //         >
-        //             {item}
-        //         </section>
-        //     )}
-        // </>
     );
 };
 
