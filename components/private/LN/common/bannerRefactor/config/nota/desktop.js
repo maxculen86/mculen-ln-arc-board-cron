@@ -24,7 +24,7 @@ export default {
     },
     megatop_dsk: {
         slotName: 'la_nacion_desktop/Nota/megatop_dsk',
-        dimensions: [[800, 600], 'fluid'],
+        dimensions: [[800, 600]],
         targeting: defaultTargeting
     },
     '1x1_dsk': {

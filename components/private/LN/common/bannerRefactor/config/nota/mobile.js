@@ -18,7 +18,7 @@ export default {
     },
     megatop_mob: {
         slotName: 'la_nacion_mobile/Nota/megatop_mob',
-        dimensions: [[320, 480], 'fluid'],
+        dimensions: [[320, 480]],
         targeting: defaultTargeting
     },
     '1x1_mob': {

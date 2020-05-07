@@ -3,10 +3,11 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
+import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
 import '../../resources/dist/css/ln/base/types.css';
-import '../../resources/dist/css/ln/base/helpers.css';
+//import '../../resources/dist/css/ln/base/helpers.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
@@ -32,11 +33,12 @@ import '../../resources/dist/css/ln/components/slider.css';
 import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/components/appointment.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
-//import '../../resources/dist/css/ln/components/colecciones.css';
-//import '../../resources/dist/css/ln/components/carta-lectores.css';
 
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
+import '../../resources/dist/css/ln/components/com-button.css';
+//import '../../resources/dist/css/ln/components/colecciones.css';
+//import '../../resources/dist/css/ln/components/carta-lectores.css';
 
 /*Se debe importar para AMP*/
 //import '../../resources/dist/css/ln/components/nav-amp.css';
@@ -49,21 +51,44 @@ import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
 
-const lnNotaNoticia = ({ children, outputType }) => {
+const getBannerMegatop = (element, outputType, tree, isAdmin) => {
+    const { children } = tree;
+    // children[0] => Section BannerMegatop
+    const { children: childrenSectionBannerMegatop } = children[0];
+    const isValid =
+        outputType !== 'amp' && childrenSectionBannerMegatop.length <= 1;
+    const component = isValid ? (
+        element
+    ) : (
+        <PageBuilderMessage
+            id="LN-nota-noticia-error"
+            type="warning"
+            message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
+        />
+    );
+    if (isAdmin) return component;
+    return isValid ? component : null;
+};
+
+const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
+    const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     return (
         <GlobalProvider>
+            {/* Banner MEGATOP */}
+            {bannerMegatop}
+            {/* Banner MEGATOP */}
             <div id="wrapper" className={`nota noticia ${amp}`}>
                 {/* TODO: sacar */}
                 {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
                 <Header />
                 <main>
-                    {children[0]}
+                    {children[1]}
                     <div className="lay">
                         <div className="row">
                             <div className="col-12">
                                 {/* Titulo (breadcrumb, logo+titulo) */}
-                                {children[1]}
+                                {children[2]}
                             </div>
                         </div>
                     </div>
@@ -80,7 +105,7 @@ const lnNotaNoticia = ({ children, outputType }) => {
                                         ></div>
                                     </div> */}
                                     {/*Bajada y autor fecha más apertura*/}
-                                    {children[2]}
+                                    {children[3]}
 
                                     {/* <div className="opinion-autor row">
                                     <section id="" className="cont-figure">
@@ -108,13 +133,13 @@ const lnNotaNoticia = ({ children, outputType }) => {
                                     <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
                                         {/* hlp-mobile-show */}
                                         {/* Left-Cuerpo Shared*/}
-                                        {children[3]}
+                                        {children[4]}
                                     </div>
                                     <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                         <div className="row">
                                             <div className="col-12">
                                                 {/* Pos-Apertura */}
-                                                {children[4]}
+                                                {children[5]}
                                             </div>
                                         </div>
                                     </div>
@@ -123,18 +148,18 @@ const lnNotaNoticia = ({ children, outputType }) => {
                         </div>
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-desklm-none">
-                            {children[5]}
+                            {children[6]}
                         </div>
                     </div>
 
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
-                            {children[8]}
+                            {children[9]}
                         </div>
                         <div className="sidebar__aside">
                             {/* Bottom-Tercera */}
-                            {children[9]}
+                            {children[10]}
                         </div>
                     </div>
                 </main>
@@ -145,6 +170,7 @@ const lnNotaNoticia = ({ children, outputType }) => {
 };
 
 const pageBuilderSections = [
+    'Banner-Megatop',
     'Pre-Titulo',
     'Titulo',
     'Apertura',
@@ -161,7 +187,9 @@ lnNotaNoticia.sections = pageBuilderSections;
 
 lnNotaNoticia.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string.isRequired,
+    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
+    isAdmin: PropTypes.bool.isRequired
 };
 
 export default Consumer(lnNotaNoticia);
