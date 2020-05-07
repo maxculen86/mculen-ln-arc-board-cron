@@ -20,6 +20,7 @@ const ComImage = props => {
             ) : (
                 <img
                     src={src}
+                    srcSet={srcset}
                     loading="lazy"
                     className={`com-image ${classCondition || ''}`}
                     alt={alt}
