@@ -10,7 +10,9 @@
     .cuerpo__nota & {
         margin-bottom: px(32);
     }
-
+    .row {
+        position: relative;
+    }
     &.--zoom.--active {
         position: fixed;
         z-index: 999999;
