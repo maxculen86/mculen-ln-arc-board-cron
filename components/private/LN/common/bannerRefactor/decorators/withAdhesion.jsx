@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-curly-spacing      */
 
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useEffect } from 'react';
 import { useFusionContext } from 'fusion:context';
 
 import withLoginData from '../../hocs/withLoginData';
@@ -29,6 +29,24 @@ export default Component => {
         } = props;
 
         const { outputType } = fusionContext;
+
+        useEffect(() => {
+            /* const button = document.createElement('button');
+            button.classList.add('icon-close');
+            button.addEventListener('click', () => ref.current.remove());
+            ref.current.appendChild(button); */
+            /* const img = document.createElement('img');
+            img.src =
+                'https://i.e-planning.net/esb/4/1/3fb8/ea7d639f35554c9b/close.png';
+            img.style.width = '20px';
+            img.style.position = 'absolute';
+            img.style.right = '0px';
+            img.style.top = '0px';
+            img.style.left = 'auto';
+            img.style.cursor = 'pointer';
+            ref.current.querySelector('.com-banner').appendChild(img); */
+            //return () => ref.current ? ref.current.removeChild(ref.current.firstChild) : {};
+        }, [ref]);
 
         useLayoutEffect(() => {
             stickComponent(ref.current);

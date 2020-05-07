@@ -21,7 +21,6 @@ import {
 
 import withStickyFromPointToPoint from '../../decorators/withStickyFromPointToPoint';
 import withAdhesion from '../../decorators/withAdhesion';
-import withCloseButton from '../../decorators/withCloseButton';
 
 function getBannerForStoryTemplate(config) {
     const { slotId } = config;
@@ -37,7 +36,10 @@ function getBannerForStoryTemplate(config) {
             );
         case ADHESION_MOB:
         case ADHESION_DSK:
-            return createElement(withAdhesion(Default), { ...config });
+            return createElement(withAdhesion(Default), {
+                ...config,
+                closeButton: true
+            });
         case CAJA_1_DSK:
         case MEGATOP_DSK:
         default:

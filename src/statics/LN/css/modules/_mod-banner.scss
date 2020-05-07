@@ -4,7 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
+    width: inherit;
     max-width: 100%;
     overflow: hidden;
     &.--bg-banner {
@@ -63,7 +64,7 @@
 }
 @media ($media-l) {
     .mod-banner {
-        width: calc(100% - 380px);
+        /* width: calc(100% - 380px); */
         .sidebar__aside & {
             width: 100%;
         }
@@ -74,7 +75,7 @@
 }
 @media ($media-lm) {
     .mod-banner {
-        width: calc(100% - 362px);
+        /* width: calc(100% - 362px); */
         .sidebar__aside & {
             width: 100%;
         }
