@@ -10,9 +10,9 @@
     .cuerpo__nota & {
         margin-bottom: px(32);
     }
-    .row {
-        position: relative;
-    }
+    // .row {
+    //     position: relative;
+    // }
     &.--zoom.--active {
         position: fixed;
         z-index: 999999;
@@ -29,6 +29,9 @@
         justify-content: center;
         align-items: center;
         display: flex;
+        // .row {
+        //     max-width: 70%;
+        // }
     }
 
     &.--slider {

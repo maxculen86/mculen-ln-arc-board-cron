@@ -37,6 +37,7 @@
     }
     .--active & {
         position: initial;
+        max-width: 70%;
         &::before {
             content: '\e906';
             display: flex;

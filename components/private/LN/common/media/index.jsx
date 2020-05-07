@@ -6,6 +6,8 @@ import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
+import '../../../../../src/statics/LN/css/base/_aspect-ratios.scss';
+
 const media = ({
     mediaData,
     colNumber,
@@ -21,9 +23,7 @@ const media = ({
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
     const { height = 0, width = 0 } = mediaData || {};
-    const isVertical = height > width;
-    isApertura ? (isVertical = false) : isVertical;
-    console.log('dddddddddddd ', isVertical);
+    const isVertical = isApertura ? false : height > width;
     let item = null;
 
     useEffect(() => {
