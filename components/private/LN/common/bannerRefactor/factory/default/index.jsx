@@ -6,6 +6,7 @@ import React, { useReducer, useEffect, createElement } from 'react';
 import Sticky1Mob from './types/sticky1Mob';
 
 import Default from './types';
+import Megatop from './types/megatop';
 
 import {
     STORY_TEMPLATE,
@@ -13,8 +14,8 @@ import {
     CABEZAL_DSK,
     CAJA_1_DSK,
     STICKY_1_MOB,
-    STICKY_2_MOB,
     MEGATOP_DSK,
+    MEGATOP_MOB,
     ADHESION_DSK,
     ADHESION_MOB
 } from '../constants';
@@ -40,8 +41,10 @@ function getBannerForStoryTemplate(config) {
                 ...config,
                 closeButton: true
             });
-        case CAJA_1_DSK:
+        case MEGATOP_MOB:
         case MEGATOP_DSK:
+            return <Megatop {...config} />;
+        case CAJA_1_DSK:
         default:
             return <Default {...config} />;
     }
