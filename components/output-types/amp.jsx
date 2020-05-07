@@ -34,7 +34,9 @@ const Amp = props => {
         contextPath,
         globalContent
     } = props;
-    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
+    const { canonical_url: canonicalUrl, subtype, syndication } =
+        globalContent || {};
+    const { external_distribution, search } = syndication || {};
 
     const contentFeatures = getCollectionsFromRenderables(
         renderables,
@@ -82,6 +84,10 @@ const Amp = props => {
                     canonicalUrl={canonicalUrl}
                     arcSite={arcSite}
                 />
+                {((!external_distribution && !search) ||
+                    external_distribution) && (
+                    <meta name="robots" content="noindex, follow" />
+                )}
             </head>
             <body>
                 <amp-analytics

@@ -67,7 +67,9 @@ const Default = props => {
         renderables,
         globalContent
     } = props;
-    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
+    const { canonical_url: canonicalUrl, subtype, syndication } =
+        globalContent || {};
+    const { external_distribution, search } = syndication || {};
 
     const getPageBuilderFeatures = renderables =>
         renderables.filter(renderable => renderable.collection === 'features');
@@ -139,6 +141,10 @@ const Default = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
+                {((!external_distribution && !search) ||
+                    external_distribution) && (
+                    <meta name="robots" content="noindex, follow" />
+                )}
                 {/* <Scripts name="Microdata" /> */}
             </head>
             <body {...getBodyClass(siteProperties)}>
