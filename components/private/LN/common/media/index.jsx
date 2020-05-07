@@ -6,8 +6,6 @@ import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
-import '../../../../../src/statics/LN/css/base/_aspect-ratios.scss';
-
 const media = ({
     mediaData,
     colNumber,

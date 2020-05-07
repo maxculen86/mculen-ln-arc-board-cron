@@ -17,7 +17,7 @@
             font-size: px(16);
             width: px(31);
             height: px(24);
-            position: fixed;
+            position: absolute;
             top: px(8);
             right: px(8);
             z-index: 10;
@@ -37,10 +37,16 @@
     }
     .--active & {
         position: initial;
-        max-width: 70%;
+
+        @media ($media-l) {
+            width: 70%;
+            max-width: 1280px;
+        }
+
         &::before {
             content: '\e906';
             display: flex;
+            position: fixed;
         }
     }
 }
