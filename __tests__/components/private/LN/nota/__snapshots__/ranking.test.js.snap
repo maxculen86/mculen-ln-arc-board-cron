@@ -27,7 +27,7 @@ exports[`Ranking matches snapshot 1`] = `
             role="button"
           >
             <figure
-              class="mod-figure  --horizontal"
+              class="mod-figure --horizontal"
               role="button"
             >
               <picture
