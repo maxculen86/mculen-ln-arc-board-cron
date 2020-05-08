@@ -163,7 +163,8 @@ export const resizeArcImage = (
             arcImage.width,
             arcImage.height,
             resizeOptions,
-            getFocalPoint(arcImage) || undefined
+            getFocalPoint(arcImage) || undefined,
+            smartCropExcluded
         ),
         resized_urls_zoom: resizer.resizeUrls(
             arcImage.url,
