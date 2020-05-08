@@ -54,9 +54,9 @@ const transform = (data, siteProps) => {
     const properties = getProperties(arcSite);
 
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
-    const presetsXXL = get(
+    const presetsZoom = get(
         properties,
-        `imageConfig.resize.xxl`,
+        `imageConfig.resize.zoom`,
         presetsDefault
     );
     const presetsXL = get(properties, `imageConfig.resize.xl`, null);
@@ -77,7 +77,7 @@ const transform = (data, siteProps) => {
             promoItems: promoItemsRatio,
             contentElements: presetsL.content_elements || presetsDefault,
             presetsDefault,
-            zoomSizes: presetsXXL.promo_items.sizes
+            zoomSizes: presetsZoom.promo_items.sizes
         }
     });
     return transformContent(resp, arcSite);
