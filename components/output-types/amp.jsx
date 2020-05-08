@@ -6,6 +6,7 @@ import AMPScripts, {
     AMPCustomStyle
 } from '../private/common/ampIndex';
 import Robot from '../private/common/robot';
+import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
 /**
@@ -84,10 +85,12 @@ const Amp = props => {
                     canonicalUrl={canonicalUrl}
                     arcSite={arcSite}
                 />
-                {((!external_distribution && !search) ||
-                    external_distribution) && (
-                    <meta name="robots" content="noindex, follow" />
-                )}
+                <Syndication
+                    arcSite={arcSite}
+                    subtype={subtype}
+                    externalDistribution={external_distribution}
+                    search={search}
+                />
             </head>
             <body>
                 <amp-analytics

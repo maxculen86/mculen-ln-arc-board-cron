@@ -14,6 +14,7 @@ import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
 import Robot from '../private/common/robot';
+import Syndication from '../private/common/syndication';
 import { pipe } from '../private/common/utils/functional';
 
 const scriptList = [
@@ -120,6 +121,12 @@ const Default = props => {
                     canonicalUrl={canonicalUrl}
                     arcSite={arcSite}
                 />
+                <Syndication
+                    arcSite={arcSite}
+                    subtype={subtype}
+                    externalDistribution={external_distribution}
+                    search={search}
+                />
                 <Libs />
                 {/* Para OTT carga los styles por front */}
                 {arcSite === 'ott' ? (
@@ -141,10 +148,6 @@ const Default = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
-                {((!external_distribution && !search) ||
-                    external_distribution) && (
-                    <meta name="robots" content="noindex, follow" />
-                )}
                 {/* <Scripts name="Microdata" /> */}
             </head>
             <body {...getBodyClass(siteProperties)}>
