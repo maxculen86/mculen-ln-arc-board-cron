@@ -64,6 +64,12 @@ const Default = props => {
                     canonicalUrl={canonicalUrl}
                     arcSite={arcSite}
                 />
+                {subtype === '1' && canonicalUrl && (
+                    <link
+                        rel="amphtml"
+                        href={`https://www.lanacion.com.ar${canonicalUrl}amp`}
+                    />
+                )}
                 <Libs />
                 {/* Para OTT carga los styles por front */}
                 {arcSite === 'ott' ? (
