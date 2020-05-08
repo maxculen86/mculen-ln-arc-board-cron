@@ -39,20 +39,23 @@ export default Component => {
                 const windowY = window.scrollY;
 
                 const header = document.querySelector('#header');
-                const bounds = header.getBoundingClientRect();
-                if (document.querySelector('#megatop_dsk')) {
-                    if (bounds.top <= 0) {
-                        show(ref.current);
-                    }
-                }
 
-                if (windowY < scrollPosition.current) {
-                    scrollPosition.current = windowY;
-                    hide(ref.current);
-                } else if (windowY >= scrollPosition.current) {
-                    scrollPosition.current = windowY;
-                    if (bounds.top <= 0) {
-                        show(ref.current);
+                if (header) {
+                    const bounds = header.getBoundingClientRect();
+                    if (document.querySelector('#megatop_dsk')) {
+                        if (bounds.top <= 0) {
+                            show(ref.current);
+                        }
+                    }
+
+                    if (windowY < scrollPosition.current) {
+                        scrollPosition.current = windowY;
+                        hide(ref.current);
+                    } else if (windowY >= scrollPosition.current) {
+                        scrollPosition.current = windowY;
+                        if (bounds.top <= 0) {
+                            show(ref.current);
+                        }
                     }
                 }
             };

@@ -1,7 +1,9 @@
 /* eslint-disable react/require-default-props */
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useCallback } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { baseConfig } from './config';
+
+import useMutationObserver from '../../../common/hooks/useMutationObserver';
 
 const Ads = props => {
     const ref = useRef();
@@ -13,7 +15,6 @@ const Ads = props => {
         targeting,
         bidding,
         display,
-        background,
         dfpId,
         breakpoints,
         refresh,
@@ -69,16 +70,10 @@ const Ads = props => {
         [id]
     );
 
-    const observer = useRef(new MutationObserver(onMutate));
-
-    useEffect(() => {
-        const watcher = observer.current;
-        observer.current.observe(document.querySelector(`#${id}`), {
-            subtree: true,
-            childList: true
-        });
-        return () => watcher.disconnect();
-    }, [id]);
+    useMutationObserver(true, onMutate, id, {
+        subtree: true,
+        childList: true
+    });
 
     return (
         <div id={id} className="com-banner hlp-none">
@@ -99,7 +94,6 @@ Ads.propTypes = {
     bidding: PropTypes.shape({
         prebid: PropTypes.object
     }).isRequired,
-    background: PropTypes.string,
     children: PropTypes.arrayOf(PropTypes.nodes)
 };
 

@@ -1,4 +1,4 @@
-/* eslint-disable no-case-declarations */
+/* eslint-disable no-case-declarations         */
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React, { useReducer, useEffect, createElement } from 'react';
@@ -14,6 +14,7 @@ import {
     CABEZAL_DSK,
     CAJA_1_DSK,
     STICKY_1_MOB,
+    STICKY_2_MOB,
     MEGATOP_DSK,
     MEGATOP_MOB,
     ADHESION_DSK,
@@ -21,7 +22,7 @@ import {
 } from '../constants';
 
 import withStickyFromPointToPoint from '../../decorators/withStickyFromPointToPoint';
-import withAdhesion from '../../decorators/withAdhesion';
+import withBondingToBottom from '../../decorators/withBondingToBottom';
 
 function getBannerForStoryTemplate(config) {
     const { slotId } = config;
@@ -37,7 +38,7 @@ function getBannerForStoryTemplate(config) {
             );
         case ADHESION_MOB:
         case ADHESION_DSK:
-            return createElement(withAdhesion(Default), {
+            return createElement(withBondingToBottom(Default), {
                 ...config,
                 closeButton: true
             });
@@ -45,6 +46,7 @@ function getBannerForStoryTemplate(config) {
         case MEGATOP_DSK:
             return <Megatop {...config} />;
         case CAJA_1_DSK:
+        case STICKY_2_MOB:
         default:
             return <Default {...config} />;
     }
