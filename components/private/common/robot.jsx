@@ -8,13 +8,10 @@ const Robot = ({ subtype, canonicalUrl, arcSite }) => {
     return (
         subtype === '1' &&
         canonicalUrl && (
-            <>
-                <meta name="robots" content="noindex, nofollow" />
-                <link
-                    rel="canonical"
-                    href={`https://www.lanacion.com.ar${canonicalUrl}`}
-                />
-            </>
+            <link
+                rel="canonical"
+                href={`https://www.lanacion.com.ar${canonicalUrl}`}
+            />
         )
     );
 };
