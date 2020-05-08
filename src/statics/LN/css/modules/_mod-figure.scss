@@ -36,6 +36,10 @@
         }
     }
     .--active & {
+        @media ($media-l) {
+            width: 70%;
+            max-width: pixel(990);
+        }
         &::before {
             content: '\e906';
             display: flex;

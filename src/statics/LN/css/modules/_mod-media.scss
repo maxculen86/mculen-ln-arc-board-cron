@@ -32,8 +32,12 @@
         .slide {
             @media ($media-l) {
                 width: 70%;
-                max-width: 1280px;
+                max-width: pixel(990);
                 position: absolute;
+            }
+            .mod-figure {
+                width: 100%;
+                max-width: none;
             }
         }
     }
