@@ -6,6 +6,7 @@ import AMPScripts, {
     AMPCustomStyle
 } from '../private/common/ampIndex';
 import Robot from '../private/common/robot';
+import MetaTitle from '../private/common/metaTitle';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
 /**
@@ -34,7 +35,8 @@ const Amp = props => {
         contextPath,
         globalContent
     } = props;
-    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
+    const { headlines, subtype } = globalContent || {};
+    const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
 
     const contentFeatures = getCollectionsFromRenderables(
         renderables,
@@ -80,6 +82,12 @@ const Amp = props => {
                 <Robot
                     subtype={subtype}
                     canonicalUrl={canonicalUrl}
+                    arcSite={arcSite}
+                />
+                <MetaTitle
+                    subtype={subtype}
+                    metaTitle={metaTitle}
+                    basicTitle={basicTitle}
                     arcSite={arcSite}
                 />
             </head>

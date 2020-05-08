@@ -14,6 +14,7 @@ import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
 import Robot from '../private/common/robot';
+import MetaTitle from '../private/common/metaTitle';
 import { pipe } from '../private/common/utils/functional';
 
 const scriptList = [
@@ -67,7 +68,8 @@ const Default = props => {
         renderables,
         globalContent
     } = props;
-    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
+    const { headlines, subtype } = globalContent || {};
+    const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
 
     const getPageBuilderFeatures = renderables =>
         renderables.filter(renderable => renderable.collection === 'features');
@@ -116,6 +118,12 @@ const Default = props => {
                 <Robot
                     subtype={subtype}
                     canonicalUrl={canonicalUrl}
+                    arcSite={arcSite}
+                />
+                <MetaTitle
+                    subtype={subtype}
+                    metaTitle={metaTitle}
+                    basicTitle={basicTitle}
                     arcSite={arcSite}
                 />
                 <Libs />
