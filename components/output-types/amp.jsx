@@ -35,7 +35,8 @@ const Amp = props => {
         contextPath,
         globalContent
     } = props;
-    const { headlines, subtype } = globalContent || {};
+    const { canonical_url: canonicalUrl, headlines, subtype } =
+        globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
 
     const contentFeatures = getCollectionsFromRenderables(
