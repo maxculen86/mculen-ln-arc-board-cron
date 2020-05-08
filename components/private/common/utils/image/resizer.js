@@ -13,7 +13,8 @@ export const createResizer = (resizerKey, resizerUrl) => {
         originalWidth,
         originalHeight,
         resizeOptions,
-        focalPoint
+        focalPoint,
+        smartCropExcluded
     ) => {
         if (!resizeOptions.width && !resizeOptions.height)
             throw new Error(
@@ -35,7 +36,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
             thumbor.filter(
                 `focal(${rect[0]}x${rect[1]}:${rect[2]}x${rect[3]})`
             );
-        } else {
+        } else if (!smartCropExcluded) {
             thumbor.smartCrop(true);
         }
 
@@ -52,7 +53,8 @@ export const createResizer = (resizerKey, resizerUrl) => {
         originalWidth,
         originalHeight,
         presets,
-        focalPoint
+        focalPoint,
+        smartCropExcluded
     ) => {
         const resp = [];
         const finalPreset = presets;
@@ -62,7 +64,8 @@ export const createResizer = (resizerKey, resizerUrl) => {
                 originalWidth,
                 originalHeight,
                 opt,
-                focalPoint
+                focalPoint,
+                smartCropExcluded
             );
             resp.push({
                 resizedUrl,
@@ -78,7 +81,12 @@ export const createResizer = (resizerKey, resizerUrl) => {
     };
 };
 
-export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
+export const resizeArcGallery = (
+    arcgallery,
+    resizeOptions,
+    resizer,
+    smartCropExcluded = false
+) => {
     if (arcgallery.type !== 'gallery') {
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "gallery"'
@@ -88,7 +96,7 @@ export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
     return {
         ...arcgallery,
         content_elements: arcgallery.content_elements.map(i =>
-            resizeArcImage(i, resizeOptions, resizer)
+            resizeArcImage(i, resizeOptions, resizer, smartCropExcluded)
         )
     };
 };
@@ -103,7 +111,12 @@ const getFocalPoint = function getFocalPoint(element) {
     return focalPoint.min;
 };
 
-export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
+export const resizeArcImage = (
+    arcImage,
+    resizeOptions,
+    resizer,
+    smartCropExcluded = false
+) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
@@ -121,7 +134,8 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
                           width: 768,
                           height: 513,
                           media: '(min-width: 768px)'
-                      }
+                      },
+                      smartCropExcluded
                   )
                 : getCanonincalURL(
                       resizer.resizeUrl(
@@ -132,7 +146,8 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
                               width: 768,
                               height: 513,
                               media: '(min-width: 768px)'
-                          }
+                          },
+                          smartCropExcluded
                       )
                   ),
         resized_urls: resizer.resizeUrls(
@@ -140,7 +155,8 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
             arcImage.width,
             arcImage.height,
             resizeOptions,
-            getFocalPoint(arcImage) || undefined
+            getFocalPoint(arcImage) || undefined,
+            smartCropExcluded
         )
     };
 };
@@ -221,14 +237,16 @@ export const addResizedUrls = (ansDoc, option) => {
                     return resizeArcImage(
                         elem,
                         optionsContentElements,
-                        resizer
+                        resizer,
+                        true
                     );
                 }
                 if (elem.type === 'gallery') {
                     return resizeArcGallery(
                         elem,
                         optionsContentElements,
-                        resizer
+                        resizer,
+                        true
                     );
                 }
                 return elem;
