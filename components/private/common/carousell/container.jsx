@@ -15,21 +15,23 @@ const Carousell = props => {
             itsGallery={itsGallery}
             active={active}
         >
-            {slider.hasPrevPage() && (
-                // <CarousellPrevButton onClick={slider.prevButtonHandler} />
-                <ComButton
-                    onClick={slider.prevButtonHandler}
-                    classCondition="icon-left"
-                ></ComButton>
-            )}
-            {children}
-            {slider.hasNextPage() && (
-                // <CarousellNextButton onClick={slider.nextButtonHandler} />
-                <ComButton
-                    onClick={slider.nextButtonHandler}
-                    classCondition="icon-right"
-                ></ComButton>
-            )}
+            <div className="slide">
+                {slider.hasPrevPage() && (
+                    // <CarousellPrevButton onClick={slider.prevButtonHandler} />
+                    <ComButton
+                        onClick={slider.prevButtonHandler}
+                        classCondition="icon-left"
+                    ></ComButton>
+                )}
+                {children}
+                {slider.hasNextPage() && (
+                    // <CarousellNextButton onClick={slider.nextButtonHandler} />
+                    <ComButton
+                        onClick={slider.nextButtonHandler}
+                        classCondition="icon-right"
+                    ></ComButton>
+                )}
+            </div>
         </ModMedia>
     );
 };
