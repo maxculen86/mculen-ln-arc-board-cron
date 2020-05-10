@@ -5,7 +5,12 @@ const MetaTitle = ({ subtype, basicTitle, metaTitle, arcSite }) => {
     if (arcSite && arcSite !== 'la-nacion-ar' && !subtype) return <></>;
 
     const metaTitleBasic =
-        metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
+        metaTitle &&
+        metaTitle !== '' &&
+        metaTitle !== null &&
+        metaTitle !== undefined
+            ? metaTitle
+            : basicTitle;
 
     return (
         subtype === '1' &&
