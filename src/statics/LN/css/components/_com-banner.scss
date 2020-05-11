@@ -57,9 +57,16 @@
         max-width: px(728);
         max-height: px(90);
     }
-    &#caja1_mob {
+    &#caja1_mob,
+    &#caja2_mob {
         max-width: px(300);
-        max-height: px(50);
+        max-height: px(450);
+    }
+    &#caja3_mob,
+    &#caja4_mob,
+    &#caja5_mob {
+        max-width: px(320);
+        max-height: px(250);
     }
     &#sticky_mob1 {
         max-width: px(320);
