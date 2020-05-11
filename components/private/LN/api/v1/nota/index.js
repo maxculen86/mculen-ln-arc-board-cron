@@ -2,6 +2,7 @@ import get from 'lodash.get';
 import Section from './sectionArticle';
 import Apertura from './aperturaArticle';
 import Cuerpo from './cuerpo';
+import Relacionados from './relacionados';
 
 import { dateAndTimeForAppsUtil } from '../../../../common/utils/dateAndTimeUtil';
 
@@ -19,6 +20,7 @@ const indexNota = dataNota => {
         id,
         template,
         url,
+        paywallStatus: dataNota.content_restrictions.content_code,
         abiertoComentarios: dataNota.comments
             ? dataNota.comments.allow_comments
             : true,
@@ -27,7 +29,8 @@ const indexNota = dataNota => {
         fecha: dateAndTimeForAppsUtil(dataNota.first_publish_date),
         categoria: primarySection && Section(primarySection),
         apertura: Apertura(dataNota),
-        contenido: Cuerpo(dataNota)
+        contenido: Cuerpo(dataNota),
+        relacionados: Relacionados(dataNota)
     };
 
     return resp;

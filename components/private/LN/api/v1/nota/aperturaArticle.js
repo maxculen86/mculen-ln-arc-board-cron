@@ -14,8 +14,10 @@ const apertura = article => {
     const recetaPromoItem = get(article, 'promo_items.receta');
     const bajada = get(article, 'subheadlines.basic');
     const autoresFixed = authors && authors.filter(a => a.type === 'author');
+    const volanta = get(article, 'label.volanta.text');
 
     const resp = {
+        volanta,
         titulo: tituloMobile || titulo,
         bajada,
         imagenes: []

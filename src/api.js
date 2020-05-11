@@ -50,6 +50,15 @@ http.createServer((req, res) => {
 }).listen(PORT, (...args) => {
     log(`Running on http://${HOST}:${PORT}/`);
     log();
+    log(`http://${HOST}:${PORT}/?id=EBMQCONMLVB6ZBFFGTBLIWMYFQ`);
+    log(`http://${HOST}:${PORT}/?id=5CT4YNKOB5AFNFQ7R33BOOVGAI`);
+    log(`http://${HOST}:${PORT}/?id=FM2M3Y4ZXZD6VGONEPLLSQJWVA`);
+    log(`http://${HOST}:${PORT}/?id=BFVO4LUXAJFJHC37GF24BTRLEM`);
+    log(`http://${HOST}:${PORT}/?id=SRT6TQ2XPRCZXDMXQPAOKPT6N4`);
+    log(`http://${HOST}:${PORT}/?id=RNDZITUWEBCT7DMVU5MZ5ANG3A`);
+    log(`http://${HOST}:${PORT}/?id=ATLC5WVL4NH5HAHU2BWJXTSATY`);
+    log(`http://${HOST}:${PORT}/?id=QAZ7BVHG5BCNFN7S67XCBP6PA4`);
+    log(`http://${HOST}:${PORT}/?id=36G5V7RBRBH2XDBMBZHVCXZNBY`);
     log(`http://${HOST}:${PORT}/?id=JZQDUAOPSRF3LLDZOT6374IDOM`);
     log(`http://${HOST}:${PORT}/?id=TWKFZQ6FCNF3ZKPHGGZPMSSOGQ`);
     log(`http://${HOST}:${PORT}/?id=XLHPSRHOAVDLRNP2LMCCEJM62Y`);
