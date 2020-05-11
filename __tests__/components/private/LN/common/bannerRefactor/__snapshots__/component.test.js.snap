@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner Matches snapshot 1`] = `
+<div
+  class="--bg-banner --undefined"
+>
+  <div
+    class="banner hlp-none"
+  >
+    <div />
+  </div>
+</div>
+`;

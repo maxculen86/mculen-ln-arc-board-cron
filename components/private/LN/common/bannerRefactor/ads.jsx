@@ -1,73 +1,104 @@
-/* eslint-disable no-undef */
 /* eslint-disable react/require-default-props */
-/* eslint-disable react/forbid-prop-types     */
-/* eslint-disable react/no-this-in-sfc        */
-
-import React, { PureComponent } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { baseConfig } from './config';
 
-class Ads extends PureComponent {
-    componentDidMount() {
-        const instance = this.getAdsInstance();
-        const {
-            id,
-            slotName,
-            dimensions,
-            targeting,
-            bidding,
-            display,
-            background
-        } = this.props;
+const Ads = props => {
+    const ref = useRef();
 
-        instance.registerAd({
-            id,
-            slotName,
-            dimensions,
-            display,
-            targeting,
-            bidding
-        });
-    }
+    const {
+        id,
+        slotName,
+        dimensions,
+        targeting,
+        bidding,
+        display,
+        background,
+        dfpId,
+        breakpoints,
+        refresh,
+        children
+    } = props;
 
-    getAdsInstance() {
-        if (!Ads.instance) {
-            const { dfpId } = this.props;
-
-            Ads.instance = new ArcAds(
-                {
-                    dfp: {
-                        id: dfpId
-                    },
-                    bidding: baseConfig.bidding
+    if (!ref.current) {
+        ref.current = new ArcAds(
+            {
+                dfp: {
+                    id: dfpId
                 },
-                event => {
-                    if (window.googletag && googletag.pubadsReady) {
-                        googletag.pubads().collapseEmptyDivs(true);
-                    }
+                bidding: baseConfig.bidding
+            },
+            event => {
+                if (window.googletag && googletag.pubadsReady) {
+                    googletag.pubads().collapseEmptyDivs(true);
                 }
-            );
-        }
+            }
+        );
 
-        return Ads.instance;
+        ref.current.registerAd(
+            {
+                id,
+                slotName,
+                dimensions,
+                display,
+                targeting,
+                sizemap: {
+                    breakpoints,
+                    refresh
+                },
+                bidding
+            },
+            dfpId,
+            bidding
+        );
     }
 
-    static instance = undefined;
+    const onMutate = useCallback(
+        mutations => {
+            mutations.forEach(mutation => {
+                const nodes = mutation.addedNodes;
+                nodes.forEach(node => {
+                    if (node.localName === 'iframe') {
+                        document
+                            .querySelector(`#${id}`)
+                            .classList.remove('hlp-none');
+                    }
+                });
+            });
+        },
+        [id]
+    );
 
-    render() {
-        const { children } = this.props;
+    const observer = useRef(new MutationObserver(onMutate));
 
-        return <div>{children}</div>;
-    }
-}
+    useEffect(() => {
+        const watcher = observer.current;
+        observer.current.observe(document.querySelector(`#${id}`), {
+            subtree: true,
+            childList: true
+        });
+        return () => watcher.disconnect();
+    }, [id]);
+
+    return (
+        <div id={id} className="banner hlp-none">
+            <div>{children}</div>
+        </div>
+    );
+};
 
 Ads.propTypes = {
     id: PropTypes.string.isRequired,
     dfpId: PropTypes.number.isRequired,
     slotName: PropTypes.string.isRequired,
-    dimensions: PropTypes.array.isRequired,
-    targeting: PropTypes.object.isRequired,
-    bidding: PropTypes.object.isRequired,
+    dimensions: PropTypes.arrayOf(PropTypes.number).isRequired,
+    targeting: PropTypes.shape({
+        sitio: PropTypes.string,
+        seccion: PropTypes.string
+    }).isRequired,
+    bidding: PropTypes.shape({
+        prebid: PropTypes.object
+    }).isRequired,
     background: PropTypes.string,
     children: PropTypes.arrayOf(PropTypes.nodes)
 };
