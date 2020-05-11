@@ -4,7 +4,6 @@
 import React, { useReducer, useEffect, createElement } from 'react';
 
 import Sticky1Mob from './types/sticky1Mob';
-import Sticky2Mob from './types/sticky2Mob';
 
 import Default from './types';
 
@@ -25,8 +24,6 @@ function getBannerForStoryTemplate(config) {
     switch (slotId) {
         case STICKY_1_MOB:
             return <Sticky1Mob {...config} />;
-        case STICKY_2_MOB:
-            return <Sticky2Mob {...config} />;
         case CABEZAL_DSK:
             return createElement(
                 withStickyFromPointToPoint(Default)('caja1_dsk'),

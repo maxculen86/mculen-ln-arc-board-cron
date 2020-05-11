@@ -69,6 +69,14 @@
 }
 
 @media ($media-l) {
+    .--bg-banner {
+        &.--sticky {
+            .--scrollUp & {
+                display: flex;
+                top: 65px;
+            }
+        }
+    }
     .banner {
         &#caja2_dsk {
             margin-top: $px-40;

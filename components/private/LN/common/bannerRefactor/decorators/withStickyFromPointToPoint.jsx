@@ -1,4 +1,7 @@
+/* eslint-disable no-bitwise                   */
+/* eslint-disable no-param-reassign            */
 /* eslint-disable react/jsx-props-no-spreading */
+
 import React, { useRef, useLayoutEffect } from 'react';
 
 const show = element => {
@@ -21,6 +24,15 @@ const hide = element => {
     }
 };
 
+const idle = element => {
+    const { top } = element.getBoundingClientRect();
+    if (window.getComputedStyle(element).top === 'auto') {
+        element.style.top = `${Math.abs(top)}px`;
+        element.style.position = 'relative';
+        element.style.zIndex = 1;
+    }
+};
+
 const componentDidReachTarget = (component, target) =>
     component.offsetTop + component.clientHeight > target.offsetTop;
 
@@ -34,16 +46,17 @@ export default Component => Target => {
             const handleScroll = () => {
                 const windowY = window.scrollY;
                 const target = document.getElementById(`${Target}`);
-                show(ref.current);
+
                 if (windowY < scrollPosition.current) {
                     scrollPosition.current = windowY;
-                    hide(ref.current);
+                    ref.current.style.cssText = '';
                 } else if (windowY >= scrollPosition.current) {
                     scrollPosition.current = windowY;
                     if (!componentDidReachTarget(ref.current, target)) {
                         show(ref.current);
                     } else {
                         hide(ref.current);
+                        idle(ref.current);
                     }
                 }
             };
