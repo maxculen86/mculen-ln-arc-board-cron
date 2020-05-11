@@ -25,7 +25,7 @@
         max-width: none;
         margin: 0 auto;
         text-align: center;
-        background: rgba(0, 0, 0, 0.9);
+        background: $negro;
         justify-content: center;
         align-items: center;
         display: flex;
@@ -39,6 +39,10 @@
                 width: 100%;
                 max-width: none;
             }
+        }
+        @media ($media-l) {
+            //1024
+            background: rgba(0, 0, 0, 0.9);
         }
     }
 
