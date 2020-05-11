@@ -36,14 +36,23 @@
         }
     }
     .--active & {
+        width: 100%;
         @media ($media-l) {
-            width: 70%;
-            max-width: pixel(990);
+            width: 90%;
+            max-width: 1000px;
         }
         &::before {
             content: '\e902';
             display: flex;
             position: fixed;
+        }
+    }
+    &.--vertical {
+        .--active & {
+            height: 100%;
+            @media ($media-m) {
+                height: auto;
+            }
         }
     }
 }

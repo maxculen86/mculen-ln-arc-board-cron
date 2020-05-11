@@ -5,6 +5,12 @@
     display: block;
     position: relative;
     margin-top: px(8);
+    font-size: px(14);
+
+    .--caption,
+    .--credit {
+        width: calc(100% - 50px);
+    }
 
     .--caption {
         display: block;
@@ -18,7 +24,6 @@
     .--credit {
         display: block;
         color: #6e6e6e;
-        font-size: px(15);
         padding-bottom: px(8);
 
         &:empty {
@@ -28,9 +33,22 @@
     .--zoom.--active & {
         color: $blanco;
         width: 100%;
-        text-align: center;
+        text-align: left;
+        padding: 0 px(16);
+        @media ($media-l) {
+            //1024
+            padding: 0;
+        }
     }
     .--zoom.--active.--slider & {
         text-align: left;
+    }
+
+    @media ($media-l) {
+        //1024
+        font-size: px(16);
+        .--credit {
+            font-size: px(15);
+        }
     }
 }

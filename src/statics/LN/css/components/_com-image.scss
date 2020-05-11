@@ -14,4 +14,18 @@
         object-fit: cover;
         height: 100%;
     }
+
+    .--vertical & {
+        .--active & {
+            height: 80vh;
+            max-height: 600px;
+            width: 100%;
+            @media ($media-m) {
+                //768
+                max-height: 1000px;
+                max-width: 1000px;
+                width: auto;
+            }
+        }
+    }
 }
