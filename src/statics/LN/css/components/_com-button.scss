@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .com-button {
-    font-family: $font-arial;
+    //font-family: $font-arial;
     transition: opacity 0.2s ease-in-out;
     @include flex(flex, row, center, center);
 
