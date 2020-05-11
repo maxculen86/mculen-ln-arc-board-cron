@@ -13,13 +13,14 @@ export const createResizer = (resizerKey, resizerUrl) => {
         originalWidth,
         originalHeight,
         resizeOptions,
-        focalPoint
+        focalPoint,
+        smartCropExcluded
     ) => {
         if (!resizeOptions.width && !resizeOptions.height)
             throw new Error(
                 'Se requiere width o heigth para realizar el resize'
             );
-        // Si me lo indican en las options, hago el resize aplicando ambos tamaños, si no, horizontal o vertial dependiendo imagen
+        let { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
         const cleanedUrl = originalUrl.replace(/(^\w+:|^)\/\//, '');
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
@@ -35,13 +36,25 @@ export const createResizer = (resizerKey, resizerUrl) => {
             thumbor.filter(
                 `focal(${rect[0]}x${rect[1]}:${rect[2]}x${rect[3]})`
             );
-        } else {
+        } else if (!smartCropExcluded) {
             thumbor.smartCrop(true);
+        } else {
+            newHeight =
+                !resizeOptions.useFullSize &&
+                originalWidth >= originalHeight &&
+                newWidth
+                    ? 0
+                    : newWidth;
+            newWidth =
+                !resizeOptions.useFullSize &&
+                originalWidth < originalHeight &&
+                newHeight
+                    ? 0
+                    : newWidth;
         }
 
         thumbor.setImagePath(cleanedUrl);
 
-        const { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
         return IS_DEV === 'true' || IS_SANDBOX === 'true'
             ? thumbor.resize(newWidth, newHeight).buildUrl()
             : getCanonincalURL(thumbor.resize(newWidth, newHeight).buildUrl());
@@ -52,7 +65,8 @@ export const createResizer = (resizerKey, resizerUrl) => {
         originalWidth,
         originalHeight,
         presets,
-        focalPoint
+        focalPoint,
+        smartCropExcluded
     ) => {
         const resp = [];
         const finalPreset = presets;
@@ -62,7 +76,8 @@ export const createResizer = (resizerKey, resizerUrl) => {
                 originalWidth,
                 originalHeight,
                 opt,
-                focalPoint
+                focalPoint,
+                smartCropExcluded
             );
             resp.push({
                 resizedUrl,
@@ -78,7 +93,12 @@ export const createResizer = (resizerKey, resizerUrl) => {
     };
 };
 
-export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
+export const resizeArcGallery = (
+    arcgallery,
+    resizeOptions,
+    resizer,
+    smartCropExcluded = false
+) => {
     if (arcgallery.type !== 'gallery') {
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "gallery"'
@@ -88,7 +108,7 @@ export const resizeArcGallery = (arcgallery, resizeOptions, resizer) => {
     return {
         ...arcgallery,
         content_elements: arcgallery.content_elements.map(i =>
-            resizeArcImage(i, resizeOptions, resizer)
+            resizeArcImage(i, resizeOptions, resizer, smartCropExcluded)
         )
     };
 };
@@ -103,7 +123,12 @@ const getFocalPoint = function getFocalPoint(element) {
     return focalPoint.min;
 };
 
-export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
+export const resizeArcImage = (
+    arcImage,
+    resizeOptions,
+    resizer,
+    smartCropExcluded = false
+) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
@@ -121,7 +146,9 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
                           width: 768,
                           height: 513,
                           media: '(min-width: 768px)'
-                      }
+                      },
+                      undefined,
+                      smartCropExcluded
                   )
                 : getCanonincalURL(
                       resizer.resizeUrl(
@@ -132,7 +159,9 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
                               width: 768,
                               height: 513,
                               media: '(min-width: 768px)'
-                          }
+                          },
+                          undefined,
+                          smartCropExcluded
                       )
                   ),
         resized_urls: resizer.resizeUrls(
@@ -140,7 +169,8 @@ export const resizeArcImage = (arcImage, resizeOptions, resizer) => {
             arcImage.width,
             arcImage.height,
             resizeOptions,
-            getFocalPoint(arcImage) || undefined
+            getFocalPoint(arcImage) || undefined,
+            smartCropExcluded
         )
     };
 };
@@ -221,14 +251,16 @@ export const addResizedUrls = (ansDoc, option) => {
                     return resizeArcImage(
                         elem,
                         optionsContentElements,
-                        resizer
+                        resizer,
+                        true
                     );
                 }
                 if (elem.type === 'gallery') {
                     return resizeArcGallery(
                         elem,
                         optionsContentElements,
-                        resizer
+                        resizer,
+                        true
                     );
                 }
                 return elem;

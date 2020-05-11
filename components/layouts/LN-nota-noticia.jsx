@@ -7,7 +7,6 @@ import PageBuilderMessage from '../private/LN/home/common/components/pageBuilder
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
 import '../../resources/dist/css/ln/base/types.css';
-//import '../../resources/dist/css/ln/base/helpers.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
@@ -37,16 +36,16 @@ import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
 import '../../resources/dist/css/ln/components/com-button.css';
-//import '../../resources/dist/css/ln/components/colecciones.css';
-//import '../../resources/dist/css/ln/components/carta-lectores.css';
+// import '../../resources/dist/css/ln/components/colecciones.css';
+// import '../../resources/dist/css/ln/components/carta-lectores.css';
 
-/*Se debe importar para AMP*/
-//import '../../resources/dist/css/ln/components/nav-amp.css';
+/* Se debe importar para AMP */
+// import '../../resources/dist/css/ln/components/nav-amp.css';
 
-/*Se debe importar por layouts*/
+/* Se debe importar por layouts */
 import '../../resources/dist/css/ln/components/banners.css';
 
-/*Se debe dejar último los helpers*/
+/* Se debe dejar último los helpers */
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
@@ -97,14 +96,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                         <div className="sidebar__main">
                             <div className="row">
                                 <div className="col-12 ">
-                                    {/* <div class="mod-banner --fixed --close">
-                                        <button class="icon-close"></button>
-                                        <div
-                                            id="adhesion_dsk"
-                                            className="com-banner"
-                                        ></div>
-                                    </div> */}
-                                    {/*Bajada y autor fecha más apertura*/}
+                                    {/* Bajada y autor fecha más apertura */}
                                     {children[3]}
 
                                     {/* <div className="opinion-autor row">
@@ -132,7 +124,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 <div className="row">
                                     <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
                                         {/* hlp-mobile-show */}
-                                        {/* Left-Cuerpo Shared*/}
+                                        {/* Left-Cuerpo Shared */}
                                         {children[4]}
                                     </div>
                                     <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">

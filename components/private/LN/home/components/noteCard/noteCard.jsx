@@ -5,9 +5,9 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 
 import Article from './article';
-import PageBuilderMessage from '../../common/components/pageBuilderMessage/pageBuilderMessage';
+// import PageBuilderMessage from '../../common/components/pageBuilderMessage/pageBuilderMessage';
 
-import { validateNoteCard } from './validation';
+// import { validateNoteCard } from './validation';
 import {
     getLead,
     getTitle,
@@ -31,7 +31,7 @@ const NoteCard = ({
     const [authors, setAuthors] = useState(getAuthors(customFields, content));
     const [subhead, setSubhead] = useState(getSubhead(customFields, content));
     const [url, setUrl] = useState(getUrl(content));
-    const [error, setError] = useState();
+    // const [error, setError] = useState();
 
     useEffect(() => {
         setLead(getLead(customFields, content));
@@ -40,36 +40,28 @@ const NoteCard = ({
         setAuthors(getAuthors(customFields, content));
         setImageId(getImageId(customFields, content, belongsTo));
         setUrl(getUrl(content));
-        setError(
-            validateNoteCard(
-                isOpening,
-                belongsTo,
-                title,
-                imageId,
-                subhead,
-                content
-            )
-        );
+        // setError(
+        //     validateNoteCard(
+        //         isOpening,
+        //         belongsTo,
+        //         title,
+        //         imageId,
+        //         subhead,
+        //         content
+        //     )
+        // );
     }, [content, customFields, belongsTo, isOpening, title, imageId, subhead]);
 
-    if (isAdmin && !!error) {
-        return (
-            <div
-                style={{
-                    marginTop: '10px',
-                    marginBottom: '10px',
-                    width: '100%'
-                }}
-            >
-                <PageBuilderMessage
-                    key={featureId}
-                    type={error.type}
-                    message={error.message}
-                />
-            </div>
-        );
-    }
-
+    // if (isAdmin && !!error) {
+    //     return (
+    //         <PageBuilderMessage
+    //             key={featureId}
+    //             type={error.type}
+    //             message={error.message}
+    //         />
+    //     );
+    // }
+    // if (!error) {
     return (
         // <Static id={featureId}>
         <Article
@@ -88,6 +80,7 @@ const NoteCard = ({
         />
         // </Static>
     );
+    // return <></>;
 };
 
 NoteCard.propTypes = {
