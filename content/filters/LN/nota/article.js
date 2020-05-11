@@ -84,6 +84,7 @@ const video = `
         }
     }
     additional_properties {
+        nodeType
         advertising {
             playAds
         }
@@ -185,6 +186,14 @@ export default `
             type
             url
             slug
+            image {
+                url
+            }
+            additional_properties {
+                original {
+                    role
+                }
+            }
         }
     }
     headlines {

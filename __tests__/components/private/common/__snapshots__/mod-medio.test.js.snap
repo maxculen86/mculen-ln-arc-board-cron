@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModMedio Matches snapshot 1`] = `
+<div
+  class="container-medio"
+>
+  <span
+    class="com-text --medio"
+  >
+    nacion
+  </span>
+</div>
+`;

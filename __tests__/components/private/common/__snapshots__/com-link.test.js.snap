@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComLink Matches snapshot 1`] = `
+<a
+  class="com-link --autor"
+  href="https://lanacion.com.ar"
+  target="_self"
+>
+  A link
+</a>
+`;

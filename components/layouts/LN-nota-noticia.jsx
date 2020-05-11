@@ -12,6 +12,7 @@ import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 import '../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../resources/dist/css/ln/modules/header-mobile.css';
+import '../../resources/dist/css/ln/modules/mod-autor.css';
 
 // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
 // EL COMPONENTE Y EN OTROS NO
@@ -43,36 +44,38 @@ import '../../resources/dist/css/ln/components/banners.css';
 
 /*Se debe dejar último los helpers*/
 import '../../resources/dist/css/ln/base/helpers.css';
-
-import { GlobalProvider } from '../private/common/context/globalContext';
+import Modbreadcrumb from '../private/LN/common/breadcrumb/mod-breadcrumb';
+import ModUnordered from '../private/LN/common/footer/mod-unordered';
+import ModAutor from '../private/common/mod-autor';
+import ComLink from '../private/common/com-link';
+import ModFigure from '../private/common/mod-figure';
 
 const lnNotaNoticia = ({ children, outputType }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     return (
-        <GlobalProvider>
-            <div id="wrapper" className={`nota noticia ${amp}`}>
-                {/* TODO: sacar */}
-                {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
-                <Header />
-                <main>
-                    {children[0]}
-                    <div className="lay">
-                        <div className="row">
-                            <div className="col-12">
-                                {/* Titulo (breadcrumb, logo+titulo) */}
-                                {children[1]}
-                            </div>
+        <div id="wrapper" className={`nota noticia ${amp}`}>
+            {/* TODO: sacar */}
+            {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
+            <Header />
+            <main>
+                {children[0]}
+                <div className="lay">
+                    <div className="row">
+                        <div className="col-12">
+                            {/* Titulo (breadcrumb, logo+titulo) */}
+                            {children[1]}
                         </div>
                     </div>
-                    <div className="lay-sidebar">
-                        {/* Cuerpo */}
-                        <div className="sidebar__main">
-                            <div className="row">
-                                <div className="col-12 ">
-                                    {/*Bajada y autor fecha más apertura*/}
-                                    {children[2]}
+                </div>
+                <div className="lay-sidebar">
+                    {/* Cuerpo */}
+                    <div className="sidebar__main">
+                        <div className="row">
+                            <div className="col-12 ">
+                                {/*Bajada y autor fecha más apertura*/}
+                                {children[2]}
 
-                                    {/* <div className="opinion-autor row">
+                                {/* <div className="opinion-autor row">
                                     <section id="" className="cont-figure">
                                         <div className="figure">
                                             <picture className="content-pic picture">
@@ -91,46 +94,87 @@ const lnNotaNoticia = ({ children, outputType }) => {
                                         <label>PARA LA NACION</label>
                                     </div>
                                 </div> */}
-                                </div>
                             </div>
-                            <section className="cuerpo__nota">
-                                <div className="row">
-                                    <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
-                                        {/* hlp-mobile-show */}
-                                        {/* Left-Cuerpo Shared*/}
-                                        {children[3]}
-                                    </div>
-                                    <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                        <div className="row">
+                        </div>
+                        <section className="cuerpo__nota">
+                            <div className="row">
+                                {/* BreadCrumb */}
+                                {/* {typeof window !== 'undefined' &&
+                                    window.screen.width >= 768 && (
+                                        <div className="row bread">
                                             <div className="col-12">
-                                                {/* Pos-Apertura */}
-                                                {children[4]}
+                                                <Modbreadcrumb />
                                             </div>
+                                        </div>
+                                    )} */}
+                                {/* FirmaAutor */}
+                                {/* <div className="row FirmaAutor">
+                                    <div className="col-12">
+                                        <ModAutor
+                                            autor="Juan I. Irigoyen"
+                                            classCondition="--autor"
+                                        />
+                                    </div>
+                                    <div className="col-12">
+                                        <ModAutor
+                                            autor="Juan I. Irigoyen"
+                                            classCondition="--autor"
+                                            medio="La Nación"
+                                        />
+                                    </div>
+                                    <div className="col-12">
+                                        <ModAutor
+                                            autor="Juan I. Irigoyen"
+                                            foto="foto"
+                                            classCondition="--autor"
+                                            medio="La Nación"
+                                        />
+                                    </div>
+                                    <div className="col-12">
+                                        <ModFigure
+                                            src="https://bucket3.glanacion.com/anexos/fotos/17/3237517.jpg"
+                                            srcset="https://bucket3.glanacion.com/anexos/fotos/17/3237517.jpg"
+                                            //title="Cafiero analizará junto con el Presidente qué pedidos habilitará a partir del lunes"
+                                            credit="Fuente: LA NACION"
+                                            classCondition="--zoom"
+                                        />
+                                    </div>
+                                </div> */}
+                                <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                    {/* hlp-mobile-show */}
+                                    {/* Left-Cuerpo Shared*/}
+                                    {children[3]}
+                                </div>
+                                <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                    <div className="row">
+                                        <div className="col-12">
+                                            {/* Pos-Apertura */}
+                                            {children[4]}
                                         </div>
                                     </div>
                                 </div>
-                            </section>
-                        </div>
-                        {/* Tercera */}
-                        <div className="sidebar__aside hlp-desklm-none">
-                            {children[5]}
-                        </div>
+                            </div>
+                        </section>
                     </div>
+                    {/* Tercera */}
+                    <div className="sidebar__aside hlp-desklm-none">
+                        {children[5]}
+                    </div>
+                </div>
 
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {/* Bottom */}
-                            {children[8]}
-                        </div>
-                        <div className="sidebar__aside">
-                            {/* Bottom-Tercera */}
-                            {children[9]}
-                        </div>
+                <div className="lay-sidebar">
+                    <div className="sidebar__main">
+                        {/* Bottom */}
+                        {children[8]}
                     </div>
-                </main>
-                <Footer />
-            </div>
-        </GlobalProvider>
+                    <div className="sidebar__aside">
+                        {/* Bottom-Tercera */}
+                        {children[9]}
+                    </div>
+                </div>
+            </main>
+            <Footer />
+        </div>
     );
 };
 
