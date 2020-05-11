@@ -20,7 +20,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
             throw new Error(
                 'Se requiere width o heigth para realizar el resize'
             );
-        // Si me lo indican en las options, hago el resize aplicando ambos tamaños, si no, horizontal o vertial dependiendo imagen
+        let { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
         const cleanedUrl = originalUrl.replace(/(^\w+:|^)\/\//, '');
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
@@ -38,11 +38,23 @@ export const createResizer = (resizerKey, resizerUrl) => {
             );
         } else if (!smartCropExcluded) {
             thumbor.smartCrop(true);
+        } else {
+            newHeight =
+                !resizeOptions.useFullSize &&
+                originalWidth >= originalHeight &&
+                newWidth
+                    ? 0
+                    : newWidth;
+            newWidth =
+                !resizeOptions.useFullSize &&
+                originalWidth < originalHeight &&
+                newHeight
+                    ? 0
+                    : newWidth;
         }
 
         thumbor.setImagePath(cleanedUrl);
 
-        const { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
         return IS_DEV === 'true' || IS_SANDBOX === 'true'
             ? thumbor.resize(newWidth, newHeight).buildUrl()
             : getCanonincalURL(thumbor.resize(newWidth, newHeight).buildUrl());
@@ -135,6 +147,7 @@ export const resizeArcImage = (
                           height: 513,
                           media: '(min-width: 768px)'
                       },
+                      undefined,
                       smartCropExcluded
                   )
                 : getCanonincalURL(
@@ -147,6 +160,7 @@ export const resizeArcImage = (
                               height: 513,
                               media: '(min-width: 768px)'
                           },
+                          undefined,
                           smartCropExcluded
                       )
                   ),
