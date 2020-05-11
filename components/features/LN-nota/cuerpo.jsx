@@ -50,7 +50,7 @@ function buildBodyCustomFields() {
             type: 'number',
             info: 'After which paragraph do you want the banner to show?',
             min: 0,
-            max: 6
+            max: 15
         },
         { name: 'sticky', type: 'bool', info: 'Banner sticky?' },
         {
