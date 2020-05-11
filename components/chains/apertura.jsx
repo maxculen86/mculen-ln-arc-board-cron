@@ -42,6 +42,19 @@ const validate = (children, childProps, idCollection, directionFocal) => {
     return error;
 };
 
+const getMissingNotes = (childProps, notes) => {
+    let missingNotes = notes ? 6 - notes.length : 6;
+    childProps.forEach(childProp => {
+        if (
+            !childProp.customFields.noteId &&
+            childProp.type === 'LN-home/noteFeature'
+        ) {
+            missingNotes += 1;
+        }
+    });
+    return missingNotes;
+};
+
 const Apertura = ({
     id: featureId,
     isAdmin,
@@ -73,7 +86,7 @@ const Apertura = ({
         ? CollectionsNotes(idCollection, 'apertura')
         : children;
 
-    const missingNotes = notes ? 6 - notes.length : 6;
+    const missingNotes = getMissingNotes(childProps, notes);
 
     if (isAdmin && notes && missingNotes) {
         for (let i = 0; i <= missingNotes; i += 1) {
@@ -97,9 +110,13 @@ const Apertura = ({
         }
     }
 
+    // el 6 esta hardcode para simbolizar que hay iría en un futuro el limite de notas de la apertura
     const elements = notes && 6 ? notes.slice(0, 6) : null;
 
-    if (elements && elements.length >= 6 && !error)
+    if (
+        (isAdmin && elements && elements.length >= 6 && !error) ||
+        (!isAdmin && !missingNotes)
+    )
         return (
             // <Static id={featureId}>
             <div className="row hlp-margintop-50">
@@ -111,6 +128,7 @@ const Apertura = ({
             </div>
             // </Static>
         );
+
     return <></>;
 };
 
