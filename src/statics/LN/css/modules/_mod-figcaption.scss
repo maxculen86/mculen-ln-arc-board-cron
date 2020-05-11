@@ -9,26 +9,18 @@
 
     .--caption,
     .--credit {
-        width: calc(100% - 50px);
+        display: block;
+        padding-bottom: px(8);
+        &:empty {
+            display: none;
+        }
     }
 
     .--caption {
-        display: block;
         line-height: px(24);
-        padding-bottom: px(8);
-
-        &:empty {
-            display: none;
-        }
     }
     .--credit {
-        display: block;
         color: #6e6e6e;
-        padding-bottom: px(8);
-
-        &:empty {
-            display: none;
-        }
     }
     .--zoom.--active & {
         color: $blanco;
@@ -38,6 +30,12 @@
         @media ($media-l) {
             //1024
             padding: 0;
+        }
+    }
+    .--slider & {
+        .--caption,
+        .--credit {
+            width: calc(100% - 50px);
         }
     }
     .--zoom.--active.--slider & {

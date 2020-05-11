@@ -59,7 +59,6 @@ const imageBase = ({
                 })}
             {active && (
                 <ComImage
-                    classCondition="--large"
                     src={urlDefault}
                     alt={altText}
                     amp={amp}
