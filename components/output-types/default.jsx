@@ -78,6 +78,7 @@ const Default = props => {
         subtype
     } = globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
+    const { basic: descriptionBasic } = description || {};
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
@@ -138,7 +139,7 @@ const Default = props => {
                 />
                 <MetaDescription
                     subtype={subtype}
-                    description={description}
+                    description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
                     firstParagraphContentElements={
                         getParagraph(contentElements) || ''

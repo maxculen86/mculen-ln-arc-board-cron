@@ -191,6 +191,9 @@ export default `
         basic
         meta_title
     }
+    description {
+        basic
+    }
     subheadlines {
         basic
     }
