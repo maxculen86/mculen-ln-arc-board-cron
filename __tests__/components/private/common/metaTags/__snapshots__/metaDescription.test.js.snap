@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LN - Common - MetaDescription MetaDescription nota snapshot 1`] = `
+<MetaDescription
+  arcSite="la-nacion-ar"
+  description="Descripción Pruebaaaaa !!!"
+  firstParagraphContentElements="La postulación de la diplomática, elogiada en varias ocasiones públicamente por Felipe Solá, tomó fuerza en las últimas horas y, por ahora, no genera resistencias en el Palacio San Martín."
+  metaTitleBasic="El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano"
+  subtype="1"
+>
+  <meta
+    content="Descripción Pruebaaaaa !!! - LA NACION"
+    name="description"
+  />
+</MetaDescription>
+`;

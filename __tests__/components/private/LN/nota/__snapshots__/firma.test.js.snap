@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Firma Matches snapshot 1`] = `
+<div
+  class="row FirmaAutor"
+>
+  <div
+    class="col-12"
+  >
+    <section
+      class="mod-autor"
+    >
+      <div
+        class="container-text"
+      >
+        <div
+          class="container-firma"
+        >
+          <a
+            class="com-link --autor"
+            href="https://lanacion.com.ar"
+          >
+            Pepe
+          </a>
+          <a
+            class="com-link --autor"
+            href="https://lanacion.com.ar"
+          >
+            Paco
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;

@@ -14,6 +14,9 @@ import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
 import Robot from '../private/common/robot';
+import MetaTitle from '../private/common/metaTitle';
+import MetaDescription from '../private/common/metaDescription';
+import getParagraph from '../private/common/utils/getParagraph';
 import { pipe } from '../private/common/utils/functional';
 
 const scriptList = [
@@ -67,7 +70,18 @@ const Default = props => {
         renderables,
         globalContent
     } = props;
-    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
+    const {
+        canonical_url: canonicalUrl,
+        content_elements: contentElements,
+        headlines,
+        description,
+        subtype
+    } = globalContent || {};
+    const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
+    const { basic: descriptionBasic } = description || {};
+
+    const metaTitleBasic =
+        metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
 
     const getPageBuilderFeatures = renderables =>
         renderables.filter(renderable => renderable.collection === 'features');
@@ -117,6 +131,25 @@ const Default = props => {
                     subtype={subtype}
                     canonicalUrl={canonicalUrl}
                     arcSite={arcSite}
+                />
+                {subtype === '1' && canonicalUrl && (
+                    <link
+                        rel="amphtml"
+                        href={`https://www.lanacion.com.ar${canonicalUrl}amp`}
+                    />
+                )}
+                <MetaTitle
+                    subtype={subtype}
+                    metaTitleBasic={metaTitleBasic}
+                    arcSite={arcSite}
+                />
+                <MetaDescription
+                    subtype={subtype}
+                    description={descriptionBasic}
+                    metaTitleBasic={metaTitleBasic}
+                    firstParagraphContentElements={
+                        getParagraph(contentElements) || ''
+                    }
                 />
                 <Libs />
                 {/* Para OTT carga los styles por front */}

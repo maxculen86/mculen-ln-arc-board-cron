@@ -28,8 +28,8 @@ const Sticky2Mob = React.memo(props => {
     );
 
     return (
-        <div className={`--bg-banner --${device} --sticky`}>
-            <div id="sticky2_mob" className="banner">
+        <div className={`mod-banner --bg-banner --${device} --sticky`}>
+            <div id="sticky2_mob" className="com-banner">
                 {ad}
             </div>
         </div>

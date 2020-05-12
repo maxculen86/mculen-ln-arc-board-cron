@@ -6,6 +6,9 @@ import AMPScripts, {
     AMPCustomStyle
 } from '../private/common/ampIndex';
 import Robot from '../private/common/robot';
+import MetaTitle from '../private/common/metaTitle';
+import MetaDescription from '../private/common/metaDescription';
+import getParagraph from '../private/common/utils/getParagraph';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
 /**
@@ -34,7 +37,18 @@ const Amp = props => {
         contextPath,
         globalContent
     } = props;
-    const { canonical_url: canonicalUrl, subtype } = globalContent || {};
+    const {
+        canonical_url: canonicalUrl,
+        content_elements: contentElements,
+        headlines,
+        description,
+        subtype
+    } = globalContent || {};
+    const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
+    const { basic: descriptionBasic } = description || {};
+
+    const metaTitleBasic =
+        metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
 
     const contentFeatures = getCollectionsFromRenderables(
         renderables,
@@ -81,6 +95,19 @@ const Amp = props => {
                     subtype={subtype}
                     canonicalUrl={canonicalUrl}
                     arcSite={arcSite}
+                />
+                <MetaTitle
+                    subtype={subtype}
+                    metaTitleBasic={metaTitleBasic}
+                    arcSite={arcSite}
+                />
+                <MetaDescription
+                    subtype={subtype}
+                    description={descriptionBasic}
+                    metaTitleBasic={metaTitleBasic}
+                    firstParagraphContentElements={
+                        getParagraph(contentElements) || ''
+                    }
                 />
             </head>
             <body>

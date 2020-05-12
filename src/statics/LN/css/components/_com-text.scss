@@ -37,6 +37,9 @@
     &.--medio {
         .mod-autor & {
             text-transform: uppercase;
+            font-weight: normal;
+            font-size: px(14);
+            color: $gris5;
         }
     }
     &.--paginator {
