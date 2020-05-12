@@ -4,17 +4,18 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ComPicture = props => {
-    const { classCondition, children } = props;
+    const { href, classCondition, children } = props;
     if (!children) return null;
     return (
         <picture className={`mod-picture ${classCondition || ''}`}>
-            {children}
+            {href ? <a href={href}>{children}</a> : children}
         </picture>
     );
 };
 
 ComPicture.propTypes = {
     children: PropTypes.elementType.isRequired,
+    href: PropTypes.string,
     classCondition: PropTypes.string
 };
 

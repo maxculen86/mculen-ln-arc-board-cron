@@ -5,7 +5,7 @@ import ComFigure from '../../common/com-figure';
 import ModFigcaption from '../../common/mod-figcaption';
 
 function ImagePlaceholder({ href, children, outputType, isVertical }) {
-    const image = <ComPicture>{children}</ComPicture>;
+    const image = <ComPicture href={href}>{children}</ComPicture>;
 
     return (
         <>
