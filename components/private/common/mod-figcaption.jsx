@@ -1,0 +1,26 @@
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
+
+import ComFigcaption from './com-figcaption';
+import ComText from './com-text';
+
+import '../../../resources/dist/css/ln/modules/mod-figcaption.css';
+
+const ModFigcaption = props => {
+    const { title, credit } = props;
+    if (!title && !credit) return null;
+
+    return (
+        <ComFigcaption>
+            <ComText classCondition="--caption" textname={title} />
+            <ComText classCondition="--credit" textname={credit} />
+        </ComFigcaption>
+    );
+};
+
+ModFigcaption.propTypes = {
+    title: PropTypes.string,
+    credit: PropTypes.string
+};
+
+export default ModFigcaption;

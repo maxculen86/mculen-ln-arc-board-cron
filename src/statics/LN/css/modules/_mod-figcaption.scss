@@ -1,0 +1,52 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-figcaption {
+    display: block;
+    position: relative;
+    margin-top: px(8);
+    font-size: px(14);
+
+    .--caption,
+    .--credit {
+        display: block;
+        padding-bottom: px(8);
+        &:empty {
+            display: none;
+        }
+    }
+
+    .--caption {
+        line-height: px(24);
+    }
+    .--credit {
+        color: #6e6e6e;
+    }
+    .--zoom.--active & {
+        color: $blanco;
+        width: 100%;
+        text-align: left;
+        padding: 0 px(16);
+        @media ($media-l) {
+            //1024
+            padding: 0;
+        }
+    }
+    .--slider & {
+        .--caption,
+        .--credit {
+            width: calc(100% - 50px);
+        }
+    }
+    .--zoom.--active.--slider & {
+        text-align: left;
+    }
+
+    @media ($media-l) {
+        //1024
+        font-size: px(16);
+        .--credit {
+            font-size: px(15);
+        }
+    }
+}

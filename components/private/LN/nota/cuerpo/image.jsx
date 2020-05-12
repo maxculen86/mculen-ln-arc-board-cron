@@ -1,72 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
-import getCreditsTitle from '../../common/utils/getCreditsTitle';
+import ComFigcaption from '../../../common/com-figcaption';
+import ComText from '../../../common/com-text';
+import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
-const image = ({ data }) => {
-    const credits = getCreditsTitle(data);
+const image = ({ data, withZoom }) => {
+    const credito = EpigrafeAndCreditsData(data);
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        setActive(!active);
+    };
 
     return (
         <>
-            <Media mediaData={data} colNumber={12}>
+            <Media
+                mediaData={data}
+                withZoom={withZoom}
+                colNumber={12}
+                handleClick={handleClick}
+                active={active}
+            >
                 {data && (
-                    <section
-                        className={
-                            data.caption || data.distributor || data.credits.by
-                                ? 'com-epigrafe'
-                                : ''
-                        }
-                    >
-                        {data.caption && <p className="text">{data.caption}</p>}
-                        <p className="small">
-                            {data.distributor && data.distributor.name !== ''
-                                ? `Fuente: ${
-                                      data.distributor.name
-                                          ? data.distributor.name
-                                          : 'LA NACION'
-                                  }`
-                                : ''}
-                            {data.distributor &&
-                            data.distributor.name !== '' &&
-                            data.credits.by !== undefined
-                                ? ' - '
-                                : ''}
-                            {data.vanity_credits &&
-                                data.vanity_credits.affiliation.length &&
-                                (data.credits
-                                    ? data.vanity_credits.by.map(
-                                          (credito, i) => {
-                                              return (
-                                                  <>
-                                                      {i === 0
-                                                          ? `credits: `
-                                                          : ', '}
-                                                      {credito.type === 'author'
-                                                          ? credito.name
-                                                          : credito.referent.id}
-                                                  </>
-                                              );
-                                          }
-                                      )
-                                    : '')}
-                            {data.credits &&
-                                data.credits.by &&
-                                (data.credits
-                                    ? data.credits.by.map((credito, i) => {
-                                          return (
-                                              <>
-                                                  {i === 0
-                                                      ? `${credits}: `
-                                                      : ', '}
-                                                  {credito.type === 'author'
-                                                      ? credito.name
-                                                      : credito.referent.id}
-                                              </>
-                                          );
-                                      })
-                                    : '')}
-                        </p>
-                    </section>
+                    <ComFigcaption>
+                        {data.caption && (
+                            <ComText
+                                classCondition="--caption"
+                                textname={data.caption}
+                            />
+                        )}
+                        <ComText classCondition="--credit" textname={credito} />
+                    </ComFigcaption>
                 )}
             </Media>
         </>
@@ -82,7 +47,8 @@ image.propTypes = {
         vanity_credits: PropTypes.arrayOf,
         credits: PropTypes.arrayOf,
         type: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    withZoom: PropTypes.string.isRequired
 };
 
 export default image;

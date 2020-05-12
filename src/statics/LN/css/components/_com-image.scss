@@ -1,0 +1,31 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.com-image {
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+
+    .--slider & {
+        position: absolute;
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .--vertical & {
+        .--active & {
+            height: 80vh;
+            max-height: 600px;
+            width: 100%;
+            @media ($media-m) {
+                //768
+                max-height: 1000px;
+                max-width: 1000px;
+                width: auto;
+            }
+        }
+    }
+}

@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Placeholder from '../../imagePlaceholder';
+import ComImage from '../../../../common/com-image';
+import ComSource from '../../../../common/com-source';
 
 const imageBase = ({
     urlDefault,
     sources,
+    sourcesZoom,
     altText,
     zoom,
     href,
     height,
-    width
+    width,
+    active,
+    amp
 }) => {
     const isVertical = height > width;
     /**
@@ -21,24 +26,46 @@ const imageBase = ({
 
     const pic = (
         <Placeholder href={href} zoom={zoom} isVertical={isVertical}>
-            {sources &&
+            {!active &&
+                sources &&
                 sources.map(x => {
                     return (
-                        <source
+                        <ComSource
                             key={x.option.media}
                             media={x.option.media}
-                            srcSet={x.resizedUrl}
-                            className={x.option.class}
-                            alt={altText}
+                            srcset={x.resizedUrl}
                         />
                     );
                 })}
-            <img
-                src={urlDefault}
-                className="content-img"
-                loading="lazy"
-                alt={altText}
-            />
+            {!active && (
+                <ComImage
+                    src={urlDefault}
+                    alt={altText}
+                    amp={amp}
+                    height={height}
+                    width={width}
+                />
+            )}
+            {active &&
+                sourcesZoom &&
+                sourcesZoom.map(x => {
+                    return (
+                        <ComSource
+                            key={x.option.media}
+                            media={x.option.media}
+                            srcset={x.resizedUrl}
+                        />
+                    );
+                })}
+            {active && (
+                <ComImage
+                    src={urlDefault}
+                    alt={altText}
+                    amp={amp}
+                    height={height}
+                    width={width}
+                />
+            )}
         </Placeholder>
     );
     return pic;
@@ -56,11 +83,5 @@ imageBase.propTypes = {
     zoom: PropTypes.bool,
     href: PropTypes.string
 };
-
-// imageBase.defaultProps = {
-//     altText: '',
-//     zoom: false,
-//     href: ''
-// };
 
 export default imageBase;

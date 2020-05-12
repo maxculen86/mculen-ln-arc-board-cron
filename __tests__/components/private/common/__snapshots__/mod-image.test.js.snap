@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModImage Matches snapshot 1`] = `
+<a
+  class="com-link mod-image"
+  href="https://lanacion.com.ar"
+  target="_self"
+  title="Random pic"
+>
+  <img
+    alt="Random pic"
+    class="com-image "
+    loading="lazy"
+    src="http://lorempixel.com/400/200"
+  />
+</a>
+`;

@@ -6,22 +6,22 @@ Array [
     class="com-breadcrumb "
   >
     <a
-      href="/"
+      href="//"
     >
       LA NACION
     </a>
     <a
-      href="/recetas"
+      href="/recetas/"
     >
       Recetas
     </a>
     <a
-      href="/recetas/recetas-con-ingredientes"
+      href="/recetas/recetas-con-ingredientes/"
     >
       Recetas con ingredientes
     </a>
     <a
-      href="/recetas/recetas-con-ingredientes/pollo"
+      href="/recetas/recetas-con-ingredientes/pollo/"
     >
       Pollo
     </a>

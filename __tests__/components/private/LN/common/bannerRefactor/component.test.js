@@ -28,7 +28,9 @@ describe('Banner', () => {
         },
         bidding: config.bidding,
         display: 'all',
-        background: true
+        background: true,
+        sticky: false,
+        closeButton: false
     };
 
     it('Matches snapshot', () => {
