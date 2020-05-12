@@ -7,14 +7,19 @@ const ComPicture = props => {
     const { href, classCondition, children } = props;
     if (!children)
         return (
-            <picture className="mod-picture --placeholder">
-                <a href={href}></a>
-            </picture>
+            <a href={href}>
+                <picture className="mod-picture --placeholder"></picture>
+            </a>
         );
     return (
-        <picture className={`mod-picture ${classCondition || ''}`}>
-            {href ? <a href={href}>{children}</a> : children}
-        </picture>
+        // <picture className={`mod-picture ${classCondition || ''}`}>
+        //     {href ? <a href={href}>{children}</a> : children}
+        // </picture>
+        <a href={href}>
+            <picture className={`mod-picture ${classCondition || ''}`}>
+                {children}
+            </picture>
+        </a>
     );
 };
 
