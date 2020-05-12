@@ -61,6 +61,9 @@
             font-size: px(16);
         }
     }
+    .cuerpo__nota & {
+        margin-bottom: $spacing-lg;
+    }
 }
 @media ($media-l) {
     .mod-banner {

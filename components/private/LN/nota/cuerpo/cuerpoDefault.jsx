@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-fragments          */
+
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-// Importo componente HARCODEADOS
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';
 import Image from './image';
@@ -14,17 +16,17 @@ import Ordered from './ordered';
 import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitle from './subtitle';
 import Paragraph from './parrafo';
-import Banner from '../../common/banner';
+import Banner from '../../common/bannerRefactor';
 
-// TODO: tests
 const Cuerpo = props => {
     const {
         isAdmin,
         siteProperties,
-        bannerConfig,
+        bannerConfig: banners,
         outputType,
         globalContent: { taxonomy, content_elements: contentElements }
     } = props;
+    console.log('las porps de default: ', props);
     const bodyComponents = [
         Paragraph,
         PullQuote,
@@ -36,76 +38,72 @@ const Cuerpo = props => {
         Image
     ];
 
-    const paragraphsCount = contentElements.filter(
-        el => el.type === 'text' && !el.additional_properties.nodeType
-    ).length;
+    const types = ['text', 'image', 'oembed_response', 'video'];
 
-    let paragraphPosition = 0;
+    const getElementsCount = supportedTypes =>
+        contentElements.filter(el => supportedTypes.includes(el.type)).length -
+        1;
+
+    const elementsCount = getElementsCount(types);
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
-    const resp = contentElements.map((element, i) => {
+    const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
             return bc.arcType === element.type;
         });
         if (Component) {
-            if (Component.arcType === 'text') {
-                if (element.additional_properties.nodeType) return <></>;
-                paragraphPosition += 1;
+            if (types.includes(Component.arcType)) {
                 return (
-                    <>
+                    <React.Fragment>
                         <Component
                             data={element}
-                            capital={capitalIndex === i}
+                            capital={currentIndex === capitalIndex}
                         />
-                        {bannerConfig &&
-                            paragraphsCount > 1 &&
-                            bannerConfig.map(banner => {
-                                if (banner.position === paragraphPosition) {
-                                    return (
-                                        <>
-                                            <Banner
-                                                taxonomy={taxonomy}
-                                                siteProperties={siteProperties}
-                                                isAdmin={isAdmin}
-                                                slotGroup={
-                                                    outputType === 'amp'
-                                                        ? 'amp'
-                                                        : 'nota'
-                                                }
-                                                devices="nota"
-                                                selectedSlots={{
-                                                    desktopSlot: banner.desktop,
-                                                    mobileSlot: banner.mobile,
-                                                    tabletSlot: banner.tablet
-                                                }}
-                                                sticky={banner.sticky}
-                                                background={banner.background}
-                                            />
-                                        </>
-                                    );
-                                }
-                                return null;
-                            })}
-                    </>
+                        {banners &&
+                            banners
+                                .filter(
+                                    banner => banner.position === currentIndex
+                                )
+                                .reduce((accumulator, value) => {
+                                    const data = {
+                                        siteProperties,
+                                        isAdmin,
+                                        banner: {
+                                            slotGroup: 'nota',
+                                            selectedSlots: {
+                                                desktopSlot: value.desktop,
+                                                mobileSlot: value.mobile,
+                                                tabletSlot: value.tablet
+                                            },
+                                            sticky: value.sticky,
+                                            background: value.background
+                                        }
+                                    };
+                                    return elementsCount > currentIndex ? (
+                                        <Banner {...data} />
+                                    ) : null;
+                                }, [])}
+                    </React.Fragment>
                 );
             }
-            return (
-                <Component
-                    data={element}
-                    capital={capitalIndex === i}
-                    outputType={outputType}
-                />
-            );
+            return <Component data={element} />;
         }
 
         return <></>;
     });
-    return resp;
+    return output;
 };
 
 Cuerpo.propTypes = {
+    isAdmin: PropTypes.bool,
+    siteProperties: PropTypes.shape({
+        bannerConfig: PropTypes.shape({
+            dfp_id: PropTypes.number.isRequired
+        })
+    }).isRequired,
+    outputType: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         content_elements: PropTypes.node.isRequired
     }).isRequired

@@ -2,7 +2,7 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import Cuerpo from '../../private/LN/nota/cuerpo';
-import { getSlotsOptions } from '../../private/LN/common/banner/config';
+import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
 
 const cuerpo = props => {
     const bannerConfig = groupBannerConfig(props);
@@ -42,15 +42,15 @@ cuerpo.label = 'LN-nota-Cuerpo';
 
 function buildBodyCustomFields() {
     const attributes = [
-        { name: 'desktop', type: 'list', info: 'Placement on desktop' },
-        { name: 'mobile', type: 'list', info: 'Placement on mobile' },
-        { name: 'tablet', type: 'list', info: 'Placement on tablet' },
+        { name: 'desktop', type: 'list', alias: 'dsk' },
+        { name: 'mobile', type: 'list', alias: 'mob' },
+        { name: 'tablet', type: 'list', alias: 'tab' },
         {
             name: 'position',
             type: 'number',
             info: 'After which paragraph do you want the banner to show?',
             min: 0,
-            max: 6
+            max: 20
         },
         { name: 'sticky', type: 'bool', info: 'Banner sticky?' },
         {
@@ -60,18 +60,17 @@ function buildBodyCustomFields() {
         }
     ];
     const result = {};
-    [...Array(6)].map((item, i) => {
+    [...Array(10)].map((item, i) => {
         return attributes.map(attribute => {
             // eslint-disable-next-line default-case
             switch (attribute.type) {
                 case 'list':
                     Object.assign(result, {
                         [`${attribute.name}${i + 1}`]: PropTypes.oneOf(
-                            getSlotsOptions()
+                            getSlotsOptions(attribute.alias)
                         ).tag({
                             label: attribute.name,
                             defaultValue: '',
-                            description: attribute.info,
                             group: `Banner ${i + 1}`
                         })
                     });
@@ -81,7 +80,6 @@ function buildBodyCustomFields() {
                         [`${attribute.name}${i + 1}`]: PropTypes.bool.tag({
                             label: attribute.name,
                             defaultValue: false,
-                            description: attribute.info,
                             group: `Banner ${i + 1}`
                         })
                     });
@@ -91,7 +89,6 @@ function buildBodyCustomFields() {
                         [`${attribute.name}${i + 1}`]: PropTypes.number.tag({
                             label: attribute.name,
                             defaultValue: 0,
-                            description: attribute.info,
                             max: attribute.max,
                             min: attribute.min,
                             group: `Banner ${i + 1}`
