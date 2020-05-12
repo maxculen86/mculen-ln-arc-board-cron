@@ -16,6 +16,7 @@ import SnippetIndex from '../private/common/snippet';
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
+import getParagraph from '../private/common/utils/getParagraph';
 import { pipe } from '../private/common/utils/functional';
 
 const scriptList = [
@@ -80,11 +81,6 @@ const Default = props => {
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
-
-    const getParagraph = contentElement =>
-        contentElement && contentElement[0] && contentElement[0].type === 'text'
-            ? contentElement[0].content || ''
-            : '';
 
     const getPageBuilderFeatures = renderables =>
         renderables.filter(renderable => renderable.collection === 'features');

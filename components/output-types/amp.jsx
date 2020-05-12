@@ -8,6 +8,7 @@ import AMPScripts, {
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
+import getParagraph from '../private/common/utils/getParagraph';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
 /**
@@ -47,11 +48,6 @@ const Amp = props => {
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
-
-    const getParagraph = contentElement =>
-        contentElement && contentElement[0] && contentElement[0].type === 'text'
-            ? contentElement[0].content || ''
-            : '';
 
     const contentFeatures = getCollectionsFromRenderables(
         renderables,
