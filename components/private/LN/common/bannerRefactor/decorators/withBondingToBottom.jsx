@@ -25,6 +25,10 @@ export default Component => {
         const scrollPosition = useRef(0);
         const ref = React.createRef();
         const fusionContext = useFusionContext();
+        const headerRef = useRef(document.querySelector('#header') || null);
+        const megatopRef = useRef(
+            document.querySelector('#megatop_dsk') || null
+        );
 
         const {
             loginData: { subscription }
@@ -38,11 +42,9 @@ export default Component => {
             const onScroll = () => {
                 const windowY = window.scrollY;
 
-                const header = document.querySelector('#header');
-
-                if (header) {
-                    const bounds = header.getBoundingClientRect();
-                    if (document.querySelector('#megatop_dsk')) {
+                if (headerRef.current) {
+                    const bounds = headerRef.current.getBoundingClientRect();
+                    if (megatopRef.current) {
                         if (bounds.top <= 0) {
                             show(ref.current);
                         }

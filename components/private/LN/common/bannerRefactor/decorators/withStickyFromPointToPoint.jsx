@@ -37,14 +37,15 @@ const componentDidReachTarget = (component, target) =>
     component.offsetTop + component.clientHeight > target.offsetTop;
 
 export default Component => Target => {
-    return React.memo(props => {
+    return props => {
         const scrollPosition = useRef(0);
-
+        // const target = useRef(document.querySelector(`#${Target}`) || null);
         const ref = React.createRef();
 
         useLayoutEffect(() => {
             const handleScroll = () => {
                 const windowY = window.scrollY;
+                // TODO: change this by a ref and use getBoundingClientRect func
                 const target = document.getElementById(`${Target}`);
 
                 if (windowY < scrollPosition.current) {
@@ -67,5 +68,5 @@ export default Component => Target => {
         }, [ref]);
 
         return <Component {...props} ref={ref} />;
-    });
+    };
 };
