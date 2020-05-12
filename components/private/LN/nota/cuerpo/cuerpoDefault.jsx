@@ -55,6 +55,7 @@ const Cuerpo = props => {
         });
         if (Component) {
             if (types.includes(Component.arcType)) {
+                if (element.additional_properties.nodeType) return <></>;
                 return (
                     <React.Fragment>
                         <Component
