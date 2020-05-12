@@ -13,6 +13,8 @@ import {
     ACCUM_TEMPLATE,
     CABEZAL_DSK,
     CAJA_1_DSK,
+    CAJA_2_DSK,
+    CAJA_3_DSK,
     STICKY_1_MOB,
     STICKY_2_MOB,
     MEGATOP_DSK,
@@ -46,6 +48,8 @@ function getBannerForStoryTemplate(config) {
         case MEGATOP_DSK:
             return <Megatop {...config} />;
         case CAJA_1_DSK:
+        case CAJA_2_DSK:
+        case CAJA_3_DSK:
         case STICKY_2_MOB:
         default:
             return <Default {...config} />;
