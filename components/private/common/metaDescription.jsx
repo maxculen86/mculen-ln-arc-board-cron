@@ -1,16 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
-const getMeta = (
-    description,
-    firstParagraphContentElements,
-    metaTitleBasic
-) => {
-    if (description && description !== '') return description;
-    if (firstParagraphContentElements && firstParagraphContentElements !== '')
-        return firstParagraphContentElements;
-    return metaTitleBasic;
-};
+import getMetaDescription from './utils/getMetaDescription';
 
 const MetaDescription = ({
     subtype,
@@ -25,7 +15,7 @@ const MetaDescription = ({
         subtype === '1' && (
             <meta
                 name="description"
-                content={`${getMeta(
+                content={`${getMetaDescription(
                     description,
                     firstParagraphContentElements,
                     metaTitleBasic

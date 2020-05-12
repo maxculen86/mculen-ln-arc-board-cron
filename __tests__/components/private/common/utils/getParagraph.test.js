@@ -1,6 +1,6 @@
 import getParagraph from '../../../../../components/private/common/utils/getParagraph';
 
-describe('Content - Source - transformFilterObjectToString.js', () => {
+describe('Common - utils - getParagraph.js', () => {
     const contentElements = [
         {
             _id: 'TQEIH4634FB77AAR32FNTSDIMU',
