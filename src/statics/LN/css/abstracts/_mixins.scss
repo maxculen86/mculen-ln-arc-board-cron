@@ -100,6 +100,9 @@
     .com-hamburger:before {
         color: $negro;
     }
+    .com-hamburger__bar {
+        background: $negro;
+    }
 }
 @mixin flex($display, $direction: null, $ejeX: null, $ejeY: null) {
     //Sólo agregamos el "@include flex($display, $direction, $ejeX, $ejeY);"
