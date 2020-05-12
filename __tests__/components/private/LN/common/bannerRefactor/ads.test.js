@@ -10,6 +10,12 @@ global.ArcAds = jest.fn().mockImplementationOnce(() => ({
     registerAd: registerAdFn
 }));
 
+global.MutationObserver = class {
+    constructor(callback) {}
+    disconnect() {}
+    observe(element, initObject) {}
+};
+
 describe('Ads', () => {
     const config = slotsConfig['nota']['sticky1_mob'];
 

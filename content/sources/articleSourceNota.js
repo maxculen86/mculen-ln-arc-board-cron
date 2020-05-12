@@ -54,6 +54,11 @@ const transform = (data, siteProps) => {
     const properties = getProperties(arcSite);
 
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
+    const presetsZoom = get(
+        properties,
+        `imageConfig.resize.zoom`,
+        presetsDefault
+    );
     const presetsXL = get(properties, `imageConfig.resize.xl`, null);
     const presetsL = get(properties, `imageConfig.resize.l`, null);
 
@@ -64,14 +69,15 @@ const transform = (data, siteProps) => {
     const promoItemsRatio =
         notesWithRatio.indexOf(data.subtype) === 0
             ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
-            : presetsXL.promo_items.size || presetsDefault.size;
+            : presetsXL.promo_items.sizes || presetsDefault;
     const resp = addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
         resizerUrl: RESIZER_URL,
         presets: {
             promoItems: promoItemsRatio,
             contentElements: presetsL.content_elements || presetsDefault,
-            presetsDefault
+            presetsDefault,
+            zoomSizes: presetsZoom.promo_items.sizes
         }
     });
     return transformContent(resp, arcSite);

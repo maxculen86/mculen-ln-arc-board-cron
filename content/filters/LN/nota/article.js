@@ -25,6 +25,9 @@ const image = `
     resized_urls {
         ${imageResizedUrl}             
     }
+    resized_urls_zoom {
+        ${imageResizedUrl}             
+    }
     height
     url
     width
@@ -84,6 +87,7 @@ const video = `
         }
     }
     additional_properties {
+        nodeType
         advertising {
             playAds
         }
@@ -185,9 +189,21 @@ export default `
             type
             url
             slug
+            image {
+                url
+            }
+            additional_properties {
+                original {
+                    role
+                }
+            }
         }
     }
     headlines {
+        basic
+        meta_title
+    }
+    description {
         basic
     }
     subheadlines {

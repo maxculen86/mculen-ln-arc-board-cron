@@ -6,19 +6,19 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
 >
   <a
     class="com-item"
-    href="/tema/asd-1"
+    href="/tema/asd-1/"
   >
     asd 1
   </a>
   <a
     class="com-item"
-    href="/tema/asd-2"
+    href="/tema/asd-2/"
   >
     asd 2
   </a>
   <a
     class="com-item"
-    href="/tema/asd-3"
+    href="/tema/asd-3/"
   >
     asd 3
   </a>

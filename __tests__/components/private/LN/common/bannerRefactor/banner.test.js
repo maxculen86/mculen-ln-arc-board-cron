@@ -19,6 +19,17 @@ jest.mock(
 
 import Banner from '../../../../../../components/private/LN/common/bannerRefactor';
 
+const registerAdFn = jest.fn();
+global.ArcAds = jest.fn().mockImplementationOnce(() => ({
+    registerAd: registerAdFn
+}));
+
+global.MutationObserver = class {
+    constructor(callback) {}
+    disconnect() {}
+    observe(element, initObject) {}
+};
+
 describe('Banner', () => {
     const siteProps = {
         bannerConfig: {
@@ -86,40 +97,6 @@ describe('Banner', () => {
         );
 
         expect(component.html()).toContain('no-dfpid');
-    });
-
-    it('Renders banners markup', () => {
-        setMobileUA();
-
-        delete window.screen;
-        global.screen = {
-            width: 400,
-            height: 230
-        };
-
-        const banners = ['sticky1_mob', 'sticky2_mob'];
-
-        banners.forEach(banner => {
-            const config = {
-                ...baseConfig,
-                selectedSlots: {
-                    desktopSlot: undefined,
-                    mobileSlot: banner,
-                    tabletSlot: undefined
-                }
-            };
-
-            const component = render(
-                <Banner
-                    siteProperties={siteProps}
-                    isAdmin={false}
-                    banner={config}
-                />
-            );
-
-            expect(component.find(`#${banner}`)).toHaveLength(1);
-            expect(component).toMatchSnapshot();
-        });
     });
 
     it("Does not render if device ain't mobile", () => {

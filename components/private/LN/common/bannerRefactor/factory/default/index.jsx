@@ -1,20 +1,97 @@
+/* eslint-disable no-case-declarations         */
 /* eslint-disable react/jsx-props-no-spreading */
 
-import React from 'react';
+import React, { useReducer, useEffect, createElement } from 'react';
+
 import Sticky1Mob from './types/sticky1Mob';
-import Sticky2Mob from './types/sticky2Mob';
+
+import Default from './types';
+import Megatop from './types/megatop';
+
+import {
+    STORY_TEMPLATE,
+    ACCUM_TEMPLATE,
+    CABEZAL_DSK,
+    CAJA_1_DSK,
+    CAJA_2_DSK,
+    CAJA_3_DSK,
+    STICKY_1_MOB,
+    STICKY_2_MOB,
+    MEGATOP_DSK,
+    MEGATOP_MOB,
+    ADHESION_DSK,
+    ADHESION_MOB
+} from '../constants';
+
+import withStickyFromPointToPoint from '../../decorators/withStickyFromPointToPoint';
+import withBondingToBottom from '../../decorators/withBondingToBottom';
+
+function getBannerForStoryTemplate(config) {
+    const { slotId } = config;
+    switch (slotId) {
+        case STICKY_1_MOB:
+            return <Sticky1Mob {...config} />;
+        case CABEZAL_DSK:
+            return createElement(
+                withStickyFromPointToPoint(Default)('caja1_dsk'),
+                {
+                    ...config
+                }
+            );
+        case ADHESION_MOB:
+        case ADHESION_DSK:
+            return createElement(withBondingToBottom(Default), {
+                ...config,
+                closeButton: true
+            });
+        case MEGATOP_MOB:
+        case MEGATOP_DSK:
+            return <Megatop {...config} />;
+        case CAJA_1_DSK:
+        case CAJA_2_DSK:
+        case CAJA_3_DSK:
+        case STICKY_2_MOB:
+        default:
+            return <Default {...config} />;
+    }
+}
+
+function getBannerForAccumTemplate(config) {}
+
+function reducer(state, action) {
+    const {
+        meta: { config }
+    } = action;
+    switch (action.type) {
+        case ACCUM_TEMPLATE:
+            return { ...state, ...getBannerForAccumTemplate(config) };
+        case STORY_TEMPLATE:
+            return { ...state, ...getBannerForStoryTemplate(config) };
+        default:
+            throw new Error();
+    }
+}
 
 export default config => {
-    const { slotId: type } = config;
+    const { slotGroup } = config;
 
     return props => {
-        switch (type) {
-            case 'sticky1_mob':
-                return <Sticky1Mob {...config} />;
-            case 'sticky2_mob':
-                return <Sticky2Mob {...config} />;
-            default:
-                return null;
-        }
+        const [banner, dispatch] = useReducer(reducer, null);
+        useEffect(() => {
+            if (!banner) {
+                switch (slotGroup) {
+                    case STORY_TEMPLATE:
+                        dispatch({ type: STORY_TEMPLATE, meta: { config } });
+                        break;
+                    case ACCUM_TEMPLATE:
+                        dispatch({ type: ACCUM_TEMPLATE, meta: { config } });
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }, [banner]);
+
+        return banner;
     };
 };

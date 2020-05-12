@@ -11,9 +11,14 @@ const mob_300x250_sizes = [
 ];
 
 export default {
+    adhesion_mob: {
+        slotName: 'la_nacion_mobile/Nota/adhesion_mob',
+        dimensions: [[320, 50]],
+        targeting: defaultTargeting
+    },
     megatop_mob: {
         slotName: 'la_nacion_mobile/Nota/megatop_mob',
-        dimensions: [[320, 480], 'fluid'],
+        dimensions: [[320, 480]],
         targeting: defaultTargeting
     },
     '1x1_mob': {
@@ -134,7 +139,6 @@ export default {
     caja1_mob: {
         slotName: 'la_nacion_mobile/Nota/caja1_mob',
         dimensions: [
-            [320, 50],
             [300, 250],
             [300, 450],
             [320, 100],
@@ -191,7 +195,6 @@ export default {
     caja2_mob: {
         slotName: 'la_nacion_mobile/Nota/caja2_mob',
         dimensions: [
-            [320, 50],
             [300, 250],
             [300, 450],
             [320, 100],
@@ -248,7 +251,6 @@ export default {
     caja3_mob: {
         slotName: 'la_nacion_mobile/Nota/caja3_mob',
         dimensions: [
-            [320, 50],
             [300, 250],
             [300, 450],
             [320, 100],
@@ -305,7 +307,6 @@ export default {
     caja4_mob: {
         slotName: 'la_nacion_mobile/Nota/caja4_mob',
         dimensions: [
-            [320, 50],
             [300, 250],
             [300, 450],
             [320, 100],
@@ -362,7 +363,6 @@ export default {
     caja5_mob: {
         slotName: 'la_nacion_mobile/Nota/caja5_mob',
         dimensions: [
-            [320, 50],
             [300, 250],
             [300, 450],
             [320, 100],
