@@ -9,7 +9,8 @@ exports[`ModImage Matches snapshot 1`] = `
 >
   <img
     alt="Random pic"
-    class="com-image"
+    class="com-image "
+    loading="lazy"
     src="http://lorempixel.com/400/200"
   />
 </a>

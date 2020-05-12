@@ -1,23 +1,63 @@
 import React from 'react';
-import MediaBase from '../../media';
+import PropTypes from 'fusion:prop-types';
+import Media from '../../media';
+import ComFigcaption from '../../../../common/com-figcaption';
+import ComText from '../../../../common/com-text';
+import EpigrafeAndCreditsData from '../../../../common/utils/epigrafeAndCreditsData';
 
-export default function galleryItem({ mediaData, galleryOrder, totalGallery }) {
+const galleryItem = ({
+    mediaData,
+    galleryOrder,
+    totalGallery,
+    withZoom,
+    itsGallery,
+    handleClick,
+    active
+}) => {
+    const credito = EpigrafeAndCreditsData(mediaData);
     return (
         <>
-            <MediaBase mediaData={mediaData}>
-                {/* TODO: componentizar creditos y epigrafe y llamarlos aca */}
-                <section className="com-epigrafe">
-                    <p className="text">Epigrafe</p>
-                    <p className="small">
-                        Fuente: LA NACION - Crédito: LA NACION
-                    </p>
-                </section>
-                <p className="paginator">
-                    {galleryOrder + 1}
-                    &nbsp;de&nbsp;
-                    {totalGallery}
-                </p>
-            </MediaBase>
+            <Media
+                mediaData={mediaData}
+                withZoom={withZoom}
+                itsGallery={itsGallery}
+                handleClick={handleClick}
+                active={active}
+            >
+                {mediaData && (
+                    <ComFigcaption>
+                        {mediaData.caption && (
+                            <ComText
+                                classCondition="--caption"
+                                textname={mediaData.caption}
+                            />
+                        )}
+                        <ComText classCondition="--credit" textname={credito} />
+                        <ComText classCondition="--paginator">
+                            {galleryOrder + 1}
+                            &nbsp;de&nbsp;
+                            {totalGallery}
+                        </ComText>
+                    </ComFigcaption>
+                )}
+            </Media>
         </>
     );
-}
+};
+
+galleryItem.propTypes = {
+    mediaData: PropTypes.shape({
+        distributor: PropTypes.string,
+        caption: PropTypes.string,
+        vanity_credits: PropTypes.arrayOf,
+        credits: PropTypes.arrayOf
+    }).isRequired,
+    withZoom: PropTypes.string.isRequired,
+    totalGallery: PropTypes.number.isRequired,
+    galleryOrder: PropTypes.number.isRequired,
+    itsGallery: PropTypes.bool.isRequired,
+    active: PropTypes.bool.isRequired,
+    handleClick: PropTypes.func.isRequired
+};
+
+export default galleryItem;

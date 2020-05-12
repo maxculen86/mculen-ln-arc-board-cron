@@ -1,22 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Image from './imageBase';
+import ComFigure from '../../../common/com-figure';
+import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 
-// TODO: proptypes
-const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
-    // TODO: revisar implementacion de placeHolder
+const media = ({
+    mediaData,
+    colNumber,
+    withZoom,
+    itsGallery,
+    href,
+    children,
+    outputType,
+    handleClick,
+    isApertura,
+    active
+}) => {
+    const refContainer = useRef();
+    const [zoom, setZoom] = useState(false);
+    const { height = 0, width = 0 } = mediaData || {};
+    const isVertical = isApertura ? false : height > width;
     let item = null;
+
+    useEffect(() => {
+        if (!itsGallery && withZoom) {
+            setZoom(width > refContainer.current.clientWidth);
+        }
+        function handleResize() {
+            if (!itsGallery && withZoom) {
+                setZoom(width > refContainer.current.clientWidth);
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [itsGallery, withZoom, width]);
+
     if (mediaData) {
         const { type, _id } = mediaData;
         switch (type) {
             case 'image':
                 item = (
-                    <>
-                        <Image image={mediaData} href={href} zoom={zoom} />
+                    <ComFigure
+                        classCondition={`${
+                            isVertical ? '--vertical' : '--horizontal'
+                        }`}
+                        withZoom={withZoom}
+                        width={width}
+                        itsGallery={itsGallery}
+                        handleClick={
+                            itsGallery || zoom ? handleClick : () => {}
+                        }
+                    >
+                        <Image active={active} image={mediaData} href={href} />
                         {children}
-                    </>
+                    </ComFigure>
                 );
                 break;
             case 'video':
@@ -26,29 +65,44 @@ const media = ({ mediaData, colNumber, zoom, href, children, outputType }) => {
                 break;
         }
     }
-    const colClass = colNumber ? `col-desksm-${colNumber} ` : '';
     if (!item) {
-        item = <Placeholder zoom={zoom} href={href} outputType={outputType} />;
+        item = <Placeholder href={href} outputType={outputType} />;
     }
-    return <section className={`${colClass}cont-figure`}>{item}</section>;
+    return (
+        <>
+            {itsGallery ? (
+                <>{item}</>
+            ) : (
+                <div ref={refContainer}>
+                    <ModMedia zoom={zoom} withZoom={withZoom} active={active}>
+                        {item}
+                    </ModMedia>
+                </div>
+            )}
+        </>
+    );
 };
 
 media.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]),
     outputType: PropTypes.string,
     mediaData: PropTypes.shape({
         type: PropTypes.string,
         _id: PropTypes.string
+    }).isRequired,
+    colNumber: PropTypes.number.isRequired,
+    itsGallery: PropTypes.bool.isRequired,
+    active: PropTypes.bool.isRequired,
+    handleClick: PropTypes.func.isRequired,
+    withZoom: PropTypes.bool.tag({
+        defaultValue: false
     }),
-    colNumber: PropTypes.number,
-    zoom: PropTypes.bool,
-    href: PropTypes.string
+    href: PropTypes.string.tag({
+        defaultValue: ''
+    })
 };
-
-// media.defaultProps = {
-//     colNumber: null,
-//     zoom: false,
-//     href: null,
-//     mediaData: null
-// };
 
 export default media;

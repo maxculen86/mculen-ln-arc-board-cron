@@ -2,11 +2,22 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const AmpImage = props => {
-    const { sources, url, alt, width, height, href, layout } = props;
+    const {
+        sources,
+        url,
+        alt,
+        width,
+        height,
+        href,
+        layout,
+        sourcesZoom,
+        active
+    } = props;
     const isVertical = height > width;
+    const sourceActive = active ? sourcesZoom : sources;
 
     // TODO: ver este tema de source sets con maquetacion
-    let srcset = sources.map(src => {
+    let srcset = sourceActive.map(src => {
         const {
             option: { width: _w, height: _h }
         } = src;
@@ -21,7 +32,6 @@ const AmpImage = props => {
     });
     srcset = srcset && srcset.length > 1 ? srcset.join(', ') : srcset;
 
-    // Si no tiene source sets le seteo uno temporal
     if (srcset.length === 1) srcset = `${url} ${width}w`;
 
     return (
@@ -57,12 +67,23 @@ AmpImage.propTypes = {
             })
         })
     ).isRequired,
+    sourcesZoom: PropTypes.arrayOf(
+        PropTypes.shape({
+            resizedUrl: PropTypes.string,
+            option: PropTypes.shape({
+                media: PropTypes.string,
+                width: PropTypes.number,
+                height: PropTypes.number
+            })
+        })
+    ).isRequired,
     url: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
-    layout: PropTypes.string
+    layout: PropTypes.string,
+    active: PropTypes.bool.isRequired
 };
 
 AmpImage.defaultProps = {

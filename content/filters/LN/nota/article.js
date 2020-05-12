@@ -25,6 +25,9 @@ const image = `
     resized_urls {
         ${imageResizedUrl}             
     }
+    resized_urls_zoom {
+        ${imageResizedUrl}             
+    }
     height
     url
     width

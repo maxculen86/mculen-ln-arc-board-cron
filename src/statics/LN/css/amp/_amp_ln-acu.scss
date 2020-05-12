@@ -35,11 +35,13 @@
 //@import '../../../../../src/statics/LN/css/components/dropdown.scss';
 //@import '../../../../../src/statics/LN/css/modules/newsletter.scss';
 
-@import '../../../../../src/statics/LN/css/components/com-link';
-@import '../../../../../src/statics/LN/css/components/com-image';
-@import '../../../../../src/statics/LN/css/components/com-text';
+@import '../../../../../src/statics/LN/css/components/com-link.scss';
+@import '../../../../../src/statics/LN/css/components/com-image.scss';
+@import '../../../../../src/statics/LN/css/components/com-text.scss';
 
-@import '../../../../../src/statics/LN/css/modules/mod-image';
-@import '../../../../../src/statics/LN/css/modules/mod-autor';
+@import '../../../../../src/statics/LN/css/modules/mod-image.scss';
+@import '../../../../../src/statics/LN/css/modules/mod-media.scss';
+@import '../../../../../src/statics/LN/css/modules/mod-figcaption.scss';
+@import '../../../../../src/statics/LN/css/modules/mod-autor.scss';
 
 @import '../../../../../src/statics/LN/css/base/helpers-amp.scss'; //se usan solo los helpers necesarios

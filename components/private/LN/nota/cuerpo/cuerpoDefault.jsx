@@ -53,6 +53,13 @@ const Cuerpo = props => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
             return bc.arcType === element.type;
         });
+
+        const { arcType = '' } = Component || {};
+        const extraProps =
+            ['image', 'gallery'].findIndex(el => el === (arcType || '')) !== -1
+                ? { withZoom: '--zoom' }
+                : {};
+
         if (Component) {
             if (types.includes(Component.arcType)) {
                 return (
@@ -88,7 +95,14 @@ const Cuerpo = props => {
                     </React.Fragment>
                 );
             }
-            return <Component data={element} />;
+            return (
+                <Component
+                    data={element}
+                    capital={capitalIndex === i}
+                    outputType={outputType}
+                    {...extraProps}
+                />
+            );
         }
 
         return <></>;

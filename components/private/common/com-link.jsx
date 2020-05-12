@@ -34,7 +34,7 @@ ComLink.propTypes = {
     link: PropTypes.string.isRequired,
     textname: PropTypes.string.isRequired,
     title: PropTypes.string,
-    target: PropTypes.string.isRequired,
+    target: PropTypes.string,
     classCondition: PropTypes.string
 };
 
