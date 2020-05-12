@@ -1,16 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const MetaTitle = ({ subtype, basicTitle, metaTitle, arcSite }) => {
+const MetaTitle = ({ subtype, metaTitleBasic, arcSite }) => {
+    console.log('MetaTitle -> metaTitleBasic', metaTitleBasic);
     if (arcSite && arcSite !== 'la-nacion-ar' && !subtype) return <></>;
-
-    const metaTitleBasic =
-        metaTitle &&
-        metaTitle !== '' &&
-        metaTitle !== null &&
-        metaTitle !== undefined
-            ? metaTitle
-            : basicTitle;
 
     return (
         subtype === '1' &&
@@ -20,7 +13,7 @@ const MetaTitle = ({ subtype, basicTitle, metaTitle, arcSite }) => {
 
 MetaTitle.propTypes = {
     subtype: PropTypes.string,
-    canonicalUrl: PropTypes.string.isRequired
+    metaTitleBasic: PropTypes.string.isRequired
 };
 
 export default MetaTitle;
