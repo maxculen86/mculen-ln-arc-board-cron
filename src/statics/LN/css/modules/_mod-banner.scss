@@ -8,7 +8,6 @@
     width: inherit;
     max-width: 100%;
     overflow: hidden;
-    margin-bottom: $spacing-lg;
     &.--bg-banner {
         background: repeating-linear-gradient(
             45deg,
@@ -61,6 +60,9 @@
             color: $blanco;
             font-size: px(16);
         }
+    }
+    .cuerpo__nota & {
+        margin-bottom: $spacing-lg;
     }
 }
 @media ($media-l) {
