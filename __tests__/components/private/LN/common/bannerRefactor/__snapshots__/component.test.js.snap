@@ -2,10 +2,13 @@
 
 exports[`Banner Matches snapshot 1`] = `
 <div
-  class="--bg-banner --undefined"
+  class="mod-banner --bg-banner
+                    
+                    
+                "
 >
   <div
-    class="banner hlp-none"
+    class="com-banner hlp-none"
   >
     <div />
   </div>
