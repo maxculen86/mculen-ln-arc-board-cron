@@ -17,6 +17,7 @@ import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getParagraph from '../private/common/utils/getParagraph';
+import Syndication from '../private/common/syndication';
 import { pipe } from '../private/common/utils/functional';
 
 const scriptList = [
@@ -75,13 +76,15 @@ const Default = props => {
         content_elements: contentElements,
         headlines,
         description,
-        subtype
+        subtype,
+        syndication
     } = globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
+    const { external_distribution, search } = syndication || {};
 
     const getPageBuilderFeatures = renderables =>
         renderables.filter(renderable => renderable.collection === 'features');
@@ -150,6 +153,12 @@ const Default = props => {
                     firstParagraphContentElements={
                         getParagraph(contentElements) || ''
                     }
+                />
+                <Syndication
+                    arcSite={arcSite}
+                    subtype={subtype}
+                    externalDistribution={external_distribution}
+                    search={search}
                 />
                 <Libs />
                 {/* Para OTT carga los styles por front */}

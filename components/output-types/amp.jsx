@@ -9,6 +9,7 @@ import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getParagraph from '../private/common/utils/getParagraph';
+import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
 /**
@@ -42,13 +43,16 @@ const Amp = props => {
         content_elements: contentElements,
         headlines,
         description,
-        subtype
+        subtype,
+        syndication
     } = globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
+    const { external_distribution: externalDistribution, search } =
+        syndication || {};
 
     const contentFeatures = getCollectionsFromRenderables(
         renderables,
@@ -108,6 +112,12 @@ const Amp = props => {
                     firstParagraphContentElements={
                         getParagraph(contentElements) || ''
                     }
+                />
+                <Syndication
+                    arcSite={arcSite}
+                    subtype={subtype}
+                    externalDistribution={externalDistribution}
+                    search={search}
                 />
             </head>
             <body>
