@@ -20,7 +20,8 @@ strong,
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    font-size: $font-28;
+    font-size: px(24);
+    padding: px(4);
     line-height: 1;
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
