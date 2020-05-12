@@ -7,12 +7,17 @@
     // display: flex;
     // justify-content: center;
     // align-items: center;
-    .cuerpo__nota & {
-        margin-bottom: px(32);
-    }
+    //.cuerpo__nota & {
+    margin-bottom: px(32);
+    //}
     // .row {
     //     position: relative;
     // }
+
+    &:not(.cuerpo__nota &) {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
     &.--zoom.--active {
         position: fixed;
         z-index: 999999;
