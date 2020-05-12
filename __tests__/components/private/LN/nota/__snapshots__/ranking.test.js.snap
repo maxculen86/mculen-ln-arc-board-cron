@@ -21,29 +21,35 @@ exports[`Ranking matches snapshot 1`] = `
       <article
         class="mod-caja-nota --border  "
       >
-        <section
-          class="cont-figure"
-        >
-          <a
-            class="figure contain-horizontal"
-            href="/autos/test-de-generacion-de-url/"
+        <div>
+          <section
+            class="mod-media   "
+            role="button"
           >
-            <picture
-              class="content-pic picture "
+            <figure
+              class="mod-figure --horizontal"
+              role="button"
             >
-              <source
-                class="img-desktop"
-                media="(min-width: 768px)"
-                srcset="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
-              />
-              <img
-                class="content-img"
-                loading="lazy"
-                src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg"
-              />
-            </picture>
-          </a>
-        </section>
+              <picture
+                class="mod-picture "
+              >
+                <a
+                  href="/autos/test-de-generacion-de-url/"
+                >
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                  />
+                  <img
+                    class="com-image "
+                    loading="lazy"
+                    src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg"
+                  />
+                </a>
+              </picture>
+            </figure>
+          </section>
+        </div>
         <div
           class="mod-caja-nota__descrip"
         >
@@ -65,18 +71,20 @@ exports[`Ranking matches snapshot 1`] = `
       <article
         class="mod-caja-nota --border  "
       >
-        <section
-          class="cont-figure"
-        >
-          <a
-            class="figure contain-horizontal"
-            href="/recetas/receta-de-prueba-con-volanta/"
+        <div>
+          <section
+            class="mod-media   "
+            role="button"
           >
             <picture
-              class="content-pic picture "
-            />
-          </a>
-        </section>
+              class="mod-picture --placeholder"
+            >
+              <a
+                href="/recetas/receta-de-prueba-con-volanta/"
+              />
+            </picture>
+          </section>
+        </div>
         <div
           class="mod-caja-nota__descrip"
         >
@@ -101,18 +109,20 @@ exports[`Ranking matches snapshot 1`] = `
       <article
         class="mod-caja-nota --border  "
       >
-        <section
-          class="cont-figure"
-        >
-          <a
-            class="figure contain-horizontal"
-            href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
+        <div>
+          <section
+            class="mod-media   "
+            role="button"
           >
             <picture
-              class="content-pic picture "
-            />
-          </a>
-        </section>
+              class="mod-picture --placeholder"
+            >
+              <a
+                href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
+              />
+            </picture>
+          </section>
+        </div>
         <div
           class="mod-caja-nota__descrip"
         >

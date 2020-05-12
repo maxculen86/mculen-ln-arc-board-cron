@@ -1,8 +1,62 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
+
 .com-button {
-    @include flex(flex, row, start, center);
-    font-size: px(14);
+    //font-family: $font-arial;
+    transition: opacity 0.2s ease-in-out;
+    @include flex(flex, row, center, center);
+
+    .--slider & {
+        background: $negro;
+
+        &.icon-left,
+        &.icon-right {
+            display: block;
+            padding: 0;
+            cursor: pointer;
+            border: none;
+            background: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            z-index: 2;
+            color: $blanco;
+            transition: all 0.2s ease;
+
+            font-size: px(20);
+            width: px(30);
+            height: px(40);
+            top: px(92); //alto.img/2 - alto.button/2
+
+            @media ($media-m) {
+                //768
+                font-size: px(32);
+                top: px(206);
+                width: $px-46;
+                height: $px-60;
+            }
+            @media ($media-l) {
+                //1024
+                top: px(215);
+            }
+        }
+        &.icon-left {
+            left: 0;
+            &:hover {
+                background: rgba(0, 0, 0, 0.4);
+            }
+        }
+        &.icon-right {
+            right: 0;
+            &:hover {
+                background: rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+    .--slider.--active & {
+        &.icon-left,
+        &.icon-right {
+            top: 45%;
+        }
+    }
     .--megatop & {
         position: absolute;
         top: 0;

@@ -97,6 +97,7 @@ export const resizeArcGallery = (
     arcgallery,
     resizeOptions,
     resizer,
+    zoomSizes,
     smartCropExcluded = false
 ) => {
     if (arcgallery.type !== 'gallery') {
@@ -108,7 +109,13 @@ export const resizeArcGallery = (
     return {
         ...arcgallery,
         content_elements: arcgallery.content_elements.map(i =>
-            resizeArcImage(i, resizeOptions, resizer, smartCropExcluded)
+            resizeArcImage(
+                i,
+                resizeOptions,
+                resizer,
+                zoomSizes,
+                smartCropExcluded
+            )
         )
     };
 };
@@ -127,12 +134,19 @@ export const resizeArcImage = (
     arcImage,
     resizeOptions,
     resizer,
+    zoomSizes,
     smartCropExcluded = false
 ) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
         );
+
+    const fp = getFocalPoint(arcImage) || undefined;
+    const zs =
+        typeof fp !== 'undefined'
+            ? zoomSizes.map(e => ({ ...e, isNotSmart: true }))
+            : zoomSizes;
 
     return {
         ...arcImage,
@@ -145,9 +159,10 @@ export const resizeArcImage = (
                       {
                           width: 768,
                           height: 513,
-                          media: '(min-width: 768px)'
+                          media: '(min-width: 768px)',
+                          isNotSmart: typeof fp !== 'undefined'
                       },
-                      undefined,
+                      fp,
                       smartCropExcluded
                   )
                 : getCanonincalURL(
@@ -158,9 +173,10 @@ export const resizeArcImage = (
                           {
                               width: 768,
                               height: 513,
-                              media: '(min-width: 768px)'
+                              media: '(min-width: 768px)',
+                              isNotSmart: typeof fp !== 'undefined'
                           },
-                          undefined,
+                          fp,
                           smartCropExcluded
                       )
                   ),
@@ -169,7 +185,15 @@ export const resizeArcImage = (
             arcImage.width,
             arcImage.height,
             resizeOptions,
-            getFocalPoint(arcImage) || undefined,
+            fp,
+            smartCropExcluded
+        ),
+        resized_urls_zoom: resizer.resizeUrls(
+            arcImage.url,
+            arcImage.width,
+            arcImage.height,
+            zs,
+            fp,
             smartCropExcluded
         )
     };
@@ -209,7 +233,7 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
     return resp;
 };
 
-const resizePromoItems = (promoItems, resizeOptions, resizer) => {
+const resizePromoItems = (promoItems, resizeOptions, resizer, zoomSizes) => {
     const resp = {};
 
     // TODO: Pasar valor por defecto como constante
@@ -225,7 +249,7 @@ const resizePromoItems = (promoItems, resizeOptions, resizer) => {
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
         if (pi.type === 'image') {
-            resp[key] = resizeArcImage(pi, optionsFinal, resizer);
+            resp[key] = resizeArcImage(pi, optionsFinal, resizer, zoomSizes);
         } else {
             resp[key] = pi;
         }
@@ -238,6 +262,7 @@ export const addResizedUrls = (ansDoc, option) => {
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
+    const { zoomSizes = [] } = option.presets;
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
     const optionsContentElements = option.presets.contentElements.sizes;
@@ -252,6 +277,7 @@ export const addResizedUrls = (ansDoc, option) => {
                         elem,
                         optionsContentElements,
                         resizer,
+                        zoomSizes,
                         true
                     );
                 }
@@ -260,6 +286,7 @@ export const addResizedUrls = (ansDoc, option) => {
                         elem,
                         optionsContentElements,
                         resizer,
+                        zoomSizes,
                         true
                     );
                 }
@@ -270,7 +297,8 @@ export const addResizedUrls = (ansDoc, option) => {
         respDoc.promo_items = resizePromoItems(
             ansDoc.promo_items,
             option.presets.promoItems,
-            resizer
+            resizer,
+            zoomSizes
         );
     }
 

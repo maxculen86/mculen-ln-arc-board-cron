@@ -100,8 +100,75 @@
     .com-hamburger:before {
         color: $negro;
     }
-    .com-hamburger__bar {
-        background: $negro;
+}
+@mixin flex($display, $direction: null, $ejeX: null, $ejeY: null) {
+    //Sólo agregamos el "@include flex($display, $direction, $ejeX, $ejeY);"
+    @if $display == flex {
+        $display: flex;
+    } @else if $display == inline {
+        $display: inline-flex;
+    }
+    @if $ejeX == start {
+        $ejeX: flex-start;
+    } @else if $ejeX == end {
+        $ejeX: flex-end;
+    } @else if $ejeX == center {
+        $ejeX: center;
+    } @else if $ejeX == between {
+        $ejeX: space-between;
+    } @else if $ejeX == around {
+        $ejeX: space-around;
+    }
+    @if $ejeY == start {
+        $ejeY: flex-start;
+    } @else if $ejeY == end {
+        $ejeY: flex-end;
+    } @else if $ejeY == center {
+        $ejeY: center;
+    } @else if $ejeY == stretch {
+        $ejeY: stretch;
+    } @else if $ejeY == baseline {
+        $ejeY: baseline;
+    }
+
+    display: $display;
+    flex-direction: $direction;
+    justify-content: $ejeX;
+    align-items: $ejeY;
+}
+
+@mixin transform($eje, $valor) {
+    //Sólo agregamos el "@include transform($eje, $valor);"
+    $num: '(#{$valor})';
+    -webkit-transform: translate#{$eje}#{$num};
+    -moz-transform: translate#{$eje}#{$num};
+    -ms-transform: translate#{$eje}#{$num};
+    transform: translate#{$eje}#{$num};
+}
+
+@mixin gap($valor) {
+    @if $valor == sec {
+        $gap: $px-20;
+        margin-bottom: $gap;
+        @media ($media-m) {
+            $gap: $px-30;
+            margin-bottom: $gap;
+        }
+        @media ($media-l) {
+            $gap: $px-40;
+            margin-bottom: $gap;
+        }
+    } @else if $valor == mod {
+        $gap: $px-10;
+        margin-bottom: $gap;
+        @media ($media-m) {
+            $gap: $px-20;
+            margin-bottom: $gap;
+        }
+        @media ($media-l) {
+            $gap: $px-30;
+            margin-bottom: $gap;
+        }
     }
 }
 @mixin flex($display, $direction: null, $ejeX: null, $ejeY: null) {

@@ -28,13 +28,20 @@
         }
     }
     &:before {
-        content: 'MENÚ';
+        content: 'Secciones';
         position: absolute;
         width: $px-60;
         left: $px-35;
-        top: $px-4;
+        top: $px-3;
         font-size: $font-12;
         font-family: Arial;
-        text-transform: uppercase;
+    }
+    &:hover {
+        &:before {
+            color: $link;
+        }
+        .com-hamburger__bar {
+            background: $link;
+        }
     }
 }

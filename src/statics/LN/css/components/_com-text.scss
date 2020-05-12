@@ -26,11 +26,13 @@
         line-height: 1;
         border-left: solid 1px $gris5;
     }
-    .mod-autor & {
-        line-height: px(24);
-        font-size: px(16);
-        font-weight: bold;
-        color: $negro;
+    &.--autor {
+        .mod-autor & {
+            line-height: px(24);
+            font-size: px(16);
+            font-weight: bold;
+            color: $negro;
+        }
     }
     &.--medio {
         .mod-autor & {
@@ -39,6 +41,16 @@
             font-size: px(14);
             color: $gris5;
         }
+    }
+    &.--paginator {
+        background: $negro;
+        font-family: $font-arial;
+        font-size: $font-12;
+        padding: $px-3 $px-5;
+        color: $blanco;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 }
 

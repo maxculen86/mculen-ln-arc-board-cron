@@ -1,17 +1,26 @@
 // TODO: usar este como carrousell y renombrar
-import React from 'react';
+import React, { useState } from 'react';
 import Carrousell from '../../../../common/carousell';
-import Media from './galleryItem';
+import GalleryItem from './galleryItem';
 
 const index = props => {
-    const { data } = props;
+    const { data, withZoom } = props;
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        setActive(!active);
+    };
     return (
-        <Carrousell>
+        <Carrousell itsGallery active={active}>
             {data.content_elements.map((v, i) => (
-                <Media
+                <GalleryItem
                     mediaData={v}
                     galleryOrder={i}
                     totalGallery={data.content_elements.length}
+                    withZoom={withZoom}
+                    itsGallery
+                    handleClick={handleClick}
+                    active={active}
                 />
             ))}
         </Carrousell>

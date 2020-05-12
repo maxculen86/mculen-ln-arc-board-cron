@@ -15,7 +15,7 @@ const ListMenu = ({ showNav, toglleDesplegable }) => {
                     className="col-3 item-foo"
                     onClick={toglleDesplegable}
                 >
-                    <i className="icon-menu" />
+                    <i className="icon-sections" />
                     <p>Secciones</p>
                 </button>
                 <ItemClub />

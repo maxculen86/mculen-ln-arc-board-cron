@@ -1,68 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
-import getCreditsTitle from '../../common/utils/getCreditsTitle';
+import ComFigcaption from '../../../common/com-figcaption';
+import ComText from '../../../common/com-text';
+import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
-// TODO: name destacadoEnApertura
 const aperturaNoticia = ({ basic }) => {
-    const credits = getCreditsTitle(basic);
+    const credito = EpigrafeAndCreditsData(basic);
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        setActive(!active);
+    };
 
     return (
-        <Media mediaData={basic} colNumber={12}>
+        <Media
+            mediaData={basic}
+            withZoom="--zoom"
+            handleClick={handleClick}
+            active={active}
+            isApertura
+        >
             {basic && (
-                <section
-                    className={
-                        basic.caption || basic.distributor || basic.credits.by
-                            ? 'com-epigrafe'
-                            : ''
-                    }
-                >
-                    {basic.caption && <p className="text">{basic.caption}</p>}
-                    <p className="small">
-                        {basic.distributor && basic.distributor.name !== ''
-                            ? `Fuente: ${
-                                  basic.distributor.name
-                                      ? basic.distributor.name
-                                      : 'LA NACION'
-                              }`
-                            : ''}
-                        {basic.distributor &&
-                        basic.distributor.name !== '' &&
-                        basic.credits.by !== undefined
-                            ? ' - '
-                            : ''}
-                        {basic.vanity_credits &&
-                            basic.vanity_credits.affiliation.length &&
-                            (basic.credits
-                                ? basic.vanity_credits.by.map((credito, i) => {
-                                      return (
-                                          <>
-                                              {i === 0
-                                                  ? ` - ${credits}: `
-                                                  : ', '}
-                                              {credito.type === 'author'
-                                                  ? credito.name
-                                                  : credito.referent.id}
-                                          </>
-                                      );
-                                  })
-                                : '')}
-                        {basic.credits &&
-                            basic.credits.by &&
-                            (basic.credits
-                                ? basic.credits.by.map((credito, i) => {
-                                      return (
-                                          <>
-                                              {i === 0 ? `${credits}: ` : ', '}
-                                              {credito.type === 'author'
-                                                  ? credito.name
-                                                  : credito.referent.id}
-                                          </>
-                                      );
-                                  })
-                                : '')}
-                    </p>
-                </section>
+                <ComFigcaption>
+                    {basic.caption && (
+                        <ComText
+                            classCondition="--caption"
+                            textname={basic.caption}
+                        />
+                    )}
+                    <ComText classCondition="--credit" textname={credito} />
+                </ComFigcaption>
             )}
         </Media>
     );
