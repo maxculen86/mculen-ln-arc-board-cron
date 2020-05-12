@@ -198,6 +198,10 @@ export default `
     }
     headlines {
         basic
+        meta_title
+    }
+    description {
+        basic
     }
     subheadlines {
         basic
