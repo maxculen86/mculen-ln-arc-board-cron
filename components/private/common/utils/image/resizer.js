@@ -142,6 +142,12 @@ export const resizeArcImage = (
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
         );
 
+    const fp = getFocalPoint(arcImage) || undefined;
+    const zs =
+        typeof fp !== 'undefined'
+            ? zoomSizes.map(e => ({ ...e, isNotSmart: true }))
+            : zoomSizes;
+
     return {
         ...arcImage,
         url:
@@ -153,9 +159,10 @@ export const resizeArcImage = (
                       {
                           width: 768,
                           height: 513,
-                          media: '(min-width: 768px)'
+                          media: '(min-width: 768px)',
+                          isNotSmart: typeof fp !== 'undefined'
                       },
-                      undefined,
+                      fp,
                       smartCropExcluded
                   )
                 : getCanonincalURL(
@@ -166,9 +173,10 @@ export const resizeArcImage = (
                           {
                               width: 768,
                               height: 513,
-                              media: '(min-width: 768px)'
+                              media: '(min-width: 768px)',
+                              isNotSmart: typeof fp !== 'undefined'
                           },
-                          undefined,
+                          fp,
                           smartCropExcluded
                       )
                   ),
@@ -177,15 +185,15 @@ export const resizeArcImage = (
             arcImage.width,
             arcImage.height,
             resizeOptions,
-            getFocalPoint(arcImage) || undefined,
+            fp,
             smartCropExcluded
         ),
         resized_urls_zoom: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
             arcImage.height,
-            zoomSizes,
-            getFocalPoint(arcImage) || undefined,
+            zs,
+            fp,
             smartCropExcluded
         )
     };
