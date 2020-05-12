@@ -26,7 +26,7 @@ const Cuerpo = props => {
         outputType,
         globalContent: { taxonomy, content_elements: contentElements }
     } = props;
-
+    console.log('las porps de default: ', props);
     const bodyComponents = [
         Paragraph,
         PullQuote,

@@ -50,7 +50,7 @@ function buildBodyCustomFields() {
             type: 'number',
             info: 'After which paragraph do you want the banner to show?',
             min: 0,
-            max: 15
+            max: 20
         },
         { name: 'sticky', type: 'bool', info: 'Banner sticky?' },
         {
@@ -60,7 +60,7 @@ function buildBodyCustomFields() {
         }
     ];
     const result = {};
-    [...Array(6)].map((item, i) => {
+    [...Array(10)].map((item, i) => {
         return attributes.map(attribute => {
             // eslint-disable-next-line default-case
             switch (attribute.type) {
