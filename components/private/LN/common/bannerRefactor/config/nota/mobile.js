@@ -11,9 +11,14 @@ const mob_300x250_sizes = [
 ];
 
 export default {
+    adhesion_mob: {
+        slotName: 'la_nacion_mobile/Nota/adhesion_mob',
+        dimensions: [[320, 50]],
+        targeting: defaultTargeting
+    },
     megatop_mob: {
         slotName: 'la_nacion_mobile/Nota/megatop_mob',
-        dimensions: [[320, 480], 'fluid'],
+        dimensions: [[320, 480]],
         targeting: defaultTargeting
     },
     '1x1_mob': {

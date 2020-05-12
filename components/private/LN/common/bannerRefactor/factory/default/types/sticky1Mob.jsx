@@ -16,18 +16,12 @@ const isNotVisibleInViewport = element => {
 };
 
 const hideElement = element => {
-    /* if (window.getComputedStyle(element).display !== 'none') {
-        element.style.display = 'none';
-    } */
     if (element.classList.contains('--active')) {
         element.classList.remove('--active');
     }
 };
 
 const showElement = element => {
-    /* if (window.getComputedStyle(element).display !== 'flex') {
-        element.style.display = 'flex';
-    } */
     if (!element.classList.contains('--active')) {
         element.classList.add('--active');
     }
@@ -39,7 +33,6 @@ const Sticky1Mob = props => {
     const sticky1 = useRef();
 
     const { device } = props;
-    if (device !== 'mobile') return null;
 
     useLayoutEffect(() => {
         const sticky2 = document.getElementById('sticky2_mob').parentElement;
@@ -67,6 +60,8 @@ const Sticky1Mob = props => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    if (device !== 'mobile') return null;
+
     const {
         slotId: id,
         slotName,
@@ -91,7 +86,7 @@ const Sticky1Mob = props => {
         />
     );
 
-    const stickyMob2Config = slotsConfig['nota']['sticky2_mob'];
+    const stickyMob2Config = slotsConfig.nota.sticky2_mob;
 
     const config = { ...props, ...stickyMob2Config, slotId: 'sticky2_mob' };
 
@@ -99,8 +94,8 @@ const Sticky1Mob = props => {
         <>
             <Sticky2Mob {...config} />
             <div ref={sticky1}>
-                <div className={`--bg-banner --${device}`}>
-                    <div id="sticky1_mob" className="banner">
+                <div className={`mod-banner --bg-banner --${device}`}>
+                    <div id="sticky1_mob" className="com-banner">
                         {ad}
                     </div>
                 </div>

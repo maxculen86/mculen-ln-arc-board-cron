@@ -7,6 +7,8 @@
     z-index: 1500;
     border-top: 1px solid $gris2;
     width: 100%;
+    max-height: $px-60;
+    height: $px-60;
     .row {
         max-width: 390px;
         margin: 0 auto;
@@ -22,7 +24,7 @@
         // TODO: Recordar dejar oculto
         p {
             font-family: $font-arial;
-            font-size: $font-11;
+            font-size: $font-9;
             color: $gris6;
         }
         &:hover {
@@ -56,6 +58,16 @@
     /*@media ($media-l) {
         display: none;
     }*/ // en tablet landscape se ve mal sin esto
+}
+@media ($media-s) {
+    .com-nav-mobile {
+        height: inherit;
+        .item-foo {
+            p {
+                font-size: $font-11;
+            }
+        }
+    }
 }
 
 @media ($media-l) {

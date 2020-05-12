@@ -1,3 +1,6 @@
+/* eslint-disable react/require-default-props           */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Ads from '../../../ads';
@@ -13,8 +16,11 @@ const index = React.forwardRef((props, ref) => {
         background,
         show,
         bidding,
-        device
+        device,
+        closeButton
     } = props;
+
+    const onClose = () => ref.current.remove();
 
     const ad = (
         <Ads
@@ -30,7 +36,20 @@ const index = React.forwardRef((props, ref) => {
 
     return (
         <>
-            <div className={`--bg-banner --${device}`} ref={ref}>
+            <div
+                className={`mod-banner ${background ? '--bg-banner' : ''}
+                    ${sticky ? '--sticky' : ''}
+                    ${closeButton ? '--close' : ''}
+                `}
+                ref={ref}
+            >
+                {closeButton && (
+                    <button
+                        type="button"
+                        className="icon-close"
+                        onClick={onClose}
+                    />
+                )}
                 {ad}
             </div>
         </>
@@ -49,7 +68,8 @@ index.propTypes = {
         sitio: PropTypes.string
     }).isRequired,
     bidding: PropTypes.object.isRequired,
-    background: PropTypes.string
+    background: PropTypes.string,
+    closeButton: PropTypes.bool
 };
 
 export default index;
