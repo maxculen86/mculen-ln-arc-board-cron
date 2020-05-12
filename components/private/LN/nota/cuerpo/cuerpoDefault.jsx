@@ -98,7 +98,7 @@ const Cuerpo = props => {
             return (
                 <Component
                     data={element}
-                    capital={capitalIndex === i}
+                    capital={currentIndex === capitalIndex}
                     outputType={outputType}
                     {...extraProps}
                 />
