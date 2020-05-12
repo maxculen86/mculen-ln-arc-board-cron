@@ -75,7 +75,15 @@ exports[`Ranking matches snapshot 1`] = `
           <section
             class="mod-media   "
             role="button"
-          />
+          >
+            <picture
+              class="mod-picture --placeholder"
+            >
+              <a
+                href="/recetas/receta-de-prueba-con-volanta/"
+              />
+            </picture>
+          </section>
         </div>
         <div
           class="mod-caja-nota__descrip"
@@ -105,7 +113,15 @@ exports[`Ranking matches snapshot 1`] = `
           <section
             class="mod-media   "
             role="button"
-          />
+          >
+            <picture
+              class="mod-picture --placeholder"
+            >
+              <a
+                href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
+              />
+            </picture>
+          </section>
         </div>
         <div
           class="mod-caja-nota__descrip"
