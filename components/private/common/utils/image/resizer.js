@@ -262,7 +262,7 @@ export const addResizedUrls = (ansDoc, option) => {
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
-    const { zoomSizes } = option.presets;
+    const { zoomSizes = [] } = option.presets;
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
     const optionsContentElements = option.presets.contentElements.sizes;
