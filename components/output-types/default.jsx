@@ -125,7 +125,6 @@ const Default = props => {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
-                <MetaTags />
                 <MetasOG {...props} />
                 <Robot
                     subtype={subtype}
