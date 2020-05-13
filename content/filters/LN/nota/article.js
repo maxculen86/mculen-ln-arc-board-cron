@@ -29,6 +29,7 @@ const image = `
         ${imageResizedUrl}             
     }
     height
+    alt_text
     url
     width
     subtitle
