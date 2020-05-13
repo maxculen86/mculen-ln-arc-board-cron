@@ -15,11 +15,19 @@ const ComPicture = props => {
         // <picture className={`mod-picture ${classCondition || ''}`}>
         //     {href ? <a href={href}>{children}</a> : children}
         // </picture>
-        <a href={href}>
-            <picture className={`mod-picture ${classCondition || ''}`}>
-                {children}
-            </picture>
-        </a>
+        <>
+            {href ? (
+                <a href={href}>
+                    <picture className={`mod-picture ${classCondition || ''}`}>
+                        {children}
+                    </picture>
+                </a>
+            ) : (
+                <picture className={`mod-picture ${classCondition || ''}`}>
+                    {children}
+                </picture>
+            )}
+        </>
     );
 };
 
