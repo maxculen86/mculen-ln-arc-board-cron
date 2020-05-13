@@ -11,10 +11,16 @@ import Megatop from './types/megatop';
 import {
     STORY_TEMPLATE,
     ACCUM_TEMPLATE,
+    ONE_X_ONE_DSK,
     CABEZAL_DSK,
     CAJA_1_DSK,
     CAJA_2_DSK,
     CAJA_3_DSK,
+    INREAD_DSK,
+    MIDDLE_1_DSK,
+    MIDDLE_2_DSK,
+    MIDDLE_3_DSK,
+    MIDDLE_TEADS_DSK,
     STICKY_1_MOB,
     STICKY_2_MOB,
     MEGATOP_DSK,
@@ -47,12 +53,19 @@ function getBannerForStoryTemplate(config) {
         case MEGATOP_MOB:
         case MEGATOP_DSK:
             return <Megatop {...config} />;
+        case MIDDLE_TEADS_DSK:
+        case ONE_X_ONE_DSK:
         case CAJA_1_DSK:
         case CAJA_2_DSK:
         case CAJA_3_DSK:
+        case INREAD_DSK:
+        case MIDDLE_1_DSK:
+        case MIDDLE_2_DSK:
+        case MIDDLE_3_DSK:
         case STICKY_2_MOB:
-        default:
             return <Default {...config} />;
+        default:
+            return <></>;
     }
 }
 
