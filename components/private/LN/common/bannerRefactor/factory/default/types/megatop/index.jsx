@@ -7,22 +7,6 @@ import addEventListener from '../../../../../../../common/hooks/useEventListener
 import useMutationObserver from '../../../../../../../common/hooks/useMutationObserver';
 import { onMutation, onLoad, onScroll, onClick } from './handlers';
 
-// Quitar luego de la demo
-const simulateLoadAds = () => {
-    return setTimeout(() => {
-        const adsElement =
-            document.getElementById(
-                'google_ads_iframe_/133919216/la_nacion_desktop/Nota/megatop_dsk_0__container__'
-            ) ||
-            document.getElementById(
-                'google_ads_iframe_/133919216/la_nacion_mobile/Nota/megatop_mob_0__container__'
-            );
-        const test =
-            "<img alt='' className='i-amphtml-fill-content i-amphtml-replaced-content'  src='https://tpc.googlesyndication.com/simgad/10253891865309241763' style='height: 100%'/>";
-        adsElement.innerHTML = test;
-    }, 3000);
-};
-
 const Megatop = props => {
     const {
         device,
@@ -36,8 +20,6 @@ const Megatop = props => {
 
     if (device === 'tablet') return null;
 
-    // Quitar luego de la demo
-    const [ads] = useState(simulateLoadAds());
     const [showMegatop, setShowMegatop] = useState(false);
     const [isMutationObserverActive, setIsMutationObserverActive] = useState(
         true
@@ -78,13 +60,11 @@ const Megatop = props => {
         if (showMegatop) {
             idTimeout = onLoad(megatopRef, handleClick);
             setIsMutationObserverActive(false);
-            // Quitar luego de la demo
-            clearTimeout(ads);
         }
         return () => {
             clearTimeout(idTimeout);
         };
-    }, [ads, megatopRef, showMegatop]);
+    }, [megatopRef, showMegatop]);
 
     return (
         <div
