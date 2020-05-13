@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const Syndication = ({ subtype, externalDistribution, search, arcSite }) => {
+const Syndication = ({ subtype, syndication, arcSite }) => {
+    const { external_distribution: externalDistribution, search } =
+        syndication || {};
+
     if (arcSite && arcSite !== 'la-nacion-ar' && !subtype) return <></>;
 
     return (
         subtype === '1' &&
+        syndication !== undefined &&
         ((!externalDistribution && !search) || externalDistribution) && (
             <meta name="robots" content="noindex, follow" />
         )

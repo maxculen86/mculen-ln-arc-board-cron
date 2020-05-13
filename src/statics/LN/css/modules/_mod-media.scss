@@ -7,9 +7,7 @@
     // display: flex;
     // justify-content: center;
     // align-items: center;
-    .cuerpo__nota & {
-        margin-bottom: px(32);
-    }
+
     // .row {
     //     position: relative;
     // }
@@ -146,8 +144,30 @@
     }
 }
 
-.sidebar__main > .row .col-12 .mod-media {
-    margin-bottom: px(32);
+.sidebar__main .mod-media {
+    margin-bottom: px(40);
     border-bottom: 1px solid #b9b9b9;
     padding-bottom: px(16);
+}
+
+.cuerpo__nota .mod-media {
+    margin-bottom: px(60);
+}
+
+.sidebar__main .more-articles .mod-media,
+.more-articles .mod-media,
+.mod-caja-nota .mod-media,
+.cuerpo__nota .mod-media {
+    margin-bottom: 0;
+    border: none;
+    padding-bottom: 0;
+}
+
+.cuerpo__nota .mod-media {
+    margin-bottom: px(60);
+}
+
+.cuerpo__nota .more-articles .mod-media,
+.cuerpo__nota .mod-caja-nota .mod-media {
+    margin-bottom: 0;
 }

@@ -116,8 +116,7 @@ const Amp = props => {
                 <Syndication
                     arcSite={arcSite}
                     subtype={subtype}
-                    externalDistribution={externalDistribution}
-                    search={search}
+                    syndication={syndication}
                 />
             </head>
             <body>
