@@ -33,7 +33,7 @@
         display: flex;
         .slide {
             @media ($media-l) {
-                width: 70%;
+                width: 60%;
                 max-width: px(1000);
                 position: absolute;
             }
