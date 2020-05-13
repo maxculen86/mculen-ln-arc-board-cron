@@ -39,15 +39,21 @@
             }
         }
         &.icon-left {
-            left: 0;
+            left: px(-20);
             &:hover {
                 background: rgba(0, 0, 0, 0.4);
             }
+            @media ($media-m) {
+                left: 0;
+            }
         }
         &.icon-right {
-            right: 0;
+            right: px(-20);
             &:hover {
                 background: rgba(0, 0, 0, 0.4);
+            }
+            @media ($media-m) {
+                right: 0;
             }
         }
     }
@@ -55,6 +61,12 @@
         &.icon-left,
         &.icon-right {
             top: 45%;
+        }
+        &.icon-left {
+            left: 0;
+        }
+        &.icon-right {
+            right: 0;
         }
     }
     .--megatop & {
