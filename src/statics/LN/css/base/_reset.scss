@@ -137,7 +137,9 @@ em {
     border: none;
 }
 
-input:focus {
+input:focus,
+a,
+button {
     outline: none;
 }
 
