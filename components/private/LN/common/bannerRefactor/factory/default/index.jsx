@@ -93,12 +93,13 @@ export default config => {
         useEffect(() => {
             if (!banner) {
                 switch (slotGroup) {
+                    case ACCUM_TEMPLATE:
                     case STORY_TEMPLATE:
                         dispatch({ type: STORY_TEMPLATE, meta: { config } });
                         break;
-                    case ACCUM_TEMPLATE:
+                    /* case ACCUM_TEMPLATE:
                         dispatch({ type: ACCUM_TEMPLATE, meta: { config } });
-                        break;
+                        break; */
                     default:
                         break;
                 }
