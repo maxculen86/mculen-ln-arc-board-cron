@@ -143,6 +143,16 @@ function WithAcuArticlesData(
                 );
             };
 
+            isRecommend = article => {
+                const { label } = article;
+                const { recomendar } = label || undefined;
+                return (
+                    !recomendar ||
+                    recomendar === {} ||
+                    recomendar.text === 'true'
+                );
+            };
+
             render() {
                 const { articles, hayMasNotas, loading } = this.state;
                 let articlesArray = articles;
@@ -152,20 +162,17 @@ function WithAcuArticlesData(
 
                 if (type === 'story') {
                     if (articles.find(e => e._id === _id) !== undefined) {
-                        articlesArray = articles.filter(
-                            article =>
-                                article._id !== _id &&
-                                (!article.label.recomendar ||
-                                    article.label.recomendar === 'true')
-                        );
+                        articlesArray = articles.filter(article => {
+                            return (
+                                article._id !== _id && this.isRecommend(article)
+                            );
+                        });
                     } else {
                         const { size } = this.props;
                         articlesArray = articles
-                            .filter(
-                                article =>
-                                    !article.label.recomendar ||
-                                    article.label.recomendar === 'true'
-                            )
+                            .filter(article => {
+                                return this.isRecommend(article);
+                            })
                             .slice(0, size.originalSize);
                     }
                 }
