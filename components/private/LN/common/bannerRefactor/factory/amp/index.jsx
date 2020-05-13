@@ -23,6 +23,6 @@ export default config => {
                 ...config
             });
         default:
-            return null;
+            return <></>;
     }
 };
