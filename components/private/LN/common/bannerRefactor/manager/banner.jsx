@@ -7,13 +7,13 @@ import PropTypes from 'fusion:prop-types';
 import { slotsConfig } from '../config';
 
 import DefaultFactory from '../factory/default';
-// import AmpFactory from '../factory/amp';
+import AmpFactory from '../factory/amp';
 
 const BannerManager = props => {
     const { outputType, config } = props;
 
     if (outputType === 'amp') {
-        // return AmpFactory(config);
+        return AmpFactory(config);
     }
 
     const Component = DefaultFactory(config);
