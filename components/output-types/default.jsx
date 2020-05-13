@@ -84,7 +84,6 @@ const Default = props => {
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
-    const { external_distribution, search } = syndication || {};
 
     const getPageBuilderFeatures = renderables =>
         renderables.filter(renderable => renderable.collection === 'features');
@@ -157,8 +156,7 @@ const Default = props => {
                 <Syndication
                     arcSite={arcSite}
                     subtype={subtype}
-                    externalDistribution={external_distribution}
-                    search={search}
+                    syndication={syndication}
                 />
                 <Libs />
                 {/* Para OTT carga los styles por front */}

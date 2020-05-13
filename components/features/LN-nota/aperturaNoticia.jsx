@@ -7,7 +7,11 @@ const aperturaNoticia = ({ globalContent = {} }) => {
     const { promo_items: promoItems = {} } = globalContent;
     const { basic } = promoItems;
 
-    return promoItems && <AperturaNoticia basic={basic} />;
+    return (
+        JSON.stringify(promoItems) !== JSON.stringify({}) && (
+            <AperturaNoticia basic={basic} />
+        )
+    );
 };
 
 aperturaNoticia.label = 'LN-Nota-AperturaNoticia';
