@@ -19,7 +19,6 @@
     .--vertical & {
         .--slider & {
             object-fit: contain;
-            height: 100%;
         }
 
         .--active & {
@@ -32,6 +31,9 @@
                 max-width: 1000px;
                 width: auto;
             }
+        }
+        .--active.--slider & {
+            height: 100%;
         }
     }
 }
