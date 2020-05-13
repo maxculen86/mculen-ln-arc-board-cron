@@ -30,11 +30,11 @@ exports[`Ranking matches snapshot 1`] = `
               class="mod-figure --horizontal"
               role="button"
             >
-              <picture
-                class="mod-picture "
+              <a
+                href="/autos/test-de-generacion-de-url/"
               >
-                <a
-                  href="/autos/test-de-generacion-de-url/"
+                <picture
+                  class="mod-picture "
                 >
                   <source
                     media="(min-width: 768px)"
@@ -45,8 +45,8 @@ exports[`Ranking matches snapshot 1`] = `
                     loading="lazy"
                     src="https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/PWQEKVCUHJGJLBUDQOYDEII5XU.jpg"
                   />
-                </a>
-              </picture>
+                </picture>
+              </a>
             </figure>
           </section>
         </div>
@@ -76,13 +76,13 @@ exports[`Ranking matches snapshot 1`] = `
             class="mod-media   "
             role="button"
           >
-            <picture
-              class="mod-picture --placeholder"
+            <a
+              href="/recetas/receta-de-prueba-con-volanta/"
             >
-              <a
-                href="/recetas/receta-de-prueba-con-volanta/"
+              <picture
+                class="mod-picture "
               />
-            </picture>
+            </a>
           </section>
         </div>
         <div
@@ -114,13 +114,13 @@ exports[`Ranking matches snapshot 1`] = `
             class="mod-media   "
             role="button"
           >
-            <picture
-              class="mod-picture --placeholder"
+            <a
+              href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
             >
-              <a
-                href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
+              <picture
+                class="mod-picture "
               />
-            </picture>
+            </a>
           </section>
         </div>
         <div

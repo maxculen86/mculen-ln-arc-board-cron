@@ -247,7 +247,7 @@
     @if $display == flex {
         $display: flex;
     } @else if $display == inline {
-        $display: flex-inline;
+        display: inline-flex;
     }
     @if $ejeX == start {
         $ejeX: flex-start;
