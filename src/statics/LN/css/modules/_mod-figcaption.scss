@@ -11,6 +11,9 @@
     .--credit {
         display: block;
         padding-bottom: px(8);
+        display: flex;
+        overflow-wrap: anywhere;
+
         &:empty {
             display: none;
         }
