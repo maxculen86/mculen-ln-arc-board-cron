@@ -12,12 +12,15 @@
         justify-content: center;
         background: $gris1;
     }
+    .--active.--slider & {
+        background: none;
+    }
 }
 
 .mod-caja-nota {
     .mod-picture {
         width: 100%;
-        background: #f2f2f2;
+        background: $gris1;
         // max-height: 100%;
         // max-width: 100%;
         position: relative;
