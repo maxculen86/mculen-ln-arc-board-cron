@@ -426,18 +426,21 @@ export default {
         targeting: defaultTargeting
     },
     caja1_amp: {
+        slotName: '/133919216/AMP/ROS/caja1_amp',
         dimensions: {
             width: 300,
             height: 250
         }
     },
     caja2_amp: {
+        slotName: '/133919216/AMP/ROS/caja2_amp',
         dimensions: {
             width: 300,
             height: 250
         }
     },
     sticky_amp: {
+        slotName: '/133919216/AMP/ROS/sticky_amp',
         dimensions: {
             width: 320,
             height: 50
