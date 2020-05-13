@@ -28,7 +28,8 @@ describe('Cuerpo Default', () => {
                         {
                             content:
                                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                            type: 'text'
+                            type: 'text',
+                            additional_properties: {}
                         }
                     ]
                 ],
