@@ -12,18 +12,25 @@ class LiftIgniter extends Component {
     render() {
         const {
             globalContent: {
+                credits: { by: authors },
                 taxonomy: { primary_section: primarySection, tags },
                 label
             }
         } = this.props;
         const { name: tematica } = primarySection || {};
 
-        const script = {
+        let script = {
             noShow: true,
             noIndex: label.recomendar ? Boolean(label.recomendar.text) : true,
             tematica,
             tags: tags.map(tag => tag.text)
         };
+
+        if (authors.length >= 1)
+            script = {
+                ...script,
+                autor: authors.map(author => author.name).join('')
+            };
 
         return (
             <script
@@ -31,7 +38,9 @@ class LiftIgniter extends Component {
                 id="liftigniter-metadata"
                 type="application/json"
                 // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(script) }}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(script)
+                }}
             />
         );
     }
