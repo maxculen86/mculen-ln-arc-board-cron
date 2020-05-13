@@ -5,27 +5,21 @@ import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ComPicture = props => {
     const { href, classCondition, children } = props;
-    // if (!children)
-    //     return (
-    //         <a href={href}>
-    //             <picture className="mod-picture --placeholder"></picture>
-    //         </a>
-    //     );
+    function PictureBasic(classCon) {
+        return (
+            <picture className={`mod-picture ${classCon || ''}`}>
+                {children}
+            </picture>
+        );
+    }
     return (
-        // <picture className={`mod-picture ${classCondition || ''}`}>
-        //     {href ? <a href={href}>{children}</a> : children}
-        // </picture>
         <>
             {href ? (
                 <a href={href}>
-                    <picture className={`mod-picture ${classCondition || ''}`}>
-                        {children}
-                    </picture>
+                    <PictureBasic classCon={classCondition} />
                 </a>
             ) : (
-                <picture className={`mod-picture ${classCondition || ''}`}>
-                    {children}
-                </picture>
+                <PictureBasic classCon={classCondition} />
             )}
         </>
     );
