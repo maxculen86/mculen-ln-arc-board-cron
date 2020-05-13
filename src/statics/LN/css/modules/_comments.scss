@@ -40,8 +40,8 @@
             position: relative;
             &:after {
                 font-family: $font-icons;
-                content: '\e909';
-                font-size: $font-14;
+                content: '\e906';
+                font-size: $font-18;
                 position: absolute;
                 top: $px-2;
                 right: -1.25rem;
@@ -54,8 +54,8 @@
             &:after {
                 transform: rotate(180deg);
                 font-family: $font-icons;
-                content: '\e909';
-                font-size: $font-14;
+                content: '\e906';
+                font-size: $font-18;
                 position: absolute;
                 top: $px-2;
                 right: -1.25rem;

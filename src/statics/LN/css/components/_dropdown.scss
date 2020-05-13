@@ -1,3 +1,5 @@
+@import '../abstracts/variables';
+
 body {
     .wrap-dropdown {
         display: none;
@@ -57,7 +59,7 @@ body {
                     max-height: 130px;
                     z-index: 2;
                     .logo__dropdown {
-                        padding: 15px 20px;
+                        padding: 0.4375rem 1.1875rem 0.625rem;
                         @media (min-width: 768px) {
                             padding: 10px 20px;
                         }
@@ -65,14 +67,14 @@ body {
                         justify-content: flex-start;
                         align-items: center;
                         i {
+                            font-size: 17px;
                             color: #006998;
                             @media (min-width: 768px) {
-                                font-size: 18px;
                             }
                         }
                     }
                     .close__dropdown {
-                        padding: 15px 20px;
+                        padding: 0.4375rem 1.1875rem 0.625rem;
                         @media (min-width: 768px) {
                             padding: 10px 20px;
                         }
@@ -83,6 +85,11 @@ body {
                         i {
                             font-size: 25px;
                             color: #3f3f3f;
+                        }
+                        &:hover {
+                            i {
+                                color: $link;
+                            }
                         }
                     }
                     .search__dropdown {
@@ -97,6 +104,7 @@ body {
                             display: flex;
                             justify-content: flex-end;
                             align-items: center;
+                            font-size: 22px;
                             i {
                                 position: absolute;
                                 right: 10px;
@@ -107,6 +115,7 @@ body {
                                 display: flex;
                                 padding: 10px;
                                 border-radius: 3px;
+                                font-size: inherit;
                             }
                         }
                     }
@@ -293,11 +302,10 @@ body {
                                     flex-grow: 1;
 
                                     i {
-                                        font-size: 20px;
+                                        font-size: 22px;
                                         color: #3f3f3f;
                                         @media (min-width: 768px) {
                                             transform: rotate(-90deg);
-                                            font-size: 16px;
                                         }
                                     }
                                 }
