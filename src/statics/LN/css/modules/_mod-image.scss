@@ -8,8 +8,9 @@
     transition: all 0.2s ease-in-out;
     .mod-autor & {
         @include flex(inline);
-        background: $gris4;
+        background: $gris3;
         width: px(80);
+        max-width: px(80);
         height: px(80);
         border-radius: 50%;
         margin-right: $spacing-sm;
