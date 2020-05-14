@@ -68,6 +68,8 @@ const Cuerpo = props => {
                         <Component
                             data={element}
                             capital={currentIndex === capitalIndex}
+                            outputType={outputType}
+                            {...extraProps}
                         />
                         {banners &&
                             banners
