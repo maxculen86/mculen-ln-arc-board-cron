@@ -79,7 +79,7 @@ const Cuerpo = props => {
                                     banner =>
                                         banner.position === currentIndex + 1
                                 )
-                                .reduce((accumulator, value) => {
+                                .map(value => {
                                     const data = {
                                         siteProperties,
                                         isAdmin,
@@ -94,10 +94,13 @@ const Cuerpo = props => {
                                             background: value.background
                                         }
                                     };
-                                    return elementsCount > currentIndex + 1 ? (
-                                        <Banner {...data} />
-                                    ) : null;
-                                }, [])
+
+                                    return (
+                                        elementsCount > currentIndex + 1 && (
+                                            <Banner {...data} />
+                                        )
+                                    );
+                                })
                         ) : (
                             <></>
                         )}

@@ -24,6 +24,7 @@ const getPropsBuilderFromContentElements = position => contentElements =>
         : contentElements
               .filter(
                   contentElement =>
+                      contentElement.additional_properties &&
                       contentElement.additional_properties.nodeType === 'firma'
               )
               .map(author => ({ name: author.content }))
