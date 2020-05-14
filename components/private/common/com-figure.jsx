@@ -12,7 +12,7 @@ const ComFigure = ({ classCondition, children, handleClick, outputType }) => {
             onKeyDown={handleClick}
             className={`mod-figure ${classCondition}`}
         >
-            {amp ? <noscript>{children}</noscript> : children}
+            {children}
         </figure>
     ) : (
         <></>
