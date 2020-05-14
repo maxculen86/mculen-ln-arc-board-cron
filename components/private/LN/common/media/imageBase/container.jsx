@@ -10,7 +10,9 @@ class ImageArticle extends React.PureComponent {
     }
 
     render() {
-        const { image, altText, zoom, href, outputType, active } = this.props;
+        const { image, zoom, href, outputType, active } = this.props;
+        const { alt_text: altText, caption } = image;
+        const altBasic = altText || caption || '';
         if (!image.url) return null;
         const amp = outputType === 'amp';
 
@@ -26,7 +28,7 @@ class ImageArticle extends React.PureComponent {
                     active={active}
                     urlDefault={image.url}
                     sources={sources || []}
-                    altText={altText}
+                    altText={altBasic}
                     zoom={zoom}
                     sourcesZoom={sourcesZoom || []}
                     href={href}
@@ -46,9 +48,10 @@ ImageArticle.propTypes = {
         resized_urls: PropTypes.array.isRequired,
         resized_urls_zoom: PropTypes.array.isRequired,
         width: PropTypes.number,
-        height: PropTypes.number
+        height: PropTypes.number,
+        alt_text: PropTypes.string,
+        caption: PropTypes.string
     }).isRequired,
-    altText: PropTypes.string,
     zoom: PropTypes.bool,
     active: PropTypes.bool.isRequired,
     href: PropTypes.string

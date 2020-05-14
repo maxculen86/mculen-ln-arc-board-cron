@@ -178,6 +178,10 @@ export default `
         basic {
             ${image}
             ${video}
+            alt_text
+            additional_properties {
+                iptc_source
+            }
         }
         receta {
             ${customReceta}
@@ -249,6 +253,10 @@ export default `
         citation {
             type
             content
+        }
+        alt_text
+        additional_properties {
+            iptc_source
         }
         ${image}
         ${customReceta}
