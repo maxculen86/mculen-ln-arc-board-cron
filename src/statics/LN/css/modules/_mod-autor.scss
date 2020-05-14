@@ -35,26 +35,6 @@
                         font-weight: 100;
                     }
                 }
-                // &:not(:only-child):first-child {
-                //     &:before {
-                //         content: 'Por';
-                //     }
-                // }
-                // &:first-child {
-                //     &:before {
-                //         content: 'Por';
-                //     }
-                // }
-                // &:first-child {
-                //     &:before {
-                //         .cuerpo__nota & {
-                //             content: 'Por';
-                //             padding-right: px(5);
-                //             color: $negro;
-                //             font-weight: 100;
-                //         }
-                //     }
-                // }
                 &:first-child {
                     &:before {
                         .cuerpo__nota & {
@@ -72,6 +52,9 @@
             width: 100%;
         }
     }
+    .cuerpo__nota & {
+        margin-bottom: px(40);
+    }
     .container-img + .container-text {
         .container-firma {
             &:first-child {
@@ -81,20 +64,4 @@
             }
         }
     }
-    // .container-img,
-    // .mod-image {
-    //     @include flex(inline);
-    //     background: $gris4;
-    //     width: px(80);
-    //     height: px(80);
-    //     border-radius: 50%;
-    //     margin-right: $spacing-sm;
-    //     overflow: hidden;
-    //     // .img,
-    //     // .com-image {
-    //     //     width: px(80);
-    //     //     height: px(80);
-    //     //     display: block;
-    //     // }
-    // }
 }
