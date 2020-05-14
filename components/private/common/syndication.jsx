@@ -10,7 +10,8 @@ const Syndication = ({ subtype, syndication, arcSite }) => {
     return (
         subtype === '1' &&
         syndication !== undefined &&
-        ((!externalDistribution && !search) || externalDistribution) && (
+        ((!externalDistribution && !search) ||
+            (!search && externalDistribution)) && (
             <meta name="robots" content="noindex, follow" />
         )
     );

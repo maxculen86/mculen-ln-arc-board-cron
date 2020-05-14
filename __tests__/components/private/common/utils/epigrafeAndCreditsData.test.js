@@ -11,15 +11,13 @@ describe('Common - EpigrafeAndCreditsData', () => {
                 }
             ]
         },
-        distributor: {
-            category: 'staff',
-            mode: 'custom',
-            name: 'Tincho'
+        additional_properties: {
+            iptc_source: 'LA NACION'
         }
     };
     test('EpigrafeAndCreditsData', () => {
         expect(EpigrafeAndCreditsData(parameterTest)).toStrictEqual(
-            'Fuente: Tincho - Crédito: martin Lopez'
+            'martin Lopez - LA NACION'
         );
     });
 });

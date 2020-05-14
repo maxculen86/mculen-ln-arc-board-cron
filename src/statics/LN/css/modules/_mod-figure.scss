@@ -15,7 +15,7 @@
             color: $blanco;
             background: rgba(0, 0, 0, 0.7);
             font-size: px(16);
-            width: px(31);
+            width: px(32);
             height: px(24);
             position: absolute;
             top: px(8);
@@ -49,6 +49,9 @@
             display: flex;
             position: fixed;
             right: px(8);
+            font-size: px(22);
+            width: px(40);
+            height: px(30);
         }
     }
     &.--vertical {

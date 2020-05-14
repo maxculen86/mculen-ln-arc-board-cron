@@ -9,6 +9,7 @@
     line-height: px(24);
     border-bottom: 1px solid #ccc;
     padding-bottom: px(8);
+    min-height: px(33);
 
     //100% mobile
     width: calc(100% + 2.5rem);
@@ -20,6 +21,7 @@
         margin-left: 0;
         padding-left: 0;
         padding-right: 0;
+        border-bottom: none;
     }
 
     .--caption,
@@ -44,6 +46,10 @@
         width: 100%;
         text-align: left;
         padding: 0 px(16);
+        border-bottom: none;
+
+        order: none;
+        margin-left: 0;
         @media ($media-l) {
             //1024
             padding: 0;

@@ -11,6 +11,9 @@ const image = ({ data, withZoom }) => {
 
     const handleClick = () => {
         setActive(!active);
+        active
+            ? document.body.classList.remove('--no-scroll')
+            : document.body.classList.add('--no-scroll');
     };
 
     return (
