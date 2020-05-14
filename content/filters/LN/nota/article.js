@@ -22,6 +22,9 @@ const section = `
 
 const image = `
     type
+    additional_properties {
+        iptc_source
+    }
     resized_urls {
         ${imageResizedUrl}             
     }
@@ -89,6 +92,7 @@ const video = `
     }
     additional_properties {
         nodeType
+        iptc_source
         advertising {
             playAds
         }
@@ -264,6 +268,9 @@ export default `
         ${video}
         content_elements {
             _id
+            additional_properties {
+                iptc_source
+            }
             content
             ${image}
         }
