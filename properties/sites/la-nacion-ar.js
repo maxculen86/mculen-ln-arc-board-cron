@@ -209,8 +209,8 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 560,
-                            height: 400,
+                            width: 1280,
+                            height: 768,
                             media: '(min-width: 1280px)'
                         },
                         {
@@ -238,8 +238,8 @@ export default {
                 content_elements: {
                     sizes: [
                         {
-                            width: 560,
-                            height: 400,
+                            width: 1280,
+                            height: 768,
                             media: '(min-width: 1280px)'
                         },
                         {
