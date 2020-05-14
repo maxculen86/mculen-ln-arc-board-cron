@@ -6,7 +6,11 @@ import FooterAMP from './footerAMP';
 import '../../../../../resources/dist/css/ln/components/footer.css';
 
 const Index = ({ outputType, siteProperties: { host } }) => {
-    if (outputType === 'amp') return <FooterAMP />;
+    const year = new Date().getFullYear();
+    const copyrightText = `Copyright ${year} SA LA NACION | Todos los derechos
+                            reservados`;
+    if (outputType === 'amp')
+        return <FooterAMP copyrightText={copyrightText} />;
     return (
         <footer>
             <div className="lay">
@@ -91,10 +95,7 @@ const Index = ({ outputType, siteProperties: { host } }) => {
                         </p>
                     </section>
                     <section className="col-desksm-6 col-desk-6 footer-copyright__reserved">
-                        <p>
-                            Copyright 2020 SA LA NACION | Todos los derechos
-                            reservados
-                        </p>
+                        <p>{copyrightText}</p>
                     </section>
                 </section>
             </div>
