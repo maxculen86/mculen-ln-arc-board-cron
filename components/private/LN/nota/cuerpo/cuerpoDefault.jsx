@@ -38,6 +38,8 @@ const Cuerpo = props => {
         Image
     ];
 
+    console.log('####### LOS BANNERS: ', banners);
+
     const types = ['text', 'image', 'oembed_response', 'video'];
 
     const getElementsCount = supportedTypes =>
@@ -47,6 +49,10 @@ const Cuerpo = props => {
     const elementsCount = getElementsCount(types);
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
+
+    /* console.log("lo que me devuelve el filter: ", contentElements.map((element, currentIndex) => {
+
+    })) */
 
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
@@ -70,9 +76,13 @@ const Cuerpo = props => {
                             capital={currentIndex === capitalIndex}
                         />
                         {banners &&
+                        banners.some(
+                            banner => banner.position === currentIndex + 1
+                        ) ? (
                             banners
                                 .filter(
-                                    banner => banner.position === currentIndex
+                                    banner =>
+                                        banner.position === currentIndex + 1
                                 )
                                 .reduce((accumulator, value) => {
                                     const data = {
@@ -89,10 +99,13 @@ const Cuerpo = props => {
                                             background: value.background
                                         }
                                     };
-                                    return elementsCount > currentIndex ? (
+                                    return elementsCount > currentIndex + 1 ? (
                                         <Banner {...data} />
                                     ) : null;
-                                }, [])}
+                                }, [])
+                        ) : (
+                            <></>
+                        )}
                     </React.Fragment>
                 );
             }
