@@ -161,20 +161,20 @@ function WithAcuArticlesData(
                 } = this.props;
 
                 if (type === 'story') {
-                    if (articles.find(e => e._id === _id) !== undefined) {
-                        articlesArray = articles.filter(article => {
-                            return (
-                                article._id !== _id && this.isRecommend(article)
-                            );
-                        });
-                    } else {
-                        const { size } = this.props;
-                        articlesArray = articles
-                            .filter(article => {
-                                return this.isRecommend(article);
-                            })
-                            .slice(0, size.originalSize);
-                    }
+                    const isIdPresent =
+                        articles && articles.find(e => e._id === _id);
+                    const {
+                        size: { originalSize }
+                    } = this.props;
+
+                    articlesArray = articles
+                        .filter(article => {
+                            return isIdPresent
+                                ? article._id !== _id &&
+                                      this.isRecommend(article)
+                                : this.isRecommend(article);
+                        })
+                        .slice(0, originalSize);
                 }
 
                 return (
