@@ -6,6 +6,13 @@ describe('Liftigniter', () => {
     const props = {
         location: 'body-top',
         globalContent: {
+            credits: {
+                by: [
+                    {
+                        name: 'John Doe'
+                    }
+                ]
+            },
             taxonomy: {
                 primary_section: {
                     name: 'Turismo'
@@ -38,7 +45,8 @@ describe('Liftigniter', () => {
             noShow: true,
             noIndex: false,
             tematica: 'Turismo',
-            tags: ['comun', 'turismo']
+            tags: ['comun', 'turismo'],
+            autor: 'John Doe'
         });
 
         expect(component.find('script')).toHaveLength(1);

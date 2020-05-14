@@ -43,4 +43,12 @@
             font-size: $font-14;
         }
     }
+    .noticia & {
+        .com-item {
+            line-height: $px-30;
+            &:before {
+                top: $px-10;
+            }
+        }
+    }
 }

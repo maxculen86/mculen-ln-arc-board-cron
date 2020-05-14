@@ -49,8 +49,11 @@
         padding: $px-3 $px-5;
         color: $blanco;
         position: absolute;
-        right: 0;
         top: 0;
+        right: px(20);
+        @media ($media-m) {
+            right: 0;
+        }
     }
 }
 

@@ -6,6 +6,8 @@
     width: 100%;
     position: relative;
     transition: all 0.2s ease-in-out;
+    margin-bottom: px(8);
+
     .--slider & {
         display: flex;
         padding-bottom: calc((2 / 3) * 100%);
@@ -15,11 +17,25 @@
     .--active.--slider & {
         background: none;
     }
+
+    //100% mobile
+    width: calc(100% + 2.5rem);
+    margin-left: px(-20);
+    @media ($media-l) {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .mod-caja-nota & {
+        .cuerpo__nota & {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
 }
 
 .mod-caja-nota {
     .mod-picture {
-        width: 100%;
         background: $gris1;
         // max-height: 100%;
         // max-width: 100%;

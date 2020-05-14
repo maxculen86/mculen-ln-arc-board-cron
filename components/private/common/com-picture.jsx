@@ -5,13 +5,24 @@ import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ComPicture = props => {
     const { href, classCondition, children } = props;
-    function PictureBasic(classCon) {
+    /**
+     * Se agregan propTypes y defautProps al componente PictureBasic
+     * Porque Jest toma la falta de proptypes en los componentes como un error
+     * Entonces le agrega [object Object] a los snapshots y empiezan a romper.
+     */
+    const PictureBasic = ({ classCon }) => {
         return (
             <picture className={`mod-picture ${classCon || ''}`}>
                 {children}
             </picture>
         );
-    }
+    };
+    PictureBasic.propTypes = {
+        classCon: PropTypes.string
+    };
+    PictureBasic.defaultProps = {
+        classCon: ''
+    };
     return (
         <>
             {href ? (
