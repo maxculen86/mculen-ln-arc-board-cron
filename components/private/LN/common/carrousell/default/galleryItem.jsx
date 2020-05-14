@@ -12,7 +12,8 @@ const galleryItem = ({
     withZoom,
     itsGallery,
     handleClick,
-    active
+    active,
+    outputType
 }) => {
     const credito = EpigrafeAndCreditsData(mediaData);
     return (
@@ -23,6 +24,7 @@ const galleryItem = ({
                 itsGallery={itsGallery}
                 handleClick={handleClick}
                 active={active}
+                outputType={outputType}
             >
                 {mediaData && (
                     <ComFigcaption>

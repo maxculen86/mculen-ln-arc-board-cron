@@ -52,6 +52,7 @@ const media = ({
                         handleClick={
                             itsGallery || zoom ? handleClick : () => {}
                         }
+                        outputType={outputType}
                     >
                         <Image active={active} image={mediaData} href={href} />
                         {children}

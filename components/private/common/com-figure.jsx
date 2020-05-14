@@ -3,7 +3,8 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-figure.css';
 
-const ComFigure = ({ classCondition, children, handleClick }) => {
+const ComFigure = ({ classCondition, children, handleClick, outputType }) => {
+    const amp = outputType === 'amp';
     return children ? (
         <figure
             role="button"
@@ -11,7 +12,7 @@ const ComFigure = ({ classCondition, children, handleClick }) => {
             onKeyDown={handleClick}
             className={`mod-figure ${classCondition}`}
         >
-            {children}
+            {amp ? <noscript>{children}</noscript> : children}
         </figure>
     ) : (
         <></>
@@ -21,7 +22,8 @@ const ComFigure = ({ classCondition, children, handleClick }) => {
 ComFigure.propTypes = {
     children: PropTypes.elementType.isRequired,
     classCondition: PropTypes.string.isRequired,
-    handleClick: PropTypes.func.isRequired
+    handleClick: PropTypes.func.isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 export default ComFigure;
