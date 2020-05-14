@@ -11,7 +11,7 @@ const headerAMP = props => {
                                 on="tap:sidebar-left.toggle"
                                 className="icon-menu"
                             >
-                                Menú
+                                Secciones
                             </button>
                         </div>
                         <div className="col-6 col-desksm-4 header__middle">
@@ -25,7 +25,10 @@ const headerAMP = props => {
                         <div className="offset-2 offset-tablet-0 col-4 col-tablet-6 col-desksm-4 header__right">
                             <div id="user-menu" className="com-usuario">
                                 <div className="row">
-                                    <div className="col-12 col-tablet-6">
+                                    <div class="col-desksm-4 hlp-tablet-none">
+                                        {' '}
+                                    </div>
+                                    <div className="col-12 col-desksm-4">
                                         <a
                                             className="suscribir__header --btn --highlight"
                                             href="https://suscripciones.lanacion.com.ar/suscribirme"
@@ -33,7 +36,7 @@ const headerAMP = props => {
                                             Suscribite
                                         </a>
                                     </div>
-                                    <div className="col-tablet-6 hlp-mobile-none">
+                                    <div className="col-desksm-4 hlp-tablet-none">
                                         <button
                                             type="button"
                                             className="--btn --secondary"

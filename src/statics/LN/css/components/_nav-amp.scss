@@ -159,7 +159,7 @@ amp-sidebar {
                 font-size: 30px;
                 display: block;
                 font-family: 'LNicons';
-                content: '\e912';
+                content: '\e917';
             }
         }
     }
@@ -373,3 +373,15 @@ a.icon-cerrar:before {
     }
 }
 */
+.amp {
+    .header {
+        .com-usuario {
+            .col-12 {
+                text-align: right;
+                @media (min-width: 769px) {
+                    text-align: initial;
+                }
+            }
+        }
+    }
+}
