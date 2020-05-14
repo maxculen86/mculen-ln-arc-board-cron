@@ -209,8 +209,8 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 560,
-                            height: 400,
+                            width: 1280,
+                            height: 768,
                             media: '(min-width: 1280px)'
                         },
                         {
@@ -238,8 +238,8 @@ export default {
                 content_elements: {
                     sizes: [
                         {
-                            width: 560,
-                            height: 400,
+                            width: 1280,
+                            height: 768,
                             media: '(min-width: 1280px)'
                         },
                         {
@@ -518,17 +518,20 @@ export default {
                     sizes: [
                         {
                             width: 600,
-                            height: 300,
+                            //height: 300, cambio a 3:2
+                            height: 400,
                             media: '(min-width: 64em)'
                         },
                         {
                             width: 520,
-                            height: 200,
+                            //height: 200, cambio a 3:2
+                            height: 347,
                             media: '(min-width: 48em)'
                         },
                         {
                             width: 375,
-                            height: 100,
+                            // height: 100, cambio a 3:2
+                            height: 250,
                             media: '(min-width: 20em)'
                         }
                     ]

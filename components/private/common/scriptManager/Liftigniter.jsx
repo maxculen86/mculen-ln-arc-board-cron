@@ -15,6 +15,7 @@ class LiftIgniter extends Component {
         return object
             .filter(
                 contentElement =>
+                    contentElement.additional_properties &&
                     contentElement.additional_properties.nodeType === 'firma'
             )
             .map(author => author.content)
