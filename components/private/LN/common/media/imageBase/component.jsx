@@ -5,6 +5,7 @@ import ComImage from '../../../../common/com-image';
 import ComSource from '../../../../common/com-source';
 
 const imageBase = ({
+    srcsetAMP,
     urlDefault,
     sources,
     sourcesZoom,
@@ -27,6 +28,7 @@ const imageBase = ({
     const pic = (
         <Placeholder href={href} zoom={zoom} isVertical={isVertical}>
             {!active &&
+                !amp &&
                 sources &&
                 sources.map(x => {
                     return (
@@ -39,6 +41,7 @@ const imageBase = ({
                 })}
             {!active && (
                 <ComImage
+                    srcsetAMP={srcsetAMP}
                     src={urlDefault}
                     alt={altText}
                     amp={amp}

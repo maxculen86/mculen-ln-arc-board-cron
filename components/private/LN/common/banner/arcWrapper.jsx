@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { baseConfig } from './config';
+import hasAdsTestParam from '../utils/hasAdsTesParam';
 
 // TODO: faltan propTypes, probar import de acrAds.js aca
 class ArcWrapper extends Component {
@@ -32,7 +33,7 @@ class ArcWrapper extends Component {
                 dimensions,
                 adType,
                 display,
-                targeting,
+                targeting: { ...targeting, adstest: hasAdsTestParam() },
                 sizemap: {
                     breakpoints,
                     refresh

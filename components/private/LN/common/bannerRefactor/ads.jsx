@@ -3,11 +3,7 @@ import React, { useRef, useCallback } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { baseConfig } from './config';
 import useMutationObserver from '../../../common/hooks/useMutationObserver';
-
-const testQueryString = () => {
-    const urlParams = new URLSearchParams(window.location.search) || {};
-    return urlParams.get('adstest') === 'true' ? 'true' : 'false';
-};
+import hasAdsTestParam from '../utils/hasAdsTesParam';
 
 const Ads = props => {
     const ref = useRef();
@@ -46,7 +42,7 @@ const Ads = props => {
                 slotName,
                 dimensions,
                 display,
-                targeting: { ...targeting, adstest: testQueryString() },
+                targeting: { ...targeting, adstest: hasAdsTestParam() },
                 sizemap: {
                     breakpoints,
                     refresh

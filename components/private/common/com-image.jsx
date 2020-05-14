@@ -8,6 +8,7 @@ const ComImage = props => {
     const {
         src,
         srcset,
+        srcsetAMP,
         alt,
         layout,
         classCondition,
@@ -21,7 +22,7 @@ const ComImage = props => {
             {amp ? (
                 <amp-img
                     src={src}
-                    srcset={srcset}
+                    srcset={srcsetAMP}
                     layout={layout || 'responsive'}
                     width={width}
                     height={height}

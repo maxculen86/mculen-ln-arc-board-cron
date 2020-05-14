@@ -148,8 +148,13 @@ export const resizeArcImage = (
             ? zoomSizes.map(e => ({ ...e, isNotSmart: true }))
             : zoomSizes;
 
+    /**
+     * TODO: Optimizar codigo duplicado
+     */
     return {
         ...arcImage,
+        width: fp ? 768 : arcImage.width,
+        height: fp ? 513 : arcImage.height,
         url:
             IS_DEV === 'true' || IS_SANDBOX === 'true'
                 ? resizer.resizeUrl(
