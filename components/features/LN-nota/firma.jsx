@@ -16,7 +16,7 @@ const filterByAuthor = authors =>
     authors.filter(author => author.type === 'author');
 
 const renderAsList = (authors, position) =>
-    authors.length >= 1 || position === place.Bottom;
+    authors.length > 1 || position === place.Bottom;
 
 const getPropsBuilderFromContentElements = position => contentElements =>
     position === place.Top
@@ -42,7 +42,7 @@ const getPropsBuilder = position => authors =>
         .map(author => ({
             name: author.name,
             link: author.url || null,
-            photo: author.image,
+            photo: author.image || null,
             medio: author.additional_properties.original
         }))
         .reduce(
@@ -63,17 +63,21 @@ const getPropsBuilder = position => authors =>
                     ...{
                         photo: renderAsList(authors, position)
                             ? null
-                            : value.photo.url
+                            : value.photo
+                            ? value.photo.url
+                            : null
                     },
                     ...{
                         medio: renderAsList(authors, position)
                             ? null
-                            : value.medio.role
+                            : value.medio
+                            ? value.medio.role
+                            : null
                     }
                 };
                 return props;
             },
-            { authors: [], photo: null, medio: null }
+            { authors: [], photo: null, medio: null, smth: 'credits' }
         );
 
 const FirmaFeature = props => {

@@ -38,21 +38,14 @@ const Cuerpo = props => {
         Image
     ];
 
-    console.log('####### LOS BANNERS: ', banners);
-
     const types = ['text', 'image', 'oembed_response', 'video'];
 
     const getElementsCount = supportedTypes =>
-        contentElements.filter(el => supportedTypes.includes(el.type)).length -
-        1;
+        contentElements.filter(el => supportedTypes.includes(el.type)).length;
 
     const elementsCount = getElementsCount(types);
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
-
-    /* console.log("lo que me devuelve el filter: ", contentElements.map((element, currentIndex) => {
-
-    })) */
 
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
