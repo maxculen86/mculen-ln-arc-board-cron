@@ -20,6 +20,7 @@
         margin-left: 0;
         padding-left: 0;
         padding-right: 0;
+        border-bottom: none;
     }
 
     .--caption,
@@ -44,6 +45,10 @@
         width: 100%;
         text-align: left;
         padding: 0 px(16);
+        border-bottom: none;
+
+        order: none;
+        margin-left: 0;
         @media ($media-l) {
             //1024
             padding: 0;
