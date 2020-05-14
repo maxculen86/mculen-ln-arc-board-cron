@@ -11,6 +11,9 @@ const image = ({ data, withZoom }) => {
 
     const handleClick = () => {
         setActive(!active);
+        active
+            ? document.body.classList.remove('modal-open')
+            : document.body.classList.add('modal-open');
     };
 
     return (

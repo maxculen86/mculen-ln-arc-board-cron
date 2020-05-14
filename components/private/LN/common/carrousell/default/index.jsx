@@ -9,7 +9,11 @@ const index = props => {
 
     const handleClick = () => {
         setActive(!active);
+        active
+            ? document.body.classList.remove('modal-open')
+            : document.body.classList.add('modal-open');
     };
+
     return (
         <Carrousell itsGallery active={active}>
             {data.content_elements.map((v, i) => (
