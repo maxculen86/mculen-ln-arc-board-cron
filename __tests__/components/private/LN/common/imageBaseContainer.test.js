@@ -12,6 +12,7 @@ import ImageArticle from '../../../../../components/private/LN/common/media/imag
 describe('features - La Nacion - components - nota - imageArticle', () => {
     const image = {
         type: 'image',
+        alt_text: 'Bolitas de pescado para compartir',
         url:
             'https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg',
         resized_urls: [
@@ -47,12 +48,14 @@ describe('features - La Nacion - components - nota - imageArticle', () => {
 
     it('Test de armado de props', () => {
         const comp = mount(
-            <ImageArticle image={image} altText="texto alt" zoom />
+            <ImageArticle image={image} altText={image.alt_text} zoom />
         );
         const compBaseImage = comp.find('mock-image');
         expect(compBaseImage.length).toBe(1);
         expect(compBaseImage.prop('zoom')).toBe(true);
-        expect(compBaseImage.prop('altText')).toBe('texto alt');
+        expect(compBaseImage.prop('altText')).toBe(
+            'Bolitas de pescado para compartir'
+        );
         expect(compBaseImage.prop('sources')).toStrictEqual([
             {
                 resizedUrl:
