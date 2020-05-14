@@ -39,10 +39,32 @@
         }
     }
     .--active & {
-        width: 100%;
+        width: 50%;
+        @media (min-height: 400px) {
+            width: 100%;
+        }
+
         @media ($media-l) {
-            width: 90%;
-            max-width: 1000px;
+            //width: 90%;
+            //max-width: 1000px;
+
+            width: 50%;
+            max-width: px(1000);
+
+            @media (min-height: 600px) {
+                width: 60%;
+            }
+            @media (min-height: 750px) {
+                width: 70%;
+                max-width: px(1050);
+            }
+            @media (min-height: 800px) {
+                width: 75%;
+            }
+            @media (min-height: 950px) {
+                width: 85%;
+                max-width: px(1100);
+            }
         }
         &::before {
             content: '\e902';

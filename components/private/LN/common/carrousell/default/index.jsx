@@ -4,7 +4,7 @@ import Carrousell from '../../../../common/carousell';
 import GalleryItem from './galleryItem';
 
 const index = props => {
-    const { data, withZoom } = props;
+    const { data, withZoom, outputType } = props;
     const [active, setActive] = useState(false);
 
     const handleClick = () => {
@@ -25,6 +25,7 @@ const index = props => {
                     itsGallery
                     handleClick={handleClick}
                     active={active}
+                    outputType={outputType}
                 />
             ))}
         </Carrousell>

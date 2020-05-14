@@ -31,15 +31,31 @@
         justify-content: center;
         align-items: center;
         display: flex;
+
         .slide {
+            width: 50%;
+            @media (min-height: 400px) {
+                width: 100%;
+            }
             @media ($media-l) {
-                width: 60%;
+                width: 50%;
                 max-width: px(1000);
                 position: absolute;
+                @media (min-height: 600px) {
+                    width: 60%;
+                }
+                @media (min-height: 750px) {
+                    width: 70%;
+                    max-width: px(1050);
+                }
+                @media (min-height: 800px) {
+                    width: 75%;
+                }
+                @media (min-height: 950px) {
+                    width: 85%;
+                    max-width: px(1150);
+                }
             }
-            // PROBANDO @media (min-height : 700px){
-            //     width: 70%;
-            // }
             .mod-figure {
                 width: 100%;
                 max-width: none;
