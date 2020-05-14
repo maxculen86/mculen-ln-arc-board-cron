@@ -518,17 +518,20 @@ export default {
                     sizes: [
                         {
                             width: 600,
-                            height: 300,
+                            //height: 300, cambio a 3:2
+                            height: 400,
                             media: '(min-width: 64em)'
                         },
                         {
                             width: 520,
-                            height: 200,
+                            //height: 200, cambio a 3:2
+                            height: 347,
                             media: '(min-width: 48em)'
                         },
                         {
                             width: 375,
-                            height: 100,
+                            // height: 100, cambio a 3:2
+                            height: 250,
                             media: '(min-width: 20em)'
                         }
                     ]
