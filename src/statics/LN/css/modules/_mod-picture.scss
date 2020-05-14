@@ -8,20 +8,23 @@
     transition: all 0.2s ease-in-out;
     margin-bottom: px(8);
 
+    //100% mobile
+    width: calc(100% + 2.5rem);
+    margin-left: px(-20);
+    @media ($media-l) {
+        width: 100%;
+        margin-left: 0;
+    }
+
     .--slider & {
         display: flex;
         padding-bottom: calc((2 / 3) * 100%);
         justify-content: center;
         background: $gris1;
     }
+    .--active &,
     .--active.--slider & {
         background: none;
-    }
-
-    //100% mobile
-    width: calc(100% + 2.5rem);
-    margin-left: px(-20);
-    @media ($media-l) {
         width: 100%;
         margin-left: 0;
     }

@@ -5,7 +5,7 @@ import ComFigcaption from '../../../common/com-figcaption';
 import ComText from '../../../common/com-text';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
-const image = ({ data, withZoom }) => {
+const image = ({ data, withZoom, outputType }) => {
     const credito = EpigrafeAndCreditsData(data);
     const [active, setActive] = useState(false);
 
@@ -24,6 +24,7 @@ const image = ({ data, withZoom }) => {
                 colNumber={12}
                 handleClick={handleClick}
                 active={active}
+                outputType={outputType}
             >
                 {data && (
                     <ComFigcaption>

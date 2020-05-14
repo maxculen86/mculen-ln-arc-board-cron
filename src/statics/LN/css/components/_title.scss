@@ -61,9 +61,10 @@ h4.com-title-section-s {
 }
 
 h1.com-title-nota {
+    margin-top: $px-20;
     margin-bottom: $px-20;
-    //Valores de tablet para arriba
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
+        margin-top: 0;
         margin-bottom: $px-16;
     }
 }

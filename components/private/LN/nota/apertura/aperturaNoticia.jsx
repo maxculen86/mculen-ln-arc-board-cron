@@ -5,7 +5,7 @@ import ComFigcaption from '../../../common/com-figcaption';
 import ComText from '../../../common/com-text';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
-const aperturaNoticia = ({ basic }) => {
+const aperturaNoticia = ({ basic, outputType }) => {
     const credito = EpigrafeAndCreditsData(basic);
     const [active, setActive] = useState(false);
 
@@ -23,6 +23,7 @@ const aperturaNoticia = ({ basic }) => {
             handleClick={handleClick}
             active={active}
             isApertura
+            outputType={outputType}
         >
             {basic && (
                 <ComFigcaption>

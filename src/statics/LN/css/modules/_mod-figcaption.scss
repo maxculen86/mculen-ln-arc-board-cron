@@ -47,8 +47,6 @@
         text-align: left;
         padding: 0 px(16);
         border-bottom: none;
-
-        order: none;
         margin-left: 0;
         @media ($media-l) {
             //1024
@@ -63,6 +61,11 @@
     }
     .--zoom.--active.--slider & {
         text-align: left;
+        width: 100%;
+        margin-left: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border-bottom: none;
     }
 
     @media ($media-l) {

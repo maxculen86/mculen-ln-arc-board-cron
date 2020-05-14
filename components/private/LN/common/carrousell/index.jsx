@@ -7,7 +7,9 @@ const index = props => {
     const { outputType, data, withZoom = { withZoom } } = props;
 
     if (outputType === 'amp') return <CarrousellAmp data={data} />;
-    return <Carrousell data={data} withZoom={withZoom} />;
+    return (
+        <Carrousell data={data} withZoom={withZoom} outputType={outputType} />
+    );
 };
 
 index.arcType = 'gallery';

@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
-const FooterAMP = props => {
+const FooterAMP = ({ copyrightText }) => {
     return (
         <footer>
             <div className="lay">
@@ -323,15 +324,16 @@ const FooterAMP = props => {
                         </p>
                     </section>
                     <section className="col-desksm-6 col-desk-6 footer-copyright__reserved">
-                        <p>
-                            Copyright 2019 SA LA NACION | Todos los derechos
-                            reservados
-                        </p>
+                        <p>{copyrightText}</p>
                     </section>
                 </section>
             </div>
         </footer>
     );
+};
+
+FooterAMP.propTypes = {
+    copyrightText: PropTypes.string.isRequired
 };
 
 export default FooterAMP;
