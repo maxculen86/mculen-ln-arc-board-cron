@@ -9,6 +9,7 @@
     width: 100%;
     max-height: $px-60;
     height: $px-60;
+    transition: all 0.25s ease-in-out;
     .row {
         max-width: 390px;
         margin: 0 auto;
