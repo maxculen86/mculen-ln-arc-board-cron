@@ -7,6 +7,7 @@ const defaultCuerpo = contentElements => {
     const components = [Text, Header, Image, Video];
 
     const resp = [];
+
     contentElements.forEach(v => {
         const selectedComponent = components.find(c => c.type === v.type);
         if (selectedComponent) {

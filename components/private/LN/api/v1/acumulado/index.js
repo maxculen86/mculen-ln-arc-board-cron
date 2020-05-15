@@ -7,4 +7,5 @@ const index = (name, articles, next) => {
         notas: ArticleList(articles)
     };
 };
+
 export default index;
