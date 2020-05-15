@@ -32,7 +32,7 @@ const DetalleReceta = props => {
         return (
             <div className="row">
                 <div className="col-2 col-tablet-1">
-                    <i className="s" />
+                    <i className="icon-portions" />
                 </div>
                 <div className="portion-number col-10 col-tablet-11">
                     <span>
