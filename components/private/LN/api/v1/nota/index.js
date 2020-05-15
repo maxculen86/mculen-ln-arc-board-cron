@@ -20,7 +20,7 @@ const indexNota = dataNota => {
         id,
         template,
         url,
-        paywallStatus: dataNota.content_restrictions.content_code,
+        paywallStatus: get(dataNota, 'content_restrictions.content_code'),
         abiertoComentarios: dataNota.comments
             ? dataNota.comments.allow_comments
             : true,
