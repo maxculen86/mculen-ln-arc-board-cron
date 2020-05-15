@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/components/title.css';
 
-const TitleAcu = ({ headlines: { basic }, volanta, href }) => {
+const TitleAcu = ({ headlines: { basic, shortTitle }, volanta, href }) => {
     // TODO: ver de sacar volanta a otro componente para manejar el tema del punto repetido y etc
     // TODO: test y proptypes pendientes
     const volantaComponent = volanta && <b>{`${volanta} `}</b>;
@@ -10,7 +10,7 @@ const TitleAcu = ({ headlines: { basic }, volanta, href }) => {
         <h2 className="com-title-acu">
             <a href={href}>
                 {volantaComponent}
-                {basic}
+                {shortTitle || basic}
             </a>
         </h2>
     );
@@ -18,15 +18,19 @@ const TitleAcu = ({ headlines: { basic }, volanta, href }) => {
 
 TitleAcu.propTypes = {
     headlines: PropTypes.shape({
-        basic: PropTypes.string
-    }).isRequired,
+        basic: PropTypes.string.isRequerid,
+        shortTitle: PropTypes.string
+    }),
     volanta: PropTypes.string,
     href: PropTypes.string
 };
 
-// TitleAcu.defaultProps = {
-//     volanta: '',
-//     href: ''
-// };
+TitleAcu.defaultProps = {
+    volanta: '',
+    href: '',
+    headlines: {
+        shortTitle: ''
+    }
+};
 
 export default TitleAcu;
