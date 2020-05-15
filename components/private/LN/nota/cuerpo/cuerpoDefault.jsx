@@ -71,9 +71,9 @@ const Cuerpo = props => {
                             {...extraProps}
                         />
                         {banners &&
-                        banners.some(
-                            banner => banner.position === currentIndex + 1
-                        ) ? (
+                            banners.some(
+                                banner => banner.position === currentIndex + 1
+                            ) &&
                             banners
                                 .filter(
                                     banner =>
@@ -100,10 +100,7 @@ const Cuerpo = props => {
                                             <Banner {...data} />
                                         )
                                     );
-                                })
-                        ) : (
-                            <></>
-                        )}
+                                })}
                     </React.Fragment>
                 );
             }
