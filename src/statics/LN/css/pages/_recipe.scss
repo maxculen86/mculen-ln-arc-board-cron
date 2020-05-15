@@ -4,7 +4,7 @@
     background: $gris1;
     margin-bottom: $px-40;
     &.sin-foto {
-        .cont-figure .content-pic {
+        .col-desksm-8 .content-pic {
             background: $blanco;
         }
         .cont-aper {
@@ -31,11 +31,28 @@
         margin-bottom: $px-40;
     }
 
-    .cont-figure {
+    .col-desksm-8 {
+        > div {
+            width: 100%;
+            .mod-media {
+                margin: 0;
+                width: 100%;
+                .mod-picture {
+                    width: 100%;
+                    margin: 0;
+                    padding-top: calc((2 / 3) * 100%);
+                    img {
+                        position: absolute;
+                        top: 0;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
         @media ($media-l) {
             order: 2;
-            display: flex;
-            align-items: center;
+            //display: flex;
+            //align-items: center;
         }
     }
     .cont-aper {
