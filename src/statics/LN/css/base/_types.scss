@@ -5,7 +5,7 @@
 
 @include font-face('SuecaSlab', suecaslab-medium-webfont, 500);
 @include font-face('SuecaSlab', suecaslab-bold-webfont, 700);
-@include font-face('LNicons', ln-icons-v3, normal);
+@include font-face('LNicons', ln-icons-v4, normal);
 @include font-face('LNlogos', ln-logos, normal);
 
 strong,
@@ -150,6 +150,9 @@ strong,
 }
 .icon-zoom:before {
     content: '\e928';
+}
+.icon-portions:before {
+    content: '\e929';
 }
 
 /*
