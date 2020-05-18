@@ -40,13 +40,14 @@ const index = React.forwardRef((props, ref) => {
                 className={`mod-banner ${background ? '--bg-banner' : ''}
                     ${sticky ? '--sticky' : ''}
                     ${closeButton ? '--close' : ''}
+                    hlp-none
                 `}
                 ref={ref}
             >
                 {closeButton && (
                     <button
                         type="button"
-                        className="icon-close hlp-none"
+                        className="icon-closeS"
                         onClick={onClose}
                     />
                 )}

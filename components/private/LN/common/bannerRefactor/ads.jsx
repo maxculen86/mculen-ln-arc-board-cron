@@ -62,12 +62,7 @@ const Ads = props => {
                     if (node.localName === 'iframe') {
                         document
                             .querySelector(`#${id}`)
-                            .classList.remove('hlp-none');
-                        const closeButton = document.querySelector(`#${id}`)
-                            .previousSibling;
-                        if (closeButton) {
-                            closeButton.classList.remove('hlp-none');
-                        }
+                            .parentNode.classList.remove('hlp-none');
                     }
                 });
             });
@@ -81,7 +76,7 @@ const Ads = props => {
     });
 
     return (
-        <div id={id} className="com-banner hlp-none">
+        <div id={id} className="com-banner">
             <div>{children}</div>
         </div>
     );
