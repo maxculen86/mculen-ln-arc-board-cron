@@ -4,7 +4,7 @@
 import React from 'react';
 import Amp from './types';
 
-import { CAJA_1_AMP, CAJA_2_AMP, STICKY_AMP } from '../constants';
+import { CAJA_1_AMP, CAJA_2_AMP, CAJA_3_AMP } from '../constants';
 
 import withSimpleAmpWrapper from '../../decorators/withSimpleAmpWrapper';
 import withStickyAmpWrapper from '../../decorators/withStickyAmpWrapper';
@@ -18,7 +18,7 @@ export default config => {
             return React.createElement(withSimpleAmpWrapper(Amp), {
                 ...config
             });
-        case STICKY_AMP:
+        case CAJA_3_AMP:
             return React.createElement(withStickyAmpWrapper(Amp), {
                 ...config
             });

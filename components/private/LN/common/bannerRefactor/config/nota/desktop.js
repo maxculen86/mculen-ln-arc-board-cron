@@ -563,8 +563,8 @@ export default {
             height: 250
         }
     },
-    sticky_amp: {
-        slotName: '/133919216/AMP/ROS/sticky_amp',
+    caja3_amp: {
+        slotName: '/133919216/AMP/ROS/caja3_amp',
         dimensions: {
             width: 320,
             height: 50
