@@ -63,6 +63,11 @@ const Ads = props => {
                         document
                             .querySelector(`#${id}`)
                             .classList.remove('hlp-none');
+                        const closeButton = document.querySelector(`#${id}`)
+                            .previousSibling;
+                        if (closeButton) {
+                            closeButton.classList.remove('hlp-none');
+                        }
                     }
                 });
             });
