@@ -382,6 +382,103 @@
     color: $blanco;
 }
 
+//=============================
+// MEDIDAS DE FONT
+//=============================
+.--threexl {
+    font-size: px(32);
+    line-height: px(40);
+}
+.twoxl {
+    font-size: px(32);
+    line-height: px(40);
+}
+.--xl {
+    font-size: px(32);
+    line-height: px(40);
+}
+.--l {
+    font-size: px(24);
+    line-height: px(32);
+}
+.--m {
+    font-size: px(20);
+    line-height: px(28);
+}
+.--s {
+    font-size: px(20);
+    line-height: px(28);
+}
+.--xs {
+    font-size: px(16);
+    line-height: px(24);
+}
+.--twoxs {
+    font-size: px(18);
+    line-height: px(30);
+}
+.--threexs {
+    font-size: px(16);
+    line-height: px(24);
+    font-family: $font-arial;
+}
+.--fourxs {
+    font-size: px(15);
+    line-height: px(17);
+    font-family: $font-arial;
+}
+.--fivexs {
+    font-size: px(14);
+    line-height: px(17);
+    font-family: $font-arial;
+}
+.--sixxs {
+    font-size: px(12);
+    line-height: px(14);
+    font-family: $font-arial;
+}
+.--sevenxs {
+    font-size: px(11);
+    line-height: px(13);
+    font-family: $font-arial;
+}
+
+@media ($media-m) {
+    .--threexl {
+        font-size: px(40);
+        line-height: px(52);
+    }
+    .--twoxl {
+        font-size: px(40);
+        line-height: px(52);
+    }
+    .--xl {
+        font-size: px(32);
+        line-height: px(40);
+    }
+    .--s {
+        font-size: px(18);
+        line-height: px(26);
+    }
+}
+@media ($media-l) {
+    .--threexl {
+        font-size: px(48);
+        line-height: px(56);
+    }
+    .--twoxl {
+        font-size: px(40);
+        line-height: px(52);
+    }
+    .--xl {
+        font-size: px(32);
+        line-height: px(40);
+    }
+}
+
+//=============================
+// NO SCROLL
+//=============================
 .--no-scroll {
     overflow: hidden;
 }

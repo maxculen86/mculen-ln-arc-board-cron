@@ -29,6 +29,8 @@ import '../../resources/dist/css/ln/components/carta-lectores.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/components/storytelling.css';
 
+import ComTitle from '../private/common/com-title';
+
 const lnNotaNoticia = ({ children }) => {
     return (
         <div
@@ -66,10 +68,15 @@ const lnNotaNoticia = ({ children }) => {
                                 <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                     <div className="storytelling-title">
                                         <i class="logo-lugares"></i>
-                                        <h1>
+
+                                        <ComTitle
+                                            tag="h1"
+                                            size="xl"
+                                            classCondition=""
+                                        >
                                             Escapadas. 10 rutas argentinas
                                             espectaculares que no conocías
-                                        </h1>
+                                        </ComTitle>
                                     </div>
                                     <section className="com-epigrafe">
                                         <p className="text">Epigrafe de foto</p>

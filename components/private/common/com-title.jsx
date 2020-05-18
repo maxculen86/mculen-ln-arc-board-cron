@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
+
 import '../../../src/statics/LN/css/components/_com-title.scss';
 
 const ComTitle = props => {
@@ -43,6 +45,13 @@ const ComTitle = props => {
             {children}
         </h4>
     );
+};
+
+ComTitle.propTypes = {
+    children: PropTypes.elementType.isRequired,
+    tag: PropTypes.string,
+    size: PropTypes.string,
+    classCondition: PropTypes.string
 };
 
 export default ComTitle;
