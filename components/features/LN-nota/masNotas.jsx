@@ -11,9 +11,9 @@ const masNotas = props => {
         id: featureId
     } = props;
     return (
-        // <Static id={featureId}>
-        <MasNotas {...props} cantidadNotas={cantidadNotas} />
-        // </Static>
+        <Static id={featureId}>
+            <MasNotas {...props} cantidadNotas={cantidadNotas} />
+        </Static>
     );
 };
 
