@@ -95,10 +95,8 @@
                 }
             }
             .icon-portions {
-                font-size: 2.3em;
-                @media (min-width: 768px) {
-                    font-size: 2.8em;
-                }
+                font-size: $px-30;
+                padding-left: $px-6;
             }
         }
     }

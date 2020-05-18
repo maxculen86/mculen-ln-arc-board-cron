@@ -280,8 +280,5 @@ export default `
     first_publish_date,
     publish_date,
     website_url,
-    ${labels},
-    content_restrictions {
-        content_code
-    }
+    ${labels}
 }`;
