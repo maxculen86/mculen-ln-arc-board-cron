@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import ComLink from '../../../common/com-link';
 
 const BotonLink = ({ data }) => {
     const { url, content } = data || {};
