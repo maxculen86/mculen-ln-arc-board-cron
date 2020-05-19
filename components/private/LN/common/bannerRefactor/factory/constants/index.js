@@ -28,3 +28,5 @@ export const CAJA_1_AMP = 'caja1_amp';
 export const CAJA_2_AMP = 'caja2_amp';
 export const CAJA_3_AMP = 'caja3_amp';
 export const STICKY_AMP = 'sticky_amp';
+
+export const CABEZAL_TAB = 'cabezal_tab';

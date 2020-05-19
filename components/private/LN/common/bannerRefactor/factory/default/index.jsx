@@ -26,6 +26,7 @@ import {
     MIDDLE_2_DSK,
     MIDDLE_3_DSK,
     MIDDLE_TEADS_DSK,
+    CABEZAL_TAB,
     STICKY_1_MOB,
     STICKY_2_MOB,
     MEGATOP_DSK,
@@ -58,6 +59,7 @@ function getBannerForStoryTemplate(config) {
         case MEGATOP_MOB:
         case MEGATOP_DSK:
             return <Megatop {...config} />;
+        case CABEZAL_TAB:
         case MIDDLE_TEADS_DSK:
         case ONE_X_ONE_DSK:
         case CAJA_1_DSK:
