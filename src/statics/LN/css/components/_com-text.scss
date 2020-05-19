@@ -21,6 +21,7 @@
     .mod-breadcrumb & {
         @include flex(flex, row, center, center);
         font-family: $font-arial;
+        font-size: px(14);
         color: $gris5;
         padding: 0 px(9);
         line-height: 1;
@@ -37,23 +38,18 @@
     &.--medio {
         .mod-autor & {
             text-transform: uppercase;
-            font-weight: normal;
-            font-size: px(14);
-            color: #919191;
         }
     }
-    &.--paginator {
-        background: $negro;
-        font-family: $font-arial;
-        font-size: $font-12;
-        padding: 0 $px-5;
-        color: $blanco;
-        position: absolute;
-        top: 0;
-        right: px(20);
-        @media ($media-m) {
-            right: 0;
-        }
+    .com-button.--icon & {
+        margin: 0 px(5);
+        text-transform: initial;
+        order: 2;
+    }
+    .com-button.--icon.--bottom &,
+    .com-button.--icon.--right & {
+        margin: 0 px(5);
+        text-transform: initial;
+        order: 1;
     }
 }
 
