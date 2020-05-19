@@ -134,6 +134,10 @@ const label = `
 
 const labels = `
     label {
+        edicion {
+            text
+            display
+        }
         livefyre_entrada_id {
             ${label}
         }

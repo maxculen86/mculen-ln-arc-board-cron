@@ -2,14 +2,30 @@ import React from 'react';
 import { render } from 'enzyme';
 import DateHeader from '../../../../../components/private/LN/common/dateHeader';
 
-// TODO: Solucionar problema de DateHeader (Implementacion diferente entre node y browser)
 describe('features - LaNacion - Nota - DateHeader', () => {
+    const props = {
+        display_date: '2020-05-13T01:43:50.136Z',
+        label: {
+            edicion: {
+                url: '',
+                text: 'Digital',
+                display: true
+            }
+        }
+    };
+
     const component = render(
-        <DateHeader display_date="2019-07-23T20:53:57.079Z" />
+        <DateHeader
+            display_date={props.display_date}
+            labelEdicionImpresa={props.label}
+        />
     );
 
     it('Test de snapshot DateHeader', () => {
-        expect(true).toBe(true);
-        // expect(component).toMatchSnapshot();
+        expect(component).toMatchSnapshot();
+    });
+
+    it('Nota - Author - AuthorAndDate - DateHeader', () => {
+        expect(component.text()).toEqual('12 de Mayo de 2020 • 19:43');
     });
 });
