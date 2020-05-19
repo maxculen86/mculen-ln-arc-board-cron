@@ -3,7 +3,9 @@ import PropTypes from 'fusion:prop-types';
 
 const BotonLink = ({ data }) => {
     const { url, content } = data || {};
-    return <>{url && content ? <a href={url}>{content}</a> : null}</>;
+    return (
+        <>{url && content ? <ComLink link={url}>{content}</ComLink> : null}</>
+    );
 };
 
 BotonLink.arcType = 'interstitial_link';
