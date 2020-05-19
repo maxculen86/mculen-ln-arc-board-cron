@@ -17,6 +17,7 @@ import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitle from './subtitle';
 import Paragraph from './parrafo';
 import Banner from '../../common/bannerRefactor';
+import BotonLink from './botonLink';
 
 const Cuerpo = props => {
     const {
@@ -35,10 +36,17 @@ const Cuerpo = props => {
         Subtitle,
         Gallery,
         ListOrderedOrUnordered,
-        Image
+        Image,
+        BotonLink
     ];
 
-    const types = ['text', 'image', 'oembed_response', 'video'];
+    const types = [
+        'text',
+        'interstitial_link',
+        'image',
+        'oembed_response',
+        'video'
+    ];
 
     const getElementsCount = supportedTypes =>
         contentElements.filter(el => supportedTypes.includes(el.type)).length;
