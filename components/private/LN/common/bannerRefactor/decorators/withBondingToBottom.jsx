@@ -13,11 +13,23 @@ const glue = element => {
 };
 
 const hide = element => {
-    if (element) element.style.display = 'none';
+    if (element.classList.contains('--fixed')) {
+        element.classList.remove('--fixed');
+    }
+
+    if (!element.classList.contains('hlp-none')) {
+        element.classList.add('hlp-none');
+    }
 };
 
 const show = element => {
-    if (element) element.style.display = 'flex';
+    if (!element.classList.contains('--fixed')) {
+        element.classList.add('--fixed');
+    }
+
+    if (element.classList.contains('hlp-none')) {
+        element.classList.remove('hlp-none');
+    }
 };
 
 export default Component => {
