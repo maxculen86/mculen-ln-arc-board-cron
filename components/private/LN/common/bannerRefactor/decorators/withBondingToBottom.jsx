@@ -52,7 +52,6 @@ export default Component => {
 
                     if (windowY < scrollPosition.current) {
                         scrollPosition.current = windowY;
-                        hide(ref.current);
                     } else if (windowY >= scrollPosition.current) {
                         scrollPosition.current = windowY;
                         if (bounds.top <= 0) {

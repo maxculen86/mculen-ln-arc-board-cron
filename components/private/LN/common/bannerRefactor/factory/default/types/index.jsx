@@ -47,7 +47,7 @@ const index = React.forwardRef((props, ref) => {
                 {closeButton && (
                     <button
                         type="button"
-                        className="icon-closeS"
+                        className="icon-close"
                         onClick={onClose}
                     />
                 )}
