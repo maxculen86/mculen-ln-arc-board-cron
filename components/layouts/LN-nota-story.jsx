@@ -30,6 +30,7 @@ import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/components/storytelling.css';
 
 import ComTitle from '../private/common/com-title';
+import ComLogo from '../private/common/com-logo';
 
 const lnNotaNoticia = ({ children }) => {
     return (
@@ -67,8 +68,7 @@ const lnNotaNoticia = ({ children }) => {
                                 <div className="col-1 hlp-marginBottom-40 hlp-tablet-none"></div>
                                 <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                     <div className="storytelling-title">
-                                        <i class="logo-lugares"></i>
-
+                                        <ComLogo logoName="lugares" />
                                         <ComTitle
                                             tag="h1"
                                             size="xl"
