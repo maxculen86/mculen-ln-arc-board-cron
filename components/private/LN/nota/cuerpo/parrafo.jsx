@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import ReactDOMServer from 'react-dom/server';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import ComLink from '../../../common/com-link';
 
@@ -15,16 +16,36 @@ const Parrafo = ({ data, capital }) => {
     const setItalicText = text =>
         text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
 
-    const setExternalLinks = text =>
+    const setExternalLinks = text => {
         text.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
                 if (!href.includes(config.host)) {
-                    return `<a ${href} target='_blank' rel='nonoopener noreferrer' class=${`com-link`}>${string}</a>`;
+                    return ReactDOMServer.renderToString(
+                        React.createElement(
+                            ComLink,
+                            {
+                                link: href,
+                                target: '_blank',
+                                title: string
+                            },
+                            string
+                        )
+                    );
                 }
-                return `<a ${href} class=${`com-link`}>${string}</a>`;
+                return ReactDOMServer.renderToString(
+                    React.createElement(
+                        ComLink,
+                        {
+                            link: href,
+                            title: string
+                        },
+                        string
+                    )
+                );
             }
         );
+    };
 
     const content = compose(
         setItalicText,
