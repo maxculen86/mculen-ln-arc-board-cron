@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
+import ComLink from '../../../common/com-link';
 
 import { compose } from '../../../common/utils/functional';
 
@@ -19,9 +20,9 @@ const Parrafo = ({ data, capital }) => {
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
                 if (!href.includes(config.host)) {
-                    return `<a ${href} target='_blank'>${string}</a>`;
+                    return `<a ${href} target='_blank' rel='nonoopener noreferrer' class=${`com-link`}>${string}</a>`;
                 }
-                return `<a ${href}>${string}</a>`;
+                return `<a ${href} class=${`com-link`}>${string}</a>`;
             }
         );
 
@@ -56,7 +57,8 @@ Parrafo.propTypes = {
         level: PropTypes.number,
         type: PropTypes.string.isRequired
     }).isRequired,
-    capital: PropTypes.bool
+    capital: PropTypes.bool,
+    outputType: PropTypes.string.isRequired
 };
 
 export default Parrafo;
