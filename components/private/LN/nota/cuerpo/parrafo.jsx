@@ -16,16 +16,18 @@ const Parrafo = ({ data, capital }) => {
     const setItalicText = text =>
         text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
 
-    const setExternalLinks = text => {
+    const setExternalLinks = text =>
         text.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
+                const [, link] = href.match(/"(.*?[^\\])"/);
+
                 if (!href.includes(config.host)) {
                     return ReactDOMServer.renderToString(
                         React.createElement(
                             ComLink,
                             {
-                                link: href,
+                                link,
                                 target: '_blank',
                                 title: string
                             },
@@ -37,7 +39,7 @@ const Parrafo = ({ data, capital }) => {
                     React.createElement(
                         ComLink,
                         {
-                            link: href,
+                            link,
                             title: string
                         },
                         string
@@ -45,7 +47,6 @@ const Parrafo = ({ data, capital }) => {
                 );
             }
         );
-    };
 
     const content = compose(
         setItalicText,
