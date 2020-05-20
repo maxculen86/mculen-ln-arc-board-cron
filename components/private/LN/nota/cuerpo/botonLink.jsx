@@ -5,7 +5,13 @@ import ComLink from '../../../common/com-link';
 const BotonLink = ({ data }) => {
     const { url, content } = data || {};
     return (
-        <>{url && content ? <ComLink link={url}>{content}</ComLink> : null}</>
+        <>
+            {url && content ? (
+                <ComLink link={url} target="_blank" title={content}>
+                    {content}
+                </ComLink>
+            ) : null}
+        </>
     );
 };
 
