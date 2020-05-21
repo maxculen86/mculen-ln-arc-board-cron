@@ -103,6 +103,38 @@ const config = {
             {
                 customElement: 'amp-sticky-ad',
                 src: 'https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'
+            },
+            {
+                customElement: 'amp-youtube',
+                src: 'https://cdn.ampproject.org/v0/amp-youtube-0.1.js'
+            },
+            {
+                customElement: 'amp-twitter',
+                src: 'https://cdn.ampproject.org/v0/amp-twitter-0.1.js'
+            },
+            {
+                customElement: 'amp-instagram',
+                src: 'https://cdn.ampproject.org/v0/amp-instagram-0.1.js'
+            },
+            {
+                customElement: 'amp-facebook',
+                src: 'https://cdn.ampproject.org/v0/amp-facebook-0.1.js'
+            },
+            {
+                customElement: 'amp-vimeo',
+                src: 'https://cdn.ampproject.org/v0/amp-vimeo-0.1.js'
+            },
+            {
+                customElement: 'amp-dailymotion',
+                src: 'https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js'
+            },
+            {
+                customElement: 'amp-vine',
+                src: 'https://cdn.ampproject.org/v0/amp-vine-0.1.js'
+            },
+            {
+                customElement: 'amp-iframe',
+                src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
             }
         ]
     }
