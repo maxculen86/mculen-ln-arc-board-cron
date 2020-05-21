@@ -18,7 +18,7 @@ const Share = props => {
         }
     } = props;
 
-    const twiterTietle =
+    const twiterTitle =
         mobileTitle !== '' && mobileTitle !== undefined ? mobileTitle : title;
 
     // TODO: arreglar el tema de las URL's
@@ -39,7 +39,7 @@ const Share = props => {
                         popUpCompartirNotaTW(
                             requestUri,
                             config.host,
-                            twiterTietle
+                            twiterTitle
                         )
                     }
                     className="icon-twitter"
