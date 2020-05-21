@@ -1,8 +1,7 @@
 const header = data => {
     return {
-        _t: 'h',
-        level: data.level,
-        text: data.content
+        _t: `sub${data.level}`,
+        valor: data.content
     };
 };
 

@@ -22,10 +22,12 @@ Object {
     "imagenes": Array [
       Object {
         "_t": "img",
-        "alto": 513,
-        "ancho": 768,
-        "id": "BLRC5NG5GZBGLHSASLIQI3NABQ",
-        "src": "/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+        "alto": 840,
+        "ancho": 1260,
+        "credito": "Mariano Grondona",
+        "epigrafe": "prueba de epigrafe de messi",
+        "id": "X2MJ25TCRRD63NGNBDAZGLYRZY",
+        "src": "/resizer/Jvik4UuWUb3CBd4fHrEn3v8THpE=/1260x840/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg",
       },
     ],
     "receta": Object {
@@ -33,6 +35,7 @@ Object {
       "tiempo": "25",
     },
     "titulo": "Nota recetas para Api test",
+    "volanta": "soy la volanta",
   },
   "categoria": Object {
     "id": "/recetas/platos-de-comida-principal",
@@ -67,6 +70,7 @@ Object {
       "_t": "img",
       "alto": 400,
       "ancho": 560,
+      "credito": undefined,
       "id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
       "src": "/resizer/CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
     },
@@ -79,10 +83,41 @@ Object {
       "valor": "Pellentesque ut urna quis odio dictum faucibus vitae vitae tortor. Fusce vehicula est vel augue auctor dapibus. Ut ut urna rhoncus, faucibus nisi non, egestas eros. Cras nec tortor quis magna maximus dapibus quis id est. Phasellus euismod venenatis ipsum scelerisque mattis. Nulla efficitur porttitor massa eu hendrerit. Pellentesque tempor condimentum elit, facilisis maximus nunc consectetur in. Suspendisse pulvinar, risus sollicitudin accumsan iaculis, eros metus ullamcorper mauris, eu consequat ex arcu sollicitudin libero. Praesent eu vestibulum dolor. Nam auctor lectus et orci iaculis, nec pretium justo imperdiet. Nulla commodo nulla ac ligula tristique ultrices. Praesent consectetur, nibh sed mollis lacinia, magna velit dapibus tellus, vel tincidunt mi arcu cursus leo. Duis velit lacus, consectetur id convallis sit amet, rutrum at erat. Sed vitae bibendum urna. Nam sodales scelerisque ante, non luctus nunc varius a.",
     },
   ],
-  "entradaId": "QAZ7BVHG5BCNFN7S67XCBP6PA4",
+  "entradaId": "841900",
   "fecha": "2020-04-24 08:35:53",
   "fechaActualizacion": "2020-04-24 08:35:53",
   "id": "QAZ7BVHG5BCNFN7S67XCBP6PA4",
+  "paywallStatus": "premium",
+  "relacionados": Object {
+    "categorias": Array [
+      Object {
+        "id": "/recetas",
+        "nivel": 1,
+        "valor": "Recetas",
+      },
+      Object {
+        "id": "/revista-hola",
+        "nivel": 1,
+        "valor": "Revista ¡HOLA!",
+      },
+    ],
+    "tags": Array [
+      Object {
+        "formatoId": 1,
+        "id": "47126",
+        "tipoDescripcion": "Topico",
+        "tipoId": 1,
+        "valor": "ajo",
+      },
+      Object {
+        "formatoId": 1,
+        "id": "48282",
+        "tipoDescripcion": "Topico",
+        "tipoId": 1,
+        "valor": "tomate perita",
+      },
+    ],
+  },
   "template": "7",
   "url": "/recetas/platos-de-comida-principal/nota-recetas-para-api-test-nid24042020/",
 }
