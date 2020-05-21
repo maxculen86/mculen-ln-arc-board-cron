@@ -8,7 +8,13 @@ const BotonLink = ({ data }) => {
         <>
             {url && content ? (
                 <ComLink link={url} target="_blank" title={content}>
-                    {content}
+                    <ComButton
+                        classesNames="--secondary"
+                        iconName="right"
+                        iconPosition="--right"
+                    >
+                        {content}
+                    </ComButton>
                 </ComLink>
             ) : null}
         </>
