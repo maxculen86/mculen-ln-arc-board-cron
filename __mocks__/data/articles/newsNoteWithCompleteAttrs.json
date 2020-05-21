@@ -116,23 +116,64 @@
         },
         "promo_items": {
             "basic": {
-                "_id": "VASAYYYBLVFIJCFDSH22JS5X2Q",
+                "_id": "X2MJ25TCRRD63NGNBDAZGLYRZY",
                 "additional_properties": {},
-                "height": 950,
+                "caption": "prueba de epigrafe de messi",
+                "credits": {
+                    "by": [
+                        {
+                            "name": "Mariano Grondona",
+                            "type": "author"
+                        }
+                    ]
+                },
+                "height": 687,
                 "resized_urls": [
                     {
                         "option": {
-                            "class": "img-desktop",
-                            "media": "(min-width: 768px)",
-                            "type": "promo_items"
+                            "height": 840,
+                            "media": "(min-width: 1280px)",
+                            "width": 1260
                         },
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg"
+                        "resizedUrl": "/resizer/Jvik4UuWUb3CBd4fHrEn3v8THpE=/1260x840/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 746,
+                            "media": "(min-width: 1024px)",
+                            "width": 1120
+                        },
+                        "resizedUrl": "/resizer/O6Hi7KaUFlbX9FinZ90ovn9YbqM=/1120x746/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 512,
+                            "media": "(min-width: 768px)",
+                            "width": 768
+                        },
+                        "resizedUrl": "/resizer/gjSAiqxUQKPG6auGxxXrfu1tujU=/768x512/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 233,
+                            "media": "(min-width: 360px)",
+                            "width": 350
+                        },
+                        "resizedUrl": "/resizer/Az0Rj0edj1ZwPlsrn35HJrfivZ8=/350x233/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 206,
+                            "media": "(min-width: 320px)",
+                            "width": 310
+                        },
+                        "resizedUrl": "/resizer/gM6LxEhq1MRzEqyKLzL_dQAej-c=/310x206/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
                     }
                 ],
-                "subtitle": "france",
+                "subtitle": "prueba title de messi",
                 "type": "image",
-                "url": "https://arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
-                "width": 1484
+                "url": "/resizer/jyurG2Ow8jHanY1TE_d9M0NQkSU=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg",
+                "width": 1033
             },
             "receta": {
                 "subtype": "custom-detalle-receta",
