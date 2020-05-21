@@ -2,84 +2,138 @@
 @import '../abstracts/mixins';
 
 .com-button {
-    //font-family: $font-arial;
-    transition: opacity 0.2s ease-in-out;
-    @include flex(flex, row, center, center);
+    @include flex(inline, row, center, center);
 
-    .--slider & {
-        background: $negro;
-
-        &.icon-left,
-        &.icon-right {
-            display: block;
-            padding: 0;
-            cursor: pointer;
-            border: none;
-            background: rgba(0, 0, 0, 0.9);
-            position: absolute;
-            z-index: 2;
-            color: $blanco;
-            transition: all 0.2s ease;
-
-            font-size: px(20);
-            width: px(30);
-            height: px(40);
-            top: px(92); //alto.img/2 - alto.button/2
-
-            @media ($media-m) {
-                //768
-                font-size: px(32);
-                top: px(206);
-                width: $px-46;
-                height: $px-60;
-            }
-            @media ($media-l) {
-                //1024
-                top: px(215);
-            }
-        }
-        &.icon-left {
-            left: px(-20);
-            &:hover {
-                background: rgba(0, 0, 0, 0.4);
-            }
-            @media ($media-m) {
-                left: 0;
-            }
-        }
-        &.icon-right {
-            right: px(-20);
-            &:hover {
-                background: rgba(0, 0, 0, 0.4);
-            }
-            @media ($media-m) {
-                right: 0;
-            }
-        }
+    background: transparent;
+    padding: $spacing-sm;
+    color: $negro;
+    font-family: $font-arial;
+    font-size: px(12);
+    font-weight: 700;
+    border-radius: px(4);
+    outline: none;
+    max-width: px(360);
+    &.--bottom,
+    &.--top {
+        @include flex(flex, column, center, center);
     }
-    .--slider.--active & {
-        &.icon-left,
-        &.icon-right {
-            top: 45%;
-        }
-        &.icon-left {
-            left: 0;
-        }
-        &.icon-right {
-            right: 0;
-        }
-    }
-    .--megatop & {
-        position: absolute;
-        top: 0;
-        padding: px(8) px(10);
-        background: $link;
+    &.facebook {
+        background: $facebook;
         color: $blanco;
-        text-transform: uppercase;
-        border-radius: 0 0 px(4) px(4);
-        & span {
-            font-weight: 700;
-            margin-left: px(5);
+        &:hover {
+            background: rgba($facebook, 0.7);
         }
+    }
+    &.instagram {
+        background: $instagram;
+        color: $blanco;
+        &:hover {
+            background: rgba($instagram, 0.7);
+        }
+    }
+    &.twitter {
+        background: $twitter;
+        color: $blanco;
+        &:hover {
+            background: rgba($twitter, 0.7);
+        }
+    }
+    &.whatsapp {
+        background: $whatsapp;
+        color: $blanco;
+        &:hover {
+            background: rgba($whatsapp, 0.7);
+        }
+    }
+    &:hover {
+        background: transparent;
+        color: $ln;
+    }
+    &:active {
+        background: $ln;
+        color: $blanco;
+    }
+    &:disabled {
+        background: $gris3;
+    }
+
+    //variantes
+    &.--primary {
+        background: $ln;
+        color: $blanco;
+
+        &:hover {
+            background: rgba($ln, 0.7);
+        }
+        &:active {
+            background: $ln-active;
+        }
+        &:disabled {
+            background: $gris2;
+            color: $gris3;
+        }
+    }
+    &.--secondary {
+        border: 1px solid $ln;
+        color: $ln;
+        .cuerpo__nota & {
+            margin-bottom: $spacing-lg;
+        }
+
+        &:hover {
+            background: rgba($ln, 0.7);
+            border: 1px solid;
+            color: $blanco;
+        }
+        &:active {
+            background: $ln-active;
+            border: 1px solid;
+            color: $blanco;
+        }
+        &:disabled {
+            background: $gris2;
+            color: $gris3;
+            border: 1px solid $gris3;
+        }
+    }
+    &.--tertiary {
+        background: $gris3;
+        color: $gris5;
+
+        &:hover {
+            background: rgba($gris3, 0.7);
+        }
+        &:active {
+            background: $gris4;
+            color: $gris6;
+        }
+        &:disabled {
+            background: $gris2;
+            color: $gris3;
+        }
+    }
+    &.--special {
+        background: $highlight;
+        border: 1px solid $gris3;
+        color: $gris6;
+
+        &:hover {
+            background: $negro;
+            border: 1px solid;
+            color: $blanco;
+        }
+        &:active {
+            background: $highlight-active;
+            border: 1px solid $gris3;
+            color: $gris6;
+        }
+        &:disabled {
+            background: $gris2;
+            color: $gris3;
+            border: 1px solid $gris3;
+        }
+    }
+    &.--compact {
+        padding: $spacing-xs;
     }
 }
