@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import '../../../src/statics/LN/css/components/_com-container.scss';
+import '../../../resources/dist/css/ln/components/com-container.css';
 
 const ComContainer = props => {
     const { id, classesNames, children } = props;

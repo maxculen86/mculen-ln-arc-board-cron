@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../src/statics/LN/css/components/_com-button.scss';
+import '../../../resources/dist/css/ln/components/com-button.css';
 import ComIco from './com-icon';
 import ComText from './com-text';
 
