@@ -6,8 +6,6 @@ exports[`ModMedio Matches snapshot 1`] = `
 >
   <span
     class="com-text --medio"
-  >
-    nacion
-  </span>
+  />
 </div>
 `;

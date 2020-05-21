@@ -12,6 +12,7 @@ const BotonLink = ({ data }) => {
                 <ComLink link={url} target="_blank" title={content}>
                     <ComButton
                         classesNames="--secondary"
+                        classCondition="--compact"
                         iconName="right"
                         iconPosition="--right"
                     >
