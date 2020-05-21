@@ -16,6 +16,15 @@ jest.mock(
     }
 );
 
+jest.mock(
+    '../../../../../../components/private/LN/api/v1/nota/relacionados',
+    () => {
+        return () => {
+            return 'relacionados-mock';
+        };
+    }
+);
+
 import NotaIndex from '../../../../../../components/private/LN/api/v1/nota';
 import article from '../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';
 import { dateAndTimeForAppsUtil } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
@@ -40,5 +49,6 @@ describe('Test de index en JSON de nota', () => {
         );
         expect(resp.categoria).toBe('primarySection-mock');
         expect(resp.apertura).toBe('apertura-mock');
+        expect(resp.relacionados).toBe('relacionados-mock');
     });
 });
