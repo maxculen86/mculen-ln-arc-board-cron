@@ -14,9 +14,12 @@ const Share = props => {
     const {
         requestUri,
         globalContent: {
-            headlines: { basic: title }
+            headlines: { basic: title, mobile: mobileTitle }
         }
     } = props;
+
+    const twiterTietle =
+        mobileTitle !== '' && mobileTitle !== undefined ? mobileTitle : title;
 
     // TODO: arreglar el tema de las URL's
 
@@ -33,7 +36,11 @@ const Share = props => {
                 <button
                     type="button"
                     onClick={() =>
-                        popUpCompartirNotaTW(requestUri, config.host, title)
+                        popUpCompartirNotaTW(
+                            requestUri,
+                            config.host,
+                            twiterTietle
+                        )
                     }
                     className="icon-twitter"
                 />
@@ -66,7 +73,8 @@ Share.propTypes = {
     requestUri: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         headlines: PropTypes.shape({
-            basic: PropTypes.string
+            basic: PropTypes.string,
+            mobile: PropTypes.string
         })
     }).isRequired
 };

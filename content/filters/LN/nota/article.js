@@ -210,6 +210,7 @@ export default `
     }
     headlines {
         basic
+        mobile
         meta_title
     }
     description {
