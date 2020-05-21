@@ -29,7 +29,7 @@ const Amp = props => {
             title,
             scripts: {
                 GTM: {
-                    props: { id }
+                    props: { idAMP }
                 }
             }
         },
@@ -121,7 +121,7 @@ const Amp = props => {
             </head>
             <body>
                 <amp-analytics
-                    config={`https://www.googletagmanager.com/amp.json?id=${id}&gtm.url=SOURCE_URL`}
+                    config={`https://www.googletagmanager.com/amp.json?id=${idAMP}&gtm.url=SOURCE_URL`}
                     data-credentials="include"
                 />
                 {children}
@@ -141,7 +141,7 @@ Amp.propTypes = {
         scripts: PropTypes.shape({
             GTM: PropTypes.shape({
                 props: PropTypes.shape({
-                    id: PropTypes.string
+                    idAMP: PropTypes.string
                 })
             })
         })
