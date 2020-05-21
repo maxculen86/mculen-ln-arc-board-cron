@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-//import '../../../resources/dist/css/ln/components/com-logo.css';
+import '../../../resources/dist/css/ln/components/com-logo.css';
 
 const ComLogo = props => {
     const { logoName } = props;
