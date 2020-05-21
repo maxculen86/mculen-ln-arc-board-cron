@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComLink from '../../../common/com-link';
 import ComButton from '../../../common/com-button';
-import '../../../../../src/statics/LN/css/components/_container.scss';
+import ComContainer from '../../../common/com-container';
 
 const BotonLink = ({ data }) => {
     const { url, content } = data || {};
     return (
-        <div className="container --button">
+        <ComContainer classesNames="com-container --button">
             {url && content ? (
                 <ComLink link={url} target="_blank" title={content}>
                     <ComButton
@@ -19,7 +19,7 @@ const BotonLink = ({ data }) => {
                     </ComButton>
                 </ComLink>
             ) : null}
-        </div>
+        </ComContainer>
     );
 };
 
