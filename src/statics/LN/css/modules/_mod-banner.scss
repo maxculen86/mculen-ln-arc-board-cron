@@ -76,11 +76,22 @@
         }
     }
 }
+@media ($media-l) {
+    .mod-banner {
+        .cuerpo__nota & {
+            display: none;
+        }
+    }
+}
+
 @media ($media-lm) {
     .mod-banner {
         /* width: calc(100% - 362px); */
         .sidebar__aside & {
             width: 100%;
+        }
+        .cuerpo__nota & {
+            display: block;
         }
     }
 }

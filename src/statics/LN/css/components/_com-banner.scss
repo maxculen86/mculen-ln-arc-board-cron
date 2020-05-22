@@ -92,23 +92,3 @@
         width: 320px;
     }
 }
-@media ($media-l) {
-    .com-banner {
-        &#middle_1_dsk,
-        &#middle_2_dsk {
-            .cuerpo__nota & {
-                display: none;
-            }
-        }
-    }
-}
-@media ($media-lm) {
-    .com-banner {
-        &#middle_1_dsk,
-        &#middle_2_dsk {
-            .cuerpo__nota & {
-                display: block;
-            }
-        }
-    }
-}
