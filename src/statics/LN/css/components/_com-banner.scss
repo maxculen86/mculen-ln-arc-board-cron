@@ -31,7 +31,7 @@
     &#cabezal_dsk,
     #cinturon1_dsk,
     #cinturon2_dsk,
-    #middle1_dsk {
+    #middle_1_dsk {
         max-width: px(920);
         max-height: px(100);
     }
@@ -53,9 +53,15 @@
         max-height: 100%;
     }
     &#caja1_tab,
+    &#caja2_tab,
     #ad {
+        max-width: px(300);
+        max-height: px(600);
+    }
+    &#middle_1_tab,
+    &#middle_2_tab {
         max-width: px(728);
-        max-height: px(90);
+        max-height: px(480);
     }
     &#caja1_mob,
     &#caja2_mob {

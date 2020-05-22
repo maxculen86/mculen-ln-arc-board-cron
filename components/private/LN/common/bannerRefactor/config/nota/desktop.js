@@ -1,15 +1,15 @@
 import { defaultTargeting } from './defaults';
 
-const dsk_970x90_sizes = [
-    [970, 90],
-    [728, 90]
+const dsk_1260x170_sizes = [[[1260, 170]], [[1180, 170]], [[920, 170]], [1, 1]];
+const dsk_728x90_sizes = [
+    [468, 60],
+    [640, 480],
+    [728, 90],
+    [1, 1]
 ];
-const dsk_728x90_sizes = [[728, 90]];
 const dsk_300x600_sizes = [
     [300, 600],
-    [300, 250],
-    [160, 600],
-    [120, 600]
+    [300, 250]
 ];
 const dsk_300x250_sizes = [[300, 250]];
 
@@ -34,20 +34,22 @@ export default {
     },
     cabezal_dsk: {
         slotName: 'la_nacion_desktop/Nota/cabezal_dsk',
-        dimensions: [
-            [1260, 170],
-            [920, 100],
-            [970, 90],
-            [728, 90],
-            [1, 1]
-        ],
+        dimensions: [[[1260, 170]], [[1180, 170]], [[920, 170]], [1, 1]],
         targeting: defaultTargeting,
+        sizemap: {
+            breakpoints: [
+                [1360, 0],
+                [1280, 0],
+                [1024, 0]
+            ],
+            refresh: true
+        },
         bidding: {
             prebid: {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: dsk_970x90_sizes
+                        sizes: dsk_1260x170_sizes
                     }
                 },
                 bids: [
@@ -101,8 +103,6 @@ export default {
         slotName: 'la_nacion_desktop/nota/caja1_dsk',
         dimensions: [
             [300, 600],
-            [160, 600],
-            [120, 600],
             [300, 250]
         ],
         targeting: defaultTargeting,
@@ -208,8 +208,6 @@ export default {
         slotName: 'la_nacion_desktop/nota/caja3_dsk',
         dimensions: [
             [300, 600],
-            [160, 600],
-            [120, 600],
             [300, 250]
         ],
         targeting: defaultTargeting,
@@ -264,8 +262,6 @@ export default {
         slotName: 'la_nacion_desktop/nota/caja4_dsk',
         dimensions: [
             [300, 600],
-            [160, 600],
-            [120, 600],
             [300, 250]
         ],
         targeting: defaultTargeting,
@@ -381,6 +377,7 @@ export default {
         slotName: 'la_nacion_desktop/Nota/middle_1_dsk',
         dimensions: [
             [468, 60],
+            [640, 480],
             [728, 90],
             [1, 1]
         ],
@@ -436,6 +433,7 @@ export default {
         slotName: 'la_nacion_desktop/Nota/middle_2_dsk',
         dimensions: [
             [468, 60],
+            [640, 480],
             [728, 90],
             [1, 1]
         ],
