@@ -58,6 +58,11 @@
         max-width: px(300);
         max-height: px(600);
     }
+    &#middle_1_dsk,
+    &#middle_2_dsk {
+        max-width: px(728);
+        max-height: px(480);
+    }
     &#middle_1_tab,
     &#middle_2_tab {
         max-width: px(728);
@@ -85,5 +90,21 @@
 
         height: 50px;
         width: 320px;
+    }
+}
+@media ($media-l) {
+    .com-banner {
+        &#middle_1_dsk,
+        &#middle_2_dsk {
+            display: none;
+        }
+    }
+}
+@media ($media-lm) {
+    .com-banner {
+        &#middle_1_dsk,
+        &#middle_2_dsk {
+            display: block;
+        }
     }
 }
