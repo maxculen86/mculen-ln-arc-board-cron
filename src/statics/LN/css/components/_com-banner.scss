@@ -96,7 +96,9 @@
     .com-banner {
         &#middle_1_dsk,
         &#middle_2_dsk {
-            display: none;
+            .cuerpo__nota & {
+                display: none;
+            }
         }
     }
 }
@@ -104,7 +106,9 @@
     .com-banner {
         &#middle_1_dsk,
         &#middle_2_dsk {
-            display: block;
+            .cuerpo__nota & {
+                display: block;
+            }
         }
     }
 }
