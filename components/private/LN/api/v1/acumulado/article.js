@@ -2,6 +2,8 @@ import get from 'lodash.get';
 import Image from '../common/image';
 import Author from '../common/author';
 
+import { dateAndTimeForAppsUtil } from '../../../../common/utils/dateAndTimeUtil';
+
 const articleItem = article => {
     const {
         _id: id,
@@ -15,7 +17,8 @@ const articleItem = article => {
     const resp = {
         id,
         subtype,
-        titulo: tituloMobile || titulo
+        titulo: tituloMobile || titulo,
+        fecha: dateAndTimeForAppsUtil(article.first_publish_date)
     };
 
     if (image && image.type === 'image') {

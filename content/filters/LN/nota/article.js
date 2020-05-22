@@ -22,17 +22,10 @@ const section = `
 
 const image = `
     type
-    additional_properties {
-        iptc_source
-    }
     resized_urls {
         ${imageResizedUrl}             
     }
-    resized_urls_zoom {
-        ${imageResizedUrl}             
-    }
     height
-    alt_text
     url
     width
     subtitle
@@ -91,8 +84,6 @@ const video = `
         }
     }
     additional_properties {
-        nodeType
-        iptc_source
         advertising {
             playAds
         }
@@ -182,10 +173,6 @@ export default `
         basic {
             ${image}
             ${video}
-            alt_text
-            additional_properties {
-                iptc_source
-            }
         }
         receta {
             ${customReceta}
@@ -198,21 +185,9 @@ export default `
             type
             url
             slug
-            image {
-                url
-            }
-            additional_properties {
-                original {
-                    role
-                }
-            }
         }
     }
     headlines {
-        basic
-        meta_title
-    }
-    description {
         basic
     }
     subheadlines {
@@ -258,19 +233,12 @@ export default `
             type
             content
         }
-        alt_text
-        additional_properties {
-            iptc_source
-        }
         ${image}
         ${customReceta}
         ${gallery}
         ${video}
         content_elements {
             _id
-            additional_properties {
-                iptc_source
-            }
             content
             ${image}
         }
@@ -280,5 +248,8 @@ export default `
     first_publish_date,
     publish_date,
     website_url,
-    ${labels}
+    ${labels},
+    content_restrictions {
+        content_code
+    }
 }`;

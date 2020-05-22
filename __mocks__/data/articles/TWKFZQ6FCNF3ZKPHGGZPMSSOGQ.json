@@ -2,6 +2,9 @@
     "_id": "TWKFZQ6FCNF3ZKPHGGZPMSSOGQ",
     "type": "story",
     "version": "0.10.2",
+    "content_restrictions": {
+        "content_code": "premium"
+    },
     "content_elements": [
         {
             "_id": "WEZHDQGSB5EK7MHKUW7VA7ZS7I",

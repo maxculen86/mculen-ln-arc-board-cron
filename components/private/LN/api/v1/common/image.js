@@ -4,7 +4,9 @@ const imageCommon = image => {
     return {
         _t: 'img',
         id,
-        src: resizedUrls[0].resizedUrl
+        src: resizedUrls[0].resizedUrl,
+        alto: resizedUrls[0].option.height,
+        ancho: resizedUrls[0].option.width
     };
 };
 
