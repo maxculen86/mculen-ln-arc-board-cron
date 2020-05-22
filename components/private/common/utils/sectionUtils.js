@@ -1,5 +1,6 @@
 import get from 'lodash.get';
 
+// TODO: Revisar si actualmente la función getSectionStyle está en uso
 export const getSectionStyle = sections => {
     const logoSection =
         sections &&
@@ -33,7 +34,37 @@ export const getFirstParentSection = section => {
     return null;
 };
 
+export const getSectionLogo = (sections, layout) => {
+    const magazineRegex = /\/revista-(.\w+[^\W]?)/;
+    const layoutsIncludingLogo = [
+        { name: 'LN-nota-noticia', color: true },
+        { name: 'LN-nota-receta', color: true }
+    ];
+
+    const currentLayoutIncludesLogo = layoutsIncludingLogo.find(
+        el => el.name === layout
+    );
+
+    if (!sections || !layout || !currentLayoutIncludesLogo) return null;
+
+    const magazineSection = sections.find(section => {
+        const { _id } = section;
+        return _id.includes('/revista-');
+    });
+
+    if (!magazineSection) return null;
+
+    const { _id } = magazineSection;
+    const path = _id.match(magazineRegex);
+    return {
+        logoName: path[1],
+        path: `${path[0]}/`,
+        color: currentLayoutIncludesLogo.color
+    };
+};
+
 export default {
     getSectionStyle,
-    getFirstParentSection
+    getFirstParentSection,
+    getSectionLogo
 };

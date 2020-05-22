@@ -4,13 +4,16 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-logo.css';
 
 const ComLogo = props => {
-    const { logoName } = props;
+    const { logoName, color } = props;
     if (!logoName) return null;
-    return <i className={`logo-${logoName}`} />;
+    return (
+        <i className={`com-logo logo-${logoName} ${color ? '--color' : ''}`} />
+    );
 };
 
 ComLogo.propTypes = {
-    logoName: PropTypes.string.isRequired
+    logoName: PropTypes.string.isRequired,
+    color: PropTypes.bool.isRequired
 };
 
 export default ComLogo;
