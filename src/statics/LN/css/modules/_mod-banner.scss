@@ -65,22 +65,37 @@
         margin-bottom: $spacing-lg;
     }
 }
+@media ($media-m) {
+    .mod-banner {
+        .sidebar__aside & {
+            display: none;
+        }
+    }
+}
 @media ($media-l) {
     .mod-banner {
-        /* width: calc(100% - 380px); */
         .sidebar__aside & {
             width: 100%;
         }
         &.--fixed {
             bottom: px(0);
         }
+        .cuerpo__nota & {
+            display: none;
+        }
+        .sidebar__aside & {
+            display: flex;
+        }
     }
 }
+
 @media ($media-lm) {
     .mod-banner {
-        /* width: calc(100% - 362px); */
         .sidebar__aside & {
             width: 100%;
+        }
+        .cuerpo__nota & {
+            display: block;
         }
     }
 }

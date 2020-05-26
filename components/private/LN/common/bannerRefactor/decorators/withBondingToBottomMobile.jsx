@@ -13,23 +13,11 @@ const glue = element => {
 };
 
 const hide = element => {
-    if (element.classList.contains('--fixed')) {
-        element.classList.remove('--fixed');
-    }
-
-    if (!element.classList.contains('hlp-none')) {
-        element.classList.add('hlp-none');
-    }
+    if (element) element.style.display = 'none';
 };
 
 const show = element => {
-    if (!element.classList.contains('--fixed')) {
-        element.classList.add('--fixed');
-    }
-
-    if (element.classList.contains('hlp-none')) {
-        element.classList.remove('hlp-none');
-    }
+    if (element) element.style.display = 'flex';
 };
 
 export default Component => {
@@ -37,10 +25,6 @@ export default Component => {
         const scrollPosition = useRef(0);
         const ref = React.createRef();
         const fusionContext = useFusionContext();
-        const headerRef = useRef(document.querySelector('#header') || null);
-        const megatopRef = useRef(
-            document.querySelector('#megatop_dsk') || null
-        );
 
         const {
             loginData: { subscription }
@@ -53,23 +37,13 @@ export default Component => {
             hide(ref.current);
             const onScroll = () => {
                 const windowY = window.scrollY;
-
-                if (headerRef.current) {
-                    const bounds = headerRef.current.getBoundingClientRect();
-                    if (megatopRef.current) {
-                        if (bounds.top <= 0) {
-                            show(ref.current);
-                        }
-                    }
-
-                    if (windowY < scrollPosition.current) {
-                        scrollPosition.current = windowY;
-                    } else if (windowY >= scrollPosition.current) {
-                        scrollPosition.current = windowY;
-                        if (bounds.top <= 0) {
-                            show(ref.current);
-                        }
-                    }
+                show(ref.current);
+                if (windowY < scrollPosition.current) {
+                    scrollPosition.current = windowY;
+                    hide(ref.current);
+                } else if (windowY >= scrollPosition.current) {
+                    scrollPosition.current = windowY;
+                    show(ref.current);
                 }
             };
 

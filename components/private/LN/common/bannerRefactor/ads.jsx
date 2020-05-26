@@ -14,10 +14,9 @@ const Ads = props => {
         dimensions,
         targeting,
         bidding,
+        sizemap,
         display,
         dfpId,
-        breakpoints,
-        refresh,
         children
     } = props;
 
@@ -43,10 +42,7 @@ const Ads = props => {
                 dimensions,
                 display,
                 targeting: { ...targeting, adstest: hasAdsTestParam() },
-                sizemap: {
-                    breakpoints,
-                    refresh
-                },
+                sizemap,
                 bidding
             },
             dfpId,
@@ -62,7 +58,7 @@ const Ads = props => {
                     if (node.localName === 'iframe') {
                         document
                             .querySelector(`#${id}`)
-                            .classList.remove('hlp-none');
+                            .parentNode.classList.remove('hlp-none');
                     }
                 });
             });
@@ -76,7 +72,7 @@ const Ads = props => {
     });
 
     return (
-        <div id={id} className="com-banner hlp-none">
+        <div id={id} className="com-banner">
             <div>{children}</div>
         </div>
     );
@@ -91,6 +87,10 @@ Ads.propTypes = {
         sitio: PropTypes.string,
         seccion: PropTypes.string
     }).isRequired,
+    sizemap: PropTypes.shape({
+        breakpoints: PropTypes.array,
+        refresh: PropTypes.bool
+    }),
     bidding: PropTypes.shape({
         prebid: PropTypes.object
     }).isRequired,

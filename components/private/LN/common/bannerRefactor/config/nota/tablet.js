@@ -1,7 +1,13 @@
 import { defaultTargeting } from './defaults';
 
-const tab_300x250_sizes = [[300, 250]];
-const tab_728x90_sizes = [[728, 90]];
+const tab_300x250_sizes = [
+    [300, 250],
+    [300, 600]
+];
+const tab_728x90_sizes = [
+    [728, 90],
+    [300, 250]
+];
 
 export default {
     '1x1_tab': {
@@ -13,10 +19,7 @@ export default {
     cabezal_tab: {
         device: 'tab',
         slotName: 'la_nacion_tablet/Nota/cabezal_tab',
-        dimensions: [
-            [728, 90],
-            [1, 1]
-        ],
+        dimensions: [[728, 90]],
         targeting: defaultTargeting,
         bidding: {
             prebid: {
@@ -77,7 +80,7 @@ export default {
         slotName: 'la_nacion_tablet/Nota/caja1_tab',
         dimensions: [
             [300, 250],
-            [1, 1]
+            [300, 600]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -132,7 +135,7 @@ export default {
         caja2_tab: 'la_nacion_tablet/Nota/caja2_tab',
         dimensions: [
             [300, 250],
-            [1, 1]
+            [300, 600]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -251,7 +254,7 @@ export default {
         slotName: 'la_nacion_tablet/Nota/middle_1_tab',
         dimensions: [
             [728, 90],
-            [1, 1]
+            [300, 250]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -306,7 +309,7 @@ export default {
         slotName: 'la_nacion_tablet/Nota/middle_2_tab',
         dimensions: [
             [728, 90],
-            [1, 1]
+            [300, 250]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -376,8 +379,8 @@ export default {
             height: 250
         }
     },
-    sticky_amp: {
-        slotName: '/133919216/AMP/ROS/sticky_amp',
+    caja3_amp: {
+        slotName: '/133919216/AMP/ROS/caja3_amp',
         dimensions: {
             width: 320,
             height: 50

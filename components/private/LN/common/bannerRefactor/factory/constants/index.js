@@ -26,4 +26,12 @@ export const ADHESION_DSK = 'adhesion_dsk';
 export const ADHESION_MOB = 'adhesion_mob';
 export const CAJA_1_AMP = 'caja1_amp';
 export const CAJA_2_AMP = 'caja2_amp';
+export const CAJA_3_AMP = 'caja3_amp';
 export const STICKY_AMP = 'sticky_amp';
+
+export const ADHESION_TAB = 'adhesion_tab';
+export const CABEZAL_TAB = 'cabezal_tab';
+export const CAJA_1_TAB = 'caja1_tab';
+export const CAJA_2_TAB = 'caja2_tab';
+export const MIDDLE_1_TAB = 'middle_1_tab';
+export const MIDDLE_2_TAB = 'middle_2_tab';
