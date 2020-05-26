@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Subtitle from './subtitle';
+import Subtitle from './parrafo';
 import '../../../../../resources/dist/css/ln/components/tip.css';
 
 const Tips = props => {
@@ -20,7 +20,7 @@ const Tips = props => {
                             paragraph.element.type === 'header' ? (
                                 <Subtitle
                                     key={paragraph.element._id}
-                                    element={paragraph.element}
+                                    data={paragraph.element}
                                 />
                             ) : (
                                 <p

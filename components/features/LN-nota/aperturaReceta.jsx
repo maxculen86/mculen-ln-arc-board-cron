@@ -6,12 +6,7 @@ import AperturaRecetaComponent from '../../private/LN/nota/apertura/AperturaRece
 
 // Static component: debe tener un id UNICO en la pagina
 const aperturaReceta = props => {
-    const { id: featureId } = props;
-    return (
-        <Static id={featureId}>
-            <AperturaRecetaComponent {...props} />
-        </Static>
-    );
+    return <AperturaRecetaComponent {...props} />;
 };
 
 aperturaReceta.label = 'LN-Nota-AperturaReceta';
