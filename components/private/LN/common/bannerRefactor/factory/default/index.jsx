@@ -90,7 +90,7 @@ function getBannerForStoryTemplate(config) {
                 { ...config }
             );
         case MIDDLE_2_TAB:
-            // Se dibuja después del sexto parrafo/elemento
+            // Se dibuja después del noveno parrafo/elemento
             return createElement(
                 withParagraphCondition(withNonSubscribersConstraint(Default))(
                     9
