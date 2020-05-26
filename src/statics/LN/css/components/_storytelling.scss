@@ -3,6 +3,8 @@
 .noticia-storytelling {
     main {
         padding-top: 0;
+        padding-bottom: 0;
+
         .--storytelling {
             margin-top: px(-45); //header transparente
             position: relative;
@@ -57,6 +59,9 @@
                         height: 100%;
                         top: 0;
                         // object-position: top;
+                        background-attachment: fixed;
+                        background-size: cover;
+                        background-repeat: no-repeat;
                     }
                 }
             }
@@ -68,8 +73,7 @@
                 width: 100%;
                 background-color: rgba(0, 0, 0, 0.65);
                 transition: all 0.2s ease-in-out;
-                padding-bottom: $px-60;
-                padding-bottom: $px-16;
+                padding-bottom: px(16);
 
                 @media (min-width: 769px) {
                     padding-bottom: $px-16;
@@ -88,7 +92,7 @@
                     position: absolute;
                 }
 
-                [class^='logo-'] {
+                [class*='logo-'] {
                     color: $blanco;
                     font-size: px(16);
                     margin: 0;
@@ -142,20 +146,21 @@
         }
     }
 
-    &.--scrollDown {
-        main {
-            .--storytelling {
-                .mod-title {
-                    padding-bottom: $px-16;
-                }
-            }
-        }
-    }
     .lay-sidebar,
     footer,
     .mod-figcaption,
     .wrap {
         background: $blanco;
         position: relative;
+        &.root {
+            display: flow-root;
+        }
+    }
+    .footer {
+        padding-top: px(40);
+    }
+    .lay-sidebar {
+        margin-bottom: 0;
+        padding-bottom: px(40);
     }
 }

@@ -82,13 +82,14 @@ const lnNotaNoticia = ({ children }) => {
                             </picture>
                         </div>
                     </section> */}
-                    <div className="lay">
-                        <ModFigcaption
-                            title="Las próximas definiciones en cinco causas de peso."
-                            credit="Fuente: LA NACION - Crédito: Enrique García Medina"
-                        />
-                    </div>
-
+                    <section className="wrap root">
+                        <div className="lay">
+                            <ModFigcaption
+                                title="Las próximas definiciones en cinco causas de peso."
+                                credit="Fuente: LA NACION - Crédito: Enrique García Medina"
+                            />
+                        </div>
+                    </section>
                     {/* <div className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
@@ -188,7 +189,7 @@ const lnNotaNoticia = ({ children }) => {
                     </div>
                 </section>
             </main>
-            <section className="wrap">
+            <section className="wrap root">
                 <Footer />
             </section>
         </div>

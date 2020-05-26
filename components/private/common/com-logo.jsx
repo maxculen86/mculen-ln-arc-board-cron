@@ -6,7 +6,7 @@ import '../../../resources/dist/css/ln/components/com-logo.css';
 const ComLogo = props => {
     const { logoName } = props;
     if (!logoName) return null;
-    return <i className={`logo-${logoName}`} />;
+    return <i className={`com-logo logo-${logoName}`} />;
 };
 
 ComLogo.propTypes = {
