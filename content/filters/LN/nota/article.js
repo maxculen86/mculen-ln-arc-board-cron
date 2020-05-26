@@ -119,6 +119,19 @@ const video = `
     }
 `;
 
+const oembed = `
+    type
+    subtype
+    _id
+    raw_oembed {
+        url
+        html
+        width
+        height
+        type
+    }
+`;
+
 const label = `
     text
 `;
@@ -243,6 +256,7 @@ export default `
         ${customReceta}
         ${gallery}
         ${video}
+        ${oembed}
         content_elements {
             _id
             content

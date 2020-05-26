@@ -18,6 +18,8 @@ import Subtitle from './subtitle';
 import Paragraph from './parrafo';
 import Banner from '../../common/bannerRefactor';
 import BotonLink from './botonLink';
+import RawHTML from '../../common/rawHTML';
+import OembedAMP from './oembedAMP';
 
 const Cuerpo = props => {
     const {
@@ -37,7 +39,9 @@ const Cuerpo = props => {
         Gallery,
         ListOrderedOrUnordered,
         Image,
-        BotonLink
+        BotonLink,
+        RawHTML,
+        OembedAMP
     ];
 
     const types = [
@@ -58,6 +62,11 @@ const Cuerpo = props => {
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
+            if (element.type === 'oembed_response') {
+                return (
+                    bc.arcType === element.type && bc.outputType === outputType
+                );
+            }
             return bc.arcType === element.type;
         });
 
@@ -66,10 +75,12 @@ const Cuerpo = props => {
             ['image', 'gallery'].findIndex(el => el === (arcType || '')) !== -1
                 ? { withZoom: '--zoom' }
                 : {};
-
         if (Component) {
             if (types.includes(Component.arcType)) {
-                if (element.additional_properties.nodeType) return <></>;
+                const { additional_properties: additionalProperties = {} } =
+                    element || {};
+                const { nodeType = {} } = additionalProperties || {};
+                if (nodeType.length) return <></>;
                 return (
                     <React.Fragment>
                         <Component
