@@ -137,7 +137,7 @@ const Default = props => {
                 {subtype === '1' && canonicalUrl && (
                     <link
                         rel="amphtml"
-                        href={`https://www.lanacion.com.ar${canonicalUrl}amp`}
+                        href={`https://www.lanacion.com.ar${canonicalUrl}?outputType=amp`}
                     />
                 )}
                 <MetaTitle

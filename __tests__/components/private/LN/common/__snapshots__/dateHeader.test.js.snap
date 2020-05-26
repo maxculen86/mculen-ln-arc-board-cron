@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`features - LaNacion - Nota - DateHeader Test de snapshot DateHeader 1`] = `
+<p
+  class="com-date"
+>
+  12 de Mayo de 2020 • 19:43
+</p>
+`;

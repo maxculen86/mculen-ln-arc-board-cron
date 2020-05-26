@@ -4,10 +4,16 @@ import ImageCommon from '../common/image';
 const imageNota = imageData => {
     const resp = ImageCommon(imageData);
     if (!resp) return null;
-    // TODO: pendiente revision con ARC. Traer data de niveles profundos
-    const fuente = get(imageData, 'credits.affiliation[0].name');
-    const credito = get(imageData, 'credits.by[0].name');
+
     resp._t = 'img';
+
+    if (imageData.credits) {
+        resp.credito = get(imageData, 'credits.by[0].name');
+    }
+
+    if (imageData.distributor) {
+        resp.fuente = get(imageData, 'distributor.name');
+    }
 
     if (imageData.caption) {
         resp.epigrafe = imageData.caption;

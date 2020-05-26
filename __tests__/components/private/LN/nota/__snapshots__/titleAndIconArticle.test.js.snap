@@ -3,10 +3,11 @@
 exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono en Nota 1`] = `
 Array [
   <a
-    href="/revistas/brando"
+    class="com-link "
+    href="/revista-brando/"
   >
     <i
-      class="logo-brando"
+      class="com-logo logo-brando --color"
     />
   </a>,
   <h1
