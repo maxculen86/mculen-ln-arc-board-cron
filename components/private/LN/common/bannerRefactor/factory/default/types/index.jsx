@@ -14,6 +14,7 @@ const index = React.forwardRef((props, ref) => {
         targeting,
         sticky,
         background,
+        fixed,
         show,
         bidding,
         sizemap,
@@ -42,6 +43,7 @@ const index = React.forwardRef((props, ref) => {
                 className={`mod-banner ${background ? '--bg-banner' : ''}
                     ${sticky ? '--sticky' : ''}
                     ${closeButton ? '--close' : ''}
+                    ${fixed ? '--fixed' : ''}
                     hlp-none
                 `}
                 ref={ref}
@@ -75,7 +77,8 @@ index.propTypes = {
         refresh: PropTypes.bool
     }),
     bidding: PropTypes.object.isRequired,
-    background: PropTypes.string,
+    background: PropTypes.bool,
+    fixed: PropTypes.bool,
     closeButton: PropTypes.bool
 };
 

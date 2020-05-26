@@ -21,7 +21,15 @@ const Banner = props => {
     const {
         siteProperties,
         isAdmin,
-        customFields: { group, desktop, mobile, tablet, sticky, background },
+        customFields: {
+            group,
+            desktop,
+            mobile,
+            tablet,
+            sticky,
+            background,
+            fixed
+        },
         termicas
     } = fusionContext;
 
@@ -36,6 +44,7 @@ const Banner = props => {
         },
         sticky,
         background,
+        fixed,
         show
     };
 
@@ -59,7 +68,8 @@ Banner.propTypes = {
         mobile: PropTypes.oneOf(getSlotsOptions('mob')),
         tablet: PropTypes.oneOf(getSlotsOptions('tab')),
         sticky: PropTypes.bool,
-        background: PropTypes.bool
+        background: PropTypes.bool,
+        fixed: PropTypes.bool
     }).isRequired,
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
