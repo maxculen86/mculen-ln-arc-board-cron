@@ -93,7 +93,7 @@ function getBannerForStoryTemplate(config) {
             // Se dibuja después del sexto parrafo/elemento
             return createElement(
                 withParagraphCondition(withNonSubscribersConstraint(Default))(
-                    6
+                    9
                 ),
                 { ...config }
             );
