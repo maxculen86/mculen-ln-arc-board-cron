@@ -14,7 +14,6 @@ const aperturaReceta = props => {
             taxonomy: { tags }
         }
     } = props;
-    console.log('promoItems', promoItems);
 
     const primary = taxonomy.primary_section;
 
