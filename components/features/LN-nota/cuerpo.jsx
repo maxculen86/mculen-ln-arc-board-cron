@@ -60,7 +60,7 @@ function buildBodyCustomFields() {
         }
     ];
     const result = {};
-    [...Array(10)].map((item, i) => {
+    [...Array(15)].map((item, i) => {
         return attributes.map(attribute => {
             // eslint-disable-next-line default-case
             switch (attribute.type) {

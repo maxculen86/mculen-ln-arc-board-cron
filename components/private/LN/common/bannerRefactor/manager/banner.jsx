@@ -31,6 +31,7 @@ BannerManager.propTypes = {
         }),
         sticky: PropTypes.bool,
         background: PropTypes.bool,
+        fixed: PropTypes.bool,
         show: PropTypes.bool
     })
 };
