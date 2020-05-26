@@ -48,7 +48,7 @@ const lnNotaNoticia = ({ children }) => {
                 <section className="apertura --storytelling">
                     <ComFigure>
                         <ModPicture
-                            classCondition="--video-background"
+                            classCondition=""
                             srcset="//bucket1.glanacion.com/anexos/fotos/80/2760980w1920.jpg"
                             src="//bucket1.glanacion.com/anexos/fotos/80/2760980w1920.jpg"
                             alt="Alt de la imagen"

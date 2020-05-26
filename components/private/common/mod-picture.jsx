@@ -13,11 +13,13 @@ const ModImage = props => {
     if (!src || !srcset) return null;
 
     return (
-        <ComPicture classCondition={classCondition}>
+        <ComPicture
+            classCondition={classCondition}
+            video={video ? '--video-background' : ''}
+        >
             <ComSource media={media} srcset={srcset} />
             <ComImage src={src} alt={alt} />
-
-            <ModVideo image={src} video={video} />
+            {video ? <ModVideo image={src} video={video} /> : <></>}
         </ComPicture>
     );
 };

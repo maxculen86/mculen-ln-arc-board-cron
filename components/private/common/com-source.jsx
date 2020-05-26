@@ -15,7 +15,3 @@ ComSource.propTypes = {
 };
 
 export default ComSource;
-
-// <source src="//dl.dropbox.com/s/931244iox7i0fpk/working-with-espresso.mp4" type="video/mp4"/>
-// <source src="//dl.dropbox.com/s/g3mo3w34pb8pp2l/working-with-espresso.webm" type="video/webm"/>
-// <source src="//dl.dropbox.com/s/p37f0avio0x6bs8/working-with-espresso.ogv" type="video/ogg"/>

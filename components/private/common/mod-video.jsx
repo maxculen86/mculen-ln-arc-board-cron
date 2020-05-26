@@ -11,11 +11,11 @@ const ModVideo = props => {
 
     return (
         <video
-            autoplay
-            loop
+            loop="true"
+            autoplay="autoplay"
             className="mod-video"
-            muted
-            plays-inline
+            muted="true"
+            playsinline="true"
             poster={image}
         >
             <ComSource src={video} type="video/mp4" />
