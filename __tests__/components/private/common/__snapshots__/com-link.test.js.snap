@@ -5,5 +5,7 @@ exports[`ComLink Matches snapshot 1`] = `
   class="com-link --autor"
   href="https://lanacion.com.ar"
   target="_self"
-/>
+>
+  A link
+</a>
 `;

@@ -7,10 +7,14 @@ exports[`ModFirma Matches snapshot 1`] = `
   <a
     class="com-link --autor"
     href="https://lanacion.com.ar"
-  />
+  >
+    Pepe
+  </a>
   <a
     class="com-link --autor"
     href="https://lanacion.com.ar"
-  />
+  >
+    Paco
+  </a>
 </div>
 `;

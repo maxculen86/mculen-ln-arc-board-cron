@@ -39,7 +39,12 @@ describe('Paragraph', () => {
     it('Sets target _blank attribute on external links', () => {
         const data = {
             type: 'text',
-            content: `target='_blank'>I'm external`
+            content: `
+            <p>
+                Lorem ipsum dolor sit amet <a href="https://www.lanacion.com.ar/something">I'm a link</a>
+                malesuada sit amet velit ut, porttitor viverra tortor. 
+                <a href="https://www.google.com.ar">I'm external</a>
+            </p>`
         };
         component = mount(<Paragraph data={data} />);
         const {

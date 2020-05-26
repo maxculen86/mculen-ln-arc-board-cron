@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import '../../../resources/dist/css/ln/components/com-container.css';
 
-const ComContainer = props => {
+const Container = props => {
     const { id, classesNames, children } = props;
     if (!children) return null;
     return (
@@ -12,10 +11,10 @@ const ComContainer = props => {
     );
 };
 
-ComContainer.propTypes = {
+Container.propTypes = {
     id: PropTypes.string,
     classesNames: PropTypes.string,
     children: PropTypes.elementType.isRequired
 };
 
-export default ComContainer;
+export default Container;

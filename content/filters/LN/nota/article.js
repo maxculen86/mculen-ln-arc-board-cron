@@ -243,8 +243,6 @@ export default `
     content_elements {
         _id
         type
-        url
-        content
         list_type
         items {
             _id

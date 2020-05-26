@@ -15,11 +15,9 @@ $gris6: #333333;
 $author: #ebe8e5;
 $exclusivo: #d1c4e9;
 $highlight: #ffff24;
-$highlight-active: #f5cb12;
 $bullet: #42b2ff;
 $link: #0074c4;
-$ln: #0074c4;
-$ln-active: #006998;
+$ln: #006998;
 $ohlala: #e61f63;
 $brando: #c6480c;
 $living: #000000;
@@ -48,19 +46,13 @@ $light-warning: #fff2cc;
 $danger: #7c2a35;
 $light-danger: #fdd5db;
 
-$instagram: #000000;
-$whatsapp: #25d366;
-$facebook: #3b5998;
-$twitter: #049aff;
-
 /* end Colores */
 
 $font-georgia: 'Georgia', 'serif';
 $font-SuecaSlab: 'SuecaSlab', 'Georgia', 'serif';
 $font-arial: 'Arial', 'sans-serif';
 $font-icons: 'LNicons';
-//espacio de interletrado
-$letter-spacing: -0.4px;
+
 //pixel
 $em: 0.0625em; //1px
 $rem: 0.0625rem; //1px
@@ -369,7 +361,7 @@ $line-98: $rem * 105;
 $line-99: $rem * 106;
 $line-100: $rem * 107;
 //=======================================
-// Media Querys
+// Media Queries
 //=======================================
 $media-xs: 'min-width : 20em'; // 320px
 $media-s: 'min-width : 22em'; // 360px
@@ -402,6 +394,15 @@ $logo-hola: '\e803';
 $logo-jardin: '\e805';
 $logo-rolling: '\e80e';
 
+@function px($base, $exponent: 1) {
+    // px(16)
+    $result: 0.0625;
+    @for $_ from 1 through $exponent {
+        $result: $result * $base;
+    }
+    @return #{$result}rem;
+}
+
 $spacing: 8px;
 $spacing-2xs: $spacing / 2;
 $spacing-xs: $spacing * 1;
@@ -411,12 +412,3 @@ $spacing-lg: $spacing * 4;
 $spacing-xl: $spacing * 5;
 $spacing-2xl: $spacing * 8;
 $spacing-3xl: $spacing * 10;
-
-@function px($base, $exponent: 1) {
-    // px(16)
-    $result: 0.0625;
-    @for $_ from 1 through $exponent {
-        $result: $result * $base;
-    }
-    @return #{$result}rem;
-}

@@ -4,12 +4,7 @@
     font-family: $font-arial;
     font-size: px(14);
     color: $link;
-    .text & {
-        //CAMBIAR
-        font-family: $font-georgia;
-        font-size: px(16);
-        line-height: px(24);
-    }
+    text-transform: initial;
     .listuser & {
         padding: px(10) px(20);
     }
@@ -60,29 +55,16 @@
         .mod-breadcrumb & {
             border: 0;
             padding-left: 0;
+            text-transform: uppercase;
         }
     }
-    .mod-media & {
-        width: 100%;
-    }
+    // .mod-media & {
+    //     width: 100%;
+    // }
     .mod-autor & {
         line-height: px(24);
         font-size: px(16);
         font-weight: bold;
-    }
-    .com-paragraph & {
-        display: contents;
-        font-family: Georgia;
-        font-size: px(18);
-        line-height: px(26);
-        font-weight: normal;
-        .mod-paragraph & {
-            font-family: $font-SuecaSlab;
-            font-size: px(20);
-            line-height: px(28);
-            font-weight: bold;
-            display: contents;
-        }
     }
 }
 @media ($media-l) {
@@ -98,6 +80,7 @@
             font-size: $font-12;
             font-weight: bold;
             padding: $px-10 $px-24;
+            text-transform: uppercase;
             border-radius: 3px;
             transition: opacity 0.2s ease-in-out;
             background-color: $highlight;
