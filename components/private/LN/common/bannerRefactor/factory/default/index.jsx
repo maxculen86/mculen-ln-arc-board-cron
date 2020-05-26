@@ -66,7 +66,8 @@ function getBannerForStoryTemplate(config) {
         case ADHESION_MOB:
             // Meterle comportamiento viejo de adhesion, va para los dos tab y mob
             return createElement(withBondingToBottomMobile(Default), {
-                ...config
+                ...config,
+                closeButton: true
             });
         case ADHESION_DSK:
             return createElement(withBondingToBottom(Default), {
