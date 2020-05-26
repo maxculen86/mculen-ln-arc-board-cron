@@ -48,10 +48,11 @@ const lnNotaNoticia = ({ children }) => {
                 <section className="apertura --storytelling">
                     <ComFigure>
                         <ModPicture
-                            classCondition="content-pic picture"
+                            classCondition="--video-background"
                             srcset="//bucket1.glanacion.com/anexos/fotos/80/2760980w1920.jpg"
                             src="//bucket1.glanacion.com/anexos/fotos/80/2760980w1920.jpg"
                             alt="Alt de la imagen"
+                            video="https://dl.dropboxusercontent.com/s/931244iox7i0fpk/working-with-espresso.mp4"
                         ></ModPicture>
                         <div className="mod-title">
                             <div className="lay">
