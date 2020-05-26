@@ -37,7 +37,7 @@ export default Component => {
             hide(ref.current);
             const onScroll = () => {
                 const windowY = window.scrollY;
-
+                show(ref.current);
                 if (windowY < scrollPosition.current) {
                     scrollPosition.current = windowY;
                     hide(ref.current);

@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .com-banner {
-    display: block;
+    display: inherit;
     overflow: hidden;
     &#adhesion_dsk {
         max-width: px(920);
@@ -79,12 +79,12 @@
         max-width: px(320);
         max-height: px(250);
     }
-    &#sticky_mob1 {
+    &#sticky1_mob {
         max-width: px(320);
         max-height: px(100);
     }
     &#adhesion_mob,
-    &#sticky_mob2 {
+    &#sticky2_mob {
         max-width: px(320);
         max-height: px(50);
 
