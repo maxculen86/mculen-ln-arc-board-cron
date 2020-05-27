@@ -15,6 +15,7 @@ import Paragraph from './parrafo';
 import Banner from '../../common/bannerRefactor';
 import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
+import BotonLink from './botonLink';
 
 const Cuerpo = props => {
     const {
@@ -35,10 +36,17 @@ const Cuerpo = props => {
         ListOrderedOrUnordered,
         Image,
         RawHTML,
-        OembedAMP
+        OembedAMP,
+        BotonLink
     ];
 
-    const types = ['text', 'image', 'oembed_response', 'video'];
+    const types = [
+        'text',
+        'interstitial_link',
+        'image',
+        'oembed_response',
+        'video'
+    ];
 
     const getElementsCount = supportedTypes =>
         contentElements.filter(el => supportedTypes.includes(el.type)).length;
