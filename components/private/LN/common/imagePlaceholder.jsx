@@ -4,8 +4,12 @@ import ComPicture from '../../common/com-picture';
 import ComFigure from '../../common/com-figure';
 import ModFigcaption from '../../common/mod-figcaption';
 
-function ImagePlaceholder({ href, children, outputType, isVertical }) {
-    const image = <ComPicture href={href}>{children}</ComPicture>;
+function ImagePlaceholder({ href, children, outputType, isVertical, amp }) {
+    const image = (
+        <ComPicture href={href} amp={amp}>
+            {children}
+        </ComPicture>
+    );
 
     return (
         <>
