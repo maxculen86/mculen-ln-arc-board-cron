@@ -44,7 +44,9 @@ const getPropsBuilder = position => authors =>
             name: author.name,
             link: author.url || null,
             photo: author.image || null,
-            medio: author.additional_properties.original
+            medio: author.additional_properties
+                ? author.additiona_properties.original
+                : null
         }))
         .reduce(
             (accumulator, value) => {
