@@ -48,6 +48,7 @@ const index = props => {
         dfpId: dfpID,
         dimensions: finalConfig.dimensions,
         targeting: finalConfig.targeting,
+        sizemap: finalConfig.sizemap,
         bidding: finalConfig.bidding,
         device: screenUtils.device,
         extraClasses

@@ -295,6 +295,9 @@
             "content": "<br/>"
         }
     ],
+    "content_restrictions": {
+        "content_code": "premium"
+    },
     "created_date": "2019-02-21T15:38:59.042Z",
     "revision": {
         "revision_id": "IECIVCHPPZCIFET7JMTNGDT3P4",

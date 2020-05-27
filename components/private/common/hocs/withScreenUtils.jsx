@@ -30,10 +30,11 @@ export default WrappedComponent => {
             const mobileOrTablet = isTabletOrMobile(
                 navigator.userAgent || navigator.vendor || window.opera
             );
-            const isTablet = screen.width >= 768;
+            const isTablet = screen.width >= 768 && screen.width < 1024;
+            const isMobile = screen.width < 768;
             if (mobileOrTablet) {
                 if (isTablet) return 'tablet';
-                return 'mobile';
+                if (isMobile) return 'mobile';
             }
             return 'desktop';
         };

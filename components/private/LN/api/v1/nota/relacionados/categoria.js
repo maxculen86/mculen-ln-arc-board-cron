@@ -1,0 +1,13 @@
+const categorias = category => {
+    if (!category) return null;
+
+    const resp = {
+        id: category._id,
+        valor: category.name,
+        nivel: category._id.match(new RegExp('/', 'g')).length
+    };
+
+    return resp;
+};
+
+export default categorias;

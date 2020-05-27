@@ -2,6 +2,9 @@
     "_id": "TWKFZQ6FCNF3ZKPHGGZPMSSOGQ",
     "type": "story",
     "version": "0.10.2",
+    "content_restrictions": {
+        "content_code": "premium"
+    },
     "content_elements": [
         {
             "_id": "WEZHDQGSB5EK7MHKUW7VA7ZS7I",
@@ -806,12 +809,12 @@
                 "_website_section_id": "la-nacion-ar./recetas/recetas-con-ingredientes"
             },
             {
-                "_id": "/revistas/brando",
+                "_id": "/revista-brando",
                 "type": "site",
                 "version": "0.5.8",
                 "name": "Brando",
                 "description": null,
-                "path": "/revistas/brando",
+                "path": "/revista-brando",
                 "parent_id": "/revistas",
                 "additional_properties": {
                     "original": {
@@ -840,12 +843,12 @@
                             "debug": "false"
                         },
                         "_admin": {
-                            "alias_ids": ["/revistas/brando"]
+                            "alias_ids": ["/revista-brando"]
                         },
                         "style": {
                             "section_style_name": "brando"
                         },
-                        "_id": "/revistas/brando",
+                        "_id": "/revista-brando",
                         "name": "Brando",
                         "parent": "/revistas",
                         "ancestors": ["/revistas"],

@@ -16,6 +16,7 @@ const index = React.forwardRef((props, ref) => {
         background,
         show,
         bidding,
+        sizemap,
         device,
         closeButton
     } = props;
@@ -28,6 +29,7 @@ const index = React.forwardRef((props, ref) => {
             slotName={slotName}
             dimensions={dimensions}
             targeting={targeting}
+            sizemap={sizemap}
             bidding={bidding}
             dfpId={dfpId}
             background={background ? '--bg-banner' : ''}
@@ -40,6 +42,7 @@ const index = React.forwardRef((props, ref) => {
                 className={`mod-banner ${background ? '--bg-banner' : ''}
                     ${sticky ? '--sticky' : ''}
                     ${closeButton ? '--close' : ''}
+                    hlp-none
                 `}
                 ref={ref}
             >
@@ -67,6 +70,10 @@ index.propTypes = {
         seccion: PropTypes.string,
         sitio: PropTypes.string
     }).isRequired,
+    sizemap: PropTypes.shape({
+        breakpoints: PropTypes.array,
+        refresh: PropTypes.bool
+    }),
     bidding: PropTypes.object.isRequired,
     background: PropTypes.string,
     closeButton: PropTypes.bool

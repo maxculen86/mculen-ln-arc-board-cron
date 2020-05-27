@@ -5,13 +5,9 @@ import Author from './authorArticle';
 import Date from '../../common/dateHeader';
 
 const authorAndDate = props => {
-    const {
-        globalContent: { display_date, credits },
-        author,
-        date,
-        authorDate
-    } = props;
-
+    const { globalContent, author, date, authorDate } = props;
+    const { display_date, credits, label } = globalContent || {};
+    const { edicion: labelEdicionImpresa } = label || {};
     const [visible, setVisible] = useState(false);
 
     if (!visible && 'by' in credits) {
@@ -26,7 +22,10 @@ const authorAndDate = props => {
                 <div className="col-12">
                     <div className="row mod-authordate">
                         <div className="col-12">
-                            <Date display_date={display_date} />
+                            <Date
+                                labelEdicionImpresa={labelEdicionImpresa}
+                                display_date={display_date}
+                            />
                         </div>
                     </div>
                 </div>
@@ -44,7 +43,10 @@ const authorAndDate = props => {
                 <div className="col-12">
                     <div className="row mod-authordate">
                         <div className="col-12">
-                            <Date display_date={display_date} />
+                            <Date
+                                labelEdicionImpresa={labelEdicionImpresa}
+                                display_date={display_date}
+                            />
                         </div>
                     </div>
                     <div className="col-12">

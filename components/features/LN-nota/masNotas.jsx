@@ -20,7 +20,7 @@ const masNotas = props => {
 masNotas.label = 'LN-Nota-masNotas';
 
 masNotas.propTypes = {
-    cantidadNotas: PropTypes.number,
+    id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
         filter: PropTypes.oneOf(Object.keys(MasNotas.filterTypes)).tag({
@@ -28,7 +28,7 @@ masNotas.propTypes = {
             label: 'Filtrar por',
             defaultValue: Object.keys(MasNotas.filterTypes)[0]
         })
-    })
+    }).isRequired
 };
 
 export default Consumer(masNotas);

@@ -53,7 +53,6 @@ Parrafo.arcType = 'text';
 Parrafo.propTypes = {
     data: PropTypes.shape({
         content: PropTypes.string.isRequired,
-        level: PropTypes.number,
         type: PropTypes.string.isRequired
     }).isRequired,
     capital: PropTypes.bool

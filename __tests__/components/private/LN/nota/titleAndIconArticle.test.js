@@ -7,9 +7,10 @@ import TitleArticle from '../../../../../components/private/LN/nota/apertura/tit
 
 describe('features - LaNacion - Nota - TituloNota', () => {
     const component = render(
-        <TitleArticle 
-            globalContent={nota} 
-            customFields={{ prefix: ''}}
+        <TitleArticle
+            globalContent={nota}
+            layout={'LN-nota-receta'}
+            customFields={{ prefix: '' }}
         />
     );
     it('Test de snapshot Titulo e Icono en Nota', () => {

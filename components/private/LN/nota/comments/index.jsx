@@ -135,13 +135,15 @@ const Comments = props => {
     const onCommentsLoad = useCallback(() => {
         const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
+        if (boxes.length > 0) {
+            commentSection.current.classList.remove('hlp-none');
+        }
         if (boxes.length > 1) {
             [].slice.call(boxes).forEach((box, index) => {
                 if (index < boxes.length - 1) {
                     boxes[index].classList.add('hlp-none');
                 }
             });
-            //lf.firstChild.classList.add('hlp-none');
         }
 
         if (!stylesLoaded) {
@@ -260,7 +262,7 @@ const Comments = props => {
         <>
             <section
                 id="comentarios"
-                className="comments arrow-down"
+                className="comments arrow-down hlp-none"
                 data-module="nota-sugeridas-comentarios"
                 ref={commentSection}
             >

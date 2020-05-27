@@ -1,24 +1,21 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const logoBaseComponent = props => {
-    const { path, styledNamed } = props;
-    return (
-        <>
-            {path ? (
-                <a href={path}>
-                    <i className={`logo-${styledNamed}`} />
-                </a>
-            ) : (
-                <i className={`logo-${styledNamed}`} />
-            )}
-        </>
-    );
+import ComLogo from '../../../common/com-logo';
+import ComLink from '../../../common/com-link';
+
+const LogoBaseComponent = ({ path, logoName, color }) => {
+    if (!logoName) return null;
+    const Logo = <ComLogo logoName={logoName} color={color} />;
+    const Link = <ComLink link={path}>{Logo}</ComLink>;
+
+    return path ? Link : Logo;
 };
 
-logoBaseComponent.propTypes = {
+LogoBaseComponent.propTypes = {
     path: PropTypes.string.isRequired,
-    styledNamed: PropTypes.string.isRequired
+    logoName: PropTypes.string.isRequired,
+    color: PropTypes.bool.isRequired
 };
 
-export default logoBaseComponent;
+export default LogoBaseComponent;

@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import IconBase from '../../common/logoBase';
+import LogoBase from '../../common/logoBase';
 import TitleArticle from './titleArticle';
-import { getSectionStyle } from '../../../common/utils/sectionUtils';
 import '../../../../../resources/dist/css/ln/components/title.css';
 
 const titleAndIconArticle = ({
@@ -12,29 +11,18 @@ const titleAndIconArticle = ({
         taxonomy: { sections },
         headlines,
         label
-    }
+    },
+    layout
 }) => {
-    if (sections) {
-        const sectionStyle = getSectionStyle(sections);
-        return (
-            <>
-                {sectionStyle.class && sectionStyle.path ? (
-                    <IconBase sections={sections} />
-                ) : null}
-                <TitleArticle
-                    prefix={prefix || ''}
-                    headlines={headlines}
-                    label={label}
-                />
-            </>
-        );
-    }
     return (
-        <TitleArticle
-            prefix={prefix || ''}
-            headlines={headlines}
-            label={label}
-        />
+        <>
+            <LogoBase sections={sections} layout={layout} />
+            <TitleArticle
+                prefix={prefix || ''}
+                headlines={headlines}
+                label={label}
+            />
+        </>
     );
 };
 
@@ -56,8 +44,9 @@ titleAndIconArticle.propTypes = {
         }).isRequired,
         taxonomy: PropTypes.shape({
             sections: PropTypes.arrayOf(PropTypes.object)
-        })
-    }).isRequired
+        }).isRequired
+    }).isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 export default titleAndIconArticle;
