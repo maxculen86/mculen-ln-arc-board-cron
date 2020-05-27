@@ -82,4 +82,7 @@
             margin-left: px(5);
         }
     }
+    &.--compact {
+        padding: $spacing-xs;
+    }
 }
