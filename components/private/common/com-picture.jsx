@@ -4,12 +4,21 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ComPicture = props => {
-    const { href, classCondition, children } = props;
+    const { href, classCondition, children, amp } = props;
     const PictureBasic = ({ classCon }) => {
+        //TODO: optimizar condicionalmente
         return (
-            <picture className={`mod-picture ${classCon || ''}`}>
-                {children}
-            </picture>
+            <>
+                {amp ? (
+                    <div className={`mod-picture ${classCon || ''}`}>
+                        {children}
+                    </div>
+                ) : (
+                    <picture className={`mod-picture ${classCon || ''}`}>
+                        {children}
+                    </picture>
+                )}
+            </>
         );
     };
     PictureBasic.propTypes = {
