@@ -5,6 +5,7 @@
 import React from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
+import get from 'lodash.get';
 
 import Firma from '../../private/LN/nota/firma';
 
@@ -41,10 +42,10 @@ const getPropsBuilderFromContentElements = position => contentElements =>
 const getPropsBuilder = position => authors =>
     authors
         .map(author => ({
-            name: author.name,
-            link: author.url || null,
-            photo: author.image || null,
-            medio: author.additional_properties.original
+            name: get(author, 'name'),
+            link: get(author, 'url'),
+            photo: get(author, 'image'),
+            medio: get(author, 'additional_properties.original')
         }))
         .reduce(
             (accumulator, value) => {
@@ -64,16 +65,12 @@ const getPropsBuilder = position => authors =>
                     ...{
                         photo: renderAsList(authors, position)
                             ? null
-                            : value.photo
-                            ? value.photo.url
-                            : null
+                            : get(value, 'photo.url')
                     },
                     ...{
                         medio: renderAsList(authors, position)
                             ? null
-                            : value.medio
-                            ? value.medio.role
-                            : null
+                            : get(value, 'medio.role')
                     }
                 };
                 return props;
