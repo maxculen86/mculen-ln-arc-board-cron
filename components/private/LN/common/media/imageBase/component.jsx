@@ -26,7 +26,7 @@ const imageBase = ({
      */
 
     const pic = (
-        <Placeholder href={href} zoom={zoom} isVertical={isVertical}>
+        <Placeholder href={href} zoom={zoom} isVertical={isVertical} amp={amp}>
             {!active &&
                 !amp &&
                 sources &&
