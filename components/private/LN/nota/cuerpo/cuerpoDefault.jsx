@@ -7,16 +7,14 @@ import PropTypes from 'fusion:prop-types';
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';
 import Image from './image';
-import Video from './video';
-import Html from './html';
 import PullQuote from './pullQuote';
-import MasNotas from './masNotas';
 import Tags from './tags';
-import Ordered from './ordered';
 import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitle from './subtitle';
 import Paragraph from './parrafo';
 import Banner from '../../common/bannerRefactor';
+import RawHTML from '../../common/rawHTML';
+import OembedAMP from './oembedAMP';
 
 const Cuerpo = props => {
     const {
@@ -24,7 +22,7 @@ const Cuerpo = props => {
         siteProperties,
         bannerConfig: banners,
         outputType,
-        globalContent: { taxonomy, content_elements: contentElements }
+        globalContent: { content_elements: contentElements }
     } = props;
 
     const bodyComponents = [
@@ -35,7 +33,9 @@ const Cuerpo = props => {
         Subtitle,
         Gallery,
         ListOrderedOrUnordered,
-        Image
+        Image,
+        RawHTML,
+        OembedAMP
     ];
 
     const types = ['text', 'image', 'oembed_response', 'video'];
