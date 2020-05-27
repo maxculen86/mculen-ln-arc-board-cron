@@ -1,0 +1,10 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.com-container {
+    &.--button {
+        .cuerpo__nota & {
+            @include flex(flex, row, center, center);
+        }
+    }
+}
