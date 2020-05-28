@@ -16,6 +16,7 @@ import {
     CAJA_1_DSK,
     CAJA_2_DSK,
     CAJA_3_DSK,
+    CAJA_4_DSK,
     CAJA_1_TAB,
     CAJA_2_TAB,
     CAJA_1_MOB,
@@ -97,11 +98,18 @@ function getBannerForStoryTemplate(config) {
                 ),
                 { ...config }
             );
+        case CAJA_3_DSK:
+            return createElement(withParagraphCondition(Default)(5), {
+                ...config
+            });
+        case CAJA_4_DSK:
+            return createElement(withParagraphCondition(Default)(5), {
+                ...config
+            });
         case MIDDLE_TEADS_DSK:
         case ONE_X_ONE_DSK:
         case CAJA_1_DSK:
         case CAJA_2_DSK:
-        case CAJA_3_DSK:
         case CAJA_1_TAB:
         case CAJA_1_MOB:
         case CAJA_2_MOB:
