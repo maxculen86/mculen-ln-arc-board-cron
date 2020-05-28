@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-button.css';
 import ComIco from './com-icon';
 import ComText from './com-text';
@@ -12,8 +13,7 @@ const ComButton = props => {
         textname,
         iconName,
         iconPosition,
-        size,
-        style
+        size
     } = props;
 
     if (iconName && !children)
@@ -57,6 +57,17 @@ const ComButton = props => {
             </ComText>
         </button>
     );
+};
+
+ComButton.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.node),
+    classCondition: PropTypes.string,
+    classesNames: PropTypes.string,
+    textname: PropTypes.string,
+    onClick: PropTypes.func,
+    iconName: PropTypes.string,
+    iconPosition: PropTypes.string,
+    size: PropTypes.string
 };
 
 export default ComButton;
