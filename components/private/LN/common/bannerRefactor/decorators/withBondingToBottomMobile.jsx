@@ -7,17 +7,27 @@ import { useFusionContext } from 'fusion:context';
 
 import withLoginData from '../../hocs/withLoginData';
 
-const glue = element => {
+/* const glue = element => {
     if (!element.classList.contains('--fixed'))
         element.classList.add('--fixed');
-};
+}; */
 
 const hide = element => {
-    if (element) element.style.display = 'none';
+    /* if (element) element.style.display = 'none'; */
+    /* if (element) {
+        if (!element.classList.contains('hlp-none'))
+            element.classList.add('hlp-none');
+    } */
+    if (element) element.style.visibility = 'hidden';
 };
 
 const show = element => {
-    if (element) element.style.display = 'flex';
+    /* if (element) element.style.display = 'flex'; */
+    /* if (element) {
+        if (element.classList.contains('hlp-none'))
+            element.classList.remove('hlp-none');
+    } */
+    if (element) element.style.visibility = 'visible';
 };
 
 export default Component => {
@@ -33,7 +43,7 @@ export default Component => {
         const { outputType } = fusionContext;
 
         useLayoutEffect(() => {
-            glue(ref.current);
+            // glue(ref.current);
             hide(ref.current);
             const onScroll = () => {
                 const windowY = window.scrollY;

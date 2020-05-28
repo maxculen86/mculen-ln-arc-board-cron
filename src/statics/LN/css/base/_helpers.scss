@@ -70,6 +70,9 @@
 }
 
 @media ($media-l) {
+    .hlp-none {
+        display: none !important;
+    }
     .hlp-mobile-none {
         display: inherit;
     }
