@@ -28,6 +28,7 @@ import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/components/storytelling.css';
+import '../../resources/dist/css/ln/modules/mod-opening.css';
 
 import ComText from '../private/common/com-text';
 import ComLogo from '../private/common/com-logo';
