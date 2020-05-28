@@ -7,7 +7,7 @@ const ComButton = props => {
     const {
         children,
         classCondition,
-        onclic,
+        onClick,
         classesNames,
         textname,
         iconName,
@@ -22,7 +22,7 @@ const ComButton = props => {
                 type="button"
                 className={`com-button ${classesNames || ``} ${classCondition ||
                     ''} ${iconName ? `--icon` : ``} `}
-                onClick={onclic}
+                onClick={onClick}
             >
                 <ComIco iconName={iconName} size={size} />
             </button>
@@ -35,7 +35,7 @@ const ComButton = props => {
                     ''} ${
                     iconName ? `--icon` : ``
                 } ${iconName} ${iconPosition || ``}`}
-                onClick={onclic}
+                onClick={onClick}
             >
                 <ComIco iconName={iconName} size={size} />
                 <ComText>
@@ -49,7 +49,7 @@ const ComButton = props => {
             type="button"
             className={`com-button ${classesNames || ``} ${classCondition ||
                 ''}`}
-            onClick={onclic}
+            onClick={onClick}
         >
             <ComText>
                 {children || ``}
