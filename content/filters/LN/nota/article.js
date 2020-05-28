@@ -202,6 +202,14 @@ export default `
             type
             url
             slug
+            image {
+                url
+            }
+            additional_properties {
+                original {
+                    role
+                }
+            }
         }
     }
     headlines {

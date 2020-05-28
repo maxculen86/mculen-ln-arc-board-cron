@@ -65,12 +65,12 @@ const getPropsBuilder = position => authors =>
                     ...{
                         photo: renderAsList(authors, position)
                             ? null
-                            : get(value, 'photo.url')
+                            : get(value.photo, 'url')
                     },
                     ...{
                         medio: renderAsList(authors, position)
                             ? null
-                            : get(value, 'medio.role')
+                            : get(value.medio, 'role')
                     }
                 };
                 return props;
