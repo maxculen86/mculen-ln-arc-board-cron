@@ -28,6 +28,7 @@ import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/components/storytelling.css';
+import '../../resources/dist/css/ln/modules/mod-opening.css';
 
 import ComText from '../private/common/com-text';
 import ComLogo from '../private/common/com-logo';
@@ -45,7 +46,7 @@ const lnNotaNoticia = ({ children }) => {
             <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
             <Header />
             <main>
-                <section className="apertura --storytelling">
+                <section className="mod-opening --storytelling">
                     <ComFigure>
                         <ModPicture
                             classCondition=""

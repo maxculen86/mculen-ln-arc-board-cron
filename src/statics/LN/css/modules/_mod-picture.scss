@@ -42,23 +42,25 @@
         @media ($media-m) {
             border: 1px solid #ccc;
         }
-        .com-image {
-            position: absolute;
-            object-fit: cover;
+        .cuerpo__nota & {
             width: 100%;
-            height: 100%;
-            top: 0;
+            margin-left: 0;
         }
-        &::before {
-            font-family: 'LNlogos';
+    }
+
+    &::before {
+        font-family: 'LNlogos';
+        color: #d9d9d9;
+        font-size: 4.22em;
+        font-weight: 400;
+        text-transform: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        .mod-caja-nota &,
+        .--slider &,
+        .--storytelling & {
             content: '\e80a';
-            color: #d9d9d9;
-            font-size: 4.22em;
-            font-weight: 400;
-            text-transform: none;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
         }
     }
 }
