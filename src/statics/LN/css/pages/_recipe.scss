@@ -89,13 +89,15 @@
                 display: inline-block;
             }
             .icon-time {
-                font-size: 2.3em;
+                //Se cambia tamaño de 2.3 por pedido de bug y a las apuradas
+                font-size: 1.8em;
                 @media (min-width: 768px) {
-                    font-size: 2.8em;
+                    font-size: 2.3em;
                 }
             }
             .icon-portions {
-                font-size: $px-30;
+                //Se cambia tamaño de 2.3 por pedido de bug y a las apuradas
+                font-size: 1.8em;
                 padding-left: $px-6;
             }
         }
