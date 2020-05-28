@@ -153,8 +153,8 @@ export const resizeArcImage = (
      */
     return {
         ...arcImage,
-        width: fp ? 768 : arcImage.width,
-        height: fp ? 513 : arcImage.height,
+        width: fp || !smartCropExcluded ? 768 : arcImage.width,
+        height: fp || !smartCropExcluded ? 513 : arcImage.height,
         url:
             IS_DEV === 'true' || IS_SANDBOX === 'true'
                 ? resizer.resizeUrl(
