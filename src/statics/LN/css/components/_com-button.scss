@@ -7,7 +7,7 @@
     background: transparent;
     padding: $spacing-sm;
     color: $negro;
-    font-family: $font-arial;
+    //font-family: $font-arial; no sería mejor aplicarle la font al span?
     font-size: px(12);
     font-weight: 700;
     border-radius: px(4);
@@ -131,6 +131,72 @@
             background: $gris2;
             color: $gris3;
             border: 1px solid $gris3;
+        }
+    }
+
+    &.--compact {
+        padding: $spacing-xs;
+    }
+    .--slider & {
+        background: $negro;
+        border-radius: 0;
+
+        &.icon-left,
+        &.icon-right {
+            display: block;
+            padding: 0;
+            cursor: pointer;
+            border: none;
+            background: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            z-index: 2;
+            color: $blanco;
+            transition: all 0.2s ease;
+            font-size: px(20);
+            width: px(30);
+            height: px(40);
+            top: px(92); //alto.img/2 - alto.button/2
+            @media ($media-m) {
+                //768
+                font-size: px(32);
+                top: px(206);
+                width: $px-46;
+                height: $px-60;
+            }
+            @media ($media-l) {
+                //1024
+                top: px(215);
+            }
+        }
+        &.icon-left {
+            left: px(-20);
+            &:hover {
+                background: rgba(0, 0, 0, 0.4);
+            }
+            @media ($media-m) {
+                left: 0;
+            }
+        }
+        &.icon-right {
+            right: px(-20);
+            &:hover {
+                background: rgba(0, 0, 0, 0.4);
+            }
+            @media ($media-m) {
+                right: 0;
+            }
+        }
+    }
+    .--slider.--active & {
+        &.icon-left,
+        &.icon-right {
+            top: 45%;
+        }
+        &.icon-left {
+            left: 0;
+        }
+        &.icon-right {
+            right: 0;
         }
     }
     .--megatop & {

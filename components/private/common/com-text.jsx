@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/components/com-text.css';
 
