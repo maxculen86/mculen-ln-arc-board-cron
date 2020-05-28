@@ -20,16 +20,18 @@ const groupBannerConfig = props => {
 
     const numberGroups = optionsSet
         .filter(el => el.startsWith('position'))
-        .map(el => el.substring(el.length - 1, el.length));
+        .map(el => el.match(/\d+/g)[0]);
 
     const config = [];
 
     numberGroups.forEach(n => {
-        const configKeys = optionsSet.filter(el => el.endsWith(n));
+        const configKeys = optionsSet.filter(
+            el => el.match(/\d+/g)[0].length === n.length && el.endsWith(n)
+        );
         const configOpt = {};
 
         configKeys.forEach(ck => {
-            configOpt[ck.substring(0, ck.length - 1)] = props.customFields[ck];
+            configOpt[ck.replace(/\d+/g, '')] = props.customFields[ck];
         });
 
         config.push(configOpt);

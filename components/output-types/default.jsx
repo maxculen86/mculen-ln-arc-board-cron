@@ -28,6 +28,7 @@ const scriptList = [
         component: { name: 'ArcAds', function: ArcAds },
         feature: [
             'LN-common/banner',
+            'LN-common/bannerRefactor',
             'LN-nota/bannerStickyNota',
             'LN-common/bannerTercera',
             'LN-acumulado/bannerSticky'
