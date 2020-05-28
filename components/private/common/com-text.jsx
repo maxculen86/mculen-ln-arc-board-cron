@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/components/com-text.css';
 
@@ -49,8 +48,9 @@ const ComText = props => {
         );
 
     return (
-        <span className={`com-text ${classCondition ? classCondition : ''}`}>
-            {children || textname}
+        <span className={`com-text ${classCondition || ''}`}>
+            {children || ``}
+            {textname || ``}
         </span>
     );
 };
