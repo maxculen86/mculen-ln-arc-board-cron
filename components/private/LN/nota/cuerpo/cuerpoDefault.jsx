@@ -40,13 +40,7 @@ const Cuerpo = props => {
         BotonLink
     ];
 
-    const types = [
-        'text',
-        'interstitial_link',
-        'image',
-        'oembed_response',
-        'video'
-    ];
+    const types = ['text', 'image', 'oembed_response', 'video'];
 
     const getElementsCount = supportedTypes =>
         contentElements.filter(el => supportedTypes.includes(el.type)).length;
@@ -55,6 +49,7 @@ const Cuerpo = props => {
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
+    let counter = 0;
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
@@ -77,6 +72,7 @@ const Cuerpo = props => {
                     element || {};
                 const { nodeType = {} } = additionalProperties || {};
                 if (nodeType.length) return <></>;
+                counter += 1;
                 return (
                     <React.Fragment>
                         <Component
@@ -87,13 +83,10 @@ const Cuerpo = props => {
                         />
                         {banners &&
                             banners.some(
-                                banner => banner.position === currentIndex + 1
+                                banner => banner.position === counter
                             ) &&
                             banners
-                                .filter(
-                                    banner =>
-                                        banner.position === currentIndex + 1
-                                )
+                                .filter(banner => banner.position === counter)
                                 .map(value => {
                                     const data = {
                                         siteProperties,
@@ -111,7 +104,7 @@ const Cuerpo = props => {
                                     };
 
                                     return (
-                                        elementsCount > currentIndex + 1 && (
+                                        elementsCount > counter && (
                                             <Banner {...data} />
                                         )
                                     );
