@@ -45,7 +45,7 @@ const lnNotaNoticia = ({ children }) => {
             <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
             <Header />
             <main>
-                <section className="apertura --storytelling">
+                <section className="mod-opening --storytelling">
                     <ComFigure>
                         <ModPicture
                             classCondition=""
