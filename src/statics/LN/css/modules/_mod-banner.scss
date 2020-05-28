@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
     width: inherit;
     max-width: 100%;
     overflow: hidden;
@@ -64,6 +63,9 @@
     .cuerpo__nota & {
         margin-bottom: $spacing-lg;
     }
+    .sidebar__aside & {
+        margin-bottom: px(40);
+    }
 }
 @media ($media-m) {
     .mod-banner {
@@ -75,6 +77,7 @@
 @media ($media-l) {
     .mod-banner {
         .sidebar__aside & {
+            display: flex;
             width: 100%;
         }
         &.--fixed {
@@ -83,17 +86,10 @@
         .cuerpo__nota & {
             display: none;
         }
-        .sidebar__aside & {
-            display: flex;
-        }
     }
 }
-
 @media ($media-lm) {
     .mod-banner {
-        .sidebar__aside & {
-            width: 100%;
-        }
         .cuerpo__nota & {
             display: block;
         }
