@@ -30,6 +30,9 @@ const image = `
     width
     subtitle
     caption
+    additional_properties {
+        iptc_source
+    }
     distributor {
         name
     }
@@ -84,6 +87,7 @@ const video = `
         }
     }
     additional_properties {
+        iptc_source
         nodeType
         advertising {
             playAds
@@ -189,6 +193,9 @@ export default `
     subtype
     promo_items {
         basic {
+            additional_properties {
+                iptc_source
+            }
             ${image}
             ${video}
         }
@@ -254,6 +261,9 @@ export default `
         type
         url
         content
+        additional_properties {
+            iptc_source
+        }
         list_type
         items {
             _id
