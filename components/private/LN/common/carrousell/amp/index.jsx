@@ -13,6 +13,7 @@ const index = props => {
                 height="500"
                 layout="responsive"
                 type="slides"
+                controls
             >
                 {data.content_elements.map(image => {
                     const sources =
