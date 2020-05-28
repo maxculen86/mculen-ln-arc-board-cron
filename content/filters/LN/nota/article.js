@@ -84,6 +84,7 @@ const video = `
         }
     }
     additional_properties {
+        nodeType
         advertising {
             playAds
         }
