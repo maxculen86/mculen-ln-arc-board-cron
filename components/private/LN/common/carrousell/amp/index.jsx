@@ -27,6 +27,8 @@ const index = props => {
                             url={image.url}
                             sources={sources}
                             layout="responsive"
+                            caption={image.caption || ''}
+                            mediaData={image || ''}
                         />
                     );
                 })}

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import EpigrafeAndCreditsData from '../../common/utils/epigrafeAndCreditsData';
 
 const AmpImage = props => {
     const {
@@ -11,8 +12,11 @@ const AmpImage = props => {
         href,
         layout,
         sourcesZoom,
-        active
+        active,
+        caption,
+        mediaData
     } = props;
+    const credito = EpigrafeAndCreditsData(mediaData);
     const isVertical = height > width;
     const sourceActive = active ? sourcesZoom : sources;
 
@@ -43,7 +47,6 @@ const AmpImage = props => {
         >
             <div className="content-pic picture">
                 <amp-img
-                    class="contain"
                     alt={alt}
                     height={height}
                     width={width}
@@ -51,6 +54,8 @@ const AmpImage = props => {
                     srcset={srcset}
                     layout={layout || 'fill'}
                 />
+                {caption}
+                {credito}
             </div>
         </a>
     );
