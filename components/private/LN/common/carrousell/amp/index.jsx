@@ -10,9 +10,10 @@ const index = props => {
         <>
             <amp-carousel
                 width="750"
-                height="500"
+                height="560"
                 layout="responsive"
                 type="slides"
+                class="--slider"
                 controls
             >
                 {data.content_elements.map(image => {

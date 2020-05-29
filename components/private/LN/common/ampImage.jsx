@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import EpigrafeAndCreditsData from '../../common/utils/epigrafeAndCreditsData';
+import ComFigcaption from '../../common/com-figcaption';
+import ComText from '../../common/com-text';
 
 const AmpImage = props => {
     const {
@@ -39,13 +41,13 @@ const AmpImage = props => {
     if (srcset.length === 1) srcset = `${url} ${width}w`;
 
     return (
-        <a
-            className={`figure ${
+        <figure
+            className={`mod-figure figure ${
                 isVertical ? 'contain-vertical' : 'contain-horizontal'
             }`}
-            href={href}
+            //href={href}
         >
-            <div className="content-pic picture">
+            <div className="mod-picture content-pic picture">
                 <amp-img
                     alt={alt}
                     height={height}
@@ -54,10 +56,25 @@ const AmpImage = props => {
                     srcset={srcset}
                     layout={layout || 'fill'}
                 />
-                {caption}
-                {credito}
             </div>
-        </a>
+            {mediaData && (
+                <ComFigcaption>
+                    {caption && (
+                        <ComText
+                            classCondition="--caption"
+                            textname={caption}
+                        />
+                    )}
+                    {credito && (
+                        <ComText classCondition="--credit" textname={credito} />
+                    )}
+                </ComFigcaption>
+            )}
+            {/* <figcaption className="mod-figcaption">
+                <span className="com-text --caption">{caption}</span>
+                <span className="com-text --credit">{credito}</span>
+            </figcaption> */}
+        </figure>
     );
 };
 
