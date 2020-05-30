@@ -13,9 +13,7 @@ const epigrafeAndCreditsData = data => {
                   return totalCredits;
               })
             : null;
-    console.log('creditos', creditos);
     const cred = creditos && creditos.filter(el => el !== '');
-    console.log('creditos ***', cred);
 
     const semicolon =
         iptcSource !== undefined && iptcSource !== '' && cred.length > 0
