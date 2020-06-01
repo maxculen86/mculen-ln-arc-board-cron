@@ -285,7 +285,8 @@ strong,
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    font-size: $font-15;
+    //Se agranda el tamaño en mobile
+    font-size: 1.4em;
     display: inline-block;
     @media (min-width: 768px) {
         font-size: $font-26;
@@ -298,7 +299,8 @@ strong,
 
 [class^='logo-']:not(.logo-la-nacion),
 [class*=' logo-'] {
-    margin-top: $px-20;
+    //Se saca todos los margin-top
+    //margin-top: $px-20;
     margin-bottom: $px-12;
 }
 
@@ -363,6 +365,6 @@ strong,
 }
 
 .logo-bbc:before {
-    content: '\e80f';
-    color: #bb1919;
+    content: $logo-bbc;
+    color: $negro;
 }
