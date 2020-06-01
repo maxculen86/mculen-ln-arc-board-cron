@@ -290,7 +290,11 @@ export default `
     display_date,
     created_date,
     first_publish_date,
+    last_updated_date,
     publish_date,
+    owner {
+        sponsored
+    }
     website_url,
     ${labels},
     content_restrictions {

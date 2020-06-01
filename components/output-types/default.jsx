@@ -10,6 +10,7 @@ import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
 import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
+import AdvertiserContent from '../private/common/scriptManager/AdvertiserContent';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -46,6 +47,10 @@ const scriptList = [
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },
         feature: ['LN-nota/tePuedeInteresar']
+    },
+    {
+        component: { name: 'AdvertiserContent', function: AdvertiserContent },
+        feature: 'none'
     }
 ];
 

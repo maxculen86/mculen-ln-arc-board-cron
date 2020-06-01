@@ -32,6 +32,10 @@ export default {
         LiftIgniter: {
             props: {},
             location: ['body-top']
+        },
+        AdvertiserContent: {
+            props: {},
+            location: ['body-top']
         }
     },
     imageConfig: {
