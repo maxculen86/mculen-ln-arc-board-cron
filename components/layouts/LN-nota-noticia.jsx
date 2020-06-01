@@ -50,6 +50,7 @@ import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
 import ComParagraph from '../private/common/com-paragraph';
+import ComLink from '../private/common/com-link';
 import ModParagraph from '../private/common/mod-paragraph';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
@@ -139,12 +140,9 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                                     simulado.Esto es un texto
                                                     simulado y no tiene ninguna
                                                     validez, esto es un{' '}
-                                                    <a
-                                                        href="#"
-                                                        class="com-link"
-                                                    >
+                                                    <ComLink>
                                                         texto simulado
-                                                    </a>{' '}
+                                                    </ComLink>
                                                     y no tiene ninguna validez
                                                 </ComParagraph>
                                                 <ComParagraph size="--threexs">
