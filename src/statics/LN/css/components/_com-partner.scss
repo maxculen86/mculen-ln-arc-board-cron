@@ -3,6 +3,7 @@
 .com-partner {
     @include flex(flex);
     font-family: $font-arial;
-    color: $gris4;
+    //color: $gris4;
+    color: $negro;
     margin-bottom: $spacing-lg;
 }
