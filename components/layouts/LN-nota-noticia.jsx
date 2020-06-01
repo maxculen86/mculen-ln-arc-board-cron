@@ -49,6 +49,8 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import ComParagraph from '../private/common/com-paragraph';
+import ModParagraph from '../private/common/mod-paragraph';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -122,6 +124,88 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                             </div>
                             <section className="cuerpo__nota">
                                 <div className="row">
+                                    <div className="col-12">
+                                        {/* PARAGRAPH */}
+                                        <div className="row">
+                                            <div className="col-12">
+                                                <ComParagraph capital>
+                                                    Esto es un texto simulado y
+                                                    no tiene ninguna
+                                                    validez,Esto es un texto
+                                                    simulado y no tiene ninguna
+                                                    validez,Esto es un texto
+                                                    simulado y no tiene ninguna
+                                                    validez, esto es un texto
+                                                    simulado.Esto es un texto
+                                                    simulado y no tiene ninguna
+                                                    validez, esto es un{' '}
+                                                    <a
+                                                        href="#"
+                                                        class="com-link"
+                                                    >
+                                                        texto simulado
+                                                    </a>{' '}
+                                                    y no tiene ninguna validez
+                                                </ComParagraph>
+                                                <ComParagraph size="--threexs">
+                                                    Esto es un texto de BAJADA
+                                                    simulado y no tiene ninguna
+                                                    validez, esto es un texto
+                                                    simulado. Esto es un texto
+                                                    de BAJADA simulado y no
+                                                    tiene ninguna validez, esto
+                                                    es un texto simulado.Esto es
+                                                    un texto simulado y no tiene
+                                                    ninguna validez, esto es un{' '}
+                                                    <a
+                                                        href="#"
+                                                        class="com-link"
+                                                    >
+                                                        texto simulado
+                                                    </a>{' '}
+                                                    y no tiene ninguna validez
+                                                </ComParagraph>
+                                                <ComParagraph>
+                                                    Esto es un texto simulado y
+                                                    no tiene ninguna validez,
+                                                    esto es un texto
+                                                    simulado.Esto es un texto
+                                                    simulado y no tiene ninguna
+                                                    validez, esto es un{' '}
+                                                    <a
+                                                        href="#"
+                                                        class="com-link"
+                                                    >
+                                                        texto simulado
+                                                    </a>{' '}
+                                                    y no tiene ninguna validez
+                                                </ComParagraph>
+                                                <ModParagraph>
+                                                    Esto es un texto simulado y
+                                                    no tiene ninguna validez,
+                                                    esto es un{' '}
+                                                    <a
+                                                        href="#"
+                                                        class="com-link"
+                                                    >
+                                                        texto simulado
+                                                    </a>{' '}
+                                                    y no tiene ninguna validez
+                                                </ModParagraph>
+                                                <ModParagraph>
+                                                    Esto es un{' '}
+                                                    <a
+                                                        href="#"
+                                                        class="com-link"
+                                                    >
+                                                        texto simulado
+                                                    </a>{' '}
+                                                    y no tiene validez.
+                                                </ModParagraph>
+                                            </div>
+                                        </div>
+                                        {/* PARAGRAPH */}
+                                    </div>
                                     <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
                                         {/* hlp-mobile-show */}
                                         {/* Left-Cuerpo Shared */}
