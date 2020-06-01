@@ -57,9 +57,18 @@ const Parrafo = ({ data, capital }) => {
     return (
         <>
             {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
-                <p
+                /*                 <p
                     className={`text element-paragraph${
                         capital && isLetter(content) ? ` capital` : ''
+                    }`}
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                        __html: content
+                    }}
+                /> */
+                <p
+                    className={`com-paragraph --threexs ${
+                        capital && isLetter(content) ? `--capital` : ''
                     }`}
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{

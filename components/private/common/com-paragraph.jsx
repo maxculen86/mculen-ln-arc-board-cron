@@ -2,11 +2,11 @@ import React from 'react';
 import '../../../resources/dist/css/ln/components/com-paragraph.css';
 
 const ComParagraph = props => {
-    const { size, children, capital } = props;
+    const { size, children, capital, classCondition } = props;
     if (!children) return null;
     return (
         <p
-            className={`com-paragraph ${size ? size : ``} ${
+            className={`com-paragraph ${classCondition} ${size ? size : ``} ${
                 capital ? `--capital` : ``
             }`}
         >
