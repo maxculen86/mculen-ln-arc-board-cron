@@ -99,7 +99,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 <div className="col-12 ">
                                     {/* Bajada y autor fecha más apertura */}
                                     {children[3]}
-                                    <ComPartner size="fourxs">
+                                    <ComPartner size="xs">
                                         New York Times
                                     </ComPartner>
 

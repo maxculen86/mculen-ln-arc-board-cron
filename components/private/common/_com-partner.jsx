@@ -7,7 +7,7 @@ const ComPartner = props => {
 
     return (
         <span
-            className={`com-partner ${classCondition ? classCondition : ''} ${
+            className={`com-partner ${classCondition ? classCondition : ''} --${
                 size ? size : ``
             }`}
         >
