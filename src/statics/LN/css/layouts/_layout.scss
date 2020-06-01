@@ -68,6 +68,12 @@
         padding-left: $px-40;
     }
 }
+//=======================================
+// Se suma Padding para sacar todos los estacios TOP
+//=======================================
+main {
+    padding-top: $spacing-md;
+}
 
 //=======================================
 // lay al 100% sin paddings ni margins
