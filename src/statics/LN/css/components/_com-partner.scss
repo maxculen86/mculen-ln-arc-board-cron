@@ -4,6 +4,5 @@
     @include flex(flex);
     font-family: $font-arial;
     color: $gris4;
-}
-@media ($media-l) {
+    margin-bottom: $spacing-lg;
 }
