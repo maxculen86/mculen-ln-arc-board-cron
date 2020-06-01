@@ -2,12 +2,144 @@
 @import '../abstracts/mixins';
 
 .com-button {
-    //font-family: $font-arial;
-    transition: opacity 0.2s ease-in-out;
-    @include flex(flex, row, center, center);
+    @include flex(inline, row, center, center);
 
+    background: transparent;
+    padding: $spacing-sm;
+    color: $negro;
+    //font-family: $font-arial; no sería mejor aplicarle la font al span?
+    font-size: px(12);
+    font-weight: 700;
+    border-radius: px(4);
+    outline: none;
+    max-width: px(360);
+    &.--bottom,
+    &.--top {
+        @include flex(flex, column, center, center);
+    }
+    &.facebook {
+        background: $facebook;
+        color: $blanco;
+        &:hover {
+            background: rgba($facebook, 0.7);
+        }
+    }
+    &.instagram {
+        background: $instagram;
+        color: $blanco;
+        &:hover {
+            background: rgba($instagram, 0.7);
+        }
+    }
+    &.twitter {
+        background: $twitter;
+        color: $blanco;
+        &:hover {
+            background: rgba($twitter, 0.7);
+        }
+    }
+    &.whatsapp {
+        background: $whatsapp;
+        color: $blanco;
+        &:hover {
+            background: rgba($whatsapp, 0.7);
+        }
+    }
+    &:hover {
+        background: transparent;
+        color: $ln;
+    }
+    &:active {
+        background: $ln;
+        color: $blanco;
+    }
+    &:disabled {
+        background: $gris3;
+    }
+
+    //variantes
+    &.--primary {
+        background: $ln;
+        color: $blanco;
+
+        &:hover {
+            background: rgba($ln, 0.7);
+        }
+        &:active {
+            background: $ln-active;
+        }
+        &:disabled {
+            background: $gris2;
+            color: $gris3;
+        }
+    }
+    &.--secondary {
+        border: 1px solid $ln;
+        color: $ln;
+        .cuerpo__nota & {
+            margin-bottom: $spacing-lg;
+        }
+
+        &:hover {
+            background: rgba($ln, 0.7);
+            border: 1px solid;
+            color: $blanco;
+        }
+        &:active {
+            background: $ln-active;
+            border: 1px solid;
+            color: $blanco;
+        }
+        &:disabled {
+            background: $gris2;
+            color: $gris3;
+            border: 1px solid $gris3;
+        }
+    }
+    &.--tertiary {
+        background: $gris3;
+        color: $gris5;
+
+        &:hover {
+            background: rgba($gris3, 0.7);
+        }
+        &:active {
+            background: $gris4;
+            color: $gris6;
+        }
+        &:disabled {
+            background: $gris2;
+            color: $gris3;
+        }
+    }
+    &.--special {
+        background: $highlight;
+        border: 1px solid $gris3;
+        color: $gris6;
+
+        &:hover {
+            background: $negro;
+            border: 1px solid;
+            color: $blanco;
+        }
+        &:active {
+            background: $highlight-active;
+            border: 1px solid $gris3;
+            color: $gris6;
+        }
+        &:disabled {
+            background: $gris2;
+            color: $gris3;
+            border: 1px solid $gris3;
+        }
+    }
+
+    &.--compact {
+        padding: $spacing-xs;
+    }
     .--slider & {
         background: $negro;
+        border-radius: 0;
 
         &.icon-left,
         &.icon-right {
@@ -20,12 +152,10 @@
             z-index: 2;
             color: $blanco;
             transition: all 0.2s ease;
-
             font-size: px(20);
             width: px(30);
             height: px(40);
             top: px(92); //alto.img/2 - alto.button/2
-
             @media ($media-m) {
                 //768
                 font-size: px(32);

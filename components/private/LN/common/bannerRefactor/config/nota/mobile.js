@@ -1,13 +1,14 @@
 import { defaultTargeting } from './defaults';
 
-const mob_320x100_sizes = [
-    [320, 100],
-    [320, 50]
-];
-const mob_300x250_sizes = [
+const mob_320x100_sizes = [[320, 100]];
+
+const mob_320x50_sizes = [[320, 50]];
+
+const mob_300x450_sizes = [
+    [300, 450],
     [300, 250],
-    [250, 250],
-    [200, 200]
+    [300, 100],
+    [1, 1]
 ];
 
 export default {
@@ -28,11 +29,7 @@ export default {
     },
     sticky1_mob: {
         slotName: 'la_nacion_mobile/Nota/sticky1_mob',
-        dimensions: [
-            [320, 100],
-            [320, 50],
-            [1, 1]
-        ],
+        dimensions: [[320, 100]],
         targeting: defaultTargeting,
         bidding: {
             prebid: {
@@ -83,18 +80,14 @@ export default {
     },
     sticky2_mob: {
         slotName: 'la_nacion_mobile/Nota/sticky2_mob',
-        dimensions: [
-            [320, 100],
-            [320, 50],
-            [1, 1]
-        ],
+        dimensions: [[320, 50]],
         targeting: defaultTargeting,
         bidding: {
             prebid: {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: mob_320x100_sizes
+                        sizes: mob_320x50_sizes
                     }
                 },
                 bids: [
@@ -150,7 +143,7 @@ export default {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: mob_300x250_sizes
+                        sizes: mob_300x450_sizes
                     }
                 },
                 bids: [
@@ -206,7 +199,7 @@ export default {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: mob_300x250_sizes
+                        sizes: mob_300x450_sizes
                     }
                 },
                 bids: [
@@ -252,7 +245,6 @@ export default {
         slotName: 'la_nacion_mobile/Nota/caja3_mob',
         dimensions: [
             [300, 250],
-            [300, 450],
             [320, 100],
             [1, 1]
         ],
@@ -262,7 +254,11 @@ export default {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: mob_300x250_sizes
+                        sizes: [
+                            [300, 250],
+                            [320, 100],
+                            [1, 1]
+                        ]
                     }
                 },
                 bids: [
@@ -308,7 +304,6 @@ export default {
         slotName: 'la_nacion_mobile/Nota/caja4_mob',
         dimensions: [
             [300, 250],
-            [300, 450],
             [320, 100],
             [1, 1]
         ],
@@ -318,7 +313,11 @@ export default {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: mob_300x250_sizes
+                        sizes: [
+                            [300, 250],
+                            [320, 100],
+                            [1, 1]
+                        ]
                     }
                 },
                 bids: [
@@ -364,7 +363,6 @@ export default {
         slotName: 'la_nacion_mobile/Nota/caja5_mob',
         dimensions: [
             [300, 250],
-            [300, 450],
             [320, 100],
             [1, 1]
         ],
@@ -374,7 +372,11 @@ export default {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: mob_300x250_sizes
+                        sizes: [
+                            [300, 250],
+                            [320, 100],
+                            [1, 1]
+                        ]
                     }
                 },
                 bids: [
@@ -439,8 +441,8 @@ export default {
             height: 250
         }
     },
-    sticky_amp: {
-        slotName: '/133919216/AMP/ROS/sticky_amp',
+    caja3_amp: {
+        slotName: '/133919216/AMP/ROS/caja3_amp',
         dimensions: {
             width: 320,
             height: 50

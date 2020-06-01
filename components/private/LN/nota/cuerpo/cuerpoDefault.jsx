@@ -7,16 +7,15 @@ import PropTypes from 'fusion:prop-types';
 import BlockQuote from './blockQuote';
 import Gallery from '../../common/carrousell';
 import Image from './image';
-import Video from './video';
-import Html from './html';
 import PullQuote from './pullQuote';
-import MasNotas from './masNotas';
 import Tags from './tags';
-import Ordered from './ordered';
 import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitle from './subtitle';
 import Paragraph from './parrafo';
 import Banner from '../../common/bannerRefactor';
+import RawHTML from '../../common/rawHTML';
+import OembedAMP from './oembedAMP';
+import BotonLink from './botonLink';
 
 const Cuerpo = props => {
     const {
@@ -24,7 +23,7 @@ const Cuerpo = props => {
         siteProperties,
         bannerConfig: banners,
         outputType,
-        globalContent: { taxonomy, content_elements: contentElements }
+        globalContent: { content_elements: contentElements }
     } = props;
 
     const bodyComponents = [
@@ -35,7 +34,10 @@ const Cuerpo = props => {
         Subtitle,
         Gallery,
         ListOrderedOrUnordered,
-        Image
+        Image,
+        RawHTML,
+        OembedAMP,
+        BotonLink
     ];
 
     const types = ['text', 'image', 'oembed_response', 'video'];
@@ -47,9 +49,15 @@ const Cuerpo = props => {
 
     const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
+    let counter = 0;
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
+            if (element.type === 'oembed_response') {
+                return (
+                    bc.arcType === element.type && bc.outputType === outputType
+                );
+            }
             return bc.arcType === element.type;
         });
 
@@ -58,10 +66,13 @@ const Cuerpo = props => {
             ['image', 'gallery'].findIndex(el => el === (arcType || '')) !== -1
                 ? { withZoom: '--zoom' }
                 : {};
-
         if (Component) {
             if (types.includes(Component.arcType)) {
-                if (element.additional_properties.nodeType) return <></>;
+                const { additional_properties: additionalProperties = {} } =
+                    element || {};
+                const { nodeType = {} } = additionalProperties || {};
+                if (nodeType.length) return <></>;
+                counter += 1;
                 return (
                     <React.Fragment>
                         <Component
@@ -71,14 +82,11 @@ const Cuerpo = props => {
                             {...extraProps}
                         />
                         {banners &&
-                        banners.some(
-                            banner => banner.position === currentIndex + 1
-                        ) ? (
+                            banners.some(
+                                banner => banner.position === counter
+                            ) &&
                             banners
-                                .filter(
-                                    banner =>
-                                        banner.position === currentIndex + 1
-                                )
+                                .filter(banner => banner.position === counter)
                                 .map(value => {
                                     const data = {
                                         siteProperties,
@@ -96,14 +104,11 @@ const Cuerpo = props => {
                                     };
 
                                     return (
-                                        elementsCount > currentIndex + 1 && (
+                                        elementsCount > counter && (
                                             <Banner {...data} />
                                         )
                                     );
-                                })
-                        ) : (
-                            <></>
-                        )}
+                                })}
                     </React.Fragment>
                 );
             }

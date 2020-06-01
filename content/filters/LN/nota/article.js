@@ -22,21 +22,17 @@ const section = `
 
 const image = `
     type
-    additional_properties {
-        iptc_source
-    }
     resized_urls {
         ${imageResizedUrl}             
     }
-    resized_urls_zoom {
-        ${imageResizedUrl}             
-    }
     height
-    alt_text
     url
     width
     subtitle
     caption
+    additional_properties {
+        iptc_source
+    }
     distributor {
         name
     }
@@ -91,8 +87,8 @@ const video = `
         }
     }
     additional_properties {
-        nodeType
         iptc_source
+        nodeType
         advertising {
             playAds
         }
@@ -128,12 +124,29 @@ const video = `
     }
 `;
 
+const oembed = `
+    type
+    subtype
+    _id
+    raw_oembed {
+        url
+        html
+        width
+        height
+        type
+    }
+`;
+
 const label = `
     text
 `;
 
 const labels = `
     label {
+        edicion {
+            text
+            display
+        }
         livefyre_entrada_id {
             ${label}
         }
@@ -180,12 +193,11 @@ export default `
     subtype
     promo_items {
         basic {
-            ${image}
-            ${video}
-            alt_text
             additional_properties {
                 iptc_source
             }
+            ${image}
+            ${video}
         }
         receta {
             ${customReceta}
@@ -210,6 +222,7 @@ export default `
     }
     headlines {
         basic
+        mobile
         meta_title
     }
     description {
@@ -246,6 +259,11 @@ export default `
     content_elements {
         _id
         type
+        url
+        content
+        additional_properties {
+            iptc_source
+        }
         list_type
         items {
             _id
@@ -258,19 +276,13 @@ export default `
             type
             content
         }
-        alt_text
-        additional_properties {
-            iptc_source
-        }
         ${image}
         ${customReceta}
         ${gallery}
         ${video}
+        ${oembed}
         content_elements {
             _id
-            additional_properties {
-                iptc_source
-            }
             content
             ${image}
         }
@@ -280,5 +292,8 @@ export default `
     first_publish_date,
     publish_date,
     website_url,
-    ${labels}
+    ${labels},
+    content_restrictions {
+        content_code
+    }
 }`;

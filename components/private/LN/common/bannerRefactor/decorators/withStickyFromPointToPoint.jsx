@@ -33,6 +33,9 @@ const idle = element => {
     }
 };
 
+const componentIsVisible = component =>
+    !component.classList.contains('hlp-none');
+
 const componentDidReachTarget = (component, target) =>
     component.offsetTop + component.clientHeight > target.offsetTop;
 
@@ -48,16 +51,18 @@ export default Component => Target => {
                 // TODO: change this by a ref and use getBoundingClientRect func
                 const target = document.getElementById(`${Target}`);
 
-                if (windowY < scrollPosition.current) {
-                    scrollPosition.current = windowY;
-                    ref.current.style.cssText = '';
-                } else if (windowY >= scrollPosition.current) {
-                    scrollPosition.current = windowY;
-                    if (!componentDidReachTarget(ref.current, target)) {
-                        show(ref.current);
-                    } else {
-                        hide(ref.current);
-                        idle(ref.current);
+                if (componentIsVisible(ref.current)) {
+                    if (windowY < scrollPosition.current) {
+                        scrollPosition.current = windowY;
+                        ref.current.style.cssText = '';
+                    } else if (windowY >= scrollPosition.current) {
+                        scrollPosition.current = windowY;
+                        if (!componentDidReachTarget(ref.current, target)) {
+                            show(ref.current);
+                        } else {
+                            hide(ref.current);
+                            idle(ref.current);
+                        }
                     }
                 }
             };

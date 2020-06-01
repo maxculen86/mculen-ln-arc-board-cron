@@ -1,0 +1,105 @@
+{
+    "template": 1,
+    "id": 2354075,
+    "externo": false,
+    "url": "politica/api-contenidos-arc-test-nid2354075",
+    "sitioId": 1,
+    "abiertoComentarios": true,
+    "entradaId": 1526771,
+    "fecha": "2020-04-14 14:55:00",
+    "fechaActualizacion": "2020-04-14 14:15:00",
+    "tienePelicula": false,
+    "categoria": {
+        "id": 30,
+        "valor": "Política"
+    },
+    "apertura": {
+        "titulo": "Api Contenidos Arc Test",
+        "bajada": "",
+        "imagenes": [
+            {
+                "_t": "img",
+                "id": 3234961,
+                "extension": "jpg",
+                "src": "/anexos/fotos/61/3234961.jpg",
+                "alto": 1333,
+                "ancho": 2000,
+                "credito": "",
+                "epigrafe": "",
+                "fuente": "",
+                "destacar": true
+            }
+        ]
+    },
+    "contenido": [
+        {
+            "_t": "p",
+            "valor": [
+                "Lorem",
+                {
+                    "_t": "b",
+                    "valor": [
+                        {
+                            "_t": "i"
+                        },
+                        "ipsum dolor sit amet"
+                    ]
+                },
+                ", consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
+                {
+                    "_t": "i",
+                    "valor": " quis nostrud exercitation ullamco laboris nisi ut aliquip"
+                },
+                " ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+                {
+                    "_t": "b",
+                    "valor": {
+                        "_t": "i",
+                        "valor": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui"
+                    }
+                },
+                " officia deserunt mollit anim id est laborum."
+            ]
+        },
+        {
+            "_t": "p",
+            "valor": [
+                "Lorem ipsum dolor sit amet,",
+                {
+                    "_t": "a",
+                    "href": "http://www.lanacion.com.ar",
+                    "valor": "consectetur adipiscing elit"
+                },
+                ", sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            ]
+        },
+        {
+            "_t": "p",
+            "valor": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+    ],
+    "relacionados": {
+        "imagenes": [
+            {
+                "id": 3235005,
+                "extension": "png",
+                "src": "/anexos/fotos/05/3235005.png",
+                "tipo": 3,
+                "fuenteNombre": "Archivo",
+                "alto": 117,
+                "ancho": 178,
+                "epigrafe": "asdf",
+                "credito": "",
+                "fuente": "asdf",
+                "colorPredominante": "#FFFFFF"
+            }
+        ],
+        "categorias": [
+            {
+                "id": 30,
+                "valor": "Política",
+                "nivel": 1
+            }
+        ]
+    }
+}

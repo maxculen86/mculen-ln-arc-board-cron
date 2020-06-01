@@ -1,35 +1,28 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import { getSectionStyle } from '../../../common/utils/sectionUtils';
+import { getSectionLogo } from '../../../common/utils/sectionUtils';
 import LogoComponent from './component';
 
-const logoBaseContainer = ({ sections }) => {
-    const sectionStyle = getSectionStyle(sections);
-    if (sectionStyle) {
-        return (
-            <LogoComponent
-                path={sectionStyle.path}
-                styledNamed={sectionStyle.class}
-            />
-        );
+const LogoBaseContainer = ({ sections, layout }) => {
+    const sectionData = getSectionLogo(sections, layout);
+
+    if (sections && sectionData) {
+        const { path, logoName, color } = sectionData;
+        return <LogoComponent path={path} logoName={logoName} color={color} />;
     }
-    return null;
+
+    return <></>;
 };
 
-logoBaseContainer.propTypes = {
+LogoBaseContainer.propTypes = {
     sections: PropTypes.arrayOf(
         PropTypes.shape({
             path: PropTypes.string.isRequired,
-            additional_properties: PropTypes.shape({
-                original: PropTypes.shape({
-                    style: PropTypes.shape({
-                        section_style_name: PropTypes.string
-                    })
-                })
-            })
+            _id: PropTypes.string.isRequired
         })
-    ).isRequired
+    ).isRequired,
+    layout: PropTypes.string.isRequired
 };
 
-export default logoBaseContainer;
+export default LogoBaseContainer;

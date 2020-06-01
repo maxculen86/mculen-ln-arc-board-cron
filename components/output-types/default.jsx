@@ -28,6 +28,7 @@ const scriptList = [
         component: { name: 'ArcAds', function: ArcAds },
         feature: [
             'LN-common/banner',
+            'LN-common/bannerRefactor',
             'LN-nota/bannerStickyNota',
             'LN-common/bannerTercera',
             'LN-acumulado/bannerSticky'
@@ -137,7 +138,7 @@ const Default = props => {
                 {subtype === '1' && canonicalUrl && (
                     <link
                         rel="amphtml"
-                        href={`https://www.lanacion.com.ar${canonicalUrl}amp`}
+                        href={`https://www.lanacion.com.ar${canonicalUrl}?outputType=amp`}
                     />
                 )}
                 <MetaTitle

@@ -16,6 +16,9 @@ import {
     CAJA_1_DSK,
     CAJA_2_DSK,
     CAJA_3_DSK,
+    CAJA_4_DSK,
+    CAJA_1_TAB,
+    CAJA_2_TAB,
     CAJA_1_MOB,
     CAJA_2_MOB,
     CAJA_3_MOB,
@@ -25,23 +28,34 @@ import {
     MIDDLE_1_DSK,
     MIDDLE_2_DSK,
     MIDDLE_3_DSK,
+    MIDDLE_1_TAB,
+    MIDDLE_2_TAB,
     MIDDLE_TEADS_DSK,
+    CABEZAL_TAB,
     STICKY_1_MOB,
     STICKY_2_MOB,
     MEGATOP_DSK,
     MEGATOP_MOB,
     ADHESION_DSK,
-    ADHESION_MOB
+    ADHESION_MOB,
+    ADHESION_TAB
 } from '../constants';
 
 import withStickyFromPointToPoint from '../../decorators/withStickyFromPointToPoint';
 import withBondingToBottom from '../../decorators/withBondingToBottom';
+import withParagraphCondition from '../../decorators/withParagraphCondition';
+import withNonSubscribersConstraint from '../../decorators/withNonSubscribersConstraint';
+import withBondingToBottomMobile from '../../decorators/withBondingToBottomMobile';
 
+// TODO: luego mover cada funcion inherente a cada template a su propio archivo aparte
 function getBannerForStoryTemplate(config) {
     const { slotId } = config;
     switch (slotId) {
         case STICKY_1_MOB:
             return <Sticky1Mob {...config} />;
+        case CABEZAL_TAB:
+            // Sin sticky
+            return createElement(Default, { ...config });
         case CABEZAL_DSK:
             return createElement(
                 withStickyFromPointToPoint(Default)('caja1_dsk'),
@@ -49,7 +63,13 @@ function getBannerForStoryTemplate(config) {
                     ...config
                 }
             );
+        case ADHESION_TAB:
         case ADHESION_MOB:
+            // Meterle comportamiento viejo de adhesion, va para los dos tab y mob
+            return createElement(withBondingToBottomMobile(Default), {
+                ...config,
+                closeButton: true
+            });
         case ADHESION_DSK:
             return createElement(withBondingToBottom(Default), {
                 ...config,
@@ -58,11 +78,39 @@ function getBannerForStoryTemplate(config) {
         case MEGATOP_MOB:
         case MEGATOP_DSK:
             return <Megatop {...config} />;
+        case CAJA_2_TAB:
+            return createElement(withParagraphCondition(Default)(4), {
+                ...config
+            });
+        case MIDDLE_1_TAB:
+            // Se dibuja después del tercer parrafo/elemento
+            return createElement(
+                withParagraphCondition(withNonSubscribersConstraint(Default))(
+                    3
+                ),
+                { ...config }
+            );
+        case MIDDLE_2_TAB:
+            // Se dibuja después del noveno parrafo/elemento
+            return createElement(
+                withParagraphCondition(withNonSubscribersConstraint(Default))(
+                    9
+                ),
+                { ...config }
+            );
+        case CAJA_3_DSK:
+            return createElement(withParagraphCondition(Default)(5), {
+                ...config
+            });
+        case CAJA_4_DSK:
+            return createElement(withParagraphCondition(Default)(5), {
+                ...config
+            });
         case MIDDLE_TEADS_DSK:
         case ONE_X_ONE_DSK:
         case CAJA_1_DSK:
         case CAJA_2_DSK:
-        case CAJA_3_DSK:
+        case CAJA_1_TAB:
         case CAJA_1_MOB:
         case CAJA_2_MOB:
         case CAJA_3_MOB:

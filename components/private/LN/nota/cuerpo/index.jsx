@@ -23,7 +23,7 @@ index.propTypes = {
         table: PropTypes.string
     }).isRequired,
     globalContent: PropTypes.shape({
-        subtype: PropTypes.number.isRequired
+        subtype: PropTypes.string.isRequired
     }).isRequired
 };
 

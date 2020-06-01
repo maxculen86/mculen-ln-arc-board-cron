@@ -4,7 +4,6 @@ import PropTypes from 'fusion:prop-types';
 
 const Placeholder = props => {
     const { slotName, targeting, dimensions, missDfpId } = props;
-    console.log('PROPS EN PLACEHOLDER:', props);
 
     const style = {
         alignItems: 'center',

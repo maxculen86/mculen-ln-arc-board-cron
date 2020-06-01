@@ -18,12 +18,15 @@ function WithAcuArticlesData(
                         type: PropTypes.string.isRequired,
                         _id: PropTypes.string.isRequired
                     }).isRequired,
-                    size: PropTypes.number.isRequired
+                    size: PropTypes.number.isRequired,
+                    customFields: PropTypes.shape({
+                        filter: PropTypes.string.isRequired
+                    })
                 };
             }
 
             static get defaultProps() {
-                return { page: 1 };
+                return { page: 1, customFields: { filter: undefined } };
             }
 
             constructor(props) {
@@ -153,11 +156,24 @@ function WithAcuArticlesData(
                 );
             };
 
+            addShortTitle = (article, filterFeature) => {
+                if (filterFeature === '0' || filterFeature === '1') {
+                    const { headlines } = article;
+                    const { basic, mobile } = headlines;
+                    return {
+                        ...article,
+                        headlines: { ...headlines, shortTitle: mobile || basic }
+                    };
+                }
+                return article;
+            };
+
             render() {
                 const { articles, hayMasNotas, loading } = this.state;
                 let articlesArray = articles;
                 const {
-                    globalContent: { type, _id }
+                    globalContent: { type, _id },
+                    customFields: { filter: filterFeature }
                 } = this.props;
 
                 if (type === 'story') {
@@ -168,6 +184,9 @@ function WithAcuArticlesData(
                     } = this.props;
 
                     articlesArray = articles
+                        .map(article => {
+                            return this.addShortTitle(article, filterFeature);
+                        })
                         .filter(article => {
                             return isIdPresent
                                 ? article._id !== _id &&
