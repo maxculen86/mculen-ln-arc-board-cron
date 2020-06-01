@@ -27,7 +27,7 @@ amp-sidebar {
         .logo-la-nacion {
             //Logo LN
             font-size: 15px;
-            color: #006998;
+            color: $ln-active;
         }
         .icon-close {
             //Ícono cerrar
@@ -236,7 +236,7 @@ a.icon-cerrar:before {
         .header__middle__logo {
             .logo-la-nacion {
                 //Logo LN
-                color: #006998;
+                color: $ln-active;
                 &:before {
                     font-size: 17px;
                 }
@@ -301,7 +301,7 @@ a.icon-cerrar:before {
                 align-items: center;
                 .logo-la-nacion {
                     //Logo LN
-                    color: #006998;
+                    color: $ln-active;
                     &:before {
                         font-size: 25px;
                     }
