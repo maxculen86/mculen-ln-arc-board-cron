@@ -363,6 +363,6 @@ strong,
 }
 
 .logo-bbc:before {
-    content: '\e80f';
-    color: #bb1919;
+    content: $logo-bbc;
+    color: $negro;
 }
