@@ -71,10 +71,8 @@
 //=======================================
 // Se suma Padding para sacar todos los estacios TOP
 //=======================================
-.lay {
-    &.--apertura {
-        padding-top: $spacing-md;
-    }
+main {
+    padding-top: $spacing-md;
 }
 
 //=======================================
