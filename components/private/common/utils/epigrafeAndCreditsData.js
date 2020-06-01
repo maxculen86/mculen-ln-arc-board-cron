@@ -1,30 +1,27 @@
 const epigrafeAndCreditsData = data => {
     const { credits, additional_properties: additionalProperties } = data;
     const { iptc_source: iptcSource } = additionalProperties || {};
+
     const creditos =
-        credits &&
-        credits.by !== undefined &&
-        (credits
-            ? credits.by.map((credito, i) => {
-                  const totalCredits = `${
+        credits && credits.by !== undefined
+            ? credits.by.map(credito => {
+                  const creditName = credito.name !== '' ? credito.name : '';
+                  const totalCredits =
                       credito.type === 'author'
-                          ? credito.name
-                          : credito.referent.id
-                  }`;
+                          ? creditName
+                          : credito.referent.id;
                   return totalCredits;
               })
-            : '');
+            : null;
+    const cred = creditos && creditos.filter(el => el !== '');
+
     const semicolon =
-        iptcSource !== undefined &&
-        iptcSource !== '' &&
-        credits.by !== undefined
+        iptcSource !== undefined && iptcSource !== '' && cred.length > 0
             ? ' - '
             : '';
     const fuente =
         iptcSource !== undefined && iptcSource !== '' ? iptcSource : '';
-    const fuenteCredito = `${
-        credits && credits.by ? creditos : ''
-    }${semicolon}${fuente}`;
+    const fuenteCredito = `${cred || ''}${semicolon}${fuente}`;
     return fuenteCredito;
 };
 
