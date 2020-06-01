@@ -14,10 +14,48 @@ describe('AmpImage', () => {
                 }
             }
         ];
+        const width = 600;
+        const height = 600;
         const alt = 'Test image';
+        const mediaData = [
+            {
+                credits: {
+                    affiliation: [
+                        {
+                            name: 'DIEGO LIMA',
+                            type: 'author'
+                        }
+                    ],
+                    by: [
+                        {
+                            byline: 'photographer',
+                            name: 'photographer',
+                            type: 'author'
+                        },
+                        {
+                            byline: 'martin',
+                            name: 'Tincho',
+                            type: 'author'
+                        }
+                    ]
+                },
+                additional_properties: {
+                    iptc_source: 'LA NACION'
+                }
+            }
+        ];
 
         const Component = render(
-            <AmpImage sources={sources} url={url} alt={alt} />
+            <AmpImage
+                sources={sources}
+                url={url}
+                alt={alt}
+                width={width}
+                height={height}
+                caption={alt}
+                mediaData={mediaData}
+                layout={'responsive'}
+            />
         );
 
         expect(Component).toMatchSnapshot();
