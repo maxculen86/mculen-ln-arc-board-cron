@@ -154,6 +154,11 @@ const labels = `
             text
             display
         }
+        mostrar_banners {
+            url
+            text
+            display
+        },
     }
 `;
 

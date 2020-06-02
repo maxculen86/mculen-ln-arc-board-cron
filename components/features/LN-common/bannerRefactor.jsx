@@ -30,10 +30,13 @@ const Banner = props => {
             background,
             fixed
         },
-        termicas
+        termicas,
+        globalContent: { label }
     } = fusionContext;
 
     const { banners: show } = termicas || {};
+    const { mostrar_banners: mostrarBanners } = label || {};
+    const { text: mostrarBannersValue } = mostrarBanners || '';
 
     const banner = {
         slotGroup: group,
@@ -48,13 +51,15 @@ const Banner = props => {
         show
     };
 
-    return (
-        <BannerComponent
-            siteProperties={siteProperties}
-            isAdmin={isAdmin}
-            banner={banner}
-        />
-    );
+    if (mostrarBannersValue !== 'No')
+        return (
+            <BannerComponent
+                siteProperties={siteProperties}
+                isAdmin={isAdmin}
+                banner={banner}
+            />
+        );
+    return <></>;
 };
 
 Banner.label = 'LN-Common-BannerRefactor';
@@ -74,6 +79,13 @@ Banner.propTypes = {
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
+        })
+    }),
+    globalContent: PropTypes.shape({
+        label: PropTypes.shape({
+            mostrar_banners: PropTypes.shape({
+                text: PropTypes.string
+            })
         })
     })
 };
