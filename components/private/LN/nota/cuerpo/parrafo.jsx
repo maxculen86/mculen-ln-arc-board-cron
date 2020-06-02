@@ -67,7 +67,7 @@ const Parrafo = ({ data, capital }) => {
                     }}
                 /> */
                 <p
-                    className={`com-paragraph --threexs ${
+                    className={`com-paragraph --twoxs ${
                         capital && isLetter(content) ? `--capital` : ''
                     }`}
                     // eslint-disable-next-line react/no-danger
