@@ -41,7 +41,7 @@ const Comments = props => {
     } = props;
 
     // const allowComments = get(comments, 'allow_comments');
-    const displayComments = get(comments, 'display_comments');
+    const displayComments = get(comments, 'display_comments', true);
 
     const { isAuth } = useGlobal();
 
