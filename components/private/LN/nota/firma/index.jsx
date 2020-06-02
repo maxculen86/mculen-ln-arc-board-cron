@@ -7,7 +7,7 @@ import ModAutor from '../../../common/mod-autor';
 const Firma = props => {
     const { authors, photo, medio, amp } = props;
 
-    if (authors.length < 1) return null;
+    if (!authors || authors.length < 1) return null;
 
     return (
         <div className="row FirmaAutor">

@@ -35,9 +35,15 @@ const Comments = props => {
         termicas
     } = props;
 
-    const { isAuth } = useGlobal();
+    const {
+        globalContent: { comments }
+    } = props || {};
 
-    if (!termicas.livefyre) return <></>;
+    const { allow_comments: allowComments } = comments || {
+        allow_comments: true
+    };
+
+    const { isAuth } = useGlobal();
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
@@ -167,20 +173,24 @@ const Comments = props => {
 
     const observer = useRef(new MutationObserver(onCommentsLoad));
     useEffect(() => {
-        observer.current.observe(document.querySelector('#livefyre'), {
-            subtree: false,
-            childList: true
-        });
+        if (document.querySelector('#livefyre')) {
+            observer.current.observe(document.querySelector('#livefyre'), {
+                subtree: false,
+                childList: true
+            });
+        }
         return () => observer.current.disconnect();
     });
 
     useEffect(() => {
-        if (showLegal) {
-            commentSection.current.classList.remove('arrow-down');
-            commentSection.current.classList.add('arrow-up');
-        } else {
-            commentSection.current.classList.remove('arrow-up');
-            commentSection.current.classList.add('arrow-down');
+        if (commentSection.current) {
+            if (showLegal) {
+                commentSection.current.classList.remove('arrow-down');
+                commentSection.current.classList.add('arrow-up');
+            } else {
+                commentSection.current.classList.remove('arrow-up');
+                commentSection.current.classList.add('arrow-down');
+            }
         }
     }, [showLegal]);
 
@@ -257,6 +267,10 @@ const Comments = props => {
         loginData,
         props
     ]);
+
+    if (!allowComments) return null;
+
+    if (!termicas.livefyre) return <></>;
 
     return (
         <>
