@@ -109,7 +109,7 @@ class GooglePublisherTag extends Component {
         const script = `
             (window.googletag = window.googletag || { cmd: [] });
                 googletag.cmd.push(function() {
-                    googletag.pubads().setTargeting('tags_nuevos', ${categories} ${topics} ${authorList} ${url});
+                    googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url}]);
             })
         `;
 
@@ -117,11 +117,9 @@ class GooglePublisherTag extends Component {
             <script
                 defer
                 id="googlePublisherTag-metadata"
-                type="application/json"
+                type="text/javascript"
                 // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{
-                    __html: script
-                }}
+                dangerouslySetInnerHTML={{ __html: script }}
             />
         );
     }
