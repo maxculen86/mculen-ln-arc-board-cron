@@ -294,6 +294,7 @@ export default `
     website_url,
     ${labels},
     comments {
+        display_comments
         allow_comments
     }
     content_restrictions {
