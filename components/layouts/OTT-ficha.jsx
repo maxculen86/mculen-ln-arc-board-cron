@@ -23,7 +23,7 @@ class OTTFichaLayout extends Component {
 
             const videoScript = document.createElement('script');
             videoScript.src =
-                'https://dzyf5jtgd0sxp.cloudfront.net/powaBoot.js';
+                'https://dzyf5jtgd0sxp.cloudfront.net/prod/powaBoot.js';
             videoScript.async = true;
             document.head.appendChild(videoScript);
         }
