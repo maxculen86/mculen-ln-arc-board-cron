@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import ReactDOMServer from 'react-dom/server';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import ComLink from '../../../common/com-link';
+import ComParagraph from '../../../common/com-paragraph';
 
 import { compose } from '../../../common/utils/functional';
 
@@ -66,14 +67,11 @@ const Parrafo = ({ data, capital }) => {
                         __html: content
                     }}
                 /> */
-                <p
-                    className={`com-paragraph --twoxs ${
+                <ComParagraph
+                    classCondition={`com-paragraph --twoxs ${
                         capital && isLetter(content) ? `--capital` : ''
                     }`}
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                        __html: content
-                    }}
+                    content={content}
                 />
             )}
         </>
