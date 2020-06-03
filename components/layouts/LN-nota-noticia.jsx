@@ -145,7 +145,10 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                                     </ComLink>
                                                     y no tiene ninguna validez
                                                 </ComParagraph>
-                                                <ComParagraph size="--threexs">
+                                                <ComParagraph
+                                                    classCondition="--bajada"
+                                                    size="--threexs"
+                                                >
                                                     Esto es un texto de BAJADA
                                                     simulado y no tiene ninguna
                                                     validez, esto es un texto

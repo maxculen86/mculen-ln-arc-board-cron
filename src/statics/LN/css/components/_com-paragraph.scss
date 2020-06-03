@@ -5,6 +5,9 @@
     font-family: Georgia;
     font-weight: normal;
     margin-bottom: $spacing-lg;
+    &.--bajada {
+        font-family: $font-arial;
+    }
     .mod-paragraph & {
         @include flex(flex);
         text-align: center;
