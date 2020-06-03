@@ -11,6 +11,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
+import get from 'lodash.get';
 import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
@@ -37,11 +38,10 @@ const Comments = props => {
 
     const {
         globalContent: { comments }
-    } = props || {};
+    } = props;
 
-    const { allow_comments: allowComments } = comments || {
-        allow_comments: true
-    };
+    // const allowComments = get(comments, 'allow_comments');
+    const displayComments = get(comments, 'display_comments', true);
 
     const { isAuth } = useGlobal();
 
@@ -121,12 +121,12 @@ const Comments = props => {
                     minutesUntilAbsoluteTime: 4,
                     absoluteFormat: 'HH:mm dd/MM/y'
                 },
-                editorCss: {
+                /* editorCss: {
                     background: '#ccc',
                     color: 'red',
                     font:
                         '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
-                },
+                }, */
                 initialNumVisible: '10',
                 postToButtons: ['tw', 'fb']
             }
@@ -239,6 +239,7 @@ const Comments = props => {
                             LiveFyreConfig.networkConfig,
                             [LiveFyreConfig.convConfig],
                             widget => {
+                                // console.log("########WIDGET: ", widget.getCollection());
                                 widget.on('commentPosted', data => {});
                                 widget.on('commentFlagged', data => {});
                                 widget.on('commentLiked', data => {});
@@ -268,7 +269,9 @@ const Comments = props => {
         props
     ]);
 
-    if (!allowComments) return null;
+    // if (!allowComments) return null;
+
+    if (!displayComments) return null;
 
     if (!termicas.livefyre) return <></>;
 
