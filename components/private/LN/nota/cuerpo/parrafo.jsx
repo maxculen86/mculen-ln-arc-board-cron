@@ -68,9 +68,8 @@ const Parrafo = ({ data, capital }) => {
                     }}
                 /> */
                 <ComParagraph
-                    classCondition={`com-paragraph --twoxs ${
-                        capital && isLetter(content) ? `--capital` : ''
-                    }`}
+                    capital={capital && isLetter(content) ? `--capital` : ''}
+                    size="--twoxs"
                     content={content}
                 />
             )}
