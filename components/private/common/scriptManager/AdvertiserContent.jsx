@@ -63,7 +63,7 @@ const AdvertiserContent = props => {
 
     return (
         <script
-            id="something"
+            id="advertiser-content-article"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
                 __html: JSON.stringify(script)
