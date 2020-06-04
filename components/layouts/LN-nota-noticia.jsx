@@ -49,7 +49,6 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
-import ComPartner from '../private/common/_com-partner';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -67,7 +66,6 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
         />
     );
     if (isAdmin) return component;
-    return isValid ? component : null;
 };
 
 const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
@@ -99,10 +97,6 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 <div className="col-12 ">
                                     {/* Bajada y autor fecha más apertura */}
                                     {children[3]}
-                                    <ComPartner size="xs">
-                                        New York Times
-                                    </ComPartner>
-
                                     {/* <div className="opinion-autor row">
                                     <section id="" className="cont-figure">
                                         <div className="figure">

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import ComPartner from '../../../common/com-partner';
 
 const Firma = props => {
     const {
@@ -12,11 +13,7 @@ const Firma = props => {
         distributorName === 'Obrik' ||
         distributorName === 'The Wall Street Journal'
     )
-        return (
-            <div className="row FirmaAutor">
-                <div className="col-12">{distributorName}</div>
-            </div>
-        );
+        return <ComPartner size="xs">{distributorName}</ComPartner>;
 
     return null;
 };

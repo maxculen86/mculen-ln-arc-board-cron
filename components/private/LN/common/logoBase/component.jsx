@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import LogoBBC from './logoBBC';
+import LogoBBC from './scriptLogoBBC';
 import ComLogo from '../../../common/com-logo';
 import ComLink from '../../../common/com-link';
 
