@@ -12,12 +12,10 @@ const ModSponsor = props => {
 
     return (
         <div className={`mod-sponsor ${type} ${sponsor}`}>
-            {sponsor ? (
+            {sponsor && (
                 <ComLink link={link}>
                     <ComLogo color="true" logoName={sponsor} />
                 </ComLink>
-            ) : (
-                <></>
             )}
 
             <>

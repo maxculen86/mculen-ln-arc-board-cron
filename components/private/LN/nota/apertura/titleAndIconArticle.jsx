@@ -17,7 +17,8 @@ const titleAndIconArticle = ({
     layout
 }) => {
     const sponsored = get(owner, 'sponsored', false);
-    const advertiser = get(label, 'marca_anunciante.text');
+    const advertiser = get(label, 'marca_anunciante.text', null);
+
     return (
         <>
             <LogoBase
