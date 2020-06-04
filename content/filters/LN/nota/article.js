@@ -201,6 +201,9 @@ export default `
     subtype
     promo_items {
         basic {
+            _id
+            type
+            content
             additional_properties {
                 iptc_source
             }
