@@ -5,7 +5,8 @@ import { getSectionLogo } from '../../../common/utils/sectionUtils';
 import LogoComponent from './component';
 
 const LogoBaseContainer = ({ sections, layout, distributor }) => {
-    const sectionData = getSectionLogo(sections, layout, distributor);
+    const { name: distributorName } = distributor;
+    const sectionData = getSectionLogo(sections, layout, distributorName);
 
     if (sections && sectionData) {
         const { path, logoName, color } = sectionData;
