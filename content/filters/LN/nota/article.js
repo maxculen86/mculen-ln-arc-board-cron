@@ -154,6 +154,9 @@ const labels = `
             text
             display
         }
+        marca_anunciante {
+            ${label}
+        }
     }
 `;
 

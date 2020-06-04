@@ -1,0 +1,78 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-sponsor {
+    margin-bottom: px(16);
+    align-items: center;
+    display: flex;
+    .com-logo {
+        display: flex;
+        margin: 0;
+        font-size: px(18);
+        &::after {
+            content: '●';
+            font-size: px(16);
+            margin: 0 px(8);
+        }
+    }
+    .com-text {
+        color: $sponsor;
+        font-weight: bold;
+    }
+
+    &.ohlala {
+        .com-text {
+            color: $ohlala;
+        }
+    }
+    &.brando {
+        .com-text {
+            color: $brando;
+        }
+    }
+    &.living {
+        .com-text {
+            color: $living;
+        }
+    }
+    &.hola {
+        .com-text {
+            color: $hola;
+        }
+    }
+    &.jardin {
+        .com-text {
+            color: $jardin;
+        }
+    }
+    &.lugares {
+        .com-text {
+            color: $lugares;
+        }
+    }
+    &.rolling,
+    &.rolling-stone {
+        .com-text {
+            color: $rolling;
+        }
+    }
+
+    &.--contentlab {
+        .com-logo {
+            &::after {
+                color: $negro;
+            }
+        }
+        .com-text {
+            color: $negro;
+        }
+    }
+
+    .--storytelling & {
+        .com-texto,
+        .com-logo,
+        .com-logo::after {
+            color: $blanco !important;
+        }
+    }
+}

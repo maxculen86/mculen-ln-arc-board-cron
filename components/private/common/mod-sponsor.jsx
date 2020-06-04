@@ -1,0 +1,45 @@
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
+
+import ComText from './com-text';
+import ComLogo from './com-logo';
+import ComLink from './com-link';
+
+import '../../../resources/dist/css/ln/modules/mod-sponsor.css';
+
+const ModSponsor = props => {
+    const { type, sponsor, textName, link } = props;
+
+    return (
+        <div className={`mod-sponsor ${type} ${sponsor}`}>
+            {sponsor ? (
+                <ComLink link={link}>
+                    <ComLogo color="true" logoName={sponsor} />
+                </ComLink>
+            ) : (
+                <></>
+            )}
+
+            <>
+                {type === '--contentlab' ? (
+                    <ComText tag="" size="" classCondition="">
+                        ContentLAB para {textName}
+                    </ComText>
+                ) : (
+                    <ComText tag="" size="" classCondition="">
+                        Espacio Patrocinado
+                    </ComText>
+                )}
+            </>
+        </div>
+    );
+};
+
+ModSponsor.propTypes = {
+    type: PropTypes.string,
+    sponsor: PropTypes.string,
+    textName: PropTypes.string,
+    link: PropTypes.string
+};
+
+export default ModSponsor;
