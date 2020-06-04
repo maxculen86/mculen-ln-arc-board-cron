@@ -34,7 +34,7 @@ export const getFirstParentSection = section => {
     return null;
 };
 
-export const getSectionLogo = (sections, layout) => {
+export const getSectionLogo = (sections, layout, distributor) => {
     const magazineRegex = /\/revista-(.\w+[^\W]?)/;
     const layoutsIncludingLogo = [
         { name: 'LN-nota-noticia', color: true },
@@ -57,7 +57,7 @@ export const getSectionLogo = (sections, layout) => {
     const { _id } = magazineSection;
     const path = _id.match(magazineRegex);
     return {
-        logoName: path[1],
+        logoName: distributor.name === 'BBC' ? 'BBC' : path[1],
         path: `${path[0]}/`,
         color: currentLayoutIncludesLogo.color
     };

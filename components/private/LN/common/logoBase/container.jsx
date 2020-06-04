@@ -4,8 +4,8 @@ import PropTypes from 'fusion:prop-types';
 import { getSectionLogo } from '../../../common/utils/sectionUtils';
 import LogoComponent from './component';
 
-const LogoBaseContainer = ({ sections, layout }) => {
-    const sectionData = getSectionLogo(sections, layout);
+const LogoBaseContainer = ({ sections, layout, distributor }) => {
+    const sectionData = getSectionLogo(sections, layout, distributor);
 
     if (sections && sectionData) {
         const { path, logoName, color } = sectionData;
@@ -22,6 +22,10 @@ LogoBaseContainer.propTypes = {
             _id: PropTypes.string.isRequired
         })
     ).isRequired,
+    distributor: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired
+    }).isRequired,
     layout: PropTypes.string.isRequired
 };
 

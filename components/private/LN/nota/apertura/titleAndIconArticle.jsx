@@ -10,13 +10,18 @@ const titleAndIconArticle = ({
     globalContent: {
         taxonomy: { sections },
         headlines,
-        label
+        label,
+        distributor
     },
     layout
 }) => {
     return (
         <>
-            <LogoBase sections={sections} layout={layout} />
+            <LogoBase
+                sections={sections}
+                layout={layout}
+                distributor={distributor}
+            />
             <TitleArticle
                 prefix={prefix || ''}
                 headlines={headlines}
@@ -41,6 +46,10 @@ titleAndIconArticle.propTypes = {
         }),
         headlines: PropTypes.shape({
             basic: PropTypes.string.isRequired
+        }).isRequired,
+        distributor: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            category: PropTypes.string.isRequired
         }).isRequired,
         taxonomy: PropTypes.shape({
             sections: PropTypes.arrayOf(PropTypes.object)
