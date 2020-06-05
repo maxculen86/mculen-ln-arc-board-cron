@@ -19,7 +19,7 @@ s_bbcws('track', 'pageView');`
         />
     ];
 
-    return (distributorName === 'BBC') ? nodes : null;
+    return (distributorName === 'BBC Mundo') ? nodes : null;
 };
 
 export default ScriptLogoBBC;

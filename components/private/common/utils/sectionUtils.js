@@ -58,8 +58,8 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     const { _id } = magazineSection;
     const path = _id.match(magazineRegex);
     return {
-        logoName: distributorName === 'BBC' ? 'BBC' : path[1],
-        path: distributorName === 'BBC' ? '' : `${path[0]}/`,
+        logoName: distributorName === 'BBC Mundo' ? 'BBC' : path[1],
+        path: distributorName === 'BBC Mundo' ? '' : `${path[0]}/`,
         color: currentLayoutIncludesLogo.color
     };
 };

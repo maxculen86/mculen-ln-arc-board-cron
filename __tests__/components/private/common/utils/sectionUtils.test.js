@@ -223,7 +223,7 @@ describe('Utils - SectionUtils', () => {
             }
         ];
         const layout = 'LN-nota-noticia';
-        const distributorName = 'BBC';
+        const distributorName = 'BBC Mundo';
         const LogoComponent = getSectionLogo(sections, layout, distributorName);
         expect(LogoComponent).toMatchObject({
             color: true,

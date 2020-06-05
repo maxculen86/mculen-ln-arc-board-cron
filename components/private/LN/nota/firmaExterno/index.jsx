@@ -2,15 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComPartner from '../../../common/com-partner';
 
-const Firma = props => {
-    const {
-        distributor: { name: distributorName }
-    } = props;
-
+const Firma = ({ distributorName }) => {
     if (
         distributorName === 'The New York Times' ||
         distributorName === 'EL PAIS' ||
-        distributorName === 'Obrik' ||
+        distributorName === 'Ovrik' ||
         distributorName === 'The Wall Street Journal'
     )
         return <ComPartner size="xs">{distributorName}</ComPartner>;
@@ -19,10 +15,7 @@ const Firma = props => {
 };
 
 Firma.propTypes = {
-    distributor: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired
-    }).isRequired
+    distributorName: PropTypes.string.isRequired
 };
 
 export default Firma;

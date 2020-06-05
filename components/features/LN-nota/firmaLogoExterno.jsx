@@ -4,9 +4,10 @@ import PropTypes from 'fusion:prop-types';
 
 import FirmaExterno from '../../private/LN/nota/firma';
 
-const FirmaLogoExterno = ({ globalContent: { distributor } }) => (
-    <FirmaExterno distributor={distributor} />
-);
+const FirmaLogoExterno = ({ globalContent: { distributor } }) => {
+    const { name: distributorName } = distributor || {};
+    return <FirmaExterno distributorName={distributorName} />;
+};
 
 FirmaLogoExterno.propTypes = {
     globalContent: PropTypes.shape({
