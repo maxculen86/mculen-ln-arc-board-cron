@@ -12,8 +12,7 @@
         &::after {
             content: '●';
             font-size: px(16);
-            margin: 0 px(8);
-            line-height: px(10);
+            margin: px(-1) px(8) 0;
         }
     }
     .com-text {
