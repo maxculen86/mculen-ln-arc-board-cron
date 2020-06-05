@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import Paragraph from './parrafo';
+import '../../../../../resources/dist/css/ln/modules/mod-paragraph';
 
 const blockQuote = ({ data }) => {
     const {
@@ -12,7 +13,7 @@ const blockQuote = ({ data }) => {
     } = data;
     return (
         subtype === 'blockquote' /* pullquote */ && (
-            <blockquote className="blockquote">
+            <blockquote className="mod-parragraph">
                 <Paragraph data={{ content }} />
             </blockquote>
         )

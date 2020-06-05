@@ -30,6 +30,7 @@ const Parrafo = ({ data, capital }) => {
                             {
                                 link,
                                 target: '_blank',
+                                className: 'com-link',
                                 title: string
                             },
                             string
@@ -41,6 +42,7 @@ const Parrafo = ({ data, capital }) => {
                         ComLink,
                         {
                             link,
+                            className: 'com-link',
                             title: string
                         },
                         string
