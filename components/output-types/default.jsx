@@ -84,10 +84,12 @@ const Default = props => {
         headlines,
         description,
         subtype,
-        syndication
+        syndication,
+        distributor
     } = globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
+    const { name: distributorName } = distributor || {};
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
@@ -193,7 +195,7 @@ const Default = props => {
                 <div id="fusion-app">{children}</div>
                 <Fusion />
                 <Scripts location="body-bottom" />
-                <ScriptLogoBBC />
+                <ScriptLogoBBC distributorName={distributorName} />
             </body>
         </html>
     );
