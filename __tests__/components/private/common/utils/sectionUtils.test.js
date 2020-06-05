@@ -227,7 +227,7 @@ describe('Utils - SectionUtils', () => {
         const LogoComponent = getSectionLogo(sections, layout, distributorName);
         expect(LogoComponent).toMatchObject({
             color: true,
-            logoName: 'BBC',
+            logoName: 'bbc',
             path: ''
         });
     });

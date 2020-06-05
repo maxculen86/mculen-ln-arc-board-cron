@@ -198,6 +198,7 @@ export default `
     subtype
     distributor {
         name
+        category
     }
     promo_items {
         basic {

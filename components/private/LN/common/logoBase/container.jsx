@@ -7,6 +7,7 @@ import LogoComponent from './component';
 const LogoBaseContainer = ({ sections, layout, distributor }) => {
     const { name: distributorName } = distributor || {};
     const sectionData = getSectionLogo(sections, layout, distributorName);
+    // console.log("LogoBaseContainer -> sectionData", sectionData)
 
     if (sections && sectionData) {
         const { path, logoName, color } = sectionData;
