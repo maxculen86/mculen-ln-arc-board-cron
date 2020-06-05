@@ -2,7 +2,7 @@ import React from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 
-import FirmaExterno from '../../private/LN/nota/firma';
+import FirmaExterno from '../../private/LN/nota/firmaExterno';
 
 const FirmaLogoExterno = ({ globalContent: { distributor } }) => {
     const { name: distributorName } = distributor || {};

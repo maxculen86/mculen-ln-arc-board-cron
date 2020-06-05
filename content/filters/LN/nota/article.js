@@ -196,6 +196,9 @@ export default `
     canonical_url
     type
     subtype
+    distributor {
+        name
+    }
     promo_items {
         basic {
             additional_properties {
