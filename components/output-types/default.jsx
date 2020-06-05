@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
+import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
@@ -192,7 +193,7 @@ const Default = props => {
                 <div id="fusion-app">{children}</div>
                 <Fusion />
                 <Scripts location="body-bottom" />
-                {/*  */}
+                <ScriptLogoBBC />
             </body>
         </html>
     );
