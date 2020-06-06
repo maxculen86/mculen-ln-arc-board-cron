@@ -35,9 +35,6 @@ export const getFirstParentSection = section => {
 };
 
 export const getSectionLogo = (sections, layout, distributorName) => {
-    /* console.log('getSectionLogo -> distributorName', distributorName);
-    console.log('getSectionLogo -> layout', layout);
-    console.log('getSectionLogo -> sections', sections); */
     const magazineRegex = /\/revista-(.\w+[^\W]?)/;
     const layoutsIncludingLogo = [
         { name: 'LN-nota-noticia', color: true },
@@ -48,22 +45,20 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     const currentLayoutIncludesLogo = layoutsIncludingLogo.find(
         el => el.name === layout
     );
-    /* console.log(
-        'getSectionLogo -> currentLayoutIncludesLogo',
-        currentLayoutIncludesLogo
-    ); */
 
     if (!sections || !layout || !currentLayoutIncludesLogo) return null;
 
     const magazineSection = sections.find(section => {
         const { _id } = section;
-        // console.log("getSectionLogo -> _id", _id)
-        return _id;
+        return _id.includes('/revista-');
     });
-    // console.log('getSectionLogo -> magazineSection', magazineSection);
-
-    // if (!magazineSection) return null;
-
+    if (!magazineSection && distributorName === 'BBC Mundo')
+        return {
+            logoName: 'bbc',
+            path: '',
+            color: currentLayoutIncludesLogo.color
+        };
+    if (!magazineSection) return null;
     const { _id } = magazineSection;
     const path = _id.match(magazineRegex);
     return {

@@ -15,7 +15,7 @@ const Firma = ({ distributorName }) => {
 };
 
 Firma.propTypes = {
-    distributorName: PropTypes.string.isRequired
+    distributorName: PropTypes.string
 };
 
 export default Firma;

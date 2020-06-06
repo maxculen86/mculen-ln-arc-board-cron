@@ -12,10 +12,10 @@ const FirmaLogoExterno = ({ globalContent: { distributor } }) => {
 FirmaLogoExterno.propTypes = {
     globalContent: PropTypes.shape({
         distributor: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            category: PropTypes.string.isRequired
-        }).isRequired
-    }).isRequired
+            name: PropTypes.string,
+            category: PropTypes.string
+        })
+    })
 };
 
 FirmaLogoExterno.label = 'LN-Nota-FirmaLogoExterno';
