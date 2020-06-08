@@ -36,6 +36,10 @@ export default {
         GooglePublisherTag: {
             props: {},
             location: ['head']
+        },
+        AdvertiserContent: {
+            props: {},
+            location: ['body-top']
         }
     },
     imageConfig: {

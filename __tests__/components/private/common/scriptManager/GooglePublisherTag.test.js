@@ -62,13 +62,13 @@ describe('GooglePublisherTag', () => {
         const component = mount(<GooglePublisherTag {...props} />);
 
         const script =
-            "googletag.pubads().setTargeting('tags_nuevos', 'ca_economia','ca_revista_jardin', 'te_comun','te_turismo', 'au_john_doe', 'url_economia_ultima-prueba-syndication-nid14052020')";
+            "googletag.pubads().setTargeting('tags_nuevos', ['ca_economia','ca_revista_jardin', 'te_comun','te_turismo', 'au_john_doe', 'url_economia_ultima-prueba-syndication-nid14052020'])";
 
         expect(component.find('script')).toHaveLength(1);
         expect(
             component
                 .find('script')
-                .filterWhere(item => item.prop('type') === 'application/json')
+                .filterWhere(item => item.prop('type') === 'text/javascript')
         ).toHaveLength(1);
         expect(component.html()).toContain(script);
     });

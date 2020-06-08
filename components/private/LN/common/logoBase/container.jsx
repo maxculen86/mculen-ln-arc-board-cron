@@ -3,18 +3,36 @@ import PropTypes from 'fusion:prop-types';
 
 import { getSectionLogo } from '../../../common/utils/sectionUtils';
 import LogoComponent from './component';
+import ModSponsor from '../../../common/mod-sponsor';
 
-const LogoBaseContainer = ({ sections, layout, distributor }) => {
+const LogoBaseContainer = ({
+    sections,
+    layout,
+    distributor,
+    sponsored,
+    advertiser
+}) => {
     const { name: distributorName } = distributor || {};
     const sectionData = getSectionLogo(sections, layout, distributorName);
-    // console.log("LogoBaseContainer -> sectionData", sectionData)
 
-    if (sections && sectionData) {
-        const { path, logoName, color } = sectionData;
-        return <LogoComponent path={path} logoName={logoName} color={color} />;
+    const { path, logoName, color } = sectionData || {
+        path: null,
+        logoName: null,
+        color: null
+    };
+
+    if (sponsored) {
+        return (
+            <ModSponsor
+                type={`${advertiser ? '--contentlab' : ''}`}
+                sponsor={logoName}
+                textName={advertiser}
+                link={path}
+            />
+        );
     }
 
-    return <></>;
+    return <LogoComponent path={path} logoName={logoName} color={color} />;
 };
 
 LogoBaseContainer.propTypes = {
@@ -28,7 +46,9 @@ LogoBaseContainer.propTypes = {
         name: PropTypes.string.isRequired,
         category: PropTypes.string.isRequired
     }).isRequired,
-    layout: PropTypes.string.isRequired
+    layout: PropTypes.string.isRequired,
+    sponsored: PropTypes.bool,
+    advertiser: PropTypes.string
 };
 
 export default LogoBaseContainer;

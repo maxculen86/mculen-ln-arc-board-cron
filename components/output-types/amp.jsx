@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import AMPScripts, {
     _AMPBoilerplate,
-    AMPCustomStyle
+    AMPCustomStyle,
+    Snippets
 } from '../private/common/ampIndex';
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
@@ -127,6 +128,7 @@ const Amp = props => {
                     config={`https://www.googletagmanager.com/amp.json?id=${idAMP}&gtm.url=SOURCE_URL`}
                     data-credentials="include"
                 />
+                <Snippets />
                 {children}
                 <ScriptLogoBBC distributorName={distributorName} />
             </body>
