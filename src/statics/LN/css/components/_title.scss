@@ -59,9 +59,11 @@ h4.com-title-section-s {
     font-size: $font-24;
     line-height: $line-33;
 }
-
+//=======================================
+// Se saca el margin top
+//=======================================
 h1.com-title-nota {
-    margin-top: $px-20;
+    //margin-top: $px-20;
     margin-bottom: $px-20;
     @media (min-width: 1024px) {
         margin-top: 0;

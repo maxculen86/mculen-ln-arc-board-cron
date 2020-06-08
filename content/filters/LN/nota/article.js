@@ -154,6 +154,11 @@ const labels = `
             text
             display
         }
+        mostrar_banners {
+            url
+            text
+            display
+        }
         marca_anunciante {
             ${label}
         }
@@ -300,6 +305,10 @@ export default `
     }
     website_url,
     ${labels},
+    comments {
+        display_comments
+        allow_comments
+    }
     content_restrictions {
         content_code
     }

@@ -33,6 +33,10 @@ export default {
             props: {},
             location: ['body-top']
         },
+        GooglePublisherTag: {
+            props: {},
+            location: ['head']
+        },
         AdvertiserContent: {
             props: {},
             location: ['body-top']
