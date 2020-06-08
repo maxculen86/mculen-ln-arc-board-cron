@@ -66,7 +66,6 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
         />
     );
     if (isAdmin) return component;
-    return isValid ? component : null;
 };
 
 const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
@@ -98,7 +97,6 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 <div className="col-12 ">
                                     {/* Bajada y autor fecha más apertura */}
                                     {children[3]}
-
                                     {/* <div className="opinion-autor row">
                                     <section id="" className="cont-figure">
                                         <div className="figure">

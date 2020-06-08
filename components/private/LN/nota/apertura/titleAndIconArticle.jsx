@@ -12,6 +12,7 @@ const titleAndIconArticle = ({
         taxonomy: { sections },
         headlines,
         label,
+        distributor,
         owner
     },
     layout
@@ -24,6 +25,7 @@ const titleAndIconArticle = ({
             <LogoBase
                 sections={sections}
                 layout={layout}
+                distributor={distributor}
                 sponsored={sponsored}
                 advertiser={advertiser}
             />
@@ -51,6 +53,10 @@ titleAndIconArticle.propTypes = {
         }),
         headlines: PropTypes.shape({
             basic: PropTypes.string.isRequired
+        }).isRequired,
+        distributor: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            category: PropTypes.string.isRequired
         }).isRequired,
         taxonomy: PropTypes.shape({
             sections: PropTypes.arrayOf(PropTypes.object)
