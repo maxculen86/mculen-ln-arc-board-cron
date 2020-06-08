@@ -16,6 +16,7 @@ const AdvertiserContent = props => {
     const {
         siteProperties: { host },
         globalContent: {
+            type,
             headlines,
             content_elements: contentElements,
             created_date: datePublished,
@@ -26,6 +27,9 @@ const AdvertiserContent = props => {
         contextPath,
         deployment
     } = props;
+
+    if (type !== 'story') return null;
+    if (!get(owner, 'sponsored')) return null;
 
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
 
@@ -59,8 +63,6 @@ const AdvertiserContent = props => {
         }
     };
 
-    if (!get(owner, 'sponsored')) return null;
-
     return (
         <script
             id="advertiser-content-article"
@@ -75,6 +77,7 @@ const AdvertiserContent = props => {
 AdvertiserContent.propTypes = {
     siteProperties: PropTypes.shape.isRequired,
     globalContent: PropTypes.shape({
+        type: PropTypes.string,
         headlines: PropTypes.shape({
             basic: PropTypes.string
         }),
