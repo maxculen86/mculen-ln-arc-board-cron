@@ -86,7 +86,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                 <Header />
                 <main>
                     {children[1]}
-                    <div className="lay">
+                    <div className="lay --apertura">
                         <div className="row">
                             <div className="col-12">
                                 {/* Titulo (breadcrumb, logo+titulo) */}

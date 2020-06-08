@@ -28,3 +28,9 @@
 .logo-rolling.--color {
     color: $rolling;
 }
+
+.logo-bbc.--color {
+    &:before {
+        color: $bbc;
+    }
+}

@@ -154,6 +154,11 @@ const labels = `
             text
             display
         }
+        mostrar_banners {
+            url
+            text
+            display
+        },
     }
 `;
 
@@ -293,6 +298,10 @@ export default `
     publish_date,
     website_url,
     ${labels},
+    comments {
+        display_comments
+        allow_comments
+    }
     content_restrictions {
         content_code
     }
