@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import Paragraph from './parrafo';
-import '../../../../../resources/dist/css/ln/modules/mod-paragraph';
+import ModParagraph from '../../../common/mod-paragraph';
 
 const blockQuote = ({ data }) => {
     const {
@@ -13,9 +13,9 @@ const blockQuote = ({ data }) => {
     } = data;
     return (
         subtype === 'blockquote' /* pullquote */ && (
-            <blockquote className="mod-parragraph">
+            <ModParagraph>
                 <Paragraph data={{ content }} />
-            </blockquote>
+            </ModParagraph>
         )
     );
 };

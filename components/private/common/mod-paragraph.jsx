@@ -1,13 +1,11 @@
 import React from 'react';
-import ComParagraph from './com-paragraph';
+import Parrafo from '../../../components/private/LN/nota/cuerpo/parrafo';
 import '../../../resources/dist/css/ln/modules/mod-paragraph.css';
 
 const ModParagraph = props => {
-    const { children, classesNames } = props;
+    const { children, classesNames, data } = props;
     return children ? (
-        <div className="mod-paragraph">
-            <ComParagraph classesNames={classesNames}>{children}</ComParagraph>
-        </div>
+        <blockquote className="mod-paragraph">{children}</blockquote>
     ) : null;
 };
 
