@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import get from 'lodash.get';
 
 import LogoBase from '../../common/logoBase';
 import TitleArticle from './titleArticle';
@@ -10,13 +11,22 @@ const titleAndIconArticle = ({
     globalContent: {
         taxonomy: { sections },
         headlines,
-        label
+        label,
+        owner
     },
     layout
 }) => {
+    const sponsored = get(owner, 'sponsored', false);
+    const advertiser = get(label, 'marca_anunciante.text', null);
+
     return (
         <>
-            <LogoBase sections={sections} layout={layout} />
+            <LogoBase
+                sections={sections}
+                layout={layout}
+                sponsored={sponsored}
+                advertiser={advertiser}
+            />
             <TitleArticle
                 prefix={prefix || ''}
                 headlines={headlines}
@@ -44,7 +54,10 @@ titleAndIconArticle.propTypes = {
         }).isRequired,
         taxonomy: PropTypes.shape({
             sections: PropTypes.arrayOf(PropTypes.object)
-        }).isRequired
+        }).isRequired,
+        owner: PropTypes.shape({
+            sponsored: PropTypes.bool
+        })
     }).isRequired,
     layout: PropTypes.string.isRequired
 };
