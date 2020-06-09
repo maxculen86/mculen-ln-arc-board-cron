@@ -49,6 +49,9 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import ComParagraph from '../private/common/com-paragraph';
+import ComLink from '../private/common/com-link';
+import ModParagraph from '../private/common/mod-paragraph';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
