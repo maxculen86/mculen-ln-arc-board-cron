@@ -158,7 +158,10 @@ const labels = `
             url
             text
             display
-        },
+        }
+        marca_anunciante {
+            ${label}
+        }
     }
 `;
 
@@ -196,8 +199,15 @@ export default `
     canonical_url
     type
     subtype
+    distributor {
+        name
+        category
+    }
     promo_items {
         basic {
+            _id
+            type
+            content
             additional_properties {
                 iptc_source
             }
@@ -295,10 +305,15 @@ export default `
     display_date,
     created_date,
     first_publish_date,
+    last_updated_date,
     publish_date,
+    owner {
+        sponsored
+    }
     website_url,
     ${labels},
     comments {
+        display_comments
         allow_comments
     }
     content_restrictions {

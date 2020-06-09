@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
 import ComLogo from '../../../common/com-logo';
 import ComLink from '../../../common/com-link';
 
@@ -8,8 +7,8 @@ const LogoBaseComponent = ({ path, logoName, color }) => {
     if (!logoName) return null;
     const Logo = <ComLogo logoName={logoName} color={color} />;
     const Link = <ComLink link={path}>{Logo}</ComLink>;
-
-    return path ? Link : Logo;
+    if (logoName === 'bbc') return <>{Logo}</>;
+    return <>{path ? Link : Logo}</>;
 };
 
 LogoBaseComponent.propTypes = {
