@@ -15,7 +15,8 @@ const imageBase = ({
     height,
     width,
     active,
-    amp
+    amp,
+    withLazy
 }) => {
     const isVertical = height > width;
     /**
@@ -47,6 +48,7 @@ const imageBase = ({
                     amp={amp}
                     height={height}
                     width={width}
+                    withLazy={withLazy}
                 />
             )}
             {active &&
@@ -67,6 +69,7 @@ const imageBase = ({
                     amp={amp}
                     height={height}
                     width={width}
+                    withLazy={withLazy}
                 />
             )}
         </Placeholder>
