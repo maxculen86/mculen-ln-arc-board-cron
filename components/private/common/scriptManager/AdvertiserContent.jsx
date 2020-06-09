@@ -9,8 +9,10 @@ import get from 'lodash.get';
 import getAssetsPath from '../utils/getAssetsPath';
 
 const getFirstParagraph = contentElements =>
-    contentElements.find(contentElement => contentElement.type === 'text')
-        .content;
+    contentElements.some(contentElement => contentElement.type === 'text')
+        ? contentElements.find(contentElement => contentElement.type === 'text')
+              .content
+        : null;
 
 const AdvertiserContent = props => {
     const {
@@ -29,6 +31,7 @@ const AdvertiserContent = props => {
     } = props;
 
     if (type !== 'story') return null;
+    if (!getFirstParagraph(contentElements)) return null;
     if (!get(owner, 'sponsored')) return null;
 
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
