@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import ComInfografia from '../private/LN/nota/apertura/com-infografia';
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
 import '../../resources/dist/css/ln/base/types.css';
@@ -49,9 +50,6 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
-import ComParagraph from '../private/common/com-paragraph';
-import ComLink from '../private/common/com-link';
-import ModParagraph from '../private/common/mod-paragraph';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -63,15 +61,16 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
         element
     ) : (
         <PageBuilderMessage
-            id="LN-nota-noticia-error"
+            id="LN-nota-infografia-error"
             type="warning"
             message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
         />
     );
     if (isAdmin) return component;
+    return isValid ? component : null;
 };
 
-const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
+const lnNotaInfografia = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     return (
@@ -90,6 +89,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                             <div className="col-12">
                                 {/* Titulo (breadcrumb, logo+titulo) */}
                                 {children[2]}
+                                <ComInfografia />
                             </div>
                         </div>
                     </div>
@@ -100,6 +100,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 <div className="col-12 ">
                                     {/* Bajada y autor fecha más apertura */}
                                     {children[3]}
+
                                     {/* <div className="opinion-autor row">
                                     <section id="" className="cont-figure">
                                         <div className="figure">
@@ -176,13 +177,13 @@ const pageBuilderSections = [
     'Bottom-Tercera'
 ];
 
-lnNotaNoticia.sections = pageBuilderSections;
+lnNotaInfografia.sections = pageBuilderSections;
 
-lnNotaNoticia.propTypes = {
+lnNotaInfografia.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     outputType: PropTypes.string.isRequired,
     tree: PropTypes.arrayOf(PropTypes.node).isRequired,
     isAdmin: PropTypes.bool.isRequired
 };
 
-export default Consumer(lnNotaNoticia);
+export default Consumer(lnNotaInfografia);
