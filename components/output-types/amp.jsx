@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import AMPScripts, {
     _AMPBoilerplate,
-    AMPCustomStyle
+    AMPCustomStyle,
+    Snippets
 } from '../private/common/ampIndex';
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
@@ -11,6 +12,7 @@ import MetaDescription from '../private/common/metaDescription';
 import getParagraph from '../private/common/utils/getParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
+import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -44,10 +46,12 @@ const Amp = props => {
         headlines,
         description,
         subtype,
-        syndication
+        syndication,
+        distributor
     } = globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
+    const { name: distributorName } = distributor || {};
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
@@ -124,7 +128,9 @@ const Amp = props => {
                     config={`https://www.googletagmanager.com/amp.json?id=${idAMP}&gtm.url=SOURCE_URL`}
                     data-credentials="include"
                 />
+                <Snippets />
                 {children}
+                <ScriptLogoBBC distributorName={distributorName} />
             </body>
         </html>
     );

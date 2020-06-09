@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModSponsor Matches Snapshot 1`] = `
+<div
+  class="mod-sponsor  jardin"
+>
+  <a
+    class="com-link "
+    href="/revista-jardin"
+  >
+    <i
+      class="com-logo logo-jardin --color"
+    />
+  </a>
+  <span
+    class="com-text "
+  >
+    Espacio Patrocinado
+  </span>
+</div>
+`;
