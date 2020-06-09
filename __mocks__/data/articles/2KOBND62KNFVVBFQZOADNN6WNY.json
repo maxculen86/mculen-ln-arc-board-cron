@@ -1,12 +1,9 @@
 {
     "_id": "2KOBND62KNFVVBFQZOADNN6WNY",
     "canonical_url": "/deportes/prueba-ios-y-android-cuerpo-nid12052020/",
-    "content_restrictions": {
-        "content_code": "premium"
-    },
     "content_elements": [
         {
-            "_id": "HPEEE7QFKRDQHFSY2FLLYOKVTM",
+            "_id": "2OHOMQ4IZNG2DDV5PTH7PFFK6U",
             "additional_properties": {},
             "content": "Párrafo 1.",
             "type": "text"
@@ -22,6 +19,24 @@
             "additional_properties": {},
             "content": "Párrafo 3.",
             "type": "text"
+        },
+        {
+            "_id": "Y5KNQSVAYBEEHNQUNQ3DRZVLVU",
+            "additional_properties": {},
+            "citation": {
+                "content": "Lorem",
+                "type": "text"
+            },
+            "content_elements": [
+                {
+                    "_id": "R44F7ONJMBFZ7CCQBZ4LJ6V5UY",
+                    "additional_properties": {},
+                    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id rhoncus tortor. Curabitur sodales tortor mi, et euismod quam dignissim eget. Ut sit amet metus et odio molestie efficitur.",
+                    "type": "text"
+                }
+            ],
+            "subtype": "blockquote",
+            "type": "quote"
         },
         {
             "_id": "WFBGI76N5RHCVP57UBXGCC2IRE",
@@ -169,7 +184,6 @@
             "additional_properties": {
                 "iptc_source": "Fuente Isaias"
             },
-            "alt_text": "Esto es un ALT TEXT de la imagen",
             "caption": "Esto es un epígrafe de la imagen",
             "credits": {
                 "by": [
@@ -230,48 +244,6 @@
                     "resizedUrl": "/resizer/i2KjNtIPSFjpxHcKAHHtOT125is=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg"
                 }
             ],
-            "resized_urls_zoom": [
-                {
-                    "option": {
-                        "height": 1280,
-                        "media": "(min-width: 1280px)",
-                        "width": 1920
-                    },
-                    "resizedUrl": "/resizer/nuSOwRV9zu_IsDU1uZBXVOkPqmE=/1920x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg"
-                },
-                {
-                    "option": {
-                        "height": 800,
-                        "media": "(min-width: 1024px)",
-                        "width": 1200
-                    },
-                    "resizedUrl": "/resizer/ePx8ESAXNsdaSOZYQhwHw6IqeQY=/1200x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg"
-                },
-                {
-                    "option": {
-                        "height": 683,
-                        "media": "(min-width: 768px)",
-                        "width": 1024
-                    },
-                    "resizedUrl": "/resizer/8TbW7rTKcHdN6CSDPvWj73E9OxQ=/1024x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg"
-                },
-                {
-                    "option": {
-                        "height": 512,
-                        "media": "(min-width: 360px)",
-                        "width": 768
-                    },
-                    "resizedUrl": "/resizer/cmgztF_rrNs9Tdbj3Q0lMaGKZkY=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg"
-                },
-                {
-                    "option": {
-                        "height": 240,
-                        "media": "(min-width: 320px)",
-                        "width": 360
-                    },
-                    "resizedUrl": "/resizer/GzMScfoUor30BGelwhMqYMuorvc=/360x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg"
-                }
-            ],
             "subtitle": "",
             "type": "image",
             "url": "/resizer/cmgztF_rrNs9Tdbj3Q0lMaGKZkY=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg",
@@ -295,27 +267,97 @@
             "items": [
                 {
                     "_id": "XFMPUNKJQBAHJFBQ52YXQHAC5Q",
-                    "content": "Esto",
+                    "content": "Tipo de letra normal",
                     "type": "text"
                 },
                 {
                     "_id": "2IIXVZXDLNEKNLV4OT6PT6PTXA",
-                    "content": "es",
+                    "content": "Tipo de letra negrita",
                     "type": "text"
                 },
                 {
                     "_id": "KK2QJUJYA5ECNL2XD7QVNF6DZU",
-                    "content": "una",
+                    "content": "Tipo de letra cursiva",
                     "type": "text"
                 },
                 {
                     "_id": "M4QBWPI535EIBIME342UYV7FOM",
-                    "content": "lista",
+                    "content": "Tipo de letra subrayado",
                     "type": "text"
                 },
                 {
                     "_id": "5I4Q5RXAZBAE5PXJXDHAHQN5EI",
-                    "content": "desordenada",
+                    "content": "Tipo de letra negrita y cursiva",
+                    "type": "text"
+                },
+                {
+                    "_id": "WYYRMCI42ZG3LCMGUGJGDYNWBE",
+                    "content": "Tipo de letra negrita y subrayado",
+                    "type": "text"
+                },
+                {
+                    "_id": "QSW725T75FFJBPT5ZYO76LFXDU",
+                    "content": "Tipo de letra cursiva y subrayado",
+                    "type": "text"
+                },
+                {
+                    "_id": "6MOXA5AXBZHOZD3NYTUAOFKPRY",
+                    "content": "Tipo de letra negrita, cursita y subrayado",
+                    "type": "text"
+                },
+                {
+                    "_id": "IMC2RCMFOREDFCR475BRXUHL7Y",
+                    "content": "Tipo de letra normal con subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "7JD5EC4XXJEB5PCPN5XAUWCEUY",
+                    "content": "Tipo de letra negrita con subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "KK2QJUJYA5ECNL2XD7QVNF6DZU",
+                    "content": "Tipo de letra cursiva con subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "Z4SILLZAJNBR7FT3RZZJ5FXSXI",
+                    "content": "Tipo de letra subrayado con subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "WIPSQR367VGH7P27X7VBZUG6RQ",
+                    "content": "Tipo de letra negrita con cursiva y subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "GXF35EGYP5BFBJBOERYCGHUMJ4",
+                    "content": "Tipo de letra negrita con subrayado y subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "3OAD3LPRVZFZ5P3L4S65LW5NCA",
+                    "content": "Tipo de letra cursiva y subrayado y subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "H4CX7LZ2JFGDHCUFNBAZNNXI6E",
+                    "content": "Tipo de letra negritam cursiva, subrayado y subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "O4PHRRFCINAEJOQ3V7C7DQD4V4",
+                    "content": "<a href=\"https://www.lanacion.com.ar/\" target=_blank>Link </a>en lista ordenada",
+                    "type": "text"
+                },
+                {
+                    "_id": "TA7WGYOB2FFQHOED5FEBHZQZTA",
+                    "content": "<a href=\"https://www.lanacion.com.ar/\" target=_blank>Link </a>en negrita",
+                    "type": "text"
+                },
+                {
+                    "_id": "4GHMPJC64RA5DCNLDY5AASFBCU",
+                    "content": "Negrita No Negrita Negrita otra vez, Negrita con cursiva",
                     "type": "text"
                 }
             ],
@@ -329,32 +371,102 @@
             "type": "text"
         },
         {
-            "_id": "3L7CMBXGJZGHXMP5NNMOQPKO6A",
+            "_id": "AJAAVYUAYZGSJEZ2E44K4BLEYQ",
             "additional_properties": {},
             "items": [
                 {
-                    "_id": "3QTZWS3QRZBNFIDLCSWJJ367IQ",
-                    "content": "Esto",
+                    "_id": "OACDOMQWK5BRBJ3V6QHJWY7OGE",
+                    "content": "Tipo de letra normal",
                     "type": "text"
                 },
                 {
-                    "_id": "DJPTE2JUTNFPROSXXCEN54VDNY",
-                    "content": "es",
+                    "_id": "2LT67DUHJVFIBGKY34GXTVSZ7A",
+                    "content": "Tipo de letra negrita",
                     "type": "text"
                 },
                 {
-                    "_id": "S7NHSHRJW5GF3LLSAFGCSSRC5I",
-                    "content": "una",
+                    "_id": "TIKO4AV6L5GB5BJDRSIZCQZ5QA",
+                    "content": "Tipo de letra cursiva",
                     "type": "text"
                 },
                 {
-                    "_id": "3CWTFX23H5DNJOZM2CP2H4XWNA",
-                    "content": "lista",
+                    "_id": "IQNNLHJS6FD6JBOKBOYYWAEUGI",
+                    "content": "Tipo de letra subrayado",
                     "type": "text"
                 },
                 {
-                    "_id": "V4EVBLAUZVCFNPKIMMA6XHA7CM",
-                    "content": "ordenada",
+                    "_id": "PRMUCV22EVCTLGX4K5ZNN5FG3E",
+                    "content": "Tipo de letra negrita y cursiva",
+                    "type": "text"
+                },
+                {
+                    "_id": "3OD6FAN4G5ALZLY4OJMFRJ43QE",
+                    "content": "Tipo de letra negrita y subrayado",
+                    "type": "text"
+                },
+                {
+                    "_id": "3D7BPPA2OVA6PPNBGEZ6WWTJUM",
+                    "content": "Tipo de letra cursiva y subrayado",
+                    "type": "text"
+                },
+                {
+                    "_id": "JXYAFE46YNGD5IG2YRMBCZDW4E",
+                    "content": "Tipo de letra negrita, cursita y subrayado",
+                    "type": "text"
+                },
+                {
+                    "_id": "MC6FYFRCUVH3VG7PEIKVPKBKVI",
+                    "content": "Tipo de letra normal con subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "I5VU6PCO4NHCXDGD2QS3OUVYAQ",
+                    "content": "Tipo de letra negrita con subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "6KL47KI475EIXDCME4NNGW2VCE",
+                    "content": "Tipo de letra cursiva con subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "66SUKKQSIVGFXKYPORNGOZRMBA",
+                    "content": "Tipo de letra subrayado con subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "3F5AZX6L7ZAYDF4WJ2PEKRNVDA",
+                    "content": "Tipo de letra negrita con cursiva y subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "AGXVXBOJWVCM7E7DU5NGYWVHCE",
+                    "content": "Tipo de letra negrita con subrayado y subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "URHABFF5XVAEVF5GJO5JJ66P4Q",
+                    "content": "Tipo de letra cursiva y subrayado y subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "BACD5BH5Z5EDXDTDBPHGAQQFAE",
+                    "content": "Tipo de letra negritam cursiva, subrayado y subrayado de color",
+                    "type": "text"
+                },
+                {
+                    "_id": "KCAXYOPUMVHZXPCGTTGI4R5JUA",
+                    "content": "<a href=\"https://www.lanacion.com.ar/\">Link </a>en lista ordenada",
+                    "type": "text"
+                },
+                {
+                    "_id": "IU2JXPI5BNAWRLYEVB5ADXLUDY",
+                    "content": "<a href=\"https://www.lanacion.com.ar/\">Link </a>en negrita",
+                    "type": "text"
+                },
+                {
+                    "_id": "UDJFKK5RTNGN3LYO6W5XWPJGE4",
+                    "content": "Negrita No Negrita Negrita otra vez, Negrita con cursiva",
                     "type": "text"
                 }
             ],
@@ -366,7 +478,6 @@
             "additional_properties": {
                 "iptc_source": "LA NACION"
             },
-            "alt_text": "",
             "caption": "",
             "credits": {
                 "by": [
@@ -426,48 +537,6 @@
                     "resizedUrl": "/resizer/FfFZF2KjDcEcjNcvvodVXo0lRAI=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
                 }
             ],
-            "resized_urls_zoom": [
-                {
-                    "option": {
-                        "height": 1280,
-                        "media": "(min-width: 1280px)",
-                        "width": 1920
-                    },
-                    "resizedUrl": "/resizer/32QKqn1pNIskAFwfSLCAxg2j3KM=/1920x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
-                },
-                {
-                    "option": {
-                        "height": 800,
-                        "media": "(min-width: 1024px)",
-                        "width": 1200
-                    },
-                    "resizedUrl": "/resizer/26pFPX8XwWmPYclEfeNbUQ6mITE=/1200x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
-                },
-                {
-                    "option": {
-                        "height": 683,
-                        "media": "(min-width: 768px)",
-                        "width": 1024
-                    },
-                    "resizedUrl": "/resizer/ZTe1gnd_bmfOuqsC4hQVsDthI98=/1024x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
-                },
-                {
-                    "option": {
-                        "height": 512,
-                        "media": "(min-width: 360px)",
-                        "width": 768
-                    },
-                    "resizedUrl": "/resizer/Ogi01yk-1cu26Eb2lgPjglqDkMU=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
-                },
-                {
-                    "option": {
-                        "height": 240,
-                        "media": "(min-width: 320px)",
-                        "width": 360
-                    },
-                    "resizedUrl": "/resizer/lqM0AqSRHFux168I9Uk5XGS3fvk=/360x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
-                }
-            ],
             "subtitle": "",
             "type": "image",
             "url": "/resizer/Ogi01yk-1cu26Eb2lgPjglqDkMU=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg",
@@ -504,13 +573,13 @@
             "type": "text"
         },
         {
-            "_id": "LN6PGVFTLNHKZFY63BS74RGKAA",
+            "_id": "UYR4VQ5MOZCBXJMEVD6LPPCMLU",
             "additional_properties": {},
             "content": "<i><b>Esto es una combinacion de Bold e Italic</b></i>",
             "type": "text"
         },
         {
-            "_id": "6BOEHUMD4RAZXD3N76YZAXFHSM",
+            "_id": "CLNJPLTH2VBLPGB6VL7YV4DMAY",
             "additional_properties": {},
             "content": "<i><u>Esto es una combinacion de Italic y underline</u></i>",
             "type": "text"
@@ -519,6 +588,12 @@
             "_id": "ICCIUELBQJGGBKDQKCCGUOB57Q",
             "additional_properties": {},
             "content": "<i><u><b>Esto es una combinación de todas.</b></u></i>",
+            "type": "text"
+        },
+        {
+            "_id": "FEEAYJJBP5CRNFAXZBZ35PVZ5U",
+            "additional_properties": {},
+            "content": "<mark class=\"hl_yellow\">Eso es con color</mark>",
             "type": "text"
         },
         {
@@ -586,48 +661,6 @@
                             "resizedUrl": "/resizer/mqv4ZuWcjmGZkFBNgSs1JrtyGSI=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
                         }
                     ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/7KB1MuolbqP9Ked2vMJoTW9FKOk=/1920x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/f-738cdfXYi1d_dIr2yMSpUsByY=/1200x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/P5hTU8H3ksp3WXsXwFzUGHFtG_I=/1024x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/aFkCOsYn9mR2GDmhiPlFk4wwkQc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/LaYpdF7WNAAQ_ikLJfxOq8mSjh8=/360x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
-                        }
-                    ],
                     "type": "image",
                     "url": "/resizer/aFkCOsYn9mR2GDmhiPlFk4wwkQc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
                     "width": 1470
@@ -681,48 +714,6 @@
                             "resizedUrl": "/resizer/-agQFYKK5AlaQj0gl-_rViM7U6M=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
                         }
                     ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/413FivnUBcqRtFs9-W435QqkHuI=/1920x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/xpLNhnSA_AlXxtwpWrA4xfgLFW8=/1200x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/4Qnd3u_LVVKFmXuxy_FG1W6A1sU=/1024x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/4WfOkUtykrNEIPROolWJIVEmcuo=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/z-b1-TwIEG14TGDzbw0zLHgBq04=/360x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
-                        }
-                    ],
                     "type": "image",
                     "url": "/resizer/4WfOkUtykrNEIPROolWJIVEmcuo=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg",
                     "width": 1470
@@ -732,7 +723,6 @@
                     "additional_properties": {
                         "iptc_source": "Fuente(registro IPTC en ARC)"
                     },
-                    "alt_text": "texto alternativo",
                     "caption": "leyenda",
                     "credits": {
                         "by": [
@@ -785,48 +775,6 @@
                             "resizedUrl": "/resizer/1W3sSD4MC7yXuhfXQFDD_2dAOSw=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
                         }
                     ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/hUZX7zax6ym3_jOe6lBXc9mcbaY=/1920x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/2FaL5xPvb3HJp2pIELKso-mbPKU=/1200x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/QD8_RtMgjUtAGMdcKe0ppvEThr4=/1024x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/M0r5u5gi3Q3xoqTrNMFrZqPX6fc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/wHl5aSlQukPFBiso3u1YdyNsgJY=/360x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
-                        }
-                    ],
                     "type": "image",
                     "url": "/resizer/M0r5u5gi3Q3xoqTrNMFrZqPX6fc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg",
                     "width": 1470
@@ -862,7 +810,6 @@
                 {
                     "_id": "DD7YGPCCDFACLN5SPQZZWWQN6U",
                     "additional_properties": {},
-                    "alt_text": "texto alt text modificado",
                     "caption": "Epigrafe de una foto de moda",
                     "credits": {
                         "affiliation": []
@@ -910,48 +857,6 @@
                             "resizedUrl": "/resizer/hT1oEZxIVXR70z4FU0o45sS48og=/0x310/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg"
                         }
                     ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/jm6HcWP3k3-hdyB06W8VUw96wLo=/0x1920/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/YHWC9CsjGGaycguGZVz4HNLBZ98=/0x1200/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/hsxCmDl_UkC_fOAUdeH2zIRqLww=/0x1024/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/UUTbirrpQiz5XeukpmvJo-7S7go=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/V73iO4EpzJEBdu0f9a4p4JydBCg=/0x360/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg"
-                        }
-                    ],
                     "type": "image",
                     "url": "/resizer/UUTbirrpQiz5XeukpmvJo-7S7go=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg",
                     "width": 1333
@@ -961,7 +866,6 @@
                     "additional_properties": {
                         "iptc_source": "Archivo"
                     },
-                    "alt_text": "Coloccini",
                     "caption": "Coloccini",
                     "credits": {
                         "by": [
@@ -1020,48 +924,6 @@
                             "resizedUrl": "/resizer/N-Ji61ryf8kbAl2XPdEbVb5s0K8=/0x310/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg"
                         }
                     ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/YvDe97cer7RmOHPIy_mp07e1stU=/0x1920/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/FLR3Qk-HEFPJQIuODALPd7VH0mc=/0x1200/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/AqriRx6f3xja-MwuZQRVgwSf84E=/0x1024/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/XVRmoC1kFp0Sw89ZYirACIG35VM=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/EdIhwA4Fa01QZsv9feKlbahiLLw=/0x360/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg"
-                        }
-                    ],
                     "subtitle": "Coloccini",
                     "type": "image",
                     "url": "/resizer/XVRmoC1kFp0Sw89ZYirACIG35VM=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg",
@@ -1117,48 +979,6 @@
                             "resizedUrl": "/resizer/ZOq4rxMbecPFrK6NVAUeIiJZW3s=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
                         }
                     ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/I7C8vMo2OJOPTBpFhk5Wd7kNFrg=/1920x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/AmA_SDjDjTh3eGuvEOsBISF1OQw=/1200x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/qS5fTrftWHJyrSw3TYv23CXJmUM=/1024x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/t737USCmr-74aOWssklLaKBhOOk=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/hViU7l_FUtXxLVibW4T1Nf94leU=/360x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                        }
-                    ],
                     "type": "image",
                     "url": "/resizer/t737USCmr-74aOWssklLaKBhOOk=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg",
                     "width": 2048
@@ -1212,48 +1032,6 @@
                             "resizedUrl": "/resizer/5vZ27zamhQ4wZPfqWKhBcikBE3g=/0x310/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg"
                         }
                     ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/gHUL2eeVcEU-RiNYhxa-ihUgQU8=/0x1920/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/zAek1OM3y05Y2eeiI6yqE0sX5CY=/0x1200/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/p4Gwk-QnAd6P7c0cqkjm9-EHBoA=/0x1024/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/T9SPcrjqza8XwFoIH3tYrJ5Edmo=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/ayyKdJcoEv_tSiWvgK_SC-1S4g0=/0x360/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg"
-                        }
-                    ],
                     "type": "image",
                     "url": "/resizer/T9SPcrjqza8XwFoIH3tYrJ5Edmo=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg",
                     "width": 740
@@ -1305,48 +1083,6 @@
                                 "width": 310
                             },
                             "resizedUrl": "/resizer/tPAtXsHZYkFoswIxDE1DoLCOOtM=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg"
-                        }
-                    ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/6Bk4mics9FvS-Weqb05VvvyH2bs=/1920x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/WOTfmy4Ptw3DBNX4sTVFAPnFBZI=/1200x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/QDYNfbENrK6RxVAQxED1H0PI9rQ=/1024x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/gbcI2w2tZwEwFe99UOlgrg26_qg=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/1LVPVY7xsvK4ZODh87vFdwYLdBk=/360x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg"
                         }
                     ],
                     "type": "image",
@@ -1417,48 +1153,6 @@
                             "resizedUrl": "/resizer/78hEfB_zIf9ogQ3dzZGh09mx1bM=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg"
                         }
                     ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/8MU7WgWm-Fn898_bGmtB9xQ-BjI=/1920x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/HGGmkjTMpsSvZRawBVqhUaczI3Y=/1200x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/X2FQJplIK6olQ7YUKGi2hygGIBs=/1024x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/7VNc-JmjorvoSWKbZsXB12422z4=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/xSxxYt73CC6WCYEkyV-8Xs2d2ZI=/360x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg"
-                        }
-                    ],
                     "type": "image",
                     "url": "/resizer/7VNc-JmjorvoSWKbZsXB12422z4=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg",
                     "width": 3072
@@ -1466,7 +1160,6 @@
                 {
                     "_id": "U4QSMFKIWRCM3NFC2RPW4FKE5Q",
                     "additional_properties": {},
-                    "alt_text": "",
                     "caption": "",
                     "credits": {
                         "affiliation": [
@@ -1522,48 +1215,6 @@
                             "resizedUrl": "/resizer/qtHKLzjbMu7OIDqycGduO5l30to=/0x310/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U4QSMFKIWRCM3NFC2RPW4FKE5Q.jpg"
                         }
                     ],
-                    "resized_urls_zoom": [
-                        {
-                            "option": {
-                                "height": 1280,
-                                "media": "(min-width: 1280px)",
-                                "width": 1920
-                            },
-                            "resizedUrl": "/resizer/RKp_eVse7uwexfv-nlEQpfwLWuE=/0x1920/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U4QSMFKIWRCM3NFC2RPW4FKE5Q.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 800,
-                                "media": "(min-width: 1024px)",
-                                "width": 1200
-                            },
-                            "resizedUrl": "/resizer/oe64aPQPdqadzVDptStuL8-wG70=/0x1200/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U4QSMFKIWRCM3NFC2RPW4FKE5Q.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 683,
-                                "media": "(min-width: 768px)",
-                                "width": 1024
-                            },
-                            "resizedUrl": "/resizer/FXeJErTqOXGBxF15eIuYFw0MimM=/0x1024/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U4QSMFKIWRCM3NFC2RPW4FKE5Q.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 512,
-                                "media": "(min-width: 360px)",
-                                "width": 768
-                            },
-                            "resizedUrl": "/resizer/r7zPnmNPFnsi8cVscPPf7ZXkLa0=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U4QSMFKIWRCM3NFC2RPW4FKE5Q.jpg"
-                        },
-                        {
-                            "option": {
-                                "height": 240,
-                                "media": "(min-width: 320px)",
-                                "width": 360
-                            },
-                            "resizedUrl": "/resizer/TFsj8sbX6TVahS2vB1ISO5l1WUw=/0x360/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U4QSMFKIWRCM3NFC2RPW4FKE5Q.jpg"
-                        }
-                    ],
                     "subtitle": "",
                     "type": "image",
                     "url": "/resizer/r7zPnmNPFnsi8cVscPPf7ZXkLa0=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U4QSMFKIWRCM3NFC2RPW4FKE5Q.jpg",
@@ -1573,8 +1224,12 @@
             "credits": {
                 "by": [
                     {
-                        "name": "Carlos Pagni",
-                        "type": "author"
+                        "referent": {
+                            "id": "carlos-pagni",
+                            "provider": "/photo/api/v2/proxies/authors?limit=1&q={\"_id\": \"carlos-pagni\"}",
+                            "type": "author"
+                        },
+                        "type": "reference"
                     }
                 ]
             },
@@ -1594,10 +1249,122 @@
         },
         {
             "_id": "364ANZARABD7VOQGOFGTYFKHGM",
+            "raw_oembed": {
+                "height": null,
+                "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Republicans feel that Social Media Platforms totally silence conservatives voices. We will strongly regulate, or close them down, before we can ever allow this to happen. We saw what they attempted to do, and failed, in 2016. We can’t let a more sophisticated version of that....</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href=\"https://twitter.com/realDonaldTrump/status/1265601611310739456?ref_src=twsrc%5Etfw\">May 27, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+                "type": "twitter",
+                "url": "https://twitter.com/realDonaldTrump/status/1265601611310739456",
+                "width": 550
+            },
             "subtype": "twitter",
             "type": "oembed_response"
+        },
+        {
+            "_id": "SNSN7GJ3ORCODM6RLP2PU7AO3I",
+            "raw_oembed": {
+                "height": 270,
+                "html": "<iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/ZJD2y7u1mQA?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                "type": "youtube",
+                "width": 480
+            },
+            "subtype": "youtube",
+            "type": "oembed_response"
+        },
+        {
+            "_id": "WHZSPMPUANBWJBDQIQKM3IHRPA",
+            "raw_oembed": {
+                "height": 270,
+                "html": "<iframe src=\"https://player.vimeo.com/video/43203878?app_id=122963\" width=\"480\" height=\"270\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen title=\"La Nacion Soluciones - 2012\"></iframe>",
+                "type": "vimeo",
+                "width": 480
+            },
+            "subtype": "vimeo",
+            "type": "oembed_response"
+        },
+        {
+            "_id": "GXGGKEJTCFDJ3AALN6JICZ5VXE",
+            "raw_oembed": {
+                "height": 269,
+                "html": "<iframe frameborder=\"0\" width=\"480\" height=\"269\" src=\"https://www.dailymotion.com/embed/video/x589c8d\" allowfullscreen allow=\"autoplay\"></iframe>",
+                "type": "dailymotion",
+                "width": 480
+            },
+            "subtype": "dailymotion",
+            "type": "oembed_response"
+        },
+        {
+            "_id": "PXH6563I4FANHM2SKOXX3N2HSQ",
+            "raw_oembed": {
+                "height": null,
+                "html": "<blockquote class=\"instagram-media\" data-instgrm-captioned data-instgrm-permalink=\"https://www.instagram.com/p/CA5tjVtlEOs/?utm_source=ig_embed&amp;utm_campaign=loading\" data-instgrm-version=\"12\" style=\" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);\"><div style=\"padding:16px;\"> <a href=\"https://www.instagram.com/p/CA5tjVtlEOs/?utm_source=ig_embed&amp;utm_campaign=loading\" style=\" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;\" target=\"_blank\"> <div style=\" display: flex; flex-direction: row; align-items: center;\"> <div style=\"background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;\"></div> <div style=\"display: flex; flex-direction: column; flex-grow: 1; justify-content: center;\"> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;\"></div> <div style=\" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;\"></div></div></div><div style=\"padding: 19% 0;\"></div> <div style=\"display:block; height:50px; margin:0 auto 12px; width:50px;\"><svg width=\"50px\" height=\"50px\" viewBox=\"0 0 60 60\" version=\"1.1\" xmlns=\"https://www.w3.org/2000/svg\" xmlns:xlink=\"https://www.w3.org/1999/xlink\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"><g transform=\"translate(-511.000000, -20.000000)\" fill=\"#000000\"><g><path d=\"M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631\"></path></g></g></g></svg></div><div style=\"padding-top: 8px;\"> <div style=\" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;\"> View this post on Instagram</div></div><div style=\"padding: 12.5% 0;\"></div> <div style=\"display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;\"><div> <div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);\"></div> <div style=\"background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;\"></div> <div style=\"background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);\"></div></div><div style=\"margin-left: 8px;\"> <div style=\" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;\"></div> <div style=\" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)\"></div></div><div style=\"margin-left: auto;\"> <div style=\" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);\"></div> <div style=\" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);\"></div> <div style=\" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);\"></div></div></div></a> <p style=\" margin:8px 0 0 0; padding:0 4px;\"> <a href=\"https://www.instagram.com/p/CA5tjVtlEOs/?utm_source=ig_embed&amp;utm_campaign=loading\" style=\" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;\" target=\"_blank\">CÓMO ES LA NUEVA REGLA PARA PODER COMPRAR DÓLAR AHORRO 💸 . . . #economia #argentina #dinero #dolares</a></p> <p style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;\">A post shared by <a href=\"https://www.instagram.com/lanacioncom/?utm_source=ig_embed&amp;utm_campaign=loading\" style=\" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;\" target=\"_blank\"> LA NACION</a> (@lanacioncom) on <time style=\" font-family:Arial,sans-serif; font-size:14px; line-height:17px;\" datetime=\"2020-06-01T18:00:13+00:00\">Jun 1, 2020 at 11:00am PDT</time></p></div></blockquote>\n<script async src=\"//www.instagram.com/embed.js\"></script>",
+                "type": "instagram",
+                "width": 658
+            },
+            "subtype": "instagram",
+            "type": "oembed_response"
+        },
+        {
+            "_id": "VQZPT4FAUVEDXIE3WIILY6R6ZA",
+            "raw_oembed": {
+                "height": 280,
+                "html": "<div id=\"fb-root\"></div>\n<script async=\"1\" defer=\"1\" crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v7.0\"></script><div class=\"fb-video\" data-href=\"https://www.facebook.com/Foofightersmex/videos/552654842354859\"><blockquote cite=\"https://www.facebook.com/Foofightersmex/videos/552654842354859/\" class=\"fb-xfbml-parse-ignore\"><a href=\"https://www.facebook.com/Foofightersmex/videos/552654842354859/\">Dave Grohl - &quot;My Hero&quot; iHeart Living Room</a><p>Dave Grohl: &quot;Quiero dedicar esta cancion para toda la gente que esta al frente que estan haciendo todo lo posible para superar todo esto&quot;.\n\n¡Animo gente!\n\nCompartanle este video si tienen algun heroe en sus vidas.</p>Posted by <a href=\"https://www.facebook.com/Foofightersmex/\">Foo Fighters México</a> on Wednesday, May 20, 2020</blockquote></div>",
+                "type": "facebook-video",
+                "url": "https://www.facebook.com/Foofightersmex/videos/552654842354859",
+                "width": 500
+            },
+            "subtype": "facebook-video",
+            "type": "oembed_response"
+        },
+        {
+            "_id": "IL4BM3MMLRBRHOWG2MUMWV75FU",
+            "raw_oembed": {
+                "height": 380,
+                "html": "<iframe width=\"300\" height=\"380\" allowtransparency=\"true\" frameborder=\"0\" allow=\"encrypted-media\" title=\"Spotify Embed: High\" src=\"https://open.spotify.com/embed/track/2vg16RThWkdrrohdk4wq25?si=ADUCgXpPQ1muQsxZHMSyxQ\"></iframe>",
+                "type": "spotify",
+                "width": 300
+            },
+            "subtype": "spotify",
+            "type": "oembed_response"
+        },
+        {
+            "_id": "XU7R77MKGFDYZBB76NEWHRRQWA",
+            "type": "reference"
+        },
+        {
+            "_id": "BJQHOIC5SRHUXKGNZIY4PV26CU",
+            "raw_oembed": {
+                "height": null,
+                "html": "<div id=\"fb-root\"></div>\n<script async=\"1\" defer=\"1\" crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v7.0\"></script><div class=\"fb-post\" data-href=\"https://www.facebook.com/premierleague/posts/3629332593757796\" data-width=\"552\"><blockquote cite=\"https://www.facebook.com/premierleague/posts/3629332593757796\" class=\"fb-xfbml-parse-ignore\"><p>On Papiss Cisse&#039;s 3️⃣5️⃣th birthday, it&#039;d be rude not to give this another watch, right⁉️</p>Posted by <a href=\"https://www.facebook.com/premierleague/\">Premier League</a> on&nbsp;<a href=\"https://www.facebook.com/premierleague/posts/3629332593757796\">Wednesday, June 3, 2020</a></blockquote></div>",
+                "type": "facebook-post",
+                "url": "https://www.facebook.com/premierleague/posts/3629332593757796",
+                "width": 552
+            },
+            "subtype": "facebook-post",
+            "type": "oembed_response"
+        },
+        {
+            "_id": "YDQSPHEWUZFGRHRRCM6ABSNWPI",
+            "additional_properties": {},
+            "content": "<blockquote class=\"twitter-tweet\"><p lang=\"es\" dir=\"ltr\">Me cuenta una persona que en su trabajo (multinacional) le avisaron que hasta fin de año nadie vuelve a la oficina. Le pagan internet, le dieron una notebook, la silla y el monitor que tenía en su escritorio. ¿A ustedes sus empleadores le dieron algo?</p>&mdash; Jason Mayne (@MayneJason) <a href=\"https://twitter.com/MayneJason/status/1268588829428060167?ref_src=twsrc%5Etfw\">June 4, 2020</a></blockquote> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>",
+            "type": "raw_html"
+        },
+        {
+            "_id": "IDMJM7X675HBZFXK6H3YBUIGIU",
+            "additional_properties": {},
+            "content": "<div class=\"empty\" style=\"padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;\">Código Html</div>",
+            "type": "raw_html"
+        },
+        {
+            "_id": "YET33YRHSBGAVAH3OZEU3Y7IQ4",
+            "additional_properties": {},
+            "content": "Dólar blue hoy: a cuánto cotiza el lunes 8 de junio",
+            "type": "interstitial_link",
+            "url": "https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
         }
     ],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
     "created_date": "2020-05-12T14:08:50.575Z",
     "credits": {
         "by": [
@@ -1619,15 +1386,20 @@
         ]
     },
     "description": {
-        "basic": "Esto es una meta description."
+        "basic": ""
     },
-    "display_date": "2020-05-19T14:29:54.959Z",
+    "display_date": "2020-06-08T16:05:43.471Z",
     "first_publish_date": "2020-05-12T14:24:47.319Z",
     "headlines": {
         "basic": "Prueba iOS y Android cuerpo",
-        "meta_title": ""
+        "meta_title": "",
+        "mobile": "Prueba Mobile"
     },
     "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital"
+        },
         "volanta": {
             "display": true,
             "text": "Esto es una volanta."
@@ -1641,7 +1413,7 @@
             "credits": {
                 "affiliation": []
             },
-            "height": 1536,
+            "height": 513,
             "resized_urls": [
                 {
                     "option": {
@@ -1684,54 +1456,12 @@
                     "resizedUrl": "/resizer/XCJEQmFJL4naLbphYqCn22WnXxw=/310x206/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
                 }
             ],
-            "resized_urls_zoom": [
-                {
-                    "option": {
-                        "height": 1280,
-                        "media": "(min-width: 1280px)",
-                        "width": 1920
-                    },
-                    "resizedUrl": "/resizer/idlWzcWG1MxRAAqveyRCHtDZ49c=/1920x1280/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                },
-                {
-                    "option": {
-                        "height": 800,
-                        "media": "(min-width: 1024px)",
-                        "width": 1200
-                    },
-                    "resizedUrl": "/resizer/WgvxCErO6reerpIeHPM9TVCccjU=/1200x800/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                },
-                {
-                    "option": {
-                        "height": 683,
-                        "media": "(min-width: 768px)",
-                        "width": 1024
-                    },
-                    "resizedUrl": "/resizer/kYzDOC9cAP1LPfpkOoLIdWYvcV4=/1024x683/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                },
-                {
-                    "option": {
-                        "height": 512,
-                        "media": "(min-width: 360px)",
-                        "width": 768
-                    },
-                    "resizedUrl": "/resizer/vtffL1SBl_VEgLefu5k5MrXVvzg=/768x512/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                },
-                {
-                    "option": {
-                        "height": 240,
-                        "media": "(min-width: 320px)",
-                        "width": 360
-                    },
-                    "resizedUrl": "/resizer/rutbS6K8LUZ3xmB6oApfoVAqcIk=/360x240/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
-                }
-            ],
             "type": "image",
             "url": "/resizer/svEUZxJVap7IXrRcLHdWMkYJvO4=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg",
-            "width": 2048
+            "width": 768
         }
     },
-    "publish_date": "2020-05-19T14:29:59.320Z",
+    "publish_date": "2020-06-08T16:05:49.341Z",
     "related_content": {
         "basic": [
             {
@@ -1746,7 +1476,7 @@
         ]
     },
     "subheadlines": {
-        "basic": "Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod."
+        "basic": "Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod..."
     },
     "subtype": "1",
     "syndication": {
@@ -1755,14 +1485,14 @@
     },
     "taxonomy": {
         "primary_section": {
-            "_id": "/revista-brando",
+            "_id": "/deportes/ajedrez",
             "_website": "la-nacion-ar",
             "additional_properties": {
                 "original": {}
             },
-            "name": "Revista Brando",
-            "parent_id": "/",
-            "path": "/revista-brando"
+            "name": "Ajedrez",
+            "parent_id": "/deportes",
+            "path": "/deportes/ajedrez"
         },
         "sections": [
             {

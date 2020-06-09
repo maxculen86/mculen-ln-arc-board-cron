@@ -15,12 +15,13 @@ const indexNota = dataNota => {
     } = dataNota;
 
     const entradaId = get(dataNota, 'label.livefyre_entrada_id.text', id);
+    const paywallStatus = get(dataNota, 'content_restrictions.content_code');
 
     const resp = {
         id,
         template,
         url,
-        paywallStatus: get(dataNota, 'content_restrictions.content_code'),
+        paywallStatus: paywallStatus ? paywallStatus : 'comun',
         abiertoComentarios: dataNota.comments
             ? dataNota.comments.allow_comments
             : true,
