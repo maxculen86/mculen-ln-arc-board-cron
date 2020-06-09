@@ -11,12 +11,11 @@ import ImageBase from './component';
 
 class ImageArticle extends React.PureComponent {
     render() {
-        const { image, zoom, href, outputType, active } = this.props;
+        const { image, zoom, href, outputType, active, withLazy } = this.props;
         const { alt_text: altText, caption } = image;
         const altBasic = altText || caption || '';
         if (!image.url) return null;
         const amp = outputType === 'amp';
-
         const sources =
             image.resized_urls && image.resized_urls.filter(v => !!v.option);
         const sourcesZoom =
@@ -63,6 +62,7 @@ class ImageArticle extends React.PureComponent {
                 width={image.width}
                 height={image.height}
                 amp={amp}
+                withLazy={withLazy}
             />
         );
     }
@@ -82,7 +82,8 @@ ImageArticle.propTypes = {
     }).isRequired,
     zoom: PropTypes.bool,
     active: PropTypes.bool.isRequired,
-    href: PropTypes.string
+    href: PropTypes.string,
+    withLazy: PropTypes.bool
 };
 
 export default Consumer(ImageArticle);

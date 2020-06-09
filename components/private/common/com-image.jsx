@@ -14,8 +14,10 @@ const ComImage = props => {
         classCondition,
         amp,
         width,
-        height
+        height,
+        withLazy = true
     } = props;
+
     if (!src) return null;
     return (
         <>
@@ -33,7 +35,7 @@ const ComImage = props => {
                 <img
                     src={src}
                     srcSet={srcset}
-                    loading="lazy"
+                    loading={withLazy ? 'lazy' : undefined}
                     className={`com-image ${classCondition || ''}`}
                     alt={alt}
                 />
@@ -54,7 +56,9 @@ ComImage.propTypes = {
     classCondition: PropTypes.string,
     amp: PropTypes.bool.isRequired,
     width: sizeProps,
-    height: sizeProps
+    height: sizeProps,
+    withLazy: PropTypes.bool
 };
+
 
 export default ComImage;
