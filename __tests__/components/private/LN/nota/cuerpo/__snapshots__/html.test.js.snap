@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Html Matches Snapshot 1`] = `
+<div
+  class="com-embed --html"
+>
+  
+            
+  <div
+    class="empty"
+    style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;"
+  >
+    
+                sample html block 
+            
+  </div>
+  
+        
+</div>
+`;
