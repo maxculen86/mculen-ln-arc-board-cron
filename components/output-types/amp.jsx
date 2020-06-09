@@ -12,6 +12,7 @@ import MetaDescription from '../private/common/metaDescription';
 import getParagraph from '../private/common/utils/getParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
+import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -45,10 +46,12 @@ const Amp = props => {
         headlines,
         description,
         subtype,
-        syndication
+        syndication,
+        distributor
     } = globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
+    const { name: distributorName } = distributor || {};
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
@@ -127,6 +130,7 @@ const Amp = props => {
                 />
                 <Snippets />
                 {children}
+                <ScriptLogoBBC distributorName={distributorName} />
             </body>
         </html>
     );

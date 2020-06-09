@@ -199,8 +199,15 @@ export default `
     canonical_url
     type
     subtype
+    distributor {
+        name
+        category
+    }
     promo_items {
         basic {
+            _id
+            type
+            content
             additional_properties {
                 iptc_source
             }

@@ -5,8 +5,15 @@ import { getSectionLogo } from '../../../common/utils/sectionUtils';
 import LogoComponent from './component';
 import ModSponsor from '../../../common/mod-sponsor';
 
-const LogoBaseContainer = ({ sections, layout, sponsored, advertiser }) => {
-    const sectionData = getSectionLogo(sections, layout);
+const LogoBaseContainer = ({
+    sections,
+    layout,
+    distributor,
+    sponsored,
+    advertiser
+}) => {
+    const { name: distributorName } = distributor || {};
+    const sectionData = getSectionLogo(sections, layout, distributorName);
 
     const { path, logoName, color } = sectionData || {
         path: null,
@@ -35,6 +42,10 @@ LogoBaseContainer.propTypes = {
             _id: PropTypes.string.isRequired
         })
     ).isRequired,
+    distributor: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired
+    }).isRequired,
     layout: PropTypes.string.isRequired,
     sponsored: PropTypes.bool,
     advertiser: PropTypes.string

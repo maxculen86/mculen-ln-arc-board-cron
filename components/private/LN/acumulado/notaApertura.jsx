@@ -6,18 +6,22 @@ import filter from '../../../../content/filters/LN/acumulado/colections';
 
 const NotaApertura = ({ articlesCollections }) => {
     return (
-        <div className="mod-opening">
-            <section className="row-gap-tablet-2 row-gap-deskxl-2">
-                {articlesCollections.map(article => (
-                    <ArticleAcum
-                        key={article._id}
-                        article={article}
-                        dataSection="CuerpoAcu"
-                        extraClasses=" --border w-100-mobile"
-                    />
-                ))}
-            </section>
-        </div>
+        <>
+            {articlesCollections.length > 0 && (
+                <div className="mod-opening">
+                    <section className="row-gap-tablet-2 row-gap-deskxl-2">
+                        {articlesCollections.map(article => (
+                            <ArticleAcum
+                                key={article._id}
+                                article={article}
+                                dataSection="CuerpoAcu"
+                                extraClasses=" --border w-100-mobile"
+                            />
+                        ))}
+                    </section>
+                </div>
+            )}
+        </>
     );
 };
 
