@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import '../../../../../resources/dist/css/ln/components/com-embed.css';
 
 const Html = ({ data }) => {
     const { content } = data || { content: null };
