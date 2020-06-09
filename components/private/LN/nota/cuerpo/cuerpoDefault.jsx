@@ -16,6 +16,7 @@ import Banner from '../../common/bannerRefactor';
 import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
+import Html from './html';
 
 const Cuerpo = props => {
     const {
@@ -37,7 +38,8 @@ const Cuerpo = props => {
         Image,
         RawHTML,
         OembedAMP,
-        BotonLink
+        BotonLink,
+        Html
     ];
 
     const types = ['text', 'image', 'oembed_response', 'video'];
