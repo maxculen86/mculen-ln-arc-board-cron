@@ -55,7 +55,10 @@ const Cuerpo = props => {
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
-            if (element.type === 'oembed_response') {
+            if (
+                element.type === 'oembed_response' ||
+                element.type === 'raw_html'
+            ) {
                 return (
                     bc.arcType === element.type && bc.outputType === outputType
                 );
