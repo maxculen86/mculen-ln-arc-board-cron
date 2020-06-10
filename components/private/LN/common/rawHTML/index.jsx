@@ -2,8 +2,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const trim = (text = '') => {
-    return text.replace(/\s\s+/g, ' ').trim();
+const trim = string => {
+    return string.replace(/\s{2,}/g, ' ');
 };
 
 const getModifier = subtype => {
@@ -16,16 +16,17 @@ const getModifier = subtype => {
     }
 };
 
-const RawHTML = ({ data }) => {
-    const {
+const RawHTML = ({
+    data: {
         classes = '',
         raw_oembed: { html = '' },
         subtype
-    } = data;
-    const modifier = getModifier(subtype);
+    }
+}) => {
+    const modifier = subtype ? getModifier(subtype) : '';
     return (
         <div
-            className={trim(`com-embed ${modifier} ${classes}`)}
+            className={trim(`com-embed ${classes} ${modifier}`)}
             dangerouslySetInnerHTML={{ __html: html }}
         />
     );

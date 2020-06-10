@@ -8,7 +8,7 @@ const Syndication = ({ subtype, syndication, arcSite }) => {
     if (arcSite && arcSite !== 'la-nacion-ar' && !subtype) return <></>;
 
     return (
-        subtype === '1' &&
+        subtype !== '7' &&
         syndication !== undefined &&
         ((!externalDistribution && !search) ||
             (!search && externalDistribution)) && (

@@ -13,7 +13,7 @@ const epigrafeAndCreditsData = data => {
                   return totalCredits;
               })
             : null;
-    const cred = creditos && creditos.filter(el => el !== '');
+    const cred = (creditos && creditos.filter(el => el !== '')) || [];
 
     const semicolon =
         iptcSource !== undefined && iptcSource !== '' && cred.length > 0
