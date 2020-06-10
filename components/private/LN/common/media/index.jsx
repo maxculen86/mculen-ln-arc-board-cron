@@ -54,7 +54,12 @@ const media = ({
                         }
                         outputType={outputType}
                     >
-                        <Image active={active} image={mediaData} href={href} />
+                        <Image
+                            active={active}
+                            image={mediaData}
+                            href={href}
+                            withLazy={itsGallery ? false : !zoom}
+                        />
                         {children}
                     </ComFigure>
                 );
