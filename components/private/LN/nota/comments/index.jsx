@@ -11,6 +11,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
+import get from 'lodash.get';
 import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
@@ -35,9 +36,14 @@ const Comments = props => {
         termicas
     } = props;
 
-    const { isAuth } = useGlobal();
+    const {
+        globalContent: { comments }
+    } = props;
 
-    if (!termicas.livefyre) return <></>;
+    // const allowComments = get(comments, 'allow_comments');
+    const displayComments = get(comments, 'display_comments', true);
+
+    const { isAuth } = useGlobal();
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
@@ -115,12 +121,12 @@ const Comments = props => {
                     minutesUntilAbsoluteTime: 4,
                     absoluteFormat: 'HH:mm dd/MM/y'
                 },
-                editorCss: {
+                /* editorCss: {
                     background: '#ccc',
                     color: 'red',
                     font:
                         '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
-                },
+                }, */
                 initialNumVisible: '10',
                 postToButtons: ['tw', 'fb']
             }
@@ -167,20 +173,24 @@ const Comments = props => {
 
     const observer = useRef(new MutationObserver(onCommentsLoad));
     useEffect(() => {
-        observer.current.observe(document.querySelector('#livefyre'), {
-            subtree: false,
-            childList: true
-        });
+        if (document.querySelector('#livefyre')) {
+            observer.current.observe(document.querySelector('#livefyre'), {
+                subtree: false,
+                childList: true
+            });
+        }
         return () => observer.current.disconnect();
     });
 
     useEffect(() => {
-        if (showLegal) {
-            commentSection.current.classList.remove('arrow-down');
-            commentSection.current.classList.add('arrow-up');
-        } else {
-            commentSection.current.classList.remove('arrow-up');
-            commentSection.current.classList.add('arrow-down');
+        if (commentSection.current) {
+            if (showLegal) {
+                commentSection.current.classList.remove('arrow-down');
+                commentSection.current.classList.add('arrow-up');
+            } else {
+                commentSection.current.classList.remove('arrow-up');
+                commentSection.current.classList.add('arrow-down');
+            }
         }
     }, [showLegal]);
 
@@ -229,6 +239,7 @@ const Comments = props => {
                             LiveFyreConfig.networkConfig,
                             [LiveFyreConfig.convConfig],
                             widget => {
+                                // console.log("########WIDGET: ", widget.getCollection());
                                 widget.on('commentPosted', data => {});
                                 widget.on('commentFlagged', data => {});
                                 widget.on('commentLiked', data => {});
@@ -257,6 +268,12 @@ const Comments = props => {
         loginData,
         props
     ]);
+
+    // if (!allowComments) return null;
+
+    if (!displayComments) return null;
+
+    if (!termicas.livefyre) return <></>;
 
     return (
         <>

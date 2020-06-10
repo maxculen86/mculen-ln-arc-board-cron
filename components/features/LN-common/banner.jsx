@@ -11,26 +11,31 @@ const banner = ({
     siteProperties,
     isAdmin,
     customFields: { group, desktop, mobile, tablet, sticky, background },
-    termicas
+    termicas,
+    globalContent: { label }
 }) => {
     const { banners } = termicas || {};
+    const { mostrar_banners: mostrarBanners } = label || {};
+    const { text: mostrarBannersValue } = mostrarBanners || '';
 
-    return (
-        <Banner
-            siteProperties={siteProperties}
-            isAdmin={isAdmin}
-            slotGroup={group}
-            devices={group}
-            selectedSlots={{
-                desktopSlot: desktop,
-                mobileSlot: mobile,
-                tabletSlot: tablet
-            }}
-            sticky={sticky}
-            background={background}
-            banners={banners}
-        />
-    );
+    if (mostrarBannersValue !== 'No')
+        return (
+            <Banner
+                siteProperties={siteProperties}
+                isAdmin={isAdmin}
+                slotGroup={group}
+                devices={group}
+                selectedSlots={{
+                    desktopSlot: desktop,
+                    mobileSlot: mobile,
+                    tabletSlot: tablet
+                }}
+                sticky={sticky}
+                background={background}
+                banners={banners}
+            />
+        );
+    return <></>;
 };
 
 banner.label = 'LN-Common-Banner';
@@ -51,7 +56,14 @@ banner.propTypes = {
             dfp_id: PropTypes.number.isRequired
         })
     }),
-    isAdmin: PropTypes.bool
+    isAdmin: PropTypes.bool,
+    globalContent: PropTypes.shape({
+        label: PropTypes.shape({
+            mostrar_banners: PropTypes.shape({
+                text: PropTypes.string
+            })
+        })
+    })
 };
 
 // banner.defaultProps = {
