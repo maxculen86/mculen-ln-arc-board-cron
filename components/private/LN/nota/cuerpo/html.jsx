@@ -27,7 +27,7 @@ const Html = props => {
 };
 
 Html.arcType = 'raw_html';
-
+Html.outputType = 'default';
 Html.propTypes = {
     data: PropTypes.shape({
         content: PropTypes.string
