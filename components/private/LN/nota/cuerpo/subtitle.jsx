@@ -1,56 +1,27 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import ComTitle from '../../../common/com-title';
 
 const Subtitle = props => {
     const { data } = props;
     switch (data.level) {
         case 1:
-            return (
-                <h2
-                    className="com-subtitle-nota-1"
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                />
-            );
+            return <ComTitle tag="h2" size="l" data={data} />;
         case 2: {
-            return (
-                <h3
-                    className="com-subtitle-nota-2"
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                />
-            );
+            return <ComTitle tag="h3" size="m" data={data} />;
         }
         case 3:
         case 4: {
-            return (
-                <h4
-                    className="com-subtitle-nota-3"
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                />
-            );
+            return <ComTitle tag="h4" size="threexs" data={data} />;
         }
         case 5: {
-            return (
-                <h5
-                    className="com-subtitle-nota-3"
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                />
-            );
+            return <ComTitle tag="h4" size="threexs" data={data} />;
         }
         case 6: {
-            return (
-                <h6
-                    className="com-subtitle-nota-3"
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                />
-            );
+            return <ComTitle tag="h4" size="threexs" data={data} />;
         }
         default:
-            return (
-                <h2
-                    className="com-subtitle-nota-1"
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                />
-            );
+            return <ComTitle tag="h2" size="threexl" data={data} />;
     }
 };
 
