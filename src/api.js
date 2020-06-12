@@ -50,6 +50,8 @@ http.createServer((req, res) => {
 }).listen(PORT, (...args) => {
     log(`Running on http://${HOST}:${PORT}/`);
     log();
+    log(`http://${HOST}:${PORT}/?id=3THDAILWTVHARHBYA5AEVL7OAU`);
+    log(`http://${HOST}:${PORT}/?id=MVPQH6KKHREGDJBFAZCOH4GRDQ`);
     log(`http://${HOST}:${PORT}/?id=2KOBND62KNFVVBFQZOADNN6WNY`);
     log(`http://${HOST}:${PORT}/?id=74Y3EXNVPRA37LWJB3D2BZLQK4`);
     log(`http://${HOST}:${PORT}/?id=EBMQCONMLVB6ZBFFGTBLIWMYFQ`);

@@ -1,16 +1,21 @@
 import get from 'lodash.get';
 import Categorias from './categoria';
 import Tags from './tag';
+import NotaRelacionadas from './notaRelacionada';
 
-const relacionadosIndex = article => {
-    const tags = get(article, 'taxonomy.tags');
-    const categories = get(article, 'taxonomy.sections');
-    const principalCategory = get(article, 'taxonomy.primary_section._id');
+const relacionadosIndex = dataArticle => {
+    const tags = get(dataArticle, 'taxonomy.tags');
+    const categories = get(dataArticle, 'taxonomy.sections');
+    const principalCategory = get(dataArticle, 'taxonomy.primary_section._id');
+    const relatedNotes = get(dataArticle, 'related_content.basic');
 
     const resp = {
         tags: [],
-        categorias: []
+        categorias: [],
+        notas: []
     };
+
+    if (!dataArticle) return null;
 
     if (categories) {
         categories.forEach(category => {
@@ -23,6 +28,12 @@ const relacionadosIndex = article => {
     if (tags) {
         tags.forEach(tag => {
             resp.tags.push(Tags(tag));
+        });
+    }
+
+    if (relatedNotes) {
+        relatedNotes.forEach(note => {
+            resp.notas.push(NotaRelacionadas(note));
         });
     }
 

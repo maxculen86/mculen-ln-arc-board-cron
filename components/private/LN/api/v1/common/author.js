@@ -6,6 +6,7 @@ const authorCommon = author => {
 
     const resp = {
         id: getAutorId(id),
+        slug: id,
         nombre: name,
         tipo: type === 'author' ? 1 : 2
     };

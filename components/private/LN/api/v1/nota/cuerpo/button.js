@@ -1,9 +1,10 @@
 const button = buttonData => {
-    if (!buttonData && !buttonData.url) return null;
+    if (!buttonData) return null;
 
     const resp = {
         _t: 'boton',
         class: 'linkboton',
+        valor: buttonData.content,
         href: buttonData.url
     };
 

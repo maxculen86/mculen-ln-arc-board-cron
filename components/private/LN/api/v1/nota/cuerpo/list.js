@@ -1,22 +1,26 @@
 import htmlText from './htmlText';
 import get from 'lodash.get';
 
-const list = data => {
-    const listElements = get(data, 'items');
-    if (!listElements && !listElements.length) return null;
+const list = dataList => {
+    if (!dataList) return null;
+
+    const listElements = get(dataList, 'items');
+    if (!listElements || listElements.length == 0) return null;
 
     const resp = {
-        _t: data.list_type === 'unordered' ? 'ul' : 'ol',
+        _t: dataList.list_type === 'unordered' ? 'ul' : 'ol',
         valor: []
     };
 
     listElements.forEach(element => {
-        const valor = htmlText(element.content);
-        if (valor) {
-            resp.valor.push({
-                _t: 'li',
-                valor: valor
-            });
+        if (element.content) {
+            const valor = htmlText(element.content);
+            if (valor && valor.length) {
+                resp.valor.push({
+                    _t: 'li',
+                    valor: valor
+                });
+            }
         }
     });
 
