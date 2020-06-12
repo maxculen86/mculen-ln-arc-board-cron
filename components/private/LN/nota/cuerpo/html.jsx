@@ -1,34 +1,37 @@
-import React from 'react';
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/no-danger             */
 
-// TODO: investigar componte de ARC "social link"
-export default function html() {
+import React, { useRef } from 'react';
+import PropTypes from 'fusion:prop-types';
+import '../../../../../resources/dist/css/ln/components/com-embed.css';
+
+const Html = props => {
+    const { data } = props;
+    const { content } = data || { content: null };
+    const parser = useRef();
+
+    if (!parser.current) {
+        parser.current = new DOMParser();
+    }
+
+    if (!content) return null;
     return (
-        <div className="externo">
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/zIY87vU33aA"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            ></iframe>
-            <blockquote className="twitter-tweet">
-                <p lang="und" dir="ltr">
-                    ᵒᵒᶠ{' '}
-                    <a href="https://t.co/WslAeSvMFg">
-                        pic.twitter.com/WslAeSvMFg
-                    </a>
-                </p>
-                &mdash; 🥖 Kéké 🥖 (@Kekeflipnote){' '}
-                <a href="https://twitter.com/Kekeflipnote/status/1193619442636337158?ref_src=twsrc%5Etfw">
-                    November 10, 2019
-                </a>
-            </blockquote>{' '}
-            <script
-                async
-                src="https://platform.twitter.com/widgets.js"
-                charset="utf-8"
-            ></script>
-        </div>
+        <div
+            className="com-embed --html"
+            dangerouslySetInnerHTML={{
+                __html: parser.current.parseFromString(content, 'text/html')
+                    .documentElement.innerHTML
+            }}
+        />
     );
-}
+};
+
+Html.arcType = 'raw_html';
+Html.outputType = 'default';
+Html.propTypes = {
+    data: PropTypes.shape({
+        content: PropTypes.string
+    })
+};
+
+export default Html;
