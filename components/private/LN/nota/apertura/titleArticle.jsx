@@ -4,20 +4,11 @@ import ComTitle from '../../../common/com-title';
 
 const titleArticle = ({ label, headlines, prefix }) => {
     const { basic } = headlines || {};
-    return (
-        /* <h1 className="com-title-nota">
-            {prefix !== '' ? `${prefix}\u00A0` : prefix}
-            {label.volanta ? `${label.volanta.text}\u00A0` : ''}
-            {basic}
-        </h1> */
-        <ComTitle
-            tag="h1"
-            size="threexl"
-            prefix={prefix !== '' ? `${prefix}\u00A0` : prefix}
-            label={label.volanta ? `${label.volanta.text}\u00A0` : ''}
-            basic={basic}
-        ></ComTitle>
-    );
+    const volantaText = `${label.volanta ? `${label.volanta.text}\u00A0` : ''}`;
+    const prefixText = `${prefix !== '' ? `${prefix}\u00A0` : prefix}`;
+    const renderTitle = `${prefixText}${volantaText}${basic}`;
+
+    return <ComTitle tag="h1" size="threexl" content={renderTitle}></ComTitle>;
 };
 
 titleArticle.propTypes = {
