@@ -84,14 +84,12 @@ const lnNotaNoticia = ({ children }) => {
                             </picture>
                         </div>
                     </section> */}
-                    <section className="wrap root">
-                        <div className="lay">
-                            <ModFigcaption
-                                title="Las próximas definiciones en cinco causas de peso."
-                                credit="Fuente: LA NACION - Crédito: Enrique García Medina"
-                            />
-                        </div>
-                    </section>
+                    <div className="lay">
+                        <ModFigcaption
+                            title="Las próximas definiciones en cinco causas de peso."
+                            credit="Fuente: LA NACION - Crédito: Enrique García Medina"
+                        />
+                    </div>
                     {/* <div className="lay-sidebar">
                         <div className="sidebar__main">
                             <div className="row">
@@ -122,78 +120,70 @@ const lnNotaNoticia = ({ children }) => {
                     </div> */}
                 </section>
                 {children[0]}
-                <section className="wrap">
-                    <div className="lay">
-                        <header className="row titulo">
-                            <div className="col-12">
-                                {/* Titulo (breadcrumb, logo+titulo) */}
-                                {/* {children[1]} */}
-                            </div>
-                        </header>
-                    </div>
+                <div className="lay">
+                    <header className="row titulo">
+                        <div className="col-12">
+                            {/* Titulo (breadcrumb, logo+titulo) */}
+                            {/* {children[1]} */}
+                        </div>
+                    </header>
+                </div>
 
-                    <div className="lay-sidebar">
-                        {/* Cuerpo */}
-                        <div className="sidebar__main">
-                            <div className="row">
-                                <div className="col-12 ">
-                                    {/*Bajada y autor fecha más apertura*/}
-                                    {children[2]}
-                                </div>
+                <div className="lay-sidebar">
+                    {/* Cuerpo */}
+                    <div className="sidebar__main">
+                        <div className="row">
+                            <div className="col-12 ">
+                                {/*Bajada y autor fecha más apertura*/}
+                                {children[2]}
                             </div>
-                            <div className="row">
-                                <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
-                                    {/* hlp-mobile-show */}
-                                    {/* Left-Cuerpo Shared*/}
-                                    {children[3]}
-                                </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-1 hlp-marginBottom-40 hlp-tablet-none">
+                                {/* hlp-mobile-show */}
+                                {/* Left-Cuerpo Shared*/}
+                                {children[3]}
+                            </div>
 
-                                <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                    <div className="row">
-                                        {/* Pos-Apertura */}
-                                        {children[4]}
-                                        <div className="opinion-autor row">
-                                            <div className="col-12">
-                                                <section
-                                                    id=""
-                                                    className="cont-figure"
-                                                >
-                                                    <div className="figure">
-                                                        <picture className="content-pic picture">
-                                                            <img
-                                                                src="https://bucket1.glanacion.com/anexos/fotos/12/2089212w82.png"
-                                                                alt=""
-                                                                className="content-img"
-                                                            />
-                                                        </picture>
-                                                    </div>
-                                                </section>
-                                                <div className="opinion-calc">
-                                                    <h1 className="link hlp-bold">
-                                                        <a href="">
-                                                            Bruno Pittón
-                                                        </a>
-                                                    </h1>
-                                                    <label>
-                                                        PARA LA NACION
-                                                    </label>
+                            <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                <div className="row">
+                                    {/* Pos-Apertura */}
+                                    {children[4]}
+                                    <div className="opinion-autor row">
+                                        <div className="col-12">
+                                            <section
+                                                id=""
+                                                className="cont-figure"
+                                            >
+                                                <div className="figure">
+                                                    <picture className="content-pic picture">
+                                                        <img
+                                                            src="https://bucket1.glanacion.com/anexos/fotos/12/2089212w82.png"
+                                                            alt=""
+                                                            className="content-img"
+                                                        />
+                                                    </picture>
                                                 </div>
+                                            </section>
+                                            <div className="opinion-calc">
+                                                <h1 className="link hlp-bold">
+                                                    <a href="">Bruno Pittón</a>
+                                                </h1>
+                                                <label>PARA LA NACION</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {/* Tercera */}
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {children[5]}
-                        </div>
                     </div>
-                </section>
+                    {/* Tercera */}
+                    <div className="sidebar__aside hlp-tablet-none">
+                        {children[5]}
+                    </div>
+                </div>
             </main>
-            <section className="wrap root">
-                <Footer />
-            </section>
+            <Footer />
         </div>
     );
 };
