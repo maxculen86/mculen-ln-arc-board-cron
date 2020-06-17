@@ -4,6 +4,7 @@
 .mod-opening {
     &.--storytelling {
         margin-top: px(-45); //header mobile
+        margin-bottom: px(32);
         position: relative;
         @media ($media-l) {
             margin-top: px(-65); //header
@@ -13,7 +14,7 @@
             .mod-picture {
                 width: 100%;
                 margin: 0;
-                background: $negro;
+                background: $gris6;
                 position: relative;
                 overflow: hidden;
                 display: flex;
@@ -104,7 +105,6 @@
         .mod-figcaption {
             border-bottom: 1px solid #ccc;
             margin-top: px(8);
-            margin-bottom: px(32);
             .--credit,
             .--caption {
                 margin-bottom: px(8);
