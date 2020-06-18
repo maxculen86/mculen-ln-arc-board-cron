@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .mod-opening {
-    &.--storytelling {
+    .--storytelling & {
         margin-top: px(-45); //header mobile
         margin-bottom: px(32);
         position: relative;
@@ -65,6 +65,7 @@
 
             @media (min-width: 769px) {
                 padding-bottom: $px-16;
+                text-align: center;
             }
 
             &:before {
@@ -78,6 +79,7 @@
                 width: 100%;
                 margin-top: px(-120);
                 position: absolute;
+                left: 0;
             }
 
             [class*='logo-'] {
@@ -91,14 +93,22 @@
                 }
             }
 
-            .com-title {
-                font-family: $font-SuecaSlab;
-                font-size: px(24);
-                line-height: px(32);
-                color: $blanco;
-                @media ($media-m) {
-                    font-size: px(46);
-                    line-height: px(54);
+            .lay {
+                .com-title {
+                    font-family: $font-SuecaSlab;
+                    font-size: px(24);
+                    line-height: px(32);
+                    color: $blanco;
+
+                    @media ($media-m) {
+                        font-size: px(46);
+                        line-height: px(54);
+                    }
+                }
+                @media (min-width: 769px) {
+                    width: auto;
+                    display: inline-block;
+                    text-align: left;
                 }
             }
         }

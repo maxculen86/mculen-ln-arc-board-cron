@@ -1,6 +1,6 @@
 @import '../abstracts/variables';
 
-.noticia-storytelling {
+.--storytelling {
     .lay-sidebar,
     footer,
     .wrap {
@@ -11,7 +11,7 @@
         }
     }
     main {
-        padding-bottom: 0;
+        padding-top: 0;
     }
     .footer {
         padding-top: px(40);

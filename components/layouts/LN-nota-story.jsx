@@ -40,13 +40,13 @@ const lnNotaNoticia = ({ children }) => {
     return (
         <div
             id="wrapper"
-            className="nota noticia noticia-storytelling --hlp-transparent"
+            className="nota noticia --storytelling --hlp-transparent"
         >
             {/* TODO: sacar */}
             <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
             <Header />
             <main>
-                <section className="mod-opening --storytelling">
+                <section className="mod-opening">
                     <ComFigure>
                         <ModPicture
                             classCondition=""
