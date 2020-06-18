@@ -20,13 +20,8 @@ describe('Private - LN - Common - linkAmpHTML', () => {
         subtype: '1'
     };
 
-    it('Snapshots', () => {
-        const component = render(<LinkAmpHTML {...props} />);
-        expect(component).toMatchSnapshot();
-    });
-
     it('Render OK', () => {
-        const component = render(<LinkAmpHTML {...props} subtype={'1'} />);
+        const component = render(<LinkAmpHTML {...props} />);
         expect(component).toBeDefined();
     });
 
@@ -35,14 +30,14 @@ describe('Private - LN - Common - linkAmpHTML', () => {
         expect(component.html()).toBeNull();
     });
 
-    it('No debe hacer render de recetas', () => {
-        const component = mount(<LinkAmpHTML {...props} subtype={'7'} />);
-        expect(component.html()).toBeNull();
-    });
-
     it('Validar props enviadas', () => {
         const component = mount(<LinkAmpHTML {...props} />);
         expect(component.props()).toEqual(props);
+    });
+
+    it('Si no envio props retornar null', () => {
+        const component = mount(<LinkAmpHTML />);
+        expect(component.html()).toBeNull();
     });
 
     it('Atributos y nodo del DOM correcto', () => {
@@ -52,5 +47,10 @@ describe('Private - LN - Common - linkAmpHTML', () => {
         expect(component.find('link').props().href).toEqual(
             'https://www.lanacion.com.ar/ciencia/roger-prueba-imagenes-nid28052020/?outputType=amp'
         );
+    });
+
+    it('Snapshots', () => {
+        const component = render(<LinkAmpHTML {...props} />);
+        expect(component).toMatchSnapshot();
     });
 });
