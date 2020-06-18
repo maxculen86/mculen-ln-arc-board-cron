@@ -1,7 +1,7 @@
 const sectionArticle = section => {
-    const { _id: id, name: valor } = section;
+    const { _id: slug, name: valor } = section;
     return {
-        id,
+        slug,
         valor
     };
 };

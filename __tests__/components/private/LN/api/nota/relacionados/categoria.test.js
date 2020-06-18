@@ -8,7 +8,7 @@ describe('Test de JSON de tags en article', () => {
         const categoriesArticle = get(articleFull, 'taxonomy.sections');
         categoriesArticle.forEach(e => {
             const categoriaNote = Categoria(e);
-            expect(categoriaNote.id).toBe(e._id);
+            expect(categoriaNote.slug).toBe(e._id);
             expect(categoriaNote.valor).toBe(e.name);
             expect(categoriaNote.nivel).toBe(
                 e._id.match(new RegExp('/', 'g')).length
