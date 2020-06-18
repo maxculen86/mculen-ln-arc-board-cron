@@ -127,30 +127,30 @@ class Index extends Component {
 
         return (
             <>
-                {!isMobile && (
-                    <HeaderDesktop
+                {/* {!isMobile && ( */}
+                <HeaderDesktop
+                    toglleDesplegable={this.toglleDesplegable}
+                    logueado={logueado}
+                    loginData={loginData}
+                    showNav
+                    goToLogout={goToLogout}
+                    host={host}
+                    headerDark={headerDark}
+                />
+                {/* )}
+                {isMobile && ( */}
+                <>
+                    {/* <HeaderMobile loginData={loginData} host={host} /> */}
+                    <NavBarMobile
                         toglleDesplegable={this.toglleDesplegable}
-                        logueado={logueado}
-                        loginData={loginData}
-                        showNav
-                        goToLogout={goToLogout}
-                        host={host}
-                        headerDark={headerDark}
+                        showNav={
+                            scrollDirection.isScrollDown
+                                ? ` ${CLASS_SCROLL_DOWN}`
+                                : ''
+                        }
                     />
-                )}
-                {isMobile && (
-                    <>
-                        <HeaderMobile loginData={loginData} host={host} />
-                        <NavBarMobile
-                            toglleDesplegable={this.toglleDesplegable}
-                            showNav={
-                                scrollDirection.isScrollDown
-                                    ? ` ${CLASS_SCROLL_DOWN}`
-                                    : ''
-                            }
-                        />
-                    </>
-                )}
+                </>
+                {/* )} */}
                 <Desplegable toglleDesplegable={this.toglleDesplegable} />
             </>
         );
