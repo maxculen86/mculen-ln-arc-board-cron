@@ -1,7 +1,9 @@
-const header = data => {
+const header = dataHeader => {
+    if (!dataHeader) return null;
+
     return {
-        _t: `sub${data.level}`,
-        valor: data.content
+        _t: `sub${dataHeader.level}`,
+        valor: dataHeader.content
     };
 };
 

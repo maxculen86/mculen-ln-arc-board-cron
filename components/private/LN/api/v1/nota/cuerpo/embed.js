@@ -45,6 +45,8 @@ const embed = embedData => {
             resp.id = 'facebook-post';
             resp.src = getEmbedHref('href', valor.html);
             break;
+        default:
+            return null;
     }
 
     return {

@@ -1,6 +1,3 @@
-import Tags from '../../../../../../../components/private/LN/api/v1/nota/relacionados/tag';
-import Categorias from '../../../../../../../components/private/LN/api/v1/nota/relacionados/categoria';
-
 import Relacionados from '../../../../../../../components/private/LN/api/v1/nota/relacionados';
 import articleFull from '../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';
 import articleNoElements from '../../../../../../../__mocks__/data/articles/FM2M3Y4ZXZD6VGONEPLLSQJWVA.json';

@@ -1,0 +1,181 @@
+[
+    {
+        "_id": "QZO4UCHCSJHWJLQBALT2PGR2EY",
+        "additional_properties": {},
+        "caption": "Esto es el epigrafe.",
+        "credits": {
+            "affiliation": []
+        },
+        "height": 513,
+        "resized_urls": [
+            {
+                "option": {
+                    "height": 840,
+                    "media": "(min-width: 1280px)",
+                    "width": 1260
+                },
+                "resizedUrl": "/resizer/ll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 746,
+                    "media": "(min-width: 1024px)",
+                    "width": 1120
+                },
+                "resizedUrl": "/resizer/J1GeSMcC7hzJABXY_2p7p8-h4bc=/1120x746/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 512,
+                    "media": "(min-width: 768px)",
+                    "width": 768
+                },
+                "resizedUrl": "/resizer/vtffL1SBl_VEgLefu5k5MrXVvzg=/768x512/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 233,
+                    "media": "(min-width: 360px)",
+                    "width": 350
+                },
+                "resizedUrl": "/resizer/fqbwxH9bQUswTThZFEO-4GAsIQo=/350x233/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 206,
+                    "media": "(min-width: 320px)",
+                    "width": 310
+                },
+                "resizedUrl": "/resizer/XCJEQmFJL4naLbphYqCn22WnXxw=/310x206/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            }
+        ],
+        "type": "image",
+        "url": "/resizer/svEUZxJVap7IXrRcLHdWMkYJvO4=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg",
+        "width": 768
+    },
+    {
+        "_id": "QZO4UCHCSJHWJLQBALT2PGR2EY",
+        "additional_properties": {},
+        "caption": "Esto es el epigrafe.",
+        "credits": {
+            "affiliation": [],
+            "by": [
+                {
+                    "name": "Isaias Anzola",
+                    "type": "author"
+                }
+            ]
+        },
+        "distributor": {
+            "name": "Archivo"
+        },
+        "height": 513,
+        "resized_urls": [
+            {
+                "option": {
+                    "height": 840,
+                    "media": "(min-width: 1280px)",
+                    "width": 1260
+                },
+                "resizedUrl": "/resizer/ll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 746,
+                    "media": "(min-width: 1024px)",
+                    "width": 1120
+                },
+                "resizedUrl": "/resizer/J1GeSMcC7hzJABXY_2p7p8-h4bc=/1120x746/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 512,
+                    "media": "(min-width: 768px)",
+                    "width": 768
+                },
+                "resizedUrl": "/resizer/vtffL1SBl_VEgLefu5k5MrXVvzg=/768x512/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 233,
+                    "media": "(min-width: 360px)",
+                    "width": 350
+                },
+                "resizedUrl": "/resizer/fqbwxH9bQUswTThZFEO-4GAsIQo=/350x233/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 206,
+                    "media": "(min-width: 320px)",
+                    "width": 310
+                },
+                "resizedUrl": "/resizer/XCJEQmFJL4naLbphYqCn22WnXxw=/310x206/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            }
+        ],
+        "type": "image",
+        "url": "/resizer/svEUZxJVap7IXrRcLHdWMkYJvO4=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg",
+        "width": 768
+    },
+    {
+        "_id": "QZO4UCHCSJHWJLQBALT2PGR2EY",
+        "additional_properties": {},
+        "credits": {
+            "affiliation": [],
+            "by": [
+                {
+                    "name": "Isaias Anzola",
+                    "type": "author"
+                }
+            ]
+        },
+        "distributor": {
+            "name": "Archivo"
+        },
+        "height": 513,
+        "resized_urls": [
+            {
+                "option": {
+                    "height": 840,
+                    "media": "(min-width: 1280px)",
+                    "width": 1260
+                },
+                "resizedUrl": "/resizer/ll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 746,
+                    "media": "(min-width: 1024px)",
+                    "width": 1120
+                },
+                "resizedUrl": "/resizer/J1GeSMcC7hzJABXY_2p7p8-h4bc=/1120x746/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 512,
+                    "media": "(min-width: 768px)",
+                    "width": 768
+                },
+                "resizedUrl": "/resizer/vtffL1SBl_VEgLefu5k5MrXVvzg=/768x512/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 233,
+                    "media": "(min-width: 360px)",
+                    "width": 350
+                },
+                "resizedUrl": "/resizer/fqbwxH9bQUswTThZFEO-4GAsIQo=/350x233/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            },
+            {
+                "option": {
+                    "height": 206,
+                    "media": "(min-width: 320px)",
+                    "width": 310
+                },
+                "resizedUrl": "/resizer/XCJEQmFJL4naLbphYqCn22WnXxw=/310x206/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            }
+        ],
+        "type": "image",
+        "url": "/resizer/svEUZxJVap7IXrRcLHdWMkYJvO4=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg",
+        "width": 768
+    }
+]

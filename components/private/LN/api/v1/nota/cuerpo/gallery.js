@@ -3,6 +3,8 @@ import Image from '../image';
 import get from 'lodash.get';
 
 const gallery = dataGallery => {
+    if (!dataGallery) return null;
+
     const {
         _id: id,
         description: { basic: epigrafe },
@@ -20,7 +22,7 @@ const gallery = dataGallery => {
 
     const images = get(dataGallery, 'content_elements');
 
-    if (!images && images.length) return null;
+    if (!images || images.length == 0) return null;
 
     images.forEach(element => {
         resp.imagenes.push(Image(element));

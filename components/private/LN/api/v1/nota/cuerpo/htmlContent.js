@@ -1,5 +1,5 @@
 const html = htmlData => {
-    if (!htmlData && !htmlData.content) return null;
+    if (!htmlData || !htmlData.content) return null;
 
     const resp = {
         _t: 'ext',

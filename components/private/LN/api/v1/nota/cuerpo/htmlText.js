@@ -2,6 +2,7 @@ import { parse } from 'node-html-parser';
 import walkerBuilder from '../../../../../common/utils/walker';
 
 const htmlText = text => {
+    if (!text) return null;
     const rootTagName = 'root';
 
     const html = parse(`<${rootTagName}>${text}</${rootTagName}>`);

@@ -1,0 +1,67 @@
+[
+    {
+        "_id": "Y5KNQSVAYBEEHNQUNQ3DRZVLVU",
+        "additional_properties": {},
+        "citation": {
+            "content": "Lorem",
+            "type": "text"
+        },
+        "content_elements": [],
+        "subtype": "blockquote",
+        "type": "quote"
+    },
+    {
+        "_id": "Y5KNQSVAYBEEHNQUNQ3DRZVLVU",
+        "additional_properties": {},
+        "citation": {
+            "content": "Lorem",
+            "type": "text"
+        },
+        "content_elements": [
+            {
+                "_id": "R44F7ONJMBFZ7CCQBZ4LJ6V5UY",
+                "additional_properties": {},
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id rhoncus tortor. Curabitur sodales tortor mi, et euismod quam dignissim eget. Ut sit amet metus et odio molestie efficitur.",
+                "type": "text"
+            }
+        ],
+        "subtype": "blockquote",
+        "type": "quote"
+    },
+    {
+        "_id": "EEZYOOQC4VBWLLQRBKUPOBP6ZA",
+        "additional_properties": {},
+        "citation": {
+            "content": "Ignacio Madrid",
+            "type": "text"
+        },
+        "content_elements": [
+            {
+                "_id": "I4WRWGICKZHEHFOWN3NTWNIAFQ",
+                "additional_properties": {},
+                "content": "Esto es una cita",
+                "type": "text"
+            }
+        ],
+        "subtype": "pullquote",
+        "type": "quote"
+    },
+    {
+        "_id": "I6Y2MRMRYFHNXN4BJH6YNK26DQ",
+        "additional_properties": {},
+        "citation": {
+            "content": "",
+            "type": "text"
+        },
+        "content_elements": [
+            {
+                "_id": "BJVAPUQPQVHVRCXY4FP6IDJ7WU",
+                "additional_properties": {},
+                "content": "Esto es un destacado",
+                "type": "text"
+            }
+        ],
+        "subtype": "pullquote",
+        "type": "quote"
+    }
+]
