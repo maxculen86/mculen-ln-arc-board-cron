@@ -82,7 +82,7 @@ const HeaderDesktop = ({
                 >
                     {!loginData.subscription && (
                         <a
-                            className="--btn --highlight hlp-marginRight-35"
+                            className="--btn --highlight"
                             href={
                                 `${SITIO_SEGURO_REGISTRACION}/suscribirme` ||
                                 '/'

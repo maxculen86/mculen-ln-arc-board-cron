@@ -23,6 +23,15 @@
             max-width: 66.66667%;
             display: flex;
             //aca logo lanacion
+            .logo-la-nacion {
+                color: $ln-active;
+                @media ($media-m) {
+                    font-size: px(26);
+                }
+                @media ($media-l) {
+                    font-size: px(30);
+                }
+            }
         }
     }
 
@@ -62,6 +71,12 @@
                     &:before,
                     .icon-menu {
                         color: $blanco;
+                    }
+                    &__bar {
+                        background: $blanco;
+                        &:hover {
+                            background: $blanco;
+                        }
                     }
                 }
 
