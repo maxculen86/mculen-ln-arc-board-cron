@@ -1,23 +1,7 @@
 @import '../abstracts/variables';
 
 .--storytelling {
-    .lay-sidebar,
-    footer,
-    .wrap {
-        background: $blanco;
-        position: relative;
-        &.root {
-            display: flow-root;
-        }
-    }
     main {
         padding-top: 0;
-    }
-    .footer {
-        padding-top: px(40);
-    }
-    .lay-sidebar {
-        margin-bottom: 0;
-        padding-bottom: px(40);
     }
 }
