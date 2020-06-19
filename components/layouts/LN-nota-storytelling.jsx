@@ -8,7 +8,7 @@ import PropTypes from 'fusion:prop-types';
 // Private Components
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStoritelling';
+import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 // Styles

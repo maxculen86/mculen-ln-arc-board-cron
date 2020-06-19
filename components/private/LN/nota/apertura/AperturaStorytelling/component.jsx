@@ -10,14 +10,12 @@ import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
 const Component = props => {
-    const { storytellingData } = props;
-
+    const { storytellingData, outputType } = props;
     const { apertura = {} } = storytellingData;
-
     const { src, srcset, altText, video, caption, credit } = apertura;
 
     return (
-        <section className="mod-opening">
+        <section className="mod-opening --storytelling">
             <ComFigure>
                 <ModPicture
                     classCondition=""
@@ -25,6 +23,7 @@ const Component = props => {
                     src={src || ''}
                     alt={altText || ''}
                     video={video || ''}
+                    amp={outputType === 'amp'}
                 />
                 <div className="mod-title">
                     <div className="lay">
@@ -35,14 +34,20 @@ const Component = props => {
                     </div>
                 </div>
             </ComFigure>
-            <div className="lay">
-                <ModFigcaption title={caption || ''} credit={credit || ''} />
-            </div>
+            <section className="wrap root">
+                <div className="lay">
+                    <ModFigcaption
+                        title={caption || ''}
+                        credit={credit || ''}
+                    />
+                </div>
+            </section>
         </section>
     );
 };
 
 Component.propTypes = {
+    outputType: PropTypes.string.isRequired,
     storytellingData: PropTypes.shape({
         apertura: PropTypes.shape({
             src: PropTypes.string,
