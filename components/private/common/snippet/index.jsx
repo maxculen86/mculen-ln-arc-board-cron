@@ -3,16 +3,14 @@ import PropTypes from 'fusion:prop-types';
 
 import NotaSnippet from '../../LN/nota/snippet/receta';
 import NoticiaSnippet from '../../LN/nota/snippet/noticia';
-import StorytellingSnippet from '../../LN/nota/snippet/storytelling';
-import InfografiaSnippet from '../../LN/nota/snippet/infografia';
 
 const config = {
     OTT: {},
     'la-nacion-ar': {
         'LN-nota-receta': NotaSnippet,
         'LN-nota-noticia': NoticiaSnippet,
-        'LN-nota-storytelling': StorytellingSnippet,
-        'LN-nota-infografia': InfografiaSnippet
+        'LN-nota-storytelling': NoticiaSnippet,
+        'LN-nota-infografia': NoticiaSnippet
     }
 };
 
