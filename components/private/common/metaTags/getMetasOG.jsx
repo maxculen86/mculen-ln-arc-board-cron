@@ -2,10 +2,7 @@ import { SITE_LANACION } from 'fusion:environment';
 import getAssetsPath from '../utils/getAssetsPath';
 
 const isNote = globalContent =>
-    !!(
-        globalContent &&
-        (globalContent.subtype === '1' || globalContent.subtype === '7')
-    );
+    !!(globalContent && globalContent.type === 'story');
 
 const getData = ({
     siteProperties,
