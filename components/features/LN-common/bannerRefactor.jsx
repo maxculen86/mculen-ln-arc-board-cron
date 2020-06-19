@@ -31,10 +31,11 @@ const Banner = props => {
             fixed
         },
         termicas,
-        globalContent: { label }
+        globalContent
     } = fusionContext;
 
     const { banners: show } = termicas || {};
+    const { label } = globalContent || { label: { mostrar_banners: false } };
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
 

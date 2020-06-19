@@ -19,11 +19,11 @@ class LiftIgniter extends Component {
                     contentElement.additional_properties.nodeType === 'firma'
             )
             .map(author => author.content)
-            .join('');
+            .join(', ');
     }
 
     getAuthors(object) {
-        return object.map(author => author.name).join('');
+        return object.map(author => author.name).join(', ');
     }
 
     render() {

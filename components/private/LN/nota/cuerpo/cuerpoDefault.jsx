@@ -16,6 +16,7 @@ import Banner from '../../common/bannerRefactor';
 import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
+import Html from './html';
 
 const Cuerpo = props => {
     const {
@@ -37,7 +38,8 @@ const Cuerpo = props => {
         Image,
         RawHTML,
         OembedAMP,
-        BotonLink
+        BotonLink,
+        Html
     ];
 
     const types = ['text', 'image', 'oembed_response', 'video'];
@@ -53,7 +55,10 @@ const Cuerpo = props => {
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
             if (element.type === 'quote') return bc.arcType === element.subtype;
-            if (element.type === 'oembed_response') {
+            if (
+                element.type === 'oembed_response' ||
+                element.type === 'raw_html'
+            ) {
                 return (
                     bc.arcType === element.type && bc.outputType === outputType
                 );
