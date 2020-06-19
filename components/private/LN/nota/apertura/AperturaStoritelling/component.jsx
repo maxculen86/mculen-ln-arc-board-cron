@@ -17,7 +17,7 @@ const Component = props => {
     const { src, srcset, altText, video, caption, credit } = apertura;
 
     return (
-        <section className="mod-opening --storytelling">
+        <section className="mod-opening">
             <ComFigure>
                 <ModPicture
                     classCondition=""
@@ -35,14 +35,9 @@ const Component = props => {
                     </div>
                 </div>
             </ComFigure>
-            <section className="wrap root">
-                <div className="lay">
-                    <ModFigcaption
-                        title={caption || ''}
-                        credit={credit || ''}
-                    />
-                </div>
-            </section>
+            <div className="lay">
+                <ModFigcaption title={caption || ''} credit={credit || ''} />
+            </div>
         </section>
     );
 };
