@@ -10,7 +10,7 @@ import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ModImage = props => {
     const { media, src, srcset, alt, classCondition, video } = props;
-    if (!src || !srcset) return null;
+    // if (!src || !srcset) return null;
 
     return (
         <ComPicture

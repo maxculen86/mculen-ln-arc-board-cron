@@ -84,6 +84,10 @@ const video = `
     promo_items {
         basic {
             url
+            additional_properties {
+                iptc_source
+            }
+            ${image}
         }
     }
     additional_properties {
@@ -213,6 +217,14 @@ export default `
             }
             ${image}
             ${video}
+        }
+        storytelling {
+            _id
+            ${video}
+        }
+        storytelling_mobile {
+            _id
+            ${image}
         }
         receta {
             ${customReceta}

@@ -1,0 +1,170 @@
+// React
+import React from 'react';
+
+// Fusion
+import Consumer from 'fusion:consumer';
+import PropTypes from 'fusion:prop-types';
+
+// Private Components
+import Header from '../private/LN/common/header';
+import Footer from '../private/LN/common/footer';
+import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStoritelling';
+import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+
+// Styles
+// ***** INICIO PREGUNTAR A DARO
+import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
+// ***** FIN PREGUNTAR A DARO
+
+import '../../resources/dist/css/ln/base/reset.css';
+import '../../resources/dist/css/ln/base/types.css';
+import '../../resources/dist/css/ln/pages/recipe.css';
+import '../../resources/dist/css/ln/layouts/grid.css';
+import '../../resources/dist/css/ln/layouts/layout.css';
+import '../../resources/dist/css/ln/modules/header-desktop.css';
+import '../../resources/dist/css/ln/modules/header-mobile.css';
+
+// TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
+// EL COMPONENTE Y EN OTROS NO
+import '../../resources/dist/css/ln/components/button.css';
+import '../../resources/dist/css/ln/components/date.css';
+import '../../resources/dist/css/ln/components/tag.css';
+import '../../resources/dist/css/ln/components/author.css';
+import '../../resources/dist/css/ln/components/lead.css';
+import '../../resources/dist/css/ln/components/ordered.css';
+import '../../resources/dist/css/ln/components/unordered.css';
+import '../../resources/dist/css/ln/components/input.css';
+import '../../resources/dist/css/ln/modules/newsletter.css';
+import '../../resources/dist/css/ln/components/blockquote.css';
+import '../../resources/dist/css/ln/components/text.css';
+import '../../resources/dist/css/ln/components/link.css';
+import '../../resources/dist/css/ln/components/subtitle.css';
+import '../../resources/dist/css/ln/components/slider.css';
+import '../../resources/dist/css/ln/components/epigraph.css';
+import '../../resources/dist/css/ln/components/appointment.css';
+import '../../resources/dist/css/ln/components/opinion-author.css';
+
+// ***** INICIO PREGUNTAR A DARO
+import '../../resources/dist/css/ln/components/colecciones.css';
+import '../../resources/dist/css/ln/components/carta-lectores.css';
+import '../../resources/dist/css/ln/components/storytelling.css';
+import '../../resources/dist/css/ln/modules/mod-opening.css';
+// ***** FIN PREGUNTAR A DARO
+
+import '../../resources/dist/css/ln/modules/mod-banner.css';
+import '../../resources/dist/css/ln/components/com-banner.css';
+import '../../resources/dist/css/ln/components/com-button.css';
+
+// ***** INICIO PREGUNTAR A DARO
+// import '../../resources/dist/css/ln/components/colecciones.css';
+// import '../../resources/dist/css/ln/components/carta-lectores.css';
+
+/* Se debe importar para AMP */
+// import '../../resources/dist/css/ln/components/nav-amp.css';
+// ****** FIN PREGUNTAR A DARO
+
+/* Se debe importar por layouts */
+import '../../resources/dist/css/ln/components/banners.css';
+
+/* Se debe dejar último los helpers */
+import '../../resources/dist/css/ln/base/helpers.css';
+
+import { GlobalProvider } from '../private/common/context/globalContext';
+
+const getBannerMegatop = (element, outputType, tree, isAdmin) => {
+    const { children } = tree;
+    // children[0] => Section BannerMegatop
+    const { children: childrenSectionBannerMegatop } = children[0];
+    const isValid = childrenSectionBannerMegatop.length <= 1;
+    const component = isValid ? (
+        element
+    ) : (
+        <PageBuilderMessage
+            id="LN-nota-noticia-error"
+            type="warning"
+            message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
+        />
+    );
+    if (isAdmin) return component;
+    return isValid ? component : null;
+};
+
+const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
+    const amp = outputType === 'amp' ? 'amp' : '';
+    const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+    return (
+        <GlobalProvider>
+            {/* Banner MEGATOP */}
+            {bannerMegatop}
+            <div
+                id="wrapper"
+                className={`nota noticia noticia-storytelling --hlp-transparent ${amp}`}
+            >
+                <Header />
+                <main>
+                    <AperturaStorytelling />
+                    <div className="lay-sidebar">
+                        {/* Cuerpo */}
+                        <div className="sidebar__main">
+                            <section className="cuerpo__nota">
+                                <div className="row">
+                                    <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                        {/* // ***** INICIO PREGUNTAR A DARO */}
+                                        {/* hlp-mobile-show */}
+                                        {/* // ***** FIN PREGUNTAR A DARO */}
+                                        {/* Left-Cuerpo Shared */}
+                                        {children[1]}
+                                    </div>
+                                    <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                        <div className="row">
+                                            <div className="col-12">
+                                                {/* Pos-Apertura */}
+                                                {children[2]}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        {/* Tercera */}
+                        <div className="sidebar__aside hlp-desklm-none">
+                            {children[3]}
+                        </div>
+                    </div>
+
+                    <div className="lay-sidebar">
+                        <div className="sidebar__main">
+                            {/* Bottom */}
+                            {children[5]}
+                        </div>
+                        <div className="sidebar__aside">
+                            {/* Bottom-Tercera */}
+                            {children[6]}
+                        </div>
+                    </div>
+                </main>
+                <Footer />
+            </div>
+        </GlobalProvider>
+    );
+};
+
+const pageBuilderSections = [
+    'Banner-Megatop',
+    'Left-Cuerpo',
+    'Cuerpo',
+    'Tercera',
+    'Bottom',
+    'Bottom-Tercera'
+];
+
+lnNotaStorytelling.sections = pageBuilderSections;
+
+lnNotaStorytelling.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    outputType: PropTypes.string.isRequired,
+    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
+    isAdmin: PropTypes.bool.isRequired
+};
+
+export default Consumer(lnNotaStorytelling);
