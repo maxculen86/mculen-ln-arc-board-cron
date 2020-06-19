@@ -7,7 +7,9 @@ const MetaTitle = ({ subtype, metaTitleBasic, arcSite }) => {
     return (
         subtype &&
         subtype !== '7' &&
-        metaTitleBasic && <meta name="title" content={metaTitleBasic} />
+        metaTitleBasic && (
+            <meta name="title" content={`${metaTitleBasic} - LA NACION`} />
+        )
     );
 };
 
