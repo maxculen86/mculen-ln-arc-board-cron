@@ -2,8 +2,9 @@
 @import '../abstracts/mixins';
 
 .mod-opening {
-    &.--storytelling {
+    .--storytelling & {
         margin-top: px(-45); //header mobile
+        margin-bottom: px(32);
         position: relative;
         @media ($media-l) {
             margin-top: px(-65); //header
@@ -13,7 +14,7 @@
             .mod-picture {
                 width: 100%;
                 margin: 0;
-                background: $negro;
+                background: $gris6;
                 position: relative;
                 overflow: hidden;
                 display: flex;
@@ -26,14 +27,10 @@
                 }
 
                 .com-image {
-                    position: fixed;
+                    position: relative;
                     object-fit: cover;
                     width: 100%;
                     height: 100%;
-                    top: 0;
-                    background-attachment: fixed;
-                    background-size: cover;
-                    background-repeat: no-repeat;
                 }
 
                 &.--video-background {
@@ -47,11 +44,10 @@
                         }
                         video {
                             display: block;
-                            position: fixed;
+                            position: relative;
                             object-fit: cover;
                             width: 100%;
                             height: 100%;
-                            top: 0;
                         }
                     }
                 }
@@ -69,6 +65,7 @@
 
             @media (min-width: 769px) {
                 padding-bottom: $px-16;
+                text-align: center;
             }
 
             &:before {
@@ -82,34 +79,42 @@
                 width: 100%;
                 margin-top: px(-120);
                 position: absolute;
+                left: 0;
             }
 
             [class*='logo-'] {
-                color: $blanco;
-                font-size: px(16);
                 margin: 0;
                 margin-bottom: px(8);
+                &::before {
+                    color: $blanco;
+                }
                 @media ($media-m) {
-                    font-size: px(24);
                     margin-bottom: px(16);
                 }
             }
 
-            .com-title {
-                font-family: $font-SuecaSlab;
-                font-size: px(24);
-                line-height: px(32);
-                color: $blanco;
-                @media ($media-m) {
-                    font-size: px(46);
-                    line-height: px(54);
+            .lay {
+                .com-title {
+                    font-family: $font-SuecaSlab;
+                    font-size: px(24);
+                    line-height: px(32);
+                    color: $blanco;
+
+                    @media ($media-m) {
+                        font-size: px(46);
+                        line-height: px(54);
+                    }
+                }
+                @media (min-width: 769px) {
+                    width: auto;
+                    display: inline-block;
+                    text-align: left;
                 }
             }
         }
         .mod-figcaption {
             border-bottom: 1px solid #ccc;
             margin-top: px(8);
-            margin-bottom: px(32);
             .--credit,
             .--caption {
                 margin-bottom: px(8);
