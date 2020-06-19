@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const MetaTitle = ({ subtype, metaTitleBasic, arcSite }) => {
-    if (arcSite && arcSite !== 'la-nacion-ar' && !subtype) return <></>;
+    if (arcSite !== 'la-nacion-ar' || !subtype) return <></>;
 
     return (
-        subtype === '1' &&
+        subtype &&
+        subtype !== '7' &&
         metaTitleBasic && <meta name="title" content={metaTitleBasic} />
     );
 };
