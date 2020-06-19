@@ -1,11 +1,10 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import VideoPlayer from '../../../common/videoPlayer';
-import VideoPlayerSnippet from './videoPlayerSnippet';
+import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
 
-// TODO: propTypes
-export default ({ videoId, mediaData }) => {
+const video = ({ videoId, mediaData }) => {
     return (
-        // TODO: esto era un <a>. Igual se acomoda mal en la grilla
         <div className="figure">
             <div className="content-video video">
                 <VideoPlayer videoId={videoId} />
@@ -14,3 +13,14 @@ export default ({ videoId, mediaData }) => {
         </div>
     );
 };
+
+video.propTypes = {
+    mediaData: PropTypes.shape({
+        type: PropTypes.oneOf(['video']),
+        url: PropTypes.string,
+        caption: PropTypes.string
+    }).isRequired,
+    videoId: PropTypes.string.isRequired
+};
+
+export default video;

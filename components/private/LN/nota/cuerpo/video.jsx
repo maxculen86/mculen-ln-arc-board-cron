@@ -6,7 +6,8 @@ const video = ({ data }) => {
     return (
         <>
             <Media mediaData={data} colNumber={12}>
-                <section className="com-epigrafe">
+                <>TEST</>
+                {/* <section className="com-epigrafe">
                     <p className="text">{data.caption}</p>
                     <p className="small">
                         Fuente:{' '}
@@ -26,7 +27,7 @@ const video = ({ data }) => {
                                   <>{credito.name}</>
                               ))}
                     </p>
-                </section>
+                </section> */}
             </Media>
         </>
     );

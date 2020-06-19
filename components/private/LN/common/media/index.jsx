@@ -65,7 +65,12 @@ const media = ({
                 );
                 break;
             case 'video':
-                item = <VideoPlayer videoId={_id} mediaData={mediaData} />;
+                item = (
+                    <>
+                        <VideoPlayer videoId={_id} mediaData={mediaData} />
+                        {children}
+                    </>
+                );
                 break;
             default:
                 break;

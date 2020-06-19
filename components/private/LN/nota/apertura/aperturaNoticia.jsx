@@ -6,6 +6,9 @@ import ComText from '../../../common/com-text';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
 const aperturaNoticia = ({ basic, outputType }) => {
+    const { type, promo_items: promoItems } = basic || {};
+    const { basic: basicVideo } = promoItems || {};
+    const { caption: captionVideo, credito: creditoVideo } = basicVideo || {};
     const credito = EpigrafeAndCreditsData(basic);
     const [active, setActive] = useState(false);
 
@@ -14,6 +17,45 @@ const aperturaNoticia = ({ basic, outputType }) => {
         active
             ? document.body.classList.remove('--no-scroll')
             : document.body.classList.add('--no-scroll');
+    };
+
+    const Epigrafe = () => {
+        return (
+            <>
+                {basic &&
+                    (type === 'image' ? (
+                        <ComFigcaption>
+                            {basic.caption && (
+                                <ComText
+                                    classCondition="--caption"
+                                    textname={basic.caption}
+                                />
+                            )}
+                            <ComText
+                                classCondition="--credit"
+                                textname={credito}
+                            />
+                        </ComFigcaption>
+                    ) : (
+                        <>
+                            <ComFigcaption>
+                                {captionVideo && (
+                                    <ComText
+                                        classCondition="--caption"
+                                        textname={captionVideo}
+                                    />
+                                )}
+                                {creditoVideo && (
+                                    <ComText
+                                        classCondition="--credit"
+                                        textname={creditoVideo}
+                                    />
+                                )}
+                            </ComFigcaption>
+                        </>
+                    ))}
+            </>
+        );
     };
 
     return (
@@ -25,17 +67,7 @@ const aperturaNoticia = ({ basic, outputType }) => {
             isApertura
             outputType={outputType}
         >
-            {basic && (
-                <ComFigcaption>
-                    {basic.caption && (
-                        <ComText
-                            classCondition="--caption"
-                            textname={basic.caption}
-                        />
-                    )}
-                    <ComText classCondition="--credit" textname={credito} />
-                </ComFigcaption>
-            )}
+            <Epigrafe />
         </Media>
     );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
+import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
@@ -86,6 +87,7 @@ const Default = props => {
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
+        promo_items: promoItems,
         headlines,
         description,
         subtype,
@@ -141,6 +143,10 @@ const Default = props => {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
+                <ScriptVideoPowa
+                    contentElements={contentElements}
+                    promoItems={promoItems}
+                />
                 {subtype !== '1' && <MetaTags />}
                 <MetasOG {...props} />
                 <Robot

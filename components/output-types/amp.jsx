@@ -13,6 +13,7 @@ import getParagraph from '../private/common/utils/getParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
+import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -43,6 +44,7 @@ const Amp = props => {
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
+        promo_items: promoItems,
         headlines,
         description,
         subtype,
@@ -98,6 +100,10 @@ const Amp = props => {
                     rel="icon"
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
+                />
+                <ScriptVideoPowa
+                    contentElements={contentElements}
+                    promoItems={promoItems}
                 />
                 <Robot
                     subtype={subtype}

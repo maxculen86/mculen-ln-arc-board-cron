@@ -1,8 +1,8 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import SnippetRender from '../../../common/snippet/snippetRender';
-import MillisecondsToTime from '../../../common/utils/millisecondsToTime';
+import SnippetRender from '../snippet/snippetRender';
+import MillisecondsToTime from '../utils/millisecondsToTime';
 
 const videoPlayerSnippet = ({ mediaData }) => {
     const {
