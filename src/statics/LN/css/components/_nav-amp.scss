@@ -124,7 +124,10 @@ amp-sidebar {
     }
 }
 
-/* ////////////////////////FOOTER-NAV*/
+.com-nav-mobile {
+    z-index: 15000000000;
+}
+/* ////////////////////////FOOTER-NAV
 
 .nav {
     border-top: 1px solid #cccccc;
@@ -221,6 +224,7 @@ amp-sidebar {
         }
     }
 }
+*/
 
 .icon-cerrar {
     position: absolute;

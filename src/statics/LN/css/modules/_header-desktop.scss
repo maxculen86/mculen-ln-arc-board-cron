@@ -69,14 +69,11 @@
             .header__left {
                 .com-hamburger {
                     &:before,
-                    .icon-menu {
+                    .com-icon {
                         color: $blanco;
                     }
-                    &__bar {
-                        background: $blanco;
-                        &:hover {
-                            background: $blanco;
-                        }
+                    &:hover {
+                        color: $blanco;
                     }
                 }
 

@@ -13,7 +13,7 @@ body {
         overflow-y: scroll;
         visibility: hidden;
 
-        @media (min-width: 768px) {
+        @media (min-width: 769px) {
             overflow: hidden;
         }
 
@@ -40,7 +40,7 @@ body {
             padding-bottom: 180px;
             left: -400px;
             display: block;
-            @media (min-width: 768px) {
+            @media (min-width: 769px) {
                 width: 280px;
                 max-height: 100vh;
                 background: #fff;
@@ -48,7 +48,7 @@ body {
             .header__dropdown {
                 background: #fff;
                 margin-bottom: 10px;
-                @media (min-width: 768px) {
+                @media (min-width: 769px) {
                     margin-bottom: 0;
                 }
                 border: 1px solid #d9d9d9;
@@ -56,7 +56,7 @@ body {
                 z-index: 2;
                 .logo__dropdown {
                     padding: 0.4375rem 1.1875rem 0.625rem;
-                    @media (min-width: 768px) {
+                    @media (min-width: 769px) {
                         padding: 10px 20px;
                     }
                     display: flex;
@@ -65,13 +65,13 @@ body {
                     i {
                         font-size: 17px;
                         color: #006998;
-                        @media (min-width: 768px) {
+                        @media (min-width: 769px) {
                         }
                     }
                 }
                 .close__dropdown {
                     padding: 0.4375rem 1.1875rem 0.625rem;
-                    @media (min-width: 768px) {
+                    @media (min-width: 769px) {
                         padding: 10px 20px;
                     }
                     display: flex;
@@ -91,7 +91,7 @@ body {
                 .search__dropdown {
                     border-top: 1px solid #d9d9d9;
                     padding: 15px 20px;
-                    @media (min-width: 768px) {
+                    @media (min-width: 769px) {
                         display: none;
                     }
 
@@ -124,14 +124,14 @@ body {
                 .nav__dropdown {
                     .list__nav {
                         margin-bottom: 10px;
-                        @media (min-width: 768px) {
+                        @media (min-width: 769px) {
                             margin-bottom: 0;
                             border: 0;
                         }
                         border: 1px solid #d9d9d9;
                         background: #fff;
                         &.secondary--nav {
-                            @media (min-width: 768px) {
+                            @media (min-width: 769px) {
                                 border-top: 1px solid #d9d9d9;
                             }
 
@@ -171,7 +171,7 @@ body {
                                     }
                                 }
                             }
-                            @media (min-width: 768px) {
+                            @media (min-width: 769px) {
                                 font-size: 14px;
                                 &:hover {
                                     background: #f2f2f2;
@@ -264,7 +264,7 @@ body {
                                         display: flex;
                                         align-items: center;
                                         padding: 0 0 0 20px;
-                                        @media (min-width: 768px) {
+                                        @media (min-width: 769px) {
                                             border: 0;
                                             height: 40px;
                                         }
@@ -274,7 +274,7 @@ body {
                             .link__item {
                                 border-bottom: 1px solid #d9d9d9;
                                 height: 50px;
-                                @media (min-width: 768px) {
+                                @media (min-width: 769px) {
                                     height: 40px;
                                     border-bottom: 0;
                                 }
@@ -289,7 +289,7 @@ body {
                                 border-bottom: 1px solid #d9d9d9;
                                 border-left: 1px solid #d9d9d9;
                                 height: 50px;
-                                @media (min-width: 768px) {
+                                @media (min-width: 769px) {
                                     height: 40px;
                                     border-bottom: 0;
                                     border-left: 0;
@@ -303,7 +303,7 @@ body {
                                 i {
                                     font-size: 22px;
                                     color: #3f3f3f;
-                                    @media (min-width: 768px) {
+                                    @media (min-width: 769px) {
                                         transform: rotate(-90deg);
                                     }
                                 }
@@ -329,7 +329,7 @@ body {
                                 }
                             }
 
-                            @media (min-width: 768px) {
+                            @media (min-width: 769px) {
                                 &.has--children {
                                     &:hover {
                                         .sublist__nav {
@@ -343,7 +343,7 @@ body {
                                 &:hover {
                                     .sublist__nav {
                                         width: 100%;
-                                        @media (min-width: 768px) {
+                                        @media (min-width: 769px) {
                                             position: absolute;
                                             left: 98%;
                                             top: 0;
