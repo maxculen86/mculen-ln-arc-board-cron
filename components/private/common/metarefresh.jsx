@@ -13,7 +13,8 @@ import withLoginData from '../LN/common/hocs/withLoginData';
 
 const getInterval = type => resolution => config => {
     const template = ['story', 'results'].includes(type) ? 'nota' : 'home';
-    const seconds = config[`${template}_${resolution}`];
+    const device = resolution === 'tablet' ? 'mobile' : resolution;
+    const seconds = config[`${template}_${device}`];
     return parseInt(seconds, 10) * 1000;
 };
 
