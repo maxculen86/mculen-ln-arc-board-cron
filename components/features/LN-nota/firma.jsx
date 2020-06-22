@@ -42,7 +42,7 @@ const getPropsBuilderFromContentElements = position => contentElements =>
 const getPropsBuilder = position => authors =>
     authors
         .map(author => ({
-            name: get(author, 'name'),
+            name: get(author, 'byline'),
             link: get(author, 'url'),
             photo: get(author, 'image'),
             medio: get(author, 'additional_properties.original')
@@ -56,7 +56,7 @@ const getPropsBuilder = position => authors =>
                             ...accumulator.authors,
                             ...[
                                 {
-                                    ...{ name: value.byline },
+                                    ...{ name: value.name },
                                     ...{ link: value.link }
                                 }
                             ]
