@@ -62,7 +62,7 @@ export default function WithStorytellingData(WrappedComponent) {
                           ? currentItem
                           : previustem
                   ).y
-                : {};
+                : '';
 
             const { basic: basicVideoDsk } = promoItemsVideo || {};
 
@@ -81,16 +81,25 @@ export default function WithStorytellingData(WrappedComponent) {
         };
 
         getStorytellingData = () => {
-            const { globalContent, screenUtils } = this.props || {};
-            const { promo_items: promoItems, type, subtype } =
-                globalContent || {};
-            const {
-                basic: basicImage,
-                storytelling: videoBackground,
-                storytelling_mobile: storytellingMobile
-            } = promoItems;
-            const { device } = screenUtils || undefined;
-            const isMobile = device !== 'desktop';
+            const promoItems = get(
+                this,
+                'props.globalContent.promo_items',
+                null
+            );
+            const storytellingMobile = get(
+                promoItems,
+                'storytelling_mobile',
+                null
+            );
+
+            const basicImage = get(promoItems, 'basic', null);
+            const videoBackground = get(promoItems, 'storytelling', null);
+            const outputType = get(this, 'props.outputType', null);
+            const type = get(this, 'props.globalContent.type', null);
+            const subtype = get(this, 'props.globalContent.subtype', null);
+            const device = get(this, 'props.screenUtils.device', 'desktop');
+            const isMobile = outputType === 'amp' || device !== 'desktop';
+
             return type === 'story' &&
                 subtype === '4' &&
                 (basicImage || videoBackground || storytellingMobile)

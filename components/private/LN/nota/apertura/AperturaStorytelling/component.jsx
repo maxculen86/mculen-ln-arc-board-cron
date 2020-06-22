@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import ComFigure from '../../../../common/com-figure';
@@ -10,8 +10,19 @@ import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
 const Component = props => {
-    const { storytellingData, outputType } = props;
-    const { apertura = {} } = storytellingData;
+    const {
+        storytellingData,
+        outputType,
+        screenUtils: { device }
+    } = props;
+    const isMobile = outputType === 'amp' || device !== 'desktop';
+    const [data, setData] = useState(isMobile ? storytellingData : {});
+
+    useEffect(() => {
+        setData(storytellingData);
+    }, [storytellingData]);
+
+    const { apertura = {} } = data;
     const { src, srcset, altText, video, caption, credit } = apertura;
 
     return (
@@ -48,6 +59,9 @@ const Component = props => {
 
 Component.propTypes = {
     outputType: PropTypes.string.isRequired,
+    screenUtils: PropTypes.shape({
+        device: PropTypes.string
+    }).isRequired,
     storytellingData: PropTypes.shape({
         apertura: PropTypes.shape({
             src: PropTypes.string,
