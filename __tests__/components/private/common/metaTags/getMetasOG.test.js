@@ -24,6 +24,7 @@ describe('Common - getMetasOG function', () => {
                 },
                 subheadlines: { basic: '' },
                 subtype: '7',
+                type: 'story',
                 website_url:
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
             },
