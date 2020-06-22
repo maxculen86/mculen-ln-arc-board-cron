@@ -56,7 +56,7 @@ const getPropsBuilder = position => authors =>
                             ...accumulator.authors,
                             ...[
                                 {
-                                    ...{ name: value.name },
+                                    ...{ name: value.byline },
                                     ...{ link: value.link }
                                 }
                             ]
@@ -126,6 +126,7 @@ FirmaFeature.propTypes = {
                 image: PropTypes.shape({
                     url: PropTypes.string
                 }),
+                byline: PropTypes.string,
                 name: PropTypes.string,
                 slug: PropTypes.string,
                 type: PropTypes.string,
