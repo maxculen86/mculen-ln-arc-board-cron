@@ -37,7 +37,9 @@ const index = props => {
 
     const finalSlot = getSlotForDevice(screenUtils)(bannerSlots);
 
-    if (finalSlot === null || finalSlot === 'NINGUNO') return null;
+    if (finalSlot === 'NINGUNO') return null;
+
+    if (!slotGroup || finalSlot === null) return null;
 
     const finalConfig = slotsConfig[slotGroup][finalSlot];
 
