@@ -1,4 +1,6 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../hocs/WithNavigation';
 import { slotsConfig } from './config';
@@ -77,6 +79,27 @@ const index = props => {
     }
 
     return <BannerManager config={config} />;
+};
+
+index.propTypes = {
+    siteProperties: PropTypes.shape({
+        bannerConfig: PropTypes.shape({
+            dfp_id: PropTypes.number.isRequired
+        })
+    }),
+    isAdmin: PropTypes.string.isRequired,
+    banner: PropTypes.shape({
+        slotGroup: PropTypes.string.isRequired,
+        selectedSlots: PropTypes.shape({
+            desktopSlot: PropTypes.string,
+            mobileSlot: PropTypes.string,
+            tabletSlot: PropTypes.string
+        }).isRequired,
+        sticky: PropTypes.bool,
+        background: PropTypes.bool,
+        fixed: PropTypes.bool,
+        show: PropTypes.bool
+    })
 };
 
 export default WithNavigation(WithScreenUtils(index));
