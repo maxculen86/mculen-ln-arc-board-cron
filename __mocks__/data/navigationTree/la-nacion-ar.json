@@ -18,6 +18,9 @@
     "ancestors": null,
     "inactive": false,
     "node_type": "section",
+    "site": {
+        "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/"
+    },
     "children": [
         {
             "_id": "/deportes",
@@ -967,7 +970,7 @@
                 "site_title": null,
                 "pagebuilder_path_for_native_apps": null,
                 "site_description": null,
-                "site_url": null,
+                "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/recetas/",
                 "site_about": null,
                 "site_keywords": null
             },
