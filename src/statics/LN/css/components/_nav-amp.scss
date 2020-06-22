@@ -235,6 +235,8 @@ a.icon-cerrar:before {
 }
 .header {
     border-bottom: 1px solid #cccccc;
+    position: relative;
+    z-index: 10;
     .header__middle {
         display: flex;
         align-items: center;
@@ -269,6 +271,40 @@ a.icon-cerrar:before {
             border: none;
         }
     }
+    .--storytelling & {
+        border: none;
+
+        .header__left {
+            button.icon-menu {
+                color: $blanco;
+            }
+        }
+
+        .header__middle {
+            .header__middle__logo {
+                .logo-la-nacion {
+                    color: $blanco;
+                }
+            }
+        }
+        .header__right {
+            .suscribir__header {
+                color: $blanco;
+            }
+            .--btn.--secondary {
+                background-color: transparent;
+                border: 1px solid #ffffff;
+                color: #ffffff;
+            }
+        }
+        @media (min-width: 768px) {
+            .header__right {
+                .suscribir__header {
+                    color: $negro;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 768px) {
@@ -299,7 +335,7 @@ a.icon-cerrar:before {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px 0;
+        padding: 13px 0;
 
         .lay {
             .row {
