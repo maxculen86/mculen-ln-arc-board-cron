@@ -221,6 +221,7 @@ const Comments = props => {
                         return true;
                     }
                     if (
+                        commentSection.current &&
                         !commentSection.current.classList.contains(
                             'no-logueado'
                         )
