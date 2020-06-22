@@ -4,6 +4,27 @@ import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 
+const extractDataFromTags = tags => {
+    const keywords = [];
+    if (tags) {
+        tags.map(tag => keywords.push(tag.description));
+    }
+
+    return { keywords };
+};
+
+const extracDataFromCredits = by => {
+    let authors = [];
+    if (by) {
+        authors = by
+            .filter(v => v.type === 'author')
+            .map(v => v.name)
+            .join(', ');
+    }
+
+    return { authors };
+};
+
 const SnippetNoticia = props => {
     const {
         requestUri,
@@ -12,7 +33,8 @@ const SnippetNoticia = props => {
             headlines,
             taxonomy: {
                 primary_section: primarySection,
-                seo_keywords: seoKeywords
+                seo_keywords: seoKeywords,
+                tags
             },
             promo_items: promoItems,
             credits: { by },
@@ -26,12 +48,9 @@ const SnippetNoticia = props => {
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
     const { path, name } = primarySection || {};
 
-    const authors = by
-        ? by
-              .filter(v => v.type === 'author')
-              .map(v => v.name)
-              .join(', ')
-        : [];
+    const { authors } = extracDataFromCredits(by);
+
+    const { keywords } = extractDataFromTags(tags);
 
     const data = {
         '@context': 'https://schema.org',
@@ -57,7 +76,7 @@ const SnippetNoticia = props => {
         },
         author: `${authors || ''}`,
         creator: `${authors || ''}`,
-        keywords: `${seoKeywords || ''}`,
+        keywords,
         publisher: {
             '@type': 'Organization',
             name: `${siteProperties.title || ''}`,
@@ -97,7 +116,14 @@ const SnippetNoticia = props => {
                     path: PropTypes.string,
                     name: PropTypes.string
                 }),
-                seo_keywords: PropTypes.arrayOf(PropTypes.string)
+                seo_keywords: PropTypes.arrayOf(PropTypes.string),
+                tags: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        description: PropTypes.string,
+                        slug: PropTypes.string,
+                        text: PropTypes.string
+                    })
+                )
             }),
             promo_items: PropTypes.shape({
                 basic: PropTypes.shape({
