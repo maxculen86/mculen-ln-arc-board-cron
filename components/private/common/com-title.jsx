@@ -7,44 +7,29 @@ const ComTitle = props => {
     const { children, tag, classCondition, size } = props;
     if (tag === 'h1')
         return (
-            <h1
-                className={`com-title --${size} ${
-                    classCondition ? classCondition : ''
-                }`}
-            >
+            <h1 className={`com-title --${size} ${classCondition || ''}`}>
                 {children}
             </h1>
         );
-    else if (tag === 'h2')
+    if (tag === 'h2')
         return (
-            <h2
-                className={`com-title --${size} ${
-                    classCondition ? classCondition : ''
-                }`}
-            >
+            <h2 className={`com-title --${size} ${classCondition || ''}`}>
                 {children}
             </h2>
         );
-    else if (tag === 'h3')
+    if (tag === 'h3')
         return (
-            <h3
-                className={`com-title --${size} ${
-                    classCondition ? classCondition : ''
-                }`}
-            >
+            <h3 className={`com-title --${size} ${classCondition || ''}`}>
                 {children}
             </h3>
         );
-    else tag === 'h4';
-    return (
-        <h4
-            className={`com-title --${size} ${
-                classCondition ? classCondition : ''
-            }`}
-        >
-            {children}
-        </h4>
-    );
+    if (tag === 'h4')
+        return (
+            <h4 className={`com-title --${size} ${classCondition || ''}`}>
+                {children}
+            </h4>
+        );
+    return <></>;
 };
 
 ComTitle.propTypes = {
