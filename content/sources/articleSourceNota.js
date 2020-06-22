@@ -127,6 +127,7 @@ const transformContent = (jsonArticle, arcSite) => {
             })
         );
     }
+
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
