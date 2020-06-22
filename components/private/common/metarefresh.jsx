@@ -46,6 +46,8 @@ const Component = props => {
         loginData: { subscription }
     } = props;
 
+    if (isAdmin) return null; // It won't render in pagebuilder
+
     const metarefresh = content.Metarefresh;
 
     const interval = getInterval(type)(resolution)(metarefresh);
@@ -56,7 +58,6 @@ const Component = props => {
         }, ${interval});
     `;
 
-    if (isAdmin) return null; // It won't render in pagebuilder
     if (hasVideo(contentElements)(promoItem)) return null;
     if (hasAudioFromSpotify(contentElements)) return null;
     if (subscription || interval < 1) return null;
