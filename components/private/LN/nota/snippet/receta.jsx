@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import Context from 'fusion:context';
@@ -7,35 +8,43 @@ import { createResizer } from '../../../common/utils/image/resizer';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 
-const snippet = props => {
-    const {
-        globalContent: {
-            headlines,
-            subheadlines,
-            promo_items: promoItems,
-            credits,
-            display_date: displayDate,
-            content_elements: contentElements
-        },
-        contextPath,
-        deployment
-    } = props;
-    const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
-    const { by } = credits || {};
-    const { basic: headLinesBasic } = headlines || {};
-    const { basic: subheadLinesBasic } = subheadlines || {};
-    const autores = by
-        ? by
-              .filter(v => v.type === 'author')
-              .map(v => v.name)
-              .join(', ')
-        : [];
-    const date = displayDate;
-    const description = subheadLinesBasic;
-    let counterTime;
-    let counterPortion;
-    let ingredientes;
-    let preparaciones;
+const extractDataFromContentElements = contentElements => {
+    let ingredientes = [];
+    const preparaciones = [];
+
+    if (contentElements) {
+        const preparacions = contentElements.filter(
+            preparacion => preparacion.subtype === 'custom-preparacion'
+        );
+
+        preparacions.forEach(pre => {
+            if (pre.embed.config.items) {
+                pre.embed.config.items.map(item =>
+                    preparaciones.push({ '@type': 'HowToStep', 'text': item })
+                );
+            }
+        });
+
+        const ingredients = contentElements.filter(
+            ingrediente => ingrediente.subtype === 'custom-ingrediente'
+        );
+
+        ingredients.forEach(pre => {
+            if (pre.embed.config.items) {
+                ingredientes = ingredientes.concat(pre.embed.config.items);
+            }
+        });
+    }
+
+    return {
+        ingredientes,
+        preparaciones
+    };
+};
+
+const extractDataFromPromoItems = promoItems => {
+    let counterTime = '';
+    let counterPortion = '';
     let resizedUrl;
 
     if (promoItems) {
@@ -50,56 +59,96 @@ const snippet = props => {
         }
 
         if (promoItems.receta) {
-            counterTime =
-                promoItems.receta.subtype === 'custom-detalle-receta'
-                    ? promoItems.receta.embed.config.title === 'detalle-receta'
-                        ? promoItems.receta.embed.config.counterTime
-                        : null
-                    : null;
-
-            counterPortion =
-                promoItems.receta.subtype === 'custom-detalle-receta'
-                    ? promoItems.receta.embed.config.title === 'detalle-receta'
-                        ? promoItems.receta.embed.config.counterPortion
-                        : null
-                    : null;
+            if (
+                promoItems.receta.subtype === 'custom-detalle-receta' &&
+                promoItems.receta.embed.config.title === 'detalle-receta'
+            ) {
+                counterTime = promoItems.receta.embed.config.counterTime;
+                counterPortion = promoItems.receta.embed.config.counterPortion;
+            }
         }
     }
 
-    if (contentElements) {
-        const preparacions = contentElements.filter(
-            preparacion => preparacion.subtype === 'custom-preparacion'
-        );
-        preparaciones = preparacions.map(pre => {
-            if (pre.embed.config.items) {
-                return pre.embed.config.items.map(item => item).join(', ');
-            }
-            return undefined;
-        });
+    return {
+        resizedUrl,
+        counterTime,
+        counterPortion
+    };
+};
 
-        const ingredients = contentElements.filter(
-            ingrediente => ingrediente.subtype === 'custom-ingrediente'
-        );
-        ingredientes = ingredients.map(pre => {
-            if (pre.embed.config.items) {
-                return pre.embed.config.items.map(item => item).join(', ');
-            }
-            return undefined;
-        });
+const extractDataFromTags = tags => {
+    let keywords = '';
+    if (tags) {
+        keywords = tags.map(tag => tag.description).join(', ');
     }
+
+    return { keywords };
+};
+
+const extracDataFromCredits = by => {
+    let autores = [];
+    if (by) {
+        autores = by
+            .filter(v => v.type === 'author')
+            .map(v => v.name.replace(/[^a-zA-Z ]+/g, ''))
+            .join(', ');
+    }
+
+    return { autores };
+};
+
+const snippet = props => {
+    const {
+        globalContent: {
+            headlines,
+            subheadlines,
+            promo_items: promoItems,
+            taxonomy: { tags },
+            credits,
+            display_date: displayDate,
+            content_elements: contentElements
+        },
+        contextPath,
+        deployment
+    } = props;
+
+    const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
+    const { by } = credits || {};
+    const { basic: headLinesBasic } = headlines || {};
+    const { basic: subheadLinesBasic } = subheadlines || {};
+    const date = displayDate;
+    const description = subheadLinesBasic;
+
+    const { autores } = extracDataFromCredits(by);
+
+    const {
+        resizedUrl,
+        counterTime,
+        counterPortion
+    } = extractDataFromPromoItems(promoItems);
+
+    const {
+        preparaciones, 
+        ingredientes 
+    } = extractDataFromContentElements(contentElements);
+
+    const { keywords } = extractDataFromTags(tags);
 
     const data = {
         '@context': 'https://schema.org',
         '@type': 'Recipe',
         author: `${autores || ''}`,
         cookTime: counterTime ? `PT${counterTime}M` : '',
+        prepTime: counterTime ? `PT${counterTime}M` : '',
+        totalTime: counterTime ? `PT${counterTime}M` : '',
         datePublished: `${date || ''}`,
         description: `${description || ''}`,
         image: `${resizedUrl || PLACERHOLDER}`, // TODO: traer imagen del PlaceHolder en caso de no traer data
-        recipeIngredient: `${ingredientes || ''}`,
+        recipeIngredient: ingredientes,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
-        recipeInstructions: `${preparaciones || ''}`,
-        recipeYield: counterPortion ? `${counterPortion} porciones` : ''
+        recipeInstructions: preparaciones,
+        recipeYield: counterPortion ? `${counterPortion} porciones` : '',
+        keywords: `${keywords}`
     };
 
     return <SnippetRender data={data} />;
@@ -119,6 +168,9 @@ snippet.propTypes = {
         }),
         display_date: PropTypes.string.isRequired,
         content_elements: PropTypes.array.isRequired,
+        taxonomy: PropTypes.shape({
+            tags: PropTypes.array
+        }),
         credits: PropTypes.shape({
             by: PropTypes.shape({
                 authors: PropTypes.arrayOf(

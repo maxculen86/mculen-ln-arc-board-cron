@@ -2,6 +2,34 @@ import { SITE_LANACION } from 'fusion:environment';
 import getMetasOG from '../../../../../components/private/common/metaTags/getMetasOG';
 import getAssetsPath from '../../../../../components/private/common/utils/getAssetsPath';
 
+jest.mock('fusion:content', () => ({
+    useContent: () => ({
+            "_id": "/",
+            "_website": "la-nacion-ar",
+            "name": "LA NACION",
+            "site": {
+                "site_url": null
+            },
+            "children": [
+                {
+                    "_id": "/recetas",
+                    "site": {
+                        "site_url": null
+                    },
+                    "children": [
+                        {
+                            "_id": "/recetas/carnes",
+                            "site": {
+                                "site_url": null,
+                            }
+                        }
+                    ]
+                }
+            ]
+        })
+    })
+);
+
 describe('Common - getMetasOG function', () => {
     it('es una function', () => {
         expect(typeof getMetasOG).toEqual('function');

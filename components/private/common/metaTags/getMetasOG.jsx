@@ -1,5 +1,6 @@
 import { SITE_LANACION } from 'fusion:environment';
 import getAssetsPath from '../utils/getAssetsPath';
+import getDomain from '../utils/getDomain';
 
 const isNote = globalContent =>
     !!(
@@ -12,8 +13,10 @@ const getData = ({
     metaValue,
     globalContent,
     contextPath,
-    deployment
+    deployment,
+    arcSite
 }) => {
+    const domain = getDomain(arcSite, globalContent);
     const isArticle = isNote(globalContent);
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN.jpg'
@@ -49,9 +52,7 @@ const getData = ({
             typeBasicPI === 'image' && urlBasicPI
                 ? `${SITE_LANACION}${urlBasicPI}`
                 : DEFAULT.IMAGE,
-        url:
-            (canonicalUrl && `${SITE_LANACION}${canonicalUrl}`) ||
-            DEFAULT.SITE_LANACION
+        url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain
         // TODO: considerar agregar el fbAppId para evitar los warning del depurador de FB
         // fbAppId:
         //     (siteProperties && siteProperties.shareConfig.facebook.appID) ||
