@@ -3,22 +3,21 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
+const trim = string => {
+    return string.replace(/\s{2,}/g, ' ');
+};
+
 const ComPicture = props => {
     const { href, classCondition, children, video, amp } = props;
     const PictureBasic = ({ classCon }) => {
-        //TODO: optimizar condicionalmente
+        const className = trim(`mod-picture ${video} ${classCon}`);
+        // TODO: optimizar condicionalmente
         return (
             <>
                 {amp ? (
-                    <div className={`mod-picture ${video} ${classCon || ''}`}>
-                        {children}
-                    </div>
+                    <div className={className}>{children}</div>
                 ) : (
-                    <picture
-                        className={`mod-picture ${video} ${classCon || ''}`}
-                    >
-                        {children}
-                    </picture>
+                    <picture className={className}>{children}</picture>
                 )}
             </>
         );
@@ -45,7 +44,16 @@ const ComPicture = props => {
 ComPicture.propTypes = {
     children: PropTypes.elementType.isRequired,
     href: PropTypes.string,
-    classCondition: PropTypes.string
+    classCondition: PropTypes.string,
+    amp: PropTypes.string,
+    video: PropTypes.string
+};
+
+ComPicture.defaultProps = {
+    href: '',
+    classCondition: '',
+    amp: '',
+    video: ''
 };
 
 export default ComPicture;
