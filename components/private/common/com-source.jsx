@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 const ComSource = props => {
     const { media, srcset, src, type } = props;
-    if (!src && !srcset) return null;
+    // if (!src && !srcset) return null;
     return <source media={media} srcSet={srcset} src={src} type={type} />;
 };
 

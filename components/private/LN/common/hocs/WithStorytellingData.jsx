@@ -56,13 +56,14 @@ export default function WithStorytellingData(WrappedComponent) {
         ) => {
             const promoItemsVideo = get(videoBackground, 'promo_items', null);
             const streams = get(videoBackground, 'streams', null);
-            const video = streams
-                ? streams.reduce((currentItem, previustem) =>
-                      currentItem.height > previustem.height
-                          ? currentItem
-                          : previustem
-                  ).y
-                : '';
+            const video =
+                streams && streams.length > 1
+                    ? streams.reduce((currentItem, previustem) =>
+                          currentItem.width > previustem.width
+                              ? currentItem
+                              : previustem
+                      ).url
+                    : '';
 
             const { basic: basicVideoDsk } = promoItemsVideo || {};
 
