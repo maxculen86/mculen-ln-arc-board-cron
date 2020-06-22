@@ -1,35 +1,40 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import get from 'lodash.get';
 
-const ScriptVideoPowa = ({ promoItems, contentElements }) => {
-    const { basic, storytelling } = promoItems || {};
-    const { type: typeBasic } = basic || {};
-    const { type: typeStorytelling } = storytelling || {};
-    const videosBody = contentElements.filter(
-        element => element.type === 'video'
-    ).length;
-    const RenderScriptVideo = () => {
-        return videosBody > 0 ||
-            typeBasic === 'video' ||
-            typeStorytelling === 'video' ? (
-            <script src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js" />
-        ) : (
-            <></>
-        );
-    };
-    return <RenderScriptVideo />;
+const videosBody = contentElements =>
+    contentElements.filter(element => element.type === 'video').length;
+
+const ScriptVideoPowa = ({ globalContent }) => {
+    const contentElements = get(globalContent, 'content_elements');
+    const promoItems = get(globalContent, 'promo_items');
+    const basicPromoItems = get(promoItems, 'basic');
+    const storytellingPromoItems = get(promoItems, 'storytelling');
+
+    const typeBasic = get(basicPromoItems, 'type');
+    const typeStorytelling = get(storytellingPromoItems, 'type');
+
+    return videosBody(contentElements) > 0 ||
+        typeBasic === 'video' ||
+        typeStorytelling === 'video' ? (
+        <script src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js" />
+    ) : (
+        <></>
+    );
 };
 
 ScriptVideoPowa.propTypes = {
-    contentElements: PropTypes.node.isRequired,
-    promoItems: PropTypes.shape({
-        basic: PropTypes.shape({
-            type: PropTypes.string
-        }),
-        storytelling: PropTypes.shape({
-            type: PropTypes.string
+    globalContent: PropTypes.shape({
+        content_elements: PropTypes.node.isRequired,
+        promo_items: PropTypes.shape({
+            basic: PropTypes.shape({
+                type: PropTypes.string
+            }),
+            storytelling: PropTypes.shape({
+                type: PropTypes.string
+            })
         })
-    })
+    }).isRequired
 };
 
 export default ScriptVideoPowa;

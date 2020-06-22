@@ -101,10 +101,7 @@ const Amp = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
-                <ScriptVideoPowa
-                    contentElements={contentElements}
-                    promoItems={promoItems}
-                />
+                <ScriptVideoPowa globalContent={globalContent} />
                 <Robot
                     subtype={subtype}
                     canonicalUrl={canonicalUrl}

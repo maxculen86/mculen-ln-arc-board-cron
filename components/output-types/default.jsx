@@ -25,6 +25,10 @@ import Syndication from '../private/common/syndication';
 import { pipe } from '../private/common/utils/functional';
 
 const scriptList = [
+    {
+        component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
+        feature: 'none'
+    },
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
@@ -143,10 +147,6 @@ const Default = props => {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
-                <ScriptVideoPowa
-                    contentElements={contentElements}
-                    promoItems={promoItems}
-                />
                 {subtype !== '1' && <MetaTags />}
                 <MetasOG {...props} />
                 <Robot
