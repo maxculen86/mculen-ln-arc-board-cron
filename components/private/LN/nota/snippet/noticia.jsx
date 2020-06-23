@@ -5,9 +5,9 @@ import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 const extractDataFromTags = tags => {
-    const keywords = [];
+    let keywords = [];
     if (tags) {
-        tags.map(tag => keywords.push(tag.description));
+        keywords = tags.map(tag => tag.description);
     }
 
     return { keywords };
