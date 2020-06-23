@@ -222,6 +222,7 @@ export default `
         by {
             _id
             name
+            byline
             type
             url
             slug
