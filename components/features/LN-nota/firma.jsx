@@ -42,7 +42,7 @@ const getPropsBuilderFromContentElements = position => contentElements =>
 const getPropsBuilder = position => authors =>
     authors
         .map(author => ({
-            name: get(author, 'name'),
+            name: get(author, 'byline'),
             link: get(author, 'url'),
             photo: get(author, 'image'),
             medio: get(author, 'additional_properties.original')
@@ -126,6 +126,7 @@ FirmaFeature.propTypes = {
                 image: PropTypes.shape({
                     url: PropTypes.string
                 }),
+                byline: PropTypes.string,
                 name: PropTypes.string,
                 slug: PropTypes.string,
                 type: PropTypes.string,
