@@ -18,7 +18,7 @@ const ModImage = props => {
             video={video ? '--video-background' : ''}
             amp={amp}
         >
-            <ComSource media={media} srcset={srcset} />
+            {!amp ? <ComSource media={media} srcset={srcset} /> : <></>}
             <ComImage src={src} alt={alt} amp={amp} />
             {video ? <ModVideo image={src} video={video} /> : <></>}
         </ComPicture>
@@ -32,7 +32,7 @@ ModImage.propTypes = {
     alt: PropTypes.string,
     classCondition: PropTypes.string,
     video: PropTypes.string,
-    amp: PropTypes.string
+    amp: PropTypes.bool
 };
 
 export default ModImage;
