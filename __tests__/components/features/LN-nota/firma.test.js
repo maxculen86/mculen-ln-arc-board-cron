@@ -9,6 +9,7 @@ jest.mock('fusion:context', Component => {
                 {
                     type: 'author',
                     name: 'Mariano Grondona',
+                    byline: 'Mariano Grondona',
                     image: {
                         url:
                             'https://bucket.glanacion.com/anexos/fotos/85/2089285.png',
@@ -23,6 +24,7 @@ jest.mock('fusion:context', Component => {
                 },
                 {
                     type: 'author',
+                    byline: 'Cristóbal Bellolio Badiola',
                     name: 'Cristóbal Bellolio Badiola',
                     image: {
                         url:

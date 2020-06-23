@@ -234,6 +234,7 @@ export default `
         by {
             _id
             name
+            byline
             type
             url
             slug
@@ -281,6 +282,9 @@ export default `
             }
             ${labels}
             website_url
+        }
+        redirect {
+            redirect_url
         }
     }
     content_elements {
