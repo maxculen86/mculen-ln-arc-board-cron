@@ -25,6 +25,29 @@ const extracDataFromCredits = by => {
     return { authors };
 };
 
+const extractDataFromPromoItems = promoItems => {
+    let thumbnailUrl;
+    let image;
+
+    if (promoItems) {
+        if (promoItems.basic && promoItems.basic.type === 'image') {
+            thumbnailUrl = `${promoItems.basic.url || ''}`;
+            image = {
+                '@context': 'https://schema.org',
+                '@type': 'ImageObject',
+                url: `${promoItems.basic.url || ''}`,
+                height: `${promoItems.basic.height || ''}`,
+                width: `${promoItems.basic.width || ''}`
+            };
+        }
+    }
+
+    return {
+        thumbnailUrl,
+        image
+    };
+};
+
 const SnippetNoticia = props => {
     const {
         requestUri,
@@ -51,6 +74,8 @@ const SnippetNoticia = props => {
     const { authors } = extracDataFromCredits(by);
 
     const { keywords } = extractDataFromTags(tags);
+
+    const { thumbnailUrl, image } = extractDataFromPromoItems(promoItems);
 
     const data = {
         '@context': 'https://schema.org',
@@ -88,21 +113,10 @@ const SnippetNoticia = props => {
                 height: 41,
                 width: 391
             }
-        }
+        },
+        thumbnailUrl,
+        image
     };
-
-    if (promoItems) {
-        if (promoItems.basic && promoItems.basic.type === 'image') {
-            data.thumbnailUrl = `${promoItems.basic.url || ''}`;
-            data.image = {
-                '@context': 'https://schema.org',
-                '@type': 'ImageObject',
-                url: `${promoItems.basic.url || ''}`,
-                height: `${promoItems.basic.height || ''}`,
-                width: `${promoItems.basic.width || ''}`
-            };
-        }
-    }
 
     SnippetNoticia.propTypes = {
         requestUri: PropTypes.string.isRequired,
