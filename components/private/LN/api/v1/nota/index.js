@@ -14,7 +14,7 @@ const indexNota = dataNota => {
         taxonomy: { primary_section: primarySection }
     } = dataNota;
 
-    const entradaId = get(dataNota, 'label.livefyre_entrada_id.text', id);
+    const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text');
     const paywallStatus = get(dataNota, 'content_restrictions.content_code');
 
     const resp = {
@@ -23,9 +23,9 @@ const indexNota = dataNota => {
         url,
         paywallStatus: paywallStatus ? paywallStatus : 'comun',
         abiertoComentarios: dataNota.comments
-            ? dataNota.comments.allow_comments
-            : true,
-        entradaId,
+            ? dataNota.comments.display_comments
+            : false,
+        comentariosId: comentariosId || id,
         fechaActualizacion: dateAndTimeForAppsUtil(dataNota.publish_date),
         fecha: dateAndTimeForAppsUtil(dataNota.first_publish_date),
         categoria: primarySection && Section(primarySection),
