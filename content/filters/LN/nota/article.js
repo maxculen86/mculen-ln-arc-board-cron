@@ -271,6 +271,9 @@ export default `
             ${labels}
             website_url
         }
+        redirect {
+            redirect_url
+        }
     }
     content_elements {
         _id
