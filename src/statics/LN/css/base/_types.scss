@@ -166,20 +166,10 @@ strong,
     text-transform: none;
     font-size: px(17);
     display: inline-block;
-    @media (min-width: 768px) {
-        //font-size: $font-26;
-    }
     line-height: 1;
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-[class^='logo-']:not(.logo-la-nacion),
-[class*=' logo-'] {
-    //Se saca todos los margin-top
-    //margin-top: $px-20;
-    margin-bottom: $px-12;
 }
 
 .logo-brando:before {
