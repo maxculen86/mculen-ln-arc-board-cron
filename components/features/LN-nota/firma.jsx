@@ -42,10 +42,13 @@ const getPropsBuilderFromContentElements = position => contentElements =>
 const getPropsBuilder = position => authors =>
     authors
         .map(author => ({
-            name: get(author, 'byline'),
-            link: get(author, 'url'),
-            photo: get(author, 'image'),
-            medio: get(author, 'additional_properties.original')
+            name:
+                get(author, 'additional_properties.original.author_type') === ''
+                    ? get(author, 'name')
+                    : get(author, 'additional_properties.original.byline'),
+            link: get(author, 'additional_properties.original.bio_page'),
+            photo: get(author, 'additional_properties.original.image'),
+            medio: get(author, 'additional_properties.original.role')
         }))
         .reduce(
             (accumulator, value) => {
@@ -65,12 +68,12 @@ const getPropsBuilder = position => authors =>
                     ...{
                         photo: renderAsList(authors, position)
                             ? null
-                            : get(value.photo, 'url')
+                            : value.photo
                     },
                     ...{
                         medio: renderAsList(authors, position)
                             ? null
-                            : get(value.medio, 'role')
+                            : value.medio
                     }
                 };
                 return props;
