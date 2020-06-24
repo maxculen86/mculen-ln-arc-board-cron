@@ -410,8 +410,8 @@ body {
     .secondary--nav .item__nav {
         position: inherit;
     }
-    .secondary--nav .sublist__nav {
-        bottom: -20px !important;
-        top: auto !important;
+    .secondary--nav .sublist__nav.sublist__nav {
+        bottom: -20px;
+        top: auto;
     }
 }

@@ -70,8 +70,8 @@
 }
 
 @media ($media-l) {
-    .hlp-none {
-        display: none !important;
+    .hlp-none.hlp-none {
+        display: none;
     }
     .hlp-mobile-none {
         display: inherit;
@@ -97,9 +97,9 @@
         display: none;
     }
 }
-.com-banner.hlp-none,
-.hlp-none.banner {
-    display: none !important; //no se encuentra donde se pisa el archivo helpers, por eso agregamos esta clase
+
+.hlp-none.hlp-none {
+    display: none;
 }
 
 //=============================
