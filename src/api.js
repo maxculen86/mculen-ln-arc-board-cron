@@ -38,7 +38,7 @@ http.createServer((req, res) => {
             timeStamp('TIME');
             const str = JSON.stringify(parsed, null, 2);
 
-            //log(parsed);
+            // log(parsed);
 
             timeStamp('TIME');
             res.writeHead(200, { 'content-type': 'application/json' });
@@ -50,6 +50,7 @@ http.createServer((req, res) => {
 }).listen(PORT, (...args) => {
     log(`Running on http://${HOST}:${PORT}/`);
     log();
+    log(`http://${HOST}:${PORT}/?id=OFVVZI3B7VA5PDPISOSILJ42LM`);
     log(`http://${HOST}:${PORT}/?id=3THDAILWTVHARHBYA5AEVL7OAU`);
     log(`http://${HOST}:${PORT}/?id=MVPQH6KKHREGDJBFAZCOH4GRDQ`);
     log(`http://${HOST}:${PORT}/?id=2KOBND62KNFVVBFQZOADNN6WNY`);

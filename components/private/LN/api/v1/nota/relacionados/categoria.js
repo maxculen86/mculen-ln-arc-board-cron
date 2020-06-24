@@ -1,28 +1,25 @@
 import {
-    getCategoryId,
+    getCategory,
     isMigratedCategory
 } from '../../../../../common/utils/getElementId';
 
-const categorias = (category, principalCategory) => {
+const categorias = (category, isMigratedPrincipalCategory) => {
     if (!category) return null;
 
-    // const migratedCategory = getCategoryId(principalCategory);
-    // const isMigratedCategory = isMigratedCategory(principalCategory);
+    const resp = {};
 
-    if (!isMigratedCategory(category._id)) {
-        const migratedCategory = getCategoryId(category._id);
-        return {
-            id: migratedCategory._id,
-            valor: migratedCategory.name,
-            nivel: category._id.match(new RegExp('/', 'g')).length
-        };
+    if (!isMigratedPrincipalCategory) {
+        const migratedCategory = getCategory(category._id);
+        if (!migratedCategory) return null;
+        resp.id = parseInt(migratedCategory._id);
+        resp.valor = migratedCategory.name;
     } else {
-        return {
-            slug: category._id,
-            valor: category.name,
-            nivel: category._id.match(new RegExp('/', 'g')).length
-        };
+        resp.slug = category._id;
+        resp.valor = category.name;
     }
+
+    resp.nivel = category._id.match(new RegExp('/', 'g')).length;
+    return resp;
 };
 
 export default categorias;

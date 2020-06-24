@@ -1,10 +1,24 @@
 import categoriesDictionary from '../../../../resources/dictionaries/categoriesDictionary.json';
 
-function finCategory(categoryToFind) {
+function findCategory(categoryToFind) {
     const elem = categoriesDictionary.find(
         e => categoryToFind.toLowerCase() == e.ArcSectionId.toLowerCase()
     );
     return elem;
+}
+
+function getSecundaryCategory(caterogy) {
+    const category = caterogy.substr(caterogy.lastIndexOf('/'));
+    return category;
+}
+
+function getPrincipalCategory(caterogy) {
+    const principalCategory = `/${
+        caterogy.split('/').filter(e => {
+            return e;
+        })[0]
+    }`;
+    return principalCategory;
 }
 
 function getId(displayId, pattern) {
@@ -24,21 +38,21 @@ export function getAutorId(displayId) {
     return getId(displayId, '^.+-([0-9]+)$');
 }
 
-export function isMigratedCategory(caterogy) {
-    const categoryToFind = `/${
-        caterogy.split('/').filter(e => {
-            return e;
-        })[0]
-    }`;
-    const elem = finCategory(categoryToFind);
+export function isMigratedCategory(caterogy, isPrincipal = false) {
+    const categoryToFind = isPrincipal
+        ? getPrincipalCategory(caterogy)
+        : getSecundaryCategory(caterogy);
+    const elem = findCategory(categoryToFind);
     if (!elem) return null;
 
     return elem.migrada;
 }
 
-export function getCategoryId(caterogy) {
-    const categoryToFind = caterogy.substr(caterogy.lastIndexOf('/'));
-    const elem = finCategory(categoryToFind);
+export function getCategory(caterogy, isPrincipal = false) {
+    const categoryToFind = isPrincipal
+        ? getPrincipalCategory(caterogy)
+        : getSecundaryCategory(caterogy);
+    const elem = findCategory(categoryToFind);
 
     if (!elem) return null;
 

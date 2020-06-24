@@ -1,13 +1,13 @@
 import {
-    getCategoryId,
+    getCategory,
     isMigratedCategory
 } from '../../../../common/utils/getElementId';
 
 const sectionArticle = section => {
     const { _id: slug, name: valor } = section;
 
-    if (!isMigratedCategory(slug)) {
-        const category = getCategoryId(slug);
+    if (!isMigratedCategory(slug, true)) {
+        const category = getCategory(slug, true);
         return {
             id: parseInt(category._id),
             valor: category.name

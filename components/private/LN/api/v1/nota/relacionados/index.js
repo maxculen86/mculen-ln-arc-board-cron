@@ -3,16 +3,11 @@ import Categorias from './categoria';
 import Tags from './tag';
 import NotaRelacionadas from './notaRelacionada';
 import {
-    getCategoryId,
-    isMigratedCategory
+    isMigratedCategory,
+    getCategory
 } from '../../../../../common/utils/getElementId';
 
 const relacionadosIndex = dataArticle => {
-    const tags = get(dataArticle, 'taxonomy.tags');
-    const categories = get(dataArticle, 'taxonomy.sections');
-    const relatedNotes = get(dataArticle, 'related_content.basic');
-    const principalCategory = get(dataArticle, 'taxonomy.primary_section._id');
-
     const resp = {
         tags: [],
         categorias: [],
@@ -21,21 +16,33 @@ const relacionadosIndex = dataArticle => {
 
     if (!dataArticle) return null;
 
-    if (categories) {
-        categories.forEach(category => {
-            resp.categorias.push(Categorias(category, principalCategory));
+    const dataCategories = get(dataArticle, 'taxonomy.sections');
+    const principalCategory = get(dataArticle, 'taxonomy.primary_section._id');
+    if (dataCategories) {
+        const migratedPrincipalCategory = getCategory(principalCategory, true);
+        dataCategories.forEach(e => {
+            const categorie = Categorias(e, migratedPrincipalCategory.migrada);
+
+            if (
+                (categorie &&
+                    categorie.slug && categorie.slug != principalCategory) ||
+                (categorie.id && categorie.id != migratedPrincipalCategory._id)
+            )
+                resp.categorias.push(categorie);
         });
     }
 
-    if (tags) {
-        tags.forEach(tag => {
-            resp.tags.push(Tags(tag));
+    const dataTags = get(dataArticle, 'taxonomy.tags');
+    if (dataTags) {
+        dataTags.forEach(e => {
+            resp.tags.push(Tags(e));
         });
     }
 
+    const relatedNotes = get(dataArticle, 'related_content.basic');
     if (relatedNotes) {
-        relatedNotes.forEach(note => {
-            resp.notas.push(NotaRelacionadas(note));
+        relatedNotes.forEach(e => {
+            resp.notas.push(NotaRelacionadas(e));
         });
     }
 
