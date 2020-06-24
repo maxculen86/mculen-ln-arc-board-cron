@@ -1,36 +1,146 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+.logo-ohlala {
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
 .logo-ohlala.--color {
     color: $ohlala;
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
-
+.logo-brando {
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
 .logo-brando.--color {
     color: $brando;
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
-
+.logo-living {
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
 .logo-living.--color {
     color: $living;
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
-
+.logo-hola {
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
 .logo-hola.--color {
     color: $hola;
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
-
+.logo-jardin {
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
 .logo-jardin.--color {
     color: $jardin;
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
-
+.logo-lugares {
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
 .logo-lugares.--color {
     color: $lugares;
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
-
+.logo-rolling {
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
 .logo-rolling.--color {
     color: $rolling;
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
-
+.logo-bbc {
+    &:before {
+        .mod-opening & {
+            .--storytelling & {
+                color: $blanco;
+            }
+        }
+    }
+}
 .logo-bbc.--color {
     &:before {
         color: $bbc;
+        .mod-opening & {
+            .--storytelling & {
+                color: $blanco;
+            }
+        }
+    }
+}
+.logo-ln-mas {
+    &:before {
+        .mod-opening & {
+            .--storytelling & {
+                color: $blanco;
+            }
+        }
+    }
+}
+.logo-ln-mas.--color {
+    &:before {
+        color: $lnmas;
+        .mod-opening & {
+            .--storytelling & {
+                color: $blanco;
+            }
+        }
     }
 }
