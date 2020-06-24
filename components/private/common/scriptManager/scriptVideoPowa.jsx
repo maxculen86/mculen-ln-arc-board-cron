@@ -17,7 +17,10 @@ const ScriptVideoPowa = ({ globalContent }) => {
     return videosBody(contentElements) > 0 ||
         typeBasic === 'video' ||
         typeStorytelling === 'video' ? (
-        <script src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js" />
+        <script
+            async
+            src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
+        />
     ) : (
         <></>
     );
