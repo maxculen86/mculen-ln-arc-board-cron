@@ -36,6 +36,8 @@ export const getFirstParentSection = section => {
 
 export const getSectionLogo = (sections, layout, distributorName) => {
     const magazineRegex = /\/revista-(.\w+[^\W]?)/;
+    const lnmasRegex = /\/lnmas/;
+
     const layoutsIncludingLogo = [
         { name: 'LN-nota-noticia', color: true },
         { name: 'LN-nota-receta', color: true },
@@ -48,21 +50,24 @@ export const getSectionLogo = (sections, layout, distributorName) => {
 
     if (!sections || !layout || !currentLayoutIncludesLogo) return null;
 
-    const magazineSection = sections.find(section => {
+    const logoSection = sections.find(section => {
         const { _id } = section;
-        return _id.includes('/revista-');
+        const resSection = _id.includes('/revista-') || _id.includes('/lnmas');
+        return resSection;
     });
-    if (!magazineSection && distributorName === 'BBC Mundo')
+    if (!logoSection && distributorName === 'BBC Mundo')
         return {
             logoName: 'bbc',
             path: '',
             color: currentLayoutIncludesLogo.color
         };
-    if (!magazineSection) return null;
-    const { _id } = magazineSection;
-    const path = _id.match(magazineRegex);
+    if (!logoSection) return null;
+    const { _id } = logoSection;
+    const matchRegex = _id === '/lnmas' ? lnmasRegex : magazineRegex;
+    const path = _id.match(matchRegex);
+    const logoForPath = path[0] === '/lnmas' ? 'ln-mas' : path[1];
     return {
-        logoName: distributorName === 'BBC Mundo' ? 'bbc' : path[1],
+        logoName: distributorName === 'BBC Mundo' ? 'bbc' : logoForPath,
         path: distributorName === 'BBC Mundo' ? '' : `${path[0]}/`,
         color: currentLayoutIncludesLogo.color
     };
