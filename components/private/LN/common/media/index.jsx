@@ -39,6 +39,7 @@ const media = ({
 
     if (mediaData) {
         const { type, _id } = mediaData;
+        // TODO: Sacar switch
         switch (type) {
             case 'image':
                 item = (

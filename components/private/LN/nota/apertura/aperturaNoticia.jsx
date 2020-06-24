@@ -20,6 +20,8 @@ const aperturaNoticia = ({ basic, outputType }) => {
     };
 
     const Epigrafe = () => {
+        // TODO: abstraer solo aquello que no se repite
+        // TODO: no usar fragment innecesario
         return (
             <>
                 {basic &&
