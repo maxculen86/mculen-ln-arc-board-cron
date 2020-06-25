@@ -570,6 +570,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
 }",
           }
         }
+        id={null}
         type="application/ld+json"
       />
     </snippetRender>
