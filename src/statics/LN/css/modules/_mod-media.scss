@@ -161,6 +161,23 @@
             }
         }
     }
+
+    .content-video {
+        > .powa {
+            cursor: pointer;
+            &:hover {
+                .powa-shot-play-btn svg {
+                    fill: $ln;
+                }
+            }
+            .powa-shot-play-btn svg:hover {
+                fill: $ln;
+            }
+            .powa-bar-scrubber-time {
+                background-color: $ln;
+            }
+        }
+    }
 }
 
 // .sidebar__main .mod-media {
