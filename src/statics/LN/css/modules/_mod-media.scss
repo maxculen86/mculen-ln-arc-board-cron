@@ -172,16 +172,20 @@
         }
         > .powa {
             cursor: pointer;
-
             &:hover {
                 .powa-shot-play-btn svg {
                     fill: $ln;
                 }
             }
+            .powa-bar-play-pause:active,
+            .powa-bar-fullscreen:active {
+                color: $ln;
+            }
             .powa-shot-play-btn svg:hover {
                 fill: $ln;
             }
-            .powa-bar-scrubber-time {
+            .powa-bar-scrubber-time,
+            .powa-bar-volume-level {
                 background-color: rgba(0, 116, 196, 0.9);
             }
             .powa-bar-scrubber-progress {
