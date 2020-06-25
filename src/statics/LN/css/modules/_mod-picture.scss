@@ -2,18 +2,21 @@
 @import '../abstracts/mixins';
 
 .mod-picture {
+    background: $gris1;
+    position: relative;
     display: block;
     width: 100%;
-    position: relative;
     transition: all 0.2s ease-in-out;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     margin-bottom: px(8);
-
     //100% mobile
     width: calc(100% + 2.5rem);
     margin-left: px(-20);
     @media ($media-l) {
         width: 100%;
         margin-left: 0;
+        border: 1px solid #ccc;
     }
 
     .--slider & {
@@ -22,11 +25,12 @@
         justify-content: center;
         background: $gris1;
     }
-    .--active &,
+    .--active.--active &,
     .--active.--slider & {
         background: none;
         width: 100%;
         margin-left: 0;
+        border: 0;
     }
 
     .mod-caja-nota & {
@@ -38,16 +42,13 @@
 }
 
 .mod-caja-nota,
-.--horizontal {
+.--horizontal,
+.--vertical {
     .mod-picture {
-        background: $gris1;
-        position: relative;
         overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid #ccc;
-        padding-top: calc((2 / 3) * 100%);
         .com-image {
             position: absolute;
             object-fit: cover;
@@ -69,33 +70,15 @@
     }
 }
 
+.mod-caja-nota,
+.--horizontal {
+    .mod-picture {
+        padding-top: calc((2 / 3) * 100%);
+    }
+}
+
 .--vertical {
     .mod-picture {
-        background: $gris1;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid #ccc;
         padding-top: calc((4 / 3) * 100%);
-        .com-image {
-            position: absolute;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            top: 0;
-        }
-        &::before {
-            font-family: 'LNlogos';
-            content: '\e80a';
-            color: #d9d9d9;
-            font-size: 4.22em;
-            font-weight: 400;
-            text-transform: none;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
     }
 }
