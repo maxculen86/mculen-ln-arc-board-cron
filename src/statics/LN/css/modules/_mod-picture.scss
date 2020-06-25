@@ -19,9 +19,10 @@
         border: 1px solid #ccc;
     }
 
-    .--slider & {
+    .--slider.--slider & {
         display: flex;
         padding-bottom: calc((2 / 3) * 100%);
+        padding-top: initial;
         justify-content: center;
         background: $gris1;
     }
