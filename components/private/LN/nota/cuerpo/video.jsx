@@ -1,33 +1,36 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
+import ComText from '../../../common/com-text';
 
 const video = ({ data }) => {
+    const { promo_items: promoItems } = data || {};
+    const { basic: basicVideo } = promoItems || {};
+    const { caption: captionVideo, credito: creditoVideo } = basicVideo || {};
+
+    const Epigrafe = () => {
+        return (
+            <>
+                {captionVideo && (
+                    <ComText
+                        classCondition="--caption"
+                        textname={captionVideo}
+                    />
+                )}
+                {creditoVideo && (
+                    <ComText
+                        classCondition="--credit"
+                        textname={creditoVideo}
+                    />
+                )}
+            </>
+        );
+    };
+
     return (
         <>
             <Media mediaData={data} colNumber={12}>
-                <>TEST</>
-                {/* <section className="com-epigrafe">
-                    <p className="text">{data.caption}</p>
-                    <p className="small">
-                        Fuente:{' '}
-                        {data.credits
-                            ? data.credits.affiliation.map(fuente => (
-                                  <>{fuente.name}</>
-                              ))
-                            : data.vanity_credits.affiliation.map(fuente => (
-                                  <>{fuente.name}</>
-                              ))}{' '}
-                        - Crédito:{' '}
-                        {data.credits
-                            ? data.credits.by.map(credito => (
-                                  <>{credito.name}</>
-                              ))
-                            : data.vanity_credits.by.map(credito => (
-                                  <>{credito.name}</>
-                              ))}
-                    </p>
-                </section> */}
+                <Epigrafe />
             </Media>
         </>
     );
