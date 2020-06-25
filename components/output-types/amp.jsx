@@ -78,6 +78,7 @@ const Amp = props => {
                     layout={layout}
                     arcSite={arcSite}
                     contentFeatures={contentFeatures}
+                    globalContent={globalContent}
                 />
                 <AMPCustomStyle
                     layout={layout}

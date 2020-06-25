@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import AdvertiserContent from './scriptManager/AdvertiserContent';
+import scriptVideoValidator from './scriptManager/scriptVideoValidator';
 
 export const _AMPBoilerplate =
     'body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}';
@@ -142,6 +143,12 @@ const config = {
             {
                 customElement: 'amp-iframe',
                 src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
+            },
+            {
+                customElement: 'amp-video',
+                src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js',
+                validateInclusion: globalContent =>
+                    scriptVideoValidator({ globalContent })
             }
         ],
         'LN-nota-infografia': [
@@ -207,7 +214,7 @@ const config = {
 
 const AMPScripts = props => {
     const scriptsToLoad = [];
-    const { arcSite, layout, contentFeatures } = props;
+    const { arcSite, layout, contentFeatures, globalContent } = props;
 
     const sitio = config[arcSite];
     if (!sitio) return null;
@@ -215,16 +222,34 @@ const AMPScripts = props => {
     const ScriptsConfig = sitio[layout];
 
     ScriptsConfig &&
-        ScriptsConfig.forEach(({ customElement, src, checkInclusion }) => {
-            const loadScript = checkInclusion
-                ? contentFeatures.find(e => e === checkInclusion)
-                : 1;
+        ScriptsConfig.forEach(configElement => {
+            const loadScript =
+                evaluateIfCheckInclusion(configElement, contentFeatures) &&
+                evaluateIfValidationRender(configElement, globalContent);
 
             loadScript &&
                 scriptsToLoad.push(
-                    <script async custom-element={customElement} src={src} />
+                    <script
+                        async
+                        custom-element={configElement.customElement}
+                        src={configElement.src}
+                    />
                 );
         });
+    /*
+        ScriptsConfig.forEach(
+            ({ customElement, src, checkInclusion, validateInclusion }) => {
+                const loadScript = checkInclusion
+                    ? contentFeatures.find(e => e === checkInclusion)
+                    : 1;
+
+                loadScript &&
+                    scriptsToLoad.push(
+                        <script async custom-element={customElement} src={src} />
+                    );
+            }
+        );
+        */
 
     return scriptsToLoad;
 };
@@ -232,6 +257,18 @@ const AMPScripts = props => {
 AMPScripts.propTypes = {
     arcSite: PropTypes.string.isRequired,
     layout: PropTypes.string.isRequired
+};
+
+const evaluateIfCheckInclusion = (configElement, contentFeatures) => {
+    return configElement.checkInclusion
+        ? contentFeatures.find(e => e === config.checkInclusion)
+        : true;
+};
+
+const evaluateIfValidationRender = (configElement, globalContent) => {
+    return configElement.validateInclusion
+        ? configElement.validateInclusion(globalContent)
+        : true;
 };
 
 export default AMPScripts;

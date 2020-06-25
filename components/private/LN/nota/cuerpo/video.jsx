@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 
-const video = ({ data }) => {
+const video = ({ data, outputType }) => {
     return (
         <>
-            <Media mediaData={data} colNumber={12}>
+            <Media mediaData={data} outputType={outputType} colNumber={12}>
                 <>TEST</>
                 {/* <section className="com-epigrafe">
                     <p className="text">{data.caption}</p>
@@ -41,7 +41,8 @@ video.propTypes = {
         list_type: PropTypes.string.isRequired,
         items: PropTypes.arrayOf.isRequired,
         type: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 export default video;

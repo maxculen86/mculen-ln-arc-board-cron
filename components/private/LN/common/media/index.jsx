@@ -68,7 +68,11 @@ const media = ({
             case 'video':
                 item = (
                     <>
-                        <VideoPlayer videoId={_id} mediaData={mediaData} />
+                        <VideoPlayer
+                            isAmp={outputType === 'amp'}
+                            videoId={_id}
+                            mediaData={mediaData}
+                        />
                         {children}
                     </>
                 );
