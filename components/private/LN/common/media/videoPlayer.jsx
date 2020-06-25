@@ -5,11 +5,9 @@ import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
 
 const video = ({ videoId, mediaData }) => {
     return (
-        <div className="figure">
-            <div className="content-video video">
-                <VideoPlayer videoId={videoId} />
-                <VideoPlayerSnippet mediaData={mediaData} />
-            </div>
+        <div className="mod-video">
+            <VideoPlayer videoId={videoId} />
+            <VideoPlayerSnippet mediaData={mediaData} />
         </div>
     );
 };

@@ -162,15 +162,16 @@
         }
     }
 
-    .content-video {
+    .mod-video {
+        width: calc(100% + 2.5rem);
+        margin-left: -1.25rem;
+        @media ($media-l) {
+            width: 100%;
+            margin-left: 0;
+        }
         > .powa {
             cursor: pointer;
-            width: calc(100% + 2.5rem);
-            margin-left: -1.25rem;
-            @media ($media-l) {
-                width: 100%;
-                margin-left: 0;
-            }
+
             &:hover {
                 .powa-shot-play-btn svg {
                     fill: $ln;
