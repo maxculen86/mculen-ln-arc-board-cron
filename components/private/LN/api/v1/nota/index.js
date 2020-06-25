@@ -16,11 +16,13 @@ const indexNota = dataNota => {
 
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text');
     const paywallStatus = get(dataNota, 'content_restrictions.content_code');
+    const edicion = get(dataNota, 'label.edicion.text');
 
     const resp = {
         id,
         template,
         url,
+        impresa: edicion.toLowerCase() == 'impresa' ? true : false,
         paywallStatus: paywallStatus ? paywallStatus : 'comun',
         abiertoComentarios: dataNota.comments
             ? dataNota.comments.display_comments
