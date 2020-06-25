@@ -70,7 +70,8 @@ const media = ({
                 item = (
                     <figure className="mod-figure">
                         <VideoPlayer videoId={_id} mediaData={mediaData} />
-                        <ModFigcaption title={children} />
+                        {/* <ModFigcaption title={children} /> */}
+                        <ComFigcaption>{children}</ComFigcaption>
                     </figure>
                 );
                 break;

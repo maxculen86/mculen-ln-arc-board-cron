@@ -59,9 +59,9 @@ const aperturaNoticia = ({ basic, outputType }) => {
             isApertura
             outputType={outputType}
         >
-            <ComFigcaption>
-                <Epigrafe />
-            </ComFigcaption>
+            {/* <ComFigcaption> */}
+            <Epigrafe />
+            {/* </ComFigcaption> */}
         </Media>
     );
 };
