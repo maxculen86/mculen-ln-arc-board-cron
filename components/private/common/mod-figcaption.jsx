@@ -23,4 +23,9 @@ ModFigcaption.propTypes = {
     credit: PropTypes.string
 };
 
+ModFigcaption.defaultProps = {
+    title: '',
+    credit: ''
+};
+
 export default ModFigcaption;

@@ -39,4 +39,13 @@
             height: 100%;
         }
     }
+
+    .mod-picture & {
+        .mod-caja-nota & {
+            position: absolute;
+            object-fit: cover;
+            height: 100%;
+            top: 0;
+        }
+    }
 }

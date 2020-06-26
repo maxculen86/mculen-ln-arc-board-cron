@@ -10,7 +10,7 @@ const ComFigure = ({ classCondition, children, handleClick, outputType }) => {
             role="button"
             onClick={handleClick}
             onKeyDown={handleClick}
-            className={`mod-figure ${classCondition}`}
+            className={`mod-figure ${classCondition || ''}`}
         >
             {children}
         </figure>

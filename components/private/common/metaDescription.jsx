@@ -9,10 +9,11 @@ const MetaDescription = ({
     metaTitleBasic,
     arcSite
 }) => {
-    if (arcSite && arcSite !== 'la-nacion-ar' && !subtype) return <></>;
+    if (arcSite !== 'la-nacion-ar' || !subtype) return <></>;
 
     return (
-        subtype === '1' && (
+        subtype &&
+        subtype !== '7' && (
             <meta
                 name="description"
                 content={`${getMetaDescription(
