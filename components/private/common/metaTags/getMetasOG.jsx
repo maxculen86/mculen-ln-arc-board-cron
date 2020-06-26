@@ -2,12 +2,6 @@ import { SITE_LANACION } from 'fusion:environment';
 import getAssetsPath from '../utils/getAssetsPath';
 import getDomain from '../utils/getDomain';
 
-const isNote = globalContent =>
-    !!(
-        globalContent &&
-        (globalContent.subtype === '1' || globalContent.subtype === '7')
-    );
-
 const getData = ({
     siteProperties,
     metaValue,
@@ -17,7 +11,7 @@ const getData = ({
     arcSite
 }) => {
     const domain = getDomain(arcSite, globalContent);
-    const isArticle = isNote(globalContent);
+    const isArticle = !!(globalContent && globalContent.type === 'story');
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN.jpg'
     );

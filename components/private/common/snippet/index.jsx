@@ -9,6 +9,8 @@ const config = {
     'la-nacion-ar': {
         'LN-nota-receta': NotaSnippet,
         'LN-nota-noticia': NoticiaSnippet,
+        'LN-nota-infografia': NoticiaSnippet,
+        'LN-nota-storytelling': NoticiaSnippet,
         'LN-nota-foto-al-100': NoticiaSnippet
     }
 };
