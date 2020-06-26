@@ -9,7 +9,6 @@ jest.mock('fusion:context', Component => {
                 {
                     type: 'author',
                     name: 'Mariano Grondona',
-                    byline: 'Mariano Grondona',
                     image: {
                         url:
                             'https://bucket.glanacion.com/anexos/fotos/85/2089285.png',
@@ -18,13 +17,14 @@ jest.mock('fusion:context', Component => {
                     slug: 'mariano-grondona',
                     additional_properties: {
                         original: {
+                            author_type: 'Estándar',
+                            byline: 'Mariano Grondona',
                             role: 'LA NACION'
                         }
                     }
                 },
                 {
                     type: 'author',
-                    byline: 'Cristóbal Bellolio Badiola',
                     name: 'Cristóbal Bellolio Badiola',
                     image: {
                         url:
@@ -33,7 +33,9 @@ jest.mock('fusion:context', Component => {
                     },
                     url: '/autor/cristobal-bellolio-badiola-13185/',
                     slug: 'cristobal-bellolio-badiola-13185',
-                    additional_properties: {}
+                    additional_properties: {
+                        author_type: ''
+                    }
                 }
             ]
         };

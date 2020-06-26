@@ -4,6 +4,50 @@ import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 
+const extractDataFromTags = tags => {
+    let keywords = [];
+    if (tags) {
+        keywords = tags.map(tag => tag.description);
+    }
+
+    return { keywords };
+};
+
+const extracDataFromCredits = by => {
+    let authors = [];
+    if (by) {
+        authors = by
+            .filter(v => v.type === 'author')
+            .map(v => v.name)
+            .join(', ');
+    }
+
+    return { authors };
+};
+
+const extractDataFromPromoItems = promoItems => {
+    let thumbnailUrl;
+    let image;
+
+    if (promoItems) {
+        if (promoItems.basic && promoItems.basic.type === 'image') {
+            thumbnailUrl = `${promoItems.basic.url || ''}`;
+            image = {
+                '@context': 'https://schema.org',
+                '@type': 'ImageObject',
+                url: `${promoItems.basic.url || ''}`,
+                height: `${promoItems.basic.height || ''}`,
+                width: `${promoItems.basic.width || ''}`
+            };
+        }
+    }
+
+    return {
+        thumbnailUrl,
+        image
+    };
+};
+
 const SnippetNoticia = props => {
     const {
         requestUri,
@@ -12,7 +56,8 @@ const SnippetNoticia = props => {
             headlines,
             taxonomy: {
                 primary_section: primarySection,
-                seo_keywords: seoKeywords
+                seo_keywords: seoKeywords,
+                tags
             },
             promo_items: promoItems,
             credits: { by },
@@ -26,12 +71,11 @@ const SnippetNoticia = props => {
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
     const { path, name } = primarySection || {};
 
-    const authors = by
-        ? by
-              .filter(v => v.type === 'author')
-              .map(v => v.name)
-              .join(', ')
-        : [];
+    const { authors } = extracDataFromCredits(by);
+
+    const { keywords } = extractDataFromTags(tags);
+
+    const { thumbnailUrl, image } = extractDataFromPromoItems(promoItems);
 
     const data = {
         '@context': 'https://schema.org',
@@ -57,7 +101,7 @@ const SnippetNoticia = props => {
         },
         author: `${authors || ''}`,
         creator: `${authors || ''}`,
-        keywords: `${seoKeywords || ''}`,
+        keywords,
         publisher: {
             '@type': 'Organization',
             name: `${siteProperties.title || ''}`,
@@ -69,21 +113,10 @@ const SnippetNoticia = props => {
                 height: 41,
                 width: 391
             }
-        }
+        },
+        thumbnailUrl,
+        image
     };
-
-    if (promoItems) {
-        if (promoItems.basic && promoItems.basic.type === 'image') {
-            data.thumbnailUrl = `${promoItems.basic.url || ''}`;
-            data.image = {
-                '@context': 'https://schema.org',
-                '@type': 'ImageObject',
-                url: `${promoItems.basic.url || ''}`,
-                height: `${promoItems.basic.height || ''}`,
-                width: `${promoItems.basic.width || ''}`
-            };
-        }
-    }
 
     SnippetNoticia.propTypes = {
         requestUri: PropTypes.string.isRequired,
@@ -97,7 +130,14 @@ const SnippetNoticia = props => {
                     path: PropTypes.string,
                     name: PropTypes.string
                 }),
-                seo_keywords: PropTypes.arrayOf(PropTypes.string)
+                seo_keywords: PropTypes.arrayOf(PropTypes.string),
+                tags: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        description: PropTypes.string,
+                        slug: PropTypes.string,
+                        text: PropTypes.string
+                    })
+                )
             }),
             promo_items: PropTypes.shape({
                 basic: PropTypes.shape({

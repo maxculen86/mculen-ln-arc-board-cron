@@ -222,7 +222,6 @@ export default `
         by {
             _id
             name
-            byline
             type
             url
             slug
@@ -231,7 +230,11 @@ export default `
             }
             additional_properties {
                 original {
+                    byline
+                    image
                     role
+                    bio_page
+                    author_type
                 }
             }
         }
