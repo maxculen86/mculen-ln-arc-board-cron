@@ -46,11 +46,10 @@ const getData = ({
             typeBasicPI === 'image' && urlBasicPI
                 ? `${SITE_LANACION}${urlBasicPI}`
                 : DEFAULT.IMAGE,
-        url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain
-        // TODO: considerar agregar el fbAppId para evitar los warning del depurador de FB
-        // fbAppId:
-        //     (siteProperties && siteProperties.shareConfig.facebook.appID) ||
-        //     DEFAULT.FB_APP_ID;
+        url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain,
+        fbAppId:
+            (siteProperties && siteProperties.shareConfig.facebook.appID) ||
+            DEFAULT.FB_APP_ID
     };
 };
 
@@ -58,6 +57,10 @@ const getMetasOG = props => {
     const data = getData(props);
 
     const metas = [
+        {
+            property: 'fb_app_id',
+            content: data.fbAppId
+        },
         {
             property: 'og:type',
             content: data.type
@@ -78,9 +81,6 @@ const getMetasOG = props => {
             property: 'og:url',
             content: data.url
         }
-        // TODO: considerar agregar el fbAppId para evitar los warning del depurador de FB
-        //     name: 'fb:app_id',
-        //     content: data.fbAppId
     ];
     return metas;
 };

@@ -136,6 +136,7 @@ const Default = props => {
     return (
         <html lang="es">
             <head>
+                <meta charset="utf-8" />
                 <title>
                     {metaValue('title') || siteProperties.title || 'LA NACION'}
                 </title>

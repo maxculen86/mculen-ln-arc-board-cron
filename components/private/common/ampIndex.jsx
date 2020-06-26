@@ -15,7 +15,8 @@ const styleConfig = {
             'resources/dist/css/ln/amp/ampln-acu-noticias.css',
         'LN-nota-noticia': 'resources/dist/css/ln/amp/ampln-acu.css',
         'LN-nota-infografia': 'resources/dist/css/ln/amp/ampln-acu.css',
-        'LN-nota-storytelling': 'resources/dist/css/ln/amp/ampln-acu.css'
+        'LN-nota-storytelling': 'resources/dist/css/ln/amp/ampln-acu.css',
+        'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/ampln-acu.css'
     }
 };
 
@@ -150,7 +151,8 @@ const config = {
         'AMP-LN-Acu': customElementForAcu,
         'LN-nota-noticia': customElementForNote,
         'LN-nota-infografia': customElementForNote,
-        'LN-nota-storytelling': customElementForNote
+        'LN-nota-storytelling': customElementForNote,
+        'LN-nota-foto-al-100': customElementForNote
     }
 };
 

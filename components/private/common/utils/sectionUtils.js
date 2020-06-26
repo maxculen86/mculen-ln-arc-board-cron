@@ -39,7 +39,8 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     const layoutsIncludingLogo = [
         { name: 'LN-nota-noticia', color: true },
         { name: 'LN-nota-receta', color: true },
-        { name: 'LN-nota-storytelling', color: false }
+        { name: 'LN-nota-storytelling', color: false },
+        { name: 'LN-nota-foto-al-100', color: true }
     ];
 
     const currentLayoutIncludesLogo = layoutsIncludingLogo.find(

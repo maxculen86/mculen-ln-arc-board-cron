@@ -56,7 +56,12 @@ describe('Common - getMetasOG function', () => {
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
             },
             siteProperties: {
-                title: 'LA NACION'
+                title: 'LA NACION',
+                shareConfig: {
+                    facebook: {
+                        appID: '205326199490321'
+                    }
+                }
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Arroz chaufa de mariscos' : '';
@@ -68,6 +73,10 @@ describe('Common - getMetasOG function', () => {
         };
 
         const metas = [
+            {
+                property: 'fb_app_id',
+                content: '205326199490321'
+            },
             {
                 property: 'og:type',
                 content: 'article'
@@ -95,7 +104,12 @@ describe('Common - getMetasOG function', () => {
     it('metas de tipo website', () => {
         const props = {
             siteProperties: {
-                title: 'LA NACION'
+                title: 'LA NACION',
+                shareConfig: {
+                    facebook: {
+                        appID: '205326199490321'
+                    }
+                }
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'LA NACION' : '';
@@ -107,6 +121,10 @@ describe('Common - getMetasOG function', () => {
         };
 
         const metas = [
+            {
+                property: 'fb_app_id',
+                content: '205326199490321'
+            },
             {
                 property: 'og:type',
                 content: 'website'
