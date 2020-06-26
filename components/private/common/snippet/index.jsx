@@ -8,7 +8,8 @@ const config = {
     OTT: {},
     'la-nacion-ar': {
         'LN-nota-receta': NotaSnippet,
-        'LN-nota-noticia': NoticiaSnippet
+        'LN-nota-noticia': NoticiaSnippet,
+        'LN-nota-foto-al-100': NoticiaSnippet
     }
 };
 
