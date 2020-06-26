@@ -14,7 +14,8 @@ const styleConfig = {
         'AMP-LN-Acu-Noticias':
             'resources/dist/css/ln/amp/ampln-acu-noticias.css',
         'LN-nota-noticia': 'resources/dist/css/ln/amp/ampln-acu.css',
-        'LN-nota-infografia': 'resources/dist/css/ln/amp/ampln-acu.css'
+        'LN-nota-infografia': 'resources/dist/css/ln/amp/ampln-acu.css',
+        'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/ampln-acu.css'
     }
 };
 
@@ -145,6 +146,64 @@ const config = {
             }
         ],
         'LN-nota-infografia': [
+            {
+                customElement: 'amp-carousel',
+                src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'
+            },
+            {
+                customElement: 'amp-ad',
+                src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
+            },
+            {
+                customElement: 'amp-accordion',
+                src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
+            },
+            {
+                customElement: 'amp-sidebar',
+                src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
+            },
+            {
+                customElement: 'amp-analytics',
+                src: 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js'
+            },
+            {
+                customElement: 'amp-sticky-ad',
+                src: 'https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'
+            },
+            {
+                customElement: 'amp-youtube',
+                src: 'https://cdn.ampproject.org/v0/amp-youtube-0.1.js'
+            },
+            {
+                customElement: 'amp-twitter',
+                src: 'https://cdn.ampproject.org/v0/amp-twitter-0.1.js'
+            },
+            {
+                customElement: 'amp-instagram',
+                src: 'https://cdn.ampproject.org/v0/amp-instagram-0.1.js'
+            },
+            {
+                customElement: 'amp-facebook',
+                src: 'https://cdn.ampproject.org/v0/amp-facebook-0.1.js'
+            },
+            {
+                customElement: 'amp-vimeo',
+                src: 'https://cdn.ampproject.org/v0/amp-vimeo-0.1.js'
+            },
+            {
+                customElement: 'amp-dailymotion',
+                src: 'https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js'
+            },
+            {
+                customElement: 'amp-vine',
+                src: 'https://cdn.ampproject.org/v0/amp-vine-0.1.js'
+            },
+            {
+                customElement: 'amp-iframe',
+                src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
+            }
+        ],
+        'LN-nota-foto-al-100': [
             {
                 customElement: 'amp-carousel',
                 src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'

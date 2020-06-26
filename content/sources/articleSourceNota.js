@@ -43,6 +43,16 @@ const fetch = query => {
             throw new Redirect(response.redirect_url, 301);
         }
 
+        const forwardUrl = get(
+            response,
+            'related_content.redirect[0].redirect_url'
+        );
+
+        const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+        if (forwardUrl && regExp.test(forwardUrl)) {
+            throw new Redirect(forwardUrl, 301);
+        }
+
         return transform(response, query);
     });
 };
