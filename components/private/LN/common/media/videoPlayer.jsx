@@ -4,8 +4,9 @@ import VideoPlayer from '../../../common/videoPlayer';
 import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
 
 const video = ({ videoId, mediaData, isAmp }) => {
-    const { streams, promo_items } = mediaData;
-   // console.log('++++++video++++++++' + outputType);
+    const { streams = [], promo_items } = mediaData;
+    // const firstVideo = streams.shift();
+    console.log('++++++video++++++++' + JSON.stringify(firstVideo));
     return (
         <div className="figure">
             <div className="content-video video">

@@ -80,7 +80,8 @@ aperturaNoticia.propTypes = {
         caption: PropTypes.string,
         vanity_credits: PropTypes.arrayOf,
         credits: PropTypes.arrayOf
-    }).isRequired
+    }).isRequired,
+    outputType: PropTypes.string
 };
 
 export default aperturaNoticia;

@@ -1,32 +1,19 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
-
-const videosBody = contentElements =>
-    contentElements.filter(element => element.type === 'video').length;
+import scriptVideoValidator from './scriptVideoValidator';
 
 // TODO: Validar cuantas veces renderiza este componente
 const ScriptVideoPowa = ({ globalContent }) => {
-    const contentElements = get(globalContent, 'content_elements');
-    const promoItems = get(globalContent, 'promo_items');
-    const basicPromoItems = get(promoItems, 'basic');
-    const storytellingPromoItems = get(promoItems, 'storytelling');
-    const typeBasic = get(basicPromoItems, 'type');
-    const typeStorytelling = get(storytellingPromoItems, 'type');
-
-    const loadVideo =
-        videosBody(contentElements) > 0 ||
-        typeBasic === 'video' ||
-        typeStorytelling === 'video';
+    const loadVideo = scriptVideoValidator(globalContent);
 
     // FIXME: Cambiar parametro en url que indentifica ambiente (prod-sandbox) a dinamico
-    return loadVideo ? (
-        <script
-            async
-            src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
-        />
-    ) : (
-        <></>
+    return (
+        loadVideo && (
+            <script
+                async
+                src="https://lanacionar.video-player.arcpublishing.com/prod/powaBoot.js"
+            />
+        )
     );
 };
 

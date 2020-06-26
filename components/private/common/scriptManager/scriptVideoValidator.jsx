@@ -4,7 +4,7 @@ import get from 'lodash.get';
 const videosBody = contentElements =>
     contentElements.filter(element => element.type === 'video').length;
 
-const scriptVideoValidator = ({ globalContent }) => {
+const scriptVideoValidator = globalContent => {
     const contentElements = get(globalContent, 'content_elements');
     const promoItems = get(globalContent, 'promo_items');
     const basicPromoItems = get(promoItems, 'basic');
