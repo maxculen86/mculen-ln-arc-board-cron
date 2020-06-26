@@ -44,24 +44,14 @@ import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/components/appointment.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
 
-// ***** INICIO PREGUNTAR A DARO
 import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
 import '../../resources/dist/css/ln/components/storytelling.css';
 import '../../resources/dist/css/ln/modules/mod-opening.css';
-// ***** FIN PREGUNTAR A DARO
 
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
 import '../../resources/dist/css/ln/components/com-button.css';
-
-// ***** INICIO PREGUNTAR A DARO
-// import '../../resources/dist/css/ln/components/colecciones.css';
-// import '../../resources/dist/css/ln/components/carta-lectores.css';
-
-/* Se debe importar para AMP */
-// import '../../resources/dist/css/ln/components/nav-amp.css';
-// ****** FIN PREGUNTAR A DARO
 
 /* Se debe importar por layouts */
 import '../../resources/dist/css/ln/components/banners.css';
