@@ -84,8 +84,9 @@ const HeaderDesktop = ({
                         <a
                             className="--btn --highlight hlp-marginRight-35"
                             href={
-                                `${SITIO_SEGURO_REGISTRACION}/suscribirme` ||
-                                '/'
+                                `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                    location.href
+                                )}` || '/'
                             }
                         >
                             Suscribite
