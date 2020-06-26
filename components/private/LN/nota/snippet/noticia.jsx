@@ -172,7 +172,7 @@ const SnippetNoticia = props => {
 
     return (
         <>
-            <SnippetRender data={data} />
+            <SnippetRender id="Schema_NewsArticle" data={data} />
         </>
     );
 };
