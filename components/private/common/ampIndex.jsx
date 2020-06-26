@@ -149,7 +149,7 @@ const config = {
                 src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js',
                 validateInclusion: globalContent =>
                     scriptVideoValidator(globalContent)
-            
+            }
         ],
         'LN-nota-infografia': [
             {
@@ -224,8 +224,8 @@ const AMPScripts = props => {
     ScriptsConfig &&
         ScriptsConfig.forEach(configElement => {
             const loadScript =
-                evaluateIfCheckInclusion(configElement, contentFeatures) &&
-                evaluateIfValidationRender(configElement, globalContent);
+                evaluateCheckInclusion(configElement, contentFeatures) &&
+                evaluateFunctionInclusion(configElement, globalContent);
 
             loadScript &&
                 scriptsToLoad.push(
@@ -259,13 +259,13 @@ AMPScripts.propTypes = {
     layout: PropTypes.string.isRequired
 };
 
-const evaluateIfCheckInclusion = (configElement, contentFeatures) => {
+const evaluateCheckInclusion = (configElement, contentFeatures) => {
     return configElement.checkInclusion
         ? contentFeatures.find(e => e === config.checkInclusion)
         : true;
 };
 
-const evaluateIfValidationRender = (configElement, globalContent) => {
+const evaluateFunctionInclusion = (configElement, globalContent) => {
     return configElement.validateInclusion
         ? configElement.validateInclusion(globalContent)
         : true;

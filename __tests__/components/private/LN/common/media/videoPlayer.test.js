@@ -1,0 +1,124 @@
+import React from 'react';
+import { mount, shallow } from 'enzyme';
+import Context from 'fusion:context';
+import getProperties from 'fusion:properties';
+import VideoPlayer from '../../../../../../components/private/LN/common/media/videoPlayer';
+import get from 'lodash.get';
+import scriptVideoValidator from  '../../../../../../components/private/common/scriptManager/scriptVideoValidator'
+import articleSinVideo from '../../../../../../__mocks__/data/articles/5CT4YNKOB5AFNFQ7R33BOOVGAI.json';
+import articleConVideo from '../../../../../../__mocks__/data/articles/36G5V7RBRBH2XDBMBZHVCXZNBY.json';
+
+describe('private - LN - common - media - videoPlayer', () => {
+
+    const mediaData = {
+                        "_id":"9d604899-6f5d-4dcd-9b66-cd6989df063e",
+                        "additional_properties":{},
+                        "created_date":"2019-06-04T19:34:35Z",
+                        "credits":{},
+                        "description":{
+                            "basic":"Un adelanto"
+                        },
+                        "distributor":{
+                    
+                        },
+                        "duration":1214,
+                        "headlines":{
+                            "basic":"El titulo del video"
+                        },
+                        "promo_items":{
+                            "basic":{
+                                "caption":"bfxfds",
+                                "credits":{
+                        
+                                },
+                                "height":720,
+                                "type":"image",
+                                "url":"https://d3us6z9haan6vf.cloudfront.net/10-18-2019/t_7b9e5b6b2186491989b2fc9a10d6d92d_name_file_1280x720_2000_v3_1_.jpg",
+                                "width":1280
+                            }
+                        },
+                        "publish_date":"2019-10-18T18:58:29Z",
+                        "streams":[
+                            {
+                                "height":360,
+                                "stream_type":"mp4",
+                                "url":"https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/04/5cf6c7cb4cedfd0009715c2f/t_88ba2084a3fe4cf6b47b63a9ba3292d6_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped_cropped/file_640x360-600.mp4",
+                                "width":640
+                            },
+                            {
+                                "height":720,
+                                "stream_type":"mp4",
+                                "url":"https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/04/5cf6c7cb4cedfd0009715c2f/t_88ba2084a3fe4cf6b47b63a9ba3292d6_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped_cropped/file_1280x720-2000-v3_1.mp4",
+                                "width":1280
+                            }
+                        ],
+                        "type":"video"
+                    };
+
+    const props = {
+        videoId:'9d604899-6f5d-4dcd-9b66-cd6989df063e',
+        mediaData: mediaData,
+        isAmp:true
+    }
+    
+
+    it('Renderear amp-video si el outputtype es amp', () => {
+        let component = mount(
+            <VideoPlayer  {...props}  />
+        );
+        expect(component.find('amp-video').length).toBe(1);
+    });
+
+    it('No renderear amp-video si outputtype es default', () => {
+        props.isAmp = false;
+        let component = shallow(
+            <VideoPlayer {...props}  />
+        );
+        expect(component.find('amp-video').length).toBe(0);
+        props.isAmp = true;
+    });
+
+    it('Atributos y nodo del DOM correcto', () => {
+        let component = mount(
+            <VideoPlayer {...props}  />
+        );
+        expect(component.find('amp-video')).toHaveLength(1);
+        expect(component.find('amp-video').props().width).toEqual(640);
+        expect(component.find('amp-video').props().poster).toEqual(
+            'https://d3us6z9haan6vf.cloudfront.net/10-18-2019/t_7b9e5b6b2186491989b2fc9a10d6d92d_name_file_1280x720_2000_v3_1_.jpg'
+        );
+        expect(component.find('source').props().src).toEqual(
+            "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/04/5cf6c7cb4cedfd0009715c2f/t_88ba2084a3fe4cf6b47b63a9ba3292d6_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped_cropped/file_640x360-600.mp4"
+        );
+        expect(component.find('source').props().type).toEqual("video/mp4");
+
+        props.mediaData.streams[0].stream_type = "mov";
+        component = mount(
+            <VideoPlayer {...props}  />
+        );
+        expect(component.find('source').props().type).toEqual("video/mov");
+    });
+
+    it('No romper si streams no tiene elementos', () => {
+        props.mediaData.streams = [];
+        let component = mount(
+            <VideoPlayer {...props}  />
+        );
+        expect(component.find('amp-video')).toHaveLength(0);
+
+    });
+
+    
+});
+
+describe('private - common - scriptManager - scriptVideoValidator', () => {
+
+    it('Probar funcion scriptVideoValidator', () => {
+        let loadVideo = scriptVideoValidator(articleConVideo);
+        expect(loadVideo).toBe(true);
+
+        loadVideo = scriptVideoValidator(articleSinVideo);
+        expect(loadVideo).toBe(false);
+
+    });
+});

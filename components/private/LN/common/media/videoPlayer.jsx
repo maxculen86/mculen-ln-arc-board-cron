@@ -5,8 +5,11 @@ import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
 
 const video = ({ videoId, mediaData, isAmp }) => {
     const { streams = [], promo_items } = mediaData;
-    // const firstVideo = streams.shift();
-    console.log('++++++video++++++++' + JSON.stringify(firstVideo));
+
+    if (streams.length === 0) {
+        return <div className="mod-video" />;
+    }
+
     return (
         <div className="mod-video">
             {!isAmp ? (
@@ -20,7 +23,8 @@ const video = ({ videoId, mediaData, isAmp }) => {
                     width={streams[0].width}
                     height={streams[0].height}
                     layout="responsive"
-                    poster={promo_items.basic.url}>
+                    poster={promo_items.basic.url}
+                >
                     <source
                         src={streams[0].url}
                         type={`video/${streams[0].stream_type}`}
@@ -38,9 +42,14 @@ video.propTypes = {
     mediaData: PropTypes.shape({
         type: PropTypes.oneOf(['video']),
         url: PropTypes.string,
-        caption: PropTypes.string
+        caption: PropTypes.string,
+        streams: PropTypes.array.isRequired,
+        promo_items: PropTypes.shape({
+            basic: PropTypes.object
+        }).isRequired
     }).isRequired,
-    videoId: PropTypes.string.isRequired
+    videoId: PropTypes.string.isRequired,
+    isAmp: PropTypes.bool.isRequired
 };
 
 export default video;
