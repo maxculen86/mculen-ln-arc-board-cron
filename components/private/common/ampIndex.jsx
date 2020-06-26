@@ -149,7 +149,7 @@ const config = {
                 src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js',
                 validateInclusion: globalContent =>
                     scriptVideoValidator(globalContent)
-            }
+            
         ],
         'LN-nota-infografia': [
             {

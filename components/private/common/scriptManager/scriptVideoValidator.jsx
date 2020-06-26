@@ -2,6 +2,7 @@ import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 
 const videosBody = contentElements =>
+    contentElements &&
     contentElements.filter(element => element.type === 'video').length;
 
 const scriptVideoValidator = globalContent => {

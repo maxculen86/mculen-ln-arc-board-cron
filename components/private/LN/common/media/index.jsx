@@ -5,6 +5,7 @@ import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
+import ComFigcaption from '../../../common/com-figcaption';
 
 const media = ({
     mediaData,
@@ -67,14 +68,15 @@ const media = ({
                 break;
             case 'video':
                 item = (
-                    <>
+                    <figure className="mod-figure">
                         <VideoPlayer
-                            isAmp={outputType === 'amp'}
                             videoId={_id}
                             mediaData={mediaData}
+                            isAmp={outputType === 'amp'}
                         />
-                        {children}
-                    </>
+                        {/* <ModFigcaption title={children} /> */}
+                        <ComFigcaption>{children}</ComFigcaption>
+                    </figure>
                 );
                 break;
             default:

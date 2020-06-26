@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
-import ComFigcaption from '../../../common/com-figcaption';
 import ComText from '../../../common/com-text';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
@@ -20,42 +19,30 @@ const aperturaNoticia = ({ basic, outputType }) => {
     };
 
     const Epigrafe = () => {
-        // TODO: abstraer solo aquello que no se repite
-        // TODO: no usar fragment innecesario
-        return (
+        return basic && type === 'image' ? (
             <>
-                {basic &&
-                    (type === 'image' ? (
-                        <ComFigcaption>
-                            {basic.caption && (
-                                <ComText
-                                    classCondition="--caption"
-                                    textname={basic.caption}
-                                />
-                            )}
-                            <ComText
-                                classCondition="--credit"
-                                textname={credito}
-                            />
-                        </ComFigcaption>
-                    ) : (
-                        <>
-                            <ComFigcaption>
-                                {captionVideo && (
-                                    <ComText
-                                        classCondition="--caption"
-                                        textname={captionVideo}
-                                    />
-                                )}
-                                {creditoVideo && (
-                                    <ComText
-                                        classCondition="--credit"
-                                        textname={creditoVideo}
-                                    />
-                                )}
-                            </ComFigcaption>
-                        </>
-                    ))}
+                {basic.caption && (
+                    <ComText
+                        classCondition="--caption"
+                        textname={basic.caption}
+                    />
+                )}
+                <ComText classCondition="--credit" textname={credito} />
+            </>
+        ) : (
+            <>
+                {captionVideo && (
+                    <ComText
+                        classCondition="--caption"
+                        textname={captionVideo}
+                    />
+                )}
+                {creditoVideo && (
+                    <ComText
+                        classCondition="--credit"
+                        textname={creditoVideo}
+                    />
+                )}
             </>
         );
     };
