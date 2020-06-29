@@ -53,7 +53,7 @@ const ScriptVideoPowa = ({ globalContent }) => {
                     return playAd &&
                         videoData.additional_properties.advertising.playAds
                         ? adUrl
-                        : '';
+                        : 'test';
                 };
             })();
         }
