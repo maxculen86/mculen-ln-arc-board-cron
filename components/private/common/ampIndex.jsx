@@ -261,7 +261,7 @@ AMPScripts.propTypes = {
 
 const evaluateCheckInclusion = (configElement, contentFeatures) => {
     return configElement.checkInclusion
-        ? contentFeatures.find(e => e === config.checkInclusion)
+        ? contentFeatures.find(e => e === configElement.checkInclusion)
         : true;
 };
 

@@ -7,9 +7,7 @@ import AmpContainer from '../../../common/ampContainer';
 const video = ({ videoId, mediaData }) => {
     const { streams = [], promo_items } = mediaData;
 
-    if (streams.length === 0) {
-        return <div className="mod-video" />;
-    }
+    if (streams.length === 0) return <div className="mod-video" />;
 
     return (
         <div className="mod-video">
@@ -29,7 +27,7 @@ const video = ({ videoId, mediaData }) => {
                         src={streams[0].url}
                         type={`video/${streams[0].stream_type}`}
                     />
-                    <div fallback>
+                    <div fallback="fallback">
                         <p>Este navegador no soporta elementos de video.</p>
                     </div>
                 </amp-video>
