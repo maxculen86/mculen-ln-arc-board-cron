@@ -1,49 +1,38 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import ComLink from '../../../common/com-link';
+import ComIcon from '../../../common/com-icon';
+import ComLogo from '../../../common/com-logo';
 
 const header = ({ host }) => (
     <section className="row footer-header">
         <section className="col-desksm-4 col-desk-6 footer-header__logo">
-            <a href={host || '/'} className="">
-                <i className="logo-la-nacion" />
-            </a>
+            <ComLink link={host || '/'}>
+                <ComLogo logoName="la-nacion" />
+            </ComLink>
         </section>
-        <section className="col-12 col-desksm-4 col-desk-3 footer-header__redes">
-            <a
-                href="https://www.facebook.com/lanacion"
+        <section className="col-12 col-desksm-4 col-desk-3 footer-header__redes --shared">
+            <ComLink link="https://www.facebook.com/lanacion" target="_blank">
+                <ComIcon iconName="facebook" />
+            </ComLink>
+            <ComLink link="https://www.twitter.com/lanacion" target="_blank">
+                <ComIcon iconName="twitter" />
+            </ComLink>
+            <ComLink link="https://www.instagram.com/lanacion" target="_blank">
+                <ComIcon iconName="instagram" />
+            </ComLink>
+            <ComLink
+                link="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
                 target="_blank"
-                rel="noreferrer noopener"
             >
-                <i className="icon-facebook" />
-            </a>
-            <a
-                href="https://twitter.com/LANACION"
-                target="_blank"
-                rel="noreferrer noopener"
-            >
-                <i className="icon-twitter" />
-            </a>
-            <a
-                href="https://www.instagram.com/lanacioncom/"
-                target="_blank"
-                rel="noreferrer noopener"
-            >
-                <i className="icon-instagram" />
-            </a>
-            <a
-                href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
-                target="_blank"
-                rel="noreferrer noopener"
-            >
-                <i className="icon-rss" />
-            </a>
+                <ComIcon iconName="rss" />
+            </ComLink>
         </section>
         <section className="col-12 col-desksm-4 col-desk-3 footer-header__app">
-            <a
-                href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
-                className="app_play"
+            <ComLink
+                link="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
+                classCondition="app_play"
                 target="_blank"
-                rel="noreferrer noopener"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -160,12 +149,11 @@ const header = ({ host }) => (
                         </g>
                     </g>
                 </svg>
-            </a>
-            <a
-                href="https://apps.apple.com/ar/app/la-nacion/id410689702"
-                className="app_ios"
+            </ComLink>
+            <ComLink
+                link="https://apps.apple.com/ar/app/la-nacion/id410689702"
+                classCondition="app_ios"
                 target="_blank"
-                rel="noreferrer noopener"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +179,7 @@ const header = ({ host }) => (
                         </g>
                     </g>
                 </svg>
-            </a>
+            </ComLink>
         </section>
     </section>
 );

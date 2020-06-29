@@ -1,10 +1,21 @@
+// React
 import React from 'react';
+
+// Fusion
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+
+// Private Components
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
+import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+
+// Styles
+// ***** INICIO PREGUNTAR A DARO
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
+// ***** FIN PREGUNTAR A DARO
+
 import '../../resources/dist/css/ln/base/reset.css';
 import '../../resources/dist/css/ln/base/types.css';
 import '../../resources/dist/css/ln/pages/recipe.css';
@@ -33,14 +44,14 @@ import '../../resources/dist/css/ln/components/epigraph.css';
 import '../../resources/dist/css/ln/components/appointment.css';
 import '../../resources/dist/css/ln/components/opinion-author.css';
 
+import '../../resources/dist/css/ln/components/colecciones.css';
+import '../../resources/dist/css/ln/components/carta-lectores.css';
+import '../../resources/dist/css/ln/components/storytelling.css';
+import '../../resources/dist/css/ln/modules/mod-opening.css';
+
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
 import '../../resources/dist/css/ln/components/com-button.css';
-// import '../../resources/dist/css/ln/components/colecciones.css';
-// import '../../resources/dist/css/ln/components/carta-lectores.css';
-
-/* Se debe importar para AMP */
-// import '../../resources/dist/css/ln/components/nav-amp.css';
 
 /* Se debe importar por layouts */
 import '../../resources/dist/css/ln/components/banners.css';
@@ -54,82 +65,51 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
     // children[0] => Section BannerMegatop
     const { children: childrenSectionBannerMegatop } = children[0];
-    const isValid =
-        outputType !== 'amp' && childrenSectionBannerMegatop.length <= 1;
+    const isValid = childrenSectionBannerMegatop.length <= 1;
     const component = isValid ? (
         element
     ) : (
         <PageBuilderMessage
-            id="LN-nota-foto-al-100-error"
+            id="LN-nota-noticia-error"
             type="warning"
             message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
         />
     );
     if (isAdmin) return component;
+    return isValid ? component : null;
 };
 
-const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
+const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
             {bannerMegatop}
-            {/* Banner MEGATOP */}
-            <div id="wrapper" className={`nota foto-al-100 ${amp}`}>
-                {/* TODO: sacar */}
-                {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
+            <div
+                id="wrapper"
+                className={`nota noticia --storytelling --hlp-transparent ${amp}`}
+            >
                 <Header />
                 <main>
-                    {children[1]}
-                    <div className="lay --apertura">
-                        <div className="row">
-                            <div className="col-12">
-                                {/* Titulo (breadcrumb, logo+titulo) */}
-                                {children[2]}
-                            </div>
-                        </div>
-                    </div>
+                    <AperturaStorytelling />
                     <div className="lay-sidebar">
                         {/* Cuerpo */}
                         <div className="sidebar__main">
-                            <div className="row">
-                                <div className="col-12 ">
-                                    {/* Bajada y autor fecha más apertura */}
-                                    {children[3]}
-                                    {/* <div className="opinion-autor row">
-                                    <section id="" className="cont-figure">
-                                        <div className="figure">
-                                            <picture className="content-pic picture">
-                                                <img
-                                                    src="https://bucket1.glanacion.com/anexos/fotos/12/2089212w82.png"
-                                                    alt=""
-                                                    className="content-img"
-                                                />
-                                            </picture>
-                                        </div>
-                                    </section>
-                                    <div className="opinion-calc">
-                                        <h1 className="link hlp-bold">
-                                            <a href="">Bruno Pittón</a>
-                                        </h1>
-                                        <label>PARA LA NACION</label>
-                                    </div>
-                                </div> */}
-                                </div>
-                            </div>
                             <section className="cuerpo__nota">
                                 <div className="row">
                                     <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                        {/* // ***** INICIO PREGUNTAR A DARO */}
                                         {/* hlp-mobile-show */}
+                                        {/* // ***** FIN PREGUNTAR A DARO */}
                                         {/* Left-Cuerpo Shared */}
-                                        {children[4]}
+                                        {children[1]}
                                     </div>
                                     <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                         <div className="row">
                                             <div className="col-12">
                                                 {/* Pos-Apertura */}
-                                                {children[5]}
+                                                {children[2]}
                                             </div>
                                         </div>
                                     </div>
@@ -138,18 +118,18 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                         </div>
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-desklm-none">
-                            {children[6]}
+                            {children[3]}
                         </div>
                     </div>
 
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
-                            {children[9]}
+                            {children[5]}
                         </div>
                         <div className="sidebar__aside">
                             {/* Bottom-Tercera */}
-                            {children[10]}
+                            {children[6]}
                         </div>
                     </div>
                 </main>
@@ -161,25 +141,20 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
 
 const pageBuilderSections = [
     'Banner-Megatop',
-    'Pre-Titulo',
-    'Titulo',
-    'Apertura',
     'Left-Cuerpo',
     'Cuerpo',
     'Tercera',
-    'Pos-Cuerpo',
-    'Full-Break',
     'Bottom',
     'Bottom-Tercera'
 ];
 
-lnNotaFotoAl100.sections = pageBuilderSections;
+lnNotaStorytelling.sections = pageBuilderSections;
 
-lnNotaFotoAl100.propTypes = {
+lnNotaStorytelling.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     outputType: PropTypes.string.isRequired,
     tree: PropTypes.arrayOf(PropTypes.node).isRequired,
     isAdmin: PropTypes.bool.isRequired
 };
 
-export default Consumer(lnNotaFotoAl100);
+export default Consumer(lnNotaStorytelling);

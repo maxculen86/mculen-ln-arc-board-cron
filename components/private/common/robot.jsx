@@ -1,24 +1,37 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
+import get from './utils/get';
 
-const Robot = ({ subtype, canonicalUrl, arcSite }) => {
-    if (arcSite && arcSite !== 'la-nacion-ar' && !subtype && !canonicalUrl)
-        return <></>;
+const Robot = props => {
+    const { subtype, canonicalUrl, arcSite: website } = props;
+    const data = useContent({
+        sourceName: 'navigationTreeSource',
+        query: {
+            website
+        }
+    });
 
-    return (
-        subtype === '1' &&
-        canonicalUrl && (
-            <link
-                rel="canonical"
-                href={`https://www.lanacion.com.ar${canonicalUrl}`}
-            />
-        )
+    const hasAmpLink = get(
+        data && data.site && data.site['with-amp'] ? data.site['with-amp'] : {},
+        subtype || '',
+        undefined
+    );
+
+    return hasAmpLink && canonicalUrl ? (
+        <link
+            rel="canonical"
+            href={`https://www.lanacion.com.ar${canonicalUrl}`}
+        />
+    ) : (
+        <></>
     );
 };
 
 Robot.propTypes = {
-    subtype: PropTypes.string,
-    canonicalUrl: PropTypes.string.isRequired
+    subtype: PropTypes.string.isRequired,
+    canonicalUrl: PropTypes.string.isRequired,
+    arcSite: PropTypes.string.isRequired
 };
 
 export default Robot;
