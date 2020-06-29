@@ -65,8 +65,8 @@ aperturaNoticia.propTypes = {
     basic: PropTypes.shape({
         distributor: PropTypes.string,
         caption: PropTypes.string,
-        vanity_credits: PropTypes.arrayOf,
-        credits: PropTypes.arrayOf
+        vanity_credits: PropTypes.array,
+        credits: PropTypes.array
     }).isRequired,
     outputType: PropTypes.string.isRequired
 };

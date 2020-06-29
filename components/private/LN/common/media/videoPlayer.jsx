@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import VideoPlayer from '../../../common/videoPlayer';
 import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
-import Amp from '../../../common/amp';
-import NotAmp from '../../../common/notAmp';
+import AmpContainer from '../../../common/ampContainer';
 
 const video = ({ videoId, mediaData }) => {
     const { streams = [], promo_items } = mediaData;
@@ -14,11 +13,11 @@ const video = ({ videoId, mediaData }) => {
 
     return (
         <div className="mod-video">
-            <NotAmp>
+            <AmpContainer isForAmp={false}>
                 <VideoPlayer videoId={videoId} />
                 <VideoPlayerSnippet mediaData={mediaData} />
-            </NotAmp>
-            <Amp>
+            </AmpContainer>
+            <AmpContainer isForAmp>
                 <amp-video
                     controls="controls"
                     width={streams[0].width}
@@ -34,7 +33,7 @@ const video = ({ videoId, mediaData }) => {
                         <p>Este navegador no soporta elementos de video.</p>
                     </div>
                 </amp-video>
-            </Amp>
+            </AmpContainer>
         </div>
     );
 };

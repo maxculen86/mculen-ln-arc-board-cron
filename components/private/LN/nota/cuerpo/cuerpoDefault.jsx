@@ -25,7 +25,7 @@ const Cuerpo = props => {
         siteProperties,
         bannerConfig: banners,
         outputType,
-        globalContent: { content_elements: contentElements }
+        globalContent: { content_elements: contentElements, subtype }
     } = props;
 
     const bodyComponents = [
