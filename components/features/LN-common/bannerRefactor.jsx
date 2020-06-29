@@ -1,11 +1,5 @@
 /* eslint-disable react/require-default-props */
 
-/**
- * Banner feature.
- * I'm responsible of setting the feature's custom fields and passing them in to
- * the display manager through a banner config prop
- */
-
 import React from 'react';
 import { useFusionContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';

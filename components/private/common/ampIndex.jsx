@@ -14,9 +14,102 @@ const styleConfig = {
         'AMP-LN-Acu-Noticias':
             'resources/dist/css/ln/amp/ampln-acu-noticias.css',
         'LN-nota-noticia': 'resources/dist/css/ln/amp/ampln-acu.css',
-        'LN-nota-infografia': 'resources/dist/css/ln/amp/ampln-acu.css'
+        'LN-nota-infografia': 'resources/dist/css/ln/amp/ampln-acu.css',
+        'LN-nota-storytelling': 'resources/dist/css/ln/amp/ampln-acu.css',
+        'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/ampln-acu.css'
     }
 };
+
+const customElementForAcu = [
+    {
+        customElement: 'amp-sidebar',
+        src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
+    },
+    {
+        customElement: 'amp-carousel',
+        src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'
+    },
+    {
+        customElement: 'amp-iframe',
+        src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
+    },
+    {
+        customElement: 'amp-video',
+        src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js'
+    },
+    {
+        customElement: 'amp-accordion',
+        src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
+    },
+    {
+        customElement: 'amp-ad',
+        src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
+    } /*
+            {
+                checkInclusion: 'LN-home/AMPStory',
+                customElement: 'amp-story',
+                src: 'https://cdn.ampproject.org/v0/amp-story-1.0.js'
+            } */
+];
+
+const customElementForNote = [
+    {
+        customElement: 'amp-carousel',
+        src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'
+    },
+    {
+        customElement: 'amp-ad',
+        src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
+    },
+    {
+        customElement: 'amp-accordion',
+        src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
+    },
+    {
+        customElement: 'amp-sidebar',
+        src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
+    },
+    {
+        customElement: 'amp-analytics',
+        src: 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js'
+    },
+    {
+        customElement: 'amp-sticky-ad',
+        src: 'https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'
+    },
+    {
+        customElement: 'amp-youtube',
+        src: 'https://cdn.ampproject.org/v0/amp-youtube-0.1.js'
+    },
+    {
+        customElement: 'amp-twitter',
+        src: 'https://cdn.ampproject.org/v0/amp-twitter-0.1.js'
+    },
+    {
+        customElement: 'amp-instagram',
+        src: 'https://cdn.ampproject.org/v0/amp-instagram-0.1.js'
+    },
+    {
+        customElement: 'amp-facebook',
+        src: 'https://cdn.ampproject.org/v0/amp-facebook-0.1.js'
+    },
+    {
+        customElement: 'amp-vimeo',
+        src: 'https://cdn.ampproject.org/v0/amp-vimeo-0.1.js'
+    },
+    {
+        customElement: 'amp-dailymotion',
+        src: 'https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js'
+    },
+    {
+        customElement: 'amp-vine',
+        src: 'https://cdn.ampproject.org/v0/amp-vine-0.1.js'
+    },
+    {
+        customElement: 'amp-iframe',
+        src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
+    }
+];
 
 export const AMPCustomStyle = props => {
     const { arcSite, layout, Resource } = props;
@@ -55,153 +148,11 @@ export const Snippets = () => {
 const config = {
     OTT: {},
     'la-nacion-ar': {
-        'AMP-LN-Acu': [
-            {
-                customElement: 'amp-sidebar',
-                src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
-            },
-            {
-                customElement: 'amp-carousel',
-                src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'
-            },
-            {
-                customElement: 'amp-iframe',
-                src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
-            },
-            {
-                customElement: 'amp-video',
-                src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js'
-            },
-            {
-                customElement: 'amp-accordion',
-                src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
-            },
-            {
-                customElement: 'amp-ad',
-                src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
-            } /*
-            {
-                checkInclusion: 'LN-home/AMPStory',
-                customElement: 'amp-story',
-                src: 'https://cdn.ampproject.org/v0/amp-story-1.0.js'
-            } */
-        ],
-        'LN-nota-noticia': [
-            {
-                customElement: 'amp-carousel',
-                src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'
-            },
-            {
-                customElement: 'amp-ad',
-                src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
-            },
-            {
-                customElement: 'amp-accordion',
-                src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
-            },
-            {
-                customElement: 'amp-sidebar',
-                src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
-            },
-            {
-                customElement: 'amp-analytics',
-                src: 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js'
-            },
-            {
-                customElement: 'amp-sticky-ad',
-                src: 'https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'
-            },
-            {
-                customElement: 'amp-youtube',
-                src: 'https://cdn.ampproject.org/v0/amp-youtube-0.1.js'
-            },
-            {
-                customElement: 'amp-twitter',
-                src: 'https://cdn.ampproject.org/v0/amp-twitter-0.1.js'
-            },
-            {
-                customElement: 'amp-instagram',
-                src: 'https://cdn.ampproject.org/v0/amp-instagram-0.1.js'
-            },
-            {
-                customElement: 'amp-facebook',
-                src: 'https://cdn.ampproject.org/v0/amp-facebook-0.1.js'
-            },
-            {
-                customElement: 'amp-vimeo',
-                src: 'https://cdn.ampproject.org/v0/amp-vimeo-0.1.js'
-            },
-            {
-                customElement: 'amp-dailymotion',
-                src: 'https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js'
-            },
-            {
-                customElement: 'amp-vine',
-                src: 'https://cdn.ampproject.org/v0/amp-vine-0.1.js'
-            },
-            {
-                customElement: 'amp-iframe',
-                src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
-            }
-        ],
-        'LN-nota-infografia': [
-            {
-                customElement: 'amp-carousel',
-                src: 'https://cdn.ampproject.org/v0/amp-carousel-0.1.js'
-            },
-            {
-                customElement: 'amp-ad',
-                src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
-            },
-            {
-                customElement: 'amp-accordion',
-                src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
-            },
-            {
-                customElement: 'amp-sidebar',
-                src: 'https://cdn.ampproject.org/v0/amp-sidebar-0.1.js'
-            },
-            {
-                customElement: 'amp-analytics',
-                src: 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js'
-            },
-            {
-                customElement: 'amp-sticky-ad',
-                src: 'https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'
-            },
-            {
-                customElement: 'amp-youtube',
-                src: 'https://cdn.ampproject.org/v0/amp-youtube-0.1.js'
-            },
-            {
-                customElement: 'amp-twitter',
-                src: 'https://cdn.ampproject.org/v0/amp-twitter-0.1.js'
-            },
-            {
-                customElement: 'amp-instagram',
-                src: 'https://cdn.ampproject.org/v0/amp-instagram-0.1.js'
-            },
-            {
-                customElement: 'amp-facebook',
-                src: 'https://cdn.ampproject.org/v0/amp-facebook-0.1.js'
-            },
-            {
-                customElement: 'amp-vimeo',
-                src: 'https://cdn.ampproject.org/v0/amp-vimeo-0.1.js'
-            },
-            {
-                customElement: 'amp-dailymotion',
-                src: 'https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js'
-            },
-            {
-                customElement: 'amp-vine',
-                src: 'https://cdn.ampproject.org/v0/amp-vine-0.1.js'
-            },
-            {
-                customElement: 'amp-iframe',
-                src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
-            }
-        ]
+        'AMP-LN-Acu': customElementForAcu,
+        'LN-nota-noticia': customElementForNote,
+        'LN-nota-infografia': customElementForNote,
+        'LN-nota-storytelling': customElementForNote,
+        'LN-nota-foto-al-100': customElementForNote
     }
 };
 

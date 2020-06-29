@@ -235,7 +235,11 @@ export default `
             }
             additional_properties {
                 original {
+                    byline
+                    image
                     role
+                    bio_page
+                    author_type
                 }
             }
         }
@@ -274,6 +278,9 @@ export default `
             }
             ${labels}
             website_url
+        }
+        redirect {
+            redirect_url
         }
     }
     content_elements {

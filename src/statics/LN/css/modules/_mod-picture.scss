@@ -35,38 +35,37 @@
     }
 
     .mod-caja-nota & {
+        background: $gris1;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        padding-top: calc((2 / 3) * 100%);
+
+        @media ($media-m) {
+            border: 1px solid #ccc;
+        }
         .cuerpo__nota & {
             width: 100%;
             margin-left: 0;
         }
     }
-}
 
-.mod-caja-nota,
-.--horizontal,
-.--vertical {
-    .mod-picture {
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .com-image {
-            position: absolute;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            top: 0;
-        }
-        &::before {
-            font-family: 'LNlogos';
+    &::before {
+        font-family: 'LNlogos';
+        color: #d9d9d9;
+        font-size: 4.22em;
+        font-weight: 400;
+        text-transform: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        .mod-caja-nota &,
+        .--slider &,
+        .--storytelling & {
             content: '\e80a';
-            color: #d9d9d9;
-            font-size: 4.22em;
-            font-weight: 400;
-            text-transform: none;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
         }
     }
 }

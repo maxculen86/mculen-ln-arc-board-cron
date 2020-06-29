@@ -48,14 +48,6 @@ export default function WithInfographic(WrappedComponent) {
                                   .replace(/<\/iframe/gim, '</amp-iframe')
                             : content;
 
-                    console.log(
-                        '***** extends -> getContent -> result',
-                        result
-                    );
-                    console.log(
-                        '***** extends -> getContent -> outputType',
-                        outputType
-                    );
                     this.setState({
                         content: result
                     });

@@ -48,7 +48,6 @@ const imageBase = ({
                     amp={amp}
                     height={height}
                     width={width}
-                    withLazy={withLazy}
                 />
             )}
             {active &&
