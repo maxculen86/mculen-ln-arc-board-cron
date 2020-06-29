@@ -13,6 +13,7 @@ import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import AdvertiserContent from '../private/common/scriptManager/AdvertiserContent';
+import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -57,6 +58,10 @@ const scriptList = [
     },
     {
         component: { name: 'AdvertiserContent', function: AdvertiserContent },
+        feature: 'none'
+    },
+    {
+        component: { name: 'SocialEmbeds', function: SocialEmbeds },
         feature: 'none'
     }
 ];

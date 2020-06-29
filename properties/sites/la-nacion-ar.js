@@ -40,6 +40,10 @@ export default {
         AdvertiserContent: {
             props: {},
             location: ['body-top']
+        },
+        SocialEmbeds: {
+            props: {},
+            location: ['body-top']
         }
     },
     imageConfig: {
