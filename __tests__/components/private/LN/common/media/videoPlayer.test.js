@@ -1,25 +1,29 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import Context from 'fusion:context';
-import getProperties from 'fusion:properties';
 import VideoPlayer from '../../../../../../components/private/LN/common/media/videoPlayer';
-import get from 'lodash.get';
+import { mount, shallow } from 'enzyme';
 import scriptVideoValidator from  '../../../../../../components/private/common/scriptManager/scriptVideoValidator'
 import articleSinVideo from '../../../../../../__mocks__/data/articles/5CT4YNKOB5AFNFQ7R33BOOVGAI.json';
 import articleConVideo from '../../../../../../__mocks__/data/articles/36G5V7RBRBH2XDBMBZHVCXZNBY.json';
 
+jest.mock('fusion:context', () => () => ({
+    default: (props) => {
+
+        const mockAvailableProps = {outputType: 'amp'}
+      
+        return props.children(mockAvailableProps);
+    } 
+}));
+
+import Context from 'fusion:context';
+
 describe('private - LN - common - media - videoPlayer', () => {
+
+    Context.useAppContext = jest.fn(() => ({outputType: 'amp'}));
 
     const mediaData = {
                         "_id":"9d604899-6f5d-4dcd-9b66-cd6989df063e",
-                        "additional_properties":{},
-                        "created_date":"2019-06-04T19:34:35Z",
-                        "credits":{},
                         "description":{
                             "basic":"Un adelanto"
-                        },
-                        "distributor":{
-                    
                         },
                         "duration":1214,
                         "headlines":{
@@ -37,7 +41,6 @@ describe('private - LN - common - media - videoPlayer', () => {
                                 "width":1280
                             }
                         },
-                        "publish_date":"2019-10-18T18:58:29Z",
                         "streams":[
                             {
                                 "height":360,
@@ -57,8 +60,7 @@ describe('private - LN - common - media - videoPlayer', () => {
 
     const props = {
         videoId:'9d604899-6f5d-4dcd-9b66-cd6989df063e',
-        mediaData: mediaData,
-        isAmp:true
+        mediaData: mediaData
     }
     
 
@@ -67,15 +69,6 @@ describe('private - LN - common - media - videoPlayer', () => {
             <VideoPlayer  {...props}  />
         );
         expect(component.find('amp-video').length).toBe(1);
-    });
-
-    it('No renderear amp-video si outputtype es default', () => {
-        props.isAmp = false;
-        let component = shallow(
-            <VideoPlayer {...props}  />
-        );
-        expect(component.find('amp-video').length).toBe(0);
-        props.isAmp = true;
     });
 
     it('Atributos y nodo del DOM correcto', () => {
@@ -106,6 +99,20 @@ describe('private - LN - common - media - videoPlayer', () => {
         );
         expect(component.find('amp-video')).toHaveLength(0);
 
+    });
+
+    jest.mock('fusion:context', Component => {
+        return function(Component) {
+            const outputType = 'default';
+            return props => <Component {...props} outputType={outputType} />;
+        };
+    });
+
+    it('No renderear amp-video si outputtype es default', () => {
+        let component = shallow(
+            <VideoPlayer {...props}  />
+        );
+        expect(component.find('amp-video').length).toBe(0);
     });
 
     

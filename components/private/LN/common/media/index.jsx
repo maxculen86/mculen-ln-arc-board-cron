@@ -69,11 +69,7 @@ const media = ({
             case 'video':
                 item = (
                     <figure className="mod-figure">
-                        <VideoPlayer
-                            videoId={_id}
-                            mediaData={mediaData}
-                            isAmp={outputType === 'amp'}
-                        />
+                        <VideoPlayer videoId={_id} mediaData={mediaData} />
                         {/* <ModFigcaption title={children} /> */}
                         <ComFigcaption>{children}</ComFigcaption>
                     </figure>

@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import VideoPlayer from '../../../common/videoPlayer';
 import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
+import Amp from '../../../common/amp';
+import NotAmp from '../../../common/notAmp';
 
-const video = ({ videoId, mediaData, isAmp }) => {
+const video = ({ videoId, mediaData }) => {
     const { streams = [], promo_items } = mediaData;
 
     if (streams.length === 0) {
@@ -12,12 +14,11 @@ const video = ({ videoId, mediaData, isAmp }) => {
 
     return (
         <div className="mod-video">
-            {!isAmp ? (
-                <>
-                    <VideoPlayer videoId={videoId} />
-                    <VideoPlayerSnippet mediaData={mediaData} />
-                </>
-            ) : (
+            <NotAmp>
+                <VideoPlayer videoId={videoId} />
+                <VideoPlayerSnippet mediaData={mediaData} />
+            </NotAmp>
+            <Amp>
                 <amp-video
                     controls="controls"
                     width={streams[0].width}
@@ -33,7 +34,7 @@ const video = ({ videoId, mediaData, isAmp }) => {
                         <p>Este navegador no soporta elementos de video.</p>
                     </div>
                 </amp-video>
-            )}
+            </Amp>
         </div>
     );
 };
@@ -48,8 +49,7 @@ video.propTypes = {
             basic: PropTypes.object
         }).isRequired
     }).isRequired,
-    videoId: PropTypes.string.isRequired,
-    isAmp: PropTypes.bool.isRequired
+    videoId: PropTypes.string.isRequired
 };
 
 export default video;
