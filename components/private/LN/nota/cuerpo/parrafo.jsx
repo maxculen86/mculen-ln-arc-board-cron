@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import ReactDOMServer from 'react-dom/server';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import ComLink from '../../../common/com-link';
+import ComParagraph from '../../../common/com-paragraph';
 
 import { compose } from '../../../common/utils/functional';
 
@@ -29,6 +30,7 @@ const Parrafo = ({ data, capital }) => {
                             {
                                 link,
                                 target: '_blank',
+                                className: 'com-link',
                                 title: string
                             },
                             string
@@ -40,6 +42,7 @@ const Parrafo = ({ data, capital }) => {
                         ComLink,
                         {
                             link,
+                            className: 'com-link',
                             title: string
                         },
                         string
@@ -57,7 +60,7 @@ const Parrafo = ({ data, capital }) => {
     return (
         <>
             {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
-                <p
+                /*<p
                     className={`text element-paragraph${
                         capital && isLetter(content) ? ` capital` : ''
                     }`}
@@ -65,6 +68,11 @@ const Parrafo = ({ data, capital }) => {
                     dangerouslySetInnerHTML={{
                         __html: content
                     }}
+                /> */
+                <ComParagraph
+                    capital={capital && isLetter(content) ? `--capital` : ''}
+                    size="--twoxs"
+                    content={content}
                 />
             )}
         </>

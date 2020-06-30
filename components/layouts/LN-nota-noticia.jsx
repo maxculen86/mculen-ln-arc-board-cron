@@ -89,6 +89,10 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 {/* Titulo (breadcrumb, logo+titulo) */}
                                 {children[2]}
                             </div>
+                            {/*                             <ModTitle tag="h1" size="threexl">
+                                    Trastornos de la alimentación, adicciones y
+                                    otros cuadros agravados por el encierro
+                            </ModTitle> */}
                         </div>
                     </div>
                     <div className="lay-sidebar">
