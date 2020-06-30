@@ -27,8 +27,10 @@ const hasTwitterEmbed = contentElements =>
 
 const SocialEmbeds = props => {
     const {
-        globalContent: { content_elements: contentElements }
+        globalContent: { type, content_elements: contentElements }
     } = props;
+
+    if (!contentElements) return null;
 
     const content = filterEmbeds(contentElements);
 
@@ -43,6 +45,7 @@ const SocialEmbeds = props => {
         window.addEventListener("load",function(t){var e=document.querySelector(".cuerpo__nota").getElementsByTagName("script");HTMLCollection.prototype.filter=Array.prototype.filter,e.filter(function(t){return"https://platform.twitter.com/widgets.js"===t.getAttribute("src")}).forEach(function(t){return t.remove()})});
     `;
 
+    if (type !== 'story') return null;
     if (!instagramEmbed && !twitterEmbed) return null;
     return (
         <>
@@ -75,6 +78,7 @@ const SocialEmbeds = props => {
 
 SocialEmbeds.propTypes = {
     globalContent: PropTypes.shape({
+        type: PropTypes.string.isRequired,
         content_elements: PropTypes.shape.isRequired
     }).isRequired
 };
