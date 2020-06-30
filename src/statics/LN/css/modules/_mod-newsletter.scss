@@ -3,6 +3,20 @@
 
 .mod-newsletter {
     display: flex;
+    justify-content: center;
     padding: $spacing-sm;
+    padding-bottom: $spacing-lg;
     margin-bottom: $spacing-lg;
+    border-top: 1px solid $gris3;
+    border-bottom: 1px solid $gris3;
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .container-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
 }
