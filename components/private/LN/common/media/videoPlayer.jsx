@@ -9,23 +9,30 @@ const video = ({ videoId, mediaData }) => {
 
     if (streams.length === 0) return <div className="mod-video" />;
 
+    const minStream = streams.reduce((prev, curr) =>
+        prev.height < curr.height ? prev : curr
+    );
+
     return (
         <div className="mod-video">
             <AmpContainer isForAmp={false}>
                 <VideoPlayer videoId={videoId} />
-                <VideoPlayerSnippet mediaData={mediaData} />
+                <VideoPlayerSnippet
+                    mediaData={mediaData}
+                    minStream={minStream}
+                />
             </AmpContainer>
             <AmpContainer isForAmp>
                 <amp-video
                     controls="controls"
-                    width={streams[0].width}
-                    height={streams[0].height}
+                    width={minStream.width}
+                    height={minStream.height}
                     layout="responsive"
                     poster={promo_items.basic.url}
                 >
                     <source
-                        src={streams[0].url}
-                        type={`video/${streams[0].stream_type}`}
+                        src={minStream.url}
+                        type={`video/${minStream.stream_type}`}
                     />
                     <div fallback="fallback">
                         <p>Este navegador no soporta elementos de video.</p>
