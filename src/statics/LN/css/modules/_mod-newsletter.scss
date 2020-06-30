@@ -1,0 +1,8 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-newsletter {
+    display: flex;
+    padding: $spacing-sm;
+    margin-bottom: $spacing-lg;
+}

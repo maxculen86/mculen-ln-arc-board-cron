@@ -49,6 +49,7 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import ModNewsletter from '../private/common/mod-newsletter';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -136,12 +137,13 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 </div>
                             </section>
                         </div>
+
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-desklm-none">
                             {children[6]}
                         </div>
                     </div>
-
+                    <ModNewsletter />
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
