@@ -3,10 +3,13 @@
 
 .com-image {
     transition: all 0.2s ease-in-out;
-    width: 100%;
 
     &:hover {
         filter: brightness(1.1);
+    }
+
+    .mod-picture & {
+        width: 100%;
     }
 
     .--slider & {
@@ -36,6 +39,15 @@
         .--active.--slider & {
             height: 100%;
             position: absolute;
+        }
+    }
+
+    .mod-picture & {
+        .mod-caja-nota & {
+            position: absolute;
+            object-fit: cover;
+            height: 100%;
+            top: 0;
         }
     }
 }

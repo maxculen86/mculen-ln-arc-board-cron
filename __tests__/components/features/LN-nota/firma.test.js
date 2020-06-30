@@ -17,6 +17,8 @@ jest.mock('fusion:context', Component => {
                     slug: 'mariano-grondona',
                     additional_properties: {
                         original: {
+                            author_type: 'Estándar',
+                            byline: 'Mariano Grondona',
                             role: 'LA NACION'
                         }
                     }
@@ -31,7 +33,9 @@ jest.mock('fusion:context', Component => {
                     },
                     url: '/autor/cristobal-bellolio-badiola-13185/',
                     slug: 'cristobal-bellolio-badiola-13185',
-                    additional_properties: {}
+                    additional_properties: {
+                        author_type: ''
+                    }
                 }
             ]
         };

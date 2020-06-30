@@ -385,7 +385,7 @@ const headerAMP = props => {
                                     </li>
                                     <li className="menu_secciones">
                                         <a href="https://www.lanacion.com.ar/tema/la-nacion-revista-tid56307">
-                                            La Nación revista
+                                            LA NACION revista
                                         </a>
                                     </li>
                                     <li className="menu_secciones">
@@ -485,29 +485,61 @@ const headerAMP = props => {
                     </li>
                     <li className="menu_li">
                         <a href="https://club.lanacion.com.ar/">
-                            Club LA NACIÓN
+                            Club LA NACION
                         </a>
                     </li>
                 </ul>
             </amp-sidebar>
-            <div className="nav">
-                <a href="https://www.lanacion.com.ar/" className="icon-home">
-                    Home
-                </a>
-                <button on="tap:sidebar-left.toggle" className="icon-menu">
-                    Secciones
-                </button>
-                <a href="https://club.lanacion.com.ar/" className="icon-club">
-                    Club LA NACIÓN
-                </a>
-                <a
-                    href="https://micuenta.lanacion.com.ar/mis-datos"
-                    className="icon-user"
-                >
-                    Mi cuenta
-                </a>
+
+            <nav className="com-nav-mobile">
+                <div className="row">
+                    <a
+                        href="https://www.lanacion.com.ar/"
+                        className="col-3 item-foo"
+                    >
+                        <i className="icon-home" />
+                        <p>Home</p>
+                    </a>
+                    <button
+                        type="button"
+                        className="col-3 item-foo"
+                        on="tap:sidebar-left.toggle"
+                    >
+                        <i className="icon-sections" />
+                        <p>Secciones</p>
+                    </button>
+                    <a
+                        href="https://club.lanacion.com.ar/"
+                        className="col-3 item-foo"
+                    >
+                        <i className="icon-club" />
+                        <p>Club LA NACION</p>
+                    </a>
+                    <a
+                        href="https://micuenta.lanacion.com.ar/mis-datos"
+                        className="col-3 item-foo"
+                    >
+                        <i className="icon-user" />
+                        <p>Mi Cuenta</p>
+                    </a>
+                </div>
+                {/* <a href="https://www.lanacion.com.ar/" className="col-3 icon-home">
+                        Home
+                    </a>
+                    <button on="tap:sidebar-left.toggle" className="col-3 icon-menu">
+                        Secciones
+                    </button>
+                    <a href="https://club.lanacion.com.ar/" className="col-3 icon-club">
+                        Club LA NACIÓN
+                    </a>
+                    <a
+                        href="https://micuenta.lanacion.com.ar/mis-datos"
+                        className="col-3 icon-user"
+                    >
+                        Mi cuenta
+                    </a> */}
                 <div id="target-element-left"></div>
-            </div>
+            </nav>
         </>
     );
 };

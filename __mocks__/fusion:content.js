@@ -7,15 +7,20 @@
  * at the top of your unit test file, this will
  * trigger jest to mock the Content import below
  * */
-jest.mock('fusion:content', component => {
-    return function(component) {
-        class element extends component {
-            constructor(props) {
-                super(props);
-                this.props = props;
-            }
-        }
-
-        return element;
+export const useContent = jest.fn();
+export const useEditableContent = jest.fn(() => {
+    return {
+        editableField: jest.fn()
     };
 });
+
+export default component => {
+    class element extends component {
+        constructor(props) {
+            super(props);
+            this.props = props;
+        }
+    }
+
+    return element;
+};

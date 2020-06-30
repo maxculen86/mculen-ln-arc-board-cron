@@ -118,6 +118,7 @@ const Amp = props => {
                     firstParagraphContentElements={
                         getParagraph(contentElements) || ''
                     }
+                    arcSite={arcSite}
                 />
                 <Syndication
                     arcSite={arcSite}

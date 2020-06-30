@@ -22,6 +22,7 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getParagraph from '../private/common/utils/getParagraph';
 import Syndication from '../private/common/syndication';
+import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 
 const scriptList = [
@@ -141,6 +142,7 @@ const Default = props => {
     return (
         <html lang="es">
             <head>
+                <meta charset="utf-8" />
                 <title>
                     {metaValue('title') || siteProperties.title || 'LA NACION'}
                 </title>
@@ -154,12 +156,11 @@ const Default = props => {
                     canonicalUrl={canonicalUrl}
                     arcSite={arcSite}
                 />
-                {subtype === '1' && canonicalUrl && (
-                    <link
-                        rel="amphtml"
-                        href={`https://www.lanacion.com.ar${canonicalUrl}?outputType=amp`}
-                    />
-                )}
+                <LinkAmpHTML
+                    subtype={subtype}
+                    canonicalUrl={canonicalUrl}
+                    arcSite={arcSite}
+                />
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
@@ -172,6 +173,7 @@ const Default = props => {
                     firstParagraphContentElements={
                         getParagraph(contentElements) || ''
                     }
+                    arcSite={arcSite}
                 />
                 <Syndication
                     arcSite={arcSite}
