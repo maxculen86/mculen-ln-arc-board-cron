@@ -9,14 +9,14 @@ const ComText = props => {
 
     if (tag === 'h1')
         return (
-            <h1 className={`com-title ${size} ${classCondition || ''}`}>
+            <h1 className={`com-title --${size} ${classCondition || ''}`}>
                 {children}
             </h1>
         );
     if (tag === 'h2')
         return (
             <h2
-                className={`com-title --section ${size} ${classCondition ||
+                className={`com-title --section --${size} ${classCondition ||
                     ''}`}
             >
                 {children}
@@ -25,7 +25,7 @@ const ComText = props => {
     if (tag === 'h3')
         return (
             <h3
-                className={`com-title --section ${size} ${classCondition ||
+                className={`com-title --section --${size} ${classCondition ||
                     ''}`}
             >
                 {children}
@@ -34,7 +34,7 @@ const ComText = props => {
     if (tag === 'h4')
         return (
             <h4
-                className={`com-subtitle --module ${size} ${classCondition ||
+                className={`com-subtitle --module --${size} ${classCondition ||
                     ''}`}
             >
                 {children}

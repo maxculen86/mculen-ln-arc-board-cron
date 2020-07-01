@@ -7,4 +7,10 @@
     font-family: $font-SuecaSlab;
     font-weight: 700;
     letter-spacing: $letter-spacing;
+    .mod-newsletter & {
+        font-weight: 300;
+        span {
+            font-weight: 700;
+        }
+    }
 }
