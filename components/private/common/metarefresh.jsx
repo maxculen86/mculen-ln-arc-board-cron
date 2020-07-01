@@ -32,6 +32,7 @@ const Component = props => {
     const promoItem = get(props, 'globalContent.promo_items.basic', null);
     const website = get(props, 'arcSite', null);
     const resolution = get(props, 'screenUtils.device', null);
+    const isAdmin = get(props, 'isAdmin');
 
     const content = useContent({
         source: 'navigationTreeSource',
@@ -44,6 +45,8 @@ const Component = props => {
         globalContent: { type },
         loginData: { subscription }
     } = props;
+
+    if (isAdmin) return null; // It won't render in pagebuilder
 
     const metarefresh = content.Metarefresh;
 

@@ -43,6 +43,7 @@ const Amp = props => {
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
+        promo_items: promoItems,
         headlines,
         description,
         subtype,
@@ -77,6 +78,7 @@ const Amp = props => {
                     layout={layout}
                     arcSite={arcSite}
                     contentFeatures={contentFeatures}
+                    globalContent={globalContent}
                 />
                 <AMPCustomStyle
                     layout={layout}
@@ -116,6 +118,7 @@ const Amp = props => {
                     firstParagraphContentElements={
                         getParagraph(contentElements) || ''
                     }
+                    arcSite={arcSite}
                 />
                 <Syndication
                     arcSite={arcSite}

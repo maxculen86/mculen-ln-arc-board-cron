@@ -35,13 +35,13 @@ const Sections = props => {
                     {temas && listSectionsDespues.length > 0 && (
                         <h4 className="com-subtitle_list">Temas</h4>
                     )}
-                    {temas && listSectionsDespues ? (
+                    {listSectionsDespues && (
                         <TaxonomyComponent
                             list={listSectionsDespues}
                             destacado={destacado}
                             type="section"
                         />
-                    ) : null}
+                    )}
                 </>
             </div>
         </div>

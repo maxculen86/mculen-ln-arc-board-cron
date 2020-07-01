@@ -3,45 +3,28 @@
 // Hamburger
 //=========================
 .com-hamburger {
-    //OCULTO HAMBURGUESA
     position: relative;
-    width: $px-23;
-    height: $px-19;
+    width: $px-40;
+    height: $px-32;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: column;
-    &__bar {
-        width: 100%;
-        height: $px-3;
-        border-radius: 3px;
-        background-color: #000;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        &:nth-child(1) {
-            transform-origin: right top;
-        }
-        &:nth-child(2) {
-            transform-origin: right center;
-        }
-        &:nth-child(3) {
-            transform-origin: right bottom;
-        }
-    }
+    transition: all 0.2s ease-in-out;
+
     &:before {
         content: 'Secciones';
         position: absolute;
         width: $px-60;
-        left: $px-35;
-        top: $px-3;
+        left: $px-42;
+        top: $px-10;
         font-size: $font-12;
-        font-family: Arial;
     }
     &:hover {
-        &:before {
-            color: $link;
-        }
-        .com-hamburger__bar {
-            background: $link;
-        }
+        color: $link;
+    }
+
+    .com-icon {
+        font-size: $px-30;
     }
 }

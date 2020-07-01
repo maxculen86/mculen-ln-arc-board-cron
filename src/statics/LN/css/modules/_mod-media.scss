@@ -161,6 +161,39 @@
             }
         }
     }
+
+    .mod-video {
+        width: calc(100% + 2.5rem);
+        margin-left: -1.25rem;
+        margin-bottom: 0.5rem;
+        @media ($media-l) {
+            width: 100%;
+            margin-left: 0;
+        }
+        > .powa {
+            cursor: pointer;
+            &:hover {
+                .powa-shot-play-btn svg {
+                    fill: $ln;
+                }
+            }
+            .powa-bar-play-pause:active,
+            .powa-bar-audio-icon:active,
+            .powa-bar-fullscreen:active {
+                color: $ln;
+            }
+            .powa-shot-play-btn svg:hover {
+                fill: $ln;
+            }
+            .powa-bar-scrubber-time,
+            .powa-bar-volume-level {
+                background-color: rgba(0, 116, 196, 0.9);
+            }
+            .powa-bar-scrubber-progress {
+                background-color: rgba(0, 116, 196, 0.2);
+            }
+        }
+    }
 }
 
 // .sidebar__main .mod-media {
