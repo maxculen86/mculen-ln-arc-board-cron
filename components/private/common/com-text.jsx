@@ -1,9 +1,12 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 import '../../../resources/dist/css/ln/components/com-text.css';
 
 const ComText = props => {
     const { children, textname, classCondition, tag, size } = props;
+    // if (!textname) return null;
+
     if (tag === 'h1')
         return (
             <h1 className={`com-title ${size} ${classCondition || ''}`}>
@@ -44,6 +47,14 @@ const ComText = props => {
             {textname || ``}
         </span>
     );
+};
+
+ComText.propTypes = {
+    children: PropTypes.string,
+    textname: PropTypes.string,
+    classCondition: PropTypes.string,
+    tag: PropTypes.string,
+    size: PropTypes.string
 };
 
 export default ComText;

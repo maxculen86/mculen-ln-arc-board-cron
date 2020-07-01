@@ -9,8 +9,15 @@ import get from 'lodash.get';
 import getAssetsPath from '../utils/getAssetsPath';
 
 const getFirstParagraph = contentElements =>
-    contentElements.find(contentElement => contentElement.type === 'text')
-        .content;
+    contentElements.some(contentElement => contentElement.type === 'text')
+        ? contentElements.find(contentElement => contentElement.type === 'text')
+              .content
+        : null;
+
+const getImage = promoItems => {
+    if (!promoItems) return null;
+    return promoItems.basic.type === 'image' ? promoItems.basic.url : null;
+};
 
 const AdvertiserContent = props => {
     const {
@@ -28,7 +35,10 @@ const AdvertiserContent = props => {
         deployment
     } = props;
 
+    const promoItems = get(props, 'globalContent.promo_items');
+
     if (type !== 'story') return null;
+    if (!getFirstParagraph(contentElements)) return null;
     if (!get(owner, 'sponsored')) return null;
 
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
@@ -48,8 +58,7 @@ const AdvertiserContent = props => {
         '@type': 'AdvertiserContentArticle',
         image: {
             '@type': 'ImageObject',
-            url:
-                'https://hips.htvapps.com/htv-prod-media.s3.amazonaws.com/images/tile-1507740744.jpg?resize=700:*',
+            url: getImage(promoItems) || `${LOGO_AMP}`,
             width: 700,
             height: 420
         },
@@ -82,6 +91,7 @@ AdvertiserContent.propTypes = {
             basic: PropTypes.string
         }),
         content_elements: PropTypes.shape.isRequired,
+        promo_items: PropTypes.shape,
         created_date: PropTypes.string,
         last_updated_date: PropTypes.string,
         owner: PropTypes.shape({

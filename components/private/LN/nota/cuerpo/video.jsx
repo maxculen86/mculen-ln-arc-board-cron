@@ -1,32 +1,36 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
+import ComText from '../../../common/com-text';
 
-const video = ({ data }) => {
+const video = ({ data, outputType }) => {
+    const { promo_items: promoItems } = data || {};
+    const { basic: basicVideo } = promoItems || {};
+    const { caption: captionVideo, credito: creditoVideo } = basicVideo || {};
+
+    const Epigrafe = () => {
+        return (
+            <>
+                {captionVideo && (
+                    <ComText
+                        classCondition="--caption"
+                        textname={captionVideo}
+                    />
+                )}
+                {creditoVideo && (
+                    <ComText
+                        classCondition="--credit"
+                        textname={creditoVideo}
+                    />
+                )}
+            </>
+        );
+    };
+
     return (
         <>
-            <Media mediaData={data} colNumber={12}>
-                <section className="com-epigrafe">
-                    <p className="text">{data.caption}</p>
-                    <p className="small">
-                        Fuente:{' '}
-                        {data.credits
-                            ? data.credits.affiliation.map(fuente => (
-                                  <>{fuente.name}</>
-                              ))
-                            : data.vanity_credits.affiliation.map(fuente => (
-                                  <>{fuente.name}</>
-                              ))}{' '}
-                        - Crédito:{' '}
-                        {data.credits
-                            ? data.credits.by.map(credito => (
-                                  <>{credito.name}</>
-                              ))
-                            : data.vanity_credits.by.map(credito => (
-                                  <>{credito.name}</>
-                              ))}
-                    </p>
-                </section>
+            <Media mediaData={data} colNumber={12} outputType={outputType}>
+                <Epigrafe />
             </Media>
         </>
     );
@@ -40,7 +44,8 @@ video.propTypes = {
         list_type: PropTypes.string.isRequired,
         items: PropTypes.arrayOf.isRequired,
         type: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 export default video;

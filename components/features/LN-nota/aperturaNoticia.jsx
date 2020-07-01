@@ -4,7 +4,7 @@ import Consumer from 'fusion:consumer';
 import AperturaNoticia from '../../private/LN/nota/apertura/aperturaNoticia';
 
 const aperturaNoticia = props => {
-    const { globalContent, output_type: outputType } = props;
+    const { globalContent, outputType } = props;
     const { promo_items: promoItems = {} } = globalContent;
     const { basic } = promoItems;
 

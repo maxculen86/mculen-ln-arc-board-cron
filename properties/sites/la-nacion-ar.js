@@ -5,6 +5,10 @@ export default {
     },
     host: 'https://www.lanacion.com.ar',
     scripts: {
+        ScriptVideoPowa: {
+            props: {},
+            location: ['head']
+        },
         GTM: {
             props: { id: 'GTM-GHV6', idAMP: 'GTM-PRT86FH' },
             location: ['head', 'body-top']
@@ -38,6 +42,10 @@ export default {
             location: ['head']
         },
         AdvertiserContent: {
+            props: {},
+            location: ['body-top']
+        },
+        SocialEmbeds: {
             props: {},
             location: ['body-top']
         }

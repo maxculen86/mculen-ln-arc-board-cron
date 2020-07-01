@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
+import ComText from '../../../common/com-text';
+
 const titleArticle = ({ label, headlines, prefix }) => {
     const { basic } = headlines || {};
     return (
-        <h1 className="com-title-nota">
-            {prefix !== '' ? `${prefix}\u00A0` : prefix}
+        <ComText tag="h1" size="xl" classCondition="com-title-nota">
+            {!prefix && prefix !== '' ? `${prefix}\u00A0` : prefix}
             {label.volanta ? `${label.volanta.text}\u00A0` : ''}
             {basic}
-        </h1>
+        </ComText>
     );
 };
 

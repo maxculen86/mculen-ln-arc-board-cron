@@ -48,8 +48,8 @@ image.propTypes = {
     data: PropTypes.shape({
         caption: PropTypes.string,
         distributor: PropTypes.string,
-        vanity_credits: PropTypes.arrayOf,
-        credits: PropTypes.arrayOf,
+        vanity_credits: PropTypes.array,
+        credits: PropTypes.array,
         type: PropTypes.string.isRequired
     }).isRequired,
     withZoom: PropTypes.string.isRequired

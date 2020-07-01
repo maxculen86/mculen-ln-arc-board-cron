@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
+import ScriptVideoPowa from '../private/common/scriptManager/scriptVideoPowa';
 import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
@@ -13,6 +14,7 @@ import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import AdvertiserContent from '../private/common/scriptManager/AdvertiserContent';
+import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -21,9 +23,14 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getParagraph from '../private/common/utils/getParagraph';
 import Syndication from '../private/common/syndication';
+import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 
 const scriptList = [
+    {
+        component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
+        feature: 'none'
+    },
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
@@ -57,6 +64,10 @@ const scriptList = [
     {
         component: { name: 'AdvertiserContent', function: AdvertiserContent },
         feature: 'none'
+    },
+    {
+        component: { name: 'SocialEmbeds', function: SocialEmbeds },
+        feature: 'none'
     }
 ];
 
@@ -86,6 +97,7 @@ const Default = props => {
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
+        promo_items: promoItems,
         headlines,
         description,
         subtype,
@@ -135,6 +147,7 @@ const Default = props => {
     return (
         <html lang="es">
             <head>
+                <meta charset="utf-8" />
                 <title>
                     {metaValue('title') || siteProperties.title || 'LA NACION'}
                 </title>
@@ -148,12 +161,11 @@ const Default = props => {
                     canonicalUrl={canonicalUrl}
                     arcSite={arcSite}
                 />
-                {subtype === '1' && canonicalUrl && (
-                    <link
-                        rel="amphtml"
-                        href={`https://www.lanacion.com.ar${canonicalUrl}?outputType=amp`}
-                    />
-                )}
+                <LinkAmpHTML
+                    subtype={subtype}
+                    canonicalUrl={canonicalUrl}
+                    arcSite={arcSite}
+                />
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
@@ -166,6 +178,7 @@ const Default = props => {
                     firstParagraphContentElements={
                         getParagraph(contentElements) || ''
                     }
+                    arcSite={arcSite}
                 />
                 <Syndication
                     arcSite={arcSite}
