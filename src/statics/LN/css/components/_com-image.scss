@@ -24,7 +24,7 @@
             object-fit: contain;
         }
 
-        .--active & {
+        .--active.--active & {
             height: 80vh;
             max-height: 600px;
             width: 100%;
@@ -33,10 +33,12 @@
                 max-height: 1000px;
                 max-width: 1000px;
                 width: auto;
+                position: relative;
             }
         }
         .--active.--slider & {
             height: 100%;
+            position: absolute;
         }
     }
 

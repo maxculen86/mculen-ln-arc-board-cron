@@ -1,19 +1,16 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import SnippetRender from '../../../common/snippet/snippetRender';
-import MillisecondsToTime from '../../../common/utils/millisecondsToTime';
+import SnippetRender from '../snippet/snippetRender';
+import MillisecondsToTime from '../utils/millisecondsToTime';
 
-const videoPlayerSnippet = ({ mediaData }) => {
+const videoPlayerSnippet = ({ mediaData, minStream }) => {
     const {
         headlines,
         promo_items: promoItems,
         created_date: createdDate,
-        duration,
-        streams
+        duration
     } = mediaData || {};
-    const minHeight = streams[0].height;
-    const minStream = streams.find(stream => stream.height <= minHeight);
 
     const data = {
         '@context': 'https://schema.org',
@@ -46,13 +43,11 @@ videoPlayerSnippet.propTypes = {
         }),
         created_date: PropTypes.string.isRequired,
         publish_date: PropTypes.string.isRequired,
-        duration: PropTypes.number.isRequired,
-        streams: PropTypes.arrayOf(
-            PropTypes.shape({
-                height: PropTypes.number,
-                url: PropTypes.string
-            })
-        )
+        duration: PropTypes.number.isRequired
+    }).isRequired,
+    minStream: PropTypes.shape({
+        height: PropTypes.number,
+        url: PropTypes.string
     }).isRequired
 };
 

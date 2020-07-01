@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import AperturaConDestacado from './AperturaConDestacado';
 import AperturaSinDestacado from './AperturaSinDestacado';
 import { getFirstParentSection } from '../../../../common/utils/sectionUtils';
+import checkSiteFields from '../../../common/utils/checkSiteFields';
 
 import '../../../../../../resources/dist/css/ln/layouts/grid.css';
 
@@ -11,7 +12,8 @@ const aperturaReceta = props => {
         globalContent: {
             promo_items: promoItems,
             taxonomy,
-            taxonomy: { tags }
+            taxonomy: { tags },
+            subtype
         }
     } = props;
 
@@ -77,8 +79,9 @@ aperturaReceta.propTypes = {
         promo_items: PropTypes.shape({
             receta: PropTypes.object,
             basic: PropTypes.object
-        })
-    })
+        }),
+        subtype: PropTypes.string
+    }).isRequired
 };
 
 export default aperturaReceta;
