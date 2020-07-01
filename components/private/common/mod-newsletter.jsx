@@ -8,7 +8,12 @@ import ComText from './com-text';
 
 const ModNewsletter = props => {
     const { classCondition } = props;
-    const textBold = <span> Coronavirus en la Argentina </span>;
+    const textBold = (
+        <mark className="hl_yellow_underline">
+            {' '}
+            Coronavirus en la Argentina{' '}
+        </mark>
+    );
 
     return (
         <section className="mod-newsletter">
@@ -22,9 +27,11 @@ const ModNewsletter = props => {
                         Mirá todos los newsletters que tenemos para vos
                     </ComLink>
                 </div>
-                <ComButton classesNames="--primary">
-                    SUSCRIBITE AL NEWSLETTER
-                </ComButton>
+                <div className="container-button">
+                    <ComButton classesNames="--primary">
+                        SUSCRIBITE AL NEWSLETTER
+                    </ComButton>
+                </div>
             </div>
         </section>
     );

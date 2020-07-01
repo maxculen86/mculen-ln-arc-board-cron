@@ -2,22 +2,23 @@
 @import '../abstracts/mixins';
 
 .mod-newsletter {
-    display: flex;
-    justify-content: center;
+    @include flex(flex, row, center, center);
     padding: $spacing-sm;
     padding-bottom: $spacing-md;
     margin-bottom: $spacing-lg;
     border: 1px solid $gris3;
     .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+        @include flex(flex, column, center, start);
         .container-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            @include flex(flex, column, center, start);
             margin-bottom: $spacing-md;
+            .hl_yellow_underline {
+                background: transparent;
+                text-decoration: underline;
+                text-decoration-color: $highlight;
+                font-weight: 700;
+                margin: 0 px(5);
+            }
         }
     }
 }
@@ -25,12 +26,12 @@
     .mod-newsletter {
         padding-bottom: $spacing-sm;
         .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
+            @include flex(flex, row, center, center);
             .container-text {
                 margin-right: $spacing-md;
+            }
+            .container-button {
+                width: px(300);
             }
         }
     }

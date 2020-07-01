@@ -137,6 +137,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                         </div>
                                     </div>
                                 </div>
+                                <ModNewsletter />
                             </section>
                         </div>
 
@@ -155,6 +156,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                             {/* Bottom-Tercera */}
                             {children[10]}
                         </div>
+                        <ModNewsletter />
                     </div>
                 </main>
                 <Footer />
