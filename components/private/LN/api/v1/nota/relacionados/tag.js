@@ -5,6 +5,7 @@ const tag = tag => {
 
     const resp = {
         id: getTagId(tag.slug),
+        slug: tag.slug,
         valor: tag.text,
         tipoId: 1,
         formatoId: 1,

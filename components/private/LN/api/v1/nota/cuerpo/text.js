@@ -1,11 +1,13 @@
 import htmlText from './htmlText';
 
-const text = data => {
-    const valor = htmlText(data.content);
+const text = dataText => {
+    if (!dataText) return null;
+
+    const valor = htmlText(dataText.content);
     if (!valor) return null;
     return {
         _t: 'p',
-        valor: htmlText(data.content)
+        valor: valor
     };
 };
 

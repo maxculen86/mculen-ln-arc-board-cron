@@ -1,0 +1,21 @@
+{
+    "_id": "CWRINK62SFFXXOTXG7SKY3A76U",
+    "additional_properties": {},
+    "content_elements": [],
+    "credits": {
+        "by": []
+    },
+    "description": {
+        "basic": "Esto es una galeria."
+    },
+    "headlines": {
+        "basic": "Lobos en Mardel"
+    },
+    "promo_items": {
+        "basic": {
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
+        }
+    },
+    "publish_date": "2020-04-27T23:32:55Z",
+    "type": "gallery"
+}

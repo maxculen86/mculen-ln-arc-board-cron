@@ -1,28 +1,48 @@
 import get from 'lodash.get';
 import Categorias from './categoria';
 import Tags from './tag';
+import NotaRelacionadas from './notaRelacionada';
+import {
+    isMigratedCategory,
+    getCategory
+} from '../../../../../common/utils/getElementId';
 
-const relacionadosIndex = article => {
-    const tags = get(article, 'taxonomy.tags');
-    const categories = get(article, 'taxonomy.sections');
-    const principalCategory = get(article, 'taxonomy.primary_section._id');
-
+const relacionadosIndex = dataArticle => {
     const resp = {
         tags: [],
-        categorias: []
+        categorias: [],
+        notas: []
     };
 
-    if (categories) {
-        categories.forEach(category => {
-            if (principalCategory != category._id) {
-                resp.categorias.push(Categorias(category));
-            }
+    if (!dataArticle) return null;
+
+    const dataCategories = get(dataArticle, 'taxonomy.sections');
+    const principalCategory = get(dataArticle, 'taxonomy.primary_section._id');
+    if (dataCategories) {
+        const migratedPrincipalCategory = getCategory(principalCategory, true);
+        dataCategories.forEach(e => {
+            const categorie = Categorias(e, migratedPrincipalCategory.migrada);
+
+            if (
+                (categorie &&
+                    categorie.slug && categorie.slug != principalCategory) ||
+                (categorie.id && categorie.id != migratedPrincipalCategory._id)
+            )
+                resp.categorias.push(categorie);
         });
     }
 
-    if (tags) {
-        tags.forEach(tag => {
-            resp.tags.push(Tags(tag));
+    const dataTags = get(dataArticle, 'taxonomy.tags');
+    if (dataTags) {
+        dataTags.forEach(e => {
+            resp.tags.push(Tags(e));
+        });
+    }
+
+    const relatedNotes = get(dataArticle, 'related_content.basic');
+    if (relatedNotes) {
+        relatedNotes.forEach(e => {
+            resp.notas.push(NotaRelacionadas(e));
         });
     }
 
