@@ -17,6 +17,7 @@ import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
 import Html from './html';
+import HtmlAMP from './htmlAMP';
 import Video from './video';
 
 const Cuerpo = props => {
@@ -41,7 +42,8 @@ const Cuerpo = props => {
         RawHTML,
         OembedAMP,
         BotonLink,
-        Html
+        Html,
+        HtmlAMP
     ];
 
     const types = ['text', 'image', 'oembed_response', 'video'];
