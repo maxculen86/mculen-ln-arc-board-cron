@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Subtitle from './parrafo';
 import '../../../../../resources/dist/css/ln/components/tip.css';
+import ComTitle from '../../../common/com-title';
 
 const Tips = props => {
     const { size, title, paragraphs } = props;
@@ -14,7 +15,8 @@ const Tips = props => {
         <>
             {len > 0 ? (
                 <div className="com-tip">
-                    <h4 className={`com-title-section-${size}`}>{title}</h4>
+                    <ComTitle tag="h4" size="l" content={title} />
+
                     {paragraphs &&
                         paragraphs.map(paragraph =>
                             paragraph.element.type === 'header' ? (
@@ -24,6 +26,7 @@ const Tips = props => {
                                 />
                             ) : (
                                 <p
+                                    className="com-paragraph"
                                     key={paragraph.element._id}
                                     dangerouslySetInnerHTML={{
                                         __html: paragraph.element.content
