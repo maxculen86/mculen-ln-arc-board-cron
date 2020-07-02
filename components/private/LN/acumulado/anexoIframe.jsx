@@ -3,12 +3,12 @@ import PropTypes from 'fusion:prop-types';
 import pym from 'pym.js';
 import '../../../../resources/dist/css/ln/pages/acu-revista.css';
 
-const AnexoIframe = ({ url, id, styles }) => {
+const AnexoIframe = ({ url, id, styles, _props }) => {
     useEffect(() => {
         if (window && url) {
             window.pym = pym;
             const pymIframe = new pym.Parent(`anexo-${id}`, url, {
-                scrolling: 'no'
+                ..._props
             });
 
             pymIframe.onMessage('pymEspecialesLoaded', status => {
@@ -31,12 +31,14 @@ const AnexoIframe = ({ url, id, styles }) => {
 AnexoIframe.propTypes = {
     id: PropTypes.string.isRequired,
     url: PropTypes.string,
-    styles: PropTypes.string
+    styles: PropTypes.string,
+    _props: PropTypes.arrayOf(PropTypes.objects)
 };
 
 AnexoIframe.defaultProps = {
     url: undefined,
-    styles: ''
+    styles: '',
+    _props: { scrolling: 'no' }
 };
 
 export default AnexoIframe;
