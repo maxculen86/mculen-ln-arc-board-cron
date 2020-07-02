@@ -39,8 +39,8 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.paywallStatus).toBe(
             article.content_restrictions.content_code
         );
-        expect(resp.abiertoComentarios).toBe(true);
-        expect(resp.entradaId).toBe(article.label.livefyre_entrada_id.text);
+        expect(resp.abiertoComentarios).toBe(false);
+        expect(resp.entradaId).toBe(undefined);
         expect(resp.fechaActualizacion).toBe(
             dateAndTimeForAppsUtil(article.publish_date)
         );
