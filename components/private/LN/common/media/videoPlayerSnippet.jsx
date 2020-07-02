@@ -1,28 +1,36 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import SnippetRender from '../../../common/snippet/snippetRender';
+import MillisecondsToTime from '../../../common/utils/millisecondsToTime';
 
 const videoPlayerSnippet = ({ mediaData }) => {
-    const minHeight = mediaData.streams[0].height;
-    const minStream = mediaData.streams.find(
-        stream => stream.height <= minHeight
-    );
+    const {
+        headlines,
+        promo_items: promoItems,
+        created_date: createdDate,
+        duration,
+        streams
+    } = mediaData || {};
+    const minHeight = streams[0].height;
+    const minStream = streams.find(stream => stream.height <= minHeight);
 
     const data = {
-        __html: `
-            {
-                "@context":"https://schema.org",
-                "@type":"VideoObject",
-                "name":"${mediaData.headlines.basic}",
-                "description":"${mediaData.headlines.basic}",
-                "thumbnailUrl":"${mediaData.promo_items.basic.url}",
-                "uploadDate":"${mediaData.publish_date}",
-                "embedUrl":"${minStream.url}",
-                "duration":"PT${mediaData.duration}S"
-            }`
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: `${headlines.basic || 'LA NACION - Noticia'}`,
+        description: `${
+            promoItems.basic.caption
+                ? promoItems.basic.caption
+                : headlines.basic
+        }`,
+        thumbnailUrl: [`${promoItems.basic.url}`],
+        uploadDate: `${new Date(createdDate).toUTCString() || ''}`,
+        embedUrl: `${minStream.url}`,
+        duration: `${MillisecondsToTime(duration)}`
     };
 
-    return <script type="application/ld+json" dangerouslySetInnerHTML={data} />;
+    return <SnippetRender data={data} />;
 };
 
 videoPlayerSnippet.propTypes = {
@@ -32,9 +40,11 @@ videoPlayerSnippet.propTypes = {
         }),
         promo_items: PropTypes.shape({
             basic: PropTypes.shape({
-                url: PropTypes.string
+                url: PropTypes.string,
+                caption: PropTypes.string
             })
         }),
+        created_date: PropTypes.string.isRequired,
         publish_date: PropTypes.string.isRequired,
         duration: PropTypes.number.isRequired,
         streams: PropTypes.arrayOf(

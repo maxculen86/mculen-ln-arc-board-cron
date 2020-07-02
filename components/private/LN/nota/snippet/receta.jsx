@@ -20,7 +20,7 @@ const extractDataFromContentElements = contentElements => {
         preparacions.forEach(pre => {
             if (pre.embed.config.items) {
                 pre.embed.config.items.map(item =>
-                    preparaciones.push({ '@type': 'HowToStep', 'text': item })
+                    preparaciones.push({ '@type': 'HowToStep', text: item })
                 );
             }
         });
@@ -127,10 +127,9 @@ const snippet = props => {
         counterPortion
     } = extractDataFromPromoItems(promoItems);
 
-    const {
-        preparaciones, 
-        ingredientes 
-    } = extractDataFromContentElements(contentElements);
+    const { preparaciones, ingredientes } = extractDataFromContentElements(
+        contentElements
+    );
 
     const { keywords } = extractDataFromTags(tags);
 

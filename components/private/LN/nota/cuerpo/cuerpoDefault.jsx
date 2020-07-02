@@ -17,6 +17,7 @@ import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
 import Html from './html';
+import Video from './video';
 
 const Cuerpo = props => {
     const {
@@ -36,6 +37,7 @@ const Cuerpo = props => {
         Gallery,
         ListOrderedOrUnordered,
         Image,
+        Video,
         RawHTML,
         OembedAMP,
         BotonLink,

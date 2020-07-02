@@ -1,36 +1,231 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-.logo-ohlala.--color {
-    color: $ohlala;
+.logo-ohlala {
+    font-size: px(18);
+    &.--medium {
+        font-size: px(33);
+    }
+    &.--large {
+        font-size: px(70);
+    }
+    &.--color {
+        color: $ohlala;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
 
-.logo-brando.--color {
-    color: $brando;
+.logo-brando {
+    &.--medium {
+        font-size: px(30);
+    }
+    &.--large {
+        font-size: px(70);
+    }
+    &.--color {
+        color: $brando;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
 
-.logo-living.--color {
-    color: $living;
+.logo-living {
+    font-size: px(24);
+    &.--medium {
+        font-size: px(43);
+    }
+    &.--large {
+        font-size: px(98);
+    }
+    &.--color {
+        color: $living;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
 
-.logo-hola.--color {
-    color: $hola;
+.logo-hola {
+    font-size: px(32);
+    &.--medium {
+        font-size: px(58);
+    }
+    &.--large {
+        font-size: px(120);
+    }
+    &.--color {
+        color: $hola;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
 
-.logo-jardin.--color {
-    color: $jardin;
+.logo-jardin {
+    font-size: px(23);
+    &.--medium {
+        font-size: px(40);
+    }
+    &.--large {
+        font-size: px(90);
+    }
+    &.--color {
+        color: $jardin;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
 
-.logo-lugares.--color {
-    color: $lugares;
+.logo-lugares {
+    &.--medium {
+        font-size: px(30);
+    }
+    &.--large {
+        font-size: px(60);
+    }
+    &.--color {
+        color: $lugares;
+    }
 }
 
-.logo-rolling.--color {
-    color: $rolling;
+.logo-rolling,
+.logo-rolling-stone {
+    font-size: px(23);
+    &.--medium {
+        font-size: px(40);
+    }
+    &.--large {
+        font-size: px(90);
+    }
+    &.--color {
+        color: $rolling;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
 }
 
-.logo-bbc.--color {
-    &:before {
-        color: $bbc;
+.logo-bbc {
+    font-size: px(32);
+    &.--medium {
+        font-size: px(45);
+    }
+    &.--large {
+        font-size: px(70);
+    }
+    &.--color {
+        &:before {
+            color: $bbc;
+        }
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
+
+.logo-la-nacion {
+    &.--medium {
+        font-size: px(30);
+    }
+    &.--large {
+        font-size: px(60);
+    }
+    &.--color {
+        color: $ln;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
+
+.logo-ln-mas {
+    font-size: px(20);
+    &.--medium {
+        font-size: px(37);
+    }
+    &.--large {
+        font-size: px(76);
+    }
+    &.--color {
+        color: $lnmas;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
+
+.logo-negocios {
+    font-size: px(30);
+    &.--medium {
+        font-size: px(60);
+    }
+    &.--large {
+        font-size: px(100);
+    }
+    &.--color {
+        color: $negocios;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
+
+.logo-club {
+    font-size: px(30);
+    &.--medium {
+        font-size: px(84);
+    }
+    &.--large {
+        font-size: px(160);
+    }
+    &.--color {
+        color: $club2;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
+    }
+}
+
+.logo-club-lanacion {
+    font-size: px(30);
+    &.--medium {
+        font-size: px(90);
+    }
+    &.--large {
+        font-size: px(160);
+    }
+    &.--color {
+        color: $club2;
+    }
+    .mod-opening & {
+        .--storytelling & {
+            color: $blanco;
+        }
     }
 }

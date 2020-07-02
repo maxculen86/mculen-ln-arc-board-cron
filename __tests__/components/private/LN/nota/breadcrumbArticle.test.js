@@ -9,31 +9,30 @@ import Breadcrumb from '../../../../../components/private/LN/nota/breadcrumb/bre
 
 jest.mock('fusion:content', () => ({
     useContent: () => ({
-            "_id": "/",
-            "_website": "la-nacion-ar",
-            "name": "LA NACION",
-            "site": {
-                "site_url": null
-            },
-            "children": [
-                {
-                    "_id": "/recetas",
-                    "site": {
-                        "site_url": null
-                    },
-                    "children": [
-                        {
-                            "_id": "/recetas/carnes",
-                            "site": {
-                                "site_url": null,
-                            }
+        _id: '/',
+        _website: 'la-nacion-ar',
+        name: 'LA NACION',
+        site: {
+            site_url: null
+        },
+        children: [
+            {
+                _id: '/recetas',
+                site: {
+                    site_url: null
+                },
+                children: [
+                    {
+                        _id: '/recetas/carnes',
+                        site: {
+                            site_url: null
                         }
-                    ]
-                }
-            ]
-        })
+                    }
+                ]
+            }
+        ]
     })
-);
+}));
 
 describe('features - LaNacion - Nota - ', () => {
     it('Test de snapshot Breadcrumb', () => {

@@ -16,7 +16,9 @@ const getDomain = (arcSite, globalContent = {}) => {
         if (data) {
             const sectionFinded = data.children.find(sec => sec._id === _id);
             domainSiteOfSection =
-                sectionFinded && sectionFinded.site && sectionFinded.site.site_url;
+                sectionFinded &&
+                sectionFinded.site &&
+                sectionFinded.site.site_url;
             domainSiteGeneral = data.site && data.site.site_url;
         }
     }
