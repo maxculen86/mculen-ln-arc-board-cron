@@ -4,28 +4,36 @@ import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
 import '../../resources/dist/css/ln/base/types.css';
-import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
-import '../../resources/dist/css/ln/modules/header-desktop.css';
-import '../../resources/dist/css/ln/modules/header-mobile.css';
+
+//import '../../resources/dist/css/ln/pages/recipe.css';
+
+//import '../../resources/dist/css/ln/modules/header-desktop.css';
+//import '../../resources/dist/css/ln/modules/header-mobile.css';
+
+import '../../resources/dist/css/ln/pages/photo100.css';
+
+import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 
 // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
 // EL COMPONENTE Y EN OTROS NO
-import '../../resources/dist/css/ln/components/button.css';
 import '../../resources/dist/css/ln/components/date.css';
-import '../../resources/dist/css/ln/components/tag.css';
 import '../../resources/dist/css/ln/components/author.css';
+import '../../resources/dist/css/ln/components/text.css';
+
+import '../../resources/dist/css/ln/components/button.css';
+import '../../resources/dist/css/ln/components/tag.css';
 import '../../resources/dist/css/ln/components/lead.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/input.css';
 import '../../resources/dist/css/ln/modules/newsletter.css';
 import '../../resources/dist/css/ln/components/blockquote.css';
-import '../../resources/dist/css/ln/components/text.css';
 import '../../resources/dist/css/ln/components/link.css';
 import '../../resources/dist/css/ln/components/subtitle.css';
 import '../../resources/dist/css/ln/components/slider.css';
@@ -36,6 +44,7 @@ import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
 import '../../resources/dist/css/ln/components/com-button.css';
+
 // import '../../resources/dist/css/ln/components/colecciones.css';
 // import '../../resources/dist/css/ln/components/carta-lectores.css';
 
@@ -75,21 +84,190 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
         <GlobalProvider>
             {/* Banner MEGATOP */}
             {bannerMegatop}
-            {/* Banner MEGATOP */}
-            <div id="wrapper" className={`nota foto-al-100 ${amp}`}>
-                {/* TODO: sacar */}
-                {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
+            <div
+                id="wrapper"
+                className={`nota --photo100 --transparent ${amp}`}
+            >
                 <Header />
                 <main>
-                    {children[1]}
-                    <div className="lay --apertura">
+                    <AperturaStorytelling />
+                    <div className="--body">
+                        <div className="lay">
+                            <p className="text element-paragraph">
+                                <strong>El nombre de Squeff</strong>, muy
+                                cercana al kirchnerismo, comenzó a sonar en los
+                                pasillos de la Cancillería luego del traspié del
+                                Gobierno tras
+                                <a
+                                    href="https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570"
+                                    title="la caída sorpresiva de la postulación de Luis Bellando"
+                                    className="com-link "
+                                    data-reactroot=""
+                                >
+                                    la caída sorpresiva de la postulación de
+                                    Luis Bellando
+                                </a>
+                                , otro diplomático de carrera, para representar
+                                al país en la Santa Sede.
+                            </p>
+                        </div>
+                        <div className="lay">
+                            <p className="text element-paragraph">
+                                En un lugar de la Mancha, de cuyo nombre no
+                                quiero acordarme, no ha mucho tiempo que vivía
+                                un hidalgo de los de lanza en astillero.
+                                <br />
+                                Quieren decir que tenía el sobrenombre de
+                                Quijada, o Quesada, que en esto hay alguna
+                                diferencia en los autores que deste caso
+                                escriben.
+                            </p>
+                        </div>
                         <div className="row">
-                            <div className="col-12">
-                                {/* Titulo (breadcrumb, logo+titulo) */}
-                                {children[2]}
+                            <div className="col-12 ">
+                                <section className="cuerpo__nota">
+                                    <div>
+                                        <section
+                                            role="button"
+                                            className="mod-media --zoom  "
+                                        >
+                                            <figure
+                                                role="button"
+                                                className="mod-figure --horizontal"
+                                            >
+                                                <picture className="mod-picture ">
+                                                    <source
+                                                        media="(min-width: 1280px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/ryxIacp2knJOtHcsepXnDiQS2BY=/1280x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 1024px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/7IUe_kKdO_Xc8DCX6RvjFCj_1Hg=/690x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 768px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/GF9q1Pd47Ql1Cy03N5T1o96q1FU=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 360px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/RhFeiZj5SkE0HOcMei06L9zNcMM=/350x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 320px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/JWT6kCkRE3q55sHh3ycJer3wQCw=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <img
+                                                        src="http://demo-prod.origin.arcpublishing.com/resizer/GF9q1Pd47Ql1Cy03N5T1o96q1FU=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                        loading="lazy"
+                                                        className="com-image "
+                                                        alt=""
+                                                    />
+                                                </picture>
+                                                <div className="lay">
+                                                    <figcaption className="mod-figcaption">
+                                                        <span className="com-text --caption">
+                                                            Este texto es la
+                                                            bajada de la imagen,
+                                                            van con un par de
+                                                            lineas, puede tener
+                                                            al menos unas
+                                                            cuatro.
+                                                        </span>
+                                                        <span className="com-text --credit">
+                                                            LA NACION - Enrique
+                                                            Medina
+                                                        </span>
+                                                    </figcaption>
+                                                </div>
+                                            </figure>
+                                        </section>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div className="lay">
+                            <p className="text element-paragraph">
+                                <strong>El nombre de Squeff</strong>, muy
+                                cercana al kirchnerismo, comenzó a sonar en los
+                                pasillos de la Cancillería luego del traspié del
+                                Gobierno tras
+                                <a
+                                    href="https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570"
+                                    title="la caída sorpresiva de la postulación de Luis Bellando"
+                                    className="com-link "
+                                    data-reactroot=""
+                                >
+                                    la caída sorpresiva de la postulación de
+                                    Luis Bellando
+                                </a>
+                                , otro diplomático de carrera, para representar
+                                al país en la Santa Sede.
+                            </p>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 ">
+                                <section className="cuerpo__nota">
+                                    <div>
+                                        <section
+                                            role="button"
+                                            className="mod-media --zoom  "
+                                        >
+                                            <figure
+                                                role="button"
+                                                className="mod-figure --horizontal"
+                                            >
+                                                <picture className="mod-picture ">
+                                                    <source
+                                                        media="(min-width: 1280px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/RdPKpev1vn2EyRi60HhAMTuPxSs=/1280x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 1024px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/rK6d4KefYwZDESVtE4mlXom0K0w=/690x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 768px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/r-JvqZANSLMk42Z4TpYGOtv78eI=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 360px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/6Ep7oaRvxxguKrcQEoEqnPVHSOE=/350x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 320px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/Dsi_3kQH6GVZ0BLFE8Fb3Cqh4U4=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <img
+                                                        src="http://demo-prod.origin.arcpublishing.com/resizer/r-JvqZANSLMk42Z4TpYGOtv78eI=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                        loading="lazy"
+                                                        className="com-image "
+                                                        alt=""
+                                                    />
+                                                </picture>
+                                                <div className="lay">
+                                                    <figcaption className="mod-figcaption">
+                                                        <span className="com-text --caption">
+                                                            Este texto es la
+                                                            bajada de la imagen,
+                                                            van con un par de
+                                                            lineas, puede tener
+                                                            al menos unas
+                                                            cuatro.
+                                                        </span>
+                                                        <span className="com-text --credit">
+                                                            LA NACION - Enrique
+                                                            Medina
+                                                        </span>
+                                                    </figcaption>
+                                                </div>
+                                            </figure>
+                                        </section>
+                                    </div>
+                                </section>
                             </div>
                         </div>
                     </div>
+
                     <div className="lay-sidebar">
                         {/* Cuerpo */}
                         <div className="sidebar__main">
@@ -97,25 +275,6 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 <div className="col-12 ">
                                     {/* Bajada y autor fecha más apertura */}
                                     {children[3]}
-                                    {/* <div className="opinion-autor row">
-                                    <section id="" className="cont-figure">
-                                        <div className="figure">
-                                            <picture className="content-pic picture">
-                                                <img
-                                                    src="https://bucket1.glanacion.com/anexos/fotos/12/2089212w82.png"
-                                                    alt=""
-                                                    className="content-img"
-                                                />
-                                            </picture>
-                                        </div>
-                                    </section>
-                                    <div className="opinion-calc">
-                                        <h1 className="link hlp-bold">
-                                            <a href="">Bruno Pittón</a>
-                                        </h1>
-                                        <label>PARA LA NACION</label>
-                                    </div>
-                                </div> */}
                                 </div>
                             </div>
                             <section className="cuerpo__nota">
@@ -162,9 +321,9 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
 
 const pageBuilderSections = [
     'Banner-Megatop',
+    'Apertura',
     'Pre-Titulo',
     'Titulo',
-    'Apertura',
     'Left-Cuerpo',
     'Cuerpo',
     'Tercera',

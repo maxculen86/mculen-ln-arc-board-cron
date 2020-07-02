@@ -47,7 +47,7 @@ import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
 import '../../resources/dist/css/ln/components/storytelling.css';
-import '../../resources/dist/css/ln/modules/mod-opening.css';
+//import '../../resources/dist/css/ln/modules/mod-opening.css';
 
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
@@ -88,7 +88,7 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
             {bannerMegatop}
             <div
                 id="wrapper"
-                className={`nota noticia --storytelling --hlp-transparent ${amp}`}
+                className={`nota --storytelling --transparent ${amp}`}
             >
                 <Header />
                 <main>
