@@ -16,9 +16,9 @@ const OptaEmbed = props => {
         globalContent: { type, content_elements: contentElements }
     } = props;
 
-    if (!contentElements) return null;
+    /* if (!contentElements) return null;
     if (!hasOptaElements(contentElements)) return null;
-    if (type !== 'story') return null;
+    if (type !== 'story') return null; */
     const script = `
         var opta_settings = {
             subscription_id: '${config.optaConfig.subscription_id}',

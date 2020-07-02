@@ -4,13 +4,13 @@ import PropTypes from 'fusion:prop-types';
 import config from '../../properties/sites/la-nacion-ar';
 
 const OptaLayout = ({ children, opta = false }) => {
-    const script = `
+    /* const script = `
         var opta_settings = {
             subscription_id: '${config.optaConfig.subscription_id}',
             language: '${config.optaConfig.language}',
             timezone: '${config.optaConfig.timezone}'
         };
-    `;
+    `; */
 
     return (
         <>
@@ -24,6 +24,10 @@ const OptaLayout = ({ children, opta = false }) => {
                             href="https://secure.widget.cloud.opta.net/v3/css/v3.all.opta-widgets.css"
                         />
                     )}
+                    <script
+                        defer
+                        src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js"
+                    />
                 </head>
                 <body>
                     <div>Hello world</div>
@@ -63,9 +67,9 @@ const OptaLayout = ({ children, opta = false }) => {
                     {opta && (
                         <>
                             <script src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js" />
-                            <script
+                            {/* <script
                                 dangerouslySetInnerHTML={{ __html: script }}
-                            />
+                            /> */}
                         </>
                     )}
                 </body>
