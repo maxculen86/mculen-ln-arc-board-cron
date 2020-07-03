@@ -26,11 +26,11 @@ const OptaEmbed = props => {
             timezone: '${config.optaConfig.timezone}'
         };
     `;
-    const style = `http://widget.cloud.opta.net/v3/css/v3.all.opta-widgets.css`;
+    const style = `https://secure.widget.cloud.opta.net/v3/css/v3.all.opta-widgets.css`;
     return (
         <>
             <link rel="stylesheet" href={style} />
-            <script src="http://widget.cloud.opta.net/v3/v3.opta-widgets.js" />
+            <script src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js" />
             <script dangerouslySetInnerHTML={{ __html: script }} />
             <noscript>Your browser does not suport javascript</noscript>
         </>

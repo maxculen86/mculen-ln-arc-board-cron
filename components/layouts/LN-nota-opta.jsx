@@ -14,66 +14,40 @@ const OptaLayout = ({ children, opta = false }) => {
 
     return (
         <>
-            <html lang="en">
-                <head>
-                    <meta charset="utf-8" />
-                    <title>Embed Html</title>
-                    {opta && (
-                        <link
-                            rel="stylesheet"
-                            href="https://secure.widget.cloud.opta.net/v3/css/v3.all.opta-widgets.css"
-                        />
-                    )}
-                    <script
-                        defer
-                        src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js"
-                    />
-                </head>
-                <body>
-                    <div>Hello world</div>
-                    <opta-widget
-                        sport="football"
-                        widget="standings"
-                        template="normal"
-                        live="false"
-                        competition="8"
-                        season="2015"
-                        match=""
-                        team=""
-                        team_padding=""
-                        navigation=""
-                        default_nav="1"
-                        side="combined"
-                        data_detail="default"
-                        dividers=""
-                        show_key="false"
-                        show_crests="false"
-                        points_in_first_column="false"
-                        show_form="6"
-                        group=""
-                        crop=""
-                        competition_naming="full"
-                        team_naming="full"
-                        team_link=""
-                        date_format="dddd D MMMM YYYY"
-                        sorting="false"
-                        show_logo="true"
-                        breakpoints="400"
-                    />
-                    <div
-                        style={{ width: '800px;', padding: '20px;' }}
-                        dangerouslySetInnerHTML={{ __html: children }}
-                    />
-                    {opta && (
-                        <>
-                            <script src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js" />
-                            {/* <script
-                                dangerouslySetInnerHTML={{ __html: script }}
-                            /> */}
-                        </>
-                    )}
-                </body>
-            </html>
+            <div>Hello world</div>
+            <opta-widget
+                sport="football"
+                widget="standings"
+                template="normal"
+                live="false"
+                competition="8"
+                season="2015"
+                match=""
+                team=""
+                team_padding=""
+                navigation=""
+                default_nav="1"
+                side="combined"
+                data_detail="default"
+                dividers=""
+                show_key="false"
+                show_crests="false"
+                points_in_first_column="false"
+                show_form="6"
+                group=""
+                crop=""
+                competition_naming="full"
+                team_naming="full"
+                team_link=""
+                date_format="dddd D MMMM YYYY"
+                sorting="false"
+                show_logo="true"
+                breakpoints="400"
+            />
+            <div
+                style={{ width: '800px', padding: '20px' }}
+                dangerouslySetInnerHTML={{ __html: children }}
+            />
         </>
     );
 };
