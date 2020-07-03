@@ -4,7 +4,7 @@ import VideoPlayer from '../../../common/videoPlayer';
 import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
 import AmpContainer from '../../../common/ampContainer';
 
-const video = ({ videoId, mediaData }) => {
+const video = ({ videoId, mediaData, parrafo, tituloNota }) => {
     const { streams = [], promo_items } = mediaData;
 
     if (streams.length === 0) return <div className="mod-video" />;
@@ -18,6 +18,8 @@ const video = ({ videoId, mediaData }) => {
             <AmpContainer isForAmp={false}>
                 <VideoPlayer videoId={videoId} />
                 <VideoPlayerSnippet
+                    parrafo={parrafo}
+                    tituloNota={tituloNota}
                     mediaData={mediaData}
                     minStream={minStream}
                 />
@@ -53,7 +55,11 @@ video.propTypes = {
             basic: PropTypes.object
         }).isRequired
     }).isRequired,
-    videoId: PropTypes.string.isRequired
+    videoId: PropTypes.string.isRequired,
+    tituloNota: PropTypes.string.isRequired,
+    parrafo: PropTypes.shape({
+        content: PropTypes.string
+    }).isRequired
 };
 
 export default video;

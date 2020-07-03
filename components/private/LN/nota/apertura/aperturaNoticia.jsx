@@ -5,7 +5,8 @@ import ComText from '../../../common/com-text';
 import ComFigcaption from '../../../common/com-figcaption';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
-const aperturaNoticia = ({ basic, outputType }) => {
+const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
+    const parrafo = primerParrafo || 'LA NACION';
     const { type, promo_items: promoItems } = basic || {};
     const { basic: basicVideo } = promoItems || {};
     const { caption: captionVideo, credito: creditoVideo } = basicVideo || {};
@@ -56,6 +57,8 @@ const aperturaNoticia = ({ basic, outputType }) => {
             active={active}
             isApertura
             outputType={outputType}
+            parrafo={parrafo}
+            tituloNota={tituloNota}
         >
             <Epigrafe />
         </Media>
