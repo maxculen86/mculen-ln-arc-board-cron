@@ -91,9 +91,9 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                 <Header />
                 <main>
                     <AperturaStorytelling />
-                    <div className="--body">
+                    <div className="---body">
                         <div className="lay">
-                            <p className="text element-paragraph">
+                            <p className="com-paragraph --twoxs">
                                 <strong>El nombre de Squeff</strong>, muy
                                 cercana al kirchnerismo, comenzó a sonar en los
                                 pasillos de la Cancillería luego del traspié del
@@ -112,7 +112,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </p>
                         </div>
                         <div className="lay">
-                            <p className="text element-paragraph">
+                            <p className="com-paragraph --twoxs">
                                 En un lugar de la Mancha, de cuyo nombre no
                                 quiero acordarme, no ha mucho tiempo que vivía
                                 un hidalgo de los de lanza en astillero.
@@ -186,7 +186,202 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </div>
                         </div>
                         <div className="lay">
-                            <p className="text element-paragraph">
+                            <p className="com-paragraph --twoxs">
+                                <strong>El nombre de Squeff</strong>, muy
+                                cercana al kirchnerismo, comenzó a sonar en los
+                                pasillos de la Cancillería luego del traspié del
+                                Gobierno tras
+                                <a
+                                    href="https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570"
+                                    title="la caída sorpresiva de la postulación de Luis Bellando"
+                                    className="com-link "
+                                    data-reactroot=""
+                                >
+                                    la caída sorpresiva de la postulación de
+                                    Luis Bellando
+                                </a>
+                                , otro diplomático de carrera, para representar
+                                al país en la Santa Sede.
+                            </p>
+                        </div>
+                        <div className="lay">
+                            <ul class="com-unordered">
+                                <li class="com-item">
+                                    El Grand Hotel del Tucumán realiza hasta el
+                                    domingo próximo una feria de artesanías.
+                                </li>
+                                <li class="com-item">
+                                    Que permite apreciar las diversas
+                                    manifestaciones culturales de la comunidad
+                                    provincial.
+                                </li>
+                                <li class="com-item">
+                                    Se exponen, entre otros, trabajos en vidrio,
+                                    platería, madera, pocelanas, cueros y papel
+                                    maché.
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 ">
+                                <section className="cuerpo__nota">
+                                    <div>
+                                        <section
+                                            role="button"
+                                            className="mod-media --zoom  "
+                                        >
+                                            <figure
+                                                role="button"
+                                                className="mod-figure --horizontal"
+                                            >
+                                                <picture className="mod-picture ">
+                                                    <source
+                                                        media="(min-width: 1280px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/RdPKpev1vn2EyRi60HhAMTuPxSs=/1280x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 1024px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/rK6d4KefYwZDESVtE4mlXom0K0w=/690x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 768px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/r-JvqZANSLMk42Z4TpYGOtv78eI=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 360px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/6Ep7oaRvxxguKrcQEoEqnPVHSOE=/350x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 320px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/Dsi_3kQH6GVZ0BLFE8Fb3Cqh4U4=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                    />
+                                                    <img
+                                                        src="http://demo-prod.origin.arcpublishing.com/resizer/r-JvqZANSLMk42Z4TpYGOtv78eI=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
+                                                        loading="lazy"
+                                                        className="com-image "
+                                                        alt=""
+                                                    />
+                                                </picture>
+                                                <div className="lay">
+                                                    <figcaption className="mod-figcaption">
+                                                        <span className="com-text --caption">
+                                                            Este texto es la
+                                                            bajada de la imagen,
+                                                            van con un par de
+                                                            lineas, puede tener
+                                                            al menos unas
+                                                            cuatro.
+                                                        </span>
+                                                        <span className="com-text --credit">
+                                                            LA NACION - Enrique
+                                                            Medina
+                                                        </span>
+                                                    </figcaption>
+                                                </div>
+                                            </figure>
+                                        </section>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="--body">
+                        <div className="lay">
+                            <p className="com-paragraph --twoxs">
+                                <strong>El nombre de Squeff</strong>, muy
+                                cercana al kirchnerismo, comenzó a sonar en los
+                                pasillos de la Cancillería luego del traspié del
+                                Gobierno tras
+                                <a
+                                    href="https://www.lanacion.com.ar/politica/antes-del-viaje-alberto-fernandez-se-cayo-nid2324570"
+                                    title="la caída sorpresiva de la postulación de Luis Bellando"
+                                    className="com-link "
+                                    data-reactroot=""
+                                >
+                                    la caída sorpresiva de la postulación de
+                                    Luis Bellando
+                                </a>
+                                , otro diplomático de carrera, para representar
+                                al país en la Santa Sede.
+                            </p>
+                        </div>
+                        <div className="lay">
+                            <p className="com-paragraph --twoxs">
+                                En un lugar de la Mancha, de cuyo nombre no
+                                quiero acordarme, no ha mucho tiempo que vivía
+                                un hidalgo de los de lanza en astillero.
+                                <br />
+                                Quieren decir que tenía el sobrenombre de
+                                Quijada, o Quesada, que en esto hay alguna
+                                diferencia en los autores que deste caso
+                                escriben.
+                            </p>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 ">
+                                <section className="cuerpo__nota">
+                                    <div>
+                                        <section
+                                            role="button"
+                                            className="mod-media --zoom  "
+                                        >
+                                            <figure
+                                                role="button"
+                                                className="mod-figure --horizontal"
+                                            >
+                                                <picture className="mod-picture ">
+                                                    <source
+                                                        media="(min-width: 1280px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/ryxIacp2knJOtHcsepXnDiQS2BY=/1280x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 1024px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/7IUe_kKdO_Xc8DCX6RvjFCj_1Hg=/690x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 768px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/GF9q1Pd47Ql1Cy03N5T1o96q1FU=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 360px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/RhFeiZj5SkE0HOcMei06L9zNcMM=/350x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <source
+                                                        media="(min-width: 320px)"
+                                                        srcset="http://demo-prod.origin.arcpublishing.com/resizer/JWT6kCkRE3q55sHh3ycJer3wQCw=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                    />
+                                                    <img
+                                                        src="http://demo-prod.origin.arcpublishing.com/resizer/GF9q1Pd47Ql1Cy03N5T1o96q1FU=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GBKYH73BZNFQZANSG5OECUYSDE.jpg"
+                                                        loading="lazy"
+                                                        className="com-image "
+                                                        alt=""
+                                                    />
+                                                </picture>
+                                                <div className="lay">
+                                                    <figcaption className="mod-figcaption">
+                                                        <span className="com-text --caption">
+                                                            Este texto es la
+                                                            bajada de la imagen,
+                                                            van con un par de
+                                                            lineas, puede tener
+                                                            al menos unas
+                                                            cuatro.
+                                                        </span>
+                                                        <span className="com-text --credit">
+                                                            LA NACION - Enrique
+                                                            Medina
+                                                        </span>
+                                                    </figcaption>
+                                                </div>
+                                            </figure>
+                                        </section>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div className="lay">
+                            <p className="com-paragraph --twoxs">
                                 <strong>El nombre de Squeff</strong>, muy
                                 cercana al kirchnerismo, comenzó a sonar en los
                                 pasillos de la Cancillería luego del traspié del
