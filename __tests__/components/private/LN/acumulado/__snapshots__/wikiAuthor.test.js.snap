@@ -24,7 +24,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
       class="wiki-calc"
     >
       <h1
-        class="com-title-section-xl"
+        class="com-title --xl "
       >
         Joaquín Morales Solá
       </h1>

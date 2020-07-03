@@ -21,6 +21,10 @@ describe('Cuerpo Default', () => {
         isAdmin: false,
         bannerConfig: [{ mobile: 'caja3_mob', position: 7 }],
         globalContent: {
+            headlines: {
+                basic:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+            },
             content_elements: [...Array(8)].reduce(
                 (accumulator, value) => [
                     ...accumulator,
