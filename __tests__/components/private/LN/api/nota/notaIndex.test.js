@@ -8,7 +8,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/private/LN/api/v1/nota/aperturaArticle',
+    '../../../../../../components/private/LN/api/v1/nota/apertura/aperturaArticle',
     () => {
         return () => {
             return 'apertura-mock';
@@ -40,14 +40,14 @@ describe('Test de index en JSON de nota', () => {
             article.content_restrictions.content_code
         );
         expect(resp.abiertoComentarios).toBe(false);
-        //Revisar
-        //expect(resp.entradaId).toBe(undefined);
+        expect(resp.comentariosId).toBe(article.label.livefyre_entrada_id.text);
         expect(resp.fechaActualizacion).toBe(
             dateAndTimeForAppsUtil(article.publish_date)
         );
         expect(resp.fecha).toBe(
             dateAndTimeForAppsUtil(article.first_publish_date)
         );
+        
         expect(resp.categoria).toBe('primarySection-mock');
         expect(resp.apertura).toBe('apertura-mock');
         expect(resp.relacionados).toBe('relacionados-mock');

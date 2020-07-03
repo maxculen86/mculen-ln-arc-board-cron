@@ -1,6 +1,6 @@
 import Header from './header';
 import Text from './text';
-import Video from '../video';
+import Video from './video';
 import Image from './image';
 import List from './list';
 import Quote from './quote';

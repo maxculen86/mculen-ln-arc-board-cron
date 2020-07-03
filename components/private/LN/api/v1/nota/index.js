@@ -1,7 +1,8 @@
 import get from 'lodash.get';
 import Section from './sectionArticle';
-import Apertura from './aperturaArticle';
+import Apertura from './apertura/aperturaArticle';
 import Cuerpo from './cuerpo';
+import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 
 import { dateAndTimeForAppsUtil } from '../../../../common/utils/dateAndTimeUtil';
@@ -35,6 +36,10 @@ const indexNota = dataNota => {
         contenido: Cuerpo(dataNota),
         relacionados: Relacionados(dataNota)
     };
+
+    const modificadorTemplate = ModificadorTemplate(dataNota);
+
+    if (modificadorTemplate) resp.modificadorTemplate = modificadorTemplate;
 
     return resp;
 };

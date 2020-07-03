@@ -1,7 +1,4 @@
-import {
-    getCategory,
-    isMigratedCategory
-} from '../../../../../common/utils/getElementId';
+import { getCategory } from '../../../../../common/utils/migratedCategoriesHelper';
 
 const categorias = (category, isMigratedPrincipalCategory) => {
     if (!category) return null;

@@ -33,7 +33,7 @@
         "_id": "67",
         "ArcSectionId": "/deportes",
         "name": "Deportes",
-        "migrada": true
+        "migrada": false
     },
     {
         "_id": "144",
