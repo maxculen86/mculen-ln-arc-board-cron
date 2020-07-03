@@ -75,7 +75,7 @@ const HtmlAMP = props => {
                 sandbox="allow-scripts allow-same-origin"
                 layout="responsive"
                 frameborder="0"
-                src="http://arc.lanacion.com.ar/opta/?_website=la-nacion-ar&opta=true"
+                src="https://dev.lanacionar.arcpublishing.com/pf/opta/?_website=la-nacion-ar&opta=true"
             />
         </div>
     );
