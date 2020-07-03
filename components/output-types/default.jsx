@@ -207,6 +207,13 @@ const Default = props => {
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
                 {/* <Scripts name="Microdata" /> */}
+                <script
+                    defer
+                    src={deployment(
+                        `${contextPath}/resources/js/elmahio.min.js`
+                    )}
+                    type="text/javascript"
+                />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
