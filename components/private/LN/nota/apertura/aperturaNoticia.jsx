@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComText from '../../../common/com-text';
-import ComFigcaption from '../../../common/com-figcaption';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
 const aperturaNoticia = ({ basic, outputType }) => {
@@ -21,7 +20,7 @@ const aperturaNoticia = ({ basic, outputType }) => {
 
     const Epigrafe = () => {
         return basic && type === 'image' ? (
-            <ComFigcaption>
+            <>
                 {basic.caption && (
                     <ComText
                         classCondition="--caption"
@@ -29,7 +28,7 @@ const aperturaNoticia = ({ basic, outputType }) => {
                     />
                 )}
                 <ComText classCondition="--credit" textname={credito} />
-            </ComFigcaption>
+            </>
         ) : (
             <>
                 {captionVideo && (

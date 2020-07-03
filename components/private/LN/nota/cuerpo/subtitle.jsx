@@ -1,27 +1,56 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComTitle from '../../../common/com-title';
 
-const Subtitle = ({ data }) => {
-    const { level, content } = data;
-    switch (level) {
+const Subtitle = props => {
+    const { data } = props;
+    switch (data.level) {
         case 1:
-            return <ComTitle tag="h2" size="l" content={content} />;
+            return (
+                <h2
+                    className="com-subtitle-nota-1"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         case 2: {
-            return <ComTitle tag="h3" size="m" content={content} />;
+            return (
+                <h3
+                    className="com-subtitle-nota-2"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         case 3:
         case 4: {
-            return <ComTitle tag="h4" size="threexs" content={content} />;
+            return (
+                <h4
+                    className="com-subtitle-nota-3"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         case 5: {
-            return <ComTitle tag="h4" size="threexs" content={content} />;
+            return (
+                <h5
+                    className="com-subtitle-nota-3"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         case 6: {
-            return <ComTitle tag="h4" size="threexs" content={content} />;
+            return (
+                <h6
+                    className="com-subtitle-nota-3"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
         }
         default:
-            return <ComTitle tag="h2" size="threexl" content={content} />;
+            return (
+                <h2
+                    className="com-subtitle-nota-1"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+            );
     }
 };
 

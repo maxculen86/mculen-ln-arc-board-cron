@@ -10,7 +10,6 @@ import get from '../../../common/utils/get';
 
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
-import ComTitle from '../../../common/com-title';
 
 const AcumuladoTitle = props => {
     const { globalContent, orderAndCountTags, customFields } = props;
@@ -86,15 +85,18 @@ const AcumuladoTitle = props => {
         hideTagsList,
         isPrimarySection
     ]);
-    const prefixText =
-        !isPrimarySection && title && prefixTitle ? `${prefixTitle} ` : '';
-    const titleText = `${prefixText} ${title}`;
 
     return (
         <>
             <div className="com-titleWithfollow">
                 <div className={withCategory}>
-                    <ComTitle size="xl" tag="h1" content={titleText} />
+                    <h1 className="com-title-section-xl">
+                        {!isPrimarySection &&
+                            title &&
+                            prefixTitle &&
+                            `${prefixTitle} `}
+                        {title}
+                    </h1>
                     <ListSectionsTitle
                         _children={_children}
                         isPrimarySection={isPrimarySection}
