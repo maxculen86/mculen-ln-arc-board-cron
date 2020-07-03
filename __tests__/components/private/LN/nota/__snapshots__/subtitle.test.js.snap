@@ -2,6 +2,6 @@
 
 exports[`Subtitle matches snapshot 1`] = `
 <h2
-  class="com-title --threexl "
+  class="com-subtitle-nota-1"
 />
 `;

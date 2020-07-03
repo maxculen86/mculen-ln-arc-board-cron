@@ -9,7 +9,7 @@ Array [
       class="col-tablet-3 hlp-marginBottom-mobile-40"
     >
       <h4
-        class="com-title --m "
+        class="com-title-section-s"
       >
         Ingredientes
       </h4>
@@ -80,7 +80,7 @@ Array [
       class="col-tablet-8 offset-tablet-1"
     >
       <h4
-        class="com-title --m "
+        class="com-title-section-m"
       >
         Preparación
       </h4>
@@ -119,13 +119,11 @@ Array [
       class="com-tip"
     >
       <h4
-        class="com-title --l "
+        class="com-title-section-m"
       >
         Tip
       </h4>
-      <p
-        class="com-paragraph"
-      >
+      <p>
         Compartí la información confiable y la opinión de los especialistas más prestigiosos con este link: Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local - URL: "
         <a
           href="https://www.lanacion.com.ar/2173809-tras-0-0-independiente-como-le-fue-river"
@@ -135,9 +133,7 @@ Array [
         </a>
          - Copyright © LA NACION
       </p>
-      <p
-        class="com-paragraph"
-      >
+      <p>
         <br />
       </p>
     </div>

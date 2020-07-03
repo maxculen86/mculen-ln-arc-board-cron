@@ -1,6 +1,6 @@
 import React from 'react';
-import ComLink from './com-link';
-import '../../../resources/dist/css/ln/components/com-text.css';
+import ComLink from '../common/com-link';
+import '../../../src/statics/LN/css/components/_com-title.scss';
 
 const ComTitle = props => {
     const {
@@ -19,7 +19,9 @@ const ComTitle = props => {
         case 'h1': {
             return (
                 <h1
-                    className={`com-title --${size} ${classCondition || ''}`}
+                    className={`com-title --${size} ${
+                        classCondition ? classCondition : ''
+                    }`}
                     dangerouslySetInnerHTML={{ __html: content }}
                 />
             );
@@ -30,15 +32,17 @@ const ComTitle = props => {
                     {link ? (
                         <ComLink link={link} classCondition={classCondition}>
                             <h2
-                                className={`com-title --${size} ${classCondition ||
-                                    ''}`}
+                                className={`com-title --${size} ${
+                                    classCondition ? classCondition : ''
+                                }`}
                                 dangerouslySetInnerHTML={{ __html: content }}
                             />
                         </ComLink>
                     ) : (
                         <h2
-                            className={`com-title --${size} ${classCondition ||
-                                ''}`}
+                            className={`com-title --${size} ${
+                                classCondition ? classCondition : ''
+                            }`}
                             dangerouslySetInnerHTML={{ __html: content }}
                         />
                     )}
@@ -48,7 +52,9 @@ const ComTitle = props => {
         case 'h3': {
             return (
                 <h3
-                    className={`com-title --${size} ${classCondition || ''}`}
+                    className={`com-title --${size} ${
+                        classCondition ? classCondition : ''
+                    }`}
                     dangerouslySetInnerHTML={{ __html: content }}
                 />
             );
@@ -56,7 +62,9 @@ const ComTitle = props => {
         case 'h4': {
             return (
                 <h4
-                    className={`com-title --${size} ${classCondition || ''}`}
+                    className={`com-title --${size} ${
+                        classCondition ? classCondition : ''
+                    }`}
                     dangerouslySetInnerHTML={{ __html: content }}
                 />
             );
@@ -64,7 +72,9 @@ const ComTitle = props => {
         default:
             return (
                 <h4
-                    className={`com-title --${size} ${classCondition || ''}`}
+                    className={`com-title --${size} ${
+                        classCondition ? classCondition : ''
+                    }`}
                     dangerouslySetInnerHTML={{ __html: content }}
                 />
             );

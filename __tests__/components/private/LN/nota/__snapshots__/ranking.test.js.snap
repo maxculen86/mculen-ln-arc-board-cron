@@ -54,16 +54,15 @@ exports[`Ranking matches snapshot 1`] = `
         <div
           class="mod-caja-nota__descrip"
         >
-          <a
-            class="com-link --acu"
-            href="/autos/test-de-generacion-de-url/"
+          <h2
+            class="com-title-acu"
           >
-            <h2
-              class="com-title --m --acu"
+            <a
+              href="/autos/test-de-generacion-de-url/"
             >
               Test de generacion de url
-            </h2>
-          </a>
+            </a>
+          </h2>
         </div>
       </article>
     </li>
@@ -90,16 +89,18 @@ exports[`Ranking matches snapshot 1`] = `
         <div
           class="mod-caja-nota__descrip"
         >
-          <a
-            class="com-link --acu"
-            href="/recetas/receta-de-prueba-con-volanta/"
+          <h2
+            class="com-title-acu"
           >
-            <h2
-              class="com-title --m --acu"
+            <a
+              href="/recetas/receta-de-prueba-con-volanta/"
             >
-              Esto es una volanta !!! Receta de prueba con volanta
-            </h2>
-          </a>
+              <b>
+                Esto es una volanta !!! 
+              </b>
+              Receta de prueba con volanta
+            </a>
+          </h2>
         </div>
       </article>
     </li>
@@ -126,16 +127,15 @@ exports[`Ranking matches snapshot 1`] = `
         <div
           class="mod-caja-nota__descrip"
         >
-          <a
-            class="com-link --acu"
-            href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
+          <h2
+            class="com-title-acu"
           >
-            <h2
-              class="com-title --m --acu"
+            <a
+              href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
             >
               Mi paso por el yoga del infierno
-            </h2>
-          </a>
+            </a>
+          </h2>
         </div>
       </article>
     </li>
