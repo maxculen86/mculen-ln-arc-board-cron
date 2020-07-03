@@ -4,23 +4,29 @@ import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../snippet/snippetRender';
 import MillisecondsToTime from '../utils/millisecondsToTime';
 
-const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
-    const { content: primerParrafo } = parrafo;
-    const { promo_items: promoItems, created_date: createdDate, duration } =
-        mediaData || {};
+const videoPlayerSnippet = ({ mediaData, minStream }) => {
+    const {
+        headlines,
+        promo_items: promoItems,
+        created_date: createdDate,
+        duration
+    } = mediaData || {};
 
     const data = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
-        name: `${tituloNota || 'LA NACION - Noticia'}`,
+        name: `${headlines.basic || 'LA NACION - Noticia'}`,
         description: `${
-            promoItems.basic.caption ? promoItems.basic.caption : primerParrafo
+            promoItems.basic.caption
+                ? promoItems.basic.caption
+                : headlines.basic
         }`,
         thumbnailUrl: [`${promoItems.basic.url}`],
-        uploadDate: `${createdDate.replace(/T/g, ' ').replace(/Z/g, '') || ''}`,
+        uploadDate: `${new Date(createdDate).toUTCString() || ''}`,
         embedUrl: `${minStream.url}`,
         duration: `${MillisecondsToTime(duration)}`
     };
+
     return <SnippetRender data={data} />;
 };
 
@@ -42,10 +48,6 @@ videoPlayerSnippet.propTypes = {
     minStream: PropTypes.shape({
         height: PropTypes.number,
         url: PropTypes.string
-    }).isRequired,
-    tituloNota: PropTypes.string.isRequired,
-    parrafo: PropTypes.shape({
-        content: PropTypes.string
     }).isRequired
 };
 

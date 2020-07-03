@@ -3,8 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComText from '../../../common/com-text';
 
-const video = ({ data, outputType, tituloNota, primerParrafo }) => {
-    const parrafo = primerParrafo || 'LA NACION';
+const video = ({ data, outputType }) => {
     const { promo_items: promoItems } = data || {};
     const { basic: basicVideo } = promoItems || {};
     const { caption: captionVideo, credito: creditoVideo } = basicVideo || {};
@@ -30,13 +29,7 @@ const video = ({ data, outputType, tituloNota, primerParrafo }) => {
 
     return (
         <>
-            <Media
-                mediaData={data}
-                colNumber={12}
-                outputType={outputType}
-                tituloNota={tituloNota}
-                parrafo={parrafo}
-            >
+            <Media mediaData={data} colNumber={12} outputType={outputType}>
                 <Epigrafe />
             </Media>
         </>
@@ -52,9 +45,7 @@ video.propTypes = {
         items: PropTypes.arrayOf.isRequired,
         type: PropTypes.string.isRequired
     }).isRequired,
-    outputType: PropTypes.string.isRequired,
-    primerParrafo: PropTypes.string,
-    tituloNota: PropTypes.string
+    outputType: PropTypes.string.isRequired
 };
 
 export default video;

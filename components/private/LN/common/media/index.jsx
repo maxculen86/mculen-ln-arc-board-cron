@@ -17,8 +17,6 @@ const media = ({
     outputType,
     handleClick,
     isApertura,
-    parrafo,
-    tituloNota,
     active
 }) => {
     const refContainer = useRef();
@@ -71,12 +69,7 @@ const media = ({
             case 'video':
                 item = (
                     <figure className="mod-figure">
-                        <VideoPlayer
-                            videoId={_id}
-                            mediaData={mediaData}
-                            parrafo={parrafo}
-                            tituloNota={tituloNota}
-                        />
+                        <VideoPlayer videoId={_id} mediaData={mediaData} />
                         {/* <ModFigcaption title={children} /> */}
                         <ComFigcaption>{children}</ComFigcaption>
                     </figure>
@@ -123,11 +116,7 @@ media.propTypes = {
     }),
     href: PropTypes.string.tag({
         defaultValue: ''
-    }),
-    tituloNota: PropTypes.string.isRequired,
-    parrafo: PropTypes.shape({
-        content: PropTypes.string
-    }).isRequired
+    })
 };
 
 export default media;

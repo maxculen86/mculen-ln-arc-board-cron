@@ -22,9 +22,9 @@ const Parrafo = ({ data, capital }) => {
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
                 if (!href.includes(config.host)) {
-                    return `<a class='com-link' ${href} target='_blank'>${string}</a>`;
+                    return `<a ${href} target='_blank'>${string}</a>`;
                 }
-                return `<a class='com-link' ${href}>${string}</a>`;
+                return `<a ${href}>${string}</a>`;
             }
         );
 
