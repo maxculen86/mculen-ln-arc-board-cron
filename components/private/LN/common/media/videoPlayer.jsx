@@ -3,32 +3,35 @@ import PropTypes from 'fusion:prop-types';
 import VideoPlayer from '../../../common/videoPlayer';
 import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
 import AmpContainer from '../../../common/ampContainer';
+import WithScreenUtils from '../../../common/hocs/withScreenUtils';
+import urlForPrerollAds from '../utils/urlForPrerollAds';
 
-const video = ({ videoId, mediaData }) => {
+const video = ({ videoId, mediaData, screenUtils }) => {
     const { streams = [], promo_items } = mediaData;
-
     if (streams.length === 0) return <div className="mod-video" />;
 
     const minStream = streams.reduce((prev, curr) =>
         prev.height < curr.height ? prev : curr
     );
 
+    const adsURL = urlForPrerollAds(screenUtils.device);
+
     return (
         <div className="mod-video">
             <AmpContainer isForAmp={false}>
-                <VideoPlayer videoId={videoId} />
+                <VideoPlayer videoId={videoId} adsURL={adsURL} />
                 <VideoPlayerSnippet
                     mediaData={mediaData}
                     minStream={minStream}
                 />
             </AmpContainer>
             <AmpContainer isForAmp>
-                <amp-video
-                    controls="controls"
+                <amp-ima-video
                     width={minStream.width}
                     height={minStream.height}
                     layout="responsive"
-                    poster={promo_items.basic.url}
+                    data-poster={promo_items.basic.url}
+                    data-tag={adsURL}
                 >
                     <source
                         src={minStream.url}
@@ -37,7 +40,7 @@ const video = ({ videoId, mediaData }) => {
                     <div fallback="fallback">
                         <p>Este navegador no soporta elementos de video.</p>
                     </div>
-                </amp-video>
+                </amp-ima-video>
             </AmpContainer>
         </div>
     );
@@ -53,7 +56,10 @@ video.propTypes = {
             basic: PropTypes.object
         }).isRequired
     }).isRequired,
-    videoId: PropTypes.string.isRequired
+    videoId: PropTypes.string.isRequired,
+    screenUtils: PropTypes.shape({
+        device: PropTypes.string
+    }).isRequired
 };
 
-export default video;
+export default WithScreenUtils(video);
