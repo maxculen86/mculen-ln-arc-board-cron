@@ -44,7 +44,7 @@ const getData = ({
             : metaValue('description') || DEFAULT.DESCRIPTION,
         image:
             typeBasicPI === 'image' && urlBasicPI
-                ? `${SITE_LANACION}${urlBasicPI}`
+                ? `${urlBasicPI}`
                 : DEFAULT.IMAGE,
         url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain,
         fbAppId:
