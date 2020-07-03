@@ -204,6 +204,24 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 al país en la Santa Sede.
                             </p>
                         </div>
+                        <div className="lay">
+                            <ul class="com-unordered">
+                                <li class="com-item">
+                                    El Grand Hotel del Tucumán realiza hasta el
+                                    domingo próximo una feria de artesanías.
+                                </li>
+                                <li class="com-item">
+                                    Que permite apreciar las diversas
+                                    manifestaciones culturales de la comunidad
+                                    provincial.
+                                </li>
+                                <li class="com-item">
+                                    Se exponen, entre otros, trabajos en vidrio,
+                                    platería, madera, pocelanas, cueros y papel
+                                    maché.
+                                </li>
+                            </ul>
+                        </div>
                         <div className="row">
                             <div className="col-12 ">
                                 <section className="cuerpo__nota">
