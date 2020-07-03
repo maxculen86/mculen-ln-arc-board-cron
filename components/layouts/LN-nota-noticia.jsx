@@ -49,6 +49,10 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import ComParagraph from '../private/common/com-paragraph';
+import ComLink from '../private/common/com-link';
+import ModParagraph from '../private/common/mod-paragraph';
+import ModTitle from '../private/common/mod-title';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -86,6 +90,10 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 {/* Titulo (breadcrumb, logo+titulo) */}
                                 {children[2]}
                             </div>
+                            {/*                             <ModTitle tag="h1" size="threexl">
+                                    Trastornos de la alimentación, adicciones y
+                                    otros cuadros agravados por el encierro
+                            </ModTitle> */}
                         </div>
                     </div>
                     <div className="lay-sidebar">

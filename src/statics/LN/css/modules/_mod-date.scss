@@ -1,0 +1,7 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-date {
+    @include flex(flex, row, start, center);
+    margin-bottom: $spacing-sm;
+}

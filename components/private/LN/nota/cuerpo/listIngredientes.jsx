@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ListItems from '../../../common/listItems';
+import ComTitle from '../../../common/com-title';
 
 const listIngredientes = ({ ingredients }) => {
     return (
         <>
-            <h4 className="com-title-section-s">Ingredientes</h4>
+            <ComTitle tag="h4" size="m" content={'Ingredientes'} />
             {ingredients &&
                 ingredients.length !== 0 &&
                 ingredients.map(list => (

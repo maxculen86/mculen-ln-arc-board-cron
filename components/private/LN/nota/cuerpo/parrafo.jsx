@@ -3,10 +3,11 @@ import PropTypes from 'fusion:prop-types';
 import ReactDOMServer from 'react-dom/server';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import ComLink from '../../../common/com-link';
+import ComParagraph from '../../../common/com-paragraph';
 
 import { compose } from '../../../common/utils/functional';
 
-// TODO: cambiar parrafo por paragraph
+// TODO: cambiar Metodo setExternalLinks
 const Parrafo = ({ data, capital }) => {
     const isLetter = text => text.match(/^[A-Za-z]/);
 
@@ -20,31 +21,10 @@ const Parrafo = ({ data, capital }) => {
         text.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
-                const [, link] = href.match(/"(.*?[^\\])"/);
-
                 if (!href.includes(config.host)) {
-                    return ReactDOMServer.renderToString(
-                        React.createElement(
-                            ComLink,
-                            {
-                                link,
-                                target: '_blank',
-                                title: string
-                            },
-                            string
-                        )
-                    );
+                    return `<a ${href} target='_blank'>${string}</a>`;
                 }
-                return ReactDOMServer.renderToString(
-                    React.createElement(
-                        ComLink,
-                        {
-                            link,
-                            title: string
-                        },
-                        string
-                    )
-                );
+                return `<a ${href}>${string}</a>`;
             }
         );
 
@@ -57,7 +37,7 @@ const Parrafo = ({ data, capital }) => {
     return (
         <>
             {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
-                <p
+                /* <p
                     className={`text element-paragraph${
                         capital && isLetter(content) ? ` capital` : ''
                     }`}
@@ -65,6 +45,11 @@ const Parrafo = ({ data, capital }) => {
                     dangerouslySetInnerHTML={{
                         __html: content
                     }}
+                /> */
+                <ComParagraph
+                    capital={capital && isLetter(content) ? `--capital` : ''}
+                    size="--twoxs"
+                    content={content}
                 />
             )}
         </>

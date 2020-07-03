@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { render, mount, shallow } from 'enzyme';
 
 import Paragraph from '../../../../../../components/private/LN/nota/cuerpo/parrafo';
+import ComParagraph from '../../../../../../components/private/common/com-paragraph';
 
 describe('Paragraph', () => {
     const data = {
@@ -13,7 +14,9 @@ describe('Paragraph', () => {
     let component;
 
     beforeEach(() => {
-        component = mount(<Paragraph data={data} capital />);
+        component = mount(
+            <Paragraph content={data.content} data={data} capital />
+        );
     });
 
     afterEach(() => {
@@ -49,17 +52,25 @@ describe('Paragraph', () => {
     });
 
     it('Applies `capital` class to paragraph in order to upper-case the first letter', () => {
-        expect(component.find('p').hasClass('capital')).toBe(true);
+        expect(component.find('p').hasClass('--capital')).toBe(true);
     });
 
     it('Transforms <b> tags into <strong> tags', () => {
-        expect(component.find('p.text.element-paragraph').html()).toMatch(
+        const componentShallow = shallow(
+            <Paragraph content={data.content} data={data} capital />
+        );
+
+        expect(componentShallow.find(ComParagraph).prop('content')).toMatch(
             /<[/]?(strong)>/
         );
     });
 
     it('Transforms <i> tags into <em> tags', () => {
-        expect(component.find('p.text.element-paragraph').html()).toMatch(
+        const componentShallow = shallow(
+            <Paragraph content={data.content} data={data} capital />
+        );
+
+        expect(componentShallow.find(ComParagraph).prop('content')).toMatch(
             new RegExp('<[/]?(em)>')
         );
     });
