@@ -23,7 +23,7 @@ const indexNota = dataNota => {
         id,
         template,
         url,
-        impresa: !!(edicion && edicion.toLowerCase() === 'impresa'),
+        impresa: edicion && edicion.toLowerCase() === 'impresa' ? true : false,
         paywallStatus: paywallStatus ? paywallStatus : 'comun',
         abiertoComentarios: dataNota.comments
             ? dataNota.comments.display_comments

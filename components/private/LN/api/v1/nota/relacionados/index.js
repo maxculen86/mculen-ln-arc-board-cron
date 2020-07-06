@@ -2,10 +2,7 @@ import get from 'lodash.get';
 import Categorias from './categoria';
 import Tags from './tag';
 import NotaRelacionadas from './notaRelacionada';
-import {
-    isMigratedCategory,
-    getCategory
-} from '../../../../../common/utils/migratedCategoriesHelper';
+import { getCategory } from '../../../../../common/utils/migratedCategoriesHelper';
 
 const relacionadosIndex = dataArticle => {
     const resp = {
@@ -23,12 +20,13 @@ const relacionadosIndex = dataArticle => {
         const migratedPrincipalCategory = getCategory(principalCategory, true);
         dataCategories.forEach(e => {
             const categorie = Categorias(e, migratedPrincipalCategory.migrada);
-            if (
-                (categorie &&
-                    categorie.slug &&
-                    categorie.slug !== principalCategory) ||
-                (categorie.id && categorie.id != migratedPrincipalCategory._id)
-            )
+            // if (
+            //     (categorie &&
+            //         categorie.slug &&
+            //         categorie.slug !== principalCategory) ||
+            //     (categorie.id && categorie.id != migratedPrincipalCategory._id)
+            // )
+            if ((categorie && categorie.slug) || (categorie && categorie.id))
                 resp.categorias.push(categorie);
         });
     }

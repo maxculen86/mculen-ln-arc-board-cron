@@ -16,20 +16,20 @@ describe('Test de JSON de relacionados en article', () => {
         expect(resp.tags).toHaveLength(0);
     });
 
-    it('Valor de categoria en caso de ser vacias las categorias', () => {
+    it('Valor de categoria en caso de ser vacio las notas relacionados', () => {
         const resp = Relacionados(articleNoElements);
-        expect(resp.categorias).toHaveLength(0);
+        expect(resp.categorias).toHaveLength(1);
     });
 
-    it('Valor de categoria en caso de ser vacio las notas relacionados', () => {
+    it('Valor de categoria en caso de ser vacias las categorias', () => {
         const resp = Relacionados(articleNoElements);
         expect(resp.notas).toHaveLength(0);
     });
 
-    it('Test si la longitud de las categorias tiene la longitud menos la categoria principal', () => {
+    it('Test si la longitud de las categorias tiene la longitud incluyendo la categoria principal', () => {
         const resp = Relacionados(articleFull);
         const categories = get(articleFull, 'taxonomy.sections');
-        expect(resp.categorias).toHaveLength(categories.length - 1);
+        expect(resp.categorias).toHaveLength(categories.length);
     });
 
     it('Test si la longitud de los tags es igual', () => {

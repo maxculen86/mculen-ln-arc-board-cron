@@ -47,7 +47,6 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.fecha).toBe(
             dateAndTimeForAppsUtil(article.first_publish_date)
         );
-        
         expect(resp.categoria).toBe('primarySection-mock');
         expect(resp.apertura).toBe('apertura-mock');
         expect(resp.relacionados).toBe('relacionados-mock');

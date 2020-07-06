@@ -15,6 +15,7 @@ describe('Pruebas unitarias para los modificadores template', () => {
 
     it('Test valores del modificador template',()=>{
         const resp = ModificadorTemplate(ModificadorTemplateArticle[0])
+        expect(resp.id).toBe(ModificadorTemplateArticle[0].distributor.reference_id);
         expect(resp.descripcion).toBe(ModificadorTemplateArticle[0].distributor.name);
     })
 });

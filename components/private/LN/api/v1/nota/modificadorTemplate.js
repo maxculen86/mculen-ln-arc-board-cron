@@ -6,7 +6,8 @@ const modificadorTemplate = dataArticle => {
         return null;
 
     const resp = {
-        descripcion: distribuitor.name
+        descripcion: distribuitor.name,
+        id: distribuitor.reference_id
     };
     return resp;
 };
