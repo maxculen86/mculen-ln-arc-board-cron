@@ -6,7 +6,7 @@ import AmpContainer from '../../../common/ampContainer';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import urlForPrerollAds from '../utils/urlForPrerollAds';
 
-const video = ({ videoId, mediaData, screenUtils }) => {
+const video = ({ videoId, mediaData, screenUtils, parrafo, tituloNota }) => {
     const { streams = [], promo_items } = mediaData;
     if (streams.length === 0) return <div className="mod-video" />;
 
@@ -21,6 +21,8 @@ const video = ({ videoId, mediaData, screenUtils }) => {
             <AmpContainer isForAmp={false}>
                 <VideoPlayer videoId={videoId} adsURL={adsURL} />
                 <VideoPlayerSnippet
+                    parrafo={parrafo}
+                    tituloNota={tituloNota}
                     mediaData={mediaData}
                     minStream={minStream}
                 />
@@ -59,6 +61,10 @@ video.propTypes = {
     videoId: PropTypes.string.isRequired,
     screenUtils: PropTypes.shape({
         device: PropTypes.string
+    }).isRequired,
+    tituloNota: PropTypes.string.isRequired,
+    parrafo: PropTypes.shape({
+        content: PropTypes.string
     }).isRequired
 };
 
