@@ -317,7 +317,6 @@ a.icon-cerrar:before {
         max-width: 40%;
     }
     .header {
-        border-bottom: 1px solid #d9d9d9;
         .suscribir__header {
             display: inline-block;
             justify-content: inherit;
@@ -331,6 +330,7 @@ a.icon-cerrar:before {
         align-items: center;
         justify-content: center;
         padding: 13px 0;
+        border-bottom: 1px solid #d9d9d9;
 
         .suscribir__header {
             background-color: #ffff24;
