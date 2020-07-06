@@ -93,6 +93,7 @@ Object {
   "fechaActualizacion": "2020-04-24 08:35:53",
   "id": "QAZ7BVHG5BCNFN7S67XCBP6PA4",
   "impresa": false,
+  "mostrarBanners": true,
   "paywallStatus": "premium",
   "relacionados": Object {
     "categorias": Array [

@@ -18,12 +18,18 @@ const indexNota = dataNota => {
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text');
     const paywallStatus = get(dataNota, 'content_restrictions.content_code');
     const edicion = get(dataNota, 'label.edicion.text');
+    const showBanners = get(dataNota, 'label.mostrar_banners.display');
 
     const resp = {
         id,
         template,
         url,
-        impresa: edicion && edicion.toLowerCase() === 'impresa' ? true : false,
+        mostrarBanners: typeof showBanners !== 'undefined' ? showBanners : true,
+        impresa:
+            typeof edicion !== 'undefined' &&
+            edicion.toLowerCase() === 'impresa'
+                ? true
+                : false,
         paywallStatus: paywallStatus ? paywallStatus : 'comun',
         abiertoComentarios: dataNota.comments
             ? dataNota.comments.display_comments
