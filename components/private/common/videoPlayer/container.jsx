@@ -21,7 +21,7 @@ class VideoPlayer extends PureComponent {
     }
 
     componentDidMount() {
-        !this.props.isAdmin && window.powaBoot();
+        if (!this.props.isAdmin && window && window.powaBoot) window.powaBoot();
         this.setPrerollAdsForPowa();
     }
 
