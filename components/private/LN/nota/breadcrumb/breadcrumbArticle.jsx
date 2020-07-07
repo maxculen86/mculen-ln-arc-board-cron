@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import BreadcrumbComponent from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
+import getDomain from '../../../common/utils/getDomain';
 
 const getPrimaryTree = (sections, section, resultSections) => {
     resultSections.push({
@@ -19,9 +20,12 @@ const getPrimaryTree = (sections, section, resultSections) => {
 
 const breadcrumbArticle = ({
     globalContent: {
-        taxonomy: { primary_section, sections }
+        taxonomy: { primary_section, sections },
+        website_url,
+        _id
     },
-    siteProperties: { title: siteTitle, host }
+    siteProperties: { title: siteTitle, host },
+    arcSite
 }) => {
     let allSections = [];
     if (primary_section) {
@@ -32,6 +36,7 @@ const breadcrumbArticle = ({
         path: '/'
     });
     allSections = allSections.reverse();
+    const domainForRecetas = getDomain(arcSite, { _id, website_url });
 
     return (
         <>
@@ -41,7 +46,7 @@ const breadcrumbArticle = ({
                 lastLinked
                 host={host}
             />
-            <BreadCrumbSchema sections={allSections} host={host} />
+            <BreadCrumbSchema sections={allSections} host={domainForRecetas} />
         </>
     );
 };

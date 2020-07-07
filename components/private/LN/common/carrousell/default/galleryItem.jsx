@@ -51,8 +51,8 @@ galleryItem.propTypes = {
     mediaData: PropTypes.shape({
         distributor: PropTypes.string,
         caption: PropTypes.string,
-        vanity_credits: PropTypes.arrayOf,
-        credits: PropTypes.arrayOf
+        vanity_credits: PropTypes.array,
+        credits: PropTypes.array
     }).isRequired,
     withZoom: PropTypes.string.isRequired,
     totalGallery: PropTypes.number.isRequired,

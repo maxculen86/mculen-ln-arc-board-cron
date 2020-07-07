@@ -97,8 +97,6 @@ class LNNotaReceta extends Component {
         return (
             <GlobalProvider>
                 <div id="wrapper" className="nota">
-                    {/* TODO: sacar */}
-                    <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" />
                     <Header />
                     <main>
                         {/* Pre-Titulo: Banners */}

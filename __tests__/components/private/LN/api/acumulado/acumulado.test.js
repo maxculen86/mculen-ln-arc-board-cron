@@ -5,7 +5,6 @@ import AcuIndex from '../../../../../../components/private/LN/api/v1/acumulado';
 describe('Json Acumulado section. Test de integracion', () => {
     it('Test de snapshot Recetas', () => {
         const resp = AcuIndex('Recetas', articlesRecetas, true);
-        console.log(resp);
         expect(resp).toMatchSnapshot();
     });
 

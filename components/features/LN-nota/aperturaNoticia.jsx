@@ -4,13 +4,22 @@ import Consumer from 'fusion:consumer';
 import AperturaNoticia from '../../private/LN/nota/apertura/aperturaNoticia';
 
 const aperturaNoticia = props => {
-    const { globalContent, output_type: outputType } = props;
-    const { promo_items: promoItems = {} } = globalContent;
+    const { globalContent, outputType } = props;
+    const {
+        promo_items: promoItems = {},
+        headlines: { basic: tituloNota },
+        content_elements: contentElements
+    } = globalContent;
     const { basic } = promoItems;
-
+    const firstText = contentElements.find(element => element.type === 'text');
     return (
         JSON.stringify(promoItems) !== JSON.stringify({}) && (
-            <AperturaNoticia basic={basic} outputType={outputType} />
+            <AperturaNoticia
+                tituloNota={tituloNota}
+                primerParrafo={firstText}
+                basic={basic}
+                outputType={outputType}
+            />
         )
     );
 };

@@ -1,7 +1,8 @@
 import get from 'lodash.get';
 import Section from './sectionArticle';
-import Apertura from './aperturaArticle';
+import Apertura from './apertura/aperturaArticle';
 import Cuerpo from './cuerpo';
+import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 
 import { dateAndTimeForAppsUtil } from '../../../../common/utils/dateAndTimeUtil';
@@ -14,17 +15,26 @@ const indexNota = dataNota => {
         taxonomy: { primary_section: primarySection }
     } = dataNota;
 
-    const entradaId = get(dataNota, 'label.livefyre_entrada_id.text', id);
+    const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text');
+    const paywallStatus = get(dataNota, 'content_restrictions.content_code');
+    const edicion = get(dataNota, 'label.edicion.text');
+    const showBanners = get(dataNota, 'label.mostrar_banners.display');
 
     const resp = {
         id,
         template,
         url,
-        paywallStatus: get(dataNota, 'content_restrictions.content_code'),
+        mostrarBanners: typeof showBanners !== 'undefined' ? showBanners : true,
+        impresa:
+            typeof edicion !== 'undefined' &&
+            edicion.toLowerCase() === 'impresa'
+                ? true
+                : false,
+        paywallStatus: paywallStatus ? paywallStatus : 'comun',
         abiertoComentarios: dataNota.comments
-            ? dataNota.comments.allow_comments
-            : true,
-        entradaId,
+            ? dataNota.comments.display_comments
+            : false,
+        comentariosId: comentariosId || id,
         fechaActualizacion: dateAndTimeForAppsUtil(dataNota.publish_date),
         fecha: dateAndTimeForAppsUtil(dataNota.first_publish_date),
         categoria: primarySection && Section(primarySection),
@@ -32,6 +42,10 @@ const indexNota = dataNota => {
         contenido: Cuerpo(dataNota),
         relacionados: Relacionados(dataNota)
     };
+
+    const modificadorTemplate = ModificadorTemplate(dataNota);
+
+    if (modificadorTemplate) resp.modificadorTemplate = modificadorTemplate;
 
     return resp;
 };

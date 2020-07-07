@@ -191,16 +191,28 @@
         "by": [
             {
                 "_id": "carlos-pagni",
+                "additional_properties": {
+                    "original": {
+                        "role": "LA NACION"
+                    }
+                },
+                "image": {
+                    "url": ""
+                },
                 "name": "Carlos Pagni",
                 "slug": "carlos-pagni",
                 "type": "author"
             }
         ]
     },
+    "description": {
+        "basic": ""
+    },
     "display_date": "2020-05-08T14:04:09.726Z",
     "first_publish_date": "2020-04-24T17:41:31.022Z",
     "headlines": {
-        "basic": "Messi más uno: quienes son los dos argentinos que figuran entre los mejores 25 futbolistas de los últimos 25 años"
+        "basic": "Messi más uno: quienes son los dos argentinos que figuran entre los mejores 25 futbolistas de los últimos 25 años",
+        "meta_title": ""
     },
     "label": {
         "volanta": {
@@ -211,7 +223,9 @@
     "promo_items": {
         "basic": {
             "_id": "X2MJ25TCRRD63NGNBDAZGLYRZY",
-            "additional_properties": {},
+            "additional_properties": {
+                "iptc_source": "Isaias"
+            },
             "caption": "prueba de epigrafe de messi",
             "credits": {
                 "by": [
@@ -264,6 +278,48 @@
                     "resizedUrl": "/resizer/gM6LxEhq1MRzEqyKLzL_dQAej-c=/310x206/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
                 }
             ],
+            "resized_urls_zoom": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1280px)",
+                        "width": 1920
+                    },
+                    "resizedUrl": "/resizer/bi4hgffvlNFaZU4zqnz6iJGV6xE=/1920x1280/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
+                },
+                {
+                    "option": {
+                        "height": 800,
+                        "media": "(min-width: 1024px)",
+                        "width": 1200
+                    },
+                    "resizedUrl": "/resizer/-qyZKMs4hSaaFidx_SIrXB5SkHs=/1200x800/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
+                },
+                {
+                    "option": {
+                        "height": 683,
+                        "media": "(min-width: 768px)",
+                        "width": 1024
+                    },
+                    "resizedUrl": "/resizer/h0ZjSGjykuWk6Ls9FxxeQFgjST4=/1024x683/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
+                },
+                {
+                    "option": {
+                        "height": 512,
+                        "media": "(min-width: 360px)",
+                        "width": 768
+                    },
+                    "resizedUrl": "/resizer/gjSAiqxUQKPG6auGxxXrfu1tujU=/768x512/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
+                },
+                {
+                    "option": {
+                        "height": 240,
+                        "media": "(min-width: 320px)",
+                        "width": 360
+                    },
+                    "resizedUrl": "/resizer/129QDMpWceXnT8OrJi_avRjqE3U=/360x240/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg"
+                }
+            ],
             "subtitle": "prueba title de messi",
             "type": "image",
             "url": "/resizer/jyurG2Ow8jHanY1TE_d9M0NQkSU=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg",
@@ -298,7 +354,9 @@
                 "_id": "/deportes/futbol",
                 "_website": "la-nacion-ar",
                 "additional_properties": {
-                    "original": {}
+                    "original": {
+                        "ancestors": {}
+                    }
                 },
                 "name": "Fútbol",
                 "parent_id": "/deportes",
@@ -308,7 +366,9 @@
                 "_id": "/deportes",
                 "_website": "la-nacion-ar",
                 "additional_properties": {
-                    "original": {}
+                    "original": {
+                        "ancestors": {}
+                    }
                 },
                 "name": "Deportes",
                 "parent_id": "/",
