@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import config from '../../properties/sites/la-nacion-ar';
 
-const OptaLayout = ({ children, opta = false }) => {
+const OptaLayout = ({ children }) => {
     /* const script = `
         var opta_settings = {
             subscription_id: '${config.optaConfig.subscription_id}',
@@ -11,10 +11,15 @@ const OptaLayout = ({ children, opta = false }) => {
             timezone: '${config.optaConfig.timezone}'
         };
     `; */
+    if (typeof window !== 'undefined') {
+        const opta = new URL(
+            window.location.href.replace('#/', '')
+        ).searchParams.get('opta');
+        console.log('############ OPTA PAPAAAAAA: ', opta);
+    }
 
     return (
         <>
-            <div>Hello world</div>
             <opta-widget
                 sport="football"
                 widget="standings"
@@ -50,10 +55,6 @@ const OptaLayout = ({ children, opta = false }) => {
             />
         </>
     );
-};
-
-OptaLayout.propTypes = {
-    opta: PropTypes.bool.isRequired
 };
 
 export default OptaLayout;
