@@ -1,4 +1,4 @@
-import htmlText from '../../../../../../components/private/LN/api/v1/nota/cuerpo/htmlText';
+import htmlText from '../../../../../../../components/private/LN/api/v1/nota/cuerpo/htmlText';
 
 describe('Test for html render inside text component', () => {
     test('Render base text', () => {
@@ -19,6 +19,8 @@ describe('Test for html render inside text component', () => {
 
         expect(resp[10]).toBe('.');
         expect(resp[11]).toBe('Arc permite poner ');
-        expect(resp[12]).toBe('colores');
+        expect(resp[12]['valor']).toBe('colores');
+        expect(resp[12]['_t']).toBe('mark');
+        expect(resp[12]['color']).toBe('red');
     });
 });

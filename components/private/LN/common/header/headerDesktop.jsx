@@ -86,15 +86,18 @@ const HeaderDesktop = ({
                     className={`com-usuario${active}${loadingUserData}`}
                 >
                     {!loginData.subscription && (
-                        <a
+                        <button
                             className="--btn --highlight"
-                            href={
-                                `${SITIO_SEGURO_REGISTRACION}/suscribirme` ||
-                                '/'
-                            }
+                            type="button"
+                            onClick={() => {
+                                location.href =
+                                    `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                        location.href
+                                    )}` || '/';
+                            }}
                         >
                             Suscribite
-                        </a>
+                        </button>
                     )}
                     {logueado && (
                         <div

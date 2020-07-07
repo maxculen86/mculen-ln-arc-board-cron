@@ -1,4 +1,6 @@
 const imageCommon = image => {
+    if (!image) return null;
+
     const { _id: id, resized_urls: resizedUrls } = image;
     if (!resizedUrls || resizedUrls.length === 0) return null;
     return {

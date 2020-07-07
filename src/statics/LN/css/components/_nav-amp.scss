@@ -459,3 +459,9 @@ amp-carousel {
         margin-left: 0;
     }
 }
+
+amp-img {
+    img {
+        object-fit: cover;
+    }
+}
