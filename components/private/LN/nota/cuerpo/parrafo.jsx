@@ -4,7 +4,7 @@ import config from '../../../../../properties/sites/la-nacion-ar';
 
 import { compose } from '../../../common/utils/functional';
 
-// TODO: cambiar parrafo por paragraph
+// TODO: Las variantes de Tags de HTMLs, que nos aprecen dentro del string de content nos genera un conflicto si queremos hacer render interno a un replace de un caso, no nos deja remplazar los otros regex
 const Parrafo = ({ data, capital }) => {
     const isLetter = text => text.match(/^[A-Za-z]/);
 
