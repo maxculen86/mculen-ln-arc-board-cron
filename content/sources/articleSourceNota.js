@@ -7,6 +7,7 @@ import {
 } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
+
 import addAspectRatio from './utils/getRatio';
 import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
@@ -14,18 +15,26 @@ import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
+import apiElmahio from '../../components/private/common/utils/apiElmahio';
 
 const resolve = (key, a) => {
-    const { url, id, published } = key;
-    const arcSite = key['arc-site'];
-    let basePath = `/content/v4/stories/?website=${arcSite}`;
+    try {
+        // Fuerzo un error de undefined
+        const romper = a.b.c;
+        const { url, id, published } = key;
+        const arcSite = key['arc-site'];
+        let basePath = `/content/v4/stories/?website=${arcSite}`;
 
-    if (published) basePath = `${basePath}&published=${published}`;
+        if (published) basePath = `${basePath}&published=${published}`;
 
-    if (id) return `${basePath}&_id=${id}`;
-    if (url) return `${basePath}&website_url=${url}`;
+        if (id) return `${basePath}&_id=${id}`;
+        if (url) return `${basePath}&website_url=${url}`;
 
-    throw new Error('Debe definir url o id para obtener la nota');
+        throw new Error('Debe definir url o id para obtener la nota');
+    } catch (error) {
+        apiElmahio.createMessage(error);
+        return '';
+    }
 };
 
 const fetch = query => {
