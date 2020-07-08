@@ -11,12 +11,6 @@ const OptaLayout = ({ children }) => {
             timezone: '${config.optaConfig.timezone}'
         };
     `; */
-    if (typeof window !== 'undefined') {
-        const opta = new URL(
-            window.location.href.replace('#/', '')
-        ).searchParams.get('opta');
-        console.log('############ OPTA PAPAAAAAA: ', opta);
-    }
 
     return (
         <>
