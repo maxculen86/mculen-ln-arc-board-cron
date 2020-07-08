@@ -1,19 +1,20 @@
 import get from 'lodash.get';
-import Image from './image';
-import Video from './video';
+import Image from '../image';
+import Video from '../video';
 import AperturaReceta from './aperturaReceta';
-import Author from '../common/author';
+import Author from '../../common/author';
+import TagDestacado from './tagDestacado';
 
 const apertura = article => {
     const {
-        headlines: { basic: titulo, mobile: tituloMobile },
-        credits: { by: authors }
+        headlines: { basic: titulo, mobile: tituloMobile }
     } = article;
 
     const promoItem = get(article, 'promo_items.basic');
     const recetaPromoItem = get(article, 'promo_items.receta');
     const bajada = get(article, 'subheadlines.basic');
-    const autoresFixed = authors && authors.filter(a => a.type === 'author');
+    const autores = get(article, 'credits.by');
+    const autoresFixed = autores && autores.filter(a => a.type === 'author');
     const volanta = get(article, 'label.volanta.text');
 
     const resp = {
@@ -29,7 +30,7 @@ const apertura = article => {
                 resp.imagenes.push(Image(promoItem));
                 break;
             case 'video':
-                resp.video = Video(promoItem);
+                resp.multimedio = Video(promoItem);
                 break;
             default:
                 break;
@@ -46,6 +47,11 @@ const apertura = article => {
 
     if (autoresFixed && autoresFixed.length > 0) {
         resp.autores = autoresFixed && autoresFixed.map(a => Author(a));
+    }
+
+    const tagDestacado = TagDestacado(article);
+    if (tagDestacado) {
+        resp.tagDestacado = tagDestacado;
     }
 
     return resp;

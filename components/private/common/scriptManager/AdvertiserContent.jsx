@@ -16,7 +16,8 @@ const getFirstParagraph = contentElements =>
 
 const getImage = promoItems => {
     if (!promoItems) return null;
-    return promoItems.basic.type === 'image' ? promoItems.basic.url : null;
+    const { basic = {} } = promoItems;
+    return (basic.type === 'image' && basic.url) || null;
 };
 
 const AdvertiserContent = props => {

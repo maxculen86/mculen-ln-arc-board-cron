@@ -1,20 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Test json integracion Article Test snapshot article 1`] = `
 Object {
-  "abiertoComentarios": true,
+  "abiertoComentarios": false,
   "apertura": Object {
     "autores": Array [
       Object {
         "id": "alomuto",
         "image": null,
-        "nombre": "Agustina Lomuto",
+        "slug": "alomuto",
         "tipo": 1,
+        "valor": "Agustina Lomuto",
       },
       Object {
         "id": "diego-cabot",
         "image": null,
-        "nombre": "Diego Cabot",
+        "slug": "diego-cabot",
         "tipo": 1,
+        "valor": "Diego Cabot",
       },
     ],
     "bajada": "Subtitulo de prueba",
@@ -37,9 +40,10 @@ Object {
     "volanta": "soy la volanta",
   },
   "categoria": Object {
-    "id": "/recetas/platos-de-comida-principal",
-    "nombre": "Platos de comida principal",
+    "id": 43,
+    "valor": "Recetas",
   },
+  "comentariosId": "841900",
   "contenido": Array [
     Object {
       "_t": "ingredientes",
@@ -66,12 +70,15 @@ Object {
       "valor": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id fermentum lectus, sit amet vulputate turpis. Sed non nibh eget arcu facilisis euismod vitae a ex. Suspendisse potenti. Aliquam euismod eros ac convallis consectetur. Suspendisse vestibulum semper dolor non venenatis. Curabitur cursus vehicula risus. Nam imperdiet ipsum vel lacinia imperdiet. Duis quis pharetra eros. Etiam convallis convallis sapien, eu bibendum mauris maximus a. Cras varius id lectus ac fermentum. Pellentesque eget dapibus dolor, ut pellentesque nibh. Donec tincidunt nisl non volutpat tempus. Sed quis dui eget augue imperdiet tempus et vel nibh. Phasellus lorem diam, cursus dignissim rutrum ac, rutrum eu nunc. In fermentum gravida urna, et luctus turpis venenatis in.",
     },
     Object {
-      "_t": "img",
-      "alto": 400,
-      "ancho": 560,
-      "credito": undefined,
-      "id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
-      "src": "/resizer/CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+      "_t": "p",
+      "valor": Object {
+        "_t": "img",
+        "alto": 400,
+        "ancho": 560,
+        "credito": undefined,
+        "id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
+        "src": "/resizer/CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+      },
     },
     Object {
       "_t": "p",
@@ -82,35 +89,44 @@ Object {
       "valor": "Pellentesque ut urna quis odio dictum faucibus vitae vitae tortor. Fusce vehicula est vel augue auctor dapibus. Ut ut urna rhoncus, faucibus nisi non, egestas eros. Cras nec tortor quis magna maximus dapibus quis id est. Phasellus euismod venenatis ipsum scelerisque mattis. Nulla efficitur porttitor massa eu hendrerit. Pellentesque tempor condimentum elit, facilisis maximus nunc consectetur in. Suspendisse pulvinar, risus sollicitudin accumsan iaculis, eros metus ullamcorper mauris, eu consequat ex arcu sollicitudin libero. Praesent eu vestibulum dolor. Nam auctor lectus et orci iaculis, nec pretium justo imperdiet. Nulla commodo nulla ac ligula tristique ultrices. Praesent consectetur, nibh sed mollis lacinia, magna velit dapibus tellus, vel tincidunt mi arcu cursus leo. Duis velit lacus, consectetur id convallis sit amet, rutrum at erat. Sed vitae bibendum urna. Nam sodales scelerisque ante, non luctus nunc varius a.",
     },
   ],
-  "entradaId": "841900",
   "fecha": "2020-04-24 08:35:53",
   "fechaActualizacion": "2020-04-24 08:35:53",
   "id": "QAZ7BVHG5BCNFN7S67XCBP6PA4",
+  "impresa": false,
+  "mostrarBanners": true,
   "paywallStatus": "premium",
   "relacionados": Object {
     "categorias": Array [
       Object {
-        "id": "/recetas",
+        "id": 43,
         "nivel": 1,
         "valor": "Recetas",
       },
       Object {
-        "id": "/revista-hola",
+        "id": 44,
+        "nivel": 2,
+        "valor": "Platos de comida principal",
+      },
+      Object {
+        "id": 154,
         "nivel": 1,
         "valor": "Revista ¡HOLA!",
       },
     ],
+    "notas": Array [],
     "tags": Array [
       Object {
         "formatoId": 1,
-        "id": "47126",
+        "id": 47126,
+        "slug": "ajo-tid47126",
         "tipoDescripcion": "Topico",
         "tipoId": 1,
         "valor": "ajo",
       },
       Object {
         "formatoId": 1,
-        "id": "48282",
+        "id": 48282,
+        "slug": "tomate-perita-tid48282",
         "tipoDescripcion": "Topico",
         "tipoId": 1,
         "valor": "tomate perita",

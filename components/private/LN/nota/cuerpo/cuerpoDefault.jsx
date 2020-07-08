@@ -26,7 +26,10 @@ const Cuerpo = props => {
         siteProperties,
         bannerConfig: banners,
         outputType,
-        globalContent: { content_elements: contentElements }
+        globalContent: {
+            headlines: { basic: tituloNota },
+            content_elements: contentElements
+        }
     } = props;
 
     const bodyComponents = [
@@ -46,6 +49,8 @@ const Cuerpo = props => {
     ];
 
     const types = ['text', 'image', 'oembed_response', 'video'];
+
+    const firstText = contentElements.find(element => element.type === 'text');
 
     const getElementsCount = supportedTypes =>
         contentElements.filter(el => supportedTypes.includes(el.type)).length;
@@ -74,6 +79,13 @@ const Cuerpo = props => {
             ['image', 'gallery'].findIndex(el => el === (arcType || '')) !== -1
                 ? { withZoom: '--zoom' }
                 : {};
+        const extraPropsVideo =
+            ['video'].findIndex(el => el === (arcType || '')) !== -1
+                ? {
+                      tituloNota,
+                      primerParrafo: firstText
+                  }
+                : {};
         if (Component) {
             if (types.includes(Component.arcType)) {
                 const { additional_properties: additionalProperties = {} } =
@@ -88,6 +100,7 @@ const Cuerpo = props => {
                             capital={currentIndex === capitalIndex}
                             outputType={outputType}
                             {...extraProps}
+                            {...extraPropsVideo}
                         />
                         {banners &&
                             banners.some(

@@ -1,5 +1,4 @@
 import { SITE_LANACION } from 'fusion:environment';
-import getAssetsPath from '../utils/getAssetsPath';
 import getDomain from '../utils/getDomain';
 
 const getData = ({
@@ -12,9 +11,10 @@ const getData = ({
 }) => {
     const domain = getDomain(arcSite, globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
-    const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
-        'placeholderLN.jpg'
-    );
+    const PLACEHOLDER = `${SITE_LANACION}${deployment(
+        `${contextPath}/resources/images/placeholderLN.jpg`
+    )}`;
+
     const {
         headlines = {},
         subheadlines = {},
@@ -44,7 +44,7 @@ const getData = ({
             : metaValue('description') || DEFAULT.DESCRIPTION,
         image:
             typeBasicPI === 'image' && urlBasicPI
-                ? `${SITE_LANACION}${urlBasicPI}`
+                ? `${urlBasicPI}`
                 : DEFAULT.IMAGE,
         url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain,
         fbAppId:

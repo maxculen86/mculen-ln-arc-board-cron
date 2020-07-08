@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ReactDOMServer from 'react-dom/server';
 import config from '../../../../../properties/sites/la-nacion-ar';
-import ComLink from '../../../common/com-link';
 
 import { compose } from '../../../common/utils/functional';
 
-// TODO: cambiar parrafo por paragraph
+// TODO: Las variantes de Tags de HTMLs, que nos aprecen dentro del string de content nos genera un conflicto si queremos hacer render interno a un replace de un caso, no nos deja remplazar los otros regex
 const Parrafo = ({ data, capital }) => {
     const isLetter = text => text.match(/^[A-Za-z]/);
 
@@ -20,31 +18,10 @@ const Parrafo = ({ data, capital }) => {
         text.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
-                const [, link] = href.match(/"(.*?[^\\])"/);
-
                 if (!href.includes(config.host)) {
-                    return ReactDOMServer.renderToString(
-                        React.createElement(
-                            ComLink,
-                            {
-                                link,
-                                target: '_blank',
-                                title: string
-                            },
-                            string
-                        )
-                    );
+                    return `<a class='com-link' ${href} target='_blank'>${string}</a>`;
                 }
-                return ReactDOMServer.renderToString(
-                    React.createElement(
-                        ComLink,
-                        {
-                            link,
-                            title: string
-                        },
-                        string
-                    )
-                );
+                return `<a class='com-link' ${href}>${string}</a>`;
             }
         );
 

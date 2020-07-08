@@ -1,0 +1,181 @@
+{
+    "_id": "3THDAILWTVHARHBYA5AEVL7OAU",
+    "canonical_url": "/economia/prueba-espacio-patrocinado-nid04062020/",
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true
+    },
+    "content_elements": [
+        {
+            "_id": "U5JKYQ4KJZETFG55BRILQBV24Y",
+            "additional_properties": {},
+            "content": "asdjasdjadha yagdhasdha dy agshdahd",
+            "type": "text"
+        },
+        {
+            "_id": "3PHYQQWAERHPXO6BDFUHZLILCE",
+            "additional_properties": {},
+            "content": "dshjadh asdhaghda dhasg gd",
+            "type": "text"
+        },
+        {
+            "_id": "KJ55IBMT2RFDTL3IPDQJ72EXQY",
+            "additional_properties": {},
+            "content": "wdasdas sdsadsd",
+            "type": "text"
+        },
+        {
+            "_id": "KMDKDNJZSZAZZCBSPZV7GBLCR4",
+            "additional_properties": {},
+            "citation": {
+                "content": "perez",
+                "type": "text"
+            },
+            "content_elements": [
+                {
+                    "_id": "IYKFSXD2QZGWHHNWCGHTVR3JUA",
+                    "additional_properties": {},
+                    "content": "esta es mi cita",
+                    "type": "text"
+                }
+            ],
+            "subtype": "blockquote",
+            "type": "quote"
+        },
+        {
+            "_id": "KLDU37IB7RHQFERHYCDOGVTNZE",
+            "additional_properties": {},
+            "content": "",
+            "type": "interstitial_link",
+            "url": ""
+        }
+    ],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "created_date": "2020-06-04T19:56:52.713Z",
+    "credits": {
+        "by": []
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2020-06-04T19:56:59.396Z",
+    "distributor": {
+        "category": "staff",
+        "name": "BBC Mundo"
+    },
+    "first_publish_date": "2020-06-04T19:56:59.396Z",
+    "headlines": {
+        "basic": "ley de alquiler. sa",
+        "meta_title": "",
+        "mobile": ""
+    },
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital"
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "volanta": {
+            "display": true,
+            "text": "esto es volanta"
+        }
+    },
+    "last_updated_date": "2020-06-12T14:13:58.183Z",
+    "owner": {
+        "sponsored": true
+    },
+    "publish_date": "2020-06-12T14:13:57.928Z",
+    "related_content": {
+        "basic": [
+            {
+                "_id": "DGUUU3AFEBAZLHAQVPA2M3LT4U",
+                "headlines": {
+                    "basic": "Prueba video MM 2"
+                },
+                "label": {
+                    "edicion": {
+                        "display": true,
+                        "text": "Digital"
+                    },
+                    "livefyre_entrada_id": {
+                        "text": "189696"
+                    }
+                },
+                "type": "reference",
+                "website_url": "/sociedad/prueba-nid1111"
+            },
+            {
+                "_id": "ID3K7MSMMVDHPAEZY2U2OODNIM",
+                "headlines": {
+                    "basic": "Prueba video MM"
+                },
+                "label": {
+                    "edicion": {
+                        "display": true,
+                        "text": "Digital"
+                    },
+                    "livefyre_entrada_id": {
+                        "text": "189696"
+                    }
+                },
+                "type": "reference",
+                "website_url": "/sociedad/prueba-nid1111"
+            }
+        ]
+    },
+    "subheadlines": {
+        "basic": ""
+    },
+    "subtype": "1",
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/economia",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {}
+                }
+            },
+            "name": "Economía",
+            "parent_id": "/",
+            "path": "/economia"
+        },
+        "sections": [
+            {
+                "_id": "/economia",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {}
+                    }
+                },
+                "name": "Economía",
+                "parent_id": "/",
+                "path": "/economia"
+            },
+            {
+                "_id": "/revista-ohlala",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Revista OHLALÁ!",
+                "parent_id": "/",
+                "path": "/revista-ohlala"
+            }
+        ],
+        "tags": []
+    },
+    "type": "story",
+    "website_url": "/economia/prueba-espacio-patrocinado-nid04062020/"
+}

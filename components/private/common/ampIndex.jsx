@@ -111,8 +111,8 @@ const customElementForNote = [
         src: 'https://cdn.ampproject.org/v0/amp-iframe-0.1.js'
     },
     {
-        customElement: 'amp-video',
-        src: 'https://cdn.ampproject.org/v0/amp-video-0.1.js',
+        customElement: 'amp-ima-video',
+        src: 'https://cdn.ampproject.org/v0/amp-ima-video-0.1.js',
         validateInclusion: globalContent => scriptVideoValidator(globalContent)
     }
 ];

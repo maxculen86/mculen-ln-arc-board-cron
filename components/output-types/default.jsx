@@ -159,7 +159,8 @@ const Default = props => {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
-                {subtype !== '1' && <MetaTags />}
+                {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
+                {/* {subtype === '7' && <MetaTags />} */}
                 <MetasOG {...props} />
                 <Robot
                     subtype={subtype}

@@ -1,5 +1,5 @@
 function formatDate(originalDate) {
-    let date = formatDateTreeHoursMore(originalDate);
+    const date = formatDateTreeHoursMore(originalDate);
     const monthNames = [
         'Enero',
         'Febrero',
@@ -23,14 +23,14 @@ function formatDate(originalDate) {
 }
 
 function formatDateHoursAndMint(originalDate) {
-    let date = formatDateTreeHoursMore(originalDate);
+    const date = formatDateTreeHoursMore(originalDate);
     return `${`00${date.getHours()}`.slice(
         -2
     )}:${`00${date.getMinutes()}`.slice(-2)}`;
 }
 
 function formatDateHoursMinAndSecond(originalDate) {
-    let date = formatDateTreeHoursMore(originalDate);
+    const date = formatDateTreeHoursMore(originalDate);
     return `${formatDateHoursAndMint(
         originalDate
     )}:${`00${date.getSeconds()}`.slice(-2)}`;
@@ -41,7 +41,7 @@ function formatDateTreeHoursMore(originalDate) {
 }
 
 function formatMonthDigits(originalDate) {
-    let mont = originalDate.getMonth() + 1;
+    const mont = originalDate.getMonth() + 1;
     if (mont < 10) {
         return `0${mont}`;
     }
@@ -50,7 +50,7 @@ function formatMonthDigits(originalDate) {
 }
 
 function formatYearMontDayDate(originalDate) {
-    let date = formatDateTreeHoursMore(originalDate);
+    const date = formatDateTreeHoursMore(originalDate);
     return `${date.getFullYear()}-${formatMonthDigits(date)}-${date.getDate()}`;
 }
 

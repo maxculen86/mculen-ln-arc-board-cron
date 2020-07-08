@@ -2,6 +2,7 @@ import { parse } from 'node-html-parser';
 import walkerBuilder from '../../../../../common/utils/walker';
 
 const htmlText = text => {
+    if (!text) return null;
     const rootTagName = 'root';
 
     const html = parse(`<${rootTagName}>${text}</${rootTagName}>`);
@@ -25,6 +26,7 @@ const htmlText = text => {
             return next(data.childNodes);
         }
     );
+
     walker.addCondition(
         node => node.nodeType === 1 && node.tagName === 'a',
         (data, next) => {
@@ -38,12 +40,24 @@ const htmlText = text => {
             return resp;
         }
     );
+
+    walker.addCondition(
+        node => node.nodeType === 1 && node.tagName === 'mark',
+        (data, next) => {
+            const classRegex = new RegExp('class="hl_(.*)"');
+            const attrs = classRegex.exec(data.rawAttrs);
+            const resp = {
+                _t: data.tagName,
+                color: attrs[1],
+                valor: next(data.childNodes)
+            };
+            return resp;
+        }
+    );
+
     // Arc permite dale color a palabras 'mark'. Consultar que hacemos en este caso, por ahora, mando solo el texto plano
     walker.addCondition(
-        node =>
-            node.nodeType === 1 &&
-            node.tagName !== 'mark' &&
-            node.tagName !== 'br',
+        node => node.nodeType === 1 && node.tagName !== 'br',
         (data, next) => {
             const resp = {
                 _t: data.tagName,
@@ -52,6 +66,7 @@ const htmlText = text => {
             return resp;
         }
     );
+
     walker.addCondition(
         node => !!node.rawText,
         (data, next) => {

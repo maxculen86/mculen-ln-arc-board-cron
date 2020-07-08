@@ -199,6 +199,7 @@ export default `
     distributor {
         name
         category
+        reference_id
     }
     promo_items {
         basic {

@@ -1,0 +1,194 @@
+{
+    "_id": "CWRINK62SFFXXOTXG7SKY3A76U",
+    "additional_properties": {},
+    "content_elements": [
+        {
+            "_id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
+            "additional_properties": {},
+            "credits": {
+                "by": [
+                    {
+                        "name": "Agustina de Alba",
+                        "type": "author"
+                    }
+                ]
+            },
+            "height": 980,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 768,
+                        "media": "(min-width: 1280px)",
+                        "width": 1280
+                    },
+                    "resizedUrl": "/resizer/Fr-LnTEm3aclEfiPO5_X2pf6wVI=/1280x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
+                },
+                {
+                    "option": {
+                        "height": 465,
+                        "media": "(min-width: 1024px)",
+                        "width": 690
+                    },
+                    "resizedUrl": "/resizer/CaGoG0y1NFSgNdxi7z4OFNPYV3c=/690x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
+                },
+                {
+                    "option": {
+                        "height": 513,
+                        "media": "(min-width: 768px)",
+                        "width": 768
+                    },
+                    "resizedUrl": "/resizer/aFkCOsYn9mR2GDmhiPlFk4wwkQc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
+                },
+                {
+                    "option": {
+                        "height": 438,
+                        "media": "(min-width: 360px)",
+                        "width": 350
+                    },
+                    "resizedUrl": "/resizer/cgiNY5YejMHwo4XT_em_AwZyMVo=/350x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
+                },
+                {
+                    "option": {
+                        "height": 203,
+                        "media": "(min-width: 320px)",
+                        "width": 310
+                    },
+                    "resizedUrl": "/resizer/mqv4ZuWcjmGZkFBNgSs1JrtyGSI=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
+                }
+            ],
+            "type": "image",
+            "url": "/resizer/aFkCOsYn9mR2GDmhiPlFk4wwkQc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+            "width": 1470
+        },
+        {
+            "_id": "JAYP7MR2ERD43PGG45IHUPAKPA",
+            "additional_properties": {},
+            "credits": {
+                "affiliation": []
+            },
+            "height": 980,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 768,
+                        "media": "(min-width: 1280px)",
+                        "width": 1280
+                    },
+                    "resizedUrl": "/resizer/4AiYPs6uxd3RtNRdRoW7CXThZKQ=/1280x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 465,
+                        "media": "(min-width: 1024px)",
+                        "width": 690
+                    },
+                    "resizedUrl": "/resizer/WtrxFp6U-ghqNdZygcf0t4OiCXc=/690x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 513,
+                        "media": "(min-width: 768px)",
+                        "width": 768
+                    },
+                    "resizedUrl": "/resizer/4WfOkUtykrNEIPROolWJIVEmcuo=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 438,
+                        "media": "(min-width: 360px)",
+                        "width": 350
+                    },
+                    "resizedUrl": "/resizer/ZzDds7Yq33sAEsY2V6g_yBjNJUE=/350x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 203,
+                        "media": "(min-width: 320px)",
+                        "width": 310
+                    },
+                    "resizedUrl": "/resizer/-agQFYKK5AlaQj0gl-_rViM7U6M=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
+                }
+            ],
+            "type": "image",
+            "url": "/resizer/4WfOkUtykrNEIPROolWJIVEmcuo=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg",
+            "width": 1470
+        },
+        {
+            "_id": "MI45BIKTD5HY7I3I7VPP4KLTJU",
+            "additional_properties": {
+                "iptc_source": "Fuente(registro IPTC en ARC)"
+            },
+            "caption": "leyenda",
+            "credits": {
+                "by": [
+                    {
+                        "name": "Pablo Tomino",
+                        "type": "author"
+                    }
+                ]
+            },
+            "height": 980,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 768,
+                        "media": "(min-width: 1280px)",
+                        "width": 1280
+                    },
+                    "resizedUrl": "/resizer/y_g471GogILmXqOXXlHLPSfuf5o=/1280x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
+                },
+                {
+                    "option": {
+                        "height": 465,
+                        "media": "(min-width: 1024px)",
+                        "width": 690
+                    },
+                    "resizedUrl": "/resizer/eoJ8-fejogzja-s7uTiaBjmU_ms=/690x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
+                },
+                {
+                    "option": {
+                        "height": 513,
+                        "media": "(min-width: 768px)",
+                        "width": 768
+                    },
+                    "resizedUrl": "/resizer/M0r5u5gi3Q3xoqTrNMFrZqPX6fc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
+                },
+                {
+                    "option": {
+                        "height": 438,
+                        "media": "(min-width: 360px)",
+                        "width": 350
+                    },
+                    "resizedUrl": "/resizer/tL83yG5EH3Lni7zeo-dCdPcDJys=/350x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
+                },
+                {
+                    "option": {
+                        "height": 203,
+                        "media": "(min-width: 320px)",
+                        "width": 310
+                    },
+                    "resizedUrl": "/resizer/1W3sSD4MC7yXuhfXQFDD_2dAOSw=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
+                }
+            ],
+            "type": "image",
+            "url": "/resizer/M0r5u5gi3Q3xoqTrNMFrZqPX6fc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg",
+            "width": 1470
+        }
+    ],
+    "credits": {
+        "by": []
+    },
+    "description": {
+        "basic": "Esto es una galeria."
+    },
+    "headlines": {
+        "basic": "Lobos en Mardel"
+    },
+    "promo_items": {
+        "basic": {
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
+        }
+    },
+    "publish_date": "2020-04-27T23:32:55Z",
+    "type": "gallery"
+}
