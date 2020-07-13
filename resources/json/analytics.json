@@ -1,0 +1,469 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2020-07-01 19:28:51",
+    "containerVersion": {
+        "path": "accounts/103699/containers/30741149/versions/0",
+        "accountId": "103699",
+        "containerId": "30741149",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/103699/containers/30741149",
+            "accountId": "103699",
+            "containerId": "30741149",
+            "name": "lanacion.com AMP",
+            "publicId": "GTM-PRT86FH",
+            "usageContext": ["AMP"],
+            "fingerprint": "1582909662476",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/103699/containers/30741149/workspaces?apiLink=container"
+        },
+        "tag": [
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "tagId": "50",
+                "name": "GA - Pageview",
+                "type": "ua_amp",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "customDimensions",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Articulo - Largo}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "2"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Articulo - Sección}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "3"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Articulo - MainTags}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "4"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Articulo - Autor}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "9"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Articulo - Tags}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "22"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Articulo - ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "24"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Articulo - Temática}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "25"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Articulo - Género}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "52"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Articulo - Fecha de Publicacion}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "UA-621326-98"
+                    }
+                ],
+                "fingerprint": "1591188243501",
+                "firingTriggerId": ["2147479553"],
+                "tagFiringOption": "ONCE_PER_EVENT"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "14",
+                "name": "Articulo - Temática",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleTheme"
+                    }
+                ],
+                "fingerprint": "1591188958976",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "19",
+                "name": "Articulo - Sección",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleSection"
+                    }
+                ],
+                "fingerprint": "1591188679836",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "23",
+                "name": "GA - UA Produccion",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "UA-621326-98"
+                    }
+                ],
+                "fingerprint": "1591186177277",
+                "parentFolderId": "22"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "24",
+                "name": "Constante - General - Dominios",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "lanacion.com.ar"
+                    }
+                ],
+                "fingerprint": "1591186098428",
+                "parentFolderId": "22"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "27",
+                "name": "Articulo - Fecha de Publicacion",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articlePublicationDate"
+                    }
+                ],
+                "fingerprint": "1591188289238",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "28",
+                "name": "Articulo - Autor",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleAuthor"
+                    }
+                ],
+                "fingerprint": "1591188284857",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "32",
+                "name": "Articulo - ID",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleID"
+                    }
+                ],
+                "fingerprint": "1591188650435",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "34",
+                "name": "Articulo - Tags",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleTags"
+                    }
+                ],
+                "fingerprint": "1591188552461",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "35",
+                "name": "Articulo - MainTags",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleMainTags"
+                    }
+                ],
+                "fingerprint": "1591188043237",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "38",
+                "name": "Articulo - Titulo",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleTitle"
+                    }
+                ],
+                "fingerprint": "1591188480420",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "40",
+                "name": "Articulo - Género",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleGenre"
+                    }
+                ],
+                "fingerprint": "1591188643194",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "41",
+                "name": "GA - UA Desarrollo",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "UA-621326-111"
+                    }
+                ],
+                "fingerprint": "1591186197341",
+                "parentFolderId": "22"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "44",
+                "name": "Articulo - Largo",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleLenth"
+                    }
+                ],
+                "fingerprint": "1591188660659",
+                "parentFolderId": "4"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "variableId": "47",
+                "name": "Articulo - Fecha de Actualizacion",
+                "type": "ampv",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "articleLastUpdate"
+                    }
+                ],
+                "fingerprint": "1591188557356",
+                "parentFolderId": "4"
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "folderId": "3",
+                "name": "General",
+                "fingerprint": "1591185979974"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "folderId": "4",
+                "name": "Articulo",
+                "fingerprint": "1591185979975"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "folderId": "11",
+                "name": "Triggers por Host",
+                "fingerprint": "1591185979977"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "folderId": "22",
+                "name": "GA - Configuracion Estandard",
+                "fingerprint": "1591185979981"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "103699",
+                "containerId": "30741149",
+                "type": "AMP_REFERRER",
+                "name": "Document Referrer"
+            }
+        ],
+        "fingerprint": "1593631731248",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/103699/containers/30741149/versions/0?apiLink=version"
+    }
+}

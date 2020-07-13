@@ -48,6 +48,10 @@ export default {
         SocialEmbeds: {
             props: {},
             location: ['body-top']
+        },
+        OptaEmbed: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {
@@ -592,5 +596,10 @@ export default {
             topRange: null,
             pageSize: 1
         }
-    ]
+    ],
+    optaConfig: {
+        subscription_id: '2f9d4a3fdc61653e686a4be85a25e1ac',
+        language: 'es_CO',
+        timezone: 'America/Buenos_Aires'
+    }
 };
