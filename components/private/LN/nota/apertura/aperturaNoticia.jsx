@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComText from '../../../common/com-text';
+import ComFigcaption from '../../../common/com-figcaption';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
 const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
@@ -59,7 +60,9 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
             parrafo={parrafo}
             tituloNota={tituloNota}
         >
-            <Epigrafe />
+            <ComFigcaption>
+                <Epigrafe />
+            </ComFigcaption>
         </Media>
     );
 };
