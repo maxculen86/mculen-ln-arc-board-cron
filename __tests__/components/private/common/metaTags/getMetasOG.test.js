@@ -2,6 +2,33 @@ import { SITE_LANACION } from 'fusion:environment';
 import getMetasOG from '../../../../../components/private/common/metaTags/getMetasOG';
 import getAssetsPath from '../../../../../components/private/common/utils/getAssetsPath';
 
+jest.mock('fusion:content', () => ({
+    useContent: () => ({
+        _id: '/',
+        _website: 'la-nacion-ar',
+        name: 'LA NACION',
+        site: {
+            site_url: null
+        },
+        children: [
+            {
+                _id: '/recetas',
+                site: {
+                    site_url: null
+                },
+                children: [
+                    {
+                        _id: '/recetas/carnes',
+                        site: {
+                            site_url: null
+                        }
+                    }
+                ]
+            }
+        ]
+    })
+}));
+
 describe('Common - getMetasOG function', () => {
     it('es una function', () => {
         expect(typeof getMetasOG).toEqual('function');
@@ -24,11 +51,17 @@ describe('Common - getMetasOG function', () => {
                 },
                 subheadlines: { basic: '' },
                 subtype: '7',
+                type: 'story',
                 website_url:
                     '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
             },
             siteProperties: {
-                title: 'LA NACION'
+                title: 'LA NACION',
+                shareConfig: {
+                    facebook: {
+                        appID: '205326199490321'
+                    }
+                }
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'Arroz chaufa de mariscos' : '';
@@ -40,6 +73,10 @@ describe('Common - getMetasOG function', () => {
         };
 
         const metas = [
+            {
+                property: 'fb_app_id',
+                content: '205326199490321'
+            },
             {
                 property: 'og:type',
                 content: 'article'
@@ -54,7 +91,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image',
-                content: `${SITE_LANACION}/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg`
+                content: `/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg`
             },
             {
                 property: 'og:url',
@@ -67,7 +104,12 @@ describe('Common - getMetasOG function', () => {
     it('metas de tipo website', () => {
         const props = {
             siteProperties: {
-                title: 'LA NACION'
+                title: 'LA NACION',
+                shareConfig: {
+                    facebook: {
+                        appID: '205326199490321'
+                    }
+                }
             },
             metaValue: function metaValue(name) {
                 return name === 'title' ? 'LA NACION' : '';
@@ -79,6 +121,10 @@ describe('Common - getMetasOG function', () => {
         };
 
         const metas = [
+            {
+                property: 'fb_app_id',
+                content: '205326199490321'
+            },
             {
                 property: 'og:type',
                 content: 'website'

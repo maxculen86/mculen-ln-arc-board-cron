@@ -19,7 +19,6 @@ const section = `
         }
     }
 }`;
-
 const image = `
     type
     resized_urls {
@@ -66,11 +65,11 @@ const image = `
         basic
     }
 `;
-
 const video = `
     type
     _id
     publish_date
+    created_date
     duration
     headlines {
         basic
@@ -84,6 +83,10 @@ const video = `
     promo_items {
         basic {
             url
+            additional_properties {
+                iptc_source
+            }
+            ${image}
         }
     }
     additional_properties {
@@ -123,7 +126,6 @@ const video = `
         }
     }
 `;
-
 const oembed = `
     type
     subtype
@@ -136,11 +138,9 @@ const oembed = `
         type
     }
 `;
-
 const label = `
     text
 `;
-
 const labels = `
     label {
         edicion {
@@ -164,7 +164,6 @@ const labels = `
         }
     }
 `;
-
 const customReceta = `
     subtype    
     embed {
@@ -178,7 +177,6 @@ const customReceta = `
         }
     }
 `;
-
 const gallery = `
     subtype
     _id
@@ -192,7 +190,6 @@ const gallery = `
         }
     }
 `;
-
 export default `
 {
     _id
@@ -202,6 +199,7 @@ export default `
     distributor {
         name
         category
+        reference_id
     }
     promo_items {
         basic {
@@ -213,6 +211,14 @@ export default `
             }
             ${image}
             ${video}
+        }
+        storytelling {
+            _id
+            ${video}
+        }
+        storytelling_mobile {
+            _id
+            ${image}
         }
         receta {
             ${customReceta}
@@ -230,7 +236,11 @@ export default `
             }
             additional_properties {
                 original {
+                    byline
+                    image
                     role
+                    bio_page
+                    author_type
                 }
             }
         }
@@ -269,6 +279,9 @@ export default `
             }
             ${labels}
             website_url
+        }
+        redirect {
+            redirect_url
         }
     }
     content_elements {

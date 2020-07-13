@@ -2,14 +2,16 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const ComSource = props => {
-    const { media, srcset } = props;
-    if (!srcset) return null;
-    return <source media={media} srcset={srcset} />;
+    const { media, srcset, src, type } = props;
+    // if (!src && !srcset) return null;
+    return <source media={media} srcSet={srcset} src={src} type={type} />;
 };
 
 ComSource.propTypes = {
-    srcset: PropTypes.string.isRequired,
-    media: PropTypes.string
+    srcset: PropTypes.string,
+    media: PropTypes.string,
+    src: PropTypes.string,
+    type: PropTypes.string
 };
 
 export default ComSource;

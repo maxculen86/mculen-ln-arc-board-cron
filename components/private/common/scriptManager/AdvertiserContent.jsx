@@ -14,6 +14,12 @@ const getFirstParagraph = contentElements =>
               .content
         : null;
 
+const getImage = promoItems => {
+    if (!promoItems) return null;
+    const { basic = {} } = promoItems;
+    return (basic.type === 'image' && basic.url) || null;
+};
+
 const AdvertiserContent = props => {
     const {
         siteProperties: { host },
@@ -29,6 +35,8 @@ const AdvertiserContent = props => {
         contextPath,
         deployment
     } = props;
+
+    const promoItems = get(props, 'globalContent.promo_items');
 
     if (type !== 'story') return null;
     if (!getFirstParagraph(contentElements)) return null;
@@ -51,8 +59,7 @@ const AdvertiserContent = props => {
         '@type': 'AdvertiserContentArticle',
         image: {
             '@type': 'ImageObject',
-            url:
-                'https://hips.htvapps.com/htv-prod-media.s3.amazonaws.com/images/tile-1507740744.jpg?resize=700:*',
+            url: getImage(promoItems) || `${LOGO_AMP}`,
             width: 700,
             height: 420
         },
@@ -85,6 +92,7 @@ AdvertiserContent.propTypes = {
             basic: PropTypes.string
         }),
         content_elements: PropTypes.shape.isRequired,
+        promo_items: PropTypes.shape,
         created_date: PropTypes.string,
         last_updated_date: PropTypes.string,
         owner: PropTypes.shape({

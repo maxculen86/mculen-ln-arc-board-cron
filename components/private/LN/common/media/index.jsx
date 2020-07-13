@@ -5,6 +5,7 @@ import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
+import ComFigcaption from '../../../common/com-figcaption';
 
 const media = ({
     mediaData,
@@ -16,6 +17,8 @@ const media = ({
     outputType,
     handleClick,
     isApertura,
+    parrafo,
+    tituloNota,
     active
 }) => {
     const refContainer = useRef();
@@ -39,6 +42,7 @@ const media = ({
 
     if (mediaData) {
         const { type, _id } = mediaData;
+        // TODO: Sacar switch
         switch (type) {
             case 'image':
                 item = (
@@ -65,7 +69,17 @@ const media = ({
                 );
                 break;
             case 'video':
-                item = <VideoPlayer videoId={_id} mediaData={mediaData} />;
+                item = (
+                    <figure className="mod-figure">
+                        <VideoPlayer
+                            videoId={_id}
+                            mediaData={mediaData}
+                            parrafo={parrafo}
+                            tituloNota={tituloNota}
+                        />
+                        <ComFigcaption>{children}</ComFigcaption>
+                    </figure>
+                );
                 break;
             default:
                 break;
@@ -108,7 +122,11 @@ media.propTypes = {
     }),
     href: PropTypes.string.tag({
         defaultValue: ''
-    })
+    }),
+    tituloNota: PropTypes.string.isRequired,
+    parrafo: PropTypes.shape({
+        content: PropTypes.string
+    }).isRequired
 };
 
 export default media;

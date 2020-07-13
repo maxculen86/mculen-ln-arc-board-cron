@@ -1,10 +1,27 @@
 import Header from './header';
 import Text from './text';
-import Video from '../video';
-import Image from '../image';
+import Video from './video';
+import Image from './image';
+import List from './list';
+import Quote from './quote';
+import Gallery from './gallery';
+import Embed from './embed';
+import Html from './htmlContent';
+import Button from './button';
 
 const defaultCuerpo = contentElements => {
-    const components = [Text, Header, Image, Video];
+    const components = [
+        Text,
+        Header,
+        Image,
+        Video,
+        List,
+        Quote,
+        Gallery,
+        Embed,
+        Html,
+        Button
+    ];
 
     const resp = [];
     contentElements.forEach(v => {
