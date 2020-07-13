@@ -1,5 +1,6 @@
-import { SITE_LANACION, IS_DEV, IS_SANDBOX } from 'fusion:environment';
+import { SITE_LANACION } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
+import getPathForImage from '../utils/getPathForImage';
 
 const getData = ({
     siteProperties,
@@ -34,10 +35,7 @@ const getData = ({
         FB_APP_ID: ''
     };
 
-    let pathImagen = urlBasicPI;
-    if (IS_DEV !== 'true' && IS_SANDBOX !== 'true') {
-        pathImagen = `${SITE_LANACION}${urlBasicPI}`;
-    }
+    const pathImagen = getPathForImage(urlBasicPI);
 
     return {
         type: isArticle ? 'article' : 'website',
