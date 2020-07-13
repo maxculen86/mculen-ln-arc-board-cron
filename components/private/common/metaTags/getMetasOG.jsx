@@ -1,4 +1,4 @@
-import { SITE_LANACION } from 'fusion:environment';
+import { SITE_LANACION, IS_DEV, IS_SANDBOX } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
 
 const getData = ({
@@ -34,6 +34,11 @@ const getData = ({
         FB_APP_ID: ''
     };
 
+    let pathImagen = urlBasicPI;
+    if (IS_DEV !== 'true' && IS_SANDBOX !== 'true') {
+        pathImagen = `${SITE_LANACION}${urlBasicPI}`;
+    }
+
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
@@ -43,9 +48,7 @@ const getData = ({
             ? subheadlinesBasic || DEFAULT.DESCRIPTION
             : metaValue('description') || DEFAULT.DESCRIPTION,
         image:
-            typeBasicPI === 'image' && urlBasicPI
-                ? `${urlBasicPI}`
-                : DEFAULT.IMAGE,
+            typeBasicPI === 'image' && urlBasicPI ? pathImagen : DEFAULT.IMAGE,
         url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain,
         fbAppId:
             (siteProperties && siteProperties.shareConfig.facebook.appID) ||
