@@ -7,6 +7,7 @@ import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from '../../../common/utils/image/resizer';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
+import getPathForImage from '../../../common/utils/getPathForImage';
 
 const extractDataFromContentElements = contentElements => {
     let ingredientes = [];
@@ -56,6 +57,7 @@ const extractDataFromPromoItems = promoItems => {
                 height: 540,
                 width: 960
             });
+            resizedUrl = getPathForImage(resizedUrl);
         }
 
         if (promoItems.receta) {

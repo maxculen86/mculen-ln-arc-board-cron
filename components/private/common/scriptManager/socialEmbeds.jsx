@@ -72,6 +72,7 @@ const SocialEmbeds = props => {
                     />
                 </>
             )}
+            <noscript>Your browser does not support javascript</noscript>
         </>
     );
 };
