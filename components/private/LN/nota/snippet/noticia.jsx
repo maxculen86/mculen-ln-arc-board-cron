@@ -1,9 +1,9 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import { SITE_LANACION, IS_DEV, IS_SANDBOX } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
+import getPathForImage from '../../../common/utils/getPathForImage';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -30,10 +30,8 @@ const extractDataFromPromoItems = promoItems => {
     let thumbnailUrl;
     let image;
 
-    let pathImagen = promoItems.basic && promoItems.basic.url;
-    if (IS_DEV !== 'true' && IS_SANDBOX !== 'true') {
-        pathImagen = `${SITE_LANACION}${pathImagen}`;
-    }
+    const pathImagen =
+        promoItems.basic && getPathForImage(promoItems.basic.url);
 
     if (promoItems) {
         if (promoItems.basic && promoItems.basic.type === 'image') {
