@@ -16,10 +16,13 @@ import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 
 const log = error => {
+    // TODO: Armar un objeto lo mas dinamico
+    // TODO: Armar una clase command para elmah
+    console.log('error', error);
     const elmahJson = {
         application: 'ln/arc',
-        detail: 'Prueba desde LN/ARC',
-        hostname: 'localhost',
+        detail: 'Prueba desde LN/ARC / stack exception string',
+        hostname: '-',
         title: 'Test Elmah - Content Source / request.catch',
         titleTemplate: 'titleTemplate',
         source: 'content/source',
@@ -28,13 +31,8 @@ const log = error => {
         user: 'jquintana',
         severity: 'string',
         url: 'string',
-        method: 'string',
         version: 'string',
-        cookies: [{ key: 'string', value: 'string' }],
-        form: [{ key: 'string', value: 'string' }],
-        queryString: [{ key: 'string', value: 'string' }],
-        serverVariables: [{ key: 'string', value: 'string' }],
-        data: [{ key: 'string', value: 'string' }]
+        queryString: [{ key: 'string', value: 'string' }]
     };
     console.log('========================');
     console.log('');
@@ -83,6 +81,8 @@ const resolve = (key, a) => {
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
+// TODO: process.on
+
 const fetch = query => {
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -100,27 +100,31 @@ const fetch = query => {
     console.log('');
     console.log('========================');
 
-    return request(opt)
-        .then(response => {
-            if (response.type === 'redirect' && response.redirect_url) {
-                throw new Redirect(response.redirect_url, 301);
-            }
+    process.on('unhandledRejection', (reason, promise) => {
+        console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+        log({});
+    });
 
-            const forwardUrl = get(
-                response,
-                'related_content.redirect[0].redirect_url'
-            );
+    return request(opt).then(response => {
+        if (response.type === 'redirect' && response.redirect_url) {
+            throw new Redirect(response.redirect_url, 301);
+        }
 
-            const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
-            if (forwardUrl && regExp.test(forwardUrl)) {
-                throw new Redirect(forwardUrl, 301);
-            }
+        const forwardUrl = get(
+            response,
+            'related_content.redirect[0].redirect_url'
+        );
 
-            return transform(response, query);
-        })
-        .catch(error => {
+        const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+        if (forwardUrl && regExp.test(forwardUrl)) {
+            throw new Redirect(forwardUrl, 301);
+        }
+
+        return transform(response, query);
+    });
+    /*         .catch(error => {
             log(error);
-        });
+        }); */
 };
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
