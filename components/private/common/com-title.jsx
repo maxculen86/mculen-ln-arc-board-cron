@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import '../../../src/statics/LN/css/components/_com-title.scss';
+import '../../../resources/dist/css/ln/components/com-title.css';
 
 const ComTitle = props => {
     const { children, tag, classCondition, size } = props;
