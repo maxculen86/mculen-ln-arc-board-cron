@@ -1,6 +1,14 @@
 import { SITE_LANACION } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
 
+const getAppId = siteProperties =>
+    siteProperties &&
+    siteProperties.shareConfig &&
+    siteProperties.shareConfig.facebook &&
+    siteProperties.shareConfig.facebook.appID
+        ? siteProperties.shareConfig.facebook.appID
+        : undefined;
+
 const getData = ({
     siteProperties,
     metaValue,
@@ -14,6 +22,7 @@ const getData = ({
     const PLACEHOLDER = `${SITE_LANACION}${deployment(
         `${contextPath}/resources/images/placeholderLN.jpg`
     )}`;
+    const { title } = siteProperties;
 
     const {
         headlines = {},
@@ -38,7 +47,7 @@ const getData = ({
         type: isArticle ? 'article' : 'website',
         title: isArticle
             ? headlinesBasic || DEFAULT.TITLE
-            : metaValue('title') || siteProperties.title || DEFAULT.TITLE,
+            : metaValue('title') || title || DEFAULT.TITLE,
         description: isArticle
             ? subheadlinesBasic || DEFAULT.DESCRIPTION
             : metaValue('description') || DEFAULT.DESCRIPTION,
@@ -47,9 +56,7 @@ const getData = ({
                 ? `${urlBasicPI}`
                 : DEFAULT.IMAGE,
         url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain,
-        fbAppId:
-            (siteProperties && siteProperties.shareConfig.facebook.appID) ||
-            DEFAULT.FB_APP_ID
+        fbAppId: getAppId(siteProperties) || DEFAULT.FB_APP_ID
     };
 };
 
