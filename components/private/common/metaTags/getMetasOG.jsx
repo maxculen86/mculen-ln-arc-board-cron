@@ -43,6 +43,7 @@ const getData = ({
         FB_APP_ID: ''
     };
 
+    console.log('getAppId(siteProperties)', getAppId(siteProperties));
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
