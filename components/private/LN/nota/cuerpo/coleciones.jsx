@@ -1,4 +1,5 @@
 import React from 'react';
+import ComTitle from '../../../common/com-title';
 
 // TODO: investigar componte de ARC "social link"
 export default function colecciones() {
@@ -7,11 +8,12 @@ export default function colecciones() {
             <article className="colecciones">
                 <section className="cont-figure"></section>
                 <div className="hlp-paddingSides-15 hlp-paddingHeight-15">
-                    <h2 className="com-title-acu">
-                        <a href="">
-                            <b>Colecciones LA NACION</b>
-                        </a>
-                    </h2>
+                    <ComTitle
+                        link="#"
+                        tag="h2"
+                        size="xl"
+                        content={'Colecciones LA NACION'}
+                    />
                     <p className="hlp-margintop-5">
                         <a href="">
                             Seguí el lanzamiento de los fascículos, libros o
