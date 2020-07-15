@@ -12,10 +12,10 @@ describe('Json video common', () => {
         expect(resp['_t']).toBe('mmf');
         expect(resp.width).toBe(VideoArticle[0].streams[1].width);
         expect(resp.height).toBe(VideoArticle[0].streams[1].height);
-        expect(resp.url).toBe(VideoArticle[0].streams[1].url);        
+        expect(resp.url).toBe(VideoArticle[0].streams[1].url);
     });
 
-    it('Render video sin contenido stream',()=>{
+    it('Render video sin contenido stream', () => {
         const respStreamEmpty = Video(VideoArticle[2].streams);
         expect(respStreamEmpty).toBe(null);
 

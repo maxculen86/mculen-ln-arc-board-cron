@@ -12,10 +12,9 @@ describe('Json video common', () => {
         expect(resp['_t']).toBe('mmi');
         expect(resp.orden).toBe(0);
         expect(resp.src).toBe(VideoArticle[0].promo_items.basic.url);
-      
     });
 
-    it('Render video sin contenido stream',()=>{
+    it('Render video sin contenido stream', () => {
         const respNotExist = VideoThumbnail(VideoArticle[3].promo_items);
         expect(respNotExist).toBe(null);
 
