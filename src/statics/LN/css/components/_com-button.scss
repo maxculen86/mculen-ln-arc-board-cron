@@ -155,16 +155,20 @@
             font-size: px(20);
             width: px(30);
             height: px(40);
-            top: px(92); //alto.img/2 - alto.button/2
+            top: px(92);
             @media ($media-m) {
                 //768
                 font-size: px(32);
                 top: px(206);
-                width: $px-46;
-                height: $px-60;
+                width: px(46);
+                height: px(60);
             }
             @media ($media-l) {
                 //1024
+                top: px(150);
+            }
+            @media ($media-lm) {
+                //1100
                 top: px(215);
             }
         }
