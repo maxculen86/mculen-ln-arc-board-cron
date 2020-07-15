@@ -21,6 +21,6 @@ describe('Json imagen common', () => {
 
     test('Se envia el objeto pero no contiene Resize Url', () => {
         const resp = Image(articleFoto);
-        expect(resp).toBe(null)
+        expect(resp).toBe(null);
     });
 });
