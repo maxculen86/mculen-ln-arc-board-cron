@@ -99,25 +99,25 @@ describe('Test de JSON de apertura en article', () => {
         expect(respEmpty.autores).toBeUndefined();
     });
 
-    it('Render en caso que no tenga tag destacado o este vacio',()=>{
+    it('Render en caso que no tenga tag destacado o este vacio', () => {
         const resp = Apertura(ArticleApertura[5]);
         expect(resp.tagDestacado).toBeUndefined();
 
         const respEmpty = Apertura(ArticleApertura[6]);
         expect(respEmpty.tagDestacado).toBeUndefined();
-    })
+    });
 
-    it('Render apertura espacio patrocinado',()=>{
+    it('Render apertura espacio patrocinado', () => {
         const resp = Apertura(ArticleApertura[0]);
         expect(resp.tagDestacado.tipoDescripcion).toBe('Patrocinado');
         expect(resp.tagDestacado.valor).toBe('Espacio Patrocinado');
-    })
+    });
 
-    it('Render apertura content lab',()=>{
+    it('Render apertura content lab', () => {
         const resp = Apertura(ArticleApertura[1]);
         expect(resp.tagDestacado.tipoDescripcion).toBe('contentLab');
         expect(resp.tagDestacado.valor).toBe('Chevrolet');
-    })
+    });
 
     // it('Render detalle de receta', () => {
     //     const resp = Apertura(ArticleApertura[7]);
