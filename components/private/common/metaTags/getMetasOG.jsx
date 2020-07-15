@@ -1,5 +1,6 @@
 import { SITE_LANACION } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
+import getPathForImage from '../utils/getPathForImage';
 
 const getData = ({
     siteProperties,
@@ -34,6 +35,8 @@ const getData = ({
         FB_APP_ID: ''
     };
 
+    const pathImagen = getPathForImage(urlBasicPI);
+
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
@@ -43,9 +46,7 @@ const getData = ({
             ? subheadlinesBasic || DEFAULT.DESCRIPTION
             : metaValue('description') || DEFAULT.DESCRIPTION,
         image:
-            typeBasicPI === 'image' && urlBasicPI
-                ? `${urlBasicPI}`
-                : DEFAULT.IMAGE,
+            typeBasicPI === 'image' && urlBasicPI ? pathImagen : DEFAULT.IMAGE,
         url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain,
         fbAppId:
             (siteProperties && siteProperties.shareConfig.facebook.appID) ||

@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
+import getPathForImage from '../../../common/utils/getPathForImage';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -29,13 +30,16 @@ const extractDataFromPromoItems = promoItems => {
     let thumbnailUrl;
     let image;
 
+    const pathImagen =
+        promoItems.basic && getPathForImage(promoItems.basic.url);
+
     if (promoItems) {
         if (promoItems.basic && promoItems.basic.type === 'image') {
-            thumbnailUrl = `${promoItems.basic.url || ''}`;
+            thumbnailUrl = `${pathImagen || ''}`;
             image = {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                url: `${promoItems.basic.url || ''}`,
+                url: `${pathImagen || ''}`,
                 height: `${promoItems.basic.height || ''}`,
                 width: `${promoItems.basic.width || ''}`
             };

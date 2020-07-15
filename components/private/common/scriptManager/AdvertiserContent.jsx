@@ -74,13 +74,16 @@ const AdvertiserContent = props => {
     };
 
     return (
-        <script
-            id="advertiser-content-article"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-                __html: JSON.stringify(script)
-            }}
-        />
+        <>
+            <script
+                id="advertiser-content-article"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(script)
+                }}
+            />
+            <noscript>Your browser does not support javascript</noscript>
+        </>
     );
 };
 
