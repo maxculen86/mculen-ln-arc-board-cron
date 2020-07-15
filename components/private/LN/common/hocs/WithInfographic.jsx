@@ -34,7 +34,7 @@ export default function WithInfographic(WrappedComponent) {
                 const { promo_items: promoItems, type, subtype } =
                     globalContent || {};
                 const { basic } = promoItems || {};
-                const { type: contentType, content } = basic || '';
+                const { type: contentType, content, _id } = basic || '';
                 if (
                     type === 'story' &&
                     subtype === '2' &&
@@ -49,15 +49,24 @@ export default function WithInfographic(WrappedComponent) {
                             : content;
 
                     this.setState({
-                        content: result
+                        content: result,
+                        outputType,
+                        _id
                     });
                 }
             };
 
             render() {
-                const { content } = this.state;
+                const { content, outputType, _id } = this.state;
                 if (!content) return <></>;
-                return <WrappedComponent {...this.props} content={content} />;
+                return (
+                    <WrappedComponent
+                        {...this.props}
+                        content={content}
+                        outputType={outputType}
+                        _id={_id}
+                    />
+                );
             }
         }
     );
