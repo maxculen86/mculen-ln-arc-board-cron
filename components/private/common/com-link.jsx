@@ -7,22 +7,24 @@ import '../../../resources/dist/css/ln/components/com-text.css';
 const ComLink = props => {
     const { children, link, textname, target, title, classCondition } = props;
 
-    if (!link)
-        return (
-            <span className={`com-text ${classCondition || ''}`}>
-                {textname}
-            </span>
-        );
     return (
-        <a
-            href={link}
-            rel={target === '_blank' && 'nonoopener noreferrer'}
-            target={target}
-            title={title}
-            className={`com-link ${classCondition || ''}`}
-        >
-            {children || textname}
-        </a>
+        <>
+            {link ? (
+                <a
+                    href={link}
+                    rel={target === '_blank' && 'nonoopener noreferrer'}
+                    target={target}
+                    title={title}
+                    className={`com-link ${classCondition || ''}`}
+                >
+                    {children || textname}
+                </a>
+            ) : (
+                <span className={`com-text ${classCondition || ''}`}>
+                    {children || textname}
+                </span>
+            )}
+        </>
     );
 };
 
