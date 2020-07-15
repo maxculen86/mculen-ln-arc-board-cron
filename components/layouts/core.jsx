@@ -42,7 +42,7 @@ const core = ({ children }) => {
         console.log('');
         console.log('============================');
 
-        /*         fetch(
+        fetch(
             'https://api.elmah.io/v3/messages/00f817a7-48fa-4335-b551-ca953b7342fd?api_key=e6ce19c37ca046348f6afb5a11bc3fdb',
             {
                 method: 'POST',
@@ -58,7 +58,7 @@ const core = ({ children }) => {
             })
             .catch(e => {
                 console.log('elmah -> error', e);
-            }); */
+            });
     }
 
     return (

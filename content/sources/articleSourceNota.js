@@ -15,24 +15,27 @@ import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 
-const log = error => {
-    // TODO: Armar un objeto lo mas dinamico
-    // TODO: Armar una clase command para elmah
-    console.log('error', error);
+const log = () => {
     const elmahJson = {
         application: 'ln/arc',
-        detail: 'Prueba desde LN/ARC / stack exception string',
-        hostname: '-',
-        title: 'Test Elmah - Content Source / request.catch',
+        detail: 'Prueba desde LN/ARC',
+        hostname: 'localhost',
+        title: 'Test Elmah - Content Source',
         titleTemplate: 'titleTemplate',
         source: 'content/source',
         statusCode: 0,
-        type: 'error',
-        user: 'jquintana',
+        dateTime: '2020-07-07T14:25:28.636Z',
+        type: 'string',
+        user: 'string',
         severity: 'string',
         url: 'string',
+        method: 'string',
         version: 'string',
-        queryString: [{ key: 'string', value: 'string' }]
+        cookies: [{ key: 'string', value: 'string' }],
+        form: [{ key: 'string', value: 'string' }],
+        queryString: [{ key: 'string', value: 'string' }],
+        serverVariables: [{ key: 'string', value: 'string' }],
+        data: [{ key: 'string', value: 'string' }]
     };
     console.log('========================');
     console.log('');
@@ -54,7 +57,6 @@ const log = error => {
         body: JSON.stringify(elmahJson)
     })
         .then(res => {
-            //throw new Error(error);
             console.log('elmah -> res', res);
         })
         .catch(e => {
@@ -95,16 +97,12 @@ const fetch = query => {
     }
 
     console.log('========================');
+    console.log('opt', opt);
     console.log('');
     console.log('paso por content/source');
     console.log('');
     console.log('========================');
-
-    process.on('unhandledRejection', (reason, promise) => {
-        console.log('Unhandled Rejection at:', promise, 'reason:', reason);
-        log({});
-    });
-
+    log();
     return request(opt).then(response => {
         if (response.type === 'redirect' && response.redirect_url) {
             throw new Redirect(response.redirect_url, 301);

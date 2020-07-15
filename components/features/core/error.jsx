@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import request from 'request-promise-native';
 
 function error() {
     useEffect(() => {
