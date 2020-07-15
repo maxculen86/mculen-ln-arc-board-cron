@@ -55,6 +55,9 @@
             right: 0;
         }
     }
+    .mod-shared & {
+        order: 2;
+    }
 }
 
 @media ($media-m) {

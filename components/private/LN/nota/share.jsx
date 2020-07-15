@@ -13,6 +13,7 @@ import {
     popUpCompartirMailTo
 } from '../common/utils/shareHelper';
 import ComButton from '../../common/com-button';
+import ComLine from '../common/footer/com-line';
 
 const Share = props => {
     const {
@@ -36,12 +37,14 @@ const Share = props => {
             }`}
         >
             <ComButton
+                size="l"
                 iconName="facebook"
                 onClick={() =>
                     popUpCompartirNotaFB(requestUri, config.host, title)
                 }
             />
             <ComButton
+                size="l"
                 iconName="twitter"
                 onClick={() =>
                     popUpCompartirNotaFB(requestUri, config.host, title)
@@ -50,15 +53,18 @@ const Share = props => {
             <ComButton
                 iconName="whatsapp"
                 id="whatsAppShareDesktop"
+                size="l"
                 onClick={() =>
                     popUpCompartirNotaTW(requestUri, config.host, twiterTitle)
                 }
             />
+            <ComLine />
             <ComButton
+                size="l"
                 iconName="mail"
                 onClick={() => popUpCompartirMailTo(requestUri, config.host)}
             />
-            <ComButton iconName="comment">
+            <ComButton size="l" iconName="comment">
                 <label htmlFor="">145</label>
             </ComButton>
 
