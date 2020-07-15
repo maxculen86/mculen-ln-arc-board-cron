@@ -1,6 +1,6 @@
 import React from 'react';
 import ComIcon from './com-icon';
-import '../../../../../resources/dist/css/ln/modules/mod-share.css';
+import '../../../resources/dist/css/ln/modules/mod-share.css';
 
 const ModShare = props => {
     const { classesNames, classCondition } = props;
@@ -11,15 +11,18 @@ const ModShare = props => {
                 classCondition ? classCondition : ``
             }`}
         >
-            <ComIcon link="https://www.facebook.com/lanacion" icon="facebook" />
-            <ComIcon link="https://twitter.com/LANACION" icon="twitter" />
+            <ComIcon
+                link="https://www.facebook.com/lanacion"
+                iconName="facebook"
+            />
+            <ComIcon link="https://twitter.com/LANACION" iconName="twitter" />
             <ComIcon
                 link="https://www.instagram.com/lanacioncom/"
-                icon="instagram"
+                iconName="instagram"
             />
             <ComIcon
                 link="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
-                icon="rss"
+                iconName="rss"
             />
         </section>
     );

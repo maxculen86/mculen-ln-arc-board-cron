@@ -2,6 +2,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../../resources/dist/css/ln/components/share.css';
+import ComIcon from '../../common/com-icon';
+import ComLink from '../../common/com-link';
+//import '../../../resources/dist/css/ln/modules/mod-share.css';
 import config from '../../../../properties/sites/la-nacion-ar';
 import {
     popUpCompartirNotaTW,
@@ -9,23 +12,57 @@ import {
     shareWhatsAppDesktop,
     popUpCompartirMailTo
 } from '../common/utils/shareHelper';
+import ComButton from '../../common/com-button';
 
 const Share = props => {
     const {
+        classCondition,
+        classesNames,
         requestUri,
         globalContent: {
             headlines: { basic: title, mobile: mobileTitle }
         }
     } = props;
-
     const twiterTitle =
         mobileTitle !== '' && mobileTitle !== undefined ? mobileTitle : title;
 
     // TODO: arreglar el tema de las URL's
 
     return (
-        <div id="v-share" className="com-share">
-            <div className="share-left">
+        <div
+            id="v-share"
+            className={`mod-shared ${classesNames ? classesNames : ``} ${
+                classCondition ? classCondition : ``
+            }`}
+        >
+            <ComButton
+                iconName="facebook"
+                onClick={() =>
+                    popUpCompartirNotaFB(requestUri, config.host, title)
+                }
+            />
+            <ComButton
+                iconName="twitter"
+                onClick={() =>
+                    popUpCompartirNotaFB(requestUri, config.host, title)
+                }
+            />
+            <ComButton
+                iconName="whatsapp"
+                id="whatsAppShareDesktop"
+                onClick={() =>
+                    popUpCompartirNotaTW(requestUri, config.host, twiterTitle)
+                }
+            />
+            <ComButton
+                iconName="mail"
+                onClick={() => popUpCompartirMailTo(requestUri, config.host)}
+            />
+            <ComButton iconName="comment">
+                <label htmlFor="">145</label>
+            </ComButton>
+
+            {/* <div className="share-left">
                 <button
                     type="button"
                     onClick={() =>
@@ -64,7 +101,7 @@ const Share = props => {
                 />
                 <button type="button" className="icon-comment" />
                 <label htmlFor="">145</label>
-            </div>
+            </div> */}
         </div>
     );
 };
