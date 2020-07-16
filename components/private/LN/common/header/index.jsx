@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import HeaderDesktop from './headerDesktop';
-import HeaderMobile from './headerMobile';
 import NavBarMobile from '../navbar';
 import HeaderAMP from './headerAMP';
-import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import withLoginData from '../hocs/withLoginData';
 import Desplegable from '../desplegable';
 import Scroll from '../../../common/utils/scroll';
@@ -28,14 +26,13 @@ class Index extends Component {
     }
 
     componentDidMount() {
-        //debugger;
-        const { screenUtils } = this.props;
-        const { device } = screenUtils;
-        const idHeader = device === 'desktop' ? 'header' : 'header-mobile';
-        const header = document.getElementById(idHeader);
+        // debugger;
+
+        const header = document.getElementById('header');
         //const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
         const wrapper = document.getElementById('wrapper');
+
         if (header) {
             const headerHeigth = header.clientHeight || header.offsetHeight;
             window.addEventListener(
@@ -112,7 +109,6 @@ class Index extends Component {
     render() {
         const {
             outputType,
-            screenUtils,
             logueado,
             loginData,
             goToLogout,
@@ -120,14 +116,12 @@ class Index extends Component {
             siteProperties: { host }
         } = this.props;
         const { scrollDirection } = this.state;
-        const isMobile = screenUtils.device !== 'desktop';
 
         if (outputType === 'amp')
             return <HeaderAMP toglleDesplegable={this.toglleDesplegable} />;
 
         return (
             <>
-                {/* {!isMobile && ( */}
                 <HeaderDesktop
                     toglleDesplegable={this.toglleDesplegable}
                     logueado={logueado}
@@ -137,10 +131,7 @@ class Index extends Component {
                     host={host}
                     headerDark={headerDark}
                 />
-                {/* )}
-                {isMobile && ( */}
                 <>
-                    {/* <HeaderMobile loginData={loginData} host={host} /> */}
                     <NavBarMobile
                         toglleDesplegable={this.toglleDesplegable}
                         showNav={
@@ -150,7 +141,6 @@ class Index extends Component {
                         }
                     />
                 </>
-                {/* )} */}
                 <Desplegable toglleDesplegable={this.toglleDesplegable} />
             </>
         );
@@ -175,8 +165,4 @@ Index.propTypes = {
     headerDark: PropTypes.string.isRequired
 };
 
-// Index.defaultProps = {
-//     logueado: false
-// };
-
-export default withLoginData(WithScreenUtils(Consumer(Index)));
+export default withLoginData(Consumer(Index));

@@ -8,6 +8,7 @@ import { createResizer } from '../../../common/utils/image/resizer';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getPathForImage from '../../../common/utils/getPathForImage';
+import get from '../../../common/utils/get';
 
 const extractDataFromContentElements = contentElements => {
     let ingredientes = [];
@@ -19,7 +20,7 @@ const extractDataFromContentElements = contentElements => {
         );
 
         preparacions.forEach(pre => {
-            if (pre.embed.config.items) {
+            if (get(pre, 'embed.config.items') !== undefined) {
                 pre.embed.config.items.map(item =>
                     preparaciones.push({ '@type': 'HowToStep', text: item })
                 );
@@ -31,7 +32,7 @@ const extractDataFromContentElements = contentElements => {
         );
 
         ingredients.forEach(pre => {
-            if (pre.embed.config.items) {
+            if (get(pre, 'embed.config.items') !== undefined) {
                 ingredientes = ingredientes.concat(pre.embed.config.items);
             }
         });
@@ -63,10 +64,19 @@ const extractDataFromPromoItems = promoItems => {
         if (promoItems.receta) {
             if (
                 promoItems.receta.subtype === 'custom-detalle-receta' &&
-                promoItems.receta.embed.config.title === 'detalle-receta'
+                get(promoItems.receta, 'embed.config.title') ===
+                    'detalle-receta'
             ) {
-                counterTime = promoItems.receta.embed.config.counterTime;
-                counterPortion = promoItems.receta.embed.config.counterPortion;
+                counterTime = get(
+                    promoItems.receta,
+                    'embed.config.counterTime',
+                    ''
+                );
+                counterPortion = get(
+                    promoItems.receta,
+                    'embed.config.counterPortion',
+                    ''
+                );
             }
         }
     }

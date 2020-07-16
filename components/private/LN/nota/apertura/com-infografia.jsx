@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import WithInfographic from '../../common/hocs/WithInfographic';
-import RawHTML from '../../common/rawHTML';
+import Html from '../cuerpo/html';
 
-const ComInfografia = ({ content }) => {
+const ComInfografia = ({ content, outputType, _id }) => {
     if (!content.length) return <></>;
     const data = {
-        raw_oembed: { html: content },
-        classes: '--pym'
+        content,
+        _id
     };
 
-    return <RawHTML data={data} />;
+    return <Html data={data} />;
 };
 
 ComInfografia.propTypes = {
-    content: PropTypes.string.isRequired
+    content: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired
 };
 
 export default WithInfographic(ComInfografia);
