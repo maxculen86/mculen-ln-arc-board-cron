@@ -36,20 +36,10 @@ const index = props => {
             break;
         case '1':
             border = true;
-            title = (
-                <>
-                    {getSectionTitle(subtype)}
-                    <strong>{` ${sectionName}`}</strong>
-                </>
-            );
+            title = `${getSectionTitle(subtype)} ${sectionName}`;
             break;
         default:
-            title = (
-                <>
-                    Últimas notas de
-                    <strong>{` ${sectionName}`}</strong>
-                </>
-            );
+            title = `Últimas notas de ${sectionName}`;
             break;
     }
 
