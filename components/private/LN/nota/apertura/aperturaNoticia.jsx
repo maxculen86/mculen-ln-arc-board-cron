@@ -29,7 +29,9 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
                         textname={basic.caption}
                     />
                 )}
-                <ComText classCondition="--credit" textname={credito} />
+                {credito && (
+                    <ComText classCondition="--credit" textname={credito} />
+                )}
             </>
         ) : (
             <>
