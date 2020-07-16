@@ -36,37 +36,53 @@ const Share = props => {
                 classCondition ? classCondition : ``
             }`}
         >
-            <ComButton
-                size="l"
-                iconName="facebook"
-                onClick={() =>
-                    popUpCompartirNotaFB(requestUri, config.host, title)
-                }
-            />
-            <ComButton
-                size="l"
-                iconName="twitter"
-                onClick={() =>
-                    popUpCompartirNotaTW(requestUri, config.host, twiterTitle)
-                }
-            />
-            <ComButton
-                iconName="whatsapp"
-                id="whatsAppShareDesktop"
-                size="l"
-                onClick={() =>
-                    popUpCompartirNotaTW(requestUri, config.host, twiterTitle)
-                }
-            />
+            <div className="container --left">
+                <ComButton
+                    size="l"
+                    iconName="facebook"
+                    onClick={() =>
+                        popUpCompartirNotaFB(requestUri, config.host, title)
+                    }
+                />
+                <ComButton
+                    size="l"
+                    iconName="twitter"
+                    onClick={() =>
+                        popUpCompartirNotaTW(
+                            requestUri,
+                            config.host,
+                            twiterTitle
+                        )
+                    }
+                />
+                <ComButton
+                    iconName="whatsapp"
+                    id="whatsAppShareDesktop"
+                    size="l"
+                    onClick={() =>
+                        popUpCompartirNotaTW(
+                            requestUri,
+                            config.host,
+                            twiterTitle
+                        )
+                    }
+                />
+            </div>
+
             <ComLine />
-            <ComButton
-                size="l"
-                iconName="mail"
-                onClick={() => popUpCompartirMailTo(requestUri, config.host)}
-            />
-            <ComButton size="l" iconName="comment">
-                <label htmlFor="">145</label>
-            </ComButton>
+
+            <div className="container --right">
+                <ComButton
+                    size="l"
+                    iconName="mail"
+                    onClick={() =>
+                        popUpCompartirMailTo(requestUri, config.host)
+                    }
+                />
+                <ComButton size="l" iconName="comment">
+                    <label htmlFor="">145</label>
+                </ComButton>
+            </div>
 
             {/* <div className="share-left">
                 <button

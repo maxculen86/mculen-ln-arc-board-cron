@@ -3,11 +3,15 @@
 .com-line {
     width: 100%;
     height: px(1);
-    display: flex;
     background: $gris3;
     .footer & {
+        display: flex;
         margin-bottom: $spacing-md;
         order: 2;
+    }
+    .mod-share & {
+        display: none;
+        background: $gris5;
     }
 
     &::after {
@@ -28,6 +32,10 @@
     .com-line {
         .footer & {
             margin-bottom: $spacing-sm;
+        }
+        .mod-share & {
+            display: flex;
+            background: $gris5;
         }
     }
 }

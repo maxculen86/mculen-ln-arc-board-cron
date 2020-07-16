@@ -19,6 +19,7 @@
     .mod-share & {
         padding: 0;
     }
+
     &.facebook {
         background: $facebook;
         color: $blanco;
@@ -149,6 +150,16 @@
         & span {
             font-weight: 700;
             margin-left: px(5);
+        }
+    }
+}
+@media ($media-l) {
+    .com-button {
+        &.comment {
+            .mod-share & {
+                display: flex;
+                flex-direction: column;
+            }
         }
     }
 }
