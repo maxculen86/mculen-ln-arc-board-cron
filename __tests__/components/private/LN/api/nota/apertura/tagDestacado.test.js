@@ -21,7 +21,9 @@ describe('Test unitarios para espacio patrocinado y content lab', () => {
         const resp = TagDestacado(ArticleTagDestacado[0]);
         expect(resp.formatoId).toBe(1);
         expect(resp.tipoDescripcion).toBe('contentLab');
-        expect(resp.valor).toBe(ArticleTagDestacado[0].label.marca_anunciante.text);
+        expect(resp.valor).toBe(
+            ArticleTagDestacado[0].label.marca_anunciante.text
+        );
     });
 
     it('test datos de espacio patrocinado', () => {
