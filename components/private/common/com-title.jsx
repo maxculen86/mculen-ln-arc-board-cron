@@ -1,6 +1,6 @@
 import React from 'react';
 import ComLink from '../common/com-link';
-import '../../../src/statics/LN/css/components/_com-title.scss';
+import '../../..//resources/dist/css/ln/components/com-title.css';
 
 const ComTitle = props => {
     const {
