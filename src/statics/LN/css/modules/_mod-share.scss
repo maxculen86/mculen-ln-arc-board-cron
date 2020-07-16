@@ -13,6 +13,19 @@
 }
 @media ($media-l) {
     .mod-share {
+        //scrollUp Se muestra en la posición 0 (Sacar la clase cuando vuelva al punto 0)
+        .cuerpo__nota & {
+            position: sticky;
+            z-index: 10;
+            top: 20px;
+            @include flex(flex, column, center, center);
+            transition: all 0.25s;
+        }
+        &.--scrollUp {
+            .cuerpo__nota & {
+                top: 70px;
+            }
+        }
         .footer & {
             justify-content: flex-start;
             order: 1;

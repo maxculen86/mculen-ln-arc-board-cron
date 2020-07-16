@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/control-has-associated-label,jsx-a11y/label-has-associated-control,react/jsx-curly-newline */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import '../../../../resources/dist/css/ln/components/share.css';
+//import '../../../../resources/dist/css/ln/components/share.css';
 import ComIcon from '../../common/com-icon';
 import ComLink from '../../common/com-link';
-//import '../../../resources/dist/css/ln/modules/mod-share.css';
+import '../../../../resources/dist/css/ln/modules/mod-share.css';
 import config from '../../../../properties/sites/la-nacion-ar';
 import {
     popUpCompartirNotaTW,
@@ -32,7 +32,7 @@ const Share = props => {
     return (
         <div
             id="v-share"
-            className={`mod-shared ${classesNames ? classesNames : ``} ${
+            className={`mod-share ${classesNames ? classesNames : ``} ${
                 classCondition ? classCondition : ``
             }`}
         >
@@ -47,7 +47,7 @@ const Share = props => {
                 size="l"
                 iconName="twitter"
                 onClick={() =>
-                    popUpCompartirNotaFB(requestUri, config.host, title)
+                    popUpCompartirNotaTW(requestUri, config.host, twiterTitle)
                 }
             />
             <ComButton
