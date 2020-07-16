@@ -57,6 +57,7 @@ import Context from 'fusion:context';
 
 import FirmaFeature from '../../../../components/features/LN-nota/firma';
 import Firma from '../../../../components/private/LN/nota/firma';
+import getAuthorByline from '../../../../components/private/common/utils/getAuthorByline';
 
 describe('Firma Feature', () => {
     it('Construct props properly', () => {
@@ -68,5 +69,29 @@ describe('Firma Feature', () => {
         expect(firma.prop('photo')).toBeNull();
         expect(firma.prop('medio')).toBeNull();
         expect(firma.prop('amp')).toBeFalsy();
+    });
+});
+
+describe('Funcion Get Author Byline', () => {
+    it('Deberia traer la propiedad byline sobre el nombre del autor', () => {
+        let author = {
+            type: 'author',
+            name: 'Mariano Grondona',
+            additional_properties: {
+                original: {
+                    author_type: 'Estándar',
+                    byline: 'Mariano Grondona 1',
+                }
+            }
+        };
+
+        expect(getAuthorByline(author)).toEqual('Mariano Grondona 1');
+        expect(getAuthorByline(author)).toEqual('Mariano Grondona 1');
+        
+        author.additional_properties = {};
+        expect(getAuthorByline(author)).toEqual('Mariano Grondona');
+
+        author = {};
+        expect(getAuthorByline(author)).toEqual('');
     });
 });
