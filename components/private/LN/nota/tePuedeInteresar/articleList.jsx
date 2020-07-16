@@ -11,7 +11,7 @@ const ArticleList = props => {
                 <div className="row interest">
                     <ComTitle
                         tag="h4"
-                        size="xl"
+                        size="l"
                         content={'Te puede interesar'}
                     />
                     <section className="row-gap-tablet-3 row-gap-desksm-3">

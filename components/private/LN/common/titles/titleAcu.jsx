@@ -12,7 +12,7 @@ const TitleAcu = ({ headlines: { basic, shortTitle }, volanta, href }) => {
     return (
         <ComTitle
             tag="h2"
-            size="m"
+            size="xl"
             classCondition="--acu"
             link={href}
             content={renderTitle}

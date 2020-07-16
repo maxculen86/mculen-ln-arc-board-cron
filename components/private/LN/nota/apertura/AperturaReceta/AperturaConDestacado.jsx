@@ -6,6 +6,7 @@ import Destacado from '../destacado';
 import DetalleReceta from '../detalleReceta';
 
 import '../../../../../../resources/dist/css/ln/layouts/grid.css';
+import ComTitle from '../../../../common/com-title';
 
 const AperturaConDestacado = props => {
     const {
@@ -28,7 +29,11 @@ const AperturaConDestacado = props => {
                 )}
                 {!!tags && tags.length > 0 && (
                     <>
-                        <h4 className="com-subtitle_list">Recetas con:</h4>
+                        <ComTitle
+                            size="threexs"
+                            tag="h4"
+                            content="Recetas con:"
+                        />
                         <Tags tags={tags} destacado={false} />
                     </>
                 )}

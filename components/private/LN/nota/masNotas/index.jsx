@@ -19,7 +19,7 @@ const index = props => {
         let prefix = '';
         switch (Number(noteType)) {
             case 1:
-                prefix = 'Más sobre ';
+                prefix = 'Otras noticias de ';
                 break;
             case 7:
                 prefix = 'Más recetas de ';

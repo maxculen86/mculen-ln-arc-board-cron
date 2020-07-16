@@ -21,7 +21,7 @@ const Subtitle = ({ data }) => {
             return <ComTitle tag="h4" size="threexs" content={content} />;
         }
         default:
-            return <ComTitle tag="h2" size="threexl" content={content} />;
+            return <ComTitle tag="h2" size="l" content={content} />;
     }
 };
 
