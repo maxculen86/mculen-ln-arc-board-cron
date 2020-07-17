@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
+import getAuthorByline from '../utils/getAuthorByline';
 
 class GooglePublisherTag extends Component {
     static decorate(prefix, regex, replace, string) {
@@ -44,7 +45,10 @@ class GooglePublisherTag extends Component {
     getAuthors(object) {
         return object && object.length
             ? object
-                  .map(author => this.decorate('au_', /\W/g, '_', author.name))
+                  .map(author => {
+                      const name = getAuthorByline(author);
+                      return this.decorate('au_', /\W/g, '_', name);
+                  })
                   .join(',')
                   .concat(',')
             : '';

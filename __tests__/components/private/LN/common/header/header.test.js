@@ -1,9 +1,9 @@
 import Consumer from 'fusion:consumer';
 
-jest.mock(
+/* jest.mock(
     '../../../../../../components/private/LN/common/header/headerMobile',
     () => 'mocked-mobile-header'
-);
+); */
 jest.mock(
     '../../../../../../components/private/LN/common/header/headerDesktop',
     () => 'mocked-desktop-header'
@@ -82,7 +82,7 @@ describe('components - private - LN - common - header', () => {
         TestHelper.expectHTML(componentDesktop, 'mocked-desktop-header');
     });
 
-    const mobileSU = {
+    /* const mobileSU = {
         device: 'desktop'
     };
     const componentMobile = mount(
@@ -98,7 +98,7 @@ describe('components - private - LN - common - header', () => {
     it('Testeo que muestre el header mobile', () => {
         expect(componentMobile.find('mocked-mobile-header')).toBeTruthy();
         expect(componentMobile.find('mocked-mobile-navbar')).toBeTruthy();
-    });
+    }); */
 
     it('Shows user menu on the top right corner when logged in', () => {
         const componentDesktop = mount(
