@@ -1,10 +1,7 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-.com-title {
+.mod-title {
     @include flex(flex);
     margin-bottom: $spacing-sm;
-    font-family: $font-SuecaSlab;
-    font-weight: 700;
-    letter-spacing: $letter-spacing;
 }

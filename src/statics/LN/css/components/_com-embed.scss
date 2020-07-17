@@ -3,4 +3,13 @@
 
 .com-embed {
     margin-bottom: px(32);
+    &.--youtube,
+    &.--vimeo {
+        iframe {
+            @media (max-width: 375px) {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    }
 }

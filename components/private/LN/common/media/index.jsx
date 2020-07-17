@@ -77,7 +77,7 @@ const media = ({
                             parrafo={parrafo}
                             tituloNota={tituloNota}
                         />
-                        <ComFigcaption>{children}</ComFigcaption>
+                        {children}
                     </figure>
                 );
                 break;

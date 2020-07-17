@@ -46,7 +46,7 @@ const LNAcumuladoLayout = props => {
     }, [globalContent]);
 
     return (
-        <div id="wrapper" className={`${classRevista}`}>
+        <div id="wrapper" className={`acu ${classRevista}`}>
             <Header headerDark={headerDark} />
             <main>
                 {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}

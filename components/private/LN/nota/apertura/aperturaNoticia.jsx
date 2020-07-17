@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComText from '../../../common/com-text';
+import ComFigcaption from '../../../common/com-figcaption';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
 const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
@@ -28,7 +29,9 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
                         textname={basic.caption}
                     />
                 )}
-                <ComText classCondition="--credit" textname={credito} />
+                {credito && (
+                    <ComText classCondition="--credit" textname={credito} />
+                )}
             </>
         ) : (
             <>
@@ -49,18 +52,22 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
     };
 
     return (
-        <Media
-            mediaData={basic}
-            withZoom="--zoom"
-            handleClick={handleClick}
-            active={active}
-            isApertura
-            outputType={outputType}
-            parrafo={parrafo}
-            tituloNota={tituloNota}
-        >
-            <Epigrafe />
-        </Media>
+        <section className="mod-opening">
+            <Media
+                mediaData={basic}
+                withZoom="--zoom"
+                handleClick={handleClick}
+                active={active}
+                isApertura
+                outputType={outputType}
+                parrafo={parrafo}
+                tituloNota={tituloNota}
+            >
+                <ComFigcaption>
+                    <Epigrafe />
+                </ComFigcaption>
+            </Media>
+        </section>
     );
 };
 
