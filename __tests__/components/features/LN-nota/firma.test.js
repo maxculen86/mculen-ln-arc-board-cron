@@ -80,14 +80,14 @@ describe('Funcion Get Author Byline', () => {
             additional_properties: {
                 original: {
                     author_type: 'Estándar',
-                    byline: 'Mariano Grondona 1',
+                    byline: 'Mariano Grondona 1'
                 }
             }
         };
 
         expect(getAuthorByline(author)).toEqual('Mariano Grondona 1');
         expect(getAuthorByline(author)).toEqual('Mariano Grondona 1');
-        
+
         author.additional_properties = {};
         expect(getAuthorByline(author)).toEqual('Mariano Grondona');
 

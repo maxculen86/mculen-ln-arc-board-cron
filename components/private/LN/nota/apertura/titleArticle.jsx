@@ -1,17 +1,14 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
-import ComText from '../../../common/com-text';
+import ComTitle from '../../../common/com-title';
 
 const titleArticle = ({ label, headlines, prefix }) => {
     const { basic } = headlines || {};
-    return (
-        <ComText tag="h1" size="xl" classCondition="com-title-nota">
-            {!prefix && prefix !== '' ? `${prefix}\u00A0` : prefix}
-            {label.volanta ? `${label.volanta.text}\u00A0` : ''}
-            {basic}
-        </ComText>
-    );
+    const volantaText = `${label.volanta ? `${label.volanta.text}\u00A0` : ''}`;
+    const prefixText = `${prefix !== '' ? `${prefix}\u00A0` : prefix}`;
+    const renderTitle = `${prefixText}${volantaText}${basic}`;
+
+    return <ComTitle tag="h1" size="threexl" content={renderTitle}></ComTitle>;
 };
 
 titleArticle.propTypes = {

@@ -64,10 +64,19 @@ const extractDataFromPromoItems = promoItems => {
         if (promoItems.receta) {
             if (
                 promoItems.receta.subtype === 'custom-detalle-receta' &&
-                get(promoItems.receta, 'embed.config.title') === 'detalle-receta'
+                get(promoItems.receta, 'embed.config.title') ===
+                    'detalle-receta'
             ) {
-                counterTime = get(promoItems.receta, 'embed.config.counterTime','');
-                counterPortion = get(promoItems.receta, 'embed.config.counterPortion', '');
+                counterTime = get(
+                    promoItems.receta,
+                    'embed.config.counterTime',
+                    ''
+                );
+                counterPortion = get(
+                    promoItems.receta,
+                    'embed.config.counterPortion',
+                    ''
+                );
             }
         }
     }

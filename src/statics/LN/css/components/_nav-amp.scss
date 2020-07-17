@@ -134,7 +134,8 @@ a.icon-cerrar:before {
     display: block;
 }
 .header {
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 0 5px;
     position: relative;
     z-index: 10;
     .header__middle {
@@ -165,7 +166,6 @@ a.icon-cerrar:before {
         font-weight: normal;
         border: none;
         &:hover {
-            padding-right: 0;
             background: transparent;
             color: #006998;
             border: none;
@@ -217,16 +217,6 @@ a.icon-cerrar:before {
             display: inline-block;
             justify-content: inherit;
             text-align: center;
-            padding: 0.625rem 1.5rem;
-            background-color: #ffff24;
-            border: 1px solid #cccccc;
-            color: #000000;
-            &:hover {
-                background: #000000;
-                border-color: #000000;
-                color: #ffffff;
-                padding: 0.625rem 1.5rem;
-            }
         }
     }
 }
@@ -236,6 +226,19 @@ a.icon-cerrar:before {
         align-items: center;
         justify-content: center;
         padding: 13px 0;
+        border-bottom: 1px solid #d9d9d9;
+
+        .suscribir__header {
+            background-color: #ffff24;
+            border: 1px solid #cccccc;
+            color: #000000;
+            padding: 0.625rem 1.5rem;
+            &:hover {
+                background: #000000;
+                border-color: #000000;
+                color: #ffffff;
+            }
+        }
 
         .lay {
             .row {
