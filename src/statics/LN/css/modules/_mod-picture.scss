@@ -15,7 +15,7 @@
     margin-left: -1.25rem;
 
     //100% ipad dentro de nota
-    .col-12 &,
+    .mod-opening &,
     .cuerpo__nota & {
         width: calc(100% + 2.5rem);
         margin-left: -1.25rem;
@@ -27,7 +27,7 @@
     }
     @media ($media-l) {
         border: 1px solid #ccc;
-        .col-12 &,
+        .mod-opening &,
         .cuerpo__nota & {
             width: 100%;
             margin-left: 0;
