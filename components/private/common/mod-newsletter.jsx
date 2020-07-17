@@ -11,6 +11,13 @@ const ModNewsletter = props => {
     const handleClick = () => {
         window.location.assign('https://newsletter.lanacion.com.ar/#/');
     };
+    const textBold = (
+        <div>
+            Recibí las noticias de
+            <mark className="hl_yellow_underline">{titulo}</mark>
+            por e-mail
+        </div>
+    );
     return (
         <section className="mod-newsletter">
             <div className="container">
@@ -18,8 +25,9 @@ const ModNewsletter = props => {
                     <ComIco iconName="mail" size="xl" />
                     <ComTitle
                         size="l"
-                        content={`Recibí las noticias de ${titulo || ''} por
-                        e-mail`}
+                        content={`Recibí las noticias de <mark className="hl_yellow_underline">${
+                            titulo ? titulo : ''
+                        }</mark> por e-mail`}
                     />
                     <ComLink
                         link="https://newsletter.lanacion.com.ar/#/"
