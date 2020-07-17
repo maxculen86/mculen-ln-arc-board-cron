@@ -24,6 +24,11 @@
     @media ($media-m) {
         width: 100%;
         margin-left: 0;
+        .mod-caja-nota & {
+            .acu & {
+                border: 1px solid #ccc;
+            }
+        }
     }
     @media ($media-l) {
         border: 1px solid #ccc;
