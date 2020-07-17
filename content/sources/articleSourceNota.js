@@ -14,6 +14,7 @@ import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
+import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -115,6 +116,8 @@ const transformContent = (jsonArticle, arcSite) => {
                     })
                 );
             }
+
+            resp.content_elements[i] = replaceTagInTextListRaw(e, 'TERCERA=""');
         });
     }
 
