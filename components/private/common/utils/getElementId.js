@@ -1,10 +1,9 @@
 function getId(displayId, pattern) {
     const regex = new RegExp(pattern).exec(displayId);
     if (regex && regex[1]) {
-        return regex[1];
-    } else {
-        return displayId;
+        return parseInt(regex[1]);
     }
+    return displayId;
 }
 
 export function getTagId(displayId) {

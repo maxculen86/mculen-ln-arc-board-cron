@@ -74,21 +74,7 @@
         line-height: px(24);
         font-size: px(16);
         font-weight: bold;
-    }
-
-    .com-paragraph & {
-        display: contents;
-        font-family: Georgia;
-        font-size: px(18);
-        line-height: px(26);
-        font-weight: normal;
-        .mod-paragraph & {
-            font-family: $font-SuecaSlab;
-            font-size: px(20);
-            line-height: px(28);
-            font-weight: bold;
-            display: contents;
-        }
+        color: $link;
     }
 }
 @media ($media-l) {

@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComText from '../../../common/com-text';
+import ComFigcaption from '../../../common/com-figcaption';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 
-const aperturaNoticia = ({ basic, outputType }) => {
+const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
+    const parrafo = primerParrafo || 'LA NACION';
     const { type, promo_items: promoItems } = basic || {};
     const { basic: basicVideo } = promoItems || {};
     const { caption: captionVideo, credito: creditoVideo } = basicVideo || {};
@@ -27,7 +29,9 @@ const aperturaNoticia = ({ basic, outputType }) => {
                         textname={basic.caption}
                     />
                 )}
-                <ComText classCondition="--credit" textname={credito} />
+                {credito && (
+                    <ComText classCondition="--credit" textname={credito} />
+                )}
             </>
         ) : (
             <>
@@ -55,8 +59,12 @@ const aperturaNoticia = ({ basic, outputType }) => {
             active={active}
             isApertura
             outputType={outputType}
+            parrafo={parrafo}
+            tituloNota={tituloNota}
         >
-            <Epigrafe />
+            <ComFigcaption>
+                <Epigrafe />
+            </ComFigcaption>
         </Media>
     );
 };

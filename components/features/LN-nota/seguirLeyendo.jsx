@@ -3,6 +3,7 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
+import ComTitle from '../../private/common/com-title';
 
 const seguirLeyendo = props => {
     return (
@@ -12,9 +13,11 @@ const seguirLeyendo = props => {
                     <div className="row">
                         <div className="col-12">
                             <div className="keep-reading">
-                                <h4 className="com-subtitle-nota-3">
-                                    Seguir Leyendo
-                                </h4>
+                                <ComTitle
+                                    size="l"
+                                    tag="h4"
+                                    content="Seguir Leyendo"
+                                />
                                 <SeguirLeyendo
                                     //////Armar el componente del subtitulooooo
                                     related_content={

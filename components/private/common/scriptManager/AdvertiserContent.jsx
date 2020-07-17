@@ -16,7 +16,8 @@ const getFirstParagraph = contentElements =>
 
 const getImage = promoItems => {
     if (!promoItems) return null;
-    return promoItems.basic.type === 'image' ? promoItems.basic.url : null;
+    const { basic = {} } = promoItems;
+    return (basic.type === 'image' && basic.url) || null;
 };
 
 const AdvertiserContent = props => {
@@ -73,13 +74,16 @@ const AdvertiserContent = props => {
     };
 
     return (
-        <script
-            id="advertiser-content-article"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-                __html: JSON.stringify(script)
-            }}
-        />
+        <>
+            <script
+                id="advertiser-content-article"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(script)
+                }}
+            />
+            <noscript>Your browser does not support javascript</noscript>
+        </>
     );
 };
 

@@ -488,7 +488,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
           "cookTime": "PT25M",
           "datePublished": "2020-04-24T14:35:53.021Z",
           "description": "Subtitulo de prueba",
-          "image": "undefined/unsafe/960x540/smart/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+          "image": "undefinedundefined/unsafe/960x540/smart/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
           "keywords": "ajo, tomate perita",
           "name": "Nota recetas para Api test",
           "prepTime": "PT25M",
@@ -536,7 +536,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
   \\"totalTime\\": \\"PT25M\\",
   \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
   \\"description\\": \\"Subtitulo de prueba\\",
-  \\"image\\": \\"undefined/unsafe/960x540/smart/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg\\",
+  \\"image\\": \\"undefinedundefined/unsafe/960x540/smart/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg\\",
   \\"recipeIngredient\\": [
     \\"Ingrediente 1\\",
     \\"Ingrediente 2\\",

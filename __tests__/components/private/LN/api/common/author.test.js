@@ -11,7 +11,7 @@ describe('Json imagen en acumulado', () => {
             const author = resp[index];
             const originalData = authors[index];
             expect(author.id).toBe(getAutorId(originalData._id));
-            expect(author.nombre).toBe(originalData.name);
+            expect(author.valor).toBe(originalData.name);
             if (author.imagen) {
                 expect(author.imagen.src).toBe(
                     originalData.image.resized_urls[0].resizedUrl

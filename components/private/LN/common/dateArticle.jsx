@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComDate from '../../../../components/private/common/com-date';
+import '../../../../resources/dist/css/ln/components/date.css';
 
 const MONTHS = [
     'Enero',
@@ -20,13 +20,12 @@ const MONTHS = [
 function DateArticle({ display_date, hasTime }) {
     const date = new Date(display_date);
     return (
-        /*         <h4 className="com-date">
+        <h4 className="com-date">
             {`${date.getDate()} de ${
                 MONTHS[date.getMonth()]
             } de ${date.getFullYear()}`}
             {hasTime && ` ● ${date.getHours()}:${date.getMinutes()}`}
-        </h4> */
-        <ComDate display_date={display_date} />
+        </h4>
     );
 }
 

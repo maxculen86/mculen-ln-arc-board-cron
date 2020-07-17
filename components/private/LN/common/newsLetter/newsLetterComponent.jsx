@@ -5,7 +5,6 @@ import '../../../../../resources/dist/css/ln/layouts/layout.css';
 //import '../../../../../resources/dist/css/ln/base/helpers.css';
 import '../../../../../resources/dist/css/ln/modules/newsletter.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
-import ComTitle from '../../../common/com-title';
 
 const NewLetter = props => {
     const [mail, setMail] = useState('');
@@ -22,9 +21,14 @@ const NewLetter = props => {
                 }`}
             >
                 <div className="col-tablet-1 col-desksm-2" />
-                <div className="col-12 col-tablet-6 col-desksm-4 hlp-line">
-                    <ComTitle tag="h2" size="m" content={'Newsletter'} />
-                    <ComTitle tag="h2" size="m" content={titulo} />
+                <div className="col-12 col-tablet-6 col-desksm-4 hlp-paddingHeight-30 hlp-paddingRight-20 hlp-line">
+                    <h2 className="com-title-section-s hlp-marginBottom-10 hlp-marginRight-5">
+                        Newsletter
+                    </h2>
+
+                    <h2 className="com-title-section-s hlp-marginBottom-10">
+                        {titulo}
+                    </h2>
                     {logueado ? null : isSubscribe ? null : (
                         // TODO: Falta validacion del input type="mail" y si va nulo
                         <>

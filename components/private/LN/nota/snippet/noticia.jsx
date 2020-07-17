@@ -3,6 +3,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
+import getPathForImage from '../../../common/utils/getPathForImage';
+import getAuthorByline from '../../../common/utils/getAuthorByline';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -15,10 +17,11 @@ const extractDataFromTags = tags => {
 
 const extracDataFromCredits = by => {
     let authors = [];
+
     if (by) {
         authors = by
             .filter(v => v.type === 'author')
-            .map(v => v.name)
+            .map(author => getAuthorByline(author))
             .join(', ');
     }
 
@@ -31,11 +34,12 @@ const extractDataFromPromoItems = promoItems => {
 
     if (promoItems) {
         if (promoItems.basic && promoItems.basic.type === 'image') {
-            thumbnailUrl = `${promoItems.basic.url || ''}`;
+            const pathImagen = getPathForImage(promoItems.basic.url);
+            thumbnailUrl = `${pathImagen || ''}`;
             image = {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                url: `${promoItems.basic.url || ''}`,
+                url: `${pathImagen || ''}`,
                 height: `${promoItems.basic.height || ''}`,
                 width: `${promoItems.basic.width || ''}`
             };

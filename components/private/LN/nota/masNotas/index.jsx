@@ -19,7 +19,7 @@ const index = props => {
         let prefix = '';
         switch (Number(noteType)) {
             case 1:
-                prefix = 'Más sobre ';
+                prefix = 'Otras noticias de ';
                 break;
             case 7:
                 prefix = 'Más recetas de ';
@@ -36,20 +36,10 @@ const index = props => {
             break;
         case '1':
             border = true;
-            title = (
-                <>
-                    {getSectionTitle(subtype)}
-                    <strong>{` ${sectionName}`}</strong>
-                </>
-            );
+            title = `${getSectionTitle(subtype)} ${sectionName}`;
             break;
         default:
-            title = (
-                <>
-                    Últimas notas de
-                    <strong>{` ${sectionName}`}</strong>
-                </>
-            );
+            title = `Últimas notas de ${sectionName}`;
             break;
     }
 

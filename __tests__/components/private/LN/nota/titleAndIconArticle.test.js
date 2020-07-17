@@ -9,7 +9,7 @@ describe('features - LaNacion - Nota - TituloNota', () => {
     const component = render(
         <TitleArticle
             globalContent={nota}
-            layout={'LN-nota-receta'}
+            layout={'LN-nota-noticia'}
             customFields={{ prefix: '' }}
         />
     );

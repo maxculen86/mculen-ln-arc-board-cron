@@ -15,6 +15,7 @@ import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import AdvertiserContent from '../private/common/scriptManager/AdvertiserContent';
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
+import OptaEmbed from '../private/common/scriptManager/optaEmbed';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -67,6 +68,10 @@ const scriptList = [
     },
     {
         component: { name: 'SocialEmbeds', function: SocialEmbeds },
+        feature: 'none'
+    },
+    {
+        component: { name: 'OptaEmbed', function: OptaEmbed },
         feature: 'none'
     }
 ];
@@ -154,7 +159,8 @@ const Default = props => {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
-                {subtype !== '1' && <MetaTags />}
+                {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
+                {/* {subtype === '7' && <MetaTags />} */}
                 <MetasOG {...props} />
                 <Robot
                     subtype={subtype}

@@ -16,7 +16,6 @@ const Tips = props => {
             {len > 0 ? (
                 <div className="com-tip">
                     <ComTitle tag="h4" size="l" content={title} />
-
                     {paragraphs &&
                         paragraphs.map(paragraph =>
                             paragraph.element.type === 'header' ? (
@@ -26,7 +25,6 @@ const Tips = props => {
                                 />
                             ) : (
                                 <p
-                                    className="com-paragraph"
                                     key={paragraph.element._id}
                                     dangerouslySetInnerHTML={{
                                         __html: paragraph.element.content

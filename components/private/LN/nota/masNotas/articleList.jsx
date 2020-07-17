@@ -13,8 +13,8 @@ const ArticleList = props => {
             {articles.length > 0 && (
                 <div className="row more-articles">
                     <div className="col-12">
-                        {/*                         <h2 className="com-title-section-l">{title || ''}</h2> */}
-                        <ComTitle tag="h2" size="xl" content={title || ''} />
+                        {/* <h2 className="com-title-section-l">{title || ''}</h2> */}
+                        <ComTitle tag="h2" size="l" content={title || ''} />
                         <section className="row-gap-tablet-3 row-gap-desksm-3">
                             {articles.length > 0 &&
                                 articles.map(e => (

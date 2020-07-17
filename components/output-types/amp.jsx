@@ -12,7 +12,8 @@ import MetaDescription from '../private/common/metaDescription';
 import getParagraph from '../private/common/utils/getParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
-import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
+
+import analytics from '../../resources/json/analytics.json';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -130,10 +131,16 @@ const Amp = props => {
                 <amp-analytics
                     config={`https://www.googletagmanager.com/amp.json?id=${idAMP}&gtm.url=SOURCE_URL`}
                     data-credentials="include"
-                />
+                >
+                    <script
+                        type="application/json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify(analytics, null, null)
+                        }}
+                    />
+                </amp-analytics>
                 <Snippets />
                 {children}
-                <ScriptLogoBBC distributorName={distributorName} />
             </body>
         </html>
     );

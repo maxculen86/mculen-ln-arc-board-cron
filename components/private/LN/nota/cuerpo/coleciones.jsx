@@ -1,6 +1,5 @@
 import React from 'react';
 import ComTitle from '../../../common/com-title';
-import ComParagraph from '../../../common/com-paragraph';
 
 // TODO: investigar componte de ARC "social link"
 export default function colecciones() {
@@ -15,11 +14,12 @@ export default function colecciones() {
                         size="xl"
                         content={'Colecciones LA NACION'}
                     />
-                    <ComParagraph
-                        size="--twoxs"
-                        link="#"
-                        content="Seguí el lanzamiento de los fascículos, libros o discos opcionales con tu diario LA NACION"
-                    />
+                    <p className="hlp-margintop-5">
+                        <a href="">
+                            Seguí el lanzamiento de los fascículos, libros o
+                            discos opcionales con tu diario LA NACION
+                        </a>
+                    </p>
                 </div>
             </article>
         </div>

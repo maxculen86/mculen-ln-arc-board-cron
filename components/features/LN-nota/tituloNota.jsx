@@ -8,7 +8,11 @@ import TituloNota from '../../private/LN/nota/apertura/titleAndIconArticle';
 const tituloNota = props => {
     const { id: featureId } = props;
 
-    return <TituloNota {...props} />;
+    return (
+        <Static id={featureId}>
+            <TituloNota {...props} />
+        </Static>
+    );
 };
 
 tituloNota.label = 'LN-Nota-Titulo';

@@ -1,11 +1,12 @@
 import { getTagId } from '../../../../../common/utils/getElementId';
 
-const tag = tag => {
-    if (!tag) return null;
+const tag = dataTag => {
+    if (!dataTag) return null;
 
     const resp = {
-        id: getTagId(tag.slug),
-        valor: tag.text,
+        id: getTagId(dataTag.slug),
+        slug: dataTag.slug,
+        valor: dataTag.text,
         tipoId: 1,
         formatoId: 1,
         tipoDescripcion: 'Topico'

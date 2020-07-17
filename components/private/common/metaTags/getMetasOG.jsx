@@ -1,5 +1,14 @@
 import { SITE_LANACION } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
+import getPathForImage from '../utils/getPathForImage';
+
+const getAppId = siteProperties =>
+    siteProperties &&
+    siteProperties.shareConfig &&
+    siteProperties.shareConfig.facebook &&
+    siteProperties.shareConfig.facebook.appID
+        ? siteProperties.shareConfig.facebook.appID
+        : undefined;
 
 const getData = ({
     siteProperties,
@@ -14,6 +23,7 @@ const getData = ({
     const PLACEHOLDER = `${SITE_LANACION}${deployment(
         `${contextPath}/resources/images/placeholderLN.jpg`
     )}`;
+    const { title } = siteProperties;
 
     const {
         headlines = {},
@@ -34,22 +44,20 @@ const getData = ({
         FB_APP_ID: ''
     };
 
+    const pathImagen = getPathForImage(urlBasicPI);
+
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
             ? headlinesBasic || DEFAULT.TITLE
-            : metaValue('title') || siteProperties.title || DEFAULT.TITLE,
+            : metaValue('title') || title || DEFAULT.TITLE,
         description: isArticle
             ? subheadlinesBasic || DEFAULT.DESCRIPTION
             : metaValue('description') || DEFAULT.DESCRIPTION,
         image:
-            typeBasicPI === 'image' && urlBasicPI
-                ? `${SITE_LANACION}${urlBasicPI}`
-                : DEFAULT.IMAGE,
+            typeBasicPI === 'image' && urlBasicPI ? pathImagen : DEFAULT.IMAGE,
         url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain,
-        fbAppId:
-            (siteProperties && siteProperties.shareConfig.facebook.appID) ||
-            DEFAULT.FB_APP_ID
+        fbAppId: getAppId(siteProperties) || DEFAULT.FB_APP_ID
     };
 };
 

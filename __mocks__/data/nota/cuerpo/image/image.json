@@ -1,0 +1,69 @@
+{
+    "_id": "77NRHRWIWFCFDOCDN34LGQ32SE",
+    "additional_properties": {
+        "iptc_source": "LA NACION"
+    },
+    "caption": "",
+    "credits": {
+        "by": [
+            {
+                "name": "Miguel Acevedo Riu",
+                "type": "author"
+            }
+        ]
+    },
+    "description": {
+        "basic": ""
+    },
+    "distributor": {
+        "name": "LA NACION"
+    },
+    "height": 640,
+    "publish_date": "2010-12-31T16:09:00Z",
+    "resized_urls": [
+        {
+            "option": {
+                "height": 768,
+                "media": "(min-width: 1280px)",
+                "width": 1280
+            },
+            "resizedUrl": "/resizer/ER1_X3vDXw3P4MNVslw4RT4IVkU=/1280x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
+        },
+        {
+            "option": {
+                "height": 465,
+                "media": "(min-width: 1024px)",
+                "width": 690
+            },
+            "resizedUrl": "/resizer/_4eBi9k_uTQSup_8B-lL08qMwWY=/690x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
+        },
+        {
+            "option": {
+                "height": 513,
+                "media": "(min-width: 768px)",
+                "width": 768
+            },
+            "resizedUrl": "/resizer/Ogi01yk-1cu26Eb2lgPjglqDkMU=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
+        },
+        {
+            "option": {
+                "height": 438,
+                "media": "(min-width: 360px)",
+                "width": 350
+            },
+            "resizedUrl": "/resizer/KpPJqhhk3hVTpDQSB-zqzxVeoGQ=/350x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
+        },
+        {
+            "option": {
+                "height": 203,
+                "media": "(min-width: 320px)",
+                "width": 310
+            },
+            "resizedUrl": "/resizer/FfFZF2KjDcEcjNcvvodVXo0lRAI=/310x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
+        }
+    ],
+    "subtitle": "",
+    "type": "image",
+    "url": "/resizer/Ogi01yk-1cu26Eb2lgPjglqDkMU=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg",
+    "width": 960
+}

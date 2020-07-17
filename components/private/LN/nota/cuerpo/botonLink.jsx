@@ -6,6 +6,7 @@ import ComContainer from '../../../common/com-container';
 
 const BotonLink = ({ data }) => {
     const { url, content } = data || {};
+
     return (
         <ComContainer classesNames="com-container --button">
             {url && content ? (
@@ -16,7 +17,7 @@ const BotonLink = ({ data }) => {
                         iconName="right"
                         iconPosition="--right"
                     >
-                        {content}
+                        {content.toUpperCase()}
                     </ComButton>
                 </ComLink>
             ) : null}
