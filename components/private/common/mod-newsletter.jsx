@@ -1,30 +1,34 @@
 import React from 'react';
-import withNewsLetterData from '../LN/common/hocs/withNewsLetterData';
+import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import ComLink from './com-link';
 import '../../../resources/dist/css/ln/modules/mod-newsletter.css';
 import ComTitle from './com-title';
 import ComButton from './com-button';
 import ComIco from './com-icon';
-import ComText from './com-text';
+
 const ModNewsletter = props => {
-    const { classCondition, titulo } = props;
+    const { titulo = '' } = props;
     const handleClick = () => {
-        window.location.assign('https://newsletter.lanacion.com.ar/#/');
+        window.open('https://newsletter.lanacion.com.ar/#/', '_blank');
     };
+    const {
+        globalContent: { subtype }
+    } = useAppContext();
+    let contenido = `Recibí las noticias de <mark class="hl_yellow_underline">${titulo}</mark> por e-mail`;
+    if (subtype === '7') {
+        contenido = 'Recibí nuevas recetas por e-mail';
+    }
     return (
         <section className="mod-newsletter">
             <div className="container">
                 <div className="container-text">
                     <ComIco iconName="mail" size="xl" />
-                    <ComTitle
-                        size="l"
-                        content={`Recibí las noticias de <mark class="hl_yellow_underline">${
-                            titulo ? titulo : ''
-                        }</mark> por e-mail`}
-                    />
+                    <ComTitle size="l" content={contenido} />
                     <ComLink
                         link="https://newsletter.lanacion.com.ar/#/"
                         size="l"
+                        target="_blank"
                     >
                         Mirá todos los newsletters que tenemos para vos
                     </ComLink>
@@ -37,5 +41,9 @@ const ModNewsletter = props => {
             </div>
         </section>
     );
+};
+
+ModNewsletter.propTypes = {
+    titulo: PropTypes.string.isRequired
 };
 export default ModNewsletter;
