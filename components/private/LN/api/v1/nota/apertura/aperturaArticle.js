@@ -32,8 +32,6 @@ const apertura = article => {
             case 'video':
                 resp.multimedio = Video(promoItem);
                 break;
-            default:
-                break;
         }
     }
 
