@@ -10,6 +10,7 @@ const imageCommon = image => {
 
     const resp = {
         id,
+        _t: 'img',
         baseUrl,
         parametros: []
     };

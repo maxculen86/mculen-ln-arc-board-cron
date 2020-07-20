@@ -7,6 +7,7 @@ Object {
       "autor": Object {
         "id": "diego-cabot",
         "image": Object {
+          "_t": "img",
           "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
           "id": undefined,
           "parametros": Array [
@@ -23,6 +24,7 @@ Object {
       "fecha": "2019-08-21 07:55:38",
       "id": "B2EMM366VFGVHEPJDUVGBLCYX4",
       "imagen": Object {
+        "_t": "img",
         "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "PWQEKVCUHJGJLBUDQOYDEII5XU",
         "parametros": Array [
@@ -51,6 +53,7 @@ Object {
       "fecha": "2019-01-30 13:13:14",
       "id": "2CJ4Q5VQBZBXBFYADC75HMASDU",
       "imagen": Object {
+        "_t": "img",
         "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "272ELZPBAJAMTJ6NLZISAQ5S3Q",
         "parametros": Array [
@@ -67,6 +70,7 @@ Object {
       "fecha": "2019-06-3 12:52:41",
       "id": "VSBWVU7WRVD5PONUYIORE3IUDQ",
       "imagen": Object {
+        "_t": "img",
         "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "NNIYHDQG75GLJKANNW5AIC5FZA",
         "parametros": Array [
@@ -89,6 +93,7 @@ Object {
       "autor": Object {
         "id": "martin-lousteau",
         "image": Object {
+          "_t": "img",
           "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
           "id": undefined,
           "parametros": Array [
@@ -111,6 +116,7 @@ Object {
       "fecha": "2018-09-20 08:08:49",
       "id": "TWKFZQ6FCNF3ZKPHGGZPMSSOGQ",
       "imagen": Object {
+        "_t": "img",
         "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "YQPFIZTCKVFKFDHNINT7IBBI6U",
         "parametros": Array [
@@ -127,6 +133,7 @@ Object {
       "fecha": "2019-07-17 07:34:09",
       "id": "U4AWGFDWKJHHFHEUUBTOEX2VN4",
       "imagen": Object {
+        "_t": "img",
         "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "YWOVDVKZYNDIPGHMIFLO4KBVXM",
         "parametros": Array [
