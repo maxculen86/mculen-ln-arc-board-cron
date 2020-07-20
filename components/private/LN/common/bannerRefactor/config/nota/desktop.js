@@ -489,6 +489,8 @@ export default {
         slotName: 'la_nacion_desktop/Nota/middle_3_dsk',
         dimensions: [
             [728, 90],
+            [640, 480],
+            [468, 60],
             [1, 1]
         ],
         targeting: defaultTargeting,

@@ -52,20 +52,22 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
     };
 
     return (
-        <Media
-            mediaData={basic}
-            withZoom="--zoom"
-            handleClick={handleClick}
-            active={active}
-            isApertura
-            outputType={outputType}
-            parrafo={parrafo}
-            tituloNota={tituloNota}
-        >
-            <ComFigcaption>
-                <Epigrafe />
-            </ComFigcaption>
-        </Media>
+        <section className="mod-opening">
+            <Media
+                mediaData={basic}
+                withZoom="--zoom"
+                handleClick={handleClick}
+                active={active}
+                isApertura
+                outputType={outputType}
+                parrafo={parrafo}
+                tituloNota={tituloNota}
+            >
+                <ComFigcaption>
+                    <Epigrafe />
+                </ComFigcaption>
+            </Media>
+        </section>
     );
 };
 

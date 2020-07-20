@@ -3,7 +3,33 @@ import { render, mount } from 'enzyme';
 import Share from '../../../../../components/private/LN/nota/share';
 import nota from '../../../../../__mocks__/data/articles/JZQDUAOPSRF3LLDZOT6374IDOM';
 
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {
+            outputType: 'default',
+            arcSite: 'la-nacion-ar'
+        };
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+jest.mock('fusion:properties', () => () => ({
+    default: props => {
+        const mockAvailableProps = { arcSite: 'la-nacion-ar' };
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+import Context from 'fusion:context';
+import getProperties from 'fusion:properties';
+
 describe('Share', () => {
+    Context.useAppContext = jest.fn(() => ({
+        outputType: 'default',
+        arcSite: 'la-nacion-ar'
+    }));
     delete global.window.open;
     global.window = Object.create(window);
     global.window.open = jest.fn();
