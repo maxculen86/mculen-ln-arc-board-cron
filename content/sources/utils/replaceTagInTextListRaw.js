@@ -3,7 +3,9 @@ const replaceTagInTextListRaw = (contentElement, expresion) => {
     if (contentElement.type === 'text' || contentElement.type === 'raw_html') {
         return {
             ...contentElement,
-            content: contentElement.content.replace(regEx, '')
+            content:
+                contentElement.content &&
+                contentElement.content.replace(regEx, '')
         };
     }
 
@@ -14,7 +16,7 @@ const replaceTagInTextListRaw = (contentElement, expresion) => {
                 if (item.type === 'text') {
                     return {
                         ...item,
-                        content: item.content.replace(regEx, '')
+                        content: item.content && item.content.replace(regEx, '')
                     };
                 }
                 return item;
