@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
+import getAuthorByline from '../utils/getAuthorByline';
 
 class LiftIgniter extends Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class LiftIgniter extends Component {
     }
 
     getAuthors(object) {
-        return object.map(author => author.name).join(', ');
+        return object.map(author => getAuthorByline(author)).join(', ');
     }
 
     render() {

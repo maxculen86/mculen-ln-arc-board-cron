@@ -34,7 +34,12 @@ const image = ({ data, withZoom, outputType }) => {
                                 textname={data.caption}
                             />
                         )}
-                        <ComText classCondition="--credit" textname={credito} />
+                        {credito && (
+                            <ComText
+                                classCondition="--credit"
+                                textname={credito}
+                            />
+                        )}
                     </ComFigcaption>
                 )}
             </Media>

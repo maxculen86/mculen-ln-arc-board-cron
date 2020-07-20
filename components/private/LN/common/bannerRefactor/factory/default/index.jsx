@@ -106,6 +106,10 @@ function getBannerForStoryTemplate(config) {
             return createElement(withParagraphCondition(Default)(5), {
                 ...config
             });
+        case MIDDLE_3_DSK:
+            return createElement(withNonSubscribersConstraint(Default), {
+                ...config
+            });
         case MIDDLE_TEADS_DSK:
         case ONE_X_ONE_DSK:
         case CAJA_1_DSK:
@@ -119,7 +123,6 @@ function getBannerForStoryTemplate(config) {
         case INREAD_DSK:
         case MIDDLE_1_DSK:
         case MIDDLE_2_DSK:
-        case MIDDLE_3_DSK:
         case STICKY_2_MOB:
             return <Default {...config} />;
         default:

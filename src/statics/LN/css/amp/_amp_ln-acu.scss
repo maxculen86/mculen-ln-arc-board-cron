@@ -27,7 +27,6 @@
 @import '../../../../../src/statics/LN/css/components/appointment.scss';
 @import '../../../../../src/statics/LN/css/components/footer.scss';
 @import '../../../../../src/statics/LN/css/base/aspect-ratios.scss';
-@import '../../../../../src/statics/LN/css/components/nav-amp.scss';
 @import '../../../../../src/statics/LN/css/components/_nav-mobile.scss';
 @import '../../../../../src/statics/LN/css/components/banners.scss';
 @import '../../../../../src/statics/LN/css/modules/caja-nota.scss';
@@ -36,14 +35,15 @@
 //@import '../../../../../src/statics/LN/css/components/dropdown.scss';
 //@import '../../../../../src/statics/LN/css/modules/newsletter.scss';
 
-@import '../../../../../src/statics/LN/css/components/com-link.scss';
+//daro @import '../../../../../src/statics/LN/css/components/com-link.scss';
 @import '../../../../../src/statics/LN/css/components/com-image.scss';
-@import '../../../../../src/statics/LN/css/components/com-text.scss';
+//daro @import '../../../../../src/statics/LN/css/components/com-text.scss';
 @import '../../../../../src/statics/LN/css/components/com-icon.scss';
 @import '../../../../../src/statics/LN/css/components/com-button.scss';
 @import '../../../../../src/statics/LN/css/components/com-container.scss';
-@import '../../../../../src/statics/LN/css/components/com-logo.scss';
+//daro @import '../../../../../src/statics/LN/css/components/com-logo.scss';
 @import '../../../../../src/statics/LN/css/components/com-partner.scss';
+@import '../../../../../src/statics/LN/css/components/com-title.scss';
 @import '../../../../../src/statics/LN/css/components/_storytelling.scss';
 
 @import '../../../../../src/statics/LN/css/modules/mod-image.scss';
@@ -54,5 +54,7 @@
 @import '../../../../../src/statics/LN/css/modules/mod-autor.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-sponsor.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-opening.scss';
+
+@import '../../../../../src/statics/LN/css/components/nav-amp.scss';
 
 @import '../../../../../src/statics/LN/css/base/helpers-amp.scss'; //se usan solo los helpers necesarios

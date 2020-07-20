@@ -13,6 +13,8 @@ import getParagraph from '../private/common/utils/getParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
+import analytics from '../../resources/json/analytics.json';
+
 /**
  * TODO: Resolver el tema de las canonicas
  * TODO: Resolver los datos estructurados por cada layout
@@ -129,7 +131,14 @@ const Amp = props => {
                 <amp-analytics
                     config={`https://www.googletagmanager.com/amp.json?id=${idAMP}&gtm.url=SOURCE_URL`}
                     data-credentials="include"
-                />
+                >
+                    <script
+                        type="application/json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify(analytics, null, null)
+                        }}
+                    />
+                </amp-analytics>
                 <Snippets />
                 {children}
             </body>
