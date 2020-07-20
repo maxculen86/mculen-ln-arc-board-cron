@@ -125,11 +125,11 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
-                            {children[5]}
+                            {children[4]}
                         </div>
                         <div className="sidebar__aside">
                             {/* Bottom-Tercera */}
-                            {children[6]}
+                            {children[5]}
                         </div>
                     </div>
                 </main>

@@ -329,3 +329,42 @@ amp-img {
         object-fit: cover;
     }
 }
+
+amp-social-share {
+    &[type='facebook'],
+    &[type='twitter'],
+    &[type='whatsapp'],
+    &[type='email'] {
+        background: none;
+
+        font-family: 'LNicons';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        font-size: px(24);
+        padding: px(4);
+        line-height: 1;
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+    }
+
+    &[type='facebook']:before {
+        content: '\e908';
+    }
+    &[type='twitter']:before {
+        content: '\e922';
+    }
+    &[type='whatsapp']:before {
+        content: '\e926';
+    }
+
+    &[type='email'] {
+        padding-top: px(16);
+        &:before {
+            content: '\e907';
+        }
+    }
+}
