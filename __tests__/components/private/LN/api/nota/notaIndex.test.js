@@ -35,7 +35,7 @@ describe('Test de index en JSON de nota', () => {
     const { date:publishDate, time:updateTime } = dateAndTimeUtil(article.publish_date);
     const impresa = typeof edicion !== 'undefined' && edicion.toLowerCase() === 'impresa' ? true: false;
 
-    it('Render de atributos meta', () => {
+    it('Render de atributos meta', () => { 
         expect(resp.id).toBe(article._id);
         expect(resp.template).toBe(article.subtype);
         expect(resp.url).toBe(article.website_url);
