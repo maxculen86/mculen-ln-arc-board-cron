@@ -16,6 +16,7 @@ import GooglePublisherTag from '../private/common/scriptManager/googlePublisherT
 import AdvertiserContent from '../private/common/scriptManager/AdvertiserContent';
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
 import OptaEmbed from '../private/common/scriptManager/optaEmbed';
+import ScriptHtmlLibre from '../private/common/scriptManager/scriptHtmlLibre';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -72,6 +73,10 @@ const scriptList = [
     },
     {
         component: { name: 'OptaEmbed', function: OptaEmbed },
+        feature: 'none'
+    },
+    {
+        component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
         feature: 'none'
     }
 ];
