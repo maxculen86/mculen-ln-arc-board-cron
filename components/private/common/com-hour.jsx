@@ -5,7 +5,7 @@ import '../../../resources/dist/css/ln/components/com-hour.css';
 
 const ComHour = ({ display_date }) => {
     const { time } = dateAndTimeUtil(display_date);
-    return <time className="com-hour">{time}</time>;
+    return <time className="com-hour --threexs">{time}</time>;
 };
 
 export default ComHour;
