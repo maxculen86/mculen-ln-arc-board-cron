@@ -23,7 +23,7 @@ import '../../resources/dist/css/ln/components/lead.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/input.css';
-//import '../../resources/dist/css/ln/modules/newsletter.css';
+import '../../resources/dist/css/ln/modules/newsletter.css';
 import '../../resources/dist/css/ln/components/blockquote.css';
 import '../../resources/dist/css/ln/components/text.css';
 import '../../resources/dist/css/ln/components/link.css';
@@ -50,6 +50,7 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import ModNewsletter from '../private/common/mod-newsletter';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -87,6 +88,10 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 {/* Titulo (breadcrumb, logo+titulo) */}
                                 {children[2]}
                             </div>
+                            {/*                             <ModTitle tag="h1" size="threexl">
+                                    Trastornos de la alimentación, adicciones y
+                                    otros cuadros agravados por el encierro
+                            </ModTitle> */}
                         </div>
                     </div>
                     <div className="lay-sidebar">
@@ -133,6 +138,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                         </div>
                                     </div>
                                 </div>
+                                <ModNewsletter />
                             </section>
                         </div>
 
@@ -141,6 +147,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                             {children[6]}
                         </div>
                     </div>
+                    <ModNewsletter />
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
@@ -150,6 +157,12 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                             {/* Bottom-Tercera */}
                             {children[10]}
                         </div>
+                        <ModNewsletter />
+                    </div>
+                    <div className="abuelo pantalla">
+                        <div className="hijo1 parrafos"></div>
+                        <div className="hijo2 foto"></div>
+                        <div className="hijo3 parrafos"></div>
                     </div>
                 </main>
                 <Footer />
