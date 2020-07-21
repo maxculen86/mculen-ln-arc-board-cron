@@ -45,6 +45,7 @@ const index = React.forwardRef((props, ref) => {
                     ${closeButton ? '--close' : ''}
                     ${fixed ? '--fixed' : ''}
                     hlp-none
+                    --${id}
                 `}
                 ref={ref}
             >
