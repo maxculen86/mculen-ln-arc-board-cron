@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import withNewsLetterData from '../hocs/withNewsLetterData';
-import NewsLetterComponent from './newsLetterComponent';
+// import NewsLetterComponent from './newsLetterComponent';
 import ModNewsletter from '../../../common/mod-newsletter';
-
+import AmpContainer from '../../../common/ampContainer';
 // TODO: debe utilizar consumer. Pensar como hacer para que sea reutilizable por otra secciones donde primarySecion no exista.
 // Otro container por encima que resuelva eso o una logica.
 const newLetter = props => {
@@ -14,16 +14,18 @@ const newLetter = props => {
     } = props;
     return (
         <>
-            {/*             <NewsLetterComponent
+            {/* <NewsLetterComponent
                 logueado={logueado}
                 titulo={titulo}
                 subscriptionsCallBack={subscriptionsCallBack}
             /> */}
-            <ModNewsletter
-                logueado={logueado}
-                titulo={titulo}
-                subscriptionsCallBack={subscriptionsCallBack}
-            />
+            <AmpContainer isForAmp={false}>
+                <ModNewsletter
+                    logueado={logueado}
+                    titulo={titulo}
+                    subscriptionsCallBack={subscriptionsCallBack}
+                />
+            </AmpContainer>
         </>
     );
 };
