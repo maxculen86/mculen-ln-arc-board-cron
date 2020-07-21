@@ -22,7 +22,7 @@ const gallery = dataGallery => {
 
     const images = get(dataGallery, 'content_elements');
 
-    if (!images || images.length == 0) return null;
+    if (!images || images.length === 0) return null;
 
     images.forEach(element => {
         resp.imagenes.push(Image(element));

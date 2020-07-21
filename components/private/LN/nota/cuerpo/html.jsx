@@ -22,7 +22,7 @@ const getPropsFromNode = node => {
                   [key === 'class' ? 'className' : key]:
                       key === 'style'
                           ? parseStyles(node.getAttribute(key))
-                          : node.getAttribute(key) || true
+                          : node.getAttribute(key) || ''
               };
           }, {})
         : null;
