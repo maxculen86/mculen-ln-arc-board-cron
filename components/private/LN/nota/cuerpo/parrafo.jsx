@@ -60,7 +60,7 @@ const Parrafo = ({ data, capital }) => {
     return (
         <>
             {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
-                <p
+                /*<p
                     className={`text element-paragraph${
                         capital && isLetter(content) ? ` capital` : ''
                     }`}
@@ -68,12 +68,12 @@ const Parrafo = ({ data, capital }) => {
                     dangerouslySetInnerHTML={{
                         __html: content
                     }}
-                />
-                /*                 <ComParagraph
+                /> */
+                <ComParagraph
                     capital={capital && isLetter(content) ? `--capital` : ''}
                     size="--twoxs"
                     content={content}
-                /> */
+                />
             )}
         </>
     );
