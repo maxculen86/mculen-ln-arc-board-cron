@@ -66,6 +66,9 @@
     .sidebar__aside & {
         margin-bottom: px(40);
     }
+    &.cabezal_dsk {
+        margin-bottom: $spacing-lg;
+    }
 }
 @media ($media-m) {
     .mod-banner {
