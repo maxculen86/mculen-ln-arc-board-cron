@@ -55,6 +55,7 @@ export default Component => Target => {
                     if (windowY < scrollPosition.current) {
                         scrollPosition.current = windowY;
                         ref.current.style.cssText = '';
+                        hide(ref.current);
                     } else if (windowY >= scrollPosition.current) {
                         scrollPosition.current = windowY;
                         if (!componentDidReachTarget(ref.current, target)) {
