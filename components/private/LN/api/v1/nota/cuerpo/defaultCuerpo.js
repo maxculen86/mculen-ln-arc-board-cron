@@ -9,7 +9,7 @@ import Embed from './embed';
 import Html from './htmlContent';
 import Button from './button';
 
-const defaultCuerpo = contentElements => {
+const defaultCuerpo = (contentElements) => {
     const components = [
         Text,
         Header,
@@ -24,6 +24,7 @@ const defaultCuerpo = contentElements => {
     ];
 
     const resp = [];
+
     contentElements.forEach(v => {
         const selectedComponent = components.find(c => c.type === v.type);
         if (selectedComponent) {

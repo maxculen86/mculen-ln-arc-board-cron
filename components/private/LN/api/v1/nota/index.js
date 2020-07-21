@@ -4,8 +4,7 @@ import Apertura from './apertura/aperturaArticle';
 import Cuerpo from './cuerpo';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
-
-import { dateAndTimeForAppsUtil } from '../../../../common/utils/dateAndTimeUtil';
+import dateAndTimeUtil from '../../../../common/utils/dateAndTimeUtil';
 
 const indexNota = dataNota => {
     const {
@@ -19,24 +18,23 @@ const indexNota = dataNota => {
     const paywallStatus = get(dataNota, 'content_restrictions.content_code');
     const edicion = get(dataNota, 'label.edicion.text');
     const showBanners = get(dataNota, 'label.mostrar_banners.display');
+    const { date, time } = dateAndTimeUtil(dataNota.first_publish_date);
+    const { date: publishDate, time:updateTime } = dateAndTimeUtil(dataNota.publish_date);
+    const impresa = typeof edicion !== 'undefined' && edicion.toLowerCase() === 'impresa' ? true: false;
 
     const resp = {
         id,
         template,
         url,
         mostrarBanners: typeof showBanners !== 'undefined' ? showBanners : true,
-        impresa:
-            typeof edicion !== 'undefined' &&
-            edicion.toLowerCase() === 'impresa'
-                ? true
-                : false,
+
         paywallStatus: paywallStatus ? paywallStatus : 'comun',
         abiertoComentarios: dataNota.comments
             ? dataNota.comments.display_comments
             : false,
         comentariosId: comentariosId || id,
-        fechaActualizacion: dateAndTimeForAppsUtil(dataNota.publish_date),
-        fecha: dateAndTimeForAppsUtil(dataNota.first_publish_date),
+        fechaActualizacion: `${date}${!impresa ? ` • ${time}` : ''}`,
+        fecha: `${publishDate}${!impresa ? ` • ${updateTime}` : ''}`,
         categoria: primarySection && Section(primarySection),
         apertura: Apertura(dataNota),
         contenido: Cuerpo(dataNota),
