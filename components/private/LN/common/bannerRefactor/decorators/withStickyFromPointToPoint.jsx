@@ -64,6 +64,8 @@ export default Component => Target => {
                             idle(ref.current);
                         }
                     }
+                } else {
+                    hide(ref.current);
                 }
             };
 
