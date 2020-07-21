@@ -5,7 +5,7 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
   class="com-hamburger"
 >
   <i
-    class="com-icon icon-menu "
+    class="com-icon icon-menu --"
   />
 </div>
 `;
