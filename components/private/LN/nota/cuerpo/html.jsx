@@ -15,14 +15,14 @@ const parseStyles = styles => {
 };
 
 const getPropsFromNode = node => {
-    return node && !(node.nodeName === '#text')
-        ? node.getAttributeNames().reduce((obj, key) => {
+    return node && node.nodeType === 1 && node.attributes
+        ? [...node.attributes].reduce((obj, attr) => {
+              let { name, value } = attr;
+              name = name === 'class' ? 'className' : name;
+              value = name === 'async' ? true : value;
               return {
                   ...obj,
-                  [key === 'class' ? 'className' : key]:
-                      key === 'style'
-                          ? parseStyles(node.getAttribute(key))
-                          : node.getAttribute(key) || ''
+                  [name]: name === 'style' ? parseStyles(value) : value || ''
               };
           }, {})
         : null;
@@ -33,8 +33,7 @@ const convertNodeToComponent = (node, id) => {
 
     const tag = (node.tagName || node.nodeName).toLocaleLowerCase();
 
-    if (tag === '#text' && (node.innerHTML || node.nodeValue).trim() === '')
-        return null;
+    if (node.nodeType !== 1) return null;
 
     const __props = getPropsFromNode(node);
 
@@ -50,8 +49,10 @@ const convertNodeToComponent = (node, id) => {
             </div>
         );
 
+    if (!Object.keys(node.childNodes).length)
+        return React.createElement(tag, __props);
+
     if (
-        !(node.nodeName === '#text') &&
         node.querySelectorAll('iframe.pym').length &&
         node.childNodes &&
         node.childNodes.length
@@ -107,6 +108,20 @@ const Html = props => {
     if (!parser.current) {
         parser.current = new DOMParser();
     }
+    if (
+        !parser.current
+            .parseFromString(content, 'text/html')
+            .querySelectorAll('.pym').length
+    )
+        return (
+            <div
+                className="com-embed --html"
+                dangerouslySetInnerHTML={{
+                    __html: parser.current.parseFromString(content, 'text/html')
+                        .documentElement.innerHTML
+                }}
+            />
+        );
 
     const __children = getChildren(
         parser.current.parseFromString(content, 'text/html'),
