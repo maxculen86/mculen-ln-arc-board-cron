@@ -135,7 +135,7 @@ a.icon-cerrar:before {
 }
 .header {
     border-bottom: 1px solid #f2f2f2;
-    padding: 0 5px;
+    padding: 4px 5px 5px;
     position: relative;
     z-index: 10;
     .header__middle {
@@ -198,6 +198,7 @@ a.icon-cerrar:before {
                 color: #ffffff;
             }
         }
+
         @media (min-width: 768px) {
             .header__right {
                 .suscribir__header {
@@ -391,6 +392,17 @@ amp-social-share {
                     }
                 }
             }
+        }
+    }
+}
+
+.com-embed {
+    margin-bottom: px(32);
+    amp-youtube,
+    amp-vimeo {
+        @media (max-width: 375px) {
+            width: 100%;
+            height: 200px;
         }
     }
 }
