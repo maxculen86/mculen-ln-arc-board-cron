@@ -3,6 +3,12 @@
 .com-banner {
     display: inherit;
     overflow: hidden;
+    &#1x1_mob,
+    &#1x1_tab,
+    &#1x1_dsk {
+        display: block;
+        overflow: visible;
+    }
     &#adhesion_dsk {
         max-width: px(920);
         max-height: px(100);
