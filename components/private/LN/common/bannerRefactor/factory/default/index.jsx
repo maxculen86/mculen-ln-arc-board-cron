@@ -110,8 +110,11 @@ function getBannerForStoryTemplate(config) {
             return createElement(withNonSubscribersConstraint(Default), {
                 ...config
             });
-        case MIDDLE_TEADS_DSK:
         case ONE_X_ONE_DSK:
+            return createElement(withNonSubscribersConstraint(Default), {
+                ...config
+            });
+        case MIDDLE_TEADS_DSK:
         case CAJA_1_DSK:
         case CAJA_2_DSK:
         case CAJA_1_TAB:
