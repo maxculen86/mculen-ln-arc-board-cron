@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import ComParagraph from '../../../common/com-paragraph';
 
 const BajadaNota = props => {
     const {
@@ -9,7 +10,7 @@ const BajadaNota = props => {
     } = props;
 
     const subtitulo = basic || null;
-    return <h3 className="com-lead-nota">{subtitulo}</h3>;
+    return <ComParagraph size="--threexs" content={subtitulo} />;
 };
 
 BajadaNota.propTypes = {

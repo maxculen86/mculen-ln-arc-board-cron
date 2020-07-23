@@ -1,0 +1,21 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.com-paragraph {
+    font-family: Georgia;
+    font-weight: normal;
+    margin-bottom: $spacing-lg;
+    &.--bajada {
+        font-family: $font-arial;
+    }
+    .mod-paragraph & {
+        @include flex(flex);
+        text-align: center;
+        font-family: $font-SuecaSlab;
+        color: $gris6;
+        font-size: px(20);
+        line-height: px(28);
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+}
