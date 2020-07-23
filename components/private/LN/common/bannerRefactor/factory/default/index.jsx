@@ -12,6 +12,8 @@ import {
     STORY_TEMPLATE,
     ACCUM_TEMPLATE,
     ONE_X_ONE_DSK,
+    ONE_X_ONE_TAB,
+    ONE_X_ONE_MOB,
     CABEZAL_DSK,
     CAJA_1_DSK,
     CAJA_2_DSK,
@@ -111,6 +113,8 @@ function getBannerForStoryTemplate(config) {
                 ...config
             });
         case ONE_X_ONE_DSK:
+        case ONE_X_ONE_TAB:
+        case ONE_X_ONE_MOB:
             return createElement(withNonSubscribersConstraint(Default), {
                 ...config
             });
