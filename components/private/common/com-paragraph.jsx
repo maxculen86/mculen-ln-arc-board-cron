@@ -7,7 +7,7 @@ const ComParagraph = props => {
     const { size, capital, content, data, link } = props;
     return (
         <>
-            {link ? (
+            {/* {link ? (
                 <Comlink>
                     <p
                         className={`com-paragraph ${capital || ''} ${size}`}
@@ -18,16 +18,13 @@ const ComParagraph = props => {
                         {data}
                     </p>
                 </Comlink>
-            ) : (
-                <p
-                    className={`com-paragraph ${capital || ''} ${size}`}
-                    dangerouslySetInnerHTML={{
-                        __html: content
-                    }}
-                >
-                    {data}
-                </p>
-            )}
+            ) : ( */}
+            <p
+                className={`com-paragraph ${capital || ''} ${size}`}
+                dangerouslySetInnerHTML={{
+                    __html: content
+                }}
+            />
         </>
     );
 };

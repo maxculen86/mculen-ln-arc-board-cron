@@ -11,6 +11,9 @@ import { compose } from '../../../common/utils/functional';
 const Parrafo = ({ data, capital }) => {
     const isLetter = text => text.match(/^[A-Za-z]/);
 
+    const setOtherChar = text =>
+        text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
     const setBoldText = text =>
         text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
 
@@ -52,29 +55,31 @@ const Parrafo = ({ data, capital }) => {
         );
 
     const content = compose(
+        setOtherChar,
+        setExternalLinks,
         setItalicText,
-        setBoldText,
-        setExternalLinks
+        setBoldText
     )(data.content);
+    // console.log(JSON.stringify(content))
+    // Si el redactor hace enter varias veces ignoramos los <br/>
+    if (content === '<br/>') return <></>;
 
     return (
         <>
-            {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
-                /*<p
-                    className={`text element-paragraph${
-                        capital && isLetter(content) ? ` capital` : ''
-                    }`}
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                        __html: content
-                    }}
-                /> */
-                <ComParagraph
-                    capital={capital && isLetter(content) ? `--capital` : ''}
-                    size="--twoxs"
-                    content={content}
-                />
-            )}
+            {/* <p
+            className={`text element-paragraph${
+                capital && isLetter(content) ? ` capital` : ''
+            }`}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+                __html: content
+            }}
+        /> */}
+            <ComParagraph
+                capital={capital && isLetter(content) ? `--capital` : ''}
+                size="--twoxs"
+                content={content}
+            />
         </>
     );
 };
