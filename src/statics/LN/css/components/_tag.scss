@@ -79,11 +79,12 @@
 
 .with-category {
     width: 100%;
-    border-bottom: 1px solid $gris3;
-    margin-bottom: $px-20;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    border-bottom: 1px solid $gris3;
+    margin-bottom: $px-16;
+
     .com-title-section-xl {
         text-decoration: none;
         margin-right: $px-30;
@@ -92,6 +93,7 @@
         white-space: nowrap;
     }
     .arrow {
+        display: none;
         &.hlp-none {
             display: none;
         }

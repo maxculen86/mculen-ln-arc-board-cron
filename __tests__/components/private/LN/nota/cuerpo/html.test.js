@@ -49,19 +49,32 @@ describe('Private - LN - nota - cuerpo - <Html />', () => {
 
     it('Atributos y nodo del DOM correcto - HTML libre', () => {
         const __html =
-            '<div class="empty" style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;">sample html block</div>';
+            '<link rel="stylesheet" href="http://widget.cloud.opta.net/v3/css/v3.football.opta-widgets.css"><div class="empty" style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;">sample html block</div>';
         const component = mount(<Html {...setContent(__html)} />);
         const container = component.find('div.com-embed');
         expect(container.exists()).toBeTruthy();
         expect(container.hasClass('--html')).toBeTruthy();
-        const content = container
+        //Link
+        const link = container
             .render()
             .children()
             .get(0);
+        expect(link).toBeDefined();
+        expect(link.attribs.rel).toBe('stylesheet');
+        expect(link.attribs.href).toBe(
+            'http://widget.cloud.opta.net/v3/css/v3.football.opta-widgets.css'
+        );
+        expect(link.firstChild).toBe(null);
+
+        // Div content
+        const content = container
+            .render()
+            .children()
+            .get(1);
         expect(content).toBeDefined();
         expect(content.attribs.class).toBe('empty');
         expect(content.attribs.style).toBe(
-            'padding: 20px; background-color: rgb(51, 51, 51); color: white; text-align: center; font-size: 2em;'
+            'padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;'
         );
         expect(content.firstChild.nodeValue).toBe('sample html block');
     });

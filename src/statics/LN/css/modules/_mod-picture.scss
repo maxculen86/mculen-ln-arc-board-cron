@@ -55,7 +55,8 @@
     }
 
     .mod-caja-nota & {
-        .cuerpo__nota & {
+        .cuerpo__nota &,
+        .acu & {
             width: 100%;
             margin-left: 0;
         }

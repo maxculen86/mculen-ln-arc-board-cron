@@ -18,6 +18,12 @@
         );
         width: 100%;
     }
+    &.--mobile {
+        margin-bottom: px(24);
+    }
+    &.--desktop {
+        margin-bottom: px(24);
+    }
     &.--sticky {
         position: sticky;
         &.--bg-banner {
