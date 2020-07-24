@@ -25,26 +25,17 @@ const Parrafo = ({ data, capital }) => {
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
                 const [, link] = href.match(/"(.*?[^\\])"/);
-
+                let target = '_self';
                 if (!href.includes(config.host)) {
-                    return ReactDOMServer.renderToString(
-                        React.createElement(
-                            ComLink,
-                            {
-                                link,
-                                target: '_blank',
-                                className: 'com-link',
-                                title: string
-                            },
-                            string
-                        )
-                    );
+                    target = '_blank';
                 }
+
                 return ReactDOMServer.renderToString(
                     React.createElement(
                         ComLink,
                         {
                             link,
+                            target,
                             className: 'com-link',
                             title: string
                         },
