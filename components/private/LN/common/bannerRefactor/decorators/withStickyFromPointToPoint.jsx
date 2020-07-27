@@ -46,6 +46,7 @@ export default Component => Target => {
         const ref = React.createRef();
 
         useLayoutEffect(() => {
+            hide(ref.current);
             const handleScroll = () => {
                 const windowY = window.scrollY;
                 // TODO: change this by a ref and use getBoundingClientRect func
