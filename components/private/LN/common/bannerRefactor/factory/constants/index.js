@@ -8,6 +8,7 @@ export const CAJA_1_DSK = 'caja1_dsk';
 export const CAJA_2_DSK = 'caja2_dsk';
 export const CAJA_3_DSK = 'caja3_dsk';
 export const CAJA_4_DSK = 'caja4_dsk';
+export const CAJA_5_DSK = 'caja5_dsk';
 export const CAJA_1_MOB = 'caja1_mob';
 export const CAJA_2_MOB = 'caja2_mob';
 export const CAJA_3_MOB = 'caja3_mob';

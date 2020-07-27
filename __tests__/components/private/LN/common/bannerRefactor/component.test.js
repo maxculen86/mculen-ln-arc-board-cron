@@ -19,7 +19,7 @@ describe('Banner', () => {
     const config = slotsConfig['nota']['cabezal_dsk'];
 
     const props = {
-        id: 'cabezal_dsk',
+        slotId: 'cabezal_dsk',
         slotName: config.slotName,
         dimensions: config.dimensions,
         targeting: {

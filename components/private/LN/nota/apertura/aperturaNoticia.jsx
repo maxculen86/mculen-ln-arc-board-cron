@@ -4,6 +4,7 @@ import Media from '../../common/media';
 import ComText from '../../../common/com-text';
 import ComFigcaption from '../../../common/com-figcaption';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
+import get from '../../../common/utils/get';
 
 const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
     const parrafo = primerParrafo || 'LA NACION';
@@ -20,6 +21,8 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
             : document.body.classList.add('--no-scroll');
     };
 
+    const textEpigrafe = get(basic, 'headlines.basic', captionVideo);
+
     const Epigrafe = () => {
         return basic && type === 'image' ? (
             <>
@@ -35,10 +38,10 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
             </>
         ) : (
             <>
-                {captionVideo && (
+                {textEpigrafe && (
                     <ComText
                         classCondition="--caption"
-                        textname={captionVideo}
+                        textname={textEpigrafe}
                     />
                 )}
                 {creditoVideo && (

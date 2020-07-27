@@ -43,7 +43,7 @@ const Comments = props => {
     const allowComments = get(comments, 'allow_comments', true);
     const displayComments = get(comments, 'display_comments', true);
 
-    const { isAuth } = useGlobal();
+    const { isAuth, setCommentsEnabled } = useGlobal();
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
@@ -240,7 +240,6 @@ const Comments = props => {
                             LiveFyreConfig.networkConfig,
                             [LiveFyreConfig.convConfig],
                             widget => {
-                                // console.log("########WIDGET: ", widget.getCollection());
                                 widget.on('commentPosted', data => {});
                                 widget.on('commentFlagged', data => {});
                                 widget.on('commentLiked', data => {});
@@ -248,6 +247,11 @@ const Comments = props => {
                                 widget.on('socialMention', data => {});
                                 widget.on('showMore', data => {});
                                 widget.on('initialRenderComplete', data => {
+                                    const collection = widget.getCollection();
+                                    const attributes = collection.attributes;
+                                    setCommentsEnabled(
+                                        attributes.commentsEnabled
+                                    );
                                     if (!auth.isAuthenticated()) {
                                         auth.authenticate({ livefyre: cookie });
                                     } else if (!isUserLoggedIn()) {
