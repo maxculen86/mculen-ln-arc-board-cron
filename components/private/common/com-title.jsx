@@ -11,6 +11,7 @@ const ComTitle = props => {
         prefix,
         label,
         link,
+        titulo,
         basic,
         data,
         content

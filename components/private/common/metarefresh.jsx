@@ -33,6 +33,7 @@ const Component = props => {
     const website = get(props, 'arcSite', null);
     const resolution = get(props, 'screenUtils.device', null);
     const isAdmin = get(props, 'isAdmin');
+    const outputType = get(props, 'outputType');
 
     const content = useContent({
         source: 'navigationTreeSource',
@@ -58,6 +59,7 @@ const Component = props => {
         }, ${interval});
     `;
 
+    if (outputType === 'amp') return null;
     if (hasVideo(contentElements)(promoItem)) return null;
     if (hasAudioFromSpotify(contentElements)) return null;
     if (subscription || interval < 1) return null;

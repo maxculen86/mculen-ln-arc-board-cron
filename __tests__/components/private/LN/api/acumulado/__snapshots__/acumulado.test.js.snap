@@ -8,10 +8,14 @@ Object {
         "id": "diego-cabot",
         "image": Object {
           "_t": "img",
-          "alto": undefined,
-          "ancho": undefined,
+          "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
           "id": undefined,
-          "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+          "parametros": Array [
+            Object {
+              "ancho": undefined,
+              "firma": "hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0",
+            },
+          ],
         },
         "slug": "diego-cabot",
         "tipo": 1,
@@ -21,10 +25,14 @@ Object {
       "id": "B2EMM366VFGVHEPJDUVGBLCYX4",
       "imagen": Object {
         "_t": "img",
-        "alto": undefined,
-        "ancho": undefined,
+        "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "PWQEKVCUHJGJLBUDQOYDEII5XU",
-        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+        "parametros": Array [
+          Object {
+            "ancho": undefined,
+            "firma": "hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0",
+          },
+        ],
       },
       "subtype": "4",
       "titulo": "Test de generacion de url",
@@ -46,10 +54,14 @@ Object {
       "id": "2CJ4Q5VQBZBXBFYADC75HMASDU",
       "imagen": Object {
         "_t": "img",
-        "alto": undefined,
-        "ancho": undefined,
+        "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "272ELZPBAJAMTJ6NLZISAQ5S3Q",
-        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+        "parametros": Array [
+          Object {
+            "ancho": undefined,
+            "firma": "hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0",
+          },
+        ],
       },
       "subtype": "1",
       "titulo": "Probando Breaking news",
@@ -59,10 +71,14 @@ Object {
       "id": "VSBWVU7WRVD5PONUYIORE3IUDQ",
       "imagen": Object {
         "_t": "img",
-        "alto": undefined,
-        "ancho": undefined,
+        "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "NNIYHDQG75GLJKANNW5AIC5FZA",
-        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+        "parametros": Array [
+          Object {
+            "ancho": undefined,
+            "firma": "hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0",
+          },
+        ],
       },
       "subtype": "4",
       "titulo": "Diego template recetas",
@@ -78,10 +94,14 @@ Object {
         "id": "martin-lousteau",
         "image": Object {
           "_t": "img",
-          "alto": undefined,
-          "ancho": undefined,
+          "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
           "id": undefined,
-          "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+          "parametros": Array [
+            Object {
+              "ancho": undefined,
+              "firma": "hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0",
+            },
+          ],
         },
         "slug": "martin-lousteau",
         "tipo": 1,
@@ -97,10 +117,14 @@ Object {
       "id": "TWKFZQ6FCNF3ZKPHGGZPMSSOGQ",
       "imagen": Object {
         "_t": "img",
-        "alto": undefined,
-        "ancho": undefined,
+        "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "YQPFIZTCKVFKFDHNINT7IBBI6U",
-        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+        "parametros": Array [
+          Object {
+            "ancho": undefined,
+            "firma": "hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0",
+          },
+        ],
       },
       "subtype": "1",
       "titulo": "Tras el 0-0 con Independiente: cómo le fue a River en la era Marcelo Gallardo cuando tuvo que definir una serie como local",
@@ -110,10 +134,14 @@ Object {
       "id": "U4AWGFDWKJHHFHEUUBTOEX2VN4",
       "imagen": Object {
         "_t": "img",
-        "alto": undefined,
-        "ancho": undefined,
+        "baseUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
         "id": "YWOVDVKZYNDIPGHMIFLO4KBVXM",
-        "src": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/VASAYYYBLVFIJCFDSH22JS5X2Q.jpg",
+        "parametros": Array [
+          Object {
+            "ancho": undefined,
+            "firma": "hiaSXQgzjjFcy2aAkKhl_ucF5E4=/1033x0",
+          },
+        ],
       },
       "subtype": "1",
       "titulo": "Titulo nota de prueba",

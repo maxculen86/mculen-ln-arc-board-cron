@@ -1,9 +1,13 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .com-link {
-    //font-family: $font-arial;
-    //font-size: px(14);
-    //color: $link;
+    font-family: $font-arial;
+    font-size: px(14);
+    color: $link;
+    text-transform: initial;
+    &.--acu {
+        color: $negro;
+    }
     .text & {
         //CAMBIAR
         font-family: $font-georgia;
@@ -34,6 +38,9 @@
             width: 154px;
             height: auto;
         }
+    }
+    .--shared & {
+        color: $negro;
     }
     .mod-link & {
         .footer & {

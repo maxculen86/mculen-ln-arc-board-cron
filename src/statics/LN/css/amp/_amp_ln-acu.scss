@@ -23,10 +23,10 @@
 @import '../../../../../src/statics/LN/css/components/link.scss';
 @import '../../../../../src/statics/LN/css/components/subtitle.scss';
 @import '../../../../../src/statics/LN/css/components/title.scss';
-@import '../../../../../src/statics/LN/css/components/epigraph.scss';
-@import '../../../../../src/statics/LN/css/components/appointment.scss';
+//daro @import '../../../../../src/statics/LN/css/components/epigraph.scss';
+//daro @import '../../../../../src/statics/LN/css/components/appointment.scss';
 @import '../../../../../src/statics/LN/css/components/footer.scss';
-@import '../../../../../src/statics/LN/css/base/aspect-ratios.scss';
+//daro @import '../../../../../src/statics/LN/css/base/aspect-ratios.scss';
 @import '../../../../../src/statics/LN/css/components/_nav-mobile.scss';
 @import '../../../../../src/statics/LN/css/components/banners.scss';
 @import '../../../../../src/statics/LN/css/modules/caja-nota.scss';
@@ -36,16 +36,19 @@
 //@import '../../../../../src/statics/LN/css/modules/newsletter.scss';
 
 //daro @import '../../../../../src/statics/LN/css/components/com-link.scss';
-@import '../../../../../src/statics/LN/css/components/com-image.scss';
+//daro @import '../../../../../src/statics/LN/css/components/com-image.scss';
 //daro @import '../../../../../src/statics/LN/css/components/com-text.scss';
 @import '../../../../../src/statics/LN/css/components/com-icon.scss';
 @import '../../../../../src/statics/LN/css/components/com-button.scss';
 @import '../../../../../src/statics/LN/css/components/com-container.scss';
-//daro @import '../../../../../src/statics/LN/css/components/com-logo.scss';
+@import '../../../../../src/statics/LN/css/components/com-logo.scss';
 @import '../../../../../src/statics/LN/css/components/com-partner.scss';
 @import '../../../../../src/statics/LN/css/components/com-title.scss';
+@import '../../../../../src/statics/LN/css/components/com-date.scss';
+@import '../../../../../src/statics/LN/css/components/com-hour.scss';
 @import '../../../../../src/statics/LN/css/components/_storytelling.scss';
 
+@import '../../../../../src/statics/LN/css/modules/mod-date.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-image.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-media.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-picture.scss';
@@ -54,6 +57,8 @@
 @import '../../../../../src/statics/LN/css/modules/mod-autor.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-sponsor.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-opening.scss';
+@import '../../../../../src/statics/LN/css/modules/mod-title.scss';
+@import '../../../../../src/statics/LN/css/modules/mod-newsletter.scss';
 
 @import '../../../../../src/statics/LN/css/components/nav-amp.scss';
 

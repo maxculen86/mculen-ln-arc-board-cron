@@ -5,7 +5,10 @@ import nota from '../../../../../__mocks__/data/articles/JZQDUAOPSRF3LLDZOT6374I
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
-        const mockAvailableProps = { outputType: 'default', arcSite: 'la-nacion-ar' };
+        const mockAvailableProps = {
+            outputType: 'default',
+            arcSite: 'la-nacion-ar'
+        };
 
         return props.children(mockAvailableProps);
     }
@@ -23,7 +26,10 @@ import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
 
 describe('Share', () => {
-    Context.useAppContext = jest.fn(() => ({ outputType: 'default', arcSite: 'la-nacion-ar' }));
+    Context.useAppContext = jest.fn(() => ({
+        outputType: 'default',
+        arcSite: 'la-nacion-ar'
+    }));
     delete global.window.open;
     global.window = Object.create(window);
     global.window.open = jest.fn();
@@ -81,5 +87,4 @@ describe('Share', () => {
         button.simulate('click');
         expect(window.open).toHaveBeenCalled();
     });
-    
 });

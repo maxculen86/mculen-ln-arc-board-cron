@@ -17,6 +17,7 @@ import {
     CAJA_2_DSK,
     CAJA_3_DSK,
     CAJA_4_DSK,
+    CAJA_5_DSK,
     CAJA_1_TAB,
     CAJA_2_TAB,
     CAJA_1_MOB,
@@ -46,6 +47,7 @@ import withBondingToBottom from '../../decorators/withBondingToBottom';
 import withParagraphCondition from '../../decorators/withParagraphCondition';
 import withNonSubscribersConstraint from '../../decorators/withNonSubscribersConstraint';
 import withBondingToBottomMobile from '../../decorators/withBondingToBottomMobile';
+import withCommentsEnabledConstraint from '../../decorators/withCommentsEnabledConstraint';
 
 // TODO: luego mover cada funcion inherente a cada template a su propio archivo aparte
 function getBannerForStoryTemplate(config) {
@@ -104,6 +106,10 @@ function getBannerForStoryTemplate(config) {
             });
         case CAJA_4_DSK:
             return createElement(withParagraphCondition(Default)(5), {
+                ...config
+            });
+        case CAJA_5_DSK:
+            return createElement(withCommentsEnabledConstraint(Default), {
                 ...config
             });
         case MIDDLE_3_DSK:

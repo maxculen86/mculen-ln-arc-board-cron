@@ -51,7 +51,7 @@ const pageBuilderSections = [
     'Pos-Apertura',
     'Cuerpo',
     'Tercera',
-    'Full-Break',
+    'Newsletter',
     'Bottom',
     'Bottom-Tercera'
 ];
@@ -145,7 +145,10 @@ class LNNotaReceta extends Component {
                         </div>
 
                         {/* TODO: revisar clases del newsLetter Full-Break */}
-                        {children[7]}
+                        {/* {children[7]} */}
+
+                        {/* Newsletter */}
+                        <div className="lay">{children[7]}</div>
 
                         <div className="lay-sidebar">
                             <div className="sidebar__main">

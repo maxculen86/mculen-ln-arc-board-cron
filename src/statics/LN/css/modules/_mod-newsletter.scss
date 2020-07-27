@@ -1,0 +1,38 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-newsletter {
+    @include flex(flex, row, center, center);
+    padding: $spacing-sm;
+    padding-bottom: $spacing-md;
+    margin-bottom: $spacing-lg;
+    border: 1px solid $gris3;
+    .container {
+        @include flex(flex, column, center, start);
+        .container-text {
+            @include flex(flex, column, center, start);
+            margin-bottom: $spacing-md;
+            .hl_yellow_underline {
+                background: transparent;
+                text-decoration: underline;
+                text-decoration-color: $highlight;
+                font-weight: 700;
+                margin: 0 px(5);
+            }
+        }
+    }
+}
+@media ($media-l) {
+    .mod-newsletter {
+        padding-bottom: $spacing-sm;
+        .container {
+            @include flex(flex, row, center, center);
+            .container-text {
+                margin-right: $spacing-md;
+            }
+            .container-button {
+                width: px(300);
+            }
+        }
+    }
+}
