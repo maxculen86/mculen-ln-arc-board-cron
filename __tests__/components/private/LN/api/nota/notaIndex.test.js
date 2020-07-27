@@ -26,7 +26,7 @@ jest.mock(
 );
 
 import NotaIndex from '../../../../../../components/private/LN/api/v1/nota';
-import article from '../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';
+import article from '../../../../../../__mocks__/data/nota/notaRoot.json';
 import dateAndTimeUtil from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 describe('Test de index en JSON de nota', () => {
@@ -46,8 +46,8 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.abiertoComentarios).toBe(false);
         expect(resp.comentariosId).toBe(article.label.livefyre_entrada_id.text);
         expect(resp.fechaActualizacion).toBe(`${date}${!impresa ? ` • ${time}` : ''}`);
-        expect(resp.fecha).toBe(`${publishDate}${!impresa ? ` • ${updateTime}` : ''}`
-        );
+        expect(resp.fecha).toBe(`${publishDate}${!impresa ? ` • ${updateTime}` : ''}`);
+        expect(resp.enviarApps).toBe(true);
         expect(resp.categoria).toBe('primarySection-mock');
         expect(resp.apertura).toBe('apertura-mock');
         expect(resp.relacionados).toBe('relacionados-mock');

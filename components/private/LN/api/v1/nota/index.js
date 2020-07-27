@@ -19,15 +19,19 @@ const indexNota = dataNota => {
     const edicion = get(dataNota, 'label.edicion.text');
     const showBanners = get(dataNota, 'label.mostrar_banners.display');
     const { date, time } = dateAndTimeUtil(dataNota.first_publish_date);
-    const { date: publishDate, time:updateTime } = dateAndTimeUtil(dataNota.publish_date);
-    const impresa = typeof edicion !== 'undefined' && edicion.toLowerCase() === 'impresa' ? true: false;
+    const { date: publishDate, time: updateTime } = dateAndTimeUtil(
+        dataNota.publish_date
+    );
+    const impresa =
+        typeof edicion !== 'undefined' && edicion.toLowerCase() === 'impresa'
+            ? true
+            : false;
 
     const resp = {
         id,
         template,
         url,
         mostrarBanners: typeof showBanners !== 'undefined' ? showBanners : true,
-
         paywallStatus: paywallStatus ? paywallStatus : 'comun',
         abiertoComentarios: dataNota.comments
             ? dataNota.comments.display_comments
@@ -38,12 +42,16 @@ const indexNota = dataNota => {
         categoria: primarySection && Section(primarySection),
         apertura: Apertura(dataNota),
         contenido: Cuerpo(dataNota),
-        relacionados: Relacionados(dataNota)
+        relacionados: Relacionados(dataNota),
+        enviarApps :true
     };
 
     const modificadorTemplate = ModificadorTemplate(dataNota);
+    if (modificadorTemplate)  resp.modificadorTemplate = modificadorTemplate;
 
-    if (modificadorTemplate) resp.modificadorTemplate = modificadorTemplate;
+    const enviarApps = get(dataNota, 'label.enviar_a_apps');
+    if (!enviarApps || !enviarApps.text || enviarApps.text.toLowerCase() == 'no') resp.enviarApps = false;
+    
 
     return resp;
 };
