@@ -4,7 +4,11 @@ import ComTitle from '../../../common/com-title';
 
 const titleArticle = ({ label, headlines, prefix }) => {
     const { basic } = headlines || {};
-    const volantaText = `${label.volanta ? `${label.volanta.text} ` : ''}`;
+    const volantaText = `${
+        label.volanta && label.volanta.text !== ''
+            ? `${label.volanta.text} `
+            : ''
+    }`;
     const prefixText = `${prefix !== '' ? `${prefix} ` : prefix}`;
     const renderTitle = `${prefixText}${volantaText}${basic}`;
 
