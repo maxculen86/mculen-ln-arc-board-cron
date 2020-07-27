@@ -36,7 +36,7 @@ const Parrafo = ({ data, capital }) => {
                         {
                             link,
                             target,
-                            className: 'com-link',
+                            classCondition: '--twoxs',
                             title: string
                         },
                         string
@@ -51,21 +51,12 @@ const Parrafo = ({ data, capital }) => {
         setItalicText,
         setBoldText
     )(data.content);
-    // console.log(JSON.stringify(content))
+
     // Si el redactor hace enter varias veces ignoramos los <br/>
     if (content === '<br/>') return <></>;
 
     return (
         <>
-            {/* <p
-            className={`text element-paragraph${
-                capital && isLetter(content) ? ` capital` : ''
-            }`}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-                __html: content
-            }}
-        /> */}
             <ComParagraph
                 capital={capital && isLetter(content) ? `--capital` : ''}
                 size="--twoxs"
@@ -82,8 +73,7 @@ Parrafo.propTypes = {
         content: PropTypes.string.isRequired,
         type: PropTypes.string.isRequired
     }).isRequired,
-    capital: PropTypes.bool,
-    outputType: PropTypes.string.isRequired
+    capital: PropTypes.bool
 };
 
 export default Parrafo;

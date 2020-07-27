@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import Paragraph from './parrafo';
-import ModParagraph from '../../../common/mod-paragraph';
-import ComParagraph from '../../../common/com-paragraph';
+// import ModParagraph from '../../../common/mod-paragraph';
+// import ComParagraph from '../../../common/com-paragraph';
 
 const pullQuote = props => {
     const {
@@ -19,7 +19,7 @@ const pullQuote = props => {
         subtype === 'pullquote' && (
             <section className="com-cita autor">
                 <section className="cont-cita">
-                    <div classCondition="title-cita">
+                    <div className="title-cita">
                         <Paragraph data={{ content: `"${content}"` }} />
                     </div>
                     <div className="cont-firma-autor">

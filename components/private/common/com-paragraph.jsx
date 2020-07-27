@@ -1,24 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-paragraph.css';
-import ComLink from './com-link';
 
 const ComParagraph = props => {
-    const { size, capital, content, data, link } = props;
+    const { size, capital, content } = props;
     return (
         <>
-            {/* {link ? (
-                <Comlink>
-                    <p
-                        className={`com-paragraph ${capital || ''} ${size}`}
-                        dangerouslySetInnerHTML={{
-                            __html: content
-                        }}
-                    >
-                        {data}
-                    </p>
-                </Comlink>
-            ) : ( */}
             <p
                 className={`com-paragraph ${capital || ''} ${size}`}
                 dangerouslySetInnerHTML={{
