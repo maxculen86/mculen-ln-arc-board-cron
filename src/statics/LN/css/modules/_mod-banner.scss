@@ -8,14 +8,7 @@
     max-width: 100%;
     overflow: hidden;
     &.--bg-banner {
-        background: repeating-linear-gradient(
-            45deg,
-            #fff,
-            #fff,
-            #fff,
-            #fff 4px,
-            #dbdbdb 6px
-        );
+        background: rgba(204, 204, 204, 1);
         width: 100%;
     }
     &.--mobile {
@@ -26,10 +19,6 @@
     }
     &.--sticky {
         position: sticky;
-        &.--bg-banner {
-            background: rgba(204, 204, 204, 1);
-            width: 100%;
-        }
         .--scrollDown & {
             top: 0;
         }
@@ -71,6 +60,9 @@
     }
     .sidebar__aside & {
         margin-bottom: px(40);
+    }
+    &.--cabezal_dsk {
+        margin-bottom: $spacing-lg;
     }
 }
 @media ($media-m) {
