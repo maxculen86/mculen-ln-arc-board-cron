@@ -19,6 +19,13 @@
         font-weight: bold;
         margin-bottom: 0;
     }
+    .hl_yellow_underline {
+        background: transparent;
+        text-decoration: underline;
+        text-decoration-color: $highlight;
+        font-weight: 700;
+        margin: 0 px(5);
+    }
 }
 
 @media ($media-l) {

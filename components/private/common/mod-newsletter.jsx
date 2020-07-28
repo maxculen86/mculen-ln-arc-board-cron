@@ -27,7 +27,7 @@ const ModNewsletter = props => {
                     <ComTitle size="l" content={contenido} />
                     <ComLink
                         link="https://newsletter.lanacion.com.ar/#/"
-                        size="l"
+                        size="--threexs"
                         target="_blank"
                     >
                         Mirá todos los newsletters que tenemos para vos

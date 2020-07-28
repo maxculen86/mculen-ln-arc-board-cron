@@ -11,7 +11,7 @@ import ComContainer from '../../common/com-container';
  */
 const TaxonomyImportantList = ({ list, destacado, type }) => {
     return (
-        <section classesNames="mod-themes">
+        <section className="mod-themes">
             {/*<div
             className={`${
                 destacado ? 'com-tag cont_tags' : 'com-secondary-tag'

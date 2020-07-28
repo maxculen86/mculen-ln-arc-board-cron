@@ -86,6 +86,13 @@
             font-family: $font-georgia;
         }
     }
+    .mod-keepreading & {
+        margin-bottom: $spacing-sm;
+    }
+    .mod-themes & {
+        margin-right: $spacing-xs;
+        margin-bottom: $spacing-sm;
+    }
 }
 @media ($media-l) {
     .com-link {
