@@ -26,7 +26,7 @@ const hide = element => {
 
 const idle = element => {
     const { top } = element.getBoundingClientRect();
-    if (window.getComputedStyle(element).top === 'auto') {
+    if (window.getComputedStyle(element).top === '0px') {
         element.style.top = `${Math.abs(top)}px`;
         element.style.position = 'relative';
         element.style.zIndex = 1;
@@ -37,7 +37,7 @@ const componentIsVisible = component =>
     !component.classList.contains('hlp-none');
 
 const componentDidReachTarget = (component, target) =>
-    component.offsetTop + component.clientHeight > target.offsetTop;
+    component.clientHeight > target.getBoundingClientRect().top;
 
 export default Component => Target => {
     return props => {
@@ -55,6 +55,7 @@ export default Component => Target => {
                     if (windowY < scrollPosition.current) {
                         scrollPosition.current = windowY;
                         ref.current.style.cssText = '';
+                        hide(ref.current);
                     } else if (windowY >= scrollPosition.current) {
                         scrollPosition.current = windowY;
                         if (!componentDidReachTarget(ref.current, target)) {
@@ -64,6 +65,8 @@ export default Component => Target => {
                             idle(ref.current);
                         }
                     }
+                } else {
+                    hide(ref.current);
                 }
             };
 

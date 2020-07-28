@@ -3,18 +3,20 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../snippet/snippetRender';
 import MillisecondsToTime from '../utils/millisecondsToTime';
+import get from '../utils/get';
 
 const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
     const { content: primerParrafo } = parrafo;
     const { promo_items: promoItems, created_date: createdDate, duration } =
         mediaData || {};
+    const caption = get(promoItems, 'basic.caption', null);
+    const epigrafe = get(mediaData, 'headlines.basic', caption);
+
     const data = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
         name: `${tituloNota || 'LA NACION - Noticia'}`,
-        description: `${
-            promoItems.basic.caption ? promoItems.basic.caption : primerParrafo
-        }`,
+        description: `${epigrafe || primerParrafo}`,
         thumbnailUrl: [`${promoItems.basic.url}`],
         uploadDate: `${createdDate.replace(/T/g, ' ').replace(/Z/g, '') || ''}`,
         embedUrl: `${minStream.url}`,

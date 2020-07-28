@@ -87,12 +87,12 @@
         margin-right: $px-10;
     }
 }
-@media (min-width: 1020px) and (max-width: 1025px) and (orientation: landscape) {
-    /* For landscape layouts only */
-    .col-1 .com-share {
-        display: none;
-    }
-}
+// @media (min-width: 1020px) and (max-width: 1025px) and (orientation: landscape) {
+//     /* For landscape layouts only */
+//     .col-1 .com-share {
+//         //display: none;
+//     }
+// }
 
 //Valores de desk chico para arriba
 @media (min-width: 1024px) {
