@@ -4,11 +4,20 @@
     main {
         padding-top: 0;
     }
+    .mod-opening .lay {
+        max-width: 860px;
+    }
     .--body {
+        margin-bottom: px(32);
         .com-paragraph,
+        .element-paragraph,
         h2,
+        h3,
+        .mod-date,
+        .FirmaAutor,
         .com-unordered,
         .com-ordered,
+        .mod-banner,
         figcaption {
             width: 100%;
             margin-right: auto;
@@ -30,6 +39,37 @@
                 max-width: 1340px;
                 padding-right: $px-40;
                 padding-left: $px-40;
+                max-width: 860px;
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
+
+        .mod-figure {
+            cursor: default;
+            &:hover::before {
+                display: none;
+            }
+            .mod-picture {
+                height: 100vh;
+                width: 100%;
+                margin-left: 0;
+                border: none;
+
+                @media ($media-l) {
+                    height: auto;
+                }
+            }
+        }
+
+        .mod-banner {
+            margin-bottom: px(32);
+            justify-content: space-between;
+            .com-banner {
+                background: aqua;
+                width: 300px;
+                height: 250px;
+                display: block;
             }
         }
     }
