@@ -76,6 +76,11 @@
         font-weight: bold;
         color: $link;
     }
+    .com-paragraph & {
+        .amp & {
+            color: $link;
+        }
+    }
 }
 @media ($media-l) {
     .com-link {
@@ -96,6 +101,11 @@
             background-color: $highlight;
             border: 1px solid $gris3;
             color: $negro;
+        }
+        .com-paragraph & {
+            .amp & {
+                color: $link;
+            }
         }
     }
 }
