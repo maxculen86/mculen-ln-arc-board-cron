@@ -4,7 +4,8 @@
 .com-embed {
     margin-bottom: px(32);
     &.--youtube,
-    &.--vimeo {
+    &.--vimeo,
+    &.--dailymotion {
         iframe {
             @media (max-width: 375px) {
                 width: 100%;

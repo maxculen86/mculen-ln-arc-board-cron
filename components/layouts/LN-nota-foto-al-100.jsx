@@ -11,11 +11,6 @@ import '../../resources/dist/css/ln/base/types.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 
-//import '../../resources/dist/css/ln/pages/recipe.css';
-
-//import '../../resources/dist/css/ln/modules/header-desktop.css';
-//import '../../resources/dist/css/ln/modules/header-mobile.css';
-
 import '../../resources/dist/css/ln/pages/photo100.css';
 
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
@@ -44,9 +39,6 @@ import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
 import '../../resources/dist/css/ln/components/com-button.css';
-
-// import '../../resources/dist/css/ln/components/colecciones.css';
-// import '../../resources/dist/css/ln/components/carta-lectores.css';
 
 /* Se debe importar para AMP */
 // import '../../resources/dist/css/ln/components/nav-amp.css';
@@ -92,7 +84,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                 <main>
                     <AperturaStorytelling />
 
-                    <div className="--body">
+                    <div className="cuerpo__nota --body">
                         <span class="mod-date">
                             <time
                                 class="com-date --threexs"

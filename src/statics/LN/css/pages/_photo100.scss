@@ -3,73 +3,90 @@
 .--photo100 {
     main {
         padding-top: 0;
-    }
-    .mod-opening .lay {
-        max-width: 860px;
-    }
-    .--body {
-        margin-bottom: px(32);
-        .com-paragraph,
-        .element-paragraph,
-        h2,
-        h3,
-        .mod-date,
-        .FirmaAutor,
-        .com-unordered,
-        .com-ordered,
-        .mod-banner,
-        figcaption {
-            width: 100%;
-            margin-right: auto;
-            margin-left: auto;
-            padding-right: $px-10;
-            padding-left: $px-10;
-
-            @media ($media-s) {
-                padding-right: $px-20;
-                padding-left: $px-20;
-            }
-
-            @media ($media-m) {
-                padding-right: $px-30;
-                padding-left: $px-30;
-            }
-
-            @media ($media-l) {
-                max-width: 1340px;
-                padding-right: $px-40;
-                padding-left: $px-40;
-                max-width: 860px;
-                padding-right: 0;
-                padding-left: 0;
-            }
+        .mod-opening .lay {
+            max-width: 860px;
         }
+        > .cuerpo__nota {
+            margin-bottom: px(32);
 
-        .mod-figure {
-            cursor: default;
-            &:hover::before {
-                display: none;
-            }
-            .mod-picture {
-                height: 100vh;
+            .com-paragraph,
+            .element-paragraph,
+            h2,
+            h3,
+            .mod-date,
+            .FirmaAutor,
+            .com-unordered,
+            .com-ordered,
+            .mod-banner,
+            figcaption {
                 width: 100%;
-                margin-left: 0;
-                border: none;
+                margin-right: auto;
+                margin-left: auto;
+                padding-right: $px-10;
+                padding-left: $px-10;
+
+                @media ($media-s) {
+                    padding-right: $px-20;
+                    padding-left: $px-20;
+                }
+
+                @media ($media-m) {
+                    padding-right: $px-30;
+                    padding-left: $px-30;
+                }
 
                 @media ($media-l) {
-                    height: auto;
+                    max-width: 1340px;
+                    padding-right: $px-40;
+                    padding-left: $px-40;
+                    max-width: 860px;
+                    padding-right: 0;
+                    padding-left: 0;
                 }
             }
-        }
+            .com-paragraph {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                margin-bottom: px(32);
+            }
+            .mod-figure {
+                cursor: default;
+                &::before {
+                    right: px(8);
+                }
+                &:hover::before {
+                    display: none;
+                }
+                .mod-picture {
+                    height: 100vh;
+                    width: 100%;
+                    margin-left: 0;
+                    border: none;
 
-        .mod-banner {
-            margin-bottom: px(32);
-            justify-content: space-between;
-            .com-banner {
-                background: aqua;
-                width: 300px;
-                height: 250px;
-                display: block;
+                    @media ($media-l) {
+                        height: auto;
+                    }
+                }
+            }
+
+            .mod-banner {
+                display: grid;
+                margin-bottom: px(32);
+                .com-banner {
+                    &:first-child {
+                        margin-bottom: px(32);
+                    }
+                    background: aqua;
+                    width: 300px;
+                    height: 250px;
+                    display: block;
+                }
+                @media ($media-m) {
+                    display: flex;
+                    justify-content: space-between;
+                    .com-banner {
+                        margin-bottom: 0;
+                    }
+                }
             }
         }
     }
