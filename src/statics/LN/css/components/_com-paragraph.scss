@@ -4,9 +4,10 @@
 .com-paragraph {
     font-family: Georgia;
     font-weight: normal;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing;
     &.--bajada {
         font-family: $font-arial;
+        margin-bottom: $spacing;
     }
     .mod-paragraph & {
         @include flex(flex);
@@ -17,5 +18,13 @@
         line-height: px(28);
         font-weight: bold;
         margin-bottom: 0;
+    }
+}
+
+@media ($media-l) {
+    .com-paragraph {
+        &.--bajada {
+            margin-bottom: $spacing-sm;
+        }
     }
 }

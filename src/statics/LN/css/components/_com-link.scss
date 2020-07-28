@@ -80,8 +80,10 @@
         color: $link;
     }
     .com-paragraph & {
+        font-family: $font-georgia;
         .amp & {
             color: $link;
+            font-family: $font-georgia;
         }
     }
 }

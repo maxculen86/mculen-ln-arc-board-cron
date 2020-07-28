@@ -3,7 +3,7 @@
 
 .com-title {
     @include flex(flex);
-    margin-bottom: $spacing-sm;
+    margin-bottom: $spacing;
     font-family: $font-SuecaSlab;
     font-weight: 700;
     letter-spacing: $letter-spacing;
@@ -19,5 +19,10 @@
     .mod-newsletter & {
         display: block;
         font-weight: 300;
+    }
+}
+@media ($media-l) {
+    .com-title {
+        margin-bottom: $spacing-sm;
     }
 }

@@ -10,7 +10,13 @@ const BajadaNota = props => {
     } = props;
 
     const subtitulo = basic || null;
-    return <ComParagraph size="--threexs" content={subtitulo} />;
+    return (
+        <ComParagraph
+            size="--threexs"
+            classCondition="--bajada"
+            content={subtitulo}
+        />
+    );
 };
 
 BajadaNota.propTypes = {
