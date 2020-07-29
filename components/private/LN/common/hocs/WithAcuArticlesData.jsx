@@ -150,9 +150,7 @@ function WithAcuArticlesData(
                 const { label } = article;
                 const { recomendar } = label || undefined;
                 return (
-                    !recomendar ||
-                    recomendar === {} ||
-                    recomendar.text === 'true'
+                    !recomendar || recomendar === {} || recomendar.text === 'Si'
                 );
             };
 
