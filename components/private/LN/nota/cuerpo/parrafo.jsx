@@ -14,6 +14,9 @@ const Parrafo = ({ data, capital }) => {
     const setOtherChar = text =>
         text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
+    const replaceClassForMark = text =>
+        text.replace(/hl_yellow/g, 'hl_yellow_underline');
+
     const setBoldText = text =>
         text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
 
@@ -46,6 +49,7 @@ const Parrafo = ({ data, capital }) => {
         );
 
     const content = compose(
+        replaceClassForMark,
         setOtherChar,
         setExternalLinks,
         setItalicText,
