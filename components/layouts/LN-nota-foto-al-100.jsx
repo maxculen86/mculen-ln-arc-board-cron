@@ -84,36 +84,65 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                 <main>
                     <AperturaStorytelling />
 
-                    <div className="cuerpo__nota --body">
-                        <span class="mod-date">
+                    <div className="cuerpo__nota">
+                        <div className="com-share">
+                            <div className="share-left">
+                                <button
+                                    type="button"
+                                    className="icon-facebook"
+                                ></button>
+                                <button
+                                    type="button"
+                                    className="icon-twitter"
+                                ></button>
+                                <button
+                                    type="button"
+                                    id="whatsAppShareDesktop"
+                                    className="icon-whatsapp"
+                                ></button>
+                            </div>
+                            <div className="share-right">
+                                <button
+                                    type="button"
+                                    className="icon-mail"
+                                ></button>
+                                <button
+                                    type="button"
+                                    className="icon-comment"
+                                ></button>
+                                <label for="">145</label>
+                            </div>
+                        </div>
+
+                        <span className="mod-date">
                             <time
-                                class="com-date --threexs"
+                                className="com-date --threexs"
                                 datetime="7 de Febrero de 2020"
                             >
                                 7 de Febrero de 2020
                             </time>
-                            <time class="com-hour --threexs">09:09</time>
+                            <time className="com-hour --threexs">09:09</time>
                         </span>
-                        <div class="row FirmaAutor">
-                            <div class="col-12">
-                                <section class="mod-autor">
-                                    <div class="container-text">
-                                        <div class="container-firma">
+                        <div className="row FirmaAutor">
+                            <div className="col-12">
+                                <section className="mod-autor">
+                                    <div className="container-text">
+                                        <div className="container-firma">
                                             <a
                                                 href="/autor/andres-prestileo-215/"
-                                                class="com-link --autor"
+                                                className="com-link --autor"
                                             >
                                                 Andrés Prestileo
                                             </a>
                                             <a
                                                 href="/autor/manuel-torino-7386/"
-                                                class="com-link --autor"
+                                                className="com-link --autor"
                                             >
                                                 Manuel Torino
                                             </a>
                                             <a
                                                 href="/autor/josefina-salomon-646/"
-                                                class="com-link --autor"
+                                                className="com-link --autor"
                                             >
                                                 Josefina Salomón
                                             </a>
@@ -122,10 +151,10 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 </section>
                             </div>
                         </div>
-                        <p class="text element-paragraph capital">
+                        <p className="text element-paragraph capital">
                             S
                             <a
-                                class="com-link"
+                                className="com-link"
                                 href="https://www.lanacion.com.ar/el-mundo/primer-latinoamericano-pasajero-argentino-del-crucero-japon-nid2331517"
                                 target="_blank"
                             >
@@ -135,7 +164,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             esta enfermedad que se haya anunciado hasta el
                             momento.{' '}
                             <a
-                                class="com-link"
+                                className="com-link"
                                 href="https://www.lanacion.com.ar/el-mundo/de-crucero-de-lujo-a-carcel-flotante-el-drama-de-una-cuarentena-a-bordo-nid2331408"
                             >
                                 El crucero
@@ -145,7 +174,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             <strong>Yokohama</strong>, al suroeste de Tokio,
                             tiene unos{' '}
                             <a
-                                class="com-link"
+                                className="com-link"
                                 href="https://www.lanacion.com.ar/el-mundo/primer-latinoamericano-pasajero-argentino-del-crucero-japon-nid2331517"
                                 target="_blank"
                             >
@@ -172,35 +201,35 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             , otro diplomático de carrera, para representar al
                             país en la Santa Sede.
                         </p>
-                        <h2 class="com-title --l ">
+                        <h2 className="com-title --l ">
                             Esto seria el subtitulo para desordenadas
                         </h2>
-                        <ul class="com-unordered">
-                            <li class="com-item">
+                        <ul className="com-unordered">
+                            <li className="com-item">
                                 Inicialmente, las pruebas se limitaron a las
                                 personas que presentaban
                             </li>
-                            <li class="com-item">
+                            <li className="com-item">
                                 Síntomas o que habían estado en contacto con un
                                 pasajero que desembarcó en Hong Kong
                             </li>
-                            <li class="com-item">
+                            <li className="com-item">
                                 Al que se le diagnosticó la enfermedad.
                             </li>
                         </ul>
-                        <h3 class="com-title --m ">
+                        <h3 className="com-title --m ">
                             Esto seria el otro subtitulo ordenadas
                         </h3>
-                        <ul class="com-ordered">
-                            <li class="com-item">
+                        <ul className="com-ordered">
+                            <li className="com-item">
                                 Sin embargo, ahora el ministro de Salud dijo que
                                 se someterá.
                             </li>
-                            <li class="com-item">
+                            <li className="com-item">
                                 Tests adicionales a las personas vulnerables que
                                 estén a bordo del crucero, como los ancianos.
                             </li>
-                            <li class="com-item">
+                            <li className="com-item">
                                 A aquellos que hayan estado en contacto con los
                                 nuevos casos positivos.
                             </li>
@@ -284,17 +313,17 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             país en la Santa Sede.
                         </p>
 
-                        <ul class="com-unordered">
-                            <li class="com-item">
+                        <ul className="com-unordered">
+                            <li className="com-item">
                                 El Grand Hotel del Tucumán realiza hasta el
                                 domingo próximo una feria de artesanías.
                             </li>
-                            <li class="com-item">
+                            <li className="com-item">
                                 Que permite apreciar las diversas
                                 manifestaciones culturales de la comunidad
                                 provincial.
                             </li>
-                            <li class="com-item">
+                            <li className="com-item">
                                 Se exponen, entre otros, trabajos en vidrio,
                                 platería, madera, pocelanas, cueros y papel
                                 maché.
@@ -354,10 +383,18 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
 
                         <div className="mod-banner">
                             <div className="com-banner --desktop">
-                                <div id=""></div>
+                                <iframe
+                                    width="300"
+                                    height="250"
+                                    src="https://placehold.it/300x250"
+                                ></iframe>
                             </div>
                             <div className="com-banner --desktop">
-                                <div id=""></div>
+                                <iframe
+                                    width="300"
+                                    height="250"
+                                    src="https://placehold.it/300x250"
+                                ></iframe>
                             </div>
                         </div>
 
