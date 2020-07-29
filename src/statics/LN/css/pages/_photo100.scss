@@ -1,16 +1,31 @@
 @import '../abstracts/variables';
 
+@mixin anchos {
+    @media ($media-l) {
+        max-width: px(682);
+        padding-right: 0;
+        padding-left: 0;
+    }
+    @media ($media-lm) {
+        max-width: px(768);
+    }
+    @media ($media-lg) {
+        max-width: px(854);
+    }
+    @media ($media-xl) {
+        max-width: px(910);
+    }
+}
+
 .--photo100 {
     main {
         padding-top: 0;
-        @media ($media-l) {
-            .mod-opening .lay {
-                max-width: 860px;
-                padding-right: 0;
-                padding-left: 0;
-            }
+
+        .mod-opening .lay {
+            @include anchos;
         }
-        > .cuerpo__nota {
+        > .row {
+            display: block;
             margin-bottom: px(32);
 
             .com-paragraph,
@@ -26,28 +41,21 @@
                 width: 100%;
                 margin-right: auto;
                 margin-left: auto;
-                padding-right: $px-10;
-                padding-left: $px-10;
+                padding-right: px(10);
+                padding-left: px(10);
                 display: block;
 
                 @media ($media-s) {
-                    padding-right: $px-20;
-                    padding-left: $px-20;
+                    padding-right: px(20);
+                    padding-left: px(20);
                 }
 
                 @media ($media-m) {
-                    padding-right: $px-30;
-                    padding-left: $px-30;
+                    padding-right: px(30);
+                    padding-left: px(30);
                 }
 
-                @media ($media-l) {
-                    max-width: 1340px;
-                    padding-right: $px-40;
-                    padding-left: $px-40;
-                    max-width: 860px;
-                    padding-right: 0;
-                    padding-left: 0;
-                }
+                @include anchos;
             }
             .com-paragraph {
                 font-family: Georgia, 'Times New Roman', Times, serif;
@@ -77,11 +85,17 @@
                 width: px(48);
                 padding: px(2);
                 background: rgba(255, 255, 255, 0.8);
-                left: px(50);
+                left: auto;
+                right: auto;
                 top: px(16);
                 display: none;
+
                 @media ($media-l) {
+                    left: px(32);
                     display: block;
+                }
+                @media ($media-xl) {
+                    left: px(64);
                 }
             }
 
@@ -92,8 +106,8 @@
                     &:first-child {
                         margin-bottom: px(32);
                     }
-                    width: 300px;
-                    height: 250px;
+                    width: px(300);
+                    height: px(250);
                     display: block;
                 }
                 @media ($media-m) {
@@ -104,6 +118,12 @@
                     }
                 }
             }
+        }
+    }
+
+    &.--scrollUp {
+        main > .row .com-share {
+            top: calc(16px + 65px);
         }
     }
 }

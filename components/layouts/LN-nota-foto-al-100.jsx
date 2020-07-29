@@ -84,7 +84,9 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                 <main>
                     <AperturaStorytelling />
 
-                    <div className="cuerpo__nota">
+                    {/* Cuerpo al 100% */}
+                    <div className="row">
+                        {/* Modulo SHARE */}
                         <div className="com-share">
                             <div className="share-left">
                                 <button
@@ -114,6 +116,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </div>
                         </div>
 
+                        {/* Modulo DATE */}
                         <span className="mod-date">
                             <time
                                 className="com-date --threexs"
@@ -123,6 +126,8 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </time>
                             <time className="com-hour --threexs">09:09</time>
                         </span>
+
+                        {/* Modulo AUTHOR */}
                         <div className="row FirmaAutor">
                             <div className="col-12">
                                 <section className="mod-autor">
@@ -151,7 +156,9 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 </section>
                             </div>
                         </div>
-                        <p className="text element-paragraph capital">
+
+                        {/* Modulo PARAGRAPH */}
+                        <p className="com-paragraph  --capital --twoxs">
                             S
                             <a
                                 className="com-link"
@@ -201,9 +208,13 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             , otro diplomático de carrera, para representar al
                             país en la Santa Sede.
                         </p>
+
+                        {/* Componente TITLE */}
                         <h2 className="com-title --l ">
                             Esto seria el subtitulo para desordenadas
                         </h2>
+
+                        {/* Modulo UNORDERED LIST */}
                         <ul className="com-unordered">
                             <li className="com-item">
                                 Inicialmente, las pruebas se limitaron a las
@@ -217,10 +228,14 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 Al que se le diagnosticó la enfermedad.
                             </li>
                         </ul>
+
+                        {/* Componente TITLE */}
                         <h3 className="com-title --m ">
                             Esto seria el otro subtitulo ordenadas
                         </h3>
-                        <ul className="com-ordered">
+
+                        {/* Modulo ORDERED LIST */}
+                        <ol className="com-ordered">
                             <li className="com-item">
                                 Sin embargo, ahora el ministro de Salud dijo que
                                 se someterá.
@@ -233,8 +248,9 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 A aquellos que hayan estado en contacto con los
                                 nuevos casos positivos.
                             </li>
-                        </ul>
+                        </ol>
 
+                        {/* Modulo PARAGRAPH */}
                         <p className="com-paragraph --twoxs">
                             En un lugar de la Mancha, de cuyo nombre no quiero
                             acordarme, no ha mucho tiempo que vivía un hidalgo
@@ -245,6 +261,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             autores que deste caso escriben.
                         </p>
 
+                        {/* Modulo IMAGE */}
                         <div>
                             <section
                                 role="button"
@@ -296,6 +313,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </section>
                         </div>
 
+                        {/* Modulo PARAGRAPH */}
                         <p className="com-paragraph --twoxs">
                             <strong>El nombre de Squeff</strong>, muy cercana al
                             kirchnerismo, comenzó a sonar en los pasillos de la
@@ -313,6 +331,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             país en la Santa Sede.
                         </p>
 
+                        {/* Modulo UNORDERED LIST */}
                         <ul className="com-unordered">
                             <li className="com-item">
                                 El Grand Hotel del Tucumán realiza hasta el
@@ -330,6 +349,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </li>
                         </ul>
 
+                        {/* Modulo IMAGE */}
                         <div>
                             <section
                                 role="button"
@@ -381,6 +401,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </section>
                         </div>
 
+                        {/* Modulo BANNERS
                         <div className="mod-banner">
                             <div className="com-banner --desktop">
                                 <iframe
@@ -397,7 +418,9 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 ></iframe>
                             </div>
                         </div>
+                        */}
 
+                        {/* Modulo PARAGRAPH */}
                         <p className="com-paragraph --twoxs">
                             <strong>El nombre de Squeff</strong>, muy cercana al
                             kirchnerismo, comenzó a sonar en los pasillos de la
