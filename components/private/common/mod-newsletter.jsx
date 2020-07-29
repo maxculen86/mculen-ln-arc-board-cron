@@ -34,7 +34,11 @@ const ModNewsletter = props => {
                     </ComLink>
                 </div>
                 <div className="container-button">
-                    <ComButton onClick={handleClick} classesNames="--primary">
+                    <ComButton
+                        onClick={handleClick}
+                        classesNames="--primary"
+                        size="--sixxs"
+                    >
                         SUSCRIBITE AL NEWSLETTER
                     </ComButton>
                 </div>

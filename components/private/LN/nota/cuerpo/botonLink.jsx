@@ -16,6 +16,7 @@ const BotonLink = ({ data }) => {
                         classCondition="--compact"
                         iconName="right"
                         iconPosition="--right"
+                        size="threexs"
                     >
                         {content.toUpperCase()}
                     </ComButton>
