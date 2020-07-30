@@ -24,8 +24,8 @@ export default function WithInfographic(WrappedComponent) {
             }
 
             componentDidMount() {
-                //Si es AMP no pasa por aca (por eso esta en el constructor tambien)
-                this.getContent();
+                //Si es AMP no pasa por aca (por eso ahora lo pase al constructor)
+                //this.getContent();
             }
 
             getContent = () => {
@@ -55,8 +55,6 @@ export default function WithInfographic(WrappedComponent) {
                                   //.replace(/<\/iframe/gim, '</amp-iframe')
                                   //.replace(/100%/gim, '540')
                             : content;
-                    // console.log('+++++++outputType hoc+++++++++++'+JSON.stringify(outputType))
-                    // console.log('+++++++result hoc+++++++++++'+JSON.stringify(result))
                     /*this.setState({
                         content: result,
                         outputType,

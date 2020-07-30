@@ -28,7 +28,7 @@ const HtmlAMP = props => {
     );
 };
 
-// Con esto estaba antes
+// Asi estaba antes
 // {hasOptaElements(content) && (
 // "https://proxy.lanacion.com.ar:3000/?url=http://arc.lanacion.com.ar/opta/?_website=la-nacion-ar&opta=true&outputType=opta"
 
