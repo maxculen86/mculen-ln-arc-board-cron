@@ -22,6 +22,11 @@ const HtmlAMP = props => {
                 <div overflow="overflow" tabIndex="0" role="button">
                     Ver mas
                 </div>
+                <amp-img
+                    layout="fill"
+                    src={content}
+                    placeholder="placeholder"
+                />
             </amp-iframe>
         </div>
     );
