@@ -9,6 +9,7 @@ const TitleAcu = ({ headlines: { basic, shortTitle }, volanta, href }) => {
     const volantaComponent = volanta && `${volanta} `;
     const titleText = `${shortTitle || basic}`;
     const renderTitle = `${volantaComponent}${titleText}`;
+
     return (
         <ComTitle
             tag="h2"
