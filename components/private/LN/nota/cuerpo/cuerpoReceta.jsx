@@ -69,7 +69,7 @@ const Cuerpo = ({ globalContent: { content_elements: contentElements } }) => {
 
             {tips.length > 0 ? (
                 <div className="row">
-                    <Tips size="m" title="Tip" paragraphs={tips} />
+                    <Tips size="--m" title="Tip" paragraphs={tips} />
                 </div>
             ) : (
                 <></>

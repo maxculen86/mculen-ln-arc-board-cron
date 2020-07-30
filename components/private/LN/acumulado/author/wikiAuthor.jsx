@@ -35,7 +35,7 @@ const WikiAuthor = ({ globalContent }) => {
                     </div>
                 </section>
                 <div className="wiki-calc">
-                    <ComTitle tag="h1" size="xl" content={byline} />
+                    <ComTitle tag="h1" size="--xl" content={byline} />
                     <label>LA NACION</label>
                 </div>
                 <p className="hlp-mobile-none col-12">

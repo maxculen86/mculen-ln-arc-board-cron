@@ -31,7 +31,7 @@ const Ranking = ({ articles, size, dataSection, globalContent }) => {
     return (
         articles.length > 0 && (
             <div className="com-ranking hlp-mobile-none">
-                <TitleSection size="m" text={titleText} />
+                <TitleSection size="--m" text={titleText} />
                 <OrderedList>
                     {articles.length > 0 &&
                         articles
