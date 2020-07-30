@@ -15,7 +15,7 @@ const GrillaColumnistas = props => {
             <div className="col-12">
                 <div className="com-titleWithfollow">
                     {/* <h1 className="com-title-section-xl"></h1> */}
-                    <ComTitle tag="h1" size="xl" content="Columnistas" />
+                    <ComTitle tag="h1" size="--xl" content="Columnistas" />
                 </div>
             </div>
             <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">

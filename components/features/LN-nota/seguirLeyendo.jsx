@@ -14,7 +14,7 @@ const seguirLeyendo = props => {
                         <div className="col-12">
                             <div className="keep-reading">
                                 <ComTitle
-                                    size="l"
+                                    size="--l"
                                     tag="h4"
                                     content="Seguir Leyendo"
                                 />

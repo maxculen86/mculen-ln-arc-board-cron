@@ -12,7 +12,7 @@ const titleArticle = ({ label, headlines, prefix }) => {
     const prefixText = `${prefix !== '' ? `${prefix} ` : prefix}`;
     const renderTitle = `${prefixText}${volantaText}${basic}`;
 
-    return <ComTitle tag="h1" size="threexl" content={renderTitle} />;
+    return <ComTitle tag="h1" size="--threexl" content={renderTitle} />;
 };
 
 titleArticle.propTypes = {

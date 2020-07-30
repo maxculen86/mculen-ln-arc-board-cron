@@ -12,7 +12,7 @@ export default function colecciones() {
                     <ComTitle
                         link="#"
                         tag="h2"
-                        size="xl"
+                        size="--xl"
                         content={'Colecciones LA NACION'}
                     />
                     <ComParagraph

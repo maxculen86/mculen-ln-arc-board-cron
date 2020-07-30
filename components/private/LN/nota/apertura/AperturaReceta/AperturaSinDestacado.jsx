@@ -23,7 +23,7 @@ const AperturaSinDestacado = props => {
                     {!!tags && tags.length > 0 && (
                         <>
                             <ComTitle
-                                size="m"
+                                size="--m"
                                 tag="h4"
                                 content="Recetas con:"
                             />
