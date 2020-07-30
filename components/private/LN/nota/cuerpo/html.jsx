@@ -108,6 +108,7 @@ const Html = props => {
     if (!parser.current) {
         parser.current = new DOMParser();
     }
+
     if (
         !parser.current
             .parseFromString(content, 'text/html')
