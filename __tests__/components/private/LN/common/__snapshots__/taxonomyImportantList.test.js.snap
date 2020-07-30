@@ -9,11 +9,11 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
     href="/tema/asd-1/"
   >
     <button
-      class="com-button --secondary --compact"
+      class="com-button threexs --secondary --compact"
       type="button"
     >
       <span
-        class="com-text "
+        class="com-text --threexs "
       >
         asd 1
       </span>
@@ -24,11 +24,11 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
     href="/tema/asd-2/"
   >
     <button
-      class="com-button --secondary --compact"
+      class="com-button threexs --secondary --compact"
       type="button"
     >
       <span
-        class="com-text "
+        class="com-text --threexs "
       >
         asd 2
       </span>
@@ -39,11 +39,11 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
     href="/tema/asd-3/"
   >
     <button
-      class="com-button --secondary --compact"
+      class="com-button threexs --secondary --compact"
       type="button"
     >
       <span
-        class="com-text "
+        class="com-text --threexs "
       >
         asd 3
       </span>
