@@ -15,11 +15,11 @@ const HtmlAMP = props => {
                 height="300"
                 sandbox="allow-scripts allow-same-origin"
                 frameborder="0"
-                resizable
+                resizable="resizable"
                 layout="responsive"
                 src={content}
             >
-                <div overflow="overflow" tabIndex="0" role="button" ariaLabel="Read more">
+                <div overflow="overflow" tabIndex="0" role="button">
                     Ver mas
                 </div>
             </amp-iframe>
