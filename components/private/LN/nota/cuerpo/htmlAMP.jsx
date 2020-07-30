@@ -15,13 +15,9 @@ const HtmlAMP = props => {
                 height="300"
                 sandbox="allow-scripts allow-same-origin"
                 frameborder="0"
-                resizable="resizable"
                 layout="responsive"
                 src={content}
             >
-                <div overflow="overflow" tabIndex="0" role="button">
-                    Ver mas
-                </div>
                 <amp-img
                     layout="fill"
                     src={content}
