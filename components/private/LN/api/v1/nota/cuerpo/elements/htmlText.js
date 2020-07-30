@@ -1,5 +1,5 @@
 import { parse } from 'node-html-parser';
-import walkerBuilder from '../../../../../common/utils/walker';
+import walkerBuilder from '../../../../../../common/utils/walker';
 
 const htmlText = text => {
     if (!text) return null;
@@ -31,7 +31,7 @@ const htmlText = text => {
         node => node.nodeType === 1 && node.tagName === 'a',
         (data, next) => {
             const hrefRegex = new RegExp('href="(.*)"');
-            const attrs = hrefRegex.exec(data.rawAttrs);
+            const attrs = hrefRegex.exec(data.rawAttrs.toLowerCase());
             const resp = {
                 _t: data.tagName,
                 href: attrs[1],

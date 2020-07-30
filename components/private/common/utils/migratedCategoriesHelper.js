@@ -13,6 +13,8 @@ function getSecundaryCategory(caterogy) {
 }
 
 function getPrincipalCategory(category) {
+    if(!category) return null;
+    
     const principalCategory = `/${
         category.split('/').filter(e => {
             return e;

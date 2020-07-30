@@ -1,6 +1,6 @@
-import ElementButton from '../../../../../../../__mocks__/data/nota/cuerpo/button/button.json';
+import ElementButton from '../../../../../../../../__mocks__/data/nota/cuerpo/button/button.json';
 
-import Button from '../../../../../../../components/private/LN/api/v1/nota/cuerpo/button';
+import Button from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/button';
 
 describe('Test de los botones en el cuerpo de una nota', () => {
     it('Test de boton si es null', () => {

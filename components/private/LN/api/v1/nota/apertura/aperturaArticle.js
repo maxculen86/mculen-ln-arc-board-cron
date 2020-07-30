@@ -20,14 +20,15 @@ const apertura = article => {
     const resp = {
         volanta,
         titulo: tituloMobile || titulo,
-        bajada,
-        imagenes: []
+        bajada
     };
 
     if (promoItem) {
         switch (promoItem.type) {
             case 'image':
-                resp.imagenes.push(Image(promoItem));
+                const images = [];
+                images.push(Image(promoItem));
+                resp.imagenes = images;
                 break;
             case 'video':
                 resp.multimedio = Video(promoItem);

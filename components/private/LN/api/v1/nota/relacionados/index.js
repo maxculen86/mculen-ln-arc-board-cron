@@ -15,17 +15,11 @@ const relacionadosIndex = dataArticle => {
 
     const dataCategories = get(dataArticle, 'taxonomy.sections');
     const principalCategory = get(dataArticle, 'taxonomy.primary_section._id');
-
+    
     if (dataCategories) {
         const migratedPrincipalCategory = getCategory(principalCategory, true);
         dataCategories.forEach(e => {
             const categorie = Categorias(e, migratedPrincipalCategory.migrada);
-            // if (
-            //     (categorie &&
-            //         categorie.slug &&
-            //         categorie.slug !== principalCategory) ||
-            //     (categorie.id && categorie.id != migratedPrincipalCategory._id)
-            // )
             if ((categorie && categorie.slug) || (categorie && categorie.id))
                 resp.categorias.push(categorie);
         });

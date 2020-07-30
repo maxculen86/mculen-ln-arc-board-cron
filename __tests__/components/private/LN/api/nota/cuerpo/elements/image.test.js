@@ -1,5 +1,5 @@
-import Image from '../../../../../../../components/private/LN/api/v1/nota/cuerpo/image';
-import ArticleImage from '../../../../../../../__mocks__/data/nota/cuerpo/image/image.json';
+import Image from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/image';
+import ArticleImage from '../../../../../../../../__mocks__/data/nota/cuerpo/image/image.json';
 
 describe('Test de json de imagen en el cuerpo de la nota', () => {
     it('Si se le pasa un valor null a las imagenes', () => {

@@ -3,6 +3,8 @@ import get from 'lodash.get';
 const notaRelacionada = dataNota => {
     if (!dataNota) return null;
 
+    if (dataNota.type != 'reference') return null;
+
     const {
         _id: id,
         headlines: { basic: titulo },
