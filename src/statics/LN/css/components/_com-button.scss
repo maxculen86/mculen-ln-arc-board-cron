@@ -3,7 +3,6 @@
 
 .com-button {
     @include flex(inline, row, center, center);
-    font-family: $font-arial;
     background: transparent;
     padding: $spacing-sm;
     color: $negro;
@@ -212,5 +211,8 @@
             font-weight: 700;
             margin-left: px(5);
         }
+    }
+    .cuerpo__nota & {
+        font-family: $font-arial;
     }
 }

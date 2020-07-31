@@ -33,7 +33,7 @@ const TaxonomyImportantList = ({ list, destacado, type }) => {
                     <ComButton
                         classesNames="--secondary"
                         classCondition="--compact"
-                        size="--threexs"
+                        size="--sixxs"
                     >
                         {v.text}
                     </ComButton>
