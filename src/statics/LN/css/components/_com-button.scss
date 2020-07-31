@@ -3,7 +3,7 @@
 
 .com-button {
     @include flex(inline, row, center, center);
-
+    font-family: $font-arial;
     background: transparent;
     padding: $spacing-sm;
     color: $negro;
