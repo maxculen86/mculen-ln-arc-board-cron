@@ -406,14 +406,14 @@ $logo-rolling: '\e80e';
 $logo-bbc: '\e900';
 
 $spacing: 8px;
-$spacing-2xs: $spacing / 2;
-$spacing-xs: $spacing * 1;
-$spacing-sm: $spacing * 2;
-$spacing-md: $spacing * 3;
-$spacing-lg: $spacing * 4;
-$spacing-xl: $spacing * 5;
-$spacing-2xl: $spacing * 8;
-$spacing-3xl: $spacing * 10;
+$spacing-2xs: $spacing / 2; //4px
+$spacing-xs: $spacing * 1; //8px
+$spacing-sm: $spacing * 2; //16px
+$spacing-md: $spacing * 3; //24px
+$spacing-lg: $spacing * 4; //32px
+$spacing-xl: $spacing * 5; //40px
+$spacing-2xl: $spacing * 8; //64px
+$spacing-3xl: $spacing * 10; //80px
 
 @function px($base, $exponent: 1) {
     // px(16)

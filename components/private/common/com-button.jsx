@@ -20,8 +20,8 @@ const ComButton = props => {
         return (
             <button
                 type="button"
-                className={`com-button ${size || ''} ${classesNames ||
-                    ``} ${classCondition || ''} ${iconName ? `--icon` : ``} `}
+                className={`com-button ${classesNames || ``} ${classCondition ||
+                    ''} ${iconName ? `--icon` : ``} `}
                 onClick={onClick}
             >
                 <ComIco iconName={iconName} size={size} />
@@ -31,8 +31,8 @@ const ComButton = props => {
         return (
             <button
                 type="button"
-                className={`com-button ${size || ''} ${classesNames ||
-                    ``} ${classCondition || ''} ${
+                className={`com-button ${classesNames || ``} ${classCondition ||
+                    ''} ${
                     iconName ? `--icon` : ``
                 } ${iconName} ${iconPosition || ``}`}
                 onClick={onClick}
@@ -47,8 +47,8 @@ const ComButton = props => {
     return (
         <button
             type="button"
-            className={`com-button ${size || ''} ${classesNames ||
-                ``} ${classCondition || ''}`}
+            className={`com-button ${classesNames || ``} ${classCondition ||
+                ''}`}
             onClick={onClick}
         >
             <ComText size={size || ''}>
