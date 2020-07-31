@@ -6,4 +6,7 @@
     &:last-child {
         margin-bottom: 0;
     }
+    margin-bottom: px(32);
+    padding-bottom: px(32);
+    border-bottom: 1px solid #e4e4e4;
 }

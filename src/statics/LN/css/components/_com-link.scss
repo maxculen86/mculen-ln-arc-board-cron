@@ -77,20 +77,20 @@
         line-height: px(24);
         font-size: px(16);
         font-weight: bold;
-        color: $link;
+        //color: $link;
     }
-    .com-paragraph & {
-        font-family: $font-georgia;
-        .amp & {
-            color: $link;
-            font-family: $font-georgia;
-        }
-    }
+    // .com-paragraph & {
+    //     //font-family: $font-georgia;
+    //     .amp & {
+    //         color: $link;
+    //         //font-family: $font-georgia;
+    //     }
+    // }
     .mod-keepreading & {
         margin-bottom: $spacing-sm;
     }
     .mod-themes & {
-        margin-right: $spacing-xs;
+        margin-right: $spacing-sm;
         margin-bottom: $spacing-sm;
     }
 }
@@ -114,10 +114,10 @@
             border: 1px solid $gris3;
             color: $negro;
         }
-        .com-paragraph & {
-            .amp & {
-                color: $link;
-            }
-        }
+        // .com-paragraph & {
+        //     .amp & {
+        //         color: $link;
+        //     }
+        // }
     }
 }
