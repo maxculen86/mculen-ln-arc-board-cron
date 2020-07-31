@@ -3,8 +3,6 @@
 import React from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import { createResizer } from '../../../common/utils/image/resizer';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getPathForImage from '../../../common/utils/getPathForImage';
@@ -47,18 +45,13 @@ const extractDataFromContentElements = contentElements => {
 const extractDataFromPromoItems = promoItems => {
     let counterTime = '';
     let counterPortion = '';
-    let resizedUrl;
+    let image;
 
     if (promoItems) {
         const { basic } = promoItems;
-        const { type, url, width, height } = basic || {};
-        if (type && type === 'image') {
-            const resizer = createResizer(RESIZER_KEY, RESIZER_URL);
-            resizedUrl = resizer.resizeUrl(url, width, height, {
-                height: 540,
-                width: 960
-            });
-            resizedUrl = getPathForImage(resizedUrl);
+        const { type, url } = basic || {};
+        if (type === 'image') {
+            image = getPathForImage(url);
         }
 
         if (promoItems.receta) {
@@ -82,7 +75,7 @@ const extractDataFromPromoItems = promoItems => {
     }
 
     return {
-        resizedUrl,
+        image,
         counterTime,
         counterPortion
     };
@@ -133,11 +126,9 @@ const snippet = props => {
 
     const { autores } = extracDataFromCredits(by);
 
-    const {
-        resizedUrl,
-        counterTime,
-        counterPortion
-    } = extractDataFromPromoItems(promoItems);
+    const { image, counterTime, counterPortion } = extractDataFromPromoItems(
+        promoItems
+    );
 
     const { preparaciones, ingredientes } = extractDataFromContentElements(
         contentElements
@@ -154,7 +145,7 @@ const snippet = props => {
         totalTime: counterTime ? `PT${counterTime}M` : '',
         datePublished: `${date || ''}`,
         description: `${description || ''}`,
-        image: `${resizedUrl || PLACERHOLDER}`, // TODO: traer imagen del PlaceHolder en caso de no traer data
+        image: `${image || PLACERHOLDER}`,
         recipeIngredient: ingredientes,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
         recipeInstructions: preparaciones,

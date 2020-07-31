@@ -11,6 +11,14 @@ const mob_300x450_sizes = [
     [1, 1]
 ];
 
+const caja2_mob_sizes = [
+    [300, 250],
+    [300, 450],
+    [320, 50],
+    [320, 100],
+    [1, 1]
+];
+
 export default {
     adhesion_mob: {
         slotName: 'la_nacion_mobile/Nota/adhesion_mob',
@@ -190,6 +198,7 @@ export default {
         dimensions: [
             [300, 250],
             [300, 450],
+            [320, 50],
             [320, 100],
             [1, 1]
         ],
@@ -199,7 +208,7 @@ export default {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: mob_300x450_sizes
+                        sizes: caja2_mob_sizes
                     }
                 },
                 bids: [

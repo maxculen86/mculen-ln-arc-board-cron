@@ -4,12 +4,8 @@ import '../../../../../resources/dist/css/ln/components/title.css';
 import ComTitle from '../../../common/com-title';
 
 const titleSection = ({ size, text }) => {
-    //const className = `com-title-section-${size}`;
-    return (
-        <ComTitle tag="h2" size="--l">
-            {text}
-        </ComTitle>
-    );
+    // const className = `com-title-section-${size}`;
+    return <ComTitle tag="h2" size="--l" content={text} />;
 };
 
 titleSection.propTypes = {
