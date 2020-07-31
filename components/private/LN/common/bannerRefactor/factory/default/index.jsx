@@ -124,12 +124,15 @@ function getBannerForStoryTemplate(config) {
             return createElement(withNonSubscribersConstraint(Default), {
                 ...config
             });
+        case CAJA_2_MOB:
+            return createElement(withNonSubscribersConstraint(Default), {
+                ...config
+            });
         case MIDDLE_TEADS_DSK:
         case CAJA_1_DSK:
         case CAJA_2_DSK:
         case CAJA_1_TAB:
         case CAJA_1_MOB:
-        case CAJA_2_MOB:
         case CAJA_3_MOB:
         case CAJA_4_MOB:
         case CAJA_5_MOB:
