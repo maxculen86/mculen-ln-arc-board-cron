@@ -106,8 +106,8 @@
                     font-size: $font-25;
                     content: '\e91d';
                     position: absolute;
-                    width: $px-58;
-                    height: $px-42;
+                    width: px(58);
+                    height: px(42);
                     top: 0;
                     right: 0;
                     background: $negro;
@@ -145,7 +145,7 @@
 
 .externo {
     text-align: center;
-    margin: 0 auto $px-50;
+    margin: 0 auto px(50);
 
     iframe {
         max-width: 100%;

@@ -42,7 +42,7 @@
     &.col-1 {
         margin-bottom: 0;
         @media (min-width: 768px) {
-            margin-bottom: $px-40;
+            margin-bottom: px(40);
         }
     }
 }
