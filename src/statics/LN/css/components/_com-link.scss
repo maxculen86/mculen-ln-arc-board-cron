@@ -1,8 +1,8 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .com-link {
-    font-family: $font-arial;
-    font-size: px(14);
+    //font-family: $font-arial;
+    //font-size: px(14);  Se saca porque lo debería traer por lugar y tamaño
     color: $link;
     text-transform: initial;
     &.--acu {
