@@ -28,7 +28,8 @@ const Cuerpo = props => {
         outputType,
         globalContent: {
             headlines: { basic: tituloNota },
-            content_elements: contentElements
+            content_elements: contentElements,
+            subtype
         }
     } = props;
 
@@ -62,6 +63,15 @@ const Cuerpo = props => {
     let counter = 0;
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
+            if (subtype === '8') {
+                return (
+                    !(
+                        element.type === 'oembed_response' ||
+                        element.type === 'raw_html' ||
+                        element.type === 'video'
+                    ) && bc.arcType === element.type
+                );
+            }
             if (element.type === 'quote') return bc.arcType === element.subtype;
             if (
                 element.type === 'oembed_response' ||

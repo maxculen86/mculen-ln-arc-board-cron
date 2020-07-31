@@ -94,7 +94,6 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
                 <main>
                     <AperturaStorytelling />
                     <div className="lay-sidebar">
-                        {/* Cuerpo */}
                         <div className="sidebar__main">
                             <section className="cuerpo__nota">
                                 <div className="row">
@@ -108,7 +107,7 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
                                     <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                         <div className="row">
                                             <div className="col-12">
-                                                {/* Pos-Apertura */}
+                                                {/* Cuerpo */}
                                                 {children[2]}
                                             </div>
                                         </div>
