@@ -167,6 +167,11 @@ const labels = `
         marca_anunciante {
             ${label}
         }
+        recomendar {
+            url
+            text
+            display
+        }
     }
 `;
 const customReceta = `

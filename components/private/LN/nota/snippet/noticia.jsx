@@ -84,9 +84,8 @@ const SnippetNoticia = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
-        headline: `${headlines.basic || 'LA NACION - Noticia'}`,
+        headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
         url: `${siteProperties.host}${requestUri || ''}`,
-
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
         dateModified: `${new Date(displayDate).toUTCString() || ''}`,

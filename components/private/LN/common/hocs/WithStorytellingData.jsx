@@ -55,6 +55,7 @@ export default function WithStorytellingData(WrappedComponent) {
             basicImageMobile
         ) => {
             const promoItemsVideo = get(videoBackground, 'promo_items', null);
+            const epigrafe = get(videoBackground, 'headlines.basic', null);
             const streams = get(videoBackground, 'streams', null);
             const video =
                 streams && streams.length > 1
@@ -76,7 +77,7 @@ export default function WithStorytellingData(WrappedComponent) {
                 altText: data.alt_text || '',
                 src: data.url || '',
                 srcset: data.url || '',
-                caption: data.caption || '',
+                caption: epigrafe || data.caption || '',
                 credit: EpigrafeAndCreditsData(data)
             };
         };
