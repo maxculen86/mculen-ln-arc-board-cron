@@ -5,13 +5,8 @@ exports[`Ranking matches snapshot 1`] = `
   class="com-ranking hlp-mobile-none"
 >
   <h2
-    class="com-title-section-m"
-  >
-    Más leídas de 
-    <strong>
-      Pollo
-    </strong>
-  </h2>
+    class="com-title --l "
+  />
   <ul
     class="com-ordered"
   >
@@ -59,7 +54,7 @@ exports[`Ranking matches snapshot 1`] = `
             href="/autos/test-de-generacion-de-url/"
           >
             <h2
-              class="com-title --m --acu"
+              class="com-title --s --acu"
             >
               Test de generacion de url
             </h2>
@@ -95,7 +90,7 @@ exports[`Ranking matches snapshot 1`] = `
             href="/recetas/receta-de-prueba-con-volanta/"
           >
             <h2
-              class="com-title --m --acu"
+              class="com-title --s --acu"
             >
               Esto es una volanta !!! Receta de prueba con volanta
             </h2>
@@ -131,7 +126,7 @@ exports[`Ranking matches snapshot 1`] = `
             href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
           >
             <h2
-              class="com-title --m --acu"
+              class="com-title --s --acu"
             >
               Mi paso por el yoga del infierno
             </h2>
