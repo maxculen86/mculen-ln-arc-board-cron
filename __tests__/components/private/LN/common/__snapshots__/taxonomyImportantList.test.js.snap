@@ -9,7 +9,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
     href="/tema/asd-1/"
   >
     <button
-      class="com-button --threexs --secondary --compact"
+      class="com-button --secondary --compact"
       type="button"
     >
       <span
@@ -24,7 +24,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
     href="/tema/asd-2/"
   >
     <button
-      class="com-button --threexs --secondary --compact"
+      class="com-button --secondary --compact"
       type="button"
     >
       <span
@@ -39,7 +39,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
     href="/tema/asd-3/"
   >
     <button
-      class="com-button --threexs --secondary --compact"
+      class="com-button --secondary --compact"
       type="button"
     >
       <span
