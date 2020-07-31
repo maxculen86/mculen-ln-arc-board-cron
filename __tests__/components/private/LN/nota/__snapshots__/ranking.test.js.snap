@@ -5,7 +5,7 @@ exports[`Ranking matches snapshot 1`] = `
   class="com-ranking hlp-mobile-none"
 >
   <h2
-    class="com-title-section-m"
+    class="com-title --m "
   >
     Más leídas de 
     <strong>

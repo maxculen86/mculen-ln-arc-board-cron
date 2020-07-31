@@ -2,11 +2,11 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import withRankingArticlesData from '../hocs/WithRankingArticlesData';
-import TitleSection from '../titles/titleSection';
 import OrderedList from '../lists/ordered';
 import ArticleMain from '../articleTypes/articleMain';
 
 import '../../../../../resources/dist/css/ln/components/ranking.css';
+import ComTitle from '../../../common/com-title';
 
 const getTitle = globalContent => {
     let title;
@@ -17,13 +17,7 @@ const getTitle = globalContent => {
     else if (globalContent.Payload.items && globalContent.Payload.items.length)
         title = globalContent.Payload.items[0].name;
 
-    return title ? (
-        <>
-            Más leídas de <strong>{title}</strong>
-        </>
-    ) : (
-        <>Más leídas</>
-    );
+    return title ? `Más leídas de <strong>${title}</strong>` : `Más leídas`;
 };
 
 const Ranking = ({ articles, size, dataSection, globalContent }) => {
@@ -31,7 +25,7 @@ const Ranking = ({ articles, size, dataSection, globalContent }) => {
     return (
         articles.length > 0 && (
             <div className="com-ranking hlp-mobile-none">
-                <TitleSection size="--m" text={titleText} />
+                <ComTitle tag="h2" size="--m" content={titleText} />
                 <OrderedList>
                     {articles.length > 0 &&
                         articles
