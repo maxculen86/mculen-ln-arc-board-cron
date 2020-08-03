@@ -1,4 +1,4 @@
-/* import React from 'react';
+import React from 'react';
 import { render, mount, shallow } from 'enzyme';
 
 import Html from '../../../../../../components/private/LN/nota/cuerpo/html';
@@ -26,7 +26,7 @@ describe('Private - LN - nota - cuerpo - <Html />', () => {
         expect(component).toBeDefined();
     });
 
-    it('Render OK', () => {
+    /* it('Render OK', () => {
         const __html = '<div>sample html block</div>';
         const component = mount(<Html {...setContent(__html)} />);
         expect(component.html()).not.toBeNull();
@@ -126,6 +126,5 @@ describe('Private - LN - nota - cuerpo - <Html />', () => {
 
         const component = render(<Html {...setContent(__html)} />);
         expect(component).toMatchSnapshot();
-    });
+    }); */
 });
- */
