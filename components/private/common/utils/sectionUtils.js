@@ -38,18 +38,18 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     const magazineRegex = /\/revista-(.\w+[^\W]?)/;
     const lnmasRegex = /\/lnmas/;
 
-    const layoutsIncludingLogo = [
-        { name: 'LN-nota-noticia', color: true },
-        { name: 'LN-nota-receta', color: true },
-        { name: 'LN-nota-storytelling', color: false },
-        { name: 'LN-nota-foto-al-100', color: true }
-    ];
+    let color = true;
+    if (layout === 'LN-nota-storytelling') {
+        color = false;
+    }
 
-    const currentLayoutIncludesLogo = layoutsIncludingLogo.find(
+    const layoutsExcludingLogo = [{ name: 'LN-nota-receta' }];
+
+    const currentLayoutExcludesLogo = layoutsExcludingLogo.find(
         el => el.name === layout
     );
 
-    if (!sections || !layout || !currentLayoutIncludesLogo) return null;
+    if (!sections || !layout || currentLayoutExcludesLogo) return null;
 
     const logoSection = sections.find(section => {
         const { _id } = section;
@@ -60,7 +60,7 @@ export const getSectionLogo = (sections, layout, distributorName) => {
         return {
             logoName: 'bbc',
             path: '',
-            color: currentLayoutIncludesLogo.color
+            color
         };
     if (!logoSection) return null;
     const { _id } = logoSection;
@@ -70,7 +70,7 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     return {
         logoName: distributorName === 'BBC Mundo' ? 'bbc' : logoForPath,
         path: distributorName === 'BBC Mundo' ? '' : `${path[0]}/`,
-        color: currentLayoutIncludesLogo.color
+        color
     };
 };
 

@@ -1,0 +1,28 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.abuelo {
+    background: $gris4;
+    height: 1000px;
+    display: grid;
+    grid-template-columns: auto 700px auto;
+    grid-template-rows: auto;
+    .hijo1 {
+        background: $blanco;
+        height: 400px;
+        grid-column: 2 / 3;
+        display: flex;
+    }
+    .hijo2 {
+        background: $ln;
+        height: 300px;
+        grid-column: 1 / 4;
+        display: flex;
+    }
+    .hijo3 {
+        background: $blanco;
+        height: 300px;
+        grid-column: 2 / 3;
+        display: flex;
+    }
+}

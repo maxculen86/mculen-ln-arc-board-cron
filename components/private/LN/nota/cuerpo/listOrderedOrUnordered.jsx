@@ -1,52 +1,25 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const ListOrderedOrUnordered = ({ data }) => {
-    switch (data.list_type) {
-        case 'ordered':
-            return (
-                <ul className="com-ordered">
-                    {data.items.map(element => (
-                        <li
-                            key={element._id}
-                            className="com-item"
-                            dangerouslySetInnerHTML={{
-                                __html: element.content
-                            }}
-                        />
-                    ))}
-                </ul>
-            );
-        case 'unordered': {
-            return (
-                <ul className="com-unordered">
-                    {data.items.map(element => (
-                        <li
-                            key={element._id}
-                            className="com-item"
-                            dangerouslySetInnerHTML={{
-                                __html: element.content
-                            }}
-                        />
-                    ))}
-                </ul>
-            );
-        }
-        default:
-            return (
-                <ul className="com-unordered">
-                    {data.items.map(element => (
-                        <li
-                            key={element._id}
-                            className="com-item"
-                            dangerouslySetInnerHTML={{
-                                __html: element.content
-                            }}
-                        />
-                    ))}
-                </ul>
-            );
+    let classList = 'com-unordered';
+    if (data.list_type === 'ordered') {
+        classList = 'com-ordered';
     }
+    return (
+        <ul className={classList}>
+            {data.items.map(element => (
+                <li
+                    key={element._id}
+                    className="com-item"
+                    dangerouslySetInnerHTML={{
+                        __html: element.content
+                    }}
+                />
+            ))}
+        </ul>
+    );
 };
 
 ListOrderedOrUnordered.arcType = 'list';

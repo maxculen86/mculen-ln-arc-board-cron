@@ -8,6 +8,9 @@
     font-size: $font-17;
     line-height: $line-23;
     margin-bottom: $px-32;
+    &:empty {
+        display: none;
+    }
 }
 
 //Valores de tablet para arriba

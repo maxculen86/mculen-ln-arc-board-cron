@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/ordered.css';
 import '../../../resources/dist/css/ln/components/unordered.css';
 import '../../../resources/dist/css/ln/components/title.css';
+import ComTitle from './com-title';
 
 const TypeList = ({ ol, children }) =>
     ol ? (
@@ -18,9 +19,7 @@ const TypeList = ({ ol, children }) =>
 const ListItemsFactory = ({ list, titleList, listNumeric }) => {
     return (
         <div>
-            <h4 className="com-title-section-xs hlp-marginBottom-20">
-                {titleList}
-            </h4>
+            <ComTitle size="--l" tag="h4" content={titleList} />
             <TypeList ol={listNumeric}>
                 {list.map((item, key) => (
                     <li key={key} className="com-item">

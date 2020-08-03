@@ -2,6 +2,10 @@
 @import '../abstracts/mixins';
 
 .com-text {
+    .com-button & {
+        font-family: $font-arial;
+        text-transform: uppercase;
+    }
     .footer & {
         color: $gris5;
         line-height: px(17);
@@ -51,7 +55,10 @@
         position: absolute;
         top: 0;
         right: px(20);
-        @media ($media-m) {
+        // @media ($media-m) {
+        //     right: px(30);
+        // }
+        @media ($media-l) {
             right: 0;
         }
     }

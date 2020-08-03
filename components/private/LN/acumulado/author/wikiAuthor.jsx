@@ -9,8 +9,9 @@ import '../../../../../resources/dist/css/ln/components/author.css';
 
 // TODO: los siguientes enlaces son para agregar en base
 
-import '../../../../../resources/dist/css/ln/components/title.css';
+//import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
+import ComTitle from '../../../common/com-title';
 //import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ globalContent }) => {
@@ -34,7 +35,7 @@ const WikiAuthor = ({ globalContent }) => {
                     </div>
                 </section>
                 <div className="wiki-calc">
-                    <h1 className="com-title-section-xl">{byline}</h1>
+                    <ComTitle tag="h1" size="--xl" content={byline} />
                     <label>LA NACION</label>
                 </div>
                 <p className="hlp-mobile-none col-12">

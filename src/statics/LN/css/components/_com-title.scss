@@ -3,8 +3,26 @@
 
 .com-title {
     @include flex(flex);
-    // margin-bottom: $spacing-sm;
-    // font-family: $font-SuecaSlab;
-    // font-weight: 700;
-    // letter-spacing: $letter-spacing;
+    margin-bottom: $spacing;
+    font-family: $font-SuecaSlab;
+    font-weight: 700;
+    letter-spacing: $letter-spacing;
+    .hl_yellow_underline {
+        .mod-newsletter & {
+            background: transparent;
+            text-decoration: underline;
+            text-decoration-color: $highlight;
+            font-weight: 700;
+            margin: 0 px(5);
+        }
+    }
+    .mod-newsletter & {
+        display: block;
+        font-weight: 300;
+    }
+}
+@media ($media-l) {
+    .com-title {
+        margin-bottom: $spacing-sm;
+    }
 }

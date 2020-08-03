@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComText from '../../../common/com-text';
+import ComFigcaption from '../../../common/com-figcaption';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
+import get from '../../../common/utils/get';
 
 const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
     const parrafo = primerParrafo || 'LA NACION';
@@ -19,6 +21,8 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
             : document.body.classList.add('--no-scroll');
     };
 
+    const textEpigrafe = get(basic, 'headlines.basic', captionVideo);
+
     const Epigrafe = () => {
         return basic && type === 'image' ? (
             <>
@@ -28,14 +32,16 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
                         textname={basic.caption}
                     />
                 )}
-                <ComText classCondition="--credit" textname={credito} />
+                {credito && (
+                    <ComText classCondition="--credit" textname={credito} />
+                )}
             </>
         ) : (
             <>
-                {captionVideo && (
+                {textEpigrafe && (
                     <ComText
                         classCondition="--caption"
-                        textname={captionVideo}
+                        textname={textEpigrafe}
                     />
                 )}
                 {creditoVideo && (
@@ -49,18 +55,22 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
     };
 
     return (
-        <Media
-            mediaData={basic}
-            withZoom="--zoom"
-            handleClick={handleClick}
-            active={active}
-            isApertura
-            outputType={outputType}
-            parrafo={parrafo}
-            tituloNota={tituloNota}
-        >
-            <Epigrafe />
-        </Media>
+        <section className="mod-opening">
+            <Media
+                mediaData={basic}
+                withZoom="--zoom"
+                handleClick={handleClick}
+                active={active}
+                isApertura
+                outputType={outputType}
+                parrafo={parrafo}
+                tituloNota={tituloNota}
+            >
+                <ComFigcaption>
+                    <Epigrafe />
+                </ComFigcaption>
+            </Media>
+        </section>
     );
 };
 

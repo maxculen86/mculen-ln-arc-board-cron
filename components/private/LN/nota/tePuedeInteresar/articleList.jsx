@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Article from './article';
+import ComTitle from '../../../common/com-title';
 
 const ArticleList = props => {
     const { articles } = props;
@@ -8,7 +9,11 @@ const ArticleList = props => {
         <>
             {articles.length > 0 && (
                 <div className="row interest">
-                    <h4 className="com-title-section-l">Te puede interesar</h4>
+                    <ComTitle
+                        tag="h4"
+                        size="--l"
+                        content={'Te puede interesar'}
+                    />
                     <section className="row-gap-tablet-3 row-gap-desksm-3">
                         {articles.map(article => (
                             <Article articleData={article} key={article._id} />

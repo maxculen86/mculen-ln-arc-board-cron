@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label,jsx-a11y/label-has-associated-control,react/jsx-curly-newline */
 import React from 'react';
+import getProperties from 'fusion:properties';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 //import '../../../../resources/dist/css/ln/components/share.css';
 import ComIcon from '../../common/com-icon';
@@ -14,6 +16,8 @@ import {
 } from '../common/utils/shareHelper';
 import ComButton from '../../common/com-button';
 import ComLine from '../common/footer/com-line';
+import AmpContainer from '../../common/ampContainer';
+import get from '../../common/utils/get';
 
 const Share = props => {
     const {
@@ -24,11 +28,14 @@ const Share = props => {
             headlines: { basic: title, mobile: mobileTitle }
         }
     } = props;
+    const { arcSite } = useAppContext();
+    const siteVars = getProperties(arcSite);
     const twiterTitle =
         mobileTitle !== '' && mobileTitle !== undefined ? mobileTitle : title;
 
-    // TODO: arreglar el tema de las URL's
+    const facebookId = get(siteVars, 'shareConfig.facebook.appID', undefined);
 
+    // TODO: arreglar el tema de las URL's
     return (
         <div
             id="v-share"

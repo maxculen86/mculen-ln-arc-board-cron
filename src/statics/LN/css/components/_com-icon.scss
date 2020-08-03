@@ -2,10 +2,12 @@
 @import '../abstracts/mixins';
 .com-icon {
     @include flex(flex, row, center, center);
-    order: 1;
+
     .com-button.--icon.--bottom &,
     .com-button.--icon.--right & {
         order: 2;
+        font-size: px(16);
+        font-weight: 700;
     }
 
     .footer .--share & {

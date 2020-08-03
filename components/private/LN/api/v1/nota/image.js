@@ -5,9 +5,11 @@ const imageNota = imageData => {
     const resp = ImageCommon(imageData);
     if (!resp) return null;
 
-    resp._t = 'img';
-
-    if (imageData.credits.by && imageData.credits.by.length > 0) {
+    if (
+        imageData.credits &&
+        imageData.credits.by &&
+        imageData.credits.by.length > 0
+    ) {
         resp.credito = get(imageData, 'credits.by[0].name');
     }
 

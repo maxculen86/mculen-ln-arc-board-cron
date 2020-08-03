@@ -5,7 +5,7 @@ exports[`Ranking matches snapshot 1`] = `
   class="com-ranking hlp-mobile-none"
 >
   <h2
-    class="com-title-section-m"
+    class="com-title --m "
   >
     Más leídas de 
     <strong>
@@ -54,15 +54,16 @@ exports[`Ranking matches snapshot 1`] = `
         <div
           class="mod-caja-nota__descrip"
         >
-          <h2
-            class="com-title-acu"
+          <a
+            class="com-link --acu "
+            href="/autos/test-de-generacion-de-url/"
           >
-            <a
-              href="/autos/test-de-generacion-de-url/"
+            <h2
+              class="com-title --s --acu"
             >
               Test de generacion de url
-            </a>
-          </h2>
+            </h2>
+          </a>
         </div>
       </article>
     </li>
@@ -89,18 +90,16 @@ exports[`Ranking matches snapshot 1`] = `
         <div
           class="mod-caja-nota__descrip"
         >
-          <h2
-            class="com-title-acu"
+          <a
+            class="com-link --acu "
+            href="/recetas/receta-de-prueba-con-volanta/"
           >
-            <a
-              href="/recetas/receta-de-prueba-con-volanta/"
+            <h2
+              class="com-title --s --acu"
             >
-              <b>
-                Esto es una volanta !!! 
-              </b>
-              Receta de prueba con volanta
-            </a>
-          </h2>
+              Esto es una volanta !!! Receta de prueba con volanta
+            </h2>
+          </a>
         </div>
       </article>
     </li>
@@ -127,15 +126,16 @@ exports[`Ranking matches snapshot 1`] = `
         <div
           class="mod-caja-nota__descrip"
         >
-          <h2
-            class="com-title-acu"
+          <a
+            class="com-link --acu "
+            href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
           >
-            <a
-              href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
+            <h2
+              class="com-title --s --acu"
             >
               Mi paso por el yoga del infierno
-            </a>
-          </h2>
+            </h2>
+          </a>
         </div>
       </article>
     </li>

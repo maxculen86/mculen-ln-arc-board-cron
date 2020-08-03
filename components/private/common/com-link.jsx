@@ -5,7 +5,15 @@ import '../../../resources/dist/css/ln/components/com-link.css';
 import '../../../resources/dist/css/ln/components/com-text.css';
 
 const ComLink = props => {
-    const { children, link, textname, target, title, classCondition } = props;
+    const {
+        children,
+        link,
+        textname,
+        target,
+        title,
+        classCondition,
+        size
+    } = props;
 
     return (
         <>

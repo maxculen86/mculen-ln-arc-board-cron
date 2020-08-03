@@ -91,6 +91,23 @@ describe('Metarefresh', () => {
         expect(component.find('script')).toHaveLength(0);
     });
 
+    it('Does not render on accelerated mobile pages', () => {
+        props = {
+            ...props,
+            outputType: 'amp',
+            globalContent: {
+                type: 'story',
+                content_elements: []
+            },
+            loginData: {
+                subscription: false
+            }
+        };
+
+        const component = mount(<Component {...props} />);
+        expect(component.find('script')).toHaveLength(0);
+    });
+
     it('Renders when required conditions are met', () => {
         const props = {
             arcSite: 'la-nacion-ar',

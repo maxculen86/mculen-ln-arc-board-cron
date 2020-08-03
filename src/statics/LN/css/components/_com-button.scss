@@ -3,11 +3,11 @@
 
 .com-button {
     @include flex(inline, row, center, center);
-
     background: transparent;
     padding: $spacing-sm;
     color: $negro;
     font-family: $font-arial;
+    font-size: px(12);
     font-weight: 700;
     border-radius: px(4);
     outline: none;
@@ -84,8 +84,7 @@
         }
 
         &:hover {
-            background: rgba($ln, 0.7);
-            border: 1px solid;
+            background: rgba($ln, 1);
             color: $blanco;
         }
         &:active {
@@ -137,7 +136,72 @@
         }
     }
     &.--compact {
-        padding: $spacing-xs;
+        padding: $spacing-xs $spacing-sm;
+    }
+    .--slider & {
+        background: $negro;
+        border-radius: 0;
+
+        &.icon-left,
+        &.icon-right {
+            display: block;
+            padding: 0;
+            cursor: pointer;
+            border: none;
+            background: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            z-index: 2;
+            color: $blanco;
+            transition: all 0.2s ease;
+            font-size: px(20);
+            width: px(30);
+            height: px(40);
+            top: px(92);
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            @media ($media-m) {
+                //768
+                font-size: px(32);
+                top: px(206);
+                width: px(46);
+                height: px(60);
+            }
+            @media ($media-l) {
+                //1024
+                top: px(150);
+            }
+            @media ($media-lm) {
+                //1100
+                top: px(215);
+            }
+        }
+        &.icon-left {
+            left: px(-20);
+            @media ($media-m) {
+                left: 0;
+            }
+        }
+        &.icon-right {
+            right: px(-20);
+            @media ($media-m) {
+                right: 0;
+            }
+        }
+    }
+    .--slider.--active & {
+        &.icon-left,
+        &.icon-right {
+            top: 45%;
+        }
+        &.icon-left {
+            left: 0;
+        }
+        &.icon-right {
+            right: 0;
+        }
     }
     .--megatop & {
         position: absolute;
@@ -152,6 +216,9 @@
             margin-left: px(5);
         }
     }
+    // .cuerpo__nota & {
+    //     font-family: $font-arial;
+    // }
 }
 @media ($media-l) {
     .com-button {

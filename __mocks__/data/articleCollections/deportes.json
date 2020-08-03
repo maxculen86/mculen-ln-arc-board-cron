@@ -56,7 +56,7 @@
                 "label": {
                     "recomendar": {
                         "url": "",
-                        "text": "true",
+                        "text": "Si",
                         "display": true
                     }
                 },
@@ -693,7 +693,7 @@
                 "label": {
                     "recomendar": {
                         "url": "",
-                        "text": "true",
+                        "text": "Si",
                         "display": true
                     }
                 },
@@ -1727,7 +1727,7 @@
                 "label": {
                     "recomendar": {
                         "url": "",
-                        "text": "true",
+                        "text": "Si",
                         "display": true
                     }
                 },
@@ -1950,7 +1950,7 @@
                 "label": {
                     "recomendar": {
                         "url": "",
-                        "text": "true",
+                        "text": "Si",
                         "display": true
                     }
                 },

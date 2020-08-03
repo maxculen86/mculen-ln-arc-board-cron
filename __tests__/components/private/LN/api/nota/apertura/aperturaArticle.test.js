@@ -64,12 +64,12 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.multimedio).toBeUndefined();
         expect(resp.imagenes[0]['_t']).toBe('img');
         expect(resp.imagenes[0].id).toBe(imageData._id);
-        expect(resp.imagenes[0].src).toBe(imageData.resized_urls[0].resizedUrl);
-        expect(resp.imagenes[0].alto).toBe(
-            imageData.resized_urls[0].option.height
+        expect(resp.imagenes[0].baseUrl).toBe(
+            '/resizer/{{param}}/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg'
         );
-        expect(resp.imagenes[0].ancho).toBe(
-            imageData.resized_urls[0].option.width
+        expect(resp.imagenes[0].parametros[0].ancho).toBe(1260);
+        expect(resp.imagenes[0].parametros[0].firma).toBe(
+            'll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840'
         );
         expect(resp.imagenes[0].epigrafe).toBe(imageData.caption);
     });
@@ -99,25 +99,25 @@ describe('Test de JSON de apertura en article', () => {
         expect(respEmpty.autores).toBeUndefined();
     });
 
-    it('Render en caso que no tenga tag destacado o este vacio',()=>{
+    it('Render en caso que no tenga tag destacado o este vacio', () => {
         const resp = Apertura(ArticleApertura[5]);
         expect(resp.tagDestacado).toBeUndefined();
 
         const respEmpty = Apertura(ArticleApertura[6]);
         expect(respEmpty.tagDestacado).toBeUndefined();
-    })
+    });
 
-    it('Render apertura espacio patrocinado',()=>{
+    it('Render apertura espacio patrocinado', () => {
         const resp = Apertura(ArticleApertura[0]);
         expect(resp.tagDestacado.tipoDescripcion).toBe('Patrocinado');
         expect(resp.tagDestacado.valor).toBe('Espacio Patrocinado');
-    })
+    });
 
-    it('Render apertura content lab',()=>{
+    it('Render apertura content lab', () => {
         const resp = Apertura(ArticleApertura[1]);
         expect(resp.tagDestacado.tipoDescripcion).toBe('contentLab');
         expect(resp.tagDestacado.valor).toBe('Chevrolet');
-    })
+    });
 
     // it('Render detalle de receta', () => {
     //     const resp = Apertura(ArticleApertura[7]);

@@ -1,28 +1,45 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import '../../../../resources/dist/css/ln/components/tag.css';
+import '../../../../resources/dist/css/ln/modules/mod-themes.css';
+import ComButton from '../../common/com-button';
+import ComLink from '../../common/com-link';
+import ComContainer from '../../common/com-container';
 
 /**
  * Renderiza elementos relacionados destacados (como categorias o tags)
  */
 const TaxonomyImportantList = ({ list, destacado, type }) => {
     return (
-        <div
+        <section className="mod-themes">
+            {/*<div
             className={`${
                 destacado ? 'com-tag cont_tags' : 'com-secondary-tag'
             }`}
-        >
+        > */}
             {list.map(v => (
-                <a
+                /*<a
                     className="com-item"
                     key={v.text}
                     href={type === 'tag' ? `/tema/${v.path}/` : `${v.path}/`}
                 >
                     {v.text}
-                </a>
+                </a> */
+
+                <ComLink
+                    link={type === 'tag' ? `/tema/${v.path}/` : `${v.path}/`}
+                    keytext={v.text}
+                >
+                    <ComButton
+                        classesNames="--secondary"
+                        classCondition="--compact"
+                        size="--sixxs"
+                    >
+                        {v.text}
+                    </ComButton>
+                </ComLink>
             ))}
-        </div>
+        </section>
     );
 };
 

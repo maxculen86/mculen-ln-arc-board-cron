@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getPathForImage from '../../../common/utils/getPathForImage';
+import getAuthorByline from '../../../common/utils/getAuthorByline';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -16,10 +17,11 @@ const extractDataFromTags = tags => {
 
 const extracDataFromCredits = by => {
     let authors = [];
+
     if (by) {
         authors = by
             .filter(v => v.type === 'author')
-            .map(v => v.name)
+            .map(author => getAuthorByline(author))
             .join(', ');
     }
 
@@ -30,11 +32,9 @@ const extractDataFromPromoItems = promoItems => {
     let thumbnailUrl;
     let image;
 
-    const pathImagen =
-        promoItems.basic && getPathForImage(promoItems.basic.url);
-
     if (promoItems) {
         if (promoItems.basic && promoItems.basic.type === 'image') {
+            const pathImagen = getPathForImage(promoItems.basic.url);
             thumbnailUrl = `${pathImagen || ''}`;
             image = {
                 '@context': 'https://schema.org',
@@ -84,9 +84,8 @@ const SnippetNoticia = props => {
     const data = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
-        headline: `${headlines.basic || 'LA NACION - Noticia'}`,
+        headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
         url: `${siteProperties.host}${requestUri || ''}`,
-
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
         dateModified: `${new Date(displayDate).toUTCString() || ''}`,

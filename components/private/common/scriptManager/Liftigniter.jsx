@@ -3,6 +3,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
+import get from 'lodash.get';
+import getAuthorByline from '../utils/getAuthorByline';
 
 class LiftIgniter extends Component {
     constructor(props) {
@@ -23,7 +25,7 @@ class LiftIgniter extends Component {
     }
 
     getAuthors(object) {
-        return object.map(author => author.name).join(', ');
+        return object.map(author => getAuthorByline(author)).join(', ');
     }
 
     render() {
@@ -42,9 +44,11 @@ class LiftIgniter extends Component {
         } = this.props || { credits: { by: [] } };
         const { by: authors } = credits;
 
+        const recomendar = get(label, 'recomendar.text');
+
         const script = {
             noShow: true,
-            noIndex: label.recomendar ? Boolean(label.recomendar.text) : true,
+            noIndex: recomendar !== 'No',
             tematica,
             tags: tags.map(tag => tag.text),
             autor:

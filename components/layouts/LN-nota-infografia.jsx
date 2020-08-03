@@ -145,7 +145,8 @@ const lnNotaInfografia = ({ children, outputType, tree, isAdmin }) => {
                             {children[6]}
                         </div>
                     </div>
-
+                    {/* Newsletter */}
+                    <div className="lay">{children[8]}</div>
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
@@ -172,7 +173,7 @@ const pageBuilderSections = [
     'Cuerpo',
     'Tercera',
     'Pos-Cuerpo',
-    'Full-Break',
+    'Newsletter',
     'Bottom',
     'Bottom-Tercera'
 ];

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
+import ComTitle from '../../../common/com-title';
 
 // TODO: este componente deberia ser el que tiene el titulo de "Recetas con:"
 const Tags = ({ tags, destacado, temas }) => {
@@ -16,7 +17,7 @@ const Tags = ({ tags, destacado, temas }) => {
                 <div className="row">
                     <div className="col-12">
                         {listTags.length > 0 && (
-                            <h4 className="com-subtitle_list">Temas</h4>
+                            <ComTitle size="--l" tag="h4" content="Temas" />
                         )}
                         {listTags ? (
                             <TaxonomyComponent
