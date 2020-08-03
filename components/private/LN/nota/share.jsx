@@ -12,12 +12,14 @@ import {
     popUpCompartirNotaTW,
     popUpCompartirNotaFB,
     shareWhatsAppDesktop,
-    popUpCompartirMailTo
+    popUpCompartirMailTo,
+    scrollToComments
 } from '../common/utils/shareHelper';
 import ComButton from '../../common/com-button';
 import ComLine from '../common/footer/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
+import useGlobal from '../../common/hooks/useGlobal';
 
 const Share = props => {
     const {
@@ -35,9 +37,11 @@ const Share = props => {
 
     const facebookId = get(siteVars, 'shareConfig.facebook.appID', undefined);
 
+    const { commentsCount } = useGlobal();
     // TODO: arreglar el tema de las URL's
     return (
-        <div id="v-share"
+        <div
+            id="v-share"
             className={`mod-share ${classesNames ? classesNames : ``} ${
                 classCondition ? classCondition : ``
             }`}
@@ -71,7 +75,7 @@ const Share = props => {
                         }
                     />
                 </div>
-                
+
                 <ComLine />
 
                 <div className="container --right">
@@ -82,8 +86,12 @@ const Share = props => {
                             popUpCompartirMailTo(requestUri, config.host)
                         }
                     />
-                    <ComButton size="l" iconName="comment">
-                        <label htmlFor="">145</label>
+                    <ComButton
+                        onClick={() => scrollToComments()}
+                        size="l"
+                        iconName="comment"
+                    >
+                        <label htmlFor="">{commentsCount}</label>
                     </ComButton>
                 </div>
             </AmpContainer>
