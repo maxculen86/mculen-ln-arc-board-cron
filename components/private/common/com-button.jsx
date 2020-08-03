@@ -24,7 +24,7 @@ const ComButton = props => {
                     ''} ${iconName ? `--icon` : ``} `}
                 onClick={onClick}
             >
-                <ComIco iconName={iconName} size={size} />
+                <ComIco iconName={iconName} />
             </button>
         );
     if (iconName && children)
@@ -37,7 +37,7 @@ const ComButton = props => {
                 } ${iconName} ${iconPosition || ``}`}
                 onClick={onClick}
             >
-                <ComIco iconName={iconName} size={size || ''} />
+                <ComIco iconName={iconName} />
                 <ComText size={size || ''}>
                     {children || ``}
                     {textname || ``}
