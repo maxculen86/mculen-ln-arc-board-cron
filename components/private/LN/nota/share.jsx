@@ -37,100 +37,77 @@ const Share = props => {
 
     // TODO: arreglar el tema de las URL's
     return (
-        <div
-            id="v-share"
+        <div id="v-share"
             className={`mod-share ${classesNames ? classesNames : ``} ${
                 classCondition ? classCondition : ``
             }`}
         >
-            <div className="container --left">
-                <ComButton
-                    size="l"
-                    iconName="facebook"
-                    onClick={() =>
-                        popUpCompartirNotaFB(requestUri, config.host, title)
-                    }
-                />
-                <ComButton
-                    size="l"
-                    iconName="twitter"
-                    onClick={() =>
-                        popUpCompartirNotaTW(
-                            requestUri,
-                            config.host,
-                            twiterTitle
-                        )
-                    }
-                />
-                <ComButton
-                    iconName="whatsapp"
-                    id="whatsAppShareDesktop"
-                    size="l"
-                    onClick={() =>
-                        popUpCompartirNotaTW(
-                            requestUri,
-                            config.host,
-                            twiterTitle
-                        )
-                    }
-                />
-            </div>
+            <AmpContainer isForAmp={false}>
+                <div className="container --left">
+                    <ComButton
+                        size="l"
+                        iconName="facebook"
+                        onClick={() =>
+                            popUpCompartirNotaFB(requestUri, config.host, title)
+                        }
+                    />
+                    <ComButton
+                        size="l"
+                        iconName="twitter"
+                        onClick={() =>
+                            popUpCompartirNotaTW(
+                                requestUri,
+                                config.host,
+                                twiterTitle
+                            )
+                        }
+                    />
+                    <ComButton
+                        iconName="whatsapp"
+                        id="whatsAppShareDesktop"
+                        size="l"
+                        onClick={() =>
+                            shareWhatsAppDesktop(requestUri, config.host)
+                        }
+                    />
+                </div>
+                
+                <ComLine />
 
-            <ComLine />
+                <div className="container --right">
+                    <ComButton
+                        size="l"
+                        iconName="mail"
+                        onClick={() =>
+                            popUpCompartirMailTo(requestUri, config.host)
+                        }
+                    />
+                    <ComButton size="l" iconName="comment">
+                        <label htmlFor="">145</label>
+                    </ComButton>
+                </div>
+            </AmpContainer>
 
-            <div className="container --right">
-                <ComButton
-                    size="l"
-                    iconName="mail"
-                    onClick={() =>
-                        popUpCompartirMailTo(requestUri, config.host)
-                    }
-                />
-                <ComButton size="l" iconName="comment">
-                    <label htmlFor="">145</label>
-                </ComButton>
-            </div>
+            <AmpContainer isForAmp>
+                <div className="container --left">
+                    <amp-social-share
+                        type="facebook"
+                        data-param-app_id={facebookId}
+                    />
+                    <amp-social-share type="twitter" data-param-text={title} />
+                    <amp-social-share type="whatsapp" />
+                </div>
 
-            {/* <div className="share-left">
-                <button
-                    type="button"
-                    onClick={() =>
-                        popUpCompartirNotaFB(requestUri, config.host, title)
-                    }
-                    className="icon-facebook"
-                />
-                <button
-                    type="button"
-                    onClick={() =>
-                        popUpCompartirNotaTW(
-                            requestUri,
-                            config.host,
-                            twiterTitle
-                        )
-                    }
-                    className="icon-twitter"
-                />
-                <button
-                    type="button"
-                    id="whatsAppShareDesktop"
-                    onClick={() =>
-                        shareWhatsAppDesktop(requestUri, config.host)
-                    }
-                    className="icon-whatsapp"
-                />
-            </div>
+                <ComLine />
 
-            <div className="share-right">
-                <button
-                    type="button"
-                    className="icon-mail"
-                    onClick={() =>
-                        popUpCompartirMailTo(requestUri, config.host)
-                    }
-                />
-                <button type="button" className="icon-comment" />
-                <label htmlFor="">145</label>
-            </div> */}
+                <div className="container --right">
+                    <amp-social-share
+                        type="email"
+                        data-param-subject="Te recomiendo esta nota de LA NACION"
+                        data-param-body={`Lee esta nota de LA NACION ${config.host}${requestUri}`}
+                    />
+                </div>
+            </AmpContainer>
         </div>
     );
 };
