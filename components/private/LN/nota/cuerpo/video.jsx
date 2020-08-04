@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Media from '../../common/media';
 import ComText from '../../../common/com-text';
+import get from '../../../common/utils/get';
 
 const video = ({ data, outputType, tituloNota, primerParrafo }) => {
     const parrafo = primerParrafo || 'LA NACION';
@@ -9,13 +10,15 @@ const video = ({ data, outputType, tituloNota, primerParrafo }) => {
     const { basic: basicVideo } = promoItems || {};
     const { caption: captionVideo, credito: creditoVideo } = basicVideo || {};
 
+    const textEpigrafe = get(data, 'headlines.basic', captionVideo);
+
     const Epigrafe = () => {
         return (
             <>
-                {captionVideo && (
+                {textEpigrafe && (
                     <ComText
                         classCondition="--caption"
-                        textname={captionVideo}
+                        textname={textEpigrafe}
                     />
                 )}
                 {creditoVideo && (

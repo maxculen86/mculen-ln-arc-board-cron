@@ -1,0 +1,25 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-themes {
+    @include flex(flex, row, start, start);
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow: scroll;
+    margin-bottom: $spacing-lg;
+
+    .com-button.com-button {
+        margin: 0;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+@media ($media-l) {
+    .mod-themes {
+        @include flex(flex, row, start, start);
+        flex-wrap: wrap;
+        overflow: initial;
+    }
+}

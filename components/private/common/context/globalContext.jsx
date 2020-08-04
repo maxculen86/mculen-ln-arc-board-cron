@@ -4,7 +4,8 @@ const GlobalContext = React.createContext([{}, () => {}]);
 
 const GlobalProvider = props => {
     const [state, setState] = useState({
-        authenticated: false
+        authenticated: false,
+        commentsEnabled: false
     });
 
     const { children } = props;

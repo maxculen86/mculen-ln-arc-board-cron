@@ -9,7 +9,7 @@ const Firma = ({ distributorName }) => {
         distributorName === 'Ovrik' ||
         distributorName === 'The Wall Street Journal'
     )
-        return <ComPartner size="xs">{distributorName}</ComPartner>;
+        return <ComPartner size="--xs">{distributorName}</ComPartner>;
 
     return null;
 };

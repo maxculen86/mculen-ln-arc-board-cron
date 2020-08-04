@@ -5,13 +5,13 @@ exports[`ModFirma Matches snapshot 1`] = `
   class="container-firma"
 >
   <a
-    class="com-link --autor"
+    class="com-link --autor "
     href="https://lanacion.com.ar"
   >
     Pepe
   </a>
   <a
-    class="com-link --autor"
+    class="com-link --autor "
     href="https://lanacion.com.ar"
   >
     Paco

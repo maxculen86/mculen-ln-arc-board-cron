@@ -10,23 +10,23 @@
 // EL COMPONENTE Y EN OTROS NO
 @import '../../../../../src/statics/LN/css/components/button.scss';
 @import '../../../../../src/statics/LN/css/components/share.scss';
-//@import '../../../../../src/statics/LN/css/components/date.scss';
+//@import '../../../../../src/statics/LN/css/components/date.scss'; Se saca para probar si ya se puede eliminar
 @import '../../../../../src/statics/LN/css/components/tag.scss';
-@import '../../../../../src/statics/LN/css/components/author.scss';
+//@import '../../../../../src/statics/LN/css/components/author.scss'; Se saca para probar si ya se puede eliminar
 @import '../../../../../src/statics/LN/css/components/lead.scss';
 @import '../../../../../src/statics/LN/css/components/ordered.scss';
 @import '../../../../../src/statics/LN/css/components/unordered.scss';
 @import '../../../../../src/statics/LN/css/components/breadcrumb.scss';
 @import '../../../../../src/statics/LN/css/components/input.scss';
 @import '../../../../../src/statics/LN/css/components/blockquote.scss';
-@import '../../../../../src/statics/LN/css/components/text.scss';
-//@import '../../../../../src/statics/LN/css/components/link.scss';
-//@import '../../../../../src/statics/LN/css/components/subtitle.scss';
-//@import '../../../../../src/statics/LN/css/components/title.scss';
+//@import '../../../../../src/statics/LN/css/components/text.scss'; Se saca para probar si ya se puede eliminar
+//@import '../../../../../src/statics/LN/css/components/link.scss'; Se saca para probar si ya se puede eliminar
+//@import '../../../../../src/statics/LN/css/components/subtitle.scss'; Se saca para probar si ya se puede eliminar
+//@import '../../../../../src/statics/LN/css/components/title.scss'; Se saca para probar si ya se puede eliminar
 @import '../../../../../src/statics/LN/css/components/epigraph.scss';
 @import '../../../../../src/statics/LN/css/components/appointment.scss';
 @import '../../../../../src/statics/LN/css/components/footer.scss';
-//@import '../../../../../src/statics/LN/css/base/aspect-ratios.scss';
+//daro @import '../../../../../src/statics/LN/css/base/aspect-ratios.scss';
 @import '../../../../../src/statics/LN/css/components/_nav-mobile.scss';
 @import '../../../../../src/statics/LN/css/components/banners.scss';
 @import '../../../../../src/statics/LN/css/modules/caja-nota.scss';
@@ -37,7 +37,7 @@
 
 @import '../../../../../src/statics/LN/css/components/com-link.scss';
 @import '../../../../../src/statics/LN/css/components/com-image.scss';
-//daro @import '../../../../../src/statics/LN/css/components/com-text.scss';
+@import '../../../../../src/statics/LN/css/components/com-text.scss';
 @import '../../../../../src/statics/LN/css/components/com-icon.scss';
 @import '../../../../../src/statics/LN/css/components/com-button.scss';
 @import '../../../../../src/statics/LN/css/components/com-container.scss';
@@ -46,6 +46,7 @@
 @import '../../../../../src/statics/LN/css/components/com-title.scss';
 @import '../../../../../src/statics/LN/css/components/com-date.scss';
 @import '../../../../../src/statics/LN/css/components/com-hour.scss';
+@import '../../../../../src/statics/LN/css/components/com-paragraph.scss';
 @import '../../../../../src/statics/LN/css/components/_storytelling.scss';
 
 @import '../../../../../src/statics/LN/css/modules/mod-date.scss';
@@ -58,7 +59,10 @@
 @import '../../../../../src/statics/LN/css/modules/mod-sponsor.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-opening.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-title.scss';
+@import '../../../../../src/statics/LN/css/modules/mod-paragraph.scss';
 @import '../../../../../src/statics/LN/css/modules/mod-newsletter.scss';
+@import '../../../../../src/statics/LN/css/modules/mod-themes.scss';
+@import '../../../../../src/statics/LN/css/modules/mod-keepreading.scss';
 
 @import '../../../../../src/statics/LN/css/components/nav-amp.scss';
 
