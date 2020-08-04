@@ -126,9 +126,11 @@ const snippet = props => {
 
     const { autores } = extracDataFromCredits(by);
 
-    const { image, counterTime, counterPortion } = extractDataFromPromoItems(
-        promoItems
-    );
+    const {
+        image,
+        counterTime,
+        counterPortion
+    } = extractDataFromPromoItems(promoItems);
 
     const { preparaciones, ingredientes } = extractDataFromContentElements(
         contentElements
