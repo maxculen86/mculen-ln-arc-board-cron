@@ -162,6 +162,15 @@ const Default = props => {
                     {metaValue('title') || siteProperties.title || 'LA NACION'}
                 </title>
 
+                <style
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                    html, body {
+                        height: 100%;
+                    }
+                `
+                    }}
+                />
                 {/* <link href="https://especialess3.lanacion.com.ar/20/06/coronavirus-evolucion-especial/css/app.6fd78c9e.css" rel="stylesheet" />
                 <link href="https://especialess3.lanacion.com.ar/20/06/coronavirus-evolucion-especial/js/chunk-vendors.ec7ce19c.js" rel="preload" as="script" />
                 <link href="https://especialess3.lanacion.com.ar/20/06/coronavirus-evolucion-especial/js/app.d0588205.js" rel="preload" as="script" />
