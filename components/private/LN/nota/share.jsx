@@ -41,10 +41,7 @@ const Share = props => {
     // TODO: arreglar el tema de las URL's
     const mystyle = {
         maxWidth: '24px',
-        maxHeight: '24px',
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center'
+        maxHeight: '24px'
     };
     return (
         <div
