@@ -19,7 +19,12 @@ const authorAndDate = props => {
     if (!visible && !display_date) return <></>;
     return (
         <>
-            {date && <ModDate display_date={display_date} />}
+            {date && (
+                <ModDate
+                    display_date={display_date}
+                    labelEdicionImpresa={labelEdicionImpresa}
+                />
+            )}
             {author && (
                 <div className="col-12">
                     <div className="col-12">
@@ -35,7 +40,10 @@ const authorAndDate = props => {
                         labelEdicionImpresa={labelEdicionImpresa}
                         display_date={display_date}
                     /> */}
-                    <ModDate display_date={display_date} />
+                    <ModDate
+                        display_date={display_date}
+                        labelEdicionImpresa={labelEdicionImpresa}
+                    />
                     <div className="com-author">
                         <Author {...props} />
                     </div>
