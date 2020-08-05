@@ -34,23 +34,80 @@
             padding-top: px(24);
         }
     }
+    amp-social-share {
+        &[type='facebook'],
+        &[type='twitter'],
+        &[type='whatsapp'],
+        &[type='email'] {
+            background: none;
+            @include flex(flex, row, center, center);
+            margin-bottom: $spacing-sm;
+            width: 24px;
+            height: 24px;
+            font-family: 'LNicons';
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            font-size: px(24);
+            padding: px(4);
+            line-height: 1;
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            &:hover {
+                background: transparent;
+                color: $ln;
+            }
+        }
+
+        &[type='facebook']:before {
+            content: '\e908';
+        }
+        &[type='twitter']:before {
+            content: '\e922';
+        }
+        &[type='whatsapp']:before {
+            content: '\e926';
+        }
+
+        &[type='email'] {
+            //padding-top: px(16);
+            &:before {
+                content: '\e907';
+            }
+        }
+    }
 }
 @media ($media-l) {
     .mod-share {
         .container {
-            flex-direction: column;
+            @include flex(flex, column, center, center);
+            .amp & {
+                @include flex(flex, column, center, center);
+            }
         }
+
         //scrollUp Se muestra en la posición 0 (Sacar la clase cuando vuelva al punto 0)
         .cuerpo__nota & {
+            .amp & {
+                position: relative;
+            }
+            @include flex(flex, column, center, center);
             position: sticky;
             top: 20px;
-            @include flex(flex, column, center, center);
             transition: all 0.25s;
             background: transparent;
         }
         &.--scrollUp {
             .cuerpo__nota & {
                 top: 70px;
+            }
+        }
+        &.--scrollDown {
+            .cuerpo__nota & {
+                @include flex(flex);
             }
         }
         .footer & {
@@ -60,6 +117,21 @@
             .amp & {
                 border-top: 0;
                 padding-top: 0;
+            }
+        }
+        .com-share {
+            display: block;
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+            border: none;
+            width: calc(100% + 2.5rem);
+            margin-left: -1.25rem;
+            .share-right {
+                amp-social-share {
+                    padding-top: px(4);
+                }
             }
         }
     }

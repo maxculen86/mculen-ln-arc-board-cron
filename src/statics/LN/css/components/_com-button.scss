@@ -6,7 +6,6 @@
     background: transparent;
     padding: $spacing-sm;
     color: $negro;
-    font-family: $font-arial;
     font-size: px(12);
     font-weight: 700;
     border-radius: px(4);
@@ -222,6 +221,9 @@
 }
 @media ($media-l) {
     .com-button {
+        .mod-share & {
+            margin-bottom: $spacing-sm;
+        }
         &.comment {
             .mod-share & {
                 display: flex;

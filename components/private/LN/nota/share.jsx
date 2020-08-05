@@ -39,6 +39,13 @@ const Share = props => {
 
     const { commentsCount } = useGlobal();
     // TODO: arreglar el tema de las URL's
+    const mystyle = {
+        maxWidth: '24px',
+        maxHeight: '24px',
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center'
+    };
     return (
         <div
             id="v-share"
@@ -99,17 +106,23 @@ const Share = props => {
             <AmpContainer isForAmp>
                 <div className="container --left">
                     <amp-social-share
+                        style={mystyle}
                         type="facebook"
                         data-param-app_id={facebookId}
                     />
-                    <amp-social-share type="twitter" data-param-text={title} />
-                    <amp-social-share type="whatsapp" />
+                    <amp-social-share
+                        style={mystyle}
+                        type="twitter"
+                        data-param-text={title}
+                    />
+                    <amp-social-share style={mystyle} type="whatsapp" />
                 </div>
 
                 <ComLine />
 
                 <div className="container --right">
                     <amp-social-share
+                        style={mystyle}
                         type="email"
                         data-param-subject="Te recomiendo esta nota de LA NACION"
                         data-param-body={`Lee esta nota de LA NACION ${config.host}${requestUri}`}
