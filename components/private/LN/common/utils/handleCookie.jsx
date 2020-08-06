@@ -25,7 +25,9 @@ const handleCookie = () => {
     ];
 
     function eraseCookie(nameCookie) {
-        document.cookie = `${nameCookie}=false; expires=${new Date().toUTCString()}; domain=${DOMINIO_COOKIE}; path=/`;
+        if (typeof document !== 'undefined') {
+            document.cookie = `${nameCookie}=false; expires=${new Date().toUTCString()}; domain=${DOMINIO_COOKIE}; path=/`;
+        }
     }
 
     function setCookie(nameCookie, valueCookie, timeExpiration) {
@@ -48,9 +50,11 @@ const handleCookie = () => {
         } else {
             exp = new Date(new Date().getTime() + seconds);
         }
-
-        document.cookie = `${nameCookie}=${valueCookie}; expires=${exp.toUTCString()}; domain=${DOMINIO_COOKIE}; path=/`;
+        if (typeof document !== 'undefined') {
+            document.cookie = `${nameCookie}=${valueCookie}; expires=${exp.toUTCString()}; domain=${DOMINIO_COOKIE}; path=/`;
+        }
         return !!(
+            document &&
             document.cookie &&
             document.cookie.indexOf(`${nameCookie}=${valueCookie}`) !== -1
         );
@@ -59,7 +63,9 @@ const handleCookie = () => {
     function getCookie(nameCookie) {
         if (!nameCookie) return undefined;
 
-        const value = `; ${document.cookie}`;
+        const value = `; ${
+            typeof document !== 'undefined' ? document.cookie : ''
+        }`;
         const parts = value.split(`; ${nameCookie}=`);
         return parts.length === 2
             ? parts
