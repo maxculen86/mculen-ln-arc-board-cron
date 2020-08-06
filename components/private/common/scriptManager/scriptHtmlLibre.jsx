@@ -2,8 +2,6 @@ import React, { useMemo } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 
-const HtmlToReactParser = require('html-to-react').Parser;
-
 const filterElements = (contentElements, subtype) => {
     // Si la nota es subtype 9 se usa un `find()` ya que para las notas de html libre
     // se debe tomar solo el primer elemento del contentElements de tipo 'raw_html'
@@ -40,21 +38,6 @@ const getScripts = content => {
                 src:
                     'https://especialess3.lanacion.com.ar/18/mundial/mundial2018_votacion_goles/js/all.v1566307521.min.js'
             });
-            /* let tag = script;
-            if (script.match(/<script>[\s\S]*?<\/script>/)) {
-                tag = script.replace(
-                    /<script>([^<]*)<\/script>/g,
-                    (match, js) => {
-                        return `<script>window.addEventListener('load', () => { ${js} });</script>`;
-                    }
-                );
-
-                console.log('##### TAG:', tag);
-                const a = new HtmlToReactParser({ decodeEntities: false });
-                console.log('##### PARSER:', a.parse(tag));
-            }
-            const parser = new HtmlToReactParser();
-            return parser.parse(tag); */
         })
     );
 };

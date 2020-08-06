@@ -26,7 +26,7 @@ describe('Private - LN - nota - cuerpo - <Html />', () => {
         expect(component).toBeDefined();
     });
 
-    /* it('Render OK', () => {
+    it('Render OK', () => {
         const __html = '<div>sample html block</div>';
         const component = mount(<Html {...setContent(__html)} />);
         expect(component.html()).not.toBeNull();
@@ -86,6 +86,7 @@ describe('Private - LN - nota - cuerpo - <Html />', () => {
 
         const component = shallow(<Html {...setContent(__html)} />);
         expect(component.exists()).toBeTruthy();
+        console.log(component.debug());
         expect(component.hasClass('--html')).toBeTruthy();
         const content = component
             .render()
@@ -126,5 +127,5 @@ describe('Private - LN - nota - cuerpo - <Html />', () => {
 
         const component = render(<Html {...setContent(__html)} />);
         expect(component).toMatchSnapshot();
-    }); */
+    });
 });

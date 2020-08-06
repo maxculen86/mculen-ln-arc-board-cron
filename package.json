@@ -27,7 +27,6 @@
     },
     "dependencies": {
         "crypto": "1.0.1",
-        "html-to-react": "^1.4.3",
         "jsonwebtoken": "8.5.1",
         "lodash.get": "4.4.2",
         "node-html-parser": "1.2.14",
