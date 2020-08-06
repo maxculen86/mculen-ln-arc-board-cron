@@ -632,7 +632,7 @@
         {
             "_id": "FEEAYJJBP5CRNFAXZBZ35PVZ5U",
             "additional_properties": {},
-            "content": "<mark class=\"hl_yellow\">Eso es con color</mark>",
+            "content": "<mark class=\"hl_yellow_underline\">Eso es con color</mark>",
             "type": "text"
         },
         {

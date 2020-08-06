@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render, shallow } from 'enzyme';
+import { render } from 'enzyme';
 import Banner from '../../../../../../components/private/LN/common/bannerRefactor/factory/default/types';
 
 import { slotsConfig } from '../../../../../../components/private/LN/common/bannerRefactor/config';

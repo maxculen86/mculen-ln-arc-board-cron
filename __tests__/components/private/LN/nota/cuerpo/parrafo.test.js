@@ -33,7 +33,7 @@ describe('Paragraph', () => {
         };
 
         component = mount(<Paragraph data={data} capital />);
-        expect(component.find('p').hasClass('capital')).toBe(false);
+        expect(component.find('p').hasClass('--capital')).toBe(false);
     });
 
     it('Sets target _blank attribute on external links', () => {
@@ -49,17 +49,17 @@ describe('Paragraph', () => {
     });
 
     it('Applies `capital` class to paragraph in order to upper-case the first letter', () => {
-        expect(component.find('p').hasClass('capital')).toBe(true);
+        expect(component.find('p').hasClass('--capital')).toBe(true);
     });
 
     it('Transforms <b> tags into <strong> tags', () => {
-        expect(component.find('p.text.element-paragraph').html()).toMatch(
+        expect(component.find('p.com-paragraph').html()).toMatch(
             /<[/]?(strong)>/
         );
     });
 
     it('Transforms <i> tags into <em> tags', () => {
-        expect(component.find('p.text.element-paragraph').html()).toMatch(
+        expect(component.find('p.com-paragraph').html()).toMatch(
             new RegExp('<[/]?(em)>')
         );
     });

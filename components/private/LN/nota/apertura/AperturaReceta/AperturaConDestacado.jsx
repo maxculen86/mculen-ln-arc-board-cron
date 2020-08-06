@@ -30,7 +30,7 @@ const AperturaConDestacado = props => {
                 {!!tags && tags.length > 0 && (
                     <>
                         <ComTitle
-                            size="threexs"
+                            size="--threexs"
                             tag="h4"
                             content="Recetas con:"
                         />

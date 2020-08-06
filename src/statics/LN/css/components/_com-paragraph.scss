@@ -1,0 +1,37 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.com-paragraph {
+    font-family: Georgia;
+    font-weight: normal;
+    margin-bottom: $spacing-lg;
+    &.--bajada {
+        font-family: $font-arial;
+        margin-bottom: $spacing;
+    }
+    .mod-paragraph & {
+        @include flex(flex);
+        text-align: center;
+        font-family: $font-SuecaSlab;
+        color: $gris6;
+        font-size: px(20);
+        line-height: px(28);
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    .hl_yellow_underline {
+        background: transparent;
+        text-decoration: underline;
+        text-decoration-color: $highlight;
+        font-weight: 700;
+        margin: 0 px(5);
+    }
+}
+
+@media ($media-l) {
+    .com-paragraph {
+        &.--bajada {
+            margin-bottom: $spacing-sm;
+        }
+    }
+}

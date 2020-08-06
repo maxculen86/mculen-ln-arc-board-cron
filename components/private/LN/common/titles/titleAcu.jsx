@@ -9,10 +9,11 @@ const TitleAcu = ({ headlines: { basic, shortTitle }, volanta, href }) => {
     const volantaComponent = volanta && `${volanta} `;
     const titleText = `${shortTitle || basic}`;
     const renderTitle = `${volantaComponent}${titleText}`;
+
     return (
         <ComTitle
             tag="h2"
-            size="m"
+            size="--s"
             classCondition="--acu"
             link={href}
             content={renderTitle}

@@ -3,7 +3,6 @@
 
 .com-button {
     @include flex(inline, row, center, center);
-
     background: transparent;
     padding: $spacing-sm;
     color: $negro;
@@ -213,4 +212,7 @@
             margin-left: px(5);
         }
     }
+    // .cuerpo__nota & {
+    //     font-family: $font-arial;
+    // }
 }
