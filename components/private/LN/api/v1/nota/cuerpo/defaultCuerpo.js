@@ -9,7 +9,7 @@ import Embed from './elements/embed';
 import Html from './elements/htmlContent';
 import Button from './elements/button';
 
-const defaultCuerpo = (contentElements) => {
+const defaultCuerpo = contentElements => {
     const components = [
         Text,
         Header,
