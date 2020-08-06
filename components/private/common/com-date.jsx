@@ -13,4 +13,8 @@ const ComDate = ({ display_date }) => {
     );
 };
 
+ComDate.propTypes = {
+    display_date: PropTypes.string.isRequired
+};
+
 export default ComDate;

@@ -147,7 +147,7 @@ const snippet = props => {
         totalTime: counterTime ? `PT${counterTime}M` : '',
         datePublished: `${date || ''}`,
         description: `${description || ''}`,
-        image: `${image || PLACERHOLDER}`, 
+        image: `${image || PLACERHOLDER}`,
         recipeIngredient: ingredientes,
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
         recipeInstructions: preparaciones,

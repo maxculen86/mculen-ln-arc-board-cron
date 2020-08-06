@@ -5,11 +5,19 @@ import '../../../resources/dist/css/ln/components/com-link.css';
 import '../../../resources/dist/css/ln/components/com-text.css';
 
 const ComLink = props => {
-    const { children, link, textname, target, title, classCondition } = props;
+    const {
+        children,
+        link,
+        textname,
+        target,
+        title,
+        classCondition,
+        size
+    } = props;
 
     if (!link)
         return (
-            <span className={`com-text ${classCondition || ''}`}>
+            <span className={`com-text ${classCondition || ''} ${size || ''}`}>
                 {textname}
             </span>
         );
@@ -19,7 +27,7 @@ const ComLink = props => {
             rel={target === '_blank' && 'nonoopener noreferrer'}
             target={target}
             title={title}
-            className={`com-link ${classCondition || ''}`}
+            className={`com-link ${classCondition || ''} ${size || ''}`}
         >
             {children || textname}
         </a>

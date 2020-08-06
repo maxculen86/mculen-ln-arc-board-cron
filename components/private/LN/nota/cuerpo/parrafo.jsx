@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import ReactDOMServer from 'react-dom/server';
 import config from '../../../../../properties/sites/la-nacion-ar';
+import ComLink from '../../../common/com-link';
+import ComParagraph from '../../../common/com-paragraph';
 
 import { compose } from '../../../common/utils/functional';
 
-// TODO: Las variantes de Tags de HTMLs, que nos aprecen dentro del string de content nos genera un conflicto si queremos hacer render interno a un replace de un caso, no nos deja remplazar los otros regex
+// TODO: cambiar parrafo por paragraph
 const Parrafo = ({ data, capital }) => {
     const isLetter = text => text.match(/^[A-Za-z]/);
+
+    const setOtherChar = text =>
+        text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+
+    const replaceClassForMark = text =>
+        text.replace(/hl_yellow/g, 'hl_yellow_underline');
 
     const setBoldText = text =>
         text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
@@ -18,32 +27,45 @@ const Parrafo = ({ data, capital }) => {
         text.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
+                const [, link] = href.match(/"(.*?[^\\])"/);
+                let target = '_self';
                 if (!href.includes(config.host)) {
-                    return `<a class='com-link' ${href} target='_blank'>${string}</a>`;
+                    target = '_blank';
                 }
-                return `<a class='com-link' ${href}>${string}</a>`;
+
+                return ReactDOMServer.renderToString(
+                    React.createElement(
+                        ComLink,
+                        {
+                            link,
+                            target,
+                            classCondition: '--twoxs',
+                            title: string
+                        },
+                        string
+                    )
+                );
             }
         );
 
     const content = compose(
+        replaceClassForMark,
+        setOtherChar,
+        setExternalLinks,
         setItalicText,
-        setBoldText,
-        setExternalLinks
+        setBoldText
     )(data.content);
+
+    // Si el redactor hace enter varias veces ignoramos los <br/>
+    if (content === '<br/>') return <></>;
 
     return (
         <>
-            {content !== '<br/>' && ( // Si el redactor hace enter varias veces ignoramos los <br/>
-                <p
-                    className={`text element-paragraph${
-                        capital && isLetter(content) ? ` capital` : ''
-                    }`}
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                        __html: content
-                    }}
-                />
-            )}
+            <ComParagraph
+                capital={capital && isLetter(content) ? `--capital` : ''}
+                size="--twoxs"
+                content={content}
+            />
         </>
     );
 };
@@ -55,8 +77,7 @@ Parrafo.propTypes = {
         content: PropTypes.string.isRequired,
         type: PropTypes.string.isRequired
     }).isRequired,
-    capital: PropTypes.bool,
-    outputType: PropTypes.string.isRequired
+    capital: PropTypes.bool
 };
 
 export default Parrafo;
