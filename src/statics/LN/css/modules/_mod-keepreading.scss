@@ -1,0 +1,9 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-keepreading {
+    @include flex(flex, column, start, start);
+    margin-bottom: px(32);
+    padding-bottom: px(16);
+    border-bottom: 1px solid #e4e4e4;
+}

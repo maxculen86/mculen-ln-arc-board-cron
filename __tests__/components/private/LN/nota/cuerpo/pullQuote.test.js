@@ -38,8 +38,8 @@ describe('PullQuote', () => {
     });
 
     it('Prints quote and quotation marks correctly', () => {
-        expect(component.find('h2.title-cita').text()).toContain(`"`);
-        expect(component.find('h2.title-cita').text()).toContain(
+        expect(component.find('div.title-cita').text()).toContain(`"`);
+        expect(component.find('div.title-cita').text()).toContain(
             `Lorem ipsum dolor sit amet`
         );
     });

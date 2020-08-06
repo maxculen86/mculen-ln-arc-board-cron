@@ -94,7 +94,7 @@ const AcumuladoTitle = props => {
         <>
             <div className="com-titleWithfollow">
                 <div className={withCategory}>
-                    <ComTitle size="xl" tag="h1" content={titleText} />
+                    <ComTitle size="--xl" tag="h1" content={titleText} />
                     <ListSectionsTitle
                         _children={_children}
                         isPrimarySection={isPrimarySection}

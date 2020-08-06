@@ -23,18 +23,22 @@ const ModNewsletter = props => {
         <section className="mod-newsletter">
             <div className="container">
                 <div className="container-text">
-                    <ComIco iconName="mail" size="xl" />
-                    <ComTitle size="l" content={contenido} />
+                    <ComIco iconName="mail" size="--xl" />
+                    <ComTitle size="--l" content={contenido} />
                     <ComLink
                         link="https://newsletter.lanacion.com.ar/#/"
-                        size="l"
+                        size="--threexs"
                         target="_blank"
                     >
                         Mirá todos los newsletters que tenemos para vos
                     </ComLink>
                 </div>
                 <div className="container-button">
-                    <ComButton onClick={handleClick} classesNames="--primary">
+                    <ComButton
+                        onClick={handleClick}
+                        classesNames="--primary"
+                        size="--sixxs"
+                    >
                         SUSCRIBITE AL NEWSLETTER
                     </ComButton>
                 </div>

@@ -1,26 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components - private - LN - common - TaxonomyImportantList Test de snapshot de taxonomy important list 1`] = `
-<div
-  class="com-tag cont_tags"
+<section
+  class="mod-themes"
 >
   <a
-    class="com-item"
+    class="com-link  "
     href="/tema/asd-1/"
   >
-    asd 1
+    <button
+      class="com-button --secondary --compact"
+      type="button"
+    >
+      <span
+        class="com-text --sixxs "
+      >
+        asd 1
+      </span>
+    </button>
   </a>
   <a
-    class="com-item"
+    class="com-link  "
     href="/tema/asd-2/"
   >
-    asd 2
+    <button
+      class="com-button --secondary --compact"
+      type="button"
+    >
+      <span
+        class="com-text --sixxs "
+      >
+        asd 2
+      </span>
+    </button>
   </a>
   <a
-    class="com-item"
+    class="com-link  "
     href="/tema/asd-3/"
   >
-    asd 3
+    <button
+      class="com-button --secondary --compact"
+      type="button"
+    >
+      <span
+        class="com-text --sixxs "
+      >
+        asd 3
+      </span>
+    </button>
   </a>
-</div>
+</section>
 `;
