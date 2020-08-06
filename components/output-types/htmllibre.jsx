@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-//TODO: validar que se vea bien en el pagebuilder
 function htmllibre(props) {
     const {
         globalContent: { content_elements: contentElements }
@@ -13,11 +12,15 @@ function htmllibre(props) {
             : undefined;
 
     return content ? (
-        <div
-            dangerouslySetInnerHTML={{
-                __html: content
-            }}
-        />
+        <html lang="es">
+            <body>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: content
+                    }}
+                />
+            </body>
+        </html>
     ) : (
         <></>
     );

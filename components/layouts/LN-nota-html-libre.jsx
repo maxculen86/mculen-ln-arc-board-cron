@@ -85,8 +85,11 @@ const lnNotaNoticia = ({
 
             <div id="wrapper" className={`nota noticia ${amp}`}>
                 <Header />
-                <main>
-                    <div className="lay --apertura">
+                <main style={{ paddingTop: '0px' }}>
+                    <div
+                        className="lay --apertura"
+                        style={{ maxWidth: '100%', padding: '0rem' }}
+                    >
                         <div className="row">
                             <div className="col-12">
                                 {/* Html libre */}
@@ -106,7 +109,6 @@ const lnNotaNoticia = ({
                         </div>
                     </div>
                 </main>
-                <Footer />
             </div>
         </GlobalProvider>
     );

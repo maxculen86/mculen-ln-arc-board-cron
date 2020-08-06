@@ -2,21 +2,28 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Html from './html';
+import isClient from '../../../common/utils/isClient';
 
 const HtmlLibre = props => {
     const {
         outputType,
-        globalContent: { content_elements: contentElements }
+        globalContent: { _id, content_elements: contentElements }
     } = props;
+    const content =
+        contentElements[0] && contentElements[0].content
+            ? contentElements[0].content
+            : undefined;
 
-    if (outputType === 'amp') return null;
-
-    const htmlContent = contentElements.find(
-        element => element.type === 'raw_html'
+    return outputType === 'default' && isClient() ? (
+        <div
+            key={_id}
+            dangerouslySetInnerHTML={{
+                __html: content
+            }}
+        />
+    ) : (
+        <></>
     );
-
-    return <Html data={htmlContent} />;
 };
 
 HtmlLibre.outputType = 'default';
