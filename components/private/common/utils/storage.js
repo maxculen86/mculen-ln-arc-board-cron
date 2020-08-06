@@ -67,7 +67,7 @@ export const counterNota = notaId => {
 
     if (lsNotasCounter != null) {
         // Se encarga de filtrar las notas que superan los X dias ( 28 seteado hoy )
-        lsNotasCounter = filterNotesWithinDays(lsNotasCounter);
+        lsNotasCounter = filterNotesWithinDays(lsNotasCounter, 28);
 
         if (!lsNotasCounter.some(n => n.notaId === notaId)) {
             lsNotasCounter.push({ notaId, fecha });
@@ -82,13 +82,13 @@ export const counterNota = notaId => {
     localStorage.setItem('countNotas', lsNotasCounter.length);
 };
 
-export const filterNotesWithinDays = notas => {
+export const filterNotesWithinDays = (notas, days) => {
     const today = new Date();
     const lsDayCheckCounter = localStorage.getItem('DayCheckCounter');
     let newNotas = { ...notas };
     // Una vez por dia para ser mas performante
     if (lsDayCheckCounter !== today.getDate()) {
-        newNotas = notas.filter(n => checkDateCounter(n.fecha, 28));
+        newNotas = notas.filter(n => checkDateCounter(n.fecha, days));
     }
     localStorage.setItem('DayCheckCounter', today.getDate());
     return newNotas;
