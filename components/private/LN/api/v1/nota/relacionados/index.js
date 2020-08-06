@@ -14,9 +14,13 @@ const relacionadosIndex = dataArticle => {
     if (!dataArticle) return null;
 
     const dataCategories = get(dataArticle, 'taxonomy.sections');
-    const principalCategory = get(dataArticle, 'taxonomy.primary_section._id');
-    
+    let principalCategory = get(dataArticle, 'taxonomy.primary_section._id');
+
     if (dataCategories) {
+        if (!principalCategory) {
+            principalCategory = dataCategories[0]._id;
+        }
+
         const migratedPrincipalCategory = getCategory(principalCategory, true);
         dataCategories.forEach(e => {
             const categorie = Categorias(e, migratedPrincipalCategory.migrada);

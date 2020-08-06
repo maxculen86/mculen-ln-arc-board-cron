@@ -3,6 +3,7 @@ import ArticleSinCuerpo from '../../../../../../../__mocks__/data/nota/cuerpo/no
 import ArticleInfografia from '../../../../../../../__mocks__/data/nota/cuerpo/notaInfografia.json';
 import ArticleCuerpo from '../../../../../../../__mocks__/data/nota/cuerpo/notaCuerpo.json';
 import ArticleHtml from '../../../../../../../__mocks__/data/nota/cuerpo/notaHtml.json';
+import ArticleFotoAlCien from '../../../../../../../__mocks__/data/nota/cuerpo/notaFotoAlCien.json';
 
 describe('Test Json Text del cuerpo de la nota', () => {
     it('Test para validar si el cuerpo es null', () => {
@@ -22,10 +23,16 @@ describe('Test Json Text del cuerpo de la nota', () => {
         expect(resp.length).toBe(originalLength + 1);
     });
 
-    it('Validacion del cuerpo de una nota HtmlLibre', () =>{
-        const resp = Cuerpo(ArticleHtml);
-        const contentHtml = Buffer.from(ArticleHtml.content_elements[0].content).toString('base64');    
-        expect(resp).toBe(contentHtml)        
+    it('Test para validar el contenido de una nota con template foto al cien', () => {
+        const resp = Cuerpo(ArticleFotoAlCien);        
+        expect(resp.length).toBe(8);
     });
 
+    it('Validacion del cuerpo de una nota HtmlLibre', () => {
+        const resp = Cuerpo(ArticleHtml);
+        const contentHtml = Buffer.from(
+            ArticleHtml.content_elements[0].content
+        ).toString('base64');
+        expect(resp).toBe(contentHtml);
+    });
 });
