@@ -57,27 +57,6 @@ const pageBuilderSections = [
 ];
 
 class LNNotaReceta extends Component {
-    static sections = pageBuilderSections;
-
-    static propTypes = {
-        children: PropTypes.arrayOf(PropTypes.object).isRequired,
-        globalContent: PropTypes.shape({
-            taxonomy: PropTypes.shape({
-                sections: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        additional_properties: PropTypes.shape({
-                            original: PropTypes.shape({
-                                style: PropTypes.shape({
-                                    section_class: PropTypes.string
-                                })
-                            })
-                        })
-                    })
-                )
-            }).isRequired
-        }).isRequired
-    };
-
     constructor(props) {
         super(props);
         const {
@@ -167,5 +146,26 @@ class LNNotaReceta extends Component {
         );
     }
 }
+
+LNNotaReceta.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.object).isRequired,
+    globalContent: PropTypes.shape({
+        taxonomy: PropTypes.shape({
+            sections: PropTypes.arrayOf(
+                PropTypes.shape({
+                    additional_properties: PropTypes.shape({
+                        original: PropTypes.shape({
+                            style: PropTypes.shape({
+                                section_class: PropTypes.string
+                            })
+                        })
+                    })
+                })
+            )
+        }).isRequired
+    }).isRequired
+};
+
+LNNotaReceta.sections = pageBuilderSections;
 
 export default Consumer(LNNotaReceta);
