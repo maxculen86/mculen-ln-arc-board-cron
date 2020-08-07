@@ -2,100 +2,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
-import AnexoIframe from '../../acumulado/anexoIframe';
-
-const parseStyles = styles => {
-    return styles
-        .split(';')
-        .filter(item => item !== '')
-        .reduce((obj, key) => {
-            const style = key.split(':');
-            return { ...obj, [style[0].trim()]: style[1] };
-        }, {});
-};
-
-const getPropsFromNode = node => {
-    return node && node.nodeType === 1 && node.attributes
-        ? [...node.attributes].reduce((obj, attr) => {
-              let { name, value } = attr;
-              name = name === 'class' ? 'className' : name;
-              value = name === 'async' ? true : value;
-              return {
-                  ...obj,
-                  [name]: name === 'style' ? parseStyles(value) : value || ''
-              };
-          }, {})
-        : null;
-};
-
-const convertNodeToComponent = (node, id) => {
-    if (!node) return null;
-
-    const tag = (node.tagName || node.nodeName).toLocaleLowerCase();
-
-    if (node.nodeType !== 1) return null;
-
-    const __props = getPropsFromNode(node);
-
-    if (tag === 'iframe' && node.classList.contains('pym'))
-        return (
-            <div className="contenido-externo">
-                <AnexoIframe
-                    url={__props.src}
-                    id={id}
-                    styles={__props.styles}
-                    _props={__props}
-                />
-            </div>
-        );
-
-    if (!Object.keys(node.childNodes).length)
-        return React.createElement(tag, __props);
-
-    if (
-        node.querySelectorAll('iframe.pym').length &&
-        node.childNodes &&
-        node.childNodes.length
-    ) {
-        return React.createElement(
-            tag,
-            __props,
-            getComponentsFromNodeList(node.childNodes, id)
-        );
-    }
-
-    return React.createElement(tag, {
-        ...__props,
-        dangerouslySetInnerHTML: {
-            __html:
-                tag === 'style'
-                    ? node.outerText
-                    : node.innerHTML || node.nodeValue || ''
-        }
-    });
-};
-
-const getComponentsFromNodeList = (nodeList, id) => {
-    if (!nodeList) return null;
-    return [...nodeList]
-        .map((node, index) => convertNodeToComponent(node, `${id}-${index}`))
-        .filter(item => item != null);
-};
-
-const getChildren = (nodes, id) => {
-    const {
-        head: { childNodes: headElements = [] },
-        childNodes = null,
-        body: { childNodes: bodyChildNodes = null }
-    } = nodes;
-
-    // El DOMParser retorna un nodo #document
-    // los estilos se encuentran en el tag <head> y los elementos en el tag <body>
-    // para luego convertir todos los nodos en componentes de la misma forma se colocaron en un arreglo
-    return [headElements, bodyChildNodes || childNodes || []]
-        .map(nodeList => getComponentsFromNodeList(nodeList, id))
-        .filter(item => item != null);
-};
+import HtmlPym from './htmlPym';
 
 const Html = props => {
     const { data } = props;
@@ -108,29 +15,23 @@ const Html = props => {
     if (!parser.current) {
         parser.current = new DOMParser();
     }
-    if (
-        !parser.current
-            .parseFromString(content, 'text/html')
-            .querySelectorAll('.pym').length
-    )
-        return (
-            <div
-                className="com-embed --html"
-                dangerouslySetInnerHTML={{
-                    __html: parser.current.parseFromString(content, 'text/html')
-                        .documentElement.innerHTML
-                }}
-            />
-        );
 
-    const __children = getChildren(
-        parser.current.parseFromString(content, 'text/html'),
-        id
+    /* let markup = content.replace(/'/g, '"');
+    markup = `<iframe class="pym" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;" frameborder="0" scrolling="no" srcdoc='${markup}'></iframe>`; */
+
+    return parser.current
+        .parseFromString(content, 'text/html')
+        .querySelectorAll('iframe.pym').length ? (
+        <HtmlPym data={data} />
+    ) : (
+        <div
+            className="com-embed --html"
+            dangerouslySetInnerHTML={{
+                __html: parser.current.parseFromString(content, 'text/html')
+                    .documentElement.innerHTML
+            }}
+        />
     );
-
-    if (!__children.length) return null;
-
-    return <div className="com-embed --html">{__children}</div>;
 };
 
 Html.arcType = 'raw_html';

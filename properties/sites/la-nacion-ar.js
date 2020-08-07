@@ -52,6 +52,10 @@ export default {
         OptaEmbed: {
             props: {},
             location: ['head']
+        },
+        ScriptHtmlLibre: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {

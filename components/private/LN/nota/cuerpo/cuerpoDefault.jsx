@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-fragments          */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import BlockQuote from './blockQuote';
@@ -19,6 +19,7 @@ import BotonLink from './botonLink';
 import Html from './html';
 // import HtmlAMP from './htmlAMP';
 import Video from './video';
+import { setStorageConfiguration } from '../../../common/utils/storage';
 
 const Cuerpo = props => {
     const {
@@ -27,6 +28,7 @@ const Cuerpo = props => {
         bannerConfig: banners,
         outputType,
         globalContent: {
+            _id,
             headlines: { basic: tituloNota },
             content_elements: contentElements,
             subtype
@@ -48,6 +50,11 @@ const Cuerpo = props => {
         BotonLink,
         Html
     ];
+    // TODO: Ver si este es el mejor lugar donde poner este script.
+    // Setea valores en el Local Storage solo del lado del cliente
+    useEffect(() => {
+        setStorageConfiguration(_id);
+    }, [_id]);
 
     const types = ['text', 'image', 'oembed_response', 'video'];
 
