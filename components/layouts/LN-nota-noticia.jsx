@@ -23,7 +23,7 @@ import '../../resources/dist/css/ln/components/lead.css';
 import '../../resources/dist/css/ln/components/ordered.css';
 import '../../resources/dist/css/ln/components/unordered.css';
 import '../../resources/dist/css/ln/components/input.css';
-import '../../resources/dist/css/ln/modules/newsletter.css';
+//import '../../resources/dist/css/ln/modules/newsletter.css';
 import '../../resources/dist/css/ln/components/blockquote.css';
 import '../../resources/dist/css/ln/components/text.css';
 import '../../resources/dist/css/ln/components/link.css';
@@ -36,6 +36,7 @@ import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
 import '../../resources/dist/css/ln/components/com-button.css';
+import '../../resources/dist/css/ln/components/com-flia.css';
 // import '../../resources/dist/css/ln/components/colecciones.css';
 // import '../../resources/dist/css/ln/components/carta-lectores.css';
 
@@ -134,12 +135,14 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                 </div>
                             </section>
                         </div>
+
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-desklm-none">
                             {children[6]}
                         </div>
                     </div>
-
+                    {/* Newsletter */}
+                    <div className="lay">{children[8]}</div>
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
@@ -166,7 +169,7 @@ const pageBuilderSections = [
     'Cuerpo',
     'Tercera',
     'Pos-Cuerpo',
-    'Full-Break',
+    'Newsletter',
     'Bottom',
     'Bottom-Tercera'
 ];

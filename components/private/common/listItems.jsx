@@ -19,7 +19,7 @@ const TypeList = ({ ol, children }) =>
 const ListItemsFactory = ({ list, titleList, listNumeric }) => {
     return (
         <div>
-            <ComTitle size="l" tag="h4" content={titleList} />
+            <ComTitle size="--l" tag="h4" content={titleList} />
             <TypeList ol={listNumeric}>
                 {list.map((item, key) => (
                     <li key={key} className="com-item">

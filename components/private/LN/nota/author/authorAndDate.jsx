@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
-
+import ComDate from '../../../../../components/private/common/com-date';
+import ModDate from '../../../../../components/private/common/mod-date';
 import Author from './authorArticle';
 import Date from '../../common/dateHeader';
 
@@ -19,16 +20,10 @@ const authorAndDate = props => {
     return (
         <>
             {date && (
-                <div className="col-12">
-                    <div className="row mod-authordate">
-                        <div className="col-12">
-                            <Date
-                                labelEdicionImpresa={labelEdicionImpresa}
-                                display_date={display_date}
-                            />
-                        </div>
-                    </div>
-                </div>
+                <ModDate
+                    display_date={display_date}
+                    labelEdicionImpresa={labelEdicionImpresa}
+                />
             )}
             {author && (
                 <div className="col-12">
@@ -40,21 +35,19 @@ const authorAndDate = props => {
                 </div>
             )}
             {authorDate && (
-                <div className="col-12">
-                    <div className="row mod-authordate">
-                        <div className="col-12">
-                            <Date
-                                labelEdicionImpresa={labelEdicionImpresa}
-                                display_date={display_date}
-                            />
-                        </div>
+                <>
+                    {/* <Date
+                        labelEdicionImpresa={labelEdicionImpresa}
+                        display_date={display_date}
+                    /> */}
+                    <ModDate
+                        display_date={display_date}
+                        labelEdicionImpresa={labelEdicionImpresa}
+                    />
+                    <div className="com-author">
+                        <Author {...props} />
                     </div>
-                    <div className="col-12">
-                        <div className="com-author">
-                            <Author {...props} />
-                        </div>
-                    </div>
-                </div>
+                </>
             )}
         </>
     );

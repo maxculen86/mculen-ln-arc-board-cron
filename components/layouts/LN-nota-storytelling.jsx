@@ -121,7 +121,8 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
                             {children[3]}
                         </div>
                     </div>
-
+                    {/* Newsletter */}
+                    <div className="lay">{children[4]}</div>
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             {/* Bottom */}
@@ -144,6 +145,7 @@ const pageBuilderSections = [
     'Left-Cuerpo',
     'Cuerpo',
     'Tercera',
+    'Newsletter',
     'Bottom',
     'Bottom-Tercera'
 ];

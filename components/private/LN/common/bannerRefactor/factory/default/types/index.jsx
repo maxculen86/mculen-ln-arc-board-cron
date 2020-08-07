@@ -43,8 +43,9 @@ const index = React.forwardRef((props, ref) => {
                 className={`mod-banner ${background ? '--bg-banner' : ''}
                     ${sticky ? '--sticky' : ''}
                     ${closeButton ? '--close' : ''}
-                    ${fixed ? '--fixed' : ''}
-                    hlp-none
+                    ${fixed ? '--fixed' : ''} 
+                    hlp-none 
+                    --${id}
                 `}
                 ref={ref}
             >

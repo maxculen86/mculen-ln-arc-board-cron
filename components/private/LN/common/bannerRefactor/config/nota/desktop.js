@@ -314,19 +314,14 @@ export default {
     },
     caja5_dsk: {
         slotName: 'la_nacion_desktop/nota/caja5_dsk',
-        dimensions: [
-            [300, 600],
-            [160, 600],
-            [120, 600],
-            [300, 250]
-        ],
+        dimensions: [[300, 250]],
         targeting: defaultTargeting,
         bidding: {
             prebid: {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: dsk_300x600_sizes
+                        sizes: dsk_300x250_sizes
                     }
                 },
                 bids: [
@@ -489,6 +484,8 @@ export default {
         slotName: 'la_nacion_desktop/Nota/middle_3_dsk',
         dimensions: [
             [728, 90],
+            [640, 480],
+            [468, 60],
             [1, 1]
         ],
         targeting: defaultTargeting,

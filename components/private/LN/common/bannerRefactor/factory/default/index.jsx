@@ -12,11 +12,14 @@ import {
     STORY_TEMPLATE,
     ACCUM_TEMPLATE,
     ONE_X_ONE_DSK,
+    ONE_X_ONE_TAB,
+    ONE_X_ONE_MOB,
     CABEZAL_DSK,
     CAJA_1_DSK,
     CAJA_2_DSK,
     CAJA_3_DSK,
     CAJA_4_DSK,
+    CAJA_5_DSK,
     CAJA_1_TAB,
     CAJA_2_TAB,
     CAJA_1_MOB,
@@ -46,6 +49,7 @@ import withBondingToBottom from '../../decorators/withBondingToBottom';
 import withParagraphCondition from '../../decorators/withParagraphCondition';
 import withNonSubscribersConstraint from '../../decorators/withNonSubscribersConstraint';
 import withBondingToBottomMobile from '../../decorators/withBondingToBottomMobile';
+import withCommentsEnabledConstraint from '../../decorators/withCommentsEnabledConstraint';
 
 // TODO: luego mover cada funcion inherente a cada template a su propio archivo aparte
 function getBannerForStoryTemplate(config) {
@@ -106,20 +110,35 @@ function getBannerForStoryTemplate(config) {
             return createElement(withParagraphCondition(Default)(5), {
                 ...config
             });
-        case MIDDLE_TEADS_DSK:
+        case CAJA_5_DSK:
+            return createElement(withCommentsEnabledConstraint(Default), {
+                ...config
+            });
+        case MIDDLE_3_DSK:
+            return createElement(withNonSubscribersConstraint(Default), {
+                ...config
+            });
         case ONE_X_ONE_DSK:
+        case ONE_X_ONE_TAB:
+        case ONE_X_ONE_MOB:
+            return createElement(withNonSubscribersConstraint(Default), {
+                ...config
+            });
+        case CAJA_2_MOB:
+            return createElement(withNonSubscribersConstraint(Default), {
+                ...config
+            });
+        case MIDDLE_TEADS_DSK:
         case CAJA_1_DSK:
         case CAJA_2_DSK:
         case CAJA_1_TAB:
         case CAJA_1_MOB:
-        case CAJA_2_MOB:
         case CAJA_3_MOB:
         case CAJA_4_MOB:
         case CAJA_5_MOB:
         case INREAD_DSK:
         case MIDDLE_1_DSK:
         case MIDDLE_2_DSK:
-        case MIDDLE_3_DSK:
         case STICKY_2_MOB:
             return <Default {...config} />;
         default:

@@ -2,8 +2,12 @@
 @import '../abstracts/mixins';
 .com-link {
     //font-family: $font-arial;
-    //font-size: px(14);
-    //color: $link;
+    //font-size: px(14);  Se saca porque lo debería traer por lugar y tamaño
+    color: $link;
+    text-transform: initial;
+    &.--acu {
+        color: $negro;
+    }
     .text & {
         //CAMBIAR
         font-family: $font-georgia;
@@ -34,6 +38,9 @@
             width: 154px;
             height: auto;
         }
+    }
+    .--shared & {
+        color: $negro;
     }
     .mod-link & {
         .footer & {
@@ -70,7 +77,21 @@
         line-height: px(24);
         font-size: px(16);
         font-weight: bold;
-        color: $link;
+        //color: $link;
+    }
+    // .com-paragraph & {
+    //     //font-family: $font-georgia;
+    //     .amp & {
+    //         color: $link;
+    //         //font-family: $font-georgia;
+    //     }
+    // }
+    .mod-keepreading & {
+        margin-bottom: $spacing-sm;
+    }
+    .mod-themes & {
+        margin-right: $spacing-sm;
+        margin-bottom: $spacing-sm;
     }
 }
 @media ($media-l) {
@@ -93,5 +114,10 @@
             border: 1px solid $gris3;
             color: $negro;
         }
+        // .com-paragraph & {
+        //     .amp & {
+        //         color: $link;
+        //     }
+        // }
     }
 }

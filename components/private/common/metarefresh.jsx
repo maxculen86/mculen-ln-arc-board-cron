@@ -10,6 +10,7 @@ import get from 'lodash.get';
 
 import withScreenUtils from './hocs/withScreenUtils';
 import withLoginData from '../LN/common/hocs/withLoginData';
+import handleCookie from '../LN/common/utils/handleCookie';
 
 const getInterval = type => resolution => config => {
     const template = ['story', 'results'].includes(type) ? 'nota' : 'home';
@@ -33,6 +34,7 @@ const Component = props => {
     const website = get(props, 'arcSite', null);
     const resolution = get(props, 'screenUtils.device', null);
     const isAdmin = get(props, 'isAdmin');
+    const outputType = get(props, 'outputType');
 
     const content = useContent({
         source: 'navigationTreeSource',
@@ -52,15 +54,24 @@ const Component = props => {
 
     const interval = getInterval(type)(resolution)(metarefresh);
 
+    const { getCookie } = handleCookie();
+    const cookieProductoPremium = getCookie('ProductoPremiumId');
+    const CDmetaRefresh = !cookieProductoPremium
+        ? "localStorage.setItem('CDmetaRefresh', true)"
+        : '';
+
     const script = `
         setInterval(() => {
+            ${CDmetaRefresh}
             window.location.reload();
         }, ${interval});
     `;
 
+    if (outputType === 'amp') return null;
     if (hasVideo(contentElements)(promoItem)) return null;
     if (hasAudioFromSpotify(contentElements)) return null;
     if (subscription || interval < 1) return null;
+
     return (
         <script id="metarefresh" dangerouslySetInnerHTML={{ __html: script }} />
     );
