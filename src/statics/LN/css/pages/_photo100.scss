@@ -48,6 +48,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
             @include padding_rl;
             @include width-nota100;
         }
+
         > .row {
             display: block;
             margin-bottom: px(32);
@@ -87,23 +88,23 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                     width: 100%;
                     margin-left: 0;
                     border: none;
-
-                    @media ($media-l) {
-                        height: auto;
-                    }
+                }
+            }
+            .--active.--active {
+                .mod-figure .mod-picture {
+                    height: auto;
                 }
             }
 
             .com-share {
-                width: px(44);
-                padding: px(2);
-                background: rgba(255, 255, 255, 0.8);
-                left: auto;
-                right: auto;
-                top: px(16);
-                display: none;
-
                 @media ($media-l) {
+                    width: px(44);
+                    padding: px(2);
+                    background: rgba(255, 255, 255, 0.8);
+                    left: auto;
+                    right: auto;
+                    top: px(16);
+
                     display: block;
                     left: calc(((100% - #{$width_nota100_l}) / 2) - 140px);
                 }
@@ -146,7 +147,29 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 
     &.--scrollUp {
         main > .row .com-share {
-            top: calc(#{$spacing-xs} + #{$header_h_desktop});
+            @media ($media-l) {
+                top: calc(#{$spacing-xs} + #{$header_h_desktop});
+            }
+        }
+    }
+
+    &.amp {
+        main > .row .com-share {
+            position: relative;
+            top: 0;
+            border: none;
+            margin-bottom: px(16);
+            amp-social-share[type='email'] {
+                padding-top: 0;
+                @media ($media-l) {
+                    padding-top: px(16);
+                }
+            }
+            @media ($media-l) {
+                width: px(60);
+                position: sticky;
+                top: px(16);
+            }
         }
     }
 }

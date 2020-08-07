@@ -171,7 +171,8 @@ a.icon-cerrar:before {
             border: none;
         }
     }
-    .--storytelling & {
+    .--storytelling &,
+    .--transparent & {
         border: none;
         background: rgba(0, 0, 0, 0.5);
 
