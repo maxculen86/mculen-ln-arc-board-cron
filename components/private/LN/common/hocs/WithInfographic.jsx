@@ -53,7 +53,6 @@ export default function WithInfographic(WrappedComponent) {
                                   .join()
                                   //.replace(/<iframe/gim, '<amp-iframe')
                                   //.replace(/<\/iframe/gim, '</amp-iframe')
-                                  //.replace(/100%/gim, '540')
                             : content;
                     /*this.setState({
                         content: result,
