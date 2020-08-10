@@ -1,6 +1,8 @@
 import get from 'lodash.get';
 
 const notaRelacionada = dataNota => {
+    if (!dataNota) return null;
+
     const {
         _id: id,
         headlines: { basic: titulo },
