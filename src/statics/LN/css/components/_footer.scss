@@ -1,15 +1,15 @@
 @import '../abstracts/variables';
 footer {
-    margin-bottom: $px-20;
+    margin-bottom: px(20);
     .footer-header {
-        margin-bottom: $px-20;
+        margin-bottom: px(20);
         @media ($media-l) {
-            padding-bottom: $px-15;
+            padding-bottom: px(15);
             border-bottom: 1px solid $gris3;
         }
         .footer-header__logo {
             border-bottom: 1px solid $gris3;
-            padding-bottom: $px-20;
+            padding-bottom: px(20);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,7 +19,7 @@ footer {
                 padding-bottom: 0;
             }
             .logo-la-nacion {
-                font-size: $font-22;
+                font-size: px(22);
                 color: $ln-active;
                 margin: 0;
             }
@@ -32,8 +32,8 @@ footer {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: $px-10;
-            margin-bottom: $px-20;
+            margin-top: px(10);
+            margin-bottom: px(20);
             @media ($media-l) {
                 order: 1;
                 margin-top: 0;
@@ -46,9 +46,9 @@ footer {
                 display: inline-flex;
             }
             i {
-                margin-right: $px-20;
+                margin-right: px(20);
                 @media (max-width: 1023px) {
-                    margin: $px-10;
+                    margin: px(10);
                 }
             }
         }
@@ -57,42 +57,42 @@ footer {
             justify-content: center;
             align-items: center;
             a {
-                height: $px-35;
+                height: px(35);
             }
             @media ($media-l) {
                 order: 3;
                 justify-content: flex-end;
             }
             .app_ios {
-                margin-left: $px-30;
+                margin-left: px(30);
             }
         }
     }
     .footer-sitio {
-        margin-bottom: $px-20;
+        margin-bottom: px(20);
         .footer-sitio__links {
             display: none;
             @media (min-width: 1024px) {
                 display: flex;
             }
             .item_link {
-                font-size: $font-14;
+                font-size: px(14);
                 color: $link;
-                margin-right: $px-21;
+                margin-right: px(21);
                 height: fit-content;
                 width: fit-content;
             }
         }
         .footer-sitio__captcha {
-            line-height: $px-18;
+            line-height: px(18);
             display: none;
             @media (min-width: 1024px) {
                 display: flex;
             }
             p {
                 color: $gris5;
-                font-size: $font-14;
-                line-height: $px-20;
+                font-size: px(14);
+                line-height: px(20);
                 /*height: fit-content;
                 width: fit-content;*/
                 text-align: right;
@@ -105,26 +105,26 @@ footer {
                 }
                 a {
                     color: $link;
-                    margin-left: $px-15;
+                    margin-left: px(15);
                 }
             }
             .private {
-                font-size: $font-14;
-                line-height: $px-18;
+                font-size: px(14);
+                line-height: px(18);
             }
             .condition {
-                font-size: $font-14;
-                line-height: $px-18;
+                font-size: px(14);
+                line-height: px(18);
             }
         }
     }
     .footer-copyright {
-        margin-bottom: $px-20;
+        margin-bottom: px(20);
         .footer-copyright__fiscal {
             p {
                 color: $gris5;
-                font-size: $font-14;
-                line-height: $px-20;
+                font-size: px(14);
+                line-height: px(20);
                 /*height: fit-content;
                 width: fit-content;*/
                 display: flex;
@@ -132,14 +132,14 @@ footer {
                 align-items: center;
                 vertical-align: top;
                 text-align: left;
-                margin: -$px-20 0 $px-20 0;
+                margin: -px(20) 0 px(20) 0;
                 .img_gda {
-                    margin: 0 $px-20 0 -$px-5;
+                    margin: 0 px(20) 0 -px(5);
                 }
                 a {
-                    margin-left: $px-20;
+                    margin-left: px(20);
                     .img_data-fiscal {
-                        width: $px-35;
+                        width: px(35);
                     }
                 }
             }
@@ -148,11 +148,11 @@ footer {
                 p {
                     text-align: right;
                     width: 100%;
-                    margin: -$px-6 0 0 0;
+                    margin: -px(6) 0 0 0;
                     display: block;
                     a {
                         float: right;
-                        margin-top: $px-8;
+                        margin-top: px(8);
                     }
                 }
             }
@@ -174,27 +174,27 @@ footer {
                 }
                 .gda {
                     font-family: Arial, "sans-serif";
-                    font-size: $font-14;
-                    line-height: $px-20;
+                    font-size: px(14);
+                    line-height: px(20);
                     display: flex;
                     justify-content: center;
                     @media (max-width: 1023px) {
                         align-items: center;
                     }
                     .img_gda {
-                        height: $px-15;
+                        height: px(15);
                     }
                 }
                 .data-fiscal {
                     .img_data-fiscal {
-                        width: $px-35;
+                        width: px(35);
                     }
                 }
             }*/
         }
         .footer-copyright__reserved {
-            font-size: $font-14;
-            line-height: $px-24;
+            font-size: px(14);
+            line-height: px(24);
             color: $gris5;
             text-align: center;
             @media ($media-l) {

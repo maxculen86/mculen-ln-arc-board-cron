@@ -1,39 +1,39 @@
 @import '../abstracts/variables';
 
 .comments {
-    margin-top: $px-20;
-    padding-top: $px-50;
+    margin-top: px(20);
+    padding-top: px(50);
     border-top: 1px solid $gris3;
 
     .comment-title {
         position: relative;
         text-transform: uppercase;
-        margin-bottom: $px-10;
+        margin-bottom: px(10);
         font-family: $font-SuecaSlab;
-        font-size: $font-17;
+        font-size: px(17);
 
         b {
             font-weight: 700;
         }
     }
     .comment-legal {
-        line-height: $line-14;
-        font-size: $font-14;
+        line-height: px(21);
+        font-size: px(14);
     }
     .comment-reminder {
         background: #ffffbf;
-        font-size: $font-14;
+        font-size: px(14);
         text-align: center;
         color: $gris5;
-        margin: $px-20 0;
-        padding: $px-25 0;
+        margin: px(20) 0;
+        padding: px(25) 0;
     }
     .item_link {
-        font-size: $font-15;
-        line-height: $font-30;
+        font-size: px(15);
+        line-height: px(30);
         color: $link;
         background: none;
-        margin-left: $px-15;
+        margin-left: px(15);
     }
     &.arrow-down {
         .ver-legales {
@@ -41,9 +41,9 @@
             &:after {
                 font-family: $font-icons;
                 content: '\e906';
-                font-size: $font-18;
+                font-size: px(18);
                 position: absolute;
-                top: $px-2;
+                top: px(2);
                 right: -1.25rem;
             }
         }
@@ -55,9 +55,9 @@
                 transform: rotate(180deg);
                 font-family: $font-icons;
                 content: '\e906';
-                font-size: $font-18;
+                font-size: px(18);
                 position: absolute;
-                top: $px-2;
+                top: px(2);
                 right: -1.25rem;
             }
         }
@@ -68,9 +68,9 @@
     .comments {
         .comment-title {
             text-transform: uppercase;
-            margin-bottom: $px-10;
+            margin-bottom: px(10);
             font-family: $font-SuecaSlab;
-            font-size: $font-14;
+            font-size: px(14);
         }
     }
 }

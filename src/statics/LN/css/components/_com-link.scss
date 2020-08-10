@@ -104,9 +104,9 @@
         &.--highlight {
             margin-right: px(35);
             font-family: $font-arial;
-            font-size: $font-12;
+            font-size: px(12);
             font-weight: bold;
-            padding: $px-10 $px-24;
+            padding: px(10) px(24);
             text-transform: uppercase;
             border-radius: 3px;
             transition: opacity 0.2s ease-in-out;

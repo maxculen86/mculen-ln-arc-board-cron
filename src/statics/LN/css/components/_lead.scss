@@ -5,9 +5,9 @@
 .com-lead-nota {
     //no hay nada definido en mobile
     font-family: $font-arial;
-    font-size: $font-17;
-    line-height: $line-23;
-    margin-bottom: $px-32;
+    font-size: px(17);
+    line-height: px(30);
+    margin-bottom: px(32);
     &:empty {
         display: none;
     }
@@ -25,8 +25,8 @@
 @media (min-width: 1280px) {
     .com-lead-nota {
         font-family: $font-arial;
-        font-size: $font-19;
-        line-height: $line-23;
+        font-size: px(19);
+        line-height: px(30);
     }
 }
 

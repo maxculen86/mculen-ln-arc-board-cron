@@ -2,32 +2,32 @@
 .nota {
     &.noticia {
         .com-cita {
-            padding: 0 $px-20;
+            padding: 0 px(20);
             border: solid 1px $gris3;
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
             align-items: center;
             position: relative;
-            margin-bottom: $px-40;
+            margin-bottom: px(40);
             width: 100%;
             @media (min-width: 768px) {
-                padding: 0 $px-30;
+                padding: 0 px(30);
                 flex-direction: row;
                 align-items: stretch;
             }
             &.autor {
                 .cont-figure {
-                    width: $px-100;
+                    width: px(100);
                     background: $blanco;
                     position: relative;
-                    padding: $px-30 0 $px-20 0;
+                    padding: px(30) 0 px(20) 0;
                     @media (min-width: 768px) {
-                        padding: $px-30 0;
+                        padding: px(30) 0;
                     }
                     &::after {
                         content: '';
-                        width: $px-100;
+                        width: px(100);
                         height: 1px;
                         background: #000;
                         position: absolute;
@@ -35,11 +35,11 @@
                         top: 0;
                     }
                     .figure {
-                        width: $px-100;
-                        height: $px-100;
+                        width: px(100);
+                        height: px(100);
                         .content-pic {
-                            width: $px-100;
-                            height: $px-100;
+                            width: px(100);
+                            height: px(100);
                             border-radius: 50%;
                             &::after {
                                 display: none;
@@ -60,20 +60,20 @@
                     }
                 }
                 .cont-cita {
-                    //padding: $px-10 0 $px-30 0; como viene sin imagenes se le corrige el padding
-                    padding: $px-20 0;
+                    //padding: px(10) 0 px(30) 0; como viene sin imagenes se le corrige el padding
+                    padding: px(20) 0;
                     display: flex;
                     flex-wrap: wrap;
                     @media (min-width: 768px) {
-                        //padding: $px-30 0 $px-30 $px-30; como viene sin imagenes se le corrige el padding
-                        padding: $px-30 0;
+                        //padding: px(30) 0 px(30) px(30); como viene sin imagenes se le corrige el padding
+                        padding: px(30) 0;
                     }
                     .title-cita {
                         width: 100%;
                         text-align: center;
                         .text {
                             font-family: $font-SuecaSlab;
-                            font-size: $font-24;
+                            font-size: px(24);
                         }
                         @media (min-width: 768px) {
                             text-align: left;
@@ -89,7 +89,7 @@
                         width: 100%;
                         .nombre-firma {
                             font-weight: 700;
-                            margin-right: $px-5;
+                            margin-right: px(5);
                         }
                     }
                     .cont-data-firma {
@@ -102,12 +102,12 @@
                         width: 100%;
                         .fecha-firma {
                             color: #6e6e6e;
-                            font-size: $font-14;
-                            margin-right: $px-5;
+                            font-size: px(14);
+                            margin-right: px(5);
                         }
                         .lugar-firma {
                             color: #6e6e6e;
-                            font-size: $font-14;
+                            font-size: px(14);
                         }
                     }
                 }

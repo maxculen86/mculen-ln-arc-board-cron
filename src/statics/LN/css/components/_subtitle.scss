@@ -4,32 +4,32 @@
 
 .com-subtitle-nota-1 {
     font-family: $font-SuecaSlab;
-    font-size: $font-22;
+    font-size: px(22);
     font-weight: 700;
-    line-height: $px-32;
+    line-height: px(32);
 }
 
 .com-subtitle-nota-2 {
     font-family: $font-arial;
-    font-size: $font-16;
+    font-size: px(16);
     font-weight: 800;
-    line-height: $line-16;
+    line-height: px(23);
     letter-spacing: -0.21px;
 }
 
 .com-subtitle-nota-3 {
     font-family: $font-arial;
-    font-size: $font-16;
+    font-size: px(16);
     font-weight: 700;
-    line-height: $line-24;
+    line-height: px(31);
     .sidebar__main .com-tag & {
-        margin-bottom: $px-10;
+        margin-bottom: px(10);
     }
 }
 
 [class^='com-subtitle'] {
     // Se agrega porque en amp quedan pegados los subtitulos
-    margin-bottom: $px-16;
+    margin-bottom: px(16);
     width: 100%;
 }
 
@@ -37,11 +37,11 @@
 @media (min-width: 768px) {
     .com-subtitle-nota-2 {
         font-family: $font-SuecaSlab;
-        font-size: $font-22;
+        font-size: px(22);
         font-weight: 600;
-        line-height: $line-22;
+        line-height: px(29);
         letter-spacing: 0px;
-        margin-bottom: $px-16;
+        margin-bottom: px(16);
     }
 }
 
@@ -49,15 +49,15 @@
 @media (min-width: 1025px) {
     .com-subtitle-nota-1 {
         font-family: $font-SuecaSlab;
-        font-size: $font-24;
+        font-size: px(24);
         font-weight: 700;
-        line-height: $line-24;
+        line-height: px(31);
     }
     .com-subtitle-nota-2 {
         font-family: $font-SuecaSlab;
-        font-size: $font-24;
+        font-size: px(24);
         font-weight: 500;
-        line-height: $line-24;
+        line-height: px(31);
     }
 }
 

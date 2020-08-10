@@ -56,11 +56,11 @@
         content: $logo;
         color: $primario;
         opacity: 0.2;
-        font-size: $font-35;
+        font-size: px(35);
     }
     @media (min-width: 1023px) {
         .row-gap-deskxl-2 .cont-figure .figure .content-pic:before {
-            font-size: $font-65;
+            font-size: px(65);
         }
     }
     .com-tag a {

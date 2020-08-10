@@ -4,7 +4,7 @@
     align-content: flex-start;
     flex-direction: column;
     .com-ranking & {
-        margin-bottom: $px-40;
+        margin-bottom: px(40);
     }
     a:hover {
         color: $ln;
@@ -26,37 +26,37 @@
         }
     }
     &.--list {
-        margin-bottom: $px-40;
+        margin-bottom: px(40);
 
         @media ($media-m) {
             flex-direction: row;
             .cont-figure {
                 min-width: 213px;
-                margin-right: $px-20;
+                margin-right: px(20);
             }
         }
     }
     //agrega borde a la caja y un padding al texto
     &.--border {
-        border: $px-1 solid $gris2;
+        border: px(1) solid $gris2;
         .mod-caja-nota__descrip {
-            padding: $px-8 $px-15;
+            padding: px(8) px(15);
             h2 {
                 margin-top: 0;
             }
             @media ($media-m) {
-                padding: $px-13 $px-21 $px-20 $px-18;
+                padding: px(13) px(21) px(20) px(18);
             }
         }
     }
     //le agrega un padding al texto en mobile
     &.w-100-mobile {
         .mod-caja-nota__descrip {
-            padding-left: $px-10;
-            padding-right: $px-10;
+            padding-left: px(10);
+            padding-right: px(10);
             @media ($media-s) {
-                padding-left: $px-20;
-                padding-right: $px-20;
+                padding-left: px(20);
+                padding-right: px(20);
             }
             @media ($media-m) {
                 padding-left: 0;
@@ -66,7 +66,7 @@
         &.--border {
             .mod-caja-nota__descrip {
                 @media ($media-m) {
-                    padding: $px-15;
+                    padding: px(15);
                 }
             }
         }
@@ -74,26 +74,26 @@
 }
 
 .more-articles {
-    margin-bottom: $px-32;
+    margin-bottom: px(32);
     .com-title-section-l {
-        margin-bottom: $px-24;
-        line-height: $line-24;
+        margin-bottom: px(24);
+        line-height: px(31);
     }
     > section {
-        margin-bottom: $px-40;
+        margin-bottom: px(40);
     }
 }
 
 .interest {
-    padding-top: $px-40;
+    padding-top: px(40);
     border-top: 1px solid $gris3;
     .com-title-section-l {
-        margin-bottom: $px-24;
+        margin-bottom: px(24);
         line-height: px(32);
         font-size: px(24);
     }
     > section {
-        margin-bottom: $px-40;
+        margin-bottom: px(40);
     }
 }
 

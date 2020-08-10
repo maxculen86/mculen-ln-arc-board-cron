@@ -5,7 +5,7 @@
 .com-search {
     position: relative;
     &__input {
-        padding: $px-10;
+        padding: px(10);
         border: 1px solid $gris3;
         border-radius: 3px;
         position: relative;
@@ -14,14 +14,14 @@
         width: 191px;
     }
     &__submit {
-        margin-left: $px-10;
+        margin-left: px(10);
         display: none;
     }
     .icon-search {
         position: ABSOLUTE;
         left: 160px;
         z-index: 150;
-        font-size: $font-26;
-        top: $px-6;
+        font-size: px(26);
+        top: px(6);
     }
 }
