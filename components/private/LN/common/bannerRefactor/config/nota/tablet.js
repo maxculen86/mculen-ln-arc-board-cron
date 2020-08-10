@@ -8,6 +8,12 @@ const tab_728x90_sizes = [
     [728, 90],
     [300, 250]
 ];
+const tab_middle_sizes = [
+    [728, 90],
+    [640, 480],
+    [468, 60],
+    [1, 1]
+];
 
 export default {
     '1x1_tab': {
@@ -254,7 +260,9 @@ export default {
         slotName: 'la_nacion_tablet/Nota/middle_1_tab',
         dimensions: [
             [728, 90],
-            [300, 250]
+            [640, 480],
+            [468, 60],
+            [1, 1]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -262,7 +270,7 @@ export default {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: tab_728x90_sizes
+                        sizes: tab_middle_sizes
                     }
                 },
                 bids: [
@@ -309,7 +317,9 @@ export default {
         slotName: 'la_nacion_tablet/Nota/middle_2_tab',
         dimensions: [
             [728, 90],
-            [300, 250]
+            [640, 480],
+            [468, 60],
+            [1, 1]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -317,7 +327,7 @@ export default {
                 enabled: true,
                 mediaTypes: {
                     banner: {
-                        sizes: tab_728x90_sizes
+                        sizes: tab_middle_sizes
                     }
                 },
                 bids: [
