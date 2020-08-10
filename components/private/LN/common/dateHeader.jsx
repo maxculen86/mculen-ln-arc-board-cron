@@ -6,7 +6,7 @@ const DateHeader = ({ display_date, labelEdicionImpresa }) => {
     const { text: textEdicionImpresa } = labelEdicionImpresa || {};
     const { date, time } = dateAndTimeUtil(display_date);
     return date && time ? (
-        <p className="com-date">
+        <p className="com-date --threexs">
             {`${date}${textEdicionImpresa !== 'Impresa' ? ` • ${time}` : ''}`}
         </p>
     ) : null;

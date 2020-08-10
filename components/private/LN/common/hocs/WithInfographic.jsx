@@ -19,14 +19,13 @@ export default function WithInfographic(WrappedComponent) {
 
             constructor(props) {
                 super(props);
-                this.state = {
-                    content: {}
-                };
-                this.getContent = this.getContent.bind(this);
+                this.state = this.getContent();
+                //this.getContent = this.getContent.bind(this);
             }
 
             componentDidMount() {
-                this.getContent();
+                //Si es AMP no pasa por aca (por eso ahora lo pase al constructor)
+                //this.getContent();
             }
 
             getContent = () => {
@@ -35,25 +34,37 @@ export default function WithInfographic(WrappedComponent) {
                     globalContent || {};
                 const { basic } = promoItems || {};
                 const { type: contentType, content, _id } = basic || '';
+                let result = {};
                 if (
                     type === 'story' &&
                     subtype === '2' &&
                     content &&
                     contentType === 'raw_html'
                 ) {
-                    const result =
+                    result =
                         outputType === 'amp'
                             ? content
-                                  .replace(/<iframe/gim, '<amp-iframe')
-                                  .replace(/<\/iframe/gim, '</amp-iframe')
+                                  .match(/src="(.*?)"/g)
+                                  .map(val => {
+                                      return val
+                                          .replace(/src=/g, '')
+                                          .replace(/\"/g, '');
+                                  })
+                                  .join()
+                                  //.replace(/<iframe/gim, '<amp-iframe')
+                                  //.replace(/<\/iframe/gim, '</amp-iframe')
                             : content;
-
-                    this.setState({
+                    /*this.setState({
                         content: result,
                         outputType,
                         _id
-                    });
+                    });*/
                 }
+                return {
+                    content: result,
+                    outputType,
+                    _id
+                };
             };
 
             render() {

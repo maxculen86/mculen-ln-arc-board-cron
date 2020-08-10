@@ -3,9 +3,23 @@ import PropTypes from 'fusion:prop-types';
 import dateAndTimeUtil from '../common/utils/dateAndTimeUtil';
 import '../../../resources/dist/css/ln/components/com-hour.css';
 
-const ComHour = ({ display_date }) => {
+const ComHour = ({ display_date, labelEdicionImpresa }) => {
+    const { text: textEdicionImpresa } = labelEdicionImpresa || {};
     const { time } = dateAndTimeUtil(display_date);
-    return <time className="com-hour --threexs">{time}</time>;
+    return (
+        <>
+            {textEdicionImpresa !== 'Impresa' ? (
+                <time className="com-hour --threexs">{time}</time>
+            ) : (
+                <></>
+            )}
+        </>
+    );
+};
+
+ComHour.propTypes = {
+    display_date: PropTypes.string.isRequired,
+    labelEdicionImpresa: PropTypes.string
 };
 
 export default ComHour;

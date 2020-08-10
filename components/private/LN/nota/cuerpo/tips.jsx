@@ -15,7 +15,7 @@ const Tips = props => {
         <>
             {len > 0 ? (
                 <div className="com-tip">
-                    <ComTitle tag="h4" size="l" content={title} />
+                    <ComTitle tag="h4" size="--l" content={title} />
                     {paragraphs &&
                         paragraphs.map(paragraph =>
                             paragraph.element.type === 'header' ? (

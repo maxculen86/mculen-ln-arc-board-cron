@@ -34,7 +34,7 @@ const Sections = props => {
             <div className="col-12">
                 <>
                     {temas && listSectionsDespues.length > 0 && (
-                        <ComTitle size="l" tag="h4" content="Temas" />
+                        <ComTitle size="--l" tag="h4" content="Temas" />
                     )}
                     {listSectionsDespues && (
                         <TaxonomyComponent

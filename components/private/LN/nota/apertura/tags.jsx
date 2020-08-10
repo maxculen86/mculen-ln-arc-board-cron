@@ -17,7 +17,7 @@ const Tags = ({ tags, destacado, temas }) => {
                 <div className="row">
                     <div className="col-12">
                         {listTags.length > 0 && (
-                            <ComTitle size="l" tag="h4" content="Temas" />
+                            <ComTitle size="--l" tag="h4" content="Temas" />
                         )}
                         {listTags ? (
                             <TaxonomyComponent

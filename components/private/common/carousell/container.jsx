@@ -33,6 +33,7 @@ const Carousell = ({ slider, children, itsGallery, active, arcSite }) => {
                     <ComButton
                         onClick={slider.prevButtonHandler}
                         classCondition="icon-left"
+                        size="--sixxs"
                     />
                 )}
                 {children}
@@ -41,6 +42,7 @@ const Carousell = ({ slider, children, itsGallery, active, arcSite }) => {
                     <ComButton
                         onClick={slider.nextButtonHandler}
                         classCondition="icon-right"
+                        size="--sixxs"
                     />
                 )}
             </div>

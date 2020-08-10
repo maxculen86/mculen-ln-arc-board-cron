@@ -2,7 +2,7 @@
 
 exports[`TitleSection matches snapshot 1`] = `
 <h2
-  class="com-title-section-m"
+  class="com-title --l "
 >
   Sample title
 </h2>
