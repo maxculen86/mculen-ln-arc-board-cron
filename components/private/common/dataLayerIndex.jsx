@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import NotaDataLayer from '../LN/nota/dataLayer';
+import NotaDataLayer from '../LN/nota/dataLayer/dataLayer';
 
 const config = {
     OTT: {},

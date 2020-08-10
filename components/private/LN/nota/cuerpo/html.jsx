@@ -22,7 +22,7 @@ const Html = props => {
     return parser.current
         .parseFromString(content, 'text/html')
         .querySelectorAll('iframe.pym').length ? (
-        <HtmlPym data={data} />
+         <HtmlPym data={data} />
     ) : (
         <div
             className="com-embed --html"
