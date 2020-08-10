@@ -5,6 +5,7 @@ const dataLayerScriptNota = globalContent => {
     const { content_restrictions } = globalContent;
     const valor =
         (content_restrictions && content_restrictions.content_code) || 'comun';
+    // TODO: por ahora fijo nota, pero en el futuro debe ser dinamico segun sea home, acu o nota
     const pageType = 'nota';
     const pageTypeText = 'nota';
     const { subtipo } = useSubtype();

@@ -11,12 +11,6 @@ const dataLayer = props => {
 
     const { subtipo } = useSubtype();
     const scriptDataLayer = subtipo.execute('getDataLayer', globalContent);
-    /*
-    let scriptDataLayer = dataLayerForNota(globalContent);
-    if (subtype === '7') {
-        scriptDataLayer = dataLayerForReceta;
-    }
-    */
 
     return (
         <script
