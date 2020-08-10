@@ -75,6 +75,8 @@ const ErrorPage = ({ siteProperties: { host } }) => (
     </div>
 );
 
+ErrorPage.sections = [];
+
 ErrorPage.propTypes = {
     siteProperties: PropTypes.shape({
         host: PropTypes.string

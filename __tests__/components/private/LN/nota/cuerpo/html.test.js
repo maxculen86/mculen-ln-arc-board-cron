@@ -86,7 +86,7 @@ describe('Private - LN - nota - cuerpo - <Html />', () => {
 
         const component = shallow(<Html {...setContent(__html)} />);
         expect(component.exists()).toBeTruthy();
-        expect(component.hasClass('--html')).toBeTruthy();
+        expect(component.render().hasClass('--html')).toBeTruthy();
         const content = component
             .render()
             .children()
