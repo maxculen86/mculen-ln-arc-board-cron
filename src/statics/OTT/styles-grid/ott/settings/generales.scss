@@ -15,6 +15,7 @@
     padding-top: 56.25%;
     @include flex;
     @include just-center;
+
     position: relative;
     height: 0;
     width: 100%;
@@ -74,7 +75,7 @@ a {
 [class*=' icon-']:before,
 [class^='icon-']:before,
 [data-icon]:before {
-    font-family: ln10;
+    font-family: 'ln10';
     font-style: normal;
     font-weight: 400;
     font-variant: normal;
@@ -84,10 +85,10 @@ a {
     -moz-osx-font-smoothing: grayscale;
 }
 
-::-moz-selection {
+/* ::-moz-selection {
     color: $blanco;
     background: #06edf8;
-}
+} */
 
 ::selection {
     color: $blanco;

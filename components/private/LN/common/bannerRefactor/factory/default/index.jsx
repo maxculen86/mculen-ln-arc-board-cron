@@ -114,6 +114,8 @@ function getBannerForStoryTemplate(config) {
             return createElement(withCommentsEnabledConstraint(Default), {
                 ...config
             });
+        case MIDDLE_1_DSK:
+        case MIDDLE_2_DSK:
         case MIDDLE_3_DSK:
             return createElement(withNonSubscribersConstraint(Default), {
                 ...config
@@ -137,8 +139,6 @@ function getBannerForStoryTemplate(config) {
         case CAJA_4_MOB:
         case CAJA_5_MOB:
         case INREAD_DSK:
-        case MIDDLE_1_DSK:
-        case MIDDLE_2_DSK:
         case STICKY_2_MOB:
             return <Default {...config} />;
         default:

@@ -1,5 +1,5 @@
-import ArticleHtmlContent from '../../../../../../../__mocks__/data/nota/cuerpo/htmlContent/htmlContent.json';
-import HtmlContent from '../../../../../../../components/private/LN/api/v1/nota/cuerpo/htmlContent';
+import ArticleHtmlContent from '../../../../../../../../__mocks__/data/nota/cuerpo/htmlContent/htmlContent.json';
+import HtmlContent from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/htmlContent';
 
 describe('Test de htmlContent en el cuepo de nota', () => {
     it('Verificar en caso que el contenido html sea null', () => {

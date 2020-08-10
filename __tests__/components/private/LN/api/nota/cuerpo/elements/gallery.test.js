@@ -1,8 +1,8 @@
-import ArticleGallery from '../../../../../../../__mocks__/data/nota/cuerpo/gallery/gallery.json';
-import ArticleGalleryNoImages from '../../../../../../../__mocks__/data/nota/cuerpo/gallery/galleryNoImages.json';
+import ArticleGallery from '../../../../../../../../__mocks__/data/nota/cuerpo/gallery/gallery.json';
+import ArticleGalleryNoImages from '../../../../../../../../__mocks__/data/nota/cuerpo/gallery/galleryNoImages.json';
 
-import Gallery from '../../../../../../../components/private/LN/api/v1/nota/cuerpo/gallery';
-import { dateAndTimeForAppsUtil } from '../../../../../../../components/private/common/utils/dateAndTimeUtil';
+import Gallery from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/gallery';
+import { dateAndTimeForAppsUtil } from '../../../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 describe('Test de la galeria en el cuerpo de una nota', () => {
     it('Test de galerias si es null', () => {

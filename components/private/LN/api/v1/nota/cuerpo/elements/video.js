@@ -1,4 +1,4 @@
-import Video from '../video';
+import Video from '../../video';
 
 const video = videoData => {
     if (!videoData) return null;
