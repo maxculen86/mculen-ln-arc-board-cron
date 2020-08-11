@@ -23,7 +23,7 @@ describe('Test de JSON de notas relacionadas en article', () => {
         expect(relatedNote.volanta).toBeUndefined();
     });
 
-    it('Valor de categoria en caso de ser null', () => {
+    it('Valor en caso de ser null', () => {
         const relatedNote = NotaRelacionadas(null);
         expect(relatedNote).toBe(null);
     });

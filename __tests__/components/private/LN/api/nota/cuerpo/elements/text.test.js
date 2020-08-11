@@ -1,5 +1,5 @@
-import Text from '../../../../../../../components/private/LN/api/v1/nota/cuerpo/text';
-import ArticleText from '../../../../../../../__mocks__/data/nota/cuerpo/text/text.json';
+import Text from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/text';
+import ArticleText from '../../../../../../../../__mocks__/data/nota/cuerpo/text/text.json';
 
 describe('Test Json Text del cuerpo de la nota', () => {
     it('Test para validar si el campo es null', () => {

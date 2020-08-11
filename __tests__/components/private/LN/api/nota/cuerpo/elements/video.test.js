@@ -1,5 +1,5 @@
-import Video from '../../../../../../../components/private/LN/api/v1/nota/cuerpo/video';
-import ArticleVideo from '../../../../../../../__mocks__/data/nota/cuerpo/video/video.json';
+import Video from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/video';
+import ArticleVideo from '../../../../../../../../__mocks__/data/nota/cuerpo/video/video.json';
 
 describe('Test de json de imagen en el cuerpo de la nota', () => {
     it('Si se le pasa un valor null a las video', () => {

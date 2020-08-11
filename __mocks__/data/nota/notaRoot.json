@@ -249,6 +249,16 @@
             "text": "soy la volanta",
             "display": true
         },
+        "mostrar_banners": {
+            "url": "",
+            "text": "Si",
+            "display": true
+        },
+        "enviar_a_apps": {
+            "url": "",
+            "text": "Si",
+            "display": true
+        },
         "livefyre_entrada_id": {
             "text": "841900",
             "display": true

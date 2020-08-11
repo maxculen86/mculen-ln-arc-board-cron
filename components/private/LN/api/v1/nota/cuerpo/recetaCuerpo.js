@@ -1,4 +1,4 @@
-import CustomRecetaList from './customRecetaList';
+import CustomRecetaList from './elements/customRecetaList';
 import DefaultCuerpo from './defaultCuerpo';
 
 const recetaCuerpo = contentElements => {

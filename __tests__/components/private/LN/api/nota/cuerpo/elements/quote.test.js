@@ -1,5 +1,5 @@
-import ArticleQuote from '../../../../../../../__mocks__/data/nota/cuerpo/quote/quote.json';
-import Quote from '../../../../../../../components/private/LN/api/v1/nota/cuerpo/quote';
+import ArticleQuote from '../../../../../../../../__mocks__/data/nota/cuerpo/quote/quote.json';
+import Quote from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/quote';
 
 describe('Test de quote en el cuepo de nota', () => {
     it('Verificar en caso que la cita sea null', () => {
