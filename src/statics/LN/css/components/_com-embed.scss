@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .com-embed {
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     &.--youtube,
     &.--vimeo {
         iframe {

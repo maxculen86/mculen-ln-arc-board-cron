@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .mod-sponsor {
-    margin-bottom: px(16);
+    margin-bottom: $spacing-sm;
     align-items: center;
     display: flex;
     .com-logo {

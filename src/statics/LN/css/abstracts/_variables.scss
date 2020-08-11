@@ -1,3 +1,7 @@
+//pixel
+$em: 0.0625em; //1px
+$rem: 0.0625rem; //1px
+
 @function px($base, $exponent: 1) {
     // px(16)
     $result: 0.0625;
@@ -10,7 +14,7 @@
 /* COLUMNAS*/
 $cant-col: 12; //Cantidad de columnas
 $col-width: 100 / $cant-col; //Ancho de columnas
-$scroll-width: 1.063rem; //17px
+$scroll-width: px(17);
 
 /* COLORES */
 
@@ -71,9 +75,7 @@ $font-arial: 'Arial', 'sans-serif';
 $font-icons: 'LNicons';
 //espacio de interletrado
 $letter-spacing: -0.4px;
-//pixel
-$em: 0.0625em; //1px
-$rem: 0.0625rem; //1px
+
 //=======================================
 // Media Queries
 //=======================================
@@ -109,7 +111,7 @@ $logo-jardin: '\e805';
 $logo-rolling: '\e80e';
 $logo-bbc: '\e900';
 
-$spacing: 8px;
+$spacing: $rem * 8;
 $spacing-2xs: $spacing / 2; //4px
 $spacing-xs: $spacing * 1; //8px
 $spacing-sm: $spacing * 2; //16px

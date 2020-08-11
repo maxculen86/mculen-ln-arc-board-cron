@@ -16,13 +16,13 @@
     padding-left: 0;
     list-style: none;
     width: 100%;
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     .com-item {
         padding-left: 1em;
         font-family: $font-arial;
         font-size: px(16);
         line-height: px(37);
-        margin-bottom: px(8);
+        margin-bottom: $spacing;
         color: $negro;
         position: relative;
         &::first-letter {

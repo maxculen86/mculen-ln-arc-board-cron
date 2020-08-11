@@ -8,7 +8,7 @@
                 &.contain-vertical {
                     .content-pic {
                         &.picture {
-                            padding-top: calc((2 / 3) * 100%);
+                            padding-top: $picture;
                         }
                     }
                 }

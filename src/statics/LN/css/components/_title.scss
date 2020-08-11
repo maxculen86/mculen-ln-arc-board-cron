@@ -67,7 +67,7 @@ h1.com-title-nota {
     margin-bottom: px(20);
     @media (min-width: 1024px) {
         margin-top: 0;
-        margin-bottom: px(16);
+        margin-bottom: $spacing-sm;
     }
 }
 

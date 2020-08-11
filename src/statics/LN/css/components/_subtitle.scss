@@ -29,7 +29,7 @@
 
 [class^='com-subtitle'] {
     // Se agrega porque en amp quedan pegados los subtitulos
-    margin-bottom: px(16);
+    margin-bottom: $spacing-sm;
     width: 100%;
 }
 
@@ -41,7 +41,7 @@
         font-weight: 600;
         line-height: px(29);
         letter-spacing: 0px;
-        margin-bottom: px(16);
+        margin-bottom: $spacing-sm;
     }
 }
 

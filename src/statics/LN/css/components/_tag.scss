@@ -1,6 +1,6 @@
 @import '../abstracts/variables';
 .com-tag {
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     a {
         font-family: $font-arial;
         font-size: px(12);
@@ -83,7 +83,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     border-bottom: 1px solid $gris3;
-    margin-bottom: px(16);
+    margin-bottom: $spacing-sm;
 
     .com-title-section-xl {
         text-decoration: none;

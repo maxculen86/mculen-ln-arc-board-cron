@@ -4,7 +4,7 @@
 .mod-opening {
     .--storytelling & {
         margin-top: px(-45); //header mobile
-        margin-bottom: px(32);
+        margin-bottom: $spacing-lg;
         position: relative;
         @media ($media-l) {
             margin-top: px(-65); //header
@@ -86,12 +86,12 @@
 
             [class*='logo-'] {
                 margin: 0;
-                margin-bottom: px(8);
+                margin-bottom: $spacing;
                 &::before {
                     color: $blanco;
                 }
                 @media ($media-m) {
-                    margin-bottom: px(16);
+                    margin-bottom: $spacing-sm;
                 }
             }
 
@@ -130,7 +130,7 @@
             margin-top: px(8);
             .--credit,
             .--caption {
-                margin-bottom: px(8);
+                margin-bottom: $spacing;
             }
         }
     }

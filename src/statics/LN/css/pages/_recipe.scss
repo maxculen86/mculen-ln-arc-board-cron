@@ -40,7 +40,7 @@
                 .mod-picture {
                     width: 100%;
                     margin: 0;
-                    padding-top: calc((2 / 3) * 100%);
+                    padding-top: $picture;
                     img {
                         position: absolute;
                         top: 0;

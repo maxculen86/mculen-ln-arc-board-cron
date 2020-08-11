@@ -7,7 +7,7 @@
     font-family: $font-arial;
     font-size: px(17);
     line-height: px(30);
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     &:empty {
         display: none;
     }

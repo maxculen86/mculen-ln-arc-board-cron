@@ -300,7 +300,7 @@ a.icon-cerrar:before {
 amp-carousel {
     width: calc(100% + 2.5rem);
     margin-left: -1.25rem;
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
 
     @media (min-width: 769px) {
         width: auto;
@@ -376,7 +376,7 @@ amp-social-share {
         .col-1 {
             flex: auto;
             max-width: none;
-            margin-bottom: px(16);
+            margin-bottom: $spacing-sm;
             .com-share {
                 display: block;
                 position: relative;
@@ -397,7 +397,7 @@ amp-social-share {
 }
 
 .com-embed {
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     amp-youtube,
     amp-vimeo {
         @media (max-width: 375px) {

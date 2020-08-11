@@ -3,10 +3,10 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: px(18);
     line-height: px(30);
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     width: 100%;
     &.element-paragraph:last-of-type {
-        margin-bottom: px(32);
+        margin-bottom: $spacing-lg;
         .blockquote & {
             margin-bottom: 0;
         }

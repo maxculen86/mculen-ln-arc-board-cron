@@ -8,17 +8,15 @@
     transition: all 0.2s ease-in-out;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
-    margin-bottom: px(8);
+    margin-bottom: $spacing;
 
     //100% mobile
-    width: calc(100% + 2.5rem);
-    margin-left: -1.25rem;
+    @include fullwidth;
 
     //100% ipad dentro de nota
     .mod-opening &,
     .cuerpo__nota & {
-        width: calc(100% + 2.5rem);
-        margin-left: -1.25rem;
+        @include fullwidth;
     }
 
     @media ($media-m) {
@@ -41,7 +39,7 @@
 
     .--slider.--slider & {
         display: flex;
-        padding-bottom: calc((2 / 3) * 100%);
+        padding-bottom: $picture;
         padding-top: initial;
         justify-content: center;
         background: $gris1;
@@ -96,7 +94,7 @@
 .mod-caja-nota,
 .--horizontal {
     .mod-picture {
-        padding-top: calc((2 / 3) * 100%);
+        padding-top: $picture;
     }
 }
 
