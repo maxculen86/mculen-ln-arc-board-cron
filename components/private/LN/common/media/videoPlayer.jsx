@@ -5,9 +5,11 @@ import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
 import AmpContainer from '../../../common/ampContainer';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import urlForPrerollAds from '../utils/urlForPrerollAds';
+import get from '../../../common/utils/get';
 
 const video = ({ videoId, mediaData, screenUtils, parrafo, tituloNota }) => {
     const { streams = [], promo_items } = mediaData;
+    const tituloVideo = get(mediaData, 'headlines.basic', '');
     if (streams.length === 0) return <div className="mod-video" />;
 
     const minStream = streams.reduce((prev, curr) =>
@@ -19,7 +21,11 @@ const video = ({ videoId, mediaData, screenUtils, parrafo, tituloNota }) => {
     return (
         <div className="mod-video">
             <AmpContainer isForAmp={false}>
-                <VideoPlayer videoId={videoId} adsURL={adsURL} />
+                <VideoPlayer
+                    videoId={videoId}
+                    adsURL={adsURL}
+                    tituloVideo={tituloVideo}
+                />
                 <VideoPlayerSnippet
                     parrafo={parrafo}
                     tituloNota={tituloNota}
