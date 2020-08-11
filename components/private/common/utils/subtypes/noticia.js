@@ -1,4 +1,4 @@
-import dataLayerScriptNota from '../../../LN/nota/dataLayer/dataLayerScriptNota';
+/* eslint-disable import/no-cycle */
 import generico from './generico';
 
 const noticia = {

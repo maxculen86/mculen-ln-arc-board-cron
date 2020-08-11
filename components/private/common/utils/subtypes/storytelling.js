@@ -1,11 +1,15 @@
-import dataLayerScriptNota from '../../../LN/nota/dataLayer/dataLayerScriptNota';
+/* eslint-disable import/no-cycle */
+import generico from './generico';
 
 const storytelling = {
     id: '5',
     nombre: 'Storytelling',
-    getDataLayer: globalContent => {
-        return dataLayerScriptNota(globalContent);
+    execute: (name, ...args) => {
+        return (
+            (storytelling[name] && storytelling[name](...args)) ||
+            (generico[name] && generico[name](...args))
+        );
     }
-}
+};
 
 export default storytelling;
