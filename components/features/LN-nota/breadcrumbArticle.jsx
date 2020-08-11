@@ -1,18 +1,10 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
-
 import BreadCrumbArticle from '../../private/LN/nota/breadcrumb/breadcrumbArticle';
+import withStatic from '../../private/common/hocs/withStatic';
 
-const breadCrumbArticle = props => {
-    const { id: featureId } = props;
-    return (
-        <Static id={featureId}>
-            <BreadCrumbArticle {...props} />
-        </Static>
-    );
-};
+const breadCrumbArticle = props => <BreadCrumbArticle {...props} />;
 
 breadCrumbArticle.label = 'LN-Nota-Breadcrumb';
 
-export default Consumer(breadCrumbArticle);
+export default withStatic(Consumer(breadCrumbArticle));
