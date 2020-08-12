@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
+// import Static from 'fusion:static';
 
 import TituloNota from '../../private/LN/nota/apertura/titleAndIconArticle';
-
+// TODO: Hacer de este componente <Static>
 const tituloNota = props => {
     const { id: featureId } = props;
 
-    return (
-        <Static id={featureId}>
-            <TituloNota {...props} />
-        </Static>
-    );
+    return <TituloNota {...props} />;
 };
 
 tituloNota.label = 'LN-Nota-Titulo';
