@@ -51,4 +51,6 @@ const OptaLayout = ({ children }) => {
     );
 };
 
+OptaLayout.sections = [];
+
 export default OptaLayout;

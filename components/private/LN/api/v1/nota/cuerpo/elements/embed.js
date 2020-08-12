@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import getEmbedHref from '../../../../../common/utils/getEmbedHref';
+import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
 
 const embed = embedData => {
     if (!embedData) return null;

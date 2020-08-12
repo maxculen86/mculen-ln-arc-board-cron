@@ -121,6 +121,8 @@ const transformContent = (jsonArticle, arcSite) => {
         });
     }
 
+    /* TODO: validar si related content debe ir vacio si tiene otros 
+    items diferentes a reference */
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((e, i) => {
             if (e.type === 'reference') {
@@ -171,19 +173,26 @@ const addGalleryData = (gallery, arcSite) => {
 };
 
 const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
+    const { _id: id } = anotherNoteData;
     return relatedSource
         .fetch({
-            id: anotherNoteData._id,
+            id,
             'arc-site': arcSite,
-            includedFields: 'headlines,label,website_url'
+            includedFields: 'headlines,label,website_url,type'
         })
         .then(fetchedRelated => {
-            const { headlines, label, website_url } = fetchedRelated;
+            const {
+                headlines,
+                label,
+                website_url: websiteUrl,
+                type
+            } = fetchedRelated;
             const resp = {
                 ...anotherNoteData,
                 headlines,
                 label,
-                website_url
+                website_url: websiteUrl,
+                type
             };
 
             return resp;

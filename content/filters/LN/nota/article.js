@@ -147,6 +147,11 @@ const labels = `
             text
             display
         }
+        enviar_a_apps{
+            url
+            text
+            display
+        }
         livefyre_entrada_id {
             ${label}
         }

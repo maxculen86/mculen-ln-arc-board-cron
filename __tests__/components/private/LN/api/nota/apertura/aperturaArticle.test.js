@@ -74,16 +74,16 @@ describe('Test de JSON de apertura en article', () => {
         const resp = Apertura(ArticleApertura[1]);
         const videoData = Video(ArticleApertura[1].promo_items.basic);
         expect(resp.multimedio).toMatchObject(videoData);
-        expect(resp.imagenes).toHaveLength(0);
+        expect(resp.imagenes).toBeUndefined();
     });
 
     it('Render en caso que promo_items no exista o este vacio', () => {
         const resp = Apertura(ArticleApertura[2]);
-        expect(resp.imagenes).toHaveLength(0);
+        expect(resp.imagenes).toBeUndefined();
         expect(resp.multimedio).toBeUndefined();
 
         const respEmpty = Apertura(ArticleApertura[3]);
-        expect(respEmpty.imagenes).toHaveLength(0);
+        expect(respEmpty.imagenes).toBeUndefined();
         expect(respEmpty.multimedio).toBeUndefined();
     });
 
