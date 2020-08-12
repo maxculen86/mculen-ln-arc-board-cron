@@ -69,7 +69,7 @@ const SnippetNoticia = props => {
             created_date: createdDate,
             first_publish_date: firstPublishDate,
             display_date: displayDate,
-            content_restrictions: { content_code: contentCode }
+            content_restrictions: { content_code: contentCode } = {}
         },
         contextPath,
         deployment
