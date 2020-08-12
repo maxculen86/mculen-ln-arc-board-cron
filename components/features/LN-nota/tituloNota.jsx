@@ -15,7 +15,7 @@ tituloNota.propTypes = {
             label: 'Prefijo',
             defaultValue: ''
         })
-    })
+    }).isRequired
 };
 
 export default withStatic(Consumer(tituloNota));
