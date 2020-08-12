@@ -7,6 +7,7 @@ const videosBody = contentElements =>
 
 const scriptVideoValidator = globalContent => {
     const contentElements = get(globalContent, 'content_elements');
+    const subtype = get(globalContent, 'subtype');
     const promoItems = get(globalContent, 'promo_items');
     const basicPromoItems = get(promoItems, 'basic');
     const storytellingPromoItems = get(promoItems, 'storytelling');
@@ -14,9 +15,10 @@ const scriptVideoValidator = globalContent => {
     const typeStorytelling = get(storytellingPromoItems, 'type');
 
     const loadVideo =
-        videosBody(contentElements) > 0 ||
-        typeBasic === 'video' ||
-        typeStorytelling === 'video';
+        (videosBody(contentElements) > 0 ||
+            typeBasic === 'video' ||
+            typeStorytelling === 'video') &&
+        subtype !== '8';
 
     return loadVideo;
 };
