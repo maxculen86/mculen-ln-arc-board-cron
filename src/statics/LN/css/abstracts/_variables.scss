@@ -2,13 +2,9 @@
 $em: 0.0625em; //1px
 $rem: 0.0625rem; //1px
 
-@function px($base, $exponent: 1) {
-    // px(16)
-    $result: 0.0625;
-    @for $_ from 1 through $exponent {
-        $result: $result * $base;
-    }
-    @return #{$result}rem;
+@function px($base) {
+    $result: $rem * $base;
+    @return $result;
 }
 
 /* COLUMNAS*/
@@ -17,7 +13,6 @@ $col-width: 100 / $cant-col; //Ancho de columnas
 $scroll-width: px(17);
 
 /* COLORES */
-
 $gris1: #f2f2f2;
 $gris2: #d9d9d9;
 $gris3: #cccccc;
