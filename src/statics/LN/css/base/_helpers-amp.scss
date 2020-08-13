@@ -62,28 +62,31 @@
 }
 
 .hlp-marginRight-35 {
-    margin-right: $px-35;
+    margin-right: px(35);
 }
 .hlp-marginBottom-40,
 .hlp-marginBottom-mobile-40 {
-    margin-bottom: $px-40;
+    margin-bottom: px(40);
 }
 .hlp-marginBottom-20 {
-    margin-bottom: $px-20;
+    margin-bottom: px(20);
 }
 //agrega borde a la caja y un padding al texto
 .--border {
-    border: $px-1 solid $gris2;
-    .mod-caja-nota__descrip {
-        padding: $px-8 $px-15;
-        h2 {
-            margin-top: 0;
-        }
-        @media (min-width: 1024px) {
-            padding: $px-8;
-        }
-        @media (min-width: 1100px) {
-            padding: $px-13 $px-21 $px-20 $px-18;
+    border: none;
+    @media ($media-m) {
+        border: px(1) solid $gris2;
+        .mod-caja-nota__descrip {
+            padding: px(8) px(15);
+            h2 {
+                margin-top: 0;
+            }
+            @media (min-width: 1024px) {
+                padding: px(8);
+            }
+            @media (min-width: 1100px) {
+                padding: px(13) px(21) px(20) px(18);
+            }
         }
     }
 }
