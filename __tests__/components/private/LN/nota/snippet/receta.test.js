@@ -51,26 +51,22 @@ describe('SNIPPET - La Nacion - Nota - Receta ', () => {
     };
 
     it('Test getDomain main site ', () => {
-        const domain = getDomain(props.arcSite, { _id: '/' });
-        expect(domain).toBe(undefined);
+        const domain = getDomain({ _id: '/' });
+        expect(domain).toBe('https://www.lanacion.com.ar');
     });
 
     it('Test getDomain child site ', () => {
-        const domain = getDomain(props.arcSite, { _id: '/recetas' });
-        expect(domain).toBe(
-            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/recetas'
-        );
+        const domain = getDomain({ _id: '/recetas' });
+        expect(domain).toBe('https://recetas.lanacion.com.ar');
     });
 
     it('Test getDomain child with website_url and no _id ', () => {
-        const domain = getDomain(props.arcSite, {
+        const domain = getDomain({
             _id: '/NVDUCEERNZHWFH66AFKFLJEHOE',
             website_url:
                 '/recetas/platos-de-comida-principal/risotto-con-alcauciles-y-frutos-de-mar-nid29102019-6/'
         });
-        expect(domain).toBe(
-            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com'
-        );
+        expect(domain).toBe('https://recetas.lanacion.com.ar');
     });
 
     it('Test Recipient Receta', () => {

@@ -488,10 +488,22 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
           "cookTime": "PT25M",
           "datePublished": "2020-04-24T14:35:53.021Z",
           "description": "Subtitulo de prueba",
-          "image": "undefined/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
+          "image": "https://www.lanacion.com.ar/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
           "keywords": "ajo, tomate perita",
           "name": "Nota recetas para Api test",
           "prepTime": "PT25M",
+          "publisher": Object {
+            "@type": "Organization",
+            "logo": Object {
+              "@context": "http://schema.org",
+              "@type": "ImageObject",
+              "height": 41,
+              "url": "undefinedundefined",
+              "width": 391,
+            },
+            "name": "Recetas La Nación",
+            "url": "https://recetas.lanacion.com.ar/recetas",
+          },
           "recipeIngredient": Array [
             "Ingrediente 1",
             "Ingrediente 2",
@@ -536,7 +548,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
   \\"totalTime\\": \\"PT25M\\",
   \\"datePublished\\": \\"2020-04-24T14:35:53.021Z\\",
   \\"description\\": \\"Subtitulo de prueba\\",
-  \\"image\\": \\"undefined/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg\\",
+  \\"image\\": \\"https://www.lanacion.com.ar/resizer/KKUwkn3fOAH9RsmFwoJFBFcvh54=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg\\",
   \\"recipeIngredient\\": [
     \\"Ingrediente 1\\",
     \\"Ingrediente 2\\",
@@ -566,7 +578,19 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
     }
   ],
   \\"recipeYield\\": \\"4 porciones\\",
-  \\"keywords\\": \\"ajo, tomate perita\\"
+  \\"keywords\\": \\"ajo, tomate perita\\",
+  \\"publisher\\": {
+    \\"@type\\": \\"Organization\\",
+    \\"name\\": \\"Recetas La Nación\\",
+    \\"url\\": \\"https://recetas.lanacion.com.ar/recetas\\",
+    \\"logo\\": {
+      \\"@context\\": \\"http://schema.org\\",
+      \\"@type\\": \\"ImageObject\\",
+      \\"url\\": \\"undefinedundefined\\",
+      \\"height\\": 41,
+      \\"width\\": 391
+    }
+  }
 }",
           }
         }
