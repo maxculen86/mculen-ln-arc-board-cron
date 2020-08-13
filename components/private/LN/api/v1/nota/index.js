@@ -56,8 +56,8 @@ const indexNota = dataNota => {
 
     const enviarApps = get(dataNota, 'label.enviar_a_apps');
     if (
-        !enviarApps ||
-        !enviarApps.text ||
+         enviarApps &&
+         enviarApps.text &&
         enviarApps.text.toLowerCase() == 'no'
     )
         resp.enviarApps = false;
