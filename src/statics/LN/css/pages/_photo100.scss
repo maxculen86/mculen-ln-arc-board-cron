@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 $header_h_desktop: px(65);
 $header_h_tablet: px(54);
@@ -26,12 +27,12 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 }
 
 @mixin padding_rl {
-    padding-right: px(8);
-    padding-left: px(8);
+    padding-right: $spacing;
+    padding-left: $spacing;
 
     @media ($media-s) {
-        padding-right: px(16);
-        padding-left: px(16);
+        padding-right: $spacing-sm;
+        padding-left: $spacing-sm;
     }
 
     @media ($media-l) {
@@ -51,12 +52,13 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 
         > .row {
             display: block;
-            margin-bottom: px(32);
+            margin-bottom: $spacing-lg;
 
             .com-paragraph,
             .element-paragraph,
             h2,
             h3,
+            .com-partner,
             .mod-date,
             .FirmaAutor,
             .com-unordered,
@@ -73,12 +75,12 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
             }
             .com-paragraph {
                 font-family: Georgia, 'Times New Roman', Times, serif;
-                margin-bottom: px(32);
+                margin-bottom: $spacing-lg;
             }
             .mod-figure {
                 cursor: default;
                 &::before {
-                    right: px(8);
+                    right: $spacing;
                 }
                 &:hover::before {
                     display: none;
@@ -96,14 +98,15 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 }
             }
 
-            .com-share {
+            .com-share,
+            .mod-share {
                 @media ($media-l) {
                     width: px(44);
                     padding: px(2);
                     background: rgba(255, 255, 255, 0.8);
                     left: auto;
                     right: auto;
-                    top: px(16);
+                    top: $spacing-sm;
 
                     display: block;
                     left: calc(((100% - #{$width_nota100_l}) / 2) - 140px);
@@ -119,16 +122,16 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 }
 
                 button {
-                    padding: px(8);
+                    padding: $spacing;
                 }
             }
 
             .mod-banner {
                 display: grid;
-                margin-bottom: px(32);
+                margin-bottom: $spacing-lg;
                 .com-banner {
                     &:first-child {
-                        margin-bottom: px(32);
+                        margin-bottom: $spacing-lg;
                     }
                     width: px(300);
                     height: px(250);
@@ -146,29 +149,35 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
     }
 
     &.--scrollUp {
-        main > .row .com-share {
-            @media ($media-l) {
-                top: calc(#{$spacing-xs} + #{$header_h_desktop});
+        main > .row {
+            .com-share,
+            .mod-share {
+                @media ($media-l) {
+                    top: calc(#{$spacing} + #{$header_h_desktop});
+                }
             }
         }
     }
 
     &.amp {
-        main > .row .com-share {
-            position: relative;
-            top: 0;
-            border: none;
-            margin-bottom: px(16);
-            amp-social-share[type='email'] {
-                padding-top: 0;
-                @media ($media-l) {
-                    padding-top: px(16);
+        main > .row {
+            .com-share,
+            .mod-share {
+                position: relative;
+                top: 0;
+                border: none;
+                margin-bottom: $spacing-sm;
+                amp-social-share[type='email'] {
+                    padding-top: 0;
+                    @media ($media-l) {
+                        padding-top: $spacing-sm;
+                    }
                 }
-            }
-            @media ($media-l) {
-                width: px(60);
-                position: sticky;
-                top: px(16);
+                @media ($media-l) {
+                    width: px(60);
+                    position: sticky;
+                    top: $spacing-sm;
+                }
             }
         }
     }
