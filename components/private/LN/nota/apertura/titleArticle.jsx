@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComTitle from '../../../common/com-title';
+import '../../../../../resources/dist/css/ln/components/title.css';
 
 const titleArticle = ({ label, headlines, prefix }) => {
     const { basic } = headlines || {};
@@ -10,9 +11,14 @@ const titleArticle = ({ label, headlines, prefix }) => {
             : ''
     }`;
     const prefixText = `${prefix !== '' ? `${prefix} ` : prefix}`;
-    const renderTitle = `${prefixText}${volantaText}${basic}`;
 
-    return <ComTitle tag="h1" size="--threexl" content={renderTitle} />;
+    return (
+        <ComTitle
+            tag="h1"
+            size="--threexl"
+            content={`${prefixText}${volantaText}${basic}`}
+        />
+    );
 };
 
 titleArticle.propTypes = {
@@ -20,8 +26,8 @@ titleArticle.propTypes = {
         volanta: PropTypes.shape({
             text: PropTypes.string
         })
-    }),
-    prefix: PropTypes.string,
+    }).tag({ defaultValue: { volanta: '' } }).isRequired,
+    prefix: PropTypes.string.tag({ defaultValue: '' }).isRequired,
     headlines: PropTypes.shape({
         basic: PropTypes.string.isRequired
     }).isRequired
