@@ -73,10 +73,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 @include padding_rl;
                 @include width-nota100;
             }
-            .com-paragraph {
-                font-family: Georgia, 'Times New Roman', Times, serif;
-                margin-bottom: $spacing-lg;
-            }
+
             .mod-figure {
                 cursor: default;
                 &::before {
@@ -123,26 +120,6 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 
                 button {
                     padding: $spacing;
-                }
-            }
-
-            .mod-banner {
-                display: grid;
-                margin-bottom: $spacing-lg;
-                .com-banner {
-                    &:first-child {
-                        margin-bottom: $spacing-lg;
-                    }
-                    width: px(300);
-                    height: px(250);
-                    display: block;
-                }
-                @media ($media-m) {
-                    display: flex;
-                    justify-content: space-between;
-                    .com-banner {
-                        margin-bottom: 0;
-                    }
                 }
             }
         }
