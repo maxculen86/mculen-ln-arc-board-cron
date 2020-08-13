@@ -1,35 +1,85 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
-import ComLink from './com-link';
+import ComLink from '../common/com-link';
 import '../../../resources/dist/css/ln/components/com-title.css';
 
-const ComTitle = ({
-    tag = 'h4',
-    classCondition = '',
-    size = '',
-    link,
-    content
-}) =>
-    React.createElement(
+const ComTitle = props => {
+    const {
+        children,
         tag,
-        { className: `com-title ${size} ${classCondition}` },
-        [
-            link ? (
-                <ComLink link={link} classCondition={classCondition}>
-                    {content}
-                </ComLink>
-            ) : (
-                <>{content}</>
-            )
-        ]
-    );
-
-ComTitle.propTypes = {
-    tag: PropTypes.string.tag({ defaultValue: 'h4' }).isRequired,
-    classCondition: PropTypes.string.tag({ defaultValue: '' }).isRequired,
-    size: PropTypes.string.tag({ defaultValue: '' }).isRequired,
-    link: PropTypes.string.tag({ defaultValue: undefined }).isRequired,
-    content: PropTypes.string.tag({ defaultValue: '' }).isRequired
+        classCondition,
+        size,
+        prefix,
+        label,
+        link,
+        titulo,
+        basic,
+        data,
+        content
+    } = props;
+    switch (tag) {
+        case 'h1': {
+            return (
+                <h1
+                    className={`com-title ${size} ${
+                        classCondition ? classCondition : ''
+                    }`}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+            );
+        }
+        case 'h2': {
+            return (
+                <>
+                    {link ? (
+                        <ComLink link={link} classCondition={classCondition}>
+                            <h2
+                                className={`com-title ${size} ${
+                                    classCondition ? classCondition : ''
+                                }`}
+                                dangerouslySetInnerHTML={{ __html: content }}
+                            />
+                        </ComLink>
+                    ) : (
+                        <h2
+                            className={`com-title ${size} ${
+                                classCondition ? classCondition : ''
+                            }`}
+                            dangerouslySetInnerHTML={{ __html: content }}
+                        />
+                    )}
+                </>
+            );
+        }
+        case 'h3': {
+            return (
+                <h3
+                    className={`com-title ${size} ${
+                        classCondition ? classCondition : ''
+                    }`}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+            );
+        }
+        case 'h4': {
+            return (
+                <h4
+                    className={`com-title ${size} ${
+                        classCondition ? classCondition : ''
+                    }`}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+            );
+        }
+        default:
+            return (
+                <h4
+                    className={`com-title ${size} ${
+                        classCondition ? classCondition : ''
+                    }`}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+            );
+    }
 };
 
 export default ComTitle;
