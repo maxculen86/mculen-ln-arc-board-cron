@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] = `
+<script
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "{
+  \\"@context\\": \\"https://schema.org\\",
+  \\"@type\\": \\"NewsArticle\\",
+  \\"headline\\": \\"Nota de prueba Foto al 100\\",
+  \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020/?_website=la-nacion-ar\\",
+  \\"dateCreated\\": \\"Thu, 25 Jun 2020 19:39:36 GMT\\",
+  \\"datePublished\\": \\"Thu, 25 Jun 2020 19:39:44 GMT\\",
+  \\"dateModified\\": \\"Thu, 25 Jun 2020 19:39:44 GMT\\",
+  \\"mainEntityOfPage\\": \\"https://www.lanacion.com.ar/arquitectura\\",
+  \\"articleSection\\": \\"Arquitectura\\",
+  \\"isAccessibleForFree\\": \\"true\\",
+  \\"hasPart\\": {
+    \\"@type\\": \\"WebPageElement\\",
+    \\"isAccessibleForFree\\": \\"true\\",
+    \\"cssSelector\\": \\".nota\\"
+  },
+  \\"isPartOf\\": {
+    \\"@type\\": [
+      \\"CreativeWork\\",
+      \\"Product\\"
+    ],
+    \\"name\\": \\"Acceso Digital Monthly Test\\",
+    \\"productID\\": \\"lanacion.com.ar:acceso_digital\\"
+  },
+  \\"author\\": [
+    \\"Redacción LA NACION\\"
+  ],
+  \\"creator\\": [
+    \\"Redacción LA NACION\\"
+  ],
+  \\"keywords\\": [],
+  \\"publisher\\": {
+    \\"@type\\": \\"Organization\\",
+    \\"name\\": \\"\\",
+    \\"url\\": \\"https://www.lanacion.com.ar\\",
+    \\"logo\\": {
+      \\"@context\\": \\"https://schema.org\\",
+      \\"@type\\": \\"ImageObject\\",
+      \\"url\\": \\"https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/logo-ln-amp.png$LATEST\\",
+      \\"height\\": 41,
+      \\"width\\": 391
+    }
+  },
+  \\"thumbnailUrl\\": \\"https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST\\",
+  \\"image\\": {
+    \\"@context\\": \\"https://schema.org\\",
+    \\"@type\\": \\"ImageObject\\",
+    \\"url\\": \\"https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST\\",
+    \\"height\\": \\"564\\",
+    \\"width\\": \\"1080\\"
+  }
+}",
+    }
+  }
+  id="Schema_NewsArticle"
+  type="application/ld+json"
+/>
+`;

@@ -21,29 +21,34 @@ const extracDataFromCredits = by => {
     if (by) {
         authors = by
             .filter(v => v.type === 'author')
-            .map(author => getAuthorByline(author))
-            .join(', ');
+            .map(author => getAuthorByline(author));
     }
-
-    return { authors };
+    return { authors: authors.length ? authors : ['Redacción LA NACION'] };
 };
 
-const extractDataFromPromoItems = promoItems => {
-    let thumbnailUrl;
-    let image;
+const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
+    const { basic } = promoItems || {};
+    const { url, type, height, width } = basic || {};
+    const isImage = basic && type === 'image';
+    let thumbnailUrl = PLACEHOLDER;
+    let image = {
+        '@context': 'https://schema.org',
+        '@type': 'ImageObject',
+        url: PLACEHOLDER,
+        height: '564',
+        width: '1080'
+    };
 
-    if (promoItems) {
-        if (promoItems.basic && promoItems.basic.type === 'image') {
-            const pathImagen = getPathForImage(promoItems.basic.url);
-            thumbnailUrl = `${pathImagen || ''}`;
-            image = {
-                '@context': 'https://schema.org',
-                '@type': 'ImageObject',
-                url: `${pathImagen || ''}`,
-                height: `${promoItems.basic.height || ''}`,
-                width: `${promoItems.basic.width || ''}`
-            };
-        }
+    if (promoItems && isImage) {
+        const pathImagen = getPathForImage(url);
+        thumbnailUrl = `${pathImagen}`;
+        image = {
+            '@context': 'https://schema.org',
+            '@type': 'ImageObject',
+            url: `${pathImagen}`,
+            height: `${height}`,
+            width: `${width}`
+        };
     }
 
     return {
@@ -58,28 +63,31 @@ const SnippetNoticia = props => {
         siteProperties,
         globalContent: {
             headlines,
-            taxonomy: {
-                primary_section: primarySection,
-                seo_keywords: seoKeywords,
-                tags
-            },
+            taxonomy: { primary_section: primarySection, tags },
             promo_items: promoItems,
             credits: { by },
             created_date: createdDate,
             first_publish_date: firstPublishDate,
-            display_date: displayDate
+            display_date: displayDate,
+            content_restrictions: { content_code: contentCode }
         },
         contextPath,
         deployment
     } = props;
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
+    const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
+        'placeholderLN.jpg'
+    );
     const { path, name } = primarySection || {};
 
     const { authors } = extracDataFromCredits(by);
 
     const { keywords } = extractDataFromTags(tags);
 
-    const { thumbnailUrl, image } = extractDataFromPromoItems(promoItems);
+    const { thumbnailUrl, image } = extractDataFromPromoItems(
+        promoItems,
+        PLACEHOLDER
+    );
 
     const data = {
         '@context': 'https://schema.org',
@@ -91,19 +99,19 @@ const SnippetNoticia = props => {
         dateModified: `${new Date(displayDate).toUTCString() || ''}`,
         mainEntityOfPage: `${siteProperties.host}${path || ''}`,
         articleSection: `${name || ''}`,
-        isAccessibleForFree: '',
+        isAccessibleForFree: `${contentCode === 'abierta'}`,
         hasPart: {
-            '@type': '',
-            isAccessibleForFree: '',
+            '@type': 'WebPageElement',
+            isAccessibleForFree: `${contentCode === 'abierta'}`,
             cssSelector: '.nota'
         },
         isPartOf: {
             '@type': ['CreativeWork', 'Product'],
-            name: '',
-            productID: ''
+            name: 'Acceso Digital Monthly Test',
+            productID: 'lanacion.com.ar:acceso_digital'
         },
-        author: `${authors || ''}`,
-        creator: `${authors || ''}`,
+        author: authors,
+        creator: authors,
         keywords,
         publisher: {
             '@type': 'Organization',
@@ -167,7 +175,10 @@ const SnippetNoticia = props => {
             }),
             created_date: PropTypes.string,
             first_publish_date: PropTypes.string,
-            display_date: PropTypes.string
+            display_date: PropTypes.string,
+            content_restrictions: PropTypes.shape({
+                content_code: PropTypes.string
+            })
         }).isRequired,
         deployment: PropTypes.func.isRequired,
         contextPath: PropTypes.string.isRequired

@@ -18,7 +18,7 @@ exports[`Private - Common - Hooks - useSubtype Deberia trar el subtipo Generico 
                 {
                     \\"metarefresh\\": metaRefresh,
                     \\"pageType\\": \\"nota\\",
-                    \\"subtype\\":\\"Default\\"
+                    \\"subtype\\":\\"\\",
                     \\"valor\\": \\"comun\\",
                 }
             ];
