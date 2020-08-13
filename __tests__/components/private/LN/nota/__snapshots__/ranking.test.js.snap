@@ -7,7 +7,10 @@ exports[`Ranking matches snapshot 1`] = `
   <h2
     class="com-title --m "
   >
-    Más leídas de &lt;strong&gt;Pollo&lt;/strong&gt;
+    Más leídas de 
+    <strong>
+      Pollo
+    </strong>
   </h2>
   <ul
     class="com-ordered"
@@ -51,16 +54,16 @@ exports[`Ranking matches snapshot 1`] = `
         <div
           class="mod-caja-nota__descrip"
         >
-          <h2
-            class="com-title --s --acu"
+          <a
+            class="com-link --acu "
+            href="/autos/test-de-generacion-de-url/"
           >
-            <a
-              class="com-link --acu "
-              href="/autos/test-de-generacion-de-url/"
+            <h2
+              class="com-title --s --acu"
             >
               Test de generacion de url
-            </a>
-          </h2>
+            </h2>
+          </a>
         </div>
       </article>
     </li>
@@ -87,16 +90,16 @@ exports[`Ranking matches snapshot 1`] = `
         <div
           class="mod-caja-nota__descrip"
         >
-          <h2
-            class="com-title --s --acu"
+          <a
+            class="com-link --acu "
+            href="/recetas/receta-de-prueba-con-volanta/"
           >
-            <a
-              class="com-link --acu "
-              href="/recetas/receta-de-prueba-con-volanta/"
+            <h2
+              class="com-title --s --acu"
             >
               Esto es una volanta !!! Receta de prueba con volanta
-            </a>
-          </h2>
+            </h2>
+          </a>
         </div>
       </article>
     </li>
@@ -123,16 +126,16 @@ exports[`Ranking matches snapshot 1`] = `
         <div
           class="mod-caja-nota__descrip"
         >
-          <h2
-            class="com-title --s --acu"
+          <a
+            class="com-link --acu "
+            href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
           >
-            <a
-              class="com-link --acu "
-              href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
+            <h2
+              class="com-title --s --acu"
             >
               Mi paso por el yoga del infierno
-            </a>
-          </h2>
+            </h2>
+          </a>
         </div>
       </article>
     </li>
