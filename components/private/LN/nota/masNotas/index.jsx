@@ -14,6 +14,7 @@ const index = props => {
 
     let title;
     let border = false;
+    let dataBlockName;
 
     const getSectionTitle = noteType => {
         let prefix = '';
@@ -33,13 +34,16 @@ const index = props => {
     switch (filter) {
         case '0':
             title = subtype === '7' ? 'Últimas Recetas' : 'Últimas Noticias';
+            dataBlockName = 'n_ultimas_noticias';
             break;
         case '1':
             border = true;
             title = `${getSectionTitle(subtype)} ${sectionName}`;
+            dataBlockName = 'n_otras_noticias';
             break;
         default:
             title = `Últimas notas de ${sectionName}`;
+            dataBlockName = 'n_ultimas_noticias';
             break;
     }
 
@@ -65,6 +69,7 @@ const index = props => {
                 destination="article"
                 border={border}
                 excludeSectionId={excludeSectionId}
+                dataBlockName={dataBlockName}
             />
         )
     );

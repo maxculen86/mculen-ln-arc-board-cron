@@ -12,7 +12,8 @@ const ArticleBase = ({
     mediaComponent,
     children,
     border,
-    dataSection
+    dataSection,
+    position
 }) => {
     const volanta = label && label.volanta && label.volanta.text;
     const borderClass = border ? '--border ' : '';
@@ -20,6 +21,10 @@ const ArticleBase = ({
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
+    }
+    if (position) {
+        extraOpts['data-pos'] = `toi${position}`;
+        extraOpts['data-id'] = `1`;
     }
     return (
         <article
@@ -57,7 +62,8 @@ ArticleBase.propTypes = {
     mediaComponent: PropTypes.node,
     children: PropTypes.node,
     border: PropTypes.bool,
-    dataSection: PropTypes.string
+    dataSection: PropTypes.string,
+    position: PropTypes.number
 };
 
 // ArticleBase.defaultProps = {
