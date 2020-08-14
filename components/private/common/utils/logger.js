@@ -3,7 +3,6 @@ import request from 'request-promise-native';
 import get from './get';
 
 const URI_ELMAH = `https://api.elmah.io/v3/messages/${ELMAH_LOG_ID}`;
-const API_KEY_ELMAH = 'e6ce19c37ca046348f6afb5a11bc3fdb';
 
 const logger = (() => {
     const push = (e, config) => {

@@ -21,16 +21,17 @@ import logger from '../../components/private/common/utils/logger';
 const resolve = (key, a) => {
     const { url, id, published } = key;
     const arcSite = key['arc-site'];
-    let basePath = `/content/v4/stories/?website=${arcSite}`;
+    let basePath = `/content/v4/stories/?__website=${arcSite}`;
 
     if (published) basePath = `${basePath}&published=${published}`;
 
     if (id) return `${basePath}&_id=${id}`;
-    if (url) return `${basePath}&website_url=${url}`;
     /* if (
         url ===
         '/turismo/la-carta-del-capitan-a-los-pasajeros-del-crucero-con-61-contagiados-entre-ellos-un-argentino-nid07022020/'
-    ) */
+    )
+        return `${basePath}&website_url=${url}`; */
+    if (url) return `${basePath}&website_url=${url}`;
 
     throw new Error('Debe definir url o id para obtener la nota');
 };
