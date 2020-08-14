@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
-import useSubtype from '../../../common/hooks/useSubtype';
+import { Subtypes } from '../../../common/utils/subtypes/subtypeHelper';
 
 const dataLayerScriptNota = globalContent => {
-    const { content_restrictions } = globalContent;
+    const { content_restrictions, subtype } = globalContent;
     const valor =
         (content_restrictions && content_restrictions.content_code) || 'comun';
     // TODO: por ahora fijo nota, pero en el futuro debe ser dinamico segun sea home, acu o nota
     const pageType = 'nota';
     const pageTypeText = 'nota';
-    const { subtipo } = useSubtype();
+    const mySubtype = Subtypes.find(sub => sub.id === subtype);
 
     return `
             Array.from = Array.from || (function () { var a = Object.prototype.toString, b = function (f) { return 'function' == typeof f || '[object Function]' === a.call(f) }, c = function (f) { var g = +f; return isNaN(g) ? 0 : 0 != g && isFinite(g) ? (0 < g ? 1 : -1) * Math.floor(Math.abs(g)) : g }, d = Math.pow(2, 53) - 1, e = function (f) { var g = c(f); return Math.min(Math.max(g, 0), d) }; return function (g) { var h = this, i = Object(g); if (null == g) throw new TypeError('Array.from requires an array-like object - not null or undefined'); var l, j = 1 < arguments.length ? arguments[1] : void 0; if ('undefined' != typeof j) { if (!b(j)) throw new TypeError('Array.from: when provided, the second argument must be a function'); 2 < arguments.length && (l = arguments[2]) } for (var p, m = e(i.length), n = b(h) ? Object(new h(m)) : Array(m), o = 0; o < m;)p = i[o], n[o] = j ? 'undefined' == typeof l ? j(p, o) : j.call(l, p, o) : p, o += 1; return n.length = m, n } }());
@@ -27,7 +27,7 @@ const dataLayerScriptNota = globalContent => {
                 {
                     "metarefresh": metaRefresh,
                     "pageType": "${pageType}",
-                    "subtype":"${subtipo.nombre}"
+                    "subtype":"${(mySubtype && mySubtype.nombre) || ''}",
                     "valor": "${valor}",
                 }
             ];

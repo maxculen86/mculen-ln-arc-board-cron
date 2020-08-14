@@ -1,5 +1,3 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable no-shadow */
 import { useAppContext } from 'fusion:context';
 import noticia from '../utils/subtypes/noticia';
 import receta from '../utils/subtypes/receta';
