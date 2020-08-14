@@ -1,8 +1,8 @@
+import { ELMAH_API_KEY, ELMAH_LOG_ID, SITE_LANACION } from 'fusion:environment';
 import request from 'request-promise-native';
 import get from './get';
 
-const URI_ELMAH =
-    'https://api.elmah.io/v3/messages/00f817a7-48fa-4335-b551-ca953b7342fd';
+const URI_ELMAH = `https://api.elmah.io/v3/messages/${ELMAH_LOG_ID}`;
 const API_KEY_ELMAH = 'e6ce19c37ca046348f6afb5a11bc3fdb';
 
 const logger = (() => {
@@ -33,7 +33,7 @@ const logger = (() => {
             type: 'Error',
             user,
             severity,
-            url,
+            url: `${SITE_LANACION}${url}`,
             method,
             version,
             queryString
@@ -42,7 +42,7 @@ const logger = (() => {
         request({
             uri: URI_ELMAH,
             qs: {
-                api_key: API_KEY_ELMAH
+                api_key: ELMAH_API_KEY
             },
             method: 'POST',
             headers: {

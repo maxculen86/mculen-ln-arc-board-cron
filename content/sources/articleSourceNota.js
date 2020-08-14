@@ -7,6 +7,7 @@ import {
 } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
+
 import addAspectRatio from './utils/getRatio';
 import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
@@ -25,12 +26,11 @@ const resolve = (key, a) => {
     if (published) basePath = `${basePath}&published=${published}`;
 
     if (id) return `${basePath}&_id=${id}`;
+    if (url) return `${basePath}&website_url=${url}`;
     /* if (
         url ===
         '/turismo/la-carta-del-capitan-a-los-pasajeros-del-crucero-con-61-contagiados-entre-ellos-un-argentino-nid07022020/'
     ) */
-    return `${basePath}&__website_url=${url}`;
-    if (url) return `${basePath}&website_url=${url}`;
 
     throw new Error('Debe definir url o id para obtener la nota');
 };
