@@ -15,78 +15,28 @@ import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
-
-const log = () => {
-    const elmahJson = {
-        application: 'ln/arc',
-        detail: 'Prueba desde LN/ARC',
-        hostname: 'localhost',
-        title: 'Test Elmah - Content Source',
-        titleTemplate: 'titleTemplate',
-        source: 'content/source',
-        statusCode: 0,
-        dateTime: '2020-07-07T14:25:28.636Z',
-        type: 'string',
-        user: 'string',
-        severity: 'string',
-        url: 'string',
-        method: 'string',
-        version: 'string',
-        cookies: [{ key: 'string', value: 'string' }],
-        form: [{ key: 'string', value: 'string' }],
-        queryString: [{ key: 'string', value: 'string' }],
-        serverVariables: [{ key: 'string', value: 'string' }],
-        data: [{ key: 'string', value: 'string' }]
-    };
-    console.log('========================');
-    console.log('');
-    console.log('fetch a elmah');
-    console.log('');
-    console.log('========================');
-
-    request({
-        uri:
-            'https://api.elmah.io/v3/messages/00f817a7-48fa-4335-b551-ca953b7342fd',
-        qs: {
-            api_key: 'e6ce19c37ca046348f6afb5a11bc3fdb'
-        },
-        method: 'POST',
-        headers: {
-            accept: 'text/plain',
-            'Content-Type': 'application/json-patch+json'
-        },
-        body: JSON.stringify(elmahJson)
-    })
-        .then(res => {
-            console.log('elmah -> res', res);
-        })
-        .catch(e => {
-            console.log('elmah -> error', e);
-        });
-};
+import logger from '../../components/private/common/utils/logger';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
-    console.log('resolve -> url', url);
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
 
     if (published) basePath = `${basePath}&published=${published}`;
 
     if (id) return `${basePath}&_id=${id}`;
-    if (
+    /* if (
         url ===
         '/turismo/la-carta-del-capitan-a-los-pasajeros-del-crucero-con-61-contagiados-entre-ellos-un-argentino-nid07022020/'
-    )
-        return `${basePath}&__website_url=${url}`;
+    ) */
+    return `${basePath}&__website_url=${url}`;
     if (url) return `${basePath}&website_url=${url}`;
 
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
-// TODO: process.on
-
 const fetch = query => {
+    const { url = '' } = query;
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
@@ -97,33 +47,27 @@ const fetch = query => {
         };
     }
 
-    console.log('========================');
-    console.log('opt', opt);
-    console.log('');
-    console.log('paso por content/source');
-    console.log('');
-    console.log('========================');
-    log();
-    return request(opt).then(response => {
-        if (response.type === 'redirect' && response.redirect_url) {
-            throw new Redirect(response.redirect_url, 301);
-        }
+    return request(opt)
+        .then(response => {
+            if (response.type === 'redirect' && response.redirect_url) {
+                throw new Redirect(response.redirect_url, 301);
+            }
 
-        const forwardUrl = get(
-            response,
-            'related_content.redirect[0].redirect_url'
-        );
+            const forwardUrl = get(
+                response,
+                'related_content.redirect[0].redirect_url'
+            );
 
-        const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
-        if (forwardUrl && regExp.test(forwardUrl)) {
-            throw new Redirect(forwardUrl, 301);
-        }
+            const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+            if (forwardUrl && regExp.test(forwardUrl)) {
+                throw new Redirect(forwardUrl, 301);
+            }
 
-        return transform(response, query);
-    });
-    /*         .catch(error => {
-            log(error);
-        }); */
+            return transform(response, query);
+        })
+        .catch(error => {
+            logger.push(error, { source: 'content/source', url });
+        });
 };
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
