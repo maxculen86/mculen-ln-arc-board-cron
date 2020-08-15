@@ -1,26 +1,19 @@
 import React from 'react';
-import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
+import withStatic from '../../private/common/hocs/withStatic';
 
 import Ranking from '../../private/LN/common/ranking';
 
-const ranking = ({
-    id: featureId,
-    customFields: { cantidadNotas, dataSection }
-}) => {
-    return (
-        <Static id={featureId}>
-            <Ranking dataSection={dataSection} size={cantidadNotas} />
-        </Static>
-    );
+const ranking = ({ outputType, customFields: { cantidadNotas } }) => {
+    return outputType !== 'amp' && <Ranking />;
 };
 
 ranking.label = 'LN-Common-Ranking';
 ranking.propTypes = {
+    outputType: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
-        cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
-        dataSection: PropTypes.string.tag({ label: 'Sección (data-section)' })
+        cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' })
     }).isRequired
 };
 
-export default ranking;
+export default withStatic(ranking);

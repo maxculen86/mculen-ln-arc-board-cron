@@ -44,7 +44,7 @@ const sourceSetting = {
     },
 
     rankingArticlesSource: {
-        ttl: 300
+        ttl: 120
     },
 
     relatedSource: {

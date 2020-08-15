@@ -1,48 +1,92 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
+import get from '../../../common/utils/get';
 
-// TODO: QUE FILTRE LA NOTA ACTUAL EN EL CASO DE NOTA
-function WithRankingArticlesData(WrappedArticles, filter) {
+function WithRankingArticlesData(WrappedArticles, filter, imageConfig) {
     return Consumer(
         class extends PureComponent {
             static get propTypes() {
                 return {
-                    page: PropTypes.number
-                };
-            }
-
-            static get defaultProps() {
-                return {
-                    page: 1
+                    globalContent: PropTypes.shape({
+                        author_type: PropTypes.string,
+                        byline: PropTypes.string,
+                        node_type: PropTypes.string,
+                        name: PropTypes.string,
+                        taxonomy: PropTypes.shape({
+                            primary_section: PropTypes.shape({
+                                name: PropTypes.string
+                            })
+                        }),
+                        Payload: PropTypes.shape({
+                            items: PropTypes.arrayOf(PropTypes.object)
+                        })
+                    }).isRequired,
+                    customFields: PropTypes.shape({
+                        dataSection: PropTypes.string,
+                        cantidadNotas: PropTypes.number
+                    }).isRequired
                 };
             }
 
             constructor(props) {
                 super(props);
+                const {
+                    customFields: { dataSection, cantidadNotas },
+                    globalContent
+                } = props;
+                const articles =
+                    this.getArticles(1, 1) ||
+                    this.getArticles(2, 5) ||
+                    this.getArticles(40, 5);
 
-                const { page } = props;
-
-                const { articles } = this.getArticles(
-                    ({ articles: articlesFetched }) => {
-                        this.setState({
-                            articles: articlesFetched
-                        });
-                    },
-                    0
-                );
                 this.state = {
-                    articles,
-                    page: page || 1
+                    ranking: {
+                        articles,
+                        title: this.getTitle(globalContent),
+                        dataSection,
+                        cantidadNotas
+                    }
                 };
             }
 
-            getArticles = (fetchedCallback, page) => {
+            getTitle = globalContent => {
+                const authorType = get(globalContent, 'author_type', null);
+                const byline = get(globalContent, 'byline', null);
+                const nodeType = get(globalContent, 'node_type', null);
+                const name = get(globalContent, 'name', null);
+                const taxonomy = get(globalContent, 'taxonomy', null);
+                const primarySection = get(taxonomy, 'primary_section', null);
+                const primarySectionName = get(primarySection, 'name', null);
+                const items = get(globalContent, 'Payload.items', null);
+
+                let title;
+                if (authorType) title = byline;
+                else if (nodeType === 'section') title = name;
+                else if (primarySectionName) title = primarySectionName;
+                else if (items && items.length) title = items[0].name;
+                return title ? `Más leídas de ${title}` : `Más leídas`;
+            };
+
+            getArticles = (weeksAgo, daysAgo) => {
                 const website = get(this, 'props.website', null);
-                const sectionId = get(this, 'props.sectionId', null);
-                const destination = get(this, 'props.destination', null);
-                const size = get(this, 'props.size', 30);
+                const size = get(this, 'props.customFields.cantidadNotas', 3);
+                const sectionId = get(
+                    this,
+                    'props.globalContent.taxonomy.primary_section._id',
+                    null
+                );
+
+                const includedFields = [
+                    'subtype',
+                    'promo_items.basic',
+                    'credits.by',
+                    'taxonomy.tags',
+                    'taxonomy.primary_section',
+                    'headlines.basic',
+                    'display_date',
+                    'website_url'
+                ].join();
 
                 const { cached, fetched } = this.getContent({
                     sourceName: 'rankingArticlesSource',
@@ -50,51 +94,30 @@ function WithRankingArticlesData(WrappedArticles, filter) {
                         website,
                         sectionId,
                         size,
-                        destination,
-                        page
+                        weeksAgo,
+                        daysAgo,
+                        includedFields,
+                        imageConfig
                     },
                     filter
                 });
 
-                // Caclulo si hay mas notas y saco la q sobra
-                const articles = get(cached, 'content_elements', []);
-                // Devuelvo otro fetched que ya tenga parte de la logica implementada
-                fetched.then(response => {
-                    const articlesFetched = get(
-                        response,
-                        'content_elements',
-                        []
-                    );
+                // TODO: consultar cuando debe tomarse el cached y cuando el fetched
+                let articles = get(cached, 'content_elements', null);
 
-                    fetchedCallback({
-                        articles: articlesFetched.slice(0, size)
-                    });
+                fetched.then(response => {
+                    articles = response;
                 });
 
-                return { articles: articles.slice(0, size) };
-            };
-
-            obtenerMasNotas = () => {
-                const { page } = this.state;
-                const { articles } = this.state;
-
-                this.getArticles(({ articles: articlesFetched }) => {
-                    this.setState({
-                        page: page + 1,
-                        articles: [...articles, ...articlesFetched]
-                    });
-                }, page + 1);
+                return articles && articles.length >= size ? articles : null;
             };
 
             render() {
-                const { articles } = this.state;
-                return (
-                    <WrappedArticles
-                        articles={articles}
-                        obtenerMasNotas={this.obtenerMasNotas}
-                        {...this.props}
-                    />
-                );
+                const ranking = get(this, 'state.ranking', null);
+                const articles = get(this, 'state.ranking.articles', null);
+                // console.log('extends -> constructor -> this.state', this.state);
+
+                return articles && <WrappedArticles ranking={ranking} />;
             }
         }
     );
