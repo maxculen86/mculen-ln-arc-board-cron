@@ -117,7 +117,7 @@ export default {
                         {
                             width: 360,
                             height: 203,
-                            media: '(min-width: 350px)'
+                            media: '(min-width: 320px)'
                         }
                     ]
                 }

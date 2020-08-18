@@ -85,8 +85,6 @@ const transform = (data, siteProps) => {
     if (data.subtype === FOTOAL100) {
         presetsFotoAl100 = get(properties, `imageConfig.resize.fotoAl100`, {});
     }
-    // console.log('********presetsL******* '+JSON.stringify(presetsL))
-    // console.log('********presetsFotoAl100******* '+JSON.stringify(presetsFotoAl100))
 
     const resp = addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
