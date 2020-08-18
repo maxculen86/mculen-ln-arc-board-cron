@@ -3,9 +3,9 @@
 .com-banner {
     display: inherit;
     overflow: hidden;
-    &[id='1x1_mob'],
-    &[id='1x1_tab'],
-    &[id='1x1_dsk'] {
+    &#unoxuno_mob,
+    &#unoxuno_tab,
+    &#unoxuno_dsk {
         display: block;
         overflow: visible;
     }
