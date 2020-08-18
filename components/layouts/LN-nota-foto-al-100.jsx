@@ -66,6 +66,7 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
         />
     );
     if (isAdmin) return component;
+    return isValid ? component : null;
 };
 
 const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
