@@ -67,6 +67,10 @@ const fetch = query => {
             return transform(response, query);
         })
         .catch(error => {
+            const { statusCode, location } = error;
+            if (statusCode === 301 && location)
+                throw new Redirect(location, 301);
+
             logger.push(error, { source: 'content/source', url });
         });
 };
