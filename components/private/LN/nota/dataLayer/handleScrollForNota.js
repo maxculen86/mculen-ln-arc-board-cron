@@ -1,0 +1,68 @@
+export default function handleScrollForNota() {
+    if (typeof window === 'undefined') return;
+    if (window.dataLayer === undefined) return;
+
+    const scrollPercentRounded = getScrollPercent(); // Math.round(scrollPercent * 100);
+
+    if (scrollPercentRounded > 25) {
+        if (!window.dataLayer.some(e => e.quartile === '25')) {
+            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': '25' });
+        }
+    }
+
+    if (scrollPercentRounded > 50) {
+        if (!window.dataLayer.some(e => e.quartile === '50')) {
+            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': '50' });
+        }
+    }
+    if (scrollPercentRounded > 75) {
+        if (!window.dataLayer.some(e => e.quartile === '75')) {
+            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': '75' });
+        }
+    }
+    if (scrollPercentRounded === 100) {
+        if (!window.dataLayer.some(e => e.quartile === '100')) {
+            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': '100' });
+        }
+    }
+
+    if (scrolledIntoView('.fin-cuerpo')) {
+        if (!window.dataLayer.some(e => e.quartile === 'fin del contenido')) {
+            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': 'fin del contenido' });
+        }
+    }
+
+    if (scrolledIntoView('#comentarios')) {
+        if (
+            !window.dataLayer.some(e => e.quartile === 'fin caja sugerencias')
+        ) {
+            window.dataLayer.push({
+                'event': 'trackScroll',
+                'quartile': 'fin caja sugerencias'
+            });
+        }
+    }
+}
+
+const getScrollPercent = () => {
+    const h = document.documentElement;
+    const b = document.body;
+    const st = 'scrollTop';
+    const sh = 'scrollHeight';
+    return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+}
+
+const scrolledIntoView = elem => {
+    const element = document.querySelector(elem);
+
+    if (element) {
+        const docViewTop = window.scrollY;
+        const docViewBottom = docViewTop + window.screen.height;
+
+        const elemTop = element.offsetTop;
+        const elemBottom = elemTop + element.heigh;
+
+        return elemBottom <= docViewBottom && elemTop >= docViewTop;
+    }
+    return false;
+};
