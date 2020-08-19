@@ -45,12 +45,15 @@ export default function handleScrollForNota() {
 }
 
 const getScrollPercent = () => {
-    const h = document.documentElement;
-    const b = document.body;
-    const st = 'scrollTop';
-    const sh = 'scrollHeight';
-    return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
-}
+    const docElem = document.documentElement;
+    const bod = document.body;
+    return (
+        ((docElem.scrollTop || bod.scrollTop) /
+            ((docElem.scrollHeight || bod.scrollHeight) -
+                docElem.clientHeight)) *
+        100
+    );
+};
 
 const scrolledIntoView = elem => {
     const element = document.querySelector(elem);
@@ -60,7 +63,7 @@ const scrolledIntoView = elem => {
         const docViewBottom = docViewTop + window.screen.height;
 
         const elemTop = element.offsetTop;
-        const elemBottom = elemTop + element.heigh;
+        const elemBottom = elemTop + element.clientHeight;
 
         return elemBottom <= docViewBottom && elemTop >= docViewTop;
     }
