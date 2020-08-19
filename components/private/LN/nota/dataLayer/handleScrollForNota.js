@@ -26,9 +26,12 @@ export default function handleScrollForNota() {
         }
     }
 
-    if (scrolledIntoView('.fin-cuerpo')) {
+    if (scrolledIntoView('#fin-cuerpo')) {
         if (!window.dataLayer.some(e => e.quartile === 'fin del contenido')) {
-            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': 'fin del contenido' });
+            window.dataLayer.push({
+                'event': 'trackScroll',
+                'quartile': 'fin del contenido'
+            });
         }
     }
 
@@ -65,7 +68,7 @@ const scrolledIntoView = elem => {
         const elemTop = element.offsetTop;
         const elemBottom = elemTop + element.clientHeight;
 
-        return elemBottom <= docViewBottom && elemTop >= docViewTop;
+        return elemBottom <= docViewBottom && elemTop <= docViewTop;
     }
     return false;
 };
