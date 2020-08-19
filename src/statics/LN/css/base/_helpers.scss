@@ -320,7 +320,8 @@
 //=============================
 .hlp-degrade {
     position: relative;
-    .transparency {
+    .transparency,
+    &:after {
         content: '';
         position: absolute;
         bottom: 0;

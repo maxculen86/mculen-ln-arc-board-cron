@@ -89,18 +89,18 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                     <div className="row --top">
                         {children[1]}
                         <div className="lay">
-                            <div className="with-category">
-                                <h1 className="com-title --xl ">Categoría</h1>
+                            <div className="with-categor mod-categories">
+                                {/* <h1 className="com-title --xl ">Categoría</h1> */}
                                 <h1 className="com-title">
                                     <i class="com-logo logo-ohlala"></i>
                                 </h1>
                                 <button
                                     type="button"
-                                    className="arrow left-paddle hlp-none"
+                                    className="com-button arrow left-paddle hlp-none"
                                 >
                                     <i className="icon-left"></i>
                                 </button>
-                                <ol className="com-ordered --categories">
+                                <ol className="com-ordered">
                                     <li>
                                         <a
                                             href="/recetas/platos-de-comida-principal/"
@@ -221,7 +221,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 </ol>
                                 <button
                                     type="button"
-                                    className="arrow right-paddle"
+                                    className="com-button arrow right-paddle"
                                 >
                                     <i className="icon-right"></i>
                                 </button>
@@ -257,103 +257,105 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                         </div>
                     </div>
                     <div className="lay">
-                        <ol className="com-ordered --tags">
-                            <li>
-                                <a
-                                    href="/tema/huevo-tid47236/"
-                                    className="com-link"
-                                    title="huevo"
-                                >
-                                    huevo
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/tema/manteca-tid47257/"
-                                    className="com-link"
-                                    title="manteca"
-                                >
-                                    manteca
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/tema/ajo-tid47126/"
-                                    className="com-link"
-                                    title="ajo"
-                                >
-                                    ajo
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/tema/harina-0000-tid48184/"
-                                    className="com-link"
-                                    title="harina 0000"
-                                >
-                                    harina 0000
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/tema/aceite-de-oliva-tid47117/"
-                                    className="com-link"
-                                    title="aceite de oliva"
-                                >
-                                    aceite de oliva
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/tema/leche-tid47244/"
-                                    className="com-link"
-                                    title="leche"
-                                >
-                                    leche
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/tema/parmesano-tid47290/"
-                                    className="com-link"
-                                    title="parmesano"
-                                >
-                                    parmesano
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/tema/crema-de-leche-tid47204/"
-                                    className="com-link"
-                                    title="crema de leche"
-                                >
-                                    crema de leche
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/tema/cebolla-tid47174/"
-                                    className="com-link"
-                                    title="cebolla"
-                                >
-                                    cebolla
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="/tema/azucar-tid47141/"
-                                    className="com-link"
-                                    title="azúcar"
-                                >
-                                    azúcar
-                                </a>
-                            </li>
-                        </ol>
+                        <div className="mod-tags">
+                            <ol className="com-ordered">
+                                <li>
+                                    <a
+                                        href="/tema/huevo-tid47236/"
+                                        className="com-link"
+                                        title="huevo"
+                                    >
+                                        huevo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/tema/manteca-tid47257/"
+                                        className="com-link"
+                                        title="manteca"
+                                    >
+                                        manteca
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/tema/ajo-tid47126/"
+                                        className="com-link"
+                                        title="ajo"
+                                    >
+                                        ajo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/tema/harina-0000-tid48184/"
+                                        className="com-link"
+                                        title="harina 0000"
+                                    >
+                                        harina 0000
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/tema/aceite-de-oliva-tid47117/"
+                                        className="com-link"
+                                        title="aceite de oliva"
+                                    >
+                                        aceite de oliva
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/tema/leche-tid47244/"
+                                        className="com-link"
+                                        title="leche"
+                                    >
+                                        leche
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/tema/parmesano-tid47290/"
+                                        className="com-link"
+                                        title="parmesano"
+                                    >
+                                        parmesano
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/tema/crema-de-leche-tid47204/"
+                                        className="com-link"
+                                        title="crema de leche"
+                                    >
+                                        crema de leche
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/tema/cebolla-tid47174/"
+                                        className="com-link"
+                                        title="cebolla"
+                                    >
+                                        cebolla
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/tema/azucar-tid47141/"
+                                        className="com-link"
+                                        title="azúcar"
+                                    >
+                                        azúcar
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                     <div className="lay-sidebar">
                         {/* Cuerpo */}
                         <div className="sidebar__main">
-                            <div className="row">
+                            <div className="row hlp-degrade">
                                 <div className="row-gap-tablet-3 row-gap-desksm-3">
                                     <ModArticle
                                         link="#"

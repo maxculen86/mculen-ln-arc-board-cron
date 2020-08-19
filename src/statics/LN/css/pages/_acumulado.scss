@@ -53,53 +53,15 @@
             display: block;
             overflow-x: hidden;
         }
-        &.--tags {
-            border-top: solid 1px #ccc;
-            padding-top: $spacing-md;
-            margin-bottom: $spacing-md;
-            margin-top: 0;
-            li {
-                &:not(:last-child) {
-                    .com-link {
-                        margin-right: px(24);
-
-                        &:after {
-                            content: '•';
-                            position: absolute;
-                            color: $gris3;
-                            right: px(-16);
-                        }
-                    }
-                }
-                @media ($media-m) {
-                    margin-bottom: $spacing;
-                }
-            }
-        }
-        &.--categories {
-            li {
-                padding-right: px(16);
-                flex-wrap: nowrap;
-                .com-link {
-                    font-family: 'SuecaSlab', 'Georgia', 'serif';
-                    font-size: px(18);
-                    color: $gris6;
-                }
-            }
-            @media ($media-m) {
-                display: inline-flex;
-            }
-        }
     }
 
     .--top {
         //para refactor
-        .with-category {
+        .mod-categories {
             width: 100%;
             display: inline-flex;
             flex-direction: column;
             flex-wrap: nowrap;
-            align-items: flex-end;
 
             border: none;
             margin: 0;
@@ -112,6 +74,7 @@
 
             @media ($media-m) {
                 flex-direction: row;
+                align-items: flex-end;
 
                 .com-title {
                     margin-bottom: 0;
@@ -215,6 +178,46 @@
                 .--tags li .com-link {
                     color: $rolling;
                 }
+            }
+        }
+    }
+}
+
+.com-ordered {
+    .mod-categories & {
+        li {
+            padding-right: px(16);
+            flex-wrap: nowrap;
+            .com-link {
+                font-family: 'SuecaSlab', 'Georgia', 'serif';
+                font-size: px(18);
+                color: $gris6;
+            }
+        }
+        @media ($media-m) {
+            display: inline-flex;
+        }
+    }
+    .mod-tags & {
+        border-top: solid 1px #ccc;
+        padding-top: $spacing-md;
+        margin-bottom: $spacing-md;
+        margin-top: 0;
+        li {
+            &:not(:last-child) {
+                .com-link {
+                    margin-right: px(24);
+
+                    &:after {
+                        content: '•';
+                        position: absolute;
+                        color: $gris3;
+                        right: px(-16);
+                    }
+                }
+            }
+            @media ($media-m) {
+                margin-bottom: $spacing;
             }
         }
     }
