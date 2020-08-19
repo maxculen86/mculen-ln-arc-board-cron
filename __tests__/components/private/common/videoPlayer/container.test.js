@@ -14,6 +14,7 @@ import TestHelper from '../../../../utils/testHelper';
 describe('private - common - videoPlayer - container', () => {
     //Agrego esta definicion vacia de funcion para que no pinche cuando la llama.
     window.powaBoot = () => {};
+    window.dataLayer = [];
     // const multipleVideos = mount(
     //     <>
     //         <Container {...video}></Container>

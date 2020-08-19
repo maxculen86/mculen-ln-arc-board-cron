@@ -1,40 +1,18 @@
 import React from 'react';
 import ComTitle from './com-title';
-import Container from './com-container';
 import '../../../resources/dist/css/ln/modules/mod-title.css';
 
-const ModTitle = props => {
-    const { children, tag, classCondition, size, link } = props;
-    if (!children || !tag) return null;
-    if (link)
-        return (
-            <section
-                classesNames={`mod-title ${
-                    classCondition ? classCondition : ''
-                }`}
-            >
-                <ComTitle
-                    tag={tag}
-                    size={size}
-                    classCondition={`${classCondition ? classCondition : ''}`}
-                >
-                    <a href={link}>{children}</a>
-                </ComTitle>
-            </section>
-        );
-    return (
-        <section
-            classesNames={`mod-title ${classCondition ? classCondition : ''}`}
-        >
+const ModTitle = ({ children, tag, classCondition, size, link }) =>
+    children || tag ? (
+        <section classesNames={`mod-title ${classCondition || ''}`}>
             <ComTitle
                 tag={tag}
                 size={size}
-                classCondition={`${classCondition ? classCondition : ''}`}
+                classCondition={`${classCondition || ''}`}
             >
-                {children}
+                {link ? <a href={link}>{children}</a> : children}
             </ComTitle>
         </section>
-    );
-};
+    ) : null;
 
 export default ModTitle;

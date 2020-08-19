@@ -103,7 +103,7 @@ export default function WithStorytellingData(WrappedComponent) {
             const isMobile = outputType === 'amp' || device !== 'desktop';
 
             return type === 'story' &&
-                subtype === '4' &&
+                (subtype === '4' || subtype === '8') &&
                 (basicImage || videoBackground || storytellingMobile)
                 ? this.getApertura(
                       isMobile,
