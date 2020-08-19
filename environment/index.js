@@ -14,5 +14,6 @@ export default {
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/most-read/',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',
-    SITE_LANACION: 'https://www.lanacion.com.ar'
+    SITE_LANACION: 'https://www.lanacion.com.ar',
+    SITE_RECETAS: 'https://recetas.lanacion.com.ar'
 };
