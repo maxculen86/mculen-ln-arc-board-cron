@@ -16,6 +16,7 @@ class ImageArticle extends React.PureComponent {
         const altBasic = altText || caption || '';
         if (!image.url) return null;
         const amp = outputType === 'amp';
+        console.log('IMAGEN '+JSON.stringify(image))
         const sources =
             image.resized_urls && image.resized_urls.filter(v => !!v.option);
         const sourcesZoom =
