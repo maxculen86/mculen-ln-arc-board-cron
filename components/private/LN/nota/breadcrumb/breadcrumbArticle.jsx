@@ -36,7 +36,7 @@ const breadcrumbArticle = ({
         path: '/'
     });
     allSections = allSections.reverse();
-    const domainForRecetas = getDomain(arcSite, { _id, website_url });
+    const domainForRecetas = getDomain({ _id, website_url });
 
     return (
         <>

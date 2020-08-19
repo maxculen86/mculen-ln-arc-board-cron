@@ -1,6 +1,7 @@
-import { SITE_LANACION } from 'fusion:environment';
+import { SITE_LANACION, SITE_RECETAS } from 'fusion:environment';
 import getMetasOG from '../../../../../components/private/common/metaTags/getMetasOG';
 import getAssetsPath from '../../../../../components/private/common/utils/getAssetsPath';
+import { LANACIONAR_URLASSETS } from 'fusion:environment';
 
 jest.mock('fusion:content', () => ({
     useContent: () => ({
@@ -91,11 +92,11 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:image',
-                content: `${SITE_LANACION}/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg`
+                content: `https://www.lanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg`
             },
             {
                 property: 'og:url',
-                content: `${SITE_LANACION}/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
+                content: `https://recetas.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);
@@ -145,7 +146,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:url',
-                content: SITE_LANACION
+                content: 'https://www.lanacion.com.ar'
             }
         ];
 

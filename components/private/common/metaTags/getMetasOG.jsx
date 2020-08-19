@@ -18,7 +18,7 @@ const getData = ({
     deployment,
     arcSite
 }) => {
-    const domain = getDomain(arcSite, globalContent);
+    const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
     const PLACEHOLDER = `${SITE_LANACION}${deployment(
         `${contextPath}/resources/images/placeholderLN.jpg`

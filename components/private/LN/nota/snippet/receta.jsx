@@ -6,6 +6,8 @@ import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getPathForImage from '../../../common/utils/getPathForImage';
+import getDomain from '../../../common/utils/getDomain';
+import { getFirstParentSection } from '../../../common/utils/sectionUtils';
 import get from '../../../common/utils/get';
 
 const extractDataFromContentElements = contentElements => {
@@ -108,16 +110,18 @@ const snippet = props => {
             headlines,
             subheadlines,
             promo_items: promoItems,
-            taxonomy: { tags },
+            taxonomy: { tags, primary_section: primarySection },
             credits,
             display_date: displayDate,
-            content_elements: contentElements
+            content_elements: contentElements,
+            website_url
         },
         contextPath,
         deployment
     } = props;
 
     const PLACERHOLDER = getAssetsPath(contextPath)(deployment)('bco.png');
+    const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
     const { by } = credits || {};
     const { basic: headLinesBasic } = headlines || {};
     const { basic: subheadLinesBasic } = subheadlines || {};
@@ -126,17 +130,17 @@ const snippet = props => {
 
     const { autores } = extracDataFromCredits(by);
 
-    const {
-        image,
-        counterTime,
-        counterPortion
-    } = extractDataFromPromoItems(promoItems);
+    const { image, counterTime, counterPortion } = extractDataFromPromoItems(
+        promoItems
+    );
 
     const { preparaciones, ingredientes } = extractDataFromContentElements(
         contentElements
     );
 
     const { keywords } = extractDataFromTags(tags);
+
+    const section = getFirstParentSection(primarySection);
 
     const data = {
         '@context': 'https://schema.org',
@@ -152,7 +156,19 @@ const snippet = props => {
         name: `${headLinesBasic || 'LA NACION - Recetas'}`,
         recipeInstructions: preparaciones,
         recipeYield: counterPortion ? `${counterPortion} porciones` : '',
-        keywords: `${keywords}`
+        keywords: `${keywords}`,
+        publisher: {
+            '@type': 'Organization',
+            name: 'Recetas La Nación',
+            url: `${getDomain({ website_url })}${section || '/recetas/'}`,
+            logo: {
+                '@context': 'http://schema.org',
+                '@type': 'ImageObject',
+                url: `${LOGO_AMP}`,
+                height: 41,
+                width: 391
+            }
+        }
     };
 
     return <SnippetRender data={data} />;
@@ -173,7 +189,8 @@ snippet.propTypes = {
         display_date: PropTypes.string.isRequired,
         content_elements: PropTypes.array.isRequired,
         taxonomy: PropTypes.shape({
-            tags: PropTypes.array
+            tags: PropTypes.array,
+            primary_section: PropTypes.object
         }),
         credits: PropTypes.shape({
             by: PropTypes.shape({
@@ -187,7 +204,9 @@ snippet.propTypes = {
                     })
                 )
             })
-        })
+        }),
+        _id: PropTypes.string.isRequired,
+        website_url: PropTypes.string.isRequired
     }).isRequired,
     deployment: PropTypes.func.isRequired,
     contextPath: PropTypes.string.isRequired
