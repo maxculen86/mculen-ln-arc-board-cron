@@ -1,0 +1,21 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-article {
+    display: flex;
+    flex-direction: column;
+
+    //para llevar a cada componente
+    .mod-media,
+    .com-title,
+    .mod-firma,
+    .com-date {
+        margin-bottom: $spacing;
+    }
+
+    .mod-media {
+        .mod-picture {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -5,6 +5,8 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
+import ModArticle from '../private/common/mod-article';
+
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
 import '../../resources/dist/css/ln/base/types.css';
@@ -37,8 +39,10 @@ import '../../resources/dist/css/ln/components/opinion-author.css';
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
 import '../../resources/dist/css/ln/components/com-button.css';
+import '../../resources/dist/css/ln/modules/mod-article.css';
 // import '../../resources/dist/css/ln/components/colecciones.css';
 // import '../../resources/dist/css/ln/components/carta-lectores.css';
+import '../../resources/dist/css/ln/pages/acumulado.css';
 
 /* Se debe importar para AMP */
 // import '../../resources/dist/css/ln/components/nav-amp.css';
@@ -77,69 +81,368 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
             {/* Banner MEGATOP */}
             {bannerMegatop}
             {/* Banner MEGATOP */}
-            <div id="wrapper" className={`acumulado ${amp}`}>
+            <div id="wrapper" className={`acumulado --color ohlala ${amp}`}>
                 {/* TODO: sacar */}
                 {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
                 <Header />
                 <main>
-                    {children[1]}
-                    <div className="lay --apertura">
-                        <div className="row">
-                            <div className="col-6">
-                                {/* Titulo (breadcrumb, logo+titulo) */}
-                                {/* {children[2]} */}
-                            </div>
-                            <div className="col-6">
-                                {/* Titulo (breadcrumb, logo+titulo) */}
-                                {/* {children[2]} */}
+                    <div className="row --top">
+                        {children[1]}
+                        <div className="lay">
+                            <div className="with-category">
+                                <h1 className="com-title --xl ">Categoría</h1>
+                                <h1 className="com-title">
+                                    <i class="com-logo logo-ohlala"></i>
+                                </h1>
+                                <button
+                                    type="button"
+                                    className="arrow left-paddle hlp-none"
+                                >
+                                    <i className="icon-left"></i>
+                                </button>
+                                <ol className="com-ordered --categories">
+                                    <li>
+                                        <a
+                                            href="/recetas/platos-de-comida-principal/"
+                                            className="com-link"
+                                            title="Principales"
+                                        >
+                                            Principales
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/carnes/"
+                                            className="com-link"
+                                            title="Carnes"
+                                        >
+                                            Carnes
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/celiacos-sin-gluten/"
+                                            className="com-link"
+                                            title="Celíacos"
+                                        >
+                                            Celíacos
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/vegetarianas/"
+                                            className="com-link"
+                                            title="Vegetarianas"
+                                        >
+                                            Vegetarianas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/faciles-y-rapidas/"
+                                            className="com-link"
+                                            title="Rápidas"
+                                        >
+                                            Rápidas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/pollo/"
+                                            className="com-link"
+                                            title="Pollo"
+                                        >
+                                            Pollo
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/dulces/"
+                                            className="com-link"
+                                            title="Dulces"
+                                        >
+                                            Dulces
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/guarniciones/"
+                                            className="com-link"
+                                            title="Guarniciones"
+                                        >
+                                            Guarniciones
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/entradas/"
+                                            className="com-link"
+                                            title="Entradas"
+                                        >
+                                            Entradas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/tortas/"
+                                            className="com-link"
+                                            title="Tortas"
+                                        >
+                                            Tortas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/postres/"
+                                            className="com-link"
+                                            title="Postres"
+                                        >
+                                            Postres
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/veganas/"
+                                            className="com-link"
+                                            title="Veganas"
+                                        >
+                                            Veganas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/recetas/ensaladas/"
+                                            className="com-link"
+                                            title="Ensaladas"
+                                        >
+                                            Ensaladas
+                                        </a>
+                                    </li>
+                                </ol>
+                                <button
+                                    type="button"
+                                    className="arrow right-paddle"
+                                >
+                                    <i className="icon-right"></i>
+                                </button>
                             </div>
                         </div>
+                    </div>
+                    <div className="lay --apertura">
+                        <div className="row">
+                            <div className="row-gap-tablet-2 row-gap-desksm-2">
+                                {/* Titulo (breadcrumb, logo+titulo) */}
+                                {/* {children[2]} */}
+
+                                <ModArticle
+                                    link="#"
+                                    titleTag="h2"
+                                    titleSize="--l"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorSize="--fivexs"
+                                    authorText="Por Gabriel Di Nicola"
+                                />
+
+                                {/* Titulo (breadcrumb, logo+titulo) */}
+                                {/* {children[2]} */}
+                                <ModArticle
+                                    link="#"
+                                    titleTag="h2"
+                                    titleSize="--l"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorSize="--fivexs"
+                                    authorText="Por Gabriel Di Nicola"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="lay">
+                        <ol className="com-ordered --tags">
+                            <li>
+                                <a
+                                    href="/tema/huevo-tid47236/"
+                                    className="com-link"
+                                    title="huevo"
+                                >
+                                    huevo
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/manteca-tid47257/"
+                                    className="com-link"
+                                    title="manteca"
+                                >
+                                    manteca
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/ajo-tid47126/"
+                                    className="com-link"
+                                    title="ajo"
+                                >
+                                    ajo
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/harina-0000-tid48184/"
+                                    className="com-link"
+                                    title="harina 0000"
+                                >
+                                    harina 0000
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/aceite-de-oliva-tid47117/"
+                                    className="com-link"
+                                    title="aceite de oliva"
+                                >
+                                    aceite de oliva
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/leche-tid47244/"
+                                    className="com-link"
+                                    title="leche"
+                                >
+                                    leche
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/parmesano-tid47290/"
+                                    className="com-link"
+                                    title="parmesano"
+                                >
+                                    parmesano
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/crema-de-leche-tid47204/"
+                                    className="com-link"
+                                    title="crema de leche"
+                                >
+                                    crema de leche
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/cebolla-tid47174/"
+                                    className="com-link"
+                                    title="cebolla"
+                                >
+                                    cebolla
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/azucar-tid47141/"
+                                    className="com-link"
+                                    title="azúcar"
+                                >
+                                    azúcar
+                                </a>
+                            </li>
+                        </ol>
                     </div>
                     <div className="lay-sidebar">
                         {/* Cuerpo */}
                         <div className="sidebar__main">
                             <div className="row">
-                                <div className="col-12 ">
-                                    {/* Bajada y autor fecha más apertura */}
-                                    {children[3]}
-                                    {/* <div className="opinion-autor row">
-                                    <section id="" className="cont-figure">
-                                        <div className="figure">
-                                            <picture className="content-pic picture">
-                                                <img
-                                                    src="https://bucket1.glanacion.com/anexos/fotos/12/2089212w82.png"
-                                                    alt=""
-                                                    className="content-img"
-                                                />
-                                            </picture>
-                                        </div>
-                                    </section>
-                                    <div className="opinion-calc">
-                                        <h1 className="link hlp-bold">
-                                            <a href="">Bruno Pittón</a>
-                                        </h1>
-                                        <label>PARA LA NACION</label>
-                                    </div>
-                                </div> */}
+                                <div className="row-gap-tablet-3 row-gap-desksm-3">
+                                    <ModArticle
+                                        link="#"
+                                        titleTag="h2"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorSize="--fivexs"
+                                        authorText="Por Gabriel Di Nicola"
+                                    />
+                                    <ModArticle
+                                        link="#"
+                                        titleTag="h2"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorSize="--fivexs"
+                                        authorText="Por Gabriel Di Nicola"
+                                    />
+                                    <ModArticle
+                                        link="#"
+                                        titleTag="h2"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorSize="--fivexs"
+                                        authorText="Por Gabriel Di Nicola"
+                                    />
                                 </div>
+                                <ModArticle
+                                    noimage
+                                    classCondition="--no-image"
+                                    link="#"
+                                    titleTag="h2"
+                                    titleSize="--l"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorSize="--fivexs"
+                                    authorText="Por Gabriel Di Nicola"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
+                                <ModArticle
+                                    noimage
+                                    classCondition="--no-image"
+                                    link="#"
+                                    titleTag="h2"
+                                    titleSize="--l"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorSize="--fivexs"
+                                    authorText="Por Gabriel Di Nicola"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
+                                <ModArticle
+                                    noimage
+                                    classCondition="--no-image"
+                                    link="#"
+                                    titleTag="h2"
+                                    titleSize="--l"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorSize="--fivexs"
+                                    authorText="Por Gabriel Di Nicola"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
+                                <ModArticle
+                                    classCondition="--right"
+                                    link="#"
+                                    titleTag="h2"
+                                    titleSize="--l"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorSize="--fivexs"
+                                    authorText="Por Gabriel Di Nicola"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
+                                <ModArticle
+                                    classCondition="--right"
+                                    link="#"
+                                    titleTag="h2"
+                                    titleSize="--l"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorSize="--fivexs"
+                                    authorText="Por Gabriel Di Nicola"
+                                />
+                                <ModArticle
+                                    classCondition="--right"
+                                    link="#"
+                                    titleTag="h2"
+                                    titleSize="--l"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorSize="--fivexs"
+                                    authorText="Por Gabriel Di Nicola"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
                             </div>
-                            <section className="cuerpo__nota">
-                                <div className="row">
-                                    <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
-                                        {/* hlp-mobile-show */}
-                                        {/* Left-Cuerpo Shared */}
-                                        {children[4]}
-                                    </div>
-                                    <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                        <div className="row">
-                                            <div className="col-12">
-                                                {/* Pos-Apertura */}
-                                                {children[5]}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
                         </div>
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-desklm-none">
