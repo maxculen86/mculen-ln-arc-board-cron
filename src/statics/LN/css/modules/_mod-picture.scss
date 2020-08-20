@@ -2,12 +2,13 @@
 @import '../abstracts/mixins';
 
 .mod-picture {
-    background: $gris1;
     position: relative;
+    background: $gris1;
     display: block;
     transition: all 0.2s ease-in-out;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+
+    border-top: 1px solid $gris3;
+    border-bottom: 1px solid $gris3;
     margin-bottom: $spacing;
 
     //100% mobile
@@ -24,12 +25,12 @@
         margin-left: 0;
         .mod-caja-nota & {
             .acu & {
-                border: 1px solid #ccc;
+                border: 1px solid $gris3;
             }
         }
     }
     @media ($media-l) {
-        border: 1px solid #ccc;
+        border: 1px solid $gris3;
         .mod-opening &,
         .cuerpo__nota & {
             width: 100%;

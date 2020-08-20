@@ -45,9 +45,13 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
     main {
         padding-top: 0;
 
-        .mod-opening .lay {
-            @include padding_rl;
-            @include width-nota100;
+        .mod-opening {
+            @include OpeningFull;
+
+            .lay {
+                @include padding_rl;
+                @include width-nota100;
+            }
         }
 
         > .row {
