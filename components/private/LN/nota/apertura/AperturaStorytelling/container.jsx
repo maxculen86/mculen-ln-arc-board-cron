@@ -7,7 +7,8 @@ const AperturaStorytelling = props => {
     const { globalContent } = props || {};
     const { subtype } = globalContent;
 
-    if (subtype === '4') return <AperturaComponent {...props} />;
+    if (subtype === '4' || subtype === '8')
+        return <AperturaComponent {...props} />;
     return <></>;
 };
 

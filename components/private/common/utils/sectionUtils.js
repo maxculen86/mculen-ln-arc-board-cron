@@ -39,7 +39,7 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     const lnmasRegex = /\/lnmas/;
 
     let color = true;
-    if (layout === 'LN-nota-storytelling') {
+    if (layout === 'LN-nota-storytelling' || layout === 'LN-nota-foto-al-100') {
         color = false;
     }
 
