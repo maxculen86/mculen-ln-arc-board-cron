@@ -76,27 +76,38 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
 const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+
+    //probando configuraciones
+    const revista = '';
+    const divStyle = {
+        backgroundColor: '#ccc000'
+    };
+
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
             {bannerMegatop}
             {/* Banner MEGATOP */}
-            <div id="wrapper" className={`acumulado --color ohlala ${amp}`}>
-                {/* TODO: sacar */}
-                {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
+            <div id="wrapper" className={`acumulado --color ${revista} ${amp}`}>
                 <Header />
                 <main>
-                    <div className="row --top">
+                    <div className="row --top" style={divStyle}>
                         {children[1]}
                         <div className="lay">
-                            <div className="with-categor mod-categories">
-                                {/* <h1 className="com-title --xl ">Categoría</h1> */}
-                                <h1 className="com-title">
-                                    <i class="com-logo logo-ohlala"></i>
-                                </h1>
+                            <div className="mod-categories">
+                                {revista ? (
+                                    <i
+                                        className={`com-logo logo-${revista}`}
+                                    ></i>
+                                ) : (
+                                    <h1 className="com-title --xl ">
+                                        Categoría
+                                    </h1>
+                                )}
+
                                 <button
                                     type="button"
-                                    className="com-button arrow left-paddle hlp-none"
+                                    className="com-button hlp-none"
                                 >
                                     <i className="icon-left"></i>
                                 </button>
@@ -219,10 +230,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         </a>
                                     </li>
                                 </ol>
-                                <button
-                                    type="button"
-                                    className="com-button arrow right-paddle"
-                                >
+                                <button type="button" className="com-button">
                                     <i className="icon-right"></i>
                                 </button>
                             </div>
@@ -235,23 +243,21 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 {/* {children[2]} */}
 
                                 <ModArticle
+                                    trueimage
                                     link="#"
-                                    titleTag="h2"
-                                    titleSize="--l"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorSize="--fivexs"
                                     authorText="Por Gabriel Di Nicola"
+                                    dateText="20 de abril de 2020"
                                 />
 
                                 {/* Titulo (breadcrumb, logo+titulo) */}
                                 {/* {children[2]} */}
                                 <ModArticle
+                                    trueimage
                                     link="#"
-                                    titleTag="h2"
-                                    titleSize="--l"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorSize="--fivexs"
                                     authorText="Por Gabriel Di Nicola"
+                                    dateText="20 de abril de 2020"
                                 />
                             </div>
                         </div>
@@ -356,111 +362,126 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                         {/* Cuerpo */}
                         <div className="sidebar__main">
                             <div className="row hlp-degrade">
+                                <div className="com-anexo">ANEXO 70%</div>
                                 <div className="row-gap-tablet-3 row-gap-desksm-3">
                                     <ModArticle
+                                        trueimage
                                         link="#"
-                                        titleTag="h2"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorSize="--fivexs"
                                         authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
                                     />
                                     <ModArticle
+                                        trueimage
                                         link="#"
-                                        titleTag="h2"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorSize="--fivexs"
                                         authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
                                     />
                                     <ModArticle
+                                        trueimage
                                         link="#"
-                                        titleTag="h2"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorSize="--fivexs"
                                         authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
+                                    />
+                                    <ModArticle
+                                        trueimage
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
+                                    />
+                                    <ModArticle
+                                        trueimage
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
+                                    />
+                                    <ModArticle
+                                        trueimage
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
                                     />
                                 </div>
-                                <ModArticle
-                                    noimage
-                                    classCondition="--no-image"
-                                    link="#"
-                                    titleTag="h2"
-                                    titleSize="--l"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorSize="--fivexs"
-                                    authorText="Por Gabriel Di Nicola"
-                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                />
-                                <ModArticle
-                                    noimage
-                                    classCondition="--no-image"
-                                    link="#"
-                                    titleTag="h2"
-                                    titleSize="--l"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorSize="--fivexs"
-                                    authorText="Por Gabriel Di Nicola"
-                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                />
-                                <ModArticle
-                                    noimage
-                                    classCondition="--no-image"
-                                    link="#"
-                                    titleTag="h2"
-                                    titleSize="--l"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorSize="--fivexs"
-                                    authorText="Por Gabriel Di Nicola"
-                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                />
-                                <ModArticle
-                                    classCondition="--right"
-                                    link="#"
-                                    titleTag="h2"
-                                    titleSize="--l"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorSize="--fivexs"
-                                    authorText="Por Gabriel Di Nicola"
-                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                />
-                                <ModArticle
-                                    classCondition="--right"
-                                    link="#"
-                                    titleTag="h2"
-                                    titleSize="--l"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorSize="--fivexs"
-                                    authorText="Por Gabriel Di Nicola"
-                                />
-                                <ModArticle
-                                    classCondition="--right"
-                                    link="#"
-                                    titleTag="h2"
-                                    titleSize="--l"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorSize="--fivexs"
-                                    authorText="Por Gabriel Di Nicola"
-                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                />
+                                <div className="col-12">
+                                    <ModArticle
+                                        link="#"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
+                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                    />
+                                    <ModArticle
+                                        link="#"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
+                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                    />
+                                    <ModArticle
+                                        link="#"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
+                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                    />
+                                    <ModArticle
+                                        trueimage
+                                        link="#"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
+                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                    />
+                                    <ModArticle
+                                        trueimage
+                                        link="#"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
+                                    />
+                                    <ModArticle
+                                        trueimage
+                                        link="#"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        authorText="Por Gabriel Di Nicola"
+                                        dateText="20 de abril de 2020"
+                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                    />
+                                </div>
                             </div>
                         </div>
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-desklm-none">
                             {children[6]}
-                        </div>
-                    </div>
-                    {/* Newsletter */}
-                    <div className="lay">{children[8]}</div>
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {/* Bottom */}
-                            {children[9]}
-                        </div>
-                        <div className="sidebar__aside">
-                            {/* Bottom-Tercera */}
-                            {children[10]}
+                            <ModArticle
+                                trueimage
+                                link="#"
+                                titleSize="--twoxs"
+                                titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                            />
+                            <ModArticle
+                                trueimage
+                                link="#"
+                                titleSize="--twoxs"
+                                titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                            />
+                            <ModArticle
+                                trueimage
+                                link="#"
+                                titleSize="--twoxs"
+                                titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                            />
                         </div>
                     </div>
                 </main>
@@ -477,11 +498,7 @@ const pageBuilderSections = [
     'Apertura',
     'Left-Cuerpo',
     'Cuerpo',
-    'Tercera',
-    'Pos-Cuerpo',
-    'Newsletter',
-    'Bottom',
-    'Bottom-Tercera'
+    'Tercera'
 ];
 
 lnNotaFotoAl100.sections = pageBuilderSections;

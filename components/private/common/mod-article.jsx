@@ -13,17 +13,18 @@ const ModArticle = props => {
         titleText,
         authorSize,
         authorText,
-        noimage,
-        subheadText
+        trueimage,
+        subheadText,
+        subheadSize,
+        dateText,
+        dateSize
     } = props;
     return (
         <article className={`mod-article ${classCondition || ''}`}>
-            {noimage ? (
-                <></>
-            ) : (
+            {trueimage ? (
                 <section role="button" className="mod-media">
                     <figure role="button" className="mod-figure">
-                        <a href="$link">
+                        <a href={link} title={titleText}>
                             <picture className="mod-picture ">
                                 <source
                                     media="(min-width: 1280px)"
@@ -49,23 +50,24 @@ const ModArticle = props => {
                                     src="http://demo-prod.origin.arcpublishing.com/resizer/r-JvqZANSLMk42Z4TpYGOtv78eI=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
                                     loading="lazy"
                                     className="com-image "
-                                    alt=""
+                                    alt={titleText}
                                 />
                             </picture>
                         </a>
                     </figure>
                 </section>
+            ) : (
+                <></>
             )}
             <div className="mod-description">
                 <ComTitle
-                    tag={titleTag}
-                    size={titleSize}
-                    classCondition=""
+                    tag={titleTag || 'h2'}
+                    size={titleSize || '--l'}
                     link={link}
                     content={titleText}
                 />
                 {subheadText ? (
-                    <p className="com-subhead">
+                    <p className={`com-subhead ${subheadSize || '--threexs'}`}>
                         <a href={link} className="com-link" title={subheadText}>
                             {subheadText}
                         </a>
@@ -73,12 +75,22 @@ const ModArticle = props => {
                 ) : (
                     <></>
                 )}
-                <strong className={`mod-firma ${authorSize}`}>
-                    <a href={link} title={authorText}>
-                        {authorText}
-                    </a>
-                </strong>
-                <time className="com-date --threexs">20 de abril de 2020</time>
+                {authorText ? (
+                    <strong className={`mod-firma ${authorSize || '--fivexs'}`}>
+                        <a href={link} title={authorText}>
+                            {authorText}
+                        </a>
+                    </strong>
+                ) : (
+                    <></>
+                )}
+                {dateText ? (
+                    <time className={`com-date ${dateSize || '--threexs'}`}>
+                        {dateText}
+                    </time>
+                ) : (
+                    <></>
+                )}
             </div>
         </article>
     );
