@@ -31,6 +31,7 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
+    const { url = '' } = query;
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
@@ -40,23 +41,32 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
-    return request(opt).then(response => {
-        if (response.type === 'redirect' && response.redirect_url) {
-            throw new Redirect(response.redirect_url, 301);
-        }
 
-        const forwardUrl = get(
-            response,
-            'related_content.redirect[0].redirect_url'
-        );
+    return request(opt)
+        .then(response => {
+            if (response.type === 'redirect' && response.redirect_url) {
+                throw new Redirect(response.redirect_url, 301);
+            }
 
-        const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
-        if (forwardUrl && regExp.test(forwardUrl)) {
-            throw new Redirect(forwardUrl, 301);
-        }
+            const forwardUrl = get(
+                response,
+                'related_content.redirect[0].redirect_url'
+            );
 
-        return transform(response, query);
-    });
+            const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+            if (forwardUrl && regExp.test(forwardUrl)) {
+                throw new Redirect(forwardUrl, 301);
+            }
+
+            return transform(response, query);
+        })
+        .catch(error => {
+            const { statusCode, location } = error;
+            if (statusCode === 301 && location)
+                throw new Redirect(location, 301);
+
+            logger.push(error, { source: 'content/source', url });
+        });
 };
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
