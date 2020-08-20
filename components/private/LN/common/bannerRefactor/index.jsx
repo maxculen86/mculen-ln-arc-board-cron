@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../hocs/WithNavigation';
 import { slotsConfig } from './config';
@@ -8,7 +9,18 @@ import Placeholder from './placeholder';
 
 import BannerManager from './manager/banner';
 
+const getDimsFromSiteService = config => slotGroup => finalSlot => {
+    if (!config || !slotGroup) return null;
+    const position = config[`${slotGroup}_${finalSlot}`];
+    if (!position) return null;
+    const dimensions = position.split(',');
+    return dimensions.map(dimension =>
+        dimension.split('x').map(size => parseInt(size, 10))
+    );
+};
+
 const index = props => {
+    const dimensions = useRef(null);
     const {
         siteProperties: {
             bannerConfig: { dfp_id: dfpID }
@@ -25,6 +37,13 @@ const index = props => {
     } = banner;
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
+
+    const content = useContent({
+        source: 'navigationTreeSource',
+        query: {
+            website: 'la-nacion-ar'
+        }
+    });
 
     const bannerSlots = [
         { name: 'tablet', slot: tabletSlot },
@@ -43,6 +62,13 @@ const index = props => {
 
     if (!slotGroup || finalSlot === null) return null;
 
+    if (content) {
+        const { bannerConfig } = content;
+        dimensions.current = getDimsFromSiteService(bannerConfig)(slotGroup)(
+            finalSlot
+        );
+    }
+
     const finalConfig = slotsConfig[slotGroup][finalSlot];
 
     const config = {
@@ -50,7 +76,7 @@ const index = props => {
         slotId: finalSlot,
         slotName: finalConfig.slotName,
         dfpId: dfpID,
-        dimensions: finalConfig.dimensions,
+        dimensions: dimensions.current || finalConfig.dimensions,
         targeting: finalConfig.targeting,
         sizemap: finalConfig.sizemap,
         bidding: finalConfig.bidding,
