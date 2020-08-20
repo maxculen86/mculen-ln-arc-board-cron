@@ -5,6 +5,7 @@ import Static from 'fusion:static';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import ComTitle from '../../private/common/com-title';
 
+// TODO: Reoptimizar este componente
 const seguirLeyendo = props => {
     return (
         <Static id="LN-Nota-SeguirLeyendo">

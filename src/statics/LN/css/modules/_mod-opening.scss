@@ -2,7 +2,8 @@
 @import '../abstracts/mixins';
 
 .mod-opening {
-    .--storytelling & {
+    .--storytelling &,
+    .--photo100 & {
         margin-top: px(-45); //header mobile
         margin-bottom: $spacing-lg;
         position: relative;

@@ -1,0 +1,84 @@
+{
+    "_id": "KR3WX7TZKJCTXGNFDHUNH24ZCA",
+    "canonical_url": "/autos/prueba-de-html-libre-para-apps-nid23072020/",
+    "content_elements": [
+        {
+            "_id": "SX5NULQXAFD4PA675SQNGGVTJM",
+            "additional_properties": {},
+            "content": "<style>body main{overflow:initial !important;max-width:inherit;padding:0px !important}header{position:relative !important;background-color:#000 !important;border-bottom:1px solid #6b6b6b !important;z-index:2000 !important}</style> <script>var header=document.getElementById('header');header.classList.add(\"transparente\");</script><!-- HTML LIBRE L9 -->\n\n<link href=https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/css/app.41fd37a2.css rel=stylesheet><link href=https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/js/chunk-vendors.18ad0242.js rel=preload as=script><link href=https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/js/app.1d9f1f1c.js rel=preload as=script><link href=https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/css/app.41fd37a2.css rel=preload as=style><link rel=stylesheet type=text/css href=https://static.glanacion.com/v2/ln/css/3a05abab111162bd99f60d05b776dd0c.min.css><link rel=icon href=https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/favicon.ico><meta name=viewport content=\"width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1\"><meta http-equiv=refresh content=900><link rel=stylesheet type=text/css href=https://especialess3.lanacion.com.ar/fonts/fonts.css><noscript><strong>Esta aplicación web de LA NACION necesita tener Javascript habilitado para funcionar correctamente</strong></noscript><style>div#preload.loaded{display: none;}div#preload.loaded svg#stroke{animation: none;}div#preload div.logo{width: 80px; height: 80px; margin: 0 auto; position: fixed; left: 50%; margin-left: -40px; top: 250px;}div#preload .st0 path{fill: #007caf !important;}div#preload svg#stroke{-webkit-animation: 2s linear infinite svg-animation; animation: 2s linear infinite svg-animation; max-width: 100px; position: absolute; top: 0; left: 0;}/* // SVG animation. */ @keyframes svg-animation{0%{-webkit-transform: rotateZ(0deg); -ms-transform: rotate(0deg); transform: rotateZ(0deg);}100%{-webkit-transform: rotateZ(360deg); -ms-transform: rotate(360deg); transform: rotateZ(360deg);}}/* // Circle styles. */ div#preload circle{-webkit-animation: 1.4s ease-in-out infinite both circle-animation; animation: 1.4s ease-in-out infinite both circle-animation; display: block; fill: transparent; stroke: #007caf; stroke-linecap: round; stroke-dasharray: 283; stroke-dashoffset: 280; stroke-width: 6px; -webkit-transform-origin: 50% 50%; -ms-transform-origin: 50% 50%; transform-origin: 50% 50%;}@-webkit-keyframes circle-animation{0%, 25%{stroke-dashoffset: 280; -webkit-transform: rotate(0); transform: rotate(0);}50%, 75%{stroke-dashoffset: 75; -webkit-transform: rotate(45deg); transform: rotate(45deg);}100%{stroke-dashoffset: 280; -webkit-transform: rotate(360deg); transform: rotate(360deg);}}@keyframes circle-animation{0%, 25%{stroke-dashoffset: 280; -webkit-transform: rotate(0); transform: rotate(0);}50%, 75%{stroke-dashoffset: 75; -webkit-transform: rotate(45deg); transform: rotate(45deg);}100%{stroke-dashoffset: 280; -webkit-transform: rotate(360deg); transform: rotate(360deg);}}</style><div id=preload><div class=logo><svg version=1.1 id=Capa_1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink x=0px y=0px viewBox=\"0 0 100 100\" style=\"enable-background:new 0 0 100 100;\" xml:space=preserve><path class=st0 fill=#007CAF d=\"M48.5,60.6H57v-1.5h-0.6c-2.2,0-3-0.3-3-2V43.4h0.1l14.8,17.2h2.8V42.9c0-1.8,1.1-2.2,2.3-2.2h1v-1.5h-8.5v1.5h0.6c2.2,0,3,0.3,3,2v9.1h-0.1L58.6,39.2h-9.9v1.5h0.6c1.3,0,2.6,0.9,2.6,2.4v13.8c0,1.8-1.1,2.2-2.3,2.2h-1L48.5,60.6L48.5,60.6z M26.8,60.6h20.6v-8.5h-1.7V53c0,4.8-3.6,6.1-8.1,6.1h-0.8V40.7h3.8v-1.5H26.8v1.5h3.4v18.4h-3.4V60.6z\"/></svg> <svg id=stroke viewBox=\"0 0 100 100\" xmlns=http://www.w3.org/2000/svg><circle cx=50 cy=50 r=45 /></svg></div></div><div id=appContainer><div id=app></div></div><script src=https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/js/chunk-vendors.18ad0242.js></script><script src=https://especialess3.lanacion.com.ar/20/03/coronavirus-argentina/js/app.1d9f1f1c.js></script>\n\n<!-- END HTML LIBRE L9 -->",
+            "type": "raw_html"
+        }
+    ],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "created_date": "2020-07-23T17:39:17.581Z",
+    "credits": {
+        "by": []
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2020-07-29T17:30:49.211Z",
+    "distributor": {
+        "category": "staff",
+        "name": "lanacionar"
+    },
+    "first_publish_date": "2020-07-23T17:39:23.684Z",
+    "headlines": {
+        "basic": "Municipio por municipio, el mapa del coronavirus en la provincia de Buenos Aires",
+        "meta_title": "",
+        "mobile": ""
+    },
+    "label": {
+        "enviar_a_apps": {
+            "url": "",
+            "text": "Si",
+            "display": true
+        }
+    },
+    "last_updated_date": "2020-07-29T20:30:53.945Z",
+    "owner": {
+        "sponsored": false
+    },
+    "publish_date": "2020-07-29T20:30:53.601Z",
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "subheadlines": {
+        "basic": ""
+    },
+    "subtype": "9",
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/autos",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {}
+                }
+            },
+            "name": "Autos",
+            "parent_id": "/",
+            "path": "/autos"
+        },
+        "sections": [
+            {
+                "_id": "/autos",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {}
+                    }
+                },
+                "name": "Autos",
+                "parent_id": "/",
+                "path": "/autos"
+            }
+        ],
+        "tags": []
+    },
+    "type": "story",
+    "website_url": "/autos/prueba-de-html-libre-para-apps-nid23072020/"
+}

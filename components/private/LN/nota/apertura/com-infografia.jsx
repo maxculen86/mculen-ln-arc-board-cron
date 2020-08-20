@@ -12,11 +12,11 @@ const ComInfografia = ({ content, outputType, _id }) => {
         _id
     };
 
-    if (outputType === 'amp') {
-        return <HtmlAMP data={data} />;
-    }
-
-    return <Html data={data} />;
+    return outputType === 'amp' ? (
+        <HtmlAMP data={data} />
+    ) : (
+        <Html data={data} />
+    );
 };
 
 ComInfografia.propTypes = {

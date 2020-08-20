@@ -9,6 +9,8 @@ import TitleAndIconArticle from '../titleAndIconArticle';
 import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
+import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
+
 const Component = props => {
     const {
         storytellingData,

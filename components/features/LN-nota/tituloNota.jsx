@@ -1,19 +1,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
+import withStatic from '../../private/common/hocs/withStatic';
 
 import TituloNota from '../../private/LN/nota/apertura/titleAndIconArticle';
 
-const tituloNota = props => {
-    const { id: featureId } = props;
-
-    return (
-        <Static id={featureId}>
-            <TituloNota {...props} />
-        </Static>
-    );
-};
+const tituloNota = props => <TituloNota {...props} />;
 
 tituloNota.label = 'LN-Nota-Titulo';
 
@@ -23,7 +15,7 @@ tituloNota.propTypes = {
             label: 'Prefijo',
             defaultValue: ''
         })
-    })
+    }).isRequired
 };
 
-export default Consumer(tituloNota);
+export default withStatic(Consumer(tituloNota));

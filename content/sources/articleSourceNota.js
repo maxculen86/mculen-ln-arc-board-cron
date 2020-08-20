@@ -15,6 +15,7 @@ import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
+import { FOTOAL100 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -73,20 +74,27 @@ const transform = (data, siteProps) => {
     const presetsXL = get(properties, `imageConfig.resize.xl`, null);
     const presetsL = get(properties, `imageConfig.resize.l`, null);
 
-    const notesWithRatio = ['1', '7'];
-
     // Si el subType es recetas o noticias applico el ratio
-
+    const notesWithRatio = ['1', '7'];
     const promoItemsRatio =
         notesWithRatio.indexOf(data.subtype) === 0
             ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
             : presetsXL.promo_items.sizes || presetsDefault;
+
+    let presetsFotoAl100 = {};
+    if (data.subtype === FOTOAL100) {
+        presetsFotoAl100 = get(properties, `imageConfig.resize.fotoAl100`, {});
+    }
+
     const resp = addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
         resizerUrl: RESIZER_URL,
         presets: {
             promoItems: promoItemsRatio,
-            contentElements: presetsL.content_elements || presetsDefault,
+            contentElements:
+                presetsFotoAl100.content_elements ||
+                presetsL.content_elements ||
+                presetsDefault,
             presetsDefault,
             zoomSizes: presetsZoom.promo_items.sizes
         }
@@ -121,6 +129,8 @@ const transformContent = (jsonArticle, arcSite) => {
         });
     }
 
+    /* TODO: validar si related content debe ir vacio si tiene otros 
+    items diferentes a reference */
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((e, i) => {
             if (e.type === 'reference') {
@@ -171,19 +181,26 @@ const addGalleryData = (gallery, arcSite) => {
 };
 
 const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
+    const { _id: id } = anotherNoteData;
     return relatedSource
         .fetch({
-            id: anotherNoteData._id,
+            id,
             'arc-site': arcSite,
-            includedFields: 'headlines,label,website_url'
+            includedFields: 'headlines,label,website_url,type'
         })
         .then(fetchedRelated => {
-            const { headlines, label, website_url } = fetchedRelated;
+            const {
+                headlines,
+                label,
+                website_url: websiteUrl,
+                type
+            } = fetchedRelated;
             const resp = {
                 ...anotherNoteData,
                 headlines,
                 label,
-                website_url
+                website_url: websiteUrl,
+                type
             };
 
             return resp;
