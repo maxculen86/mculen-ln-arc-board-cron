@@ -15,7 +15,7 @@ import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
-import logger from '../../components/private/common/utils/logger';
+import { FOTOAL100 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -84,20 +84,27 @@ const transform = (data, siteProps) => {
     const presetsXL = get(properties, `imageConfig.resize.xl`, null);
     const presetsL = get(properties, `imageConfig.resize.l`, null);
 
-    const notesWithRatio = ['1', '7'];
-
     // Si el subType es recetas o noticias applico el ratio
-
+    const notesWithRatio = ['1', '7'];
     const promoItemsRatio =
         notesWithRatio.indexOf(data.subtype) === 0
             ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
             : presetsXL.promo_items.sizes || presetsDefault;
+
+    let presetsFotoAl100 = {};
+    if (data.subtype === FOTOAL100) {
+        presetsFotoAl100 = get(properties, `imageConfig.resize.fotoAl100`, {});
+    }
+
     const resp = addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
         resizerUrl: RESIZER_URL,
         presets: {
             promoItems: promoItemsRatio,
-            contentElements: presetsL.content_elements || presetsDefault,
+            contentElements:
+                presetsFotoAl100.content_elements ||
+                presetsL.content_elements ||
+                presetsDefault,
             presetsDefault,
             zoomSizes: presetsZoom.promo_items.sizes
         }
