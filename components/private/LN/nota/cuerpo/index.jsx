@@ -12,7 +12,9 @@ const index = props => {
 
     // TODO: Ver si este es el mejor lugar donde poner este script.
     // Setea eventos en el window
-    addEventListener('scroll', handleScrollForNota, window);
+    if (typeof window !== 'undefined') {
+        addEventListener('scroll', handleScrollForNota, window);
+    }
 
     if (subtype === '7') return <CuerpoReceta {...props} />;
 
