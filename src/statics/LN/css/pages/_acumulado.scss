@@ -15,8 +15,8 @@
             }
         }
     }
-    .col-12 {
-        .mod-article {
+    .sidebar__main > .row {
+        > .mod-article {
             @media ($media-m) {
                 flex-direction: row-reverse;
                 .mod-media {

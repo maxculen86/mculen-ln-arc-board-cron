@@ -97,7 +97,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             <div className="mod-categories">
                                 {revista ? (
                                     <i
-                                        className={`com-logo logo-${revista}`}
+                                        className={`com-logo logo-${revista} --large`}
                                     ></i>
                                 ) : (
                                     <h1 className="com-title --xl ">
@@ -413,52 +413,52 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         dateText="20 de abril de 2020"
                                     />
                                 </div>
-                                <div className="col-12">
-                                    <ModArticle
-                                        link="#"
-                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
-                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                    />
-                                    <ModArticle
-                                        link="#"
-                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
-                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                    />
-                                    <ModArticle
-                                        link="#"
-                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
-                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                    />
-                                    <ModArticle
-                                        trueimage
-                                        link="#"
-                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
-                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                    />
-                                    <ModArticle
-                                        trueimage
-                                        link="#"
-                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
-                                    />
-                                    <ModArticle
-                                        trueimage
-                                        link="#"
-                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
-                                        subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
-                                    />
-                                </div>
+                                {/* <div className="col-12"> */}
+                                <ModArticle
+                                    link="#"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorText="Por Gabriel Di Nicola"
+                                    dateText="20 de abril de 2020"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
+                                <ModArticle
+                                    link="#"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorText="Por Gabriel Di Nicola"
+                                    dateText="20 de abril de 2020"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
+                                <ModArticle
+                                    link="#"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorText="Por Gabriel Di Nicola"
+                                    dateText="20 de abril de 2020"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
+                                <ModArticle
+                                    trueimage
+                                    link="#"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorText="Por Gabriel Di Nicola"
+                                    dateText="20 de abril de 2020"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
+                                <ModArticle
+                                    trueimage
+                                    link="#"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorText="Por Gabriel Di Nicola"
+                                    dateText="20 de abril de 2020"
+                                />
+                                <ModArticle
+                                    trueimage
+                                    link="#"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    authorText="Por Gabriel Di Nicola"
+                                    dateText="20 de abril de 2020"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                />
+                                {/* </div> */}
                             </div>
                         </div>
                         {/* Tercera */}
