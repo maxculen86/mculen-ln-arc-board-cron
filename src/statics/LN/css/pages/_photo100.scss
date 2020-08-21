@@ -99,9 +99,18 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 }
             }
 
-            .com-share,
             .mod-share {
+                top: 0;
+                position: fixed;
+                @include flex(flex, row, between, center);
+                z-index: 100;
+                background: $blanco;
+                width: 100%;
+                left: 0;
+                padding: 0 $spacing-sm;
+                display: none;
                 @media ($media-l) {
+                    position: sticky;
                     width: px(44);
                     padding: px(2);
                     background: rgba(255, 255, 255, 0.8);
@@ -121,18 +130,14 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 @media ($media-xl) {
                     left: calc(((100% - #{$width_nota100_xl}) / 2) - 140px);
                 }
-
-                button {
-                    padding: $spacing;
-                }
             }
         }
     }
 
     &.--scrollUp {
         main > .row {
-            .com-share,
             .mod-share {
+                display: flex;
                 @media ($media-l) {
                     top: calc(#{$spacing} + #{$header_h_desktop});
                 }
@@ -142,7 +147,6 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 
     &.amp {
         main > .row {
-            .com-share,
             .mod-share {
                 position: relative;
                 top: 0;
