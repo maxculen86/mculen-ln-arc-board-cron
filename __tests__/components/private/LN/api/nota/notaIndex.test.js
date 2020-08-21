@@ -37,7 +37,9 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.template).toBe(articleHtml.subtype);
         expect(resp.url).toBe(articleHtml.website_url);
         expect(resp.mostrarBanners).toBe(true);
-        expect(resp.paywallStatus).toBe(articleHtml.content_restrictions.content_code);
+        expect(resp.paywallStatus).toBe(
+            articleHtml.content_restrictions.content_code
+        );
         expect(resp.fechaActualizacion).toBeUndefined();
         expect(resp.fecha).toBeUndefined();
         expect(resp.enviarApps).toBe(true);
