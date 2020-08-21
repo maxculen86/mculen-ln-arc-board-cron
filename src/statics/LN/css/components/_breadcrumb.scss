@@ -3,19 +3,19 @@
 // Se saca los espacios al top
 //=======================================
 .com-breadcrumb {
-    //margin-top: $px-30;
+    //margin-top: px(30);
     font-family: $font-arial;
-    font-size: $font-14;
+    font-size: px(14);
     //Se saca none en mobile
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: $px-24;
+    margin-bottom: px(24);
     color: $gris5;
     a {
         color: $link;
         border-left: solid 1px $gris5;
-        padding: 0 $px-9;
+        padding: 0 px(9);
         &:first-letter {
             text-transform: capitalize;
         }
@@ -33,14 +33,14 @@
     }
     span {
         border-left: solid 1px $gris5;
-        padding: 0 $px-6;
+        padding: 0 px(6);
         &:first-letter {
             text-transform: capitalize;
         }
     }
     p {
         border-left: solid 1px $gris5;
-        padding: 0 $px-6;
+        padding: 0 px(6);
     }
 }
 

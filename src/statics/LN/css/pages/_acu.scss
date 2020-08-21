@@ -36,7 +36,7 @@ article a.figure:before:not(.mod-caja-nota a.figure:before) {
 
 .breaking-news {
     border-left: 2px solid $gris4;
-    padding-left: $px-20;
+    padding-left: px(20);
     &.hlp-degrade .transparency {
         width: 104%;
         margin-left: -30px;
@@ -68,5 +68,5 @@ article a.figure:before:not(.mod-caja-nota a.figure:before) {
 }
 
 .mod-opening {
-    margin-bottom: $px-40;
+    margin-bottom: px(40);
 }

@@ -3,9 +3,9 @@
 .com-banner {
     display: inherit;
     overflow: hidden;
-    &[id='1x1_mob'],
-    &[id='1x1_tab'],
-    &[id='1x1_dsk'] {
+    &#unoxuno_mob,
+    &#unoxuno_tab,
+    &#unoxuno_dsk {
         display: block;
         overflow: visible;
     }
@@ -38,8 +38,8 @@
     #cinturon1_dsk,
     #cinturon2_dsk,
     #middle_1_dsk {
-        max-width: px(920);
-        max-height: px(100);
+        max-width: px(1260);
+        max-height: px(170);
     }
     &#megalateral_dsk,
     #megalateral2_dsk,

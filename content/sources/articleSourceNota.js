@@ -15,6 +15,8 @@ import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
+import { FOTOAL100 } from '../../components/private/common/utils/subtypes/subtypeHelper';
+import logger from '../../components/private/common/utils/logger';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -30,6 +32,7 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
+    const { url = '' } = query;
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
@@ -39,23 +42,32 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
-    return request(opt).then(response => {
-        if (response.type === 'redirect' && response.redirect_url) {
-            throw new Redirect(response.redirect_url, 301);
-        }
 
-        const forwardUrl = get(
-            response,
-            'related_content.redirect[0].redirect_url'
-        );
+    return request(opt)
+        .then(response => {
+            if (response.type === 'redirect' && response.redirect_url) {
+                throw new Redirect(response.redirect_url, 301);
+            }
 
-        const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
-        if (forwardUrl && regExp.test(forwardUrl)) {
-            throw new Redirect(forwardUrl, 301);
-        }
+            const forwardUrl = get(
+                response,
+                'related_content.redirect[0].redirect_url'
+            );
 
-        return transform(response, query);
-    });
+            const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+            if (forwardUrl && regExp.test(forwardUrl)) {
+                throw new Redirect(forwardUrl, 301);
+            }
+
+            return transform(response, query);
+        })
+        .catch(error => {
+            const { statusCode, location } = error;
+            if (statusCode === 301 && location)
+                throw new Redirect(location, 301);
+
+            logger.push(error, { source: 'content/source', url });
+        });
 };
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
@@ -73,20 +85,27 @@ const transform = (data, siteProps) => {
     const presetsXL = get(properties, `imageConfig.resize.xl`, null);
     const presetsL = get(properties, `imageConfig.resize.l`, null);
 
-    const notesWithRatio = ['1', '7'];
-
     // Si el subType es recetas o noticias applico el ratio
-
+    const notesWithRatio = ['1', '7'];
     const promoItemsRatio =
         notesWithRatio.indexOf(data.subtype) === 0
             ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
             : presetsXL.promo_items.sizes || presetsDefault;
+
+    let presetsFotoAl100 = {};
+    if (data.subtype === FOTOAL100) {
+        presetsFotoAl100 = get(properties, `imageConfig.resize.fotoAl100`, {});
+    }
+
     const resp = addResizedUrls(data, {
         resizerSecret: RESIZER_KEY,
         resizerUrl: RESIZER_URL,
         presets: {
             promoItems: promoItemsRatio,
-            contentElements: presetsL.content_elements || presetsDefault,
+            contentElements:
+                presetsFotoAl100.content_elements ||
+                presetsL.content_elements ||
+                presetsDefault,
             presetsDefault,
             zoomSizes: presetsZoom.promo_items.sizes
         }
@@ -121,6 +140,8 @@ const transformContent = (jsonArticle, arcSite) => {
         });
     }
 
+    /* TODO: validar si related content debe ir vacio si tiene otros 
+    items diferentes a reference */
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((e, i) => {
             if (e.type === 'reference') {
@@ -171,19 +192,26 @@ const addGalleryData = (gallery, arcSite) => {
 };
 
 const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
+    const { _id: id } = anotherNoteData;
     return relatedSource
         .fetch({
-            id: anotherNoteData._id,
+            id,
             'arc-site': arcSite,
-            includedFields: 'headlines,label,website_url'
+            includedFields: 'headlines,label,website_url,type'
         })
         .then(fetchedRelated => {
-            const { headlines, label, website_url } = fetchedRelated;
+            const {
+                headlines,
+                label,
+                website_url: websiteUrl,
+                type
+            } = fetchedRelated;
             const resp = {
                 ...anotherNoteData,
                 headlines,
                 label,
-                website_url
+                website_url: websiteUrl,
+                type
             };
 
             return resp;

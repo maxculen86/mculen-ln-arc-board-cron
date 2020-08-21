@@ -8,7 +8,7 @@
     max-width: 100%;
     overflow: hidden;
     &.--bg-banner {
-        background: rgba(204, 204, 204, 1);
+        background: $gris1;
         width: 100%;
     }
     &.--mobile {
@@ -24,11 +24,11 @@
         }
         .sidebar__aside & {
             .--scrollDown & {
-                top: $px-10;
+                top: px(10);
             }
         }
         .--scrollUp & {
-            top: $px-80;
+            top: px(80);
         }
     }
     &.--fixed {
@@ -39,7 +39,7 @@
             bottom: px(0);
         }
         &.--bg-banner {
-            background: rgba(204, 204, 204, 1);
+            background: $gris1;
             width: 100%;
         }
     }

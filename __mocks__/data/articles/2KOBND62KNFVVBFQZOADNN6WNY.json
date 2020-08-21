@@ -1524,7 +1524,7 @@
                     "basic": "Prueba para ISA"
                 },
                 "label": {},
-                "type": "reference",
+                "type": "story",
                 "website_url": "/economia/prueba-para-isa-nid04052020/"
             },
             {
@@ -1547,7 +1547,7 @@
                         "text": "Esto es una volanta"
                     }
                 },
-                "type": "reference",
+                "type": "story",
                 "website_url": "/buenos-aires/prueba-martin-ios-nid02062020/"
             },
             {
@@ -1570,7 +1570,7 @@
                         "text": "Esto es una volanta"
                     }
                 },
-                "type": "reference",
+                "type": "story",
                 "website_url": "/buenos-aires/prueba-martin-ios-nid02062020/"
             },
             {
@@ -1587,7 +1587,7 @@
                         "text": "189696"
                     }
                 },
-                "type": "reference",
+                "type": "story",
                 "website_url": "/sociedad/prueba-nid1111"
             },
             {
@@ -1606,7 +1606,7 @@
                         "url": ""
                     }
                 },
-                "type": "reference",
+                "type": "story",
                 "website_url": "/politica/prueba-mauro-m-nid11062020/"
             },
             {
@@ -1625,7 +1625,7 @@
                         "url": ""
                     }
                 },
-                "type": "reference",
+                "type": "story",
                 "website_url": "/deportes/prueba-video-apertura-nid10062020/"
             },
             {
@@ -1648,7 +1648,7 @@
                         "text": "esto es volanta"
                     }
                 },
-                "type": "reference",
+                "type": "story",
                 "website_url": "/economia/prueba-espacio-patrocinado-nid04062020/"
             },
             {
@@ -1667,7 +1667,7 @@
                         "url": ""
                     }
                 },
-                "type": "reference",
+                "type": "story",
                 "website_url": "/ciencia/probando-bbc-nid04062020/"
             },
             {
@@ -1686,7 +1686,7 @@
                         "url": ""
                     }
                 },
-                "type": "reference",
+                "type": "story",
                 "website_url": "/autos/prueba-story-nid02062020/"
             }
         ]

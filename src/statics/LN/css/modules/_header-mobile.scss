@@ -20,7 +20,7 @@
         color: $link;
         font-family: arial;
         text-transform: uppercase;
-        font-size: $font-12;
+        font-size: px(12);
     }
     /*@media ($media-l) {
         display: none;
@@ -29,7 +29,7 @@
     // ------ESTADOS DEL HEADER------
     //=================================
     &.--dark,
-    .--hlp-transparent &,
+    .--transparent &,
     .acu-revista & {
         background: rgba(0, 0, 0, 0.5);
         border: none;

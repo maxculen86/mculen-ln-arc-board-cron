@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-fragments          */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import BlockQuote from './blockQuote';
@@ -19,6 +19,7 @@ import BotonLink from './botonLink';
 import Html from './html';
 // import HtmlAMP from './htmlAMP';
 import Video from './video';
+import { setStorageConfiguration } from '../../../common/utils/storage';
 
 const Cuerpo = props => {
     const {
@@ -27,8 +28,10 @@ const Cuerpo = props => {
         bannerConfig: banners,
         outputType,
         globalContent: {
+            _id,
             headlines: { basic: tituloNota },
-            content_elements: contentElements
+            content_elements: contentElements,
+            subtype
         }
     } = props;
 
@@ -47,6 +50,11 @@ const Cuerpo = props => {
         BotonLink,
         Html
     ];
+    // TODO: Ver si este es el mejor lugar donde poner este script.
+    // Setea valores en el Local Storage solo del lado del cliente
+    useEffect(() => {
+        setStorageConfiguration(_id);
+    }, [_id]);
 
     const types = ['text', 'image', 'oembed_response', 'video'];
 
@@ -62,6 +70,15 @@ const Cuerpo = props => {
     let counter = 0;
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
+            if (subtype === '8') {
+                return (
+                    !(
+                        element.type === 'oembed_response' ||
+                        element.type === 'raw_html' ||
+                        element.type === 'video'
+                    ) && bc.arcType === element.type
+                );
+            }
             if (element.type === 'quote') return bc.arcType === element.subtype;
             if (
                 element.type === 'oembed_response' ||

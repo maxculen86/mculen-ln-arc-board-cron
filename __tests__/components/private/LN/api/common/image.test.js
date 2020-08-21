@@ -7,7 +7,6 @@ describe('Json imagen common', () => {
         const img = article.globalContent.promo_items.basic;
 
         const resp = Image(img);
-        console.log(resp);
         expect(resp.id).toBe(img._id);
         expect(resp.baseUrl).toBe(
             '/resizer/{{param}}/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg'

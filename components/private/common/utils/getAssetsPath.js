@@ -1,8 +1,8 @@
-import { LANACIONAR_URLASSETS } from 'fusion:environment';
+import { SITE_LANACION } from 'fusion:environment';
 
 const getAssetsPath = contextPath => deployment => assets => {
     const path = `${contextPath}/resources/images`;
-    return `${LANACIONAR_URLASSETS}${deployment(`${path}/${assets}`)}`;
+    return `${SITE_LANACION}${deployment(`${path}/${assets}`)}`;
 };
 
 export default getAssetsPath;

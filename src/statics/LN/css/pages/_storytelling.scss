@@ -1,0 +1,22 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.--storytelling {
+    main {
+        padding-top: 0;
+        .mod-opening {
+            @include OpeningFull;
+
+            .com-logo.com-logo {
+                color: $blanco;
+            }
+        }
+        .mod-sponsor {
+            .com-texto,
+            .com-logo,
+            .com-logo::after {
+                color: $blanco;
+            }
+        }
+    }
+}

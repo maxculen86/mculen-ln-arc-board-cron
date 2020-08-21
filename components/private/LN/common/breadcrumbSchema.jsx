@@ -1,18 +1,32 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 
 function BreadcrumbSchema({ sections, host }) {
-    const items = sections
-        .map((el, i) => {
-            return `
+    const parent = [{ ...sections.shift() }].reduce(
+        (acc, val) => ({
+            ...acc,
+            ...val,
+            item: SITE_LANACION
+        }),
+        {}
+    );
+
+    const items = [
+        JSON.stringify(parent),
+        sections
+            .map((el, i) => {
+                return `
         {
             "@type": "ListItem",
             "position": ${i + 1},
             "name": "${el.name}",
             "item": "${host + el.path}"
         }`;
-        })
-        .join(',');
+            })
+            .join(',')
+    ];
+
     const data = {
         __html: `
             {

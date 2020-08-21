@@ -1,13 +1,13 @@
-import Header from './header';
-import Text from './text';
-import Video from './video';
-import Image from './image';
-import List from './list';
-import Quote from './quote';
-import Gallery from './gallery';
-import Embed from './embed';
-import Html from './htmlContent';
-import Button from './button';
+import Header from './elements/header';
+import Text from './elements/text';
+import Video from './elements/video';
+import Image from './elements/image';
+import List from './elements/list';
+import Quote from './elements/quote';
+import Gallery from './elements/gallery';
+import Embed from './elements/embed';
+import Html from './elements/htmlContent';
+import Button from './elements/button';
 
 const defaultCuerpo = contentElements => {
     const components = [

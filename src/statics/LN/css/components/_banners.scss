@@ -6,10 +6,10 @@
     justify-content: center;
     align-items: center;
     .col-deskxl-10 & {
-        margin-bottom: $px-24;
+        margin-bottom: px(24);
     }
     .amp & {
-        margin-bottom: $px-20;
+        margin-bottom: px(20);
         transform: scaleX(1.15);
         margin-left: inherit;
         @media ($media-m) {
@@ -79,15 +79,15 @@
     }
     .banner {
         &#caja2_dsk {
-            margin-top: $px-40;
-            margin-bottom: $px-40;
+            margin-top: px(40);
+            margin-bottom: px(40);
         }
         &.--desktop {
             //background-color: #f7f7f7;
             text-align: center;
             margin-bottom: 0;
             .sidebar__aside & {
-                margin-bottom: $px-30;
+                margin-bottom: px(30);
             }
         }
         &.--background {
@@ -96,16 +96,16 @@
         &.--sticky {
             position: -webkit-sticky;
             position: sticky;
-            top: $px-10;
+            top: px(10);
 
             .sidebar__aside & {
                 position: -webkit-sticky;
                 position: sticky;
-                top: $px-10;
+                top: px(10);
             }
 
             .--scrollUp & {
-                top: $px-80;
+                top: px(80);
             }
         }
     }

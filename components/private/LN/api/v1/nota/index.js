@@ -32,23 +32,35 @@ const indexNota = dataNota => {
         template,
         url,
         mostrarBanners: typeof showBanners !== 'undefined' ? showBanners : true,
-
         paywallStatus: paywallStatus ? paywallStatus : 'comun',
         abiertoComentarios: dataNota.comments
             ? dataNota.comments.display_comments
             : false,
         comentariosId: comentariosId || id,
-        fechaActualizacion: `${date}${!impresa ? ` • ${time}` : ''}`,
-        fecha: `${publishDate}${!impresa ? ` • ${updateTime}` : ''}`,
         categoria: primarySection && Section(primarySection),
-        apertura: Apertura(dataNota),
-        contenido: Cuerpo(dataNota),
-        relacionados: Relacionados(dataNota)
+        relacionados: Relacionados(dataNota),
+        enviarApps: true
     };
 
-    const modificadorTemplate = ModificadorTemplate(dataNota);
+    if (dataNota.subtype === '9') {
+        resp.HTML = Cuerpo(dataNota);
+    } else {
+        resp.fechaActualizacion = `${date}${!impresa ? ` • ${time}` : ''}`;
+        resp.fecha = `${publishDate}${!impresa ? ` • ${updateTime}` : ''}`;
+        resp.contenido = Cuerpo(dataNota);
+        resp.apertura = Apertura(dataNota);
+    }
 
+    const modificadorTemplate = ModificadorTemplate(dataNota);
     if (modificadorTemplate) resp.modificadorTemplate = modificadorTemplate;
+
+    const enviarApps = get(dataNota, 'label.enviar_a_apps');
+    if (
+        !enviarApps ||
+        !enviarApps.text ||
+        enviarApps.text.toLowerCase() == 'no'
+    )
+        resp.enviarApps = false;
 
     return resp;
 };

@@ -18,7 +18,7 @@ amp-sidebar {
         justify-content: space-between;
         align-items: center;
         padding: 15px 20px;
-        background: #fff;
+        background: $blanco;
         border-bottom: solid 1px #eaeaea;
         margin-bottom: 10px;
 
@@ -39,7 +39,7 @@ amp-sidebar {
         height: calc(100% - 130px);
 
         .menu_li {
-            background: #fff;
+            background: $blanco;
 
             a {
                 font-family: arial;
@@ -68,7 +68,7 @@ amp-sidebar {
                     text-align: left;
                     border-top: 0;
                     border-bottom: 1px solid #dfdfdf;
-                    background: #fff;
+                    background: $blanco;
                     color: #3f3f3f;
                     font-weight: bold;
                     font-size: 16px;
@@ -171,7 +171,8 @@ a.icon-cerrar:before {
             border: none;
         }
     }
-    .--storytelling & {
+    .--storytelling &,
+    .--transparent & {
         border: none;
         background: rgba(0, 0, 0, 0.5);
 
@@ -194,8 +195,8 @@ a.icon-cerrar:before {
             }
             .--btn.--secondary {
                 background-color: transparent;
-                border: 1px solid #ffffff;
-                color: #ffffff;
+                border: 1px solid $blanco;
+                color: $blanco;
             }
         }
 
@@ -232,13 +233,13 @@ a.icon-cerrar:before {
 
         .suscribir__header {
             background-color: #ffff24;
-            border: 1px solid #cccccc;
-            color: #000000;
+            border: 1px solid $gris3;
+            color: $negro;
             padding: 0.625rem 1.5rem;
             &:hover {
-                background: #000000;
-                border-color: #000000;
-                color: #ffffff;
+                background: $negro;
+                border-color: $negro;
+                color: $blanco;
             }
         }
 
@@ -300,7 +301,7 @@ a.icon-cerrar:before {
 amp-carousel {
     width: calc(100% + 2.5rem);
     margin-left: -1.25rem;
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
 
     @media (min-width: 769px) {
         width: auto;
@@ -389,25 +390,23 @@ amp-img {
 }
 
 @media (max-width: 1023px) {
-    .--foto100 {
-        .cuerpo__nota {
-            .col-1 {
-                flex: auto;
-                max-width: none;
-                margin-bottom: px(16);
-                .com-share {
-                    display: block;
-                    position: relative;
-                    top: auto;
-                    left: auto;
-                    right: auto;
-                    border: none;
-                    width: calc(100% + 2.5rem);
-                    margin-left: -1.25rem;
-                    .share-right {
-                        amp-social-share {
-                            padding-top: px(4);
-                        }
+    .cuerpo__nota {
+        .col-1 {
+            flex: auto;
+            max-width: none;
+            margin-bottom: $spacing-sm;
+            .com-share {
+                display: block;
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                border: none;
+                width: calc(100% + 2.5rem);
+                margin-left: -1.25rem;
+                .share-right {
+                    amp-social-share {
+                        padding-top: px(4);
                     }
                 }
             }
@@ -416,7 +415,7 @@ amp-img {
 }
 
 .com-embed {
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     amp-youtube,
     amp-vimeo {
         @media (max-width: 375px) {

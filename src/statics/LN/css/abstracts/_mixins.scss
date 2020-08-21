@@ -56,11 +56,11 @@
         content: $logo;
         color: $primario;
         opacity: 0.2;
-        font-size: $font-35;
+        font-size: px(35);
     }
     @media (min-width: 1023px) {
         .row-gap-deskxl-2 .cont-figure .figure .content-pic:before {
-            font-size: $font-65;
+            font-size: px(65);
         }
     }
     .com-tag a {
@@ -144,4 +144,137 @@
     -moz-transform: translate#{$eje}#{$num};
     -ms-transform: translate#{$eje}#{$num};
     transform: translate#{$eje}#{$num};
+}
+
+@mixin fullwidth {
+    $spacing-lg: 2.5rem;
+    $spacing-sm: 1.25rem;
+
+    width: calc(100% + #{$spacing-lg});
+    margin-left: -$spacing-sm;
+}
+
+@mixin OpeningFull {
+    //.mod-opening
+
+    margin-top: px(-45); //header mobile
+    @media ($media-l) {
+        margin-top: px(-65); //header
+    }
+
+    .mod-figure {
+        .mod-picture {
+            width: 100%;
+            margin: 0;
+            background: $gris6;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 60px);
+            border: 0;
+
+            @media (min-width: 769px) {
+                height: 100vh;
+            }
+
+            &.--video-background {
+                video {
+                    display: none;
+                }
+
+                @media ($media-m) {
+                    .com-image {
+                        display: none;
+                    }
+                    video {
+                        display: block;
+                        position: relative;
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .mod-title {
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.65);
+        transition: all 0.2s ease-in-out;
+        padding-bottom: 0;
+        margin-bottom: 0;
+
+        @media (min-width: 769px) {
+            padding-bottom: px(16);
+            text-align: center;
+        }
+
+        &:before {
+            background-image: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.65),
+                rgba(0, 0, 0, 0)
+            );
+            content: '';
+            height: px(120);
+            width: 100%;
+            margin-top: px(-120);
+            position: absolute;
+            left: 0;
+        }
+
+        [class*='logo-'] {
+            margin: 0;
+            margin-bottom: $spacing;
+            &::before {
+                color: $blanco;
+            }
+            @media ($media-m) {
+                margin-bottom: $spacing-sm;
+            }
+        }
+
+        .mod-sponsor {
+            .com-logo.com-logo,
+            .com-logo.com-logo:before,
+            .com-logo.com-logo:after,
+            .com-text.com-text {
+                //duplico class para evitar !important
+                color: $blanco;
+                margin-bottom: 0;
+            }
+        }
+
+        .lay {
+            .com-title {
+                font-family: $font-SuecaSlab;
+                font-size: px(24);
+                line-height: px(32);
+                color: $blanco;
+
+                @media ($media-m) {
+                    font-size: px(46);
+                    line-height: px(54);
+                }
+            }
+            @media (min-width: 769px) {
+                width: auto;
+                display: inline-block;
+                text-align: left;
+            }
+        }
+    }
+    .mod-figcaption {
+        border-bottom: 1px solid $gris3;
+        margin-top: px(8);
+        .--credit,
+        .--caption {
+            margin-bottom: $spacing;
+        }
+    }
 }
