@@ -16,6 +16,7 @@ import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import { FOTOAL100 } from '../../components/private/common/utils/subtypes/subtypeHelper';
+import logger from '../../components/private/common/utils/logger';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;

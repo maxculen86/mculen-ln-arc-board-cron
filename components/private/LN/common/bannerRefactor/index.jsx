@@ -28,7 +28,8 @@ const index = props => {
         isAdmin,
         banner,
         screenUtils,
-        extraClasses
+        extraClasses,
+        arcSite: website
     } = props;
 
     const {
@@ -41,7 +42,7 @@ const index = props => {
     const content = useContent({
         source: 'navigationTreeSource',
         query: {
-            website: 'la-nacion-ar'
+            website
         }
     });
 
@@ -108,6 +109,7 @@ const index = props => {
 };
 
 index.propTypes = {
+    arcSite: PropTypes.string,
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
