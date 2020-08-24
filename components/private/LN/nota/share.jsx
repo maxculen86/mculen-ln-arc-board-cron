@@ -40,8 +40,8 @@ const Share = props => {
     const { commentsCount } = useGlobal();
     // TODO: arreglar el tema de las URL's
     const mystyle = {
-        maxWidth: '24px',
-        maxHeight: '24px'
+        maxWidth: '32px',
+        maxHeight: '32px'
     };
     return (
         <div

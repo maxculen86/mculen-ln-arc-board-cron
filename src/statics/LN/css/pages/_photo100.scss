@@ -117,7 +117,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                     left: auto;
                     right: auto;
                     top: $spacing-sm;
-
+                    float: left;
                     display: block;
                     left: calc(((100% - #{$width_nota100_l}) / 2) - 140px);
                 }
@@ -139,6 +139,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
             .mod-share {
                 display: flex;
                 @media ($media-l) {
+                    display: block;
                     top: calc(#{$spacing} + #{$header_h_desktop});
                 }
             }
@@ -149,20 +150,13 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
         main > .row {
             .mod-share {
                 position: relative;
-                top: 0;
                 border: none;
-                margin-bottom: $spacing-sm;
                 display: flex;
-                amp-social-share[type='email'] {
-                    padding-top: 0;
-                    @media ($media-l) {
-                        padding-top: $spacing-sm;
-                    }
-                }
+                margin-bottom: $spacing-sm;
+
                 @media ($media-l) {
-                    width: px(60);
                     position: sticky;
-                    top: $spacing-sm;
+                    display: block;
                 }
             }
         }

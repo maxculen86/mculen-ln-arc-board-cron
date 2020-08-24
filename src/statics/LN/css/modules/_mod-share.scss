@@ -50,8 +50,8 @@
             @include flex(flex, row, center, center);
             margin-bottom: $spacing-sm;
             margin-right: $spacing-sm;
-            width: 24px;
-            height: 24px;
+            width: px(32);
+            height: px(32);
             font-family: 'LNicons';
             font-style: normal;
             font-weight: normal;
