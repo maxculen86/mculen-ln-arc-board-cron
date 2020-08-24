@@ -89,7 +89,7 @@ const transform = (data, siteProps) => {
     const promoItemsRatio =
         notesWithRatio.indexOf(data.subtype) === 0
             ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
-            : presetsXL.promo_items.sizes || presetsDefault;
+            : presetsXL.promo_items || presetsDefault;
 
     let presetsFotoAl100 = {};
     if (data.subtype === FOTOAL100) {
