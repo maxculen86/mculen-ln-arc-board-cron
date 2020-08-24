@@ -2,23 +2,22 @@
 @import '../abstracts/mixins';
 
 .mod-picture {
-    background: $gris1;
     position: relative;
+    background: $gris1;
     display: block;
     transition: all 0.2s ease-in-out;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: px(8);
+
+    border-top: 1px solid $gris3;
+    border-bottom: 1px solid $gris3;
+    margin-bottom: $spacing;
 
     //100% mobile
-    width: calc(100% + 2.5rem);
-    margin-left: -1.25rem;
+    @include fullwidth;
 
     //100% ipad dentro de nota
     .mod-opening &,
     .cuerpo__nota & {
-        width: calc(100% + 2.5rem);
-        margin-left: -1.25rem;
+        @include fullwidth;
     }
 
     @media ($media-m) {
@@ -26,12 +25,12 @@
         margin-left: 0;
         .mod-caja-nota & {
             .acu & {
-                border: 1px solid #ccc;
+                border: 1px solid $gris3;
             }
         }
     }
     @media ($media-l) {
-        border: 1px solid #ccc;
+        border: 1px solid $gris3;
         .mod-opening &,
         .cuerpo__nota & {
             width: 100%;
@@ -41,7 +40,7 @@
 
     .--slider.--slider & {
         display: flex;
-        padding-bottom: calc((2 / 3) * 100%);
+        padding-bottom: $picture;
         padding-top: initial;
         justify-content: center;
         background: $gris1;
@@ -97,7 +96,7 @@
 .mod-caja-nota,
 .--horizontal {
     .mod-picture {
-        padding-top: calc((2 / 3) * 100%);
+        padding-top: $picture;
     }
 }
 

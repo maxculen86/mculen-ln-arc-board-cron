@@ -3,21 +3,21 @@
     background: $gris1;
     display: flex;
     align-items: center;
-    padding: 0 $px-40;
+    padding: 0 px(40);
     .cont-figure {
-        margin-top: $px-25;
-        height: $px-90;
+        margin-top: px(25);
+        height: px(90);
         overflow: hidden;
     }
     .content-text {
-        padding-left: $px-20;
+        padding-left: px(20);
         h2 {
             font-family: $font-SuecaSlab;
-            font-size: $font-20;
+            font-size: px(20);
         }
         p {
             font-family: $font-arial;
-            font-size: $font-16;
+            font-size: px(16);
         }
     }
     .content-button {
