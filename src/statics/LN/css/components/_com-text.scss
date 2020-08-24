@@ -64,6 +64,11 @@
     }
     .mod-share & {
         order: 2;
+        color: $negro;
+
+        @media ($media-l) {
+            color: $ln;
+        }
     }
 }
 

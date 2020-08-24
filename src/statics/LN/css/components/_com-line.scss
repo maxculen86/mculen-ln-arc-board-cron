@@ -11,7 +11,6 @@
     }
     .mod-share & {
         display: none;
-        background: $gris5;
     }
 
     &::after {
@@ -35,7 +34,7 @@
         }
         .mod-share & {
             display: flex;
-            background: $gris5;
+            background: $negro;
             margin-bottom: $spacing-sm;
         }
     }
