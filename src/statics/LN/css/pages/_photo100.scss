@@ -100,24 +100,25 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
             }
 
             .mod-share {
-                top: 0;
-                position: fixed;
-                @include flex(flex, row, between, center);
-                z-index: 100;
-                background: $blanco;
-                width: 100%;
-                left: 0;
-                padding: 0 $spacing-sm;
-                display: none;
+                // top: 0;
+                // position: fixed;
+                // @include flex(flex, row, between, center);
+                // background: $blanco;
+                // width: 100%;
+                // left: 0;
+                // padding: px(6) $spacing-sm;
+                // border-bottom: 1px solid #f2f2f2;
+                // display: none;
                 @media ($media-l) {
-                    position: sticky;
+                    // border: none;
+                    // position: sticky;
                     width: px(44);
-                    padding: px(2);
+                    padding: px(8) px(2);
                     background: rgba(255, 255, 255, 0.8);
-                    left: auto;
-                    right: auto;
-                    top: $spacing-sm;
-                    float: left;
+                    // left: auto;
+                    // right: auto;
+                    // top: $spacing-sm;
+                    // float: left;
                     display: block;
                     left: calc(((100% - #{$width_nota100_l}) / 2) - 140px);
                 }
@@ -138,6 +139,8 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
         main > .row {
             .mod-share {
                 display: flex;
+                z-index: 100;
+
                 @media ($media-l) {
                     display: block;
                     top: calc(#{$spacing} + #{$header_h_desktop});
@@ -149,14 +152,16 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
     &.amp {
         main > .row {
             .mod-share {
-                position: relative;
-                border: none;
-                display: flex;
+                // position: relative;
+                // border: none;
+                // display: flex;
                 margin-bottom: $spacing-sm;
-
+                padding: 0 $spacing-sm;
                 @media ($media-l) {
-                    position: sticky;
-                    display: block;
+                    //     position: sticky;
+                    //     display: block;
+                    margin-bottom: 0;
+                    padding: 0;
                 }
             }
         }

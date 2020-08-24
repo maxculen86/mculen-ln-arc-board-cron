@@ -17,6 +17,13 @@
     }
     .mod-share & {
         padding: 0;
+        margin-right: $spacing-sm;
+        &.comment {
+            margin: 0;
+        }
+        @media ($media-l) {
+            margin-right: 0;
+        }
     }
 
     &.facebook {

@@ -334,26 +334,27 @@ amp-img {
 }
 
 @media (max-width: 1023px) {
+    //para que el share en mobile se vea al 100% relative
     .cuerpo__nota {
         .col-1 {
             flex: auto;
             max-width: none;
             margin-bottom: $spacing-sm;
-            .com-share {
-                display: block;
-                position: relative;
-                top: auto;
-                left: auto;
-                right: auto;
-                border: none;
-                width: calc(100% + 2.5rem);
-                margin-left: -1.25rem;
-                .share-right {
-                    amp-social-share {
-                        padding-top: px(4);
-                    }
-                }
-            }
+            // .com-share {
+            //     display: block;
+            //     position: relative;
+            //     top: auto;
+            //     left: auto;
+            //     right: auto;
+            //     border: none;
+            //     width: calc(100% + 2.5rem);
+            //     margin-left: -1.25rem;
+            //     .share-right {
+            //         amp-social-share {
+            //             padding-top: px(4);
+            //         }
+            //     }
+            // }
         }
     }
 }
