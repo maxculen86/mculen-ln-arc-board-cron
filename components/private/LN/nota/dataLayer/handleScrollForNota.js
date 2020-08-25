@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export default function handleScrollForNota() {
     if (typeof window === 'undefined') return;
     if (window.dataLayer === 'undefined') return;
