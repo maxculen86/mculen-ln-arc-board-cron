@@ -79,17 +79,17 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
             }
 
             .mod-figure {
-                cursor: default;
+                //cursor: default;
                 &::before {
                     right: $spacing;
                 }
-                &:hover::before {
-                    display: none;
-                }
+                //&:hover::before {
+                //    display: none;
+                //}
                 .mod-picture {
                     height: 100vh;
-                    width: 100%;
-                    margin-left: 0;
+                    //width: 100%;
+                    //margin-left: 0;
                     border: none;
                 }
             }
