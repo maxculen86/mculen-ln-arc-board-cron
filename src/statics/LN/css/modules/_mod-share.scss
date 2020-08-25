@@ -72,20 +72,20 @@
             @include flex(flex, row, center, center);
             margin-bottom: $spacing-sm;
             margin-right: $spacing-sm;
-            width: px(32);
-            height: px(32);
+            //width: px(32);
+            //height: px(32);
             font-family: 'LNicons';
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
+            //font-style: normal;
+            //font-weight: normal;
+            //font-variant: normal;
+            //text-transform: none;
             font-size: px(24);
             padding: px(4);
-            line-height: 1;
+            //line-height: 1;
             /* Better Font Rendering =========== */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            text-align: center;
+            //text-align: center;
             &:hover {
                 background: transparent;
                 color: $ln;
@@ -160,9 +160,10 @@
             //}
         }
         &.--scrollDown {
-            z-index: 0;
+            //z-index: 0;
             //.cuerpo__nota & {
-            @include flex(flex);
+            //@include flex(flex);
+            display: flex;
             //}
         }
         // .footer & {
