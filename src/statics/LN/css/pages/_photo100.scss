@@ -112,14 +112,14 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 @media ($media-l) {
                     // border: none;
                     // position: sticky;
-                    width: px(44);
-                    padding: px(8) px(2);
-                    background: rgba(255, 255, 255, 0.8);
+                    // width: px(44);
+                    // padding: px(8) px(2);
+                    // background: rgba(255, 255, 255, 0.8);
                     // left: auto;
                     // right: auto;
                     // top: $spacing-sm;
                     // float: left;
-                    display: block;
+                    // display: block;
                     left: calc(((100% - #{$width_nota100_l}) / 2) - 140px);
                 }
                 @media ($media-lm) {
