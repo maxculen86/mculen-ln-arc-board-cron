@@ -19,40 +19,40 @@
     .amp & {
         position: relative;
         display: flex;
-        padding: 0;
+        //padding: 0;
         border: none;
         //margin-bottom: $spacing-sm;
     }
     &.--scrollDown {
-        .cuerpo__nota & {
-            display: none;
+        //.cuerpo__nota & {
+        display: none;
+        //}
+    }
+    .cuerpo__nota & {
+        //     top: 0;
+        //     position: fixed;
+        //     @include flex(flex, row, between, center);
+        //     z-index: 100;
+        //     background: $blanco;
+        //     width: 100%;
+        //     left: 0;
+        //     padding: px(6) $spacing-sm;
+        //     border-bottom: 1px solid #f2f2f2;
+        //     display: none;
+
+        .amp & {
+            //         position: relative;
+            //         display: flex;
+            padding: 0;
+            //         border: none;
         }
     }
-    // .cuerpo__nota & {
-    //     top: 0;
-    //     position: fixed;
-    //     @include flex(flex, row, between, center);
-    //     z-index: 100;
-    //     background: $blanco;
-    //     width: 100%;
-    //     left: 0;
-    //     padding: px(6) $spacing-sm;
-    //     border-bottom: 1px solid #f2f2f2;
-    //     display: none;
-
-    //     .amp & {
-    //         position: relative;
-    //         display: flex;
-    //         padding: 0;
-    //         border: none;
-    //     }
-    // }
 
     &.--scrollUp {
-        .cuerpo__nota & {
-            top: 0px;
-            display: flex;
-        }
+        //.cuerpo__nota & {
+        top: 0;
+        display: flex;
+        //}
     }
     // .footer & {
     //     @include flex(flex, row, center, center);
@@ -137,7 +137,7 @@
         }
         .amp & {
             position: sticky;
-            padding: 0 $spacing-sm;
+            //padding: 0 $spacing-sm;
         }
 
         //scrollUp Se muestra en la posición 0 (Sacar la clase cuando vuelva al punto 0)
@@ -155,14 +155,15 @@
 
         // }
         &.--scrollUp {
-            .cuerpo__nota & {
-                top: px(85);
-            }
+            //.cuerpo__nota & {
+            top: px(85);
+            //}
         }
         &.--scrollDown {
-            .cuerpo__nota & {
-                @include flex(flex);
-            }
+            z-index: 0;
+            //.cuerpo__nota & {
+            @include flex(flex);
+            //}
         }
         // .footer & {
         //     justify-content: flex-start;
