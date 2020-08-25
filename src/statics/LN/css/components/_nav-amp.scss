@@ -1,10 +1,10 @@
 @import '../abstracts/variables';
-.layout {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
+// .layout {
+//     display: block;
+//     width: 100vw;
+//     height: 100vh;
+//     position: relative;
+// }
 
 amp-sidebar {
     //Sidebar
@@ -122,17 +122,18 @@ amp-sidebar {
     }
 }
 
-.icon-cerrar {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-family: 'LNicons';
-}
-a.icon-cerrar:before {
-    font-family: 'LNicons';
-    font-size: 20px;
-    display: block;
-}
+// .icon-cerrar {
+//     position: absolute;
+//     right: 10px;
+//     top: 10px;
+//     font-family: 'LNicons';
+// }
+// a.icon-cerrar:before {
+//     font-family: 'LNicons';
+//     font-size: 20px;
+//     display: block;
+// }
+
 .header {
     border-bottom: 1px solid #f2f2f2;
     padding: 4px 5px 5px;
@@ -228,8 +229,8 @@ a.icon-cerrar:before {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 13px 0;
-        border-bottom: 1px solid #d9d9d9;
+        padding: px(13) 0;
+        border-color: #d9d9d9;
 
         .suscribir__header {
             background-color: #ffff24;
