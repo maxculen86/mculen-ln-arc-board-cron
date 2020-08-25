@@ -172,8 +172,9 @@ amp-sidebar {
             border: none;
         }
     }
-    .--storytelling &,
+
     .--transparent & {
+        //sirve para storytelling y foto al 100
         border: none;
         background: rgba(0, 0, 0, 0.5);
 
@@ -194,9 +195,8 @@ amp-sidebar {
             .suscribir__header {
                 color: $blanco;
             }
-            .--btn.--secondary {
+            .com-button.--secondary {
                 background-color: transparent;
-                border: 1px solid $blanco;
                 color: $blanco;
             }
         }
@@ -205,6 +205,10 @@ amp-sidebar {
             .header__right {
                 .suscribir__header {
                     color: $negro;
+                }
+                .com-button.--secondary {
+                    border: 1px solid $blanco;
+                    padding: px(10) px(24);
                 }
             }
         }
