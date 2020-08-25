@@ -143,7 +143,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 
                 @media ($media-l) {
                     display: block;
-                    top: calc(#{$spacing-sm} + #{$header_h_desktop});
+                    //top: calc(#{$spacing-sm} + #{$header_h_desktop});
                 }
             }
         }
