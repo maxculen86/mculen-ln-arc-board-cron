@@ -1,0 +1,41 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+.com-line {
+    width: 100%;
+    height: px(1);
+    background: $gris3;
+    .footer & {
+        display: flex;
+        margin-bottom: $spacing-md;
+        order: 2;
+    }
+    .mod-share & {
+        display: none;
+    }
+
+    &::after {
+        .mod-opening.--recipe & {
+            content: '';
+            width: px(32);
+            background: $negro;
+        }
+    }
+
+    .--info & {
+        .mod-opening.--recipe & {
+            margin-bottom: $spacing-md;
+        }
+    }
+}
+@media ($media-l) {
+    .com-line {
+        .footer & {
+            margin-bottom: $spacing-sm;
+        }
+        .mod-share & {
+            display: flex;
+            background: $negro;
+            margin-bottom: $spacing-sm;
+        }
+    }
+}

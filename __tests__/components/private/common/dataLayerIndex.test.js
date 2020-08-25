@@ -18,18 +18,18 @@ import Context from 'fusion:context';
 describe('LN - Common - DataLayer', () => {
     const globalContent = {
         subtype: '7'
-    }
+    };
 
     Context.useAppContext = jest.fn(() => ({
         globalContent: globalContent
     }));
-    
+
     it('DataLayer nota recetas snapshot', () => {
         const comp = mount(
-            <DataLayerIndex 
-                arcSite="la-nacion-ar" 
-                layout="LN-nota-receta" 
-                globalContent={globalContent} 
+            <DataLayerIndex
+                arcSite="la-nacion-ar"
+                layout="LN-nota-receta"
+                globalContent={globalContent}
             />
         );
         expect(comp).toMatchSnapshot();

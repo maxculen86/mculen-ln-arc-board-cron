@@ -333,66 +333,28 @@ amp-img {
     }
 }
 
-amp-social-share {
-    &[type='facebook'],
-    &[type='twitter'],
-    &[type='whatsapp'],
-    &[type='email'] {
-        background: none;
-
-        font-family: 'LNicons';
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        font-size: px(24);
-        padding: px(4);
-        line-height: 1;
-        /* Better Font Rendering =========== */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-    }
-
-    &[type='facebook']:before {
-        content: '\e908';
-    }
-    &[type='twitter']:before {
-        content: '\e922';
-    }
-    &[type='whatsapp']:before {
-        content: '\e926';
-    }
-
-    &[type='email'] {
-        padding-top: px(16);
-        &:before {
-            content: '\e907';
-        }
-    }
-}
-
 @media (max-width: 1023px) {
+    //para que el share en mobile se vea al 100% relative
     .cuerpo__nota {
         .col-1 {
             flex: auto;
             max-width: none;
             margin-bottom: $spacing-sm;
-            .com-share {
-                display: block;
-                position: relative;
-                top: auto;
-                left: auto;
-                right: auto;
-                border: none;
-                width: calc(100% + 2.5rem);
-                margin-left: -1.25rem;
-                .share-right {
-                    amp-social-share {
-                        padding-top: px(4);
-                    }
-                }
-            }
+            // .com-share {
+            //     display: block;
+            //     position: relative;
+            //     top: auto;
+            //     left: auto;
+            //     right: auto;
+            //     border: none;
+            //     width: calc(100% + 2.5rem);
+            //     margin-left: -1.25rem;
+            //     .share-right {
+            //         amp-social-share {
+            //             padding-top: px(4);
+            //         }
+            //     }
+            // }
         }
     }
 }

@@ -62,6 +62,14 @@
             right: 0;
         }
     }
+    .mod-share & {
+        order: 2;
+        color: $negro;
+
+        @media ($media-l) {
+            color: $ln;
+        }
+    }
 }
 
 @media ($media-m) {

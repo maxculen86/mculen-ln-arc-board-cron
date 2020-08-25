@@ -15,22 +15,24 @@ const ComLink = props => {
         size
     } = props;
 
-    if (!link)
-        return (
-            <span className={`com-text ${classCondition || ''} ${size || ''}`}>
-                {textname}
-            </span>
-        );
     return (
-        <a
-            href={link}
-            rel={target === '_blank' && 'nonoopener noreferrer'}
-            target={target}
-            title={title}
-            className={`com-link ${classCondition || ''} ${size || ''}`}
-        >
-            {children || textname}
-        </a>
+        <>
+            {link ? (
+                <a
+                    href={link}
+                    rel={target === '_blank' && 'nonoopener noreferrer'}
+                    target={target}
+                    title={title}
+                    className={`com-link ${classCondition || ''}`}
+                >
+                    {children || textname}
+                </a>
+            ) : (
+                <span className={`com-text ${classCondition || ''}`}>
+                    {children || textname}
+                </span>
+            )}
+        </>
     );
 };
 
