@@ -238,9 +238,11 @@ const resizePromoItems = (
 ) => {
     const resp = {};
 
-    const { defaultSize, isFotoAl100orStorytelling } = getDefaultSize(subtype);
+    const { defaultResize, isFotoAl100orStorytelling } = getDefaultSize(
+        subtype
+    );
 
-    const optionsFinal = get(resizeOptions, 'sizes', [defaultSize]);
+    const optionsFinal = get(resizeOptions, 'sizes', [defaultResize]);
 
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
@@ -251,7 +253,7 @@ const resizePromoItems = (
                 resizer,
                 zoomSizes,
                 isFotoAl100orStorytelling,
-                defaultSize
+                defaultResize
             );
         } else {
             resp[key] = pi;
@@ -292,7 +294,7 @@ export const addResizedUrls = (ansDoc, option) => {
 
     const optionsContentElements = option.presets.contentElements.sizes;
 
-    const { defaultSize } = getDefaultSize(ansDoc.subtype);
+    const { defaultResize } = getDefaultSize(ansDoc.subtype);
 
     const respDoc = {
         ...ansDoc,
@@ -306,7 +308,7 @@ export const addResizedUrls = (ansDoc, option) => {
                         resizer,
                         zoomSizes,
                         true,
-                        defaultSize
+                        defaultResize
                     );
                 }
                 if (elem.type === 'gallery') {
