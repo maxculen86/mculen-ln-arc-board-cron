@@ -237,6 +237,30 @@ const resizePromoItems = (
     subtype
 ) => {
     const resp = {};
+
+    const { defaultSize, isFotoAl100orStorytelling } = getDefaultSize(subtype);
+
+    const optionsFinal = get(resizeOptions, 'sizes', [defaultSize]);
+
+    Object.keys(promoItems).forEach(key => {
+        const pi = promoItems[key];
+        if (pi.type === 'image') {
+            resp[key] = resizeArcImage(
+                pi,
+                optionsFinal,
+                resizer,
+                zoomSizes,
+                isFotoAl100orStorytelling,
+                defaultSize
+            );
+        } else {
+            resp[key] = pi;
+        }
+    });
+    return resp;
+};
+
+const getDefaultSize = subtype => {
     const isFotoAl100orStorytelling =
         subtype === FOTOAL100 || subtype === STORYTELLING;
 
@@ -254,24 +278,7 @@ const resizePromoItems = (
           }
         : defaultSize;
 
-    const optionsFinal = get(resizeOptions, 'sizes', [defaultSize]);
-
-    Object.keys(promoItems).forEach(key => {
-        const pi = promoItems[key];
-        if (pi.type === 'image') {
-            resp[key] = resizeArcImage(
-                pi,
-                optionsFinal,
-                resizer,
-                zoomSizes,
-                isFotoAl100orStorytelling,
-                defaultResize
-            );
-        } else {
-            resp[key] = pi;
-        }
-    });
-    return resp;
+    return { defaultResize, isFotoAl100orStorytelling };
 };
 
 export const addResizedUrls = (ansDoc, option) => {
@@ -285,6 +292,8 @@ export const addResizedUrls = (ansDoc, option) => {
 
     const optionsContentElements = option.presets.contentElements.sizes;
 
+    const { defaultSize } = getDefaultSize(ansDoc.subtype);
+
     const respDoc = {
         ...ansDoc,
         content_elements:
@@ -296,7 +305,8 @@ export const addResizedUrls = (ansDoc, option) => {
                         optionsContentElements,
                         resizer,
                         zoomSizes,
-                        true
+                        true,
+                        defaultSize
                     );
                 }
                 if (elem.type === 'gallery') {

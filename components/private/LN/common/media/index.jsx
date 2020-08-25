@@ -6,6 +6,8 @@ import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 import ComFigcaption from '../../../common/com-figcaption';
+import { FOTOAL100, STORYTELLING } from '../../../common/utils/subtypes/subtypeHelper';
+import useSubtype from '../../../common/hooks/useSubtype';
 
 const media = ({
     mediaData,
@@ -26,10 +28,15 @@ const media = ({
     const { height = 0, width = 0 } = mediaData || {};
     const isVertical = isApertura ? false : height > width;
     let item = null;
+    const { subtipo } = useSubtype();
 
     useEffect(() => {
         if (!itsGallery && withZoom) {
-            setZoom(width > refContainer.current.clientWidth);
+            if (subtipo.id === FOTOAL100 || subtipo.id === STORYTELLING) {
+                setZoom(refContainer.current.clientWidth <= 768);
+            } else {
+                setZoom(width > refContainer.current.clientWidth);
+            }
         }
         function handleResize() {
             if (!itsGallery && withZoom) {
@@ -38,7 +45,7 @@ const media = ({
         }
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, [itsGallery, withZoom, width]);
+    }, [itsGallery, withZoom, width, subtipo.id]);
 
     if (mediaData) {
         const { type, _id } = mediaData;
