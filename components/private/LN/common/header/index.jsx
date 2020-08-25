@@ -78,6 +78,7 @@ class Index extends Component {
                 classList.add(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.add(CLASS_SCROLL_UP);
+                    vshare.classList.remove(CLASS_SCROLL_DOWN);
                 }
                 if (wrapper) {
                     wrapper.classList.remove(CLASS_SCROLL_DOWN);
@@ -87,6 +88,7 @@ class Index extends Component {
                 classList.remove(CLASS_SCROLL_UP);
                 if (vshare) {
                     vshare.classList.remove(CLASS_SCROLL_UP);
+                    vshare.classList.add(CLASS_SCROLL_DOWN);
                 }
                 if (wrapper) {
                     wrapper.classList.remove(CLASS_SCROLL_UP);

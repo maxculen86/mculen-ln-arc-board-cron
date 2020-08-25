@@ -2,42 +2,66 @@
 
 exports[`Share Matches snapshot 1`] = `
 <div
-  class="com-share"
+  class="mod-share  "
   id="v-share"
 >
   <div
-    class="share-left"
+    class="container --left"
   >
     <button
-      class="icon-facebook"
+      class="com-button   --icon "
       type="button"
-    />
+    >
+      <i
+        class="com-icon icon-facebook "
+      />
+    </button>
     <button
-      class="icon-twitter"
+      class="com-button   --icon "
       type="button"
-    />
+    >
+      <i
+        class="com-icon icon-twitter "
+      />
+    </button>
     <button
-      class="icon-whatsapp"
-      id="whatsAppShareDesktop"
+      class="com-button   --icon "
       type="button"
-    />
+    >
+      <i
+        class="com-icon icon-whatsapp "
+      />
+    </button>
   </div>
   <div
-    class="share-right"
+    class="com-line  "
+  />
+  <div
+    class="container --right"
   >
     <button
-      class="icon-mail"
+      class="com-button   --icon "
       type="button"
-    />
-    <button
-      class="icon-comment"
-      type="button"
-    />
-    <label
-      for=""
     >
-      145
-    </label>
+      <i
+        class="com-icon icon-mail "
+      />
+    </button>
+    <button
+      class="com-button   --icon comment "
+      type="button"
+    >
+      <i
+        class="com-icon icon-comment "
+      />
+      <span
+        class="com-text l "
+      >
+        <label
+          for=""
+        />
+      </span>
+    </button>
   </div>
 </div>
 `;

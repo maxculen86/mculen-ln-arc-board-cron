@@ -55,7 +55,7 @@ exports[`Ranking matches snapshot 1`] = `
           class="mod-caja-nota__descrip"
         >
           <a
-            class="com-link --acu "
+            class="com-link --acu"
             href="/autos/test-de-generacion-de-url/"
           >
             <h2
@@ -91,7 +91,7 @@ exports[`Ranking matches snapshot 1`] = `
           class="mod-caja-nota__descrip"
         >
           <a
-            class="com-link --acu "
+            class="com-link --acu"
             href="/recetas/receta-de-prueba-con-volanta/"
           >
             <h2
@@ -127,7 +127,7 @@ exports[`Ranking matches snapshot 1`] = `
           class="mod-caja-nota__descrip"
         >
           <a
-            class="com-link --acu "
+            class="com-link --acu"
             href="/2019/01/24/mi-paso-por-el-yoga-del-infierno/"
           >
             <h2

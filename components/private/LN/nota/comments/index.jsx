@@ -11,7 +11,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
-import get from 'lodash.get';
+// import get from 'lodash.get';
 import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
@@ -20,6 +20,7 @@ import withNavigation from '../../common/hocs/WithNavigation';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
 import useGlobal from '../../../common/hooks/useGlobal';
+import get from '../../../common/utils/get';
 
 const Comments = props => {
     const {
@@ -43,7 +44,7 @@ const Comments = props => {
     const allowComments = get(comments, 'allow_comments', true);
     const displayComments = get(comments, 'display_comments', true);
 
-    const { isAuth, setCommentsEnabled } = useGlobal();
+    const { isAuth, setCommentsEnabledAndCount } = useGlobal();
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
@@ -141,6 +142,7 @@ const Comments = props => {
     const onCommentsLoad = useCallback(() => {
         const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
+
         if (boxes.length > 0) {
             commentSection.current.classList.remove('hlp-none');
         }
@@ -248,10 +250,18 @@ const Comments = props => {
                                 widget.on('showMore', data => {});
                                 widget.on('initialRenderComplete', data => {
                                     const collection = widget.getCollection();
-                                    const attributes = collection.attributes;
-                                    setCommentsEnabled(
-                                        attributes.commentsEnabled
+                                    const { attributes } = collection;
+                                    const commentsCount = get(
+                                        attributes,
+                                        'headDocument.content',
+                                        []
                                     );
+
+                                    setCommentsEnabledAndCount(
+                                        attributes.commentsEnabled,
+                                        commentsCount.length
+                                    );
+
                                     if (!auth.isAuthenticated()) {
                                         auth.authenticate({ livefyre: cookie });
                                     } else if (!isUserLoggedIn()) {
