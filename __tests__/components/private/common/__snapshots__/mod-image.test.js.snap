@@ -2,7 +2,7 @@
 
 exports[`ModImage Matches snapshot 1`] = `
 <a
-  class="com-link mod-image "
+  class="com-link mod-image"
   href="https://lanacion.com.ar"
   target="_self"
   title="Random pic"

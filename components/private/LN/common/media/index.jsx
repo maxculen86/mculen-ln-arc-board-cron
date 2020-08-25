@@ -6,7 +6,10 @@ import ModMedia from '../../../common/mod-media';
 import VideoPlayer from './videoPlayer';
 import Placeholder from '../imagePlaceholder';
 import ComFigcaption from '../../../common/com-figcaption';
-import { FOTOAL100, STORYTELLING } from '../../../common/utils/subtypes/subtypeHelper';
+import {
+    FOTOAL100,
+    STORYTELLING
+} from '../../../common/utils/subtypes/subtypeHelper';
 import useSubtype from '../../../common/hooks/useSubtype';
 
 const media = ({
