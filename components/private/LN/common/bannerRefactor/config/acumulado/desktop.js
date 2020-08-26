@@ -10,7 +10,7 @@ const DIMENSIONS_CAJA = [
 ];
 
 export default {
-    '1x1_dsk': {
+    unoxuno_dsk: {
         slotName: `${PATH_SLOT}/1x1_dsk`,
         dimensions: [[1, 1]],
         targeting: defaultTargeting
