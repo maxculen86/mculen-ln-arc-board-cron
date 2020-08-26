@@ -13,7 +13,7 @@ const ModArticle = props => {
         titleText,
         authorSize,
         authorText,
-        trueimage,
+        withMedia,
         subheadText,
         subheadSize,
         dateText,
@@ -21,7 +21,7 @@ const ModArticle = props => {
     } = props;
     return (
         <article className={`mod-article ${classCondition || ''}`}>
-            {trueimage ? (
+            {withMedia ? (
                 <section role="button" className="mod-media">
                     <figure role="button" className="mod-figure">
                         <a href={link} title={titleText}>

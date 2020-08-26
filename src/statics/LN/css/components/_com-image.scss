@@ -2,10 +2,12 @@
 @import '../abstracts/mixins';
 
 .com-image {
+    display: block;
     width: 100%;
     transition: all 0.2s ease-in-out;
 
-    &:hover {
+    &:hover,
+    .mod-article:hover & {
         filter: brightness(1.1);
     }
 
