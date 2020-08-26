@@ -30,7 +30,7 @@ const headerAMP = props => {
                                     </div>
                                     <div className="col-12 col-desksm-4">
                                         <a
-                                            className="suscribir__header --btn --highlight"
+                                            className="suscribir__header com-button --secondary --compact --highlight"
                                             href="https://suscripciones.lanacion.com.ar/suscribirme"
                                         >
                                             Suscribite
@@ -39,7 +39,7 @@ const headerAMP = props => {
                                     <div className="col-desksm-4 hlp-tablet-none">
                                         <button
                                             type="button"
-                                            className="--btn --secondary"
+                                            className="com-button --secondary --compact"
                                         >
                                             Ingresar
                                         </button>

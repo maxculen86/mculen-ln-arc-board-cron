@@ -92,7 +92,7 @@ export default {
                 }
             },
             fotoAl100: {
-                content_elements: {
+                promo_items: {
                     sizes: [
                         {
                             width: 1920,
@@ -118,6 +118,40 @@ export default {
                             width: 360,
                             height: 203,
                             media: '(min-width: 320px)'
+                        }
+                    ]
+                },
+                content_elements: {
+                    sizes: [
+                        {
+                            width: 1920,
+                            height: 850,
+                            media: '(min-width: 1280px)',
+                            useFullSize: true
+                        },
+                        {
+                            width: 1200,
+                            height: 515,
+                            media: '(min-width: 1024px)',
+                            useFullSize: true
+                        },
+                        {
+                            width: 1024,
+                            height: 579,
+                            media: '(min-width: 768px)',
+                            useFullSize: true
+                        },
+                        {
+                            width: 768,
+                            height: 700,
+                            media: '(min-width: 360px)',
+                            useFullSize: true
+                        },
+                        {
+                            width: 360,
+                            height: 600,
+                            media: '(min-width: 320px)',
+                            useFullSize: true
                         }
                     ]
                 }

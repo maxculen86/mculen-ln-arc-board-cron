@@ -15,7 +15,7 @@ import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
-import { FOTOAL100 } from '../../components/private/common/utils/subtypes/subtypeHelper';
+import { FOTOAL100, STORYTELLING } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 
 const resolve = (key, a) => {
@@ -90,10 +90,10 @@ const transform = (data, siteProps) => {
     const promoItemsRatio =
         notesWithRatio.indexOf(data.subtype) === 0
             ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
-            : presetsXL.promo_items.sizes || presetsDefault;
+            : presetsXL.promo_items || presetsDefault;
 
     let presetsFotoAl100 = {};
-    if (data.subtype === FOTOAL100) {
+    if (data.subtype === FOTOAL100 || data.subtype === STORYTELLING) {
         presetsFotoAl100 = get(properties, `imageConfig.resize.fotoAl100`, {});
     }
 

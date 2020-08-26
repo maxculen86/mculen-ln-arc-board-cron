@@ -1,6 +1,15 @@
 import Consumer from 'fusion:consumer';
-import Context from 'fusion:context';
 import React from 'react';
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+import Context from 'fusion:context';
 
 import { render } from 'enzyme';
 
@@ -9,6 +18,10 @@ import Ranking from '../../../../../components/private/LN/common/ranking';
 import articles from '../../../../../__mocks__/data/articleCollections/recetas';
 
 describe('Ranking', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' }
+    }));
+
     it('matches snapshot', () => {
         const component = render(
             <Ranking

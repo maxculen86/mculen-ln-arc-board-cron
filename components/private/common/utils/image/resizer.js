@@ -2,6 +2,8 @@
 
 import get from 'lodash.get';
 import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
+import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
+
 // import getProperties from 'fusion:properties';
 // import { useAppContext } from 'fusion:context';
 
@@ -135,7 +137,12 @@ export const resizeArcImage = (
     resizeOptions,
     resizer,
     zoomSizes,
-    smartCropExcluded = false
+    smartCropExcluded = false,
+    defaultResize = {
+        width: 768,
+        height: 513,
+        media: '(min-width: 768px)'
+    }
 ) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
@@ -143,48 +150,32 @@ export const resizeArcImage = (
         );
 
     const fp = getFocalPoint(arcImage) || undefined;
+    const defaultResizeWithSmart = {
+        ...defaultResize,
+        isNotSmart: typeof fp !== 'undefined'
+    };
     const zs =
         typeof fp !== 'undefined'
             ? zoomSizes.map(e => ({ ...e, isNotSmart: true }))
             : zoomSizes;
 
-    /**
-     * TODO: Optimizar codigo duplicado
-     */
+    let urlResize = resizer.resizeUrl(
+        arcImage.url,
+        arcImage.width,
+        arcImage.height,
+        defaultResizeWithSmart,
+        fp,
+        smartCropExcluded
+    );
+    if (IS_DEV !== 'true' && IS_SANDBOX !== 'true') {
+        urlResize = getCanonincalURL(urlResize);
+    }
+
     return {
         ...arcImage,
         width: fp || !smartCropExcluded ? 768 : arcImage.width,
         height: fp || !smartCropExcluded ? 513 : arcImage.height,
-        url:
-            IS_DEV === 'true' || IS_SANDBOX === 'true'
-                ? resizer.resizeUrl(
-                      arcImage.url,
-                      arcImage.width,
-                      arcImage.height,
-                      {
-                          width: 768,
-                          height: 513,
-                          media: '(min-width: 768px)',
-                          isNotSmart: typeof fp !== 'undefined'
-                      },
-                      fp,
-                      smartCropExcluded
-                  )
-                : getCanonincalURL(
-                      resizer.resizeUrl(
-                          arcImage.url,
-                          arcImage.width,
-                          arcImage.height,
-                          {
-                              width: 768,
-                              height: 513,
-                              media: '(min-width: 768px)',
-                              isNotSmart: typeof fp !== 'undefined'
-                          },
-                          fp,
-                          smartCropExcluded
-                      )
-                  ),
+        url: urlResize,
         resized_urls: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
@@ -238,28 +229,58 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
     return resp;
 };
 
-const resizePromoItems = (promoItems, resizeOptions, resizer, zoomSizes) => {
+const resizePromoItems = (
+    promoItems,
+    resizeOptions,
+    resizer,
+    zoomSizes,
+    subtype
+) => {
     const resp = {};
 
-    // TODO: Pasar valor por defecto como constante
+    const { defaultResize, isFotoAl100orStorytelling } = getDefaultSize(
+        subtype
+    );
 
-    const optionsFinal = get(resizeOptions, 'sizes', [
-        {
-            width: 768,
-            height: 513,
-            media: '(min-width: 768px)'
-        }
-    ]);
+    const optionsFinal = get(resizeOptions, 'sizes', [defaultResize]);
 
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
         if (pi.type === 'image') {
-            resp[key] = resizeArcImage(pi, optionsFinal, resizer, zoomSizes);
+            resp[key] = resizeArcImage(
+                pi,
+                optionsFinal,
+                resizer,
+                zoomSizes,
+                isFotoAl100orStorytelling,
+                defaultResize
+            );
         } else {
             resp[key] = pi;
         }
     });
     return resp;
+};
+
+const getDefaultSize = subtype => {
+    const isFotoAl100orStorytelling =
+        subtype === FOTOAL100 || subtype === STORYTELLING;
+
+    const defaultSize = {
+        width: 768,
+        height: 513,
+        media: '(min-width: 768px)'
+    };
+
+    const defaultResize = isFotoAl100orStorytelling
+        ? {
+              width: 1920,
+              height: 850,
+              media: '(min-width: 1280px)'
+          }
+        : defaultSize;
+
+    return { defaultResize, isFotoAl100orStorytelling };
 };
 
 export const addResizedUrls = (ansDoc, option) => {
@@ -268,9 +289,12 @@ export const addResizedUrls = (ansDoc, option) => {
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
     const { zoomSizes = [] } = option.presets;
+
     const resizer = createResizer(option.resizerSecret, option.resizerUrl);
 
     const optionsContentElements = option.presets.contentElements.sizes;
+
+    const { defaultResize } = getDefaultSize(ansDoc.subtype);
 
     const respDoc = {
         ...ansDoc,
@@ -283,7 +307,8 @@ export const addResizedUrls = (ansDoc, option) => {
                         optionsContentElements,
                         resizer,
                         zoomSizes,
-                        true
+                        true,
+                        defaultResize
                     );
                 }
                 if (elem.type === 'gallery') {
@@ -298,12 +323,14 @@ export const addResizedUrls = (ansDoc, option) => {
                 return elem;
             })
     };
+
     if (ansDoc.promo_items) {
         respDoc.promo_items = resizePromoItems(
             ansDoc.promo_items,
             option.presets.promoItems,
             resizer,
-            zoomSizes
+            zoomSizes,
+            ansDoc.subtype
         );
     }
 

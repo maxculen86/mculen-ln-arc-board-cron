@@ -7,6 +7,16 @@ jest.mock(
     () => 'mock-video'
 );
 
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+import Context from 'fusion:context';
+
 import Consumer from 'fusion:consumer';
 import React from 'react';
 
@@ -15,6 +25,10 @@ import { mount } from 'enzyme';
 import nota from '../../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 
 describe('features - La Nacion - Components - Nota - Apertura - Destacado ', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' }
+    }));
+    
     it('Test de logica de Destacado - Imagen', () => {
         const comp = mount(<Destacado globalContent={nota} />);
         expect('image').toBe(nota.promo_items.basic.type);
