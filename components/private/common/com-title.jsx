@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 import ComLink from '../common/com-link';
+
 import '../../../resources/dist/css/ln/components/com-title.css';
 
 const ComTitle = props => {

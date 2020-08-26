@@ -1,4 +1,12 @@
 import Consumer from 'fusion:consumer';
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
 import Context from 'fusion:context';
 
 import React from 'react';
@@ -7,7 +15,9 @@ import Media from '../../../../components/private/LN/common/media';
 import image from '../../../../__mocks__/data/images/OTTprogramImage.json';
 
 describe('Private - LN - Common - Media', () => {
-    
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' }
+    }));
 
     it('Dibuja el tag loading lazy', () => {
         const comp = mount(
@@ -60,8 +70,4 @@ describe('Private - LN - Common - Media', () => {
         expect(img.is('img')).toBe(true);
         expect(comp.prop('loading')).toBe(undefined);
     });
-
-   
 });
-
-
