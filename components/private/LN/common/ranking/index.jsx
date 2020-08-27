@@ -1,5 +1,4 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 
 import withRankingData from '../hocs/WithRankingData';
@@ -12,7 +11,7 @@ import ComTitle from '../../../common/com-title';
 
 import '../../../../../resources/dist/css/ln/components/ranking.css';
 
-const Ranking = ({ articles, title, dataSection }) =>
+const Ranking = ({ articles, dataSection, title }) =>
     articles &&
     articles.length && (
         <div className="com-ranking hlp-mobile-none">
@@ -40,4 +39,4 @@ Ranking.defaultProps = {
     articles: []
 };
 
-export default Consumer(withRankingData(Ranking, filter, 'notaM'));
+export default withRankingData(Ranking, filter, 'notaM');
