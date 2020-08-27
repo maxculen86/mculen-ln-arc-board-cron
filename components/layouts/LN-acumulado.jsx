@@ -113,6 +113,20 @@ LNAcumuladoLayout.propTypes = {
         style: PropTypes.shape({
             section_style_name: PropTypes.string,
             headerdark: PropTypes.string
+        }),
+        acumuladoGeneral: PropTypes.shape({
+            tipo_acumulado: PropTypes.string,
+            hierarchy_navigation: PropTypes.string,
+            hide_banner: PropTypes.boolean,
+            cantidad_notas: PropTypes.number,
+            id_collection_promo_items: PropTypes.string
+        }),
+        acumuladoColor: PropTypes.shape({
+            header_class_name: PropTypes.string,
+            background_color: PropTypes.string,
+            navigation_color: PropTypes.string,
+            navigation_color_tags: PropTypes.string,
+            id_logo_image: PropTypes.string
         })
     }).isRequired
 };
