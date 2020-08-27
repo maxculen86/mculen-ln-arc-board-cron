@@ -37,6 +37,10 @@
                     }
                 }
             }
+            @media ($media-l) {
+                padding-bottom: $spacing-sm;
+                border-bottom: 1px solid $gris3;
+            }
         }
     }
     .row-gap-tablet-3 {
@@ -46,7 +50,7 @@
         }
     }
 
-    .com-ordered {
+    .com-unordered {
         margin-bottom: 0;
         overflow-x: scroll;
         display: inline-flex;
@@ -203,7 +207,7 @@
     }
 }
 
-.com-ordered {
+.com-unordered {
     .mod-categories & {
         li {
             padding-right: px(16);
@@ -218,7 +222,7 @@
             display: inline-flex;
         }
     }
-    .mod-tags & {
+    &.--tags {
         border-top: solid 1px #ccc;
         padding-top: $spacing-md;
         margin-bottom: $spacing-md;

@@ -111,7 +111,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 >
                                     <i className="icon-left"></i>
                                 </button>
-                                <ol className="com-ordered">
+                                <ol className="com-unordered --category">
                                     <li>
                                         <a
                                             href="/recetas/platos-de-comida-principal/"
@@ -245,6 +245,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 <ModArticle
                                     withMedia
                                     link="#"
+                                    titleTag="h1"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
                                     dateText="20 de abril de 2020"
@@ -255,6 +256,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 <ModArticle
                                     withMedia
                                     link="#"
+                                    //titleTag="h1"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
                                     dateText="20 de abril de 2020"
@@ -263,100 +265,98 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                         </div>
                     </div>
                     <div className="lay">
-                        <div className="mod-tags">
-                            <ol className="com-ordered">
-                                <li>
-                                    <a
-                                        href="/tema/huevo-tid47236/"
-                                        className="com-link"
-                                        title="huevo"
-                                    >
-                                        huevo
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/tema/manteca-tid47257/"
-                                        className="com-link"
-                                        title="manteca"
-                                    >
-                                        manteca
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/tema/ajo-tid47126/"
-                                        className="com-link"
-                                        title="ajo"
-                                    >
-                                        ajo
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/tema/harina-0000-tid48184/"
-                                        className="com-link"
-                                        title="harina 0000"
-                                    >
-                                        harina 0000
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/tema/aceite-de-oliva-tid47117/"
-                                        className="com-link"
-                                        title="aceite de oliva"
-                                    >
-                                        aceite de oliva
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/tema/leche-tid47244/"
-                                        className="com-link"
-                                        title="leche"
-                                    >
-                                        leche
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/tema/parmesano-tid47290/"
-                                        className="com-link"
-                                        title="parmesano"
-                                    >
-                                        parmesano
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/tema/crema-de-leche-tid47204/"
-                                        className="com-link"
-                                        title="crema de leche"
-                                    >
-                                        crema de leche
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/tema/cebolla-tid47174/"
-                                        className="com-link"
-                                        title="cebolla"
-                                    >
-                                        cebolla
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/tema/azucar-tid47141/"
-                                        className="com-link"
-                                        title="azúcar"
-                                    >
-                                        azúcar
-                                    </a>
-                                </li>
-                            </ol>
-                        </div>
+                        <ul className="com-unordered --tags">
+                            <li>
+                                <a
+                                    href="/tema/huevo-tid47236/"
+                                    className="com-link"
+                                    title="huevo"
+                                >
+                                    huevo
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/manteca-tid47257/"
+                                    className="com-link"
+                                    title="manteca"
+                                >
+                                    manteca
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/ajo-tid47126/"
+                                    className="com-link"
+                                    title="ajo"
+                                >
+                                    ajo
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/harina-0000-tid48184/"
+                                    className="com-link"
+                                    title="harina 0000"
+                                >
+                                    harina 0000
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/aceite-de-oliva-tid47117/"
+                                    className="com-link"
+                                    title="aceite de oliva"
+                                >
+                                    aceite de oliva
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/leche-tid47244/"
+                                    className="com-link"
+                                    title="leche"
+                                >
+                                    leche
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/parmesano-tid47290/"
+                                    className="com-link"
+                                    title="parmesano"
+                                >
+                                    parmesano
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/crema-de-leche-tid47204/"
+                                    className="com-link"
+                                    title="crema de leche"
+                                >
+                                    crema de leche
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/cebolla-tid47174/"
+                                    className="com-link"
+                                    title="cebolla"
+                                >
+                                    cebolla
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/azucar-tid47141/"
+                                    className="com-link"
+                                    title="azúcar"
+                                >
+                                    azúcar
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <div className="lay-sidebar">
                         {/* Cuerpo */}
@@ -377,7 +377,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         link="#"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
+                                        //authorText="Por Gabriel Di Nicola"
                                         dateText="20 de abril de 2020"
                                     />
                                     <ModArticle
@@ -386,13 +386,13 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                         authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
+                                        //dateText="20 de abril de 2020"
                                     />
                                     <ModArticle
                                         withMedia
                                         link="#"
                                         titleSize="--twoxs"
-                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano despidos en el aeroparque metropolitano"
                                         authorText="Por Gabriel Di Nicola"
                                         dateText="20 de abril de 2020"
                                     />
@@ -426,14 +426,14 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
                                     dateText="20 de abril de 2020"
-                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                    //subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
                                 <ModArticle
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
                                     dateText="20 de abril de 2020"
-                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
+                                    subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%, ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
                                 <ModArticle
                                     withMedia
@@ -462,27 +462,35 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </div>
                         </div>
                         {/* Tercera */}
-                        <div className="sidebar__aside hlp-desklm-none">
+                        <div className="sidebar__aside hlp-tablet-none">
                             {children[6]}
                             <div className="--most-read">
-                                <ModArticle
-                                    withMedia
-                                    link="#"
-                                    titleSize="--twoxs"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                />
-                                <ModArticle
-                                    withMedia
-                                    link="#"
-                                    titleSize="--twoxs"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                />
-                                <ModArticle
-                                    withMedia
-                                    link="#"
-                                    titleSize="--twoxs"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                />
+                                <ol className="com-ordered --ranking">
+                                    <li>
+                                        <ModArticle
+                                            withMedia
+                                            link="#"
+                                            titleSize="--twoxs"
+                                            titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        />
+                                    </li>
+                                    <li>
+                                        <ModArticle
+                                            withMedia
+                                            link="#"
+                                            titleSize="--twoxs"
+                                            titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        />
+                                    </li>
+                                    <li>
+                                        <ModArticle
+                                            withMedia
+                                            link="#"
+                                            titleSize="--twoxs"
+                                            titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        />
+                                    </li>
+                                </ol>
                             </div>
                         </div>
                     </div>

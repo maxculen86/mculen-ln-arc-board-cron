@@ -21,7 +21,7 @@
     }
 
     &:before {
-        .--most-read & {
+        .--ranking & {
             display: block;
             background-color: $negro;
             color: $blanco;
@@ -38,10 +38,12 @@
     }
 }
 
-.--most-read .mod-article {
+.--ranking li {
     @for $i from 1 through 4 {
-        &:nth-child(#{$i}):before {
-            content: '#{$i}';
+        &:nth-child(#{$i}) {
+            .mod-article:before {
+                content: '#{$i}';
+            }
         }
     }
 }

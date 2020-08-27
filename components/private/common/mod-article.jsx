@@ -59,7 +59,7 @@ const ModArticle = props => {
             ) : (
                 <></>
             )}
-            <div className="mod-description">
+            <section className="mod-description">
                 <ComTitle
                     tag={titleTag || 'h2'}
                     size={titleSize || '--l'}
@@ -91,7 +91,7 @@ const ModArticle = props => {
                 ) : (
                     <></>
                 )}
-            </div>
+            </section>
         </article>
     );
 };
