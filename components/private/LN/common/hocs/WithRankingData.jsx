@@ -60,6 +60,7 @@ const WithRankingData = (WrappedComponent, filter, imageConfig) =>
         const queryLastWeek = getQueryFromProps(2, 5, props, dataSection);
         const queryTest = getQueryFromProps(40, 5, props, dataSection);
 
+        // Se usa el useContent en la funcion de getArticles para que no afecte el performance
         const articleList =
             getArticles(queryLastDay, imageConfig, filter) ||
             getArticles(queryLastWeek, imageConfig, filter) ||

@@ -1,6 +1,5 @@
 import request from 'request-promise-native';
 import {
-    CONTENT_BASE,
     RANKING_URL,
     RESIZER_KEY,
     RESIZER_URL,
@@ -13,17 +12,9 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import Redirect from './utils/redirect';
 
 const resolve = (key, a) => {
-    const {
-        sectionId,
-        size,
-        website,
-        weeksAgo = 1,
-        daysAgo = 1,
-        includedFields
-    } = key;
+    const { sectionId, size, website, weeksAgo = 1, daysAgo = 1 } = key;
     const arcSite = key['arc-site'];
     const basePath = `?website=${website || arcSite}`;
-    // const basePath = `/arcio/ans/most-read/?website=${website || arcSite}`;
 
     const sectionFilter = sectionId
         ? `+AND+taxonomy.primary_section._id:"${sectionId}"`
@@ -37,23 +28,15 @@ const resolve = (key, a) => {
 
     const query = `&query=type:story+AND+revision.published:true${sectionFilter}${publishDateFilter}${offsetFilter}`;
 
-    const includedFieldsFilter = includedFields
-        ? `&included_fields=${includedFields}`
-        : '';
-
-    const finalPath = `${basePath}${query}${includedFieldsFilter}&size=${size ||
+    const finalPath = `${basePath}${query}&size=${size ||
         3}&sort=first_publish_date:desc`;
 
-    // return `https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/ans/most-read/?website=la-nacion-ar&query=type:story+AND+revision.published:true+AND+taxonomy.primary_section._id:"/politica"+AND+first_publish_date:[now-30w+TO+now]&offset=5&included_fields=website_url,headlines.basic,credits.by,display_date&size=${size}&sort=first_publish_date:desc`;
     return finalPath;
 };
 
 const fetch = query => {
-    // const uri = `${resolve(query)}`;
-    const uri = `${RANKING_URL}${resolve(query)}`;
-    console.log('****** REQUEST URI', uri);
     const opt = {
-        uri,
+        uri: `${RANKING_URL}${resolve(query)}`,
         json: true
     };
 
