@@ -3,22 +3,29 @@ import { useContent } from 'fusion:content';
 import React from 'react';
 import get from '../../../common/utils/get';
 
-const getTitle = globalContent => {
-    const authorType = get(globalContent, 'author_type', null);
-    const byline = get(globalContent, 'byline', null);
+const getSectionData = globalContent => {
     const nodeType = get(globalContent, 'node_type', null);
-    const name = get(globalContent, 'name', null);
-    const taxonomy = get(globalContent, 'taxonomy', null);
-    const primarySection = get(taxonomy, 'primary_section', null);
-    const primarySectionName = get(primarySection, 'name', null);
-    const items = get(globalContent, 'Payload.items', null);
+    const primarySection = get(globalContent, 'taxonomy.primary_section', null);
+    const primarySectionName = get(
+        globalContent,
+        'taxonomy.primary_section.name',
+        null
+    );
 
     let title;
-    if (authorType) title = byline;
-    else if (nodeType === 'section') title = name;
-    else if (primarySectionName) title = primarySectionName;
-    else if (items && items.length) title = items[0].name;
-    return title ? `Más leídas de ${title}` : `Más leídas`;
+    let sectionId;
+    if (nodeType === 'section') {
+        title = get(globalContent, 'name', null);
+        sectionId = get(globalContent, '_id', null);
+    } else if (primarySectionName) {
+        title = primarySectionName;
+        sectionId = get(primarySection, '_id', null);
+    }
+
+    return {
+        title: title ? `Más leídas de ${title}` : `Más leídas`,
+        sectionId
+    };
 };
 
 const getQueryFromProps = (weeksAgo, daysAgo, props, sectionId) => {
@@ -48,32 +55,32 @@ const getArticles = (query, imageConfig, filter) => {
     return articles && articles.length >= size ? articles : null;
 };
 
-const WithRankingData = (WrappedComponent, filter, imageConfig) =>
-    function Component(props) {
-        const globalContent = get(props, 'globalContent', null);
-        const dataSection = get(
-            globalContent,
-            'taxonomy.primary_section._id',
-            null
-        );
-        const queryLastDay = getQueryFromProps(1, 1, props, dataSection);
-        const queryLastWeek = getQueryFromProps(2, 5, props, dataSection);
-        const queryTest = getQueryFromProps(40, 5, props, dataSection);
+const WithRankingData = (WrappedComponent, filter, imageConfig) => props => {
+    const globalContent = get(props, 'globalContent', null);
+    const { title, sectionId } = getSectionData(globalContent);
 
-        // Se usa el useContent en la funcion de getArticles para que no afecte el performance
-        const articleList =
-            getArticles(queryLastDay, imageConfig, filter) ||
-            getArticles(queryLastWeek, imageConfig, filter) ||
-            getArticles(queryTest, imageConfig, filter);
+    const querys = [
+        getQueryFromProps(1, 1, props, sectionId),
+        getQueryFromProps(2, 5, props, sectionId),
+        getQueryFromProps(40, 5, props, sectionId)
+    ];
 
-        return (
-            <WrappedComponent
-                articles={articleList}
-                title={getTitle(globalContent)}
-                dataSection={dataSection}
-            />
-        );
-    };
+    let articleList;
+
+    querys.forEach((query, index) => {
+        if (!articleList) {
+            articleList = getArticles(query, imageConfig, filter);
+        }
+    });
+
+    return (
+        <WrappedComponent
+            articles={articleList}
+            title={title}
+            dataSection={sectionId}
+        />
+    );
+};
 
 WithRankingData.propTypes = {
     WrappedComponent: PropTypes.func.isRequired,
