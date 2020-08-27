@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import TransparencyDiv from './transparencyDiv';
 import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
-import Banner from '../../common/banner';
+import Banner from '../../common/bannerRefactor';
 import LoadingIcon from '../../common/loadingIcon';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
@@ -65,13 +65,16 @@ class GrillaNotas extends Component {
         }
         if (bannerPosition) {
             const { siteProperties, isAdmin } = this.props;
+            const banner = {
+                slotGroup: 'acumulado',
+                selectedSlots,
+                sticky: false
+            };
             return (
                 <Banner
                     siteProperties={siteProperties}
-                    slotGroup="acumulado"
-                    selectedSlots={selectedSlots}
                     isAdmin={isAdmin}
-                    sticky={false}
+                    banner={banner}
                 />
             );
         }
