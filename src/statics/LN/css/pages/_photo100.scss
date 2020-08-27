@@ -1,0 +1,169 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+$header_h_desktop: px(65);
+$header_h_tablet: px(54);
+$header_h_mobile: px(46);
+
+$width_nota100_l: px(1024 / $cant-col * 8);
+$width_nota100_lm: px(1100 / $cant-col * 8);
+$width_nota100_lg: px(1280 / $cant-col * 8);
+$width_nota100_xl: px(1340 / $cant-col * 8);
+
+@mixin width-nota100 {
+    @media ($media-l) {
+        width: 66.666666%;
+        max-width: $width_nota100_l;
+    }
+    @media ($media-lm) {
+        max-width: $width_nota100_lm;
+    }
+    @media ($media-lg) {
+        max-width: $width_nota100_lg;
+    }
+    @media ($media-xl) {
+        max-width: $width_nota100_xl;
+    }
+}
+
+@mixin padding_rl {
+    padding-right: $spacing;
+    padding-left: $spacing;
+
+    @media ($media-s) {
+        padding-right: $spacing-sm;
+        padding-left: $spacing-sm;
+    }
+
+    @media ($media-l) {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.--photo100 {
+    main {
+        padding-top: 0;
+
+        .mod-opening {
+            @include OpeningFull;
+
+            .lay {
+                @include padding_rl;
+                @include width-nota100;
+            }
+        }
+
+        > .row {
+            display: block;
+            margin-bottom: $spacing-lg;
+
+            .com-paragraph,
+            .element-paragraph,
+            h2,
+            h3,
+            .com-partner,
+            .mod-date,
+            .FirmaAutor,
+            .com-unordered,
+            .com-ordered,
+            .mod-banner,
+            figcaption {
+                display: block;
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+
+                @include padding_rl;
+                @include width-nota100;
+            }
+
+            .mod-figure {
+                //cursor: default;
+                &::before {
+                    right: $spacing;
+                }
+                //&:hover::before {
+                //    display: none;
+                //}
+                .mod-picture {
+                    height: 100vh;
+                    width: 100%;
+                    margin-left: 0;
+                    border: none;
+                }
+            }
+            .--active.--active {
+                .mod-figure .mod-picture {
+                    height: auto;
+                }
+            }
+
+            .mod-share {
+                // top: 0;
+                // position: fixed;
+                // @include flex(flex, row, between, center);
+                // background: $blanco;
+                // width: 100%;
+                // left: 0;
+                // padding: px(6) $spacing-sm;
+                // border-bottom: 1px solid #f2f2f2;
+                // display: none;
+                @media ($media-l) {
+                    // border: none;
+                    // position: sticky;
+                    // width: px(44);
+                    // padding: px(8) px(2);
+                    // background: rgba(255, 255, 255, 0.8);
+                    // left: auto;
+                    // right: auto;
+                    // top: $spacing-sm;
+                    // float: left;
+                    // display: block;
+                    left: calc(((100% - #{$width_nota100_l}) / 2) - 133px);
+                }
+                @media ($media-lm) {
+                    left: calc(((100% - #{$width_nota100_lm}) / 2) - 145px);
+                }
+                @media ($media-lg) {
+                    left: calc(((100% - #{$width_nota100_lg}) / 2) - 165px);
+                }
+                @media ($media-xl) {
+                    left: calc(((100% - #{$width_nota100_xl}) / 2) - 185px);
+                }
+            }
+        }
+    }
+
+    &.--scrollUp {
+        main > .row {
+            .mod-share {
+                display: flex;
+                z-index: 100;
+
+                @media ($media-l) {
+                    display: block;
+                    //top: calc(#{$spacing-sm} + #{$header_h_desktop});
+                }
+            }
+        }
+    }
+
+    &.amp {
+        main > .row {
+            .mod-share {
+                // position: relative;
+                // border: none;
+                // display: flex;
+                margin-bottom: $spacing-sm;
+                //padding: 0 $spacing-sm;
+                @media ($media-l) {
+                    //     position: sticky;
+                    //     display: block;
+                    margin-bottom: 0;
+                    //padding: 0;
+                }
+            }
+        }
+    }
+}

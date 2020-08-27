@@ -1,6 +1,10 @@
 const replaceTagInTextListRaw = (contentElement, expresion) => {
     const regEx = new RegExp(expresion, 'gi');
-    if (contentElement.type === 'text' || contentElement.type === 'raw_html') {
+    if (
+        contentElement.type === 'text' ||
+        contentElement.type === 'raw_html' ||
+        contentElement.type === 'header'
+    ) {
         return {
             ...contentElement,
             content:

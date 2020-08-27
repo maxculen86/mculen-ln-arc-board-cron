@@ -1,0 +1,194 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+.mod-share {
+    top: 0;
+    position: fixed;
+    @include flex(flex, row, between, center);
+    z-index: 100;
+    background: $blanco;
+    width: 100%;
+    left: 0;
+    padding: px(6) $spacing-sm;
+    border-bottom: 1px solid $gris1;
+    display: none;
+
+    .container {
+        @include flex(flex, row, center, center);
+    }
+
+    .amp & {
+        position: relative;
+        display: flex;
+        //padding: 0;
+        border: none;
+        //margin-bottom: $spacing-sm;
+    }
+    &.--scrollDown {
+        //.cuerpo__nota & {
+        display: none;
+        //}
+    }
+    .cuerpo__nota & {
+        //     top: 0;
+        //     position: fixed;
+        //     @include flex(flex, row, between, center);
+        //     z-index: 100;
+        //     background: $blanco;
+        //     width: 100%;
+        //     left: 0;
+        //     padding: px(6) $spacing-sm;
+        //     border-bottom: 1px solid #f2f2f2;
+        //     display: none;
+
+        .amp & {
+            //         position: relative;
+            //         display: flex;
+            padding: 0;
+            //         border: none;
+        }
+    }
+
+    &.--scrollUp {
+        //.cuerpo__nota & {
+        top: 0;
+        display: flex;
+        //}
+    }
+    // .footer & {
+    //     @include flex(flex, row, center, center);
+    //     order: 3;
+    //     margin-bottom: px(24);
+    //     .amp & {
+    //         border-top: 1px solid $gris3;
+    //         padding-top: px(24);
+    //     }
+    // }
+    amp-social-share {
+        &[type='facebook'],
+        &[type='twitter'],
+        &[type='whatsapp'],
+        &[type='email'] {
+            background: none;
+            @include flex(flex, row, center, center);
+            margin-bottom: $spacing-sm;
+            margin-right: $spacing-sm;
+            //width: px(32);
+            //height: px(32);
+            font-family: 'LNicons';
+            //font-style: normal;
+            //font-weight: normal;
+            //font-variant: normal;
+            //text-transform: none;
+            font-size: px(24);
+            padding: px(4);
+            //line-height: 1;
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            //text-align: center;
+            &:hover {
+                background: transparent;
+                color: $ln;
+            }
+            @media ($media-l) {
+                margin-right: 0;
+            }
+        }
+
+        &[type='facebook']:before {
+            content: '\e908';
+        }
+        &[type='twitter']:before {
+            content: '\e922';
+        }
+        &[type='whatsapp']:before {
+            content: '\e926';
+        }
+
+        &[type='email'] {
+            margin-right: 0;
+            &:before {
+                content: '\e907';
+            }
+        }
+    }
+}
+@media ($media-l) {
+    .mod-share {
+        //@include flex(flex, column, center, center);
+        flex-direction: column;
+        width: px(44);
+        padding: px(8) px(2);
+        position: sticky;
+        top: px(20);
+        transition: all 0.25s;
+        background: rgba(255, 255, 255, 0.8);
+        float: left;
+        border: none;
+        display: block;
+        border-radius: px(4);
+
+        .container {
+            //@include flex(flex, column, center, center);
+            flex-direction: column;
+            // .amp & {
+            //     @include flex(flex, column, center, center);
+            // }
+        }
+        .amp & {
+            position: sticky;
+            //padding: 0 $spacing-sm;
+        }
+
+        //scrollUp Se muestra en la posición 0 (Sacar la clase cuando vuelva al punto 0)
+        // .cuerpo__nota & {
+        //     .amp & {
+        //         position: sticky;
+        //         padding: 0 $spacing-sm;
+        //     }
+        //     @include flex(flex, column, center, center);
+        //     position: sticky;
+        //     top: px(20);
+        //     transition: all 0.25s;
+        //     background: transparent;
+        //     border: none;
+
+        // }
+        &.--scrollUp {
+            //.cuerpo__nota & {
+            top: px(85);
+            //}
+        }
+        &.--scrollDown {
+            //z-index: 0;
+            //.cuerpo__nota & {
+            //@include flex(flex);
+            display: flex;
+            //}
+        }
+        // .footer & {
+        //     justify-content: flex-start;
+        //     order: 1;
+        //     margin-bottom: 0;
+        //     .amp & {
+        //         border-top: 0;
+        //         padding-top: 0;
+        //     }
+        // }
+        // .com-share {
+        //     display: block;
+        //     position: relative;
+        //     top: auto;
+        //     left: auto;
+        //     right: auto;
+        //     border: none;
+        //     width: calc(100% + 2.5rem);
+        //     margin-left: -1.25rem;
+        //     .share-right {
+        //         amp-social-share {
+        //             padding-top: px(4);
+        //         }
+        //     }
+        // }
+    }
+}

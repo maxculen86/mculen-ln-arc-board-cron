@@ -46,8 +46,8 @@ import '../../resources/dist/css/ln/components/opinion-author.css';
 
 import '../../resources/dist/css/ln/components/colecciones.css';
 import '../../resources/dist/css/ln/components/carta-lectores.css';
-import '../../resources/dist/css/ln/components/storytelling.css';
-import '../../resources/dist/css/ln/modules/mod-opening.css';
+import '../../resources/dist/css/ln/pages/storytelling.css';
+//import '../../resources/dist/css/ln/modules/mod-opening.css';
 
 import '../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../resources/dist/css/ln/components/com-banner.css';
@@ -88,13 +88,12 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
             {bannerMegatop}
             <div
                 id="wrapper"
-                className={`nota noticia --storytelling --hlp-transparent ${amp}`}
+                className={`nota --storytelling --transparent ${amp}`}
             >
                 <Header />
                 <main>
                     <AperturaStorytelling />
                     <div className="lay-sidebar">
-                        {/* Cuerpo */}
                         <div className="sidebar__main">
                             <section className="cuerpo__nota">
                                 <div className="row">
@@ -108,7 +107,7 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
                                     <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                         <div className="row">
                                             <div className="col-12">
-                                                {/* Pos-Apertura */}
+                                                {/* Cuerpo */}
                                                 {children[2]}
                                             </div>
                                         </div>

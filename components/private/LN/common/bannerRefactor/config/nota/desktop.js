@@ -27,7 +27,7 @@ export default {
         dimensions: [[800, 600]],
         targeting: defaultTargeting
     },
-    '1x1_dsk': {
+    unoxuno_dsk: {
         slotName: 'la_nacion_desktop/Nota/1x1_dsk',
         dimensions: [[1, 1]],
         targeting: defaultTargeting

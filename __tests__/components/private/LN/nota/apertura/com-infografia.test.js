@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { mount, shallow, render } from 'enzyme';
 
@@ -8,46 +7,43 @@ jest.mock('fusion:consumer', Component => {
     };
 });
 
-
 import Consumer from 'fusion:consumer';
 
 import ComInfografia from '../../../../../../components/private/LN/nota/apertura/com-infografia';
 import HtmlAMP from '../../../../../../components/private/LN/nota/cuerpo/htmlAMP';
 
-
 describe('PRIVATE - LN - Nota - Apertura - ComInfografia', () => {
-
     let props = {
-                globalContent: {
-                    _id: 'ZODSVVPC2VEB7NA3XD6AOYYHLQ',
-                    subtype:"2",
-                    type:"story",
-                    promo_items:{
-                                basic:{
-                                    _id:"6POSMWEMKZCZBHINVUG3F4O3BY",
-                                    content:"<iframe class=\"pym\" id=\"LNcreativa\" frameborder=\"0\" width=\"100%\" height=\"800\" scrolling=\"no\" src=\"https://especialess3.lanacion.com.ar/18/mundial/mundial2018-historicos/\"></iframe>",
-                                    type:"raw_html"
-                                    }
-                                }
-                },
-                outputType: 'amp'
-            };
-
+        globalContent: {
+            _id: 'ZODSVVPC2VEB7NA3XD6AOYYHLQ',
+            subtype: '2',
+            type: 'story',
+            promo_items: {
+                basic: {
+                    _id: '6POSMWEMKZCZBHINVUG3F4O3BY',
+                    content:
+                        '<iframe class="pym" id="LNcreativa" frameborder="0" width="100%" height="800" scrolling="no" src="https://especialess3.lanacion.com.ar/18/mundial/mundial2018-historicos/"></iframe>',
+                    type: 'raw_html'
+                }
+            }
+        },
+        outputType: 'amp'
+    };
 
     it('Render OK cuando es Infografia en AMP', () => {
         const component = mount(<ComInfografia {...props} />);
-        
+
         expect(component).toBeDefined();
         expect(component.find('amp-iframe')).toHaveLength(1);
     });
 
-
     it('displays amp-iframe', () => {
         const data = {
-            content:"<iframe class=\"pym\" id=\"LNcreativa\" frameborder=\"0\" width=\"100%\" height=\"800\" scrolling=\"no\" src=\"https://especialess3.lanacion.com.ar/18/mundial/mundial2018-historicos/\"></iframe>",
-            _id:"6POSMWEMKZCZBHINVUG3F4O3BY"
+            content:
+                '<iframe class="pym" id="LNcreativa" frameborder="0" width="100%" height="800" scrolling="no" src="https://especialess3.lanacion.com.ar/18/mundial/mundial2018-historicos/"></iframe>',
+            _id: '6POSMWEMKZCZBHINVUG3F4O3BY'
         };
-        
+
         const wrapper = mount(<HtmlAMP data={data} />);
         expect(wrapper.find('amp-iframe')).toHaveLength(1);
     });

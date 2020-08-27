@@ -1,15 +1,15 @@
 @import '../abstracts/variables';
 .blockquote {
     background-color: $gris1;
-    padding: $px-32;
-    margin-bottom: $px-30;
-    margin-top: $px-30;
+    padding: px(32);
+    margin-bottom: px(30);
+    margin-top: px(30);
     text-align: center;
     width: 100%;
     .text {
         font-family: $font-SuecaSlab;
-        font-size: $font-20;
-        line-height: $line-28;
+        font-size: px(20);
+        line-height: px(35);
     }
 }
 

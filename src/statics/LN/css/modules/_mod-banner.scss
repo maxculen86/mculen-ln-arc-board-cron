@@ -24,11 +24,11 @@
         }
         .sidebar__aside & {
             .--scrollDown & {
-                top: $px-10;
+                top: px(10);
             }
         }
         .--scrollUp & {
-            top: $px-80;
+            top: px(80);
         }
     }
     &.--fixed {

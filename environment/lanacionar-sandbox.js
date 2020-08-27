@@ -7,5 +7,11 @@ export default {
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
     SITE_LANACION:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com'
+        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+    SITE_RECETAS:
+        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+    ELMAH_API_KEY:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGflhpT13/ZzAc/5NMxEKdrAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMNcrZM1LUHAydCG3/AgEQgDtvKIMrESoH0YRtmpupMNMF7sWKvEgozwQ8d9xswCcTbxKjmvJxx3EnBrGmVKIVZkMYnISE8RBwLn/NUg==}',
+    ELMAH_LOG_ID:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFTsaGACFKTJ6VyRAanSaKqAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDFBnWVdcbZaYkiv5FwIBEIA/KgB5xakuc8CV0LOFAuPtPqb0/5IvxDhvnmTP2yoAJKO4c7lTMVPd21bKITHXjFapizMzmpflRYOfdtfmgof9}'
 };

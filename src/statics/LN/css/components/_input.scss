@@ -3,8 +3,8 @@
 .com-input {
     color: $gris5;
     font-family: $font-arial;
-    font-size: $font-14;
-    padding: $px-10 $px-5;
+    font-size: px(14);
+    padding: px(10) px(5);
     border: 1px solid $gris3;
     border-radius: 3px;
 }

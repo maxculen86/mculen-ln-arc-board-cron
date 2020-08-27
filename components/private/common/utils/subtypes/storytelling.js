@@ -2,7 +2,7 @@
 import generico from './generico';
 
 const storytelling = {
-    id: '5',
+    id: '4',
     nombre: 'Storytelling',
     execute: (name, ...args) => {
         return (

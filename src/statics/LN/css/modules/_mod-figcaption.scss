@@ -4,15 +4,14 @@
 .mod-figcaption {
     display: block;
     position: relative;
-    margin-bottom: px(8);
+    margin-bottom: $spacing;
     font-size: px(16);
     line-height: px(24);
     border-bottom: 1px solid #e4e4e4;
     padding-bottom: px(8);
     min-height: px(33);
     //100% mobile
-    width: calc(100% + 2.5rem);
-    margin-left: px(-20);
+    @include fullwidth;
     padding-left: px(20);
     padding-right: px(20);
 
