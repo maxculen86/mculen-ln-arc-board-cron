@@ -6,7 +6,6 @@ const GlobalContext = React.createContext([{}, () => {}]);
 const GlobalProviderAcu = props => {
     const { acumuladoGeneral, acumuladoColor, children } = props;
     const [state, setState] = useState({
-        authenticated: false,
         acumuladoGeneral,
         acumuladoColor
     });
