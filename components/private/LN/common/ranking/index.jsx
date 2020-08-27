@@ -1,7 +1,8 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 
-import withRankingArticlesData from '../hocs/WithRankingArticlesData';
+import withRankingData from '../hocs/WithRankingData';
 
 import filter from '../../../../../content/filters/LN/nota/articleRanking';
 
@@ -11,8 +12,9 @@ import ComTitle from '../../../common/com-title';
 
 import '../../../../../resources/dist/css/ln/components/ranking.css';
 
-const Ranking = ({ ranking: { articles, dataSection, title } }) => {
-    return (
+const Ranking = ({ articles, title, dataSection }) =>
+    articles &&
+    articles.length && (
         <div className="com-ranking hlp-mobile-none">
             <ComTitle tag="h2" size="--m" content={title} />
             <OrderedList>
@@ -27,14 +29,15 @@ const Ranking = ({ ranking: { articles, dataSection, title } }) => {
             </OrderedList>
         </div>
     );
-};
 
 Ranking.propTypes = {
-    ranking: PropTypes.shape({
-        articles: PropTypes.arrayOf(PropTypes.object),
-        dataSection: PropTypes.string,
-        title: PropTypes.string
-    }).isRequired
+    articles: PropTypes.arrayOf(PropTypes.object),
+    dataSection: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
 };
 
-export default withRankingArticlesData(Ranking, filter, 'notaM');
+Ranking.defaultProps = {
+    articles: []
+};
+
+export default Consumer(withRankingData(Ranking, filter, 'notaM'));

@@ -4,7 +4,8 @@ import withStatic from '../../private/common/hocs/withStatic';
 
 import Ranking from '../../private/LN/common/ranking';
 
-const ranking = ({ outputType, customFields: { cantidadNotas } }) => {
+const ranking = props => {
+    const { outputType } = props;
     return outputType !== 'amp' && <Ranking />;
 };
 
