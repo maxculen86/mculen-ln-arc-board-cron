@@ -464,24 +464,26 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-desklm-none">
                             {children[6]}
-                            <ModArticle
-                                withMedia
-                                link="#"
-                                titleSize="--twoxs"
-                                titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                            />
-                            <ModArticle
-                                withMedia
-                                link="#"
-                                titleSize="--twoxs"
-                                titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                            />
-                            <ModArticle
-                                withMedia
-                                link="#"
-                                titleSize="--twoxs"
-                                titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                            />
+                            <div className="--most-read">
+                                <ModArticle
+                                    withMedia
+                                    link="#"
+                                    titleSize="--twoxs"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                />
+                                <ModArticle
+                                    withMedia
+                                    link="#"
+                                    titleSize="--twoxs"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                />
+                                <ModArticle
+                                    withMedia
+                                    link="#"
+                                    titleSize="--twoxs"
+                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                />
+                            </div>
                         </div>
                     </div>
                 </main>

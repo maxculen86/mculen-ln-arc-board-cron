@@ -2,7 +2,6 @@
 @import '../abstracts/mixins';
 
 .com-image {
-    display: block;
     width: 100%;
     transition: all 0.2s ease-in-out;
 
@@ -11,9 +10,9 @@
         filter: brightness(1.1);
     }
 
-    // .mod-picture & {
-    //     width: 100%;
-    // }
+    .mod-picture & {
+        display: block;
+    }
 
     .--slider & {
         position: absolute;
