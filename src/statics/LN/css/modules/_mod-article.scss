@@ -3,6 +3,7 @@
 
 .mod-article {
     position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
 
@@ -18,6 +19,10 @@
         .mod-picture {
             margin-bottom: 0;
         }
+    }
+
+    .mod-description {
+        width: 100%;
     }
 
     &:before {

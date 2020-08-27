@@ -84,6 +84,7 @@
             .com-logo {
                 margin-bottom: px(16);
                 margin-right: 0;
+                min-width: max-content;
             }
 
             .com-button {
@@ -126,7 +127,7 @@
                     font-size: px(70);
                 }
             }
-            .--apertura {
+            .--opening {
                 margin-top: px(-150);
             }
         }

@@ -5,6 +5,7 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
+import ModCategory from '../private/common/mod-category';
 import ModArticle from '../private/common/mod-article';
 
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
@@ -92,179 +93,38 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                 <Header />
                 <main>
                     <div className="row --top" style={divStyle}>
-                        {children[1]}
                         <div className="lay">
-                            <div className="mod-categories">
-                                {revista ? (
-                                    <i
-                                        className={`com-logo logo-${revista} --large`}
-                                    ></i>
-                                ) : (
-                                    <h1 className="com-title --xl ">
-                                        Categoría
-                                    </h1>
-                                )}
+                            {children[1]}
 
-                                <button
-                                    type="button"
-                                    className="com-button hlp-none"
-                                >
-                                    <i className="icon-left"></i>
-                                </button>
-                                <ol className="com-unordered --category">
-                                    <li>
-                                        <a
-                                            href="/recetas/platos-de-comida-principal/"
-                                            className="com-link"
-                                            title="Principales"
-                                        >
-                                            Principales
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/carnes/"
-                                            className="com-link"
-                                            title="Carnes"
-                                        >
-                                            Carnes
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/celiacos-sin-gluten/"
-                                            className="com-link"
-                                            title="Celíacos"
-                                        >
-                                            Celíacos
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/vegetarianas/"
-                                            className="com-link"
-                                            title="Vegetarianas"
-                                        >
-                                            Vegetarianas
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/faciles-y-rapidas/"
-                                            className="com-link"
-                                            title="Rápidas"
-                                        >
-                                            Rápidas
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/pollo/"
-                                            className="com-link"
-                                            title="Pollo"
-                                        >
-                                            Pollo
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/dulces/"
-                                            className="com-link"
-                                            title="Dulces"
-                                        >
-                                            Dulces
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/guarniciones/"
-                                            className="com-link"
-                                            title="Guarniciones"
-                                        >
-                                            Guarniciones
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/entradas/"
-                                            className="com-link"
-                                            title="Entradas"
-                                        >
-                                            Entradas
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/tortas/"
-                                            className="com-link"
-                                            title="Tortas"
-                                        >
-                                            Tortas
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/postres/"
-                                            className="com-link"
-                                            title="Postres"
-                                        >
-                                            Postres
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/veganas/"
-                                            className="com-link"
-                                            title="Veganas"
-                                        >
-                                            Veganas
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/recetas/ensaladas/"
-                                            className="com-link"
-                                            title="Ensaladas"
-                                        >
-                                            Ensaladas
-                                        </a>
-                                    </li>
-                                </ol>
-                                <button type="button" className="com-button">
-                                    <i className="icon-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="lay --apertura">
-                        <div className="row">
-                            <div className="row-gap-tablet-2 row-gap-desksm-2">
-                                {/* Titulo (breadcrumb, logo+titulo) */}
-                                {/* {children[2]} */}
-
-                                <ModArticle
-                                    withMedia
-                                    link="#"
-                                    titleTag="h1"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorText="Por Gabriel Di Nicola"
-                                    dateText="20 de abril de 2020"
-                                />
-
-                                {/* Titulo (breadcrumb, logo+titulo) */}
-                                {/* {children[2]} */}
-                                <ModArticle
-                                    withMedia
-                                    link="#"
-                                    //titleTag="h1"
-                                    titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorText="Por Gabriel Di Nicola"
-                                    dateText="20 de abril de 2020"
-                                />
-                            </div>
+                            {/* TITULO/LOGO Y CATEGORIAS */}
+                            <ModCategory
+                                revista={revista}
+                                category="Título de la categoría"
+                            />
                         </div>
                     </div>
                     <div className="lay">
+                        {/* CAJA DE DOS COLUMNAS */}
+                        <div className="row-gap-tablet-2 row-gap-desksm-2  --opening">
+                            <ModArticle
+                                withMedia
+                                link="#"
+                                titleTag="h1"
+                                titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                authorText="Por Gabriel Di Nicola"
+                                dateText
+                            />
+                            <ModArticle
+                                withMedia
+                                link="#"
+                                //titleTag="h1"
+                                titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                authorText="Por Gabriel Di Nicola"
+                                dateText
+                            />
+                        </div>
+
+                        {/* LISTA DE TAGS */}
                         <ul className="com-unordered --tags">
                             <li>
                                 <a
@@ -363,6 +223,8 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                         <div className="sidebar__main">
                             <div className="row hlp-degrade">
                                 <div className="com-anexo">ANEXO 70%</div>
+
+                                {/* CAJA DE TRES COLUMNAS */}
                                 <div className="row-gap-tablet-3 row-gap-desksm-3">
                                     <ModArticle
                                         withMedia
@@ -370,7 +232,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                         authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
+                                        dateText
                                     />
                                     <ModArticle
                                         withMedia
@@ -378,7 +240,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                         //authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
+                                        dateText
                                     />
                                     <ModArticle
                                         withMedia
@@ -386,7 +248,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                         authorText="Por Gabriel Di Nicola"
-                                        //dateText="20 de abril de 2020"
+                                        //dateText
                                     />
                                     <ModArticle
                                         withMedia
@@ -394,7 +256,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano despidos en el aeroparque metropolitano"
                                         authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
+                                        dateText
                                     />
                                     <ModArticle
                                         withMedia
@@ -402,7 +264,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                         authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
+                                        dateText
                                     />
                                     <ModArticle
                                         withMedia
@@ -410,29 +272,29 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                         authorText="Por Gabriel Di Nicola"
-                                        dateText="20 de abril de 2020"
+                                        dateText
                                     />
                                 </div>
-                                {/* <div className="col-12"> */}
+
                                 <ModArticle
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
-                                    dateText="20 de abril de 2020"
+                                    dateText
                                     subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
                                 <ModArticle
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
-                                    dateText="20 de abril de 2020"
+                                    dateText
                                     //subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
                                 <ModArticle
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
-                                    dateText="20 de abril de 2020"
+                                    dateText
                                     subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%, ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
                                 <ModArticle
@@ -440,7 +302,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
-                                    dateText="20 de abril de 2020"
+                                    dateText
                                     subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
                                 <ModArticle
@@ -448,50 +310,49 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
-                                    dateText="20 de abril de 2020"
+                                    dateText
                                 />
                                 <ModArticle
                                     withMedia
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
                                     authorText="Por Gabriel Di Nicola"
-                                    dateText="20 de abril de 2020"
+                                    dateText
                                     subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
-                                {/* </div> */}
                             </div>
                         </div>
                         {/* Tercera */}
                         <div className="sidebar__aside hlp-tablet-none">
                             {children[6]}
-                            <div className="--most-read">
-                                <ol className="com-ordered --ranking">
-                                    <li>
-                                        <ModArticle
-                                            withMedia
-                                            link="#"
-                                            titleSize="--twoxs"
-                                            titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        />
-                                    </li>
-                                    <li>
-                                        <ModArticle
-                                            withMedia
-                                            link="#"
-                                            titleSize="--twoxs"
-                                            titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        />
-                                    </li>
-                                    <li>
-                                        <ModArticle
-                                            withMedia
-                                            link="#"
-                                            titleSize="--twoxs"
-                                            titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        />
-                                    </li>
-                                </ol>
-                            </div>
+
+                            {/* LISTADO DE RANKING */}
+                            <ol className="com-ordered --ranking">
+                                <li>
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    />
+                                </li>
+                                <li>
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    />
+                                </li>
+                                <li>
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                    />
+                                </li>
+                            </ol>
                         </div>
                     </div>
                 </main>

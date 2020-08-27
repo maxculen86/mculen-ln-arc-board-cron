@@ -2,6 +2,8 @@ import React from 'react';
 //import PropTypes from 'fusion:prop-types';
 
 import ComTitle from './com-title';
+import ComDate from './com-date';
+
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 
 const ModArticle = props => {
@@ -76,18 +78,25 @@ const ModArticle = props => {
                     <></>
                 )}
                 {authorText ? (
-                    <strong className={`mod-firma ${authorSize || '--fivexs'}`}>
-                        <a href={link} title={authorText}>
-                            {authorText}
-                        </a>
-                    </strong>
+                    <>
+                        <strong
+                            className={`mod-firma ${authorSize || '--fivexs'}`}
+                        >
+                            <a href={link} title={authorText}>
+                                {authorText}
+                            </a>
+                        </strong>
+                    </>
                 ) : (
                     <></>
                 )}
                 {dateText ? (
-                    <time className={`com-date ${dateSize || '--threexs'}`}>
+                    <>
+                        <ComDate display_date={dateText} />
+                        {/* <time className={`com-date ${dateSize || '--threexs'}`}>
                         {dateText}
-                    </time>
+                    </time> */}
+                    </>
                 ) : (
                     <></>
                 )}
