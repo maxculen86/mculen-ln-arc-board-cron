@@ -12,8 +12,7 @@ import ComTitle from '../../../common/com-title';
 import '../../../../../resources/dist/css/ln/components/ranking.css';
 
 const Ranking = ({ articles, dataSection, title }) =>
-    articles &&
-    articles.length && (
+    (articles && articles.length && (
         <div className="com-ranking hlp-mobile-none">
             <ComTitle tag="h2" size="--m" content={title} />
             <OrderedList>
@@ -27,7 +26,8 @@ const Ranking = ({ articles, dataSection, title }) =>
                     ))}
             </OrderedList>
         </div>
-    );
+    )) ||
+    null;
 
 Ranking.propTypes = {
     articles: PropTypes.arrayOf(PropTypes.object),

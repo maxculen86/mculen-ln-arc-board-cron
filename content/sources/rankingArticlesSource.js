@@ -17,7 +17,7 @@ const resolve = (key, a) => {
     const basePath = `?website=${website || arcSite}`;
 
     const sectionFilter = sectionId
-        ? `+AND+taxonomy.primary_section._id:"${sectionId}"`
+        ? `+AND+taxonomy.sections._id:"${sectionId}"`
         : '';
 
     const publishDateFilter = weeksAgo

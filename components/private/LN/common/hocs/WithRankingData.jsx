@@ -1,26 +1,36 @@
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import React from 'react';
+
 import get from '../../../common/utils/get';
 
-const getSectionData = globalContent => {
-    const nodeType = get(globalContent, 'node_type', null);
-    const primarySection = get(globalContent, 'taxonomy.primary_section', null);
+const getSectionData = props => {
+    const globalContent = get(props, 'globalContent', null);
+
+    // Acumulados
+    const isAcuSection = get(globalContent, 'node_type', null) === 'section';
+    const acuSectionName = get(globalContent, 'name', null);
+    const acuSectionId = get(globalContent, '_id', null);
+
+    // Notas
     const primarySectionName = get(
         globalContent,
         'taxonomy.primary_section.name',
         null
     );
+    const primarySectionId = get(
+        globalContent,
+        'taxonomy.primary_section._id',
+        null
+    );
 
-    let title;
-    let sectionId;
-    if (nodeType === 'section') {
-        title = get(globalContent, 'name', null);
-        sectionId = get(globalContent, '_id', null);
-    } else if (primarySectionName) {
-        title = primarySectionName;
-        sectionId = get(primarySection, '_id', null);
-    }
+    const title =
+        (isAcuSection && acuSectionName) || primarySectionName || null;
+
+    const sectionId =
+        (isAcuSection && acuSectionId) ||
+        (primarySectionName && primarySectionId) ||
+        null;
 
     return {
         title: title ? `Más leídas de ${title}` : `Más leídas`,
@@ -28,50 +38,40 @@ const getSectionData = globalContent => {
     };
 };
 
-const getQueryFromProps = (weeksAgo, daysAgo, props, sectionId) => {
+const getArticles = (index, props, sectionId, imageConfig, filter) => {
+    const weeksAgo = get(props, `customFields.weeksAgo${index}`, 1);
+    const daysAgo = get(props, `customFields.daysAgo${index}`, 1);
+    const size = get(props, `customFields.size${index}`, 3);
     const website = get(props, 'website', null);
-    const size = get(props, 'customFields.cantidadNotas', 1);
-    return {
-        website,
-        sectionId,
-        size,
-        weeksAgo,
-        daysAgo
-    };
-};
 
-const getArticles = (query, imageConfig, filter) => {
-    const size = get(query, 'size', 3);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const articlesData = useContent({
         source: 'rankingArticlesSource',
         query: {
-            ...query,
+            website,
+            sectionId,
+            weeksAgo,
+            daysAgo,
+            size,
             imageConfig
         },
         filter
     });
+
     const articles = get(articlesData, 'content_elements', null);
     return articles && articles.length >= size ? articles : null;
 };
 
 const WithRankingData = (WrappedComponent, filter, imageConfig) => props => {
-    const globalContent = get(props, 'globalContent', null);
-    const { title, sectionId } = getSectionData(globalContent);
-
-    const querys = [
-        getQueryFromProps(1, 1, props, sectionId),
-        getQueryFromProps(2, 5, props, sectionId),
-        getQueryFromProps(40, 5, props, sectionId)
-    ];
+    const { title, sectionId } = getSectionData(props);
 
     let articleList;
-
-    querys.forEach((query, index) => {
+    // Por el momento se harán dos llamadas a lo sumo
+    for (let i = 1; i <= 2; i += 1) {
         if (!articleList) {
-            articleList = getArticles(query, imageConfig, filter);
+            articleList = getArticles(i, props, sectionId, imageConfig, filter);
         }
-    });
+    }
 
     return (
         <WrappedComponent

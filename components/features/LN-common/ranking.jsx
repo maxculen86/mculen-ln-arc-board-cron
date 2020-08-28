@@ -5,21 +5,45 @@ import Static from 'fusion:static';
 import Ranking from '../../private/LN/common/ranking';
 
 const ranking = props => {
-    const { outputType } = props;
+    const { id: featureId, outputType } = props;
     return (
         outputType !== 'amp' && (
-            <Static id="ranking">
+            <Static id={featureId}>
                 <Ranking {...props} />
             </Static>
         )
     );
 };
 
+const requestConfigProps = (index, defaultDays, defaultWeeks) => {
+    return {
+        [`size${index}`]: PropTypes.number.tag({
+            group: `Configuración consulta ${index}`,
+            defaultValue: 3,
+            description: 'Cantidad de notas a listar',
+            label: 'Cantidad de Notas'
+        }),
+        [`daysAgo${index}`]: PropTypes.number.tag({
+            group: `Configuración consulta ${index}`,
+            defaultValue: defaultDays,
+            description: 'Número de días atrás en relación a hoy',
+            label: 'Días'
+        }),
+        [`weeksAgo${index}`]: PropTypes.number.tag({
+            group: `Configuración consulta ${index}`,
+            defaultValue: defaultWeeks,
+            description: 'Número de semanas de antiguedad de las publicaciones',
+            label: 'Semanas de publicación'
+        })
+    };
+};
+
 ranking.label = 'LN-Common-Ranking';
 ranking.propTypes = {
     outputType: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
-        cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' })
+        ...requestConfigProps(1, 1, 1),
+        ...requestConfigProps(2, 5, 2)
     }).isRequired
 };
 
