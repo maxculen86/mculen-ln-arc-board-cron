@@ -15,6 +15,16 @@
     &.--top {
         @include flex(flex, column, center, center);
     }
+    &.--highlight {
+        background-color: $highlight;
+        border: 1px solid $gris3;
+        color: $negro;
+        &:hover {
+            background: $negro;
+            border-color: $negro;
+            color: $blanco;
+        }
+    }
     .mod-share & {
         padding: 0;
         margin-right: $spacing-sm;
@@ -143,6 +153,16 @@
     }
     &.--compact {
         padding: $spacing-xs $spacing-sm;
+        &.--highlight {
+            background-color: $highlight;
+            border: 1px solid $gris3;
+            color: $negro;
+            &:hover {
+                background: $negro;
+                border-color: $negro;
+                color: $blanco;
+            }
+        }
     }
     .--slider & {
         background: $negro;

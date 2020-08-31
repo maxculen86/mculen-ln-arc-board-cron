@@ -1,31 +1,33 @@
-@import '../../../../../src/statics/LN/css/base/reset.scss';
-@import '../../../../../src/statics/LN/css/base/types.scss';
-@import '../../../../../src/statics/LN/css/layouts/grid.scss';
-@import '../../../../../src/statics/LN/css/layouts/layout.scss';
+@import '../base/reset';
+@import '../base/types';
+@import '../layouts/grid';
+@import '../layouts/layout';
 
-@import '../../../../../src/statics/LN/css/components/footer.scss';
+@import '../components/footer';
 
-@import '../../../../../src/statics/LN/css/components/tag.scss';
-@import '../../../../../src/statics/LN/css/components/lead.scss';
-@import '../../../../../src/statics/LN/css/components/input.scss';
-@import '../../../../../src/statics/LN/css/components/_nav-mobile.scss';
-@import '../../../../../src/statics/LN/css/components/banners.scss';
-@import '../../../../../src/statics/LN/css/components/nav-amp.scss';
+//@import '../components/tag';
+//@import '../components/lead';
+//@import '../components/input';
+@import '../components/_nav-mobile';
+@import '../components/banners';
+@import '../components/nav-amp';
+@import '../components/breadcrumb';
 
-@import '../../../../../src/statics/LN/css/components/com-link.scss';
-@import '../../../../../src/statics/LN/css/components/com-image.scss';
-@import '../../../../../src/statics/LN/css/components/com-text.scss';
-@import '../../../../../src/statics/LN/css/components/com-icon.scss';
-@import '../../../../../src/statics/LN/css/components/com-button.scss';
-@import '../../../../../src/statics/LN/css/components/com-container.scss';
-@import '../../../../../src/statics/LN/css/components/com-logo.scss';
-@import '../../../../../src/statics/LN/css/components/com-title.scss';
+@import '../components/com-link';
+@import '../components/com-image';
+@import '../components/com-text';
+@import '../components/com-icon';
+@import '../components/com-button';
+@import '../components/com-container';
+@import '../components/com-logo';
+@import '../components/com-title';
+@import '../components/com-banner';
 
-@import '../../../../../src/statics/LN/css/modules/mod-image.scss';
-@import '../../../../../src/statics/LN/css/modules/mod-media.scss';
-@import '../../../../../src/statics/LN/css/modules/mod-picture.scss';
-@import '../../../../../src/statics/LN/css/modules/mod-figure.scss';
-@import '../../../../../src/statics/LN/css/modules/mod-figcaption.scss';
-@import '../../../../../src/statics/LN/css/modules/mod-title.scss';
+@import '../modules/mod-image';
+@import '../modules/mod-media';
+@import '../modules/mod-picture';
+@import '../modules/mod-figure';
+@import '../modules/mod-figcaption';
+@import '../modules/mod-title';
 
-@import '../../../../../src/statics/LN/css/base/helpers-amp.scss';
+@import '../base/helpers-amp';

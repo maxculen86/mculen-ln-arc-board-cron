@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 // .layout {
 //     display: block;
 //     width: 100vw;
@@ -20,7 +21,7 @@ amp-sidebar {
         padding: 15px 20px;
         background: $blanco;
         border-bottom: solid 1px #eaeaea;
-        margin-bottom: 10px;
+        margin-bottom: $spacing;
 
         .logo-la-nacion {
             //Logo LN
@@ -263,14 +264,11 @@ amp-sidebar {
 
         button {
             &.icon-menu {
-                font-family: 'arial';
+                font-family: $font-arial;
                 background: transparent;
                 border: none;
-                font-size: 15px;
-                display: flex;
-                justify-content: center;
-                text-align: center;
-                align-items: center;
+                font-size: px(15);
+                @include flex(flex, row, center, center);
                 cursor: pointer;
 
                 &:before {
@@ -295,7 +293,7 @@ amp-sidebar {
         .com-usuario {
             .col-12 {
                 text-align: right;
-                @media (min-width: 769px) {
+                @media ($media-m) {
                     text-align: initial;
                 }
             }
@@ -303,66 +301,31 @@ amp-sidebar {
     }
 }
 
-amp-carousel {
-    width: calc(100% + 2.5rem);
-    margin-left: -1.25rem;
-    margin-bottom: $spacing-lg;
-
-    @media (min-width: 769px) {
-        width: auto;
-        margin-left: 0;
-    }
-
-    .mod-picture {
-        overflow: hidden;
-        amp-img {
-            object-fit: contain;
-            height: 100%;
-            transition: none;
-            width: 100%;
-            position: absolute;
-            img {
-                object-fit: contain;
-            }
-        }
-    }
-    .mod-figcaption {
-        width: 100%;
-        margin-left: 0;
-    }
-}
-
-amp-img {
-    img {
-        object-fit: cover;
-    }
-}
-
-@media (max-width: 1023px) {
-    //para que el share en mobile se vea al 100% relative
-    .cuerpo__nota {
-        .col-1 {
-            flex: auto;
-            max-width: none;
-            margin-bottom: $spacing-sm;
-            // .com-share {
-            //     display: block;
-            //     position: relative;
-            //     top: auto;
-            //     left: auto;
-            //     right: auto;
-            //     border: none;
-            //     width: calc(100% + 2.5rem);
-            //     margin-left: -1.25rem;
-            //     .share-right {
-            //         amp-social-share {
-            //             padding-top: px(4);
-            //         }
-            //     }
-            // }
-        }
-    }
-}
+// @media (max-width: 1023px) {
+//     //para que el share en mobile se vea al 100% relative
+//     .cuerpo__nota {
+//         .col-1 {
+//             flex: auto;
+//             max-width: none;
+//             margin-bottom: $spacing-sm;
+//             // .com-share {
+//             //     display: block;
+//             //     position: relative;
+//             //     top: auto;
+//             //     left: auto;
+//             //     right: auto;
+//             //     border: none;
+//             //     width: calc(100% + 2.5rem);
+//             //     margin-left: -1.25rem;
+//             //     .share-right {
+//             //         amp-social-share {
+//             //             padding-top: px(4);
+//             //         }
+//             //     }
+//             // }
+//         }
+//     }
+// }
 
 .com-embed {
     margin-bottom: $spacing-lg;

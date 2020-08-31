@@ -1,4 +1,6 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
+
 .com-nav-mobile {
     position: fixed;
     bottom: 0;
@@ -71,7 +73,7 @@
     }
 }
 
-@media (min-width: 769px) {
+@media ($media-m) {
     .com-nav-mobile {
         display: none;
     }
