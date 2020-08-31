@@ -45,6 +45,7 @@ export default `
         }
         headlines {
             basic
+            mobile
         }
         display_date
         website_url       

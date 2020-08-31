@@ -1,13 +1,15 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas';
-// import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
+import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 
-function GrillaNotasFeature({ customFields: { cantidadNotas, typeArticle } }) {
-    // const { acumuladoGeneral, acumuladoColor } = useGlobalProviderAcu();
+function GrillaNotasFeature({ customFields: { typeArticle } }) {
+    const { acumuladoGeneral, acumuladoColor } = useGlobalProviderAcu();
+    const { cantidad_notas = 30 } = acumuladoGeneral;
 
-    return <GrillaNotas size={cantidadNotas} typeArticle={typeArticle} />;
+    return <GrillaNotas size={cantidad_notas} typeArticle={typeArticle} />;
 }
 
 GrillaNotasFeature.label = 'LN-Acumulado-Grilla-Notas';

@@ -61,6 +61,7 @@ function WithAcuArticlesData(
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
+
                 const excludeSectionId = get(
                     this,
                     'props.excludeSectionId',
@@ -73,7 +74,7 @@ function WithAcuArticlesData(
                         sectionId,
                         authorId,
                         tagId,
-                        size: size.tripleSize,
+                        size: size.tripleSize || size,
                         imageConfig,
                         page,
                         excludeSectionId,

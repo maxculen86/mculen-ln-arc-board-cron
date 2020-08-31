@@ -15,6 +15,8 @@ function ArticleAcum({
     extraClasses,
     typeArticle
 }) {
+    // console.log(JSON.stringify(article));
+    // console.log(JSON.stringify(typeArticle));
     return (
         <>
             {typeArticle === 'ArticleMain' && (
