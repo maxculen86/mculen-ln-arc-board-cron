@@ -55,12 +55,7 @@ const indexNota = dataNota => {
     if (modificadorTemplate) resp.modificadorTemplate = modificadorTemplate;
 
     const enviarApps = get(dataNota, 'label.enviar_a_apps');
-    if (
-        !enviarApps ||
-        !enviarApps.text ||
-        enviarApps.text.toLowerCase() == 'no'
-    )
-        resp.enviarApps = false;
+    if (enviarApps && enviarApps.text && enviarApps.text.toLowerCase() == 'no') resp.enviarApps = false;
 
     return resp;
 };
