@@ -7,6 +7,7 @@ import PageBuilderMessage from '../private/LN/home/common/components/pageBuilder
 
 import ModCategory from '../private/common/mod-category';
 import ModArticle from '../private/common/mod-article';
+import ModRowGap from '../private/common/mod-rowgap';
 
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
@@ -80,8 +81,14 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
 
     //probando configuraciones
     const revista = '';
-    const divStyle = {
+    const backgroundCategory = {
         backgroundColor: '#ccc000'
+    };
+    const colorCategory = {
+        color: 'blue'
+    };
+    const colorTags = {
+        color: 'red'
     };
 
     return (
@@ -92,20 +99,26 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
             <div id="wrapper" className={`acumulado --color ${revista} ${amp}`}>
                 <Header />
                 <main>
-                    <div className="row --top" style={divStyle}>
+                    <div className="row --top" style={backgroundCategory}>
                         <div className="lay">
                             {children[1]}
+                            {/* BANNER y ANEXO */}
+                            <div className="com-banner">BANNER</div>
+                            <div className="com-anexo">ANEXO 100%</div>
 
                             {/* TITULO/LOGO Y CATEGORIAS */}
                             <ModCategory
                                 revista={revista}
                                 category="Título de la categoría"
+                                color={colorCategory}
                             />
                         </div>
                     </div>
                     <div className="lay">
-                        {/* CAJA DE DOS COLUMNAS */}
-                        <div className="row-gap-tablet-2 row-gap-desksm-2  --opening">
+                        {children[2]}
+
+                        {/* APERTURA: CAJA DE DOS COLUMNAS */}
+                        <ModRowGap column="2" classCondition="--opening">
                             <ModArticle
                                 withMedia
                                 link="#"
@@ -122,15 +135,17 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 authorText="Por Gabriel Di Nicola"
                                 dateText
                             />
-                        </div>
+                        </ModRowGap>
 
                         {/* LISTA DE TAGS */}
+                        {/* <ModListOrderedOrUnordered /> */}
                         <ul className="com-unordered --tags">
                             <li>
                                 <a
                                     href="/tema/huevo-tid47236/"
                                     className="com-link"
                                     title="huevo"
+                                    style={colorTags}
                                 >
                                     huevo
                                 </a>
@@ -140,6 +155,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     href="/tema/manteca-tid47257/"
                                     className="com-link"
                                     title="manteca"
+                                    style={colorTags}
                                 >
                                     manteca
                                 </a>
@@ -149,6 +165,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     href="/tema/ajo-tid47126/"
                                     className="com-link"
                                     title="ajo"
+                                    style={colorTags}
                                 >
                                     ajo
                                 </a>
@@ -158,6 +175,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     href="/tema/harina-0000-tid48184/"
                                     className="com-link"
                                     title="harina 0000"
+                                    style={colorTags}
                                 >
                                     harina 0000
                                 </a>
@@ -167,6 +185,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     href="/tema/aceite-de-oliva-tid47117/"
                                     className="com-link"
                                     title="aceite de oliva"
+                                    style={colorTags}
                                 >
                                     aceite de oliva
                                 </a>
@@ -176,6 +195,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     href="/tema/leche-tid47244/"
                                     className="com-link"
                                     title="leche"
+                                    style={colorTags}
                                 >
                                     leche
                                 </a>
@@ -185,6 +205,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     href="/tema/parmesano-tid47290/"
                                     className="com-link"
                                     title="parmesano"
+                                    style={colorTags}
                                 >
                                     parmesano
                                 </a>
@@ -194,6 +215,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     href="/tema/crema-de-leche-tid47204/"
                                     className="com-link"
                                     title="crema de leche"
+                                    style={colorTags}
                                 >
                                     crema de leche
                                 </a>
@@ -203,6 +225,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     href="/tema/cebolla-tid47174/"
                                     className="com-link"
                                     title="cebolla"
+                                    style={colorTags}
                                 >
                                     cebolla
                                 </a>
@@ -212,8 +235,39 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     href="/tema/azucar-tid47141/"
                                     className="com-link"
                                     title="azúcar"
+                                    style={colorTags}
                                 >
                                     azúcar
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/ajo-tid47126/"
+                                    className="com-link"
+                                    title="ajo"
+                                    style={colorTags}
+                                >
+                                    ajo
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/harina-0000-tid48184/"
+                                    className="com-link"
+                                    title="harina 0000"
+                                    style={colorTags}
+                                >
+                                    harina 0000
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/tema/aceite-de-oliva-tid47117/"
+                                    className="com-link"
+                                    title="aceite de oliva"
+                                    style={colorTags}
+                                >
+                                    aceite de oliva
                                 </a>
                             </li>
                         </ul>
@@ -222,10 +276,11 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                         {/* Cuerpo */}
                         <div className="sidebar__main">
                             <div className="row hlp-degrade">
+                                {/* LUGAR PARA ANEXO */}
                                 <div className="com-anexo">ANEXO 70%</div>
 
                                 {/* CAJA DE TRES COLUMNAS */}
-                                <div className="row-gap-tablet-3 row-gap-desksm-3">
+                                <ModRowGap column="3" classCondition="">
                                     <ModArticle
                                         withMedia
                                         link="#"
@@ -274,8 +329,9 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         authorText="Por Gabriel Di Nicola"
                                         dateText
                                     />
-                                </div>
+                                </ModRowGap>
 
+                                {/* LISTADO DE NOTAS */}
                                 <ModArticle
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
@@ -326,7 +382,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                         <div className="sidebar__aside hlp-tablet-none">
                             {children[6]}
 
-                            {/* LISTADO DE RANKING */}
+                            {/* RANKING DE NOTAS */}
                             <ol className="com-ordered --ranking">
                                 <li>
                                     <ModArticle
