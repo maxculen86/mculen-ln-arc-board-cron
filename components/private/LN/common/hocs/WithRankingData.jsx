@@ -3,6 +3,22 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 
 import get from '../../../common/utils/get';
+import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
+
+const getSectionParent = primarySection => {
+    const sections = primarySection.split('/');
+    const sectionParent =
+        sections && sections.length > 2 ? `/${sections[1]}` : null;
+    return sectionParent;
+};
+
+const getTitleSectionParent = sectionParent =>
+    sectionParent &&
+    sectionParent
+        .replace('/', '')
+        .split('-')
+        .map(word => capitalizeFirstLetter(word))
+        .join(' ');
 
 const getSectionData = props => {
     const globalContent = get(props, 'globalContent', null);
@@ -24,17 +40,25 @@ const getSectionData = props => {
         null
     );
 
-    const title =
-        (isAcuSection && acuSectionName) || primarySectionName || null;
-
     const sectionId =
         (isAcuSection && acuSectionId) ||
         (primarySectionName && primarySectionId) ||
         null;
 
+    const sectionParent =
+        sectionId &&
+        !sectionId.includes('/recetas') &&
+        getSectionParent(sectionId);
+
+    const title =
+        (sectionParent && getTitleSectionParent(sectionParent)) ||
+        (isAcuSection && acuSectionName) ||
+        primarySectionName ||
+        null;
+
     return {
         title: title ? `Más leídas de ${title}` : `Más leídas`,
-        sectionId
+        sectionId: sectionParent || sectionId
     };
 };
 
