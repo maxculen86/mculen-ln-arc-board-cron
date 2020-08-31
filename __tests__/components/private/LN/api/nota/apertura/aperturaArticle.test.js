@@ -60,13 +60,17 @@ describe('Test de JSON de apertura en article', () => {
 
     it('Render de imagenes de apertura', () => {
         const resp = Apertura(ArticleApertura[0]);
-        const imageData = ArticleApertura[0].promo_items.basic;        
+        const imageData = ArticleApertura[0].promo_items.basic;
         expect(resp.multimedio).toBeUndefined();
         expect(resp.imagenes[0]['_t']).toBe('img');
         expect(resp.imagenes[0].id).toBe(imageData._id);
-        expect(resp.imagenes[0].baseUrl).toBe('/resizer/{{param}}/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg');
+        expect(resp.imagenes[0].baseUrl).toBe(
+            '/resizer/{{param}}/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg'
+        );
         expect(resp.imagenes[0].parametros[0].ancho).toBe(1260);
-        expect(resp.imagenes[0].parametros[0].firma).toBe('ll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840');        
+        expect(resp.imagenes[0].parametros[0].firma).toBe(
+            'll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840'
+        );
         expect(resp.imagenes[0].epigrafe).toBe(imageData.caption);
     });
 
@@ -74,16 +78,16 @@ describe('Test de JSON de apertura en article', () => {
         const resp = Apertura(ArticleApertura[1]);
         const videoData = Video(ArticleApertura[1].promo_items.basic);
         expect(resp.multimedio).toMatchObject(videoData);
-        expect(resp.imagenes).toHaveLength(0);
+        expect(resp.imagenes).toBeUndefined();
     });
 
     it('Render en caso que promo_items no exista o este vacio', () => {
         const resp = Apertura(ArticleApertura[2]);
-        expect(resp.imagenes).toHaveLength(0);
+        expect(resp.imagenes).toBeUndefined();
         expect(resp.multimedio).toBeUndefined();
 
         const respEmpty = Apertura(ArticleApertura[3]);
-        expect(respEmpty.imagenes).toHaveLength(0);
+        expect(respEmpty.imagenes).toBeUndefined();
         expect(respEmpty.multimedio).toBeUndefined();
     });
 

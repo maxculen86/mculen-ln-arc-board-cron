@@ -52,6 +52,10 @@ export default {
         OptaEmbed: {
             props: {},
             location: ['head']
+        },
+        ScriptHtmlLibre: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {
@@ -82,6 +86,37 @@ export default {
                         {
                             width: 360,
                             height: 240,
+                            media: '(min-width: 320px)'
+                        }
+                    ]
+                }
+            },
+            fotoAl100: {
+                content_elements: {
+                    sizes: [
+                        {
+                            width: 1920,
+                            height: 850,
+                            media: '(min-width: 1280px)'
+                        },
+                        {
+                            width: 1200,
+                            height: 515,
+                            media: '(min-width: 1024px)'
+                        },
+                        {
+                            width: 1024,
+                            height: 579,
+                            media: '(min-width: 768px)'
+                        },
+                        {
+                            width: 768,
+                            height: 432,
+                            media: '(min-width: 360px)'
+                        },
+                        {
+                            width: 360,
+                            height: 203,
                             media: '(min-width: 320px)'
                         }
                     ]
