@@ -5,8 +5,8 @@ import {
     RESIZER_URL,
     ARC_ACCESS_TOKEN
 } from 'fusion:environment';
-import get from 'lodash.get';
 import getProperties from 'fusion:properties';
+import get from '../../components/private/common/utils/get';
 import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import Redirect from './utils/redirect';
@@ -72,18 +72,24 @@ const transform = (data, siteProps) => {
     const presetsM = get(properties, `imageConfig.resize.m`, null);
 
     const resp = {
-        content_elements: data.map(v =>
-            addResizedUrls(v, {
-                resizerSecret: RESIZER_KEY,
-                resizerUrl: RESIZER_URL,
-                presets: {
-                    promoItems: presetsM.promo_items || presetsDefault,
-                    contentElements:
-                        presetsM.content_elements || presetsDefault,
-                    presetsDefault
-                }
-            })
-        )
+        content_elements: data.map(v => {
+            const headlines = get(v, `headlines`, {});
+            const shortTitle = get(v, `headlines.mobile`, null);
+
+            return {
+                ...addResizedUrls(v, {
+                    resizerSecret: RESIZER_KEY,
+                    resizerUrl: RESIZER_URL,
+                    presets: {
+                        promoItems: presetsM.promo_items || presetsDefault,
+                        contentElements:
+                            presetsM.content_elements || presetsDefault,
+                        presetsDefault
+                    }
+                }),
+                headlines: { ...headlines, shortTitle }
+            };
+        })
     };
     return resp;
 };

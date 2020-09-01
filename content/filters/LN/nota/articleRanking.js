@@ -45,6 +45,7 @@ export default `
         }
         headlines {
             basic
+            shortTitle
         }
         display_date
         website_url       
