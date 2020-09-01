@@ -8,6 +8,7 @@ import LoadingIcon from '../../common/loadingIcon';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import config from './bannerPositionsConfig.json';
+import withScreenUtils from '../../../common/hocs/withScreenUtils';
 
 const classNamesArticle = {
     ArticleMain: 'row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade',
@@ -23,6 +24,11 @@ class GrillaNotas extends Component {
         this.sectionGrillasNotasRef = React.createRef();
 
         this.setAlturaArticle = this.setAlturaArticle.bind(this);
+
+        console.log(
+            '### PROPS BANNER GRILLA COMPONENT: ',
+            this.props.bannerConfig
+        );
     }
 
     componentDidMount() {
@@ -48,37 +54,33 @@ class GrillaNotas extends Component {
         }
     }
 
-    getBanner = (device, index) => {
+    getBanner = index => {
         const position = index + 1;
-        let bannerPosition = {};
-        let selectedSlots = {};
-        if (device === 'mobile') {
-            bannerPosition = config.mobile.find(el => el.position === position);
-            selectedSlots = bannerPosition
-                ? { mobileSlot: bannerPosition.banner }
-                : {};
-        } else {
-            bannerPosition = config.tablet.find(el => el.position === position);
-            selectedSlots = bannerPosition
-                ? { tabletSlot: bannerPosition.banner }
-                : {};
-        }
-        if (bannerPosition) {
-            const { siteProperties, isAdmin } = this.props;
-            const banner = {
-                slotGroup: 'acumulado',
-                selectedSlots,
-                sticky: false
-            };
-            return (
-                <Banner
-                    siteProperties={siteProperties}
-                    isAdmin={isAdmin}
-                    banner={banner}
-                />
-            );
-        }
-        return undefined;
+        const { bannerConfig } = this.props;
+        const { siteProperties, isAdmin } = this.props;
+
+        return bannerConfig
+            .filter(banner => banner.position === position)
+            .map((value, index) => {
+                const props = {
+                    siteProperties,
+                    isAdmin,
+                    banner: {
+                        slotGroup: 'acumulado',
+                        selectedSlots: {
+                            desktopSlot: value.desktop,
+                            mobileSlot: value.mobile,
+                            tabletSlot: value.tablet
+                        }
+                    }
+                };
+                return (
+                    <>
+                        <div>BANNER AQUIIII</div>
+                        <Banner key={index} {...props} />
+                    </>
+                );
+            });
     };
 
     render() {
@@ -137,6 +139,12 @@ GrillaNotas.propTypes = {
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
         })
+    }).isRequired,
+    bannerConfig: PropTypes.shape({
+        background: PropTypes.bool,
+        position: PropTypes.number,
+        sticky: PropTypes.bool,
+        tablet: PropTypes.string
     }).isRequired
 };
 
@@ -148,4 +156,6 @@ GrillaNotas.propTypes = {
 //     isAdmin: false
 // };
 
-export default WithAcuArticlesData(GrillaNotas, filter, 'notaM');
+export default withScreenUtils(
+    WithAcuArticlesData(GrillaNotas, filter, 'notaM')
+);

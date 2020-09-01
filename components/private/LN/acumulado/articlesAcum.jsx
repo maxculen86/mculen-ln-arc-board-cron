@@ -10,8 +10,9 @@ const ArticlesAcum = ({ articles, getBanner, typeArticle }) => {
 
     if (articles && articles.length) {
         articlesComponents = articles.map((a, i) => {
-            const mobileBanner = getBanner('mobile', i);
-            const tabletBanner = getBanner('tablet', i);
+            /* const mobileBanner = getBanner('mobile', i);
+            const tabletBanner = getBanner('tablet', i); */
+            const banner = getBanner(i);
 
             return (
                 <ArticleAcum
@@ -21,8 +22,9 @@ const ArticlesAcum = ({ articles, getBanner, typeArticle }) => {
                     article={a}
                     typeArticle={typeArticle}
                 >
-                    {mobileBanner}
-                    {tabletBanner}
+                    {banner}
+                    {/* {mobileBanner}
+                    {tabletBanner} */}
                 </ArticleAcum>
             );
         });

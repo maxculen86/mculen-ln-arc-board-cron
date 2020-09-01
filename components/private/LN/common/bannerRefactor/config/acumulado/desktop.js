@@ -2,13 +2,6 @@ import { defaultTargeting } from './defaults';
 
 const PATH_SLOT = 'la_nacion_desktop/Acumulado';
 
-const DIMENSIONS_CAJA = [
-    [300, 600],
-    [160, 600],
-    [120, 600],
-    [300, 250]
-];
-
 export default {
     unoxuno_dsk: {
         slotName: `${PATH_SLOT}/1x1_dsk`,
@@ -17,42 +10,88 @@ export default {
     },
     cabezal_dsk: {
         slotName: `${PATH_SLOT}/cabezal_dsk`,
-        dimensions: [
-            [1260, 170],
-            [920, 170],
-            [920, 100],
-            [970, 90],
-            [728, 90],
-            [1, 1]
-        ],
-        targeting: defaultTargeting
-    },
-    adhesion_dsk: {
-        slotName: `${PATH_SLOT}/adhesion_dsk`,
-        dimensions: [
-            [920, 100],
-            [728, 90]
-        ],
-        targeting: defaultTargeting
+        dimensions: [[[1260, 100]], [[1260, 100]], [[728, 90]]],
+        targeting: defaultTargeting,
+        sizemap: {
+            breakpoints: [
+                [1920, 0],
+                [1366, 0],
+                [1024, 0]
+            ]
+        }
     },
     caja1_dsk: {
         slotName: `${PATH_SLOT}/caja1_dsk`,
-        dimensions: DIMENSIONS_CAJA,
-        targeting: defaultTargeting
+        dimensions: [
+            [
+                [300, 600],
+                [300, 250]
+            ],
+            [
+                [300, 600],
+                [300, 250]
+            ],
+            [
+                [300, 600],
+                [300, 250]
+            ]
+        ],
+        targeting: defaultTargeting,
+        sizemap: {
+            breakpoints: [
+                [1920, 0],
+                [1366, 0],
+                [1024, 0]
+            ]
+        }
     },
     caja2_dsk: {
         slotName: `${PATH_SLOT}/caja2_dsk`,
-        dimensions: DIMENSIONS_CAJA,
-        targeting: defaultTargeting
+        dimensions: [[[300, 250]], [[300, 250]], [[300, 250]]],
+        targeting: defaultTargeting,
+        sizemap: {
+            breakpoints: [
+                [1920, 0],
+                [1366, 0],
+                [1024, 0]
+            ]
+        }
     },
     caja3_dsk: {
         slotName: `${PATH_SLOT}/caja3_dsk`,
-        dimensions: DIMENSIONS_CAJA,
-        targeting: defaultTargeting
+        dimensions: [
+            [
+                [300, 600],
+                [300, 250]
+            ],
+            [
+                [300, 600],
+                [300, 250]
+            ],
+            [
+                [300, 600],
+                [300, 250]
+            ]
+        ],
+        targeting: defaultTargeting,
+        sizemap: {
+            breakpoints: [
+                [1920, 0],
+                [1366, 0],
+                [1024, 0]
+            ]
+        }
     },
     caja4_dsk: {
         slotName: `${PATH_SLOT}/caja4_dsk`,
-        dimensions: DIMENSIONS_CAJA,
-        targeting: defaultTargeting
+        dimensions: [[[300, 250]], [[300, 250]], [[300, 250]]],
+        targeting: defaultTargeting,
+        sizemap: {
+            breakpoints: [
+                [1920, 0],
+                [1366, 0],
+                [1024, 0]
+            ]
+        }
     }
 };
