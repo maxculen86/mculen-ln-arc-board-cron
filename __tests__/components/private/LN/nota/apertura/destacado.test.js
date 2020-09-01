@@ -28,7 +28,7 @@ describe('features - La Nacion - Components - Nota - Apertura - Destacado ', () 
     Context.useAppContext = jest.fn(() => ({
         globalContent: { subtype: '1' }
     }));
-    
+
     it('Test de logica de Destacado - Imagen', () => {
         const comp = mount(<Destacado globalContent={nota} />);
         expect('image').toBe(nota.promo_items.basic.type);

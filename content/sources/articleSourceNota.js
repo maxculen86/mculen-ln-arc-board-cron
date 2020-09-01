@@ -15,7 +15,10 @@ import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
-import { FOTOAL100, STORYTELLING } from '../../components/private/common/utils/subtypes/subtypeHelper';
+import {
+    FOTOAL100,
+    STORYTELLING
+} from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 
 const resolve = (key, a) => {

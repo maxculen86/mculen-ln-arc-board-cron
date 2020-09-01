@@ -15,7 +15,7 @@
             width: 100%;
             margin-bottom: $spacing-xs;
             .--autor {
-                @media (media-m) {
+                @media ($media-m) {
                     margin-bottom: $spacing-xs;
                 }
                 &:before {
