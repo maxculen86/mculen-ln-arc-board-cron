@@ -80,15 +80,18 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
 
     //probando configuraciones
-    const revista = '';
+    const revista = 'ohlala';
     const backgroundCategory = {
-        backgroundColor: '#ccc000'
+        //backgroundColor: '#ccc000'
+        backgroundColor: ''
     };
     const colorCategory = {
-        color: 'blue'
+        //color: 'blue'
+        color: ''
     };
     const colorTags = {
-        color: 'red'
+        //color: 'red'
+        color: ''
     };
 
     return (
@@ -272,7 +275,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </li>
                         </ul>
                     </div>
-                    <div className="lay-sidebar">
+                    <div id="content-main" className="lay-sidebar">
                         {/* Cuerpo */}
                         <div className="sidebar__main">
                             <div className="row hlp-degrade">

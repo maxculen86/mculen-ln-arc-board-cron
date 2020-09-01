@@ -15,9 +15,9 @@ const ModCategory = props => {
                 </h1>
             )}
 
-            <button type="button" className="com-button hlp-none" style={color}>
+            {/* <button type="button" className="com-button hlp-none" style={color}>
                 <i className="icon-left"></i>
-            </button>
+            </button> */}
             <ComButton classCondition="hlp-none" iconName="left" />
             <ol className="com-unordered --category">
                 <li>
