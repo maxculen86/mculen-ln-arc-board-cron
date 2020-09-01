@@ -3,22 +3,21 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 
 import get from '../../../common/utils/get';
-import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
 
-const getSectionParent = primarySection => {
+const getSectionParent = (primarySection, sectionList) => {
     const sections = primarySection.split('/');
-    const sectionParent =
+    const sectionParentId =
         sections && sections.length > 2 ? `/${sections[1]}` : null;
-    return sectionParent;
+    const { name: titleSectionParent } =
+        (sectionParentId &&
+            sectionList &&
+            sectionList.find(section => section._id === sectionParentId)) ||
+        {};
+    return {
+        titleSectionParent,
+        sectionParentId
+    };
 };
-
-const getTitleSectionParent = sectionParent =>
-    sectionParent &&
-    sectionParent
-        .replace('/', '')
-        .split('-')
-        .map(word => capitalizeFirstLetter(word))
-        .join(' ');
 
 const getSectionData = props => {
     const globalContent = get(props, 'globalContent', null);
@@ -29,6 +28,7 @@ const getSectionData = props => {
     const acuSectionId = get(globalContent, '_id', null);
 
     // Notas
+    const sectionList = get(globalContent, 'taxonomy.sections', null);
     const primarySectionName = get(
         globalContent,
         'taxonomy.primary_section.name',
@@ -48,17 +48,19 @@ const getSectionData = props => {
     const sectionParent =
         sectionId &&
         !sectionId.includes('/recetas') &&
-        getSectionParent(sectionId);
+        getSectionParent(sectionId, sectionList);
+
+    const { sectionParentId, titleSectionParent } = sectionParent || {};
 
     const title =
-        (sectionParent && getTitleSectionParent(sectionParent)) ||
+        titleSectionParent ||
         (isAcuSection && acuSectionName) ||
         primarySectionName ||
         null;
 
     return {
         title: title ? `Más leídas de ${title}` : `Más leídas`,
-        sectionId: sectionParent || sectionId
+        sectionId: sectionParentId || sectionId
     };
 };
 
