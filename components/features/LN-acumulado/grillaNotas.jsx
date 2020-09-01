@@ -1,15 +1,40 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
-import GrillaNotas from '../../private/LN/acumulado/grillaNotas';
+import { useAppContext } from 'fusion:context';
+// import GrillaNotas from '../../private/LN/acumulado/grillaNotas';
+import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 
 function GrillaNotasFeature({ customFields: { typeArticle } }) {
     const { acumuladoGeneral, acumuladoColor } = useGlobalProviderAcu();
     const { cantidad_notas = 30 } = acumuladoGeneral;
+    const {
+        globalContent: { author_type: authorType, _id, Payload },
+        siteProperties
+    } = useAppContext();
 
-    return <GrillaNotas size={cantidad_notas} typeArticle={typeArticle} />;
+    const tagId =
+        Payload && Payload.items && Payload.items.length
+            ? Payload.items[0].slug
+            : undefined;
+
+    const sectionId = !authorType && !Payload ? _id : null;
+    const authorId = authorType ? _id : null;
+
+    //return <GrillaNotas size={cantidad_notas} typeArticle={typeArticle} />;
+
+    return (
+        <GrillaNotas
+            authorId={authorId}
+            tagId={tagId}
+            sectionId={sectionId}
+            size={cantidad_notas}
+            page={1}
+            siteProperties={siteProperties}
+            typeArticle={typeArticle}
+        />
+    );
 }
 
 GrillaNotasFeature.label = 'LN-Acumulado-Grilla-Notas';
