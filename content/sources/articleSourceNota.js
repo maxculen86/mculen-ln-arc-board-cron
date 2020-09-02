@@ -69,7 +69,11 @@ const fetch = query => {
             if (statusCode === 301 && location)
                 throw new Redirect(location, 301);
 
-            logger.push(error, { source: 'content/source', url });
+            logger.push(
+                error,
+                { source: 'content/source', url },
+                query['arc-site']
+            );
         });
 };
 
