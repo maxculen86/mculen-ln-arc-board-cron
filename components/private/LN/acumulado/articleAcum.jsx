@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ArticleMain from '../common/articleTypes/articleMain';
+// import ArticleMain from '../common/articleTypes/articleMain';
 // import ArticleDate from '../common/dateArticle';
 import get from '../../common/utils/get';
 import ModArticle from '../../common/mod-article';
@@ -54,14 +54,14 @@ const ArticleAcum = ({
                 articleData={article}
                 dataSection={dataSection}
                 extraClasses={extraClasses}
-                withMedia
+                withMedia={typeArticle === 'Grilla'}
                 link={website_url}
                 titleTag="h1"
                 titleSize="--s"
                 titleText={titleText}
                 authors={authors}
                 dateText={display_date}
-                subheadText={subheadText}
+                subheadText={typeArticle !== 'Grilla' && subheadText}
             />
             {children}
             {/*

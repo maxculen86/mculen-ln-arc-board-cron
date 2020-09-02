@@ -6,12 +6,18 @@ import ModRowGap from '../../common/mod-rowgap';
 const CLASS_W_100 = 'w-100-mobile';
 const DATA_SECTION = 'CuerpoAcu';
 
-const ArticlesAcum = ({ articles = [], getBanner, typeArticle }) => {
-    // let articlesComponents = [];
-    console.log(JSON.stringify(articles));
-    //
+const ArticlesAcum = ({
+    articles = [],
+    getBanner,
+    typeArticle,
+    classCondition
+}) => {
     return (
-        <ModRowGap column="3" classCondition="" typeArticle={typeArticle}>
+        <ModRowGap
+            column="3"
+            classCondition={classCondition}
+            typeArticle={typeArticle}
+        >
             {articles.map((art, i) => {
                 const mobileBanner = getBanner('mobile', i);
                 const tabletBanner = getBanner('tablet', i);
@@ -30,8 +36,18 @@ const ArticlesAcum = ({ articles = [], getBanner, typeArticle }) => {
             })}
         </ModRowGap>
     );
+};
 
-    /*
+ArticlesAcum.propTypes = {
+    articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    getBanner: PropTypes.func.isRequired,
+    typeArticle: PropTypes.string.isRequired,
+    classCondition: PropTypes.string
+};
+
+export default ArticlesAcum;
+
+/*
    if (articles && articles.length) {
         articlesComponents = articles.map((a, i) => {
             const mobileBanner = getBanner('mobile', i);
@@ -53,13 +69,4 @@ const ArticlesAcum = ({ articles = [], getBanner, typeArticle }) => {
     }
 
     return articlesComponents;
-    */
-};
-
-ArticlesAcum.propTypes = {
-    articles: PropTypes.arrayOf(PropTypes.object).isRequired,
-    getBanner: PropTypes.func.isRequired,
-    typeArticle: PropTypes.string.isRequired
-};
-
-export default ArticlesAcum;
+*/

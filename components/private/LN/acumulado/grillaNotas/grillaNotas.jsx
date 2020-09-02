@@ -87,8 +87,8 @@ class GrillaNotas extends Component {
             loading,
             typeArticle
         } = this.props;
-        const { alturaArticle } = this.state;
-        const _typeArticle = !typeArticle ? 'ArticleMain' : typeArticle;
+        // const { alturaArticle } = this.state;
+        // const _typeArticle = !typeArticle ? 'ArticleMain' : typeArticle;
 
         return (
             <>
@@ -101,12 +101,17 @@ class GrillaNotas extends Component {
                 <ArticlesAcum
                     getBanner={this.getBanner}
                     articles={articles}
-                    typeArticle={_typeArticle}
+                    typeArticle={typeArticle}
+                    classCondition={hayMasNotas > 0 && 'hlp-degrade'}
                 />
-                {/*hayMasNotas > 0 && (
+                {/*
+                hayMasNotas > 0 && (
                     <TransparencyDiv size={alturaArticle} />
-                )*/}
-                {/*} </section>*/}
+                )
+                */}
+                {/*
+                } </section>
+                */}
 
                 {hayMasNotas > 0 && (
                     <section className="row">

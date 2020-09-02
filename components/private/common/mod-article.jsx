@@ -29,8 +29,6 @@ const ModArticle = props => {
         dateSize
     } = props;
 
-    // const volanta = label && label.volanta && label.volanta.text;
-    // const borderClass = border ? '--border ' : '';
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
@@ -63,30 +61,18 @@ const ModArticle = props => {
                     content={titleText}
                 />
 
-                <ModBajada
-                    link={link}
-                    subheadSize={subheadSize}
-                    subheadText={subheadText}
-                />
+                {subheadText && (
+                    <ModBajada
+                        link={link}
+                        subheadSize={subheadSize}
+                        subheadText={subheadText}
+                    />
+                )}
 
                 <ModFirma autor={authors} />
 
                 <ComDate display_date={dateText} />
             </section>
-            {/*
-            <ModDescription
-                link={link}
-                titleTag={titleTag}
-                titleSize={titleSize}
-                titleText={titleText}
-                subheadText={subheadText}
-                subheadSize={subheadSize}
-                authorText={authorText}
-                authorSize={authorSize}
-                dateText={dateText}
-                dateSize={dateSize}
-            />
-            */}
         </article>
     );
 };
@@ -109,4 +95,17 @@ export default ModArticle;
         </a>
     </figure>
             </section>
+
+    <ModDescription
+    link={link}
+    titleTag={titleTag}
+    titleSize={titleSize}
+    titleText={titleText}
+    subheadText={subheadText}
+    subheadSize={subheadSize}
+    authorText={authorText}
+    authorSize={authorSize}
+    dateText={dateText}
+    dateSize={dateSize}
+/>
 */
