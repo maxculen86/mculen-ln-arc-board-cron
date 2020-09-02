@@ -37,10 +37,13 @@ const relacionadosIndex = dataArticle => {
     }
 
     const relatedNotes = get(dataArticle, 'related_content.basic');
+
     if (relatedNotes) {
-        relatedNotes.forEach(
-            e => e.type === 'story' && resp.notas.push(NotaRelacionadas(e))
-        );
+        relatedNotes.forEach(e => {
+            e !== null &&
+                e.type === 'story' &&
+                resp.notas.push(NotaRelacionadas(e));
+        });
     }
 
     return resp;

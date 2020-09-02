@@ -21,7 +21,7 @@ describe('Test de las embebidos en el cuerpo de una nota', () => {
         const resp = Embed(ArticleEmbed[0]);
         expect(resp['valor']['id']).toBe(ArticleEmbed[0].subtype);
         expect(resp['valor']['src']).toBe(
-            'https://twitter.com/realDonaldTrump/status/1265601611310739456?ref_src=twsrc%5Etfw'
+            'https://twitter.com/realDonaldTrump/status/1265601611310739456'
         );
     });
 

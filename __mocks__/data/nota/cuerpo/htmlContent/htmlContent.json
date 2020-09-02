@@ -10,5 +10,11 @@
         "additional_properties": {},
         "content": "",
         "type": "raw_html"
+    },
+    {
+        "_id": "IDMJM7X675HBZFXK6H3YBUIGIU",
+        "additional_properties": {},
+        "content": "<iframe style=\"width: 100%; max-width: 640px;\" height=\"360\" src=\" https://www.espn.com.ar/core/video/iframe?id=7188899&endcard=true&adLevel=espn.latam.ar%2Fsyndicated-player%2Flanacion&adEnv=prod&trackingName=LANACION\" width=\"100%\" height=\"100%\" allow=\"fullscreen\" scrolling=\"no\"></iframe>",
+        "type": "raw_html"
     }
 ]
