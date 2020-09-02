@@ -1,11 +1,14 @@
 import { ELMAH_API_KEY, ELMAH_LOG_ID, SITE_LANACION } from 'fusion:environment';
+import getProperties from 'fusion:properties';
 import request from 'request-promise-native';
 import get from './get';
 
 const URI_ELMAH = `https://api.elmah.io/v3/messages/${ELMAH_LOG_ID}`;
 
 const logger = (() => {
-    const push = (e, config) => {
+    const push = (e, config, site) => {
+        const props = getProperties(site) || { logger: false };
+        if (!props.logger) return;
         const { statusCode } = e || {};
         const method = get(e || {}, 'response.request.method', null);
         const uri = get(e || {}, 'options.uri', null);
