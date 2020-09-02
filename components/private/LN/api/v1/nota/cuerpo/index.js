@@ -14,8 +14,6 @@ const cuerpoIndex = article => {
         '9': htmlCuerpo                
     };
 
-console.log(article.subtype);
-
     if (!article.content_elements) return null;
 
     const contentElements = article.content_elements;
