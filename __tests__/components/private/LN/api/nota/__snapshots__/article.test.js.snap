@@ -94,7 +94,7 @@ Object {
       "valor": Object {
         "_t": "img",
         "baseUrl": "/resizer/{{param}}/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
-        "credito": undefined,
+        "credito": "agustina-de-alba",
         "id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
         "parametros": Array [
           Object {
@@ -129,7 +129,7 @@ Object {
       "valor": "Pellentesque ut urna quis odio dictum faucibus vitae vitae tortor. Fusce vehicula est vel augue auctor dapibus. Ut ut urna rhoncus, faucibus nisi non, egestas eros. Cras nec tortor quis magna maximus dapibus quis id est. Phasellus euismod venenatis ipsum scelerisque mattis. Nulla efficitur porttitor massa eu hendrerit. Pellentesque tempor condimentum elit, facilisis maximus nunc consectetur in. Suspendisse pulvinar, risus sollicitudin accumsan iaculis, eros metus ullamcorper mauris, eu consequat ex arcu sollicitudin libero. Praesent eu vestibulum dolor. Nam auctor lectus et orci iaculis, nec pretium justo imperdiet. Nulla commodo nulla ac ligula tristique ultrices. Praesent consectetur, nibh sed mollis lacinia, magna velit dapibus tellus, vel tincidunt mi arcu cursus leo. Duis velit lacus, consectetur id convallis sit amet, rutrum at erat. Sed vitae bibendum urna. Nam sodales scelerisque ante, non luctus nunc varius a.",
     },
   ],
-  "enviarApps": false,
+  "enviarApps": true,
   "fecha": "24 de Abril de 2020 • 08:35",
   "fechaActualizacion": "24 de Abril de 2020 • 08:35",
   "id": "QAZ7BVHG5BCNFN7S67XCBP6PA4",

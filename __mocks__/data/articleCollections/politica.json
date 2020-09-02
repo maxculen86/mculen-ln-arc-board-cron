@@ -1,0 +1,49 @@
+{
+    "arcSite": "la-nacion-ar",
+    "contextPath": "/pf",
+    "deployment": {},
+    "globalContent": {
+        "_id": "/politica",
+        "_website": "la-nacion-ar",
+        "name": "Política",
+        "inactive": false,
+        "node_type": "section",
+        "children": []
+    },
+    "globalContentConfig": {
+        "source": "sectionSource",
+        "query": {
+            "uri": "/politica/",
+            "id": "/politica",
+            "website": "la-nacion-ar",
+            "arc-site": "la-nacion-ar"
+        }
+    },
+    "isAdmin": false,
+    "layout": "LN-acumulado",
+    "outputType": "default",
+    "requestUri": "/politica/?_website=la-nacion-ar",
+    "siteProperties": {
+        "organizationId": "lanacionar",
+        "videoBaseUrl": "/",
+        "title": "LA NACION",
+        "className": { "body": "ln" },
+        "host": "https://www.lanacion.com.ar",
+        "imageConfig": { "resize": {} }
+    },
+    "template": "template/ln-acumulado",
+    "collection": "features",
+    "type": "LN-common/ranking",
+    "id": "f0fbMCuaqyFQXgV",
+    "name": null,
+    "customFields": {
+        "size1": 3,
+        "daysAgo1": 1,
+        "weeksAgo1": 1,
+        "size2": 3,
+        "daysAgo2": 5,
+        "weeksAgo2": 40
+    },
+    "displayProperties": {},
+    "children": []
+}
