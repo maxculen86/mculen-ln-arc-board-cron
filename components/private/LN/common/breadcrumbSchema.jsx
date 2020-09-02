@@ -6,7 +6,9 @@ function BreadcrumbSchema({ sections, host }) {
     const parent = [{ ...sections.shift() }].reduce(
         (acc, val) => ({
             ...acc,
-            ...val,
+            '@type': 'ListItem',
+            position: 1,
+            name: val.name,
             item: SITE_LANACION
         }),
         {}
@@ -19,7 +21,7 @@ function BreadcrumbSchema({ sections, host }) {
                 return `
         {
             "@type": "ListItem",
-            "position": ${i + 1},
+            "position": ${i + 2},
             "name": "${el.name}",
             "item": "${host + el.path}"
         }`;
