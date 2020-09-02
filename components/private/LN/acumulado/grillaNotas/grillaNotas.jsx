@@ -7,7 +7,6 @@ import Banner from '../../common/bannerRefactor';
 import LoadingIcon from '../../common/loadingIcon';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
-import config from './bannerPositionsConfig.json';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 
 const classNamesArticle = {
@@ -24,11 +23,6 @@ class GrillaNotas extends Component {
         this.sectionGrillasNotasRef = React.createRef();
 
         this.setAlturaArticle = this.setAlturaArticle.bind(this);
-
-        console.log(
-            '### PROPS BANNER GRILLA COMPONENT: ',
-            this.props.bannerConfig
-        );
     }
 
     componentDidMount() {
@@ -61,7 +55,7 @@ class GrillaNotas extends Component {
 
         return bannerConfig
             .filter(banner => banner.position === position)
-            .map((value, index) => {
+            .map(value => {
                 const props = {
                     siteProperties,
                     isAdmin,
@@ -74,11 +68,9 @@ class GrillaNotas extends Component {
                         }
                     }
                 };
+
                 return (
-                    <>
-                        <div>BANNER AQUIIII</div>
-                        <Banner key={index} {...props} />
-                    </>
+                    <Banner key={Math.floor(Math.random() * 100)} {...props} />
                 );
             });
     };
