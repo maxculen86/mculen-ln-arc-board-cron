@@ -26,12 +26,12 @@ class GrillaNotas extends Component {
     }
 
     componentDidMount() {
-        this.setAlturaArticle();
-        window.addEventListener('resize', this.setAlturaArticle);
+        //this.setAlturaArticle();
+        //window.addEventListener('resize', this.setAlturaArticle);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.setAlturaArticle);
+        //window.removeEventListener('resize', this.setAlturaArticle);
     }
 
     setAlturaArticle() {
@@ -92,19 +92,22 @@ class GrillaNotas extends Component {
 
         return (
             <>
+                {/*
                 <section
                     className={classNamesArticle[_typeArticle]}
                     ref={this.sectionGrillasNotasRef}
                 >
-                    <ArticlesAcum
-                        getBanner={this.getBanner}
-                        articles={articles}
-                        typeArticle={_typeArticle}
-                    />
-                    {hayMasNotas > 0 && (
-                        <TransparencyDiv size={alturaArticle} />
-                    )}
-                </section>
+                */}
+                <ArticlesAcum
+                    getBanner={this.getBanner}
+                    articles={articles}
+                    typeArticle={_typeArticle}
+                />
+                {/*hayMasNotas > 0 && (
+                    <TransparencyDiv size={alturaArticle} />
+                )*/}
+                {/*} </section>*/}
+
                 {hayMasNotas > 0 && (
                     <section className="row">
                         <BtnMasNotas

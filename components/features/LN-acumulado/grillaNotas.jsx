@@ -8,7 +8,7 @@ import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProv
 
 function GrillaNotasFeature({ customFields: { typeArticle } }) {
     const { acumuladoGeneral, acumuladoColor } = useGlobalProviderAcu();
-    const { cantidad_notas = 30 } = acumuladoGeneral;
+    const { cantidad_notas = 30, tipo_acumulado = 'Grilla' } = acumuladoGeneral;
     const {
         globalContent: { author_type: authorType, _id, Payload },
         siteProperties
@@ -22,7 +22,7 @@ function GrillaNotasFeature({ customFields: { typeArticle } }) {
     const sectionId = !authorType && !Payload ? _id : null;
     const authorId = authorType ? _id : null;
 
-    //return <GrillaNotas size={cantidad_notas} typeArticle={typeArticle} />;
+    // return <GrillaNotas size={cantidad_notas} typeArticle={typeArticle} />;
 
     return (
         <GrillaNotas
@@ -32,7 +32,7 @@ function GrillaNotasFeature({ customFields: { typeArticle } }) {
             size={cantidad_notas}
             page={1}
             siteProperties={siteProperties}
-            typeArticle={typeArticle}
+            typeArticle={tipo_acumulado}
         />
     );
 }

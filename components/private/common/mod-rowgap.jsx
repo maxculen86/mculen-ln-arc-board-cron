@@ -1,23 +1,34 @@
 import React from 'react';
 
-//import '../../../resources/dist/css/ln/modules/mod-rowgap.css';
+// import '../../../resources/dist/css/ln/modules/mod-rowgap.css';
+const classColumns = {
+    1: 'row',
+    2: 'row-gap-tablet-2 row-gap-desksm-2',
+    3: 'row-gap-tablet-3 row-gap-desksm-3',
+    4: 'row-gap-tablet-4 row-gap-desksm-4'
+};
 
-const Modrowgap = props => {
-    const { children, column, classCondition } = props;
+const ModRowGap = props => {
+    const { children, column = 3, classCondition, typeArticle } = props;
+
+   /* 
+   const GridWrapper = typeArticle => {
+        
+    }
+*/
     return (
         <>
-            {column > 1 ? (
+            {typeArticle === 'Grilla' ? (
                 <div
-                    className={`row-gap-tablet-${column} row-gap-desksm-${column} ${classCondition ||
-                        ''}`}
+                    className={`${classColumns[column]} ${classCondition || ''}`}
                 >
                     {children}
                 </div>
             ) : (
-                <div className={`row ${classCondition || ''}`}>{children}</div>
+                children
             )}
         </>
     );
 };
 
-export default Modrowgap;
+export default ModRowGap;
