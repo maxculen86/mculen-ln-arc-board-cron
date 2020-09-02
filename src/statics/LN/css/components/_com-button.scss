@@ -24,7 +24,11 @@
             border-color: $negro;
             color: $blanco;
         }
+        .header & {
+            margin-right: 2.1875rem;
+        }
     }
+
     .mod-share & {
         padding: 0;
         margin-right: $spacing-sm;

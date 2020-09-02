@@ -87,7 +87,7 @@ const HeaderDesktop = ({
                 >
                     {!loginData.subscription && (
                         <button
-                            className="--btn --highlight"
+                            className="com-button --secondary --compact --highlight"
                             type="button"
                             onClick={() => {
                                 location.href =
@@ -144,7 +144,7 @@ const HeaderDesktop = ({
                     {!logueado && (
                         <button
                             type="button"
-                            className="--btn --secondary"
+                            className="com-button --secondary --compact"
                             onClick={() => goToLoginUrl()}
                         >
                             Ingresar
