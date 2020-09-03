@@ -196,20 +196,12 @@ amp-sidebar {
             .suscribir__header {
                 color: $blanco;
             }
-            .com-button.--secondary {
-                background-color: transparent;
-                color: $blanco;
-            }
         }
 
         @media (min-width: 768px) {
             .header__right {
                 .suscribir__header {
                     color: $negro;
-                }
-                .com-button.--secondary {
-                    border: 1px solid $blanco;
-                    padding: px(10) px(24);
                 }
             }
         }
@@ -293,9 +285,6 @@ amp-sidebar {
         .com-usuario {
             .col-12 {
                 text-align: right;
-                @media ($media-m) {
-                    text-align: initial;
-                }
             }
         }
     }

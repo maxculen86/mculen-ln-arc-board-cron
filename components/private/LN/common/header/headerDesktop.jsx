@@ -96,7 +96,7 @@ const HeaderDesktop = ({
                                     )}` || '/';
                             }}
                         >
-                            Suscribite
+                            SUSCRIBITE
                         </button>
                     )}
                     {logueado && (
@@ -147,7 +147,7 @@ const HeaderDesktop = ({
                             className="com-button --secondary --compact"
                             onClick={() => goToLoginUrl()}
                         >
-                            Ingresar
+                            INGRESAR
                         </button>
                     )}
                 </div>
