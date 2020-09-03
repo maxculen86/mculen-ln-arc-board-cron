@@ -55,7 +55,7 @@ const LNAcumuladoLayout = props => {
             acumuladoGeneral={acumuladoGeneral}
             acumuladoColor={acumuladoColor}
         >
-            <div id="wrapper" className={`acu ${classRevista}`}>
+            <div id="wrapper" className={`acumulado ${classRevista}`}>
                 <Header headerDark={headerDark} />
                 <main>
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}

@@ -9,7 +9,7 @@ const layout = {
         3: 'row-gap-tablet-3 row-gap-desksm-3',
         4: 'row-gap-tablet-4 row-gap-desksm-4'
     },
-    Listado: '',
+    Listado: 'row',
     Timeline: '--list'
 };
 
