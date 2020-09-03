@@ -15,18 +15,22 @@ const ComLink = props => {
         size
     } = props;
 
+    const isString = typeof children === 'string';
+
+    const _props = {
+        href: link,
+        rel: target === '_blank' && 'nonoopener noreferrer',
+        target,
+        title,
+        className: `com-link ${classCondition || ''}`,
+        ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
+        ...(!isString && { children: children || textname })
+    };
+
     return (
         <>
             {link ? (
-                <a
-                    href={link}
-                    rel={target === '_blank' && 'nonoopener noreferrer'}
-                    target={target}
-                    title={title}
-                    className={`com-link ${classCondition || ''}`}
-                >
-                    {children || textname}
-                </a>
+                <a {..._props} />
             ) : (
                 <span className={`com-text ${classCondition || ''}`}>
                     {children || textname}
