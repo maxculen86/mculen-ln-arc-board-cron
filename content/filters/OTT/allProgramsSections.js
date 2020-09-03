@@ -10,6 +10,9 @@ export default `
         }
         _website
         name
+        parent {
+            ActivePrograms
+        }
     }
 }
 `;
