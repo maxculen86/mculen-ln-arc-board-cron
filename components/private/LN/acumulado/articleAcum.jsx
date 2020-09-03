@@ -19,18 +19,16 @@ const ArticleAcum = ({
     extraClasses,
     typeArticle
 }) => {
-    // console.log(JSON.stringify(article));
     const { display_date, headlines, website_url, label } = article;
-    //console.log("article", JSON.stringify(article))
+    // console.log("article => ", JSON.stringify(article))
     const authors = get(article, 'credits.by', []);
-    // TODO: filtrar content element en content source?
+
     const subheadText = getBajadaOrFirstTextParagraph(article);
     const titleText = getTitleText(headlines, label);
 
     return (
         <>
             <ModArticle
-                key={`clone-${article._id}`}
                 articleData={article}
                 dataSection={dataSection}
                 extraClasses={extraClasses}
@@ -44,18 +42,6 @@ const ArticleAcum = ({
                 subheadText={typeArticle !== 'Grilla' && subheadText}
             />
             {children}
-            {/*
-            <ArticleMain
-                dataSection={dataSection}
-                key={`clone-${article._id}`}
-                articleData={article}
-                extraClasses={extraClasses}
-            >
-                
-                <ArticleDate display_date={displayDate} />
-            </ArticleMain>
-            {children}
-            */}
         </>
     );
 };
@@ -87,14 +73,27 @@ ArticleAcum.defaultProps = {
 export default ArticleAcum;
 /*
 {typeArticle === 'ArticleTimeLine' && (
-                <ArticleMain
-                    dataSection={dataSection}
-                    key={`clone-${article._id}`}
-                    articleData={article}
-                    extraClasses={`${extraClasses} --list`}
-                    hourToDisplay={
-                        displayDate && getHour(new Date(displayDate))
-                    }
-                />
-            )}
+        <ArticleMain
+            dataSection={dataSection}
+            key={`clone-${article._id}`}
+            articleData={article}
+            extraClasses={`${extraClasses} --list`}
+            hourToDisplay={
+                displayDate && getHour(new Date(displayDate))
+            }
+        />
+    )}
+
+
+    <ArticleMain
+        dataSection={dataSection}
+        key={`clone-${article._id}`}
+        articleData={article}
+        extraClasses={extraClasses}
+    >
+        
+        <ArticleDate display_date={displayDate} />
+    </ArticleMain>
+    {children}
+            
 */

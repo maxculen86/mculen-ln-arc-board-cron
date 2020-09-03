@@ -149,15 +149,22 @@ const transform = (data, siteProps) => {
             }
         });
     });
-/*
-    data.content_elements.forEach(elem => {
-        elem.content_elements.forEach(subElem => {
-            subElem.subheadText = getBajadaOrFirstTextParagraph(subElem);
 
+    // De todos los Content Elements, solo traigo el primero que sea parrafo
+    // (para no mandar mas info innecesaria)
+    const respDataTransform = {
+        ...respData,
+        content_elements: respData.content_elements.map(item => {
+            return {
+                ...item,
+                content_elements: [
+                    item.content_elements.find(e => e.type === 'text') || {}
+                ]
+            };
         })
-    });*/
-    
-    return respData;
+    };
+
+    return respDataTransform;
 };
 
 export default {
