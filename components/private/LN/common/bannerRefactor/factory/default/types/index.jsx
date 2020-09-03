@@ -37,6 +37,8 @@ const index = React.forwardRef((props, ref) => {
         />
     );
 
+    if (Object.values(show).some(element => element !== true)) return <></>;
+
     return (
         <>
             <div

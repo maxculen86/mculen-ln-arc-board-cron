@@ -34,8 +34,11 @@ const index = props => {
 
     const {
         slotGroup,
-        selectedSlots: { desktopSlot, mobileSlot, tabletSlot }
+        selectedSlots: { desktopSlot, mobileSlot, tabletSlot },
+        show
     } = banner;
+
+    //console.log("########## SHOW DE BANNERS: ", show);
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
 
@@ -126,7 +129,10 @@ index.propTypes = {
         sticky: PropTypes.bool,
         background: PropTypes.bool,
         fixed: PropTypes.bool,
-        show: PropTypes.bool
+        show: PropTypes.shape({
+            termicas: PropTypes.bool,
+            collection: PropTypes.bool
+        })
     })
 };
 

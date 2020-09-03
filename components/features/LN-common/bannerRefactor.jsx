@@ -28,10 +28,15 @@ const Banner = props => {
         globalContent
     } = fusionContext;
 
+    // console.log('globalContent Banner Feature: ', globalContent);
+
     const { banners: show } = termicas || {};
     const { label } = globalContent || { label: { mostrar_banners: false } };
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
+    const {
+        acumuladoGeneral: { hide_banner: hideBanners }
+    } = globalContent || { acumuladoGeneral: { hide_banner: 'false' } };
 
     const banner = {
         slotGroup: group,
@@ -43,7 +48,10 @@ const Banner = props => {
         sticky,
         background,
         fixed,
-        show
+        show: {
+            termicas: show,
+            collection: !(hideBanners === 'true')
+        }
     };
 
     if (mostrarBannersValue !== 'No')

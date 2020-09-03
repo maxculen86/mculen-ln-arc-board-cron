@@ -82,13 +82,16 @@ function GrillaNotasFeature(props) {
     const {
         customFields: { cantidadNotas, typeArticle }
     } = props;
-    // const { acumuladoGeneral, acumuladoColor } = useGlobalProviderAcu();
+
+    // console.log("### GLOBALCONTENT: ", props.globalContent);
+
+    const bannerConfig = groupBannerConfig(props);
 
     return (
         <GrillaNotas
             size={cantidadNotas}
             typeArticle={typeArticle}
-            bannerConfig={groupBannerConfig(props)}
+            bannerConfig={bannerConfig}
         />
     );
 }
