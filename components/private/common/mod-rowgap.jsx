@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'fusion:prop-types';
 // import '../../../resources/dist/css/ln/modules/mod-rowgap.css';
 
 const layout = {
@@ -14,7 +14,12 @@ const layout = {
 };
 
 const ModRowGap = props => {
-    const { children, column = 3, classCondition, typeArticle } = props;
+    const {
+        children,
+        column = 3,
+        classCondition,
+        typeArticle = 'Grilla'
+    } = props;
     const classLayout =
         layout[typeArticle][column] || layout[typeArticle] || '';
 
@@ -23,6 +28,13 @@ const ModRowGap = props => {
             {children}
         </div>
     );
+};
+
+ModRowGap.propTypes = {
+    children: PropTypes.node,
+    column: PropTypes.number,
+    classCondition: PropTypes.string,
+    typeArticle: PropTypes.string.isRequired
 };
 
 export default ModRowGap;
