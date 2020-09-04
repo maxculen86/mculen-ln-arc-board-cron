@@ -132,7 +132,7 @@ footer {
                 align-items: center;
                 vertical-align: top;
                 text-align: left;
-                margin: -px(20) 0 px(20) 0;
+                margin: px(-20) 0 px(20) 0;
                 .img_gda {
                     width: auto;
                     margin: 0 px(20) 0 px(-5);
@@ -149,7 +149,7 @@ footer {
                 p {
                     text-align: right;
                     width: 100%;
-                    margin: -px(6) 0 0 0;
+                    margin: px(-6) 0 0 0;
                     display: block;
                     a {
                         float: right;

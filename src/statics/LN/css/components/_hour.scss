@@ -12,7 +12,7 @@
         border-radius: px(15);
         border: 1px solid $gris4;
         background: $blanco;
-        left: -px(30);
+        left: px(-30);
         top: 0;
         z-index: 2;
         position: absolute;
@@ -24,7 +24,7 @@
         border-radius: px(5);
         background: $gris4;
         top: px(6);
-        left: -px(24);
+        left: px(-24);
         z-index: 2;
         position: absolute;
     }
