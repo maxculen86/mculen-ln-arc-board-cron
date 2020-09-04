@@ -43,6 +43,7 @@ const fetch = query => {
         };
     }
 
+    console.log('opt', opt);
     return request(opt)
         .then(response => {
             if (response.type === 'redirect' && response.redirect_url) {
@@ -67,6 +68,8 @@ const fetch = query => {
                 throw new Redirect(location, 301);
 
             logger.push(error, { source: 'content/source', url });
+
+            throw error;
         });
 };
 
