@@ -8,17 +8,26 @@ import ModArticle from '../../common/mod-article';
 import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTextParagraph';
 import getTitleText from '../../common/utils/getTitleText';
 
-const setDecimal = num => (num > 9 ? num : `0${num}`);
-const getHour = date =>
-    `${setDecimal(date.getHours())}:${setDecimal(date.getMinutes())}`;
+// const setDecimal = num => (num > 9 ? num : `0${num}`);
+// const getHour = date =>
+//     `${setDecimal(date.getHours())}:${setDecimal(date.getMinutes())}`;
 
-const ArticleAcum = ({
-    children,
-    dataSection,
-    article,
-    extraClasses,
-    typeArticle
-}) => {
+const typeAcumRules = {
+    Grilla: {
+        withMedia: true,
+        withSubhead: false
+    },
+    Listado: {
+        withMedia: false,
+        withSubhead: true
+    },
+    Timeline: {
+        withMedia: false,
+        withSubhead: false
+    }
+};
+
+const ArticleAcum = ({ children, dataSection, article, typeArticle }) => {
     const { display_date, headlines, website_url, label } = article;
     // console.log("article => ", JSON.stringify(article))
     const authors = get(article, 'credits.by', []);
@@ -31,15 +40,16 @@ const ArticleAcum = ({
             <ModArticle
                 articleData={article}
                 dataSection={dataSection}
-                extraClasses={extraClasses}
-                withMedia={typeArticle === 'Grilla'}
+                withMedia={typeAcumRules[typeArticle].withMedia}
                 link={website_url}
                 titleTag="h1"
                 titleSize="--s"
                 titleText={titleText}
                 authors={authors}
                 dateText={display_date}
-                subheadText={typeArticle !== 'Grilla' && subheadText}
+                subheadText={
+                    typeAcumRules[typeArticle].withSubhead && subheadText
+                }
             />
             {children}
         </>
@@ -48,7 +58,6 @@ const ArticleAcum = ({
 
 ArticleAcum.propTypes = {
     dataSection: PropTypes.string,
-    extraClasses: PropTypes.string,
     article: PropTypes.shape({
         _id: PropTypes.string,
         display_date: PropTypes.string,
@@ -66,7 +75,6 @@ ArticleAcum.propTypes = {
 
 ArticleAcum.defaultProps = {
     dataSection: '',
-    extraClasses: undefined,
     children: undefined
 };
 

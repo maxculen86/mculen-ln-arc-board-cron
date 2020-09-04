@@ -2,61 +2,39 @@ import React from 'react';
 import { render, mount, shallow } from 'enzyme';
 import getTitleText from '../../../../../components/private/common/utils/getTitleText';
 import getBajadaOrFirstTextParagraph from '../../../../../components/private/common/utils/getBajadaOrFirstTextParagraph';
-import ModRowGap from '../../../../../components/private/common/mod-rowgap';
 
-const article = {
-    "_id":"H7QGKZCCJRH7LDOK2S2QSFEMYM",
-    "content_elements":[
-        {
-            "content":"Esta es una imagen",
-            "type":"image"
-        },
-       {
-          "content":"Este es el primer parrafo de prueba para ver si en la vision tipo listado se muestra en caso que no este la bajada. Pero hay que tener en cuenta que se debe cortar a las 160 caracteres",
-          "type":"text"
-       },
-       {
-        "content":"Este es el segundo parrafo de prueba",
-        "type":"text"
-     }
-    ],
-    "credits":{
-       "by":[
-          {
-             "name":"Mirta Albamonte",
-             "type":"author"
-          }
-       ]
-    },
-    "display_date":"2020-06-02T15:28:04.694Z",
-    "headlines":{
-       "basic":"Test dl (titulo basico largo)",
-       "mobile":"Titulo Movil Corto"
-    },
-    "subheadlines":{
-       "basic":"Este es el subtitulo"
-    },
-    "subtype":"7",
-    "website_url":"/recetas/test-dl-nid02062020/"
- };
+import article from '../../../../../__mocks__/data/articles/articleAcum.json'
+import ArticleAcum from '../../../../../components/private/LN/acumulado/articleAcum';
 
- describe('Private - Common - ModRowGap', () => {
+jest.mock(
+    '../../../../../components/private/common/mod-article.jsx',
+    () => 'mod-article-mock'
+);
+
+describe('Private - LN - Acumulado - ArticleAcum', () => {
+
+    const props = {
+        dataSection:'CuerpoAcu',
+        article: article,
+        typeArticle: 'Grilla'
+    }
     
-    it('Mostrar layout para 3 columnas', () => {
-        const component = shallow(<ModRowGap column="3" classCondition='' typeArticle='Grilla' />)
-        expect(component.find('.row-gap-tablet-3').length).toBe(1);
-    });
-
-    it('Mostrar layout para 2 columnas y apertura', () => {
-        const component = shallow(<ModRowGap column="2" classCondition='--opening'  />)
-        expect(component.find('div').hasClass('row-gap-tablet-2 row-gap-desksm-2 --opening')).toBe(true);                
-    });
-
-    it('Mostrar layout para listado', () => {
-        const component = shallow(<ModRowGap column="3" classCondition='' typeArticle='Listado' />)
-        expect(component.find('.row-gap-tablet-3').length).toBe(0);
+    it('Validar que las props lleguen bien en caso de Grilla a ModArticle', () => {
+        const component = mount(<ArticleAcum {...props} />)
         
+        expect(component.find('mod-article-mock').props().withMedia).toBe(true);
+        expect(component.find('mod-article-mock').props().subheadText).toBe(false);
+        expect(component.find('mod-article-mock').props().titleText).toEqual('Titulo Movil Corto');
+        expect(component.find('mod-article-mock').props().authors.length).toBe(1);
     });
+
+    it('Validar que las props lleguen bien en caso de Listado a ModArticle', () => {
+        const component = mount(<ArticleAcum {...props} typeArticle='Listado' />)
+    
+        expect(component.find('mod-article-mock').props().withMedia).toBe(false);
+        expect(component.find('mod-article-mock').props().subheadText).toBe('Este es el subtitulo');
+    });
+
 })
 
 
@@ -95,8 +73,9 @@ describe('Private - Common - GetTitleText', () => {
         expect(titleCorto).toEqual('Titulo Movil Corto');
     });
 
-    headlines.mobile = null;
-    const titleLargo = getTitleText(headlines, label);
+    const headlines2 = { ...headlines};
+    headlines2.mobile = null;
+    const titleLargo = getTitleText(headlines2, label);
     it('Mostrar titulo largo', () => {
         expect(titleLargo).toEqual('Test dl (titulo basico largo)');
     });

@@ -3,7 +3,6 @@ import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
-import getBajadaOrFirstTextParagraph from '../../components/private/common/utils/getBajadaOrFirstTextParagraph';
 
 const resolve = key => {
     const {
@@ -134,21 +133,8 @@ const resolve = key => {
 const transform = (data, siteProps) => {
     const respData = data;
     const properties = getProperties(siteProps['arc-site']);
-    //console.log(JSON.stringify(data))
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
     const presetsM = get(properties, `imageConfig.resize.m`, null);
-
-    respData.content_elements = data.content_elements.map(elem => {
-        return addResizedUrls(elem, {
-            resizerSecret: RESIZER_KEY,
-            resizerUrl: RESIZER_URL,
-            presets: {
-                promoItems: presetsM.promo_items || presetsDefault,
-                contentElements: presetsM.content_elements || presetsDefault,
-                presetsDefault
-            }
-        });
-    });
 
     // De todos los Content Elements, solo traigo el primero que sea parrafo
     // (para no mandar mas info innecesaria)
@@ -163,6 +149,18 @@ const transform = (data, siteProps) => {
             };
         })
     };
+
+    respDataTransform.content_elements = data.content_elements.map(elem => {
+        return addResizedUrls(elem, {
+            resizerSecret: RESIZER_KEY,
+            resizerUrl: RESIZER_URL,
+            presets: {
+                promoItems: presetsM.promo_items || presetsDefault,
+                contentElements: presetsM.content_elements || presetsDefault,
+                presetsDefault
+            }
+        });
+    });
 
     return respDataTransform;
 };

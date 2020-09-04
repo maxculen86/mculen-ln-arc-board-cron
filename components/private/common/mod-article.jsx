@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 // import PropTypes from 'fusion:prop-types';
 
-import ModDescription from './mod-description';
+// import ModDescription from './mod-description';
 
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
@@ -75,6 +76,42 @@ const ModArticle = props => {
             </section>
         </article>
     );
+};
+
+ModArticle.propTypes = {
+    dataSection: PropTypes.string,
+    classCondition: PropTypes.string,
+    link: PropTypes.string,
+    titleTag: PropTypes.string,
+    titleSize: PropTypes.string,
+    titleText: PropTypes.string.isRequired,
+    subheadText: PropTypes.string,
+    subheadSize: PropTypes.string,
+    dateText: PropTypes.string,
+    dateSize: PropTypes.string,
+    authors: PropTypes.arrayOf(PropTypes.object),
+    withMedia: PropTypes.boolean,
+    outputType: PropTypes.string,
+    articleData: PropTypes.shape({
+        promo_items: PropTypes.shape({
+            basic: PropTypes.object
+        })
+    }).isRequired
+};
+
+ModArticle.defaultProps = {
+    dataSection: undefined,
+    classCondition: undefined,
+    titleTag: 'h4',
+    titleSize: '--s',
+    subheadText: false,
+    subheadSize: '',
+    dateText: undefined,
+    dateSize: undefined,
+    authors: [],
+    withMedia: false,
+    link: undefined,
+    outputType: 'default'
 };
 
 export default ModArticle;
