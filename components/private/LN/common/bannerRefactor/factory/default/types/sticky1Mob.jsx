@@ -90,6 +90,9 @@ const Sticky1Mob = props => {
 
     const config = { ...props, ...stickyMob2Config, slotId: 'sticky2_mob' };
 
+    if (Object.values(show).some(element => element && element !== true))
+        return <></>;
+
     return (
         <>
             <Sticky2Mob {...config} />

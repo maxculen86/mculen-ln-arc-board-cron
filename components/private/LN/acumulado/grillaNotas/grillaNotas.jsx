@@ -8,7 +8,8 @@ import LoadingIcon from '../../common/loadingIcon';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
-//import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
+import WithNavigation from '../../common/hocs/WithNavigation';
+// import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const classNamesArticle = {
     ArticleMain: 'row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade',
@@ -55,6 +56,7 @@ class GrillaNotas extends Component {
         const {
             acumuladoGeneral: { hide_banner: hideBanners }
         } = globalContent;
+        const { banners: show } = this.props.termicas || { banners: true };
         const { siteProperties, isAdmin } = this.props;
 
         return bannerConfig
@@ -71,7 +73,7 @@ class GrillaNotas extends Component {
                             tabletSlot: value.tablet
                         },
                         show: {
-                            termicas: null,
+                            termicas: show,
                             collection: !(hideBanners === 'true')
                         }
                     }
@@ -156,6 +158,6 @@ GrillaNotas.propTypes = {
 //     isAdmin: false
 // };
 
-export default withScreenUtils(
-    WithAcuArticlesData(GrillaNotas, filter, 'notaM')
+export default WithNavigation(
+    withScreenUtils(WithAcuArticlesData(GrillaNotas, filter, 'notaM'))
 );
