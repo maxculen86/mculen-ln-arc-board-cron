@@ -125,10 +125,17 @@ function WithAcuArticlesData(
                         return tagsReduced;
                     }, []);
 
-                return Object.keys(tags)
-                    .sort((a, b) => (tags[a].count < tags[b].count ? 1 : -1))
-                    .slice(0, 10)
-                    .map(key => tags[key]);
+                const orderAndCountTags =
+                    Object.keys(tags)
+                        .sort((a, b) =>
+                            tags[a].count < tags[b].count ? 1 : -1
+                        )
+                        .slice(0, 10)
+                        .map(key => tags[key]) || [];
+
+                return (
+                    (orderAndCountTags.length >= 4 && orderAndCountTags) || []
+                );
             };
 
             obtenerMasNotas = () => {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useContent } from 'fusion:content';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
@@ -25,7 +26,6 @@ const AcumuladoTitle = props => {
     const [hideTagsList] = useState(
         get(globalContent, 'site.hidetagslist', undefined)
     );
-
     useEffect(() => {
         setChildren(globalContent.children);
 
@@ -89,6 +89,25 @@ const AcumuladoTitle = props => {
     const prefixText =
         !isPrimarySection && title && prefixTitle ? `${prefixTitle} ` : '';
     const titleText = `${prefixText} ${title}`;
+    const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
+    const acumuladoColor = get(globalContent, 'acumuladoColor', {});
+    const {
+        id_collection_promo_items: idCollection,
+        hierarchy_navigation: idManualNavigation
+    } = acumuladoGeneral;
+    const { id_logo_image: idLogoImage } = acumuladoColor;
+
+    const { children: sectionList = [] } = idManualNavigation
+        ? // eslint-disable-next-line react-hooks/rules-of-hooks
+          useContent({
+              source: 'navigationSource',
+              query: {
+                  hierarchy: idManualNavigation
+              }
+          }) || {}
+        : {};
+
+    const navigation = (sectionList.length && sectionList) || _children;
 
     return (
         <>
@@ -96,19 +115,17 @@ const AcumuladoTitle = props => {
                 <div className={withCategory}>
                     <ComTitle size="--xl" tag="h1" content={titleText} />
                     <ListSectionsTitle
-                        _children={_children}
+                        _children={navigation}
                         isPrimarySection={isPrimarySection}
                         hideSectionsList={hideSectionsList === 'true'}
                     />
                 </div>
+                <NotaApertura idCollection={idCollection} size={2} />
                 <TagsNavigation
-                    _children={_children}
                     orderAndCountTags={orderAndCountTags}
-                    isPrimarySection={isPrimarySection}
                     hideTagsList={hideTagsList === 'true'}
                 />
             </div>
-            <NotaApertura />
         </>
     );
 };
@@ -144,15 +161,5 @@ AcumuladoTitle.propTypes = {
     ).isRequired,
     customFields: PropTypes.objectOf(PropTypes.string).isRequired
 };
-
-// AcumuladoTitle.defaultProps = {
-//     globalContent: {
-//         Payload: undefined,
-//         byline: undefined,
-//         name: undefined,
-//         node_type: undefined,
-//         children: []
-//     }
-// };
 
 export default WithAcuArticlesData(AcumuladoTitle, filter, 'notaM');

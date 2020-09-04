@@ -3,16 +3,8 @@ import PropTypes from 'fusion:prop-types';
 
 const path = '/tema/';
 
-const tagsNavigation = ({
-    _children,
-    orderAndCountTags,
-    isPrimarySection,
-    hideTagsList
-}) => {
-    return !hideTagsList &&
-        _children &&
-        orderAndCountTags &&
-        isPrimarySection ? (
+const tagsNavigation = ({ orderAndCountTags, hideTagsList }) => {
+    return !hideTagsList && orderAndCountTags ? (
         <ol className="cont_tags com-secondary-tag">
             {orderAndCountTags.map(tag => (
                 <li key={tag.slug}>
@@ -28,12 +20,6 @@ const tagsNavigation = ({
 };
 
 tagsNavigation.propTypes = {
-    _children: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.string,
-            _website: PropTypes.string
-        })
-    ),
     orderAndCountTags: PropTypes.arrayOf(
         PropTypes.shape({
             tag: PropTypes.shape({
@@ -42,17 +28,11 @@ tagsNavigation.propTypes = {
             })
         })
     ),
-    isPrimarySection: PropTypes.bool,
     hideTagsList: PropTypes.bool
 };
 
 tagsNavigation.defaultProps = {
-    _children: {
-        _id: undefined,
-        _website: undefined
-    },
     orderAndCountTags: [],
-    isPrimarySection: false,
     hideTagsList: false
 };
 

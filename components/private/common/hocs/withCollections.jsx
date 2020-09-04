@@ -1,86 +1,40 @@
-import React, { Component } from 'react';
-import Consumer from 'fusion:consumer';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import get from 'lodash.get';
+import { useContent } from 'fusion:content';
 
-function withColections(WrappedComponent, filter, website) {
-    return Consumer(
-        class extends Component {
-            static get propTypes() {
-                return {
-                    size: PropTypes.string,
-                    customFields: PropTypes.shape({
-                        idCollection: PropTypes.string
-                    })
-                };
-            }
+import get from '../utils/get';
 
-            static get defaultProps() {
-                return {
-                    size: '2',
-                    customFields: {
-                        idCollection: undefined
-                    }
-                };
-            }
+const withColections = (WrappedComponent, filter, imageConfig) => props => {
+    const { size = 2, idCollection: id, website = 'la-nacion-ar' } =
+        props || {};
 
-            constructor(props) {
-                super(props);
+    if (!id) return null;
 
-                this.state = {
-                    articles: []
-                };
-            }
+    const articleList = useContent({
+        source: 'collectionsSource',
+        query: {
+            id,
+            size,
+            website
+        },
+        filter,
+        imageConfig
+    });
 
-            componentDidMount() {
-                const {
-                    size,
-                    customFields: { idCollection }
-                } = this.props;
+    const articles = get(articleList, 'content_elements', null);
 
-                if (!idCollection) return;
-
-                const { cached, fetched } = this.getContent({
-                    sourceName: 'collectionsSource',
-                    filter,
-                    query: {
-                        size,
-                        website,
-                        id: idCollection
-                    }
-                });
-
-                const cachedCollections = get(cached, 'content_elements', []);
-                this.setState({ articles: cachedCollections.splice(0, 2) });
-
-                fetched.then(response => {
-                    const fetchedCollections = get(
-                        response,
-                        'content_elements',
-                        []
-                    );
-                    if (fetchedCollections) {
-                        this.setState({
-                            articles: fetchedCollections.splice(0, 2)
-                        });
-                    }
-                });
-
-                return true;
-            }
-
-            render() {
-                const { articles } = this.state;
-
-                return (
-                    <WrappedComponent
-                        {...this.props}
-                        articlesCollections={articles}
-                    />
-                );
-            }
-        }
+    return (
+        articles &&
+        articles.length >= size && (
+            <WrappedComponent articles={articles.splice(0, size)} />
+        )
     );
-}
+};
+
+withColections.propTypes = {
+    WrappedComponent: PropTypes.func.isRequired,
+    filter: PropTypes.string.isRequired,
+    imageConfig: PropTypes.string.isRequired
+};
 
 export default withColections;
