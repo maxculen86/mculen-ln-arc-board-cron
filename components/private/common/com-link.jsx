@@ -16,28 +16,21 @@ const ComLink = props => {
     } = props;
 
     const isString = typeof children === 'string';
-
+    // TODO: Evaluar si debe retornar un span cuando el componente no recibe link
+    // TODO: Definir si el link debe ser una propiedad obligatoria
     const _props = {
         href: link,
         rel: target === '_blank' && 'nonoopener noreferrer',
         target,
         title,
-        className: `com-link ${classCondition || ''}`,
+        className: `com-${link ? 'link' : 'text'} ${classCondition || ''}`,
         ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
         ...(!isString && { children: children || textname })
     };
 
-    return (
-        <>
-            {link ? (
-                <a {..._props} />
-            ) : (
-                <span className={`com-text ${classCondition || ''}`}>
-                    {children || textname}
-                </span>
-            )}
-        </>
-    );
+    const tag = link ? 'a' : 'span';
+
+    return React.createElement(tag, { ..._props });
 };
 
 ComLink.propTypes = {
