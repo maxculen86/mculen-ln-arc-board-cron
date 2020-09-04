@@ -8,6 +8,7 @@ const cuerpoIndex = article => {
     const templates = {
         '1': DefaultCuerpo,
         '2': DefaultCuerpo,
+        '4': DefaultCuerpo,
         '7': RecetaCuerpo,
         '8': fotoAlCienCuerpo,
         '9': htmlCuerpo                

@@ -24,7 +24,7 @@
             border-top: 2px solid $link;
             border-left: 2px solid $link;
             position: absolute;
-            right: -px(14);
+            right: px(-14);
             top: px(1);
             transform: rotate(224deg);
         }
@@ -48,7 +48,7 @@
     border-radius: 3px;
     text-align: left;
     position: absolute;
-    right: -px(40);
+    right: px(-40);
     top: px(50);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     z-index: 100;
@@ -61,7 +61,7 @@
         border-right: none;
         border-bottom: none;
         border-radius: 0 0 6px 0;
-        margin: -px(8) auto 0;
+        margin: px(-8) auto 0;
         background: $blanco;
         display: block;
         box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);

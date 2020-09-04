@@ -22,11 +22,16 @@ const relacionadosIndex = dataArticle => {
         }
 
         const migratedPrincipalCategory = getCategory(principalCategory, true);
-        dataCategories.forEach(e => {
-            const categorie = Categorias(e, migratedPrincipalCategory.migrada);
-            if ((categorie && categorie.slug) || (categorie && categorie.id))
-                resp.categorias.push(categorie);
-        });
+        if (migratedPrincipalCategory !== null) {
+            dataCategories.forEach(e => {
+                const category = Categorias(
+                    e,
+                    migratedPrincipalCategory.migrada
+                );
+                if ((category && category.slug) || (category && category.id))
+                    resp.categorias.push(category);
+            });
+        }
     }
 
     const dataTags = get(dataArticle, 'taxonomy.tags');
