@@ -29,16 +29,16 @@ const index = props => {
         banner,
         screenUtils,
         extraClasses,
-        arcSite: website
+        arcSite: website,
+        termicas
     } = props;
 
+    const { banners: termicaShowBanner } = termicas || {};
     const {
         slotGroup,
         selectedSlots: { desktopSlot, mobileSlot, tabletSlot },
         show
     } = banner;
-
-    //console.log("########## SHOW DE BANNERS: ", show);
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
 
@@ -85,7 +85,11 @@ const index = props => {
         sizemap: finalConfig.sizemap,
         bidding: finalConfig.bidding,
         device: screenUtils.device,
-        extraClasses
+        extraClasses,
+        show: {
+            ...banner.show,
+            termicas: termicaShowBanner
+        }
     };
 
     if (!finalConfig) return null;

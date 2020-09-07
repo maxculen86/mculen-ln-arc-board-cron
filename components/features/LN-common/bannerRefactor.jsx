@@ -24,13 +24,9 @@ const Banner = props => {
             background,
             fixed
         },
-        termicas,
         globalContent
     } = fusionContext;
 
-    // console.log('globalContent Banner Feature: ', globalContent);
-
-    const { banners: show } = termicas || {};
     const { label } = globalContent || { label: { mostrar_banners: false } };
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
@@ -49,7 +45,6 @@ const Banner = props => {
         background,
         fixed,
         show: {
-            termicas: show,
             collection: !(hideBanners === 'true')
         }
     };

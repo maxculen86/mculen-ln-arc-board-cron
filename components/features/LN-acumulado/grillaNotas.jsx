@@ -83,8 +83,6 @@ function GrillaNotasFeature(props) {
         customFields: { cantidadNotas, typeArticle }
     } = props;
 
-    // console.log("### GLOBALCONTENT: ", props.globalContent);
-
     const bannerConfig = groupBannerConfig(props);
 
     return (
