@@ -22,9 +22,14 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
     class="mod-description"
   >
     <h1
-      class="com-title --s "
+      class="com-title --s"
     >
-      Este es el titulo
+      <a
+        class="com-link "
+        href="http://google.com"
+      >
+        Este es el titulo
+      </a>
     </h1>
     <p
       class="com-subhead --threexs"
