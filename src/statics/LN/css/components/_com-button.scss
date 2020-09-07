@@ -11,27 +11,11 @@
     border-radius: px(4);
     outline: none;
     max-width: px(360);
+    cursor: pointer;
     &.--bottom,
     &.--top {
         @include flex(flex, column, center, center);
     }
-    &.--highlight {
-        background-color: $highlight;
-        border: 1px solid $gris3;
-        color: $negro;
-        &:hover {
-            background: $negro;
-            border-color: $negro;
-            color: $blanco;
-        }
-        .com-usuario & {
-            .header & {
-                margin-right: 2.1875rem;
-                display: none;
-            }
-        }
-    }
-
     .mod-share & {
         padding: 0;
         margin-right: $spacing-sm;
@@ -83,6 +67,22 @@
         background: $gris3;
     }
 
+    // &.--highlight {
+    //     background-color: $highlight;
+    //     border: 1px solid $gris3;
+    //     color: $negro;
+    //     &:hover {
+    //         background: $negro;
+    //         border-color: $negro;
+    //         color: $blanco;
+    //     }
+    //     .com-usuario & {
+    //         .header & {
+    //             display: none;
+    //         }
+    //     }
+    // }
+
     //variantes
     &.--primary {
         background: $ln;
@@ -105,13 +105,6 @@
         .cuerpo__nota & {
             margin-bottom: $spacing-lg;
         }
-        .com-usuario & {
-            .header & {
-                border: none;
-                color: $negro;
-            }
-        }
-
         &:hover {
             background: rgba($ln, 1);
             color: $blanco;
@@ -125,6 +118,11 @@
             background: $gris2;
             color: $gris3;
             border: 1px solid $gris3;
+        }
+        .com-usuario & {
+            .header & {
+                display: none;
+            }
         }
     }
     &.--tertiary {
@@ -143,39 +141,51 @@
             color: $gris3;
         }
     }
-    &.--special {
+    &.--special,
+    &.--highlight {
         background: $highlight;
         border: 1px solid $gris3;
         color: $gris6;
 
         &:hover {
             background: $negro;
-            border: 1px solid;
+            border-color: $negro;
             color: $blanco;
         }
         &:active {
             background: $highlight-active;
-            border: 1px solid $gris3;
+            border-color: $gris3;
             color: $gris6;
         }
         &:disabled {
             background: $gris2;
             color: $gris3;
-            border: 1px solid $gris3;
+            border-color: $gris3;
+        }
+        .com-usuario & {
+            .header & {
+                background: none;
+                border: none;
+                padding: px(3) px(16);
+                font-weight: 100;
+                .--transparent & {
+                    color: $blanco;
+                }
+            }
         }
     }
     &.--compact {
         padding: $spacing-xs $spacing-sm;
-        &.--highlight {
-            background-color: $highlight;
-            border: 1px solid $gris3;
-            color: $negro;
-            &:hover {
-                background: $negro;
-                border-color: $negro;
-                color: $blanco;
-            }
-        }
+        // &.--highlight {
+        //     background-color: $highlight;
+        //     border: 1px solid $gris3;
+        //     color: $negro;
+        //     &:hover {
+        //         background: $negro;
+        //         border-color: $negro;
+        //         color: $blanco;
+        //     }
+        // }
     }
     .--slider & {
         background: $negro;
@@ -273,29 +283,70 @@
         &.--secondary {
             .com-usuario & {
                 .header & {
-                    border: 1px solid $ln;
-                    color: $ln;
-                }
-            }
-        }
-        &.--highlight {
-            &:hover {
-                .com-usuario & {
-                    .header & {
-                        background: $negro;
-                        border-color: $negro;
+                    display: flex;
+                    .--transparent & {
                         color: $blanco;
+                        border-color: $blanco;
+                        &:hover {
+                            background: $blanco;
+                            border-color: $blanco;
+                            color: $gris6;
+                        }
                     }
                 }
             }
+        }
+        &.--special,
+        &.--highlight {
             .com-usuario & {
                 .header & {
-                    display: flex;
-                    justify-content: center;
-                    color: $negro;
+                    background: $highlight;
                     border: 1px solid $gris3;
+                    margin-right: px(16);
+                    padding: px(8) px(16);
+                    font-weight: 700;
+                    &:hover {
+                        background: $negro;
+                        border-color: $negro;
+                    }
+                    .--transparent & {
+                        border-color: $highlight;
+                        color: $gris6;
+                        &:hover {
+                            border-color: $negro;
+                            color: $blanco;
+                        }
+                    }
                 }
             }
         }
+
+        // &.--secondary {
+        //     .com-usuario & {
+        //         .header & {
+        //             border: 1px solid $ln;
+        //             color: $ln;
+        //         }
+        //     }
+        // }
+        // &.--highlight {
+        //     &:hover {
+        //         .com-usuario & {
+        //             .header & {
+        //                 background: $negro;
+        //                 border-color: $negro;
+        //                 color: $blanco;
+        //             }
+        //         }
+        //     }
+        //     .com-usuario & {
+        //         .header & {
+        //             display: flex;
+        //             justify-content: center;
+        //             color: $negro;
+        //             border: 1px solid $gris3;
+        //         }
+        //     }
+        // }
     }
 }

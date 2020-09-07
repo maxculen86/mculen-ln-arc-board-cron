@@ -28,9 +28,9 @@ const headerAMP = props => {
                                     <div class="col-desksm-4 hlp-tablet-none">
                                         {' '}
                                     </div>
-                                    <div className="col-12 col-desksm-4 hlp-tablet-none">
+                                    <div className="col-12 col-desksm-4">
                                         <a
-                                            className="suscribir__header com-button --secondary --compact --highlight"
+                                            className="suscribir__header com-button --special --compact"
                                             href="https://suscripciones.lanacion.com.ar/suscribirme"
                                         >
                                             SUSCRIBITE

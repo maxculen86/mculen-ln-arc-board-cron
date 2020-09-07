@@ -87,7 +87,7 @@ const HeaderDesktop = ({
                 >
                     {!loginData.subscription && (
                         <button
-                            className="com-button --secondary --compact --highlight"
+                            className="com-button --special --compact"
                             type="button"
                             onClick={() => {
                                 location.href =
