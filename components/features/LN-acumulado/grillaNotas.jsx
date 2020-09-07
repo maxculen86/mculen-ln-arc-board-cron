@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
-import GrillaNotas from '../../private/LN/acumulado/grillaNotas';
+import { useAppContext } from 'fusion:context';
+import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
+import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
-// import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
@@ -80,15 +80,35 @@ function buildCustomFieldsForBanners() {
 
 function GrillaNotasFeature(props) {
     const {
-        customFields: { cantidadNotas, typeArticle }
+        customFields: { typeArticle }
     } = props;
+    const { acumuladoGeneral, articlesInCollection } = useGlobalProviderAcu();
+    const { cantidad_notas = 30, tipo_acumulado = 'Grilla' } = acumuladoGeneral;
+    const {
+        globalContent: { author_type: authorType, _id, Payload },
+        siteProperties
+    } = useAppContext();
+
+    const tagId =
+        Payload && Payload.items && Payload.items.length
+            ? Payload.items[0].slug
+            : undefined;
+
+    const sectionId = !authorType && !Payload ? _id : null;
+    const authorId = authorType ? _id : null;
 
     const bannerConfig = groupBannerConfig(props);
 
     return (
         <GrillaNotas
-            size={cantidadNotas}
-            typeArticle={typeArticle}
+            authorId={authorId}
+            tagId={tagId}
+            sectionId={sectionId}
+            size={cantidad_notas}
+            page={1}
+            siteProperties={siteProperties}
+            typeArticle={tipo_acumulado}
+            articlesInCollection={articlesInCollection}
             bannerConfig={bannerConfig}
         />
     );

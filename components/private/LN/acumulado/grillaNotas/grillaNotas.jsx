@@ -56,7 +56,9 @@ class GrillaNotas extends Component {
         const {
             acumuladoGeneral: { hide_banner: hideBanners }
         } = globalContent;
-        const { banners: show } = this.props.termicas || { banners: true };
+        const { banners: termicaShowBanner } = this.props.termicas || {
+            banners: true
+        };
         const { siteProperties, isAdmin } = this.props;
 
         return bannerConfig
@@ -73,7 +75,7 @@ class GrillaNotas extends Component {
                             tabletSlot: value.tablet
                         },
                         show: {
-                            termicas: show,
+                            termicas: termicaShowBanner,
                             collection: !(hideBanners === 'true')
                         }
                     }
@@ -92,26 +94,38 @@ class GrillaNotas extends Component {
             obtenerMasNotas,
             globalContent,
             loading,
-            typeArticle
+            typeArticle,
+            articlesInCollection = []
         } = this.props;
-        const { alturaArticle } = this.state;
-        const _typeArticle = !typeArticle ? 'ArticleMain' : typeArticle;
+        // const { alturaArticle } = this.state;
+        // const _typeArticle = !typeArticle ? 'ArticleMain' : typeArticle;
+        const articlesInNoCollection = articles.filter(art => {
+            return !articlesInCollection.includes(art._id);
+        });
 
         return (
             <>
+                {/*
                 <section
                     className={classNamesArticle[_typeArticle]}
                     ref={this.sectionGrillasNotasRef}
                 >
-                    <ArticlesAcum
-                        getBanner={this.getBanner}
-                        articles={articles}
-                        typeArticle={_typeArticle}
-                    />
-                    {hayMasNotas > 0 && (
-                        <TransparencyDiv size={alturaArticle} />
-                    )}
-                </section>
+                */}
+                <ArticlesAcum
+                    getBanner={this.getBanner}
+                    articles={articlesInNoCollection}
+                    typeArticle={typeArticle}
+                    classCondition={hayMasNotas > 0 && 'hlp-degrade'}
+                />
+                {/*
+                hayMasNotas > 0 && (
+                    <TransparencyDiv size={alturaArticle} />
+                )
+                */}
+                {/*
+                } </section>
+                */}
+
                 {hayMasNotas > 0 && (
                     <section className="row">
                         <BtnMasNotas
@@ -129,6 +143,7 @@ class GrillaNotas extends Component {
 
 GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
+    articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
     obtenerMasNotas: PropTypes.func.isRequired,
