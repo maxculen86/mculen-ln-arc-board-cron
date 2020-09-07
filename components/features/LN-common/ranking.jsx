@@ -1,26 +1,50 @@
 import React from 'react';
-import Static from 'fusion:static';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-
+import Static from 'fusion:static';
 import Ranking from '../../private/LN/common/ranking';
 
-const ranking = ({
-    id: featureId,
-    customFields: { cantidadNotas, dataSection }
-}) => {
+const ranking = props => {
+    const { id: featureId, outputType } = props;
     return (
-        <Static id={featureId}>
-            <Ranking dataSection={dataSection} size={cantidadNotas} />
-        </Static>
+        outputType !== 'amp' && (
+            <Static id={featureId}>
+                <Ranking {...props} />
+            </Static>
+        )
     );
+};
+
+const requestConfigProps = (index, defaultDays, defaultWeeks) => {
+    return {
+        [`size${index}`]: PropTypes.number.tag({
+            group: `Configuración consulta ${index}`,
+            defaultValue: 3,
+            description: 'Cantidad de notas a listar',
+            label: 'Cantidad de Notas'
+        }),
+        [`daysAgo${index}`]: PropTypes.number.tag({
+            group: `Configuración consulta ${index}`,
+            defaultValue: defaultDays,
+            description: 'Número de días atrás en relación a hoy',
+            label: 'Días'
+        }),
+        [`weeksAgo${index}`]: PropTypes.number.tag({
+            group: `Configuración consulta ${index}`,
+            defaultValue: defaultWeeks,
+            description: 'Número de semanas de antiguedad de las publicaciones',
+            label: 'Semanas de publicación'
+        })
+    };
 };
 
 ranking.label = 'LN-Common-Ranking';
 ranking.propTypes = {
+    outputType: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
-        cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
-        dataSection: PropTypes.string.tag({ label: 'Sección (data-section)' })
+        ...requestConfigProps(1, 1, 1),
+        ...requestConfigProps(2, 5, 2)
     }).isRequired
 };
 
-export default ranking;
+export default Consumer(ranking);

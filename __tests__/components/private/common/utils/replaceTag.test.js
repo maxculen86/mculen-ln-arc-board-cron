@@ -52,5 +52,8 @@ describe('Common - utils - replaceTagInTextListRaw.js', () => {
         expect(contentElements[3].content).toStrictEqual(
             '<h2 class="com-title --l "><a href="http://www.tedxriodelaplata.org/orador/miguel-san-martin?e_u=/eventos/tedxr%C3%ADodelaplata-2012&amp;m=s" >Miguel San Martín</a></h2>'
         );
+        expect(contentElements[3].content).toStrictEqual(
+            '<h2 class="com-title --l "><a href="http://www.tedxriodelaplata.org/orador/miguel-san-martin?e_u=/eventos/tedxr%C3%ADodelaplata-2012&amp;m=s" >Miguel San Martín</a></h2>'
+        );
     });
 });

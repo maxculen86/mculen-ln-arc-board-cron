@@ -167,6 +167,7 @@ export const resizeArcImage = (
         fp,
         smartCropExcluded
     );
+
     if (IS_DEV !== 'true' && IS_SANDBOX !== 'true') {
         urlResize = getCanonincalURL(urlResize);
     }

@@ -3,11 +3,11 @@ import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import ComTitle from '../../../common/com-title';
 
-const TitleAcu = ({ headlines: { basic, shortTitle }, volanta, href }) => {
+const TitleAcu = ({ headlines: { basic, mobile }, volanta, href }) => {
     // TODO: ver de sacar volanta a otro componente para manejar el tema del punto repetido y etc
     // TODO: test y proptypes pendientes
     const volantaComponent = volanta && `${volanta} `;
-    const titleText = `${shortTitle || basic}`;
+    const titleText = `${mobile || basic}`;
     const renderTitle = `${volantaComponent}${titleText}`;
 
     return (
@@ -24,7 +24,7 @@ const TitleAcu = ({ headlines: { basic, shortTitle }, volanta, href }) => {
 TitleAcu.propTypes = {
     headlines: PropTypes.shape({
         basic: PropTypes.string.isRequerid,
-        shortTitle: PropTypes.string
+        mobile: PropTypes.string
     }),
     volanta: PropTypes.string,
     href: PropTypes.string
@@ -34,7 +34,7 @@ TitleAcu.defaultProps = {
     volanta: '',
     href: '',
     headlines: {
-        shortTitle: ''
+        mobile: ''
     }
 };
 

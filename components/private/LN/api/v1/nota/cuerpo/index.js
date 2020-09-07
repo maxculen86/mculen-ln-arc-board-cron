@@ -1,11 +1,19 @@
 import get from 'lodash.get';
-
 import DefaultCuerpo from './defaultCuerpo';
 import RecetaCuerpo from './recetaCuerpo';
 import htmlCuerpo from './htmlCuerpo';
 import fotoAlCienCuerpo from './fotoAlCienCuerpo';
 
 const cuerpoIndex = article => {
+    const templates = {
+        '1': DefaultCuerpo,
+        '2': DefaultCuerpo,
+        '4': DefaultCuerpo,
+        '7': RecetaCuerpo,
+        '8': fotoAlCienCuerpo,
+        '9': htmlCuerpo
+    };
+
     if (!article.content_elements) return null;
 
     const contentElements = article.content_elements;
@@ -15,19 +23,7 @@ const cuerpoIndex = article => {
         contentElements.unshift(infographic);
     }
 
-    let resp = '';
-
-    if (article.subtype === '7') {
-        resp = RecetaCuerpo(contentElements);
-    } else if (article.subtype === '9') {
-        resp = htmlCuerpo(contentElements);
-    } else if (article.subtype === '8') {
-        resp = fotoAlCienCuerpo(contentElements);
-    } else {
-        resp = DefaultCuerpo(contentElements);
-    }
-
-    return resp;
+    return templates[article.subtype](contentElements);
 };
 
 export default cuerpoIndex;

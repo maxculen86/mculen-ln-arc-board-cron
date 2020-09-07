@@ -28,12 +28,12 @@ class GrillaNotas extends Component {
     }
 
     componentDidMount() {
-        this.setAlturaArticle();
-        window.addEventListener('resize', this.setAlturaArticle);
+        //this.setAlturaArticle();
+        //window.addEventListener('resize', this.setAlturaArticle);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.setAlturaArticle);
+        //window.removeEventListener('resize', this.setAlturaArticle);
     }
 
     setAlturaArticle() {
