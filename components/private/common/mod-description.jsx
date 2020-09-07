@@ -11,8 +11,8 @@ const ModDescription = props => {
         titleTag,
         titleSize,
         titleText,
-        authorSize,
-        authorText,
+        marqueeSize,
+        marqueeText,
         subheadText,
         subheadSize,
         dateText,
@@ -36,11 +36,13 @@ const ModDescription = props => {
             ) : (
                 <></>
             )}
-            {authorText ? (
+            {marqueeText ? (
                 <>
-                    <strong className={`mod-firma ${authorSize || '--fivexs'}`}>
-                        <a href={link} title={authorText}>
-                            {authorText}
+                    <strong
+                        className={`com-marquee ${marqueeSize || '--fivexs'}`}
+                    >
+                        <a href={link} title={marqueeText}>
+                            {marqueeText}
                         </a>
                     </strong>
                 </>

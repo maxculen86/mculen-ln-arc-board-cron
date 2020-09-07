@@ -12,8 +12,8 @@ const ModArticle = props => {
         titleTag,
         titleSize,
         titleText,
-        authorSize,
-        authorText,
+        marqueeSize,
+        marqueeText,
         withMedia,
         subheadText,
         subheadSize,
@@ -52,8 +52,8 @@ const ModArticle = props => {
                 titleText={titleText}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
-                authorText={authorText}
-                authorSize={authorSize}
+                marqueeText={marqueeText}
+                marqueeSize={marqueeSize}
                 dateText={dateText}
                 dateSize={dateSize}
             />

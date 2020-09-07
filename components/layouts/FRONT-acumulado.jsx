@@ -127,7 +127,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 link="#"
                                 titleTag="h1"
                                 titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                authorText="Por Gabriel Di Nicola"
+                                marqueeText="Por Gabriel Di Nicola, Fer Caino y Daro Aguilar"
                                 dateText
                             />
                             <ModArticle
@@ -135,7 +135,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 link="#"
                                 //titleTag="h1"
                                 titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                authorText="Por Gabriel Di Nicola"
+                                marqueeText="Por Gabriel Di Nicola"
                                 dateText
                             />
                         </ModRowGap>
@@ -289,7 +289,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         link="#"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
+                                        marqueeText="Por Gabriel Di Nicola"
                                         dateText
                                     />
                                     <ModArticle
@@ -297,7 +297,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         link="#"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        //authorText="Por Gabriel Di Nicola"
+                                        //marqueeText="Por Gabriel Di Nicola"
                                         dateText
                                     />
                                     <ModArticle
@@ -305,7 +305,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         link="#"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
+                                        marqueeText="Por Gabriel Di Nicola"
                                         //dateText
                                     />
                                     <ModArticle
@@ -313,7 +313,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         link="#"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
+                                        marqueeText="Por Gabriel Di Nicola"
                                         dateText
                                     />
                                     <ModArticle
@@ -321,7 +321,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         link="#"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
+                                        marqueeText="Por Gabriel Di Nicola"
                                         dateText
                                     />
                                     <ModArticle
@@ -329,7 +329,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         link="#"
                                         titleSize="--twoxs"
                                         titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                        authorText="Por Gabriel Di Nicola"
+                                        marqueeText="Por Gabriel Di Nicola"
                                         dateText
                                     />
                                 </ModRowGap>
@@ -338,21 +338,21 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                 <ModArticle
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorText="Por Gabriel Di Nicola"
+                                    marqueeText="Por Gabriel Di Nicola"
                                     dateText
                                     subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
                                 <ModArticle
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorText="Por Gabriel Di Nicola"
+                                    marqueeText="Por Gabriel Di Nicola"
                                     dateText
                                     //subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
                                 <ModArticle
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorText="Por Gabriel Di Nicola"
+                                    marqueeText="Por Gabriel Di Nicola"
                                     dateText
                                     subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%, ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
@@ -360,7 +360,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     withMedia
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorText="Por Gabriel Di Nicola"
+                                    marqueeText="Por Gabriel Di Nicola"
                                     dateText
                                     subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
@@ -368,14 +368,14 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                     withMedia
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorText="Por Gabriel Di Nicola"
+                                    marqueeText="Por Gabriel Di Nicola"
                                     dateText
                                 />
                                 <ModArticle
                                     withMedia
                                     link="#"
                                     titleText="Manifestación contra los despidos en el aeroparque metropolitano"
-                                    authorText="Por Gabriel Di Nicola"
+                                    marqueeText="Por Gabriel Di Nicola"
                                     dateText
                                     subheadText="La ocupación de camas de cuidados intensivos, más allá de la dolencia que explique la internación, promedia el 58,3% a nivel nacional; en el AMBA llega al 68,4%"
                                 />
