@@ -1,87 +1,47 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComLink from '../common/com-link';
+import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/components/com-title.css';
 
-const ComTitle = props => {
-    const {
-        children,
-        tag,
-        classCondition,
-        size,
-        prefix,
-        label,
-        link,
-        titulo,
-        basic,
-        data,
-        content
-    } = props;
-    switch (tag) {
-        case 'h1': {
-            return (
-                <h1
-                    className={`com-title ${size} ${
-                        classCondition ? classCondition : ''
-                    }`}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                />
-            );
-        }
-        case 'h2': {
-            return (
-                <>
-                    {link ? (
-                        <ComLink link={link} classCondition={classCondition}>
-                            <h2
-                                className={`com-title ${size} ${
-                                    classCondition ? classCondition : ''
-                                }`}
-                                dangerouslySetInnerHTML={{ __html: content }}
-                            />
-                        </ComLink>
-                    ) : (
-                        <h2
-                            className={`com-title ${size} ${
-                                classCondition ? classCondition : ''
-                            }`}
-                            dangerouslySetInnerHTML={{ __html: content }}
-                        />
-                    )}
-                </>
-            );
-        }
-        case 'h3': {
-            return (
-                <h3
-                    className={`com-title ${size} ${
-                        classCondition ? classCondition : ''
-                    }`}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                />
-            );
-        }
-        case 'h4': {
-            return (
-                <h4
-                    className={`com-title ${size} ${
-                        classCondition ? classCondition : ''
-                    }`}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                />
-            );
-        }
-        default:
-            return (
-                <h4
-                    className={`com-title ${size} ${
-                        classCondition ? classCondition : ''
-                    }`}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                />
-            );
-    }
+const ComTitle = ({ tag, size, content, classCondition, link }) => {
+    if (!content) return null;
+
+    const ALLOWED_TAGS = ['h1', 'h2', 'h3', 'h4'];
+    const SIZE_CLASS = size ? ` ${size}` : '';
+    const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
+
+    const linkComponent = link && (
+        <ComLink link={link} classCondition={classCondition}>
+            {content}
+        </ComLink>
+    );
+
+    const _props = {
+        className: `com-title${SIZE_CLASS}${EXTRA_CLASS}`,
+        ...(!linkComponent && { dangerouslySetInnerHTML: { __html: content } }),
+        ...(linkComponent && { children: linkComponent })
+    };
+
+    return React.createElement(
+        (ALLOWED_TAGS.includes(tag.toLowerCase()) && tag) || 'h4',
+        { ..._props }
+    );
+};
+
+ComTitle.propTypes = {
+    tag: PropTypes.string,
+    size: PropTypes.string,
+    content: PropTypes.string.isRequired,
+    classCondition: PropTypes.string,
+    link: PropTypes.string
+};
+
+ComTitle.defaultProps = {
+    tag: 'h4',
+    size: undefined,
+    classCondition: undefined,
+    link: undefined
 };
 
 export default ComTitle;
