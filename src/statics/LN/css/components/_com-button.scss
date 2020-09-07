@@ -11,6 +11,7 @@
     border-radius: px(4);
     outline: none;
     max-width: px(360);
+    border: 1px solid transparent;
     cursor: pointer;
     &.--bottom,
     &.--top {
@@ -67,25 +68,10 @@
         background: $gris3;
     }
 
-    // &.--highlight {
-    //     background-color: $highlight;
-    //     border: 1px solid $gris3;
-    //     color: $negro;
-    //     &:hover {
-    //         background: $negro;
-    //         border-color: $negro;
-    //         color: $blanco;
-    //     }
-    //     .com-usuario & {
-    //         .header & {
-    //             display: none;
-    //         }
-    //     }
-    // }
-
     //variantes
     &.--primary {
         background: $ln;
+        border-color: $ln;
         color: $blanco;
 
         &:hover {
@@ -100,11 +86,8 @@
         }
     }
     &.--secondary {
-        border: 1px solid $ln;
+        border-color: $ln;
         color: $ln;
-        .cuerpo__nota & {
-            margin-bottom: $spacing-lg;
-        }
         &:hover {
             background: rgba($ln, 1);
             color: $blanco;
@@ -124,8 +107,12 @@
                 display: none;
             }
         }
+        .cuerpo__nota & {
+            margin-bottom: $spacing-lg;
+        }
     }
     &.--tertiary {
+        border-color: $gris3;
         background: $gris3;
         color: $gris5;
 
@@ -144,7 +131,7 @@
     &.--special,
     &.--highlight {
         background: $highlight;
-        border: 1px solid $gris3;
+        border-color: $gris3;
         color: $gris6;
 
         &:hover {
@@ -164,28 +151,21 @@
         }
         .com-usuario & {
             .header & {
-                background: none;
-                border: none;
+                background: transparent;
+                border-color: transparent;
                 padding: px(3) px(16);
                 font-weight: 100;
                 .--transparent & {
                     color: $blanco;
+                }
+                .--transparent.--scrollUp & {
+                    color: $gris6;
                 }
             }
         }
     }
     &.--compact {
         padding: $spacing-xs $spacing-sm;
-        // &.--highlight {
-        //     background-color: $highlight;
-        //     border: 1px solid $gris3;
-        //     color: $negro;
-        //     &:hover {
-        //         background: $negro;
-        //         border-color: $negro;
-        //         color: $blanco;
-        //     }
-        // }
     }
     .--slider & {
         background: $negro;
@@ -293,6 +273,14 @@
                             color: $gris6;
                         }
                     }
+                    .--transparent.--scrollUp & {
+                        border-color: $ln;
+                        color: $ln;
+                        &:hover {
+                            background: rgba($ln, 1);
+                            color: $blanco;
+                        }
+                    }
                 }
             }
         }
@@ -301,7 +289,7 @@
             .com-usuario & {
                 .header & {
                     background: $highlight;
-                    border: 1px solid $gris3;
+                    border-color: $gris3;
                     margin-right: px(16);
                     padding: px(8) px(16);
                     font-weight: 700;
@@ -310,7 +298,6 @@
                         border-color: $negro;
                     }
                     .--transparent & {
-                        border-color: $highlight;
                         color: $gris6;
                         &:hover {
                             border-color: $negro;
@@ -320,33 +307,5 @@
                 }
             }
         }
-
-        // &.--secondary {
-        //     .com-usuario & {
-        //         .header & {
-        //             border: 1px solid $ln;
-        //             color: $ln;
-        //         }
-        //     }
-        // }
-        // &.--highlight {
-        //     &:hover {
-        //         .com-usuario & {
-        //             .header & {
-        //                 background: $negro;
-        //                 border-color: $negro;
-        //                 color: $blanco;
-        //             }
-        //         }
-        //     }
-        //     .com-usuario & {
-        //         .header & {
-        //             display: flex;
-        //             justify-content: center;
-        //             color: $negro;
-        //             border: 1px solid $gris3;
-        //         }
-        //     }
-        // }
     }
 }
