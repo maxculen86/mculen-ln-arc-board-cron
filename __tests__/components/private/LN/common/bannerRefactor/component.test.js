@@ -30,7 +30,10 @@ describe('Banner', () => {
         display: 'all',
         background: true,
         sticky: false,
-        closeButton: false
+        closeButton: false,
+        show: {
+            termicas: true
+        }
     };
 
     it('Matches snapshot', () => {
