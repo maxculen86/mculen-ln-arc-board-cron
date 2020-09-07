@@ -10,7 +10,7 @@ const layout = {
         4: 'row-gap-tablet-4 row-gap-desksm-4'
     },
     Listado: 'row',
-    Timeline: '--list'
+    Timeline: 'breaking-news --list'
 };
 
 const ModRowGap = props => {

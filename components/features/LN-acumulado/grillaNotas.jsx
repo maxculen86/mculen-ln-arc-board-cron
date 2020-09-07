@@ -7,7 +7,7 @@ import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 
 function GrillaNotasFeature({ customFields: { typeArticle } }) {
-    const { acumuladoGeneral, acumuladoColor } = useGlobalProviderAcu();
+    const { acumuladoGeneral, articlesInCollection } = useGlobalProviderAcu();
     const { cantidad_notas = 30, tipo_acumulado = 'Grilla' } = acumuladoGeneral;
     const {
         globalContent: { author_type: authorType, _id, Payload },
@@ -33,6 +33,7 @@ function GrillaNotasFeature({ customFields: { typeArticle } }) {
             page={1}
             siteProperties={siteProperties}
             typeArticle={tipo_acumulado}
+            articlesInCollection={articlesInCollection}
         />
     );
 }

@@ -7,7 +7,11 @@ const GlobalProviderAcu = props => {
     const { acumuladoGeneral, acumuladoColor, children } = props;
     const [state, setState] = useState({
         acumuladoGeneral,
-        acumuladoColor
+        acumuladoColor,
+        articlesInCollection: [
+            'JLLMR5YBNFFIFC2W3U2RUM6HTI',
+            'U27ETYGHY5BMFH3PJEZSQMCQ6Q'
+        ]
     });
 
     return (

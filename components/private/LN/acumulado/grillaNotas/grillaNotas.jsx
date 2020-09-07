@@ -85,10 +85,14 @@ class GrillaNotas extends Component {
             obtenerMasNotas,
             globalContent,
             loading,
-            typeArticle
+            typeArticle,
+            articlesInCollection = []
         } = this.props;
         // const { alturaArticle } = this.state;
         // const _typeArticle = !typeArticle ? 'ArticleMain' : typeArticle;
+        const articlesInNoCollection = articles.filter(art => {
+            return !articlesInCollection.includes(art._id);
+        });
 
         return (
             <>
@@ -100,7 +104,7 @@ class GrillaNotas extends Component {
                 */}
                 <ArticlesAcum
                     getBanner={this.getBanner}
-                    articles={articles}
+                    articles={articlesInNoCollection}
                     typeArticle={typeArticle}
                     classCondition={hayMasNotas > 0 && 'hlp-degrade'}
                 />
@@ -130,6 +134,7 @@ class GrillaNotas extends Component {
 
 GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
+    articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
     obtenerMasNotas: PropTypes.func.isRequired,
