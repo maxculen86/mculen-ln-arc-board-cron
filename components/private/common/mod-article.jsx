@@ -119,34 +119,3 @@ ModArticle.defaultProps = {
 };
 
 export default ModArticle;
-/*
-<section role="button" className="mod-media">
-    <figure role="button" className="mod-figure">
-        <a href={link} title={titleText}>
-            {/* FOTO 
-            <picture className="mod-picture ">
-                <img
-                    src="http://demo-prod.origin.arcpublishing.com/resizer/r-JvqZANSLMk42Z4TpYGOtv78eI=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
-                    loading="lazy"
-                    className="com-image "
-                    alt={titleText}
-                />
-            </picture>
-            {/* VIDEO o GALERIA 
-        </a>
-    </figure>
-            </section>
-
-    <ModDescription
-    link={link}
-    titleTag={titleTag}
-    titleSize={titleSize}
-    titleText={titleText}
-    subheadText={subheadText}
-    subheadSize={subheadSize}
-    authorText={authorText}
-    authorSize={authorSize}
-    dateText={dateText}
-    dateSize={dateSize}
-/>
-*/

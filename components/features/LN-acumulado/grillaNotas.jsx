@@ -22,8 +22,6 @@ function GrillaNotasFeature({ customFields: { typeArticle } }) {
     const sectionId = !authorType && !Payload ? _id : null;
     const authorId = authorType ? _id : null;
 
-    // return <GrillaNotas size={cantidad_notas} typeArticle={typeArticle} />;
-
     return (
         <GrillaNotas
             authorId={authorId}

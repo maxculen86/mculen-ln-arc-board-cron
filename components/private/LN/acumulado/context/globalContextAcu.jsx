@@ -27,7 +27,7 @@ GlobalProviderAcu.propTypes = {
         tipo_acumulado: PropTypes.string,
         hierarchy_navigation: PropTypes.string,
         hide_banner: PropTypes.boolean,
-        cantidad_notas: PropTypes.number,
+        cantidad_notas: PropTypes.string,
         id_collection_promo_items: PropTypes.string
     }).isRequired,
     acumuladoColor: PropTypes.shape({

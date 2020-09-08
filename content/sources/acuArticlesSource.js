@@ -3,7 +3,6 @@ import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
-import getBajadaOrFirstTextParagraph from '../../components/private/common/utils/getBajadaOrFirstTextParagraph';
 
 const resolve = key => {
     const {
@@ -177,20 +176,3 @@ export default {
     transform,
     ttl: sourceSetting.acuArticlesSource.ttl
 };
-/*
-
- return {
-            ...story,
-            content_elements:  story.content_elements.map(item => {
-                return (item.content_elements && item.content_elements.find(e => e.type === 'text')) || {} ;
-            })
-        };
-
- return {
-                    ...item,
-                    subheadText: getBajadaOrFirstTextParagraph(item),
-                    content_elements: item.content_elements &&
-                        item.content_elements.find(e => e.type === 'text')
-                };
-
-*/

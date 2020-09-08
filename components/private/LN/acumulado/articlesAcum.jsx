@@ -45,27 +45,3 @@ ArticlesAcum.propTypes = {
 };
 
 export default ArticlesAcum;
-
-/*
-   if (articles && articles.length) {
-        articlesComponents = articles.map((a, i) => {
-            const mobileBanner = getBanner('mobile', i);
-            const tabletBanner = getBanner('tablet', i);
-
-            return (
-                <ArticleAcum
-                    key={a._id}
-                    dataSection={DATA_SECTION}
-                    extraClasses={CLASS_W_100}
-                    article={a}
-                    typeArticle={typeArticle}
-                >
-                    {mobileBanner}
-                    {tabletBanner}
-                </ArticleAcum>
-            );
-        });
-    }
-
-    return articlesComponents;
-*/

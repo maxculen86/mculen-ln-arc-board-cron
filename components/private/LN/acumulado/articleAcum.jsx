@@ -1,8 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-// import ArticleMain from '../common/articleTypes/articleMain';
-// import ArticleDate from '../common/dateArticle';
 import ModArticle from '../../common/mod-article';
 import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTextParagraph';
 import getTitleText from '../../common/utils/getTitleText';
@@ -30,7 +28,12 @@ const typeAcumRules = {
     }
 };
 
-const ArticleAcum = ({ children, dataSection, article, typeArticle }) => {
+const ArticleAcum = ({
+    children,
+    dataSection,
+    article,
+    typeArticle = 'Grilla'
+}) => {
     const { display_date, headlines, website_url, label } = article;
 
     const authors =
@@ -89,44 +92,3 @@ ArticleAcum.defaultProps = {
 };
 
 export default ArticleAcum;
-
-/*
-const HourComponent = date => {
-    if (!date) return null;
-
-    const setDecimal = num => (num > 9 ? num : `0${num}`);
-
-    const getHour = date =>
-    `${setDecimal(date.getHours())}:${setDecimal(date.getMinutes())}`;
-
-    const hour = getHour(new Date(date));
-
-    return <div className="com-hour --threexs">{hour}</div>
-}
-
-
-{typeArticle === 'ArticleTimeLine' && (
-        <ArticleMain
-            dataSection={dataSection}
-            key={`clone-${article._id}`}
-            articleData={article}
-            extraClasses={`${extraClasses} --list`}
-            hourToDisplay={
-                displayDate && getHour(new Date(displayDate))
-            }
-        />
-    )}
-
-
-    <ArticleMain
-        dataSection={dataSection}
-        key={`clone-${article._id}`}
-        articleData={article}
-        extraClasses={extraClasses}
-    >
-        
-        <ArticleDate display_date={displayDate} />
-    </ArticleMain>
-    {children}
-            
-*/
