@@ -10,7 +10,7 @@ import ComTitle from './com-title';
 import ComDate from './com-date';
 import get from './utils/get';
 import ModBajada from './mod-bajada';
-import ModMarquesina from './mod-marquesina';
+import ModMarquesina from './mod-marquee';
 
 const ModArticle = props => {
     const {

@@ -9,14 +9,20 @@
             }
             .com-subhead {
                 margin-bottom: $spacing;
+                a {
+                    display: block;
+                    width: 100%;
+                }
             }
-            .mod-firma {
+            .mod-marquee {
                 display: block;
             }
         }
     }
     .sidebar__main > .row {
         > .mod-article {
+            padding-bottom: $spacing;
+            border-bottom: 1px solid $gris3;
             @media ($media-m) {
                 flex-direction: row-reverse;
                 .mod-media {
@@ -36,10 +42,6 @@
                         color: $gris5;
                     }
                 }
-            }
-            @media ($media-l) {
-                padding-bottom: $spacing-sm;
-                border-bottom: 1px solid $gris3;
             }
         }
     }
