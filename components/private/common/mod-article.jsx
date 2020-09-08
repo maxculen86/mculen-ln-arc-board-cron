@@ -7,10 +7,10 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import ComTitle from './com-title';
-import ModFirma from './mod-firma';
 import ComDate from './com-date';
 import get from './utils/get';
 import ModBajada from './mod-bajada';
+import ModMarquesina from './mod-marquesina';
 
 const ModArticle = props => {
     const {
@@ -27,7 +27,8 @@ const ModArticle = props => {
         subheadText,
         subheadSize,
         dateText,
-        dateSize
+        dateSize,
+        hour
     } = props;
 
     const extraOpts = {};
@@ -51,6 +52,7 @@ const ModArticle = props => {
             className={`mod-article ${classCondition || ''}`}
             {...extraOpts}
         >
+            {hour && hour}
             {withMedia && media}
 
             {/* Ir a MODULO DESCRIPTION */}
@@ -70,9 +72,9 @@ const ModArticle = props => {
                     />
                 )}
 
-                <ModFirma autor={authors} />
+                <ModMarquesina text={authors} link={link} />
 
-                <ComDate display_date={dateText} />
+                {dateText && <ComDate display_date={dateText} />}
             </section>
         </article>
     );
@@ -89,7 +91,8 @@ ModArticle.propTypes = {
     subheadSize: PropTypes.string,
     dateText: PropTypes.string,
     dateSize: PropTypes.string,
-    authors: PropTypes.arrayOf(PropTypes.object),
+    hour: PropTypes.string,
+    authors: PropTypes.string,
     withMedia: PropTypes.boolean,
     outputType: PropTypes.string,
     articleData: PropTypes.shape({
@@ -108,9 +111,10 @@ ModArticle.defaultProps = {
     subheadSize: '',
     dateText: undefined,
     dateSize: undefined,
-    authors: [],
+    authors: '',
     withMedia: false,
     link: undefined,
+    hour: undefined,
     outputType: 'default'
 };
 

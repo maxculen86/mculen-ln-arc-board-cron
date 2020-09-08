@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
-import TransparencyDiv from './transparencyDiv';
+// import TransparencyDiv from './transparencyDiv';
 import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
 import Banner from '../../common/banner';
