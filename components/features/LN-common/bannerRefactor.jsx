@@ -3,6 +3,7 @@
 import React from 'react';
 import { useFusionContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
+import get from 'lodash.get';
 import BannerComponent from '../../private/LN/common/bannerRefactor';
 import {
     getSlotsOptions,
@@ -30,9 +31,12 @@ const Banner = props => {
     const { label } = globalContent || { label: { mostrar_banners: false } };
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
-    const {
-        acumuladoGeneral: { hide_banner: hideBanners }
-    } = globalContent || { acumuladoGeneral: { hide_banner: 'false' } };
+
+    const hideBanners = get(
+        globalContent,
+        'acumuladoGeneral.hide_banner',
+        'false'
+    );
 
     const banner = {
         slotGroup: group,
