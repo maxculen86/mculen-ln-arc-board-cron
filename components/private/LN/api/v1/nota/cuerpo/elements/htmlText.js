@@ -1,5 +1,6 @@
 import { parse } from 'node-html-parser';
 import walkerBuilder from '../../../../../../common/utils/walker';
+import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
 
 const htmlText = text => {
     if (!text) return null;
@@ -30,11 +31,10 @@ const htmlText = text => {
     walker.addCondition(
         node => node.nodeType === 1 && node.tagName === 'a',
         (data, next) => {
-            const hrefRegex = new RegExp('href="(.*)"');
-            const attrs = hrefRegex.exec(data.rawAttrs.toLowerCase());
+            const attrs = getEmbedHref('href', data.rawAttrs.toLowerCase());
             const resp = {
                 _t: data.tagName,
-                href: attrs[1],
+                href: attrs,
                 valor: next(data.childNodes)
             };
             return resp;

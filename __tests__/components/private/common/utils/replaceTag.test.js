@@ -29,7 +29,7 @@ describe('Common - utils - replaceTagInTextListRaw.js', () => {
                 '<ul class="com-unordered">\n    <li class="com-item">La línea aérea de bandera es Icelandair, que vuela regularmente al resto de Escandinavia, Europa y Estados Unidos. Hay aerolíneas de bajo costo como Iceland Express <i> ( <a href="http://www.icelandexpress.com" tercera="">www.icelandexpress.com</a></i> ), con pasajes que rondan los 100 euros desde capitales europeas.</li>\n</ul>\n<ul class="com-unordered">\n    <li class="com-item">El aeropuerto principal es Leifur Eiríksson ( <i><a href="http://www.keflavikairport.com" tercera="">www.keflavikairport.com</a></i> ), ubicado en Keflavik, a unos 50 minutos de la capital islandesa. Después de cada vuelo hay autobuses hasta allí.</li>\n</ul>\n<ul class="com-unordered">\n    <li class="com-item"><i><a href="http://www.visitreykjavik.is " tercera="">www.visitreykjavik.is</a></i><br><br> Completa página oficial de turismo</li>\n</ul>\n<p class="text element-paragraph">Si uno sólo tuviera un día disponible.</p>\n<p class="text element-paragraph" tercera="">Si uno sólo tuviera un día disponible para hacer una excursión por tierra islandesa</p>'
         },
         {
-        type: 'header',
+            type: 'header',
             content:
                 '<h2 class="com-title --l "><a href="http://www.tedxriodelaplata.org/orador/miguel-san-martin?e_u=/eventos/tedxr%C3%ADodelaplata-2012&amp;m=s" tercera="">Miguel San Martín</a></h2>'
         }
@@ -48,6 +48,9 @@ describe('Common - utils - replaceTagInTextListRaw.js', () => {
         );
         expect(contentElements[2].content).toStrictEqual(
             '<ul class="com-unordered">\n    <li class="com-item">La línea aérea de bandera es Icelandair, que vuela regularmente al resto de Escandinavia, Europa y Estados Unidos. Hay aerolíneas de bajo costo como Iceland Express <i> ( <a href="http://www.icelandexpress.com" >www.icelandexpress.com</a></i> ), con pasajes que rondan los 100 euros desde capitales europeas.</li>\n</ul>\n<ul class="com-unordered">\n    <li class="com-item">El aeropuerto principal es Leifur Eiríksson ( <i><a href="http://www.keflavikairport.com" >www.keflavikairport.com</a></i> ), ubicado en Keflavik, a unos 50 minutos de la capital islandesa. Después de cada vuelo hay autobuses hasta allí.</li>\n</ul>\n<ul class="com-unordered">\n    <li class="com-item"><i><a href="http://www.visitreykjavik.is " >www.visitreykjavik.is</a></i><br><br> Completa página oficial de turismo</li>\n</ul>\n<p class="text element-paragraph">Si uno sólo tuviera un día disponible.</p>\n<p class="text element-paragraph" >Si uno sólo tuviera un día disponible para hacer una excursión por tierra islandesa</p>'
+        );
+        expect(contentElements[3].content).toStrictEqual(
+            '<h2 class="com-title --l "><a href="http://www.tedxriodelaplata.org/orador/miguel-san-martin?e_u=/eventos/tedxr%C3%ADodelaplata-2012&amp;m=s" >Miguel San Martín</a></h2>'
         );
         expect(contentElements[3].content).toStrictEqual(
             '<h2 class="com-title --l "><a href="http://www.tedxriodelaplata.org/orador/miguel-san-martin?e_u=/eventos/tedxr%C3%ADodelaplata-2012&amp;m=s" >Miguel San Martín</a></h2>'
