@@ -7,7 +7,7 @@ const ModMarquesina = props => {
     const { text, link, classCondition } = props;
 
     return (
-        <strong className={`mod-firma ${classCondition || '--fivexs'}`}>
+        <strong className={`mod-marquee ${classCondition || '--fivexs'}`}>
             <ComLink
                 textname={text}
                 link={link}

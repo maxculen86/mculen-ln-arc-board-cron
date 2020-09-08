@@ -38,7 +38,9 @@ const ModDescription = props => {
             )}
             {authorText ? (
                 <>
-                    <strong className={`mod-firma ${authorSize || '--fivexs'}`}>
+                    <strong
+                        className={`mod-marquee ${authorSize || '--fivexs'}`}
+                    >
                         <a href={link} title={authorText}>
                             {authorText}
                         </a>
