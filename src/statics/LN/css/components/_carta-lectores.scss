@@ -1,9 +1,9 @@
 @import '../abstracts/variables';
 .cartaLectores {
     font-family: $font-arial;
-    font-size: $font-16;
-    line-height: $line-16;
-    margin: $px-40 0;
+    font-size: px(16);
+    line-height: px(23);
+    margin: px(40) 0;
     border: 1px solid $gris2;
     .cont-figure {
         background: url('../../img/carta-lectores.jpg') no-repeat center center;

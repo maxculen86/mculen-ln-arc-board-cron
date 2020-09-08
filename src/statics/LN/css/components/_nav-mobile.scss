@@ -2,13 +2,13 @@
 .com-nav-mobile {
     position: fixed;
     bottom: 0;
-    padding: $px-5 $px-10 $px-10;
+    padding: px(5) px(10) px(10);
     background: $blanco;
     z-index: 15000;
     border-top: 1px solid $gris2;
     width: 100%;
-    max-height: $px-60;
-    height: $px-60;
+    max-height: px(60);
+    height: px(60);
     transition: all 0.25s ease-in-out;
     .row {
         max-width: 390px;
@@ -25,7 +25,7 @@
         // TODO: Recordar dejar oculto
         p {
             font-family: $font-arial;
-            font-size: $font-9;
+            font-size: px(9);
             color: $gris6;
         }
         &:hover {
@@ -45,7 +45,7 @@
             }
         }
         &:first-child {
-            margin: -$px-5;
+            margin: px(-5);
         }
     }
     //scrollUp
@@ -65,7 +65,7 @@
         height: inherit;
         .item-foo {
             p {
-                font-size: $font-11;
+                font-size: px(11);
             }
         }
     }

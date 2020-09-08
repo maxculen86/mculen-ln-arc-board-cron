@@ -20,10 +20,10 @@
 //=======================================
 .w-100 {
     width: calc(100% + 20px);
-    margin-left: -$px-10;
+    margin-left: px(-10);
     &.banner {
         margin-left: 0;
-        margin-top: -$px-20;
+        margin-top: px(-20);
         width: 100%;
     }
 }
@@ -31,13 +31,13 @@
 @media ($media-s) {
     .w-100 {
         width: calc(100% + 40px);
-        margin-left: -$px-20;
+        margin-left: px(-20);
     }
 }
 @media ($media-m) {
     .w-100 {
         width: calc(100% + 60px);
-        margin-left: -$px-30;
+        margin-left: px(-30);
     }
 }
 @media ($media-l) {
@@ -49,7 +49,7 @@
 
 .w-100-mobile {
     width: calc(100% + 20px);
-    margin-left: -$px-10;
+    margin-left: px(-10);
     //se agrega media max porq este valor solo debe venir en mobile y en las otras resoluciones
     //traer el valor de otras clases, entonces no se puede darle un valor en resoluciones que no sea mobile.
     @media screen and (max-width: 47em) {
@@ -60,7 +60,7 @@
 @media ($media-s) {
     .w-100-mobile {
         width: calc(100% + 40px);
-        margin-left: -$px-20;
+        margin-left: px(-20);
     }
 }
 @media ($media-m) {
@@ -279,22 +279,31 @@
 // Grilla CON GAP
 //===================================
 //
+// [class^='row-gap'],
+// [class*=' row-gap'] {
+//     display: grid;
+//     grid-column-gap: px(10);
+//     grid-row-gap: px(30);
+//     @media ($media-s) {
+//         grid-column-gap: px(20);
+//         grid-row-gap: px(30);
+//     }
+//     @media ($media-m) {
+//         grid-column-gap: px(30);
+//         grid-row-gap: px(30);
+//     }
+//     @media ($media-l) {
+//         grid-column-gap: px(40);
+//         grid-row-gap: px(40);
+//     }
+// }
 [class^='row-gap'],
 [class*=' row-gap'] {
     display: grid;
-    grid-column-gap: $px-10;
-    grid-row-gap: $px-30;
-    @media ($media-s) {
-        grid-column-gap: $px-20;
-        grid-row-gap: $px-30;
-    }
-    @media ($media-m) {
-        grid-column-gap: $px-30;
-        grid-row-gap: $px-30;
-    }
-    @media ($media-l) {
-        grid-column-gap: $px-40;
-        grid-row-gap: $px-40;
+    grid-column-gap: $spacing-sm;
+    grid-row-gap: $spacing-lg;
+    @media ($media-lg) {
+        grid-column-gap: $spacing-xl;
     }
 }
 

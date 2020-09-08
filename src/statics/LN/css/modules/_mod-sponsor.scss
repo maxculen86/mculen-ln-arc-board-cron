@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .mod-sponsor {
-    margin-bottom: px(16);
+    margin-bottom: $spacing-sm;
     align-items: center;
     display: flex;
     .com-logo {
@@ -65,14 +65,6 @@
         }
         .com-text {
             color: $negro;
-        }
-    }
-
-    .--storytelling & {
-        .com-texto,
-        .com-logo,
-        .com-logo::after {
-            color: $blanco;
         }
     }
 }

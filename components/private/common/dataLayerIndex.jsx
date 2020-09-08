@@ -10,6 +10,8 @@ const config = {
         'LN-nota-noticia': NotaDataLayer,
         'LN-nota-storytelling': NotaDataLayer,
         'LN-nota-infografia': NotaDataLayer,
+        'LN-nota-html-libre': NotaDataLayer,
+        'LN-nota-foto-al-100': NotaDataLayer,
         'LN-nota-opta': NotaDataLayer
     }
 };
