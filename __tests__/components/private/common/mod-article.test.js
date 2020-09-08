@@ -1,4 +1,3 @@
-
 import Consumer from 'fusion:consumer';
 import React from 'react';
 import { mount, render } from 'enzyme';
@@ -26,17 +25,17 @@ describe('Private - Common - ModArticle', () => {
         dataSection: '',
         classCondition: '',
         withMedia: true,
-        link:'http://google.com',
-        titleTag:"h1",
-        titleSize:"--s",
-        titleText:'Este es el titulo',
+        link: 'http://google.com',
+        titleTag: 'h1',
+        titleSize: '--s',
+        titleText: 'Este es el titulo',
         authors: authors,
-        dateText:'2020-06-02T15:28:04.694Z',
-        dateSize:'',
-        subheadText:'Este es el subtitulo',
-        subheadSize:'',
-        outputType:'default'
-        };
+        dateText: '2020-06-02T15:28:04.694Z',
+        dateSize: '',
+        subheadText: 'Este es el subtitulo',
+        subheadSize: '',
+        outputType: 'default'
+    };
 
     it('Render OK', () => {
         const component = mount(<ModArticle {...props} />);
@@ -53,10 +52,10 @@ describe('Private - Common - ModArticle', () => {
         expect(component.find('.mod-article')).toHaveLength(1);
         expect(component.find('.mod-description')).toHaveLength(1);
         expect(component.find('.com-subhead')).toHaveLength(1);
-        expect(component.find('.mod-firma')).toHaveLength(1);
+        expect(component.find('.mod-marquee')).toHaveLength(1);
         expect(component.find('.com-date')).toHaveLength(1);
         expect(component.find('.com-title').html()).toBe(
-            '<h1 class=\"com-title --s\"><a href=\"http://google.com\" class=\"com-link \">Este es el titulo</a></h1>'
+            '<h1 class="com-title --s"><a href="http://google.com" class="com-link ">Este es el titulo</a></h1>'
         );
     });
 

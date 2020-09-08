@@ -44,7 +44,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       </a>
     </p>
     <strong
-      class="mod-firma --fivexs"
+      class="mod-marquee --fivexs"
     >
       <a
         class="com-link "
