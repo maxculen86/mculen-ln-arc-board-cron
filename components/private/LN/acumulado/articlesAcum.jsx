@@ -19,8 +19,7 @@ const ArticlesAcum = ({
             typeArticle={typeArticle}
         >
             {articles.map((art, i) => {
-                const mobileBanner = getBanner('mobile', i);
-                const tabletBanner = getBanner('tablet', i);
+                const banner = getBanner(i);
                 return (
                     <ArticleAcum
                         key={art._id}
@@ -28,8 +27,7 @@ const ArticlesAcum = ({
                         article={art}
                         typeArticle={typeArticle}
                     >
-                        {mobileBanner}
-                        {tabletBanner}
+                        {banner}
                     </ArticleAcum>
                 );
             })}
