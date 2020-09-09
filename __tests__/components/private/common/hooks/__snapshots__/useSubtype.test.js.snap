@@ -20,6 +20,7 @@ exports[`Private - Common - Hooks - useSubtype Deberia trar el subtipo Generico 
                     \\"pageType\\": \\"nota\\",
                     \\"subtype\\":\\"\\",
                     \\"valor\\": \\"comun\\",
+                    \\"nota_id\\": \\"undefined\\"
                 }
             ];
 

@@ -34,7 +34,7 @@ const ComLink = props => {
 };
 
 ComLink.propTypes = {
-    children: PropTypes.oneOf([
+    children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.string
     ]).isRequired,
