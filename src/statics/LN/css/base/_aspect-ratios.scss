@@ -8,7 +8,7 @@
                 &.contain-vertical {
                     .content-pic {
                         &.picture {
-                            padding-top: calc((2 / 3) * 100%);
+                            padding-top: $picture;
                         }
                     }
                 }
@@ -103,11 +103,11 @@
                 &:after {
                     font-family: 'LNicons';
                     color: $blanco;
-                    font-size: $font-25;
+                    font-size: px(25);
                     content: '\e91d';
                     position: absolute;
-                    width: $px-58;
-                    height: $px-42;
+                    width: px(58);
+                    height: px(42);
                     top: 0;
                     right: 0;
                     background: $negro;
@@ -145,7 +145,7 @@
 
 .externo {
     text-align: center;
-    margin: 0 auto $px-50;
+    margin: 0 auto px(50);
 
     iframe {
         max-width: 100%;

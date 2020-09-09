@@ -3,6 +3,16 @@ jest.mock(
     () => 'mock-video'
 );
 
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+import Context from 'fusion:context';
+
 import Consumer from 'fusion:consumer';
 import React from 'react';
 
@@ -10,6 +20,10 @@ import Image from '../../../../../../components/private/LN/nota/cuerpo/image';
 import { mount, render } from 'enzyme';
 
 describe('features - La Nacion - Components - Nota - Apertura - Destacado ', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' }
+    }));
+    
     const data = {
         _id: 'YQPFIZTCKVFKFDHNINT7IBBI6U',
         additional_properties: {

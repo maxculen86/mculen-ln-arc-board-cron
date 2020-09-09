@@ -8,7 +8,7 @@ const ArticleList = props => {
     return (
         <>
             {articles.length > 0 && (
-                <div className="row interest">
+                <div className="row interest" id="fin-cuerpo">
                     <ComTitle
                         tag="h4"
                         size="--l"

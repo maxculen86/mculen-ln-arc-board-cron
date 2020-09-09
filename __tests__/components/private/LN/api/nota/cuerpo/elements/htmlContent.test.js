@@ -21,4 +21,13 @@ describe('Test de htmlContent en el cuepo de nota', () => {
             '<blockquote class="twitter-tweet"><p lang="es" dir="ltr">Me cuenta una persona que en su trabajo (multinacional) le avisaron que hasta fin de año nadie vuelve a la oficina. Le pagan internet, le dieron una notebook, la silla y el monitor que tenía en su escritorio. ¿A ustedes sus empleadores le dieron algo?</p>&mdash; Jason Mayne (@MayneJason) <a href="https://twitter.com/MayneJason/status/1268588829428060167?ref_src=twsrc%5Etfw">June 4, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
         );
     });
+
+    it('Verificar los valores cuando el contenido html es un iframe', () => {
+        const resp = HtmlContent(ArticleHtmlContent[2]);
+        expect(resp['_t']).toBe('p');
+        expect(resp['valor']['_t']).toBe('ext');
+        expect(resp['valor']['id']).toBe('ifrme');
+        expect(resp['valor']['src']).toBe('https://www.espn.com.ar/core/video/iframe?id=7188899&endcard=true&adLevel=espn.latam.ar%2Fsyndicated-player%2Flanacion&adEnv=prod&trackingName=LANACION');
+    });
+
 });

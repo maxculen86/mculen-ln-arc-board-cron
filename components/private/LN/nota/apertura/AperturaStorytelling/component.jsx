@@ -9,6 +9,8 @@ import TitleAndIconArticle from '../titleAndIconArticle';
 import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
+import '../../../../../../resources/dist/css/ln/modules/mod-opening.css';
+
 const Component = props => {
     const {
         storytellingData,
@@ -24,7 +26,7 @@ const Component = props => {
 
     const { apertura = {} } = data;
     const { src, srcset, altText, video, caption, credit } = apertura;
-
+    const sizes = outputType === 'amp' ? { width: 80, height: 537 } : {};
     return (
         <section className="mod-opening">
             <ComFigure>
@@ -35,6 +37,7 @@ const Component = props => {
                     alt={altText || ''}
                     video={video || ''}
                     amp={outputType === 'amp'}
+                    sizes={sizes}
                 />
                 <div className="mod-title">
                     <div className="lay">

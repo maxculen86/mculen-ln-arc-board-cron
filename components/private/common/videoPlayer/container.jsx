@@ -101,9 +101,9 @@ class VideoPlayer extends PureComponent {
 
     addToDataLayer = (eventName, tituloVideo, videoId) => {
         window.dataLayer.push({
-            'event': eventName,
-            'videoName': tituloVideo,
-            'videoID': videoId
+            event: eventName,
+            videoName: tituloVideo,
+            videoID: videoId
         });
     };
 

@@ -15,6 +15,17 @@
     &.--top {
         @include flex(flex, column, center, center);
     }
+    .mod-share & {
+        padding: 0;
+        margin-right: $spacing-sm;
+        &.comment {
+            margin: 0;
+        }
+        @media ($media-l) {
+            margin-right: 0;
+        }
+    }
+
     &.facebook {
         background: $facebook;
         color: $blanco;
@@ -130,7 +141,6 @@
             border: 1px solid $gris3;
         }
     }
-
     &.--compact {
         padding: $spacing-xs $spacing-sm;
     }
@@ -215,4 +225,17 @@
     // .cuerpo__nota & {
     //     font-family: $font-arial;
     // }
+}
+@media ($media-l) {
+    .com-button {
+        .mod-share & {
+            margin-bottom: $spacing-sm;
+        }
+        &.comment {
+            .mod-share & {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
 }

@@ -1,12 +1,12 @@
 /* @import '../abstracts/variables';
 .text {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: $font-18;
-    line-height: $px-30;
-    margin-bottom: $px-32;
+    font-size: px(18);
+    line-height: px(30);
+    margin-bottom: $spacing-lg;
     width: 100%;
     &.element-paragraph:last-of-type {
-        margin-bottom: $px-32;
+        margin-bottom: $spacing-lg;
         .blockquote & {
             margin-bottom: 0;
         }
@@ -15,14 +15,14 @@
         font-weight: 700;
     }
     &.small {
-        font-size: $font-14;
+        font-size: px(14);
         color: $gris5;
     }
     .blockquote & {
         margin-bottom: 0;
     }
     .com-cita & {
-        font-size: $font-24;
+        font-size: px(24);
     }
 }
 
@@ -37,10 +37,10 @@
     .text.capital {
         &:first-letter {
             font-family: $font-SuecaSlab;
-            font-size: $font-55;
-            line-height: $line-50;
+            font-size: px(55);
+            line-height: px(57);
             float: left;
-            padding-right: $px-8;
+            padding-right: px(8);
             text-transform: uppercase;
         }
     }

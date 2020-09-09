@@ -1,15 +1,17 @@
 import get from 'lodash.get';
+
 import ImageCommon from '../common/image';
+import epigrafeAndCreditsData from '../../../../common/utils/epigrafeAndCreditsData';
 
 const imageNota = imageData => {
     const resp = ImageCommon(imageData);
+
     if (!resp) return null;
 
-    if (imageData.credits && imageData.credits.by && imageData.credits.by.length > 0) {
-        resp.credito = get(imageData, 'credits.by[0].name');
-    }
+    const credits = epigrafeAndCreditsData(imageData);
+    if (credits) resp.credito = credits;
 
-    if (imageData.distributor) {
+    if (imageData.distributor && imageData.distributor.name) {
         resp.fuente = get(imageData, 'distributor.name');
     }
 

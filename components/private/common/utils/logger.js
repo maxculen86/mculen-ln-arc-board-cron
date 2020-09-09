@@ -1,0 +1,69 @@
+import { ELMAH_API_KEY, ELMAH_LOG_ID, SITE_LANACION } from 'fusion:environment';
+import getProperties from 'fusion:properties';
+import request from 'request-promise-native';
+import get from './get';
+
+const URI_ELMAH = `https://api.elmah.io/v3/messages/${ELMAH_LOG_ID}`;
+
+const logger = (() => {
+    const push = (e, config, site) => {
+        const props = getProperties(site) || { logger: false };
+        if (!props.logger) return;
+        const { statusCode } = e || {};
+        const method = get(e || {}, 'response.request.method', null);
+        const uri = get(e || {}, 'options.uri', null);
+        const message = get(e || {}, 'error.message', null);
+        const {
+            application = 'ln/arc',
+            source = 'ARC',
+            user = 'ARC',
+            url = null,
+            severity = null,
+            version = null,
+            queryString = []
+        } = config || {};
+
+        const elmahJson = {
+            application,
+            detail: `${statusCode} - ${message}`,
+            hostname: uri,
+            title: `${statusCode} - ${message}`,
+            titleTemplate: 'StatusCodeError',
+            source,
+            statusCode,
+            dateTime: new Date().toISOString(),
+            type: 'Error',
+            user,
+            severity,
+            url: `${SITE_LANACION}${url}`,
+            method,
+            version,
+            queryString
+        };
+
+        request({
+            uri: URI_ELMAH,
+            qs: {
+                api_key: ELMAH_API_KEY
+            },
+            method: 'POST',
+            headers: {
+                accept: 'text/plain',
+                'Content-Type': 'application/json-patch+json'
+            },
+            body: JSON.stringify(elmahJson)
+        })
+            .then(res => {
+                console.log('elmah -> res', res);
+            })
+            .catch(e => {
+                console.log('elmah -> error', e);
+            });
+    };
+
+    return {
+        push
+    };
+})();
+
+export default logger;

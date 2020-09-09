@@ -1,34 +1,30 @@
 /* eslint-disable react/no-danger */
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/components/com-embed.css';
 import HtmlPym from './htmlPym';
 
+const hasIframeWithPYM = (domParser, content) => {
+    if (!domParser && !domParser.parseFromString) return false;
+    return domParser
+        .parseFromString(content, 'text/html')
+        .querySelectorAll('iframe.pym').length;
+};
+
 const Html = props => {
     const { data } = props;
     const { content } = data || { content: null };
-    const { _id: id } = data || '';
-    const parser = useRef();
+    const domParser = typeof DOMParser === 'function' && new DOMParser();
 
     if (!content) return null;
 
-    if (!parser.current) {
-        parser.current = new DOMParser();
-    }
-
-    /* let markup = content.replace(/'/g, '"');
-    markup = `<iframe class="pym" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;" frameborder="0" scrolling="no" srcdoc='${markup}'></iframe>`; */
-
-    return parser.current
-        .parseFromString(content, 'text/html')
-        .querySelectorAll('iframe.pym').length ? (
-         <HtmlPym data={data} />
+    return hasIframeWithPYM(domParser, content) ? (
+        <HtmlPym data={data} />
     ) : (
         <div
             className="com-embed --html"
             dangerouslySetInnerHTML={{
-                __html: parser.current.parseFromString(content, 'text/html')
-                    .documentElement.innerHTML
+                __html: content
             }}
         />
     );

@@ -2,18 +2,18 @@
 @import '../abstracts/mixins';
 .com-link {
     //font-family: $font-arial;
-    //font-size: px(14);  Se saca porque lo debería traer por lugar y tamaño
+    //font-size: px(14);
     color: $link;
     text-transform: initial;
     &.--acu {
         color: $negro;
     }
-    .text & {
-        //CAMBIAR
-        font-family: $font-georgia;
-        font-size: px(16);
-        line-height: px(24);
-    }
+    // .text & {
+    //     //CAMBIAR
+    //     font-family: $font-georgia;
+    //     font-size: px(16);
+    //     line-height: px(24);
+    // }
     .listuser & {
         padding: px(10) px(20);
     }
@@ -104,9 +104,9 @@
         &.--highlight {
             margin-right: px(35);
             font-family: $font-arial;
-            font-size: $font-12;
+            font-size: px(12);
             font-weight: bold;
-            padding: $px-10 $px-24;
+            padding: px(10) px(24);
             text-transform: uppercase;
             border-radius: 3px;
             transition: opacity 0.2s ease-in-out;

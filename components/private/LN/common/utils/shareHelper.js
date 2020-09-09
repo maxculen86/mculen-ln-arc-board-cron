@@ -90,3 +90,8 @@ export const shareWhatsAppMobile = (notaId, dominio, title, content) => {
         console.warn && console.warn('Initialize: ', e);
     }
 };
+
+export const scrollToComments = () => {
+    const element = document.querySelector('#comentarios');
+    element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+};
