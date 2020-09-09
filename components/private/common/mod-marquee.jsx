@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 import ComLink from './com-link';
 
-const ModMarquesina = props => {
+const ModMarquee = props => {
     const { text, link, classCondition } = props;
 
     return (
@@ -17,10 +17,10 @@ const ModMarquesina = props => {
     );
 };
 
-ModMarquesina.propTypes = {
+ModMarquee.propTypes = {
     classCondition: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired
 };
 
-export default ModMarquesina;
+export default ModMarquee;
