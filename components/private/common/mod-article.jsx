@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 // import PropTypes from 'fusion:prop-types';
 
-// import ModDescription from './mod-description';
+import ModDescription from './mod-description';
 
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';

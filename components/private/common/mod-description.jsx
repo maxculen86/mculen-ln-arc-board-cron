@@ -39,7 +39,7 @@ const ModDescription = props => {
             {marqueeText ? (
                 <>
                     <strong
-                        className={`com-marquee ${marqueeSize || '--fivexs'}`}
+                        className={`mod-marquee ${marqueeSize || '--fivexs'}`}
                     >
                         <a href={link} title={marqueeText}>
                             {marqueeText}
