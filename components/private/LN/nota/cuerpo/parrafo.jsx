@@ -27,7 +27,7 @@ const Parrafo = ({ data, capital }) => {
         text.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
-                const [, link] = href.match(/"(.*?[^\\])"/);
+                const [, , link] = href.match(/href=(["'\\])+(.*?)\1/);
                 let target = '_self';
                 if (!href.includes(config.host)) {
                     target = '_blank';

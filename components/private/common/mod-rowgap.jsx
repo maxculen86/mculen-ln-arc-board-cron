@@ -1,23 +1,48 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
+// import '../../../resources/dist/css/ln/modules/mod-rowgap.css';
 
-//import '../../../resources/dist/css/ln/modules/mod-rowgap.css';
+const layout = {
+    Grilla: {
+        1: 'row',
+        2: 'row-gap-tablet-2 row-gap-desksm-2',
+        3: 'row-gap-tablet-3 row-gap-desksm-3',
+        4: 'row-gap-tablet-4 row-gap-desksm-4'
+    },
+    Listado: 'row',
+    Timeline: 'breaking-news --list'
+};
 
-const Modrowgap = props => {
-    const { children, column, classCondition } = props;
+const ModRowGap = props => {
+    const {
+        children,
+        column = 3,
+        classCondition,
+        typeArticle = 'Grilla'
+    } = props;
+
+    const classLayout =
+        typeArticle === 'Grilla'
+            ? layout[typeArticle][column]
+            : layout[typeArticle] || '';
+
     return (
-        <>
-            {column > 1 ? (
-                <div
-                    className={`row-gap-tablet-${column} row-gap-desksm-${column} ${classCondition ||
-                        ''}`}
-                >
-                    {children}
-                </div>
-            ) : (
-                <div className={`row ${classCondition || ''}`}>{children}</div>
-            )}
-        </>
+        <div className={`${classLayout} ${classCondition || ''}`}>
+            {children}
+        </div>
     );
 };
 
-export default Modrowgap;
+ModRowGap.propTypes = {
+    children: PropTypes.node.isRequired,
+    column: PropTypes.number,
+    classCondition: PropTypes.string,
+    typeArticle: PropTypes.string.isRequired
+};
+
+ModRowGap.defaultProps = {
+    column: 3,
+    classCondition: ''
+};
+
+export default ModRowGap;

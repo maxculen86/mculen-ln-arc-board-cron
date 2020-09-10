@@ -133,12 +133,11 @@ const resolve = key => {
 const transform = (data, siteProps) => {
     const respData = data;
     const properties = getProperties(siteProps['arc-site']);
-
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
     const presetsM = get(properties, `imageConfig.resize.m`, null);
 
-    respData.content_elements = data.content_elements.map(v => {
-        return addResizedUrls(v, {
+    respData.content_elements = data.content_elements.map(elem => {
+        return addResizedUrls(elem, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,
             presets: {
@@ -148,6 +147,20 @@ const transform = (data, siteProps) => {
             }
         });
     });
+
+    // De todos los Content Elements, solo traigo el primero que sea parrafo
+    // (para no mandar mas info innecesaria)
+    respData.content_elements = respData.content_elements.map(story => {
+        return {
+            ...story,
+            content_elements: [
+                (story.content_elements &&
+                    story.content_elements.find(e => e.type === 'text')) ||
+                    {}
+            ]
+        };
+    });
+
     return respData;
 };
 

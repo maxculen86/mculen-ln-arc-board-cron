@@ -99,7 +99,10 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
             {/* Banner MEGATOP */}
             {bannerMegatop}
             {/* Banner MEGATOP */}
-            <div id="wrapper" className={`acumulado --color ${revista} ${amp}`}>
+            <div
+                id="wrapper"
+                className={`acumulado --color ${revista} ${amp} maqueta`}
+            >
                 <Header />
                 <main>
                     <div className="row --top" style={backgroundCategory}>
