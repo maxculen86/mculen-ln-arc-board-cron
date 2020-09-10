@@ -205,22 +205,24 @@
     }
 
     /* Start: Solo para dema maqueta */
-    // .com-anexo,
-    // .com-banner {
-    //     background: $gris3;
-    //     min-height: px(100);
-    //     margin-bottom: px(16);
-    //     font-size: 20px;
-    //     line-height: 100px;
-    //     text-align: center;
-    // }
-    // .com-banner {
-    //     margin-top: -24px;
-    //     background: rgba(0, 0, 0, 0.2);
-    // }
-    // .sidebar__aside .banner {
-    //     display: none;
-    // }
+    &.maqueta {
+        .com-anexo,
+        .com-banner {
+            background: $gris3;
+            min-height: px(100);
+            margin-bottom: px(16);
+            font-size: 20px;
+            line-height: 100px;
+            text-align: center;
+        }
+        .com-banner {
+            margin-top: -24px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .sidebar__aside .banner {
+            display: none;
+        }
+    }
     /* End: Solo para dema maqueta */
 }
 
