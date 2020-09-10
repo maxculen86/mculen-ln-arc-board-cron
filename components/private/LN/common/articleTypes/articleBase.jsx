@@ -7,7 +7,7 @@ import '../../../../../resources/dist/css/ln/modules/caja-nota.css';
 // TODO: test pendiente
 const ArticleBase = ({
     extraClasses,
-    articleData: { headlines, website_url: websiteUrl, label },
+    articleData: { headlines, website_url: websiteUrl, label, _id },
     hourComponent,
     mediaComponent,
     children,
@@ -24,7 +24,8 @@ const ArticleBase = ({
     }
     if (position) {
         extraOpts['data-pos'] = `toi${position}`;
-        extraOpts['data-id'] = `1`;
+        extraOpts['data-id'] = _id;
+        extraOpts['data-notaid'] = _id;
     }
     return (
         <article
