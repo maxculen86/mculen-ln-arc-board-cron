@@ -49,7 +49,8 @@ const Amp = props => {
         description,
         subtype,
         syndication,
-        distributor
+        distributor,
+        node_type
     } = globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
@@ -106,6 +107,7 @@ const Amp = props => {
                     subtype={subtype}
                     canonicalUrl={canonicalUrl}
                     arcSite={arcSite}
+                    nodeType={node_type}
                 />
                 <MetaTitle
                     subtype={subtype}

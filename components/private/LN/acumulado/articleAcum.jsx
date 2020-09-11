@@ -32,6 +32,7 @@ const ArticleAcum = ({
     children,
     dataSection,
     article,
+    outputType,
     typeArticle = 'Grilla'
 }) => {
     const { display_date, headlines, website_url, label } = article;
@@ -63,6 +64,7 @@ const ArticleAcum = ({
                 dateText={!typeAcumRules[typeArticle].withHour && display_date}
                 hour={hourToDisplay}
                 subheadText={subheadText}
+                outputType={outputType}
             />
             {children}
         </>
@@ -83,7 +85,8 @@ ArticleAcum.propTypes = {
         })
     }).isRequired,
     children: PropTypes.node,
-    typeArticle: PropTypes.string.isRequired
+    typeArticle: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 ArticleAcum.defaultProps = {

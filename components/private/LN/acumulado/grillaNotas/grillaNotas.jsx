@@ -53,6 +53,7 @@ class GrillaNotas extends Component {
             globalContent,
             loading,
             typeArticle,
+            outputType,
             articlesInCollection = []
         } = this.props;
 
@@ -67,6 +68,7 @@ class GrillaNotas extends Component {
                     articles={articlesInNoCollection}
                     typeArticle={typeArticle}
                     classCondition={hayMasNotas > 0 && 'hlp-degrade'}
+                    outputType={outputType}
                 />
 
                 {hayMasNotas > 0 && (
@@ -93,6 +95,7 @@ GrillaNotas.propTypes = {
     globalContent: PropTypes.shape({
         name: PropTypes.string
     }).isRequired,
+    outputType: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     siteProperties: PropTypes.shape({

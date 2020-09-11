@@ -17,7 +17,8 @@ const styleConfig = {
         'LN-nota-noticia': 'resources/dist/css/ln/amp/ampln-acu.css',
         'LN-nota-infografia': 'resources/dist/css/ln/amp/ampln-acu.css',
         'LN-nota-storytelling': 'resources/dist/css/ln/amp/ampln-acu.css',
-        'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/ampln-acu.css'
+        'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/ampln-acu.css',
+        'LN-acumulado': 'resources/dist/css/ln/amp/ampln-acu.css'
     }
 };
 
@@ -41,6 +42,10 @@ const customElementForAcu = [
     {
         customElement: 'amp-accordion',
         src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
+    },
+    {
+        customElement: 'amp-analytics',
+        src: 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js'
     },
     {
         customElement: 'amp-ad',
@@ -159,6 +164,7 @@ const config = {
     OTT: {},
     'la-nacion-ar': {
         'AMP-LN-Acu': customElementForAcu,
+        'LN-acumulado': customElementForAcu,
         'LN-nota-noticia': customElementForNote,
         'LN-nota-infografia': customElementForNote,
         'LN-nota-storytelling': customElementForNote,

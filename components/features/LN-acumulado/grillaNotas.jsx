@@ -14,7 +14,8 @@ function GrillaNotasFeature({ customFields: { typeArticle } }) {
     const { cantidad_notas = 30, tipo_acumulado = 'Grilla' } = acumuladoGeneral;
     const {
         globalContent: { author_type: authorType, _id, Payload },
-        siteProperties
+        siteProperties,
+        outputType
     } = useAppContext();
 
     const tagId =
@@ -35,6 +36,7 @@ function GrillaNotasFeature({ customFields: { typeArticle } }) {
             siteProperties={siteProperties}
             typeArticle={tipo_acumulado}
             articlesInCollection={articlesInCollection}
+            outputType={outputType}
         />
     );
 }
