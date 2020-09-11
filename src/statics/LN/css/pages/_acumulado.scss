@@ -19,6 +19,25 @@
             }
         }
     }
+    .sidebar__main {
+        //fix para banners tablet caja1 y caja2
+        .row-gap-tablet-3 {
+            .mod-banner {
+                &.--caja1_tab,
+                &.--caja2_tab {
+                    grid-column: auto;
+                    @media ($media-m) {
+                        grid-column-start: 1;
+                        grid-column-end: 4;
+                    }
+                    @media ($media-lm) {
+                        grid-column: auto;
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
     .sidebar__main > .row {
         > .mod-article {
             padding-bottom: $spacing;
@@ -211,18 +230,29 @@
         .com-anexo,
         .com-banner {
             background: $gris3;
-            min-height: px(100);
             margin-bottom: px(16);
             font-size: 20px;
             line-height: 100px;
             text-align: center;
         }
-        .com-banner {
+        .com-anexo {
+            min-height: px(100);
+        }
+        .--top .com-banner {
             margin-top: -24px;
             background: rgba(0, 0, 0, 0.2);
         }
         .sidebar__aside .banner {
             display: none;
+        }
+        .mod-banner {
+            &.--caja1_tab,
+            &.--caja2_tab {
+                .com-banner {
+                    width: 728px;
+                    height: 60px;
+                }
+            }
         }
     }
     /* End: Solo para dema maqueta */

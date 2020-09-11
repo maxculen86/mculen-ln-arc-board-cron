@@ -335,6 +335,108 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                                         marqueeText="Por Gabriel Di Nicola"
                                         dateText
                                     />
+                                    <div className="mod-banner --caja1_tab">
+                                        <div className="com-banner">BANNER</div>
+                                    </div>
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <div className="mod-banner --caja2_tab">
+                                        <div className="com-banner">BANNER</div>
+                                    </div>
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
+                                    <ModArticle
+                                        withMedia
+                                        link="#"
+                                        titleSize="--twoxs"
+                                        titleText="Manifestación contra los despidos en el aeroparque metropolitano"
+                                        marqueeText="Por Gabriel Di Nicola"
+                                        dateText
+                                    />
                                 </ModRowGap>
 
                                 {/* LISTADO DE NOTAS */}
