@@ -21,7 +21,7 @@ const typeAcumRules = {
         withHour: false
     },
     Timeline: {
-        withMedia: false,
+        withMedia: true,
         withSubhead: false,
         withAuthors: false,
         withHour: true
@@ -46,7 +46,7 @@ const ArticleAcum = ({
     const titleText = getTitleText(headlines, label);
 
     const hourToDisplay = typeAcumRules[typeArticle].withHour && (
-        <ComHour display_date={display_date} />
+        <ComHour display_date={display_date} size="--twoxs" />
     );
 
     return (
