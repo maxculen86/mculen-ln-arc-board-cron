@@ -53,7 +53,8 @@ class GrillaNotas extends Component {
             globalContent,
             loading,
             typeArticle,
-            articlesInCollection = []
+            articlesInCollection = [],
+            outputType
         } = this.props;
 
         const articlesInNoCollection = articles.filter(art => {
@@ -67,6 +68,7 @@ class GrillaNotas extends Component {
                     articles={articlesInNoCollection}
                     typeArticle={typeArticle}
                     classCondition={hayMasNotas > 0 && 'hlp-degrade'}
+                    outputType={outputType}
                 />
 
                 {hayMasNotas > 0 && (
@@ -86,6 +88,7 @@ class GrillaNotas extends Component {
 
 GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired,
     articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
@@ -102,12 +105,7 @@ GrillaNotas.propTypes = {
     }).isRequired
 };
 
-// GrillaNotas.defaultProps = {
-//     articles: [],
-//     hayMasNotas: 0,
-//     obtenerMasNotas: () => {},
-//     loading: false,
-//     isAdmin: false
-// };
-
+GrillaNotas.defaultProps = {
+    articlesInCollection: []
+};
 export default WithAcuArticlesData(GrillaNotas, filter, 'notaM');

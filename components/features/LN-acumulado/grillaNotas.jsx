@@ -6,15 +6,16 @@ import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 
-function GrillaNotasFeature({ customFields: { typeArticle } }) {
+function GrillaNotasFeature() {
     const {
         acumuladoGeneral = {},
-        articlesInCollection = {}
+        articlesInCollection = []
     } = useGlobalProviderAcu();
     const { cantidad_notas = 30, tipo_acumulado = 'Grilla' } = acumuladoGeneral;
     const {
         globalContent: { author_type: authorType, _id, Payload },
-        siteProperties
+        siteProperties,
+        outputType
     } = useAppContext();
 
     const tagId =
@@ -35,6 +36,7 @@ function GrillaNotasFeature({ customFields: { typeArticle } }) {
             siteProperties={siteProperties}
             typeArticle={tipo_acumulado}
             articlesInCollection={articlesInCollection}
+            outputType={outputType}
         />
     );
 }

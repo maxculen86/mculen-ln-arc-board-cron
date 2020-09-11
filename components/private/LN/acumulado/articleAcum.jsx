@@ -32,7 +32,8 @@ const ArticleAcum = ({
     children,
     dataSection,
     article,
-    typeArticle = 'Grilla'
+    typeArticle = 'Grilla',
+    outputType
 }) => {
     const { display_date, headlines, website_url, label } = article;
 
@@ -63,6 +64,7 @@ const ArticleAcum = ({
                 dateText={!typeAcumRules[typeArticle].withHour && display_date}
                 hour={hourToDisplay}
                 subheadText={subheadText}
+                outputType={outputType}
             />
             {children}
         </>
@@ -74,7 +76,7 @@ ArticleAcum.propTypes = {
     article: PropTypes.shape({
         _id: PropTypes.string,
         display_date: PropTypes.string,
-        headlines: PropTypes.string,
+        headlines: PropTypes.object,
         website_url: PropTypes.string,
         label: PropTypes.shape({
             volanta: PropTypes.shape({
@@ -83,7 +85,8 @@ ArticleAcum.propTypes = {
         })
     }).isRequired,
     children: PropTypes.node,
-    typeArticle: PropTypes.string.isRequired
+    typeArticle: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 ArticleAcum.defaultProps = {

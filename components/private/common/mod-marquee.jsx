@@ -18,9 +18,13 @@ const ModMarquee = props => {
 };
 
 ModMarquee.propTypes = {
-    classCondition: PropTypes.string.isRequired,
+    classCondition: PropTypes.string,
     text: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired
+};
+
+ModMarquee.defaultProps = {
+    classCondition: ''
 };
 
 export default ModMarquee;
