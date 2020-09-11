@@ -43,6 +43,10 @@ export default {
             props: {},
             location: ['head']
         },
+        GooglePublisherTagAcumulado: {
+            props: {},
+            location: ['head']
+        },
         AdvertiserContent: {
             props: {},
             location: ['body-top']
