@@ -4,16 +4,18 @@
 @import '../components/com-paragraph';
 @import '../components/com-line';
 @import '../components/com-carousel';
-@import '../components/com-ordered';
-@import '../components/com-unordered';
+@import '../components/com-ordered'; //cambiar
+@import '../components/com-unordered'; //cambiar
+@import '../components/appointment'; //cambiar
+@import '../components/blockquote'; //cambiar
 
 @import '../modules/mod-date';
 @import '../modules/mod-share';
 @import '../modules/mod-paragraph';
 @import '../modules/mod-autor';
 @import '../modules/mod-sponsor';
+@import '../modules/mod-keepreading';
 //@import '../modules/mod-newsletter';
 
-//@import '../../../../../src/statics/LN/css/components/blockquote.scss'; //se pasa a NOTICIA
 // MANTENER SIEMPRE AL FINAL
 @import './amp-basic';
