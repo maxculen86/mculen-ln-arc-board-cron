@@ -10,7 +10,7 @@
     margin-bottom: px(40);
 }
 
-@media ($media-lm) {
+@media ($media-l) {
     .lay-sidebar {
         flex-direction: row;
     }
@@ -23,6 +23,25 @@
     .sidebar__aside {
         flex-basis: px(300);
         flex-shrink: 0;
+    }
+}
+
+.acumulado {
+    //cambio momentaneo solo para acumulado
+    @media ($media-lm) {
+        .lay-sidebar {
+            flex-direction: row;
+        }
+        .sidebar__main {
+            flex-basis: 100%;
+            margin-right: px(40);
+            //por slider
+            //overflow: hidden;
+        }
+        .sidebar__aside {
+            flex-basis: px(300);
+            flex-shrink: 0;
+        }
     }
 }
 
