@@ -19,10 +19,10 @@ const ComLink = props => {
     // TODO: Evaluar si debe retornar un span cuando el componente no recibe link
     // TODO: Definir si el link debe ser una propiedad obligatoria
     const _props = {
-        href: link,
-        rel: target === '_blank' && 'nonoopener noreferrer',
-        target,
-        title,
+        ...(link && { href: link }),
+        ...(link && { rel: target === '_blank' && 'nonoopener noreferrer' }),
+        ...(link && { target }),
+        ...(link && { title }),
         className: `com-${link ? 'link' : 'text'} ${classCondition || ''}`,
         ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
         ...(!isString && { children: children || textname })
@@ -34,7 +34,7 @@ const ComLink = props => {
 };
 
 ComLink.propTypes = {
-    children: PropTypes.oneOf([
+    children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.string
     ]).isRequired,

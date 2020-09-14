@@ -7,31 +7,31 @@ export default function handleScrollForNota() {
 
     if (scrollPercentRounded > 25) {
         if (!window.dataLayer.some(e => e.quartile === '25')) {
-            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': '25' });
+            window.dataLayer.push({ event: 'trackScroll', quartile: '25' });
         }
     }
 
     if (scrollPercentRounded > 50) {
         if (!window.dataLayer.some(e => e.quartile === '50')) {
-            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': '50' });
+            window.dataLayer.push({ event: 'trackScroll', quartile: '50' });
         }
     }
     if (scrollPercentRounded > 75) {
         if (!window.dataLayer.some(e => e.quartile === '75')) {
-            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': '75' });
+            window.dataLayer.push({ event: 'trackScroll', quartile: '75' });
         }
     }
     if (scrollPercentRounded === 100) {
         if (!window.dataLayer.some(e => e.quartile === '100')) {
-            window.dataLayer.push({ 'event': 'trackScroll', 'quartile': '100' });
+            window.dataLayer.push({ event: 'trackScroll', quartile: '100' });
         }
     }
 
     if (scrolledIntoView('#fin-cuerpo')) {
         if (!window.dataLayer.some(e => e.quartile === 'fin del contenido')) {
             window.dataLayer.push({
-                'event': 'trackScroll',
-                'quartile': 'fin del contenido'
+                event: 'trackScroll',
+                quartile: 'fin del contenido'
             });
         }
     }
@@ -41,8 +41,8 @@ export default function handleScrollForNota() {
             !window.dataLayer.some(e => e.quartile === 'fin caja sugerencias')
         ) {
             window.dataLayer.push({
-                'event': 'trackScroll',
-                'quartile': 'fin caja sugerencias'
+                event: 'trackScroll',
+                quartile: 'fin caja sugerencias'
             });
         }
     }
