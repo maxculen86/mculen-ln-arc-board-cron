@@ -7,12 +7,18 @@ const URI_ELMAH = `https://api.elmah.io/v3/messages/${ELMAH_LOG_ID}`;
 
 const logger = (() => {
     const push = (e, config, site) => {
-        const props = getProperties(site) || { logger: false };
-        if (!props.logger) return;
+        const { loggerOn, loggerExcludedErrors } = getProperties(site) || {
+            loggerOn: true,
+            loggerExcludedErros: []
+        };
         const { statusCode } = e || {};
         const method = get(e || {}, 'response.request.method', null);
         const uri = get(e || {}, 'options.uri', null);
         const message = get(e || {}, 'error.message', null);
+
+        if (!loggerOn || loggerExcludedErrors.includes(Number(statusCode || 0)))
+            return;
+
         const {
             application = 'ln/arc',
             source = 'ARC',

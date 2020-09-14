@@ -11,12 +11,22 @@ describe('ComLink', () => {
         classCondition: '--autor'
     };
 
+    const atributes = {
+        className: 'com-link --autor', 
+        children: 'A link',
+        href: "https://lanacion.com.ar",
+        rel: false,
+        target: "_self",
+        title: undefined
+    };
+
     it('Render OK', () => {
         const component = shallow(<ComLink {...props} />);
         expect(component).toBeDefined();
         expect(component.isEmptyRender()).toBeFalsy();
         expect(component.find('a.com-link')).toBeTruthy();
         expect(component.find('a.com-link').html()).toContain('A link');
+        expect(component.props()).toEqual(atributes);
     });
 
     it('Render OK tag when there is no link', () => {
@@ -25,11 +35,17 @@ describe('ComLink', () => {
             classCondition: '--autor'
         };
 
+        const atributes = {
+            className: 'com-text --autor', 
+            children: 'A span'
+        };
+
         const component = shallow(<ComLink {...props} />);
         expect(component).toBeDefined();
         expect(component.isEmptyRender()).toBeFalsy();
         expect(component.find('span.com-text')).toBeTruthy();
         expect(component.props().className).toBe('com-text --autor');
+        expect(component.props()).toEqual(atributes);
         expect(component.html()).toContain('A span');
     });
 

@@ -47,7 +47,8 @@
     .revistas-layer:not(.--scrollUp) &,
     .storytelling:not(.--scrollUp) &,
     &.transparente,
-    .--transparent & {
+    .--hlp-transparent &,
+    .--color & {
         &:not(.--scrollUp) {
             background: rgba(0, 0, 0, 0.5);
             border: none;
