@@ -46,8 +46,8 @@
     .acu-revista &,
     .revistas-layer:not(.--scrollUp) &,
     .storytelling:not(.--scrollUp) &,
-    &.transparente,
-    .--hlp-transparent &,
+    .--photo100:not(.--scrollUp) &,
+    .--transparent &,
     .--color & {
         &:not(.--scrollUp) {
             background: rgba(0, 0, 0, 0.5);
