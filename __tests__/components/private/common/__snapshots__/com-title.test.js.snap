@@ -13,7 +13,7 @@ exports[`Private - Common - ComTitle =>  Snapshot h2 con content tags  y link 1`
   class="com-title"
 >
   <a
-    class="com-link "
+    class="com-link"
     href="/ultimas-noticias"
   >
     Soy un 
@@ -30,7 +30,7 @@ exports[`Private - Common - ComTitle =>  Snapshot h2 con link 1`] = `
   class="com-title"
 >
   <a
-    class="com-link "
+    class="com-link"
     href="/ultimas-noticias"
   >
     Título de impacto H2 con ComLink

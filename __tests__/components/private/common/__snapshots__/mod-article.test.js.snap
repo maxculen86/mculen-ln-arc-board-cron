@@ -25,7 +25,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       class="com-title --s"
     >
       <a
-        class="com-link "
+        class="com-link"
         href="http://google.com"
       >
         Este es el titulo
@@ -47,7 +47,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       class="mod-marquee --fivexs"
     >
       <a
-        class="com-link "
+        class="com-link"
         href="http://google.com"
       >
         Mariano Grondona
