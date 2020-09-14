@@ -7,8 +7,12 @@ import ArticleFotoAlCien from '../../../../../../../__mocks__/data/nota/cuerpo/n
 
 describe('Test Json Text del cuerpo de la nota', () => {
     it('Test para validar si el cuerpo es null', () => {
-        const resp = Cuerpo(ArticleSinCuerpo);
-        expect(resp).toBe(null);
+        try {
+            const resp = Cuerpo(ArticleSinCuerpo);
+            expect(resp).toBe(null);
+        } catch (err) {
+            expect(err.message).toBe('Esta nota no posee cuerpo');
+        }
     });
 
     it('Test para validar la cantidad de elementos del cuerpo', () => {

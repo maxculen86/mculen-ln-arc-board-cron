@@ -1,5 +1,5 @@
-import Text from './elements/text';
-import Image from './elements/image';
+import Text from '../elements/text';
+import Image from '../elements/image';
 
 const fotoAlCienCuerpo = contentElements => {
     const components = [Text, Image];

@@ -1,8 +1,8 @@
 import get from 'lodash.get';
-import DefaultCuerpo from './defaultCuerpo';
-import RecetaCuerpo from './recetaCuerpo';
-import htmlCuerpo from './htmlCuerpo';
-import fotoAlCienCuerpo from './fotoAlCienCuerpo';
+import DefaultCuerpo from './templates/default';
+import RecetaCuerpo from './templates/receta';
+import htmlCuerpo from './templates/htmlLibre';
+import fotoAlCienCuerpo from './templates/fotoAlCien';
 
 const cuerpoIndex = article => {
     const templates = {
@@ -11,10 +11,10 @@ const cuerpoIndex = article => {
         '4': DefaultCuerpo,
         '7': RecetaCuerpo,
         '8': fotoAlCienCuerpo,
-        '9': htmlCuerpo                
+        '9': htmlCuerpo
     };
 
-    if (!article.content_elements) return null;
+    if (!article.content_elements) throw new Error('Esta nota no posee cuerpo');
 
     const contentElements = article.content_elements;
     const infographic = get(article, 'promo_items.basic');
@@ -22,9 +22,13 @@ const cuerpoIndex = article => {
     if (article.subtype === '2' && infographic) {
         contentElements.unshift(infographic);
     }
-    
-    return templates[article.subtype](contentElements);
 
+    try {
+        return templates[article.subtype](contentElements);
+    } catch (err) {
+        err.message = `El ID de template ${article.subtype} no esta declarado`;
+        throw err;
+    }
 };
 
 export default cuerpoIndex;

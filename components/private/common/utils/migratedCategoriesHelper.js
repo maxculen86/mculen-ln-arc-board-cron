@@ -10,9 +10,9 @@ function findCategory(categoryToFind) {
     return elem;
 }
 
-function getSecundaryCategory(caterogy) {
-    const category = caterogy.substr(caterogy.lastIndexOf('/'));
-    return category;
+function getSecundaryCategory(category) {
+    const elem = category.substr(category.lastIndexOf('/'));
+    return elem;
 }
 
 function getPrincipalCategory(category) {
@@ -26,23 +26,32 @@ function getPrincipalCategory(category) {
     return principalCategory;
 }
 
-export function isMigratedCategory(caterogy, isPrincipal = false) {
+export function isMigratedCategory(category, isPrincipal = false) {
     const categoryToFind = isPrincipal
-        ? getPrincipalCategory(caterogy)
-        : getSecundaryCategory(caterogy);
+        ? getPrincipalCategory(category)
+        : getSecundaryCategory(category);
+
     const elem = findCategory(categoryToFind);
-    if (!elem) return null;
+
+    if (!elem)
+        throw new Error(
+            `La categoria '${category}' no existe en el diccionario`
+        );
 
     return elem.migrada;
 }
 
-export function getCategory(caterogy, isPrincipal = false) {
+export function getCategory(category, isPrincipal = false) {
     const categoryToFind = isPrincipal
-        ? getPrincipalCategory(caterogy)
-        : getSecundaryCategory(caterogy);
+        ? getPrincipalCategory(category)
+        : getSecundaryCategory(category);
+
     const elem = findCategory(categoryToFind);
 
-    if (!elem) return null;
+    if (!elem)
+        throw new Error(
+            `La categoria '${category}' no existe en el diccionario`
+        );
 
     return elem;
 }
