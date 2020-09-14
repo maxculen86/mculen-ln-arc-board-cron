@@ -55,7 +55,7 @@ const LNAcumuladoLayout = props => {
             acumuladoGeneral={acumuladoGeneral}
             acumuladoColor={acumuladoColor}
         >
-            <div id="wrapper" className={`acu ${classRevista}`}>
+            <div id="wrapper" className={`acumulado ${classRevista}`}>
                 <Header headerDark={headerDark} />
                 <main>
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
@@ -91,7 +91,7 @@ const LNAcumuladoLayout = props => {
                             {/* NOTAS */}
                             {children[4]}
                         </div>
-                        <div className="sidebar__aside hlp-desklm-none">
+                        <div className="sidebar__aside hlp-tablet-none">
                             <div className="row">
                                 <div className="col-12">
                                     {/* RANKING DE NOTAS */}
@@ -117,8 +117,8 @@ LNAcumuladoLayout.propTypes = {
         acumuladoGeneral: PropTypes.shape({
             tipo_acumulado: PropTypes.string,
             hierarchy_navigation: PropTypes.string,
-            hide_banner: PropTypes.boolean,
-            cantidad_notas: PropTypes.number,
+            hide_banner: PropTypes.string,
+            cantidad_notas: PropTypes.string,
             id_collection_promo_items: PropTypes.string
         }),
         acumuladoColor: PropTypes.shape({

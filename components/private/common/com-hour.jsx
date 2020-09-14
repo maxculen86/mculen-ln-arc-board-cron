@@ -3,13 +3,13 @@ import PropTypes from 'fusion:prop-types';
 import dateAndTimeUtil from '../common/utils/dateAndTimeUtil';
 import '../../../resources/dist/css/ln/components/com-hour.css';
 
-const ComHour = ({ display_date, labelEdicionImpresa }) => {
+const ComHour = ({ display_date, labelEdicionImpresa, size }) => {
     const { text: textEdicionImpresa } = labelEdicionImpresa || {};
     const { time } = dateAndTimeUtil(display_date);
     return (
         <>
             {textEdicionImpresa !== 'Impresa' ? (
-                <time className="com-hour --threexs">{time}</time>
+                <time className={`com-hour ${size || '--treexs'}`}>{time}</time>
             ) : (
                 <></>
             )}

@@ -2,7 +2,7 @@
 import { Subtypes } from '../../../common/utils/subtypes/subtypeHelper';
 
 const dataLayerScriptNota = globalContent => {
-    const { content_restrictions, subtype } = globalContent;
+    const { content_restrictions, subtype, _id } = globalContent;
     const valor =
         (content_restrictions && content_restrictions.content_code) || 'comun';
     // TODO: por ahora fijo nota, pero en el futuro debe ser dinamico segun sea home, acu o nota
@@ -29,6 +29,7 @@ const dataLayerScriptNota = globalContent => {
                     "pageType": "${pageType}",
                     "subtype":"${(mySubtype && mySubtype.nombre) || ''}",
                     "valor": "${valor}",
+                    "nota_id": "${_id}"
                 }
             ];
 

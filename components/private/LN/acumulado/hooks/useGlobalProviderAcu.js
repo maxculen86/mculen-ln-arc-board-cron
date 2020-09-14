@@ -5,9 +5,15 @@ import { GlobalContext } from '../context/globalContextAcu';
 const useGlobalProviderAcu = () => {
     const [state, setState] = useContext(GlobalContext);
 
+    function setArticlesInCollection(value) {
+        setState(state => ({ ...state, articlesInCollection: value }));
+    }
+
     return {
         acumuladoGeneral: state.acumuladoGeneral,
-        acumuladoColor: state.acumuladoColor
+        acumuladoColor: state.acumuladoColor,
+        articlesInCollection: state.articlesInCollection,
+        setArticlesInCollection
     };
 };
 

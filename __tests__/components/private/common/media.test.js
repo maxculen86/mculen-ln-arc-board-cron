@@ -70,8 +70,4 @@ describe('Private - LN - Common - Media', () => {
         expect(img.is('img')).toBe(true);
         expect(comp.prop('loading')).toBe(undefined);
     });
-
-   
 });
-
-
