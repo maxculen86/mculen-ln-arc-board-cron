@@ -1,39 +1,54 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-// import ArticleMain from '../common/articleTypes/articleMain';
-// import ArticleDate from '../common/dateArticle';
-import get from '../../common/utils/get';
 import ModArticle from '../../common/mod-article';
 import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTextParagraph';
 import getTitleText from '../../common/utils/getTitleText';
-
-// const setDecimal = num => (num > 9 ? num : `0${num}`);
-// const getHour = date =>
-//     `${setDecimal(date.getHours())}:${setDecimal(date.getMinutes())}`;
+import ComHour from '../../common/com-hour';
+import getAuthorsAsString from '../../common/utils/getAuthorsAsString';
 
 const typeAcumRules = {
     Grilla: {
         withMedia: true,
-        withSubhead: false
+        withSubhead: false,
+        withAuthors: true,
+        withHour: false
     },
     Listado: {
         withMedia: false,
-        withSubhead: true
+        withSubhead: true,
+        withAuthors: true,
+        withHour: false
     },
     Timeline: {
-        withMedia: false,
-        withSubhead: false
+        withMedia: true,
+        withSubhead: false,
+        withAuthors: false,
+        withHour: true
     }
 };
 
-const ArticleAcum = ({ children, dataSection, article, typeArticle }) => {
+const ArticleAcum = ({
+    children,
+    dataSection,
+    article,
+    typeArticle = 'Grilla',
+    outputType
+}) => {
     const { display_date, headlines, website_url, label } = article;
-    // console.log("article => ", JSON.stringify(article))
-    const authors = get(article, 'credits.by', []);
 
-    const subheadText = getBajadaOrFirstTextParagraph(article);
+    const authors =
+        typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(article);
+
+    const subheadText =
+        typeAcumRules[typeArticle].withSubhead &&
+        getBajadaOrFirstTextParagraph(article);
+
     const titleText = getTitleText(headlines, label);
+
+    const hourToDisplay = typeAcumRules[typeArticle].withHour && (
+        <ComHour display_date={display_date} size="--twoxs" />
+    );
 
     return (
         <>
@@ -46,10 +61,10 @@ const ArticleAcum = ({ children, dataSection, article, typeArticle }) => {
                 titleSize="--s"
                 titleText={titleText}
                 authors={authors}
-                dateText={display_date}
-                subheadText={
-                    typeAcumRules[typeArticle].withSubhead && subheadText
-                }
+                dateText={!typeAcumRules[typeArticle].withHour && display_date}
+                hour={hourToDisplay}
+                subheadText={subheadText}
+                outputType={outputType}
             />
             {children}
         </>
@@ -61,7 +76,7 @@ ArticleAcum.propTypes = {
     article: PropTypes.shape({
         _id: PropTypes.string,
         display_date: PropTypes.string,
-        headlines: PropTypes.string,
+        headlines: PropTypes.object,
         website_url: PropTypes.string,
         label: PropTypes.shape({
             volanta: PropTypes.shape({
@@ -70,7 +85,8 @@ ArticleAcum.propTypes = {
         })
     }).isRequired,
     children: PropTypes.node,
-    typeArticle: PropTypes.string.isRequired
+    typeArticle: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 ArticleAcum.defaultProps = {
@@ -79,29 +95,3 @@ ArticleAcum.defaultProps = {
 };
 
 export default ArticleAcum;
-/*
-{typeArticle === 'ArticleTimeLine' && (
-        <ArticleMain
-            dataSection={dataSection}
-            key={`clone-${article._id}`}
-            articleData={article}
-            extraClasses={`${extraClasses} --list`}
-            hourToDisplay={
-                displayDate && getHour(new Date(displayDate))
-            }
-        />
-    )}
-
-
-    <ArticleMain
-        dataSection={dataSection}
-        key={`clone-${article._id}`}
-        articleData={article}
-        extraClasses={extraClasses}
-    >
-        
-        <ArticleDate display_date={displayDate} />
-    </ArticleMain>
-    {children}
-            
-*/

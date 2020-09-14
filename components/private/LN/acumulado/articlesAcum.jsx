@@ -10,7 +10,8 @@ const ArticlesAcum = ({
     articles = [],
     getBanner,
     typeArticle,
-    classCondition
+    classCondition,
+    outputType
 }) => {
     return (
         <ModRowGap
@@ -26,6 +27,7 @@ const ArticlesAcum = ({
                         dataSection={DATA_SECTION}
                         article={art}
                         typeArticle={typeArticle}
+                        outputType={outputType}
                     >
                         {banner}
                     </ArticleAcum>
@@ -39,29 +41,12 @@ ArticlesAcum.propTypes = {
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     getBanner: PropTypes.func.isRequired,
     typeArticle: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired,
     classCondition: PropTypes.string
 };
 
+ArticlesAcum.defaultProps = {
+    classCondition: ''
+};
+
 export default ArticlesAcum;
-
-/*
-   if (articles && articles.length) {
-        articlesComponents = articles.map((a, i) => {
-            const banner = getBanner(i);
-
-            return (
-                <ArticleAcum
-                    key={a._id}
-                    dataSection={DATA_SECTION}
-                    extraClasses={CLASS_W_100}
-                    article={a}
-                    typeArticle={typeArticle}
-                >
-                    {banner}
-                </ArticleAcum>
-            );
-        });
-    }
-
-    return articlesComponents;
-*/

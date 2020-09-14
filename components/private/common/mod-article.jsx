@@ -1,16 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-// import PropTypes from 'fusion:prop-types';
-
-// import ModDescription from './mod-description';
-
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
-import ComTitle from './com-title';
-import ModFirma from './mod-firma';
-import ComDate from './com-date';
 import get from './utils/get';
-import ModBajada from './mod-bajada';
+import ModDescription from './mod-description';
 
 const ModArticle = props => {
     const {
@@ -27,7 +20,8 @@ const ModArticle = props => {
         subheadText,
         subheadSize,
         dateText,
-        dateSize
+        dateSize,
+        hour
     } = props;
 
     const extraOpts = {};
@@ -37,43 +31,33 @@ const ModArticle = props => {
     }
     const imagenDestacada = get(articleData, 'promo_items.basic', null);
     const type = get(imagenDestacada, 'type', null);
-    let media = null;
-    media = (
-        <Media
-            mediaData={type === 'image' ? imagenDestacada : null}
-            href={link}
-            outputType={outputType}
-        />
-    );
 
     return (
         <article
             className={`mod-article ${classCondition || ''}`}
             {...extraOpts}
         >
-            {withMedia && media}
+            {hour && hour}
 
-            {/* Ir a MODULO DESCRIPTION */}
-            <section className="mod-description">
-                <ComTitle
-                    tag={titleTag || 'h2'}
-                    size={titleSize || '--l'}
-                    link={link}
-                    content={titleText}
+            {withMedia && (
+                <Media
+                    mediaData={type === 'image' ? imagenDestacada : null}
+                    href={link}
+                    outputType={outputType}
                 />
+            )}
 
-                {subheadText && (
-                    <ModBajada
-                        link={link}
-                        subheadSize={subheadSize}
-                        subheadText={subheadText}
-                    />
-                )}
-
-                <ModFirma autor={authors} />
-
-                <ComDate display_date={dateText} />
-            </section>
+            <ModDescription
+                link={link}
+                titleTag={titleTag}
+                titleSize={titleSize}
+                titleText={titleText}
+                authors={authors}
+                subheadText={subheadText}
+                subheadSize={subheadSize}
+                dateText={dateText}
+                dateSize={dateSize}
+            />
         </article>
     );
 };
@@ -89,7 +73,8 @@ ModArticle.propTypes = {
     subheadSize: PropTypes.string,
     dateText: PropTypes.string,
     dateSize: PropTypes.string,
-    authors: PropTypes.arrayOf(PropTypes.object),
+    hour: PropTypes.oneOfType([PropTypes.string, PropTypes.boolean]),
+    authors: PropTypes.string,
     withMedia: PropTypes.boolean,
     outputType: PropTypes.string,
     articleData: PropTypes.shape({
@@ -108,41 +93,11 @@ ModArticle.defaultProps = {
     subheadSize: '',
     dateText: undefined,
     dateSize: undefined,
-    authors: [],
+    authors: '',
     withMedia: false,
     link: undefined,
+    hour: undefined,
     outputType: 'default'
 };
 
 export default ModArticle;
-/*
-<section role="button" className="mod-media">
-    <figure role="button" className="mod-figure">
-        <a href={link} title={titleText}>
-            {/* FOTO 
-            <picture className="mod-picture ">
-                <img
-                    src="http://demo-prod.origin.arcpublishing.com/resizer/r-JvqZANSLMk42Z4TpYGOtv78eI=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/OTEM63R4KFHPDGQSI5C7TAW4JU.jpg"
-                    loading="lazy"
-                    className="com-image "
-                    alt={titleText}
-                />
-            </picture>
-            {/* VIDEO o GALERIA 
-        </a>
-    </figure>
-            </section>
-
-    <ModDescription
-    link={link}
-    titleTag={titleTag}
-    titleSize={titleSize}
-    titleText={titleText}
-    subheadText={subheadText}
-    subheadSize={subheadSize}
-    authorText={authorText}
-    authorSize={authorSize}
-    dateText={dateText}
-    dateSize={dateSize}
-/>
-*/

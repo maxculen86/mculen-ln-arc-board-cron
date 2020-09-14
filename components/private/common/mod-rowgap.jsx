@@ -10,7 +10,7 @@ const layout = {
         4: 'row-gap-tablet-4 row-gap-desksm-4'
     },
     Listado: 'row',
-    Timeline: 'breaking-news --list'
+    Timeline: 'breaking-news'
 };
 
 const ModRowGap = props => {
@@ -20,8 +20,11 @@ const ModRowGap = props => {
         classCondition,
         typeArticle = 'Grilla'
     } = props;
+
     const classLayout =
-        layout[typeArticle][column] || layout[typeArticle] || '';
+        typeArticle === 'Grilla'
+            ? layout[typeArticle][column]
+            : layout[typeArticle] || '';
 
     return (
         <div className={`${classLayout} ${classCondition || ''}`}>
@@ -31,10 +34,15 @@ const ModRowGap = props => {
 };
 
 ModRowGap.propTypes = {
-    children: PropTypes.node,
-    column: PropTypes.number,
+    children: PropTypes.node.isRequired,
+    column: PropTypes.string,
     classCondition: PropTypes.string,
     typeArticle: PropTypes.string.isRequired
+};
+
+ModRowGap.defaultProps = {
+    column: 3,
+    classCondition: ''
 };
 
 export default ModRowGap;

@@ -1,9 +1,9 @@
 import React from 'react';
-
+import PropTypes from 'fusion:prop-types';
 import ComTitle from './com-title';
 import ComDate from './com-date';
-
-//import '../../../resources/dist/css/ln/modules/mod-description.css';
+import ModBajada from './mod-bajada';
+import ModMarquesina from './mod-marquee';
 
 const ModDescription = props => {
     const {
@@ -12,7 +12,7 @@ const ModDescription = props => {
         titleSize,
         titleText,
         authorSize,
-        authorText,
+        authors,
         subheadText,
         subheadSize,
         dateText,
@@ -27,35 +27,43 @@ const ModDescription = props => {
                 link={link}
                 content={titleText}
             />
-            {subheadText ? (
-                <p className={`com-subhead ${subheadSize || '--threexs'}`}>
-                    <a href={link} className="com-link" title={subheadText}>
-                        {subheadText}
-                    </a>
-                </p>
-            ) : (
-                <></>
+
+            {subheadText && (
+                <ModBajada
+                    link={link}
+                    subheadSize={subheadSize}
+                    subheadText={subheadText}
+                />
             )}
-            {authorText ? (
-                <>
-                    <strong className={`mod-firma ${authorSize || '--fivexs'}`}>
-                        <a href={link} title={authorText}>
-                            {authorText}
-                        </a>
-                    </strong>
-                </>
-            ) : (
-                <></>
-            )}
-            {dateText ? (
-                <>
-                    <ComDate display_date={dateText} />
-                </>
-            ) : (
-                <></>
-            )}
+
+            <ModMarquesina text={authors} link={link} />
+
+            {dateText && <ComDate display_date={dateText} />}
         </section>
     );
+};
+
+ModDescription.propTypes = {
+    link: PropTypes.string,
+    titleTag: PropTypes.string,
+    titleSize: PropTypes.string,
+    titleText: PropTypes.string.isRequired,
+    subheadText: PropTypes.string,
+    subheadSize: PropTypes.string,
+    dateText: PropTypes.string,
+    dateSize: PropTypes.string,
+    authors: PropTypes.string
+};
+
+ModDescription.defaultProps = {
+    titleTag: 'h4',
+    titleSize: '--s',
+    subheadText: false,
+    subheadSize: '',
+    dateText: undefined,
+    dateSize: undefined,
+    authors: '',
+    link: undefined
 };
 
 export default ModDescription;
