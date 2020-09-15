@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import '../../../resources/dist/css/ln/components/ordered.css';
-import '../../../resources/dist/css/ln/components/unordered.css';
+import '../../../resources/dist/css/ln/components/com-ordered.css';
+import '../../../resources/dist/css/ln/components/com-unordered.css';
 import '../../../resources/dist/css/ln/components/title.css';
 import ComTitle from './com-title';
 
