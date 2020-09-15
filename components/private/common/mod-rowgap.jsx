@@ -35,7 +35,7 @@ const ModRowGap = props => {
 
 ModRowGap.propTypes = {
     children: PropTypes.node.isRequired,
-    column: PropTypes.number,
+    column: PropTypes.string,
     classCondition: PropTypes.string,
     typeArticle: PropTypes.string.isRequired
 };

@@ -10,7 +10,8 @@ const ArticlesAcum = ({
     articles = [],
     getBanner,
     typeArticle,
-    classCondition
+    classCondition,
+    outputType
 }) => {
     return (
         <ModRowGap
@@ -19,17 +20,16 @@ const ArticlesAcum = ({
             typeArticle={typeArticle}
         >
             {articles.map((art, i) => {
-                const mobileBanner = getBanner('mobile', i);
-                const tabletBanner = getBanner('tablet', i);
+                const banner = getBanner(i);
                 return (
                     <ArticleAcum
                         key={art._id}
                         dataSection={DATA_SECTION}
                         article={art}
                         typeArticle={typeArticle}
+                        outputType={outputType}
                     >
-                        {mobileBanner}
-                        {tabletBanner}
+                        {banner}
                     </ArticleAcum>
                 );
             })}
@@ -41,7 +41,12 @@ ArticlesAcum.propTypes = {
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     getBanner: PropTypes.func.isRequired,
     typeArticle: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired,
     classCondition: PropTypes.string
+};
+
+ArticlesAcum.defaultProps = {
+    classCondition: ''
 };
 
 export default ArticlesAcum;

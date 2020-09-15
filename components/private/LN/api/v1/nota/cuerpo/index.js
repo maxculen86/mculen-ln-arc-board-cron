@@ -11,7 +11,7 @@ const cuerpoIndex = article => {
         '4': DefaultCuerpo,
         '7': RecetaCuerpo,
         '8': fotoAlCienCuerpo,
-        '9': htmlCuerpo                
+        '9': htmlCuerpo
     };
 
     if (!article.content_elements) return null;
@@ -22,9 +22,8 @@ const cuerpoIndex = article => {
     if (article.subtype === '2' && infographic) {
         contentElements.unshift(infographic);
     }
-    
-    return templates[article.subtype](contentElements);
 
+    return templates[article.subtype](contentElements);
 };
 
 export default cuerpoIndex;
