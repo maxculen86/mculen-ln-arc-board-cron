@@ -6,10 +6,10 @@ import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 
-function GrillaNotasFeature({ customFields: { typeArticle } }) {
+function GrillaNotasFeature() {
     const {
         acumuladoGeneral = {},
-        articlesInCollection = {}
+        articlesInCollection = []
     } = useGlobalProviderAcu();
     const { cantidad_notas = 30, tipo_acumulado = 'Grilla' } = acumuladoGeneral;
     const {

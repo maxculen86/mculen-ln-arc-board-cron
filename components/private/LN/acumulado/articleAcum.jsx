@@ -21,7 +21,7 @@ const typeAcumRules = {
         withHour: false
     },
     Timeline: {
-        withMedia: false,
+        withMedia: true,
         withSubhead: false,
         withAuthors: false,
         withHour: true
@@ -32,8 +32,8 @@ const ArticleAcum = ({
     children,
     dataSection,
     article,
-    outputType,
-    typeArticle = 'Grilla'
+    typeArticle = 'Grilla',
+    outputType
 }) => {
     const { display_date, headlines, website_url, label } = article;
 
@@ -47,7 +47,7 @@ const ArticleAcum = ({
     const titleText = getTitleText(headlines, label);
 
     const hourToDisplay = typeAcumRules[typeArticle].withHour && (
-        <ComHour display_date={display_date} />
+        <ComHour display_date={display_date} size="--twoxs" />
     );
 
     return (
@@ -76,7 +76,7 @@ ArticleAcum.propTypes = {
     article: PropTypes.shape({
         _id: PropTypes.string,
         display_date: PropTypes.string,
-        headlines: PropTypes.string,
+        headlines: PropTypes.object,
         website_url: PropTypes.string,
         label: PropTypes.shape({
             volanta: PropTypes.shape({

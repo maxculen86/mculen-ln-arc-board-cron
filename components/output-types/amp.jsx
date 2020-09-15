@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
@@ -50,8 +51,10 @@ const Amp = props => {
         subtype,
         syndication,
         distributor,
-        node_type
+        node_type,
+        _id
     } = globalContent || {};
+
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
@@ -105,7 +108,7 @@ const Amp = props => {
                 />
                 <Robot
                     subtype={subtype}
-                    canonicalUrl={canonicalUrl}
+                    canonicalUrl={canonicalUrl || _id}
                     arcSite={arcSite}
                     nodeType={node_type}
                 />

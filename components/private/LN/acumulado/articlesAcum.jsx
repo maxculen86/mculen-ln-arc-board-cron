@@ -47,4 +47,8 @@ ArticlesAcum.propTypes = {
     classCondition: PropTypes.string
 };
 
+ArticlesAcum.defaultProps = {
+    classCondition: ''
+};
+
 export default ArticlesAcum;

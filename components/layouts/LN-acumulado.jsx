@@ -91,7 +91,7 @@ const LNAcumuladoLayout = props => {
                             {/* NOTAS */}
                             {children[4]}
                         </div>
-                        <div className="sidebar__aside hlp-desklm-none">
+                        <div className="sidebar__aside hlp-tablet-none">
                             <div className="row">
                                 <div className="col-12">
                                     {/* RANKING DE NOTAS */}

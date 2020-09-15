@@ -1,16 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-// import PropTypes from 'fusion:prop-types';
-
-// import ModDescription from './mod-description';
-
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
-import ComTitle from './com-title';
-import ComDate from './com-date';
 import get from './utils/get';
-import ModBajada from './mod-bajada';
-import ModMarquesina from './mod-marquee';
+import ModDescription from './mod-description';
 
 const ModArticle = props => {
     const {
@@ -38,14 +31,6 @@ const ModArticle = props => {
     }
     const imagenDestacada = get(articleData, 'promo_items.basic', null);
     const type = get(imagenDestacada, 'type', null);
-    let media = null;
-    media = (
-        <Media
-            mediaData={type === 'image' ? imagenDestacada : null}
-            href={link}
-            outputType={outputType}
-        />
-    );
 
     return (
         <article
@@ -53,29 +38,26 @@ const ModArticle = props => {
             {...extraOpts}
         >
             {hour && hour}
-            {withMedia && media}
 
-            {/* Ir a MODULO DESCRIPTION */}
-            <section className="mod-description">
-                <ComTitle
-                    tag={titleTag || 'h2'}
-                    size={titleSize || '--l'}
-                    link={link}
-                    content={titleText}
+            {withMedia && (
+                <Media
+                    mediaData={type === 'image' ? imagenDestacada : null}
+                    href={link}
+                    outputType={outputType}
                 />
+            )}
 
-                {subheadText && (
-                    <ModBajada
-                        link={link}
-                        subheadSize={subheadSize}
-                        subheadText={subheadText}
-                    />
-                )}
-
-                <ModMarquesina text={authors} link={link} />
-
-                {dateText && <ComDate display_date={dateText} />}
-            </section>
+            <ModDescription
+                link={link}
+                titleTag={titleTag}
+                titleSize={titleSize}
+                titleText={titleText}
+                authors={authors}
+                subheadText={subheadText}
+                subheadSize={subheadSize}
+                dateText={dateText}
+                dateSize={dateSize}
+            />
         </article>
     );
 };
@@ -91,7 +73,7 @@ ModArticle.propTypes = {
     subheadSize: PropTypes.string,
     dateText: PropTypes.string,
     dateSize: PropTypes.string,
-    hour: PropTypes.string,
+    hour: PropTypes.oneOfType([PropTypes.string, PropTypes.boolean]),
     authors: PropTypes.string,
     withMedia: PropTypes.boolean,
     outputType: PropTypes.string,
