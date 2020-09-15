@@ -5,7 +5,13 @@ import GrillaNotas from './grillaNotas';
 
 class Index extends Component {
     render() {
-        const { siteProperties, size, globalContent, typeArticle } = this.props;
+        const {
+            siteProperties,
+            size,
+            globalContent,
+            typeArticle,
+            bannerConfig
+        } = this.props;
         const { author_type: authorType, _id, Payload } = globalContent;
         const tagId =
             Payload && Payload.items && Payload.items.length
@@ -23,6 +29,7 @@ class Index extends Component {
                 page={1}
                 siteProperties={siteProperties}
                 typeArticle={typeArticle}
+                bannerConfig={bannerConfig}
             />
         );
     }
@@ -42,6 +49,12 @@ Index.propTypes = {
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
         })
+    }).isRequired,
+    bannerConfig: PropTypes.shape({
+        background: PropTypes.bool,
+        position: PropTypes.number,
+        sticky: PropTypes.bool,
+        tablet: PropTypes.string
     }).isRequired
 };
 

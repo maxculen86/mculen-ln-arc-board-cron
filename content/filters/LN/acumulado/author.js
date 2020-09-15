@@ -5,5 +5,6 @@ export default `
     bio_page,
     image { url },
     longBio,
-    twitter
+    twitter,
+    slug
 }`;

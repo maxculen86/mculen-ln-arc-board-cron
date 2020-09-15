@@ -146,7 +146,28 @@ function getBannerForStoryTemplate(config) {
     }
 }
 
-function getBannerForAccumTemplate(config) {}
+function getBannerForAccumTemplate(config) {
+    const { slotId } = config;
+    switch (slotId) {
+        case STICKY_1_MOB:
+            return <Sticky1Mob {...config} />;
+        case CABEZAL_DSK:
+        case CABEZAL_TAB:
+        case CAJA_1_DSK:
+        case CAJA_2_DSK:
+        case CAJA_3_DSK:
+        case CAJA_4_DSK:
+        case CAJA_1_TAB:
+        case CAJA_2_TAB:
+        case CAJA_1_MOB:
+        case CAJA_2_MOB:
+        case CAJA_3_MOB:
+        case CAJA_4_MOB:
+            return <Default {...config} />;
+        default:
+            return <></>;
+    }
+}
 
 function reducer(state, action) {
     const {
@@ -170,13 +191,12 @@ export default config => {
         useEffect(() => {
             if (!banner) {
                 switch (slotGroup) {
-                    case ACCUM_TEMPLATE:
                     case STORY_TEMPLATE:
                         dispatch({ type: STORY_TEMPLATE, meta: { config } });
                         break;
-                    /* case ACCUM_TEMPLATE:
+                    case ACCUM_TEMPLATE:
                         dispatch({ type: ACCUM_TEMPLATE, meta: { config } });
-                        break; */
+                        break;
                     default:
                         break;
                 }
