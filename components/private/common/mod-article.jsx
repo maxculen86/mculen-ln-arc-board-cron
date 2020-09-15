@@ -16,7 +16,7 @@ const ModArticle = props => {
         titleSize,
         titleText,
         marqueeSize,
-        marqueeText,
+        authors,
         withMedia,
         subheadText,
         subheadSize,
