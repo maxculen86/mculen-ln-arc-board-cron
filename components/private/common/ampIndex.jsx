@@ -11,14 +11,21 @@ export const _AMPBoilerplate =
 const styleConfig = {
     OTT: {},
     'la-nacion-ar': {
-        'AMP-LN-Acu': 'resources/dist/css/ln/amp/ampln-acu.css',
-        'AMP-LN-Acu-Noticias':
-            'resources/dist/css/ln/amp/ampln-acu-noticias.css',
-        'LN-nota-noticia': 'resources/dist/css/ln/amp/ampln-acu.css',
-        'LN-nota-infografia': 'resources/dist/css/ln/amp/ampln-acu.css',
-        'LN-nota-storytelling': 'resources/dist/css/ln/amp/ampln-acu.css',
-        'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/ampln-acu.css',
+        // 'LN-nota-noticia':'resources/dist/css/ln/amp/amp-basic.css',
+        'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/amp-foto100.css',
+        'LN-nota-infografia': 'resources/dist/css/ln/amp/amp-infografia.css',
+        'LN-nota-noticia': 'resources/dist/css/ln/amp/amp-noticia.css',
+        // '':resources/dist/css/ln/amp/amp-receta.css,
+        'LN-nota-storytelling':
+            'resources/dist/css/ln/amp/amp-storytelling.css',
         'LN-acumulado': 'resources/dist/css/ln/amp/ampln-acu.css'
+
+        // 'AMP-LN-Acu': 'resources/dist/css/ln/amp/ampln-acu.css',
+        // 'AMP-LN-Acu-Noticias':'resources/dist/css/ln/amp/ampln-acu-noticias.css',
+        // 'LN-nota-noticia': 'resources/dist/css/ln/amp/ampln-acu.css',
+        // 'LN-nota-infografia': 'resources/dist/css/ln/amp/ampln-acu.css',
+        // 'LN-nota-storytelling': 'resources/dist/css/ln/amp/ampln-acu.css',
+        // 'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/ampln-acu.css'
     }
 };
 

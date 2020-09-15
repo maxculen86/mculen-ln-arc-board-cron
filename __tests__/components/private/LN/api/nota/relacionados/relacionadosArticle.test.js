@@ -56,7 +56,10 @@ describe('Test de JSON de relacionados en article', () => {
 
     it('Validar si la nota no posee categoria principal', () => {
         const resp = Relacionados(articleRelatedNotesWithoutPrincipalCategory);
-        const relatedNotes = get(articleRelatedNotesWithoutPrincipalCategory, 'related_content.basic');
+        const relatedNotes = get(
+            articleRelatedNotesWithoutPrincipalCategory,
+            'related_content.basic'
+        );
         expect(resp.notas).toHaveLength(relatedNotes.length);
     });
 });

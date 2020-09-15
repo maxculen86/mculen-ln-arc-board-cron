@@ -11,6 +11,8 @@
     border-radius: px(4);
     outline: none;
     max-width: px(360);
+    border: 1px solid transparent;
+    cursor: pointer;
     &.--bottom,
     &.--top {
         @include flex(flex, column, center, center);
@@ -69,6 +71,7 @@
     //variantes
     &.--primary {
         background: $ln;
+        border-color: $ln;
         color: $blanco;
 
         &:hover {
@@ -83,12 +86,8 @@
         }
     }
     &.--secondary {
-        border: 1px solid $ln;
+        border-color: $ln;
         color: $ln;
-        .cuerpo__nota & {
-            margin-bottom: $spacing-lg;
-        }
-
         &:hover {
             background: rgba($ln, 1);
             color: $blanco;
@@ -103,8 +102,17 @@
             color: $gris3;
             border: 1px solid $gris3;
         }
+        .com-usuario & {
+            .header & {
+                display: none;
+            }
+        }
+        .cuerpo__nota & {
+            margin-bottom: $spacing-lg;
+        }
     }
     &.--tertiary {
+        border-color: $gris3;
         background: $gris3;
         color: $gris5;
 
@@ -120,25 +128,40 @@
             color: $gris3;
         }
     }
-    &.--special {
+    &.--special,
+    &.--highlight {
         background: $highlight;
-        border: 1px solid $gris3;
+        border-color: $gris3;
         color: $gris6;
 
         &:hover {
             background: $negro;
-            border: 1px solid;
+            border-color: $negro;
             color: $blanco;
         }
         &:active {
             background: $highlight-active;
-            border: 1px solid $gris3;
+            border-color: $gris3;
             color: $gris6;
         }
         &:disabled {
             background: $gris2;
             color: $gris3;
-            border: 1px solid $gris3;
+            border-color: $gris3;
+        }
+        .com-usuario & {
+            .header & {
+                background: transparent;
+                border-color: transparent;
+                padding: px(3) px(16);
+                font-weight: 100;
+                .--transparent & {
+                    color: $blanco;
+                }
+                .--transparent.--scrollUp & {
+                    color: $gris6;
+                }
+            }
         }
     }
     &.--compact {
@@ -222,9 +245,9 @@
             margin-left: px(5);
         }
     }
-    // .cuerpo__nota & {
-    //     font-family: $font-arial;
-    // }
+    .header & {
+        font-family: $font-arial;
+    }
 }
 @media ($media-l) {
     .com-button {
@@ -235,6 +258,53 @@
             .mod-share & {
                 display: flex;
                 flex-direction: column;
+            }
+        }
+        &.--secondary {
+            .com-usuario & {
+                .header & {
+                    display: flex;
+                    .--transparent & {
+                        color: $blanco;
+                        border-color: $blanco;
+                        &:hover {
+                            background: $blanco;
+                            border-color: $blanco;
+                            color: $gris6;
+                        }
+                    }
+                    .--transparent.--scrollUp & {
+                        border-color: $ln;
+                        color: $ln;
+                        &:hover {
+                            background: rgba($ln, 1);
+                            color: $blanco;
+                        }
+                    }
+                }
+            }
+        }
+        &.--special,
+        &.--highlight {
+            .com-usuario & {
+                .header & {
+                    background: $highlight;
+                    border-color: $gris3;
+                    margin-right: px(16);
+                    padding: px(8) px(16);
+                    font-weight: 700;
+                    &:hover {
+                        background: $negro;
+                        border-color: $negro;
+                    }
+                    .--transparent & {
+                        color: $gris6;
+                        &:hover {
+                            border-color: $negro;
+                            color: $blanco;
+                        }
+                    }
+                }
             }
         }
     }

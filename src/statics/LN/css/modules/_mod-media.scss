@@ -165,7 +165,7 @@
     .mod-video {
         @include fullwidth;
         margin-bottom: 0.5rem;
-        @media ($media-l) {
+        @media ($media-m) {
             width: 100%;
             margin-left: 0;
         }

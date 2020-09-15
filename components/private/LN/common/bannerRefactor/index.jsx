@@ -8,16 +8,7 @@ import { slotsConfig } from './config';
 import Placeholder from './placeholder';
 
 import BannerManager from './manager/banner';
-
-const getDimsFromSiteService = config => slotGroup => finalSlot => {
-    if (!config || !slotGroup) return null;
-    const position = config[`${slotGroup}_${finalSlot}`];
-    if (!position) return null;
-    const dimensions = position.split(',');
-    return dimensions.map(dimension =>
-        dimension.split('x').map(size => parseInt(size, 10))
-    );
-};
+import { getDimsFromSiteService } from './utils';
 
 const index = props => {
     const dimensions = useRef(null);
@@ -29,12 +20,15 @@ const index = props => {
         banner,
         screenUtils,
         extraClasses,
-        arcSite: website
+        arcSite: website,
+        termicas
     } = props;
 
+    const { banners: termicaShowBanner } = termicas || {};
     const {
         slotGroup,
-        selectedSlots: { desktopSlot, mobileSlot, tabletSlot }
+        selectedSlots: { desktopSlot, mobileSlot, tabletSlot },
+        show
     } = banner;
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
@@ -82,7 +76,11 @@ const index = props => {
         sizemap: finalConfig.sizemap,
         bidding: finalConfig.bidding,
         device: screenUtils.device,
-        extraClasses
+        extraClasses,
+        show: {
+            ...banner.show,
+            termicas: termicaShowBanner
+        }
     };
 
     if (!finalConfig) return null;
@@ -126,7 +124,10 @@ index.propTypes = {
         sticky: PropTypes.bool,
         background: PropTypes.bool,
         fixed: PropTypes.bool,
-        show: PropTypes.bool
+        show: PropTypes.shape({
+            termicas: PropTypes.bool,
+            collection: PropTypes.bool
+        })
     })
 };
 

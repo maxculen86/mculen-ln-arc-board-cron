@@ -13,6 +13,7 @@ import MetasOG from '../private/common/metaTags/metasOG';
 import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
+import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
 import AdvertiserContent from '../private/common/scriptManager/AdvertiserContent';
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
 import OptaEmbed from '../private/common/scriptManager/optaEmbed';
@@ -61,6 +62,13 @@ const scriptList = [
     },
     {
         component: { name: 'GooglePublisherTag', function: GooglePublisherTag },
+        feature: 'none'
+    },
+    {
+        component: {
+            name: 'GooglePublisherTagAcumulado',
+            function: GooglePublisherTagAcumulado
+        },
         feature: 'none'
     },
     {
