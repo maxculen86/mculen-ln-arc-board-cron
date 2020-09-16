@@ -3,14 +3,34 @@ import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
 import ComTitle from '../../../common/com-title';
 
+const getSectionsAsTags = sections =>
+    sections
+        .filter(section => section.name !== '')
+        .reduce((accumulator, section, index) => {
+            return [
+                ...accumulator,
+                ...[
+                    {
+                        type: section.type,
+                        slug: section.path,
+                        text: section.name
+                    }
+                ]
+            ];
+        }, []);
+
 // TODO: este componente deberia ser el que tiene el titulo de "Recetas con:"
-const Tags = ({ tags, destacado, temas }) => {
-    const listTags = tags.map(x => {
+const Tags = ({ tags, sections, destacado, temas }) => {
+    const categories = getSectionsAsTags(sections);
+
+    const listTags = categories.concat(tags).map(x => {
         return {
+            type: x.type || 'tag',
             path: x.slug,
             text: x.text
         };
     });
+
     return (
         <>
             {temas ? (
@@ -23,17 +43,12 @@ const Tags = ({ tags, destacado, temas }) => {
                             <TaxonomyComponent
                                 list={listTags}
                                 destacado={destacado}
-                                type="tag"
                             />
                         ) : null}
                     </div>
                 </div>
             ) : (
-                <TaxonomyComponent
-                    list={listTags}
-                    destacado={destacado}
-                    type="tag"
-                />
+                <TaxonomyComponent list={listTags} destacado={destacado} />
             )}
         </>
     );
@@ -48,7 +63,8 @@ Tags.propTypes = {
         })
     ).isRequired,
     destacado: PropTypes.boolean.isRequired,
-    temas: PropTypes.boolean
+    temas: PropTypes.boolean,
+    sections: PropTypes.arrayOf(PropTypes.shape)
 };
 
 export default Tags;
