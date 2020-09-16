@@ -18,7 +18,8 @@ const styleConfig = {
         // '':resources/dist/css/ln/amp/amp-receta.css,
         'LN-nota-storytelling':
             'resources/dist/css/ln/amp/amp-storytelling.css',
-        'LN-acumulado': 'resources/dist/css/ln/amp/ampln-acu.css'
+        'LN-acumulado': 'resources/dist/css/ln/amp/amp-acumulado.css'
+        //'LN-acumulado': 'resources/dist/css/ln/amp/ampln-acu.css'
 
         // 'AMP-LN-Acu': 'resources/dist/css/ln/amp/ampln-acu.css',
         // 'AMP-LN-Acu-Noticias':'resources/dist/css/ln/amp/ampln-acu-noticias.css',
