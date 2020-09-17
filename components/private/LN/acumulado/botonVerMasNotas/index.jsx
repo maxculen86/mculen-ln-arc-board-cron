@@ -10,7 +10,7 @@ const Button = ({ onClickHandler, name, loading, loadingIcon }) => {
             <button
                 type="button"
                 onClick={onClickHandler}
-                className="--btn --secondary"
+                className="com-button --secondary"
                 disabled={loading}
             >
                 VER MÁS NOTAS
