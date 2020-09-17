@@ -1,0 +1,13 @@
+@import '../pages/storytelling';
+@import '../components/com-partner';
+@import '../components/com-date';
+@import '../components/com-hour';
+@import '../components/com-paragraph';
+
+@import '../modules/mod-date';
+@import '../modules/mod-share';
+@import '../modules/mod-paragraph';
+@import '../modules/mod-autor';
+@import '../modules/mod-sponsor';
+// MANTENER SIEMPRE AL FINAL
+@import './amp-basic';

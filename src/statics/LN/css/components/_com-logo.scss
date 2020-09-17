@@ -1,6 +1,17 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+.com-logo {
+    // .--apertura & {
+    //     margin-bottom: $spacing-sm;
+    // }
+    .mod-sponsor & {
+        .--apertura & {
+            margin-bottom: 0;
+        }
+    }
+}
+
 .logo-ohlala.logo-ohlala {
     font-size: px(18);
     &.--medium {
@@ -167,11 +178,5 @@
     }
     &.--color {
         color: $club2;
-    }
-}
-
-.com-logo {
-    .--apertura & {
-        margin-bottom: $spacing-sm;
     }
 }

@@ -5,7 +5,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   class="mod-themes"
 >
   <a
-    class="com-link "
+    class="com-link"
     href="/tema/asd-1/"
   >
     <button
@@ -20,7 +20,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
     </button>
   </a>
   <a
-    class="com-link "
+    class="com-link"
     href="/tema/asd-2/"
   >
     <button
@@ -35,8 +35,8 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
     </button>
   </a>
   <a
-    class="com-link "
-    href="/tema/asd-3/"
+    class="com-link"
+    href="asd-3/"
   >
     <button
       class="com-button --secondary --compact"
