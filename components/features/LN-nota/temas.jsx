@@ -9,10 +9,11 @@ const temas = props => {
         globalContent: { taxonomy },
         id: featureId
     } = props;
-    const { tags } = taxonomy || {};
+    const { tags, sections } = taxonomy || {};
+
     return (
         <Static id={featureId}>
-            <Temas tags={tags} destacado temas />
+            <Temas tags={tags} sections={sections} destacado temas />
         </Static>
     );
 };

@@ -16,6 +16,8 @@ const ComLink = props => {
     } = props;
 
     const isString = typeof children === 'string';
+    const SIZE_CLASS = size ? ` ${size}` : '';
+    const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
     // TODO: Evaluar si debe retornar un span cuando el componente no recibe link
     // TODO: Definir si el link debe ser una propiedad obligatoria
     const _props = {
@@ -23,9 +25,9 @@ const ComLink = props => {
         ...(link && { rel: target === '_blank' && 'nonoopener noreferrer' }),
         ...(link && { target }),
         ...(link && { title }),
-        className: `com-${link ? 'link' : 'text'} ${classCondition || ''}`,
         ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
-        ...(!isString && { children: children || textname })
+        ...(!isString && { children: children || textname }),
+        className: `com-${link ? 'link' : 'text'}${SIZE_CLASS}${EXTRA_CLASS}`
     };
 
     const tag = link ? 'a' : 'span';
@@ -42,7 +44,8 @@ ComLink.propTypes = {
     textname: PropTypes.string.isRequired,
     title: PropTypes.string,
     target: PropTypes.string,
-    classCondition: PropTypes.string
+    classCondition: PropTypes.string,
+    size: PropTypes.string
 };
 
 export default ComLink;
