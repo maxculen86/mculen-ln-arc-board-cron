@@ -56,6 +56,10 @@ const customElementForAcu = [
         src: 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js'
     },
     {
+        customElement: 'amp-sticky-ad',
+        src: 'https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'
+    },
+    {
         customElement: 'amp-ad',
         src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
     } /*
