@@ -4,13 +4,13 @@ import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 
-import '../../resources/dist/css/ln/base.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/pages/acu.css';
-import '../../resources/dist/css/ln/components/com-ordered.css';
-import '../../resources/dist/css/ln/components/com-unordered.css';
-import '../../resources/dist/css/ln/components/hour.css';
+// import '../../resources/dist/css/ln/base.css';
+// import '../../resources/dist/css/ln/layouts/layout.css';
+//import '../../resources/dist/css/ln/layouts/grid.css';
+//import '../../resources/dist/css/ln/pages/acu.css';
+// import '../../resources/dist/css/ln/components/com-ordered.css';
+// import '../../resources/dist/css/ln/components/com-unordered.css';
+//import '../../resources/dist/css/ln/components/hour.css';
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
@@ -68,6 +68,7 @@ const LNAcumuladoLayout = props => {
                 <Header headerDark={headerDark} />
                 <main>
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
+                    {children[1]}
                     {children[2] && (
                         <div className="row">
                             <div className="col-12">
