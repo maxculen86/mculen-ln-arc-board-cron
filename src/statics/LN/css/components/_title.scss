@@ -4,79 +4,79 @@
 
 .com-title-section-xl {
     font-family: $font-SuecaSlab;
-    font-size: $font-22;
+    font-size: px(22);
     font-weight: 500;
-    line-height: $line-26;
+    line-height: px(33);
     letter-spacing: -0.35px;
     text-decoration: underline;
 }
 
 .com-title-section-l {
     font-family: $font-SuecaSlab;
-    font-size: $font-22;
+    font-size: px(22);
     font-weight: 500;
-    line-height: $line-22;
+    line-height: px(29);
     letter-spacing: -0.35px;
 }
 
 .com-title-section-m {
     font-family: $font-SuecaSlab;
-    font-size: $font-22;
+    font-size: px(22);
     font-weight: 800;
-    line-height: $line-22;
+    line-height: px(29);
     letter-spacing: -0.29px;
     .com-ranking & {
-        margin-bottom: $px-13;
+        margin-bottom: px(13);
     }
 }
 
 h4.com-title-section-m {
-    margin-bottom: $px-20;
+    margin-bottom: px(20);
 }
 
 .com-title-section-s {
     font-family: $font-SuecaSlab;
-    font-size: $font-22;
+    font-size: px(22);
     font-weight: 500;
-    line-height: $line-22;
+    line-height: px(29);
     letter-spacing: -0.29px;
 }
 
 h4.com-title-section-s {
-    margin-bottom: $px-20;
+    margin-bottom: px(20);
 }
 
 .com-title-section-xs {
     font-family: $font-arial;
-    font-size: $font-16;
+    font-size: px(16);
     font-weight: 700;
-    line-height: $line-16;
+    line-height: px(23);
     letter-spacing: -0.21px;
 }
 
 .com-title-nota {
     font-family: $font-SuecaSlab;
-    font-size: $font-24;
-    line-height: $line-33;
+    font-size: px(24);
+    line-height: px(40);
 }
 //=======================================
 // Se saca el margin top
 //=======================================
 h1.com-title-nota {
-    //margin-top: $px-20;
-    margin-bottom: $px-20;
+    //margin-top: px(20);
+    margin-bottom: px(20);
     @media (min-width: 1024px) {
         margin-top: 0;
-        margin-bottom: $px-16;
+        margin-bottom: $spacing-sm;
     }
 }
 
 .com-title-acu {
     font-family: $font-arial;
-    font-size: $font-14;
-    line-height: $line-17;
+    font-size: px(14);
+    line-height: px(24);
     color: $negro;
-    margin-top: $px-7;
+    margin-top: px(7);
     b {
         font-weight: 600;
     }
@@ -84,11 +84,11 @@ h1.com-title-nota {
 
 .com-title-acu-humor {
     font-family: $font-SuecaSlab;
-    font-size: $font-16;
+    font-size: px(16);
     font-weight: 800;
-    line-height: $line-16;
+    line-height: px(23);
     letter-spacing: -0.4px;
-    margin-right: $px-20;
+    margin-right: px(20);
     .humor & {
         display: inline-block;
         margin-top: 0;
@@ -97,33 +97,33 @@ h1.com-title-nota {
 
 .com-title-acu-last {
     font-family: $font-SuecaSlab;
-    font-size: $font-20;
-    line-height: $line-24;
+    font-size: px(20);
+    line-height: px(31);
     letter-spacing: -0.47px;
 }
 
 .com-titleWithfollow {
     margin-bottom: 20px;
     @media (min-width: 768px) {
-        margin-bottom: $px-30;
+        margin-bottom: px(30);
     }
     @media (min-width: 1024px) {
-        margin-bottom: $px-40;
+        margin-bottom: px(40);
     }
     [class^='com-title'],
     [class*=' com-title'] {
         display: inline-block;
-        margin-right: $px-10;
+        margin-right: px(10);
         vertical-align: middle;
-        margin-bottom: $px-10;
+        margin-bottom: px(10);
     }
 }
 
 .com-title-section-autor {
     font-family: $font-SuecaSlab;
-    font-size: $font-20;
+    font-size: px(20);
     font-weight: 600;
-    line-height: $line-20;
+    line-height: px(27);
     letter-spacing: -0.47px;
 }
 
@@ -131,8 +131,8 @@ h1.com-title-nota {
 @media (min-width: 360px) {
     .com-title-acu {
         font-family: $font-SuecaSlab;
-        font-size: $font-17;
-        line-height: $line-21;
+        font-size: px(17);
+        line-height: px(28);
     }
 }
 
@@ -140,18 +140,18 @@ h1.com-title-nota {
 @media (min-width: 768px) {
     .com-title-acu {
         font-family: $font-SuecaSlab;
-        font-size: $font-17;
-        line-height: $line-17;
+        font-size: px(17);
+        line-height: px(24);
         letter-spacing: -0.4px;
     }
     .com-title-nota {
-        font-size: $font-38;
-        line-height: $line-48;
+        font-size: px(38);
+        line-height: px(55);
     }
     .com-title-acu-last {
         font-family: $font-SuecaSlab;
-        font-size: $font-19;
-        line-height: $line-24;
+        font-size: px(19);
+        line-height: px(31);
         letter-spacing: -0.45px;
     }
 }
@@ -160,42 +160,42 @@ h1.com-title-nota {
 @media (min-width: 1024px) {
     .com-title-section-xxl {
         font-family: $font-SuecaSlab;
-        font-size: $font-40;
+        font-size: px(40);
         font-weight: 500;
-        line-height: $line-40;
+        line-height: px(47);
         letter-spacing: -0.53px;
     }
     .com-title-section-xl {
         font-family: $font-SuecaSlab;
-        font-size: $font-30;
+        font-size: px(30);
         font-weight: 500;
-        line-height: $line-40;
+        line-height: px(47);
         letter-spacing: -0.4px;
     }
     .com-title-section-l {
         font-family: $font-SuecaSlab;
-        font-size: $font-25;
+        font-size: px(25);
         font-weight: 500;
-        line-height: $line-40;
+        line-height: px(47);
         letter-spacing: -0.4px;
     }
     .com-title-section-m {
         font-family: $font-SuecaSlab;
-        font-size: $font-24;
+        font-size: px(24);
         font-weight: 800;
-        line-height: $line-24;
+        line-height: px(31);
         letter-spacing: -0.32px;
     }
     .com-title-section-s {
         font-family: $font-SuecaSlab;
-        font-size: $font-24;
+        font-size: px(24);
         font-weight: 500;
-        line-height: $line-24;
+        line-height: px(31);
         letter-spacing: -0.32px;
     }
     .com-title-acu {
-        font-size: $font-14;
-        line-height: $line-15;
+        font-size: px(14);
+        line-height: px(22);
         letter-spacing: -0.6px;
     }
 }
@@ -203,8 +203,8 @@ h1.com-title-nota {
 //Valores de tamaño para 3 cajas con borde y padding + tercera
 @media (min-width: 1100px) {
     .com-title-acu {
-        font-size: $font-17;
-        line-height: $line-17;
+        font-size: px(17);
+        line-height: px(24);
         letter-spacing: -0.4px;
     }
 }
@@ -212,8 +212,8 @@ h1.com-title-nota {
 //Valores de desk para arriba
 @media (min-width: 1340px) {
     .com-title-nota {
-        font-size: $font-43;
-        line-height: $line-52;
+        font-size: px(43);
+        line-height: px(59);
     }
 }
 

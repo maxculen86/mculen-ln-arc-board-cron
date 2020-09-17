@@ -4,34 +4,34 @@
 //=====================
 .com-usuario {
     //font-family: $font-arial;
-    //line-height: $font-16;
+    //line-height: px(16);
     display: flex;
     justify-content: flex-end;
     // > button.--highlight {
-    //     margin-right: $px-35;
+    //     margin-right: px(35);
     // }
     &__name {
         font-weight: 700;
-        font-size: $font-14;
+        font-size: px(14);
         color: $link;
         cursor: pointer;
         position: relative;
-        margin-bottom: $px-5;
+        margin-bottom: px(5);
         &:before {
             content: '';
-            width: $px-7;
-            height: $px-7;
+            width: px(7);
+            height: px(7);
             border-top: 2px solid $link;
             border-left: 2px solid $link;
             position: absolute;
-            right: -$px-14;
-            top: $px-1;
+            right: px(-14);
+            top: px(1);
             transform: rotate(224deg);
         }
     }
     &__valueSuscrib {
         font-weight: 400;
-        font-size: $font-12;
+        font-size: px(12);
         color: $gris5;
     }
     #menuUser {
@@ -48,31 +48,31 @@
     border-radius: 3px;
     text-align: left;
     position: absolute;
-    right: -$px-40;
-    top: $px-50;
+    right: px(-40);
+    top: px(50);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     z-index: 100;
     &:before {
         content: '';
         transform: rotate(45deg);
-        width: $px-12;
-        height: $px-12;
+        width: px(12);
+        height: px(12);
         border: 2px solid $gris1;
         border-right: none;
         border-bottom: none;
         border-radius: 0 0 6px 0;
-        margin: -$px-8 auto 0;
+        margin: px(-8) auto 0;
         background: $blanco;
         display: block;
         box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     }
     &:after {
         content: '';
-        width: $px-40;
-        height: $px-10;
+        width: px(40);
+        height: px(10);
         position: absolute;
         top: 0;
-        left: $px-80;
+        left: px(80);
         background: $blanco;
         display: block;
         z-index: 0;
@@ -84,7 +84,7 @@
             border-top: 1px solid $gris3;
         }
         a {
-            font-size: $font-14;
+            font-size: px(14);
             padding: 0.8em 2em;
             width: auto;
             display: block;

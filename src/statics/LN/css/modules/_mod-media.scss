@@ -7,7 +7,7 @@
     // display: flex;
     // justify-content: center;
     // align-items: center;
-    margin-bottom: px(32);
+    margin-bottom: $spacing-lg;
     // .row {
     //     position: relative;
     // }
@@ -163,8 +163,7 @@
     }
 
     .mod-video {
-        width: calc(100% + 2.5rem);
-        margin-left: -1.25rem;
+        @include fullwidth;
         margin-bottom: 0.5rem;
         @media ($media-l) {
             width: 100%;
@@ -197,7 +196,7 @@
 }
 
 // .sidebar__main .mod-media {
-//     //margin-bottom: px(32);
+//     //margin-bottom: $spacing-lg;
 //     // border-bottom: 1px solid #b9b9b9;
 //     // padding-bottom: px(16);
 // }

@@ -41,9 +41,9 @@
         }
         button {
             display: inline-block;
-            margin: 0 $px-15 0 0;
-            height: $px-25;
-            width: $px-25;
+            margin: 0 px(15) 0 0;
+            height: px(25);
+            width: px(25);
             &.icon-comment {
                 display: none;
             }
@@ -65,8 +65,8 @@
         display: inline-block;
         background: initial;
         border: 0;
-        font-size: $font-22;
-        padding: $px-8;
+        font-size: px(22);
+        padding: px(8);
         &.icon-comment {
             display: none;
             & + label {
@@ -74,17 +74,17 @@
             }
         }
         .humor & {
-            margin-right: $px-15;
+            margin-right: px(15);
         }
     }
     label {
         display: inline-block;
         font-family: $font-arial;
-        font-size: $font-11;
-        line-height: $line-14;
+        font-size: px(11);
+        line-height: px(21);
         vertical-align: super;
         color: $link;
-        margin-right: $px-10;
+        margin-right: px(10);
     }
 }
 // @media (min-width: 1020px) and (max-width: 1025px) and (orientation: landscape) {
@@ -99,14 +99,14 @@
     .com-share {
         position: sticky;
         top: 40%;
-        top: $px-10;
+        top: px(10);
         left: 0;
         background: initial;
         border: 0;
         float: left;
 
         &.--scrollUp {
-            top: $px-80;
+            top: px(80);
         }
         .share-right {
             float: initial;
@@ -114,7 +114,7 @@
             border-top: 1px solid $negro;
             button {
                 &:first-child {
-                    margin: $px-10 0 0 0;
+                    margin: px(10) 0 0 0;
                 }
             }
         }
@@ -125,9 +125,9 @@
             display: block;
             background: initial;
             border: 0;
-            font-size: $font-24;
-            padding: $px-10;
-            margin-bottom: $px-5;
+            font-size: px(24);
+            padding: px(10);
+            margin-bottom: px(5);
             opacity: 0.8;
             transition: all 0.2s ease-in-out;
             cursor: pointer;

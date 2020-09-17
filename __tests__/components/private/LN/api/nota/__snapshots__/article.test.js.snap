@@ -94,7 +94,7 @@ Object {
       "valor": Object {
         "_t": "img",
         "baseUrl": "/resizer/{{param}}/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
-        "credito": undefined,
+        "credito": "agustina-de-alba",
         "id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
         "parametros": Array [
           Object {

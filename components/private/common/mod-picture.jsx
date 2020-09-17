@@ -9,7 +9,7 @@ import ModVideo from './mod-video';
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ModImage = props => {
-    const { media, src, srcset, alt, classCondition, video, amp } = props;
+    const { media, src, srcset, alt, classCondition, video, amp, sizes = {} } = props;
     // if (!src || !srcset) return null;
 
     return (
@@ -19,7 +19,7 @@ const ModImage = props => {
             amp={amp}
         >
             {!amp ? <ComSource media={media} srcset={srcset} /> : <></>}
-            <ComImage src={src} alt={alt} amp={amp} />
+            <ComImage src={src} alt={alt} amp={amp} {...sizes} />
             {video ? <ModVideo image={src} video={video} /> : <></>}
         </ComPicture>
     );

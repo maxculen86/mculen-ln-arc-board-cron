@@ -2,7 +2,7 @@
 
 .aper-receta {
     background: $gris1;
-    margin-bottom: $px-40;
+    margin-bottom: px(40);
     &.sin-foto {
         .col-desksm-8 .content-pic {
             background: $blanco;
@@ -10,25 +10,25 @@
         .cont-aper {
             .tags {
                 border-bottom: 0;
-                margin-right: $px-50;
+                margin-right: px(50);
                 border-right: solid 1px $gris3;
                 > div:last-of-type {
-                    margin-top: $px-20;
+                    margin-top: px(20);
                 }
                 &:before {
                     bottom: initial;
-                    height: $px-30;
-                    width: $px-1;
+                    height: px(30);
+                    width: px(1);
                     right: -1px;
                 }
             }
         }
     }
     @media ($media-l) {
-        margin-bottom: $px-80;
+        margin-bottom: px(80);
     }
     @media ($media-m) {
-        margin-bottom: $px-40;
+        margin-bottom: px(40);
     }
 
     .col-desksm-8 {
@@ -40,7 +40,7 @@
                 .mod-picture {
                     width: 100%;
                     margin: 0;
-                    padding-top: calc((2 / 3) * 100%);
+                    padding-top: $picture;
                     img {
                         position: absolute;
                         top: 0;
@@ -56,33 +56,33 @@
         }
     }
     .cont-aper {
-        padding: $px-20;
+        padding: px(20);
         padding-bottom: 0;
         @media ($media-l) {
             order: 1;
         }
         .tags {
             border-bottom: solid 1px $gris3;
-            padding-bottom: $px-20;
+            padding-bottom: px(20);
             position: relative;
             &:before {
                 content: '';
                 display: block;
                 position: absolute;
-                height: $px-1;
-                width: $px-30;
+                height: px(1);
+                width: px(30);
                 background: $negro;
-                bottom: -$px-1;
+                bottom: px(-1);
             }
         }
         .cont_tags {
-            margin-bottom: $px-20;
+            margin-bottom: px(20);
             &:last-child {
                 margin-bottom: 0;
             }
             & + .com-subtitle_list {
-                font-size: $font-14;
-                margin-bottom: $px-12;
+                font-size: px(14);
+                margin-bottom: px(12);
             }
             i:before {
                 text-indent: -8px;
@@ -98,7 +98,7 @@
             .icon-portions {
                 //Se cambia tamaño de 2.3 por pedido de bug y a las apuradas
                 font-size: 1.8em;
-                padding-left: $px-6;
+                padding-left: px(6);
             }
         }
     }
@@ -120,7 +120,7 @@
     display: flex;
     align-items: center;
     font-family: arial;
-    font-size: $font-16;
+    font-size: px(16);
     .num {
         margin: 0 0.2em 0 0.4em;
     }
@@ -128,13 +128,13 @@
 
 @media (min-width: 768px) {
     .aper-receta .cont-aper {
-        padding: $px-30;
+        padding: px(30);
     }
 }
 
 @media (min-width: 1024px) {
     .aper-receta .cont-aper .cont_tags .time-number,
     .aper-receta .cont-aper .cont_tags .portion-number {
-        padding-left: $px-15;
+        padding-left: px(15);
     }
 }
