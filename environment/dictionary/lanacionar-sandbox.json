@@ -88,7 +88,7 @@
             "_id": "123",
             "ArcSectionId": "/economia",
             "name": "Economía",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "146",
@@ -100,7 +100,7 @@
             "_id": "150",
             "ArcSectionId": "/politica",
             "name": "Política",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "124",
@@ -286,7 +286,7 @@
             "_id": "154",
             "ArcSectionId": "/revista-hola",
             "name": "Revista ¡HOLA!",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "157",
@@ -382,85 +382,85 @@
             "_id": "43",
             "ArcSectionId": "/recetas",
             "name": "Recetas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "44",
             "ArcSectionId": "/platos-de-comida-principal",
             "name": "Platos de comida principal",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "45",
             "ArcSectionId": "/postres",
             "name": "Postres",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "46",
             "ArcSectionId": "/dulces",
             "name": "Dulces",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "47",
             "ArcSectionId": "/entradas",
             "name": "Entradas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "48",
             "ArcSectionId": "/carnes",
             "name": "Carnes",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "49",
             "ArcSectionId": "/tortas",
             "name": "Tortas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "50",
             "ArcSectionId": "/pollo",
             "name": "Pollo",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "51",
             "ArcSectionId": "/faciles-y-rapidas",
             "name": "Fáciles y rápidas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "52",
             "ArcSectionId": "/ensaladas",
             "name": "Ensaladas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "53",
             "ArcSectionId": "/guarniciones",
             "name": "Guarniciones",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "54",
             "ArcSectionId": "/vegetarianas",
             "name": "Vegetarianas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "55",
             "ArcSectionId": "/celiacos-sin-gluten",
             "name": "Celíacos sin gluten",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "56",
             "ArcSectionId": "/veganas",
             "name": "Veganas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "60",
