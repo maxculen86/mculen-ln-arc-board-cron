@@ -9,7 +9,7 @@ import ComContainer from '../../common/com-container';
 /**
  * Renderiza elementos relacionados destacados (como categorias o tags)
  */
-const TaxonomyImportantList = ({ list, destacado, type }) => {
+const TaxonomyImportantList = ({ list, destacado }) => {
     return (
         <section className="mod-themes">
             {/*<div
@@ -27,7 +27,7 @@ const TaxonomyImportantList = ({ list, destacado, type }) => {
                 </a> */
 
                 <ComLink
-                    link={type === 'tag' ? `/tema/${v.path}/` : `${v.path}/`}
+                    link={v.type === 'tag' ? `/tema/${v.path}/` : `${v.path}/`}
                     keytext={v.text}
                 >
                     <ComButton
@@ -50,8 +50,8 @@ TaxonomyImportantList.propTypes = {
             path: PropTypes.string
         })
     ).isRequired,
-    destacado: PropTypes.boolean.isRequired,
-    type: PropTypes.string.isRequired
+    destacado: PropTypes.boolean.isRequired
+    //type: PropTypes.string.isRequired
 };
 
 export default TaxonomyImportantList;
