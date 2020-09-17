@@ -37,6 +37,11 @@ const groupBannerConfig = props => {
 function buildCustomFieldsForBanners() {
     const attributes = [
         {
+            name: 'desktop',
+            type: 'list',
+            alias: 'dsk'
+        },
+        {
             name: 'tablet',
             type: 'list',
             alias: 'tab'
