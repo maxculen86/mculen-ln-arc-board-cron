@@ -70,7 +70,14 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
-const revista = 'ohlala';
+// recuperamos el querystring
+//const querystring = window.location.search
+//console.log(querystring) // '?q=pisos+en+barcelona&ciudad=Barcelona'
+
+// usando el querystring, creamos un objeto del tipo URLSearchParams
+//const params = new URLSearchParams(querystring)
+
+const revista = 'lugares';
 
 const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
@@ -132,6 +139,11 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                             <div className="col-12">
                                                 {/* Pos-Apertura */}
                                                 {children[5]}
+                                                <p className="com-paragraph">
+                                                    <i
+                                                        className={`com-logo logo-${revista} --color`}
+                                                    ></i>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

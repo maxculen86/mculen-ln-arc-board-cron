@@ -70,6 +70,8 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
+const revista = 'brando';
+
 const lnNotaFotoAl100 = ({
     children: [
         bannerMegatop,
@@ -92,7 +94,7 @@ const lnNotaFotoAl100 = ({
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
             <div
                 id="wrapper"
-                className={`nota propiedades --photo100 --transparent ${amp}`}
+                className={`nota ${revista} --photo100 --transparent ${amp}`}
             >
                 <Header />
                 <main>
@@ -102,6 +104,11 @@ const lnNotaFotoAl100 = ({
                     <div className="row">
                         {leftCuerpo}
                         {cuerpo}
+                        <p className="com-paragraph">
+                            <i
+                                className={`com-logo logo-${revista} --color`}
+                            ></i>
+                        </p>
                     </div>
 
                     <div className="lay-sidebar">
