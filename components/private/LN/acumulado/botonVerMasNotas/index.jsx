@@ -5,7 +5,7 @@ import '../../../../../resources/dist/css/ln/components/button.css';
 
 const Button = ({ onClickHandler, name, loading, loadingIcon }) => {
     return (
-        <div className="col-12 hlp-text-center hlp-margintop-40">
+        <div className="col-12 --loader">
             {loading && loadingIcon}
             <button
                 type="button"
