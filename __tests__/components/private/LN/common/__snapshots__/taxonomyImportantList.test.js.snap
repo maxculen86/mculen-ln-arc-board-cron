@@ -36,7 +36,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
   </a>
   <a
     class="com-link"
-    href="/tema/asd-3/"
+    href="asd-3/"
   >
     <button
       class="com-button --secondary --compact"

@@ -5,22 +5,24 @@ import TaxonomyImportantList from '../../../../../components/private/LN/common/t
 describe('components - private - LN - common - TaxonomyImportantList', () => {
     const tagsList = [
         {
+            type: 'tag',
             path: 'asd-1',
             text: 'asd 1'
         },
         {
+            type: 'tag',
             path: 'asd-2',
             text: 'asd 2'
         },
         {
+            type: 'section',
             path: 'asd-3',
             text: 'asd 3'
         }
     ];
 
-    const type = 'tag';
     const component = render(
-        <TaxonomyImportantList list={tagsList} type={type} destacado />
+        <TaxonomyImportantList list={tagsList} destacado />
     );
     it('Test de snapshot de taxonomy important list', () => {
         expect(component).toMatchSnapshot();

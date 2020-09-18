@@ -6,6 +6,7 @@ const section = `
     _website
     name
     path
+    type
     parent_id
     additional_properties {
         original {
