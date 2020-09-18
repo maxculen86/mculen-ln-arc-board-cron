@@ -66,6 +66,8 @@ const index = props => {
 
     const finalConfig = slotsConfig[slotGroup][finalSlot];
 
+    if (!finalConfig) return null;
+
     const config = {
         ...banner,
         slotId: finalSlot,
@@ -83,7 +85,7 @@ const index = props => {
         }
     };
 
-    if (!finalConfig) return null;
+    //if (!finalConfig) return null;
 
     if (!dfpID) {
         if (!isAdmin) {
