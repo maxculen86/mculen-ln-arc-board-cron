@@ -88,7 +88,7 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
             {bannerMegatop}
             <div
                 id="wrapper"
-                className={`nota --storytelling --transparent ${amp}`}
+                className={`nota lugares --storytelling --transparent ${amp}`}
             >
                 <Header />
                 <main>

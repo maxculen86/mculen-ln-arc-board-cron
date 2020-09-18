@@ -92,7 +92,7 @@ const lnNotaFotoAl100 = ({
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
             <div
                 id="wrapper"
-                className={`nota --photo100 --transparent ${amp}`}
+                className={`nota propiedades --photo100 --transparent ${amp}`}
             >
                 <Header />
                 <main>

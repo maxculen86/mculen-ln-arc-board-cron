@@ -70,6 +70,8 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
+const revista = 'ohlala';
+
 const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
@@ -78,7 +80,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
             {/* Banner MEGATOP */}
             {bannerMegatop}
             {/* Banner MEGATOP */}
-            <div id="wrapper" className={`nota noticia ${amp}`}>
+            <div id="wrapper" className={`nota noticia ${revista} ${amp}`}>
                 <Header />
                 <main>
                     {children[1]}

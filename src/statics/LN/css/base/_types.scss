@@ -236,3 +236,94 @@ strong,
 .logo-bbc:before {
     content: $logo-bbc;
 }
+
+.logo-propiedades:before {
+    content: $logo-propiedades;
+}
+
+@mixin newrevista($logo, $primario) {
+    &.nota {
+        main {
+            .com-breadcrumb a,
+            .mod-autor .com-link,
+            .mod-newsletter .com-link,
+            .com-cita .com-link,
+            .keep-reading .com-link,
+            .com-paragraph .com-link,
+            .mod-share .com-text,
+            .com-button.--secondary {
+                color: $primario;
+            }
+            .com-button {
+                &.--secondary {
+                    border-color: $primario;
+                    &:hover {
+                        background-color: $primario;
+                        color: $blanco;
+                    }
+                }
+                &.--primary {
+                    border-color: $primario;
+                    background-color: $primario;
+                }
+            }
+            .--apertura {
+                .com-logo {
+                    &:before {
+                        content: $logo;
+                        color: $primario;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.propiedades {
+    $primario: $propiedades;
+    $logo: $logo-propiedades;
+    @include newrevista($logo, $primario);
+}
+
+.brando {
+    $primario: $brando;
+    $logo: $logo-brando;
+    @include newrevista($logo, $primario);
+}
+
+.ohlala {
+    $primario: $ohlala;
+    $logo: $logo-ohlala;
+    @include newrevista($logo, $primario);
+}
+
+.lugares {
+    $primario: $lugares;
+    $logo: $logo-lugares;
+    @include newrevista($logo, $primario);
+}
+
+.living {
+    $primario: $living;
+    $logo: $logo-living;
+    @include newrevista($logo, $primario);
+}
+
+.hola {
+    $primario: $hola;
+    $logo: $logo-hola;
+    @include newrevista($logo, $primario);
+}
+
+.jardin {
+    $primario: $jardin;
+    $logo: $logo-jardin;
+    @include newrevista($logo, $primario);
+}
+
+.rolling,
+.rolling-stone {
+    $primario: $rolling;
+    $logo: $logo-rolling;
+    @include newrevista($logo, $primario);
+}
