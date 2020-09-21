@@ -168,6 +168,9 @@ const labels = `
         marca_anunciante {
             ${label}
         }
+        mostrar_trust {
+            ${label}
+        }
         recomendar {
             url
             text

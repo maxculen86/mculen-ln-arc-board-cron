@@ -50,7 +50,6 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
-import ModTrust from '../private/common/mod-trust';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -132,13 +131,6 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                                 {/* Pos-Apertura */}
                                                 {children[5]}
                                             </div>
-                                        </div>
-                                        <div className="col-12">
-                                            <ModTrust
-                                                trustProject
-                                                classCondition="--trust"
-                                                size="--threexs"
-                                            />
                                         </div>
                                     </div>
                                 </div>
