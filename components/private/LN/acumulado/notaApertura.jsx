@@ -1,25 +1,32 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
-import withCollections from '../../common/hocs/withCollections';
-import filter from '../../../../content/filters/LN/acumulado/colections';
+import ModRowGap from '../../common/mod-rowgap';
+import withCollections from './hocs/withCollections';
+import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 
-const NotaApertura = ({ articles }) =>
-    articles &&
-    articles.length > 0 && (
-        <div className="mod-opening">
-            <section className="row-gap-tablet-2 row-gap-deskxl-2">
-                {articles.map(article => (
+const NotaApertura = props => {
+    const ARTICLE_TYPE = 'Grilla';
+    const DATA_SECTION = 'AperturaAcu';
+    const { articles, outputType } = props;
+    console.log('*************articles', articles);
+
+    return (
+        (articles && (
+            <ModRowGap column="2" classCondition="--opening">
+                {articles.map((art, i) => (
                     <ArticleAcum
-                        key={article._id}
-                        article={article}
-                        dataSection="CuerpoAcu"
-                        extraClasses=" --border w-100-mobile"
+                        key={art._id}
+                        article={art}
+                        dataSection={DATA_SECTION}
+                        typeArticle={ARTICLE_TYPE}
+                        outputType={outputType}
                     />
                 ))}
-            </section>
-        </div>
+            </ModRowGap>
+        )) || <></>
     );
+};
 
 NotaApertura.propTypes = {
     articles: PropTypes.arrayOf(

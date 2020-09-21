@@ -2,15 +2,12 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Title from '../../private/LN/acumulado/acumuladoTitle';
 
-function TitleFeature({ customFields: { idCollection } }) {
-    return <Title idCollection={idCollection} />;
-}
+const TitleFeature = props => <Title />;
 
 TitleFeature.label = 'LN-Acumulado-Titulo';
 
 TitleFeature.propTypes = {
     customFields: PropTypes.shape({
-        idCollection: PropTypes.string.tag({ label: 'Id de collection' }),
         prefixTitle: PropTypes.string.tag({ label: 'Prefijo del titulo' }),
         replaceTitle: PropTypes.string.tag({
             label: 'Reemplazar titulo',

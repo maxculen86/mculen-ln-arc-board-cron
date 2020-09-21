@@ -132,6 +132,7 @@ function WithAcuArticlesData(
                         )
                         .slice(0, 10)
                         .map(key => tags[key]) || [];
+                // console.log('orderAndCountTags', orderAndCountTags);
 
                 return (
                     (orderAndCountTags.length >= 4 && orderAndCountTags) || []
@@ -203,6 +204,10 @@ function WithAcuArticlesData(
                         .slice(0, originalSize);
                 }
 
+                console.log(
+                    '**** HOC OrderAndCountTags(articles)',
+                    this.setOrderAndCountTags(articles)
+                );
                 return (
                     <WrappedArticles
                         articles={articlesArray}

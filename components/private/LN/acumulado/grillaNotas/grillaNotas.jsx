@@ -8,6 +8,8 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
+import get from '../../../common/utils/get';
+
 // import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 class GrillaNotas extends Component {
@@ -20,9 +22,11 @@ class GrillaNotas extends Component {
     getBanner = index => {
         const position = index + 1;
         const { bannerConfig, globalContent } = this.props;
-        const {
-            acumuladoGeneral: { hide_banner: hideBanners }
-        } = globalContent;
+        const hideBanners = get(
+            globalContent,
+            'acumuladoGeneral.hide_banner',
+            null
+        );
         const { banners: termicaShowBanner } = this.props.termicas || {
             banners: true
         };
@@ -65,6 +69,7 @@ class GrillaNotas extends Component {
             articlesInCollection = [],
             outputType
         } = this.props;
+        // console.log('render -> articlesInCollection', articlesInCollection);
 
         const articlesInNoCollection = articles.filter(art => {
             return !articlesInCollection.includes(art._id);

@@ -53,15 +53,15 @@ jest.mock('fusion:content', () => ({
 }));
 
 jest.mock(
-    '../../../../../components/private/LN/acumulado/notaApertura',
+    '../../../../../../components/private/LN/acumulado/notaApertura',
     () => 'nota-apertura-mock'
 );
 
 import React from 'react';
 import { render, mount, shallow } from 'enzyme';
-import withCollections from '../../../../../components/private/common/hocs/withCollections';
-import filter from '../../../../../content/filters/LN/acumulado/collections';
-import NotaApertura from '../../../../../components/private/LN/acumulado/notaApertura';
+import withCollections from '../../../../../../components/private/LN/acumulado/hocs/withCollections';
+import filter from '../../../../../../content/filters/LN/acumulado/collections';
+import NotaApertura from '../../../../../../components/private/LN/acumulado/notaApertura';
 
 describe('Private - Common - hocs - withCollections => ', () => {
     const articles = [

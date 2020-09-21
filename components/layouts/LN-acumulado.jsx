@@ -15,7 +15,7 @@ import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
 
-const layoutItems = [
+const pageBuilderSections = [
     'Pre-Apertura',
     'Breadcrumb/Titulo',
     'Apertura',
@@ -28,7 +28,17 @@ const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
 
 const LNAcumuladoLayout = props => {
-    const { children, globalContent } = props;
+    const {
+        children: [
+            preApertura,
+            breadcrumbTitulo,
+            apertura,
+            links,
+            notas,
+            aside
+        ],
+        globalContent
+    } = props;
     const [classRevista, setClassRevista] = useState('');
     const [headerDark, setHeaderDark] = useState('');
 
@@ -49,55 +59,57 @@ const LNAcumuladoLayout = props => {
 
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
+    const backgroundCategory = get(
+        globalContent,
+        'acumuladoColor.background_color',
+        null
+    );
+    const colorTags = get(
+        globalContent,
+        'acumuladoColor.navigation_color_tags',
+        null
+    );
+
+    // TODO: agregar todas las validaciones de acu color
+    const COLOR_CLASS = backgroundCategory || colorTags ? ' --color' : '';
 
     return (
         <GlobalProviderAcu
             acumuladoGeneral={acumuladoGeneral}
             acumuladoColor={acumuladoColor}
         >
-            <div id="wrapper" className={`acumulado ${classRevista}`}>
+            <div
+                id="wrapper"
+                className={`acumulado${COLOR_CLASS} ${classRevista}`}
+            >
                 <Header headerDark={headerDark} />
                 <main>
-                    {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
-                    {children[0]}
-                    {children[1] && (
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="lay">
-                                    {/* BREADCRUMB, TITULO Y APERTURA */}
-                                    {children[1]}
-                                </div>
-                            </div>
+                    <div
+                        className="row --top"
+                        style={{ backgroundColor: backgroundCategory }}
+                    >
+                        <div className="lay">
+                            {/* BANNER y ANEXO */}
+                            {preApertura}
+                            {/* TITULO/LOGO Y CATEGORIAS */}
+                            {breadcrumbTitulo}
                         </div>
-                    )}
+                    </div>
+                    <div className="lay">
+                        {/* APERTURA: CAJA DE DOS COLUMNAS */}
+                        {apertura}
+                        {/* LISTA DE TAGS */}
+                        {links}
+                    </div>
                     <div id="content-main" className="lay-sidebar">
+                        {/* Cuerpo */}
                         <div className="sidebar__main">
-                            {children[2] && (
-                                <div className="row">
-                                    <div className="col-12">
-                                        {/* LUGAR PARA UN ANEXO */}
-                                        {children[2]}
-                                    </div>
-                                </div>
-                            )}
-                            {children[3] && (
-                                <div className="row">
-                                    <div className="col-12">
-                                        {/* LINKS DE NAVEGACION */}
-                                        {children[3]}
-                                    </div>
-                                </div>
-                            )}
                             {/* NOTAS */}
-                            {children[4]}
+                            {notas}
                         </div>
                         <div className="sidebar__aside hlp-tablet-none">
-                            <div className="row">
-                                <div className="col-12">
-                                    {/* RANKING DE NOTAS */}
-                                    {children[5]}
-                                </div>
-                            </div>
+                            {/* BANNERS, RANKING DE NOTAS */}
+                            {aside}
                         </div>
                     </div>
                 </main>
@@ -131,6 +143,6 @@ LNAcumuladoLayout.propTypes = {
     }).isRequired
 };
 
-LNAcumuladoLayout.sections = layoutItems;
+LNAcumuladoLayout.sections = pageBuilderSections;
 
 export default Consumer(LNAcumuladoLayout);
