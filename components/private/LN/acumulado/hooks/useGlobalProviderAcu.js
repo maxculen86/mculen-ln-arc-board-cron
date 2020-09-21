@@ -6,7 +6,9 @@ const useGlobalProviderAcu = () => {
     const [state, setState] = useContext(GlobalContext);
 
     function setArticlesInCollection(value) {
-        setState(state => ({ ...state, articlesInCollection: value }));
+        console.log('setArticlesInCollection -> value', value);
+        setState({ ...state, articlesInCollection: value });
+        console.log('****** FUERA DeL SETSTATE -> state', state);
     }
 
     return {

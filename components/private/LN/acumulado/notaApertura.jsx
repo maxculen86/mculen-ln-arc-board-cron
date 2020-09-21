@@ -3,14 +3,19 @@ import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
 import withCollections from './hocs/withCollections';
+import useGlobalProviderAcu from './hooks/useGlobalProviderAcu';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 
 const NotaApertura = props => {
+    const {
+        setArticlesInCollection,
+        articlesInCollection
+    } = useGlobalProviderAcu();
     const ARTICLE_TYPE = 'Grilla';
     const DATA_SECTION = 'AperturaAcu';
     const { articles, outputType } = props;
-    console.log('*************articles', articles);
 
+    if (articles) setArticlesInCollection(articles);
     return (
         (articles && (
             <ModRowGap column="2" classCondition="--opening">
@@ -36,4 +41,4 @@ NotaApertura.propTypes = {
     ).isRequired
 };
 
-export default withCollections(NotaApertura, filter, 'notaM');
+export default withCollections(NotaApertura, filter);

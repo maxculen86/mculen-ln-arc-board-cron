@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import useGlobalProviderAcu from '../hooks/useGlobalProviderAcu';
 
 import get from '../../../common/utils/get';
 
 const withCollections = (WrappedComponent, filter, imageConfig) => props => {
-    const { setArticlesInCollection } = useGlobalProviderAcu();
     const { size = 2, website = 'la-nacion-ar', idCollection: id } =
         props || {};
 
@@ -29,9 +27,6 @@ const withCollections = (WrappedComponent, filter, imageConfig) => props => {
     const articles = get(articleList, 'content_elements', null);
     const result =
         articles && articles.length >= size && articles.splice(0, size);
-
-    if (result) setArticlesInCollection(result);
-    console.log('result', result);
 
     return <WrappedComponent {...props} articles={result || null} />;
 };

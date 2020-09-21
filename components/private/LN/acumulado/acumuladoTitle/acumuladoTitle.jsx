@@ -47,7 +47,16 @@ const AcumuladoTitle = props => {
     const replaceTitle = get(props, 'customFields.replaceTitle', null);
     const prefixTitle = get(props, 'customFields.prefixTitle', null);
 
-    const idLogoImage = get(globalContent, 'acumuladoColor.id_logo_image', '');
+    const ID_LOGO_IMAGE = get(
+        globalContent,
+        'acumuladoColor.id_logo_image',
+        ''
+    );
+    const COLOR_TAGS = get(
+        globalContent,
+        'acumuladoColor.navigation_color',
+        null
+    );
     const title = getTitle(globalContent, replaceTitle);
     const prefixText =
         !isPrimarySection && title && prefixTitle ? `${prefixTitle} ` : '';
@@ -68,7 +77,8 @@ const AcumuladoTitle = props => {
                     title:
                         navigation && navigation.nav_title
                             ? navigation.nav_title
-                            : name
+                            : name,
+                    ...(COLOR_TAGS && { style: { color: COLOR_TAGS } })
                 })
             };
         });
@@ -81,10 +91,10 @@ const AcumuladoTitle = props => {
 
     return (
         <ModCategory
-            revista={idLogoImage}
+            revista={ID_LOGO_IMAGE}
             category={titleText}
             navigation={categories}
-            color={{ color: colorCategory }}
+            style={{ color: colorCategory }}
         />
     );
 };

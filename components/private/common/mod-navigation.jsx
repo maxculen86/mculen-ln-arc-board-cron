@@ -7,7 +7,7 @@ const ModNavigation = props => {
     const categoryEl = useRef();
     const [showBtnScrollLeft, setShowBtnScrollLeft] = useState('hlp-none');
     const [showBtnScrollRight, setShowBtnScrollRight] = useState('hlp-none');
-    const { navigation, classCondition } = props;
+    const { navigation, classCondition, style } = props;
     const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
 
     const moveScroll = (ref, direction) => {
@@ -39,6 +39,7 @@ const ModNavigation = props => {
                 classCondition={`${showBtnScrollLeft}`}
                 iconName="left"
                 onMouseDown={() => moveScroll(categoryEl, 'left')}
+                style={style}
             />
             {/* // TODO: Preguntar a Daro si va ul u ol */}
             <ul className={`com-unordered${EXTRA_CLASS}`} ref={categoryEl}>
@@ -50,6 +51,7 @@ const ModNavigation = props => {
                 classCondition={`${showBtnScrollRight}`}
                 iconName="right"
                 onMouseDown={() => moveScroll(categoryEl, 'right')}
+                style={style}
             />
         </>
     );
@@ -57,11 +59,13 @@ const ModNavigation = props => {
 
 ModNavigation.propTypes = {
     classCondition: PropTypes.string,
+    style: PropTypes.string,
     navigation: PropTypes.arrayOf(PropTypes.func)
 };
 
 ModNavigation.defaultProps = {
     classCondition: undefined,
+    style: undefined,
     navigation: undefined
 };
 

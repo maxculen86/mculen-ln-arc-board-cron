@@ -4,14 +4,14 @@ import ModNavigation from './mod-navigation';
 //import '../../../resources/dist/css/ln/modules/mod-category.css';
 
 const ModCategory = props => {
-    const { revista, category, color, navigation } = props;
+    const { revista, category, style, navigation } = props;
 
     return (
         <div className="mod-categories">
             {revista ? (
                 <i className={`com-logo logo-${revista} --large`} />
             ) : (
-                <h1 className="com-title --xl" style={color}>
+                <h1 className="com-title --xl" style={style}>
                     {category}
                 </h1>
             )}
@@ -19,6 +19,7 @@ const ModCategory = props => {
             <ModNavigation
                 navigation={navigation}
                 classCondition="--category"
+                style={style}
             />
         </div>
     );
@@ -27,14 +28,14 @@ const ModCategory = props => {
 ModCategory.propTypes = {
     revista: PropTypes.string,
     category: PropTypes.string,
-    color: PropTypes.obj,
+    style: PropTypes.obj,
     navigation: PropTypes.string.isRequired
 };
 
 ModCategory.defaultProps = {
     revista: '',
     category: '',
-    color: {}
+    style: {}
 };
 
 export default ModCategory;

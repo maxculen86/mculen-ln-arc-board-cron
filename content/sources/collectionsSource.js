@@ -22,18 +22,22 @@ const transform = (data, siteProps) => {
     const properties = getProperties(siteProps['arc-site']);
 
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
-    const presetsM = get(properties, `imageConfig.resize.m`, null);
+    const presetsL = get(properties, `imageConfig.resize.l`, null);
 
     respData.content_elements = data.content_elements.map(v => {
-        return addResizedUrls(v, {
-            resizerSecret: RESIZER_KEY,
-            resizerUrl: RESIZER_URL,
-            presets: {
-                promoItems: presetsM.promo_items || presetsDefault,
-                contentElements: presetsM.content_elements || presetsDefault,
-                presetsDefault
-            }
-        });
+        return {
+            ...addResizedUrls(v, {
+                resizerSecret: RESIZER_KEY,
+                resizerUrl: RESIZER_URL,
+                presets: {
+                    promoItems: presetsL.promo_items || presetsDefault,
+                    contentElements:
+                        presetsL.content_elements || presetsDefault,
+                    presetsDefault
+                }
+            }),
+            ...(v.canonical_url && { website_url: v.canonical_url })
+        };
     });
     return respData;
 };
