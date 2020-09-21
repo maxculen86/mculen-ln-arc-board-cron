@@ -70,6 +70,7 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
+import '../../resources/dist/css/ln/pages/magazine.css';
 const revista = 'brando';
 
 const lnNotaFotoAl100 = ({
@@ -104,11 +105,6 @@ const lnNotaFotoAl100 = ({
                     <div className="row">
                         {leftCuerpo}
                         {cuerpo}
-                        <p className="com-paragraph">
-                            <i
-                                className={`com-logo logo-${revista} --color`}
-                            ></i>
-                        </p>
                     </div>
 
                     <div className="lay-sidebar">

@@ -77,7 +77,8 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
 // usando el querystring, creamos un objeto del tipo URLSearchParams
 //const params = new URLSearchParams(querystring)
 
-const revista = 'lugares';
+import '../../resources/dist/css/ln/pages/magazine.css';
+const revista = 'propiedades';
 
 const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';

@@ -78,6 +78,8 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     if (isAdmin) return component;
     return isValid ? component : null;
 };
+
+import '../../resources/dist/css/ln/pages/magazine.css';
 const revista = 'ohlala';
 
 const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
@@ -110,11 +112,6 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
                                             <div className="col-12">
                                                 {/* Cuerpo */}
                                                 {children[2]}
-                                                <p className="com-paragraph">
-                                                    <i
-                                                        className={`com-logo logo-${revista} --color`}
-                                                    ></i>
-                                                </p>
                                             </div>
                                         </div>
                                     </div>

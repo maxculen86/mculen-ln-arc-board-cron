@@ -12,20 +12,26 @@
     }
 }
 
-.logo-ohlala.logo-ohlala {
-    font-size: px(18);
+.logo-la-nacion.logo-la-nacion {
+    font-size: px(16);
+    &.--small {
+        font-size: px(21);
+    }
     &.--medium {
-        font-size: px(33);
+        font-size: px(30);
     }
     &.--large {
-        font-size: px(70);
+        font-size: px(60);
     }
     &.--color {
-        color: $ohlala;
+        color: $ln;
     }
 }
 
 .logo-brando.logo-brando {
+    &.--small {
+        font-size: px(22);
+    }
     &.--medium {
         font-size: px(30);
     }
@@ -37,21 +43,11 @@
     }
 }
 
-.logo-living.logo-living {
-    font-size: px(24);
-    &.--medium {
-        font-size: px(43);
-    }
-    &.--large {
-        font-size: px(98);
-    }
-    &.--color {
-        color: $living;
-    }
-}
-
 .logo-hola.logo-hola {
     font-size: px(32);
+    &.--small {
+        font-size: px(42);
+    }
     &.--medium {
         font-size: px(58);
     }
@@ -65,6 +61,9 @@
 
 .logo-jardin.logo-jardin {
     font-size: px(23);
+    &.--small {
+        font-size: px(30);
+    }
     &.--medium {
         font-size: px(40);
     }
@@ -76,7 +75,26 @@
     }
 }
 
+.logo-living.logo-living {
+    font-size: px(24);
+    &.--small {
+        font-size: px(32);
+    }
+    &.--medium {
+        font-size: px(43);
+    }
+    &.--large {
+        font-size: px(98);
+    }
+    &.--color {
+        color: $living;
+    }
+}
+
 .logo-lugares.logo-lugares {
+    &.--small {
+        font-size: px(22);
+    }
     &.--medium {
         font-size: px(30);
     }
@@ -91,6 +109,9 @@
 .logo-rolling.logo-rolling,
 .logo-rolling-stone.logo-rolling-stone {
     font-size: px(23);
+    &.--small {
+        font-size: px(30);
+    }
     &.--medium {
         font-size: px(40);
     }
@@ -102,35 +123,27 @@
     }
 }
 
-.logo-bbc.logo-bbc {
-    font-size: px(32);
+.logo-ohlala.logo-ohlala {
+    font-size: px(18);
+    &.--small {
+        font-size: px(24);
+    }
     &.--medium {
-        font-size: px(45);
+        font-size: px(33);
     }
     &.--large {
         font-size: px(70);
     }
     &.--color {
-        &:before {
-            color: $bbc;
-        }
-    }
-}
-
-.logo-la-nacion.logo-la-nacion {
-    &.--medium {
-        font-size: px(30);
-    }
-    &.--large {
-        font-size: px(60);
-    }
-    &.--color {
-        color: $ln;
+        color: $ohlala;
     }
 }
 
 .logo-ln-mas.logo-ln-mas {
     font-size: px(20);
+    &.--small {
+        font-size: px(26);
+    }
     &.--medium {
         font-size: px(37);
     }
@@ -144,6 +157,9 @@
 
 .logo-negocios.logo-negocios {
     font-size: px(30);
+    &.--small {
+        font-size: px(40);
+    }
     &.--medium {
         font-size: px(60);
     }
@@ -157,6 +173,9 @@
 
 .logo-club.logo-club {
     font-size: px(30);
+    &.--small {
+        font-size: px(40);
+    }
     &.--medium {
         font-size: px(84);
     }
@@ -170,6 +189,9 @@
 
 .logo-club-lanacion.logo-club-lanacion {
     font-size: px(30);
+    &.--small {
+        font-size: px(40);
+    }
     &.--medium {
         font-size: px(90);
     }
@@ -178,5 +200,39 @@
     }
     &.--color {
         color: $club2;
+    }
+}
+
+.logo-bbc.logo-bbc {
+    font-size: px(32);
+    &.--small {
+        font-size: px(38);
+    }
+    &.--medium {
+        font-size: px(45);
+    }
+    &.--large {
+        font-size: px(70);
+    }
+    &.--color {
+        &:before {
+            color: $bbc;
+        }
+    }
+}
+
+.logo-propiedades.logo-propiedades {
+    font-size: px(23);
+    &.--small {
+        font-size: px(30);
+    }
+    &.--medium {
+        font-size: px(40);
+    }
+    &.--large {
+        font-size: px(90);
+    }
+    &.--color {
+        color: $propiedades;
     }
 }
