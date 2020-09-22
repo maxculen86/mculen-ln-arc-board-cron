@@ -69,11 +69,13 @@ class GrillaNotas extends Component {
             articlesInCollection = [],
             outputType
         } = this.props;
-        // console.log('render -> articlesInCollection', articlesInCollection);
 
-        const articlesInNoCollection = articles.filter(art => {
-            return !articlesInCollection.includes(art._id);
-        });
+        const articlesInNoCollection = articles.filter(
+            art =>
+                !articlesInCollection.some(
+                    artInColl => artInColl._id === art._id
+                ) && art
+        );
 
         return (
             <>

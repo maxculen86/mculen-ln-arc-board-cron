@@ -20,7 +20,8 @@ const withCollections = (WrappedComponent, filter, imageConfig) => props => {
                       website
                   },
                   filter,
-                  imageConfig
+                  imageConfig,
+                  staticMode: true
               }
             : {}
     );
