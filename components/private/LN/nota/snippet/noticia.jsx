@@ -140,7 +140,7 @@ const SnippetNoticia = props => {
             display_date: displayDate,
             content_restrictions: { content_code: contentCode } = {},
             label,
-            owner: sponsored
+            owner: { sponsored }
         },
         contextPath,
         deployment
