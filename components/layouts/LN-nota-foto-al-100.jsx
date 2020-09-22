@@ -126,7 +126,7 @@ const lnNotaFotoAl100 = ({
                             {/* Bottom */}
                             {bottom}
                         </div>
-                        <div className="sidebar__aside">
+                        <div className="sidebar__aside hlp-tablet-none">
                             {/* Bottom-Tercera */}
                             {bottomTercera}
                         </div>
