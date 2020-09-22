@@ -3,7 +3,7 @@
 
 .com-text {
     .com-button & {
-        font-family: $font-arial;
+        white-space: nowrap;
         text-transform: uppercase;
     }
     .footer & {
@@ -24,7 +24,6 @@
     }
     .mod-breadcrumb & {
         @include flex(flex, row, center, center);
-        font-family: $font-arial;
         color: $gris5;
         padding: 0 px(9);
         line-height: 1;
