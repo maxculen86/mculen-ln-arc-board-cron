@@ -240,3 +240,86 @@ strong,
 .logo-propiedades:before {
     content: $logo-propiedades;
 }
+
+//BORRAR UNA VEZ SUBIDO EL ACU NUEVO
+.hola {
+    $primario: $hola;
+    $logo: $logo-hola;
+    @include revista($logo, $primario);
+}
+.brando {
+    $primario: $brando;
+    $logo: $logo-brando;
+    @include revista($logo, $primario);
+}
+.jardin {
+    $primario: $jardin;
+    $logo: $logo-jardin;
+    @include revista($logo, $primario);
+}
+.lugares {
+    $primario: $lugares;
+    $logo: $logo-lugares;
+    @include revista($logo, $primario);
+}
+.ohlala {
+    $primario: $ohlala;
+    $logo: $logo-ohlala;
+    @include revista($logo, $primario);
+}
+.living {
+    $primario: $blanco;
+    $logo: $logo-living;
+    @include revista($logo, $primario);
+    .cont-figure .figure .content-pic:before,
+    &.acu-revista .subheader-acu i.logo-revista,
+    .subheader-acu .com-link,
+    &.acu-revista .subheader-acu .com-share a i {
+        color: $negro;
+    }
+    .header {
+        @include headerBlanco;
+    }
+}
+.rolling {
+    $primario: $blanco;
+    $logo: $logo-rolling;
+    @include revista($logo, $primario);
+    .subheader-acu .com-link,
+    &.acu-revista .subheader-acu .com-share a i {
+        color: $negro;
+    }
+    .cont-figure .figure .content-pic:before,
+    &.acu-revista .subheader-acu i.logo-revista {
+        color: $rolling;
+    }
+    .header {
+        @include headerBlanco;
+    }
+}
+
+.lnmas {
+    $primario: $lnmas;
+    .acu article a.figure:before,
+    article a.figure:before {
+        content: '\e91e';
+        color: $primario;
+    }
+    .com-tag a {
+        color: $primario;
+        border-color: $primario;
+        &:hover {
+            background: $primario;
+        }
+    }
+    .com-secondary-tag a,
+    .com-secondary-tag a:after,
+    [class^='logo-'],
+    [class*=' logo-'] {
+        color: $primario;
+    }
+    &.fondo-revista,
+    .mod-newsletter {
+        background-color: $primario;
+    }
+}
