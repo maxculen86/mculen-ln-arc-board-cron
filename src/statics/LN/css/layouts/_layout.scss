@@ -10,13 +10,14 @@
     margin-bottom: px(40);
 }
 
-@media ($media-l) {
+@media ($media-lm) {
+    //vuelo aside en 1024
     .lay-sidebar {
         flex-direction: row;
     }
     .sidebar__main {
         flex-basis: 100%;
-        margin-right: px(40);
+        margin-right: px(16);
         //por slider
         //overflow: hidden;
     }
@@ -34,7 +35,7 @@
         }
         .sidebar__main {
             flex-basis: 100%;
-            margin-right: px(40);
+            margin-right: px(16);
             //por slider
             //overflow: hidden;
         }
@@ -45,7 +46,7 @@
     }
 }
 
-@media ($media-lg) {
+@media ($media-xl) {
     #wrapper.nota .sidebar__main {
         margin-right: px(80);
     }
@@ -59,17 +60,19 @@
     width: 100%;
     padding-right: px(10);
     padding-left: px(10);
+    padding-right: px(16);
+    padding-left: px(16);
     margin-right: auto;
     margin-left: auto;
 }
 
-@media ($media-s) {
-    [class^='lay'],
-    [class*=' lay'] {
-        padding-right: px(20);
-        padding-left: px(20);
-    }
-}
+// @media ($media-s) {
+//     [class^='lay'],
+//     [class*=' lay'] {
+//         padding-right: px(20);
+//         padding-left: px(20);
+//     }
+// }
 
 // @media ($media-m) {
 //     [class^='lay'],
