@@ -208,13 +208,13 @@
             }
         }
         &.icon-left {
-            left: px(-20);
+            left: px(-16);
             @media ($media-m) {
                 left: 0;
             }
         }
         &.icon-right {
-            right: px(-20);
+            right: px(-16);
             @media ($media-m) {
                 right: 0;
             }
