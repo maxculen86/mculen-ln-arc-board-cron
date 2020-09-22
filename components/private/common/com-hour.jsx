@@ -9,7 +9,9 @@ const ComHour = ({ display_date, labelEdicionImpresa, size }) => {
     return (
         <>
             {textEdicionImpresa !== 'Impresa' ? (
-                <time className={`com-hour ${size || '--treexs'}`}>{time}</time>
+                <time className={`com-hour ${size || '--threexs'}`}>
+                    {time}
+                </time>
             ) : (
                 <></>
             )}
