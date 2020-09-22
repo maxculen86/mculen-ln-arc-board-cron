@@ -19,7 +19,7 @@ const Ranking = ({ articles, dataSection, title }) =>
                 {articles.length > 0 &&
                     articles.map(article => (
                         <ArticleMain
-                            border
+                            // border
                             articleData={article}
                             dataSection={dataSection}
                         />
