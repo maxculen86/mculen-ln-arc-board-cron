@@ -2,9 +2,9 @@
 @import '../abstracts/mixins';
 
 .com-logo {
-    // .--apertura & {
-    //     margin-bottom: $spacing-sm;
-    // }
+    .--apertura & {
+        margin-bottom: $spacing-sm;
+    }
     .mod-sponsor & {
         .--apertura & {
             margin-bottom: 0;
