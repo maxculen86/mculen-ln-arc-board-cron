@@ -7,17 +7,15 @@
         main {
             .com-breadcrumb a,
             .mod-autor .com-link,
-            .mod-newsletter .com-link,
             .com-cita .com-link,
             .keep-reading .com-link,
             .com-paragraph .com-link,
             .mod-share .com-text,
             .mod-share .com-button:hover,
-            .com-link:hover,
-            .com-button.--secondary {
+            .sidebar__main .com-button.--secondary {
                 color: $primario;
             }
-            .com-button {
+            .sidebar__main .com-button {
                 &.--secondary {
                     border-color: $primario;
                     &:hover {
