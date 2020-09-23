@@ -3,7 +3,8 @@ import {
     CONTENT_BASE,
     RESIZER_KEY,
     RESIZER_URL,
-    ARC_ACCESS_TOKEN
+    ARC_ACCESS_TOKEN,
+    SITE_LANACION
 } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
@@ -57,9 +58,9 @@ const fetch = query => {
                 (!response.content_restrictions ||
                     response.content_restrictions.content_code !== 'abierta')
             ) {
-                const callback = Buffer.from(
-                    `${properties.host}${url}`
-                ).toString('base64');
+                const callback = Buffer.from(`${SITE_LANACION}${url}`).toString(
+                    'base64'
+                );
                 const finalUrl = paywallUrl.replace(
                     '{{callback}}',
                     `${callback}`
