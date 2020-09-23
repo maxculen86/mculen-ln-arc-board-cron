@@ -8,8 +8,7 @@ export default {
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/ans/most-read/',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
-    SITE_LANACION:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+    SITE_LANACION: 'https://sandbox.lanacion.com.ar',
     SITE_RECETAS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
     ELMAH_API_KEY:
