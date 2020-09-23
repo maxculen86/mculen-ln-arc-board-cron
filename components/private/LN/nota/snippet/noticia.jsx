@@ -63,7 +63,7 @@ const publishingPrinciples =
     'https://www.lanacion.com.ar/tema/trust-project-tid68036';
 
 const getTrustProject = trust => data => sponsored => {
-    if (!trust) return { ...data };
+    if (!trust && !sponsored) return { ...data };
     if (sponsored)
         return {
             ...data,
