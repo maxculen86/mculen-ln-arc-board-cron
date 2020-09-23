@@ -4,13 +4,13 @@ import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 
-import '../../resources/dist/css/ln/base.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/pages/acu.css';
-import '../../resources/dist/css/ln/components/com-ordered.css';
-import '../../resources/dist/css/ln/components/com-unordered.css';
-import '../../resources/dist/css/ln/components/hour.css';
+// import '../../resources/dist/css/ln/base.css';
+// import '../../resources/dist/css/ln/layouts/layout.css';
+//import '../../resources/dist/css/ln/layouts/grid.css';
+//import '../../resources/dist/css/ln/pages/acu.css';
+// import '../../resources/dist/css/ln/components/com-ordered.css';
+// import '../../resources/dist/css/ln/components/com-unordered.css';
+//import '../../resources/dist/css/ln/components/hour.css';
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
@@ -28,9 +28,10 @@ const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
 
 const LNAcumuladoLayout = props => {
-    const { children, globalContent } = props;
+    const { children, globalContent, outputType } = props;
     const [classRevista, setClassRevista] = useState('');
     const [headerDark, setHeaderDark] = useState('');
+    const amp = outputType === 'amp' ? 'amp' : '';
 
     useEffect(() => {
         const { style } = globalContent;
@@ -55,7 +56,7 @@ const LNAcumuladoLayout = props => {
             acumuladoGeneral={acumuladoGeneral}
             acumuladoColor={acumuladoColor}
         >
-            <div id="wrapper" className={`acumulado ${classRevista}`}>
+            <div id="wrapper" className={`acumulado ${classRevista} ${amp}`}>
                 <Header headerDark={headerDark} />
                 <main>
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
@@ -109,6 +110,7 @@ const LNAcumuladoLayout = props => {
 
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
+    outputType: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
             section_style_name: PropTypes.string,

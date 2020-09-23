@@ -7,4 +7,6 @@ export default `
             description
         }
     }
+    node_type
+    canonical_url
 }`;
