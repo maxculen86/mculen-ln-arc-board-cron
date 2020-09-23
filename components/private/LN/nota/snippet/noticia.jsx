@@ -160,7 +160,7 @@ const SnippetNoticia = props => {
         PLACEHOLDER
     );
 
-    const trust = get(label, 'trust.text', null);
+    const trust = get(label, 'trust.text', 'Noticia Original');
 
     let data = {
         '@context': 'https://schema.org',
