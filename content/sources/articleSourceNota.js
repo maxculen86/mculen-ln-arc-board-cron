@@ -35,7 +35,9 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
-    const { url = '' } = query;
+    const { url = '', meteringVariant, paywallUrl, paywallEnabled } = query;
+    const arcSite = query['arc-site'];
+    const properties = getProperties(arcSite);
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
@@ -48,6 +50,23 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
+            if (
+                (paywallEnabled === '1' || paywallEnabled === 'true') &&
+                meteringVariant === 'D' &&
+                paywallUrl &&
+                (!response.content_restrictions ||
+                    response.content_restrictions.content_code !== 'abierta')
+            ) {
+                const callback = Buffer.from(
+                    `${properties.host}${url}`
+                ).toString('base64');
+                const finalUrl = paywallUrl.replace(
+                    '{{callback}}',
+                    `${callback}`
+                );
+                throw new Redirect(finalUrl, 302);
+            }
+
             if (response.type === 'redirect' && response.redirect_url) {
                 throw new Redirect(response.redirect_url, 301);
             }
@@ -62,18 +81,14 @@ const fetch = query => {
                 throw new Redirect(forwardUrl, 301);
             }
 
-            return transform(response, query);
+            return transform(response, arcSite, properties);
         })
         .catch(error => {
             const { statusCode, location } = error;
             if (statusCode === 301 && location)
                 throw new Redirect(location, 301);
 
-            logger.push(
-                error,
-                { source: 'content/source', url },
-                query['arc-site']
-            );
+            logger.push(error, { source: 'content/source', url }, arcSite);
 
             throw error;
         });
@@ -81,10 +96,7 @@ const fetch = query => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
-const transform = (data, siteProps) => {
-    const arcSite = siteProps['arc-site'];
-    const properties = getProperties(arcSite);
-
+const transform = (data, arcSite, properties) => {
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
     const presetsZoom = get(
         properties,
@@ -235,7 +247,10 @@ export default {
     params: {
         url: 'text',
         id: 'text',
-        published: 'text'
+        published: 'text',
+        meteringVariant: 'text',
+        paywallUrl: 'text',
+        paywallEnabled: 'text'
     },
     filter,
     ttl: sourceSetting.articleSourceNota.ttl
