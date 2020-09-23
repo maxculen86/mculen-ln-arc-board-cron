@@ -121,7 +121,7 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
                             </section>
                         </div>
                         {/* Tercera */}
-                        <div className="sidebar__aside hlp-desklm-none">
+                        <div className="sidebar__aside hlp-tablet-none">
                             {children[3]}
                         </div>
                     </div>

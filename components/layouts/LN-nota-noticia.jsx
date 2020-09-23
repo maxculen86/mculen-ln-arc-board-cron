@@ -163,7 +163,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                             {/* Bottom */}
                             {children[9]}
                         </div>
-                        <div className="sidebar__aside">
+                        <div className="sidebar__aside hlp-tablet-none">
                             {/* Bottom-Tercera */}
                             {children[10]}
                         </div>
