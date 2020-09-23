@@ -79,8 +79,10 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
+//if CATEGORIA REVISTA
 import '../../resources/dist/css/ln/pages/magazine.css';
-const revista = 'ohlala';
+const magazine = 'ohlala';
+//endif
 
 const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
@@ -91,7 +93,7 @@ const lnNotaStorytelling = ({ children, outputType, tree, isAdmin }) => {
             {bannerMegatop}
             <div
                 id="wrapper"
-                className={`nota ${revista} --storytelling --transparent ${amp}`}
+                className={`nota ${magazine} --storytelling --transparent ${amp}`}
             >
                 <Header />
                 <main>

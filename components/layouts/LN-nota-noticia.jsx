@@ -70,15 +70,10 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
-// recuperamos el querystring
-//const querystring = window.location.search
-//console.log(querystring) // '?q=pisos+en+barcelona&ciudad=Barcelona'
-
-// usando el querystring, creamos un objeto del tipo URLSearchParams
-//const params = new URLSearchParams(querystring)
-
+//if CATEGORIA REVISTA
 import '../../resources/dist/css/ln/pages/magazine.css';
-const revista = 'propiedades';
+const magazine = 'propiedades';
+//endif
 
 const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
@@ -88,7 +83,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
             {/* Banner MEGATOP */}
             {bannerMegatop}
             {/* Banner MEGATOP */}
-            <div id="wrapper" className={`nota noticia ${revista} ${amp}`}>
+            <div id="wrapper" className={`nota noticia ${magazine} ${amp}`}>
                 <Header />
                 <main>
                     {children[1]}
@@ -140,11 +135,15 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                             <div className="col-12">
                                                 {/* Pos-Apertura */}
                                                 {children[5]}
-                                                <p className="com-paragraph">
+                                                {/* Logo al pie */}
+                                                <a
+                                                    href={`/revista-${magazine}`}
+                                                    className="com-link"
+                                                >
                                                     <i
-                                                        className={`com-logo logo-${revista} --color`}
+                                                        className={`com-logo logo-${magazine} --color`}
                                                     ></i>
-                                                </p>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

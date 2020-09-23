@@ -70,8 +70,10 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
+//if CATEGORIA REVISTA
 import '../../resources/dist/css/ln/pages/magazine.css';
-const revista = 'brando';
+const magazine = 'lugares';
+//endif
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -95,7 +97,7 @@ const lnNotaFotoAl100 = ({
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
             <div
                 id="wrapper"
-                className={`nota ${revista} --photo100 --transparent ${amp}`}
+                className={`nota ${magazine} --photo100 --transparent ${amp}`}
             >
                 <Header />
                 <main>

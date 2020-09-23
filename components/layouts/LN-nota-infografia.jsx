@@ -70,6 +70,11 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
+//if CATEGORIA REVISTA
+import '../../resources/dist/css/ln/pages/magazine.css';
+const magazine = 'brando';
+//endif
+
 const lnNotaInfografia = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
@@ -78,7 +83,7 @@ const lnNotaInfografia = ({ children, outputType, tree, isAdmin }) => {
             {/* Banner MEGATOP */}
             {bannerMegatop}
             {/* Banner MEGATOP */}
-            <div id="wrapper" className={`nota noticia ${amp}`}>
+            <div id="wrapper" className={`nota --info ${magazine} ${amp}`}>
                 {/* TODO: sacar */}
                 {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
                 <Header />
