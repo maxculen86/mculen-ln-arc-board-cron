@@ -8,25 +8,13 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
-import get from '../../../common/utils/get';
 
 // import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 class GrillaNotas extends Component {
-    constructor(props) {
-        super(props);
-
-        this.sectionGrillasNotasRef = React.createRef();
-    }
-
     getBanner = index => {
         const position = index + 1;
-        const { bannerConfig, globalContent } = this.props;
-        const hideBanners = get(
-            globalContent,
-            'acumuladoGeneral.hide_banner',
-            null
-        );
+        const { bannerConfig, hideBanners } = this.props;
         const { banners: termicaShowBanner } = this.props.termicas || {
             banners: true
         };
@@ -87,7 +75,7 @@ class GrillaNotas extends Component {
                     outputType={outputType}
                 />
 
-                {hayMasNotas > 0 && (
+                {outputType !== 'amp' && hayMasNotas > 0 && (
                     <section className="row">
                         <BtnMasNotas
                             onClickHandler={obtenerMasNotas}
@@ -105,6 +93,7 @@ class GrillaNotas extends Component {
 GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
+    hideBanners: PropTypes.string.isRequired,
     articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,

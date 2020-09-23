@@ -38,6 +38,11 @@ const groupBannerConfig = props => {
 function buildCustomFieldsForBanners() {
     const attributes = [
         {
+            name: 'desktop',
+            type: 'list',
+            alias: 'dsk'
+        },
+        {
             name: 'tablet',
             type: 'list',
             alias: 'tab'
@@ -81,14 +86,12 @@ function buildCustomFieldsForBanners() {
 }
 
 function GrillaNotasFeature(props) {
-    const {
-        customFields: { typeArticle }
-    } = props;
     const { acumuladoGeneral } = useGlobalProviderAcu();
-    const { 
+    const {
         cantidad_notas = 30,
         tipo_acumulado = 'Grilla',
-        id_collection_promo_items
+        id_collection_promo_items,
+        hide_banner = true
     } = acumuladoGeneral;
     const {
         globalContent: { author_type: authorType, _id, Payload },
@@ -118,13 +121,14 @@ function GrillaNotasFeature(props) {
             authorId={authorId}
             tagId={tagId}
             sectionId={sectionId}
-            size={cantidad_notas}
+            size={outputType === 'amp' ? 30 : cantidad_notas}
             page={1}
             siteProperties={siteProperties}
             typeArticle={tipo_acumulado}
             articlesInCollection={articlesInCollection}
             bannerConfig={bannerConfig}
             outputType={outputType}
+            hideBanner={hide_banner}
         />
     );
 }
@@ -132,11 +136,6 @@ function GrillaNotasFeature(props) {
 GrillaNotasFeature.label = 'LN-Acumulado-Grilla-Notas';
 GrillaNotasFeature.propTypes = {
     customFields: PropTypes.shape({
-        typeArticle: PropTypes.oneOf(['ArticleMain', 'ArticleTimeLine']).tag({
-            defaultValue: 'ArticleMain',
-            label: 'Tipo de articulo'
-        }),
-        cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
         ...buildCustomFieldsForBanners()
     }).isRequired
 };

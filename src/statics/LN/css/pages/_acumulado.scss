@@ -63,11 +63,17 @@
                 }
             }
         }
+        .--loader {
+            text-align: center;
+        }
     }
     .row-gap-tablet-3 {
         margin-bottom: $spacing-lg;
         .mod-article {
             margin-bottom: 0;
+        }
+        &.hlp-degrade {
+            margin-bottom: px(40);
         }
     }
 

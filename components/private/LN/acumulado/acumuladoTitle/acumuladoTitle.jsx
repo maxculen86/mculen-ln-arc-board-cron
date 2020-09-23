@@ -9,8 +9,10 @@ import '../../../../../resources/dist/css/ln/components/tag.css';
 import ModCategory from '../../../common/mod-category';
 import ComLink from '../../../common/com-link';
 
-const getTitle = (globalContent, replaceTitle) => {
-    const { Payload, node_type: nodeType, byline, name } = globalContent;
+const setTitle = (
+    replaceTitle,
+    { Payload, node_type: nodeType, name, byline }
+) => {
     if (replaceTitle) return capitalizeFirstLetter(replaceTitle);
     if (Payload) return capitalizeFirstLetter(Payload.items[0].name);
     if (nodeType === 'section') return capitalizeFirstLetter(name);
@@ -57,7 +59,8 @@ const AcumuladoTitle = props => {
         'acumuladoColor.navigation_color',
         null
     );
-    const title = getTitle(globalContent, replaceTitle);
+    const title = setTitle(replaceTitle, globalContent);
+
     const prefixText =
         !isPrimarySection && title && prefixTitle ? `${prefixTitle} ` : '';
     const titleText = `${prefixText}${title}`;
