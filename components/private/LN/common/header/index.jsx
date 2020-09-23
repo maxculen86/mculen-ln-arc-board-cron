@@ -95,7 +95,7 @@ class Index extends Component {
                     wrapper.classList.add(CLASS_SCROLL_DOWN);
                 }
             }
-            if (scrollPos < 10) {
+            if (scrollPos < 60) {
                 if (vshare) vshare.classList.remove(CLASS_SCROLL_UP);
                 classList.remove(CLASS_SCROLL_UP);
                 classList.remove(CLASS_SCROLL_DOWN);

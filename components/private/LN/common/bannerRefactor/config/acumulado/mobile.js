@@ -50,5 +50,26 @@ export default {
             [300, 250]
         ],
         targeting: defaultTargeting
+    },
+    caja1_amp: {
+        slotName: '/133919216/AMP/ROS/caja1_amp',
+        dimensions: {
+            width: 300,
+            height: 250
+        }
+    },
+    caja2_amp: {
+        slotName: '/133919216/AMP/ROS/caja2_amp',
+        dimensions: {
+            width: 300,
+            height: 250
+        }
+    },
+    caja3_amp: {
+        slotName: '/133919216/AMP/ROS/caja3_amp',
+        dimensions: {
+            width: 320,
+            height: 50
+        }
     }
 };

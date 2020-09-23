@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable camelcase */
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
@@ -12,80 +13,67 @@ import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
 import ComTitle from '../../../common/com-title';
 
+const setTitle = (replaceTitle, { Payload, node_type, name, byline }) => {
+    if (replaceTitle) return capitalizeFirstLetter(replaceTitle);
+    if (Payload) return capitalizeFirstLetter(Payload.items[0].name);
+    if (node_type === 'section') return capitalizeFirstLetter(name);
+    if (byline) return capitalizeFirstLetter(byline);
+    return '';
+};
+
+const setWithCategory = (
+    hideSectionsList,
+    hideTagsList,
+    children,
+    isPrimarySection
+) => {
+    if (
+        (!!hideSectionsList || !!hideTagsList) &&
+        children &&
+        children.length > 0
+    ) {
+        return 'with-category';
+    }
+    if (hideSectionsList === 'true' && hideTagsList === 'true') {
+        return '';
+    }
+
+    if (
+        typeof hideSectionsList === 'undefined' &&
+        typeof hideTagsList === 'undefined' &&
+        isPrimarySection
+    ) {
+        return 'with-category';
+    }
+    return '';
+};
+
 const AcumuladoTitle = props => {
     const { globalContent, orderAndCountTags, customFields } = props;
     const { prefixTitle, replaceTitle } = customFields || {};
-    const [withCategory, setWithCategory] = useState('');
-    const [_children, setChildren] = useState([]);
-    const [isPrimarySection, setIsPrimarySection] = useState(false);
-    const [title, setTitle] = useState('');
-    const [hideSectionsList] = useState(
-        get(globalContent, 'site.hidesectionslist', undefined)
-    );
-    const [hideTagsList] = useState(
-        get(globalContent, 'site.hidetagslist', undefined)
-    );
+    const { children } = globalContent;
 
-    useEffect(() => {
-        setChildren(globalContent.children);
-
-        setIsPrimarySection(
-            globalContent &&
-                globalContent._id &&
-                globalContent._id.split('/').splice(1).length === 1
-        );
-
-        setTitle(
-            (() => {
-                const {
-                    Payload,
-                    node_type: nodeType,
-                    byline,
-                    name
-                } = globalContent;
-                if (replaceTitle) return capitalizeFirstLetter(replaceTitle);
-                if (Payload)
-                    return capitalizeFirstLetter(Payload.items[0].name);
-                if (nodeType === 'section') return capitalizeFirstLetter(name);
-                if (byline) return capitalizeFirstLetter(byline);
-                return '';
-            })()
-        );
-    }, [
+    const hideSectionsList = get(
         globalContent,
-        globalContent.Payload,
-        globalContent._id,
-        globalContent.byline,
-        globalContent.children,
-        globalContent.name,
-        globalContent.node_type,
-        replaceTitle
-    ]);
+        'site.hidesectionslist',
+        undefined
+    );
+    const hideTagsList = get(globalContent, 'site.hidetagslist', undefined);
 
-    useEffect(() => {
-        if (
-            (!!hideSectionsList || !!hideTagsList) &&
-            _children &&
-            _children.length > 0
-        )
-            setWithCategory('with-category');
+    const isPrimarySection =
+        globalContent && globalContent._id
+            ? globalContent._id.split('/').splice(1).length === 1
+            : false;
 
-        if (hideSectionsList === 'true' && hideTagsList === 'true')
-            setWithCategory('');
+    const title = setTitle(replaceTitle, globalContent);
 
-        if (
-            typeof hideSectionsList === 'undefined' &&
-            typeof hideTagsList === 'undefined' &&
-            isPrimarySection
-        )
-            setWithCategory('with-category');
-    }, [
-        _children,
-        globalContent,
+    const withCategory = setWithCategory(
         hideSectionsList,
         hideTagsList,
+        children,
         isPrimarySection
-    ]);
+    );
+
     const prefixText =
         !isPrimarySection && title && prefixTitle ? `${prefixTitle} ` : '';
     const titleText = `${prefixText} ${title}`;
@@ -96,13 +84,13 @@ const AcumuladoTitle = props => {
                 <div className={withCategory}>
                     <ComTitle size="--xl" tag="h1" content={titleText} />
                     <ListSectionsTitle
-                        _children={_children}
+                        _children={children}
                         isPrimarySection={isPrimarySection}
                         hideSectionsList={hideSectionsList === 'true'}
                     />
                 </div>
                 <TagsNavigation
-                    _children={_children}
+                    _children={children}
                     orderAndCountTags={orderAndCountTags}
                     isPrimarySection={isPrimarySection}
                     hideTagsList={hideTagsList === 'true'}
