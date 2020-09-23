@@ -31,24 +31,17 @@ const revistas = ['ohlala'];
 
 const LNAcumuladoLayout = props => {
     const { children, globalContent, outputType, tree, isAdmin } = props;
-    const [classRevista, setClassRevista] = useState('');
-    const [headerDark, setHeaderDark] = useState('');
-
-    useEffect(() => {
-        const { style } = globalContent;
-        const sectionStyleName =
-            style && style.section_style_name ? style.section_style_name : '';
-
-        revistas.indexOf(sectionStyleName || '') !== -1 &&
-            setClassRevista(`${CLASS_ACU_REVISTA} ${sectionStyleName}`);
-
-        setHeaderDark(
-            style && style.headerdark && style.headerdark === 'true'
-                ? ' --dark'
-                : ''
-        );
-    }, [globalContent]);
-
+    const { style } = globalContent;
+    const sectionStyleName =
+        style && style.section_style_name ? style.section_style_name : '';
+    const classRevista =
+        revistas.indexOf(sectionStyleName || '') !== -1
+            ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
+            : '';
+    const headerDark =
+        style && style.headerdark && style.headerdark === 'true'
+            ? ' --dark'
+            : '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
     const bannerMegatop = getBannerMegatop(
