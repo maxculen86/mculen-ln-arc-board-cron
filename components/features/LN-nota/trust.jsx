@@ -15,7 +15,7 @@ const TrustFeature = props => {
 
     const trust = get(label, 'trust.text', null);
 
-    if (!trust || trust === 'No mostrar Trust') return null;
+    if (trust === 'No mostrar Trust') return null;
     if (subtype === '7') return null;
     return <Trust />;
 };
