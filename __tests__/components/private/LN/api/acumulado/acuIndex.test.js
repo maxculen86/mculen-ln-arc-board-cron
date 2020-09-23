@@ -7,15 +7,21 @@ jest.mock(
     }
 );
 
-import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import AcuIndex from '../../../../../../components/private/LN/api/v1/acumulado';
 
 describe('Test de index en Json acumulado', () => {
-    const dataMock = { name: 'Acu Test', next: true, articles: [] };
-    test('Test render', () => {
-        const resp = AcuIndex(dataMock.name, dataMock.articles, dataMock.next);
+    const dataMock = {
+        name: 'Acu Test',
+        articles: [],
+        paginator:5,
+        total:100,
+        configuration:{}
+    };
 
-        expect(resp.paginar).toBe(dataMock.next);
+    test('Test render', () => {
+        const resp = AcuIndex(dataMock);
+
+        expect(resp.paginar).toBe(true);
         expect(resp.titulo).toBe(dataMock.name);
         expect(resp.notas).toBe('list-mock');
     });

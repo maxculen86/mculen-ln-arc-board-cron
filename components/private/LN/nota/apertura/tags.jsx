@@ -3,21 +3,24 @@ import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
 import ComTitle from '../../../common/com-title';
 
-const getSectionsAsTags = sections =>
-    sections
-        .filter(section => section.name !== '')
-        .reduce((accumulator, section, index) => {
-            return [
-                ...accumulator,
-                ...[
-                    {
-                        type: section.type,
-                        slug: section.path,
-                        text: section.name
-                    }
-                ]
-            ];
-        }, []);
+const getSectionsAsTags = sections => {
+    return sections
+        ? sections
+              .filter(section => section.name !== '')
+              .reduce((accumulator, section, index) => {
+                  return [
+                      ...accumulator,
+                      ...[
+                          {
+                              type: section.type,
+                              slug: section.path,
+                              text: section.name
+                          }
+                      ]
+                  ];
+              }, [])
+        : [];
+};
 
 // TODO: este componente deberia ser el que tiene el titulo de "Recetas con:"
 const Tags = ({ tags, sections, destacado, temas }) => {

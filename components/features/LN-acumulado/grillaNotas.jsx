@@ -112,7 +112,7 @@ function GrillaNotasFeature(props) {
             authorId={authorId}
             tagId={tagId}
             sectionId={sectionId}
-            size={cantidad_notas}
+            size={outputType === 'amp' ? 30 : cantidad_notas}
             page={1}
             siteProperties={siteProperties}
             typeArticle={tipo_acumulado}

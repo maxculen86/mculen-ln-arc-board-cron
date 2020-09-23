@@ -62,7 +62,8 @@ const customElementForAcu = [
     {
         customElement: 'amp-ad',
         src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
-    } /*
+    }
+    /*
             {
                 checkInclusion: 'LN-home/AMPStory',
                 customElement: 'amp-story',
@@ -204,6 +205,7 @@ const AMPScripts = props => {
                     <script
                         async
                         custom-element={configElement.customElement}
+                        custom-template={configElement.customTemplate}
                         src={configElement.src}
                     />
                 );
