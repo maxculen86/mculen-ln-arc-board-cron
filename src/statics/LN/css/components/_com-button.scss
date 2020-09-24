@@ -264,31 +264,15 @@
             .com-usuario & {
                 .header & {
                     display: flex;
-                    .--transparent & {
-                        color: $blanco;
-                        border-color: $blanco;
-                        &:hover {
-                            background: $blanco;
-                            border-color: $blanco;
-                            color: $gris6;
-                        }
-                    }
-                    .--transparent.--scrollUp & {
-                        border-color: $ln;
-                        color: $ln;
-                        &:hover {
-                            background: rgba($ln, 1);
-                            color: $blanco;
-                        }
-                    }
                 }
             }
         }
-        &.--special,
-        &.--highlight {
+        //&.--highlight,
+        &.--special.--special {
             .com-usuario & {
                 .header & {
                     background: $highlight;
+                    color: $gris6;
                     border-color: $gris3;
                     margin-right: px(16);
                     padding: px(8) px(16);
@@ -296,19 +280,7 @@
                     &:hover {
                         background: $negro;
                         border-color: $negro;
-                    }
-                    .--transparent & {
-                        color: $gris6;
-                        &:hover {
-                            border-color: $negro;
-                            color: $blanco;
-                        }
-                    }
-                    .--transparent:not(.--scrollUp) & {
-                        border-color: $highlight;
-                        &:hover {
-                            border-color: $negro;
-                        }
+                        color: $blanco;
                     }
                 }
             }

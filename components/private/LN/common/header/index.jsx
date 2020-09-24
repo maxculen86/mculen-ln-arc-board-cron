@@ -65,7 +65,7 @@ class Index extends Component {
             lastScrollPosition
         );
         const scrollPos = window.scrollY;
-        //const { classList } = header;
+        const { classList } = header;
         //const vshare = document.getElementById('v-share');
 
         if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
@@ -83,11 +83,15 @@ class Index extends Component {
                 //     vshare.classList.add(CLASS_SCROLL_UP);
                 //     vshare.classList.remove(CLASS_SCROLL_DOWN);
                 // }
+                classList.remove(CLASS_ACTIVE);
+
                 if (wrapper) {
                     wrapper.classList.remove(CLASS_SCROLL_DOWN);
                     wrapper.classList.add(CLASS_SCROLL_UP);
                 }
             } else {
+                classList.remove(CLASS_ACTIVE);
+
                 //classList.remove(CLASS_SCROLL_UP);
                 // if (vshare) {
                 //     vshare.classList.remove(CLASS_SCROLL_UP);
@@ -102,6 +106,19 @@ class Index extends Component {
                 //if (vshare) vshare.classList.remove(CLASS_SCROLL_UP);
                 //classList.remove(CLASS_SCROLL_UP);
                 //classList.remove(CLASS_SCROLL_DOWN);
+                classList.add(CLASS_ACTIVE);
+
+                // if (wrapper) {
+                //     wrapper.classList.remove(CLASS_SCROLL_UP);
+                //     wrapper.classList.remove(CLASS_SCROLL_DOWN);
+                // }
+            }
+            if (scrollPos < 1) {
+                //if (vshare) vshare.classList.remove(CLASS_SCROLL_UP);
+                //classList.remove(CLASS_SCROLL_UP);
+                //classList.remove(CLASS_SCROLL_DOWN);
+                classList.remove(CLASS_ACTIVE);
+
                 if (wrapper) {
                     wrapper.classList.remove(CLASS_SCROLL_UP);
                     wrapper.classList.remove(CLASS_SCROLL_DOWN);
