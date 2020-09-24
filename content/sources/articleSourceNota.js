@@ -49,7 +49,7 @@ const checkPaywall = (
         const callback = Buffer.from(`${SITE_LANACION}${url}`).toString(
             'base64'
         );
-        const finalUrl = paywallUrl.replace('{{callback}}', `${callback}`);
+        const finalUrl = paywallUrl.replace('{{callback}}', callback);
         throw new Redirect(finalUrl, 302);
     }
 };
@@ -89,12 +89,7 @@ const fetch = query => {
             return transform(response, arcSite, properties);
         })
         .catch(error => {
-            const { statusCode, location } = error;
-            if (statusCode === 301 && location)
-                throw new Redirect(location, 301);
-
             logger.push(error, { source: 'content/source', url }, arcSite);
-
             throw error;
         });
 };
