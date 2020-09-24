@@ -26,10 +26,8 @@ const pageBuilderSections = [
 
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
-console.log('** LN-ACUMULADO');
 
 const LNAcumuladoLayout = props => {
-    console.log('****LNAcumuladoLayout');
     const {
         children: [
             preApertura,

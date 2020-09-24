@@ -43,6 +43,7 @@ convertToComLink.defaultProps = {
 };
 
 const AcumuladoTitle = props => {
+    const { outputType } = props;
     const isPrimarySection = get(props, 'isPrimarySection', {});
     const navigationList = get(props, 'navigation', null);
     const globalContent = get(props, 'globalContent', {});
@@ -95,9 +96,11 @@ const AcumuladoTitle = props => {
     return (
         <ModCategory
             revista={ID_LOGO_IMAGE}
+            imageId={ID_LOGO_IMAGE}
             category={titleText}
             navigation={categories}
             style={{ color: colorCategory }}
+            outputType={outputType}
         />
     );
 };
@@ -122,7 +125,8 @@ AcumuladoTitle.propTypes = {
                 _website: PropTypes.string
             })
         )
-    }).isRequired
+    }).isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 export default withAcuCategories(AcumuladoTitle);

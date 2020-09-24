@@ -5,7 +5,6 @@ import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
-    console.log('**********CONTENT_SOURCE', key);
     const {
         sectionId,
         excludeSectionId,
