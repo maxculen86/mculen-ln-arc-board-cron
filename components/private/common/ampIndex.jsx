@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import AdvertiserContent from './scriptManager/AdvertiserContent';
+//import AdvertiserContent from './scriptManager/AdvertiserContent';
 import scriptVideoValidator from './scriptManager/scriptVideoValidator';
 
 export const _AMPBoilerplate =
@@ -169,9 +169,9 @@ AMPCustomStyle.propTypes = {
     Resource: PropTypes.func.isRequired
 };
 
-export const Snippets = () => {
+/* export const Snippets = () => {
     return React.createElement(AdvertiserContent);
-};
+}; */
 
 const config = {
     OTT: {},
