@@ -66,7 +66,7 @@ class Index extends Component {
         );
         const scrollPos = window.scrollY;
         const { classList } = header;
-        //const vshare = document.getElementById('v-share');
+        const vshare = document.getElementById('v-share');
 
         if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
@@ -84,6 +84,7 @@ class Index extends Component {
                 //     vshare.classList.remove(CLASS_SCROLL_DOWN);
                 // }
                 classList.remove(CLASS_ACTIVE);
+                if (vshare) vshare.classList.remove(CLASS_ACTIVE);
 
                 if (wrapper) {
                     wrapper.classList.remove(CLASS_SCROLL_DOWN);
@@ -91,6 +92,7 @@ class Index extends Component {
                 }
             } else {
                 classList.remove(CLASS_ACTIVE);
+                if (vshare) vshare.classList.remove(CLASS_ACTIVE);
 
                 //classList.remove(CLASS_SCROLL_UP);
                 // if (vshare) {
@@ -103,26 +105,15 @@ class Index extends Component {
                 }
             }
             if (scrollPos < 65) {
-                //if (vshare) vshare.classList.remove(CLASS_SCROLL_UP);
+                //esta clsae está para el header transparente
+                classList.add(CLASS_ACTIVE);
+                if (vshare) vshare.classList.add(CLASS_ACTIVE);
                 //classList.remove(CLASS_SCROLL_UP);
                 //classList.remove(CLASS_SCROLL_DOWN);
-                classList.add(CLASS_ACTIVE);
-
                 // if (wrapper) {
                 //     wrapper.classList.remove(CLASS_SCROLL_UP);
                 //     wrapper.classList.remove(CLASS_SCROLL_DOWN);
                 // }
-            }
-            if (scrollPos < 1) {
-                //if (vshare) vshare.classList.remove(CLASS_SCROLL_UP);
-                //classList.remove(CLASS_SCROLL_UP);
-                //classList.remove(CLASS_SCROLL_DOWN);
-                classList.remove(CLASS_ACTIVE);
-
-                if (wrapper) {
-                    wrapper.classList.remove(CLASS_SCROLL_UP);
-                    wrapper.classList.remove(CLASS_SCROLL_DOWN);
-                }
             }
         }
 

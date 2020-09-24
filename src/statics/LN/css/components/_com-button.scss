@@ -155,12 +155,6 @@
                 border-color: transparent;
                 padding: px(3) px(16);
                 font-weight: 100;
-                .--transparent & {
-                    color: $blanco;
-                }
-                .--transparent.--scrollUp & {
-                    color: $gris6;
-                }
             }
         }
     }

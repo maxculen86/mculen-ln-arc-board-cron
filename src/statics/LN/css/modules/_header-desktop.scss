@@ -86,18 +86,25 @@
             .com-usuario {
                 .com-button {
                     &.--special.--special {
-                        border-color: $highlight;
-                        &:hover {
-                            border-color: $negro;
-                        }
-                    }
-                    &.--secondary.--secondary {
                         color: $blanco;
-                        border-color: $blanco;
-                        &:hover {
-                            background: $blanco;
-                            border-color: $blanco;
+                    }
+                    @media ($media-l) {
+                        &.--special.--special {
+                            border-color: $highlight;
                             color: $gris6;
+                            &:hover {
+                                border-color: $negro;
+                                color: $blanco;
+                            }
+                        }
+                        &.--secondary.--secondary {
+                            color: $blanco;
+                            border-color: $blanco;
+                            &:hover {
+                                background: $blanco;
+                                border-color: $blanco;
+                                color: $gris6;
+                            }
                         }
                     }
                 }
