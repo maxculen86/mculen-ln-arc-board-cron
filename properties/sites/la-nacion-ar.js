@@ -5,7 +5,7 @@ export default {
     },
     host: 'https://www.lanacion.com.ar',
     loggerOn: true,
-    loggerExcludedErrors: [404],
+    loggerExcludedErrors: [404, 301, 302],
     scripts: {
         ScriptVideoPowa: {
             props: {},
