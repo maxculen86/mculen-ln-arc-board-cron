@@ -1,35 +1,35 @@
 {
-    "_id":"H7QGKZCCJRH7LDOK2S2QSFEMYM",
-    "content_elements":[
+    "_id": "H7QGKZCCJRH7LDOK2S2QSFEMYM",
+    "content_elements": [
         {
-            "content":"Esta es una imagen",
-            "type":"image"
+            "content": "Esta es una imagen",
+            "type": "image"
         },
-       {
-          "content":"Este es el primer parrafo de prueba para ver si en la vision tipo listado se muestra en caso que no este la bajada. Pero hay que tener en cuenta que se debe cortar a las 160 caracteres",
-          "type":"text"
-       },
-       {
-        "content":"Este es el segundo parrafo de prueba",
-        "type":"text"
-     }
+        {
+            "content": "Este es el primer parrafo de prueba para ver si en la vision tipo listado se muestra en caso que no este la bajada. Pero hay que tener en cuenta que se debe cortar a las 160 caracteres",
+            "type": "text"
+        },
+        {
+            "content": "Este es el segundo parrafo de prueba",
+            "type": "text"
+        }
     ],
-    "credits":{
-       "by":[
-          {
-             "name":"Mirta Albamonte",
-             "type":"author"
-          }
-       ]
+    "credits": {
+        "by": [
+            {
+                "name": "Mirta Albamonte",
+                "type": "author"
+            }
+        ]
     },
-    "display_date":"2020-06-02T15:28:04.694Z",
-    "headlines":{
-       "basic":"Test dl (titulo basico largo)",
-       "mobile":"Titulo Movil Corto"
+    "display_date": "2020-06-02T15:28:04.694Z",
+    "headlines": {
+        "basic": "Test dl (titulo basico largo)",
+        "mobile": "Titulo Movil Corto"
     },
-    "subheadlines":{
-       "basic":"Este es el subtitulo"
+    "subheadlines": {
+        "basic": "Este es el subtitulo"
     },
-    "subtype":"7",
-    "website_url":"/recetas/test-dl-nid02062020/"
- }
+    "subtype": "7",
+    "website_url": "/recetas/test-dl-nid02062020/"
+}

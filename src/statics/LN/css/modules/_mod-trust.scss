@@ -1,0 +1,25 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-trust {
+    border-top: 1px solid $gris3;
+    border-bottom: 1px solid $gris3;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+    margin-bottom: $spacing-lg;
+    @include flex(flex, row, between, center);
+    .com-container {
+        @include flex(flex, column, center, start);
+    }
+}
+
+@media ($media-l) {
+    .mod-trust {
+        flex-direction: row;
+        align-items: center;
+        .com-container {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}

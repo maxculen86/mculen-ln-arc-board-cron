@@ -2,47 +2,48 @@ import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
-import Banner from '../../common/banner';
+import Banner from '../../common/bannerRefactor';
 import LoadingIcon from '../../common/loadingIcon';
 import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
-import config from './bannerPositionsConfig.json';
+import withScreenUtils from '../../../common/hocs/withScreenUtils';
+import WithNavigation from '../../common/hocs/WithNavigation';
+import ArticlesAcumAMP from '../articlesAcumAMP';
+// import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 class GrillaNotas extends Component {
-    constructor(props) {
-        super(props);
-
-        this.sectionGrillasNotasRef = React.createRef();
-    }
-
-    getBanner = (device, index) => {
+    getBanner = index => {
         const position = index + 1;
-        let bannerPosition = {};
-        let selectedSlots = {};
-        if (device === 'mobile') {
-            bannerPosition = config.mobile.find(el => el.position === position);
-            selectedSlots = bannerPosition
-                ? { mobileSlot: bannerPosition.banner }
-                : {};
-        } else {
-            bannerPosition = config.tablet.find(el => el.position === position);
-            selectedSlots = bannerPosition
-                ? { tabletSlot: bannerPosition.banner }
-                : {};
-        }
-        if (bannerPosition) {
-            const { siteProperties, isAdmin } = this.props;
-            return (
-                <Banner
-                    siteProperties={siteProperties}
-                    slotGroup="acumulado"
-                    selectedSlots={selectedSlots}
-                    isAdmin={isAdmin}
-                    sticky={false}
-                />
-            );
-        }
-        return undefined;
+        const { bannerConfig, hideBanners } = this.props;
+        const { banners: termicaShowBanner } = this.props.termicas || {
+            banners: true
+        };
+        const { siteProperties, isAdmin } = this.props;
+
+        return bannerConfig
+            .filter(banner => banner.position === position)
+            .map(value => {
+                const props = {
+                    siteProperties,
+                    isAdmin,
+                    banner: {
+                        slotGroup: 'acumulado',
+                        selectedSlots: {
+                            desktopSlot: value.desktop,
+                            mobileSlot: value.mobile,
+                            tabletSlot: value.tablet
+                        },
+                        show: {
+                            termicas: termicaShowBanner,
+                            collection: !(hideBanners === 'true')
+                        }
+                    }
+                };
+
+                return (
+                    <Banner key={Math.floor(Math.random() * 100)} {...props} />
+                );
+            });
     };
 
     render() {
@@ -71,7 +72,7 @@ class GrillaNotas extends Component {
                     outputType={outputType}
                 />
 
-                {hayMasNotas > 0 && (
+                {outputType !== 'amp' && hayMasNotas > 0 && (
                     <section className="row">
                         <BtnMasNotas
                             onClickHandler={obtenerMasNotas}
@@ -89,6 +90,7 @@ class GrillaNotas extends Component {
 GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
+    hideBanners: PropTypes.string.isRequired,
     articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
@@ -102,10 +104,19 @@ GrillaNotas.propTypes = {
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
         })
+    }).isRequired,
+    bannerConfig: PropTypes.shape({
+        background: PropTypes.bool,
+        position: PropTypes.number,
+        sticky: PropTypes.bool,
+        tablet: PropTypes.string
     }).isRequired
 };
 
 GrillaNotas.defaultProps = {
     articlesInCollection: []
 };
-export default WithAcuArticlesData(GrillaNotas, filter, 'notaM');
+
+export default WithNavigation(
+    withScreenUtils(WithAcuArticlesData(GrillaNotas, filter, 'notaM'))
+);

@@ -12,11 +12,11 @@ describe('ComLink', () => {
     };
 
     const atributes = {
-        className: 'com-link --autor', 
+        className: 'com-link --autor',
         children: 'A link',
-        href: "https://lanacion.com.ar",
+        href: 'https://lanacion.com.ar',
         rel: false,
-        target: "_self",
+        target: '_self',
         title: undefined
     };
 
@@ -36,7 +36,7 @@ describe('ComLink', () => {
         };
 
         const atributes = {
-            className: 'com-text --autor', 
+            className: 'com-text --autor',
             children: 'A span'
         };
 

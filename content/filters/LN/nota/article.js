@@ -6,6 +6,7 @@ const section = `
     _website
     name
     path
+    type
     parent_id
     additional_properties {
         original {
@@ -165,6 +166,9 @@ const labels = `
             display
         }
         marca_anunciante {
+            ${label}
+        }
+        trust {
             ${label}
         }
         recomendar {

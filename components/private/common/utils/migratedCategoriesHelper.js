@@ -1,4 +1,6 @@
-import categoriesDictionary from '../../../../resources/dictionaries/categoriesDictionary.json';
+import { DICTIONARY } from 'fusion:environment';
+
+const categoriesDictionary = DICTIONARY.categories;
 
 function findCategory(categoryToFind) {
     if (!categoryToFind) return null;
@@ -26,7 +28,7 @@ function getPrincipalCategory(category) {
     return principalCategory;
 }
 
-export function isMigratedCategory(category, isPrincipal = false) {
+const isMigratedCategory = (caterogy, isPrincipal = false) => {
     const categoryToFind = isPrincipal
         ? getPrincipalCategory(category)
         : getSecundaryCategory(category);
@@ -39,9 +41,9 @@ export function isMigratedCategory(category, isPrincipal = false) {
         );
 
     return elem.migrada;
-}
+};
 
-export function getCategory(category, isPrincipal = false) {
+const getCategory = (caterogy, isPrincipal = false) => {
     const categoryToFind = isPrincipal
         ? getPrincipalCategory(category)
         : getSecundaryCategory(category);
@@ -54,4 +56,6 @@ export function getCategory(category, isPrincipal = false) {
         );
 
     return elem;
-}
+};
+
+export { isMigratedCategory, getCategory };
