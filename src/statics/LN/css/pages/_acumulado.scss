@@ -113,6 +113,10 @@
                 margin-right: 0;
                 min-width: max-content;
             }
+            .com-image {
+                max-width: px(300);
+                margin-bottom: $spacing;
+            }
 
             .com-button {
                 display: none;
@@ -127,6 +131,11 @@
                     margin-bottom: 0;
                     margin-right: px(24);
                 }
+                .com-image {
+                    max-height: px(70);
+                    width: auto;
+                    max-width: none;
+                }
                 .com-button {
                     display: inline-flex;
                     padding: 0;
@@ -135,15 +144,22 @@
             }
         }
     }
-
+    &.--opening {
+        main {
+            .--top {
+                padding-bottom: px(150);
+                margin-bottom: 0;
+            }
+        }
+    }
     &.--color {
         main {
             padding-top: 0;
             .--top {
                 margin-top: px(-65);
                 padding-top: px(89);
-                padding-bottom: px(150);
-                background-color: $ln;
+                margin-bottom: $spacing-lg;
+                //background-color: $ln;
                 .com-title,
                 .com-logo,
                 .com-link,
@@ -152,6 +168,14 @@
                 }
                 .com-logo {
                     font-size: px(70);
+                }
+
+                //para borrar con el nuevo breadcrumb
+                .com-breadcrumb,
+                .com-breadcrumb a,
+                .com-breadcrumb span {
+                    color: $blanco;
+                    border-color: $blanco;
                 }
             }
             .--opening {
