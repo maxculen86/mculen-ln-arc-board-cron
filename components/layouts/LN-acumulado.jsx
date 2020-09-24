@@ -6,11 +6,11 @@ import Footer from '../private/LN/common/footer';
 
 // import '../../resources/dist/css/ln/base.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
-//import '../../resources/dist/css/ln/layouts/grid.css';
-//import '../../resources/dist/css/ln/pages/acu.css';
+// import '../../resources/dist/css/ln/layouts/grid.css';
+// import '../../resources/dist/css/ln/pages/acu.css';
 // import '../../resources/dist/css/ln/components/com-ordered.css';
 // import '../../resources/dist/css/ln/components/com-unordered.css';
-//import '../../resources/dist/css/ln/components/hour.css';
+// import '../../resources/dist/css/ln/components/hour.css';
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
@@ -26,8 +26,10 @@ const pageBuilderSections = [
 
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
+console.log('** LN-ACUMULADO');
 
 const LNAcumuladoLayout = props => {
+    console.log('****LNAcumuladoLayout');
     const {
         children: [
             preApertura,

@@ -4,6 +4,7 @@ import TagsNavigation from '../../private/LN/acumulado/tagsNavigation';
 
 // TODO: Agregar HOC withStatic luego de refactorizar withAcuArticlesData
 const TagsListFeature = props => {
+    console.log('******TagsListFeature');
     const {
         globalContent: { _id: sectionId }
     } = useAppContext() || {};

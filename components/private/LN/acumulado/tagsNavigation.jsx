@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
@@ -75,4 +75,4 @@ TagsNavigation.defaultProps = {
     hideTagsList: false
 };
 
-export default WithAcuArticlesData(TagsNavigation, filter, 'notaL');
+export default WithAcuArticlesData(TagsNavigation, filter);

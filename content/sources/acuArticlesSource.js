@@ -5,6 +5,7 @@ import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
+    console.log('**********CONTENT_SOURCE', key);
     const {
         sectionId,
         excludeSectionId,
@@ -115,6 +116,7 @@ const resolve = key => {
     }`;
     const final = `${basePath}${query}&size=${cant}&from=${from}
             &sort=display_date:desc`;
+    // console.log("final", final)
     return final;
 };
 
