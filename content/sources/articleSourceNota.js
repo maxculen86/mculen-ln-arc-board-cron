@@ -35,8 +35,27 @@ const resolve = (key, a) => {
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
+const checkPaywall = (
+    { paywallEnabled, meteringVariant, paywallUrl, url },
+    response
+) => {
+    if (
+        (paywallEnabled === '1' || paywallEnabled === 'true') &&
+        meteringVariant === 'D' &&
+        paywallUrl &&
+        (!response.content_restrictions ||
+            response.content_restrictions.content_code !== 'abierta')
+    ) {
+        const callback = Buffer.from(`${SITE_LANACION}${url}`).toString(
+            'base64'
+        );
+        const finalUrl = paywallUrl.replace('{{callback}}', `${callback}`);
+        throw new Redirect(finalUrl, 302);
+    }
+};
+
 const fetch = query => {
-    const { url = '', meteringVariant, paywallUrl, paywallEnabled } = query;
+    const { url = '' } = query;
     const arcSite = query['arc-site'];
     const properties = getProperties(arcSite);
     const opt = {
@@ -51,23 +70,6 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            if (
-                (paywallEnabled === '1' || paywallEnabled === 'true') &&
-                meteringVariant === 'D' &&
-                paywallUrl &&
-                (!response.content_restrictions ||
-                    response.content_restrictions.content_code !== 'abierta')
-            ) {
-                const callback = Buffer.from(`${SITE_LANACION}${url}`).toString(
-                    'base64'
-                );
-                const finalUrl = paywallUrl.replace(
-                    '{{callback}}',
-                    `${callback}`
-                );
-                throw new Redirect(finalUrl, 302);
-            }
-
             if (response.type === 'redirect' && response.redirect_url) {
                 throw new Redirect(response.redirect_url, 301);
             }
@@ -81,6 +83,8 @@ const fetch = query => {
             if (forwardUrl && regExp.test(forwardUrl)) {
                 throw new Redirect(forwardUrl, 301);
             }
+
+            checkPaywall(query, response);
 
             return transform(response, arcSite, properties);
         })
