@@ -14,8 +14,10 @@ import Footer from '../private/LN/common/footer';
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
+import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const pageBuilderSections = [
+    'Banner-Megatop',
     'Pre-Apertura',
     'Breadcrumb/Titulo',
     'Apertura',
@@ -30,6 +32,7 @@ const revistas = ['ohlala'];
 const LNAcumuladoLayout = props => {
     const {
         children: [
+            bannerMegatop,
             preApertura,
             breadcrumbTitulo,
             apertura,
@@ -38,29 +41,25 @@ const LNAcumuladoLayout = props => {
             aside
         ],
         globalContent,
-        outputType
+        outputType,
+        tree,
+        isAdmin
     } = props;
-    const [classRevista, setClassRevista] = useState('');
-    const [headerDark, setHeaderDark] = useState('');
-    const amp = outputType === 'amp' ? 'amp' : '';
-
-    useEffect(() => {
-        const { style } = globalContent;
-        const sectionStyleName =
-            style && style.section_style_name ? style.section_style_name : '';
-
-        revistas.indexOf(sectionStyleName || '') !== -1 &&
-            setClassRevista(`${CLASS_ACU_REVISTA} ${sectionStyleName}`);
-
-        setHeaderDark(
-            style && style.headerdark && style.headerdark === 'true'
-                ? ' --dark'
-                : ''
-        );
-    }, [globalContent]);
-
+    const { style } = globalContent;
+    const sectionStyleName =
+        style && style.section_style_name ? style.section_style_name : '';
+    const classRevista =
+        revistas.indexOf(sectionStyleName || '') !== -1
+            ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
+            : '';
+    const headerDark =
+        style && style.headerdark && style.headerdark === 'true'
+            ? ' --dark'
+            : '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
+    const amp = outputType === 'amp' ? 'amp' : '';
+    const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     const backgroundCategory = get(
         globalContent,
         'acumuladoColor.background_color',
@@ -80,6 +79,7 @@ const LNAcumuladoLayout = props => {
             acumuladoGeneral={acumuladoGeneral}
             acumuladoColor={acumuladoColor}
         >
+            {megatop}
             <div
                 id="wrapper"
                 className={`acumulado${COLOR_CLASS} ${classRevista} ${amp}`}
@@ -124,6 +124,8 @@ const LNAcumuladoLayout = props => {
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
     outputType: PropTypes.string.isRequired,
+    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
             section_style_name: PropTypes.string,

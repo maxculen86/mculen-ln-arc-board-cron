@@ -3,6 +3,11 @@ import { defaultTargeting } from './defaults';
 const PATH_SLOT = 'la_nacion_mobile/Acumulado';
 
 export default {
+    megatop_mob: {
+        slotName: `${PATH_SLOT}/megatop_mob`,
+        dimensions: [[320, 480]],
+        targeting: defaultTargeting
+    },
     sticky1_mob: {
         slotName: `${PATH_SLOT}/sticky1_mob`,
         dimensions: [

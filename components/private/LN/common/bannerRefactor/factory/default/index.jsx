@@ -151,6 +151,9 @@ function getBannerForAccumTemplate(config) {
     switch (slotId) {
         case STICKY_1_MOB:
             return <Sticky1Mob {...config} />;
+        case MEGATOP_MOB:
+        case MEGATOP_DSK:
+            return <Megatop {...config} />;
         case CABEZAL_DSK:
         case CABEZAL_TAB:
         case CAJA_1_DSK:
@@ -185,7 +188,6 @@ function reducer(state, action) {
 
 export default config => {
     const { slotGroup } = config;
-
     return props => {
         const [banner, dispatch] = useReducer(reducer, null);
         useEffect(() => {
