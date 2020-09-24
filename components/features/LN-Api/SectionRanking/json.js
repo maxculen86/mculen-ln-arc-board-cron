@@ -2,7 +2,7 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
-
+import filter from '../../../../content/filters/LN/nota/articleRanking';
 // URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/params=size:1;page:20/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/ranking\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
 class SectionRanking {
@@ -27,7 +27,7 @@ class SectionRanking {
             : sizeCf;
 
         if (size > 100) size = 100;
-        
+
         const page = !isAdmin
             ? Number.parseInt(
                   browser.getParamFrom(
@@ -41,13 +41,15 @@ class SectionRanking {
 
         this.fetchContent({
             dataResp: {
-                source: 'acuArticlesSource',
+                source: 'rankingArticlesSource',
                 query: {
                     sectionId: id,
-                    imageConfig: 'notaM',
-                    size,
-                    page
-                }
+                    weeksAgo: 30,
+                    daysAgo: 30,
+                    size: 10,
+                    imageConfig: 'notaM'
+                },
+                filter
             }
         });
 
@@ -61,7 +63,7 @@ class SectionRanking {
     render() {
         if (!this.state.dataResp || !this.state.dataResp.content_elements)
             return null;
-        const articles = this.state.dataResp.content_elements;
+        // const articles = this.state.dataResp.content_elements;
         const {
             globalContent: { name }
         } = this.props;
@@ -70,7 +72,9 @@ class SectionRanking {
             browser.getApiVersion(this.props.requestUri)
         ];
 
-        return indexAcu(name, articles, this.state.dataResp.next > 0);
+        return this.state.dataResp;
+
+        // return indexAcu(name, articles, this.state.dataResp.next > 0);
     }
 }
 
