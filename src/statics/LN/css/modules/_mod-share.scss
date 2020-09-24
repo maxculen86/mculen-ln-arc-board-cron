@@ -23,7 +23,7 @@
         border: none;
         //margin-bottom: $spacing-sm;
     }
-    &.--scrollDown {
+    .--scrollDown & {
         //.cuerpo__nota & {
         display: none;
         //}
@@ -48,7 +48,7 @@
         }
     }
 
-    &.--scrollUp {
+    .--scrollUp & {
         //.cuerpo__nota & {
         top: 0;
         display: flex;
@@ -154,12 +154,12 @@
         //     border: none;
 
         // }
-        &.--scrollUp {
+        .--scrollUp & {
             //.cuerpo__nota & {
             top: px(85);
             //}
         }
-        &.--scrollDown {
+        .--scrollDown & {
             //z-index: 0;
             //.cuerpo__nota & {
             //@include flex(flex);

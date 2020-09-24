@@ -304,6 +304,12 @@
                             color: $blanco;
                         }
                     }
+                    .--transparent:not(.--scrollUp) & {
+                        border-color: $highlight;
+                        &:hover {
+                            border-color: $negro;
+                        }
+                    }
                 }
             }
         }

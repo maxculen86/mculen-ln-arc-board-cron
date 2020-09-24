@@ -45,51 +45,51 @@
     &.--dark,
     .acu-revista &,
     .revistas-layer:not(.--scrollUp) &,
-    .storytelling:not(.--scrollUp) &,
-    .--photo100:not(.--scrollUp) &,
-    .--transparent &,
-    .--color & {
-        &:not(.--scrollUp) {
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
+    //.storytelling:not(.--scrollUp) &,
+    //.--photo100:not(.--scrollUp) &,
+    .--transparent:not(.--scrollUp) &,
+    .--color:not(.--scrollUp) & {
+        //&:not(.--scrollUp) {
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
 
-            .header__left {
-                .com-hamburger {
-                    &:before,
-                    .com-icon {
-                        color: $blanco;
-                    }
-                    &:hover {
-                        color: $blanco;
-                    }
+        .header__left {
+            .com-hamburger {
+                &:before,
+                .com-icon {
+                    color: $blanco;
                 }
-
-                .com-search {
-                    &__input {
-                        color: $blanco;
-
-                        &::placeholder {
-                            color: $gris3;
-                        }
-                    }
-
-                    &__submit {
-                        background: $blanco;
-                        color: $link;
-                    }
-
-                    .icon-search {
-                        color: $blanco;
-                    }
+                &:hover {
+                    color: $blanco;
                 }
             }
 
-            .header__middle {
-                .logo-la-nacion {
+            .com-search {
+                &__input {
+                    color: $blanco;
+
+                    &::placeholder {
+                        color: $gris3;
+                    }
+                }
+
+                &__submit {
+                    background: $blanco;
+                    color: $link;
+                }
+
+                .icon-search {
                     color: $blanco;
                 }
             }
         }
+
+        .header__middle {
+            .logo-la-nacion {
+                color: $blanco;
+            }
+        }
+        //}
     }
 
     @media (min-width: 769px) {
@@ -153,7 +153,7 @@
         // ------ESTADOS DEL HEADER------
         //=================================
         //scrollUp
-        &.--scrollDown,
+        //&.--scrollDown,
         .--scrollDown & {
             /*transform: translateY(-100%);
             position: absolute;*/
@@ -161,7 +161,7 @@
             top: -80px;
         }
         //scrollDown
-        &.--scrollUp,
+        //&.--scrollUp,
         .--scrollUp & {
             /*transform: translateY(0);*/
             top: 0;
