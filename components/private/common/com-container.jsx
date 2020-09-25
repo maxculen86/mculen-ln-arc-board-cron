@@ -3,10 +3,14 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-container.css';
 
 const ComContainer = props => {
-    const { id, classesNames, children } = props;
+    const { id, classesNames, children, classCondition } = props;
     if (!children) return null;
     return (
-        <div id={id} className={classesNames}>
+        <div
+            id={id}
+            className={`com-container ${classesNames || ''} ${classCondition ||
+                ''}`}
+        >
             {children}
         </div>
     );

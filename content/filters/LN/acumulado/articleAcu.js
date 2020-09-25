@@ -7,6 +7,8 @@ const image = `
     }
     url
     subtitle
+    width
+    height
 `;
 
 export default `
@@ -45,6 +47,14 @@ export default `
         }
         headlines {
             basic
+            mobile
+        }
+        subheadlines {
+            basic
+        }
+        content_elements {
+            type
+            content
         }
         display_date
         website_url       

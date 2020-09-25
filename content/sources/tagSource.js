@@ -4,7 +4,7 @@ import filter from '../filters/LN/acumulado/tag';
 const resolve = key => {
     const { slug } = key;
     if (!slug) throw new Error('Debe definir un slug para obtener el tag');
-    return `/tags/search?term="${slug}"`;
+    return `/tags/v2/search?prefix=${slug}`;
 };
 
 const transform = (data, query) => {
@@ -21,7 +21,13 @@ const transform = (data, query) => {
         err.statusCode = 404;
         throw err;
     }
-    return data;
+    const newData = {
+        ...data,
+        node_type: 'tags',
+        canonical_url: query.uri
+    };
+
+    return newData;
 };
 
 const ttlValue = () => {

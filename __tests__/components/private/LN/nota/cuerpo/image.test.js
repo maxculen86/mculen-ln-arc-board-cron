@@ -23,7 +23,7 @@ describe('features - La Nacion - Components - Nota - Apertura - Destacado ', () 
     Context.useAppContext = jest.fn(() => ({
         globalContent: { subtype: '1' }
     }));
-    
+
     const data = {
         _id: 'YQPFIZTCKVFKFDHNINT7IBBI6U',
         additional_properties: {

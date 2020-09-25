@@ -27,7 +27,8 @@ describe('Test de htmlContent en el cuepo de nota', () => {
         expect(resp['_t']).toBe('p');
         expect(resp['valor']['_t']).toBe('ext');
         expect(resp['valor']['id']).toBe('ifrme');
-        expect(resp['valor']['src']).toBe('https://www.espn.com.ar/core/video/iframe?id=7188899&endcard=true&adLevel=espn.latam.ar%2Fsyndicated-player%2Flanacion&adEnv=prod&trackingName=LANACION');
+        expect(resp['valor']['src']).toBe(
+            'https://www.espn.com.ar/core/video/iframe?id=7188899&endcard=true&adLevel=espn.latam.ar%2Fsyndicated-player%2Flanacion&adEnv=prod&trackingName=LANACION'
+        );
     });
-
 });

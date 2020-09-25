@@ -1,4 +1,6 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
+
 .com-nav-mobile {
     position: fixed;
     bottom: 0;
@@ -49,11 +51,11 @@
         }
     }
     //scrollUp
-    &.--scrollDown {
+    .--scrollDown & {
         bottom: -200px;
     }
     //scrollDown
-    &.--scrollUp {
+    .--scrollUp & {
         bottom: 0;
     }
     /*@media ($media-l) {
@@ -71,7 +73,7 @@
     }
 }
 
-@media (min-width: 769px) {
+@media ($media-l) {
     .com-nav-mobile {
         display: none;
     }

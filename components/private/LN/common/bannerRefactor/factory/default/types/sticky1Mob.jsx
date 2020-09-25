@@ -4,11 +4,15 @@
 
 import React, { useRef, useLayoutEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
+import { useAppContext } from 'fusion:context';
+
 import Ads from '../../../ads';
 
 import { slotsConfig } from '../../../config';
 
 import Sticky2Mob from './sticky2Mob';
+import { getDimsFromSiteService } from '../../../utils';
 
 const isNotVisibleInViewport = element => {
     const bounds = element.getBoundingClientRect();
@@ -31,6 +35,10 @@ const Sticky1Mob = props => {
     const scrollPos = useRef(0);
 
     const sticky1 = useRef();
+
+    const sizes = useRef(null);
+
+    const { arcSite } = useAppContext();
 
     const { device } = props;
 
@@ -65,6 +73,7 @@ const Sticky1Mob = props => {
     const {
         slotId: id,
         slotName,
+        slotGroup,
         dimensions,
         dfpId,
         targeting,
@@ -86,9 +95,30 @@ const Sticky1Mob = props => {
         />
     );
 
+    const content = useContent({
+        source: 'navigationTreeSource',
+        query: {
+            website: arcSite
+        }
+    });
+
+    if (content) {
+        const { bannerConfig } = content;
+        sizes.current = getDimsFromSiteService(bannerConfig)(slotGroup)(
+            'sticky2_mob'
+        );
+    }
+
     const stickyMob2Config = slotsConfig.nota.sticky2_mob;
 
-    const config = { ...props, ...stickyMob2Config, slotId: 'sticky2_mob' };
+    const config = {
+        ...props,
+        ...stickyMob2Config,
+        slotId: 'sticky2_mob',
+        dimensions: sizes.current || stickyMob2Config.dimensions
+    };
+
+    if (Object.values(show).some(element => element === false)) return <></>;
 
     return (
         <>

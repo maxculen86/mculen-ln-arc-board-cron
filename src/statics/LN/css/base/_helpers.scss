@@ -32,7 +32,7 @@
 // DISPLAY NONE
 //=============================
 //oculto hasta 1024
-@media (max-width: 64em - 1) {
+@media (max-width: 64em) {
     .hlp-tablet-none {
         display: none;
     }
@@ -320,7 +320,8 @@
 //=============================
 .hlp-degrade {
     position: relative;
-    .transparency {
+    .transparency,
+    &:after {
         content: '';
         position: absolute;
         bottom: 0;
@@ -417,7 +418,7 @@
     line-height: px(24);
 }
 .--twoxs {
-    font-size: px(18);
+    font-size: px(19);
     line-height: px(30);
 }
 .--threexs {

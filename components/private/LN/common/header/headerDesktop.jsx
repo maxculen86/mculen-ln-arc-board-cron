@@ -87,7 +87,7 @@ const HeaderDesktop = ({
                 >
                     {!loginData.subscription && (
                         <button
-                            className="--btn --highlight"
+                            className="com-button --special --compact"
                             type="button"
                             onClick={() => {
                                 location.href =
@@ -96,7 +96,7 @@ const HeaderDesktop = ({
                                     )}` || '/';
                             }}
                         >
-                            Suscribite
+                            SUSCRIBITE
                         </button>
                     )}
                     {logueado && (
@@ -144,10 +144,10 @@ const HeaderDesktop = ({
                     {!logueado && (
                         <button
                             type="button"
-                            className="--btn --secondary"
+                            className="com-button --secondary --compact"
                             onClick={() => goToLoginUrl()}
                         >
-                            Ingresar
+                            INGRESAR
                         </button>
                     )}
                 </div>

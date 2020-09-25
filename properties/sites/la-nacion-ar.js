@@ -4,7 +4,8 @@ export default {
         body: 'ln'
     },
     host: 'https://www.lanacion.com.ar',
-    logger: true,
+    loggerOn: true,
+    loggerExcludedErrors: [404],
     scripts: {
         ScriptVideoPowa: {
             props: {},
@@ -42,9 +43,9 @@ export default {
             props: {},
             location: ['head']
         },
-        AdvertiserContent: {
+        GooglePublisherTagAcumulado: {
             props: {},
-            location: ['body-top']
+            location: ['head']
         },
         SocialEmbeds: {
             props: {},

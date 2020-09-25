@@ -7,7 +7,8 @@ const GlobalProviderAcu = props => {
     const { acumuladoGeneral, acumuladoColor, children } = props;
     const [state, setState] = useState({
         acumuladoGeneral,
-        acumuladoColor
+        acumuladoColor,
+        articlesInCollection: []
     });
 
     return (
@@ -22,8 +23,8 @@ GlobalProviderAcu.propTypes = {
     acumuladoGeneral: PropTypes.shape({
         tipo_acumulado: PropTypes.string,
         hierarchy_navigation: PropTypes.string,
-        hide_banner: PropTypes.boolean,
-        cantidad_notas: PropTypes.number,
+        hide_banner: PropTypes.string,
+        cantidad_notas: PropTypes.string,
         id_collection_promo_items: PropTypes.string
     }).isRequired,
     acumuladoColor: PropTypes.shape({

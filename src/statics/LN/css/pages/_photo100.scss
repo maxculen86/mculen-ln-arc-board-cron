@@ -77,7 +77,9 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 @include padding_rl;
                 @include width-nota100;
             }
-
+            .mod-banner {
+                display: flex;
+            }
             .mod-figure {
                 //cursor: default;
                 &::before {

@@ -4,18 +4,20 @@ import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 
-import '../../resources/dist/css/ln/base.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/pages/acu.css';
-import '../../resources/dist/css/ln/components/ordered.css';
-import '../../resources/dist/css/ln/components/unordered.css';
-import '../../resources/dist/css/ln/components/hour.css';
+// import '../../resources/dist/css/ln/base.css';
+// import '../../resources/dist/css/ln/layouts/layout.css';
+//import '../../resources/dist/css/ln/layouts/grid.css';
+//import '../../resources/dist/css/ln/pages/acu.css';
+// import '../../resources/dist/css/ln/components/com-ordered.css';
+// import '../../resources/dist/css/ln/components/com-unordered.css';
+//import '../../resources/dist/css/ln/components/hour.css';
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
+import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const layoutItems = [
+    'Banner-Megatop',
     'Pre-Apertura',
     'Breadcrumb/Titulo',
     'Apertura',
@@ -28,74 +30,74 @@ const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
 
 const LNAcumuladoLayout = props => {
-    const { children, globalContent } = props;
-    const [classRevista, setClassRevista] = useState('');
-    const [headerDark, setHeaderDark] = useState('');
-
-    useEffect(() => {
-        const { style } = globalContent;
-        const sectionStyleName =
-            style && style.section_style_name ? style.section_style_name : '';
-
-        revistas.indexOf(sectionStyleName || '') !== -1 &&
-            setClassRevista(`${CLASS_ACU_REVISTA} ${sectionStyleName}`);
-
-        setHeaderDark(
-            style && style.headerdark && style.headerdark === 'true'
-                ? ' --dark'
-                : ''
-        );
-    }, [globalContent]);
-
+    const { children, globalContent, outputType, tree, isAdmin } = props;
+    const { style } = globalContent;
+    const sectionStyleName =
+        style && style.section_style_name ? style.section_style_name : '';
+    const classRevista =
+        revistas.indexOf(sectionStyleName || '') !== -1
+            ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
+            : '';
+    const headerDark =
+        style && style.headerdark && style.headerdark === 'true'
+            ? ' --dark'
+            : '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
+    const bannerMegatop = getBannerMegatop(
+        children[0],
+        outputType,
+        tree,
+        isAdmin
+    );
 
     return (
         <GlobalProviderAcu
             acumuladoGeneral={acumuladoGeneral}
             acumuladoColor={acumuladoColor}
         >
-            <div id="wrapper" className={`acu ${classRevista}`}>
+            {bannerMegatop}
+            <div id="wrapper" className={`acumulado ${classRevista}`}>
                 <Header headerDark={headerDark} />
                 <main>
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
-                    {children[0]}
-                    {children[1] && (
+                    {children[1]}
+                    {children[2] && (
                         <div className="row">
                             <div className="col-12">
                                 <div className="lay">
                                     {/* BREADCRUMB, TITULO Y APERTURA */}
-                                    {children[1]}
+                                    {children[2]}
                                 </div>
                             </div>
                         </div>
                     )}
                     <div id="content-main" className="lay-sidebar">
                         <div className="sidebar__main">
-                            {children[2] && (
-                                <div className="row">
-                                    <div className="col-12">
-                                        {/* LUGAR PARA UN ANEXO */}
-                                        {children[2]}
-                                    </div>
-                                </div>
-                            )}
                             {children[3] && (
                                 <div className="row">
                                     <div className="col-12">
-                                        {/* LINKS DE NAVEGACION */}
+                                        {/* LUGAR PARA UN ANEXO */}
                                         {children[3]}
                                     </div>
                                 </div>
                             )}
+                            {children[4] && (
+                                <div className="row">
+                                    <div className="col-12">
+                                        {/* LINKS DE NAVEGACION */}
+                                        {children[4]}
+                                    </div>
+                                </div>
+                            )}
                             {/* NOTAS */}
-                            {children[4]}
+                            {children[5]}
                         </div>
-                        <div className="sidebar__aside hlp-desklm-none">
+                        <div className="sidebar__aside hlp-tablet-none">
                             <div className="row">
                                 <div className="col-12">
                                     {/* RANKING DE NOTAS */}
-                                    {children[5]}
+                                    {children[6]}
                                 </div>
                             </div>
                         </div>
@@ -109,6 +111,9 @@ const LNAcumuladoLayout = props => {
 
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
+    outputType: PropTypes.string.isRequired,
+    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
             section_style_name: PropTypes.string,
@@ -117,8 +122,8 @@ LNAcumuladoLayout.propTypes = {
         acumuladoGeneral: PropTypes.shape({
             tipo_acumulado: PropTypes.string,
             hierarchy_navigation: PropTypes.string,
-            hide_banner: PropTypes.boolean,
-            cantidad_notas: PropTypes.number,
+            hide_banner: PropTypes.string,
+            cantidad_notas: PropTypes.string,
             id_collection_promo_items: PropTypes.string
         }),
         acumuladoColor: PropTypes.shape({

@@ -46,7 +46,6 @@ const fetch = query => {
         };
     }
 
-    console.log('opt', opt);
     return request(opt)
         .then(response => {
             if (response.type === 'redirect' && response.redirect_url) {

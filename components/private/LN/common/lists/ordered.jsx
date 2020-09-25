@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../../resources/dist/css/ln/components/ordered.css';
+import '../../../../../resources/dist/css/ln/components/com-ordered.css';
 import PropTypes from 'fusion:prop-types';
 
 const ordered = ({ children }) => {

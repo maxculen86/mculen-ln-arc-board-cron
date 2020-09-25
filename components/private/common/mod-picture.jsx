@@ -9,7 +9,16 @@ import ModVideo from './mod-video';
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ModImage = props => {
-    const { media, src, srcset, alt, classCondition, video, amp, sizes = {} } = props;
+    const {
+        media,
+        src,
+        srcset,
+        alt,
+        classCondition,
+        video,
+        amp,
+        sizes = {}
+    } = props;
     // if (!src || !srcset) return null;
 
     return (

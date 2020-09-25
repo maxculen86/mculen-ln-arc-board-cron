@@ -26,6 +26,25 @@
     }
 }
 
+.acumulado {
+    //cambio momentaneo solo para acumulado
+    @media ($media-lm) {
+        .lay-sidebar {
+            flex-direction: row;
+        }
+        .sidebar__main {
+            flex-basis: 100%;
+            margin-right: px(40);
+            //por slider
+            //overflow: hidden;
+        }
+        .sidebar__aside {
+            flex-basis: px(300);
+            flex-shrink: 0;
+        }
+    }
+}
+
 @media ($media-lg) {
     #wrapper.nota .sidebar__main {
         margin-right: px(80);
@@ -52,15 +71,15 @@
     }
 }
 
-@media ($media-m) {
-    [class^='lay'],
-    [class*=' lay'] {
-        padding-right: px(20);
-        padding-left: px(20);
-    }
-}
+// @media ($media-m) {
+//     [class^='lay'],
+//     [class*=' lay'] {
+//         padding-right: px(20);
+//         padding-left: px(20);
+//     }
+// }
 
-@media ($media-l) {
+@media ($media-xl) {
     [class^='lay'],
     [class*=' lay'] {
         max-width: 1340px;
