@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
@@ -58,21 +58,17 @@ const LNAcumuladoLayout = props => {
             : '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
+    const { id_collection_promo_items: idCollection } = acumuladoGeneral;
+    const {
+        background_color: backgroundCategory,
+        navigation_color_tags: colorTags
+    } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
-    const backgroundCategory = get(
-        globalContent,
-        'acumuladoColor.background_color',
-        null
-    );
-    const colorTags = get(
-        globalContent,
-        'acumuladoColor.navigation_color_tags',
-        null
-    );
 
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? ' --color' : '';
+    const OPENING_CLASS = idCollection ? '--opening' : '';
 
     return (
         <GlobalProviderAcu
@@ -82,7 +78,7 @@ const LNAcumuladoLayout = props => {
             {megatop}
             <div
                 id="wrapper"
-                className={`acumulado${COLOR_CLASS} ${classRevista} ${amp}`}
+                className={`acumulado${COLOR_CLASS} ${classRevista} ${OPENING_CLASS} ${amp}`}
             >
                 <Header headerDark={headerDark} />
                 <main>
