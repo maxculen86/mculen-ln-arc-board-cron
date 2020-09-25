@@ -53,7 +53,10 @@ export const getSectionLogo = (sections, layout, distributorName) => {
 
     const logoSection = sections.find(section => {
         const { _id } = section;
-        const resSection = _id.includes('/revista-') || _id.includes('/lnmas');
+        const resSection =
+            _id.includes('/revista-') ||
+            _id.includes('/lnmas') ||
+            _id.includes('/propiedades');
         return resSection;
     });
     if (!logoSection && distributorName === 'BBC Mundo')
