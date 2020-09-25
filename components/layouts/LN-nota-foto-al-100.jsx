@@ -165,7 +165,18 @@ lnNotaFotoAl100.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     outputType: PropTypes.string.isRequired,
     tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired
+    isAdmin: PropTypes.bool.isRequired,
+    globalContent: PropTypes.shape({
+        taxonomy: PropTypes.shape({
+            sections: PropTypes.shape({
+                _id: PropTypes.string
+            })
+        }),
+        distributor: PropTypes.shape({
+            name: PropTypes.string
+        })
+    }).isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 export default Consumer(lnNotaFotoAl100);

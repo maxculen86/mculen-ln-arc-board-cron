@@ -32,7 +32,8 @@ Theme.propTypes = {
                 _id: PropTypes.string
             })
         })
-    }).isRequired
+    }).isRequired,
+    children: PropTypes.arrayOf(PropTypes.nodes).isRequired
 };
 
 export default Consumer(Theme);
