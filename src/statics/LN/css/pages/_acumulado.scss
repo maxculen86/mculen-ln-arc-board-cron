@@ -135,11 +135,14 @@
                     max-height: px(70);
                     width: auto;
                     max-width: none;
+                    margin: 0;
                 }
                 .com-button {
-                    display: inline-flex;
                     padding: 0;
                     margin-bottom: px(-6);
+                    &:not(.hlp-none) {
+                        display: inline-flex;
+                    }
                 }
             }
         }
@@ -147,7 +150,7 @@
     &.--opening {
         main {
             .--top {
-                padding-bottom: px(150);
+                padding-bottom: px(126);
                 margin-bottom: 0;
             }
         }
@@ -180,6 +183,11 @@
             }
             .--opening {
                 margin-top: px(-150);
+                border-bottom: 1px solid $gris3;
+                margin-bottom: $spacing-md;
+                .mod-figure {
+                    background: $blanco; //para el hover de la imagen
+                }
             }
         }
         &.ohlala {
@@ -363,8 +371,6 @@
         }
     }
     &.--tags {
-        border-top: solid 1px $gris3;
-        padding-top: $spacing-md;
         margin-bottom: $spacing-md;
         margin-top: 0;
         li {
