@@ -50,6 +50,9 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import { getSectionLogo } from '../private/common/utils/sectionUtils';
+
+import MagazineChecker from '../private/LN/common/checker';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -70,43 +73,50 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
-//if CATEGORIA REVISTA
-import '../../resources/dist/css/ln/pages/magazine.css';
-const magazine = 'brando';
-//endif
-
-const lnNotaInfografia = ({ children, outputType, tree, isAdmin }) => {
+const lnNotaInfografia = ({
+    children,
+    outputType,
+    tree,
+    isAdmin,
+    globalContent: {
+        taxonomy: { sections },
+        distributor: { name }
+    },
+    layout
+}) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+    const magazine = getSectionLogo(sections, layout, name).logoName;
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
             {bannerMegatop}
             {/* Banner MEGATOP */}
-            <div id="wrapper" className={`nota --info ${magazine} ${amp}`}>
-                {/* TODO: sacar */}
-                {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
-                <Header />
-                <main>
-                    {children[1]}
-                    <div className="lay --apertura">
-                        <div className="row">
-                            <div className="col-12">
-                                {/* Titulo (breadcrumb, logo+titulo) */}
-                                {children[2]}
-                                <ComInfografia />
+            <MagazineChecker>
+                <div id="wrapper" className={`nota --info ${magazine} ${amp}`}>
+                    {/* TODO: sacar */}
+                    {/* <script src="https://d328y0m0mtvzqc.cloudfront.net/prod/powaBoot.js" /> */}
+                    <Header />
+                    <main>
+                        {children[1]}
+                        <div className="lay --apertura">
+                            <div className="row">
+                                <div className="col-12">
+                                    {/* Titulo (breadcrumb, logo+titulo) */}
+                                    {children[2]}
+                                    <ComInfografia />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="lay-sidebar">
-                        {/* Cuerpo */}
-                        <div className="sidebar__main">
-                            <div className="row">
-                                <div className="col-12 ">
-                                    {/* Bajada y autor fecha más apertura */}
-                                    {children[3]}
+                        <div className="lay-sidebar">
+                            {/* Cuerpo */}
+                            <div className="sidebar__main">
+                                <div className="row">
+                                    <div className="col-12 ">
+                                        {/* Bajada y autor fecha más apertura */}
+                                        {children[3]}
 
-                                    {/* <div className="opinion-autor row">
+                                        {/* <div className="opinion-autor row">
                                     <section id="" className="cont-figure">
                                         <div className="figure">
                                             <picture className="content-pic picture">
@@ -125,46 +135,47 @@ const lnNotaInfografia = ({ children, outputType, tree, isAdmin }) => {
                                         <label>PARA LA NACION</label>
                                     </div>
                                 </div> */}
-                                </div>
-                            </div>
-                            <section className="cuerpo__nota">
-                                <div className="row">
-                                    <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
-                                        {/* hlp-mobile-show */}
-                                        {/* Left-Cuerpo Shared */}
-                                        {children[4]}
                                     </div>
-                                    <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                        <div className="row">
-                                            <div className="col-12">
-                                                {/* Pos-Apertura */}
-                                                {children[5]}
+                                </div>
+                                <section className="cuerpo__nota">
+                                    <div className="row">
+                                        <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                            {/* hlp-mobile-show */}
+                                            {/* Left-Cuerpo Shared */}
+                                            {children[4]}
+                                        </div>
+                                        <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                            <div className="row">
+                                                <div className="col-12">
+                                                    {/* Pos-Apertura */}
+                                                    {children[5]}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </section>
+                                </section>
+                            </div>
+                            {/* Tercera */}
+                            <div className="sidebar__aside hlp-tablet-none">
+                                {children[6]}
+                            </div>
                         </div>
-                        {/* Tercera */}
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {children[6]}
+                        {/* Newsletter */}
+                        <div className="lay">{children[8]}</div>
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Bottom */}
+                                {children[9]}
+                            </div>
+                            <div className="sidebar__aside hlp-tablet-none">
+                                {/* Bottom-Tercera */}
+                                {children[10]}
+                            </div>
                         </div>
-                    </div>
-                    {/* Newsletter */}
-                    <div className="lay">{children[8]}</div>
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {/* Bottom */}
-                            {children[9]}
-                        </div>
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {/* Bottom-Tercera */}
-                            {children[10]}
-                        </div>
-                    </div>
-                </main>
-                <Footer />
-            </div>
+                    </main>
+                    <Footer />
+                </div>
+            </MagazineChecker>
         </GlobalProvider>
     );
 };

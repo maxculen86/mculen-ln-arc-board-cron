@@ -50,6 +50,9 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import { getSectionLogo } from '../private/common/utils/sectionUtils';
+
+import MagazineChecker from '../private/LN/common/checker';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -70,10 +73,7 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
-//if CATEGORIA REVISTA
-import '../../resources/dist/css/ln/pages/magazine.css';
-const magazine = 'lugares';
-//endif
+// if CATEGORIA REVISTA
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -88,54 +88,62 @@ const lnNotaFotoAl100 = ({
     ],
     outputType,
     tree,
-    isAdmin
+    isAdmin,
+    globalContent: {
+        taxonomy: { sections },
+        distributor: { name }
+    },
+    layout
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
+    const magazine = getSectionLogo(sections, layout, name).logoName;
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
-            <div
-                id="wrapper"
-                className={`nota ${magazine} --photo100 --transparent ${amp}`}
-            >
-                <Header />
-                <main>
-                    <AperturaStorytelling />
+            <MagazineChecker>
+                <div
+                    id="wrapper"
+                    className={`nota ${magazine} --photo100 --transparent ${amp}`}
+                >
+                    <Header />
+                    <main>
+                        <AperturaStorytelling />
 
-                    {/* Cuerpo al 100% */}
-                    <div className="row">
-                        {leftCuerpo}
-                        {cuerpo}
-                    </div>
+                        {/* Cuerpo al 100% */}
+                        <div className="row">
+                            {leftCuerpo}
+                            {cuerpo}
+                        </div>
 
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {/* Post-Cuerpo */}
-                            {postCuerpo}
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Post-Cuerpo */}
+                                {postCuerpo}
+                            </div>
+                            <div className="sidebar__aside hlp-tablet-none">
+                                {/* Post-Cuerpo-Tercera */}
+                                {postCuerpoTercera}
+                            </div>
                         </div>
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {/* Post-Cuerpo-Tercera */}
-                            {postCuerpoTercera}
-                        </div>
-                    </div>
 
-                    {/* Newsletter */}
-                    <div className="lay">{newsletter}</div>
+                        {/* Newsletter */}
+                        <div className="lay">{newsletter}</div>
 
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {/* Bottom */}
-                            {bottom}
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Bottom */}
+                                {bottom}
+                            </div>
+                            <div className="sidebar__aside hlp-tablet-none">
+                                {/* Bottom-Tercera */}
+                                {bottomTercera}
+                            </div>
                         </div>
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {/* Bottom-Tercera */}
-                            {bottomTercera}
-                        </div>
-                    </div>
-                </main>
-                <Footer />
-            </div>
+                    </main>
+                    <Footer />
+                </div>
+            </MagazineChecker>
         </GlobalProvider>
     );
 };
