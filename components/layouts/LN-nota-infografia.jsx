@@ -86,7 +86,7 @@ const lnNotaInfografia = ({
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
-    const magazine = getSectionLogo(sections, layout, name).logoName;
+    const magazine = getSectionLogo(sections, layout, name).logoName || '';
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
