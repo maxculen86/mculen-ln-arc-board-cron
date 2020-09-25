@@ -8,7 +8,6 @@ import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
-import Jquery from '../private/common/scriptManager/tagManagerTest';
 import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
 import Livefyre from '../private/common/scriptManager/Livefyre';
@@ -244,7 +243,6 @@ const Default = props => {
                 <Scripts location="body-top" />
                 <div id="fusion-app">{children}</div>
                 <Fusion />
-                <Jquery />
                 <Scripts location="body-bottom" />
                 <ScriptLogoBBC distributorName={distributorName} />
             </body>
