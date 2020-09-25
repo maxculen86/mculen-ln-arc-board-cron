@@ -116,8 +116,8 @@
                 margin-right: 0;
                 min-width: max-content;
             }
-            .com-image {
-                max-width: px(300);
+            .mod-logo {
+                display: flex;
                 margin-bottom: $spacing;
             }
 
@@ -125,7 +125,7 @@
                 display: none;
             }
 
-            @media ($media-l) {
+            @media ($media-m) {
                 flex-direction: row;
                 align-items: flex-end;
 
@@ -134,12 +134,14 @@
                     margin-bottom: 0;
                     margin-right: px(24);
                 }
-                .com-image {
-                    max-height: px(70);
-                    width: auto;
-                    max-width: none;
+                .mod-logo {
                     margin: 0;
                     margin-right: $spacing-md;
+
+                    .com-image {
+                        width: auto;
+                        max-height: px(70);
+                    }
                 }
                 .com-button {
                     padding: 0;
@@ -152,6 +154,21 @@
         }
         .com-anexo {
             margin-bottom: $spacing-md;
+        }
+    }
+    &.amp {
+        .--top {
+            @media ($media-m) {
+                .mod-logo {
+                    width: px(400);
+                    .com-image {
+                        width: 100%;
+                        img {
+                            object-fit: contain;
+                        }
+                    }
+                }
+            }
         }
     }
     &.--opening {

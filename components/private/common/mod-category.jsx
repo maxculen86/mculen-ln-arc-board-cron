@@ -12,13 +12,15 @@ const ModCategory = props => {
     return (
         <div className="mod-categories">
             {revista ? (
-                <ComImage
-                    width={width}
-                    height={height}
-                    src={url}
-                    alt="Logo"
-                    amp={outputType === 'amp'}
-                />
+                <div className="mod-logo">
+                    <ComImage
+                        width={width}
+                        height={height}
+                        src={url}
+                        alt="Logo"
+                        amp={outputType === 'amp'}
+                    />
+                </div>
             ) : (
                 <h1 className="com-title --xl" style={style}>
                     {category}
