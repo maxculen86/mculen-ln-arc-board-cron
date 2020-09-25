@@ -71,35 +71,49 @@ class Index extends Component {
         if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
         if (scrollPos) {
             if (scrollPos > height) {
-                classList.add(CLASS_SCROLL_DOWN);
+                //classList.add(CLASS_SCROLL_DOWN);
+                if (wrapper) {
+                    wrapper.classList.add(CLASS_SCROLL_DOWN);
+                }
             }
             if (isScrollUp) {
-                classList.remove(CLASS_SCROLL_DOWN);
-                classList.add(CLASS_SCROLL_UP);
-                if (vshare) {
-                    vshare.classList.add(CLASS_SCROLL_UP);
-                    vshare.classList.remove(CLASS_SCROLL_DOWN);
-                }
+                //classList.remove(CLASS_SCROLL_DOWN);
+                //classList.add(CLASS_SCROLL_UP);
+                // if (vshare) {
+                //     vshare.classList.add(CLASS_SCROLL_UP);
+                //     vshare.classList.remove(CLASS_SCROLL_DOWN);
+                // }
+                classList.remove(CLASS_ACTIVE);
+                if (vshare) vshare.classList.remove(CLASS_ACTIVE);
+
                 if (wrapper) {
                     wrapper.classList.remove(CLASS_SCROLL_DOWN);
                     wrapper.classList.add(CLASS_SCROLL_UP);
                 }
             } else {
-                classList.remove(CLASS_SCROLL_UP);
-                if (vshare) {
-                    vshare.classList.remove(CLASS_SCROLL_UP);
-                    vshare.classList.add(CLASS_SCROLL_DOWN);
-                }
+                classList.remove(CLASS_ACTIVE);
+                if (vshare) vshare.classList.remove(CLASS_ACTIVE);
+
+                //classList.remove(CLASS_SCROLL_UP);
+                // if (vshare) {
+                //     vshare.classList.remove(CLASS_SCROLL_UP);
+                //     vshare.classList.add(CLASS_SCROLL_DOWN);
+                // }
                 if (wrapper) {
                     wrapper.classList.remove(CLASS_SCROLL_UP);
                     wrapper.classList.add(CLASS_SCROLL_DOWN);
                 }
             }
-            if (scrollPos < 60) {
-                if (vshare) vshare.classList.remove(CLASS_SCROLL_UP);
-                classList.remove(CLASS_SCROLL_UP);
-                classList.remove(CLASS_SCROLL_DOWN);
-                if (wrapper) wrapper.classList.remove(CLASS_SCROLL_UP);
+            if (scrollPos < 65) {
+                //esta clsae está para el header transparente
+                classList.add(CLASS_ACTIVE);
+                if (vshare) vshare.classList.add(CLASS_ACTIVE);
+                //classList.remove(CLASS_SCROLL_UP);
+                //classList.remove(CLASS_SCROLL_DOWN);
+                // if (wrapper) {
+                //     wrapper.classList.remove(CLASS_SCROLL_UP);
+                //     wrapper.classList.remove(CLASS_SCROLL_DOWN);
+                // }
             }
         }
 
