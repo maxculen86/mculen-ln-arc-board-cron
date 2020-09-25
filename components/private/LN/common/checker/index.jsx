@@ -5,7 +5,11 @@ import Consumer from 'fusion:consumer';
 const MagazineTheme = React.lazy(() => import('./types/magazine'));
 
 const isMagazine = sections =>
-    sections.some(section => section._id.includes('/revista-'));
+    sections.some(
+        section =>
+            section._id.includes('/revista-') ||
+            section._id.includes('/propiedades')
+    );
 
 const Theme = ({
     children,
