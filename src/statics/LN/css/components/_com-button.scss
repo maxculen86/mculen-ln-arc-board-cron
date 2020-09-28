@@ -106,6 +106,16 @@
             .header & {
                 display: none;
             }
+            .amp.--transparent & {
+                @media ($media-l) {
+                    color: $blanco;
+                    border-color: $blanco;
+                    &:hover {
+                        background: $blanco;
+                        color: $gris6;
+                    }
+                }
+            }
         }
         .cuerpo__nota & {
             margin-bottom: $spacing-lg;
@@ -155,6 +165,13 @@
                 border-color: transparent;
                 padding: px(3) px(16);
                 font-weight: 100;
+            }
+            .amp.--transparent & {
+                color: $blanco;
+                @media ($media-l) {
+                    color: $gris6;
+                    border-color: $highlight;
+                }
             }
         }
     }
