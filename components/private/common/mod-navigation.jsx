@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import ComButton from './com-button';
@@ -10,26 +10,31 @@ const ModNavigation = props => {
     const { navigation, classCondition, style } = props;
     const EXTRA_CLASS = classCondition ? ` ${classCondition}` : '';
 
-    const moveScroll = (ref, direction) => {
+    const moveScroll = (ref, direction, firstTime = false) => {
         if (ref && ref.current) {
             const cEl = ref.current;
             const left =
                 direction === 'right'
                     ? cEl.scrollLeft + 150
                     : cEl.scrollLeft - 150;
-
-            cEl.scrollTo({ left, behavior: 'smooth' });
-            setShowBtnScrollLeft(left > 0 ? '' : 'hlp-none');
+            if (!firstTime) {
+                cEl.scrollTo({ left, behavior: 'smooth' });
+                setShowBtnScrollLeft(left > 0 ? '' : 'hlp-none');
+            }
             setShowBtnScrollRight(
-                cEl.scrollLeft + cEl.offsetWidth <= cEl.scrollWidth
-                    ? 'hlp-none'
-                    : ''
+                cEl.scrollLeft + cEl.offsetWidth < cEl.scrollWidth
+                    ? ''
+                    : 'hlp-none'
             );
         } else {
-            setShowBtnScrollLeft('');
-            setShowBtnScrollRight('');
+            setShowBtnScrollLeft('hlp-none');
+            setShowBtnScrollRight('hlp-none');
         }
     };
+
+    useEffect(() => {
+        moveScroll(categoryEl, 'right', true);
+    }, []);
 
     if (!navigation || !navigation.length) return null;
 
