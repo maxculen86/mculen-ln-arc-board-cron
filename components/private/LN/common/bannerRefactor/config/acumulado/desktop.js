@@ -3,6 +3,11 @@ import { defaultTargeting } from './defaults';
 const PATH_SLOT = 'la_nacion_desktop/Acumulado';
 
 export default {
+    megatop_dsk: {
+        slotName: `${PATH_SLOT}/megatop_dsk`,
+        dimensions: [[800, 600]],
+        targeting: defaultTargeting
+    },
     unoxuno_dsk: {
         slotName: `${PATH_SLOT}/1x1_dsk`,
         dimensions: [[1, 1]],

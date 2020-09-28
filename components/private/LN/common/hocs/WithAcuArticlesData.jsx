@@ -62,6 +62,12 @@ function WithAcuArticlesData(
                 const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
 
+                if (!sectionId && !tagId && !authorId)
+                    return {
+                        articles: [],
+                        hayMasNotas: 0
+                    };
+
                 const excludeSectionId = get(
                     this,
                     'props.excludeSectionId',
@@ -125,10 +131,18 @@ function WithAcuArticlesData(
                         return tagsReduced;
                     }, []);
 
-                return Object.keys(tags)
-                    .sort((a, b) => (tags[a].count < tags[b].count ? 1 : -1))
-                    .slice(0, 10)
-                    .map(key => tags[key]);
+                const orderAndCountTags =
+                    Object.keys(tags)
+                        .sort((a, b) =>
+                            tags[a].count < tags[b].count ? 1 : -1
+                        )
+                        .slice(0, 10)
+                        .map(key => tags[key]) || [];
+                // console.log('orderAndCountTags', orderAndCountTags);
+
+                return (
+                    (orderAndCountTags.length >= 4 && orderAndCountTags) || []
+                );
             };
 
             obtenerMasNotas = () => {

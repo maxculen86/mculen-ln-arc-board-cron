@@ -7,7 +7,6 @@ function index(props) {
     const {
         globalContent: { _id }
     } = props;
-
     return <AcumuladoTitle sectionId={_id} {...props} />;
 }
 

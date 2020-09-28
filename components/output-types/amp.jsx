@@ -144,7 +144,7 @@ const Amp = props => {
                         }}
                     />
                 </amp-analytics>
-                <Snippets />
+                {/* <Snippets /> */}
                 {children}
             </body>
         </html>

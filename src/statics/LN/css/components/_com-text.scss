@@ -63,14 +63,30 @@
     }
     .mod-share & {
         order: 2;
-        color: $negro;
-
-        @media ($media-l) {
-            color: $ln;
+        color: $ln;
+    }
+    strong {
+        .mod-trust & {
+            margin-left: $spacing-2xs;
         }
     }
 }
 
+@media ($media-xs) {
+    .com-text {
+        .mod-trust & {
+            @include flex(flex, column, center, start);
+        }
+    }
+}
+@media ($media-s) {
+    .com-text {
+        .mod-trust & {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}
 @media ($media-m) {
     .com-text {
         .mod-fiscal & {
@@ -90,6 +106,9 @@
         }
         .mod-copyright & {
             text-align: left;
+        }
+        .mod-trust & {
+            margin-right: $spacing-xs;
         }
     }
 }
