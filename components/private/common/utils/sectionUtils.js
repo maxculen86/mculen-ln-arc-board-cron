@@ -57,8 +57,6 @@ const getLogoForPath = path => {
 };
 
 export const getSectionLogo = (sections, layout, distributorName) => {
-    debugger;
-
     let color = true;
     if (layout === 'LN-nota-storytelling' || layout === 'LN-nota-foto-al-100') {
         color = false;
