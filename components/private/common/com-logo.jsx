@@ -8,16 +8,17 @@ const ComLogo = props => {
     if (!logoName) return null;
     return (
         <i
-            className={`com-logo logo-${logoName} ${color ? '--color' : ''} ${
-                size ? size : ''
-            }`}
+            className={`com-logo logo-${logoName} ${
+                color ? '--color' : ''
+            } ${size || ''}`}
         />
     );
 };
 
 ComLogo.propTypes = {
     logoName: PropTypes.string.isRequired,
-    color: PropTypes.bool.isRequired
+    color: PropTypes.bool.isRequired,
+    size: PropTypes.string
 };
 
 export default ComLogo;
