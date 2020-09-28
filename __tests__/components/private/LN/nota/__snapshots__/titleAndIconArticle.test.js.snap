@@ -3,7 +3,7 @@
 exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono en Nota 1`] = `
 Array [
   <i
-    class="com-logo logo-bbc --color "
+    class="com-logo logo-bbc --color --medium"
   />,
   <h1
     class="com-title --threexl"
