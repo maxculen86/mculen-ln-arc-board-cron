@@ -67,8 +67,7 @@ const LNAcumuladoLayout = props => {
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
 
     // TODO: agregar todas las validaciones de acu color
-    const COLOR_CLASS =
-        backgroundCategory || colorTags ? ' --color --transparent' : '';
+    const COLOR_CLASS = backgroundCategory || colorTags ? ' --transparent' : '';
     const OPENING_CLASS = idCollection ? '--opening' : '';
 
     return (

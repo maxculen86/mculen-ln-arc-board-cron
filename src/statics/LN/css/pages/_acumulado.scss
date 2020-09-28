@@ -109,7 +109,6 @@
             flex-direction: column;
             flex-wrap: nowrap;
             margin-bottom: $spacing-md;
-
             .com-title,
             .com-logo {
                 margin-bottom: px(16);
@@ -119,13 +118,17 @@
             .mod-logo {
                 display: flex;
                 margin-bottom: $spacing;
+                .com-image {
+                    max-height: px(70);
+                    width: auto;
+                }
             }
 
             .com-button {
                 display: none;
             }
 
-            @media ($media-m) {
+            @media ($media-l) {
                 flex-direction: row;
                 align-items: flex-end;
 
@@ -137,11 +140,6 @@
                 .mod-logo {
                     margin: 0;
                     margin-right: $spacing-md;
-
-                    .com-image {
-                        width: auto;
-                        max-height: px(70);
-                    }
                 }
                 .com-button {
                     padding: 0;
@@ -158,19 +156,20 @@
     }
     &.amp {
         .--top {
-            @media ($media-m) {
-                .mod-logo {
-                    width: px(400);
-                    .com-image {
-                        width: 100%;
-                        img {
-                            object-fit: contain;
-                        }
+            .mod-logo {
+                .com-image {
+                    width: 100%;
+                    img {
+                        object-fit: contain;
                     }
+                }
+                @media ($media-m) {
+                    width: px(400);
                 }
             }
         }
     }
+
     &.--opening {
         main {
             .--top {
@@ -179,7 +178,7 @@
             }
         }
     }
-    &.--color {
+    &.--transparent {
         main {
             padding-top: 0;
             .--top {
@@ -397,6 +396,8 @@
     &.--tags {
         margin-bottom: $spacing-md;
         margin-top: 0;
+        padding-top: $spacing-md;
+        border-top: 1px solid $gris3;
         li {
             &:not(:last-child) {
                 .com-link {
@@ -413,6 +414,11 @@
             @media ($media-l) {
                 margin-bottom: $spacing;
             }
+        }
+        .--transparent &,
+        .--opening & {
+            padding-top: 0;
+            border-top: none;
         }
     }
 }
