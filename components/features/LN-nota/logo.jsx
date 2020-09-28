@@ -1,4 +1,5 @@
 import React from 'react';
+import { renderToString } from 'react-dom/server';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 
@@ -6,6 +7,7 @@ import { getSectionLogo } from '../../private/common/utils/sectionUtils';
 
 import ComLink from '../../private/common/com-link';
 import ComLogo from '../../private/common/com-logo';
+import ComParagraph from '../../private/common/com-paragraph';
 
 const Logo = props => {
     const {
@@ -25,9 +27,19 @@ const Logo = props => {
     };
 
     return (
-        <ComLink link={path}>
-            <ComLogo color="true" logoName={logoName} size="--medium" />
-        </ComLink>
+        <ComParagraph
+            content={renderToString(
+                React.createElement(
+                    ComLink,
+                    { link: path },
+                    React.createElement(ComLogo, {
+                        color: true,
+                        logoName,
+                        size: '--medium'
+                    })
+                )
+            )}
+        />
     );
 };
 
