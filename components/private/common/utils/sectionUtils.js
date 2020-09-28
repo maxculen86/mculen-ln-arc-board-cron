@@ -35,7 +35,7 @@ export const getFirstParentSection = section => {
 };
 
 export const getSectionLogo = (sections, layout, distributorName) => {
-    const magazineRegex = /\/revista-(.\w+[^\W]?)/;
+    const magazineRegex = /(\/revista-(.\w+[^\W]?)|(^\/propiedades$)?)/gm;
     const lnmasRegex = /\/lnmas/;
 
     let color = true;

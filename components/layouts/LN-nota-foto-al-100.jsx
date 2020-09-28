@@ -49,10 +49,10 @@ import '../../resources/dist/css/ln/components/banners.css';
 /* Se debe dejar último los helpers */
 import '../../resources/dist/css/ln/base/helpers.css';
 
+import '../../resources/dist/ln/pages/magazine.css';
+
 import { GlobalProvider } from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
-
-import MagazineChecker from '../private/LN/common/checker';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -101,49 +101,48 @@ const lnNotaFotoAl100 = ({
         <GlobalProvider>
             {/* Banner MEGATOP */}
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
-            <MagazineChecker>
-                <div
-                    id="wrapper"
-                    className={`nota ${magazine} --photo100 --transparent ${amp}`}
-                >
-                    <Header />
-                    <main>
-                        <AperturaStorytelling />
 
-                        {/* Cuerpo al 100% */}
-                        <div className="row">
-                            {leftCuerpo}
-                            {cuerpo}
+            <div
+                id="wrapper"
+                className={`nota ${magazine} --photo100 --transparent ${amp}`}
+            >
+                <Header />
+                <main>
+                    <AperturaStorytelling />
+
+                    {/* Cuerpo al 100% */}
+                    <div className="row">
+                        {leftCuerpo}
+                        {cuerpo}
+                    </div>
+
+                    <div className="lay-sidebar">
+                        <div className="sidebar__main">
+                            {/* Post-Cuerpo */}
+                            {postCuerpo}
                         </div>
-
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {/* Post-Cuerpo */}
-                                {postCuerpo}
-                            </div>
-                            <div className="sidebar__aside hlp-tablet-none">
-                                {/* Post-Cuerpo-Tercera */}
-                                {postCuerpoTercera}
-                            </div>
+                        <div className="sidebar__aside hlp-tablet-none">
+                            {/* Post-Cuerpo-Tercera */}
+                            {postCuerpoTercera}
                         </div>
+                    </div>
 
-                        {/* Newsletter */}
-                        <div className="lay">{newsletter}</div>
+                    {/* Newsletter */}
+                    <div className="lay">{newsletter}</div>
 
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {/* Bottom */}
-                                {bottom}
-                            </div>
-                            <div className="sidebar__aside hlp-tablet-none">
-                                {/* Bottom-Tercera */}
-                                {bottomTercera}
-                            </div>
+                    <div className="lay-sidebar">
+                        <div className="sidebar__main">
+                            {/* Bottom */}
+                            {bottom}
                         </div>
-                    </main>
-                    <Footer />
-                </div>
-            </MagazineChecker>
+                        <div className="sidebar__aside hlp-tablet-none">
+                            {/* Bottom-Tercera */}
+                            {bottomTercera}
+                        </div>
+                    </div>
+                </main>
+                <Footer />
+            </div>
         </GlobalProvider>
     );
 };
