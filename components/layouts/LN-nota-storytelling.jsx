@@ -59,7 +59,7 @@ import '../../resources/dist/css/ln/components/banners.css';
 /* Se debe dejar último los helpers */
 import '../../resources/dist/css/ln/base/helpers.css';
 
-import '../../resources/dist/ln/pages/magazine.css';
+import '../../resources/dist/css/ln/pages/magazine.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
