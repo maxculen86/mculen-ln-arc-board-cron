@@ -28,14 +28,14 @@
                     background-color: $primario;
                 }
             }
-            .--apertura {
-                .com-logo {
-                    &:before {
-                        content: $logo;
-                        color: $primario;
-                    }
-                }
-            }
+            // .--apertura {
+            //     .com-logo {
+            //         &:before {
+            //             content: $logo;
+            //             color: $primario;
+            //         }
+            //     }
+            // }
         }
     }
 }

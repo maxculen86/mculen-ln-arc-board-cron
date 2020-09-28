@@ -26,7 +26,7 @@ const Logo = props => {
 
     return (
         <ComLink link={path}>
-            <ComLogo color="true" logoName={logoName} />
+            <ComLogo color="true" logoName={logoName} size="--medium" />
         </ComLink>
     );
 };
