@@ -67,7 +67,7 @@ const resolve = key => {
                             "must":[
                                 {
                                     "term":{
-                                        "taxonomy.sections._id":"/recetas"
+                                        "taxonomy.sections._id":"${sectionId}"
                                     }
                                 }
                             ]

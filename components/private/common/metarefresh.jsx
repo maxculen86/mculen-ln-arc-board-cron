@@ -50,7 +50,9 @@ const Component = props => {
 
     if (isAdmin) return null; // It won't render in pagebuilder
 
-    const metarefresh = content.Metarefresh;
+    const metarefresh = content && content.Metarefresh;
+    if (!metarefresh) return null;
+    // console.log("metarefresh", metarefresh)
 
     const interval = getInterval(type)(resolution)(metarefresh);
 

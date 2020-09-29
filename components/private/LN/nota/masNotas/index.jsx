@@ -31,7 +31,7 @@ const index = props => {
         return prefix;
     };
 
-    switch (filter) {
+    switch (filter.toString()) {
         case '0':
             title = subtype === '7' ? 'Últimas Recetas' : 'Últimas Noticias';
             dataBlockName = 'n_ultimas_noticias';
@@ -53,11 +53,11 @@ const index = props => {
     });
 
     const size = getTripleSize(cantidadNotas || 30);
-    let sectionId = null;
+    let sectionId = _id;
     let excludeSectionId = false;
-    if (filter === '1') sectionId = _id;
-    else if (filter === '0' && subtype === '7') sectionId = '/recetas';
-    else if (filter === '0' && subtype === '1') excludeSectionId = true;
+
+    if (filter.toString() === '0' && subtype === '7') sectionId = '/recetas';
+    if (filter.toString() === '0' && subtype === '1') excludeSectionId = true;
 
     return (
         _id && (
