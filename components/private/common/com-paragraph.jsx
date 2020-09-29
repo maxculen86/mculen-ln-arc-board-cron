@@ -8,7 +8,7 @@ const ComParagraph = props => {
         <>
             <p
                 className={`com-paragraph ${classCondition || ''} ${capital ||
-                    ''} ${size}`}
+                    ''} ${size || ''}`}
                 dangerouslySetInnerHTML={{
                     __html: content
                 }}

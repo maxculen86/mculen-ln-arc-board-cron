@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const ItemSubSection = ({ id, navTitle, website }) => (
@@ -26,9 +26,19 @@ const ListSectionsTitle = ({
     isPrimarySection,
     hideSectionsList
 }) => {
-    const [showBtnScrollLeft, setShowBtnScrollLeft] = useState(' hlp-none');
-    const [showBtnScrollRight, setShowBtnScrollRight] = useState('');
     const categoryEl = useRef(null);
+    const [showBtnScrollLeft, setShowBtnScrollLeft] = useState(' hlp-none');
+    const [showBtnScrollRight, setShowBtnScrollRight] = useState();
+
+    useEffect(() => {
+        setShowBtnScrollRight(
+            categoryEl &&
+                categoryEl.current &&
+                categoryEl.current.scrollWidth <= categoryEl.current.offsetWidth
+                ? ' hlp-none'
+                : ''
+        );
+    }, [categoryEl.current]);
 
     const moveScroll = direction => {
         const cEl = categoryEl.current;

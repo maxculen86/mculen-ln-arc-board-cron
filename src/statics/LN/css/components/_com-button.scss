@@ -75,7 +75,7 @@
         color: $blanco;
 
         &:hover {
-            background: rgba($ln, 0.7);
+            background: rgba($ln, 0.8);
         }
         &:active {
             background: $ln-active;
@@ -105,6 +105,16 @@
         .com-usuario & {
             .header & {
                 display: none;
+            }
+            .amp.--transparent & {
+                @media ($media-l) {
+                    color: $blanco;
+                    border-color: $blanco;
+                    &:hover {
+                        background: $blanco;
+                        color: $gris6;
+                    }
+                }
             }
         }
         .cuerpo__nota & {
@@ -156,6 +166,13 @@
                 padding: px(3) px(16);
                 font-weight: 100;
             }
+            .amp.--transparent & {
+                color: $blanco;
+                @media ($media-l) {
+                    color: $gris6;
+                    border-color: $highlight;
+                }
+            }
         }
     }
     &.--compact {
@@ -202,13 +219,13 @@
             }
         }
         &.icon-left {
-            left: px(-20);
+            left: px(-16);
             @media ($media-m) {
                 left: 0;
             }
         }
         &.icon-right {
-            right: px(-20);
+            right: px(-16);
             @media ($media-m) {
                 right: 0;
             }

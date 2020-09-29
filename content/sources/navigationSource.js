@@ -1,9 +1,8 @@
 const resolve = key => {
     const { website, hierarchy } = key;
-    if (!website)
-        throw new Error('Debe definir un website para obtener los navigation');
+    const finalWebsite = website || key['arc-site'];
     if (!hierarchy) throw new Error('Debe indicar el nombre de la jerarquía');
-    return `/site/v3/navigation/${website}/?hierarchy=${hierarchy}`;
+    return `/site/v3/navigation/${finalWebsite}/?hierarchy=${hierarchy}`;
 };
 
 export default {
