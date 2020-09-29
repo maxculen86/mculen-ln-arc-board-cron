@@ -23,9 +23,9 @@ import '../../resources/dist/css/ln/components/lead.css';
 import '../../resources/dist/css/ln/components/com-ordered.css';
 import '../../resources/dist/css/ln/components/com-unordered.css';
 import '../../resources/dist/css/ln/components/input.css';
-//import '../../resources/dist/css/ln/modules/newsletter.css';
+// import '../../resources/dist/css/ln/modules/newsletter.css';
 import '../../resources/dist/css/ln/components/blockquote.css';
-import '../../resources/dist/css/ln/components/text.css';
+// import '../../resources/dist/css/ln/components/text.css';
 import '../../resources/dist/css/ln/components/link.css';
 import '../../resources/dist/css/ln/components/subtitle.css';
 import '../../resources/dist/css/ln/components/slider.css';
@@ -49,7 +49,10 @@ import '../../resources/dist/css/ln/components/banners.css';
 /* Se debe dejar último los helpers */
 import '../../resources/dist/css/ln/base/helpers.css';
 
+import '../../resources/dist/css/ln/pages/magazine.css';
+
 import { GlobalProvider } from '../private/common/context/globalContext';
+import { getSectionLogo } from '../private/common/utils/sectionUtils';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -70,15 +73,27 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
-const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
+const lnNotaNoticia = ({
+    children,
+    outputType,
+    tree,
+    isAdmin,
+    globalContent: {
+        taxonomy: { sections },
+        distributor: { name }
+    },
+    layout
+}) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+    const magazine = getSectionLogo(sections, layout, name).logoName;
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
             {bannerMegatop}
             {/* Banner MEGATOP */}
-            <div id="wrapper" className={`nota noticia ${amp}`}>
+
+            <div id="wrapper" className={`nota noticia ${magazine} ${amp}`}>
                 <Header />
                 <main>
                     {children[1]}
@@ -130,6 +145,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                                             <div className="col-12">
                                                 {/* Pos-Apertura */}
                                                 {children[5]}
+                                                {/* Logo al pie */}
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +154,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                         </div>
 
                         {/* Tercera */}
-                        <div className="sidebar__aside hlp-desklm-none">
+                        <div className="sidebar__aside hlp-tablet-none">
                             {children[6]}
                         </div>
                     </div>
@@ -149,7 +165,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                             {/* Bottom */}
                             {children[9]}
                         </div>
-                        <div className="sidebar__aside">
+                        <div className="sidebar__aside hlp-tablet-none">
                             {/* Bottom-Tercera */}
                             {children[10]}
                         </div>
@@ -181,7 +197,18 @@ lnNotaNoticia.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     outputType: PropTypes.string.isRequired,
     tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired
+    isAdmin: PropTypes.bool.isRequired,
+    globalContent: PropTypes.shape({
+        taxonomy: PropTypes.shape({
+            sections: PropTypes.shape({
+                _id: PropTypes.string
+            })
+        }),
+        distributor: PropTypes.shape({
+            name: PropTypes.string
+        })
+    }).isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 export default Consumer(lnNotaNoticia);

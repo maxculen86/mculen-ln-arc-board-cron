@@ -75,7 +75,7 @@
         color: $blanco;
 
         &:hover {
-            background: rgba($ln, 0.7);
+            background: rgba($ln, 0.8);
         }
         &:active {
             background: $ln-active;
@@ -219,13 +219,13 @@
             }
         }
         &.icon-left {
-            left: px(-20);
+            left: px(-16);
             @media ($media-m) {
                 left: 0;
             }
         }
         &.icon-right {
-            right: px(-20);
+            right: px(-16);
             @media ($media-m) {
                 right: 0;
             }
