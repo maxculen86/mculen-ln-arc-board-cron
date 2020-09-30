@@ -52,7 +52,6 @@ const Component = props => {
 
     const metarefresh = content && content.Metarefresh;
     if (!metarefresh) return null;
-    // console.log("metarefresh", metarefresh)
 
     const interval = getInterval(type)(resolution)(metarefresh);
 
