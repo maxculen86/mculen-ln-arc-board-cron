@@ -96,7 +96,8 @@ const lnNotaFotoAl100 = ({
     layout
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
-    const magazine = getSectionLogo(sections, layout, name).logoName;
+    const logo = getSectionLogo(sections, layout, name);
+    const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}

@@ -99,7 +99,8 @@ const lnNotaStorytelling = ({
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
-    const magazine = getSectionLogo(sections, layout, name).logoName;
+    const logo = getSectionLogo(sections, layout, name);
+    const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
