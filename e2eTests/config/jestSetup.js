@@ -5,7 +5,7 @@ const PREVIEW_BASE_PATH =
     'http://lanacionar-{{WEBSITE}}-{{ENV}}.cdn.arcpublishing.com{{PATH}}?d={{VERSION}}';
 const LOCAL_BASE_PATH = 'http://localhost/pf{{PATH}}?_website={{WEBSITE}}';
 
-// jest.retryTimes(3);
+jest.retryTimes(3);
 jest.setTimeout(25000);
 
 const getPreviewUrl = (env, version, path, website = 'la-nacion-ar') => {
