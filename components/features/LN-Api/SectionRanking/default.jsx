@@ -8,7 +8,8 @@ const index = props => {
 index.propTypes = {
     customFields: PropTypes.shape({
         size: PropTypes.number,
-        page: PropTypes.number,
+        weeks: PropTypes.number,
+        days: PropTypes.number,
         paramUrlId: PropTypes.string
     })
 };

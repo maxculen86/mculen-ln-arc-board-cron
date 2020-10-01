@@ -32,6 +32,6 @@ describe('Test de las listas en el cuerpo de una nota', () => {
 
     it('Test elementos de lista ordenada', () => {
         const resp = List(ArticleNoElementList);
-        expect(resp['valor']['valor']).toHaveLength(1);
+        expect(resp['valor']['valor']).toHaveLength(3);
     });
 });

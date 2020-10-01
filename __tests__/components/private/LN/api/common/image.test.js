@@ -4,32 +4,30 @@ import articleFoto from '../../../../../../__mocks__/data/nota/cuerpo/image/imag
 
 describe('Json imagen common', () => {
     test('Render imagen correcto', () => {
-        const img = article.globalContent.promo_items.basic;
+        const img = article.content_elements[9].promo_items.basic;
 
         const resp = Image(img);
         expect(resp.id).toBe(img._id);
-        expect(resp.baseUrl).toBe(
-            '/resizer/{{param}}/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg'
-        );
-        expect(resp.parametros[0].ancho).toBe(1260);
+        expect(resp.baseUrl).toBe("https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg");
+        expect(resp.parametros[0].ancho).toBe(278);
         expect(resp.parametros[0].firma).toBe(
-            'Jvik4UuWUb3CBd4fHrEn3v8THpE=/1260x840'
+            'xXjJBfZwE6c26vxfxgfHerlzovg=/278x186'
         );
-        expect(resp.parametros[1].ancho).toBe(1120);
+        expect(resp.parametros[1].ancho).toBe(344);
         expect(resp.parametros[1].firma).toBe(
-            'O6Hi7KaUFlbX9FinZ90ovn9YbqM=/1120x746'
+            'HU7HHdAlJjMA1Wo_zPVxdiJEJg8=/344x230'
         );
         expect(resp.parametros[2].ancho).toBe(768);
         expect(resp.parametros[2].firma).toBe(
-            'gjSAiqxUQKPG6auGxxXrfu1tujU=/768x512'
+            'RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513'
         );
         expect(resp.parametros[3].ancho).toBe(350);
         expect(resp.parametros[3].firma).toBe(
-            'Az0Rj0edj1ZwPlsrn35HJrfivZ8=/350x233'
+            'Xcn5wLWNR-Jzz6cOGmNUu806tWc=/350x234'
         );
-        expect(resp.parametros[4].ancho).toBe(310);
+        expect(resp.parametros[4].ancho).toBe(360);
         expect(resp.parametros[4].firma).toBe(
-            'gM6LxEhq1MRzEqyKLzL_dQAej-c=/310x206'
+            'Tu91squMfjTVK8l7oVOdLYs_GHw=/360x234'
         );
     });
 

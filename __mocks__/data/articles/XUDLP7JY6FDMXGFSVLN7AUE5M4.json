@@ -1,0 +1,257 @@
+{
+  "_id": "XUDLP7JY6FDMXGFSVLN7AUE5M4",
+  "canonical_url": "/recetas/faciles-y-rapidas/muffins-de-espinacas-nid30072020/",
+  "content_elements": [
+    {
+      "_id": "DS6E2IP7ONEYHHSLKUSXHRQDPY",
+      "additional_properties": {},
+      "embed": {},
+      "subtype": "custom-ingrediente",
+      "type": "custom_embed"
+    },
+    {
+      "_id": "ZLWZPN77TNAQXIF7UVB436E2DI",
+      "additional_properties": {},
+      "embed": { },
+      "subtype": "custom-preparacion",
+      "type": "custom_embed"
+    }
+  ],
+  "content_restrictions": {
+    "content_code": "comun"
+  },
+  "created_date": "2020-07-30T13:13:55.426Z",
+  "credits": {
+    "by": []
+  },
+  "description": {
+    "basic": ""
+  },
+  "display_date": "2020-07-30T13:17:05.079Z",
+  "distributor": {
+    "category": "staff",
+    "name": "lanacionar"
+  },
+  "first_publish_date": "2020-07-30T13:17:05.079Z",
+  "headlines": {
+    "basic": "Muffins de espinacas",
+    "meta_title": "",
+    "mobile": ""
+  },
+  "label": {},
+  "last_updated_date": "2020-07-30T13:17:05.869Z",
+  "owner": {
+    "sponsored": false
+  },
+  "promo_items": {
+    "basic": {
+      "_id": "AZ6A7LN5SFDKHG7KHRRJ43FOEE",
+      "additional_properties": {},
+      "created_date": "2020-07-30T13:16:54Z",
+      "credits": {
+        "affiliation": []
+      },
+      "height": 513,
+      "resized_urls": [
+        {
+          "option": {
+            "height": 450,
+            "media": "(min-width: 1280px)",
+            "width": 1260
+          },
+          "resizedUrl": "/resizer/O7H6PsuybikjI-neeJi-UY9SEQw=/1260x450/smart/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg"
+        },
+        {
+          "option": {
+            "height": 400,
+            "media": "(min-width: 1024px)",
+            "width": 1120
+          },
+          "resizedUrl": "/resizer/XD78zI76qfGSvJtFKFfj1h8GJQc=/1120x400/smart/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg"
+        },
+        {
+          "option": {
+            "height": 961,
+            "media": "(min-width: 768px)",
+            "width": 768
+          },
+          "resizedUrl": "/resizer/PC1tzMKB_4hX2adu4rPaj_LG_hU=/768x961/smart/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg"
+        },
+        {
+          "option": {
+            "height": 438,
+            "media": "(min-width: 360px)",
+            "width": 350
+          },
+          "resizedUrl": "/resizer/GoLfcjAsZkSYt3X6bVDQ6EhhV_Q=/350x438/smart/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg"
+        },
+        {
+          "option": {
+            "height": 203,
+            "media": "(min-width: 320px)",
+            "width": 310
+          },
+          "resizedUrl": "/resizer/drkhxXl-5vn0khD07tgwWZLfYa0=/310x203/smart/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg"
+        }
+      ],
+      "subtitle": "Muffins de espinacas",
+      "type": "image",
+      "url": "/resizer/6CDOuPRPSbUTXlFNuZDyg2VcHUQ=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg",
+      "width": 768
+    },
+    "receta": {
+      "embed": {
+      },
+      "subtype": "custom-detalle-receta"
+    }
+  },
+  "publish_date": "2020-07-30T13:17:05.079Z",
+  "related_content": {
+    "basic": [],
+    "redirect": []
+  },
+  "subheadlines": {
+    "basic": "Salir de picnic no tiene por qué ser sinónimo de snacks de paquete y bebidas azucaradas para compartir con los amigos. También podemos llevar alimentos más saludables, ricos y fáciles de transportar para disfrutar de una buena comida y pasar un rato agradable con amigos o familia."
+  },
+  "subtype": "7",
+  "taxonomy": {
+    "primary_section": {
+      "_id": "/recetas/faciles-y-rapidas",
+      "_website": "la-nacion-ar",
+      "additional_properties": {
+        "original": {
+          "ancestors": {
+            "default": [
+              "/",
+              "/recetas"
+            ]
+          },
+          "site": {}
+        }
+      },
+      "name": "Fáciles y rápidas",
+      "parent_id": "/recetas",
+      "path": "/recetas/faciles-y-rapidas"
+    },
+    "sections": [
+      {
+        "_id": "/recetas",
+        "_website": "la-nacion-ar",
+        "additional_properties": {
+          "original": {
+            "ancestors": {
+              "default": [
+                "/"
+              ]
+            },
+            "site": {}
+          }
+        },
+        "name": "Recetas",
+        "parent_id": "/",
+        "path": "/recetas"
+      },
+      {
+        "_id": "/recetas/guarniciones",
+        "_website": "la-nacion-ar",
+        "additional_properties": {
+          "original": {
+            "ancestors": {
+              "default": [
+                "/",
+                "/recetas"
+              ]
+            },
+            "site": {}
+          }
+        },
+        "name": "Guarniciones",
+        "parent_id": "/recetas",
+        "path": "/recetas/guarniciones"
+      },
+      {
+        "_id": "/recetas/faciles-y-rapidas",
+        "_website": "la-nacion-ar",
+        "additional_properties": {
+          "original": {
+            "ancestors": {
+              "default": [
+                "/",
+                "/recetas"
+              ]
+            },
+            "site": {}
+          }
+        },
+        "name": "Fáciles y rápidas",
+        "parent_id": "/recetas",
+        "path": "/recetas/faciles-y-rapidas"
+      },
+      {
+        "_id": "/recetas/entradas",
+        "_website": "la-nacion-ar",
+        "additional_properties": {
+          "original": {
+            "ancestors": {
+              "default": [
+                "/",
+                "/recetas"
+              ]
+            },
+            "site": {}
+          }
+        },
+        "name": "Entradas",
+        "parent_id": "/recetas",
+        "path": "/recetas/entradas"
+      },
+      {
+        "_id": "/recetas/vegetarianas",
+        "_website": "la-nacion-ar",
+        "additional_properties": {
+          "original": {
+            "ancestors": {
+              "default": [
+                "/",
+                "/recetas"
+              ]
+            },
+            "site": {}
+          }
+        },
+        "name": "Vegetarianas",
+        "parent_id": "/recetas",
+        "path": "/recetas/vegetarianas"
+      }
+    ],
+    "tags": [
+      {
+        "description": "harina integral",
+        "slug": "harina-integral-tid48378",
+        "text": "harina integral"
+      },
+      {
+        "description": "espinaca",
+        "slug": "espinaca-tid47216",
+        "text": "espinaca"
+      },
+      {
+        "description": "huevo",
+        "slug": "huevo-tid47236",
+        "text": "huevo"
+      },
+      {
+        "description": "polvo de hornear",
+        "slug": "polvo-de-hornear-tid47308",
+        "text": "polvo de hornear"
+      },
+      {
+        "description": "queso blanco",
+        "slug": "queso-blanco-tid48606",
+        "text": "queso blanco"
+      }
+    ]
+  },
+  "type": "story",
+  "website_url": "/recetas/faciles-y-rapidas/muffins-de-espinacas-nid30072020/"
+}

@@ -23,15 +23,18 @@ const defaultCuerpo = contentElements => {
         Button
     ];
 
-    const resp = [];
-
-    contentElements.forEach(v => {
-        const selectedComponent = components.find(c => c.type === v.type);
-        if (selectedComponent) {
+    const resp = contentElements
+        .filter(v => {
+            const selectedComponent = components.find(c => c.type === v.type);
+            if (selectedComponent) return true;
+            return false;
+        })
+        .map(v => {
+            const selectedComponent = components.find(c => c.type === v.type);
             const render = selectedComponent(v);
-            if (render) resp.push(selectedComponent(v));
-        }
-    });
+            return render;
+        });
+
     return resp;
 };
 

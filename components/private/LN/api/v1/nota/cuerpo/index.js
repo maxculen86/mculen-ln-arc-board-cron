@@ -23,12 +23,11 @@ const cuerpoIndex = article => {
         contentElements.unshift(infographic);
     }
 
-    try {
+    if (templates[article.subtype]) {
         return templates[article.subtype](contentElements);
-    } catch (err) {
-        err.message = `El ID de template ${article.subtype} no esta declarado`;
-        throw err;
     }
+
+    throw new Error(`El ID de template ${article.subtype} no esta declarado`);
 };
 
 export default cuerpoIndex;

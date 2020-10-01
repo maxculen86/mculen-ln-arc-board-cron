@@ -1,7 +1,7 @@
 import get from 'lodash.get';
 
 const aperturaReceta = recetaData => {
-    const data = get(recetaData, 'embed.config');
+    const data = get(recetaData, 'embed.config', null);
     if (!data) return null;
 
     return {

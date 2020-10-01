@@ -70,7 +70,7 @@ export default function dateAndTimeUtil(displayDate) {
  * @param {string} date
  */
 export function dateAndTimeForAppsUtil(displayDate) {
-    if (typeof displayDate !== 'undefined') {
+    if (displayDate) {
         return `${formatYearMontDayDate(
             new Date(displayDate)
         )} ${formatDateHoursMinAndSecond(new Date(displayDate))}`;

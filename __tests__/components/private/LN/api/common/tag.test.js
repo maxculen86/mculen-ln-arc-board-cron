@@ -1,24 +1,25 @@
-import ArticleTagDestacado from '../../../../../../../__mocks__/data/nota/apertura/tagDestacado/tagDestacado.json';
-import TagDestacado from '../../../../../../../components/private/LN/api/v1/nota/apertura/tagDestacado';
+import { getFeaturedTag } from '../../../../../../components/private/LN/api/v1/common/tag';
+
+import ArticleTagDestacado from '../../../../../../__mocks__/data/nota/apertura/tagDestacado/tagDestacado.json';
 
 describe('Test unitarios para espacio patrocinado y content lab', () => {
     it('test unitario en caso de enviar un null', () => {
-        const respNull = TagDestacado(null);
+        const respNull = getFeaturedTag(null);
         expect(respNull).toBe(null);
     });
 
     it('test en caso de enviar una nota sin datos de espacio patrocinado o content Lab', () => {
-        const resp = TagDestacado(ArticleTagDestacado[3]);
+        const resp = getFeaturedTag(ArticleTagDestacado[3]);
         expect(resp).toBe(null);
     });
 
     it('test en caso que el espacio patrocinado sea falso', () => {
-        const resp = TagDestacado(ArticleTagDestacado[2]);
+        const resp = getFeaturedTag(ArticleTagDestacado[2]);
         expect(resp).toBe(null);
     });
 
     it('test datos de contentLab', () => {
-        const resp = TagDestacado(ArticleTagDestacado[0]);
+        const resp = getFeaturedTag(ArticleTagDestacado[0]);
         expect(resp.formatoId).toBe(1);
         expect(resp.tipoDescripcion).toBe('contentLab');
         expect(resp.valor).toBe(
@@ -27,7 +28,7 @@ describe('Test unitarios para espacio patrocinado y content lab', () => {
     });
 
     it('test datos de espacio patrocinado', () => {
-        const resp = TagDestacado(ArticleTagDestacado[1]);
+        const resp = getFeaturedTag(ArticleTagDestacado[1]);
         expect(resp.formatoId).toBe(1);
         expect(resp.tipoDescripcion).toBe('Patrocinado');
         expect(resp.valor).toBe('Espacio Patrocinado');

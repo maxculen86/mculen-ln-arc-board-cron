@@ -1,6 +1,22 @@
 import get from 'lodash.get';
+import { getTagId } from '../../../../../common/utils/getElementId';
 
-const tagDestacado = dataArticle => {
+const getTag = dataTag => {
+    if (!dataTag) return null;
+
+    const resp = {
+        id: getTagId(dataTag.slug),
+        slug: dataTag.slug,
+        valor: dataTag.text,
+        tipoId: 1,
+        formatoId: 1,
+        tipoDescripcion: 'Topico'
+    };
+
+    return resp;
+};
+
+const getFeaturedTag = dataArticle => {
     const sponsored = get(dataArticle, 'owner.sponsored');
 
     if (!sponsored) return null;
@@ -22,4 +38,4 @@ const tagDestacado = dataArticle => {
     return resp;
 };
 
-export default tagDestacado;
+export { getTag, getFeaturedTag };

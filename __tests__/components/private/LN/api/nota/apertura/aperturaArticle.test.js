@@ -1,12 +1,3 @@
-jest.mock(
-    '../../../../../../../components/private/LN/api/v1/nota/apertura/aperturaReceta',
-    () => {
-        return () => {
-            return 'receta-mock';
-        };
-    }
-);
-
 import Video from '../../../../../../../components/private/LN/api/v1/nota/video';
 import AperturaReceta from '../../../../../../../components/private/LN/api/v1/nota/apertura/aperturaReceta';
 import Apertura from '../../../../../../../components/private/LN/api/v1/nota/apertura/aperturaArticle';
@@ -118,9 +109,4 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.tagDestacado.tipoDescripcion).toBe('contentLab');
         expect(resp.tagDestacado.valor).toBe('Chevrolet');
     });
-
-    // it('Render detalle de receta', () => {
-    //     const resp = Apertura(ArticleApertura[7]);
-    //     expect(resp.receta).toBe('receta-mock');
-    // });
 });

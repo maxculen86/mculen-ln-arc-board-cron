@@ -1,27 +1,42 @@
 import ModificadorTemplateArticle from '../../../../../../__mocks__/data/nota/modificadorTemplate.json';
 import ModificadorTemplate from '../../../../../../components/private/LN/api/v1/nota/modificadorTemplate';
-import modificadorTemplate from '../../../../../../components/private/LN/api/v1/nota/modificadorTemplate';
+import get from 'lodash.get';
 
 describe('Pruebas unitarias para los modificadores template', () => {
-    it('Tes validador de valor en null', () => {
+
+    it('Test valor al enviar un null', () => {
         const resp = ModificadorTemplate(null);
         expect(resp).toBe(null);
     });
 
+    it('Test valores del modificador template', () => {
+        const distributor = get(ModificadorTemplateArticle[0], 'distributor', null);
+        const resp = ModificadorTemplate(distributor);
+        expect(resp.id).toBe('a19656bb-25db-481a-9492-55e88b0ff568');
+        expect(resp.descripcion).toBe('BBC Mundo');
+    });
+
     it('Test valor a retornar null si el distribuidor es LN', () => {
-        const resp = ModificadorTemplate(
-            ModificadorTemplateArticle[1].distributor
-        );
+        const distributor = get(ModificadorTemplateArticle[1], 'distributor', null);
+        const resp = ModificadorTemplate(distributor);
         expect(resp).toBe(null);
     });
 
-    it('Test valores del modificador template', () => {
-        const resp = ModificadorTemplate(ModificadorTemplateArticle[0]);
-        expect(resp.id).toBe(
-            ModificadorTemplateArticle[0].distributor.reference_id
-        );
-        expect(resp.descripcion).toBe(
-            ModificadorTemplateArticle[0].distributor.name
-        );
+    it('Test valor a retornar null si el distribuidor name es null', () => {
+        const distributor = get(ModificadorTemplateArticle[2], 'distributor', null);
+        const resp = ModificadorTemplate(distributor);
+        expect(resp).toBe(null);
+    });
+
+    it('Test valor a retornar null si el distribuidor es otra variante LN', () => {
+        const distributor = get(ModificadorTemplateArticle[3], 'distributor', null);
+        const resp = ModificadorTemplate(distributor);
+        expect(resp).toBe(null);
+    });
+
+    it('Test valor a retornar null si el distribuidor esta vacio', () => {
+        const distributor = get(ModificadorTemplateArticle[4], 'distributor', null);
+        const resp = ModificadorTemplate(distributor);
+        expect(resp).toBe(null);
     });
 });

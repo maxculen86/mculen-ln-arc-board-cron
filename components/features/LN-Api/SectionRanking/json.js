@@ -1,80 +1,102 @@
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
-import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
+import IndexRankingV1 from '../../../private/LN/api/v1/ranking';
 import browser from '../../../private/common/utils/browser';
 import filter from '../../../../content/filters/LN/nota/articleRanking';
-// URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/params=size:1;page:20/?_website=la-nacion-ar&outputType=json
+import { isMigratedCategory } from '../../../private/common/utils/migratedCategoriesHelper';
+
+// URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/params=size:1;weeks:1;days:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/ranking\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
 class SectionRanking {
     constructor(props) {
         this.props = props;
+
         const {
             globalContent: { _id: id },
             isAdmin,
-            customFields: { size: sizeCf, page: pageCf, paramUrlId }
+            customFields: {
+                size: sizeCf,
+                weeks: weeksCf,
+                days: daysCf,
+                paramUrlId
+            }
         } = props;
         this.state = {};
 
-        let size = !isAdmin
-            ? Number.parseInt(
-                  browser.getParamFrom(
-                      paramUrlId,
-                      'size',
-                      this.props.requestUri
-                  ),
-                  10
-              )
-            : sizeCf;
+        const categoryMigrated = isMigratedCategory(id, true);
+        if (categoryMigrated) {
+            const days = browser.getSizesFrom(
+                isAdmin,
+                daysCf,
+                paramUrlId,
+                'days',
+                this.props.requestUri
+            );
 
-        if (size > 100) size = 100;
+            const weeks = browser.getSizesFrom(
+                isAdmin,
+                weeksCf,
+                paramUrlId,
+                'weeks',
+                this.props.requestUri
+            );
 
-        const page = !isAdmin
-            ? Number.parseInt(
-                  browser.getParamFrom(
-                      paramUrlId,
-                      'page',
-                      this.props.requestUri
-                  ),
-                  10
-              )
-            : pageCf;
+            let size = browser.getSizesFrom(
+                isAdmin,
+                sizeCf,
+                paramUrlId,
+                'size',
+                this.props.requestUri
+            );
 
-        this.fetchContent({
-            dataResp: {
-                source: 'rankingArticlesSource',
-                query: {
-                    sectionId: id,
-                    weeksAgo: 30,
-                    daysAgo: 30,
-                    size: 10,
-                    imageConfig: 'notaM'
-                },
-                filter
-            }
-        });
+            if (size > 100) size = 100;
 
-        // Responde al resolver que permite pasar las versiones existentes
-        // Regex actual: ^\/api\/v([1]+)\/notas\/bySection(\/((?!params).)+)\/(.*\/)$
+            this.fetchContent({
+                rankingArticleSource: {
+                    source: 'rankingArticlesSource',
+                    query: {
+                        sectionId: id,
+                        weeksAgo: weeks,
+                        daysAgo: days,
+                        size,
+                        imageConfig: 'notaM'
+                    },
+                    filter
+                }
+            });
+        }
+
+        this.state = { ...this.state, categoryMigrated };
+
         this.versions = {
-            1: IndexAcuV1
+            1: IndexRankingV1
         };
     }
 
     render() {
-        if (!this.state.dataResp || !this.state.dataResp.content_elements)
-            return null;
-        // const articles = this.state.dataResp.content_elements;
+        const { rankingArticleSource, categoryMigrated } = this.state || {};
+
         const {
             globalContent: { name }
         } = this.props;
 
-        const indexAcu = this.versions[
+        const indexRanking = this.versions[
             browser.getApiVersion(this.props.requestUri)
         ];
 
-        return this.state.dataResp;
+        if (!rankingArticleSource || !rankingArticleSource.content_elements) {
+            return null;
+        }
 
-        // return indexAcu(name, articles, this.state.dataResp.next > 0);
+        if (!categoryMigrated) {
+            return {
+                success: false,
+                message:
+                    'Esta categoria aún no ha sido migrada, debe de consultar en Api Contenidos',
+                code: 202
+            };
+        }
+
+        return indexRanking(name, rankingArticleSource.content_elements);
     }
 }
 

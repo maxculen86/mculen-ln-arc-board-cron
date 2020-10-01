@@ -7,7 +7,7 @@ const text = dataText => {
     if (!valor) return null;
     return {
         _t: 'p',
-        valor: valor
+        valor
     };
 };
 
