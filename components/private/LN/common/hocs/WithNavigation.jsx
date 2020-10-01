@@ -20,14 +20,25 @@ export default function WithNavigation(WrappedComponent) {
 
             constructor(props) {
                 super(props);
+
+                const website = get(this, 'props.arcSite', null);
+                const { cached } = this.getContent({
+                    sourceName: 'navigationTreeSource',
+                    query: {
+                        website
+                    }
+                });
+
+                const { sections, termicas } = this.getSectionTree(cached);
+
                 this.state = {
-                    sections: [],
-                    termicas: {}
+                    sections,
+                    termicas
                 };
-                this.getNavigationTree();
             }
 
             // TODO: revisar esto!
+            /*
             getNavigationTree = () => {
                 const website = get(this, 'props.arcSite', null);
                 const { cached, fetched } = this.getContent({
@@ -41,11 +52,12 @@ export default function WithNavigation(WrappedComponent) {
 
                 fetched.then(result => this.getSectionTree(result));
             };
-
+            */
             getSectionTree = results => {
                 const sections = [];
+                let termicas = {};
                 if (results) {
-                    const termicas = results.Termicas;
+                    termicas = results.Termicas;
                     const { sectionId } = this.props;
                     sections.push({
                         id: results._id,
@@ -68,11 +80,14 @@ export default function WithNavigation(WrappedComponent) {
                         } while (section);
                     }
                     this.convertStringToBoolean(termicas);
+                    /*
                     this.setState({
                         sections,
                         termicas
                     });
+                    */
                 }
+                return { sections, termicas };
             };
 
             convertStringToBoolean = termicas => {

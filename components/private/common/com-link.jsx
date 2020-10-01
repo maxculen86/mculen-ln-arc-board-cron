@@ -12,7 +12,8 @@ const ComLink = props => {
         target,
         title,
         classCondition,
-        size
+        size,
+        style
     } = props;
 
     const isString = typeof children === 'string';
@@ -27,6 +28,7 @@ const ComLink = props => {
         ...(link && { title }),
         ...(isString && { dangerouslySetInnerHTML: { __html: children } }),
         ...(!isString && { children: children || textname }),
+        ...(style && { style }),
         className: `com-${link ? 'link' : 'text'}${SIZE_CLASS}${EXTRA_CLASS}`
     };
 
@@ -45,7 +47,8 @@ ComLink.propTypes = {
     title: PropTypes.string,
     target: PropTypes.string,
     classCondition: PropTypes.string,
-    size: PropTypes.string
+    size: PropTypes.string,
+    style: PropTypes.string
 };
 
 export default ComLink;

@@ -5,7 +5,7 @@ import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import ComTitle from '../../../common/com-title';
 
 const ArticleList = props => {
-    const { articles, border, outputType, title } = props;
+    const { articles, border, outputType, title, dataBlockName } = props;
     if (!articles) return null;
 
     return (
@@ -15,14 +15,20 @@ const ArticleList = props => {
                     <div className="col-12">
                         {/* <h2 className="com-title-section-l">{title || ''}</h2> */}
                         <ComTitle tag="h2" size="--l" content={title || ''} />
-                        <section className="row-gap-tablet-3 row-gap-desksm-3">
+                        <section
+                            className="row-gap-tablet-3 row-gap-desksm-3"
+                            data-is-block="true"
+                            data-block-name={dataBlockName}
+                            data-diagramacion-id="0"
+                        >
                             {articles.length > 0 &&
-                                articles.map(e => (
+                                articles.map((e, index) => (
                                     <ArticleMain
                                         articleData={e}
                                         border={border}
                                         key={e._id}
                                         outputType={outputType}
+                                        position={index + 1}
                                     />
                                 ))}
                         </section>
@@ -37,7 +43,8 @@ ArticleList.propTypes = {
     title: PropTypes.string,
     articles: PropTypes.arrayOf(PropTypes.any),
     border: PropTypes.bool,
-    outputType: PropTypes.string
+    outputType: PropTypes.string,
+    dataBlockName: PropTypes.string
 };
 
 export default withAcuArticlesData(ArticleList, null, 'notaM', true);

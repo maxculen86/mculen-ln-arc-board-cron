@@ -96,4 +96,13 @@ describe('components - private - LN - nota - tePuedeInteresar - articleList', ()
         );
         expect(firstArticleComponentData._id).toBe(firstArticleData._id);
     });
+    it('Chequeo que la propiedad position sea la adecuada segun el numero de articulo', () => {
+        const componentRender = mount(<ArticleList articles={articles} />);
+        const articlesComponents = componentRender.find('mocked-article');
+        const lastArticleComponentPosition = articlesComponents
+            .last()
+            .prop('position');
+        expect(lastArticleComponentPosition).toBe(4);
+        
+    });
 });

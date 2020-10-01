@@ -1,40 +1,44 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
-import withCollections from '../../common/hocs/withCollections';
-import filter from '../../../../content/filters/LN/acumulado/colections';
+import ModRowGap from '../../common/mod-rowgap';
+import withCollections from './hocs/withCollections';
+import useGlobalProviderAcu from './hooks/useGlobalProviderAcu';
+import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 
-const NotaApertura = ({ articlesCollections }) => {
+const NotaApertura = props => {
+    const {
+        setArticlesInCollection,
+        articlesInCollection
+    } = useGlobalProviderAcu();
+    const ARTICLE_TYPE = 'Grilla';
+    const DATA_SECTION = 'AperturaAcu';
+    const { articles, outputType } = props;
+
+    if (articles) setArticlesInCollection(articles);
     return (
-        <>
-            {articlesCollections.length > 0 && (
-                <div className="mod-opening">
-                    <section className="row-gap-tablet-2 row-gap-deskxl-2">
-                        {articlesCollections.map(article => (
-                            <ArticleAcum
-                                key={article._id}
-                                article={article}
-                                dataSection="CuerpoAcu"
-                                extraClasses=" --border w-100-mobile"
-                            />
-                        ))}
-                    </section>
-                </div>
-            )}
-        </>
+        (articles && (
+            <ModRowGap column="2" classCondition="--opening">
+                {articles.map((art, i) => (
+                    <ArticleAcum
+                        key={art._id}
+                        article={art}
+                        dataSection={DATA_SECTION}
+                        typeArticle={ARTICLE_TYPE}
+                        outputType={outputType}
+                    />
+                ))}
+            </ModRowGap>
+        )) || <></>
     );
 };
 
 NotaApertura.propTypes = {
-    articlesCollections: PropTypes.arrayOf(
+    articles: PropTypes.arrayOf(
         PropTypes.shape({
             _id: PropTypes.string
         })
     ).isRequired
 };
 
-/* NotaApertura.defaultProps = {
-    articlesCollections: []
-};
- */
-export default withCollections(NotaApertura, filter, 'la-nacion-ar');
+export default withCollections(NotaApertura, filter);

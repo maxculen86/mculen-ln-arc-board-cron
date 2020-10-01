@@ -49,7 +49,10 @@ import '../../resources/dist/css/ln/components/banners.css';
 /* Se debe dejar último los helpers */
 import '../../resources/dist/css/ln/base/helpers.css';
 
+import '../../resources/dist/css/ln/pages/magazine.css';
+
 import { GlobalProvider } from '../private/common/context/globalContext';
+import { getSectionLogo } from '../private/common/utils/sectionUtils';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -70,6 +73,8 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     return isValid ? component : null;
 };
 
+// if CATEGORIA REVISTA
+
 const lnNotaFotoAl100 = ({
     children: [
         bannerMegatop,
@@ -83,16 +88,24 @@ const lnNotaFotoAl100 = ({
     ],
     outputType,
     tree,
-    isAdmin
+    isAdmin,
+    globalContent: {
+        taxonomy: { sections },
+        distributor: { name }
+    },
+    layout
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
+    const logo = getSectionLogo(sections, layout, name);
+    const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
+
             <div
                 id="wrapper"
-                className={`nota --photo100 --transparent ${amp}`}
+                className={`nota ${magazine} --photo100 --transparent ${amp}`}
             >
                 <Header />
                 <main>
@@ -109,7 +122,7 @@ const lnNotaFotoAl100 = ({
                             {/* Post-Cuerpo */}
                             {postCuerpo}
                         </div>
-                        <div className="sidebar__aside">
+                        <div className="sidebar__aside hlp-tablet-none">
                             {/* Post-Cuerpo-Tercera */}
                             {postCuerpoTercera}
                         </div>
@@ -123,7 +136,7 @@ const lnNotaFotoAl100 = ({
                             {/* Bottom */}
                             {bottom}
                         </div>
-                        <div className="sidebar__aside">
+                        <div className="sidebar__aside hlp-tablet-none">
                             {/* Bottom-Tercera */}
                             {bottomTercera}
                         </div>
@@ -152,7 +165,18 @@ lnNotaFotoAl100.propTypes = {
     children: PropTypes.arrayOf(PropTypes.node).isRequired,
     outputType: PropTypes.string.isRequired,
     tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired
+    isAdmin: PropTypes.bool.isRequired,
+    globalContent: PropTypes.shape({
+        taxonomy: PropTypes.shape({
+            sections: PropTypes.shape({
+                _id: PropTypes.string
+            })
+        }),
+        distributor: PropTypes.shape({
+            name: PropTypes.string
+        })
+    }).isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 export default Consumer(lnNotaFotoAl100);

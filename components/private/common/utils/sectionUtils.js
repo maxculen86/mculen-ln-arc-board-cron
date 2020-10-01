@@ -34,10 +34,29 @@ export const getFirstParentSection = section => {
     return null;
 };
 
-export const getSectionLogo = (sections, layout, distributorName) => {
+const getRegex = sectionId => {
     const magazineRegex = /\/revista-(.\w+[^\W]?)/;
+    const propertiesRegex = /^\/propiedades$/;
     const lnmasRegex = /\/lnmas/;
 
+    if (sectionId === '/lnmas') return lnmasRegex;
+    if (sectionId === '/propiedades') return propertiesRegex;
+    return magazineRegex;
+};
+
+const getLogoForPath = path => {
+    if (path.length < 1) return '';
+    switch (path[0]) {
+        case '/lnmas':
+            return 'lnmas';
+        case '/propiedades':
+            return 'propiedades';
+        default:
+            return path[1];
+    }
+};
+
+export const getSectionLogo = (sections, layout, distributorName) => {
     let color = true;
     if (layout === 'LN-nota-storytelling' || layout === 'LN-nota-foto-al-100') {
         color = false;
@@ -53,7 +72,10 @@ export const getSectionLogo = (sections, layout, distributorName) => {
 
     const logoSection = sections.find(section => {
         const { _id } = section;
-        const resSection = _id.includes('/revista-') || _id.includes('/lnmas');
+        const resSection =
+            _id.includes('/revista-') ||
+            _id.includes('/lnmas') ||
+            _id.includes('/propiedades');
         return resSection;
     });
     if (!logoSection && distributorName === 'BBC Mundo')
@@ -64,9 +86,9 @@ export const getSectionLogo = (sections, layout, distributorName) => {
         };
     if (!logoSection) return null;
     const { _id } = logoSection;
-    const matchRegex = _id === '/lnmas' ? lnmasRegex : magazineRegex;
+    const matchRegex = getRegex(_id);
     const path = _id.match(matchRegex);
-    const logoForPath = path[0] === '/lnmas' ? 'ln-mas' : path[1];
+    const logoForPath = getLogoForPath(path);
     return {
         logoName: distributorName === 'BBC Mundo' ? 'bbc' : logoForPath,
         path: distributorName === 'BBC Mundo' ? '' : `${path[0]}/`,
