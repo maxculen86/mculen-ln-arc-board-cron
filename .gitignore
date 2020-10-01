@@ -13,7 +13,7 @@
 /dist
 /resources/dist
 
-/coverage
+**/coverage
 .scannerwork
 
 npm-debug.log
