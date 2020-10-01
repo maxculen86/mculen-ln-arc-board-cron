@@ -186,6 +186,14 @@
                 padding-bottom: px(126);
                 margin-bottom: 0;
             }
+            .--opening {
+                margin-top: px(-150);
+                border-bottom: 1px solid $gris3;
+                margin-bottom: $spacing-md;
+                .mod-figure {
+                    background: $blanco; //para el hover de la imagen
+                }
+            }
         }
     }
     &.--color {
@@ -212,22 +220,6 @@
                 }
                 .com-logo {
                     font-size: px(70);
-                }
-
-                //para borrar con el nuevo breadcrumb
-                .com-breadcrumb,
-                .com-breadcrumb a,
-                .com-breadcrumb span {
-                    color: $blanco;
-                    border-color: $blanco;
-                }
-            }
-            .--opening {
-                margin-top: px(-150);
-                border-bottom: 1px solid $gris3;
-                margin-bottom: $spacing-md;
-                .mod-figure {
-                    background: $blanco; //para el hover de la imagen
                 }
             }
         }
