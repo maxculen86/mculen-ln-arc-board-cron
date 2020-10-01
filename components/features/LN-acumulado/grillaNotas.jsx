@@ -83,8 +83,13 @@ function GrillaNotasFeature(props) {
     const {
         customFields: { typeArticle }
     } = props;
-    const { acumuladoGeneral, articlesInCollection } = useGlobalProviderAcu();
-    const { cantidad_notas = 30, tipo_acumulado = 'Grilla' } = acumuladoGeneral;
+    const { acumuladoGeneral } = useGlobalProviderAcu();
+    const {
+        cantidad_notas = 30,
+        tipo_acumulado = 'Grilla',
+        id_collection_promo_items,
+        hide_banner = true
+    } = acumuladoGeneral;
     const {
         globalContent: { author_type: authorType, _id, Payload },
         siteProperties,
@@ -110,9 +115,10 @@ function GrillaNotasFeature(props) {
             page={1}
             siteProperties={siteProperties}
             typeArticle={tipo_acumulado}
-            articlesInCollection={articlesInCollection}
+            articlesInCollection={[]}
             bannerConfig={bannerConfig}
             outputType={outputType}
+            hideBanner={hide_banner}
         />
     );
 }
