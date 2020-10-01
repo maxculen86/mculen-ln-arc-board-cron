@@ -52,16 +52,13 @@ const LNAcumuladoLayout = props => {
         revistas.indexOf(sectionStyleName || '') !== -1
             ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
             : '';
-    const headerDark =
-        style && style.headerdark && style.headerdark === 'true'
-            ? ' --transparent'
-            : '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
     const { id_collection_promo_items: idCollection } = acumuladoGeneral;
     const {
         background_color: backgroundCategory,
-        navigation_color_tags: colorTags
+        navigation_color_tags: colorTags,
+        header_class_name: headerDark
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
@@ -69,6 +66,7 @@ const LNAcumuladoLayout = props => {
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
     const OPENING_CLASS = idCollection ? '--opening' : '';
+    const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
 
     return (
         <GlobalProviderAcu
@@ -78,7 +76,7 @@ const LNAcumuladoLayout = props => {
             {megatop}
             <div
                 id="wrapper"
-                className={`acumulado${headerDark} ${COLOR_CLASS} ${classRevista} ${OPENING_CLASS} ${amp}`}
+                className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${OPENING_CLASS} ${amp}`}
             >
                 <Header />
                 <main>
@@ -139,7 +137,8 @@ LNAcumuladoLayout.propTypes = {
             background_color: PropTypes.string,
             navigation_color: PropTypes.string,
             navigation_color_tags: PropTypes.string,
-            id_logo_image: PropTypes.string
+            id_logo_image: PropTypes.string,
+            header_class_name: PropTypes.string
         })
     }).isRequired
 };
