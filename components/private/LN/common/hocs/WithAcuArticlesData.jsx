@@ -57,7 +57,7 @@ function WithAcuArticlesData(
 
             getArticles = (fetchedCallback, page) => {
                 const website = get(this, 'props.website', null);
-                const sectionId = get(this, 'props.sectionId', null);
+                let sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
@@ -73,6 +73,9 @@ function WithAcuArticlesData(
                     'props.excludeSectionId',
                     false
                 );
+
+                if (excludeSectionId) sectionId = null;
+
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
