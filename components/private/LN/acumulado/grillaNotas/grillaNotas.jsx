@@ -11,18 +11,9 @@ import WithNavigation from '../../common/hocs/WithNavigation';
 // import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 class GrillaNotas extends Component {
-    constructor(props) {
-        super(props);
-
-        this.sectionGrillasNotasRef = React.createRef();
-    }
-
     getBanner = index => {
         const position = index + 1;
-        const { bannerConfig, globalContent } = this.props;
-        const {
-            acumuladoGeneral: { hide_banner: hideBanners }
-        } = globalContent;
+        const { bannerConfig, hideBanners } = this.props;
         const { banners: termicaShowBanner } = this.props.termicas || {
             banners: true
         };
@@ -98,6 +89,7 @@ class GrillaNotas extends Component {
 GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
+    hideBanners: PropTypes.string.isRequired,
     articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
