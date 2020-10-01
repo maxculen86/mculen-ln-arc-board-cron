@@ -13,19 +13,25 @@ import '../../../../../resources/dist/css/ln/components/ranking.css';
 
 const Ranking = ({ articles, dataSection, title }) =>
     (articles && articles.length && (
-        <div className="com-ranking hlp-mobile-none">
+        <section
+            className="com-ranking hlp-mobile-none"
+            data-is-block="true"
+            data-block-name="n_ranking"
+            data-diagramacion-id="0"
+        >
             <ComTitle tag="h2" size="--m" content={title} />
             <OrderedList>
                 {articles.length > 0 &&
-                    articles.map(article => (
+                    articles.map((article, index) => (
                         <ArticleMain
-                            border
+                            // border
                             articleData={article}
                             dataSection={dataSection}
+                            position={index + 1}
                         />
                     ))}
             </OrderedList>
-        </div>
+        </section>
     )) ||
     null;
 

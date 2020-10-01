@@ -44,8 +44,25 @@ exports[`Comments Matches snapshot 1`] = `
       }
     }
     logueado={true}
-    sections={Array []}
-    termicas={Object {}}
+    sections={
+      Array [
+        Object {
+          "id": "/",
+          "name": "LA NACION",
+          "path": "/",
+        },
+      ]
+    }
+    termicas={
+      Object {
+        "banners": true,
+        "comentarios": false,
+        "debug": true,
+        "liftigniter": true,
+        "livefyre": true,
+        "testing": true,
+      }
+    }
   >
     <Comments
       deployment={[Function]}
@@ -65,9 +82,67 @@ exports[`Comments Matches snapshot 1`] = `
         }
       }
       logueado={true}
-      sections={Array []}
-      termicas={Object {}}
-    />
+      sections={
+        Array [
+          Object {
+            "id": "/",
+            "name": "LA NACION",
+            "path": "/",
+          },
+        ]
+      }
+      termicas={
+        Object {
+          "banners": true,
+          "comentarios": false,
+          "debug": true,
+          "liftigniter": true,
+          "livefyre": true,
+          "testing": true,
+        }
+      }
+    >
+      <section
+        className="comments arrow-down hlp-none"
+        data-module="nota-sugeridas-comentarios"
+        id="comentarios"
+      >
+        <div
+          className="techo"
+        >
+          <div
+            data-entrada="RDCAIGB3WNHJVHSBLDT367MU3Q"
+            data-id="eyJhbGciOiJIUzI1NiJ9.MTU1NjY5YWZmMmUyYWE0NjJjMWE1ZjI1MWI5YTEwM2U.IRuyevM6kT8BK5BTyQ64JRkBQsCj00_L4gqzpSlS72U"
+            data-lf-siteid="356483"
+            id="tokenLF"
+          />
+          <h4
+            className="comment-title"
+          >
+            Enviá 
+            <b>
+              tu comentario 
+            </b>
+            <button
+              className="item_link ver-legales"
+              onClick={[Function]}
+              type="button"
+            >
+               
+              Ver legales
+            </button>
+          </h4>
+        </div>
+        <div
+          className="comment-reminder"
+        >
+          Para poder comentar tenés que ingresar con tu usuario de LA NACION.
+        </div>
+        <div
+          id="livefyre"
+        />
+      </section>
+    </Comments>
   </Component>
 </element>
 `;

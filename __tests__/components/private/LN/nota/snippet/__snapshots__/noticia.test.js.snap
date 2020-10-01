@@ -8,6 +8,7 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] =
   \\"@context\\": \\"https://schema.org\\",
   \\"@type\\": \\"NewsArticle\\",
   \\"headline\\": \\"Nota de prueba Foto al 100\\",
+  \\"articleBody\\": \\"S<a href=\\\\\\"https://www.lanacion.com.ar/el-mundo/primer-latinoamericano-pasajero-argentino-del-crucero-japon-nid2331517\\\\\\" target=_blank>e trata del primer caso confirmado</a> de un latinoamericano diagnosticado con esta enfermedad que se haya anunciado hasta el momento. <a href=\\\\\\"https://www.lanacion.com.ar/el-mundo/de-crucero-de-lujo-a-carcel-flotante-el-drama-de-una-cuarentena-a-bordo-nid2331408\\\\\\" target=_blank>El crucero</a> , que llegó el lunes por la noche a las inmediaciones del puerto de <b>Yokohama </b>, al suroeste de Tokio, tiene unos <a href=\\\\\\"https://www.lanacion.com.ar/el-mundo/primer-latinoamericano-pasajero-argentino-del-crucero-japon-nid2331517\\\\\\" target=_blank><b>3.700 pasajeros</b></a> y tripulantes, de los cuales 273 se sometieron a las pruebas de detección. Permanecerían en cuarentena hasta el 19 de febrero.\\",
   \\"url\\": \\"https://www.lanacion.com.ar/arquitectura/nota-de-prueba-foto-al-100-nid25062020/?_website=la-nacion-ar\\",
   \\"dateCreated\\": \\"Thu, 25 Jun 2020 19:39:36 GMT\\",
   \\"datePublished\\": \\"Thu, 25 Jun 2020 19:39:44 GMT\\",
@@ -54,7 +55,8 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] =
     \\"url\\": \\"https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST\\",
     \\"height\\": \\"564\\",
     \\"width\\": \\"1080\\"
-  }
+  },
+  \\"publishingPrinciples\\": \\"https://www.lanacion.com.ar/tema/trust-project-tid68036\\"
 }",
     }
   }

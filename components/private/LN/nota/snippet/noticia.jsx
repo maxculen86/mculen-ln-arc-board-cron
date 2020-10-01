@@ -5,6 +5,8 @@ import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getPathForImage from '../../../common/utils/getPathForImage';
 import getAuthorByline from '../../../common/utils/getAuthorByline';
+import get from '../../../common/utils/get';
+import * as Trust from './constants';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -57,19 +59,88 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     };
 };
 
+const publishingPrinciples =
+    'https://www.lanacion.com.ar/tema/trust-project-tid68036';
+
+const getTrustProject = trust => data => sponsored => {
+    if (!trust && !sponsored) return { ...data };
+    if (sponsored)
+        return {
+            ...data,
+            '@type': 'AdvertiserContent',
+            publishingPrinciples
+        };
+
+    switch (trust) {
+        case Trust.TRUST_NOTICIA_ORIGINAL:
+            return {
+                ...data,
+                publishingPrinciples
+            };
+        case Trust.TRUST_NOTICIA:
+            return {
+                ...data,
+                '@type': 'ReportageNewsArticle',
+                publishingPrinciples
+            };
+        case Trust.TRUST_ANALISIS:
+            return {
+                ...data,
+                '@type': 'AnalysisNewsArticle',
+                publishingPrinciples
+            };
+        case Trust.TRUST_OPINION:
+            return {
+                ...data,
+                '@type': 'OpinionNewsArticle',
+                publishingPrinciples
+            };
+        case Trust.TRUST_EXPLICATIVO:
+            return {
+                ...data,
+                '@type': 'BackgroundNewsArticle',
+                publishingPrinciples
+            };
+        case Trust.TRUST_CONTRIBUCION_DE_LA_AUDIENCIA:
+            return {
+                ...data,
+                '@type': 'AskPublicNewsArticle',
+                publishingPrinciples
+            };
+        case Trust.TRUST_REVIEW:
+            return {
+                ...data,
+                '@type': 'ReviewNewsArticle',
+                publishingPrinciples
+            };
+        default:
+            return { ...data };
+    }
+};
+
+const getFirstParagraph = contentElements =>
+    contentElements.some(contentElement => contentElement.type === 'text')
+        ? contentElements.find(contentElement => contentElement.type === 'text')
+              .content
+        : null;
+
 const SnippetNoticia = props => {
     const {
         requestUri,
         siteProperties,
         globalContent: {
+            type,
             headlines,
+            content_elements: contentElements,
             taxonomy: { primary_section: primarySection, tags },
             promo_items: promoItems,
             credits: { by },
             created_date: createdDate,
             first_publish_date: firstPublishDate,
             display_date: displayDate,
-            content_restrictions: { content_code: contentCode } = {}
+            content_restrictions: { content_code: contentCode } = {},
+            label,
+            owner: { sponsored }
         },
         contextPath,
         deployment
@@ -89,10 +160,13 @@ const SnippetNoticia = props => {
         PLACEHOLDER
     );
 
-    const data = {
+    const trust = get(label, 'trust.text', 'Noticia Original');
+
+    let data = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
+        articleBody: getFirstParagraph(contentElements),
         url: `${siteProperties.host}${requestUri || ''}`,
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
@@ -128,6 +202,8 @@ const SnippetNoticia = props => {
         thumbnailUrl,
         image
     };
+
+    data = getTrustProject(trust)(data)(sponsored);
 
     SnippetNoticia.propTypes = {
         requestUri: PropTypes.string.isRequired,
@@ -184,9 +260,13 @@ const SnippetNoticia = props => {
         contextPath: PropTypes.string.isRequired
     };
 
+    if (type !== 'story') return null;
+    if (!getFirstParagraph(contentElements)) return null;
+
     return (
         <>
             <SnippetRender id="Schema_NewsArticle" data={data} />
+            <noscript>Your browser does not support javascript</noscript>
         </>
     );
 };

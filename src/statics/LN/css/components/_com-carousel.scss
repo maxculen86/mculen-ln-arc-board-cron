@@ -2,8 +2,7 @@
 @import '../abstracts/mixins';
 
 amp-carousel {
-    width: calc(100% + 2.5rem);
-    margin-left: -1.25rem;
+    @include fullwidth;
     margin-bottom: $spacing-lg;
 
     @media ($media-m) {

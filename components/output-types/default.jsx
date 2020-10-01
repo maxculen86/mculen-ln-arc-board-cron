@@ -14,7 +14,6 @@ import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
-import AdvertiserContent from '../private/common/scriptManager/AdvertiserContent';
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
 import OptaEmbed from '../private/common/scriptManager/optaEmbed';
 import ScriptHtmlLibre from '../private/common/scriptManager/scriptHtmlLibre';
@@ -69,10 +68,6 @@ const scriptList = [
             name: 'GooglePublisherTagAcumulado',
             function: GooglePublisherTagAcumulado
         },
-        feature: 'none'
-    },
-    {
-        component: { name: 'AdvertiserContent', function: AdvertiserContent },
         feature: 'none'
     },
     {

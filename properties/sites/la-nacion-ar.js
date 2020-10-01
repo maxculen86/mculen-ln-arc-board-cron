@@ -47,10 +47,6 @@ export default {
             props: {},
             location: ['head']
         },
-        AdvertiserContent: {
-            props: {},
-            location: ['body-top']
-        },
         SocialEmbeds: {
             props: {},
             location: ['body-top']

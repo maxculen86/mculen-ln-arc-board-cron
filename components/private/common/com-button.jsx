@@ -9,11 +9,13 @@ const ComButton = props => {
         children,
         classCondition,
         onClick,
+        onMouseDown,
         classesNames,
         textname,
         iconName,
         iconPosition,
-        size
+        size,
+        style
     } = props;
 
     if (iconName && !children)
@@ -23,6 +25,8 @@ const ComButton = props => {
                 className={`com-button ${classesNames || ``} ${classCondition ||
                     ''} ${iconName ? `--icon` : ``} `}
                 onClick={onClick}
+                onMouseDown={onMouseDown}
+                style={style}
             >
                 <ComIco iconName={iconName} />
             </button>
@@ -36,6 +40,7 @@ const ComButton = props => {
                     iconName ? `--icon` : ``
                 } ${iconName} ${iconPosition || ``}`}
                 onClick={onClick}
+                style={style}
             >
                 <ComIco iconName={iconName} />
                 <ComText size={size || ''}>
@@ -50,6 +55,7 @@ const ComButton = props => {
             className={`com-button ${classesNames || ``} ${classCondition ||
                 ''}`}
             onClick={onClick}
+            style={style}
         >
             <ComText size={size || ''}>
                 {children || ``}
@@ -65,9 +71,11 @@ ComButton.propTypes = {
     classesNames: PropTypes.string,
     textname: PropTypes.string,
     onClick: PropTypes.func,
+    onMouseDown: PropTypes.func,
     iconName: PropTypes.string,
     iconPosition: PropTypes.string,
-    size: PropTypes.string
+    size: PropTypes.string,
+    style: PropTypes.obj
 };
 
 export default ComButton;

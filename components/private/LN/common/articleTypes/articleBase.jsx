@@ -7,12 +7,13 @@ import '../../../../../resources/dist/css/ln/modules/caja-nota.css';
 // TODO: test pendiente
 const ArticleBase = ({
     extraClasses,
-    articleData: { headlines, website_url: websiteUrl, label },
+    articleData: { headlines, website_url: websiteUrl, label, _id },
     hourComponent,
     mediaComponent,
     children,
     border,
-    dataSection
+    dataSection,
+    position
 }) => {
     const volanta = label && label.volanta && label.volanta.text;
     const borderClass = border ? '--border ' : '';
@@ -20,6 +21,11 @@ const ArticleBase = ({
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
+    }
+    if (position) {
+        extraOpts['data-pos'] = `toi${position}`;
+        extraOpts['data-id'] = _id;
+        extraOpts['data-notaid'] = _id;
     }
     return (
         <article
@@ -57,7 +63,8 @@ ArticleBase.propTypes = {
     mediaComponent: PropTypes.node,
     children: PropTypes.node,
     border: PropTypes.bool,
-    dataSection: PropTypes.string
+    dataSection: PropTypes.string,
+    position: PropTypes.number
 };
 
 // ArticleBase.defaultProps = {

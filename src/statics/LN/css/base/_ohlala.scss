@@ -1,8 +1,0 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
-
-.ohlala {
-    $primario: $ohlala;
-    $logo: $logo-ohlala;
-    @include revista($logo, $primario);
-}

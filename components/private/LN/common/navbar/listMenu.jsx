@@ -7,7 +7,8 @@ import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
 const ListMenu = ({ showNav, toglleDesplegable }) => {
     return (
-        <nav className={`com-nav-mobile${showNav}`}>
+        //<nav className={`com-nav-mobile${showNav}`}>
+        <nav className={`com-nav-mobile`}>
             <div className="row">
                 <ItemHome />
                 <button
@@ -26,7 +27,7 @@ const ListMenu = ({ showNav, toglleDesplegable }) => {
 };
 
 ListMenu.propTypes = {
-    showNav: PropTypes.string.isRequired,
+    //showNav: PropTypes.string.isRequired,
     toglleDesplegable: PropTypes.func.isRequired
 };
 

@@ -41,54 +41,96 @@
         }
     }
 
-    //active modo DARK-------
-    &.--dark,
-    .acu-revista &,
-    .revistas-layer:not(.--scrollUp) &,
-    .storytelling:not(.--scrollUp) &,
-    .--photo100:not(.--scrollUp) &,
-    .--transparent &,
-    .--color & {
-        &:not(.--scrollUp) {
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
+    @mixin darkHeader {
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
 
-            .header__left {
-                .com-hamburger {
-                    &:before,
-                    .com-icon {
-                        color: $blanco;
-                    }
-                    &:hover {
-                        color: $blanco;
-                    }
+        .header__left {
+            .com-hamburger {
+                &:before,
+                .com-icon {
+                    color: $blanco;
                 }
-
-                .com-search {
-                    &__input {
-                        color: $blanco;
-
-                        &::placeholder {
-                            color: $gris3;
-                        }
-                    }
-
-                    &__submit {
-                        background: $blanco;
-                        color: $link;
-                    }
-
-                    .icon-search {
-                        color: $blanco;
-                    }
-                }
-            }
-
-            .header__middle {
-                .logo-la-nacion {
+                &:hover {
                     color: $blanco;
                 }
             }
+
+            .com-search {
+                &__input {
+                    color: $blanco;
+
+                    &::placeholder {
+                        color: $gris3;
+                    }
+                }
+
+                &__submit {
+                    background: $blanco;
+                    color: $link;
+                }
+
+                .icon-search {
+                    color: $blanco;
+                }
+            }
+        }
+
+        .header__middle {
+            .logo-la-nacion {
+                color: $blanco;
+            }
+        }
+
+        .header__right {
+            .com-usuario {
+                .com-button {
+                    &.--special.--special {
+                        color: $blanco;
+                    }
+                    @media ($media-l) {
+                        &.--special.--special {
+                            border-color: $highlight;
+                            color: $gris6;
+                            &:hover {
+                                border-color: $negro;
+                                color: $blanco;
+                            }
+                        }
+                        &.--secondary.--secondary {
+                            color: $blanco;
+                            border-color: $blanco;
+                            &:hover {
+                                background: $blanco;
+                                border-color: $blanco;
+                                color: $gris6;
+                            }
+                        }
+                    }
+                }
+                .com-usuario__name,
+                .com-usuario__valueSuscrib {
+                    color: $blanco;
+                }
+            }
+        }
+    }
+
+    //active modo DARK-------
+    &.--dark,
+    .acu-revista &, //borrar una vez subido acu nuevo
+    .revistas-layer:not(.--scrollUp) &, //borrar una vez subido acu nuevo
+    //.storytelling:not(.--scrollUp) &,
+    //.--photo100:not(.--scrollUp) &,
+    .--transparent:not(.--scrollUp) &,
+    .--color:not(.--scrollUp) & {
+        //&:not(.--scrollUp) {
+        @include darkHeader;
+        //}
+    }
+    &.--active {
+        .--transparent & {
+            @include darkHeader;
         }
     }
 
@@ -153,7 +195,7 @@
         // ------ESTADOS DEL HEADER------
         //=================================
         //scrollUp
-        &.--scrollDown,
+        //&.--scrollDown,
         .--scrollDown & {
             /*transform: translateY(-100%);
             position: absolute;*/
@@ -161,7 +203,7 @@
             top: -80px;
         }
         //scrollDown
-        &.--scrollUp,
+        //&.--scrollUp,
         .--scrollUp & {
             /*transform: translateY(0);*/
             top: 0;
