@@ -5,15 +5,20 @@ import BreadCrumbSchema from '../../common/breadcrumbSchema';
 import WithNavigation from '../../common/hocs/WithNavigation';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
-function BreadcrumbSection({ sections, host }) {
+function BreadcrumbSection({ sections, host, colorCategory }) {
     return (
         <>
             <BreadCrumbBase
                 sections={sections}
                 dataSection={DATA_SECTION}
                 host={host}
+                colorCategory={colorCategory}
             />
-            <BreadCrumbSchema sections={sections} host={host} />
+            <BreadCrumbSchema
+                sections={sections}
+                host={host}
+                colorCategory={colorCategory}
+            />
         </>
     );
 }

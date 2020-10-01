@@ -120,12 +120,19 @@
                 margin-bottom: $spacing;
                 .com-image {
                     max-height: px(70);
-                    width: auto;
                 }
             }
 
             .com-button {
                 display: none;
+            }
+
+            @media ($media-m) {
+                .mod-logo {
+                    .com-image {
+                        width: auto;
+                    }
+                }
             }
 
             @media ($media-l) {
@@ -140,6 +147,9 @@
                 .mod-logo {
                     margin: 0;
                     margin-right: $spacing-md;
+                    .com-image {
+                        max-height: px(90);
+                    }
                 }
                 .com-button {
                     padding: 0;
@@ -175,6 +185,14 @@
             .--top {
                 padding-bottom: px(126);
                 margin-bottom: 0;
+            }
+        }
+    }
+    &.--color {
+        main {
+            padding-top: 0;
+            .--top {
+                padding-top: $spacing-md;
             }
         }
     }
