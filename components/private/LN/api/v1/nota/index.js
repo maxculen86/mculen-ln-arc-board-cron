@@ -22,6 +22,8 @@ const indexNota = dataNota => {
     const { date: publishDate, time: updateTime } = dateAndTimeUtil(
         dataNota.publish_date
     );
+    const distributor = get(dataNota, 'distributor', null);
+
     const impresa =
         typeof edicion !== 'undefined' && edicion.toLowerCase() === 'impresa'
             ? true
@@ -41,7 +43,7 @@ const indexNota = dataNota => {
         relacionados: Relacionados(dataNota),
         enviarApps: true
     };
-    const modificadorTemplate = ModificadorTemplate(dataNota);
+    const modificadorTemplate = ModificadorTemplate(distributor);
     const enviarApps = get(dataNota, 'label.enviar_a_apps');
 
     if (dataNota.subtype === '9') {

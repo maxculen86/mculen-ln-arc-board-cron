@@ -1,15 +1,15 @@
-import get from 'lodash.get';
+const modificadorTemplate = distributor => {
+    if (!distributor) return null;
 
-const modificadorTemplate = dataArticle => {
-    const distribuitor = get(dataArticle, 'distributor');
-    if (!distribuitor || distribuitor.name.toLowerCase() === 'lanacionar')
-        return null;
+    const { name: descripcion = null, reference_id: id } = distributor;
 
-    const resp = {
-        descripcion: distribuitor.name,
-        id: distribuitor.reference_id
-    };
-    return resp;
+    return descripcion &&
+        descripcion.replace(/\s/g, '').toLowerCase() !== 'lanacion'
+        ? {
+            descripcion,
+            id
+        }
+        : null;
 };
 
 export default modificadorTemplate;
