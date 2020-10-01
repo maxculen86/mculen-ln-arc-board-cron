@@ -1,6 +1,18 @@
 {
     "categories": [
         {
+            "_id": "6251",
+            "ArcSectionId": "/propiedades",
+            "name": "Propiedades",
+            "migrada": true
+        },
+        {
+            "_id": "6251",
+            "ArcSectionId": "/propiedades/inmuebles-comerciales",
+            "name": "Inmuebles Comerciales",
+            "migrada": true
+        },
+        {
             "_id": "1344",
             "ArcSectionId": "/comunidad",
             "name": "Comunidad",
