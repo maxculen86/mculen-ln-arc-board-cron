@@ -2,9 +2,6 @@
 
 exports[`Json Acumulado section. Test de integracion Test de snapshot Recetas 1`] = `
 Object {
-  "acumuladoTotal": undefined,
-  "notas": null,
   "paginar": false,
-  "titulo": undefined,
 }
 `;

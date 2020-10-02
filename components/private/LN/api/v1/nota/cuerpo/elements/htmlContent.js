@@ -16,7 +16,8 @@ const html = htmlData => {
             resp.id = 'ifrme';
             break;
         default:
-            (resp.id = 'html'), (resp.src = htmlData.content);
+            resp.id = 'html';
+            resp.src = htmlData.content;
             break;
     }
 

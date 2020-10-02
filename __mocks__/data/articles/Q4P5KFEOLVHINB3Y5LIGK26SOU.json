@@ -1,0 +1,102 @@
+{
+    "_id": "Q4P5KFEOLVHINB3Y5LIGK26SOU",
+    "canonical_url": "/politica/html-libre-test-calculadora-gaston-nid20082020/",
+    "comments": {
+      "allow_comments": true
+    },
+    "content_elements": [
+      {
+        "_id": "IGUWNPYEUNF7ROLSBUEF6ZXDGE",
+        "additional_properties": {},
+        "content": "<!-- HTML LIBRE L9 -->\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/app.5fd77e43.css rel=stylesheet>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-vendors.049e67b1.js rel=preload\n    as=script>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/app.02024f65.js rel=preload as=script>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/app.5fd77e43.css rel=preload as=style>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-bfc195ac.8a0356c7.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-b4754016.d1b2699d.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-7ec9b6bf.e4368267.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-7ce69f38.d925bb04.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-75b02722.4c65d50d.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-65fa6226.9e43b66e.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-61ddb426.d3072717.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-3c141e16.5ee15656.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-2a5d2b28.3f8755ef.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-20bd8a6c.6f398342.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-0df3e436.6c6b408e.js rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/chunk-b4754016.dd160479.css rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/chunk-7ec9b6bf.b964b61c.css rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/chunk-7ce69f38.673b7215.css rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/chunk-75b02722.3984adc6.css rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/chunk-65fa6226.949bdf08.css rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/chunk-61ddb426.8a10a350.css rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/chunk-3c141e16.26d71598.css rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/chunk-2a5d2b28.bea7f9fd.css rel=prefetch>\n<link href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/css/chunk-20bd8a6c.f3bda4a4.css rel=prefetch>\n<link rel=icon href=https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/favicon.ico> <meta name=viewport\n    content=\"width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1\">\n<link rel=stylesheet type=text/css href=https://especialess3.lanacion.com.ar/fonts/fontsWithPrumo.css> <style>/*\n<!-- HACK html libre styles --> */\n#appContainer{opacity:0}#appContainer.loaded{opacity:1}body main{overflow:initial !important;max-width:inherit;padding:0\n!important}\n/*\n<!--- PRELOAD LN ---> */\ndiv#preload{position:fixed;top:0;right:0;left:0;bottom:0;background:black;z-index:90;background-color:#262626}div#preload.loaded{display:none}div#preload.loaded\nsvg#stroke{animation:none}div.logo{width:80px;height:80px;margin:0\nauto;position:fixed;left:50%;margin-left:-40px;top:250px}.st0 path{fill:#007caf\n!important}svg#stroke{-webkit-animation:2s linear infinite svg-animation;animation:2s linear infinite\nsvg-animation;max-width:100px;position:absolute;top:0;left:0}@keyframes\nsvg-animation{0%{-webkit-transform:rotateZ(0deg);-ms-transform:rotate(0deg);transform:rotateZ(0deg)}100%{-webkit-transform:rotateZ(360deg);-ms-transform:rotate(360deg);transform:rotateZ(360deg)}}circle{-webkit-animation:1.4s\nease-in-out infinite both circle-animation;animation:1.4s ease-in-out infinite both\ncircle-animation;display:block;fill:transparent;stroke:#007caf;stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:280;stroke-width:6px;-webkit-transform-origin:50%\n50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%}@-webkit-keyframes\ncircle-animation{0%,25%{stroke-dashoffset:280;-webkit-transform:rotate(0);transform:rotate(0)}50%,75%{stroke-dashoffset:75;-webkit-transform:rotate(45deg);transform:rotate(45deg)}100%{stroke-dashoffset:280;-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes\ncircle-animation{0%,25%{stroke-dashoffset:280;-webkit-transform:rotate(0);transform:rotate(0)}50%,75%{stroke-dashoffset:75;-webkit-transform:rotate(45deg);transform:rotate(45deg)}100%{stroke-dashoffset:280;-webkit-transform:rotate(360deg);transform:rotate(360deg)}}/*\nHack styles HEADER NEGRO LN9 */ header{background-color:#000} body main:not(.storytelling){margin-top:0 !important;\npadding:0 !important; width: 100%; max-width: 100%; overflow: initial;} /* Hack styles HEADER NEGRO ARC */\n.--transparent .header.--active {background: rgb(0 0 0);}</style>\n<div id=preload>\n    <div class=logo><svg version=1.1 id=Capa_1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink\n            x=0px y=0px viewBox=\"0 0 100 100\" style=\"enable-background:new 0 0 100 100;\" xml:space=preserve>\n            <path class=st0 fill=#007CAF\n                d=\"M48.5,60.6H57v-1.5h-0.6c-2.2,0-3-0.3-3-2V43.4h0.1l14.8,17.2h2.8V42.9c0-1.8,1.1-2.2,2.3-2.2h1v-1.5h-8.5v1.5h0.6c2.2,0,3,0.3,3,2v9.1h-0.1L58.6,39.2h-9.9v1.5h0.6c1.3,0,2.6,0.9,2.6,2.4v13.8c0,1.8-1.1,2.2-2.3,2.2h-1L48.5,60.6L48.5,60.6z M26.8,60.6h20.6v-8.5h-1.7V53c0,4.8-3.6,6.1-8.1,6.1h-0.8V40.7h3.8v-1.5H26.8v1.5h3.4v18.4h-3.4V60.6z\" />\n            </svg> <svg id=stroke viewBox=\"0 0 100 100\" xmlns=http://www.w3.org/2000/svg> <circle cx=50 cy=50\n            r=45 /></svg></div>\n</div>\n<div id=appContainer>\n    <div class=scrl-titulo-block style=\"sdas a dsa da\">\n        <div class=scrl-titulo-container>\n            <p class=scrl-volanta style=\"\">adsada</p>\n            <h1 class=scrl-titulo style=\"\">adsasda</h1>\n            <h2 class=scrl-bajada style=\"sadadsada\"></h2>\n        </div>\n    </div>\n    <div id=app></div>\n</div>\n<script>\n    window.doc_id = '12cKDa4iiw23LZAKOSekcKgXMahbME751av4Bj6F7T1M';\n    document.body.classList.add(\"transparente\"); /* LN9 */\n    document.getElementById(\"wrapper\").classList.add(\"--transparent\"); /* ARC */\n</script>\n<script>\n    window.addEventListener(\"load\", function (event) {\n        let vuescript0 = document.createElement(\"script\");\n        vuescript0.type = \"text/javascript\";\n        vuescript0.src =\n            \"https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/chunk-vendors.049e67b1.js\";\n        document.body.appendChild(vuescript0);\n        let vuescript1 = document.createElement(\"script\");\n        vuescript1.type = \"text/javascript\";\n        vuescript1.src = \"https://especialess3.lanacion.com.ar/20/10/scrolly-archieML/js/app.02024f65.js\";\n        document.body.appendChild(vuescript1);\n    });\n</script><!-- END HTML LIBRE L9 -->\n<style>\n.--transparent .header.--active {\n    background: rgb(0 0 0);\n}\n</style>",
+        "type": "raw_html"
+      }
+    ],
+    "content_restrictions": {
+    },
+    "created_date": "2020-08-20T18:42:42.961Z",
+    "credits": {
+      "by": []
+    },
+    "description": {
+      "basic": ""
+    },
+    "display_date": "2020-08-20T18:43:38.798Z",
+    "distributor": {
+      "category": "staff",
+      "name": "LA NACION",
+      "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+    },
+    "first_publish_date": "2020-08-20T18:43:38.798Z",
+    "headlines": {
+      "basic": "Html Libre TEST CALCULADORA Gaston 2",
+      "meta_title": "",
+      "mobile": ""
+    },
+    "label": {
+      "edicion": {
+        "display": true,
+        "text": "Digital"
+      },
+      "enviar_a_apps": {
+        "display": true,
+        "text": "Si",
+        "url": ""
+      },
+      "mostrar_banners": {
+        "display": true,
+        "text": "Si",
+        "url": ""
+      }
+    },
+    "last_updated_date": "2020-09-25T21:54:58.931Z",
+    "owner": {
+      "sponsored": true
+    },
+    "publish_date": "2020-09-25T21:54:58.659Z",
+    "related_content": {
+      "basic": [],
+      "redirect": []
+    },
+    "subheadlines": {
+      "basic": ""
+    },
+    "subtype": "9",
+    "syndication": {
+      "external_distribution": true,
+      "search": true
+    },
+    "taxonomy": {
+      "primary_section": {
+        "_id": "/politica",
+        "_website": "la-nacion-ar",
+        "additional_properties": {
+          "original": {
+            "ancestors": {}
+          }
+        },
+        "name": "Política",
+        "parent_id": "/",
+        "path": "/politica",
+        "type": "section"
+      },
+      "sections": [
+        {
+          "_id": "/politica",
+          "_website": "la-nacion-ar",
+          "additional_properties": {
+            "original": {
+              "ancestors": {}
+            }
+          },
+          "name": "Política",
+          "parent_id": "/",
+          "path": "/politica",
+          "type": "section"
+        }
+      ],
+      "tags": []
+    },
+    "type": "story",
+    "website_url": "/politica/html-libre-test-calculadora-gaston-nid20082020/"
+  }

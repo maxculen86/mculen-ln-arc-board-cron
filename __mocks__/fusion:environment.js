@@ -111,7 +111,7 @@ jest.mock('fusion:environment', () => {
                     _id: '123',
                     ArcSectionId: '/economia',
                     name: 'Economía',
-                    migrada: false
+                    migrada: true
                 },
                 {
                     _id: '146',

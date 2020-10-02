@@ -1,5 +1,5 @@
-import imageAcu from './image';
-import { getAutorId } from '../../../../common/utils/getElementId';
+import imageAcu from '../image';
+import { getAutorId } from '../../../../../common/utils/getElementId';
 
 const authorCommon = author => {
     const { _id: id, name, image, type } = author;

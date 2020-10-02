@@ -1,6 +1,84 @@
 {
     "categories": [
         {
+            "_id": "6251",
+            "ArcSectionId": "/propiedades",
+            "name": "Propiedades",
+            "migrada": true
+        },
+        {
+            "_id": "6251",
+            "ArcSectionId": "/propiedades/inmuebles-comerciales",
+            "name": "Inmuebles Comerciales",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad",
+            "name": "Comunidad",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/hablemos-de-todo",
+            "name": "Hablemos de todo",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/hablemos-de-todo/violencia-de-genero",
+            "name": "Violencia de género",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/hablemos-de-todo/abuso",
+            "name": "Abuso",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/hablemos-de-todo/bullying",
+            "name": "Bullying",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/hablemos-de-todo/adicciones",
+            "name": "Adicciones",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/hablemos-de-todo/trastornos-de-la-alimentacion",
+            "name": "Trastornos de la alimentación",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/hablemos-de-todo/educacion-inclusiva",
+            "name": "Educación inclusiva",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/racismo",
+            "name": "Racismo",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/diversidad",
+            "name": "Diversidad",
+            "migrada": true
+        },
+        {
+            "_id": "1344",
+            "ArcSectionId": "/comunidad/hambre-de-futuro",
+            "name": "Hambre de futuro",
+            "migrada": true
+        },
+        {
             "_id": "65",
             "ArcSectionId": "/cultura",
             "name": "Cultura",

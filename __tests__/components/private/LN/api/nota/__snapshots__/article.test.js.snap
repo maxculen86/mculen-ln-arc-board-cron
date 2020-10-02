@@ -7,14 +7,12 @@ Object {
     "autores": Array [
       Object {
         "id": "alomuto",
-        "image": null,
         "slug": "alomuto",
         "tipo": 1,
         "valor": "Agustina Lomuto",
       },
       Object {
         "id": "diego-cabot",
-        "image": null,
         "slug": "diego-cabot",
         "tipo": 1,
         "valor": "Diego Cabot",
@@ -152,8 +150,12 @@ Object {
         "nivel": 1,
         "valor": "Revista ¡HOLA!",
       },
+      Object {
+        "id": 154,
+        "nivel": 1,
+        "valor": "Revista ¡HOLA!",
+      },
     ],
-    "notas": Array [],
     "tags": Array [
       Object {
         "formatoId": 1,

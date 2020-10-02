@@ -115,18 +115,7 @@
             "parent_id": "/",
             "path": "/economia"
         },
-        "sections": [
-            {
-                "_id": "/economia",
-                "_website": "la-nacion-ar",
-                "additional_properties": {
-                    "original": {}
-                },
-                "name": "Economía",
-                "parent_id": "/",
-                "path": "/economia"
-            }
-        ],
+        "sections": [],
         "tags": []
     },
     "type": "story",

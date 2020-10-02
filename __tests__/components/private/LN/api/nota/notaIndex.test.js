@@ -1,81 +1,100 @@
-jest.mock(
-    '../../../../../../components/private/LN/api/v1/nota/sectionArticle',
-    () => {
-        return () => {
-            return 'primarySection-mock';
-        };
-    }
-);
-
-jest.mock(
-    '../../../../../../components/private/LN/api/v1/nota/apertura/aperturaArticle',
-    () => {
-        return () => {
-            return 'apertura-mock';
-        };
-    }
-);
-
-jest.mock(
-    '../../../../../../components/private/LN/api/v1/nota/relacionados',
-    () => {
-        return () => {
-            return 'relacionados-mock';
-        };
-    }
-);
-
+import env from '../../../../../../__mocks__/fusion:environment';
 import NotaIndex from '../../../../../../components/private/LN/api/v1/nota';
-import articleHtml from '../../../../../../__mocks__/data/nota/cuerpo/notaHtml.json';
-import article from '../../../../../../__mocks__/data/nota/notaRoot.json';
-import dateAndTimeUtil from '../../../../../../components/private/common/utils/dateAndTimeUtil';
+import QAZ7BVHG5BCNFN7S67XCBP6PA4 from '../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';
+import JMQ44OZHHBC5ZJ5TXTSIIPZMTI from '../../../../../../__mocks__/data/articles/JMQ44OZHHBC5ZJ5TXTSIIPZMTI.json';
+import FUO2YR3EABBAFOMSI2BBS6J7FM from '../../../../../../__mocks__/data/articles/FUO2YR3EABBAFOMSI2BBS6J7FM.json';
+import L47IICAOMVFW5MV343TJIHS4RY from '../../../../../../__mocks__/data/articles/L47IICAOMVFW5MV343TJIHS4RY.json';
+import Q4P5KFEOLVHINB3Y5LIGK26SOU from '../../../../../../__mocks__/data/articles/Q4P5KFEOLVHINB3Y5LIGK26SOU';
+import { dateAndTimeForAppsUtil } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
+
 
 describe('Test de index en JSON de nota', () => {
-    it('Render de atributos meta para template Html', () => {
-        const resp = NotaIndex(articleHtml);
-        expect(resp.id).toBe(articleHtml._id);
-        expect(resp.template).toBe(articleHtml.subtype);
-        expect(resp.url).toBe(articleHtml.website_url);
+
+    it('Test valores meta null o undefined', () => {
+        const resp = NotaIndex(JMQ44OZHHBC5ZJ5TXTSIIPZMTI);
+        expect(resp.id).toBe("JMQ44OZHHBC5ZJ5TXTSIIPZMTI");
+        expect(resp.template).toBe("1");
         expect(resp.mostrarBanners).toBe(true);
-        expect(resp.paywallStatus).toBe(
-            articleHtml.content_restrictions.content_code
-        );
+        expect(resp.enviarApps).toBe(true);
+        expect(resp.paywallStatus).toBe("comun")
+        expect(resp.abiertoComentarios).toBe(true)
+        expect(resp.fechaActualizacion).toBe("6 de Julio de 2020 • 12:04")
+        expect(resp.fecha).toBe("29 de Septiembre de 2020 • 09:09")
+    });
+
+    it('Test valores meta con valores y siendo edicion impresa', () => {
+        const resp = NotaIndex(FUO2YR3EABBAFOMSI2BBS6J7FM);
+        expect(resp.id).toBe("FUO2YR3EABBAFOMSI2BBS6J7FM");
+        expect(resp.template).toBe("1");
+        expect(resp.url).toBe("/comunidad/violencia-economica-deje-de-trabajar-porque-el-me-lo-pidio-y-fue-el-principio-del-fin-para-mi-nid29092020/");
+        expect(resp.comentariosId).toBe("FUO2YR3EABBAFOMSI2BBS6J7FM");
+        expect(resp.mostrarBanners).toBe(false);
+        expect(resp.enviarApps).toBe(false);
+        expect(resp.paywallStatus).toBe("abierta")
+        expect(resp.abiertoComentarios).toBe(true)
+        expect(resp.fechaActualizacion).toBe("29 de Septiembre de 2020")
+        expect(resp.fecha).toBe("29 de Septiembre de 2020")
+    });
+
+    it('Test valores meta con valores cerrada a comentarios', () => {
+        const resp = NotaIndex(L47IICAOMVFW5MV343TJIHS4RY);
+        expect(resp.id).toBe("L47IICAOMVFW5MV343TJIHS4RY");
+        expect(resp.template).toBe("1");
+        expect(resp.url).toBe("/el-mundo/marcada-por-la-escasez-y-la-inflacion-la-semana-santa-no-escapo-al-calvario-cotidiano-nid2121866/");
+        expect(resp.comentariosId).toBe("1289892");
+        expect(resp.mostrarBanners).toBe(true);
+        expect(resp.enviarApps).toBe(true);
+        expect(resp.paywallStatus).toBe("comun")
+        expect(resp.abiertoComentarios).toBe(false)
+        expect(resp.fechaActualizacion).toBe("1 de Abril de 2018")
+        expect(resp.fecha).toBe("29 de Septiembre de 2020")
+        expect(resp.HTML).toBeUndefined();
+    })
+
+    it('Render de atributos meta para template Html', () => {
+        const resp = NotaIndex(Q4P5KFEOLVHINB3Y5LIGK26SOU);
+        expect(resp.id).toBe('Q4P5KFEOLVHINB3Y5LIGK26SOU');
+        expect(resp.template).toBe("9");
+        expect(resp.abiertoComentarios).toBe(false);
+        expect(resp.paywallStatus).toBe('comun')
         expect(resp.fechaActualizacion).toBeUndefined();
         expect(resp.fecha).toBeUndefined();
-        expect(resp.enviarApps).toBe(true);
         expect(resp.apertura).toBeUndefined();
+        expect(resp.contenido).toBeUndefined();
     });
 
     it('Render de atributos meta', () => {
-        const resp = NotaIndex(article);
-        const { date, time } = dateAndTimeUtil(article.first_publish_date);
-        const { date: publishDate, time: updateTime } = dateAndTimeUtil(
-            article.publish_date
-        );
-        const impresa =
-            typeof edicion !== 'undefined' &&
-            edicion.toLowerCase() === 'impresa'
-                ? true
-                : false;
+        const resp = NotaIndex(QAZ7BVHG5BCNFN7S67XCBP6PA4);
 
-        expect(resp.id).toBe(article._id);
-        expect(resp.template).toBe(article.subtype);
-        expect(resp.url).toBe(article.website_url);
+        expect(resp.id).toBe("QAZ7BVHG5BCNFN7S67XCBP6PA4");
+        expect(resp.template).toBe("7");
+        expect(resp.url).toBe("/recetas/platos-de-comida-principal/nota-recetas-para-api-test-nid24042020/");
         expect(resp.mostrarBanners).toBe(true);
-        expect(resp.paywallStatus).toBe(
-            article.content_restrictions.content_code
-        );
+        expect(resp.paywallStatus).toBe('premium');
         expect(resp.abiertoComentarios).toBe(false);
-        expect(resp.comentariosId).toBe(article.label.livefyre_entrada_id.text);
-        expect(resp.fechaActualizacion).toBe(
-            `${date}${!impresa ? ` • ${time}` : ''}`
-        );
-        expect(resp.fecha).toBe(
-            `${publishDate}${!impresa ? ` • ${updateTime}` : ''}`
-        );
+        expect(resp.comentariosId).toBe('841900');
+        expect(resp.fechaActualizacion).toBe('24 de Abril de 2020 • 08:35');
+        expect(resp.fecha).toBe('24 de Abril de 2020 • 08:35');
         expect(resp.enviarApps).toBe(true);
-        expect(resp.categoria).toBe('primarySection-mock');
-        expect(resp.apertura).toBe('apertura-mock');
-        expect(resp.relacionados).toBe('relacionados-mock');
     });
+
+    it('Contenido de nota es null', () => {        
+        try {
+            const resp = NotaIndex(null);
+            expect(resp).toBe(null);
+        } catch (err) {
+            expect(err.message).toBe('La información de la nota esta vacia');
+        }
+    });
+
+    it('Test fechas meses menores a 10',()=>{
+        const resp  = dateAndTimeForAppsUtil('2020-12-06T18:04:25.254Z');
+        expect(resp).toBe('2020-12-6 12:04:25');
+    })
+
+    it('Test fechas meses menores a 10',()=>{
+        const resp  = dateAndTimeForAppsUtil(undefined);
+        expect(resp).toBe(undefined);
+    })
+
 });

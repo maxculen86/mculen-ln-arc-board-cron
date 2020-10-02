@@ -3,8 +3,6 @@ import { DICTIONARY } from 'fusion:environment';
 const categoriesDictionary = DICTIONARY.categories;
 
 function findCategory(categoryToFind) {
-    if (!categoryToFind) return null;
-
     const elem = categoriesDictionary.find(
         e => categoryToFind.toLowerCase() === e.ArcSectionId.toLowerCase()
     );
@@ -12,13 +10,15 @@ function findCategory(categoryToFind) {
     return elem;
 }
 
-function getSecundaryCategory(caterogy) {
-    const category = caterogy.substr(caterogy.lastIndexOf('/'));
-    return category;
+function getSecundaryCategory(category) {
+    if (!category) throw new Error(`No se admiten categorias null`);
+
+    const elem = category.substr(category.lastIndexOf('/'));
+    return elem;
 }
 
 function getPrincipalCategory(category) {
-    if (!category) return null;
+    if (!category) throw new Error(`No se admiten categorias null`);
 
     const principalCategory = `/${
         category.split('/').filter(e => {
@@ -28,23 +28,32 @@ function getPrincipalCategory(category) {
     return principalCategory;
 }
 
-const isMigratedCategory = (caterogy, isPrincipal = false) => {
+const isMigratedCategory = (category, isPrincipal = false) => {
     const categoryToFind = isPrincipal
-        ? getPrincipalCategory(caterogy)
-        : getSecundaryCategory(caterogy);
+        ? getPrincipalCategory(category)
+        : getSecundaryCategory(category);
+
     const elem = findCategory(categoryToFind);
-    if (!elem) return null;
+
+    if (!elem)
+        throw new Error(
+            `La categoria '${category}' no existe en el diccionario`
+        );
 
     return elem.migrada;
 };
 
-const getCategory = (caterogy, isPrincipal = false) => {
+const getCategory = (category, isPrincipal = false) => {
     const categoryToFind = isPrincipal
-        ? getPrincipalCategory(caterogy)
-        : getSecundaryCategory(caterogy);
+        ? getPrincipalCategory(category)
+        : getSecundaryCategory(category);
+
     const elem = findCategory(categoryToFind);
 
-    if (!elem) return null;
+    if (!elem)
+        throw new Error(
+            `La categoria '${category}' no existe en el diccionario`
+        );
 
     return elem;
 };
