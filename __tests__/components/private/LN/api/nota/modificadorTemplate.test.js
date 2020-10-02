@@ -3,7 +3,6 @@ import ModificadorTemplate from '../../../../../../components/private/LN/api/v1/
 import get from 'lodash.get';
 
 describe('Pruebas unitarias para los modificadores template', () => {
-
     it('Test valor al enviar un null', () => {
         const resp = ModificadorTemplate(null);
         expect(resp).toBe(null);
