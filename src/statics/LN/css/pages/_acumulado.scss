@@ -19,6 +19,9 @@
             }
         }
     }
+    .mod-picture.mod-picture {
+        padding-top: $picture;
+    }
     .sidebar__main {
         //fix para banners tablet caja1 y caja2
         .row-gap-tablet-3 {
@@ -140,7 +143,7 @@
 
             @media ($media-l) {
                 flex-direction: row;
-                align-items: flex-end;
+                align-items: baseline;
 
                 .com-title,
                 .com-logo {
