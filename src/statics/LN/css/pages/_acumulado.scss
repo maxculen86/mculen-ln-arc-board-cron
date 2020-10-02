@@ -40,6 +40,11 @@
                 }
             }
         }
+        .row {
+            > .mod-banner {
+                margin-bottom: $spacing-lg;
+            }
+        }
         .com-anexo {
             margin-bottom: $spacing-lg;
         }
@@ -105,7 +110,6 @@
     }
 
     .--top {
-        margin-bottom: $spacing-lg;
         //para refactor
         .mod-categories {
             width: 100%;
@@ -114,7 +118,7 @@
             flex-wrap: nowrap;
             .com-title,
             .com-logo {
-                margin-bottom: px(16);
+                margin-bottom: $spacing-sm;
                 margin-right: 0;
                 min-width: max-content;
             }
@@ -209,6 +213,7 @@
             .--top {
                 padding-top: $spacing-md;
                 padding-bottom: $spacing-md;
+                margin-bottom: $spacing-sm;
                 .com-title,
                 .com-logo,
                 .com-link,
@@ -405,6 +410,9 @@
         @media ($media-l) {
             display: inline-flex;
         }
+    }
+    &.--category {
+        margin-bottom: $spacing-sm;
     }
     &.--tags {
         margin-bottom: $spacing-md;
