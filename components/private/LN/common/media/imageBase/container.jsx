@@ -15,6 +15,7 @@ class ImageArticle extends React.PureComponent {
         const { alt_text: altText, caption } = image;
         const altBasic = altText || caption || '';
         if (!image.url) return null;
+        
         const amp = outputType === 'amp';
         const sources =
             image.resized_urls && image.resized_urls.filter(v => !!v.option);
@@ -29,6 +30,7 @@ class ImageArticle extends React.PureComponent {
         const sourceActive = active ? sourcesZoom : sources;
 
         // TODO: ver este tema de source sets con maquetacion
+        const seenWidthOrPixelDensity = [];
         let srcset =
             sourceActive &&
             sourceActive.map(src => {
@@ -36,13 +38,22 @@ class ImageArticle extends React.PureComponent {
                     option: { width: _w, height: _h }
                 } = src;
 
+                let widthOrPixelDensity = null;
+
                 if (src.resizedUrl && !isVertical && _w)
-                    return `${src.resizedUrl} ${src.option.width}w`;
+                    widthOrPixelDensity = `${src.option.width}w`;
 
                 if (src.resizedUrl && isVertical && _h)
-                    return `${src.resizedUrl} ${src.option.height}w`;
+                    widthOrPixelDensity = `${src.option.height}w`;
 
-                return '';
+                if (
+                    !widthOrPixelDensity ||
+                    seenWidthOrPixelDensity.includes(widthOrPixelDensity)
+                )
+                    return '';
+
+                seenWidthOrPixelDensity.push(widthOrPixelDensity);
+                return `${src.resizedUrl} ${widthOrPixelDensity}`;
             });
         srcset = srcset && srcset.length > 1 ? srcset.join(', ') : srcset;
 
