@@ -19,28 +19,30 @@
 // IMAGEN QUE SE ESCAPA DE MARGENES al 100%
 //=======================================
 .w-100 {
-    width: calc(100% + 20px);
-    margin-left: px(-10);
+    //width: calc(100% + 20px);
+    //margin-left: px(-10);
+    width: calc(100% + 32px);
+    margin-left: px(-16);
     &.banner {
         margin-left: 0;
-        margin-top: px(-20);
+        margin-top: px(-16);
         width: 100%;
     }
 }
 
-@media ($media-s) {
-    .w-100 {
-        width: calc(100% + 40px);
-        margin-left: px(-20);
-    }
-}
+// @media ($media-s) {
+//     .w-100 {
+//         width: calc(100% + 40px);
+//         margin-left: px(-20);
+//     }
+// }
+// @media ($media-m) {
+//     .w-100 {
+//         width: calc(100% + 60px);
+//         margin-left: px(-30);
+//     }
+// }
 @media ($media-m) {
-    .w-100 {
-        width: calc(100% + 60px);
-        margin-left: px(-30);
-    }
-}
-@media ($media-l) {
     .w-100 {
         width: 100%;
         margin-left: 0;
@@ -48,8 +50,10 @@
 }
 
 .w-100-mobile {
-    width: calc(100% + 20px);
-    margin-left: px(-10);
+    //width: calc(100% + 20px);
+    //margin-left: px(-10);
+    width: calc(100% + 32px);
+    margin-left: px(-16);
     //se agrega media max porq este valor solo debe venir en mobile y en las otras resoluciones
     //traer el valor de otras clases, entonces no se puede darle un valor en resoluciones que no sea mobile.
     @media screen and (max-width: 47em) {
@@ -57,24 +61,24 @@
     }
 }
 
-@media ($media-s) {
-    .w-100-mobile {
-        width: calc(100% + 40px);
-        margin-left: px(-20);
-    }
-}
+// @media ($media-s) {
+//     .w-100-mobile {
+//         width: calc(100% + 40px);
+//         margin-left: px(-20);
+//     }
+// }
 @media ($media-m) {
     .w-100-mobile {
         width: 100%;
         margin-left: 0;
     }
 }
-@media ($media-l) {
-    .w-100-mobile {
-        width: 100%;
-        margin-left: 0;
-    }
-}
+// @media ($media-l) {
+//     .w-100-mobile {
+//         width: 100%;
+//         margin-left: 0;
+//     }
+// }
 
 // Particion de 12
 .col-1,
@@ -302,7 +306,7 @@
     display: grid;
     grid-column-gap: $spacing-sm;
     grid-row-gap: $spacing-lg;
-    @media ($media-lg) {
+    @media ($media-xl) {
         grid-column-gap: $spacing-xl;
     }
 }

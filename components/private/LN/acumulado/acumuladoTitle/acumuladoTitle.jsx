@@ -1,115 +1,107 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
-import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
-import ListSectionsTitle from './listSectionsTitle';
-import TagsNavigation from '../tagsNavigation';
-import NotaApertura from '../notaApertura';
+import withAcuCategories from '../hocs/withAcuCategories';
 import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
 import get from '../../../common/utils/get';
 
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
-import ComTitle from '../../../common/com-title';
+import ModCategory from '../../../common/mod-category';
+import ComLink from '../../../common/com-link';
+
+const setTitle = (
+    replaceTitle,
+    { Payload, node_type: nodeType, name, byline }
+) => {
+    if (replaceTitle) return capitalizeFirstLetter(replaceTitle);
+    if (Payload) return capitalizeFirstLetter(Payload.items[0].name);
+    if (nodeType === 'section') return capitalizeFirstLetter(name);
+    if (byline) return capitalizeFirstLetter(byline);
+    return '';
+};
+
+const convertToComLink = ({ key, link, text, title, style }) => (
+    <ComLink
+        key={key}
+        link={link}
+        textname={text}
+        title={title}
+        style={style}
+    />
+);
+
+convertToComLink.propTypes = {
+    key: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    style: PropTypes.obj
+};
+
+convertToComLink.defaultProps = {
+    style: {}
+};
 
 const AcumuladoTitle = props => {
-    const { globalContent, orderAndCountTags, customFields } = props;
-    const { prefixTitle, replaceTitle } = customFields || {};
-    const [withCategory, setWithCategory] = useState('');
-    const [_children, setChildren] = useState([]);
-    const [isPrimarySection, setIsPrimarySection] = useState(false);
-    const [title, setTitle] = useState('');
-    const [hideSectionsList] = useState(
-        get(globalContent, 'site.hidesectionslist', undefined)
-    );
-    const [hideTagsList] = useState(
-        get(globalContent, 'site.hidetagslist', undefined)
-    );
+    const { outputType } = props;
+    const isPrimarySection = get(props, 'isPrimarySection', {});
+    const navigationList = get(props, 'navigation', null);
+    const globalContent = get(props, 'globalContent', {});
+    const replaceTitle = get(props, 'customFields.replaceTitle', null);
+    const prefixTitle = get(props, 'customFields.prefixTitle', null);
 
-    useEffect(() => {
-        setChildren(globalContent.children);
-
-        setIsPrimarySection(
-            globalContent &&
-                globalContent._id &&
-                globalContent._id.split('/').splice(1).length === 1
-        );
-
-        setTitle(
-            (() => {
-                const {
-                    Payload,
-                    node_type: nodeType,
-                    byline,
-                    name
-                } = globalContent;
-                if (replaceTitle) return capitalizeFirstLetter(replaceTitle);
-                if (Payload)
-                    return capitalizeFirstLetter(Payload.items[0].name);
-                if (nodeType === 'section') return capitalizeFirstLetter(name);
-                if (byline) return capitalizeFirstLetter(byline);
-                return '';
-            })()
-        );
-    }, [
+    const ID_LOGO_IMAGE = get(
         globalContent,
-        globalContent.Payload,
-        globalContent._id,
-        globalContent.byline,
-        globalContent.children,
-        globalContent.name,
-        globalContent.node_type,
-        replaceTitle
-    ]);
-
-    useEffect(() => {
-        if (
-            (!!hideSectionsList || !!hideTagsList) &&
-            _children &&
-            _children.length > 0
-        )
-            setWithCategory('with-category');
-
-        if (hideSectionsList === 'true' && hideTagsList === 'true')
-            setWithCategory('');
-
-        if (
-            typeof hideSectionsList === 'undefined' &&
-            typeof hideTagsList === 'undefined' &&
-            isPrimarySection
-        )
-            setWithCategory('with-category');
-    }, [
-        _children,
+        'acumuladoColor.id_logo_image',
+        ''
+    );
+    const COLOR_TAGS = get(
         globalContent,
-        hideSectionsList,
-        hideTagsList,
-        isPrimarySection
-    ]);
+        'acumuladoColor.navigation_color',
+        null
+    );
+    const title = setTitle(replaceTitle, globalContent);
+
     const prefixText =
         !isPrimarySection && title && prefixTitle ? `${prefixTitle} ` : '';
-    const titleText = `${prefixText} ${title}`;
+    const titleText = `${prefixText}${title}`;
+
+    const categories =
+        navigationList &&
+        navigationList.map(({ _id, navigation, name }) => {
+            return {
+                key: _id,
+                item: convertToComLink({
+                    key: _id,
+                    link: `${_id}/`,
+                    text:
+                        navigation && navigation.nav_title
+                            ? navigation.nav_title
+                            : name,
+                    title:
+                        navigation && navigation.nav_title
+                            ? navigation.nav_title
+                            : name,
+                    ...(COLOR_TAGS && { style: { color: COLOR_TAGS } })
+                })
+            };
+        });
+
+    const colorCategory = get(
+        globalContent,
+        'acumuladoColor.navigation_color',
+        null
+    );
 
     return (
-        <>
-            <div className="com-titleWithfollow">
-                <div className={withCategory}>
-                    <ComTitle size="--xl" tag="h1" content={titleText} />
-                    <ListSectionsTitle
-                        _children={_children}
-                        isPrimarySection={isPrimarySection}
-                        hideSectionsList={hideSectionsList === 'true'}
-                    />
-                </div>
-                <TagsNavigation
-                    _children={_children}
-                    orderAndCountTags={orderAndCountTags}
-                    isPrimarySection={isPrimarySection}
-                    hideTagsList={hideTagsList === 'true'}
-                />
-            </div>
-            <NotaApertura />
-        </>
+        <ModCategory
+            revista={ID_LOGO_IMAGE}
+            imageId={ID_LOGO_IMAGE}
+            category={titleText}
+            navigation={categories}
+            style={{ color: colorCategory }}
+            outputType={outputType}
+        />
     );
 };
 
@@ -134,25 +126,7 @@ AcumuladoTitle.propTypes = {
             })
         )
     }).isRequired,
-    orderAndCountTags: PropTypes.arrayOf(
-        PropTypes.shape({
-            tag: PropTypes.shape({
-                slug: PropTypes.string,
-                text: PropTypes.string
-            })
-        })
-    ).isRequired,
-    customFields: PropTypes.objectOf(PropTypes.string).isRequired
+    outputType: PropTypes.string.isRequired
 };
 
-// AcumuladoTitle.defaultProps = {
-//     globalContent: {
-//         Payload: undefined,
-//         byline: undefined,
-//         name: undefined,
-//         node_type: undefined,
-//         children: []
-//     }
-// };
-
-export default WithAcuArticlesData(AcumuladoTitle, filter, 'notaM');
+export default withAcuCategories(AcumuladoTitle);

@@ -12,8 +12,8 @@
     min-height: px(33);
     //100% mobile
     @include fullwidth;
-    padding-left: px(20);
-    padding-right: px(20);
+    padding-left: px(16);
+    padding-right: px(16);
 
     @media ($media-l) {
         width: 100%;
@@ -68,7 +68,7 @@
         // padding-right: 0;
         // border-bottom: none;
         .--paginator {
-            right: px(20);
+            right: px(16);
             @media (min-width: 769px) {
                 right: 0;
             }

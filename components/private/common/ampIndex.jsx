@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-import AdvertiserContent from './scriptManager/AdvertiserContent';
+//import AdvertiserContent from './scriptManager/AdvertiserContent';
 import scriptVideoValidator from './scriptManager/scriptVideoValidator';
 
 export const _AMPBoilerplate =
@@ -11,12 +11,15 @@ export const _AMPBoilerplate =
 const styleConfig = {
     OTT: {},
     'la-nacion-ar': {
-        //'LN-nota-noticia':'resources/dist/css/ln/amp/amp-basic.css',
+        // 'LN-nota-noticia':'resources/dist/css/ln/amp/amp-basic.css',
         'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/amp-foto100.css',
         'LN-nota-infografia': 'resources/dist/css/ln/amp/amp-infografia.css',
         'LN-nota-noticia': 'resources/dist/css/ln/amp/amp-noticia.css',
-        //'':resources/dist/css/ln/amp/amp-receta.css,
-        'LN-nota-storytelling': 'resources/dist/css/ln/amp/amp-storytelling.css'
+        // '':resources/dist/css/ln/amp/amp-receta.css,
+        'LN-nota-storytelling':
+            'resources/dist/css/ln/amp/amp-storytelling.css',
+        'LN-acumulado': 'resources/dist/css/ln/amp/amp-acumulado.css'
+        //'LN-acumulado': 'resources/dist/css/ln/amp/ampln-acu.css'
 
         // 'AMP-LN-Acu': 'resources/dist/css/ln/amp/ampln-acu.css',
         // 'AMP-LN-Acu-Noticias':'resources/dist/css/ln/amp/ampln-acu-noticias.css',
@@ -49,9 +52,18 @@ const customElementForAcu = [
         src: 'https://cdn.ampproject.org/v0/amp-accordion-0.1.js'
     },
     {
+        customElement: 'amp-analytics',
+        src: 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js'
+    },
+    {
+        customElement: 'amp-sticky-ad',
+        src: 'https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'
+    },
+    {
         customElement: 'amp-ad',
         src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
-    } /*
+    }
+    /*
             {
                 checkInclusion: 'LN-home/AMPStory',
                 customElement: 'amp-story',
@@ -157,14 +169,15 @@ AMPCustomStyle.propTypes = {
     Resource: PropTypes.func.isRequired
 };
 
-export const Snippets = () => {
+/* export const Snippets = () => {
     return React.createElement(AdvertiserContent);
-};
+}; */
 
 const config = {
     OTT: {},
     'la-nacion-ar': {
         'AMP-LN-Acu': customElementForAcu,
+        'LN-acumulado': customElementForAcu,
         'LN-nota-noticia': customElementForNote,
         'LN-nota-infografia': customElementForNote,
         'LN-nota-storytelling': customElementForNote,
@@ -192,6 +205,7 @@ const AMPScripts = props => {
                     <script
                         async
                         custom-element={configElement.customElement}
+                        custom-template={configElement.customTemplate}
                         src={configElement.src}
                     />
                 );

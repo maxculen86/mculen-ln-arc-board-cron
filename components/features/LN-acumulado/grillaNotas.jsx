@@ -5,6 +5,7 @@ import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
+import getArticleInCollection from '../../private/LN/common/utils/getArticleInCollection';
 
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
@@ -36,6 +37,11 @@ const groupBannerConfig = props => {
 
 function buildCustomFieldsForBanners() {
     const attributes = [
+        {
+            name: 'desktop',
+            type: 'list',
+            alias: 'dsk'
+        },
         {
             name: 'tablet',
             type: 'list',
@@ -80,9 +86,6 @@ function buildCustomFieldsForBanners() {
 }
 
 function GrillaNotasFeature(props) {
-    const {
-        customFields: { typeArticle }
-    } = props;
     const { acumuladoGeneral } = useGlobalProviderAcu();
     const {
         cantidad_notas = 30,
@@ -106,16 +109,23 @@ function GrillaNotasFeature(props) {
 
     const bannerConfig = groupBannerConfig(props);
 
+    let articlesInCollection = [];
+    if (typeof window !== 'undefined' && id_collection_promo_items) {
+        articlesInCollection = getArticleInCollection(
+            id_collection_promo_items
+        );
+    }
+
     return (
         <GrillaNotas
             authorId={authorId}
             tagId={tagId}
             sectionId={sectionId}
-            size={cantidad_notas}
+            size={outputType === 'amp' ? 30 : cantidad_notas}
             page={1}
             siteProperties={siteProperties}
             typeArticle={tipo_acumulado}
-            articlesInCollection={[]}
+            articlesInCollection={articlesInCollection}
             bannerConfig={bannerConfig}
             outputType={outputType}
             hideBanner={hide_banner}
@@ -126,11 +136,6 @@ function GrillaNotasFeature(props) {
 GrillaNotasFeature.label = 'LN-Acumulado-Grilla-Notas';
 GrillaNotasFeature.propTypes = {
     customFields: PropTypes.shape({
-        typeArticle: PropTypes.oneOf(['ArticleMain', 'ArticleTimeLine']).tag({
-            defaultValue: 'ArticleMain',
-            label: 'Tipo de articulo'
-        }),
-        cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),
         ...buildCustomFieldsForBanners()
     }).isRequired
 };

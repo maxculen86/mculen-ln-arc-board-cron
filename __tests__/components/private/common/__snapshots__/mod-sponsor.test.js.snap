@@ -9,7 +9,7 @@ exports[`ModSponsor Matches Snapshot 1`] = `
     href="/revista-jardin"
   >
     <i
-      class="com-logo logo-jardin --color"
+      class="com-logo logo-jardin --color "
     />
   </a>
   <span

@@ -6,9 +6,9 @@ const modificadorTemplate = distributor => {
     return descripcion &&
         descripcion.replace(/\s/g, '').toLowerCase() !== 'lanacion'
         ? {
-            descripcion,
-            id
-        }
+              descripcion,
+              id
+          }
         : null;
 };
 

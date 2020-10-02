@@ -8,24 +8,19 @@ import articleRelatedNotes from '../../../../../../../__mocks__/data/articles/2K
 import articleRelatedNotesWithoutPrincipalCategory from '../../../../../../../__mocks__/data/articles/XCLX5M6MHJAMHIGD6S2BOF3L3Y.json';
 
 describe('Test de JSON de relacionados en article', () => {
-    it('Si el dato del articulo es null', () => {
-        const resp = Relacionados(null);
-        expect(resp).toBe(null);
-    });
-
     it('Valor de categoria en caso de ser vacios los tags', () => {
         const resp = Relacionados(articleNoElements);
-        expect(resp.tags).toHaveLength(0);
+        expect(resp.tags).toBeUndefined();
     });
 
     it('Valor de categoria en caso de ser vacio las notas relacionados', () => {
         const resp = Relacionados(articleNoElements);
-        expect(resp.categorias).toHaveLength(1);
+        expect(resp.categorias).toBeUndefined();
     });
 
     it('Valor de categoria en caso de ser vacias las categorias', () => {
         const resp = Relacionados(articleNoElements);
-        expect(resp.notas).toHaveLength(0);
+        expect(resp.notas).toBeUndefined();
     });
 
     it('Test si la longitud de las categorias tiene la longitud incluyendo la categoria principal', () => {
@@ -43,7 +38,7 @@ describe('Test de JSON de relacionados en article', () => {
     it('Test si la longitud de las notas es igual', () => {
         const resp = Relacionados(articleRelatedNotes);
         const relatedNotes = get(articleRelatedNotes, 'related_content.basic');
-        expect(resp.notas).toHaveLength(relatedNotes.length);
+        expect(resp.notas).toHaveLength(relatedNotes.length - 1);
     });
 
     it('Validar si la categoria principal no esta en la array de categorias', () => {
@@ -57,10 +52,12 @@ describe('Test de JSON de relacionados en article', () => {
 
     it('Validar si la nota no posee categoria principal', () => {
         const resp = Relacionados(articleRelatedNotesWithoutPrincipalCategory);
+
         const relatedNotes = get(
             articleRelatedNotesWithoutPrincipalCategory,
-            'related_content.basic'
+            'taxonomy.sections'
         );
-        expect(resp.notas).toHaveLength(relatedNotes.length);
+
+        expect(resp.categorias).toHaveLength(relatedNotes.length);
     });
 });

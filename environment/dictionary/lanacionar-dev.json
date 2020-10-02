@@ -1,6 +1,18 @@
 {
     "categories": [
         {
+            "_id": "6251",
+            "ArcSectionId": "/propiedades",
+            "name": "Propiedades",
+            "migrada": true
+        },
+        {
+            "_id": "6251",
+            "ArcSectionId": "/propiedades/inmuebles-comerciales",
+            "name": "Inmuebles Comerciales",
+            "migrada": true
+        },
+        {
             "_id": "1344",
             "ArcSectionId": "/comunidad",
             "name": "Comunidad",
@@ -154,7 +166,7 @@
             "_id": "123",
             "ArcSectionId": "/economia",
             "name": "Economía",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "146",
@@ -250,12 +262,6 @@
             "_id": "140",
             "ArcSectionId": "/television",
             "name": "Televisión",
-            "migrada": false
-        },
-        {
-            "_id": "151",
-            "ArcSectionId": "/propiedades",
-            "name": "Propiedades",
             "migrada": false
         },
         {

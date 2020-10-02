@@ -11,7 +11,8 @@ const articleMain = ({
     children,
     border,
     dataSection,
-    hourToDisplay
+    hourToDisplay,
+    position
 }) => {
     let media = null;
     // TODO: validar tipo autor correcto
@@ -49,6 +50,7 @@ const articleMain = ({
             border={border}
             dataSection={dataSection}
             hourComponent={hourComponent}
+            position={position}
         >
             {children}
         </ArticleBase>
@@ -68,7 +70,8 @@ articleMain.propTypes = {
     }).isRequired,
     dataSection: PropTypes.string,
     border: PropTypes.boolean,
-    hourToDisplay: PropTypes.string
+    hourToDisplay: PropTypes.string,
+    position: PropTypes.number
 };
 
 // articleMain.defaultProps = {

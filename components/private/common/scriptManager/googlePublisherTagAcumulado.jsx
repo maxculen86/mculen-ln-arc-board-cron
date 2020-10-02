@@ -4,14 +4,24 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 const getCategory = content =>
-    content.name ? 'ca_'.concat(content.name.toLowerCase()) : null;
+    content.name
+        ? [
+              'ca_'.concat(
+                  content.name
+                      .toLowerCase()
+                      .normalize('NFD')
+                      .replace(/[\u0300-\u036f]/g, '')
+                      .replace(/\W/g, '_')
+              )
+          ]
+        : [];
 
 const getTopic = content =>
     content.Payload && content.Payload.items && content.Payload.items.length > 0
         ? content.Payload.items.map(item => 'te_'.concat(item.name))
-        : null;
+        : [];
 
-const getAuthor = content => (content.slug ? 'au_'.concat(content.slug) : null);
+const getAuthor = content => (content.slug ? ['au_'.concat(content.slug)] : []);
 
 const googlePublisherTagAcumulado = props => {
     const { globalContent } = props;
@@ -28,9 +38,9 @@ const googlePublisherTagAcumulado = props => {
     const script = `
             (window.googletag = window.googletag || { cmd: [] });
                 googletag.cmd.push(function() {
-                    googletag.pubads().setTargeting('tags_nuevos', [
-                        ${category || ''} ${topic || ''} ${author || ''} 
-                    ]);
+                    googletag.pubads().setTargeting('tags_nuevos', ${JSON.stringify(
+                        [...category, ...topic, ...author]
+                    )});
                     googletag.pubads().setTargeting('seccion', 'acumulado');
                     googletag.pubads().setTargeting('adstest', testQueryString());
                     googletag.pubads().setTargeting('sitio', 'lanacion');

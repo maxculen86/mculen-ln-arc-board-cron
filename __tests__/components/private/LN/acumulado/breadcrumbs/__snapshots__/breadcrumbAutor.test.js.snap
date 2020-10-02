@@ -9,10 +9,13 @@ Array [
       data-event="LinkClick"
       data-section="AperturaAcuRecetas"
       href="https://www.lanacion.com.ar/"
+      style="color:;border-left-color:"
     >
       LA NACION
     </a>
-    <span>
+    <span
+      style="color:;border-left-color:;opacity:.7"
+    >
       Emilse Pizarro
     </span>
   </nav>,

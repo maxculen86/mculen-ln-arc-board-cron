@@ -4,6 +4,5 @@
 .com-date {
     @include flex(inline);
     height: fit-content;
-    font: 400 px(14) $font-arial;
     color: $gris5;
 }

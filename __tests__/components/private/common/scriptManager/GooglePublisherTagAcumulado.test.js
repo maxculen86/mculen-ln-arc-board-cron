@@ -22,8 +22,6 @@ describe('GooglePublisherTagAcumulado', () => {
         }
     };
 
-    const expected = 'ca_recetas te_deportes au_alberto-fernandez';
-
     it('Returns null when on stories', () => {
         const component = mount(
             <GooglePublisherTagAcumulado
@@ -44,6 +42,8 @@ describe('GooglePublisherTagAcumulado', () => {
     it('Builds the json object as expected', () => {
         const component = mount(<GooglePublisherTagAcumulado {...content} />);
         expect(component.find('script')).toHaveLength(1);
-        expect(component.html()).toMatch(expected);
+        expect(component.html()).toMatch('ca_recetas');
+        expect(component.html()).toMatch('te_deportes');
+        expect(component.html()).toMatch('au_alberto-fernandez');
     });
 });

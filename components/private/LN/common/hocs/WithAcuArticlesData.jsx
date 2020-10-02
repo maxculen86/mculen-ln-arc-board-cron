@@ -57,16 +57,25 @@ function WithAcuArticlesData(
 
             getArticles = (fetchedCallback, page) => {
                 const website = get(this, 'props.website', null);
-                const sectionId = get(this, 'props.sectionId', null);
+                let sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
+
+                if (!sectionId && !tagId && !authorId)
+                    return {
+                        articles: [],
+                        hayMasNotas: 0
+                    };
 
                 const excludeSectionId = get(
                     this,
                     'props.excludeSectionId',
                     false
                 );
+
+                if (excludeSectionId) sectionId = null;
+
                 const { cached, fetched } = this.getContent({
                     sourceName: 'acuArticlesSource',
                     query: {
@@ -125,10 +134,18 @@ function WithAcuArticlesData(
                         return tagsReduced;
                     }, []);
 
-                return Object.keys(tags)
-                    .sort((a, b) => (tags[a].count < tags[b].count ? 1 : -1))
-                    .slice(0, 10)
-                    .map(key => tags[key]);
+                const orderAndCountTags =
+                    Object.keys(tags)
+                        .sort((a, b) =>
+                            tags[a].count < tags[b].count ? 1 : -1
+                        )
+                        .slice(0, 10)
+                        .map(key => tags[key]) || [];
+                // console.log('orderAndCountTags', orderAndCountTags);
+
+                return (
+                    (orderAndCountTags.length >= 4 && orderAndCountTags) || []
+                );
             };
 
             obtenerMasNotas = () => {

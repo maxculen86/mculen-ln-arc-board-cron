@@ -23,14 +23,8 @@
     @media ($media-m) {
         width: 100%;
         margin-left: 0;
-        .mod-caja-nota & {
-            .acu & {
-                border: 1px solid $gris3;
-            }
-        }
-    }
-    @media ($media-m) {
         border: 1px solid $gris3;
+
         .mod-opening &,
         .cuerpo__nota & {
             width: 100%;
@@ -54,13 +48,13 @@
         border: 0;
     }
 
-    .mod-caja-nota & {
-        .cuerpo__nota &,
-        .acu & {
-            width: 100%;
-            margin-left: 0;
-        }
-    }
+    // .mod-caja-nota & {
+    //     .cuerpo__nota &,
+    //     .acu & {
+    //         width: 100%;
+    //         margin-left: 0;
+    //     }
+    // }
 }
 
 .acumulado,
@@ -94,7 +88,6 @@
     }
 }
 
-.acumulado,
 .mod-caja-nota,
 .--horizontal {
     .mod-picture {

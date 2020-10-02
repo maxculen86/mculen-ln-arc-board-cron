@@ -3,6 +3,11 @@ import { defaultTargeting } from './defaults';
 const PATH_SLOT = 'la_nacion_mobile/Acumulado';
 
 export default {
+    megatop_mob: {
+        slotName: `${PATH_SLOT}/megatop_mob`,
+        dimensions: [[320, 480]],
+        targeting: defaultTargeting
+    },
     sticky1_mob: {
         slotName: `${PATH_SLOT}/sticky1_mob`,
         dimensions: [
@@ -50,5 +55,26 @@ export default {
             [300, 250]
         ],
         targeting: defaultTargeting
+    },
+    caja1_amp: {
+        slotName: '/133919216/AMP/ROS/caja1_amp',
+        dimensions: {
+            width: 300,
+            height: 250
+        }
+    },
+    caja2_amp: {
+        slotName: '/133919216/AMP/ROS/caja2_amp',
+        dimensions: {
+            width: 300,
+            height: 250
+        }
+    },
+    caja3_amp: {
+        slotName: '/133919216/AMP/ROS/caja3_amp',
+        dimensions: {
+            width: 320,
+            height: 50
+        }
     }
 };

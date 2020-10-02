@@ -4,7 +4,8 @@ import { useContent } from 'fusion:content';
 import get from './utils/get';
 
 const Robot = props => {
-    const { subtype, canonicalUrl, arcSite: website } = props;
+    const { subtype, canonicalUrl, arcSite: website, nodeType } = props;
+
     const data = useContent({
         sourceName: 'navigationTreeSource',
         query: {
@@ -14,7 +15,7 @@ const Robot = props => {
 
     const hasAmpLink = get(
         data && data.site && data.site['with-amp'] ? data.site['with-amp'] : {},
-        subtype || '',
+        subtype || nodeType || '',
         undefined
     );
 
@@ -31,7 +32,8 @@ const Robot = props => {
 Robot.propTypes = {
     subtype: PropTypes.string.isRequired,
     canonicalUrl: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired
+    arcSite: PropTypes.string.isRequired,
+    nodeType: PropTypes.string.isRequired
 };
 
 export default Robot;

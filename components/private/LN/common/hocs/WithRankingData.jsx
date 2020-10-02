@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-
+import filter from '../../../../../content/filters/LN/nota/articleRanking';
 import get from '../../../common/utils/get';
 
 const getSectionParent = (primarySection, sectionList) => {
@@ -64,14 +64,8 @@ const getSectionData = props => {
     };
 };
 
-const getArticles = (index, props, sectionId, imageConfig, filter) => {
-    const weeksAgo = get(props, `customFields.weeksAgo${index}`, 1);
-    const daysAgo = get(props, `customFields.daysAgo${index}`, 1);
-    const size = get(props, `customFields.size${index}`, 3);
-    const website = get(props, 'website', null);
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const articlesData = useContent({
+const getRankingContent = (sectionId,size,imageConfig,daysAgo,weeksAgo,website) =>{
+    return useContent({
         source: 'rankingArticlesSource',
         query: {
             website,
@@ -83,19 +77,29 @@ const getArticles = (index, props, sectionId, imageConfig, filter) => {
         },
         filter
     });
+}
+
+const getArticles = (index, props, sectionId, imageConfig) => {
+    const weeksAgo = get(props, `customFields.weeksAgo${index}`, 1);
+    const daysAgo = get(props, `customFields.daysAgo${index}`, 1);
+    const size = get(props, `customFields.size${index}`, 3);
+    const website = get(props, 'website', null);
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const articlesData = getRankingContent(sectionId,size,imageConfig,daysAgo,weeksAgo,website)
 
     const articles = get(articlesData, 'content_elements', null);
     return articles && articles.length >= size ? articles : null;
 };
 
-const WithRankingData = (WrappedComponent, filter, imageConfig) => props => {
+const WithRankingData = (WrappedComponent, imageConfig) => props => {
     const { title, sectionId } = getSectionData(props);
 
     let articleList;
     // Por el momento se harán dos llamadas a lo sumo
     for (let i = 1; i <= 2; i += 1) {
         if (!articleList) {
-            articleList = getArticles(i, props, sectionId, imageConfig, filter);
+            articleList = getArticles(i, props, sectionId, imageConfig);
         }
     }
 
@@ -110,7 +114,6 @@ const WithRankingData = (WrappedComponent, filter, imageConfig) => props => {
 
 WithRankingData.propTypes = {
     WrappedComponent: PropTypes.func.isRequired,
-    filter: PropTypes.string.isRequired,
     imageConfig: PropTypes.string.isRequired
 };
 

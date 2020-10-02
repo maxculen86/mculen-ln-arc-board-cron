@@ -7,21 +7,25 @@ Array [
   >
     <a
       href="//"
+      style="color:;border-left-color:"
     >
       LA NACION
     </a>
     <a
       href="/recetas/"
+      style="color:;border-left-color:"
     >
       Recetas
     </a>
     <a
       href="/recetas/recetas-con-ingredientes/"
+      style="color:;border-left-color:"
     >
       Recetas con ingredientes
     </a>
     <a
       href="/recetas/recetas-con-ingredientes/pollo/"
+      style="color:;border-left-color:"
     >
       Pollo
     </a>

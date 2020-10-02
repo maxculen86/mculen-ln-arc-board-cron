@@ -3,7 +3,7 @@
 
 .com-text {
     .com-button & {
-        font-family: $font-arial;
+        white-space: nowrap;
         text-transform: uppercase;
     }
     .footer & {
@@ -24,7 +24,6 @@
     }
     .mod-breadcrumb & {
         @include flex(flex, row, center, center);
-        font-family: $font-arial;
         color: $gris5;
         padding: 0 px(9);
         line-height: 1;
@@ -54,7 +53,7 @@
         color: $blanco;
         position: absolute;
         top: 0;
-        right: px(20);
+        right: px(16);
         // @media ($media-m) {
         //     right: px(30);
         // }
@@ -64,14 +63,30 @@
     }
     .mod-share & {
         order: 2;
-        color: $negro;
-
-        @media ($media-l) {
-            color: $ln;
+        color: $ln;
+    }
+    strong {
+        .mod-trust & {
+            margin-left: $spacing-2xs;
         }
     }
 }
 
+@media ($media-xs) {
+    .com-text {
+        .mod-trust & {
+            @include flex(flex, column, center, start);
+        }
+    }
+}
+@media ($media-s) {
+    .com-text {
+        .mod-trust & {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}
 @media ($media-m) {
     .com-text {
         .mod-fiscal & {
@@ -91,6 +106,9 @@
         }
         .mod-copyright & {
             text-align: left;
+        }
+        .mod-trust & {
+            margin-right: $spacing-xs;
         }
     }
 }

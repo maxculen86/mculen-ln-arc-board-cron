@@ -51,11 +51,11 @@
         }
     }
     //scrollUp
-    &.--scrollDown {
+    .--scrollDown & {
         bottom: -200px;
     }
     //scrollDown
-    &.--scrollUp {
+    .--scrollUp & {
         bottom: 0;
     }
     /*@media ($media-l) {

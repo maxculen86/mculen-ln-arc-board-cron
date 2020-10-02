@@ -13,7 +13,12 @@ const seguirLeyendo = props => {
                 <>
                     <div className="row">
                         <div className="col-12">
-                            <div className="keep-reading">
+                            <section
+                                className="keep-reading"
+                                data-is-block="true"
+                                data-block-name="n_segui_leyendo"
+                                data-diagramacion-id="0"
+                            >
                                 <ComTitle
                                     size="--l"
                                     tag="h4"
@@ -26,7 +31,7 @@ const seguirLeyendo = props => {
                                             .basic
                                     }
                                 />
-                            </div>
+                            </section>
                         </div>
                     </div>
                 </>

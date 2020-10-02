@@ -21,6 +21,16 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
+import getImageResized from '../../components/private/common/utils/getImageResized';
+
+// TODO: Pasar esto a properties
+const optionsImgResized = {
+    width: 80,
+    height: 80,
+    media: '(min-width: 320px)',
+    class: '',
+    type: 'image'
+};
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -182,6 +192,21 @@ const transformContent = (jsonArticle, arcSite) => {
             })
         );
     }
+
+    get(resp, 'credits.by', []).map((elem, i) => {
+        promiseArr.push(
+            new Promise(resolver =>
+                resolver(
+                    getImageResized(
+                        get(elem, 'additional_properties.original.image'),
+                        optionsImgResized
+                    )
+                )
+            ).then(url => {
+                resp.credits.by[i].additional_properties.original.image = url;
+            })
+        );
+    });
 
     return Promise.all(promiseArr).then(() => {
         return resp;

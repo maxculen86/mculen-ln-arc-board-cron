@@ -1,14 +1,15 @@
 import article from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import AcuArticle from '../../../../../../components/private/LN/api/v1/acumulado/article';
+import AcuList from '../../../../../../components/private/LN/api/v1/common/articles/list';
 import { dateAndTimeForAppsUtil } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 describe('Test de articulo en Json acumulado', () => {
     test('Test render data de articulo', () => {
-        const resp = AcuArticle(article.content_elements[0]);
+        const resp = AcuList(AcuArticle,article.content_elements);
 
-        expect(resp.id).toBe(article.content_elements[0]._id);
-        expect(resp.template).toBe(article.content_elements[0].subtype);
-        expect(resp.titulo).toBe(article.content_elements[0].headlines.basic);
+        expect(resp[0].id).toBe(article.content_elements[0]._id);
+        expect(resp[0].template).toBe(article.content_elements[0].subtype);
+        expect(resp[0].titulo).toBe(article.content_elements[0].headlines.basic);
     });
 
     test('Test Fecha del articulo', () => {

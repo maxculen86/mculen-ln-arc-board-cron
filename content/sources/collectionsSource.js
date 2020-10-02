@@ -1,8 +1,10 @@
+import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import getProperties from 'fusion:properties';
+import sourceSetting from './utils/sourceSetting';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import get from '../../components/private/common/utils/get';
+
 const resolve = key => {
-    //Llamado desde chain
-    //en la key viene { id: 'OCTOV4V54FCFLJHOVB5IAJKHHM', 'arc-site': 'la-nacion-ar' }
-    //Consultar porque en collectionSource pasa size y para que sirve ese dato
-    //Voy a usar momentanamente la v2
     const { id, size, website } = key;
     if (!id)
         throw new Error(
@@ -14,10 +16,30 @@ const resolve = key => {
     return `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size ||
         2}`;
 };
-const ttlValue = () => {
-    const properties = getProperties('la-nacion-ar');
-    const value = properties.ttlConfig.authorSource.ttl;
-    return value;
+
+const transform = (data, siteProps) => {
+    const respData = data;
+    const properties = getProperties(siteProps['arc-site']);
+
+    const presetsDefault = get(properties, `imageConfig.resize.default`, null);
+    const presetsL = get(properties, `imageConfig.resize.l`, null);
+
+    respData.content_elements = data.content_elements.map(v => {
+        return {
+            ...addResizedUrls(v, {
+                resizerSecret: RESIZER_KEY,
+                resizerUrl: RESIZER_URL,
+                presets: {
+                    promoItems: presetsL.promo_items || presetsDefault,
+                    contentElements:
+                        presetsL.content_elements || presetsDefault,
+                    presetsDefault
+                }
+            }),
+            ...(v.canonical_url && { website_url: v.canonical_url })
+        };
+    });
+    return respData;
 };
 
 export default {
@@ -25,5 +47,7 @@ export default {
     params: {
         id: 'text',
         website: 'text'
-    }
+    },
+    transform,
+    ttl: sourceSetting.collectionSource.ttl
 };

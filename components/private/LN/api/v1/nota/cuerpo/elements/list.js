@@ -1,27 +1,27 @@
-import htmlText from './htmlText';
 import get from 'lodash.get';
+import htmlText from './htmlText';
 
 const list = dataList => {
     if (!dataList) return null;
 
     const listElements = get(dataList, 'items');
-    if (!listElements || listElements.length == 0) return null;
+    if (!listElements || listElements.length === 0) return null;
 
+    const type = get(dataList, 'list_type', null);
     const resp = {
-        _t: dataList.list_type === 'unordered' ? 'ul' : 'ol',
-        valor: []
+        _t: type === 'unordered' ? 'ul' : 'ol'
     };
 
-    listElements.forEach(element => {
-        if (element.content) {
-            const valor = htmlText(element.content);
-            if (valor && valor.length) {
-                resp.valor.push({
-                    _t: 'li',
-                    valor: valor
-                });
-            }
+    resp.valor = listElements.map(v => {
+        const valor = htmlText(v.content);
+        if (valor && valor.length) {
+            return {
+                _t: 'li',
+                valor
+            };
         }
+
+        return null;
     });
 
     return {

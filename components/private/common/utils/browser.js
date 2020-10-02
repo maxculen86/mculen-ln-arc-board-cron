@@ -27,6 +27,21 @@ const getParamFrom = (urlSectionName, paramName, requestUri) => {
     return result[2];
 };
 
+const getSizesFrom = (
+    isAdmin,
+    value,
+    urlSectionName,
+    paramName,
+    requestUri
+) => {
+    if (isAdmin) return value;
+    else
+        return Number.parseInt(
+            getParamFrom(urlSectionName, paramName, requestUri),
+            10
+        );
+};
+
 const getApiVersion = urlP => {
     let url = urlP;
     if (!url) {
@@ -40,4 +55,9 @@ const getApiVersion = urlP => {
     return regexResult[1];
 };
 
-export default { getParameterByName, getApiVersion, getParamFrom };
+export default {
+    getParameterByName,
+    getApiVersion,
+    getParamFrom,
+    getSizesFrom
+};

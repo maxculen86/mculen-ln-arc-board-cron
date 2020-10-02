@@ -15,6 +15,7 @@ export default `
     content_elements {
         _id
         subtype
+        last_updated_date
         promo_items {
             basic {
                 ${image}
@@ -23,10 +24,11 @@ export default `
         taxonomy {
             tags {
                 text
-                slug
+                slug                
             }
             primary_section {
                 _id
+                name
                 additional_properties {
                     original {
                         style {
@@ -46,6 +48,10 @@ export default `
         headlines {
             basic
             shortTitle
+            mobile
+        }
+        subheadlines{
+            basic
         }
         display_date
         website_url       

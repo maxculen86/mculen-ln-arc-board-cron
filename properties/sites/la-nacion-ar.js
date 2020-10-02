@@ -47,10 +47,6 @@ export default {
             props: {},
             location: ['head']
         },
-        AdvertiserContent: {
-            props: {},
-            location: ['body-top']
-        },
         SocialEmbeds: {
             props: {},
             location: ['body-top']
@@ -235,7 +231,7 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 1260,
+                            width: 878,
                             height: 450,
                             media: '(min-width: 1280px)'
                         },
@@ -264,7 +260,7 @@ export default {
                 content_elements: {
                     sizes: [
                         {
-                            width: 1260,
+                            width: 878,
                             height: 450,
                             media: '(min-width: 1280px)'
                         },
@@ -304,12 +300,12 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 1280,
+                            width: 838,
                             height: 768,
                             media: '(min-width: 1280px)'
                         },
                         {
-                            width: 690,
+                            width: 1025,
                             height: 465,
                             media: '(min-width: 1024px)'
                         },
@@ -333,7 +329,7 @@ export default {
                 content_elements: {
                     sizes: [
                         {
-                            width: 1280,
+                            width: 731,
                             height: 768,
                             media: '(min-width: 1280px)'
                         },
