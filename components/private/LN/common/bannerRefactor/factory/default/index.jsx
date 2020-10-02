@@ -50,13 +50,17 @@ import withParagraphCondition from '../../decorators/withParagraphCondition';
 import withNonSubscribersConstraint from '../../decorators/withNonSubscribersConstraint';
 import withBondingToBottomMobile from '../../decorators/withBondingToBottomMobile';
 import withCommentsEnabledConstraint from '../../decorators/withCommentsEnabledConstraint';
+import withStickyMobile from '../../decorators/withStickyMobile';
 
 // TODO: luego mover cada funcion inherente a cada template a su propio archivo aparte
 function getBannerForStoryTemplate(config) {
     const { slotId } = config;
     switch (slotId) {
         case STICKY_1_MOB:
-            return <Sticky1Mob {...config} />;
+            return <Default {...config} />;
+        case STICKY_2_MOB:
+            //return createElement(withStickyMobile(Default), { ...config });
+            return <Default {...config} />;
         case CABEZAL_TAB:
             // Sin sticky
             return createElement(Default, { ...config });
@@ -139,7 +143,6 @@ function getBannerForStoryTemplate(config) {
         case CAJA_4_MOB:
         case CAJA_5_MOB:
         case INREAD_DSK:
-        case STICKY_2_MOB:
             return <Default {...config} />;
         default:
             return <></>;
@@ -150,7 +153,9 @@ function getBannerForAccumTemplate(config) {
     const { slotId } = config;
     switch (slotId) {
         case STICKY_1_MOB:
-            return <Sticky1Mob {...config} />;
+            return <Default {...config} />;
+        case STICKY_2_MOB:
+            return createElement(withStickyMobile(Default), { ...config });
         case MEGATOP_MOB:
         case MEGATOP_DSK:
             return <Megatop {...config} />;

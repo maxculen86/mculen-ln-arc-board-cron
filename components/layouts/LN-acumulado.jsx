@@ -18,6 +18,7 @@ import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const pageBuilderSections = [
     'Banner-Megatop',
+    'Sticky-Mobile',
     'Pre-Apertura',
     'Breadcrumb/Titulo',
     'Apertura',
@@ -33,6 +34,7 @@ const LNAcumuladoLayout = props => {
     const {
         children: [
             bannerMegatop,
+            stickyMobile,
             preApertura,
             breadcrumbTitulo,
             apertura,
@@ -82,6 +84,7 @@ const LNAcumuladoLayout = props => {
             >
                 <Header headerDark={headerDark} />
                 <main>
+                    {stickyMobile}
                     <div
                         className="row --top"
                         style={{ backgroundColor: backgroundCategory }}
