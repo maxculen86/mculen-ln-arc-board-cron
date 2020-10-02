@@ -1,5 +1,6 @@
 import ArticleHtmlContent from '../../../../../../../../__mocks__/data/nota/cuerpo/htmlContent/htmlContent.json';
 import HtmlContent from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/htmlContent';
+import getEmbedHref from '../../../../../../../../components/private/common/utils/getEmbedHref';
 
 describe('Test de htmlContent en el cuepo de nota', () => {
     it('Verificar en caso que el contenido html sea null', () => {
@@ -30,5 +31,10 @@ describe('Test de htmlContent en el cuepo de nota', () => {
         expect(resp['valor']['src']).toBe(
             'https://www.espn.com.ar/core/video/iframe?id=7188899&endcard=true&adLevel=espn.latam.ar%2Fsyndicated-player%2Flanacion&adEnv=prod&trackingName=LANACION'
         );
+    });
+
+    it('Verificar Helper enviando una url no valida', () => {
+        const resp = getEmbedHref('href',`<a src='www.google.com'>test</a>`)
+        expect(resp).toBe(null);
     });
 });

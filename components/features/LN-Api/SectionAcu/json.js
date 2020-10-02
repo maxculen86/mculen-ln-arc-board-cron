@@ -9,38 +9,35 @@ import { isMigratedCategory } from '../../../private/common/utils/migratedCatego
 class AcuSection {
     constructor(props) {
         this.props = props;
+
         const {
             globalContent: { _id: id },
             isAdmin,
             customFields: { size: sizeCf, page: pageCf, paramUrlId }
         } = props;
+
         this.state = {};
 
-        let size = !isAdmin
-            ? Number.parseInt(
-                  browser.getParamFrom(
-                      paramUrlId,
-                      'size',
-                      this.props.requestUri
-                  ),
-                  10
-              )
-            : sizeCf;
+        const categoryMigrated = isMigratedCategory(id, true);
+        if (categoryMigrated) {
+            let size = browser.getSizesFrom(
+                isAdmin,
+                sizeCf,
+                paramUrlId,
+                'size',
+                this.props.requestUri
+            );
 
-        if (size > 100) size = 100;
+            if (size > 100) size = 100;
 
-        const page = !isAdmin
-            ? Number.parseInt(
-                  browser.getParamFrom(
-                      paramUrlId,
-                      'page',
-                      this.props.requestUri
-                  ),
-                  10
-              )
-            : pageCf;
+            const page = browser.getSizesFrom(
+                isAdmin,
+                pageCf,
+                paramUrlId,
+                'page',
+                this.props.requestUri
+            );
 
-        if (isMigratedCategory(id, true)) {
             this.fetchContent({
                 acuArticlesSource: {
                     source: 'acuArticlesSource',
@@ -57,30 +54,44 @@ class AcuSection {
                 sectionSource: {
                     source: 'sectionSource',
                     query: {
-                        id: id
+                        id
                     },
                     transform(data) {
                         if (data && data.acumuladoColor) {
                             return data.acumuladoColor;
-                        } else {
-                            return {};
                         }
+                        return {};
                     }
                 }
             });
-        } else {
-            this.state = { ...this.state, categoryMigrated: false };
         }
 
-        // Responde al resolver que permite pasar las versiones existentes
-        // Regex actual: ^\/api\/v([1]+)\/notas\/bySection(\/((?!params).)+)\/(.*\/)$
+        this.state = { ...this.state, categoryMigrated };
+
         this.versions = {
             1: IndexAcuV1
         };
     }
 
     render() {
-        if (!this.state.acuArticlesSource && !this.state.categoryMigrated) {
+        const {
+            acuArticlesSource,
+            sectionSource: configuration,
+            categoryMigrated
+        } = this.state || {};
+
+        const {
+            globalContent: { name }
+        } = this.props;
+
+        const indexAcu = this.versions[
+            browser.getApiVersion(this.props.requestUri)
+        ];
+
+        if (!acuArticlesSource || !acuArticlesSource.content_elements)
+            return null;
+
+        if (!categoryMigrated) {
             return {
                 success: false,
                 message:
@@ -89,34 +100,13 @@ class AcuSection {
             };
         }
 
-        if (
-            !this.state.acuArticlesSource ||
-            !this.state.acuArticlesSource.content_elements
-        )
-            return null;
-
-        const {
-            acuArticlesSource: { count: total },
-            acuArticlesSource: { next: paginator },
-            acuArticlesSource: { content_elements: articles },
-            sectionSource: { configuration }
-        } = this.state || {};
-
-        const {
-            globalContent: { name }
-        } = this.props;
-
         const acuData = {
             name,
-            articles,
-            paginator,
-            total,
+            articles: acuArticlesSource.content_elements,
+            paginator: acuArticlesSource.next,
+            total: acuArticlesSource.count,
             configuration
         };
-
-        const indexAcu = this.versions[
-            browser.getApiVersion(this.props.requestUri)
-        ];
 
         return indexAcu(acuData);
     }

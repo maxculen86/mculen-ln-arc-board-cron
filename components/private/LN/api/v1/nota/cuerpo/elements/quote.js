@@ -7,7 +7,7 @@ const quote = dataQuote => {
     if (!textCita || !textCita.length) return null;
 
     const resp = {
-        _t: dataQuote.subtype == 'pullquote' ? 'textual' : 'des',
+        _t: dataQuote.subtype === 'pullquote' ? 'textual' : 'des',
         valor: []
     };
 
@@ -15,7 +15,7 @@ const quote = dataQuote => {
         resp.valor.push(e.content);
     });
 
-    if (dataQuote.subtype == 'pullquote') {
+    if (dataQuote.subtype === 'pullquote') {
         const authorQuote = get(dataQuote, 'citation.content');
         if (authorQuote) resp.valor.push({ _t: 'fue', valor: authorQuote });
     }

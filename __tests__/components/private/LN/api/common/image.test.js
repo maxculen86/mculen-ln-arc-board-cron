@@ -8,9 +8,7 @@ describe('Json imagen common', () => {
 
         const resp = Image(img);
         expect(resp.id).toBe(img._id);
-        expect(resp.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
-        );
+        expect(resp.baseUrl).toBe("https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg");
         expect(resp.parametros[0].ancho).toBe(278);
         expect(resp.parametros[0].firma).toBe(
             'xXjJBfZwE6c26vxfxgfHerlzovg=/278x186'

@@ -1688,6 +1688,15 @@
                 },
                 "type": "story",
                 "website_url": "/autos/prueba-story-nid02062020/"
+            },
+            {
+                "_id": "FM2M3Y4ZXZD6VGONEPLLSQJWVA",
+                "headlines": {
+                    "basic": "Prueba para ISA"
+                },
+                "label": {},
+                "type": "image",
+                "website_url": "/economia/prueba-para-isa-nid04052020/"
             }
         ]
     },
@@ -1732,7 +1741,22 @@
                 "name": "Ajedrez",
                 "parent_id": "/deportes",
                 "path": "/deportes/ajedrez"
-            }
+            },
+            {
+                "_id": "/economia",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                  "original": {
+                    "ancestors": {},
+                    "site": {},
+                    "style": {}
+                  }
+                },
+                "name": "Economía",
+                "parent_id": "/",
+                "path": "/economia",
+                "type": "section"
+              }
         ],
         "tags": [
             {

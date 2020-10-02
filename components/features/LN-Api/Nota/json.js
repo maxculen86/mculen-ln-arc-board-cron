@@ -17,9 +17,13 @@ class JsonArticle {
         const indexNota = this.versions[
             browser.getApiVersion(this.props.requestUri)
         ];
-
         const { globalContent } = this.props;
-        return indexNota(globalContent);
+
+        try {
+            return indexNota(globalContent);
+        } catch (err) {
+            return { Success: false, Message: err.message };
+        }
     }
 }
 

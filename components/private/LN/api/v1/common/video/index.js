@@ -1,5 +1,4 @@
 const videoCommon = streams => {
-    if (!streams) return null;
     const orderedStreams = streams
         ? streams
               .filter(v => v.stream_type === 'mp4')

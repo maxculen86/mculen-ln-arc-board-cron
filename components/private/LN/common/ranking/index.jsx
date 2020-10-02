@@ -3,8 +3,6 @@ import PropTypes from 'fusion:prop-types';
 
 import withRankingData from '../hocs/WithRankingData';
 
-import filter from '../../../../../content/filters/LN/nota/articleRanking';
-
 import OrderedList from '../lists/ordered';
 import ArticleMain from '../articleTypes/articleMain';
 import ComTitle from '../../../common/com-title';
@@ -45,4 +43,4 @@ Ranking.defaultProps = {
     articles: []
 };
 
-export default withRankingData(Ranking, filter, 'notaM');
+export default withRankingData(Ranking, 'notaM');

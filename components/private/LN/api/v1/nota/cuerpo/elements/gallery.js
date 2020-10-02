@@ -1,6 +1,6 @@
+import get from 'lodash.get';
 import { dateAndTimeForAppsUtil } from '../../../../../../common/utils/dateAndTimeUtil';
 import Image from '../../image';
-import get from 'lodash.get';
 
 const gallery = dataGallery => {
     if (!dataGallery) return null;

@@ -1,66 +1,71 @@
 import get from 'lodash.get';
-import Section from './sectionArticle';
 import Apertura from './apertura/aperturaArticle';
 import Cuerpo from './cuerpo';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 import dateAndTimeUtil from '../../../../common/utils/dateAndTimeUtil';
+import { getPrincipalCategory } from '../common/category';
+import { removeEmptyItems } from '../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
+    if (!dataNota) throw new Error(`La información de la nota esta vacia`);
+
     const {
         _id: id,
         subtype: template,
         website_url: url,
-        taxonomy: { primary_section: primarySection }
+        taxonomy: { primary_section: primarySection },
+        first_publish_date: firstPublishDate,
+        publish_date: publishDate
     } = dataNota;
 
-    const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text');
-    const paywallStatus = get(dataNota, 'content_restrictions.content_code');
-    const edicion = get(dataNota, 'label.edicion.text');
-    const showBanners = get(dataNota, 'label.mostrar_banners.display');
-    const { date, time } = dateAndTimeUtil(dataNota.first_publish_date);
-    const { date: publishDate, time: updateTime } = dateAndTimeUtil(
-        dataNota.publish_date
+    const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
+    const paywallStatus = get(
+        dataNota,
+        'content_restrictions.content_code',
+        null
     );
+    const edition = get(dataNota, 'label.edicion.text', null);
+    const showBanners = get(dataNota, 'label.mostrar_banners.text', null);
+    const displayComments = get(dataNota, 'comments.display_comments', null);
+    const sentToApps = get(dataNota, 'label.enviar_a_apps.text', null);
+    const isPrintEdition = edition && edition.toLowerCase() === 'impresa';
     const distributor = get(dataNota, 'distributor', null);
-
-    const impresa =
-        typeof edicion !== 'undefined' && edicion.toLowerCase() === 'impresa'
-            ? true
-            : false;
+    const { date: formatPublishDate, time: formatUpdateTime } = dateAndTimeUtil(
+        publishDate
+    );
+    const {
+        date: formatFirstPublishDate,
+        time: formatFirstPublishTime
+    } = dateAndTimeUtil(firstPublishDate);
 
     const resp = {
         id,
         template,
         url,
-        mostrarBanners: typeof showBanners !== 'undefined' ? showBanners : true,
-        paywallStatus: paywallStatus ? paywallStatus : 'comun',
-        abiertoComentarios: dataNota.comments
-            ? dataNota.comments.display_comments
-            : false,
+        mostrarBanners: !(showBanners && showBanners.toLowerCase() === 'no'),
+        paywallStatus: paywallStatus || 'comun',
+        abiertoComentarios: displayComments || false,
         comentariosId: comentariosId || id,
-        categoria: primarySection && Section(primarySection),
+        categoria: primarySection && getPrincipalCategory(primarySection),
         relacionados: Relacionados(dataNota),
-        enviarApps: true
+        enviarApps: !(sentToApps && sentToApps.toLowerCase() === 'no'),
+        modificadorTemplate: ModificadorTemplate(distributor)
     };
-    const modificadorTemplate = ModificadorTemplate(distributor);
-    const enviarApps = get(dataNota, 'label.enviar_a_apps');
 
     if (dataNota.subtype === '9') {
         resp.HTML = Cuerpo(dataNota);
     } else {
-        resp.fechaActualizacion = `${date}${!impresa ? ` • ${time}` : ''}`;
-        resp.fecha = `${publishDate}${!impresa ? ` • ${updateTime}` : ''}`;
-        resp.contenido = Cuerpo(dataNota);
+        resp.fechaActualizacion = `${formatFirstPublishDate}${!isPrintEdition ? ` • ${formatFirstPublishTime}` : ''
+        }`;
+        resp.fecha = `${formatPublishDate}${!isPrintEdition ? ` • ${formatUpdateTime}` : ''
+        }`;
+
         resp.apertura = Apertura(dataNota);
+        resp.contenido = Cuerpo(dataNota);
     }
 
-    if (modificadorTemplate) resp.modificadorTemplate = modificadorTemplate;
-
-    if (enviarApps && enviarApps.text && enviarApps.text.toLowerCase() === 'no')
-        resp.enviarApps = false;
-
-    return resp;
+    return removeEmptyItems(resp);
 };
 
 export default indexNota;

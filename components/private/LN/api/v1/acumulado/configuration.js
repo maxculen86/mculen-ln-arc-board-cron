@@ -1,20 +1,12 @@
+import get from 'lodash.get';
+
 const configuration = configuration => {
     const resp = {};
-    
-    if (configuration.header_class_name)
-        resp.headerClass = configuration.header_class_name;
-
-    if (configuration.background_color)
-        resp.backgroundColor = configuration.background_color;
-
-    if (configuration.navigation_color)
-        resp.navigationColor = configuration.navigation_color;
-
-    if (configuration.navigation_color_tags)
-        resp.colorTags = configuration.navigation_color;
-
-    if (configuration.id_logo_image)
-        resp.imagen = configuration.id_logo_image;
+    resp.headerClass = get(configuration, 'header_class_name', null);
+    resp.backgroundColor = get(configuration, 'background_color', null);
+    resp.navigationColor = get(configuration, 'navigation_color', null);
+    resp.colorTags = get(configuration, 'navigation_color_tags', null);
+    resp.imagen = get(configuration, 'id_logo_image', null);
 
     return resp;
 };
