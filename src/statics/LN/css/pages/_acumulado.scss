@@ -124,9 +124,6 @@
             .mod-logo {
                 display: flex;
                 margin-bottom: $spacing;
-                .com-image {
-                    max-height: px(70);
-                }
             }
 
             .com-button {
@@ -137,6 +134,7 @@
                 .mod-logo {
                     .com-image {
                         width: auto;
+                        max-height: px(70);
                     }
                 }
             }
