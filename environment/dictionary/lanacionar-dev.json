@@ -265,12 +265,6 @@
             "migrada": false
         },
         {
-            "_id": "151",
-            "ArcSectionId": "/propiedades",
-            "name": "Propiedades",
-            "migrada": false
-        },
-        {
             "_id": "187",
             "ArcSectionId": "/the-wall-street-journal-americas",
             "name": "The Wall Street Journal Americas",
