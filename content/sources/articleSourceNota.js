@@ -3,7 +3,8 @@ import {
     CONTENT_BASE,
     RESIZER_KEY,
     RESIZER_URL,
-    ARC_ACCESS_TOKEN
+    ARC_ACCESS_TOKEN,
+    SITE_LANACION
 } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
@@ -20,6 +21,16 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
+import getImageResized from '../../components/private/common/utils/getImageResized';
+
+// TODO: Pasar esto a properties
+const optionsImgResized = {
+    width: 80,
+    height: 80,
+    media: '(min-width: 320px)',
+    class: '',
+    type: 'image'
+};
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -34,8 +45,29 @@ const resolve = (key, a) => {
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
+const checkPaywall = (
+    { paywallEnabled, meteringVariant, paywallUrl, url },
+    response
+) => {
+    if (
+        (paywallEnabled === '1' || paywallEnabled === 'true') &&
+        meteringVariant === 'D' &&
+        paywallUrl &&
+        (!response.content_restrictions ||
+            response.content_restrictions.content_code !== 'abierta')
+    ) {
+        const callback = Buffer.from(`${SITE_LANACION}${url}`).toString(
+            'base64'
+        );
+        const finalUrl = paywallUrl.replace('{{callback}}', callback);
+        throw new Redirect(finalUrl, 302);
+    }
+};
+
 const fetch = query => {
     const { url = '' } = query;
+    const arcSite = query['arc-site'];
+    const properties = getProperties(arcSite);
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
@@ -62,29 +94,19 @@ const fetch = query => {
                 throw new Redirect(forwardUrl, 301);
             }
 
-            return transform(response, query);
+            checkPaywall(query, response);
+
+            return transform(response, arcSite, properties);
         })
         .catch(error => {
-            const { statusCode, location } = error;
-            if (statusCode === 301 && location)
-                throw new Redirect(location, 301);
-
-            logger.push(
-                error,
-                { source: 'content/source', url },
-                query['arc-site']
-            );
-
+            logger.push(error, { source: 'content/source', url }, arcSite);
             throw error;
         });
 };
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
-const transform = (data, siteProps) => {
-    const arcSite = siteProps['arc-site'];
-    const properties = getProperties(arcSite);
-
+const transform = (data, arcSite, properties) => {
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
     const presetsZoom = get(
         properties,
@@ -171,6 +193,21 @@ const transformContent = (jsonArticle, arcSite) => {
         );
     }
 
+    get(resp, 'credits.by', []).map((elem, i) => {
+        promiseArr.push(
+            new Promise(resolver =>
+                resolver(
+                    getImageResized(
+                        get(elem, 'additional_properties.original.image'),
+                        optionsImgResized
+                    )
+                )
+            ).then(url => {
+                resp.credits.by[i].additional_properties.original.image = url;
+            })
+        );
+    });
+
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
@@ -235,7 +272,10 @@ export default {
     params: {
         url: 'text',
         id: 'text',
-        published: 'text'
+        published: 'text',
+        meteringVariant: 'text',
+        paywallUrl: 'text',
+        paywallEnabled: 'text'
     },
     filter,
     ttl: sourceSetting.articleSourceNota.ttl

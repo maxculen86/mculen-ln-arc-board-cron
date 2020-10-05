@@ -3,19 +3,19 @@ import Image from '../image';
 import Video from '../video';
 import AperturaReceta from './aperturaReceta';
 import Author from '../../common/author';
-import TagDestacado from './tagDestacado';
+import { getFeaturedTag } from '../../common/tag';
 
 const apertura = article => {
     const {
         headlines: { basic: titulo, mobile: tituloMobile }
     } = article;
 
-    const promoItem = get(article, 'promo_items.basic');
-    const recetaPromoItem = get(article, 'promo_items.receta');
-    const bajada = get(article, 'subheadlines.basic');
-    const autores = get(article, 'credits.by');
+    const promoItem = get(article, 'promo_items.basic', null);
+    const recetaPromoItem = get(article, 'promo_items.receta', null);
+    const bajada = get(article, 'subheadlines.basic', null);
+    const autores = get(article, 'credits.by', null);
     const autoresFixed = autores && autores.filter(a => a.type === 'author');
-    const volanta = get(article, 'label.volanta.text');
+    const volanta = get(article, 'label.volanta.text', null);
 
     const resp = {
         volanta,
@@ -24,8 +24,10 @@ const apertura = article => {
     };
 
     if (promoItem) {
+        // eslint-disable-next-line default-case
         switch (promoItem.type) {
             case 'image':
+                // eslint-disable-next-line no-case-declarations
                 const images = [];
                 images.push(Image(promoItem));
                 resp.imagenes = images;
@@ -48,7 +50,7 @@ const apertura = article => {
         resp.autores = autoresFixed && autoresFixed.map(a => Author(a));
     }
 
-    const tagDestacado = TagDestacado(article);
+    const tagDestacado = getFeaturedTag(article);
     if (tagDestacado) {
         resp.tagDestacado = tagDestacado;
     }

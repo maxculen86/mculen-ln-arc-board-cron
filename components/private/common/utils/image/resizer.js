@@ -2,7 +2,7 @@
 
 import get from 'lodash.get';
 import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
-import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
+import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 
 // import getProperties from 'fusion:properties';
 // import { useAppContext } from 'fusion:context';
@@ -239,9 +239,7 @@ const resizePromoItems = (
 ) => {
     const resp = {};
 
-    const { defaultResize, isFotoAl100orStorytelling } = getDefaultSize(
-        subtype
-    );
+    const { defaultResize, shouldExcludeCrop } = getDefaultSize(subtype);
 
     const optionsFinal = get(resizeOptions, 'sizes', [defaultResize]);
 
@@ -253,7 +251,7 @@ const resizePromoItems = (
                 optionsFinal,
                 resizer,
                 zoomSizes,
-                isFotoAl100orStorytelling,
+                shouldExcludeCrop,
                 defaultResize
             );
         } else {
@@ -281,7 +279,10 @@ const getDefaultSize = subtype => {
           }
         : defaultSize;
 
-    return { defaultResize, isFotoAl100orStorytelling };
+    const shouldExcludeCrop =
+        subtype === FOTOAL100 || subtype === STORYTELLING || subtype === RECETA;
+
+    return { defaultResize, shouldExcludeCrop };
 };
 
 export const addResizedUrls = (ansDoc, option) => {

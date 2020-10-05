@@ -19,5 +19,12 @@
         "content": "Subtitulo 2",
         "level": 2,
         "type": "header"
+    },
+    {
+        "_id": "CQTCQCNHQJDNJN7S5BNF5J7ZIM",
+        "additional_properties": {},
+        "content": "",
+        "level": 2,
+        "type": "header"
     }
 ]

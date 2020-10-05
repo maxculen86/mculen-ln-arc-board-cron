@@ -379,6 +379,16 @@
                 "name": "Revista ¡HOLA!",
                 "parent_id": "/",
                 "path": "/revista-hola"
+            },
+            {
+                "_id": "/revista-hola",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {}
+                },
+                
+                "parent_id": "/",
+                "path": "/revista-hola"
             }
         ],
         "tags": [

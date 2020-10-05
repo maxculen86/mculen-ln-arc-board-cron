@@ -35,6 +35,8 @@
         position: fixed;
         bottom: px(60);
         z-index: 100;
+        left: calc((100% - 320px) / 2);
+
         .--scrollDown & {
             bottom: px(0);
         }
@@ -80,6 +82,7 @@
         }
         &.--fixed {
             bottom: px(0);
+            left: calc((100% - 920px) / 2);
         }
         .cuerpo__nota & {
             display: none;

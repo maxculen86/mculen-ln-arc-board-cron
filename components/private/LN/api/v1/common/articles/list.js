@@ -1,9 +1,7 @@
-import Article from './article';
-
-const articleList = articles => {
+const articleList = (type, articles) => {
     return articles
         ? articles.map(v => {
-              return Article(v);
+              return type(v);
           })
         : null;
 };

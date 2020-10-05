@@ -66,6 +66,8 @@ const index = props => {
 
     const finalConfig = slotsConfig[slotGroup][finalSlot];
 
+    if (!finalConfig) return null;
+
     const config = {
         ...banner,
         slotId: finalSlot,
@@ -82,8 +84,6 @@ const index = props => {
             termicas: termicaShowBanner
         }
     };
-
-    if (!finalConfig) return null;
 
     if (!dfpID) {
         if (!isAdmin) {

@@ -19,6 +19,9 @@
             }
         }
     }
+    .mod-picture.mod-picture {
+        padding-top: $picture;
+    }
     .sidebar__main {
         //fix para banners tablet caja1 y caja2
         .row-gap-tablet-3 {
@@ -35,6 +38,11 @@
                         display: none;
                     }
                 }
+            }
+        }
+        .row {
+            > .mod-banner {
+                margin-bottom: $spacing-lg;
             }
         }
         .com-anexo {
@@ -108,29 +116,36 @@
             display: inline-flex;
             flex-direction: column;
             flex-wrap: nowrap;
-            margin-bottom: $spacing-md;
             .com-title,
             .com-logo {
-                margin-bottom: px(16);
+                margin-bottom: $spacing-sm;
                 margin-right: 0;
                 min-width: max-content;
+            }
+            .com-logo {
+                font-size: px(70);
             }
             .mod-logo {
                 display: flex;
                 margin-bottom: $spacing;
-                .com-image {
-                    max-height: px(70);
-                    width: auto;
-                }
             }
 
             .com-button {
                 display: none;
             }
 
+            @media ($media-m) {
+                .mod-logo {
+                    .com-image {
+                        width: auto;
+                        max-height: px(70);
+                    }
+                }
+            }
+
             @media ($media-l) {
                 flex-direction: row;
-                align-items: flex-end;
+                align-items: baseline;
 
                 .com-title,
                 .com-logo {
@@ -140,6 +155,9 @@
                 .mod-logo {
                     margin: 0;
                     margin-right: $spacing-md;
+                    .com-image {
+                        max-height: px(90);
+                    }
                 }
                 .com-button {
                     padding: 0;
@@ -152,6 +170,9 @@
         }
         .com-anexo {
             margin-bottom: $spacing-md;
+        }
+        .mod-banner.--bg-banner {
+            background: none;
         }
     }
     &.amp {
@@ -172,9 +193,36 @@
 
     &.--opening {
         main {
-            .--top {
-                padding-bottom: px(126);
+            .--top.--top {
+                padding-bottom: px(142);
                 margin-bottom: 0;
+            }
+            .--opening {
+                margin-top: px(-118);
+                border-bottom: 1px solid $gris3;
+                margin-bottom: $spacing-md;
+                .mod-figure {
+                    background: $blanco; //para el hover de la imagen
+                }
+            }
+        }
+    }
+    &.--color {
+        main {
+            padding-top: 0;
+            .--top {
+                padding-top: $spacing-md;
+                padding-bottom: $spacing-md;
+                margin-bottom: $spacing-sm;
+                .com-title,
+                .com-logo,
+                .com-link,
+                .com-button {
+                    color: $blanco;
+                }
+                .--category {
+                    margin-bottom: 0;
+                }
             }
         }
     }
@@ -184,33 +232,6 @@
             .--top {
                 margin-top: px(-65);
                 padding-top: px(89);
-                margin-bottom: $spacing-lg;
-                //background-color: $ln;
-                .com-title,
-                .com-logo,
-                .com-link,
-                .com-button {
-                    color: $blanco;
-                }
-                .com-logo {
-                    font-size: px(70);
-                }
-
-                //para borrar con el nuevo breadcrumb
-                .com-breadcrumb,
-                .com-breadcrumb a,
-                .com-breadcrumb span {
-                    color: $blanco;
-                    border-color: $blanco;
-                }
-            }
-            .--opening {
-                margin-top: px(-150);
-                border-bottom: 1px solid $gris3;
-                margin-bottom: $spacing-md;
-                .mod-figure {
-                    background: $blanco; //para el hover de la imagen
-                }
             }
         }
         &.ohlala {
@@ -393,6 +414,9 @@
             display: inline-flex;
         }
     }
+    &.--category {
+        margin-bottom: $spacing-sm;
+    }
     &.--tags {
         margin-bottom: $spacing-md;
         margin-top: 0;
@@ -415,6 +439,7 @@
                 margin-bottom: $spacing;
             }
         }
+        .--color &,
         .--transparent &,
         .--opening & {
             padding-top: 0;

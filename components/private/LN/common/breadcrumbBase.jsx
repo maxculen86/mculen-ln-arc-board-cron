@@ -3,21 +3,33 @@ import PropTypes from 'fusion:prop-types';
 
 import '../../../../resources/dist/css/ln/components/breadcrumb.css';
 
-const getListSections = (sections, extraOpts, host) =>
+const getListSections = (sections, extraOpts, host, colorCategory) =>
     sections.map(section => {
         const path =
             section.name === 'LA NACION' && section.path === '/' && host
                 ? host
                 : section.path;
         return (
-            <a key={path} href={`${path}/`} {...extraOpts}>
+            <a
+                key={path}
+                href={`${path}/`}
+                {...extraOpts}
+                style={{ color: colorCategory, borderLeftColor: colorCategory }}
+            >
                 {section.name}
             </a>
         );
     });
 
 const BreadcrumbBase = props => {
-    const { sections, extraClasses, dataSection, lastLinked, host } = props;
+    const {
+        sections,
+        extraClasses,
+        dataSection,
+        lastLinked,
+        host,
+        colorCategory = ''
+    } = props;
 
     const extraOpts = {};
 
@@ -30,15 +42,35 @@ const BreadcrumbBase = props => {
     if (!lastLinked && sections.length) {
         let finalSections = sections;
         finalSections = finalSections.slice(0, finalSections.length - 1);
-        listSections = getListSections(finalSections, extraOpts, host);
+        listSections = getListSections(
+            finalSections,
+            extraOpts,
+            host,
+            colorCategory
+        );
         const lastSection = sections.slice(
             sections.length - 1,
             sections.length
         )[0];
         listSections.push(
-            <span key={lastSection.path}>{lastSection.name}</span>
+            <span
+                key={lastSection.path}
+                style={{
+                    color: colorCategory,
+                    borderLeftColor: colorCategory,
+                    opacity: `.7`
+                }}
+            >
+                {lastSection.name}
+            </span>
         );
-    } else listSections = getListSections(sections, extraOpts, host);
+    } else
+        listSections = getListSections(
+            sections,
+            extraOpts,
+            host,
+            colorCategory
+        );
     return (
         <nav className={`com-breadcrumb ${extraClasses || ''}`}>
             {listSections}

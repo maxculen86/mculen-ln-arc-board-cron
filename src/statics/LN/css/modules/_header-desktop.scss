@@ -122,8 +122,8 @@
     .revistas-layer:not(.--scrollUp) &, //borrar una vez subido acu nuevo
     //.storytelling:not(.--scrollUp) &,
     //.--photo100:not(.--scrollUp) &,
-    .--transparent:not(.--scrollUp) &,
-    .--color:not(.--scrollUp) & {
+    //.--color:not(.--scrollUp) &,
+    .--transparent:not(.--scrollUp) & {
         //&:not(.--scrollUp) {
         @include darkHeader;
         //}

@@ -7,9 +7,4 @@ describe('Json Acumulado section. Test de integracion', () => {
         const resp = AcuIndex('Recetas', articlesRecetas, true);
         expect(resp).toMatchSnapshot();
     });
-
-    // it('Test de snapshot Deportes', () => {
-    //     const resp = AcuIndex('Deportes', articlesDeportes, true);
-    //     expect(resp).toMatchSnapshot();
-    // });
 });

@@ -24,4 +24,9 @@ describe('Test del header del cuerpo de la nota', () => {
         expect(resp['_t']).toBe(`sub${ArticleHeader[2].level}`);
         expect(resp['valor']).toBe(ArticleHeader[2].content);
     });
+
+    it('Valores del header 2', () => {
+        const resp = Header(ArticleHeader[3]);
+        expect(resp).toBe(null);
+    });
 });

@@ -5,14 +5,19 @@ import BreadcrumbAutor from './breadcrumbAutor';
 import BreadcrumbTag from './breadcrumbTag';
 import BreadcrumbSection from './breadcrumbSection';
 import BreadcrumbCustom from './BreadcrumbCustom';
+import get from '../../../common/utils/get';
 
 const renderBreadCrumbTag = (globalContent, host) => {
     const tag = globalContent.Payload.items[0];
     return <BreadcrumbTag tag={tag} host={host} />;
 };
 
-const renderBreadcrumbSection = (globalContent, host) => (
-    <BreadcrumbSection sectionId={globalContent._id} host={host} />
+const renderBreadcrumbSection = (globalContent, host, colorCategory) => (
+    <BreadcrumbSection
+        sectionId={globalContent._id}
+        host={host}
+        colorCategory={colorCategory}
+    />
 );
 
 const renderBreadcrumbAutor = (globalContent, host) => (
@@ -24,7 +29,8 @@ function isRender(
     globalContentConfig,
     host,
     title,
-    customFields
+    customFields,
+    colorCategory
 ) {
     if (customFields && customFields.sectionName)
         return (
@@ -38,7 +44,7 @@ function isRender(
     if (globalContent.Payload) return renderBreadCrumbTag(globalContent, host);
 
     if (globalContent.node_type === 'section')
-        return renderBreadcrumbSection(globalContent, host);
+        return renderBreadcrumbSection(globalContent, host, colorCategory);
 
     if (globalContent.byline) return renderBreadcrumbAutor(globalContent, host);
 
@@ -66,12 +72,20 @@ function Index(props) {
     // }
     // if (globalContent.byline)
     //     return <BreadcrumbAutor author={globalContent} host={host} />;
+
+    const colorCategory = get(
+        globalContent,
+        'acumuladoColor.navigation_color',
+        null
+    );
+
     return isRender(
         globalContent,
         globalContentConfig,
         host,
         title,
-        customFields
+        customFields,
+        colorCategory
     );
 }
 

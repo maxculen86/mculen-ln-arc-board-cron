@@ -306,7 +306,7 @@
     display: grid;
     grid-column-gap: $spacing-sm;
     grid-row-gap: $spacing-lg;
-    @media ($media-lg) {
+    @media ($media-xl) {
         grid-column-gap: $spacing-xl;
     }
 }

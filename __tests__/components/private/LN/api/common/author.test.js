@@ -4,7 +4,7 @@ import { getAutorId } from '../../../../../../components/private/common/utils/ge
 
 describe('Json imagen en acumulado', () => {
     test('Render imagen correcto', () => {
-        const authors = article.globalContent.credits.by;
+        const authors = article.content_elements[1].credits.by;
         const resp = authors.map(a => acuAuthor(a));
 
         for (let index = 0; index < resp.length; index++) {
@@ -20,4 +20,12 @@ describe('Json imagen en acumulado', () => {
             expect(author.tipo).toBe(originalData.type === 'author' ? 1 : 2);
         }
     });
+
+    test('tipo de autor', () => {
+        const authors = article.content_elements[12].credits.by;
+        const resp = authors.map(a => acuAuthor(a));
+        expect(resp[0].tipo).toBe(2);
+    })
+
+
 });

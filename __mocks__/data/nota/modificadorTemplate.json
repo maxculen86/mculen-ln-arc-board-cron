@@ -2,12 +2,43 @@
     {
         "distributor": {
             "category": "staff",
-            "name": "BBC Mundo"
+            "name": "BBC Mundo",
+            "reference_id":"a19656bb-25db-481a-9492-55e88b0ff568"
         }
     },
     {
         "distributor": {
-            "name": "LA NACION"
+            "name": "LA NACION",
+            "reference_id":"a19656bb-25db-481a-9492-55e88b0ff568"
         }
+    },
+    {
+        "distributor": {
+            "name": null
+        }
+    },
+    {
+        "distributor": {
+            "name":  "lanacion",
+            "reference_id":"a19656bb-25db-481a-9492-55e88b0ff568"
+        }
+    },
+    {
+        "distributor":{
+        }
+    },
+    {
+        "distributor": {
+            "name": null
+        }
+    },
+    {
+        "distributor": {
+            "name": "lanacion",
+            "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+        }
+    },
+    {
+        "distributor": {}
     }
 ]

@@ -27,28 +27,12 @@
     }
 }
 
-.acumulado {
-    //cambio momentaneo solo para acumulado
-    @media ($media-lm) {
-        .lay-sidebar {
-            flex-direction: row;
-        }
-        .sidebar__main {
-            flex-basis: 100%;
-            margin-right: px(16);
-            //por slider
-            //overflow: hidden;
-        }
-        .sidebar__aside {
-            flex-basis: px(300);
-            flex-shrink: 0;
-        }
-    }
-}
-
 @media ($media-xl) {
-    #wrapper.nota .sidebar__main {
-        margin-right: px(80);
+    .sidebar__main {
+        margin-right: px(40);
+        #wrapper.nota & {
+            margin-right: px(80);
+        }
     }
 }
 

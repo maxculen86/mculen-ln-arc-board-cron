@@ -4,6 +4,7 @@ import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
 
 const htmlText = text => {
     if (!text) return null;
+
     const rootTagName = 'root';
 
     const html = parse(`<${rootTagName}>${text}</${rootTagName}>`);
