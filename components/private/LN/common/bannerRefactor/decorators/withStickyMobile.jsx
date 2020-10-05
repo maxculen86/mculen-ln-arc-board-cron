@@ -3,11 +3,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 
 const isNotVisibleInViewport = element => {
     const bounds = element.getBoundingClientRect();
-    return (
-        bounds.top < 0 &&
-        bounds.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight)
-    );
+    return bounds.top < bounds.height && bounds.bottom < 0;
 };
 
 const hideElement = element => {
