@@ -2,11 +2,12 @@
 import React, { useLayoutEffect, useRef } from 'react';
 
 const isNotVisibleInViewport = element => {
-    if (element) {
-        const bounds = element.getBoundingClientRect();
-        return bounds.top < -100 && bounds.bottom < 0;
-    }
-    return false;
+    const bounds = element.getBoundingClientRect();
+    return (
+        bounds.top < 0 &&
+        bounds.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight)
+    );
 };
 
 const hideElement = element => {
@@ -23,16 +24,15 @@ const showElement = element => {
 
 export default Component => {
     return props => {
-        const ref = React.createRef();
+        const ref = useRef();
         const scrollPosition = useRef(0);
 
         useLayoutEffect(() => {
-            // const sticky2 = document.getElementById('sticky2_mob').parentElement;
-            const sticky = document.querySelector('#sticky1_mob');
-
             hideElement(ref.current);
 
             const handleScroll = () => {
+                const sticky = document.getElementById('sticky1_mob')
+                    .parentElement;
                 const windowY = window.scrollY;
                 if (windowY < scrollPosition.current) {
                     // scrolls up

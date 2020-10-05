@@ -59,8 +59,7 @@ function getBannerForStoryTemplate(config) {
         case STICKY_1_MOB:
             return <Default {...config} />;
         case STICKY_2_MOB:
-            //return createElement(withStickyMobile(Default), { ...config });
-            return <Default {...config} />;
+            return createElement(withStickyMobile(Default), { ...config });
         case CABEZAL_TAB:
             // Sin sticky
             return createElement(Default, { ...config });
