@@ -3,8 +3,6 @@
 
 import React, { useReducer, useEffect, createElement } from 'react';
 
-import Sticky1Mob from './types/sticky1Mob';
-
 import Default from './types';
 import Megatop from './types/megatop';
 
