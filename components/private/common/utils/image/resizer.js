@@ -16,7 +16,9 @@ export const createResizer = (resizerKey, resizerUrl) => {
         originalHeight,
         resizeOptions,
         focalPoint,
-        smartCropExcluded
+        smartCropExcluded,
+        filterQuality = 70,
+        format = 'jpg'
     ) => {
         if (!resizeOptions.width && !resizeOptions.height)
             throw new Error(
@@ -26,6 +28,8 @@ export const createResizer = (resizerKey, resizerUrl) => {
         const cleanedUrl = originalUrl.replace(/(^\w+:|^)\/\//, '');
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
+        thumbor.filter(`format(${format})`);
+        thumbor.filter(`quality(${filterQuality})`);
 
         if (
             focalPoint &&
