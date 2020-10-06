@@ -43,23 +43,13 @@ convertToComLink.defaultProps = {
 };
 
 const AcumuladoTitle = props => {
-    const { outputType } = props;
+    const { outputType, idLogoImage, colorCategory } = props;
     const isPrimarySection = get(props, 'isPrimarySection', {});
     const navigationList = get(props, 'navigation', null);
     const globalContent = get(props, 'globalContent', {});
     const replaceTitle = get(props, 'customFields.replaceTitle', null);
     const prefixTitle = get(props, 'customFields.prefixTitle', null);
 
-    const ID_LOGO_IMAGE = get(
-        globalContent,
-        'acumuladoColor.id_logo_image',
-        ''
-    );
-    const COLOR_TAGS = get(
-        globalContent,
-        'acumuladoColor.navigation_color',
-        null
-    );
     const title = setTitle(replaceTitle, globalContent);
 
     const prefixText =
@@ -82,21 +72,15 @@ const AcumuladoTitle = props => {
                         navigation && navigation.nav_title
                             ? navigation.nav_title
                             : name,
-                    ...(COLOR_TAGS && { style: { color: COLOR_TAGS } })
+                    ...(colorCategory && { style: { color: colorCategory } })
                 })
             };
         });
 
-    const colorCategory = get(
-        globalContent,
-        'acumuladoColor.navigation_color',
-        null
-    );
-
     return (
         <ModCategory
-            revista={ID_LOGO_IMAGE}
-            imageId={ID_LOGO_IMAGE}
+            revista={idLogoImage}
+            imageId={idLogoImage}
             category={titleText}
             navigation={categories}
             style={{ color: colorCategory }}
@@ -126,7 +110,9 @@ AcumuladoTitle.propTypes = {
             })
         )
     }).isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string.isRequired,
+    idLogoImage: PropTypes.string.isRequired,
+    colorCategory: PropTypes.string.isRequired
 };
 
 export default withAcuCategories(AcumuladoTitle);

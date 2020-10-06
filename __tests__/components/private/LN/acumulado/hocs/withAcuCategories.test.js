@@ -167,11 +167,9 @@ describe('Private - Common - hocs - withAcuCategories => ', () => {
         const _props = {
             ...props,
             globalContent: {
-                ...props.globalContent,
-                site: {
-                    hidesectionslist: 'true'
-                }
-            }
+                ...props.globalContent
+            },
+            hideCategories: 'true'
         };
         const wrapper = shallow(<ComponentWithAcuCategories {..._props} />);
         expect(wrapper.first().props().navigation).toStrictEqual(false);
