@@ -4,7 +4,8 @@ import { useContent } from 'fusion:content';
 import get from './utils/get';
 
 const LinkAmpHTML = props => {
-    const { subtype, canonicalUrl, arcSite: website } = props;
+    const { subtype, canonicalUrl, arcSite: website, nodeType } = props;
+
     const data = useContent({
         sourceName: 'navigationTreeSource',
         query: {
@@ -13,14 +14,16 @@ const LinkAmpHTML = props => {
     });
     const hasAmpLink = get(
         data && data.site && data.site['with-amp'] ? data.site['with-amp'] : {},
-        subtype || '',
+        subtype || nodeType || '',
         undefined
     );
+
+    const slash = canonicalUrl && canonicalUrl.slice(-1) !== '/' ? '/' : '';
 
     return hasAmpLink && canonicalUrl ? (
         <link
             rel="amphtml"
-            href={`https://www.lanacion.com.ar${canonicalUrl}?outputType=amp`}
+            href={`https://www.lanacion.com.ar${canonicalUrl}${slash}?outputType=amp`}
         />
     ) : (
         <></>
@@ -30,7 +33,8 @@ const LinkAmpHTML = props => {
 LinkAmpHTML.propTypes = {
     subtype: PropTypes.string.isRequired,
     canonicalUrl: PropTypes.string.isRequired,
-    arcSite: PropTypes.string.isRequired
+    arcSite: PropTypes.string.isRequired,
+    nodeType: PropTypes.string.isRequired
 };
 
 export default LinkAmpHTML;

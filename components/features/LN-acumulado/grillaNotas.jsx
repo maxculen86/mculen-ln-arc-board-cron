@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
@@ -86,6 +86,7 @@ function buildCustomFieldsForBanners() {
 }
 
 function GrillaNotasFeature(props) {
+    const [articlesInCollection, setArticlesInCollection] = useState([]);
     const { acumuladoGeneral } = useGlobalProviderAcu();
     const {
         cantidad_notas = 30,
@@ -109,12 +110,12 @@ function GrillaNotasFeature(props) {
 
     const bannerConfig = groupBannerConfig(props);
 
-    let articlesInCollection = [];
-    if (typeof window !== 'undefined' && id_collection_promo_items) {
-        articlesInCollection = getArticleInCollection(
-            id_collection_promo_items
-        );
-    }
+    useEffect(() => {
+        if (id_collection_promo_items) {
+            const articles = getArticleInCollection(id_collection_promo_items);
+            setArticlesInCollection(articles);
+        }
+    }, [id_collection_promo_items]);
 
     return (
         <GrillaNotas
