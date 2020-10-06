@@ -42,7 +42,7 @@ const googlePublisherTagAcumulado = props => {
                         [...category, ...topic, ...author]
                     )});
                     googletag.pubads().setTargeting('seccion', 'acumulado');
-                    googletag.pubads().setTargeting('adstest', testQueryString());
+                    //googletag.pubads().setTargeting('adstest', testQueryString());
                     googletag.pubads().setTargeting('sitio', 'lanacion');
                 }
             )
