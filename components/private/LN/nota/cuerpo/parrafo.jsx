@@ -15,7 +15,12 @@ const Parrafo = ({ data, capital }) => {
         text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
     const replaceClassForMark = text =>
-        text.replace(/hl_yellow/g, 'hl_yellow_underline');
+        text
+            .replace(/hl_yellow/g, 'hl_underline')
+            .replace(/hl_pink/g, 'hl_underline')
+            .replace(/hl_purple/g, 'hl_underline')
+            .replace(/hl_orange/g, 'hl_underline')
+            .replace(/hl_green/g, 'hl_underline');
 
     const setBoldText = text =>
         text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
