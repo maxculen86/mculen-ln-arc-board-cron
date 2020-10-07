@@ -1,7 +1,8 @@
 describe('Test imagen en nota', () => {
     let frame;
+
     beforeAll(async () => {
-        frame = await arc.goto({
+        frame = await e2e.goto({
             path:
                 '/sociedad/polemica-en-la-quema-de-munecos-de-la-plata-nid1086000/'
         });

@@ -105,4 +105,4 @@ const goto = async ({
     return page.mainFrame();
 };
 
-global.arc = { goto };
+global.e2e = { goto };
