@@ -115,7 +115,9 @@ const Default = props => {
         description,
         subtype,
         syndication,
-        distributor
+        distributor,
+        node_type: nodeType,
+        _id
     } = globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
@@ -194,8 +196,9 @@ const Default = props => {
                 />
                 <LinkAmpHTML
                     subtype={subtype}
-                    canonicalUrl={canonicalUrl}
+                    canonicalUrl={canonicalUrl || _id}
                     arcSite={arcSite}
+                    nodeType={nodeType}
                 />
                 <MetaTitle
                     subtype={subtype}

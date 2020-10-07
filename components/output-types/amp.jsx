@@ -51,7 +51,7 @@ const Amp = props => {
         subtype,
         syndication,
         distributor,
-        node_type,
+        node_type: nodeType,
         _id
     } = globalContent || {};
 
@@ -110,7 +110,7 @@ const Amp = props => {
                     subtype={subtype}
                     canonicalUrl={canonicalUrl || _id}
                     arcSite={arcSite}
-                    nodeType={node_type}
+                    nodeType={nodeType}
                 />
                 <MetaTitle
                     subtype={subtype}
