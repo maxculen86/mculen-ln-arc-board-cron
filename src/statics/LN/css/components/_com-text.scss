@@ -114,3 +114,17 @@
         }
     }
 }
+
+.hl_yellow_underline,
+.hl_underline,
+.hl_yellow,
+.hl_green,
+.hl_purple,
+.hl_pink,
+.hl_orange {
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-color: $highlight;
+    text-decoration-thickness: 2px;
+    font-weight: 700;
+}

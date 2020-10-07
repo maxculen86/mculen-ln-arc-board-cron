@@ -1,78 +1,78 @@
-@import '../abstracts/variables';
+// @import '../abstracts/variables';
 
-.fondo-revista {
-    position: absolute;
-    top: 0;
-    height: 300px;
-    z-index: -1;
-}
+// .fondo-revista {
+//     position: absolute;
+//     top: 0;
+//     height: 300px;
+//     z-index: -1;
+// }
 
-@media ($media-l) {
-    .fondo-revista {
-        height: 550px;
-    }
-}
-// .acu-revista {
-.--bg-banner {
-    background: none;
-    z-index: 1;
-    position: relative;
-}
-.subheader-acu {
-    position: relative;
-    background: $ln;
-    margin-bottom: px(20);
-    margin-top: -400px;
-    padding-top: 400px;
+// @media ($media-l) {
+//     .fondo-revista {
+//         height: 550px;
+//     }
+// }
+// // .acu-revista {
+// .--bg-banner {
+//     background: none;
+//     z-index: 1;
+//     position: relative;
+// }
+// .subheader-acu {
+//     position: relative;
+//     background: $ln;
+//     margin-bottom: px(20);
+//     margin-top: -400px;
+//     padding-top: 400px;
 
-    [class^='logo-']:not(.logo-la-nacion),
-    [class*=' logo-'] {
-        color: $blanco;
-        font-size: px(33);
-    }
+//     [class^='logo-']:not(.logo-la-nacion),
+//     [class*=' logo-'] {
+//         color: $blanco;
+//         font-size: px(33);
+//     }
 
-    .com-link {
-        color: $blanco;
-        font-size: px(17);
-        font-family: 'SuecaSlab', 'Georgia', 'serif';
-        font-weight: 700;
-        margin-right: px(40);
-        display: inline-block;
-    }
-    .logo {
-        margin-top: -30px;
-    }
-    .links {
-        margin-bottom: px(20);
-        display: none;
-    }
-    .com-share {
-        text-align: right;
-        a {
-            margin-left: px(10);
-            i {
-                color: $blanco;
-            }
-        }
-    }
-    @media (min-width: 768px) {
-        [class^='logo-']:not(.logo-la-nacion),
-        [class*=' logo-'] {
-            font-size: px(52);
-        }
-    }
-    @media (min-width: 1023px) {
-        [class^='logo-']:not(.logo-la-nacion),
-        [class*=' logo-'] {
-            font-size: px(85);
-        }
-        .logo,
-        .links {
-            display: block;
-            text-align: center;
-            margin-bottom: px(40);
-        }
-    }
-}
+//     .com-link {
+//         color: $blanco;
+//         font-size: px(17);
+//         font-family: 'SuecaSlab', 'Georgia', 'serif';
+//         font-weight: 700;
+//         margin-right: px(40);
+//         display: inline-block;
+//     }
+//     .logo {
+//         margin-top: -30px;
+//     }
+//     .links {
+//         margin-bottom: px(20);
+//         display: none;
+//     }
+//     .com-share {
+//         text-align: right;
+//         a {
+//             margin-left: px(10);
+//             i {
+//                 color: $blanco;
+//             }
+//         }
+//     }
+//     @media (min-width: 768px) {
+//         [class^='logo-']:not(.logo-la-nacion),
+//         [class*=' logo-'] {
+//             font-size: px(52);
+//         }
+//     }
+//     @media (min-width: 1023px) {
+//         [class^='logo-']:not(.logo-la-nacion),
+//         [class*=' logo-'] {
+//             font-size: px(85);
+//         }
+//         .logo,
+//         .links {
+//             display: block;
+//             text-align: center;
+//             margin-bottom: px(40);
+//         }
+//     }
+// }
 
 // }
