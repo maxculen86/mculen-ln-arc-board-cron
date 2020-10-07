@@ -6,23 +6,11 @@ import get from '../../../common/utils/get';
 
 const withAcuCategories = (WrappedComponent, filter, website) => props => {
     const idPrimarySection = get(props, 'globalContent._id', undefined);
-
+    const { hideCategories = 'false', hierarchyManual } = props;
     const isPrimarySection =
         idPrimarySection && idPrimarySection.split('/').splice(1).length === 1;
 
     const _children = get(props, 'globalContent.children', undefined);
-
-    const hidesectionslist = get(
-        props,
-        'globalContent.site.hidesectionslist',
-        undefined
-    );
-
-    const hierarchyManual = get(
-        props,
-        'globalContent.acumuladoGeneral.hierarchy_navigation',
-        undefined
-    );
 
     const navigationList = useContent({
         source: 'navigationSource',
@@ -42,10 +30,7 @@ const withAcuCategories = (WrappedComponent, filter, website) => props => {
             {...props}
             isPrimarySection={isPrimarySection}
             navigation={
-                (hidesectionslist === 'false' ||
-                    hidesectionslist === undefined) &&
-                isPrimarySection &&
-                navigation
+                hideCategories === 'false' && isPrimarySection && navigation
             }
         />
     );
