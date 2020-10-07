@@ -7,7 +7,7 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    margin-bottom: px(40);
+    margin-bottom: $spacing-xl;
 }
 
 @media ($media-lm) {
@@ -17,7 +17,7 @@
     }
     .sidebar__main {
         flex-basis: 100%;
-        margin-right: px(16);
+        margin-right: $spacing-sm;
         //por slider
         //overflow: hidden;
     }
@@ -29,9 +29,9 @@
 
 @media ($media-xl) {
     .sidebar__main {
-        margin-right: px(40);
+        margin-right: $spacing-xl;
         #wrapper.nota & {
-            margin-right: px(80);
+            margin-right: $spacing-3xl;
         }
     }
 }
@@ -42,10 +42,8 @@
 [class^='lay'],
 [class*=' lay'] {
     width: 100%;
-    padding-right: px(10);
-    padding-left: px(10);
-    padding-right: px(16);
-    padding-left: px(16);
+    padding-right: $spacing-sm;
+    padding-left: $spacing-sm;
     margin-right: auto;
     margin-left: auto;
 }
@@ -69,9 +67,9 @@
 @media ($media-xl) {
     [class^='lay'],
     [class*=' lay'] {
-        max-width: 1340px;
-        padding-right: px(40);
-        padding-left: px(40);
+        max-width: px(1340);
+        padding-right: $spacing-xl;
+        padding-left: $spacing-xl;
     }
 }
 //=======================================
