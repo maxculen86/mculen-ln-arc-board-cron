@@ -51,9 +51,12 @@ const AcumuladoTitle = props => {
     const prefixTitle = get(props, 'customFields.prefixTitle', null);
 
     const title = setTitle(replaceTitle, globalContent);
+    const { _id: url = '' } = globalContent;
 
     const prefixText =
-        !isPrimarySection && title && prefixTitle ? `${prefixTitle} ` : '';
+        !isPrimarySection && title && url.includes('/recetas') && prefixTitle
+            ? `${prefixTitle} `
+            : '';
     const titleText = `${prefixText}${title}`;
 
     const categories =
