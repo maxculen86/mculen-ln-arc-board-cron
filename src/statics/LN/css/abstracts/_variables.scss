@@ -117,3 +117,17 @@ $spacing-lg: $spacing * 4; //32px
 $spacing-xl: $spacing * 5; //40px
 $spacing-2xl: $spacing * 8; //64px
 $spacing-3xl: $spacing * 10; //80px
+
+.hl_yellow_underline,
+.hl_underline,
+.hl_yellow,
+.hl_green,
+.hl_purple,
+.hl_pink,
+.hl_orange {
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-color: $highlight;
+    text-decoration-thickness: 2px;
+    font-weight: 700;
+}

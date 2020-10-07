@@ -78,6 +78,9 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 @include padding_rl;
                 @include width-nota100;
             }
+            .com-container {
+                margin-bottom: $spacing-lg;
+            }
             .mod-banner {
                 display: flex;
             }

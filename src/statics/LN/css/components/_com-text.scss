@@ -3,8 +3,10 @@
 
 .com-text {
     .com-button & {
-        white-space: nowrap;
         text-transform: uppercase;
+        @media ($media-m) {
+            white-space: nowrap;
+        }
     }
     .footer & {
         color: $gris5;

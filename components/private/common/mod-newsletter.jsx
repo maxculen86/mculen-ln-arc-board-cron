@@ -15,7 +15,7 @@ const ModNewsletter = props => {
     const {
         globalContent: { subtype }
     } = useAppContext();
-    let contenido = `Recibí las noticias de <mark class="hl_yellow_underline">${titulo}</mark> por e-mail`;
+    let contenido = `Recibí las noticias de <mark class="hl_underline">${titulo}</mark> por e-mail`;
     if (subtype === '7') {
         contenido = 'Recibí nuevas recetas por e-mail';
     }
