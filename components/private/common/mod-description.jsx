@@ -23,7 +23,7 @@ const ModDescription = props => {
         <section className="mod-description">
             <ComTitle
                 tag={titleTag || 'h2'}
-                size={titleSize || '--l'}
+                size={titleSize || '--s'}
                 link={link}
                 content={titleText}
             />
