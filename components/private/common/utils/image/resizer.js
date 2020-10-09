@@ -8,7 +8,6 @@ import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 // import { useAppContext } from 'fusion:context';
 
 export const createResizer = (resizerKey, resizerUrl) => {
-    console.log('createResizer -> resizerKey', resizerKey);
     const Thumbor = require('thumbor');
 
     const resizeUrl = (
