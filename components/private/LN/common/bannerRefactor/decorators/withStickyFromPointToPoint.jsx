@@ -4,6 +4,12 @@
 
 import React, { useRef, useLayoutEffect } from 'react';
 
+const isVisibleInViewport = element => {
+    if (!element) return false;
+    const bounds = element.getBoundingClientRect();
+    return bounds && Math.abs(bounds.top) < bounds.height && bounds.bottom > 0;
+};
+
 const show = element => {
     if (!element.classList.contains('--sticky')) {
         element.classList.add('--sticky');
@@ -26,7 +32,12 @@ const hide = element => {
 
 const idle = element => {
     const { top } = element.getBoundingClientRect();
-    if (window.getComputedStyle(element).top === '0px') {
+
+    const caja1 = document.querySelector('#caja1_dsk');
+    if (!caja1) return;
+
+    const { top: cajaTop } = caja1.getBoundingClientRect();
+    if (window.getComputedStyle(element).top === '0px' && cajaTop > 0) {
         element.style.top = `${Math.abs(top)}px`;
         element.style.position = 'relative';
         element.style.zIndex = 1;
@@ -42,7 +53,7 @@ const componentDidReachTarget = (component, target) =>
 export default Component => Target => {
     return props => {
         const scrollPosition = useRef(0);
-        // const target = useRef(document.querySelector(`#${Target}`) || null);
+
         const ref = React.createRef();
 
         useLayoutEffect(() => {
@@ -60,7 +71,8 @@ export default Component => Target => {
                     } else if (windowY >= scrollPosition.current) {
                         scrollPosition.current = windowY;
                         if (!componentDidReachTarget(ref.current, target)) {
-                            show(ref.current);
+                            const header = document.querySelector('#header');
+                            if (!isVisibleInViewport(header)) show(ref.current);
                         } else {
                             hide(ref.current);
                             idle(ref.current);
