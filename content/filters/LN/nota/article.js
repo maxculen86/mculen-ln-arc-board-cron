@@ -326,6 +326,10 @@ export default `
         content_elements {
             _id
             content
+            items {
+                _id
+                content
+            }
             ${image}
         }
     }
