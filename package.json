@@ -20,11 +20,13 @@
         "webpack-watch": "webpack --config ./config/webpack.config.js --env.dev --watch --verbose",
         "sonar-local": "sonar-scanner -Dsonar.projectKey=arc-ln -Dsonar.sourceEncoding=UTF-8 -Dsonar.host.url=http://localhost:9000 -Dsonar.sources=./ -Dsonar.language=js -Dsonar.exclusions=__tests__/**,__mocks__/**,.fusion,**.test.js,node_modules,resources -Dsonar.tests=./__tests__ -Dsonar.test.inclusions=./__tests__/**/*.test.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info",
         "test": "jest --passWithNoTests --coverage",
-        "test:e2e": "jest --passWithNoTests --config ./e2eTests/config/jest.config.js",
         "fusion": "fusion",
         "zip": "npm run build && fusion zip",
         "full-reset-all": "fusion clean && npm run clean && rm -rf node_modules/* --verbose && npm i && npm test",
-        "doc": "react-doc-generator ./components/ -o ./components.md"
+        "doc": "react-doc-generator ./components/ -o ./components.md",
+        "test:e2e": "jest --passWithNoTests --config ./e2eTests/config/jest.config.js",
+        "test:e2e:sandbox": "TOKEN=$(echo `node ./e2eTests/utils/sandboxGetCredentials.js`) && ARC_ENDPOINT=SANDBOX SANDBOX_TOKEN=$TOKEN jest --passWithNoTests --config ./e2eTests/config/jest.config.js",
+        "test:e2e:local": "ARC_ENDPOINT=LOCAL jest --passWithNoTests --config ./e2eTests/config/jest.config.js"
     },
     "dependencies": {
         "crypto": "1.0.1",
@@ -42,6 +44,7 @@
         "@babel/plugin-proposal-class-properties": "7.7.0",
         "@babel/preset-env": "7.7.1",
         "@babel/preset-react": "7.7.0",
+        "@types/jest": "^26.0.14",
         "babel-eslint": "10.0.3",
         "babel-jest": "24.9.0",
         "babel-polyfill": "^6.26.0",
