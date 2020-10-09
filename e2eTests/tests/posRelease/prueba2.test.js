@@ -1,6 +1,5 @@
 describe('Test imagen en nota', () => {
     let frame;
-
     beforeAll(async () => {
         frame = await e2e.goto({
             path:
@@ -11,15 +10,9 @@ describe('Test imagen en nota', () => {
     test('Imagen existe?', async () => {
         const selector =
             'section.cuerpo__nota div.row div.col-deskxl-10.offset-deskxl-1.col-desksm-11 div div section figure picture';
+        // await page.waitForSelector(selector);
         const image = await frame.$(selector);
         expect((await image.$$('source')).length).toBe(5);
         expect((await image.$$('img')).length).toBe(1);
-    });
-
-    test('Titulo existe?', async () => {
-        const selector =
-            'div.lay.--apertura div.row div.col-12 h1.com-title.--threexl';
-        const titulo = await frame.$(selector);
-        expect(titulo.innerText).not.toBe('');
     });
 });
