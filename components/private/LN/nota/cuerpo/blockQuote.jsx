@@ -3,18 +3,25 @@ import PropTypes from 'fusion:prop-types';
 
 import Paragraph from './parrafo';
 import ModParagraph from '../../../common/mod-paragraph';
+import ListOrderedOrUnordered from './listOrderedOrUnordered';
 
 const blockQuote = ({ data }) => {
     const {
         content_elements: {
-            0: { content }
+            0: { content, items, list_type: listType }
         },
         subtype
     } = data;
+
     return (
         subtype === 'blockquote' /* pullquote */ && (
             <ModParagraph>
-                <Paragraph data={{ content }} />
+                {content && <Paragraph data={{ content }} />}
+                {items && (
+                    <ListOrderedOrUnordered
+                        data={{ items, list_type: listType }}
+                    />
+                )}
             </ModParagraph>
         )
     );
