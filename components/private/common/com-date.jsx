@@ -7,7 +7,7 @@ import '../../../resources/dist/css/ln/components/com-date.css';
 const ComDate = ({ display_date }) => {
     const { date } = dateAndTimeUtil(display_date);
     return (
-        <time className="com-date --fourxs" dateTime={`${date}`}>
+        <time className="com-date --fivexs" dateTime={`${date}`}>
             {date}
         </time>
     );
