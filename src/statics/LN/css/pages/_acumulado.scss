@@ -78,6 +78,13 @@
             text-align: center;
         }
     }
+    .row-gap-tablet-2 {
+        padding-bottom: $spacing-lg;
+        .mod-article {
+            margin-bottom: 0;
+        }
+    }
+
     .row-gap-tablet-3 {
         margin-bottom: $spacing-lg;
         .mod-article {
