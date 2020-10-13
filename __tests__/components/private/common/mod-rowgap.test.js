@@ -15,9 +15,7 @@ describe('Private - Common - ModRowGap', () => {
             <ModRowGap column="2" classCondition="--opening" />
         );
         expect(
-            component
-                .find('div')
-                .hasClass('row-gap-tablet-2 row-gap-desksm-2 --opening')
+            component.find('div').hasClass('row-gap-tablet-2 --opening')
         ).toBe(true);
     });
 
