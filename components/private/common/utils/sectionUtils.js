@@ -48,7 +48,7 @@ const getLogoForPath = path => {
     if (path.length < 1) return '';
     switch (path[0]) {
         case '/lnmas':
-            return 'lnmas';
+            return 'ln-mas';
         case '/propiedades':
             return 'propiedades';
         default:

@@ -5,7 +5,8 @@ export default {
     API_ENV: 'prod',
     RESIZER_URL:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer',
-    RESIZER_KEY: 'Fmkgru2rZ2uPZ5wXs7B2HbVDHS2SZuA7', // TODO: pasar a encriptado
+    RESIZER_KEY:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFBlPZMQdmI1mewscHTzb/BAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAyE1bawAzVQX0z2mAgEQgDsU2eFLGS7c9DKgHAiRtFqUlI1iDycLd4NJQOX7QpYVZjTiLT9AUmFefdVOop88yABc4R+YYCzSh24wCA==}',
     API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
     RELOGIN_VALIDATION: '8121600000',
     SITIO_SEGURO_REGISTRACION: 'https://ingresar.lanacion.com.ar',

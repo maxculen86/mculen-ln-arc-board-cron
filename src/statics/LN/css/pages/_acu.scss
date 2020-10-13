@@ -1,153 +1,153 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+// @import '../abstracts/variables';
+// @import '../abstracts/mixins';
 
-article a.figure {
-    position: relative;
-    display: inline-block;
-    background-color: $gris1;
-    img {
-        position: relative;
-        z-index: 1;
-    }
-}
-
-article a.figure:before:not(.mod-caja-nota a.figure:before) {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    z-index: 1;
-    opacity: 0.5;
-    font-family: 'LNlogos';
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: '\e926';
-    font-size: 1vw;
-    text-align: center;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    width: 100%;
-}
-
-// .breaking-news {
-//     border-left: 2px solid $gris4;
-//     padding-left: px(20);
-//     &.hlp-degrade .transparency {
-//         width: 104%;
-//         margin-left: -30px;
-//         z-index: 10;
+// article a.figure {
+//     position: relative;
+//     display: inline-block;
+//     background-color: $gris1;
+//     img {
+//         position: relative;
+//         z-index: 1;
 //     }
 // }
 
-.loader {
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    left: 70px;
-    right: 0;
-    top: 10px;
-    bottom: 0;
-    border: 4px solid #ebebeb;
-    border-bottom-color: #1088b5;
-    animation: b 1s linear 0s infinite;
-    display: block;
-    margin: 0 auto 2em;
-}
-@keyframes b {
-    0% {
-        transform: rotate(0deg);
-    }
+// article a.figure:before:not(.mod-caja-nota a.figure:before) {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     margin: auto;
+//     z-index: 1;
+//     opacity: 0.5;
+//     font-family: 'LNlogos';
+//     font-style: normal;
+//     font-weight: normal;
+//     font-variant: normal;
+//     text-transform: none;
+//     line-height: 1;
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+//     content: '\e926';
+//     font-size: 1vw;
+//     text-align: center;
+//     height: -webkit-fit-content;
+//     height: -moz-fit-content;
+//     height: fit-content;
+//     width: 100%;
+// }
 
-    to {
-        transform: rotate(1turn);
-    }
-}
+// // .breaking-news {
+// //     border-left: 2px solid $gris4;
+// //     padding-left: px(20);
+// //     &.hlp-degrade .transparency {
+// //         width: 104%;
+// //         margin-left: -30px;
+// //         z-index: 10;
+// //     }
+// // }
 
-//BORRAR UNA VEZ SUBIDO EL ACU NUEVO
-.hola {
-    $primario: $hola;
-    $logo: $logo-hola;
-    @include revista($logo, $primario);
-}
-.brando {
-    $primario: $brando;
-    $logo: $logo-brando;
-    @include revista($logo, $primario);
-}
-.jardin {
-    $primario: $jardin;
-    $logo: $logo-jardin;
-    @include revista($logo, $primario);
-}
-.lugares {
-    $primario: $lugares;
-    $logo: $logo-lugares;
-    @include revista($logo, $primario);
-}
-.ohlala {
-    $primario: $ohlala;
-    $logo: $logo-ohlala;
-    @include revista($logo, $primario);
-}
-.living {
-    $primario: $blanco;
-    $logo: $logo-living;
-    @include revista($logo, $primario);
-    .cont-figure .figure .content-pic:before,
-    &.acu-revista .subheader-acu i.logo-revista,
-    .subheader-acu .com-link,
-    &.acu-revista .subheader-acu .com-share a i {
-        color: $negro;
-    }
-    .header {
-        @include headerBlanco;
-    }
-}
-.rolling {
-    $primario: $blanco;
-    $logo: $logo-rolling;
-    @include revista($logo, $primario);
-    .subheader-acu .com-link,
-    &.acu-revista .subheader-acu .com-share a i {
-        color: $negro;
-    }
-    .cont-figure .figure .content-pic:before,
-    &.acu-revista .subheader-acu i.logo-revista {
-        color: $rolling;
-    }
-    .header {
-        @include headerBlanco;
-    }
-}
+// .loader {
+//     width: 25px;
+//     height: 25px;
+//     border-radius: 100%;
+//     left: 70px;
+//     right: 0;
+//     top: 10px;
+//     bottom: 0;
+//     border: 4px solid #ebebeb;
+//     border-bottom-color: #1088b5;
+//     animation: b 1s linear 0s infinite;
+//     display: block;
+//     margin: 0 auto 2em;
+// }
+// @keyframes b {
+//     0% {
+//         transform: rotate(0deg);
+//     }
 
-.lnmas {
-    $primario: $lnmas;
-    .acu article a.figure:before,
-    article a.figure:before {
-        content: '\e91e';
-        color: $primario;
-    }
-    .com-tag a {
-        color: $primario;
-        border-color: $primario;
-        &:hover {
-            background: $primario;
-        }
-    }
-    .com-secondary-tag a,
-    .com-secondary-tag a:after,
-    [class^='logo-'],
-    [class*=' logo-'] {
-        color: $primario;
-    }
-    &.fondo-revista,
-    .mod-newsletter {
-        background-color: $primario;
-    }
-}
+//     to {
+//         transform: rotate(1turn);
+//     }
+// }
+
+// //BORRAR UNA VEZ SUBIDO EL ACU NUEVO
+// .hola {
+//     $primario: $hola;
+//     $logo: $logo-hola;
+//     @include revista($logo, $primario);
+// }
+// .brando {
+//     $primario: $brando;
+//     $logo: $logo-brando;
+//     @include revista($logo, $primario);
+// }
+// .jardin {
+//     $primario: $jardin;
+//     $logo: $logo-jardin;
+//     @include revista($logo, $primario);
+// }
+// .lugares {
+//     $primario: $lugares;
+//     $logo: $logo-lugares;
+//     @include revista($logo, $primario);
+// }
+// .ohlala {
+//     $primario: $ohlala;
+//     $logo: $logo-ohlala;
+//     @include revista($logo, $primario);
+// }
+// .living {
+//     $primario: $blanco;
+//     $logo: $logo-living;
+//     @include revista($logo, $primario);
+//     .cont-figure .figure .content-pic:before,
+//     &.acu-revista .subheader-acu i.logo-revista,
+//     .subheader-acu .com-link,
+//     &.acu-revista .subheader-acu .com-share a i {
+//         color: $negro;
+//     }
+//     .header {
+//         @include headerBlanco;
+//     }
+// }
+// .rolling {
+//     $primario: $blanco;
+//     $logo: $logo-rolling;
+//     @include revista($logo, $primario);
+//     .subheader-acu .com-link,
+//     &.acu-revista .subheader-acu .com-share a i {
+//         color: $negro;
+//     }
+//     .cont-figure .figure .content-pic:before,
+//     &.acu-revista .subheader-acu i.logo-revista {
+//         color: $rolling;
+//     }
+//     .header {
+//         @include headerBlanco;
+//     }
+// }
+
+// .lnmas {
+//     $primario: $lnmas;
+//     .acu article a.figure:before,
+//     article a.figure:before {
+//         content: '\e91e';
+//         color: $primario;
+//     }
+//     .com-tag a {
+//         color: $primario;
+//         border-color: $primario;
+//         &:hover {
+//             background: $primario;
+//         }
+//     }
+//     .com-secondary-tag a,
+//     .com-secondary-tag a:after,
+//     [class^='logo-'],
+//     [class*=' logo-'] {
+//         color: $primario;
+//     }
+//     &.fondo-revista,
+//     .mod-newsletter {
+//         background-color: $primario;
+//     }
+// }
