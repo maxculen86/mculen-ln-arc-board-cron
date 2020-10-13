@@ -14,7 +14,7 @@ const TrustFeature = props => {
     } = props;
 
     const trust = get(label, 'trust.text', null);
-    const sponsored = get(owner, 'sponsored', null);
+    const sponsored = get(owner, 'sponsored', false);
 
     if (trust === 'No mostrar Trust') return null;
     if (sponsored) return null;
