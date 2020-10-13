@@ -37,7 +37,12 @@ const idle = element => {
     if (!caja1) return;
 
     const { top: cajaTop } = caja1.getBoundingClientRect();
-    if (window.getComputedStyle(element).top === '0px' && cajaTop > 0) {
+
+    if (
+        (window.getComputedStyle(element).top === '0px' ||
+            window.getComputedStyle(element).top === 'auto') &&
+        cajaTop > 0
+    ) {
         element.style.top = `${Math.abs(top)}px`;
         element.style.position = 'relative';
         element.style.zIndex = 1;

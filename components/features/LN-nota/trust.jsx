@@ -10,12 +10,15 @@ import get from '../../private/common/utils/get';
 
 const TrustFeature = props => {
     const {
-        globalContent: { subtype, label }
+        globalContent: { subtype, label, owner }
     } = props;
 
     const trust = get(label, 'trust.text', null);
+    const sponsored = get(owner, 'sponsored', false);
 
+    if (!trust) return null;
     if (trust === 'No mostrar Trust') return null;
+    if (sponsored) return null;
     if (subtype === '7') return null;
     return <Trust />;
 };
@@ -27,6 +30,9 @@ TrustFeature.propTypes = {
             mostrar_trust: PropTypes.shape({
                 text: PropTypes.string
             })
+        }),
+        owner: PropTypes.shape({
+            sponsored: PropTypes.bool
         })
     })
 };
