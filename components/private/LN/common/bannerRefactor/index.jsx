@@ -6,11 +6,12 @@ import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../hocs/WithNavigation';
 import { slotsConfig } from './config';
 import Placeholder from './placeholder';
+import useGlobal from '../../../common/hooks/useGlobal';
 
 import BannerManager from './manager/banner';
 import { getDimsFromSiteService } from './utils';
 
-const index = props => {
+const index = React.memo(props => {
     const dimensions = useRef(null);
     const {
         siteProperties: {
@@ -33,12 +34,7 @@ const index = props => {
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
 
-    const content = useContent({
-        source: 'navigationTreeSource',
-        query: {
-            website
-        }
-    });
+    const { contentNavigationTreeSource: content } = useGlobal();
 
     const bannerSlots = [
         { name: 'tablet', slot: tabletSlot },
@@ -104,7 +100,7 @@ const index = props => {
     }
 
     return <BannerManager config={config} />;
-};
+});
 
 index.propTypes = {
     arcSite: PropTypes.string,
@@ -131,4 +127,4 @@ index.propTypes = {
     })
 };
 
-export default WithNavigation(WithScreenUtils(index));
+export default WithScreenUtils(index);

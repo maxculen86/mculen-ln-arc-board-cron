@@ -28,7 +28,8 @@ const useGlobal = () => {
         setCommentsEnabled,
         commentsAllowed: state.commentsEnabled,
         setAuth,
-        isAuth: state.authenticated
+        isAuth: state.authenticated,
+        contentNavigationTreeSource: state.contentNavigationTreeSource
     };
 };
 
