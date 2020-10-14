@@ -156,6 +156,14 @@ describe('Private - Common - hocs - withAcuCategories => ', () => {
     });
 
     it('Prioridad navegación manual', () => {
+        const props = {
+            globalContent: {
+                children: navigationAutomatica,
+                _id: '/economia'
+            },
+            hierarchyManual: 'Economy'
+        };
+
         const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
         expect(wrapper.first()).toBeTruthy();
         expect(wrapper.first().props().navigation).toStrictEqual(

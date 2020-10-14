@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 
@@ -11,15 +11,17 @@ const withAcuCategories = (WrappedComponent, filter, website) => props => {
         idPrimarySection && idPrimarySection.split('/').splice(1).length === 1;
 
     const _children = get(props, 'globalContent.children', undefined);
-
-    const navigationList = useContent({
-        source: 'navigationSource',
-        query: {
-            hierarchy: hierarchyManual,
-            website
-        },
-        filter
-    });
+    const [navigationList] = useState(
+        hierarchyManual &&
+            useContent({
+                source: 'navigationSource',
+                query: {
+                    hierarchy: hierarchyManual,
+                    website
+                },
+                filter
+            })
+    );
 
     const response = get(navigationList, 'children', null);
 
