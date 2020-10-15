@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import pym from 'pym.js';
 import '../../../../resources/dist/css/ln/pages/acu-revista.css';
 
-const AnexoIframe = ({ url, id, styles, _props }) => {
+const AnexoIframe = ({ url, id, styles, _props = {} }) => {
     useEffect(() => {
         if (window && url) {
             window.pym = pym;

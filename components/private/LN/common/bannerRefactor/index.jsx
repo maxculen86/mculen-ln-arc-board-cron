@@ -5,13 +5,14 @@ import WithScreenUtils from '../../../common/hocs/withScreenUtils';
 // import WithNavigation from '../hocs/WithNavigation';
 import { slotsConfig } from './config';
 import Placeholder from './placeholder';
+import useGlobal from '../../../common/hooks/useGlobal';
 
 import BannerManager from './manager/banner';
 // import { getDimsFromSiteService } from './utils';
 
 // import useGlobal from '../../../common/hooks/useGlobal';
 
-const index = props => {
+const index = React.memo(props => {
     // const { getNavigationTree } = useGlobal();
     const dimensions = useRef(null);
     const {
@@ -108,7 +109,7 @@ const index = props => {
     }
 
     return <BannerManager config={config} />;
-};
+});
 
 index.propTypes = {
     arcSite: PropTypes.string,
