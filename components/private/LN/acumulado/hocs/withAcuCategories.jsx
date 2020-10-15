@@ -31,9 +31,7 @@ const withAcuCategories = (WrappedComponent, filter, website) => props => {
         <WrappedComponent
             {...props}
             isPrimarySection={isPrimarySection}
-            navigation={
-                hideCategories === 'false' && isPrimarySection && navigation
-            }
+            navigation={hideCategories === 'false' && navigation}
         />
     );
 };

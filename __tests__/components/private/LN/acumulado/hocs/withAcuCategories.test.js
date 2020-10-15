@@ -139,6 +139,10 @@ describe('Private - Common - hocs - withAcuCategories => ', () => {
     });
 
     it('Render NOTOK', () => {
+        jest.mock('fusion:content', () => ({
+            useContent: () => ({})
+        }));
+
         const props = {};
 
         const component = props => <AcumuladoTitle {...props} />;
@@ -160,6 +164,37 @@ describe('Private - Common - hocs - withAcuCategories => ', () => {
             globalContent: {
                 children: navigationAutomatica,
                 _id: '/economia'
+            },
+            hierarchyManual: 'Economy'
+        };
+
+        const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
+        expect(wrapper.first()).toBeTruthy();
+        expect(wrapper.first().props().navigation).toStrictEqual(
+            navigationManual
+        );
+    });
+
+    it('Navegación automática para subcategorías', () => {
+        const props = {
+            globalContent: {
+                children: navigationAutomatica,
+                _id: '/comunidad/hablemos-de-todo'
+            }
+        };
+
+        const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
+        expect(wrapper.first()).toBeTruthy();
+        expect(wrapper.first().props().navigation).toStrictEqual(
+            navigationAutomatica
+        );
+    });
+
+    it('Navegación manual para subcategorías', () => {
+        const props = {
+            globalContent: {
+                children: navigationAutomatica,
+                _id: '/comunidad/racismo'
             },
             hierarchyManual: 'Economy'
         };
