@@ -1,16 +1,18 @@
 /* eslint-disable react/require-default-props */
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useContent } from 'fusion:content';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
-import WithNavigation from '../hocs/WithNavigation';
+// import WithNavigation from '../hocs/WithNavigation';
 import { slotsConfig } from './config';
 import Placeholder from './placeholder';
 
 import BannerManager from './manager/banner';
-import { getDimsFromSiteService } from './utils';
+// import { getDimsFromSiteService } from './utils';
+
+// import useGlobal from '../../../common/hooks/useGlobal';
 
 const index = props => {
+    // const { getNavigationTree } = useGlobal();
     const dimensions = useRef(null);
     const {
         siteProperties: {
@@ -33,12 +35,12 @@ const index = props => {
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
 
-    const content = useContent({
+    /* const content = useContent({
         source: 'navigationTreeSource',
         query: {
             website
         }
-    });
+    }); */
 
     const bannerSlots = [
         { name: 'tablet', slot: tabletSlot },
@@ -57,12 +59,14 @@ const index = props => {
 
     if (!slotGroup || finalSlot === null) return null;
 
-    if (content) {
-        const { bannerConfig } = content;
-        dimensions.current = getDimsFromSiteService(bannerConfig)(slotGroup)(
-            finalSlot
-        );
-    }
+    /* useEffect(() => {
+        const { bannerConfig } = getNavigationTree() || { bannerConfig: null };
+        if (bannerConfig) {
+            dimensions.current = getDimsFromSiteService(bannerConfig)(slotGroup)(
+                finalSlot
+            );
+        }
+    }); */
 
     const finalConfig = slotsConfig[slotGroup][finalSlot];
 
@@ -131,4 +135,6 @@ index.propTypes = {
     })
 };
 
-export default WithNavigation(WithScreenUtils(index));
+// export default WithNavigation(WithScreenUtils(index));
+
+export default WithScreenUtils(index);
