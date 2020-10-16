@@ -2,22 +2,22 @@
 @import '../abstracts/mixins';
 
 .mod-autor {
-    margin-bottom: $spacing-sm;
+    //margin-bottom: $spacing-sm;
     @include flex(inline);
-    @media ($media-l) {
-        margin-bottom: $spacing-lg;
-    }
+    // @media ($media-l) {
+    //     margin-bottom: $spacing-lg;
+    // }
     .container-text {
         @include flex(flex, column, center, center);
         .container-firma {
             @include flex(flex);
             flex-wrap: wrap;
             width: 100%;
-            margin-bottom: $spacing-xs;
+            margin-bottom: $spacing;
             .--autor {
-                @media ($media-m) {
-                    margin-bottom: $spacing-xs;
-                }
+                // @media ($media-m) {
+                //     margin-bottom: $spacing-xs;
+                // }
                 &:before {
                     content: ',';
                     padding-right: px(5);
@@ -52,11 +52,12 @@
         .container-medio {
             @include flex(flex);
             width: 100%;
+            margin-bottom: $spacing;
         }
     }
-    .cuerpo__nota & {
-        margin-bottom: $spacing-sm;
-    }
+    // .cuerpo__nota & {
+    //     margin-bottom: $spacing-sm;
+    // }
     .container-img + .container-text {
         .container-firma {
             &:first-child {
