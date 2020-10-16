@@ -52,13 +52,6 @@ function withCollectionsInClass(WrappedComponent, filter, size, imageConfig) {
                             ? articles.splice(0, size)
                             : articles;
 
-                    // Se usa este evento para que GrillaNota pueda ver los articulos a excluir
-                    // doc https://lanacionar.arcpublishing.com/alc/arc-products/pagebuilder/fusion/documentation/recipes/messaging-between-components.md?version=2.6
-                    this.dispatchEvent('articlesInBox', {
-                        articlesInBox: articlesInCollection,
-                        message: 'Articles.'
-                    });
-
                     this.setState({ articlesInCollection });
                 });
             }

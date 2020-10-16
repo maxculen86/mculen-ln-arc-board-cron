@@ -1,4 +1,5 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import NotaApertura from '../../private/LN/acumulado/notaApertura';
 import filter from '../../../content/filters/LN/acumulado/articleAcu';
@@ -7,6 +8,14 @@ import withCollectionsInClass from '../../private/LN/acumulado/hocs/withCollecti
 class AperturaFeature extends React.Component {
     render() {
         const { outputType, articlesInCollection = [] } = this.props;
+
+        // Se usa este evento para que GrillaNota pueda ver los articulos a excluir
+        // doc https://lanacionar.arcpublishing.com/alc/arc-products/pagebuilder/fusion/documentation/recipes/messaging-between-components.md?version=2.6
+        articlesInCollection.length > 0 &&
+            this.dispatchEvent('articlesInBox', {
+                articlesInBox: articlesInCollection,
+                message: 'Articles.'
+            });
 
         return (
             <NotaApertura
@@ -29,4 +38,4 @@ AperturaFeature.propTypes = {
 
 AperturaFeature.label = 'LN-Acumulado-Apertura';
 
-export default withCollectionsInClass(AperturaFeature, filter, 2);
+export default withCollectionsInClass(Consumer(AperturaFeature), filter, 2);

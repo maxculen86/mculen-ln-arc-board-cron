@@ -58,6 +58,13 @@ class CajaTemaPropiedades extends React.Component {
                 ? articlesInCollection.slice(0, 3)
                 : articlesInCollection.slice(0, 6);
 
+        // Se usa este evento para que GrillaNota pueda ver los articulos a excluir
+        // doc https://lanacionar.arcpublishing.com/alc/arc-products/pagebuilder/fusion/documentation/recipes/messaging-between-components.md?version=2.6
+        this.dispatchEvent('articlesInBox', {
+            articlesInBox: articlesToShow,
+            message: 'Articles.'
+        });
+
         return (
             <CajaTemasPropiedades
                 title={title}
