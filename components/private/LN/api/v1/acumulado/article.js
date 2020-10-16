@@ -6,7 +6,7 @@ import { dateAndTimeForAppsUtil } from '../../../../common/utils/dateAndTimeUtil
 const articleItem = article => {
     const {
         _id: id,
-        subtype: template,
+        subtype: templateId,
         headlines: { basic: titulo, mobile: tituloMobile }
     } = article;
 
@@ -15,7 +15,7 @@ const articleItem = article => {
 
     const resp = {
         id,
-        template,
+        templateId,
         titulo: tituloMobile || titulo,
         fecha: dateAndTimeForAppsUtil(article.first_publish_date)
     };
