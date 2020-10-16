@@ -203,7 +203,10 @@ const transformContent = (jsonArticle, arcSite) => {
                     )
                 )
             ).then(url => {
-                resp.credits.by[i].additional_properties.original.image = url;
+                if (url)
+                    resp.credits.by[
+                        i
+                    ].additional_properties.original.image = url;
             })
         );
     });
