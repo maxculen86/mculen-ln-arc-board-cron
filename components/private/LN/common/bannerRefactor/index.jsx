@@ -1,19 +1,17 @@
 /* eslint-disable react/require-default-props */
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'fusion:prop-types';
 import WithScreenUtils from '../../../common/hocs/withScreenUtils';
-// import WithNavigation from '../hocs/WithNavigation';
 import { slotsConfig } from './config';
 import Placeholder from './placeholder';
 import useGlobal from '../../../common/hooks/useGlobal';
 
 import BannerManager from './manager/banner';
-// import { getDimsFromSiteService } from './utils';
-
-// import useGlobal from '../../../common/hooks/useGlobal';
+import { getDimsFromSiteService } from './utils';
 
 const index = React.memo(props => {
-    // const { getNavigationTree } = useGlobal();
+    const { navigationTreeSource } = useGlobal();
+
     const dimensions = useRef(null);
     const {
         siteProperties: {
@@ -23,25 +21,15 @@ const index = React.memo(props => {
         banner,
         screenUtils,
         extraClasses,
-        arcSite: website,
-        termicas
+        arcSite: website
     } = props;
 
-    const { banners: termicaShowBanner } = termicas || {};
     const {
         slotGroup,
-        selectedSlots: { desktopSlot, mobileSlot, tabletSlot },
-        show
+        selectedSlots: { desktopSlot, mobileSlot, tabletSlot }
     } = banner;
 
     if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
-
-    /* const content = useContent({
-        source: 'navigationTreeSource',
-        query: {
-            website
-        }
-    }); */
 
     const bannerSlots = [
         { name: 'tablet', slot: tabletSlot },
@@ -60,14 +48,17 @@ const index = React.memo(props => {
 
     if (!slotGroup || finalSlot === null) return null;
 
-    /* useEffect(() => {
-        const { bannerConfig } = getNavigationTree() || { bannerConfig: null };
-        if (bannerConfig) {
-            dimensions.current = getDimsFromSiteService(bannerConfig)(slotGroup)(
-                finalSlot
-            );
-        }
-    }); */
+    const { bannerConfig, Termicas } = navigationTreeSource || {
+        bannerConfig: null,
+        Termicas: null
+    };
+
+    const { banners: termicaShowBanner } = Termicas || {};
+    if (bannerConfig) {
+        dimensions.current = getDimsFromSiteService(bannerConfig)(slotGroup)(
+            finalSlot
+        );
+    }
 
     const finalConfig = slotsConfig[slotGroup][finalSlot];
 
@@ -135,7 +126,5 @@ index.propTypes = {
         })
     })
 };
-
-// export default WithNavigation(WithScreenUtils(index));
 
 export default WithScreenUtils(index);
