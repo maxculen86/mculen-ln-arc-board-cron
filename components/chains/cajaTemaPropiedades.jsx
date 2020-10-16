@@ -1,66 +1,82 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useAppContext } from 'fusion:context';
-import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
-
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import CajaTemasPropiedades from '../private/LN/acumulado/CajaTemasPropiedades';
+import filter from '../../content/filters/LN/acumulado/articleAcu';
+import withCollectionsInClass from '../private/LN/acumulado/hocs/withCollectionsInClass';
 
-const validate = idCollection => {
-    let error;
-    if (!idCollection)
-        error = {
-            type: 'warning',
-            message: 'Se requiere el id de la colección de la caja de temas'
-        };
-    return error;
-};
+class CajaTemaPropiedades extends React.Component {
+    validateFeature = idCollection => {
+        let error;
+        if (!idCollection)
+            error = {
+                type: 'warning',
+                message: 'Se requiere el id de la colección de la caja de temas'
+            };
+        return error;
+    };
 
-const CajaTemaPropiedades = ({
-    id: featureId,
-    isAdmin,
-    customFields: { idCollection, url, title }
-}) => {
-    const { outputType } = useAppContext();
-    const error = validate(idCollection);
+    validateArticles = articles => {
+        if (!articles) return false;
+        if (articles.length < 2) return false;
+        return true;
+    };
 
-    if (isAdmin && !!error) {
+    render() {
+        const {
+            id: featureId,
+            isAdmin,
+            customFields: { idCollection, url, title },
+            outputType,
+            articlesInCollection = []
+        } = this.props;
+
+        const error = this.validateFeature(idCollection);
+
+        if (isAdmin && !!error) {
+            return (
+                <div
+                    style={{
+                        marginTop: '10px',
+                        marginBottom: '10px',
+                        width: '100%'
+                    }}
+                >
+                    <PageBuilderMessage
+                        key={featureId}
+                        type={error.type}
+                        message={error.message}
+                    />
+                </div>
+            );
+        }
+
+        if (!this.validateArticles(articlesInCollection)) return null;
+        const articlesToShow =
+            articlesInCollection.length >= 3 && articlesInCollection.length < 6
+                ? articlesInCollection.slice(0, 3)
+                : articlesInCollection.slice(0, 6);
+
         return (
-            <div
-                style={{
-                    marginTop: '10px',
-                    marginBottom: '10px',
-                    width: '100%'
-                }}
-            >
-                <PageBuilderMessage
-                    key={featureId}
-                    type={error.type}
-                    message={error.message}
-                />
-            </div>
-        );
-    }
-
-    return (
-        <Static id={featureId}>
             <CajaTemasPropiedades
                 title={title}
                 url={url}
-                idCollection={idCollection}
+                articlesToShow={articlesToShow}
                 outputType={outputType}
                 size="6"
+                idCollection={idCollection}
             />
-        </Static>
-    );
-};
+        );
+    }
+}
 
 CajaTemaPropiedades.label = 'LN Acum Caja Tema Propiedades';
 
 CajaTemaPropiedades.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
+    outputType: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         idCollection: PropTypes.string.tag({
             label: 'ID de la collection',
@@ -81,7 +97,12 @@ CajaTemaPropiedades.propTypes = {
             defaultValue: '',
             group: 'Custom Fields'
         })
-    }).isRequired
+    }).isRequired,
+    articlesInCollection: PropTypes.arrayOf(
+        PropTypes.shape({
+            _id: PropTypes.string
+        })
+    )
 };
 
-export default Consumer(CajaTemaPropiedades);
+export default withCollectionsInClass(Consumer(CajaTemaPropiedades), filter, 6);

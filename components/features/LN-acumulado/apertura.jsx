@@ -1,10 +1,36 @@
 import React from 'react';
-import { useAppContext } from 'fusion:context';
+import PropTypes from 'fusion:prop-types';
 import NotaApertura from '../../private/LN/acumulado/notaApertura';
-import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
-import get from '../../private/common/utils/get';
-import withStatic from '../../private/common/hocs/withStatic';
+import filter from '../../../content/filters/LN/acumulado/articleAcu';
+import withCollectionsInClass from '../../private/LN/acumulado/hocs/withCollectionsInClass';
 
+class AperturaFeature extends React.Component {
+    render() {
+        const { outputType, articlesInCollection = [] } = this.props;
+
+        return (
+            <NotaApertura
+                {...this.props}
+                articlesInCollection={articlesInCollection}
+                outputType={outputType}
+            />
+        );
+    }
+}
+
+AperturaFeature.propTypes = {
+    outputType: PropTypes.func.isRequired,
+    articlesInCollection: PropTypes.arrayOf(
+        PropTypes.shape({
+            _id: PropTypes.string
+        })
+    )
+};
+
+AperturaFeature.label = 'LN-Acumulado-Apertura';
+
+export default withCollectionsInClass(AperturaFeature, filter, 2);
+/*
 const AperturaFeature = props => {
     const { acumuladoGeneral } = useGlobalProviderAcu();
     const idCollection = get(acumuladoGeneral, 'id_collection_promo_items');
@@ -18,6 +44,4 @@ const AperturaFeature = props => {
     );
 };
 
-AperturaFeature.label = 'LN-Acumulado-Apertura';
-
-export default withStatic(AperturaFeature);
+*/
