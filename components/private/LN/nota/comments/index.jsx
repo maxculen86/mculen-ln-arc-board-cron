@@ -286,7 +286,7 @@ const Comments = props => {
 
     if (!displayComments) return null;
 
-    if (!termicas.livefyre) return <></>;
+    // if (!termicas.livefyre) return <></>;
 
     return (
         <>
@@ -366,4 +366,5 @@ Comments.propTypes = {
     }).isRequired
 };
 
-export default withNavigation(withLoginData(Comments));
+// export default withNavigation(withLoginData(Comments));
+export default withLoginData(Comments);
