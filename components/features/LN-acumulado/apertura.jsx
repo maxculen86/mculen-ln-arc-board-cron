@@ -30,18 +30,3 @@ AperturaFeature.propTypes = {
 AperturaFeature.label = 'LN-Acumulado-Apertura';
 
 export default withCollectionsInClass(AperturaFeature, filter, 2);
-/*
-const AperturaFeature = props => {
-    const { acumuladoGeneral } = useGlobalProviderAcu();
-    const idCollection = get(acumuladoGeneral, 'id_collection_promo_items');
-    const { outputType } = useAppContext();
-    return (
-        <NotaApertura
-            {...props}
-            idCollection={idCollection}
-            outputType={outputType}
-        />
-    );
-};
-
-*/
