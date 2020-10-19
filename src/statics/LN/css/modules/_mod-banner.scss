@@ -19,6 +19,7 @@
     }
     &.--sticky {
         position: sticky;
+        margin-bottom: $spacing-md;
         .--scrollDown & {
             top: 0;
         }
