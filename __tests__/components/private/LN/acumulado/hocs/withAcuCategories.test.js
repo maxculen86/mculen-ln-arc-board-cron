@@ -52,9 +52,9 @@ import AcumuladoTitle from '../../../../../../components/private/LN/acumulado/ac
 
 const navigationManual = [
     {
-        _id: '/economia/dolar',
+        _id: '/economia/campo',
         _website: 'la-nacion-ar',
-        name: 'Dólar Hoy',
+        name: 'Campo',
         node_type: 'section'
     },
     {
@@ -64,9 +64,9 @@ const navigationManual = [
         node_type: 'section'
     },
     {
-        _id: '/economia/campo',
+        _id: '/economia/dolar',
         _website: 'la-nacion-ar',
-        name: 'Campo',
+        name: 'Dólar Hoy',
         node_type: 'section'
     },
     {
@@ -167,11 +167,9 @@ describe('Private - Common - hocs - withAcuCategories => ', () => {
         const _props = {
             ...props,
             globalContent: {
-                ...props.globalContent,
-                site: {
-                    hidesectionslist: 'true'
-                }
-            }
+                ...props.globalContent
+            },
+            hideCategories: 'true'
         };
         const wrapper = shallow(<ComponentWithAcuCategories {..._props} />);
         expect(wrapper.first().props().navigation).toStrictEqual(false);

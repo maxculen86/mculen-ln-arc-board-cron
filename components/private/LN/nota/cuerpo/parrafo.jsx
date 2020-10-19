@@ -9,21 +9,28 @@ import { compose } from '../../../common/utils/functional';
 
 // TODO: cambiar parrafo por paragraph
 const Parrafo = ({ data, capital }) => {
-    const isLetter = text => text.match(/^[A-Za-z]/);
+    const isLetter = text => text && text.match(/^[A-Za-z]/);
 
     const setOtherChar = text =>
-        text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+        text && text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
     const replaceClassForMark = text =>
-        text.replace(/hl_yellow/g, 'hl_yellow_underline');
+        text &&
+        text
+            .replace(/hl_yellow/g, 'hl_underline')
+            .replace(/hl_pink/g, 'hl_underline')
+            .replace(/hl_purple/g, 'hl_underline')
+            .replace(/hl_orange/g, 'hl_underline')
+            .replace(/hl_green/g, 'hl_underline');
 
     const setBoldText = text =>
-        text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
+        text && text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
 
     const setItalicText = text =>
-        text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
+        text && text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
 
     const setExternalLinks = text =>
+        text &&
         text.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {

@@ -3,20 +3,23 @@ import PropTypes from 'fusion:prop-types';
 
 import Paragraph from './parrafo';
 import ModParagraph from '../../../common/mod-paragraph';
+import ListOrderedOrUnordered from './listOrderedOrUnordered';
 
-const blockQuote = ({ data }) => {
-    const {
-        content_elements: {
-            0: { content }
-        },
-        subtype
-    } = data;
-    return (
-        subtype === 'blockquote' /* pullquote */ && (
-            <ModParagraph>
-                <Paragraph data={{ content }} />
-            </ModParagraph>
-        )
+const blockQuote = ({
+    data: { content_elements: contentElements = [], subtype }
+}) => {
+    const { content, items, list_type: listType } =
+        contentElements.length === 0 ? {} : contentElements[0];
+
+    return (content || items) && subtype === 'blockquote' ? (
+        <ModParagraph>
+            {content && <Paragraph data={{ content }} />}
+            {items && (
+                <ListOrderedOrUnordered data={{ items, list_type: listType }} />
+            )}
+        </ModParagraph>
+    ) : (
+        <></>
     );
 };
 
@@ -28,7 +31,8 @@ blockQuote.propTypes = {
             PropTypes.shape({
                 content: PropTypes.string
             })
-        )
+        ),
+        subtype: PropTypes.string
     }).isRequired
 };
 

@@ -27,10 +27,7 @@ convertToComLink.defaultProps = {
     style: {}
 };
 
-const TagsNavigation = ({ orderAndCountTags, hideTagsList, globalContent }) => {
-    const [COLOR_TAGS] = useState(() =>
-        get(globalContent, 'acumuladoColor.navigation_color_tags', null)
-    );
+const TagsNavigation = ({ orderAndCountTags, colorTags }) => {
     const [tagList] = useState(() =>
         orderAndCountTags
             ? orderAndCountTags.map(({ slug, text }) => ({
@@ -40,14 +37,13 @@ const TagsNavigation = ({ orderAndCountTags, hideTagsList, globalContent }) => {
                       link: `/tema/${slug}/`,
                       text,
                       title: text,
-                      ...(COLOR_TAGS && { style: { color: COLOR_TAGS } })
+                      ...(colorTags && { style: { color: colorTags } })
                   })
               }))
             : []
     );
 
     return (
-        !hideTagsList &&
         tagList && (
             <ul className="com-unordered --tags">
                 {tagList.map(({ item, key }) => (

@@ -3,8 +3,10 @@
 
 .com-text {
     .com-button & {
-        white-space: nowrap;
         text-transform: uppercase;
+        @media ($media-m) {
+            white-space: nowrap;
+        }
     }
     .footer & {
         color: $gris5;
@@ -111,4 +113,18 @@
             margin-right: $spacing-xs;
         }
     }
+}
+
+.hl_yellow_underline,
+.hl_underline,
+.hl_yellow,
+.hl_green,
+.hl_purple,
+.hl_pink,
+.hl_orange {
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-color: $highlight;
+    text-decoration-thickness: 2px;
+    font-weight: 700;
 }

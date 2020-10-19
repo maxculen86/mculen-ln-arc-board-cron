@@ -34,16 +34,13 @@ export default {
     },
     cabezal_dsk: {
         slotName: 'la_nacion_desktop/Nota/cabezal_dsk',
-        dimensions: [[[1260, 170]], [[1180, 170]], [[920, 170]], [1, 1]],
+        dimensions: [
+            [1260, 170],
+            [1180, 170],
+            [920, 170],
+            [1, 1]
+        ],
         targeting: defaultTargeting,
-        sizemap: {
-            breakpoints: [
-                [1360, 0],
-                [1280, 0],
-                [1024, 0]
-            ],
-            refresh: true
-        },
         bidding: {
             prebid: {
                 enabled: true,

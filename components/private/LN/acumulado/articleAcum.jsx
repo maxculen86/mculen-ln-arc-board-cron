@@ -33,7 +33,9 @@ const ArticleAcum = ({
     dataSection,
     article,
     typeArticle = 'Grilla',
-    outputType
+    outputType,
+    titleTag,
+    titleSize
 }) => {
     const { display_date, headlines, website_url, label } = article;
 
@@ -57,8 +59,8 @@ const ArticleAcum = ({
                 dataSection={dataSection}
                 withMedia={typeAcumRules[typeArticle].withMedia}
                 link={website_url}
-                titleTag="h1"
-                titleSize="--s"
+                titleTag={titleTag}
+                titleSize={titleSize}
                 titleText={titleText}
                 authors={authors}
                 dateText={!typeAcumRules[typeArticle].withHour && display_date}

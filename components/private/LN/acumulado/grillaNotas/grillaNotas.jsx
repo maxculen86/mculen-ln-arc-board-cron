@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import Consumer from 'fusion:consumer';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
@@ -9,9 +10,27 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
 
-// import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
+class GrillaNotas extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { articlesInBox: [] };
+    }
 
-class GrillaNotas extends Component {
+    componentDidMount() {
+        const msgHandler = message => {
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                    articlesInBox: prevState.articlesInBox.concat(
+                        message.articlesInBox
+                    )
+                };
+            });
+            // this.removeEventListener('articlesInBox', msgHandler);
+        };
+        this.addEventListener('articlesInBox', msgHandler);
+    }
+
     getBanner = index => {
         const position = index + 1;
         const { bannerConfig, hideBanners } = this.props;
@@ -54,15 +73,14 @@ class GrillaNotas extends Component {
             globalContent,
             loading,
             typeArticle,
-            articlesInCollection = [],
             outputType
         } = this.props;
+        const { articlesInBox } = this.state;
 
         const articlesInNoCollection = articles.filter(
             art =>
-                !articlesInCollection.some(
-                    artInColl => artInColl._id === art._id
-                ) && art
+                !articlesInBox.some(artInColl => artInColl._id === art._id) &&
+                art
         );
 
         return (
@@ -121,5 +139,5 @@ GrillaNotas.defaultProps = {
 };
 
 export default WithNavigation(
-    withScreenUtils(WithAcuArticlesData(GrillaNotas, filter, 'notaM'))
+    withScreenUtils(WithAcuArticlesData(Consumer(GrillaNotas), filter, 'notaM'))
 );
