@@ -85,7 +85,10 @@ function buildCustomFieldsForBanners() {
 }
 
 function GrillaNotasFeature(props) {
-    const { acumuladoGeneral } = useGlobalProviderAcu();
+    const {
+        acumuladoGeneral,
+        articlesInCollection = []
+    } = useGlobalProviderAcu();
     const {
         cantidad_notas = 30,
         tipo_acumulado = 'Grilla',
@@ -119,6 +122,7 @@ function GrillaNotasFeature(props) {
             bannerConfig={bannerConfig}
             outputType={outputType}
             hideBanner={hide_banner}
+            articlesInGlobalProvider={articlesInCollection}
         />
     );
 }

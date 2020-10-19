@@ -4,11 +4,16 @@ import PropTypes from 'fusion:prop-types';
 const GlobalContext = React.createContext([{}, () => {}]);
 
 const GlobalProviderAcu = props => {
-    const { acumuladoGeneral, acumuladoColor, children } = props;
+    const {
+        acumuladoGeneral,
+        acumuladoColor,
+        articlesInCollection,
+        children
+    } = props;
     const [state, setState] = useState({
         acumuladoGeneral,
         acumuladoColor,
-        articlesInCollection: []
+        articlesInCollection
     });
 
     return (
@@ -33,7 +38,8 @@ GlobalProviderAcu.propTypes = {
         navigation_color: PropTypes.string,
         navigation_color_tags: PropTypes.string,
         id_logo_image: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    articlesInCollection: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export { GlobalContext, GlobalProviderAcu };
