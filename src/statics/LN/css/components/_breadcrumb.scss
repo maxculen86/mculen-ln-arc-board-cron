@@ -9,13 +9,15 @@
     //Se saca none en mobile
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    margin-bottom: px(24);
+    margin-bottom: $spacing-sm;
     color: $gris5;
     a {
         color: $link;
         border-left: solid 1px $gris5;
         padding: 0 px(9);
+        margin-bottom: $spacing;
         &:first-letter {
             text-transform: capitalize;
         }
