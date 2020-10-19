@@ -36,6 +36,8 @@
     span {
         border-left: solid 1px $gris5;
         padding: 0 px(6);
+        margin-bottom: $spacing;
+
         &:first-letter {
             text-transform: capitalize;
         }
