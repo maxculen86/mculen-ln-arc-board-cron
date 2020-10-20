@@ -7,10 +7,14 @@ import { getFeaturedTag } from '../../common/tag';
 
 const apertura = article => {
     const {
-        headlines: { basic: titulo, mobile: tituloMobile }
+        headlines: { basic: titulo, mobile: tituloMobile },
+        subtype: template
     } = article;
 
-    const promoItem = get(article, 'promo_items.basic', null);
+    let promoItem = get(article, 'promo_items.basic', null);
+    if (template === '4')
+        promoItem = get(article, 'promo_items.storytelling_mobile', null);
+
     const recetaPromoItem = get(article, 'promo_items.receta', null);
     const bajada = get(article, 'subheadlines.basic', null);
     const autores = get(article, 'credits.by', null);

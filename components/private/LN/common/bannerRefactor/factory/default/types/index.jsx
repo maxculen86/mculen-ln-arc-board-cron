@@ -1,68 +1,71 @@
 /* eslint-disable react/require-default-props           */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 
-import React from 'react';
+import React, { forwardRef, memo } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Ads from '../../../ads';
 
-const index = React.forwardRef((props, ref) => {
-    const {
-        slotId: id,
-        slotName,
-        dimensions,
-        dfpId,
-        targeting,
-        sticky,
-        background,
-        fixed,
-        show,
-        bidding,
-        sizemap,
-        device,
-        closeButton
-    } = props;
+const index = memo(
+    forwardRef((props, ref) => {
+        const {
+            slotId: id,
+            slotName,
+            dimensions,
+            dfpId,
+            targeting,
+            sticky,
+            background,
+            fixed,
+            show,
+            bidding,
+            sizemap,
+            device,
+            closeButton
+        } = props;
 
-    const onClose = () => ref.current.remove();
+        const onClose = () => ref.current.remove();
 
-    const ad = (
-        <Ads
-            id={id}
-            slotName={slotName}
-            dimensions={dimensions}
-            targeting={targeting}
-            sizemap={sizemap}
-            bidding={bidding}
-            dfpId={dfpId}
-            background={background ? '--bg-banner' : ''}
-        />
-    );
+        const ad = (
+            <Ads
+                id={id}
+                slotName={slotName}
+                dimensions={dimensions}
+                targeting={targeting}
+                sizemap={sizemap}
+                bidding={bidding}
+                dfpId={dfpId}
+                background={background ? '--bg-banner' : ''}
+            />
+        );
 
-    if (Object.values(show).some(element => element === false)) return <></>;
+        if (Object.values(show).some(element => element === false))
+            return <></>;
 
-    return (
-        <>
-            <div
-                className={`mod-banner ${background ? '--bg-banner' : ''}
+        return (
+            <>
+                <div
+                    className={`mod-banner ${background ? '--bg-banner' : ''}
                     ${sticky ? '--sticky' : ''}
                     ${closeButton ? '--close' : ''}
                     ${fixed ? '--fixed' : ''} 
                    hlp-none
                     --${id}
                 `}
-                ref={ref}
-            >
-                {closeButton && (
-                    <button
-                        type="button"
-                        className="icon-close"
-                        onClick={onClose}
-                    />
-                )}
-                {ad}
-            </div>
-        </>
-    );
-});
+                    ref={ref}
+                >
+                    {closeButton && (
+                        <button
+                            type="button"
+                            className="icon-close"
+                            onClick={onClose}
+                        />
+                    )}
+                    {ad}
+                </div>
+            </>
+        );
+    })
+);
 
 index.propTypes = {
     slotId: PropTypes.string.isRequired,
