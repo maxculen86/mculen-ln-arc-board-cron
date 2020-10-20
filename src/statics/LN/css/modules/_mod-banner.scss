@@ -11,7 +11,8 @@
         background: $gris1;
         width: 100%;
     }
-    &.--mobile {
+    &.--mobile,
+    &.--sticky1_mob {
         margin-bottom: px(24);
     }
     &.--desktop {
