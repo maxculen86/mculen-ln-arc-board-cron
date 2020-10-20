@@ -222,15 +222,15 @@
 }
 
 .logo-propiedades.logo-propiedades {
-    font-size: px(23);
+    font-size: px(32);
     &.--small {
-        font-size: px(30);
+        font-size: px(38);
     }
     &.--medium {
-        font-size: px(40);
+        font-size: px(45);
     }
     &.--large {
-        font-size: px(90);
+        font-size: px(70);
     }
     &.--color {
         color: $propiedades;

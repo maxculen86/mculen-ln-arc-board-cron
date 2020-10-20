@@ -98,15 +98,23 @@ $cinema: calc((9 / 21) * 100%);
 $vertical-square: calc((13 / 12.19) * 100%);
 $vertical-video: calc((13 / 8.19) * 100%);
 
-$logo-ohlala: '\e80d';
 $logo-brando: '\e800';
-$logo-lugares: '\e80b'; /*falta*/
+$logo-ohlala: '\e80d';
+$logo-lugares: '\e80b';
 $logo-living: '\e807';
 $logo-hola: '\e803';
 $logo-jardin: '\e805';
 $logo-rolling: '\e80e';
 $logo-bbc: '\e900';
-$logo-propiedades: '\e80e';
+$logo-propiedades: '\e901';
+$logo-negocios: '\e80c';
+$logo-ln-placeholder: '\e80a';
+$logo-ln-mas: '\e809';
+$logo-ln: '\e808';
+$logo-la-nacion: '\e806';
+$logo-hola-argentina: '\e804';
+$logo-club-lanacion: '\e802';
+$logo-club: '\e801';
 
 $spacing: $rem * 8;
 $spacing-2xs: $spacing / 2; //4px
