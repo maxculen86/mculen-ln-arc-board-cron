@@ -15,6 +15,9 @@ import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import getArticlesFromCollection from '../private/common/utils/getArticlesFromCollection';
+
+// import withCollections from '../private/LN/acumulado/hocs/withCollections';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -64,16 +67,18 @@ const LNAcumuladoLayout = props => {
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
+    const articlesInCollection = getArticlesFromCollection(idCollection);
 
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
-    const OPENING_CLASS = idCollection ? '--opening' : '';
+    const OPENING_CLASS = articlesInCollection.length > 0 ? '--opening' : '';
     const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
 
     return (
         <GlobalProviderAcu
             acumuladoGeneral={acumuladoGeneral}
             acumuladoColor={acumuladoColor}
+            articlesInCollection={articlesInCollection}
         >
             {megatop}
             <div
@@ -140,8 +145,7 @@ LNAcumuladoLayout.propTypes = {
             background_color: PropTypes.string,
             navigation_color: PropTypes.string,
             navigation_color_tags: PropTypes.string,
-            id_logo_image: PropTypes.string,
-            header_class_name: PropTypes.string
+            id_logo_image: PropTypes.string
         })
     }).isRequired
 };

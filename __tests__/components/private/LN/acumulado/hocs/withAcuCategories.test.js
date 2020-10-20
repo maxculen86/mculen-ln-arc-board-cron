@@ -38,18 +38,15 @@ jest.mock('fusion:content', () => ({
         ]
     })
 }));
-
 jest.mock(
     '../../../../../../components/private/LN/acumulado/acumuladoTitle',
     () => 'acumulado-title-mock'
 );
-
 import React from 'react';
 import { render, shallow } from 'enzyme';
 import withAcuCategories from '../../../../../../components/private/LN/acumulado/hocs/withAcuCategories';
 import filter from '../../../../../../content/filters/LN/acumulado/collections';
 import AcumuladoTitle from '../../../../../../components/private/LN/acumulado/acumuladoTitle';
-
 const navigationManual = [
     {
         _id: '/economia/campo',
@@ -82,7 +79,6 @@ const navigationManual = [
         node_type: 'section'
     }
 ];
-
 const navigationAutomatica = [
     {
         _id: '/economia/campo',
@@ -115,7 +111,6 @@ const navigationAutomatica = [
         node_type: 'section'
     }
 ];
-
 describe('Private - Common - hocs - withAcuCategories => ', () => {
     const props = {
         globalContent: {
@@ -124,37 +119,29 @@ describe('Private - Common - hocs - withAcuCategories => ', () => {
             _id: '/economia'
         }
     };
-
     const component = props => <AcumuladoTitle {...props} />;
-
     const ComponentWithAcuCategories = withAcuCategories(
         component(props),
         filter,
         'la-nacion-ar'
     );
-
     it('Render OK', () => {
         const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
         expect(wrapper).toBeDefined();
     });
-
     it('Render NOTOK', () => {
         const props = {};
-
         const component = props => <AcumuladoTitle {...props} />;
-
         const ComponentWithAcuCategories = withAcuCategories(
             component(props),
             filter,
             'la-nacion-ar'
         );
-
         const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
         expect(wrapper).toBeDefined();
         expect(wrapper.first().props().navigation).toBe(undefined);
         expect(wrapper.first().props().isPrimarySection).toBe(undefined);
     });
-
     it('Prioridad navegación manual', () => {
         const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
         expect(wrapper.first()).toBeTruthy();
@@ -162,7 +149,6 @@ describe('Private - Common - hocs - withAcuCategories => ', () => {
             navigationManual
         );
     });
-
     it('Ocultar navegación automática / manual', () => {
         const _props = {
             ...props,

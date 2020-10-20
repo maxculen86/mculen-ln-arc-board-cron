@@ -6,9 +6,9 @@ import ModRowGap from '../../common/mod-rowgap';
 const NotaApertura = props => {
     const ARTICLE_TYPE = 'Grilla';
     const DATA_SECTION = 'AperturaAcu';
-    const { outputType, articlesInCollection } = props;
+    const { outputType, articlesInCollection = [] } = props;
 
-    if (!articlesInCollection) return null;
+    if (articlesInCollection.length === 0) return null;
 
     return (
         <ModRowGap column="2" classCondition="--opening">

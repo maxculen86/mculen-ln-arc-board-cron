@@ -52,8 +52,10 @@ const idle = element => {
 const componentIsVisible = component =>
     !component.classList.contains('hlp-none');
 
-const componentDidReachTarget = (component, target) =>
-    component.clientHeight > target.getBoundingClientRect().top;
+const componentDidReachTarget = (component, target) => {
+    if (!component || !target) return false;
+    return component.clientHeight > target.getBoundingClientRect().top;
+};
 
 export default Component => Target => {
     return props => {

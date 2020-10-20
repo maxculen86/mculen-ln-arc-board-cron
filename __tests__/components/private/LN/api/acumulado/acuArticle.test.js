@@ -8,7 +8,7 @@ describe('Test de articulo en Json acumulado', () => {
         const resp = AcuList(AcuArticle,article.content_elements);
 
         expect(resp[0].id).toBe(article.content_elements[0]._id);
-        expect(resp[0].template).toBe(article.content_elements[0].subtype);
+        expect(resp[0].templateId).toBe(article.content_elements[0].subtype);
         expect(resp[0].titulo).toBe(article.content_elements[0].headlines.basic);
     });
 

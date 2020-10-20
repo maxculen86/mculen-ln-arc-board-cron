@@ -73,13 +73,17 @@ class GrillaNotas extends React.Component {
             globalContent,
             loading,
             typeArticle,
-            outputType
+            outputType,
+            articlesInGlobalProvider
         } = this.props;
         const { articlesInBox } = this.state;
 
         const articlesInNoCollection = articles.filter(
             art =>
                 !articlesInBox.some(artInColl => artInColl._id === art._id) &&
+                !articlesInGlobalProvider.some(
+                    artInColl => artInColl._id === art._id
+                ) &&
                 art
         );
 
@@ -114,6 +118,7 @@ GrillaNotas.propTypes = {
     hideBanners: PropTypes.string.isRequired,
     articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    articlesInGlobalProvider: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
     obtenerMasNotas: PropTypes.func.isRequired,
     globalContent: PropTypes.shape({

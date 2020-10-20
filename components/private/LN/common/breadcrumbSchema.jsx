@@ -18,12 +18,13 @@ function BreadcrumbSchema({ sections, host }) {
         JSON.stringify(parent),
         sections
             .map((el, i) => {
+                const slash = el.path && el.path.slice(-1) !== '/' ? '/' : '';
                 return `
         {
             "@type": "ListItem",
             "position": ${i + 2},
             "name": "${el.name}",
-            "item": "${host + el.path}"
+            "item": "${host + el.path + slash}"
         }`;
             })
             .join(',')
