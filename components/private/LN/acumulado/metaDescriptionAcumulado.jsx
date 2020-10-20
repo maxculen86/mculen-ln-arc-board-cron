@@ -1,0 +1,23 @@
+import React from 'react';
+import PropTypes from 'fusion:prop-types';
+import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
+import filter from '../../../../content/filters/LN/acumulado/articleAcuTitles';
+import getTitleText from '../../common/utils/getTitleText';
+
+const MetaDescriptionAcumulado = ({ articles, title }) => {
+    const firstPart = `Últimas Noticias de ${title}`;
+    const withDots = articles.length > 0 ? ':' : '';
+    const articlesTitles = [];
+    articles.forEach(art => {
+        articlesTitles.push(` ${getTitleText(art.headlines)}`);
+    });
+    const description = `${firstPart}${withDots}${articlesTitles.join(',')}`;
+    return <meta name="description" content={`${description} - LA NACION`} />;
+};
+
+MetaDescriptionAcumulado.propTypes = {
+    articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    title: PropTypes.string.isRequired
+};
+
+export default WithAcuArticlesData(MetaDescriptionAcumulado, filter);

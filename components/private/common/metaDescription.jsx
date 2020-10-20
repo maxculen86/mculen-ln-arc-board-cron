@@ -1,15 +1,56 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import getMetaDescription from './utils/getMetaDescription';
+import MetaDescriptionAcumulado from '../LN/acumulado/metaDescriptionAcumulado';
+
+/*
+const extractDataFromTags = payload => {
+    const tagId =
+        payload && payload.items && payload.items.length
+            ? payload.items[0].slug
+            : undefined;
+
+    const tagName =
+        payload && payload.items && payload.items.length
+            ? payload.items[0].description
+            : undefined;
+
+    return {
+        tagId,
+        tagName
+    };
+};
+*/
 
 const MetaDescription = ({
     subtype,
     description,
     firstParagraphContentElements,
     metaTitleBasic,
-    arcSite
+    arcSite,
+    nodeType,
+    name,
+    _id,
+    payload,
+    authorType
 }) => {
-    if (arcSite !== 'la-nacion-ar' || !subtype) return <></>;
+    if (arcSite !== 'la-nacion-ar') return <></>;
+    // TODO: faltan meta descripction para otros acumulados (tags, author, recetas)
+    const acusWithMeta = ['section'];
+    if (acusWithMeta.includes(nodeType) && _id !== '/recetas') {
+        // const { tagId, tagName } = extractDataFromTags(payload);
+        return (
+            <MetaDescriptionAcumulado
+                size="5"
+                title={name}
+                sectionId={_id || null}
+                // tagId={tagId || null}
+                // authorId={authorType || null}
+            />
+        );
+    }
+
+    if (!subtype) return <></>;
 
     return (
         subtype && (
@@ -29,7 +70,9 @@ MetaDescription.propTypes = {
     subtype: PropTypes.string,
     description: PropTypes.string,
     firstParagraphContentElements: PropTypes.string,
-    metaTitleBasic: PropTypes.string.isRequired
+    metaTitleBasic: PropTypes.string.isRequired,
+    nodeType: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
 };
 
 export default MetaDescription;

@@ -52,6 +52,9 @@ const Amp = props => {
         syndication,
         distributor,
         node_type: nodeType,
+        name,
+        author_type: authorType,
+        Payload,
         _id
     } = globalContent || {};
 
@@ -119,6 +122,11 @@ const Amp = props => {
                 />
                 <MetaDescription
                     subtype={subtype}
+                    nodeType={nodeType}
+                    name={name}
+                    _id={_id}
+                    payload={Payload}
+                    authorType={authorType}
                     description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
                     firstParagraphContentElements={
