@@ -5,7 +5,6 @@ import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
-import getArticleInCollection from '../../private/LN/common/utils/getArticleInCollection';
 
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
@@ -90,7 +89,6 @@ function GrillaNotasFeature(props) {
     const {
         cantidad_notas = 30,
         tipo_acumulado = 'Grilla',
-        id_collection_promo_items,
         hide_banner = true
     } = acumuladoGeneral;
     const {
@@ -109,13 +107,6 @@ function GrillaNotasFeature(props) {
 
     const bannerConfig = groupBannerConfig(props);
 
-    let articlesInCollection = [];
-    if (typeof window !== 'undefined' && id_collection_promo_items) {
-        articlesInCollection = getArticleInCollection(
-            id_collection_promo_items
-        );
-    }
-
     return (
         <GrillaNotas
             authorId={authorId}
@@ -125,7 +116,6 @@ function GrillaNotasFeature(props) {
             page={1}
             siteProperties={siteProperties}
             typeArticle={tipo_acumulado}
-            articlesInCollection={articlesInCollection}
             bannerConfig={bannerConfig}
             outputType={outputType}
             hideBanner={hide_banner}

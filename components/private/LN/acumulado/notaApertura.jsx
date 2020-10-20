@@ -2,45 +2,38 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
-import withCollections from './hocs/withCollections';
-import useGlobalProviderAcu from './hooks/useGlobalProviderAcu';
-import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 
 const NotaApertura = props => {
-    const {
-        setArticlesInCollection,
-        articlesInCollection
-    } = useGlobalProviderAcu();
     const ARTICLE_TYPE = 'Grilla';
     const DATA_SECTION = 'AperturaAcu';
-    const { articles, outputType } = props;
+    const { outputType, articlesInCollection } = props;
 
-    if (articles) setArticlesInCollection(articles);
+    if (!articlesInCollection) return null;
+
     return (
-        (articles && (
-            <ModRowGap column="2" classCondition="--opening">
-                {articles.map((art, i) => (
-                    <ArticleAcum
-                        key={art._id}
-                        article={art}
-                        dataSection={DATA_SECTION}
-                        typeArticle={ARTICLE_TYPE}
-                        outputType={outputType}
-                        titleTag="h1"
-                        titleSize="--l"
-                    />
-                ))}
-            </ModRowGap>
-        )) || <></>
+        <ModRowGap column="2" classCondition="--opening">
+            {articlesInCollection.map((art, i) => (
+                <ArticleAcum
+                    key={art._id}
+                    article={art}
+                    dataSection={DATA_SECTION}
+                    typeArticle={ARTICLE_TYPE}
+                    outputType={outputType}
+                    titleTag="h1"
+                    titleSize="--l"
+                />
+            ))}
+        </ModRowGap>
     );
 };
 
 NotaApertura.propTypes = {
-    articles: PropTypes.arrayOf(
+    articlesInCollection: PropTypes.arrayOf(
         PropTypes.shape({
             _id: PropTypes.string
         })
-    ).isRequired
+    ).isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
-export default withCollections(NotaApertura, filter);
+export default NotaApertura;

@@ -11,6 +11,7 @@ const withAcuCategories = (WrappedComponent, filter, website) => props => {
         idPrimarySection && idPrimarySection.split('/').splice(1).length === 1;
 
     const _children = get(props, 'globalContent.children', undefined);
+<<<<<<< HEAD
     const [navigationList] = useState(
         hierarchyManual &&
             useContent({
@@ -22,6 +23,19 @@ const withAcuCategories = (WrappedComponent, filter, website) => props => {
                 filter
             })
     );
+=======
+
+    const navigationList =
+        hierarchyManual &&
+        useContent({
+            source: 'navigationSource',
+            query: {
+                hierarchy: hierarchyManual,
+                website
+            },
+            filter
+        });
+>>>>>>> develop
 
     const response = get(navigationList, 'children', null);
 

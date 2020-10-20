@@ -20,14 +20,13 @@ const withCollections = (WrappedComponent, filter, imageConfig) => props => {
                       website
                   },
                   filter,
-                  imageConfig,
-                  staticMode: true
+                  imageConfig
               }
             : {}
     );
     const articles = get(articleList, 'content_elements', null);
     const result =
-        articles && articles.length >= size && articles.splice(0, size);
+        articles && articles.length >= size ? articles.splice(0, size) : articles;
 
     return <WrappedComponent {...props} articles={result || null} />;
 };
