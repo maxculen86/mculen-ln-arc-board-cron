@@ -12,14 +12,16 @@ const withAcuCategories = (WrappedComponent, filter, website) => props => {
 
     const _children = get(props, 'globalContent.children', undefined);
 
-    const navigationList = useContent({
-        source: 'navigationSource',
-        query: {
-            hierarchy: hierarchyManual,
-            website
-        },
-        filter
-    });
+    const navigationList =
+        hierarchyManual &&
+        useContent({
+            source: 'navigationSource',
+            query: {
+                hierarchy: hierarchyManual,
+                website
+            },
+            filter
+        });
 
     const response = get(navigationList, 'children', null);
 

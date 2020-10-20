@@ -52,6 +52,8 @@ const Comments = props => {
     const cookie = getCookie('usuario%5Flogtkn');
     const commentSection = useRef(null);
 
+    const instance = useRef(null);
+
     const oldID = useMemo(
         () =>
             label && label.livefyre_entrada_id
@@ -236,13 +238,16 @@ const Comments = props => {
                 }
 
                 if (typeof fyre !== 'undefined') {
-                    if (!fyre.conv.ready.hasFired()) {
+                    if (!fyre.conv.ready.hasFired() && !instance.current) {
                         /* eslint-disable no-new */
-                        new Conv(
+                        instance.current = new Conv(
                             LiveFyreConfig.networkConfig,
                             [LiveFyreConfig.convConfig],
                             widget => {
                                 widget.on('commentPosted', data => {});
+                                widget.on('commentCountUpdated', data => {
+                                    setCommentsEnabledAndCount(true, data);
+                                });
                                 widget.on('commentFlagged', data => {});
                                 widget.on('commentLiked', data => {});
                                 widget.on('commentShared', data => {});
@@ -259,7 +264,9 @@ const Comments = props => {
 
                                     setCommentsEnabledAndCount(
                                         attributes.commentsEnabled,
-                                        commentsCount.length
+                                        commentsCount.filter(
+                                            el => el.vis === 1 && el.type === 0
+                                        ).length
                                     );
 
                                     if (!auth.isAuthenticated()) {
