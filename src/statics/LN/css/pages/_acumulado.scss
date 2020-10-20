@@ -214,6 +214,9 @@
                 .mod-figure {
                     background: $blanco; //para el hover de la imagen
                 }
+                &:empty {
+                    display: none;
+                }
             }
         }
     }
