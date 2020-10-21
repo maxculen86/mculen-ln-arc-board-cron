@@ -41,7 +41,7 @@ const MetaDescription = ({
         // const { tagId, tagName } = extractDataFromTags(payload);
         return (
             <MetaDescriptionAcumulado
-                size="5"
+                size="2"
                 title={name}
                 sectionId={_id || null}
                 // tagId={tagId || null}
