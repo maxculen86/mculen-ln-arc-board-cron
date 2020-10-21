@@ -1,9 +1,10 @@
 /* eslint-disable react/require-default-props */
 import React, { useRef, useCallback } from 'react';
 import PropTypes from 'fusion:prop-types';
-import { baseConfig } from './config';
 import useMutationObserver from '../../../common/hooks/useMutationObserver';
 import hasAdsTestParam from '../utils/hasAdsTesParam';
+
+import ArcAdLib from './arcAdLib';
 
 const Ads = props => {
     const ref = useRef();
@@ -21,19 +22,7 @@ const Ads = props => {
     } = props;
 
     if (!ref.current) {
-        ref.current = new ArcAds(
-            {
-                dfp: {
-                    id: dfpId
-                },
-                bidding: baseConfig.bidding
-            },
-            event => {
-                if (window.googletag && googletag.pubadsReady) {
-                    googletag.pubads().collapseEmptyDivs(true);
-                }
-            }
-        );
+        ref.current = ArcAdLib.getInstance();
 
         ref.current.registerAd(
             {
@@ -94,7 +83,8 @@ Ads.propTypes = {
     bidding: PropTypes.shape({
         prebid: PropTypes.object
     }).isRequired,
-    children: PropTypes.arrayOf(PropTypes.nodes)
+    children: PropTypes.arrayOf(PropTypes.nodes),
+    display: PropTypes.string
 };
 
 export default Ads;
