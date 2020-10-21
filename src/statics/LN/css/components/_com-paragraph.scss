@@ -8,6 +8,9 @@
     &.--bajada {
         font-family: $font-arial;
         margin-bottom: $spacing;
+        &:empty {
+            display: none;
+        }
     }
     .mod-paragraph & {
         @include flex(flex);

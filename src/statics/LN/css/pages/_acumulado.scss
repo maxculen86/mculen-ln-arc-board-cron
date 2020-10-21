@@ -134,7 +134,10 @@
             }
             .mod-logo {
                 display: flex;
-                margin-bottom: $spacing;
+                margin-bottom: $spacing-sm;
+                .com-image {
+                    height: auto;
+                }
             }
 
             .com-button {

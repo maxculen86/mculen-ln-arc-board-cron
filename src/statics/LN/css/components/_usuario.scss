@@ -27,6 +27,9 @@
             right: px(-14);
             top: px(1);
             transform: rotate(224deg);
+            .--transparent & {
+                color: $blanco;
+            }
         }
     }
     &__valueSuscrib {
@@ -48,7 +51,7 @@
     border-radius: 3px;
     text-align: left;
     position: absolute;
-    right: px(-40);
+    right: 0;
     top: px(50);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     z-index: 100;
