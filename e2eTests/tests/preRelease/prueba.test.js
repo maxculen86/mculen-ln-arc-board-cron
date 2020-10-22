@@ -4,7 +4,7 @@ describe('Test imagen en nota', () => {
     beforeAll(async () => {
         frame = await e2e.goto({
             path:
-                '/sociedad/polemica-en-la-quema-de-munecos-de-la-plata-nid1086000/'
+                '/sociedad/polemica-en-la-quema-de-munecos-de-la-plata-nid22102020/'
         });
     });
 
