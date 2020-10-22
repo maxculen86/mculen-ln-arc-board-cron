@@ -11,8 +11,8 @@ import '../../resources/dist/css/ln/pages/recipe.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 
-//TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
-//EL COMPONENTE Y EN OTROS NO
+// TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
+// EL COMPONENTE Y EN OTROS NO
 
 import '../../resources/dist/css/ln/components/button.css';
 import '../../resources/dist/css/ln/components/date.css';
@@ -35,13 +35,14 @@ import '../../resources/dist/css/ln/components/carta-lectores.css';
 import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
-/*Se debe importar para AMP*/
-//import '../../resources/dist/css/ln/components/nav-amp.css';
+/* Se debe importar para AMP */
+// import '../../resources/dist/css/ln/components/nav-amp.css';
 
-/*Se debe dejar último los helpers*/
+/* Se debe dejar último los helpers */
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import { CommentsProvider } from '../private/common/context/commentsContext';
 
 const pageBuilderSections = [
     'Pre-Titulo',
@@ -75,73 +76,75 @@ class LNNotaReceta extends Component {
 
         return (
             <GlobalProvider>
-                <div id="wrapper" className="nota">
-                    <Header />
-                    <main>
-                        {/* Pre-Titulo: Banners */}
-                        {children[0]}
-                        <div
-                            className={`lay col-12 ${this.sectionClass &&
-                                this.sectionClass.class}`}
-                        >
-                            {/* TODO: confirmar */}
-                            <header className="row titulo">
-                                <div className="col-12">
-                                    {/* Titulo (breadcrumb, logo+titulo) */}
-                                    {children[1]}
-                                </div>
-                            </header>
-                            {/* Apertura */}
-                            {children[2]}
-                        </div>
-
-                        <div className="lay-sidebar">
-                            {/* Cuerpo */}
-                            <div className="sidebar__main">
-                                <section className="cuerpo__nota">
-                                    <div className="row">
-                                        <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
-                                            {/* hlp-mobile-show */}
-                                            {/* Left-Cuerpo Shared*/}
-                                            {children[3]}
-                                        </div>
-                                        <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    {/* Pos-Apertura */}
-                                                    {children[4]}
-                                                </div>
-                                            </div>
-                                            {children[5]}
-                                        </div>
+                <CommentsProvider>
+                    <div id="wrapper" className="nota">
+                        <Header />
+                        <main>
+                            {/* Pre-Titulo: Banners */}
+                            {children[0]}
+                            <div
+                                className={`lay col-12 ${this.sectionClass &&
+                                    this.sectionClass.class}`}
+                            >
+                                {/* TODO: confirmar */}
+                                <header className="row titulo">
+                                    <div className="col-12">
+                                        {/* Titulo (breadcrumb, logo+titulo) */}
+                                        {children[1]}
                                     </div>
-                                </section>
+                                </header>
+                                {/* Apertura */}
+                                {children[2]}
                             </div>
-                            {/* Tercera */}
-                            <div className="sidebar__aside hlp-desklm-none">
-                                {children[6]}
-                            </div>
-                        </div>
 
-                        {/* TODO: revisar clases del newsLetter Full-Break */}
-                        {/* {children[7]} */}
-
-                        {/* Newsletter */}
-                        <div className="lay">{children[7]}</div>
-
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {/* Bottom */}
-                                {children[8]}
+                            <div className="lay-sidebar">
+                                {/* Cuerpo */}
+                                <div className="sidebar__main">
+                                    <section className="cuerpo__nota">
+                                        <div className="row">
+                                            <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                                {/* hlp-mobile-show */}
+                                                {/* Left-Cuerpo Shared */}
+                                                {children[3]}
+                                            </div>
+                                            <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                                <div className="row">
+                                                    <div className="col-12">
+                                                        {/* Pos-Apertura */}
+                                                        {children[4]}
+                                                    </div>
+                                                </div>
+                                                {children[5]}
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                {/* Tercera */}
+                                <div className="sidebar__aside hlp-desklm-none">
+                                    {children[6]}
+                                </div>
                             </div>
-                            <div className="sidebar__aside">
-                                {/* Bottom-Tercera */}
-                                {children[9]}
+
+                            {/* TODO: revisar clases del newsLetter Full-Break */}
+                            {/* {children[7]} */}
+
+                            {/* Newsletter */}
+                            <div className="lay">{children[7]}</div>
+
+                            <div className="lay-sidebar">
+                                <div className="sidebar__main">
+                                    {/* Bottom */}
+                                    {children[8]}
+                                </div>
+                                <div className="sidebar__aside">
+                                    {/* Bottom-Tercera */}
+                                    {children[9]}
+                                </div>
                             </div>
-                        </div>
-                    </main>
-                    <Footer />
-                </div>
+                        </main>
+                        <Footer />
+                    </div>
+                </CommentsProvider>
             </GlobalProvider>
         );
     }
