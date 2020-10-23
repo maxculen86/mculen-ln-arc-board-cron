@@ -174,12 +174,14 @@ const transformContent = (jsonArticle, arcSite) => {
     /* TODO: validar si related content debe ir vacio si tiene otros 
     items diferentes a reference */
     if (resp && resp.related_content && resp.related_content.basic) {
-        resp.related_content.basic.forEach((e, i) => {
-            if (e.type === 'reference') {
+        resp.related_content.basic.forEach((element, i) => {
+            if (element.type === 'reference') {
                 promiseArr.push(
-                    addFollowAnotherNoteData(e, arcSite, i).then(g => {
-                        resp.related_content.basic[i] = g;
-                    })
+                    addFollowAnotherNoteData(element, arcSite, i).then(
+                        newContent => {
+                            resp.related_content.basic[i] = newContent;
+                        }
+                    )
                 );
             }
         });
