@@ -9,7 +9,7 @@ import useGlobal from '../../../common/hooks/useGlobal';
 import BannerManager from './manager/banner';
 import { getDimsFromSiteService } from './utils';
 
-const index = React.memo(props => {
+const index = props => {
     const { navigationTreeSource } = useGlobal();
 
     const dimensions = useRef(null);
@@ -100,7 +100,7 @@ const index = React.memo(props => {
     }
 
     return <BannerManager config={config} />;
-});
+};
 
 index.propTypes = {
     arcSite: PropTypes.string,

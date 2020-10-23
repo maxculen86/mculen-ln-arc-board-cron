@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props */
-import React, { useRef, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'fusion:prop-types';
 import useMutationObserver from '../../../common/hooks/useMutationObserver';
 import hasAdsTestParam from '../utils/hasAdsTesParam';
@@ -7,8 +7,6 @@ import hasAdsTestParam from '../utils/hasAdsTesParam';
 import ArcAdLib from './arcAdLib';
 
 const Ads = props => {
-    const ref = useRef();
-
     const {
         id,
         slotName,
@@ -21,23 +19,19 @@ const Ads = props => {
         children
     } = props;
 
-    if (!ref.current) {
-        ref.current = ArcAdLib.getInstance();
-
-        ref.current.registerAd(
-            {
-                id,
-                slotName,
-                dimensions,
-                display,
-                targeting: { ...targeting, adstest: hasAdsTestParam() },
-                sizemap,
-                bidding
-            },
-            dfpId,
+    ArcAdLib.getInstance().registerAd(
+        {
+            id,
+            slotName,
+            dimensions,
+            display,
+            targeting: { ...targeting, adstest: hasAdsTestParam() },
+            sizemap,
             bidding
-        );
-    }
+        },
+        dfpId,
+        bidding
+    );
 
     const onMutate = useCallback(
         mutations => {
