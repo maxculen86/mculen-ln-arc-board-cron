@@ -20,13 +20,24 @@ const apiIngresar = () => {
         }).then(res => res.json());
 
     const getMe = (isRelogin = false, token, xvalue) => {
+        const ProductoPremiumId = getCookie('ProductoPremiumId') || '';
+        const UsuarioDetalleEmail = getCookie('usuarioemail') || '';
+
         if (
             getCookie('shouldrelogin') &&
-            getCookie('usuariodata') &&
+            ProductoPremiumId &&
+            UsuarioDetalleEmail &&
             !isRelogin
         ) {
             return new Promise(resolve =>
-                resolve({ response: getCookie('usuariodata') })
+                resolve({
+                    response: JSON.stringify({
+                        Usuario: {
+                            ProductoPremiumId,
+                            UsuarioDetalleEmail
+                        }
+                    })
+                })
             );
         }
 
