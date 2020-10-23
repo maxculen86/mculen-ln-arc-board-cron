@@ -51,6 +51,7 @@ import '../../resources/dist/css/ln/components/banners.css';
 import '../../resources/dist/css/ln/base/helpers.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import { CommentsProvider } from '../private/common/context/commentsContext';
 
 // TODO: componentizar banner megatop
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
@@ -80,36 +81,38 @@ const lnNotaNoticia = ({
 
     return (
         <GlobalProvider>
-            {/* Banner Megatop */}
-            {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
+            <CommentsProvider>
+                {/* Banner Megatop */}
+                {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
 
-            <div id="wrapper" className={`nota noticia ${amp}`}>
-                <Header />
-                <main style={{ paddingTop: '0px' }}>
-                    <div
-                        className="lay --apertura"
-                        style={{ maxWidth: '100%', padding: '0rem' }}
-                    >
-                        <div className="row">
-                            <div className="col-12">
-                                {/* Html libre */}
-                                <HtmlLibre />
+                <div id="wrapper" className={`nota noticia ${amp}`}>
+                    <Header />
+                    <main style={{ paddingTop: '0px' }}>
+                        <div
+                            className="lay --apertura"
+                            style={{ maxWidth: '100%', padding: '0rem' }}
+                        >
+                            <div className="row">
+                                <div className="col-12">
+                                    {/* Html libre */}
+                                    <HtmlLibre />
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {/* Bottom */}
-                            {bottom}
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Bottom */}
+                                {bottom}
+                            </div>
+                            <div className="sidebar__aside">
+                                {/* Bottom-Tercera */}
+                                {bottomTercera}
+                            </div>
                         </div>
-                        <div className="sidebar__aside">
-                            {/* Bottom-Tercera */}
-                            {bottomTercera}
-                        </div>
-                    </div>
-                </main>
-            </div>
+                    </main>
+                </div>
+            </CommentsProvider>
         </GlobalProvider>
     );
 };

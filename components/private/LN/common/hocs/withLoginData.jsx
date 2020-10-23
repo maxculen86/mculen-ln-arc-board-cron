@@ -65,8 +65,20 @@ function withLoginData(WrappedComponent) {
                 const setUserData = res => {
                     if (res.response) {
                         if (!getCookie('shouldrelogin')) {
+                            const { Usuario: u } =
+                                JSON.parse(res.response) || {};
+
+                            const usuariodata = JSON.stringify({
+                                Usuario: {
+                                    ProductoPremiumId:
+                                        u.ProductoPremiumId || '',
+                                    UsuarioDetalleEmail:
+                                        u.UsuarioDetalleEmail || ''
+                                }
+                            });
+
                             setCookie('shouldrelogin', 'true', 12 * 60);
-                            setCookie('usuariodata', res.response, 12 * 60);
+                            setCookie('usuariodata', usuariodata, 12 * 60);
                         }
 
                         const { Usuario } = JSON.parse(res.response);
@@ -78,23 +90,27 @@ function withLoginData(WrappedComponent) {
                             );
                         }
 
-                        setAuth(true);
-
-                        this.setState({
-                            logueado: true,
-                            loginData: {
-                                subscription,
-                                userName: `${Usuario.UsuarioDetalleEmail.substring(
-                                    0,
-                                    16
-                                )}...`,
-                                goToLoginUrl: () => {
-                                    location.href =
-                                        LOGIN_URL + window.btoa(location.href);
-                                },
-                                loading: false
+                        this.setState(
+                            {
+                                logueado: true,
+                                loginData: {
+                                    subscription,
+                                    userName: `${Usuario.UsuarioDetalleEmail.substring(
+                                        0,
+                                        16
+                                    )}...`,
+                                    goToLoginUrl: () => {
+                                        location.href =
+                                            LOGIN_URL +
+                                            window.btoa(location.href);
+                                    },
+                                    loading: false
+                                }
+                            },
+                            () => {
+                                setAuth(true);
                             }
-                        });
+                        );
                     }
 
                     /**

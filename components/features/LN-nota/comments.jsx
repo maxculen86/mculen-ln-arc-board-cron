@@ -1,7 +1,12 @@
 import Consumer from 'fusion:consumer';
+import React from 'react';
 
 import Comments from '../../private/LN/nota/comments';
 
-Comments.label = 'LN-Nota-Comments';
+const CommentsFeature = props => {
+    return <Comments {...props} />;
+};
 
-export default Consumer(Comments);
+CommentsFeature.label = 'LN-Nota-Comments';
+
+export default Consumer(CommentsFeature);

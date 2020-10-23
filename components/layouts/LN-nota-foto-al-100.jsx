@@ -52,6 +52,7 @@ import '../../resources/dist/css/ln/base/helpers.css';
 import '../../resources/dist/css/ln/pages/magazine.css';
 
 import { GlobalProvider } from '../private/common/context/globalContext';
+import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
@@ -100,50 +101,52 @@ const lnNotaFotoAl100 = ({
     const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
-            {/* Banner MEGATOP */}
-            {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
+            <CommentsProvider>
+                {/* Banner MEGATOP */}
+                {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
 
-            <div
-                id="wrapper"
-                className={`nota ${magazine} --photo100 --transparent ${amp}`}
-            >
-                <Header />
-                <main>
-                    <AperturaStorytelling />
+                <div
+                    id="wrapper"
+                    className={`nota ${magazine} --photo100 --transparent ${amp}`}
+                >
+                    <Header />
+                    <main>
+                        <AperturaStorytelling />
 
-                    {/* Cuerpo al 100% */}
-                    <div className="row">
-                        {leftCuerpo}
-                        {cuerpo}
-                    </div>
-
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {/* Post-Cuerpo */}
-                            {postCuerpo}
+                        {/* Cuerpo al 100% */}
+                        <div className="row">
+                            {leftCuerpo}
+                            {cuerpo}
                         </div>
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {/* Post-Cuerpo-Tercera */}
-                            {postCuerpoTercera}
-                        </div>
-                    </div>
 
-                    {/* Newsletter */}
-                    <div className="lay">{newsletter}</div>
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Post-Cuerpo */}
+                                {postCuerpo}
+                            </div>
+                            <div className="sidebar__aside hlp-tablet-none">
+                                {/* Post-Cuerpo-Tercera */}
+                                {postCuerpoTercera}
+                            </div>
+                        </div>
 
-                    <div className="lay-sidebar">
-                        <div className="sidebar__main">
-                            {/* Bottom */}
-                            {bottom}
+                        {/* Newsletter */}
+                        <div className="lay">{newsletter}</div>
+
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Bottom */}
+                                {bottom}
+                            </div>
+                            <div className="sidebar__aside hlp-tablet-none">
+                                {/* Bottom-Tercera */}
+                                {bottomTercera}
+                            </div>
                         </div>
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {/* Bottom-Tercera */}
-                            {bottomTercera}
-                        </div>
-                    </div>
-                </main>
-                <Footer />
-            </div>
+                    </main>
+                    <Footer />
+                </div>
+            </CommentsProvider>
         </GlobalProvider>
     );
 };
