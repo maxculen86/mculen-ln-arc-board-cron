@@ -11,8 +11,6 @@ const GlobalProvider = props => {
 
     const [state, setState] = useState({
         authenticated: false,
-        commentsEnabled: false,
-        commentsCount: 0,
         navigationTreeSource: useContent({
             source: 'navigationTreeSource',
             query: {

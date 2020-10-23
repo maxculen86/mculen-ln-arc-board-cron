@@ -19,7 +19,7 @@ import ComButton from '../../common/com-button';
 import ComLine from '../common/footer/com-line';
 import AmpContainer from '../../common/ampContainer';
 import get from '../../common/utils/get';
-import useGlobal from '../../common/hooks/useGlobal';
+import useComments from '../../common/hooks/useComments';
 
 const Share = props => {
     const {
@@ -37,7 +37,8 @@ const Share = props => {
 
     const facebookId = get(siteVars, 'shareConfig.facebook.appID', undefined);
 
-    const { commentsCount } = useGlobal();
+    const { commentsCount } = useComments();
+
     // TODO: arreglar el tema de las URL's
     const mystyle = {
         maxWidth: '32px',

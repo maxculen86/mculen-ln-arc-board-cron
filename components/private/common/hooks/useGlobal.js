@@ -10,23 +10,7 @@ const useGlobal = () => {
         setState(state => ({ ...state, authenticated: value }));
     }
 
-    function setCommentsEnabled(value) {
-        setState(state => ({ ...state, commentsEnabled: value }));
-    }
-
-    function setCommentsEnabledAndCount(enabled, count) {
-        setState(state => ({
-            ...state,
-            commentsEnabled: enabled,
-            commentsCount: count
-        }));
-    }
-
     return {
-        commentsCount: state.commentsCount,
-        setCommentsEnabledAndCount,
-        setCommentsEnabled,
-        commentsAllowed: state.commentsEnabled,
         setAuth,
         isAuth: state.authenticated,
         navigationTreeSource: state.navigationTreeSource
