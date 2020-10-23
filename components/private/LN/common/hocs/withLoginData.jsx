@@ -65,7 +65,7 @@ function withLoginData(WrappedComponent) {
                 const setUserData = res => {
                     if (res.response) {
                         if (!getCookie('shouldrelogin')) {
-                            const { Usuario: u } =
+                            /*                             const { Usuario: u } =
                                 JSON.parse(res.response) || {};
 
                             const usuariodata = JSON.stringify({
@@ -75,30 +75,25 @@ function withLoginData(WrappedComponent) {
                                     UsuarioDetalleEmail:
                                         u.UsuarioDetalleEmail || ''
                                 }
-                            });
+                            }); */
 
                             setCookie('shouldrelogin', 'true', 12 * 60);
-                            setCookie('usuariodata', usuariodata, 12 * 60);
+                            /* setCookie('usuariodata', usuariodata, 12 * 60); */
                         }
 
-                        const { Usuario } = JSON.parse(res.response);
-                        let subscription = false;
-
-                        if (Usuario && Usuario.ProductoPremiumId) {
-                            subscription = Usuario.ProductoPremiumId.includes(
-                                '2'
-                            );
-                        }
+                        const subscription = getCookie('ProductoPremiumId')
+                            ? getCookie('ProductoPremiumId').includes('2')
+                            : false;
+                        const userName = getCookie('usuarioemail')
+                            ? `${getCookie('usuarioemail').substring(0, 16)}...`
+                            : '';
 
                         this.setState(
                             {
                                 logueado: true,
                                 loginData: {
                                     subscription,
-                                    userName: `${Usuario.UsuarioDetalleEmail.substring(
-                                        0,
-                                        16
-                                    )}...`,
+                                    userName,
                                     goToLoginUrl: () => {
                                         location.href =
                                             LOGIN_URL +
@@ -319,7 +314,8 @@ function withLoginData(WrappedComponent) {
                 const urlToLogout = `${SITIO_SEGURO_REGISTRACION}/logout/logout.html?pagina=${location.href}`;
 
                 eraseCookie('shouldrelogin');
-                eraseCookie('usuariodata');
+                /* ;
+                eraseCookie('usuariodata'); */
 
                 const ifrm = document.createElement('iframe');
                 ifrm.setAttribute('src', urlToLogout);

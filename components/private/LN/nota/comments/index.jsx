@@ -45,7 +45,6 @@ const Comments = props => {
     const allowComments = get(comments, 'allow_comments', true);
     const displayComments = get(comments, 'display_comments', true);
 
-    const { isAuth } = useGlobal();
     const { setCommentsEnabledAndCount } = useComments();
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
@@ -53,6 +52,7 @@ const Comments = props => {
     const { getCookie } = handleCookie();
     const cookie = getCookie('usuario%5Flogtkn');
     const commentSection = useRef(null);
+    const isAuth = typeof cookie !== 'undefined';
 
     const instance = useRef(null);
 
