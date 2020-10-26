@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import get from 'lodash.get';
+import get from '../../../common/utils/get';
 
 export default function WithNavigation(WrappedComponent) {
     return Consumer(
@@ -53,40 +53,61 @@ export default function WithNavigation(WrappedComponent) {
                 fetched.then(result => this.getSectionTree(result));
             };
             */
-            getSectionTree = results => {
+
+            getSections = results => {
                 const sections = [];
-                let termicas = {};
-                if (results) {
-                    termicas = results.Termicas;
-                    const { sectionId } = this.props;
-                    sections.push({
-                        id: results._id,
-                        name: results.name,
-                        path: results._id
+                const { sectionId } = this.props;
+                const sectionList =
+                    sectionId &&
+                    sectionId.split('/').map(el => {
+                        return el ? `/${el}` : '';
                     });
-                    let section = results;
-                    if (sectionId) {
-                        do {
-                            section = section.children.filter(el =>
-                                sectionId.includes(el._id)
-                            )[0];
-                            if (section) {
-                                sections.push({
-                                    id: section._id,
-                                    name: section.name,
-                                    path: section._id
-                                });
-                            }
-                        } while (section);
-                    }
-                    this.convertStringToBoolean(termicas);
-                    /*
-                    this.setState({
-                        sections,
-                        termicas
-                    });
-                    */
+
+                const { _id: id, name } = results;
+                const base = id &&
+                    name && {
+                        id,
+                        name,
+                        path: id
+                    };
+
+                if (base) {
+                    sections.push(base);
+                    if (sectionList) sectionList.shift();
                 }
+
+                let section = results;
+                if (sectionId && sectionList && sectionList.length) {
+                    do {
+                        const primarySectionId = sectionList[0];
+                        const { children } = section;
+                        [section] =
+                            primarySectionId &&
+                            children &&
+                            children.filter(el => el._id === primarySectionId);
+                        if (section) {
+                            sections.push({
+                                id: section._id,
+                                name: section.name,
+                                path: section._id
+                            });
+                            if (sectionList.length >= 2) {
+                                sectionList[0] = sectionList[0].concat(
+                                    sectionList[1]
+                                );
+                                sectionList.splice(1, 1);
+                            }
+                        }
+                    } while (section);
+                }
+
+                return sections;
+            };
+
+            getSectionTree = results => {
+                const termicas = (results && results.Termicas) || {};
+                const sections = (results && this.getSections(results)) || [];
+                if (results) this.convertStringToBoolean(termicas);
                 return { sections, termicas };
             };
 

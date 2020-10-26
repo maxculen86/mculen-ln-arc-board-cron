@@ -1,6 +1,6 @@
 import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
-import { FOTOAL100, STORYTELLING } from '../utils/subtypes/subtypeHelper';
+import { FOTOAL100 } from '../utils/subtypes/subtypeHelper';
 
 const videosBody = contentElements =>
     contentElements &&

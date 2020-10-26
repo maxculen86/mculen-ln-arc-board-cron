@@ -4,14 +4,23 @@ import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/nota/articleRanking';
 import get from '../../../common/utils/get';
 
-const getSectionParent = (primarySection, sectionList) => {
+const getSectionParent = (primarySection, sectionList, website) => {
+    const navigationTreeSource = useContent({
+        source: 'navigationTreeSource',
+        query: {
+            website
+        }
+    });
+    const navigation =
+        sectionList || (navigationTreeSource && navigationTreeSource.children);
+
     const sections = primarySection.split('/');
     const sectionParentId =
         sections && sections.length > 2 ? `/${sections[1]}` : null;
     const { name: titleSectionParent } =
         (sectionParentId &&
-            sectionList &&
-            sectionList.find(section => section._id === sectionParentId)) ||
+            navigation &&
+            navigation.find(section => section._id === sectionParentId)) ||
         {};
     return {
         titleSectionParent,
@@ -21,6 +30,8 @@ const getSectionParent = (primarySection, sectionList) => {
 
 const getSectionData = props => {
     const globalContent = get(props, 'globalContent', null);
+    const website = get(props, '_website', null);
+    const arcSite = get(props, 'arcSite', null);
 
     // Acumulados
     const isAcuSection = get(globalContent, 'node_type', null) === 'section';
@@ -48,7 +59,7 @@ const getSectionData = props => {
     const sectionParent =
         sectionId &&
         !sectionId.includes('/recetas') &&
-        getSectionParent(sectionId, sectionList);
+        getSectionParent(sectionId, sectionList, website || arcSite);
 
     const { sectionParentId, titleSectionParent } = sectionParent || {};
 
@@ -64,7 +75,14 @@ const getSectionData = props => {
     };
 };
 
-const getRankingContent = (sectionId,size,imageConfig,daysAgo,weeksAgo,website) =>{
+const getRankingContent = (
+    sectionId,
+    size,
+    imageConfig,
+    daysAgo,
+    weeksAgo,
+    website
+) => {
     return useContent({
         source: 'rankingArticlesSource',
         query: {
@@ -77,7 +95,7 @@ const getRankingContent = (sectionId,size,imageConfig,daysAgo,weeksAgo,website) 
         },
         filter
     });
-}
+};
 
 const getArticles = (index, props, sectionId, imageConfig) => {
     const weeksAgo = get(props, `customFields.weeksAgo${index}`, 1);
@@ -86,7 +104,14 @@ const getArticles = (index, props, sectionId, imageConfig) => {
     const website = get(props, 'website', null);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const articlesData = getRankingContent(sectionId,size,imageConfig,daysAgo,weeksAgo,website)
+    const articlesData = getRankingContent(
+        sectionId,
+        size,
+        imageConfig,
+        daysAgo,
+        weeksAgo,
+        website
+    );
 
     const articles = get(articlesData, 'content_elements', null);
     return articles && articles.length >= size ? articles : null;

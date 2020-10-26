@@ -28,9 +28,7 @@ const resolve = (key, a) => {
 
     const query = `&query=type:story+AND+revision.published:true${sectionFilter}${publishDateFilter}${offsetFilter}`;
 
-    const finalPath = `${basePath}${query}&size=${size ||
-        3}&sort=first_publish_date:desc`;
-
+    const finalPath = `${basePath}${query}&size=${size || 3}`;
     return finalPath;
 };
 

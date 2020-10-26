@@ -20,6 +20,7 @@ import withNavigation from '../../common/hocs/WithNavigation';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 
 import useGlobal from '../../../common/hooks/useGlobal';
+import useComments from '../../../common/hooks/useComments';
 import get from '../../../common/utils/get';
 
 const Comments = props => {
@@ -44,13 +45,14 @@ const Comments = props => {
     const allowComments = get(comments, 'allow_comments', true);
     const displayComments = get(comments, 'display_comments', true);
 
-    const { isAuth, setCommentsEnabledAndCount } = useGlobal();
+    const { setCommentsEnabledAndCount } = useComments();
 
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
     const { getCookie } = handleCookie();
     const cookie = getCookie('usuario%5Flogtkn');
     const commentSection = useRef(null);
+    const isAuth = typeof cookie !== 'undefined';
 
     const instance = useRef(null);
 
@@ -124,12 +126,6 @@ const Comments = props => {
                     minutesUntilAbsoluteTime: 4,
                     absoluteFormat: 'HH:mm dd/MM/y'
                 },
-                /* editorCss: {
-                    background: '#ccc',
-                    color: 'red',
-                    font:
-                        '30px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif'
-                }, */
                 initialNumVisible: '10',
                 postToButtons: ['tw', 'fb']
             }
@@ -238,7 +234,7 @@ const Comments = props => {
                 }
 
                 if (typeof fyre !== 'undefined') {
-                    if (!fyre.conv.ready.hasFired() && !instance.current) {
+                    if (!instance.current) {
                         /* eslint-disable no-new */
                         instance.current = new Conv(
                             LiveFyreConfig.networkConfig,
