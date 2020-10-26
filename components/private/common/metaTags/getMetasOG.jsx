@@ -22,7 +22,9 @@ const getDescription = (
         description = subheadlinesBasic || descriptionDefault;
     }
     if (!isArticle && !url.includes('recetas')) {
-        description = metaValue('description') || descriptionDefault;
+        description =
+            `Últimas Noticias de ${metaValue('description')}` ||
+            descriptionDefault;
     }
     return description;
 };

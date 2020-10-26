@@ -113,7 +113,9 @@ describe('Common - getMetasOG function', () => {
                 }
             },
             metaValue: function metaValue(name) {
-                return name === 'title' ? 'LA NACION' : '';
+                if (name === 'title') return 'LA NACION';
+                if (name === 'description') return 'Propiedades';
+                return '';
             },
             contextPath: '/pf',
             deployment: function deployment() {
@@ -136,7 +138,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:description',
-                content: ''
+                content: 'Últimas Noticias de Propiedades'
             },
             {
                 property: 'og:image',
