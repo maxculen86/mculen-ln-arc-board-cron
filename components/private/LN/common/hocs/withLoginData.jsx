@@ -48,10 +48,7 @@ function withLoginData(WrappedComponent) {
                     loginData: {
                         subscription: false,
                         userName: 'Sin nombre',
-                        goToLoginUrl: () => {
-                            location.href =
-                                LOGIN_URL + window.btoa(location.href);
-                        },
+                        goToLoginUrl: this.goToLoginUrl,
                         loading: true
                     }
                 };
@@ -65,20 +62,7 @@ function withLoginData(WrappedComponent) {
                 const setUserData = res => {
                     if (res.response) {
                         if (!getCookie('shouldrelogin')) {
-                            /*                             const { Usuario: u } =
-                                JSON.parse(res.response) || {};
-
-                            const usuariodata = JSON.stringify({
-                                Usuario: {
-                                    ProductoPremiumId:
-                                        u.ProductoPremiumId || '',
-                                    UsuarioDetalleEmail:
-                                        u.UsuarioDetalleEmail || ''
-                                }
-                            }); */
-
                             setCookie('shouldrelogin', 'true', 12 * 60);
-                            /* setCookie('usuariodata', usuariodata, 12 * 60); */
                         }
 
                         const subscription = getCookie('ProductoPremiumId')
@@ -107,19 +91,7 @@ function withLoginData(WrappedComponent) {
                             }
                         );
                     }
-
-                    /**
-                     * TODO: Handler bad codes of /me
-                     */
                 };
-
-                // TODO: Agregar aqui validadion de de diff de dias para hacer relogin
-                /* 
-            Nota. Considerar casos de res.code para relogin
-            Validar set Xvalue Token 
-            Dejar -todo- nota para res.response.Usuario
-            Fin de la tarea
-            */
 
                 /**
                  * Validamos que hayan pasado cinco dias desde la ultima sesion
@@ -158,8 +130,17 @@ function withLoginData(WrappedComponent) {
                     this.goToLogout();
                 }
 
-                getCookie('token')
-                    ? apiIngresar.getMe().then(res => setUserData(res))
+                getCookie('ProductoPremiumId') && getCookie('usuarioemail')
+                    ? setUserData({
+                          response: JSON.stringify({
+                              Usuario: {
+                                  ProductoPremiumId: getCookie(
+                                      'ProductoPremiumId'
+                                  ),
+                                  UsuarioDetalleEmail: getCookie('usuarioemail')
+                              }
+                          })
+                      })
                     : this.setState({
                           loginData: {
                               subscription: false,
@@ -172,6 +153,10 @@ function withLoginData(WrappedComponent) {
                       });
 
                 return true;
+            };
+
+            goToLoginUrl = () => {
+                location.href = LOGIN_URL + window.btoa(location.href);
             };
 
             reMeHandler = (res, token, xvalue) => {
@@ -314,8 +299,6 @@ function withLoginData(WrappedComponent) {
                 const urlToLogout = `${SITIO_SEGURO_REGISTRACION}/logout/logout.html?pagina=${location.href}`;
 
                 eraseCookie('shouldrelogin');
-                /* ;
-                eraseCookie('usuariodata'); */
 
                 const ifrm = document.createElement('iframe');
                 ifrm.setAttribute('src', urlToLogout);
@@ -328,10 +311,7 @@ function withLoginData(WrappedComponent) {
                     loginData: {
                         subscription: false,
                         userName: 'Sin nombre',
-                        goToLoginUrl: () => {
-                            location.href =
-                                LOGIN_URL + window.btoa(location.href);
-                        },
+                        goToLoginUrl: this.goToLoginUrl,
                         loading: false
                     }
                 });
