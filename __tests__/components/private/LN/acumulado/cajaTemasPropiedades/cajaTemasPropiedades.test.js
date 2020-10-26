@@ -53,7 +53,7 @@ jest.mock('fusion:content', () => ({
 }));
 
 jest.mock(
-    '../../../../../../components/private/LN/acumulado/CajaTemasPropiedades',
+    '../../../../../../components/private/LN/acumulado/cajaTemasPropiedades/index',
     () => 'caja-tema-propiedades-mock'
 );
 jest.mock(
@@ -65,7 +65,7 @@ import React from 'react';
 import { render, mount, shallow } from 'enzyme';
 import withCollections from '../../../../../../components/private/LN/acumulado/hocs/withCollections';
 import filter from '../../../../../../content/filters/LN/acumulado/collections';
-import CajaTemasPropiedades from '../../../../../../components/private/LN/acumulado/CajaTemasPropiedades';
+import CajaTemasPropiedades from '../../../../../../components/private/LN/acumulado/cajaTemasPropiedades/index';
 
 describe('Private - Common - hocs - withCollections => ', () => {
     const articles = [
