@@ -4,13 +4,13 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import AMPScripts, {
     _AMPBoilerplate,
-    AMPCustomStyle,
-    Snippets
+    AMPCustomStyle
+    //Snippets
 } from '../private/common/ampIndex';
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
-import getParagraph from '../private/common/utils/getParagraph';
+import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
@@ -130,7 +130,7 @@ const Amp = props => {
                     description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
                     firstParagraphContentElements={
-                        getParagraph(contentElements) || ''
+                        getFirstParagraph(contentElements) || ''
                     }
                     arcSite={arcSite}
                 />

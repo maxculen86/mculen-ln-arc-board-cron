@@ -1,43 +1,48 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
-
+import PropTypes from 'fusion:prop-types';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import ComTitle from '../../private/common/com-title';
+import get from '../../private/common/utils/get';
 
 // TODO: Reoptimizar este componente
-const seguirLeyendo = props => {
+const seguirLeyendo = ({ globalContent }) => {
+    const relatedContent = get(globalContent, 'related_content.basic', []);
+    if (relatedContent.every(con => con && con.type !== 'story')) return null;
     return (
         <Static id="LN-Nota-SeguirLeyendo">
-            {props.globalContent.related_content.basic.length > 0 && (
-                <>
-                    <div className="row">
-                        <div className="col-12">
-                            <section
-                                className="keep-reading"
-                                data-is-block="true"
-                                data-block-name="n_segui_leyendo"
-                                data-diagramacion-id="0"
-                            >
-                                <ComTitle
-                                    size="--l"
-                                    tag="h4"
-                                    content="Seguir Leyendo"
-                                />
-                                <SeguirLeyendo
-                                    //////Armar el componente del subtitulooooo
-                                    related_content={
-                                        props.globalContent.related_content
-                                            .basic
-                                    }
-                                />
-                            </section>
-                        </div>
-                    </div>
-                </>
-            )}
+            <div className="row">
+                <div className="col-12">
+                    <section
+                        className="keep-reading"
+                        data-is-block="true"
+                        data-block-name="n_segui_leyendo"
+                        data-diagramacion-id="0"
+                    >
+                        <ComTitle
+                            size="--l"
+                            tag="h4"
+                            content="Seguir Leyendo"
+                        />
+                        <SeguirLeyendo relatedContent={relatedContent} />
+                    </section>
+                </div>
+            </div>
         </Static>
     );
+};
+
+seguirLeyendo.propTypes = {
+    globalContent: PropTypes.shape({
+        related_content: PropTypes.shape({
+            basic: PropTypes.shape({
+                headlines: PropTypes.shape({
+                    basic: PropTypes.string
+                })
+            })
+        })
+    }).isRequired
 };
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';

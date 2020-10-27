@@ -1,11 +1,11 @@
-import getParagraph from '../../../../../components/private/common/utils/getParagraph';
+import getFirstParagraph from '../../../../../components/private/common/utils/getFirstParagraph';
 
-describe('Common - utils - getParagraph.js', () => {
+describe('Common - utils - getFirstParagraph.js', () => {
     const contentElements = [
         {
             _id: 'TQEIH4634FB77AAR32FNTSDIMU',
             content:
-                'La postulación de la diplomática, elogiada en varias ocasiones públicamente por Felipe Solá, tomó fuerza en las últimas horas y, por ahora, no genera resistencias en el Palacio San Martín.',
+                'La postulación de la <b>diplomática</b>, elogiada en varias ocasiones públicamente por Felipe Solá, tomó fuerza en las últimas horas y, por ahora, no genera resistencias en el Palacio San Martín.',
             type: 'text'
         },
         {
@@ -22,10 +22,15 @@ describe('Common - utils - getParagraph.js', () => {
         }
     ];
 
-    test('Test de getParagraph ver si el primer elemento es un string', () => {
-        const contentElement = getParagraph(contentElements);
+    test('Test de getFirstParagraph ver si el primer elemento es un string', () => {
+        const contentElement = getFirstParagraph(contentElements);
         expect(contentElement).toStrictEqual(
             'La postulación de la diplomática, elogiada en varias ocasiones públicamente por Felipe Solá, tomó fuerza en las últimas horas y, por ahora, no genera resistencias en el Palacio San Martín.'
         );
+    });
+
+    test('Strips HTML tags', () => {
+        const paragraph = getFirstParagraph(contentElements);
+        expect(paragraph).not.toMatch(/<\/?[^>]+(>|$)/g);
     });
 });

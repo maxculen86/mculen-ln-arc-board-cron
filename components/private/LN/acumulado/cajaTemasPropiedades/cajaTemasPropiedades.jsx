@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ArticleAcum from './articleAcum';
-import ModRowGap from '../../common/mod-rowgap';
-import ComTitle from '../../common/com-title';
+import ArticleAcum from '../articleAcum';
+import ModRowGap from '../../../common/mod-rowgap';
+import ComTitle from '../../../common/com-title';
 
 const CajaTemasPropiedades = props => {
     const ARTICLE_TYPE = 'Grilla';

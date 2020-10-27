@@ -30,9 +30,9 @@ const MetaDescription = ({
     arcSite,
     nodeType,
     name,
-    _id,
-    payload,
-    authorType
+    _id
+    // payload,
+    // authorType
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
     // TODO: faltan meta descripction para otros acumulados (tags, author, recetas)
