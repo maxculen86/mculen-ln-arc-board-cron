@@ -11,17 +11,17 @@ const withAcuCategories = (WrappedComponent, filter, website) => props => {
         idPrimarySection && idPrimarySection.split('/').splice(1).length === 1;
 
     const _children = get(props, 'globalContent.children', undefined);
-    const [navigationList] = useState(
+
+    const navigationList =
         hierarchyManual &&
-            useContent({
-                source: 'navigationSource',
-                query: {
-                    hierarchy: hierarchyManual,
-                    website
-                },
-                filter
-            })
-    );
+        useContent({
+            source: 'navigationSource',
+            query: {
+                hierarchy: hierarchyManual,
+                website
+            },
+            filter
+        });
 
     const response = get(navigationList, 'children', null);
 

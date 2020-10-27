@@ -1,5 +1,4 @@
 @import '../abstracts/variables';
-
 body {
     .wrap-dropdown {
         //display: none;
@@ -131,13 +130,23 @@ body {
                         border: 1px solid #d9d9d9;
                         background: $blanco;
                         &.secondary--nav {
+                            .item__nav {
+                                .link__item {
+                                    color: #5a5a5a;
+                                }
+                            }
+
                             @media (min-width: 769px) {
                                 border-top: 1px solid #d9d9d9;
                             }
 
-                            .item__nav {
-                                .link__item {
-                                    color: #5a5a5a;
+                            @media all and (max-height: 800px) {
+                                .item__nav.item__nav {
+                                    position: inherit;
+                                }
+                                .sublist__nav.sublist__nav {
+                                    bottom: -20px;
+                                    top: auto;
                                 }
                             }
                         }
@@ -404,14 +413,5 @@ body {
                 }
             }
         }
-    }
-}
-@media all and (max-height: 800px) {
-    .secondary--nav .item__nav {
-        position: inherit;
-    }
-    .secondary--nav .sublist__nav.sublist__nav {
-        bottom: -20px;
-        top: auto;
     }
 }

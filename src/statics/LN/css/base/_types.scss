@@ -6,7 +6,7 @@
 @include font-face('SuecaSlab', suecaslab-medium-webfont, 500);
 @include font-face('SuecaSlab', suecaslab-bold-webfont, 700);
 @include font-face('LNicons', ln-icons-v4, normal);
-@include font-face('LNlogos', ln-logos, normal);
+@include font-face('LNlogos', ln-logos-v2, normal);
 
 strong,
 .element-paragraph b {
@@ -177,11 +177,11 @@ strong,
 }
 
 .logo-club:before {
-    content: '\e801';
+    content: $logo-club;
 }
 
 .logo-club-lanacion:before {
-    content: '\e802';
+    content: $logo-club-lanacion;
 }
 
 .logo-hola:before {
@@ -189,7 +189,7 @@ strong,
 }
 
 .logo-hola-argentina:before {
-    content: '\e804';
+    content: $logo-hola-argentina;
 }
 
 .logo-jardin:before {
@@ -197,7 +197,7 @@ strong,
 }
 
 .logo-la-nacion:before {
-    content: '\e806';
+    content: $logo-la-nacion;
 }
 
 .logo-living:before {
@@ -205,15 +205,15 @@ strong,
 }
 
 .logo-ln:before {
-    content: '\e808';
+    content: $logo-ln;
 }
 
 .logo-ln-mas:before {
-    content: '\e809';
+    content: $logo-ln-mas;
 }
 
 .logo-ln-placeholder:before {
-    content: '\e80a';
+    content: $logo-ln-placeholder;
 }
 
 .logo-lugares:before {
@@ -221,7 +221,7 @@ strong,
 }
 
 .logo-negocios:before {
-    content: '\e80c';
+    content: $logo-negocios;
 }
 
 .logo-ohlala:before {

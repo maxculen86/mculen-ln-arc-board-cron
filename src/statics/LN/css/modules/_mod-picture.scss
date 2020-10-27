@@ -34,8 +34,7 @@
 
     .--slider.--slider & {
         display: flex;
-        padding-bottom: $picture;
-        padding-top: initial;
+        padding-top: $picture;
         justify-content: center;
         background: $gris1;
     }
@@ -99,11 +98,11 @@
     .mod-picture {
         padding-top: calc((4 / 3) * 100%);
     }
-    @media ($media-m) {
-        .--active & {
-            .mod-picture {
-                padding-top: initial;
-            }
-        }
-    }
+    // @media ($media-m) {
+    //     .--active & {
+    //         .mod-picture {
+    //             padding-top: initial;
+    //         }
+    //     }
+    // }
 }

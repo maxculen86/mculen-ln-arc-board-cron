@@ -1,6 +1,15 @@
 import React from 'react';
-import { mount } from 'enzyme';
+/*
+jest.mock('fusion:consumer', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+*/
+import Consumer from 'fusion:consumer';
+import { mount, shallow, render } from 'enzyme';
 import MetaDescription from '../../../../../components/private/common/metaDescription';
+import MetaDescriptionAcumulado from '../../../../../components/private/LN/acumulado/metaDescriptionAcumulado';
 
 describe('LN - Common - MetaDescription', () => {
     it('MetaDescription nota snapshot', () => {
@@ -14,5 +23,18 @@ describe('LN - Common - MetaDescription', () => {
             />
         );
         expect(metaTitleBasic).toMatchSnapshot();
+    });
+
+    it('MetaDescriptionAcumulado', () => {
+        const props = {
+            size: '5',
+            title:'Politica',
+            sectionId:'/politica',
+            globalContent: { type: {}, _id: '/politica'}
+        };
+     
+        const wrapper = render(<MetaDescriptionAcumulado {...props} />);
+        expect(wrapper).toMatchSnapshot();
+
     });
 });

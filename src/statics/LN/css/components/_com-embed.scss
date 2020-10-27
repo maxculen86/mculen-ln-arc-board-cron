@@ -6,11 +6,22 @@
     &.--youtube,
     &.--vimeo,
     &.--dailymotion {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: $picture;
+        position: relative;
         iframe {
-            @media (max-width: 375px) {
-                width: 100%;
-                height: 200px;
-            }
+            position: absolute;
+            object-fit: cover;
+            height: 100%;
+            top: 0;
+            width: 100%;
+            // @media (max-width: 375px) {
+            //     width: 100%;
+            //     height: 200px;
+            // }
         }
     }
 }

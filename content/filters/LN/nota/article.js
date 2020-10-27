@@ -293,6 +293,7 @@ export default `
             }
             ${labels}
             website_url
+            canonical_url
         }
         redirect {
             redirect_url

@@ -23,7 +23,7 @@ import SnippetIndex from '../private/common/snippet';
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
-import getParagraph from '../private/common/utils/getParagraph';
+import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
@@ -101,7 +101,7 @@ const Default = props => {
         CssLinks,
         Fusion,
         Libs,
-        MetaTags,
+        // MetaTags,
         metaValue,
         siteProperties,
         renderables,
@@ -117,6 +117,9 @@ const Default = props => {
         syndication,
         distributor,
         node_type: nodeType,
+        name,
+        author_type: authorType,
+        Payload,
         _id
     } = globalContent || {};
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -176,12 +179,6 @@ const Default = props => {
                 `
                     }}
                 />
-                {/* <link href="https://especialess3.lanacion.com.ar/20/06/coronavirus-evolucion-especial/css/app.6fd78c9e.css" rel="stylesheet" />
-                <link href="https://especialess3.lanacion.com.ar/20/06/coronavirus-evolucion-especial/js/chunk-vendors.ec7ce19c.js" rel="preload" as="script" />
-                <link href="https://especialess3.lanacion.com.ar/20/06/coronavirus-evolucion-especial/js/app.d0588205.js" rel="preload" as="script" />
-                <link href="https://especialess3.lanacion.com.ar/20/06/coronavirus-evolucion-especial/css/app.6fd78c9e.css" rel="preload" as="style" />
-
-                <script src="https://especialess3.lanacion.com.ar/20/06/coronavirus-evolucion-especial/js/app.d0588205.js" /> */}
 
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
@@ -207,10 +204,15 @@ const Default = props => {
                 />
                 <MetaDescription
                     subtype={subtype}
+                    nodeType={nodeType}
+                    name={name}
+                    _id={_id}
+                    payload={Payload}
+                    authorType={authorType}
                     description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
                     firstParagraphContentElements={
-                        getParagraph(contentElements) || ''
+                        getFirstParagraph(contentElements) || ''
                     }
                     arcSite={arcSite}
                 />

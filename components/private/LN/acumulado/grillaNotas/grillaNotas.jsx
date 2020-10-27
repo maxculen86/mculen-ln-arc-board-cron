@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import Consumer from 'fusion:consumer';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
@@ -9,9 +10,27 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
 
-// import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
+class GrillaNotas extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { articlesInBox: [] };
+    }
 
-class GrillaNotas extends Component {
+    componentDidMount() {
+        const msgHandler = message => {
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                    articlesInBox: prevState.articlesInBox.concat(
+                        message.articlesInBox
+                    )
+                };
+            });
+            // this.removeEventListener('articlesInBox', msgHandler);
+        };
+        this.addEventListener('articlesInBox', msgHandler);
+    }
+
     getBanner = index => {
         const position = index + 1;
         const { bannerConfig, hideBanners } = this.props;
@@ -54,15 +73,18 @@ class GrillaNotas extends Component {
             globalContent,
             loading,
             typeArticle,
-            articlesInCollection = [],
-            outputType
+            outputType,
+            articlesInGlobalProvider
         } = this.props;
+        const { articlesInBox } = this.state;
 
         const articlesInNoCollection = articles.filter(
             art =>
-                !articlesInCollection.some(
+                !articlesInBox.some(artInColl => artInColl._id === art._id) &&
+                !articlesInGlobalProvider.some(
                     artInColl => artInColl._id === art._id
-                ) && art
+                ) &&
+                art
         );
 
         return (
@@ -96,6 +118,7 @@ GrillaNotas.propTypes = {
     hideBanners: PropTypes.string.isRequired,
     articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    articlesInGlobalProvider: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
     obtenerMasNotas: PropTypes.func.isRequired,
     globalContent: PropTypes.shape({
@@ -121,5 +144,5 @@ GrillaNotas.defaultProps = {
 };
 
 export default WithNavigation(
-    withScreenUtils(WithAcuArticlesData(GrillaNotas, filter, 'notaM'))
+    withScreenUtils(WithAcuArticlesData(Consumer(GrillaNotas), filter, 'notaM'))
 );

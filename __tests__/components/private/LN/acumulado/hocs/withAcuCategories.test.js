@@ -38,23 +38,20 @@ jest.mock('fusion:content', () => ({
         ]
     })
 }));
-
 jest.mock(
     '../../../../../../components/private/LN/acumulado/acumuladoTitle',
     () => 'acumulado-title-mock'
 );
-
 import React from 'react';
 import { render, shallow } from 'enzyme';
 import withAcuCategories from '../../../../../../components/private/LN/acumulado/hocs/withAcuCategories';
 import filter from '../../../../../../content/filters/LN/acumulado/collections';
 import AcumuladoTitle from '../../../../../../components/private/LN/acumulado/acumuladoTitle';
-
 const navigationManual = [
     {
-        _id: '/economia/dolar',
+        _id: '/economia/campo',
         _website: 'la-nacion-ar',
-        name: 'Dólar Hoy',
+        name: 'Campo',
         node_type: 'section'
     },
     {
@@ -64,9 +61,9 @@ const navigationManual = [
         node_type: 'section'
     },
     {
-        _id: '/economia/campo',
+        _id: '/economia/dolar',
         _website: 'la-nacion-ar',
-        name: 'Campo',
+        name: 'Dólar Hoy',
         node_type: 'section'
     },
     {
@@ -82,7 +79,6 @@ const navigationManual = [
         node_type: 'section'
     }
 ];
-
 const navigationAutomatica = [
     {
         _id: '/economia/campo',
@@ -115,7 +111,6 @@ const navigationAutomatica = [
         node_type: 'section'
     }
 ];
-
 describe('Private - Common - hocs - withAcuCategories => ', () => {
     const props = {
         globalContent: {
@@ -124,88 +119,36 @@ describe('Private - Common - hocs - withAcuCategories => ', () => {
             _id: '/economia'
         }
     };
-
     const component = props => <AcumuladoTitle {...props} />;
-
     const ComponentWithAcuCategories = withAcuCategories(
         component(props),
         filter,
         'la-nacion-ar'
     );
-
     it('Render OK', () => {
         const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
         expect(wrapper).toBeDefined();
     });
-
     it('Render NOTOK', () => {
-        jest.mock('fusion:content', () => ({
-            useContent: () => ({})
-        }));
-
         const props = {};
-
         const component = props => <AcumuladoTitle {...props} />;
-
         const ComponentWithAcuCategories = withAcuCategories(
             component(props),
             filter,
             'la-nacion-ar'
         );
-
         const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
         expect(wrapper).toBeDefined();
         expect(wrapper.first().props().navigation).toBe(undefined);
         expect(wrapper.first().props().isPrimarySection).toBe(undefined);
     });
-
     it('Prioridad navegación manual', () => {
-        const props = {
-            globalContent: {
-                children: navigationAutomatica,
-                _id: '/economia'
-            },
-            hierarchyManual: 'Economy'
-        };
-
         const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
         expect(wrapper.first()).toBeTruthy();
         expect(wrapper.first().props().navigation).toStrictEqual(
             navigationManual
         );
     });
-
-    it('Navegación automática para subcategorías', () => {
-        const props = {
-            globalContent: {
-                children: navigationAutomatica,
-                _id: '/comunidad/hablemos-de-todo'
-            }
-        };
-
-        const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
-        expect(wrapper.first()).toBeTruthy();
-        expect(wrapper.first().props().navigation).toStrictEqual(
-            navigationAutomatica
-        );
-    });
-
-    it('Navegación manual para subcategorías', () => {
-        const props = {
-            globalContent: {
-                children: navigationAutomatica,
-                _id: '/comunidad/racismo'
-            },
-            hierarchyManual: 'Economy'
-        };
-
-        const wrapper = shallow(<ComponentWithAcuCategories {...props} />);
-        expect(wrapper.first()).toBeTruthy();
-        expect(wrapper.first().props().navigation).toStrictEqual(
-            navigationManual
-        );
-    });
-
     it('Ocultar navegación automática / manual', () => {
         const _props = {
             ...props,

@@ -1,23 +1,27 @@
 import React from 'react';
-import { useAppContext } from 'fusion:context';
+import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
+import withStatic from '../../private/common/hocs/withStatic';
 import NotaApertura from '../../private/LN/acumulado/notaApertura';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
-import get from '../../private/common/utils/get';
-import withStatic from '../../private/common/hocs/withStatic';
 
 const AperturaFeature = props => {
-    const { acumuladoGeneral } = useGlobalProviderAcu();
-    const idCollection = get(acumuladoGeneral, 'id_collection_promo_items');
-    const { outputType } = useAppContext();
+    const { outputType } = props;
+    const { articlesInCollection = [] } = useGlobalProviderAcu();
+
     return (
         <NotaApertura
             {...props}
-            idCollection={idCollection}
+            articlesInCollection={articlesInCollection}
             outputType={outputType}
         />
     );
 };
 
+AperturaFeature.propTypes = {
+    outputType: PropTypes.func.isRequired
+};
+
 AperturaFeature.label = 'LN-Acumulado-Apertura';
 
-export default withStatic(AperturaFeature);
+export default withStatic(Consumer(AperturaFeature));
