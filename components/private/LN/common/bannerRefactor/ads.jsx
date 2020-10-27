@@ -76,7 +76,7 @@ Ads.propTypes = {
     }),
     bidding: PropTypes.shape({
         prebid: PropTypes.object
-    }).isRequired,
+    }),
     children: PropTypes.arrayOf(PropTypes.nodes),
     display: PropTypes.string
 };

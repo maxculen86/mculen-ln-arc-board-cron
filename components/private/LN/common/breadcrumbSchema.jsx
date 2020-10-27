@@ -4,30 +4,33 @@ import { SITE_LANACION } from 'fusion:environment';
 
 function BreadcrumbSchema({ sections, host }) {
     const parent = [{ ...sections.shift() }].reduce(
-        (acc, val) => ({
-            ...acc,
-            '@type': 'ListItem',
-            position: 1,
-            name: val.name,
-            item: SITE_LANACION
-        }),
-        {}
+        (acc, val) => [
+            {
+                ...acc,
+                '@type': 'ListItem',
+                position: 1,
+                name: val.name,
+                item: SITE_LANACION
+            }
+        ],
+        []
     );
 
+    const children = sections.map((el, i) => {
+        const slash = el.path && el.path.slice(-1) !== '/' ? '/' : '';
+        return `
+                {
+                    "@type": "ListItem",
+                    "position": ${i + 2},
+                    "name": "${el.name}",
+                    "item": "${host + el.path + slash}"
+                }
+            `;
+    });
+
     const items = [
-        JSON.stringify(parent),
-        sections
-            .map((el, i) => {
-                const slash = el.path && el.path.slice(-1) !== '/' ? '/' : '';
-                return `
-        {
-            "@type": "ListItem",
-            "position": ${i + 2},
-            "name": "${el.name}",
-            "item": "${host + el.path + slash}"
-        }`;
-            })
-            .join(',')
+        ...parent.map(el => JSON.stringify(el)),
+        ...(children.length > 0 ? children : [])
     ];
 
     const data = {
