@@ -5,6 +5,7 @@ import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getPathForImage from '../../../common/utils/getPathForImage';
 import getAuthorByline from '../../../common/utils/getAuthorByline';
+import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import get from '../../../common/utils/get';
 import * as Trust from './constants';
 
@@ -117,12 +118,6 @@ const getTrustProject = trust => data => sponsored => {
             return { ...data };
     }
 };
-
-const getFirstParagraph = contentElements =>
-    contentElements.some(contentElement => contentElement.type === 'text')
-        ? contentElements.find(contentElement => contentElement.type === 'text')
-              .content
-        : null;
 
 const SnippetNoticia = props => {
     const {
