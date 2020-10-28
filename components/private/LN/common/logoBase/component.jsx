@@ -7,7 +7,6 @@ const LogoBaseComponent = ({ path, logoName, color }) => {
     if (!logoName) return null;
     const Logo = <ComLogo logoName={logoName} color={color} size="--medium" />;
     const Link = <ComLink link={path}>{Logo}</ComLink>;
-    if (logoName === 'bbc') return <>{Logo}</>;
     return <>{path ? Link : Logo}</>;
 };
 
