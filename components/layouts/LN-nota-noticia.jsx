@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import LoginContext from '../private/LN/common/context/loginContext';
+import LoginProvider from '../private/LN/common/context/loginContext';
 
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
@@ -93,7 +93,7 @@ const lnNotaNoticia = ({
     const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
-            <LoginContext>
+            <LoginProvider>
                 <CommentsProvider>
                     {/* Banner MEGATOP */}
                     {bannerMegatop}
@@ -183,7 +183,7 @@ const lnNotaNoticia = ({
                         <Footer />
                     </div>
                 </CommentsProvider>
-            </LoginContext>
+            </LoginProvider>
         </GlobalProvider>
     );
 };
