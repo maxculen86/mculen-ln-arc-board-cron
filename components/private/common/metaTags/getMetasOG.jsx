@@ -23,8 +23,7 @@ const getDescription = (
     }
     if (!isArticle && !url.includes('recetas')) {
         description =
-            `Últimas Noticias de ${metaValue('description')}` ||
-            descriptionDefault;
+            `Últimas Noticias de ${metaValue('title')}` || descriptionDefault;
     }
     return description;
 };
