@@ -5,8 +5,8 @@ import PropTypes from 'fusion:prop-types';
 import AMPScripts, {
     _AMPBoilerplate,
     AMPCustomStyle
-    //Snippets
 } from '../private/common/ampIndex';
+import AMPSnippet from '../private/common/ampSnippet';
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
@@ -88,6 +88,7 @@ const Amp = props => {
                     contentFeatures={contentFeatures}
                     globalContent={globalContent}
                 />
+                <AMPSnippet {...props} />
                 <AMPCustomStyle
                     layout={layout}
                     arcSite={arcSite}
@@ -152,7 +153,6 @@ const Amp = props => {
                         }}
                     />
                 </amp-analytics>
-                {/* <Snippets /> */}
                 {children}
             </body>
         </html>
