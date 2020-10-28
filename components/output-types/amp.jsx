@@ -72,12 +72,14 @@ const Amp = props => {
         'features'
     );
 
+    const metaTitleValue = metaValue('title') || title || 'LA NACION';
+
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
             <head>
                 <meta charset="utf-8" />
                 <script async src="https://cdn.ampproject.org/v0.js" />
-                <title>{metaValue('title') || title || 'LA NACION'}</title>
+                <title>{metaTitleValue}</title>
                 <meta
                     name="viewport"
                     content="width=device-width,minimum-scale=1,initial-scale=1"
@@ -119,6 +121,9 @@ const Amp = props => {
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
                     arcSite={arcSite}
+                    nodeType={nodeType}
+                    _id={_id}
+                    title={metaTitleValue}
                 />
                 <MetaDescription
                     subtype={subtype}
