@@ -261,7 +261,6 @@ const SnippetNoticia = props => {
     return (
         <>
             <SnippetRender id="Schema_NewsArticle" data={data} />
-            <noscript>Your browser does not support javascript</noscript>
         </>
     );
 };
