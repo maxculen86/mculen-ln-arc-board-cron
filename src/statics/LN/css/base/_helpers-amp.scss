@@ -137,6 +137,7 @@
         line-height: px(26);
     }
     .--capital::first-letter {
+        text-transform: uppercase;
         font-size: px(64);
         font-family: $font-SuecaSlab;
         font-weight: bold;
