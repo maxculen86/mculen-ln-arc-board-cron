@@ -140,13 +140,21 @@ body {
                                 border-top: 1px solid #d9d9d9;
                             }
 
-                            @media all and (max-height: 800px) {
+                            @media (max-height: 800px) {
                                 .item__nav.item__nav {
-                                    position: inherit;
-                                }
-                                .sublist__nav.sublist__nav {
-                                    bottom: -20px;
-                                    top: auto;
+                                    position: relative;
+                                    &.item--disabled {
+                                        &:hover {
+                                            .sublist__nav.sublist__nav {
+                                                top: auto;
+                                            }
+                                        }
+                                    }
+
+                                    .sublist__nav.sublist__nav {
+                                        bottom: -20px;
+                                        top: auto;
+                                    }
                                 }
                             }
                         }
@@ -252,6 +260,7 @@ body {
                                 }
                             }
                             position: relative;
+
                             .link__item {
                                 color: $negro;
                             }
@@ -356,7 +365,7 @@ body {
                                             position: absolute;
                                             left: 98%;
                                             top: 0;
-                                            width: 160px;
+                                            width: 180px;
                                             background: $blanco;
                                             border-radius: 3px;
                                             padding: 20px 0;
