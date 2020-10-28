@@ -138,7 +138,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:description',
-                content: 'Últimas Noticias de Propiedades'
+                content: 'Últimas Noticias de LA NACION'
             },
             {
                 property: 'og:image',
