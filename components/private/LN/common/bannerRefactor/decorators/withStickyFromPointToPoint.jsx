@@ -54,7 +54,14 @@ const componentIsVisible = component =>
 
 const componentDidReachTarget = (component, target) => {
     if (!component || !target) return false;
-    return component.clientHeight > target.getBoundingClientRect().top;
+    const { top } = target.getBoundingClientRect();
+    /*
+     * function getBoundingClientRect will return left: 0, right: 0, top: 0, bottom: 0 on those elements which have
+     * set display:none which is the case when there's no caja1_dsk, so in that case false is returned in order to
+     * keep the sticky behaviour
+     */
+    if (top === 0) return false;
+    return component.clientHeight > top;
 };
 
 export default Component => Target => {
@@ -67,22 +74,26 @@ export default Component => Target => {
             hide(ref.current);
             const handleScroll = () => {
                 const windowY = window.scrollY;
-                // TODO: change this by a ref and use getBoundingClientRect func
+
                 const target = document.getElementById(`${Target}`);
 
                 if (componentIsVisible(ref.current)) {
                     if (windowY < scrollPosition.current) {
+                        // Scroll up
                         scrollPosition.current = windowY;
                         ref.current.style.cssText = '';
                         hide(ref.current);
                     } else if (windowY >= scrollPosition.current) {
+                        // Scroll down
                         scrollPosition.current = windowY;
+                        // If it hasn't reached banner caja1 yet
                         if (!componentDidReachTarget(ref.current, target)) {
                             const header = document.querySelector('#header');
+                            // If header is out of viewport we make banner cabezal sticky
                             if (!isVisibleInViewport(header)) show(ref.current);
                         } else {
-                            hide(ref.current);
-                            idle(ref.current);
+                            hide(ref.current); // Banner cabezal no longer sticky
+                            idle(ref.current); // Make it iddle
                         }
                     }
                 } else {
