@@ -28,7 +28,7 @@
             top: px(1);
             transform: rotate(224deg);
             .--transparent & {
-                color: $blanco;
+                border-color: $blanco;
             }
         }
     }

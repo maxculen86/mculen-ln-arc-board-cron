@@ -162,13 +162,13 @@ const Default = props => {
         siteProperties.scripts
     );
 
+    const title = metaValue('title') || siteProperties.title || 'LA NACION';
+
     return (
         <html lang="es">
             <head>
                 <meta charset="utf-8" />
-                <title>
-                    {metaValue('title') || siteProperties.title || 'LA NACION'}
-                </title>
+                <title>{title}</title>
 
                 <style
                     dangerouslySetInnerHTML={{
@@ -200,7 +200,10 @@ const Default = props => {
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
+                    title={title}
                     arcSite={arcSite}
+                    nodeType={nodeType}
+                    _id={_id}
                 />
                 <MetaDescription
                     subtype={subtype}
