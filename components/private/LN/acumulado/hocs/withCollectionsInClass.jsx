@@ -26,6 +26,7 @@ function withCollectionsInClass(WrappedComponent, filter, size) {
                     query: {
                         id: idCollection,
                         size,
+                        imageConfig,
                         website
                     },
                     filter

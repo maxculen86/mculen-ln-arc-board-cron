@@ -5,12 +5,32 @@ const addAspectRatioUsingCalcHeight = (width = 1) => {
     return height;
 };
 
+// Calcule greatest common divisor
+const gcd = (a, b) => {
+    if (!b) {
+        return a;
+    }
+
+    return gcd(b, a % b);
+};
+
 // setea las medidas para que el resizer cropee en 3:2
-const addAspectRatio = (items = []) =>
+export const addAspectRatio = (items = []) =>
     items.map(item => ({
         ...item,
         height: addAspectRatioUsingCalcHeight(item.width),
         isNotSmart: true
     }));
 
-export default addAspectRatio;
+// Get aspect ratio from width and height
+export const getAspectRatio = (width, height) => {
+    const greatestCommonDivisor = gcd(width, height);
+    return width && height && greatestCommonDivisor
+        ? `${width / greatestCommonDivisor}:${height / greatestCommonDivisor}`
+        : null;
+};
+
+export default {
+    addAspectRatio,
+    getAspectRatio
+};
