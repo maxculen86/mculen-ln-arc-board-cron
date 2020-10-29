@@ -30,18 +30,18 @@ const hide = element => {
     }
 };
 
-const idle = element => {
+const idle = element => target => {
     const { top } = element.getBoundingClientRect();
 
-    const caja1 = document.querySelector('#caja1_dsk');
-    if (!caja1) return;
+    const sidebar = document.querySelector(`.${target}`);
+    if (!sidebar) return;
 
-    const { top: cajaTop } = caja1.getBoundingClientRect();
+    const { top: sidebartop } = sidebar.getBoundingClientRect();
 
     if (
         (window.getComputedStyle(element).top === '0px' ||
             window.getComputedStyle(element).top === 'auto') &&
-        cajaTop > 0
+        sidebartop > 0
     ) {
         element.style.top = `${Math.abs(top)}px`;
         element.style.position = 'relative';
@@ -55,12 +55,6 @@ const componentIsVisible = component =>
 const componentDidReachTarget = (component, target) => {
     if (!component || !target) return false;
     const { top } = target.getBoundingClientRect();
-    /*
-     * function getBoundingClientRect will return left: 0, right: 0, top: 0, bottom: 0 on those elements which have
-     * set display:none which is the case when there's no caja1_dsk, so in that case false is returned in order to
-     * keep the sticky behaviour
-     */
-    if (top === 0) return false;
     return component.clientHeight > top;
 };
 
@@ -75,7 +69,7 @@ export default Component => Target => {
             const handleScroll = () => {
                 const windowY = window.scrollY;
 
-                const target = document.getElementById(`${Target}`);
+                const target = document.querySelector(`.${Target}`);
 
                 if (componentIsVisible(ref.current)) {
                     if (windowY < scrollPosition.current) {
@@ -93,7 +87,7 @@ export default Component => Target => {
                             if (!isVisibleInViewport(header)) show(ref.current);
                         } else {
                             hide(ref.current); // Banner cabezal no longer sticky
-                            idle(ref.current); // Make it iddle
+                            idle(ref.current)(Target); // Make it iddle
                         }
                     }
                 } else {
