@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
 import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
@@ -43,7 +44,6 @@ export const createResizer = (resizerKey, resizerUrl) => {
             (originalWidth || originalHeight) &&
             isNotSmart
         ) {
-            console.log('createResizer -> focalPoint', focalPoint);
             return thumbor
                 .filter(
                     `focal(${focalPoint[0] - 5}x${focalPoint[1] +
@@ -81,7 +81,6 @@ export const createResizer = (resizerKey, resizerUrl) => {
         focalPoint,
         smartCropExcluded
     ) => {
-        console.log('createResizer -> presets', presets);
         const resp = [];
         const finalPreset = presets;
         finalPreset.forEach(opt => {
@@ -160,7 +159,13 @@ export const resizeArcImage = (
         ...defaultResize,
         isNotSmart: typeof fp !== 'undefined'
     };
-    const zs =
+
+    const _resizeOptions =
+        typeof fp !== 'undefined'
+            ? resizeOptions.map(e => ({ ...e, isNotSmart: true }))
+            : resizeOptions;
+
+    const _zoomSizes =
         typeof fp !== 'undefined'
             ? zoomSizes.map(e => ({ ...e, isNotSmart: true }))
             : zoomSizes;
@@ -187,7 +192,7 @@ export const resizeArcImage = (
             arcImage.url,
             arcImage.width,
             arcImage.height,
-            resizeOptions,
+            _resizeOptions,
             fp,
             smartCropExcluded
         ),
@@ -195,7 +200,7 @@ export const resizeArcImage = (
             arcImage.url,
             arcImage.width,
             arcImage.height,
-            zs,
+            _zoomSizes,
             fp,
             smartCropExcluded
         )

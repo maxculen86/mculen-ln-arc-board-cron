@@ -48,7 +48,7 @@ const getImageResized = (ansDoc, options) => {
                 presetsPromoItems || presetsDefault,
                 resizer,
                 zoomSizes,
-                '7'
+                '-1'
             )
         })
         // ...(promoItems &&
