@@ -3,11 +3,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React, { useRef, useLayoutEffect } from 'react';
+import debounce from '../../../../common/utils/debounce';
 
-const isVisibleInViewport = element => {
-    if (!element) return false;
+const componentDidReachViewportTop = element => {
+    const header = document.querySelector('#header');
+    if (!element || !header) return false;
     const bounds = element.getBoundingClientRect();
-    return bounds && Math.abs(bounds.top) < bounds.height && bounds.bottom > 0;
+    return bounds.top + header.clientHeight <= 0;
 };
 
 const show = element => {
@@ -54,8 +56,9 @@ const componentIsVisible = component =>
 
 const componentDidReachTarget = (component, target) => {
     if (!component || !target) return false;
+    const gap = 15;
     const { top } = target.getBoundingClientRect();
-    return component.clientHeight > top;
+    return component.clientHeight > top - gap;
 };
 
 export default Component => Target => {
@@ -66,7 +69,7 @@ export default Component => Target => {
 
         useLayoutEffect(() => {
             hide(ref.current);
-            const handleScroll = () => {
+            const handleScroll = debounce(() => {
                 const windowY = window.scrollY;
 
                 const target = document.querySelector(`.${Target}`);
@@ -82,9 +85,8 @@ export default Component => Target => {
                         scrollPosition.current = windowY;
                         // If it hasn't reached banner caja1 yet
                         if (!componentDidReachTarget(ref.current, target)) {
-                            const header = document.querySelector('#header');
-                            // If header is out of viewport we make banner cabezal sticky
-                            if (!isVisibleInViewport(header)) show(ref.current);
+                            if (componentDidReachViewportTop(ref.current))
+                                show(ref.current);
                         } else {
                             hide(ref.current); // Banner cabezal no longer sticky
                             idle(ref.current)(Target); // Make it iddle
@@ -93,7 +95,7 @@ export default Component => Target => {
                 } else {
                     hide(ref.current);
                 }
-            };
+            });
 
             window.addEventListener('scroll', handleScroll);
 
