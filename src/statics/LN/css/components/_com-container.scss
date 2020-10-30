@@ -2,9 +2,24 @@
 @import '../abstracts/mixins';
 
 .com-container {
+    .com-breadcrumb & {
+        position: absolute;
+        right: 0;
+        top: px(25);
+        width: px(280);
+        visibility: hidden;
+    }
+
     &.--button {
         .cuerpo__nota & {
             @include flex(flex, row, center, center);
+        }
+    }
+}
+@media ($media-l) {
+    .com-container {
+        .com-breadcrumb & {
+            left: calc(20% - 120px);
         }
     }
 }

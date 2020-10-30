@@ -1,0 +1,36 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-tooltip {
+    @include flex(flex);
+    margin-bottom: $spacing-sm;
+    padding: $spacing-sm $spacing-xs;
+    background: $blanco;
+    border: solid 1px $gris3;
+    border-radius: px(4);
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    max-width: px(280);
+    &:before {
+        content: '';
+        position: absolute;
+        width: px(8);
+        height: px(8);
+        display: block;
+        background: $blanco;
+        border-top: solid 1px $gris3;
+        border-left: solid 1px $gris3;
+        top: -6px;
+        right: 20px;
+        transform: rotate(45deg);
+    }
+}
+@media ($media-l) {
+    .mod-tooltip {
+        &:before {
+            left: calc(50% - 4px);
+        }
+    }
+}

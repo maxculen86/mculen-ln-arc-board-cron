@@ -72,6 +72,19 @@
             margin-left: $spacing-2xs;
         }
     }
+    &.--tooltip {
+        position: relative;
+        &:hover {
+            cursor: pointer;
+            .com-container {
+                visibility: visible;
+            }
+        }
+    }
+    .mod-tooltip & {
+        border: none;
+        margin-bottom: 0;
+    }
 }
 
 @media ($media-xs) {
