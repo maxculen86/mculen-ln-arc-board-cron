@@ -105,7 +105,7 @@
         li {
             display: inline-flex;
             .com-link {
-                text-transform: capitalize;
+                //text-transform: capitalize;
                 white-space: nowrap;
                 position: relative;
             }
@@ -123,6 +123,7 @@
             display: inline-flex;
             flex-direction: column;
             flex-wrap: nowrap;
+            padding-bottom: $spacing;
             .com-title,
             .com-logo {
                 margin-bottom: $spacing-sm;
@@ -155,7 +156,8 @@
 
             @media ($media-l) {
                 flex-direction: row;
-                align-items: baseline;
+                align-items: flex-end;
+                padding-bottom: $spacing-sm;
 
                 .com-title,
                 .com-logo {
@@ -171,7 +173,7 @@
                 }
                 .com-button {
                     padding: 0;
-                    margin-bottom: px(-6);
+                    margin-bottom: px(2);
                     &:not(.hlp-none) {
                         display: inline-flex;
                     }
@@ -425,7 +427,7 @@
         }
     }
     &.--category {
-        margin-bottom: $spacing-sm;
+        margin-bottom: $spacing;
     }
     &.--tags {
         margin-bottom: $spacing-md;
