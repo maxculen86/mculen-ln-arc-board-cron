@@ -13,7 +13,8 @@ const titleAndIconArticle = ({
         headlines,
         label,
         distributor,
-        owner
+        owner,
+        subtype
     },
     layout
 }) => {
@@ -28,6 +29,7 @@ const titleAndIconArticle = ({
                 distributor={distributor}
                 sponsored={sponsored}
                 advertiser={advertiser}
+                subtype={subtype}
             />
             <TitleArticle
                 prefix={prefix || ''}
@@ -63,7 +65,8 @@ titleAndIconArticle.propTypes = {
         }).isRequired,
         owner: PropTypes.shape({
             sponsored: PropTypes.bool
-        })
+        }),
+        subtype: PropTypes.string
     }).isRequired,
     layout: PropTypes.string.isRequired
 };

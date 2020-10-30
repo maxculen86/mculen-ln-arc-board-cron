@@ -10,7 +10,8 @@ const LogoBaseContainer = ({
     layout,
     distributor,
     sponsored,
-    advertiser
+    advertiser,
+    subtype
 }) => {
     const { name: distributorName } = distributor || {};
     const sectionData = getSectionLogo(sections, layout, distributorName);
@@ -32,7 +33,14 @@ const LogoBaseContainer = ({
         );
     }
 
-    return <LogoComponent path={path} logoName={logoName} color={color} />;
+    return (
+        <LogoComponent
+            path={path}
+            logoName={logoName}
+            color={color}
+            subtype={subtype}
+        />
+    );
 };
 
 LogoBaseContainer.propTypes = {
@@ -48,7 +56,8 @@ LogoBaseContainer.propTypes = {
     }).isRequired,
     layout: PropTypes.string.isRequired,
     sponsored: PropTypes.bool,
-    advertiser: PropTypes.string
+    advertiser: PropTypes.string,
+    subtype: PropTypes.string
 };
 
 export default LogoBaseContainer;
