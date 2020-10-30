@@ -82,10 +82,9 @@
             }
             &:before {
                 font-family: 'LNlogos';
-                content: '\e80a';
+                content: $logo-ln-placeholder;
                 color: #d9d9d9;
                 font-size: 4.22em;
-                //font-family: ln10;
                 font-style: normal;
                 font-weight: 400;
                 font-variant: normal;
@@ -185,7 +184,7 @@
             background: $blanco;
             &:before {
                 font-family: 'LNlogos';
-                content: '\e80a';
+                content: $logo-ln-placeholder;
                 color: #d9d9d9;
                 font-size: 43px;
                 @media (min-width: 768px) {
