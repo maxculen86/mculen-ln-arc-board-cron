@@ -83,20 +83,21 @@ export const createResizer = (resizerKey, resizerUrl) => {
     ) => {
         const resp = [];
         const finalPreset = presets;
-        finalPreset.forEach(opt => {
-            const resizedUrl = resizeUrl(
-                originalUrl,
-                originalWidth,
-                originalHeight,
-                opt,
-                focalPoint,
-                smartCropExcluded
-            );
-            resp.push({
-                resizedUrl,
-                option: opt
+        finalPreset &&
+            finalPreset.forEach(opt => {
+                const resizedUrl = resizeUrl(
+                    originalUrl,
+                    originalWidth,
+                    originalHeight,
+                    opt,
+                    focalPoint,
+                    smartCropExcluded
+                );
+                resp.push({
+                    resizedUrl,
+                    option: opt
+                });
             });
-        });
 
         return resp;
     };
@@ -121,15 +122,18 @@ export const resizeArcGallery = (
 
     return {
         ...arcgallery,
-        content_elements: arcgallery.content_elements.map(i =>
-            resizeArcImage(
-                i,
-                resizeOptions,
-                resizer,
-                zoomSizes,
-                smartCropExcluded
+        content_elements:
+            arcgallery &&
+            arcgallery.content_elements &&
+            arcgallery.content_elements.map(i =>
+                resizeArcImage(
+                    i,
+                    resizeOptions,
+                    resizer,
+                    zoomSizes,
+                    smartCropExcluded
+                )
             )
-        )
     };
 };
 
@@ -162,12 +166,13 @@ export const resizeArcImage = (
 
     const _resizeOptions =
         typeof fp !== 'undefined'
-            ? resizeOptions.map(e => ({ ...e, isNotSmart: true }))
+            ? resizeOptions &&
+              resizeOptions.map(e => ({ ...e, isNotSmart: true }))
             : resizeOptions;
 
     const _zoomSizes =
         typeof fp !== 'undefined'
-            ? zoomSizes.map(e => ({ ...e, isNotSmart: true }))
+            ? zoomSizes && zoomSizes.map(e => ({ ...e, isNotSmart: true }))
             : zoomSizes;
 
     let urlResize = resizer.resizeUrl(
@@ -219,24 +224,26 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 
     Object.keys(credits).forEach(key => {
         const credit = credits[key];
-        resp[key] = credit.map(c => {
-            if (!!c.image && !!c.image.url) {
-                const resizes = resizer.resizeUrls(
-                    c.image.url,
-                    c.image.width,
-                    c.image.height,
-                    optionsFinal
-                );
-                return {
-                    ...c,
-                    image: {
-                        ...c.image,
-                        resized_urls: resizes
-                    }
-                };
-            }
-            return c;
-        });
+        resp[key] =
+            credit &&
+            credit.map(c => {
+                if (!!c.image && !!c.image.url) {
+                    const resizes = resizer.resizeUrls(
+                        c.image.url,
+                        c.image.width,
+                        c.image.height,
+                        optionsFinal
+                    );
+                    return {
+                        ...c,
+                        image: {
+                            ...c.image,
+                            resized_urls: resizes
+                        }
+                    };
+                }
+                return c;
+            });
     });
     return resp;
 };
@@ -312,6 +319,7 @@ export const addResizedUrls = (ansDoc, option) => {
     const respDoc = {
         ...ansDoc,
         content_elements:
+            ansDoc &&
             ansDoc.content_elements &&
             ansDoc.content_elements.map(elem => {
                 if (elem.type === 'image') {
