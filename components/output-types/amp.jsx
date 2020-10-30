@@ -12,6 +12,7 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
+import MetaRobots from '../private/common/metaRobots';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
 import analytics from '../../resources/json/analytics.json';
@@ -40,7 +41,8 @@ const Amp = props => {
         renderables,
         deployment,
         contextPath,
-        globalContent
+        globalContent,
+        outputType
     } = props;
     const {
         canonical_url: canonicalUrl,
@@ -48,6 +50,7 @@ const Amp = props => {
         promo_items: promoItems,
         headlines,
         description,
+        type,
         subtype,
         syndication,
         distributor,
@@ -72,12 +75,14 @@ const Amp = props => {
         'features'
     );
 
+    const metaTitleValue = metaValue('title') || title || 'LA NACION';
+
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
             <head>
                 <meta charset="utf-8" />
                 <script async src="https://cdn.ampproject.org/v0.js" />
-                <title>{metaValue('title') || title || 'LA NACION'}</title>
+                <title>{metaTitleValue}</title>
                 <meta
                     name="viewport"
                     content="width=device-width,minimum-scale=1,initial-scale=1"
@@ -120,6 +125,9 @@ const Amp = props => {
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
                     arcSite={arcSite}
+                    nodeType={nodeType}
+                    _id={_id}
+                    title={metaTitleValue}
                 />
                 <MetaDescription
                     subtype={subtype}
@@ -139,6 +147,12 @@ const Amp = props => {
                     arcSite={arcSite}
                     subtype={subtype}
                     syndication={syndication}
+                />
+                <MetaRobots
+                    type={type}
+                    subtype={subtype}
+                    syndication={syndication}
+                    outputType={outputType}
                 />
             </head>
             <body>

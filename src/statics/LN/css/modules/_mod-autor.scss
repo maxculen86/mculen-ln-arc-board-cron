@@ -2,11 +2,11 @@
 @import '../abstracts/mixins';
 
 .mod-autor {
-    //margin-bottom: $spacing-sm;
+    margin-bottom: $spacing-sm;
     @include flex(inline);
-    // @media ($media-l) {
-    //     margin-bottom: $spacing-lg;
-    // }
+    @media ($media-l) {
+        margin-bottom: $spacing-lg;
+    }
     .container-text {
         @include flex(flex, column, center, center);
         .container-firma {
