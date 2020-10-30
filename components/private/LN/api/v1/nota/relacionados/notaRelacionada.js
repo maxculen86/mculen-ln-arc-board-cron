@@ -6,13 +6,14 @@ const notaRelacionada = dataNota => {
     const {
         _id: id,
         headlines: { basic: titulo },
-        website_url: url
+        website_url: websiteUrl,
+        canonical_url: canonicalUrl
     } = dataNota;
 
     const resp = {
         id,
         titulo,
-        url
+        url: websiteUrl || canonicalUrl
     };
 
     const volanta = get(dataNota, 'label.volanta');
