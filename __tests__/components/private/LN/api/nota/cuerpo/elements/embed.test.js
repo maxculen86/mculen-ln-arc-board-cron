@@ -19,10 +19,8 @@ describe('Test de las embebidos en el cuerpo de una nota', () => {
 
     it('Valores de embebidos Twitter', () => {
         const resp = Embed(ArticleEmbed[0]);
-        expect(resp['valor']['id']).toBe(ArticleEmbed[0].subtype);
-        expect(resp['valor']['src']).toBe(
-            'https://twitter.com/realDonaldTrump/status/1265601611310739456'
-        );
+        expect(resp['valor']['id']).toBe('html');
+        expect(resp['valor']['src']).toContain('<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">');
     });
 
     it('Valores de embebidos Youtube', () => {

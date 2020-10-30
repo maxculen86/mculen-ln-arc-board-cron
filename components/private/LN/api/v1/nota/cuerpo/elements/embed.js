@@ -14,8 +14,8 @@ const embed = embedData => {
 
     switch (valor.type) {
         case 'twitter':
-            resp.id = embedData.subtype;
-            resp.src = valor.url;
+            resp.id = 'html';
+            resp.src = valor.html;
             break;
         case 'instagram':
             resp.id = embedData.subtype;
