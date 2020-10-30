@@ -47,4 +47,4 @@ ArticleList.propTypes = {
     dataBlockName: PropTypes.string
 };
 
-export default withAcuArticlesData(ArticleList, null, 'notaM', true);
+export default withAcuArticlesData(ArticleList, null, 'm', true);

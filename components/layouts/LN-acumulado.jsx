@@ -70,7 +70,7 @@ const LNAcumuladoLayout = props => {
     const articlesInCollection = getArticlesFromCollection(
         idCollection,
         2,
-        'xl'
+        'l'
     );
 
     // TODO: agregar todas las validaciones de acu color

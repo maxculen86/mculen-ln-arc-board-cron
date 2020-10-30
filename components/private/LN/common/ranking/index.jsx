@@ -43,4 +43,4 @@ Ranking.defaultProps = {
     articles: []
 };
 
-export default withRankingData(Ranking, 'notaM');
+export default withRankingData(Ranking, 'm');

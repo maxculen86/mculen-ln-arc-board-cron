@@ -15,4 +15,4 @@ articleClientSide.propTypes = {
     position: PropTypes.number
 };
 
-export default WithClientSideResize(articleClientSide, 'notaM', 'promo_items');
+export default WithClientSideResize(articleClientSide, 'm', 'promo_items');

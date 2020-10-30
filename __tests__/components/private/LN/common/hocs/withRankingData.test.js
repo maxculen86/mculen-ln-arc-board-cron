@@ -117,11 +117,7 @@ describe('Private - LN - Common - hocs - WithRankingData', () => {
     ];
     const component = props => <Ranking {...props} />;
 
-    const ComponentWithRankingData = WithRankingData(
-        component,
-        filter,
-        'notaM'
-    );
+    const ComponentWithRankingData = WithRankingData(component, filter, 'm');
 
     let wrapper = shallow(<ComponentWithRankingData {...articleCollections} />);
 
