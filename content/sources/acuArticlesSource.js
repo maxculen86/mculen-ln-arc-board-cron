@@ -2,7 +2,10 @@ import get from 'lodash.get';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import sourceSetting from './utils/sourceSetting';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import {
+    createResizer,
+    resizePromoItems
+} from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
     const {
@@ -119,35 +122,65 @@ const resolve = key => {
     return final;
 };
 
-/* const getPresets = siteProps => {
-    const arcSite = siteProps['arc-site'];
-    const properties = getProperties(arcSite);
+const getImageResized = (ansDoc, options) => {
+    const {
+        resizerSecret,
+        resizerUrl,
+        presets,
+        presets: { promoItems: presetsPromoItems, zoomSizes = [] },
+        presetsDefault
+    } = options;
+    const { promo_items: promoItems } = ansDoc;
 
-    const presets = get(
-        properties,
-        `imageConfig.resize.[${siteProps.imageConfig}]`,
-        null
-    );
-    return presets;
+    if (!resizerSecret || !resizerUrl || !presets)
+        throw new Error(
+            'Debe proporcionar el resizerSecret, resizerUrl y presets'
+        );
+
+    const resizer = createResizer(resizerSecret, resizerUrl);
+    return {
+        ...ansDoc,
+        ...(promoItems && {
+            promo_items: resizePromoItems(
+                promoItems,
+                presetsPromoItems || presetsDefault,
+                resizer,
+                zoomSizes,
+                '-1'
+            )
+        })
+    };
 };
- */
+
 const transform = (data, siteProps) => {
     const respData = data;
+    const { content_elements: contentElements } = data || {};
     const properties = getProperties(siteProps['arc-site']);
-    const presetsDefault = get(properties, `imageConfig.resize.default`, null);
-    const presetsM = get(properties, `imageConfig.resize.m`, null);
 
-    respData.content_elements = data.content_elements.map(elem => {
-        return addResizedUrls(elem, {
-            resizerSecret: RESIZER_KEY,
-            resizerUrl: RESIZER_URL,
-            presets: {
-                promoItems: presetsM.promo_items || presetsDefault,
-                contentElements: presetsM.content_elements || presetsDefault,
-                presetsDefault
-            }
+    const presetsDefault = get(properties, 'imageConfig.resize.default', null);
+    const presetsSize = get(siteProps, 'imageConfig', 'default');
+    const presets = get(properties, `imageConfig.resize.${presetsSize}`, null);
+
+    const presetsPromoItems = get(presets, 'promo_items', null);
+    const presetsContentElement = get(presets, 'content_elements', null);
+    const presetsCredits = get(presets, 'credits', null);
+
+    respData.content_elements =
+        contentElements &&
+        contentElements.map(elem => {
+            return {
+                ...getImageResized(elem, {
+                    resizerSecret: RESIZER_KEY,
+                    resizerUrl: RESIZER_URL,
+                    presets: {
+                        promoItems: presetsPromoItems,
+                        contentElements: presetsContentElement,
+                        credits: presetsCredits,
+                        presetsDefault
+                    }
+                })
+            };
         });
-    });
 
     // De todos los Content Elements, solo traigo el primero que sea parrafo
     // (para no mandar mas info innecesaria)

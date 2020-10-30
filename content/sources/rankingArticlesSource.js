@@ -66,8 +66,13 @@ const fetch = query => {
 const transform = (data, siteProps) => {
     const properties = getProperties(siteProps['arc-site']);
 
-    const presetsDefault = get(properties, `imageConfig.resize.default`, null);
-    const presetsM = get(properties, `imageConfig.resize.m`, null);
+    const presetsDefault = get(properties, 'imageConfig.resize.default', null);
+    const presetsSize = get(siteProps, 'imageConfig', 'default');
+    const presets = get(properties, `imageConfig.resize.${presetsSize}`, null);
+
+    const presetsPromoItems = get(presets, 'promo_items', null);
+    const presetsContentElement = get(presets, 'content_elements', null);
+    const presetsCredits = get(presets, 'credits', null);
 
     const resp = {
         content_elements: data.map(v => {
@@ -79,9 +84,10 @@ const transform = (data, siteProps) => {
                     resizerSecret: RESIZER_KEY,
                     resizerUrl: RESIZER_URL,
                     presets: {
-                        promoItems: presetsM.promo_items || presetsDefault,
+                        promoItems: presetsPromoItems || presetsDefault,
                         contentElements:
-                            presetsM.content_elements || presetsDefault,
+                            presetsContentElement || presetsDefault,
+                        credits: presetsCredits,
                         presetsDefault
                     }
                 }),
