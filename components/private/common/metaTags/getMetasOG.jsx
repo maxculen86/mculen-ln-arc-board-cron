@@ -10,6 +10,32 @@ const getAppId = siteProperties =>
         ? siteProperties.shareConfig.facebook.appID
         : undefined;
 
+const getDescription = (
+    isArticle,
+    metaValue,
+    subheadlinesBasic,
+    descriptionDefault,
+    url = ''
+) => {
+    let description = '';
+    if (isArticle) {
+        description = subheadlinesBasic || descriptionDefault;
+    }
+    if (!isArticle && !url.includes('recetas')) {
+        description =
+            `Últimas Noticias de ${metaValue('title')}` || descriptionDefault;
+    }
+    return description;
+};
+
+const getUrl = (isArticle, url, domain) => {
+    const slash = url && url.slice(-1) !== '/' ? '/' : '';
+    if (isArticle) return (url && `${domain}${url}${slash}`) || domain;
+    return (
+        (url && !url.includes('recetas') && `${domain}${url}${slash}`) || domain
+    );
+};
+
 const getData = ({
     siteProperties,
     metaValue,
@@ -29,7 +55,8 @@ const getData = ({
         headlines = {},
         subheadlines = {},
         promo_items: promoItems = {},
-        canonical_url: canonicalUrl
+        canonical_url: canonicalUrl,
+        _id
     } = globalContent || {};
     const { basic: headlinesBasic } = headlines;
     const { basic: subheadlinesBasic } = subheadlines;
@@ -45,18 +72,24 @@ const getData = ({
     };
 
     const pathImagen = getPathForImage(urlBasicPI);
+    const url = canonicalUrl || _id;
+    const description = getDescription(
+        isArticle,
+        metaValue,
+        subheadlinesBasic,
+        DEFAULT.DESCRIPTION,
+        url
+    );
 
     return {
         type: isArticle ? 'article' : 'website',
         title: isArticle
             ? headlinesBasic || DEFAULT.TITLE
             : metaValue('title') || title || DEFAULT.TITLE,
-        description: isArticle
-            ? subheadlinesBasic || DEFAULT.DESCRIPTION
-            : metaValue('description') || DEFAULT.DESCRIPTION,
+        description,
         image:
             typeBasicPI === 'image' && urlBasicPI ? pathImagen : DEFAULT.IMAGE,
-        url: (canonicalUrl && `${domain}${canonicalUrl}`) || domain,
+        url: getUrl(isArticle, url, domain),
         fbAppId: getAppId(siteProperties) || DEFAULT.FB_APP_ID
     };
 };

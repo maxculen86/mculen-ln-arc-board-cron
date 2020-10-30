@@ -12,7 +12,7 @@ exports[`LN - Common - MetaSyndication MetaSyndication nota snapshot 1`] = `
   }
 >
   <meta
-    content="noindex, follow"
+    content="noindex, follow, max-image-preview:large"
     name="robots"
   />
 </Syndication>
