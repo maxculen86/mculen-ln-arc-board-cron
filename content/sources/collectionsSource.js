@@ -1,12 +1,11 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import getProperties from 'fusion:properties';
+import getPresets from './utils/presets';
 import sourceSetting from './utils/sourceSetting';
 import {
     createResizer,
     resizePromoItems
 } from '../../components/private/common/utils/image/resizer';
 import get from '../../components/private/common/utils/get';
-import { getAspectRatio } from './utils/getRatio';
 
 const resolve = key => {
     const { id, size, website } = key;
@@ -54,15 +53,7 @@ const getImageResized = (ansDoc, options) => {
 const transform = (data, siteProps) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
-    const properties = getProperties(siteProps['arc-site']);
-
-    const presetsDefault = get(properties, 'imageConfig.resize.default', null);
-    const presetsSize = get(siteProps, 'imageConfig', 'default');
-    const presets = get(
-        properties,
-        `imageConfig.resize.${presetsSize}`,
-        presetsDefault
-    );
+    const { presets, presetsDefault } = getPresets(siteProps);
 
     const presetsPromoItems = get(presets, 'promo_items', presetsDefault);
     const presetsContentElement = get(

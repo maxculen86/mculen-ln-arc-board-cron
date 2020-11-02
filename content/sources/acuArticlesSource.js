@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import getProperties from 'fusion:properties';
+import getPresets from './utils/presets';
 import sourceSetting from './utils/sourceSetting';
 import {
     createResizer,
@@ -155,11 +155,7 @@ const getImageResized = (ansDoc, options) => {
 const transform = (data, siteProps) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
-    const properties = getProperties(siteProps['arc-site']);
-
-    const presetsDefault = get(properties, 'imageConfig.resize.default', null);
-    const presetsSize = get(siteProps, 'imageConfig', 'default');
-    const presets = get(properties, `imageConfig.resize.${presetsSize}`, null);
+    const { presets, presetsDefault } = getPresets(siteProps);
 
     const presetsPromoItems = get(presets, 'promo_items', null);
     const presetsContentElement = get(presets, 'content_elements', null);
