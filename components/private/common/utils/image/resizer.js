@@ -37,39 +37,36 @@ export const createResizer = (resizerKey, resizerUrl) => {
             .setImagePath(originalUrl.replace(regex, ''))
             .filter(`quality(${filterQuality})`);
 
-        if (
-            focalPoint &&
-            focalPoint[0] &&
-            focalPoint[1] &&
-            (originalWidth || originalHeight) &&
-            isNotSmart
-        ) {
-            return thumbor
-                .filter(
-                    `focal(${focalPoint[0] - 5}x${focalPoint[1] +
-                        5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
-                )
-                .resize(newWidth, newHeight)
-                .buildUrl();
+        if (!(getAspectRatio(newWidth, newHeight) === '3:2')) {
+            if (
+                focalPoint &&
+                focalPoint[0] &&
+                focalPoint[1] &&
+                (originalWidth || originalHeight) &&
+                isNotSmart
+            ) {
+                return thumbor
+                    .filter(
+                        `focal(${focalPoint[0] - 5}x${focalPoint[1] +
+                            5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
+                    )
+                    .resize(newWidth, newHeight)
+                    .buildUrl();
+            }
+            if (!smartCropExcluded) {
+                return thumbor
+                    .smartCrop(true)
+                    .resize(newWidth, newHeight)
+                    .buildUrl();
+            }
+            if (!useFullSize) {
+                newHeight =
+                    originalWidth >= originalHeight && newWidth ? 0 : newWidth;
+                newWidth =
+                    originalWidth < originalHeight && newHeight ? 0 : newWidth;
+            }
         }
-        if (!smartCropExcluded)
-            return thumbor
-                .smartCrop(true)
-                .resize(newWidth, newHeight)
-                .buildUrl();
 
-        if (!useFullSize) {
-            newHeight =
-                originalWidth >= originalHeight && newWidth ? 0 : newWidth;
-            newWidth =
-                originalWidth < originalHeight && newHeight ? 0 : newWidth;
-        }
-
-        // return thumbor
-        //     .setImagePath(originalUrl.replace(regex, ''))
-        //     .filter(`quality(${filterQuality})`)
-        //     .resize(newWidth, newHeight)
-        //     .buildUrl();
         return thumbor.resize(newWidth, newHeight).buildUrl();
     };
 
