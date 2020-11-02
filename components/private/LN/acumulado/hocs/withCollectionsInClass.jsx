@@ -3,7 +3,7 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import get from '../../../common/utils/get';
 
-function withCollectionsInClass(WrappedComponent, filter, size) {
+function withCollectionsInClass(WrappedComponent, filter, size, imageConfig) {
     return Consumer(
         class extends PureComponent {
             static get propTypes() {
