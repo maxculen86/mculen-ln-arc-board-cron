@@ -8,7 +8,10 @@ import {
 import getPresets from './utils/presets';
 import get from '../../components/private/common/utils/get';
 import sourceSetting from './utils/sourceSetting';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import {
+    createResizer,
+    resizePromoItems
+} from '../../components/private/common/utils/image/resizer';
 import Redirect from './utils/redirect';
 
 const resolve = (key, a) => {
@@ -63,12 +66,46 @@ const fetch = query => {
     });
 };
 
+const getImageResized = (ansDoc, options) => {
+    const {
+        resizerSecret,
+        resizerUrl,
+        presets,
+        presets: { promoItems: presetsPromoItems, zoomSizes = [] },
+        presetsDefault
+    } = options;
+    const { promo_items: promoItems } = ansDoc;
+
+    if (!resizerSecret || !resizerUrl || !presets)
+        throw new Error(
+            'Debe proporcionar el resizerSecret, resizerUrl y presets'
+        );
+
+    const resizer = createResizer(resizerSecret, resizerUrl);
+    return {
+        ...ansDoc,
+        ...(promoItems && {
+            promo_items: resizePromoItems(
+                promoItems,
+                presetsPromoItems || presetsDefault,
+                resizer,
+                zoomSizes,
+                '-1'
+            )
+        })
+    };
+};
+
 const transform = (data, siteProps) => {
     const { presets, presetsDefault } = getPresets(siteProps);
 
-    const presetsPromoItems = get(presets, 'promo_items', null);
-    const presetsContentElement = get(presets, 'content_elements', null);
-    const presetsCredits = get(presets, 'credits', null);
+    const presetsPromoItems = get(presets, 'promo_items', presetsDefault);
+    const presetsContentElement = get(
+        presets,
+        'content_elements',
+        presetsDefault
+    );
+    const presetsCredits = get(presets, 'credits', presetsDefault);
 
     const resp = {
         content_elements: data.map(v => {
@@ -76,13 +113,12 @@ const transform = (data, siteProps) => {
             const shortTitle = get(v, `headlines.mobile`, null);
 
             return {
-                ...addResizedUrls(v, {
+                ...getImageResized(v, {
                     resizerSecret: RESIZER_KEY,
                     resizerUrl: RESIZER_URL,
                     presets: {
-                        promoItems: presetsPromoItems || presetsDefault,
-                        contentElements:
-                            presetsContentElement || presetsDefault,
+                        promoItems: presetsPromoItems,
+                        contentElements: presetsContentElement,
                         credits: presetsCredits,
                         presetsDefault
                     }
