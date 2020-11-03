@@ -27,15 +27,10 @@ export const createResizer = (resizerKey, resizerUrl) => {
         if (!newHeight && !newWidth)
             throw new Error('Height and Width required');
 
-        const regex =
-            IS_DEV === 'true' || IS_SANDBOX === 'true'
-                ? /(^\w+:|^)\/\//
-                : /^.*\/\/[^\/]+/;
+        const cleanedUrl = originalUrl.replace(/(^\w+:|^)\/\//, '');
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
-        thumbor
-            .setImagePath(originalUrl.replace(regex, ''))
-            .filter(`quality(${filterQuality})`);
+        thumbor.filter(`quality(${filterQuality})`);
 
         if (!(getAspectRatio(newWidth, newHeight) === '3:2')) {
             if (
@@ -45,29 +40,32 @@ export const createResizer = (resizerKey, resizerUrl) => {
                 (originalWidth || originalHeight) &&
                 isNotSmart
             ) {
-                return thumbor
-                    .filter(
-                        `focal(${focalPoint[0] - 5}x${focalPoint[1] +
-                            5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
-                    )
-                    .resize(newWidth, newHeight)
-                    .buildUrl();
-            }
-            if (!smartCropExcluded) {
-                return thumbor
-                    .smartCrop(true)
-                    .resize(newWidth, newHeight)
-                    .buildUrl();
-            }
-            if (!useFullSize) {
+                thumbor.filter(
+                    `focal(${focalPoint[0] - 5}x${focalPoint[1] +
+                        5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
+                );
+            } else if (!smartCropExcluded) {
+                thumbor.smartCrop(true);
+            } else {
                 newHeight =
-                    originalWidth >= originalHeight && newWidth ? 0 : newWidth;
+                    !useFullSize && originalWidth >= originalHeight && newWidth
+                        ? 0
+                        : newWidth;
                 newWidth =
-                    originalWidth < originalHeight && newHeight ? 0 : newWidth;
+                    !useFullSize && originalWidth < originalHeight && newHeight
+                        ? 0
+                        : newWidth;
             }
         }
 
-        return thumbor.resize(newWidth, newHeight).buildUrl();
+        const url = thumbor
+            .setImagePath(cleanedUrl)
+            .resize(newWidth, newHeight)
+            .buildUrl();
+
+        return IS_DEV === 'true' || IS_SANDBOX === 'true'
+            ? url
+            : url.replace(/^.*\/\/[^\/]+/, '');
     };
 
     const resizeUrls = (
