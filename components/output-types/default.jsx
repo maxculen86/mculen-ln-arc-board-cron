@@ -25,6 +25,7 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
+import MetaRobots from '../private/common/metaRobots';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 
@@ -105,7 +106,8 @@ const Default = props => {
         metaValue,
         siteProperties,
         renderables,
-        globalContent
+        globalContent,
+        outputType
     } = props;
     const {
         canonical_url: canonicalUrl,
@@ -113,6 +115,7 @@ const Default = props => {
         promo_items: promoItems,
         headlines,
         description,
+        type,
         subtype,
         syndication,
         distributor,
@@ -162,13 +165,13 @@ const Default = props => {
         siteProperties.scripts
     );
 
+    const title = metaValue('title') || siteProperties.title || 'LA NACION';
+
     return (
         <html lang="es">
             <head>
                 <meta charset="utf-8" />
-                <title>
-                    {metaValue('title') || siteProperties.title || 'LA NACION'}
-                </title>
+                <title>{title}</title>
 
                 <style
                     dangerouslySetInnerHTML={{
@@ -200,7 +203,10 @@ const Default = props => {
                 <MetaTitle
                     subtype={subtype}
                     metaTitleBasic={metaTitleBasic}
+                    title={title}
                     arcSite={arcSite}
+                    nodeType={nodeType}
+                    _id={_id}
                 />
                 <MetaDescription
                     subtype={subtype}
@@ -220,6 +226,12 @@ const Default = props => {
                     arcSite={arcSite}
                     subtype={subtype}
                     syndication={syndication}
+                />
+                <MetaRobots
+                    syndication={syndication}
+                    type={type}
+                    subtype={subtype}
+                    outputType={outputType}
                 />
                 <Libs />
                 {/* Para OTT carga los styles por front */}

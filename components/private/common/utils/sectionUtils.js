@@ -100,7 +100,7 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     if (!logoSection && distributorName === 'BBC Mundo')
         return {
             logoName: 'bbc',
-            path: '',
+            path: '/tema/bbc-mundo-tid56419',
             color
         };
     if (!logoSection) return null;

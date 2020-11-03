@@ -3,11 +3,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React, { useRef, useLayoutEffect } from 'react';
+import debounce from '../../../../common/utils/debounce';
 
-const isVisibleInViewport = element => {
-    if (!element) return false;
+const componentDidReachViewportTop = element => {
+    const header = document.querySelector('#header');
+    if (!element || !header) return false;
     const bounds = element.getBoundingClientRect();
-    return bounds && Math.abs(bounds.top) < bounds.height && bounds.bottom > 0;
+    return bounds.top + header.clientHeight <= 0;
 };
 
 const show = element => {
@@ -30,18 +32,18 @@ const hide = element => {
     }
 };
 
-const idle = element => {
+const idle = element => target => {
     const { top } = element.getBoundingClientRect();
 
-    const caja1 = document.querySelector('#caja1_dsk');
-    if (!caja1) return;
+    const sidebar = document.querySelector(`.${target}`);
+    if (!sidebar) return;
 
-    const { top: cajaTop } = caja1.getBoundingClientRect();
+    const { top: sidebartop } = sidebar.getBoundingClientRect();
 
     if (
         (window.getComputedStyle(element).top === '0px' ||
             window.getComputedStyle(element).top === 'auto') &&
-        cajaTop > 0
+        sidebartop > 0
     ) {
         element.style.top = `${Math.abs(top)}px`;
         element.style.position = 'relative';
@@ -54,7 +56,9 @@ const componentIsVisible = component =>
 
 const componentDidReachTarget = (component, target) => {
     if (!component || !target) return false;
-    return component.clientHeight > target.getBoundingClientRect().top;
+    const gap = 15;
+    const { top } = target.getBoundingClientRect();
+    return component.clientHeight > top - gap;
 };
 
 export default Component => Target => {
@@ -65,30 +69,33 @@ export default Component => Target => {
 
         useLayoutEffect(() => {
             hide(ref.current);
-            const handleScroll = () => {
+            const handleScroll = debounce(() => {
                 const windowY = window.scrollY;
-                // TODO: change this by a ref and use getBoundingClientRect func
-                const target = document.getElementById(`${Target}`);
+
+                const target = document.querySelector(`.${Target}`);
 
                 if (componentIsVisible(ref.current)) {
                     if (windowY < scrollPosition.current) {
+                        // Scroll up
                         scrollPosition.current = windowY;
                         ref.current.style.cssText = '';
                         hide(ref.current);
                     } else if (windowY >= scrollPosition.current) {
+                        // Scroll down
                         scrollPosition.current = windowY;
+                        // If it hasn't reached banner caja1 yet
                         if (!componentDidReachTarget(ref.current, target)) {
-                            const header = document.querySelector('#header');
-                            if (!isVisibleInViewport(header)) show(ref.current);
+                            if (componentDidReachViewportTop(ref.current))
+                                show(ref.current);
                         } else {
-                            hide(ref.current);
-                            idle(ref.current);
+                            hide(ref.current); // Banner cabezal no longer sticky
+                            idle(ref.current)(Target); // Make it iddle
                         }
                     }
                 } else {
                     hide(ref.current);
                 }
-            };
+            });
 
             window.addEventListener('scroll', handleScroll);
 

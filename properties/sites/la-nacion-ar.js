@@ -369,13 +369,8 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 278,
-                            height: 186,
-                            media: '(min-width: 1280px)'
-                        },
-                        {
-                            width: 344,
-                            height: 230,
+                            width: 360,
+                            height: 240,
                             media: '(min-width: 1024px)'
                         },
                         {
@@ -602,30 +597,6 @@ export default {
                             }
                         }
                     }
-                }
-            },
-            notaM: {
-                promo_items: {
-                    sizes: [
-                        {
-                            width: 600,
-                            //height: 300, cambio a 3:2
-                            height: 400,
-                            media: '(min-width: 64em)'
-                        },
-                        {
-                            width: 520,
-                            //height: 200, cambio a 3:2
-                            height: 347,
-                            media: '(min-width: 48em)'
-                        },
-                        {
-                            width: 375,
-                            // height: 100, cambio a 3:2
-                            height: 250,
-                            media: '(min-width: 20em)'
-                        }
-                    ]
                 }
             },
             default: [

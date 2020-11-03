@@ -8,7 +8,7 @@ import {
 } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
-import addAspectRatio from './utils/getRatio';
+import { addAspectRatio } from './utils/getRatio';
 import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
@@ -22,6 +22,7 @@ import {
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 import getImageResized from '../../components/private/common/utils/getImageResized';
+import paywallUtils from './utils/paywall';
 
 // TODO: Pasar esto a properties
 const optionsImgResized = {
@@ -43,25 +44,6 @@ const resolve = (key, a) => {
     if (url) return `${basePath}&website_url=${url}`;
 
     throw new Error('Debe definir url o id para obtener la nota');
-};
-
-const checkPaywall = (
-    { paywallEnabled, meteringVariant, paywallUrl, url },
-    response
-) => {
-    if (
-        (paywallEnabled === '1' || paywallEnabled === 'true') &&
-        meteringVariant === 'D' &&
-        paywallUrl &&
-        (!response.content_restrictions ||
-            response.content_restrictions.content_code !== 'abierta')
-    ) {
-        const callback = Buffer.from(`${SITE_LANACION}${url}`).toString(
-            'base64'
-        );
-        const finalUrl = paywallUrl.replace('{{callback}}', callback);
-        throw new Redirect(finalUrl, 302);
-    }
 };
 
 const fetch = query => {
@@ -94,7 +76,11 @@ const fetch = query => {
                 throw new Redirect(forwardUrl, 301);
             }
 
-            checkPaywall(query, response);
+            paywallUtils.checkPaywall({
+                queryData: query,
+                urlBase: SITE_LANACION,
+                responseData: response
+            });
 
             return transform(response, arcSite, properties);
         })

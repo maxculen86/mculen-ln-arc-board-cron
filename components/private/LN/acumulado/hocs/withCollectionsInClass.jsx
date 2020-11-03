@@ -8,15 +8,7 @@ function withCollectionsInClass(WrappedComponent, filter, size, imageConfig) {
         class extends PureComponent {
             static get propTypes() {
                 return {
-                    globalContent: PropTypes.shape({
-                        acumuladoGeneral: PropTypes.shape({
-                            id_collection_promo_items:
-                                PropTypes.string.isRequired
-                        })
-                    }).isRequired,
-                    customFields: PropTypes.shape({
-                        idCollection: PropTypes.string
-                    }),
+                    idCollection: PropTypes.string.isRequired,
                     size: PropTypes.number.isRequired,
                     website: PropTypes.number.isRequired,
                     outputType: PropTypes.number.isRequired
@@ -26,20 +18,15 @@ function withCollectionsInClass(WrappedComponent, filter, size, imageConfig) {
             constructor(props) {
                 super(props);
                 this.state = { articlesInCollection: [] };
-                const {
-                    globalContent: { acumuladoGeneral },
-                    website = 'la-nacion-ar',
-                    customFields: { idCollection }
-                } = props;
+                const { website = 'la-nacion-ar', idCollection } = props;
 
-                const id = get(acumuladoGeneral, 'id_collection_promo_items');
-
-                if (!id && !idCollection) return null;
+                if (!idCollection) return null;
                 const { fetched } = this.getContent({
                     sourceName: 'collectionsSource',
                     query: {
-                        id: id || idCollection,
+                        id: idCollection,
                         size,
+                        imageConfig,
                         website
                     },
                     filter

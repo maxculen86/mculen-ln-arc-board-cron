@@ -1,7 +1,10 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import getProperties from 'fusion:properties';
+import getPresets from './utils/presets';
 import sourceSetting from './utils/sourceSetting';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import {
+    createResizer,
+    resizePromoItems
+} from '../../components/private/common/utils/image/resizer';
 import get from '../../components/private/common/utils/get';
 
 const resolve = key => {
@@ -17,28 +20,66 @@ const resolve = key => {
         2}`;
 };
 
+const getImageResized = (ansDoc, options) => {
+    const {
+        resizerSecret,
+        resizerUrl,
+        presets,
+        presets: { promoItems: presetsPromoItems, zoomSizes = [] },
+        presetsDefault
+    } = options;
+    const { promo_items: promoItems } = ansDoc;
+
+    if (!resizerSecret || !resizerUrl || !presets)
+        throw new Error(
+            'Debe proporcionar el resizerSecret, resizerUrl y presets'
+        );
+
+    const resizer = createResizer(resizerSecret, resizerUrl);
+    return {
+        ...ansDoc,
+        ...(promoItems && {
+            promo_items: resizePromoItems(
+                promoItems,
+                presetsPromoItems || presetsDefault,
+                resizer,
+                zoomSizes,
+                '-1'
+            )
+        })
+    };
+};
+
 const transform = (data, siteProps) => {
     const respData = data;
-    const properties = getProperties(siteProps['arc-site']);
+    const { content_elements: contentElements } = data || {};
+    const { presets, presetsDefault } = getPresets(siteProps);
 
-    const presetsDefault = get(properties, `imageConfig.resize.default`, null);
-    const presetsL = get(properties, `imageConfig.resize.l`, null);
+    const presetsPromoItems = get(presets, 'promo_items', presetsDefault);
+    const presetsContentElement = get(
+        presets,
+        'content_elements',
+        presetsDefault
+    );
+    const presetsCredits = get(presets, 'credits', presetsDefault);
 
-    respData.content_elements = data.content_elements.map(v => {
-        return {
-            ...addResizedUrls(v, {
-                resizerSecret: RESIZER_KEY,
-                resizerUrl: RESIZER_URL,
-                presets: {
-                    promoItems: presetsL.promo_items || presetsDefault,
-                    contentElements:
-                        presetsL.content_elements || presetsDefault,
-                    presetsDefault
-                }
-            }),
-            ...(v.canonical_url && { website_url: v.canonical_url })
-        };
-    });
+    respData.content_elements =
+        contentElements &&
+        contentElements.map(v => {
+            return {
+                ...getImageResized(v, {
+                    resizerSecret: RESIZER_KEY,
+                    resizerUrl: RESIZER_URL,
+                    presets: {
+                        promoItems: presetsPromoItems,
+                        contentElements: presetsContentElement,
+                        credits: presetsCredits,
+                        presetsDefault
+                    }
+                }),
+                ...(v.canonical_url && { website_url: v.canonical_url })
+            };
+        });
     return respData;
 };
 
@@ -46,6 +87,8 @@ export default {
     resolve,
     params: {
         id: 'text',
+        size: 'text',
+        imageConfig: 'text',
         website: 'text'
     },
     transform,

@@ -67,7 +67,11 @@ const LNAcumuladoLayout = props => {
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
-    const articlesInCollection = getArticlesFromCollection(idCollection);
+    const articlesInCollection = getArticlesFromCollection(
+        idCollection,
+        2,
+        'l'
+    );
 
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';

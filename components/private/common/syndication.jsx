@@ -12,7 +12,10 @@ const Syndication = ({ subtype, syndication, arcSite }) => {
         syndication !== undefined &&
         ((!externalDistribution && !search) ||
             (!search && externalDistribution)) && (
-            <meta name="robots" content="noindex, follow" />
+            <meta
+                name="robots"
+                content="noindex, follow, max-image-preview:large"
+            />
         )
     );
 };
