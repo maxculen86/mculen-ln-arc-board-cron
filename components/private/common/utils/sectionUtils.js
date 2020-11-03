@@ -111,7 +111,10 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     const distName = path ? path[0] : '';
     return {
         logoName: distributorName === 'BBC Mundo' ? 'bbc' : logoForPath,
-        path: distributorName === 'BBC Mundo' ? '' : `${distName}/`,
+        path:
+            distributorName === 'BBC Mundo'
+                ? '/tema/bbc-mundo-tid56419'
+                : `${distName}/`,
         color
     };
 };
