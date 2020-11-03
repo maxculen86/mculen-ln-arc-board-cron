@@ -13,33 +13,45 @@
     align-items: center;
     margin-bottom: $spacing-sm;
     color: $gris5;
+
     a {
+        position: relative;
         color: $link;
-        border-left: solid 1px $gris5;
+        //border-left: solid 1px $gris5;
         padding: 0 px(9);
         margin-bottom: $spacing;
         &:first-letter {
             text-transform: capitalize;
         }
-        /*&:last-child {
-            border-right: none;
-            pointer-events: none;
-            cursor: default;
-            color: $gris5;
-        }*/
+        &:before {
+            content: '•';
+            color: $link;
+            display: block;
+            position: absolute;
+            left: -2px;
+        }
         &:first-child {
             padding-left: 0;
             border-left: 0;
             color: $link;
+            &:before {
+                content: none;
+            }
         }
     }
     span {
-        border-left: solid 1px $gris5;
+        //border-left: solid 1px $gris5;
         padding: 0 px(6);
         margin-bottom: $spacing;
 
         &:first-letter {
             text-transform: capitalize;
+        }
+        &:before {
+            content: '•';
+            color: $gris5;
+            display: block;
+            margin-right: px(6);
         }
     }
     p {

@@ -2,10 +2,11 @@
 @import '../abstracts/mixins';
 
 .com-container {
+    .mod-sponsor &,
     .com-breadcrumb & {
         position: absolute;
-        right: 0;
-        top: px(25);
+        left: calc(50% - 140px);
+        top: 100%;
         width: px(280);
         visibility: hidden;
     }
@@ -20,6 +21,8 @@
     .com-container {
         .com-breadcrumb & {
             left: calc(20% - 120px);
+            top: px(25);
+            bottom: inherit;
         }
     }
 }

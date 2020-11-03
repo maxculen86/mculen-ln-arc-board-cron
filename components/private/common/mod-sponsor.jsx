@@ -6,6 +6,8 @@ import ComLogo from './com-logo';
 import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/modules/mod-sponsor.css';
+import ComContainer from './com-container';
+import ModTooltip from './mod-tooltip';
 
 const ModSponsor = props => {
     const { type, sponsor, textName, link } = props;
@@ -24,8 +26,11 @@ const ModSponsor = props => {
                         ContentLAB para {textName}
                     </ComText>
                 ) : (
-                    <ComText tag="" size="" classCondition="">
+                    <ComText tag="" size="" classCondition="--sponsor">
                         Espacio Patrocinado
+                        <ComContainer>
+                            <ModTooltip />
+                        </ComContainer>
                     </ComText>
                 )}
             </>

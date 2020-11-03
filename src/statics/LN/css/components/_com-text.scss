@@ -72,8 +72,10 @@
             margin-left: $spacing-2xs;
         }
     }
+    &.--sponsor,
     &.--tooltip {
-        position: relative;
+        display: flex;
+        padding: 0;
         &:hover {
             cursor: pointer;
             .com-container {
@@ -81,9 +83,20 @@
             }
         }
     }
+    &.--sponsor {
+        .mod-tooltip & {
+            color: $gris5;
+        }
+    }
     .mod-tooltip & {
         border: none;
         margin-bottom: 0;
+        color: $gris5;
+    }
+    &:before {
+        .mod-tooltip & {
+            content: none;
+        }
     }
 }
 
