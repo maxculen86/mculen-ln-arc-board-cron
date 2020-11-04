@@ -119,6 +119,7 @@
     .--top {
         //para refactor
         .mod-categories {
+            position: relative;
             width: 100%;
             display: inline-flex;
             flex-direction: column;
@@ -142,7 +143,31 @@
             }
 
             .com-button {
-                display: none;
+                width: px(30);
+                position: absolute;
+                right: px(-24);
+                bottom: px(2);
+                height: px(50);
+                flex-direction: column;
+                &.--left {
+                    right: auto;
+                    left: px(-24);
+                }
+                &:active {
+                    background: none;
+                    color: initial;
+                }
+                @media ($media-l) {
+                    width: auto;
+                    height: auto;
+                    position: relative;
+                    bottom: auto;
+                    left: auto;
+                    right: auto;
+                    &.--left {
+                        left: auto;
+                    }
+                }
             }
 
             @media ($media-m) {
