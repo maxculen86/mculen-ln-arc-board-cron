@@ -243,9 +243,9 @@
         main {
             padding-top: 0;
             .--top {
-                padding-top: $spacing-md;
-                padding-bottom: $spacing;
-                margin-bottom: $spacing-sm;
+                padding-top: $spacing-lg;
+                padding-bottom: 0;
+                margin-bottom: $spacing-lg;
                 .com-title,
                 .com-logo,
                 .com-link,
