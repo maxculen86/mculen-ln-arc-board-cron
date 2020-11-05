@@ -146,6 +146,16 @@ describe('private - LN - common - media - videoPlayer - urlForPrerollAds', () =>
         const custParamsEncoded = getCustParamsEnconde(tags, sections);
         expect(custParamsEncoded).toEqual("te_cronicas%2Cca_economia%2Cca_dolar_hoy%2Cca_industria%2Cca_comercio_exterior%2Cca_revista__hola_%2Cca_estilo__hola_");
 
+        
+        const sections2 = [
+            {
+                "name":"Economía",
+            }
+        ];
+        const custParamsEncoded2 = getCustParamsEnconde([], sections2);
+        expect(custParamsEncoded2).toEqual("ca_economia");
+
+
     });
 });
 

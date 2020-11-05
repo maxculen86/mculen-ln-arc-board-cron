@@ -25,8 +25,9 @@ export const getTags = tags => {
 export const getCustParamsEnconde = (tags, sections) => {
     const tagsFormated = getTags(tags);
     const categoriesFormated = getCategories(sections);
-    const dataEncoded = tagsFormated
-        .concat(',', categoriesFormated)
-        .replace(/,/g, '%2C');
-    return dataEncoded;
+    const dataConcat = tagsFormated.concat(',', categoriesFormated);
+    const dataEncoded =
+        dataConcat.charAt(0) === ',' ? dataConcat.substring(1) : dataConcat;
+
+    return dataEncoded.replace(/,/g, '%2C');
 };
