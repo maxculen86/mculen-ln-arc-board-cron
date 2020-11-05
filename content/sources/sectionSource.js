@@ -83,7 +83,7 @@ const ttlValue = () => {
 
 export default {
     fetch,
-    schemaName: 'section-schema',
+    //schemaName: 'section-schema',
     params: {
         id: 'text',
         website: 'text'
