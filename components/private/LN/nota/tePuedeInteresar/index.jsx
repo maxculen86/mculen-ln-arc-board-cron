@@ -1,25 +1,26 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import Consumer from 'fusion:consumer';
+import { useAppContext } from 'fusion:context';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import ComTitle from '../../../common/com-title';
 
-const Index = ({ cantidadNotas, outputType }) => {
+const Index = ({ cantidadNotas }) => {
+    const { outputType, requestUri, siteProperties } = useAppContext();
+    const { host = 'https://www.lanacion.com.ar' } = siteProperties;
     const articles = useContent({
         source: 'liftigniterSource',
-        query: { cantidadNotas }
+        query: {
+            cantidadNotas,
+            referrer: `${host}${requestUri}`,
+            imageConfig: 'm'
+        }
     });
 
-    return articles ? (
-        <div className="row interest" id="fin-cuerpo">
+    return articles && articles.length > 0 ? (
+        <div className="row interest">
             <ComTitle tag="h4" size="--l" content="Te puede interesar" />
-            <section
-                className="row-gap-tablet-3 row-gap-desksm-3"
-                data-is-block="true"
-                data-block-name="n_te_puede_interesar"
-                data-diagramacion-id="0"
-            >
+            <section className="row-gap-tablet-3 row-gap-desksm-3">
                 {articles.map((article, index) => {
                     return (
                         <ArticleMain
@@ -37,31 +38,8 @@ const Index = ({ cantidadNotas, outputType }) => {
     );
 };
 
-/* class Index extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        const { cantidadNotas, outputType } = props;
-
-        this.state = { articles: [], outputType };
-
-        this.fetchContent({
-            articles: {
-                source: 'liftigniterSource',
-                query: { cantidadNotas }
-            }
-        });
-    }
-
-    render() {
-        const { articles, outputType } = this.state;
-        return <ArticleList articles={articles} outputType={outputType} />;
-    }
-} */
-
 Index.propTypes = {
-    outputType: PropTypes.string.isRequired,
     cantidadNotas: PropTypes.number.isRequired
 };
 
-export default Consumer(Index);
+export default Index;

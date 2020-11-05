@@ -1,6 +1,6 @@
 import request from 'request-promise-native';
-import get from 'lodash.get';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import get from '../../components/private/common/utils/get';
 import sourceSetting from './utils/sourceSetting';
 import {
     createResizer,
@@ -8,9 +8,14 @@ import {
 } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
 
-const WIDGETS = 'li-nacion-recommended-item-template-1';
+/**
+ * TODO: Por completar de tarea
+ * 1. Pasar variables a encriptar y a ambiente
+ */
+
 const JSK_ID = '8561ps8ov66e7mim';
 const LIFTIGNITER_X_API_KEY = '2f03f8f6-6086-4203-a8e7-8eede90d6766';
+const WIDGETS = 'li-nacion-recommended-item-template-1';
 
 const transformArticles = (liftigniterArticles = []) =>
     liftigniterArticles.map(({ url, id, title, image }) => ({
@@ -27,7 +32,13 @@ const transformArticles = (liftigniterArticles = []) =>
         }
     }));
 
-const fetch = ({ cantidadNotas }) => {
+/**
+ * TODO: Por completar de tarea
+ * 1. Mejorar armado de uri, version, endpoint y body como parametro de liftigniter
+ */
+
+const fetch = query => {
+    const { cantidadNotas, referrer } = query;
     return request({
         uri: `https://query.petametrics.com/v3/${JSK_ID}/model`,
         method: 'POST',
@@ -39,7 +50,8 @@ const fetch = ({ cantidadNotas }) => {
         body: JSON.stringify({
             widgetName: WIDGETS,
             maxCount: cantidadNotas,
-            requestFields: ['url', 'title', 'image', 'id', 'published_time']
+            requestFields: ['url', 'title', 'image', 'id', 'published_time'],
+            referrer
         })
     })
         .then(response => {
@@ -47,9 +59,15 @@ const fetch = ({ cantidadNotas }) => {
             return transformArticles(items);
         })
         .catch(() => {
+            // TODO: Implementar registro de error en logger
             return [];
         });
 };
+
+/**
+ * TODO: Por completar de tarea
+ * 1. fijarse en funcion de acuArticlesSource para crear utilitario de promoItems
+ */
 
 const getImageResized = (ansDoc, options) => {
     const {
@@ -99,11 +117,12 @@ const transform = (data, siteProps) => {
     });
 };
 
+/**
+ * TODO: Por completar de tarea
+ * 3. Confirmar el ttl
+ */
 export default {
     fetch,
-    params: {
-        cantidadNotas: 'text'
-    },
     transform,
-    ttl: sourceSetting.acuArticlesSource.ttl
+    ttl: sourceSetting.liftigniterSource.ttl
 };

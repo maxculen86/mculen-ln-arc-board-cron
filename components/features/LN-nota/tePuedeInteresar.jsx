@@ -6,7 +6,7 @@ import TePuedeInteresar from '../../private/LN/nota/tePuedeInteresar';
 
 const tePuedeInteresar = props => {
     const {
-        customFields: { cantidadNotas },
+        customFields: { cantidadNotas = 6 },
         id
     } = props;
     return (
@@ -22,9 +22,10 @@ tePuedeInteresar.propTypes = {
     id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({
-            defaultValue: 12,
+            defaultValue: 6,
+            min: 3,
             label: 'Cantidad de Notas'
-        })
+        }).isRequired
     }).isRequired
 };
 
