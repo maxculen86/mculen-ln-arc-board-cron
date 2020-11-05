@@ -15,6 +15,10 @@ const sourceSetting = {
         ttl: 120
     },
 
+    liftigniterSource: {
+        ttl: 120
+    },
+
     authorSource: {
         ttl: 3600
     },
