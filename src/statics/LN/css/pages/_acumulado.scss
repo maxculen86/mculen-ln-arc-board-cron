@@ -179,7 +179,7 @@
             @media ($media-l) {
                 flex-direction: row;
                 align-items: flex-end;
-                padding-bottom: $spacing-sm;
+                padding-bottom: $spacing-lg;
 
                 .com-title,
                 .com-logo {
@@ -226,7 +226,7 @@
     &.--opening {
         main {
             .--top.--top {
-                padding-bottom: px(142);
+                padding-bottom: px(118);
                 margin-bottom: 0;
             }
             .--opening {
@@ -456,9 +456,9 @@
         margin-bottom: $spacing;
     }
     &.--tags {
-        margin-bottom: $spacing-md;
+        margin-bottom: $spacing-lg;
         margin-top: 0;
-        padding-top: $spacing-md;
+        padding-top: $spacing-lg;
         border-top: 1px solid $gris3;
         li {
             &:not(:last-child) {
