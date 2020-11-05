@@ -68,7 +68,7 @@ const getTrustProject = trust => data => sponsored => {
     if (sponsored)
         return {
             ...data,
-            '@type': 'AdvertiserContent',
+            '@type': 'AdvertiserContentArticle',
             publishingPrinciples
         };
 
