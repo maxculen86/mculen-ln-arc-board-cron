@@ -10,6 +10,10 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
 
+import ConfigBuilder from '../../common/bannerRefactor/builder';
+import { getSlotForDevice } from '../../common/bannerRefactor/utils';
+import { slotsConfig } from '../../common/bannerRefactor/config';
+
 class GrillaNotas extends React.Component {
     constructor(props) {
         super(props);
@@ -37,31 +41,41 @@ class GrillaNotas extends React.Component {
         const { banners: termicaShowBanner } = this.props.termicas || {
             banners: true
         };
-        const { siteProperties, isAdmin } = this.props;
+        // const { siteProperties, isAdmin } = this.props;
+
+        const {
+            screenUtils: { device }
+        } = this.props;
+
+        console.log('#### GRILLA PROPS: ', this.props);
 
         return bannerConfig
             .filter(banner => banner.position === position)
             .map(value => {
-                const props = {
-                    siteProperties,
-                    isAdmin,
-                    banner: {
-                        slotGroup: 'acumulado',
-                        selectedSlots: {
-                            desktopSlot: value.desktop,
-                            mobileSlot: value.mobile,
-                            tabletSlot: value.tablet
-                        },
-                        show: {
-                            termicas: termicaShowBanner,
-                            collection: !(hideBanners === 'true')
-                        }
-                    }
-                };
+                const slots = [
+                    { name: 'desktop', slot: value.desktop },
+                    { name: 'mobile', slot: value.mobile },
+                    { name: 'tablet', slot: value.tablet }
+                ];
+                const slotId = getSlotForDevice(device)(slots);
 
-                return (
-                    <Banner key={Math.floor(Math.random() * 100)} {...props} />
-                );
+                if (!slotId) return <></>;
+
+                const config = slotsConfig.acumulado[slotId];
+                if (!config) return <></>;
+
+                const configBuilder = new ConfigBuilder();
+                configBuilder.init({
+                    ...config,
+                    slotId,
+                    slotGroup: 'acumulado',
+                    show: {
+                        termicas: termicaShowBanner,
+                        collection: !(hideBanners === 'true')
+                    }
+                });
+
+                return <Banner key={slotId} banner={configBuilder.get()} />;
             });
     };
 

@@ -190,6 +190,7 @@ function reducer(state, action) {
 
 export default config => {
     const { slotGroup } = config;
+
     return props => {
         const [banner, dispatch] = useReducer(reducer, null);
         useEffect(() => {

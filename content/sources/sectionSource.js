@@ -1,5 +1,9 @@
 // import { transform } from "@babel/core";
+
+import request from 'request-promise-native';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import getProperties from 'fusion:properties';
+import navigationTreeSource from './navigationTreeSource';
 
 const resolve = key => {
     const { id, website } = key;
@@ -17,7 +21,30 @@ const resolve = key => {
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
 
-const transform = (data, query) => {
+const fetch = query => {
+    const { url = '' } = query;
+    const arcSite = query['arc-site'];
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+
+    return request(opt)
+        .then(response => {
+            transform(response, query, arcSite);
+        })
+        .catch(error => {
+            //logger.push(error, { source: 'content/source', url }, arcSite);
+            throw error;
+        });
+};
+
+const transform = (data, query, website) => {
     const { _id: idData } = data;
     const { id: idQuery } = query;
 
@@ -34,7 +61,14 @@ const transform = (data, query) => {
         throw err;
     }
 
-    return data;
+    const response = data;
+
+    /* navigationTreeSource.fetch({ website }).then(res => {
+        response.banner = res.bannerConfig;
+        return response;
+    }); */
+
+    return response;
 };
 
 const ttlValue = () => {
@@ -48,11 +82,10 @@ const ttlValue = () => {
  */
 
 export default {
-    resolve,
+    fetch,
     schemaName: 'section-schema',
     params: {
         id: 'text',
         website: 'text'
-    },
-    transform
+    }
 };

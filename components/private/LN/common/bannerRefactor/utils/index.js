@@ -9,3 +9,8 @@ export const getDimsFromSiteService = config => slotGroup => finalSlot => {
         dimension.split('x').map(size => parseInt(size, 10))
     );
 };
+
+export const getSlotForDevice = device => slots =>
+    slots.find(slot => slot.name === device)
+        ? slots.find(slot => slot.name === device).slot || null
+        : null;

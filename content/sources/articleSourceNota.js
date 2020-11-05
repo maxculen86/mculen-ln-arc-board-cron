@@ -14,6 +14,7 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
+import navigationTreeSource from './navigationTreeSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import {
@@ -198,6 +199,14 @@ const transformContent = (jsonArticle, arcSite) => {
             })
         );
     });
+
+    // NavigationTreeSource
+    promiseArr.push(
+        navigationTreeSource.fetch({ website: arcSite }).then(res => {
+            resp.banner = res.bannerConfig;
+            resp.termicas = res.Termicas;
+        })
+    );
 
     return Promise.all(promiseArr).then(() => {
         return resp;

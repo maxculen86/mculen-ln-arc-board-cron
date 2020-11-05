@@ -1,115 +1,16 @@
 /* eslint-disable react/require-default-props */
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import WithScreenUtils from '../../../common/hocs/withScreenUtils';
-import { slotsConfig } from './config';
-import Placeholder from './placeholder';
-import useGlobal from '../../../common/hooks/useGlobal';
 
 import BannerManager from './manager/banner';
-import { getDimsFromSiteService } from './utils';
 
 const index = props => {
-    const { navigationTreeSource } = useGlobal();
+    const { banner } = props;
 
-    const dimensions = useRef(null);
-    const {
-        siteProperties: {
-            bannerConfig: { dfp_id: dfpID }
-        },
-        isAdmin,
-        banner,
-        screenUtils,
-        extraClasses,
-        arcSite: website
-    } = props;
-
-    const {
-        slotGroup,
-        selectedSlots: { desktopSlot, mobileSlot, tabletSlot }
-    } = banner;
-
-    if (!desktopSlot && !mobileSlot && !tabletSlot) return null;
-
-    const bannerSlots = [
-        { name: 'tablet', slot: tabletSlot },
-        { name: 'desktop', slot: desktopSlot },
-        { name: 'mobile', slot: mobileSlot }
-    ];
-
-    const getSlotForDevice = screen => slots =>
-        slots.find(slot => slot.name === screen.device)
-            ? slots.find(slot => slot.name === screen.device).slot || null
-            : null;
-
-    const finalSlot = getSlotForDevice(screenUtils)(bannerSlots);
-
-    if (finalSlot === 'NINGUNO') return null;
-
-    if (!slotGroup || finalSlot === null) return null;
-
-    const { bannerConfig, Termicas } = navigationTreeSource || {
-        bannerConfig: null,
-        Termicas: null
-    };
-
-    const { banners: termicaShowBanner } = Termicas || {};
-    if (bannerConfig) {
-        dimensions.current = getDimsFromSiteService(bannerConfig)(slotGroup)(
-            finalSlot
-        );
-    }
-
-    const finalConfig = slotsConfig[slotGroup][finalSlot];
-
-    if (!finalConfig) return null;
-
-    const config = {
-        ...banner,
-        slotId: finalSlot,
-        slotName: finalConfig.slotName,
-        dfpId: dfpID,
-        dimensions: dimensions.current || finalConfig.dimensions,
-        targeting: finalConfig.targeting,
-        sizemap: finalConfig.sizemap,
-        bidding: finalConfig.bidding,
-        device: screenUtils.device,
-        extraClasses,
-        show: {
-            ...banner.show,
-            termicas: termicaShowBanner
-        }
-    };
-
-    if (!dfpID) {
-        if (!isAdmin) {
-            return null;
-        }
-
-        return <Placeholder missDfpId />;
-    }
-
-    if (isAdmin) {
-        return (
-            <Placeholder
-                slotName={finalConfig.slotName}
-                dimensions={finalConfig.dimensions}
-                targeting={finalConfig.targeting}
-            />
-        );
-    }
-
-    return <BannerManager config={config} />;
+    return <BannerManager config={banner} />;
 };
 
 index.propTypes = {
-    arcSite: PropTypes.string,
-    siteProperties: PropTypes.shape({
-        bannerConfig: PropTypes.shape({
-            dfp_id: PropTypes.number.isRequired
-        })
-    }),
-    isAdmin: PropTypes.string.isRequired,
     banner: PropTypes.shape({
         slotGroup: PropTypes.string.isRequired,
         selectedSlots: PropTypes.shape({
@@ -127,4 +28,4 @@ index.propTypes = {
     })
 };
 
-export default WithScreenUtils(index);
+export default index;

@@ -210,6 +210,59 @@ export default `
     canonical_url
     type
     subtype
+    termicas {
+        banners
+        liftigniter
+        livefyre
+    }
+    banner {
+        acumulado_cabezal_dsk
+        acumulado_cabezal_tab
+        acumulado_caja1_dsk
+        acumulado_caja1_mob
+        acumulado_caja1_tab
+        acumulado_caja2_dsk
+        acumulado_caja2_mob
+        acumulado_caja2_tab
+        acumulado_caja3_dsk
+        acumulado_caja3_mob
+        acumulado_caja4_dsk
+        acumulado_caja4_mob
+        acumulado_sticky1_mob
+        acumulado_sticky2_mob
+        dfp_id
+        nota_adhesion_dsk
+        nota_adhesion_mob
+        nota_adhesion_tab
+        nota_cabezal_dsk
+        nota_cabezal_mob
+        nota_cabezal_tab
+        nota_caja1_amp
+        nota_caja1_dsk
+        nota_caja1_mob
+        nota_caja1_tab
+        nota_caja2_amp
+        nota_caja2_dsk
+        nota_caja2_mob
+        nota_caja2_tab
+        nota_caja3_amp
+        nota_caja3_dsk
+        nota_caja3_mob
+        nota_caja4_dsk
+        nota_caja4_mob
+        nota_caja5_dsk
+        nota_caja5_mob
+        nota_megatop_dsk
+        nota_megatop_mob
+        nota_middle_1_dsk
+        nota_middle_2_dsk
+        nota_middle_3_dsk
+        nota_sticky1_mob
+        nota_sticky2_mob
+        nota_unoxuno_dsk
+        nota_unoxuno_mob
+        nota_unoxuno_tab
+    }
     distributor {
         name
         category

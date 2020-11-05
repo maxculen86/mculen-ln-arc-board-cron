@@ -1,3 +1,19 @@
+import request from 'request-promise-native';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+
+const fetch = query => {
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    return request(opt);
+};
+
 const resolve = key => {
     const { website } = key;
     if (!website)
@@ -8,6 +24,7 @@ const resolve = key => {
 };
 
 export default {
+    fetch,
     resolve,
     schemaName: 'navigation-tree-schema',
     params: {
