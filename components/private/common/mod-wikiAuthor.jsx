@@ -5,6 +5,7 @@ import ComLink from './com-link';
 import SvgTrust from './svg-trust';
 import '../../../resources/dist/css/ln/modules/mod-trust.css';
 import ComContainer from './com-container';
+import ListSocialIcons from './list-socialicons';
 
 const ModWikiAuthor = props => {
     const { classesNames, classCondition, size } = props;
@@ -71,6 +72,7 @@ const ModWikiAuthor = props => {
                     <div>Carlos Pagni en Odisea Argentina.</div>
                     <div>Carlos Pagni en Odisea Argentina.</div>
                 </ComContainer>
+                <ListSocialIcons />
             </div>
         </section>
     );
