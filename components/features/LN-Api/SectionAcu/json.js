@@ -43,7 +43,7 @@ class AcuSection {
                     source: 'acuArticlesSource',
                     query: {
                         sectionId: id,
-                        imageConfig: 'notaM',
+                        imageConfig: 'm',
                         size,
                         page
                     }

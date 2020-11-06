@@ -105,7 +105,7 @@
         li {
             display: inline-flex;
             .com-link {
-                text-transform: capitalize;
+                //text-transform: capitalize;
                 white-space: nowrap;
                 position: relative;
             }
@@ -119,10 +119,12 @@
     .--top {
         //para refactor
         .mod-categories {
+            position: relative;
             width: 100%;
             display: inline-flex;
             flex-direction: column;
             flex-wrap: nowrap;
+            padding-bottom: $spacing;
             .com-title,
             .com-logo {
                 margin-bottom: $spacing-sm;
@@ -141,7 +143,31 @@
             }
 
             .com-button {
-                display: none;
+                width: px(30);
+                position: absolute;
+                right: px(-24);
+                bottom: px(2);
+                height: px(50);
+                flex-direction: column;
+                &.--left {
+                    right: auto;
+                    left: px(-24);
+                }
+                &:active {
+                    background: none;
+                    color: initial;
+                }
+                @media ($media-l) {
+                    width: auto;
+                    height: auto;
+                    position: relative;
+                    bottom: auto;
+                    left: auto;
+                    right: auto;
+                    &.--left {
+                        left: auto;
+                    }
+                }
             }
 
             @media ($media-m) {
@@ -155,7 +181,8 @@
 
             @media ($media-l) {
                 flex-direction: row;
-                align-items: baseline;
+                align-items: flex-end;
+                padding-bottom: $spacing-sm;
 
                 .com-title,
                 .com-logo {
@@ -171,7 +198,7 @@
                 }
                 .com-button {
                     padding: 0;
-                    margin-bottom: px(-6);
+                    margin-bottom: px(2);
                     &:not(.hlp-none) {
                         display: inline-flex;
                     }
@@ -222,7 +249,7 @@
             padding-top: 0;
             .--top {
                 padding-top: $spacing-md;
-                padding-bottom: $spacing-md;
+                padding-bottom: $spacing;
                 margin-bottom: $spacing-sm;
                 .com-title,
                 .com-logo,
@@ -230,8 +257,10 @@
                 .com-button {
                     color: $blanco;
                 }
-                .--category {
-                    margin-bottom: 0;
+                @media ($media-l) {
+                    .--category {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
@@ -425,7 +454,7 @@
         }
     }
     &.--category {
-        margin-bottom: $spacing-sm;
+        margin-bottom: $spacing;
     }
     &.--tags {
         margin-bottom: $spacing-md;

@@ -29,21 +29,16 @@ class LiftIgniter extends Component {
     }
 
     render() {
+        const { globalContent } = this.props;
         const {
-            globalContent: {
-                taxonomy: { primary_section: primarySection, tags },
-                label
-            }
-        } = this.props;
+            taxonomy,
+            label,
+            content_elements: contentElements = [],
+            credits
+        } = globalContent || {};
+        const { primary_section: primarySection, tags = [] } = taxonomy || {};
         const { name: tematica } = primarySection || {};
-        const {
-            globalContent: { content_elements: contentElements }
-        } = this.props || [];
-        const {
-            globalContent: { credits }
-        } = this.props || { credits: { by: [] } };
-        const { by: authors } = credits;
-
+        const { by: authors = [] } = credits || {};
         const recomendar = get(label, 'recomendar.text');
 
         const script = {

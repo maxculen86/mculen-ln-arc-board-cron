@@ -120,10 +120,10 @@ describe('Private - Common - hocs - withCollections => ', () => {
 
     const props = {
         idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
-        title:'Titulo',
-        url:'https://google.com',
-        outputType:'default', 
-        size:'6',
+        title: 'Titulo',
+        url: 'https://google.com',
+        outputType: 'default',
+        size: '6',
         articles
     };
 
@@ -132,7 +132,7 @@ describe('Private - Common - hocs - withCollections => ', () => {
     const ComponentWithCollections = withCollections(
         component(props),
         filter,
-        'notaM'
+        'm'
     );
 
     it('Render OK', () => {
@@ -148,7 +148,7 @@ describe('Private - Common - hocs - withCollections => ', () => {
         const ComponentWithCollections = withCollections(
             component(props),
             filter,
-            'notaM'
+            'm'
         );
 
         const wrapper = render(<ComponentWithCollections {...props} />);
@@ -157,7 +157,7 @@ describe('Private - Common - hocs - withCollections => ', () => {
     });
 
     it('Atributos pasados al componente correctamente', () => {
-        const wrapper = shallow(<ComponentWithCollections  {...props} />);
+        const wrapper = shallow(<ComponentWithCollections {...props} />);
         expect(wrapper.find('caja-tema-propiedades-mock')).toBeTruthy();
         expect(wrapper.prop('articles').length).toStrictEqual(3);
         expect(wrapper.prop('articles')).toStrictEqual(articles);

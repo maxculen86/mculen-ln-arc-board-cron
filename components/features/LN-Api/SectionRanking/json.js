@@ -58,7 +58,7 @@ class SectionRanking {
                         weeksAgo: weeks,
                         daysAgo: days,
                         size,
-                        imageConfig: 'notaM'
+                        imageConfig: 'm'
                     },
                     filter
                 }

@@ -15,7 +15,7 @@ const fetch = query => {
         };
     }
     return request(opt).then(response => {
-        const url = get(response, 'content_elements[0].website_url');
+        const url = get(response, 'content_elements[0].canonical_url');
         if (!url) {
             return ArticleSourceNota.fetch(query);
         }
@@ -28,24 +28,7 @@ const resolve = key => {
     const id = new RegExp('/([0-9]+)').exec(url)[1];
 
     const arcSite = key['arc-site'];
-    const basePath = `/content/v4/search/published/?website=${arcSite}&body={
-        "query": {
-            "bool": {
-                "must": [
-                    {
-                        "term": {
-                            "type": "story"
-                        }
-                    },
-                    {
-                        "term": {
-                            "source.source_id": "${id}"
-                        }
-                    }
-                ]
-            }
-        }
-    }`;
+    const basePath = `/content/v4/search/published/?website=${arcSite}&q=type:story+AND+source.source_id:${id}&_sourceInclude=canonical_url`;
     return basePath;
 };
 

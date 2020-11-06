@@ -13,13 +13,10 @@ const embed = embedData => {
     };
 
     switch (valor.type) {
-        case 'twitter':
-            resp.id = embedData.subtype;
-            resp.src = valor.url;
-            break;
         case 'instagram':
-            resp.id = embedData.subtype;
-            resp.src = getEmbedHref('href', valor.html);
+        case 'twitter':
+            resp.id = 'html';
+            resp.src = valor.html;
             break;
         case 'facebook-video':
             resp.id = 'facebook-post';
