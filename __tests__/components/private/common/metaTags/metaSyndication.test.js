@@ -96,6 +96,6 @@ describe('LN - Common - MetaSyndication', () => {
                 outputType={props.outputType}
             />
         );
-        expect(component.html()).toBeNull();
+        expect(component.html()).not.toContain('noindex, follow');
     });
 });
