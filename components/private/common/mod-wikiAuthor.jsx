@@ -15,10 +15,10 @@ const ModWikiAuthor = props => {
             className={`mod-wikiauthor ${classesNames || ''} ${classCondition ||
                 ''}`}
         >
-            <div className="col-3">
+            <div className="col-4">
                 <ComImage />
             </div>
-            <div className="col-9">
+            <div className="col-8">
                 <div>Nombre Autor</div>
                 <div>Profesión</div>
                 <ComContainer>
@@ -36,23 +36,42 @@ const ModWikiAuthor = props => {
                     país y el exterior. En 2002 fue condecorado por el gobierno
                     de la República de Brasil con la Orden de Río Branco.
                 </div>
+                <ComContainer>
+                    <div>Educacion</div>
+                    <div>Periodismo, Universidad de Buenos Aires, 1989.</div>
+                    <div>Periodismo, Universidad de Buenos Aires, 1989.</div>
+                </ComContainer>
+                <ComContainer>
+                    <div>Reconocimientos</div>
+                    <div>
+                        Condecorado por el gobierno de la República de Brasil
+                        con la Orden de Río Branco, 2002.
+                    </div>
+                    <div>
+                        Condecorado por el gobierno de la República de Brasil
+                        con la Orden de Río Branco, 2002.
+                    </div>
+                </ComContainer>
+                <ComContainer>
+                    <div>Idiomas:</div>
+                    <div>Ingles</div>
+                    <div>Frances</div>
+                </ComContainer>
+                <ComContainer>
+                    <div>Membresías profesionales:</div>
+                    <div>Academia de Periodismo.</div>
+                </ComContainer>
+                <ComContainer>
+                    <div>Publicaciones</div>
+                    <div>Carlos Pagni en Odisea Argentina, Editorial.</div>
+                    <div>Carlos Pagni en Odisea Argentina, Editorial.</div>
+                </ComContainer>
+                <ComContainer>
+                    <div>Podscat</div>
+                    <div>Carlos Pagni en Odisea Argentina.</div>
+                    <div>Carlos Pagni en Odisea Argentina.</div>
+                </ComContainer>
             </div>
-            <ComContainer
-                classesNames={classesNames}
-                classCondition={classCondition}
-            >
-                <ComText size={size}>
-                    Conforme a <strong> los criterios de</strong>
-                </ComText>
-                <SvgTrust />
-            </ComContainer>
-
-            <ComLink
-                link="https://www.lanacion.com.ar/tema/trust-project-tid68036"
-                size={size}
-            >
-                Más información
-            </ComLink>
         </section>
     );
 };
