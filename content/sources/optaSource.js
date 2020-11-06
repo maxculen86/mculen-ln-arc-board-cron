@@ -2,20 +2,19 @@ import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import get from 'lodash.get';
 import sourceSetting from './utils/sourceSetting';
-// import filter from '../filters/LN/nota/article';
 import logger from '../../components/private/common/utils/logger';
 
 const getRawIdAndNoteId = url => {
     const params = url ? url.split('/') : '';
-    if (params.length < 7) return '';
+    if (params.length < 5) return '';
     const noteId = params[params.length - 2];
     const idRawHtml = params[params.length - 3];
     return { noteId, idRawHtml };
 };
 
 const resolve = (key, a) => {
-    const { url } = key;
-    const { noteId } = getRawIdAndNoteId(url);
+    const { uri } = key;
+    const { noteId } = getRawIdAndNoteId(uri);
 
     const arcSite = key['arc-site'];
     const basePath = `/content/v4/stories/?website=${arcSite}`;
@@ -27,7 +26,7 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
-    const { url = '' } = query;
+    const { uri = '' } = query;
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -41,17 +40,16 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            return transform(response, url);
+            return transform(response, uri);
         })
         .catch(error => {
-            logger.push(error, { source: 'content/source', url }, arcSite);
+            logger.push(error, { source: 'content/source', uri }, arcSite);
             throw error;
         });
 };
 
 const transform = (data, url) => {
     const { idRawHtml } = getRawIdAndNoteId(url);
-    console.log("transform -> data", data)
     const contentElements = get(data, 'content_elements', []);
     const resp = {
         content_elements: contentElements.find(
@@ -59,7 +57,6 @@ const transform = (data, url) => {
         )
     };
 
-    console.log("transform -> resp", resp)
     return resp;
 };
 

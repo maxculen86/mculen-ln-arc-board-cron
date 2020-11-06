@@ -6,19 +6,18 @@ const hasOptaElements = content => content.includes('opta-widget');
 
 const HtmlAMP = props => {
     const { data } = props;
-    const { requestUri, globalContent } = useAppContext();
+    const { globalContent } = useAppContext();
     const { _id: idNote } = globalContent;
-    const { content = null, width = '360', height = '300', _id: idRawHtml } = data || {};
-    //console.log("requestUri", requestUri)
-    //console.log("idNote", idNote)
-    //console.log("data", data)
-   
+    const { content = null, width = '360', height = '300', _id: idRawHtml } =
+        data || {};
+
     let urlForOpta = null;
     if (hasOptaElements(content)) {
-        urlForOpta = `https://arc.lanacion.com.ar/opta-embed/${idRawHtml}/${idNote}/?outputType=opta`;
+        // urlForOpta = `https://arc.lanacion.com.ar/opta-embed/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
+        urlForOpta = `https://dev.lanacionar.arcpublishing.com/pf/opta-embed/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
     }
-        console.log("urlForOpta", urlForOpta)
-    // https://sandbox.lanacion.com.ar/opta-embed/?outputType=opta
+    // urlForOpta = 'https://sandbox.lanacion.com.ar/opta-embed/?outputType=opta';
+    // console.log("urlForOpta", urlForOpta)
     // http://sandbox.lanacion.com.ar/opta-embed/{:id_row_html}/ciencia/test-opta-nid15072020/?outputType=opta
     return (
         <div className="com-embed --html">

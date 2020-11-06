@@ -9,10 +9,27 @@ jest.mock('fusion:consumer', Component => {
 
 import Consumer from 'fusion:consumer';
 
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {
+            outputType: 'default',
+            arcSite: 'la-nacion-ar'
+        };
+
+        return props.children(mockAvailableProps);
+    }
+}));
+
+import Context from 'fusion:context';
+
 import ComInfografia from '../../../../../../components/private/LN/nota/apertura/com-infografia';
 import HtmlAMP from '../../../../../../components/private/LN/nota/cuerpo/htmlAMP';
 
 describe('PRIVATE - LN - Nota - Apertura - ComInfografia', () => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { _id: '7' }
+    }));
+
     let props = {
         globalContent: {
             _id: 'ZODSVVPC2VEB7NA3XD6AOYYHLQ',

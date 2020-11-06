@@ -5,8 +5,8 @@ import config from '../../properties/sites/la-nacion-ar';
 
 const Opta = props => {
     const { children, globalContent } = props;
-    const { content_elements: contentElement } = globalContent;
-    const { content = '' } = contentElement;
+    const { content_elements: contentElement } = globalContent || {};
+    const { content = '' } = contentElement || {};
     console.log("content", content)
     const script = `
         var opta_settings = {
@@ -28,9 +28,9 @@ const Opta = props => {
                 <noscript>Your browser does not suport javascript</noscript>
             </head>
             <body>
-                <div style={{width: '800px', padding: '20px'}} angerouslySetInnerHTML={{ __html: content }} >
+                <div style={{width: '800px', padding: '20px'}} dangerouslySetInnerHTML={{ __html: content }} >
                 </div>
-                {/*<div id="fusion-app">{children}</div>*/}
+                <div id="fusion-app">{children}</div>
                 {/* <Fusion /> */}
             </body>
         </html>
