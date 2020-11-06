@@ -37,17 +37,20 @@ class GrillaNotas extends React.Component {
 
     getBanner = index => {
         const position = index + 1;
-        const { bannerConfig, hideBanners } = this.props;
+        const {
+            bannerConfig,
+            hideBanners,
+            globalContent: { banners: bannersDimensions }
+        } = this.props;
         const { banners: termicaShowBanner } = this.props.termicas || {
             banners: true
         };
-        // const { siteProperties, isAdmin } = this.props;
 
         const {
             screenUtils: { device }
         } = this.props;
 
-        console.log('#### GRILLA PROPS: ', this.props);
+        // console.log('#### GRILLA PROPS: ', this.props);
 
         return bannerConfig
             .filter(banner => banner.position === position)
@@ -74,6 +77,13 @@ class GrillaNotas extends React.Component {
                         collection: !(hideBanners === 'true')
                     }
                 });
+
+                if (bannersDimensions)
+                    configBuilder.setDimensionsFromSiteService(
+                        bannersDimensions,
+                        'acumulado',
+                        slotId
+                    );
 
                 return <Banner key={slotId} banner={configBuilder.get()} />;
             });

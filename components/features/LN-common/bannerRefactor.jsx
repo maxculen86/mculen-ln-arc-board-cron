@@ -84,7 +84,7 @@ const Banner = props => {
             background,
             fixed,
             show: {
-                termicas,
+                termicas: termicas === 'true',
                 collection: !(hideBanners === 'true')
             }
         });

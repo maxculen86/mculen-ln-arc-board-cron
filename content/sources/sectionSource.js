@@ -22,7 +22,6 @@ const resolve = key => {
 };
 
 const fetch = query => {
-    const { url = '' } = query;
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -36,7 +35,7 @@ const fetch = query => {
 
     return request(opt)
         .then(response => {
-            transform(response, query, arcSite);
+            return transform(response, query, arcSite);
         })
         .catch(error => {
             //logger.push(error, { source: 'content/source', url }, arcSite);
@@ -63,12 +62,11 @@ const transform = (data, query, website) => {
 
     const response = data;
 
-    /* navigationTreeSource.fetch({ website }).then(res => {
+    return navigationTreeSource.fetch({ website }).then(res => {
         response.banner = res.bannerConfig;
+        response.termicas = res.Termicas;
         return response;
-    }); */
-
-    return response;
+    });
 };
 
 const ttlValue = () => {
@@ -83,7 +81,7 @@ const ttlValue = () => {
 
 export default {
     fetch,
-    //schemaName: 'section-schema',
+    schemaName: 'section-schema',
     params: {
         id: 'text',
         website: 'text'
