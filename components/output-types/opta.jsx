@@ -4,7 +4,10 @@ import PropTypes from 'fusion:prop-types';
 import config from '../../properties/sites/la-nacion-ar';
 
 const Opta = props => {
-    const { Fusion, children } = props;
+    const { children, globalContent } = props;
+    const { content_elements: contentElement } = globalContent;
+    const { content = '' } = contentElement;
+    console.log("content", content)
     const script = `
         var opta_settings = {
             subscription_id: '${config.optaConfig.subscription_id}',
@@ -25,7 +28,9 @@ const Opta = props => {
                 <noscript>Your browser does not suport javascript</noscript>
             </head>
             <body>
-                <div id="fusion-app">{children}</div>
+                <div style={{width: '800px', padding: '20px'}} angerouslySetInnerHTML={{ __html: content }} >
+                </div>
+                {/*<div id="fusion-app">{children}</div>*/}
                 {/* <Fusion /> */}
             </body>
         </html>

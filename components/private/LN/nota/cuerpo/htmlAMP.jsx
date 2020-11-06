@@ -1,22 +1,34 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 
-// const hasOptaElements = content => content.includes('opta-widget');
+const hasOptaElements = content => content.includes('opta-widget');
 
 const HtmlAMP = props => {
     const { data } = props;
-    const { content } = data || { content: null };
-
+    const { requestUri, globalContent } = useAppContext();
+    const { _id: idNote } = globalContent;
+    const { content = null, width = '360', height = '300', _id: idRawHtml } = data || {};
+    //console.log("requestUri", requestUri)
+    //console.log("idNote", idNote)
+    //console.log("data", data)
+   
+    let urlForOpta = null;
+    if (hasOptaElements(content)) {
+        urlForOpta = `https://arc.lanacion.com.ar/opta-embed/${idRawHtml}/${idNote}/?outputType=opta`;
+    }
+        console.log("urlForOpta", urlForOpta)
+    // https://sandbox.lanacion.com.ar/opta-embed/?outputType=opta
+    // http://sandbox.lanacion.com.ar/opta-embed/{:id_row_html}/ciencia/test-opta-nid15072020/?outputType=opta
     return (
         <div className="com-embed --html">
             <amp-iframe
-                width="360"
-                height="300"
+                width={width}
+                height={height}
                 sandbox="allow-scripts allow-same-origin"
                 frameborder="0"
                 layout="responsive"
-                src={content}
+                src={urlForOpta || content}
             >
                 <amp-img
                     layout="fill"
