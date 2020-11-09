@@ -208,7 +208,6 @@ const goToLogout = dispatch => {
 
 const setUserData = (res, dispatch) => {
     if (res.response) {
-        console.log('setUserData -> res.response', res.response);
         if (!getCookie('shouldrelogin')) {
             setCookie('shouldrelogin', 'true', 12 * 60);
         }
