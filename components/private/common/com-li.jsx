@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../resources/dist/css/ln/components/com-li.css';
+//import '../../../resources/dist/css/ln/components/com-li.css';
 
 const ComLi = props => {
     const {
