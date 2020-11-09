@@ -3,6 +3,11 @@ import PropTypes from 'fusion:prop-types';
 import Article from './article';
 import ComTitle from '../../../common/com-title';
 
+/**
+ * TODO: DEPRECATED COMPONENT
+ * @param {*} props
+ */
+
 const ArticleList = props => {
     const { articles } = props;
     return (

@@ -52,7 +52,6 @@ const Comments = props => {
     const { getCookie } = handleCookie();
     const cookie = getCookie('usuario%5Flogtkn');
     const commentSection = useRef(null);
-    const isAuth = typeof cookie !== 'undefined';
 
     const instance = useRef(null);
 
@@ -333,7 +332,7 @@ const Comments = props => {
                     </p>
                 )}
 
-                {!isAuth && (
+                {!logueado && (
                     <div className="comment-reminder">
                         Para poder comentar tenés que ingresar con tu usuario de
                         LA NACION.

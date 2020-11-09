@@ -83,11 +83,6 @@ exports[`Comments Matches snapshot 1`] = `
         </h4>
       </div>
       <div
-        className="comment-reminder"
-      >
-        Para poder comentar tenés que ingresar con tu usuario de LA NACION.
-      </div>
-      <div
         id="livefyre"
       />
     </section>
