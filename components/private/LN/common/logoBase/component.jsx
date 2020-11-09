@@ -10,7 +10,7 @@ import {
 const LogoBaseComponent = ({ path, logoName, color, subtype }) => {
     if (!logoName) return null;
     const size =
-        subtype === FOTOAL100 || subtype === STORYTELLING ? '' : '--medium';
+        subtype === FOTOAL100 || subtype === STORYTELLING ? '--sm' : '--xs';
     const Logo = <ComLogo logoName={logoName} color={color} size={size} />;
     const Link = <ComLink link={path}>{Logo}</ComLink>;
     return <>{path ? Link : Logo}</>;
@@ -20,7 +20,7 @@ LogoBaseComponent.propTypes = {
     path: PropTypes.string.isRequired,
     logoName: PropTypes.string.isRequired,
     color: PropTypes.bool.isRequired,
-    subtype: PropTypes.string
+    subtype: PropTypes.string.isRequired
 };
 
 export default LogoBaseComponent;

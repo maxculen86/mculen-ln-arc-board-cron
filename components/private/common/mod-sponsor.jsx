@@ -14,21 +14,19 @@ const ModSponsor = props => {
         <div className={`mod-sponsor ${type} ${sponsor}`}>
             {sponsor && (
                 <ComLink link={link}>
-                    <ComLogo color="true" logoName={sponsor} />
+                    <ComLogo color="true" logoName={sponsor} size="--xs" />
                 </ComLink>
             )}
 
-            <>
-                {type === '--contentlab' ? (
-                    <ComText tag="" size="" classCondition="">
-                        ContentLAB para {textName}
-                    </ComText>
-                ) : (
-                    <ComText tag="" size="" classCondition="">
-                        Espacio Patrocinado
-                    </ComText>
-                )}
-            </>
+            {type === '--contentlab' ? (
+                <ComText tag="" size="" classCondition="">
+                    ContentLAB para {textName}
+                </ComText>
+            ) : (
+                <ComText tag="" size="" classCondition="">
+                    Espacio Patrocinado
+                </ComText>
+            )}
         </div>
     );
 };
