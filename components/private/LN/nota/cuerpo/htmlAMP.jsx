@@ -1,4 +1,5 @@
 import React from 'react';
+import { OPTA_WIDGET_URL } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 
@@ -13,18 +14,15 @@ const HtmlAMP = props => {
 
     let urlForOpta = null;
     if (hasOptaElements(content)) {
-        // urlForOpta = `https://arc.lanacion.com.ar/opta-embed/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
-        urlForOpta = `https://sandbox.lanacion.com.ar/pf/opta-embed/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
+        urlForOpta = `${OPTA_WIDGET_URL}/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
     }
-    // urlForOpta = 'https://sandbox.lanacion.com.ar/opta-embed/?outputType=opta';
-    // console.log("urlForOpta", urlForOpta)
-    // http://sandbox.lanacion.com.ar/opta-embed/{:id_row_html}/ciencia/test-opta-nid15072020/?outputType=opta
+
     return (
         <div className="com-embed --html">
             <amp-iframe
                 width={width}
                 height={height}
-                sandbox="allow-scripts allow-same-origin allow-forms"
+                sandbox="allow-scripts allow-same-origin"
                 frameborder="0"
                 layout="responsive"
                 src={urlForOpta || content}
@@ -38,10 +36,6 @@ const HtmlAMP = props => {
         </div>
     );
 };
-
-// Asi estaba antes
-// {hasOptaElements(content) && (
-// "https://proxy.lanacion.com.ar:3000/?url=http://arc.lanacion.com.ar/opta/?_website=la-nacion-ar&opta=true&outputType=opta"
 
 HtmlAMP.arcType = 'raw_html';
 HtmlAMP.outputType = 'amp';

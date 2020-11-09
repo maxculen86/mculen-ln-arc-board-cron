@@ -8,6 +8,7 @@ export default {
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/ans/most-read/',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+    OPTA_WIDGET_URL: 'https://recetas.lanacion.com.ar/opta-embed',
     SITE_LANACION: 'https://sandbox.lanacion.com.ar',
     SITE_RECETAS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
