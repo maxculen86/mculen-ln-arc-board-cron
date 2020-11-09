@@ -10,6 +10,7 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import LoginProvider from '../private/LN/common/context/loginContext';
 
 // Styles
 // ***** INICIO PREGUNTAR A DARO
@@ -104,60 +105,62 @@ const lnNotaStorytelling = ({
     const magazine = logo ? logo.logoName : '';
     return (
         <GlobalProvider>
-            <CommentsProvider>
-                {/* Banner MEGATOP */}
-                {bannerMegatop}
+            <LoginProvider>
+                <CommentsProvider>
+                    {/* Banner MEGATOP */}
+                    {bannerMegatop}
 
-                <div
-                    id="wrapper"
-                    className={`nota ${magazine} --storytelling --transparent ${amp}`}
-                >
-                    <Header />
-                    <main>
-                        <AperturaStorytelling />
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                <section className="cuerpo__nota">
-                                    <div className="row">
-                                        <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
-                                            {/* // ***** INICIO PREGUNTAR A DARO */}
-                                            {/* hlp-mobile-show */}
-                                            {/* // ***** FIN PREGUNTAR A DARO */}
-                                            {/* Left-Cuerpo Shared */}
-                                            {children[1]}
-                                        </div>
-                                        <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
-                                            <div className="row">
-                                                <div className="col-12">
-                                                    {/* Cuerpo */}
-                                                    {children[2]}
+                    <div
+                        id="wrapper"
+                        className={`nota ${magazine} --storytelling --transparent ${amp}`}
+                    >
+                        <Header />
+                        <main>
+                            <AperturaStorytelling />
+                            <div className="lay-sidebar">
+                                <div className="sidebar__main">
+                                    <section className="cuerpo__nota">
+                                        <div className="row">
+                                            <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                                {/* // ***** INICIO PREGUNTAR A DARO */}
+                                                {/* hlp-mobile-show */}
+                                                {/* // ***** FIN PREGUNTAR A DARO */}
+                                                {/* Left-Cuerpo Shared */}
+                                                {children[1]}
+                                            </div>
+                                            <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
+                                                <div className="row">
+                                                    <div className="col-12">
+                                                        {/* Cuerpo */}
+                                                        {children[2]}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </section>
+                                    </section>
+                                </div>
+                                {/* Tercera */}
+                                <div className="sidebar__aside hlp-tablet-none">
+                                    {children[3]}
+                                </div>
                             </div>
-                            {/* Tercera */}
-                            <div className="sidebar__aside hlp-tablet-none">
-                                {children[3]}
+                            {/* Newsletter */}
+                            <div className="lay">{children[4]}</div>
+                            <div className="lay-sidebar">
+                                <div className="sidebar__main">
+                                    {/* Bottom */}
+                                    {children[5]}
+                                </div>
+                                <div className="sidebar__aside hlp-tablet-none">
+                                    {/* Bottom-Tercera */}
+                                    {children[6]}
+                                </div>
                             </div>
-                        </div>
-                        {/* Newsletter */}
-                        <div className="lay">{children[4]}</div>
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {/* Bottom */}
-                                {children[5]}
-                            </div>
-                            <div className="sidebar__aside hlp-tablet-none">
-                                {/* Bottom-Tercera */}
-                                {children[6]}
-                            </div>
-                        </div>
-                    </main>
-                    <Footer />
-                </div>
-            </CommentsProvider>
+                        </main>
+                        <Footer />
+                    </div>
+                </CommentsProvider>
+            </LoginProvider>
         </GlobalProvider>
     );
 };

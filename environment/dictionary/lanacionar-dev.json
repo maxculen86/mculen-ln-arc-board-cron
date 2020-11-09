@@ -13,6 +13,24 @@
             "migrada": true
         },
         {
+            "_id": "6251",
+            "ArcSectionId": "/propiedades/casas-y-departamentos",
+            "name": "Casas y Departamentos",
+            "migrada": true
+        },
+        {
+            "_id": "6251",
+            "ArcSectionId": "/propiedades/construccion-y-diseno",
+            "name": "Construcción y Diseño",
+            "migrada": true
+        },
+        {
+            "_id": "6251",
+            "ArcSectionId": "/propiedades/inversiones",
+            "name": "Inversiones",
+            "migrada": true
+        },
+        {
             "_id": "1344",
             "ArcSectionId": "/comunidad",
             "name": "Comunidad",
@@ -124,12 +142,6 @@
             "_id": "70",
             "ArcSectionId": "/automovilismo",
             "name": "Automovilismo",
-            "migrada": false
-        },
-        {
-            "_id": "64",
-            "ArcSectionId": "/comunidad",
-            "name": "Comunidad",
             "migrada": false
         },
         {
@@ -451,10 +463,88 @@
             "migrada": false
         },
         {
-            "_id": "43",
+            "_id": "",
             "ArcSectionId": "/recetas",
             "name": "Recetas",
-            "migrada": false
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/carnes",
+            "name": "Carnes",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/celiacos-sin-gluten",
+            "name": "Celíacos sin gluten",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/dulces",
+            "name": "Dulces",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/ensaladas",
+            "name": "Ensaladas",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/entradas",
+            "name": "Entradas",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/faciles-y-rapidas",
+            "name": "Fáciles y rápidas",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/guarniciones",
+            "name": "Guarniciones",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/platos-de-comida-principal",
+            "name": "Platos de comida principal",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/pollo",
+            "name": "Pollo",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/postres",
+            "name": "Postres",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/tortas",
+            "name": "Tortas",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/veganas",
+            "name": "Veganas",
+            "migrada": true
+        },
+        {
+            "_id": "",
+            "ArcSectionId": "/recetas/vegetarianas",
+            "name": "Vegetarianas",
+            "migrada": true
         },
         {
             "_id": "44",
