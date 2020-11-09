@@ -45,9 +45,6 @@
                 margin-bottom: $spacing-lg;
             }
         }
-        .com-anexo {
-            margin-bottom: $spacing-lg;
-        }
     }
     .sidebar__main > .row {
         > .mod-article {
@@ -182,7 +179,7 @@
             @media ($media-l) {
                 flex-direction: row;
                 align-items: flex-end;
-                padding-bottom: $spacing-sm;
+                padding-bottom: $spacing-lg;
 
                 .com-title,
                 .com-logo {
@@ -205,9 +202,7 @@
                 }
             }
         }
-        .com-anexo {
-            margin-bottom: $spacing-md;
-        }
+
         .mod-banner.--bg-banner {
             background: none;
         }
@@ -231,13 +226,13 @@
     &.--opening {
         main {
             .--top.--top {
-                padding-bottom: px(142);
+                padding-bottom: px(118);
                 margin-bottom: 0;
             }
             .--opening {
                 margin-top: px(-118);
-                border-bottom: 1px solid $gris3;
-                margin-bottom: $spacing-md;
+                // border-bottom: 1px solid $gris3;
+                // margin-bottom: $spacing-md;
                 .mod-figure {
                     background: $blanco; //para el hover de la imagen
                 }
@@ -248,9 +243,9 @@
         main {
             padding-top: 0;
             .--top {
-                padding-top: $spacing-md;
-                padding-bottom: $spacing;
-                margin-bottom: $spacing-sm;
+                padding-top: $spacing-lg;
+                padding-bottom: 0;
+                margin-bottom: $spacing-lg;
                 .com-title,
                 .com-logo,
                 .com-link,
@@ -344,6 +339,10 @@
                 }
             }
         }
+    }
+
+    .com-anexo {
+        margin-bottom: $spacing-lg;
     }
 
     .breaking-news {
@@ -457,9 +456,9 @@
         margin-bottom: $spacing;
     }
     &.--tags {
-        margin-bottom: $spacing-md;
+        margin-bottom: $spacing-lg;
         margin-top: 0;
-        padding-top: $spacing-md;
+        padding-top: $spacing-lg;
         border-top: 1px solid $gris3;
         li {
             &:not(:last-child) {
@@ -479,10 +478,13 @@
             }
         }
         .--color &,
-        .--transparent &,
-        .--opening & {
+        .--transparent & {
             padding-top: 0;
             border-top: none;
+        }
+        .--color.--opening & {
+            padding-top: $spacing-md;
+            border-top: 1px solid $gris3;
         }
     }
 }
