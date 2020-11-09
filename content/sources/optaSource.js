@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import get from 'lodash.get';
@@ -62,10 +63,5 @@ const transform = (data, url) => {
 
 export default {
     fetch,
-    params: {
-        url: 'text',
-        id: 'text',
-        idRawHtml: 'text'
-    },
     ttl: sourceSetting.articleSourceNota.ttl
 };
