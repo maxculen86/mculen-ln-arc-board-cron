@@ -14,7 +14,7 @@ const HtmlAMP = props => {
     let urlForOpta = null;
     if (hasOptaElements(content)) {
         // urlForOpta = `https://arc.lanacion.com.ar/opta-embed/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
-        urlForOpta = `https://dev.lanacionar.arcpublishing.com/pf/opta-embed/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
+        urlForOpta = `https://sandbox.lanacion.com.ar/pf/opta-embed/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
     }
     // urlForOpta = 'https://sandbox.lanacion.com.ar/opta-embed/?outputType=opta';
     // console.log("urlForOpta", urlForOpta)
