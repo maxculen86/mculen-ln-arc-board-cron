@@ -19,6 +19,7 @@ const {
 
 const ProductoPremiumId = getCookie('ProductoPremiumId');
 const UsuarioDetalleEmail = getCookie('usuarioemail');
+const IS_TOKEN_CREATED = getCookie('token');
 
 const goToLoginUrl = () => {
     location.href = LOGIN_URL + window.btoa(location.href);
@@ -207,6 +208,7 @@ const goToLogout = dispatch => {
 
 const setUserData = (res, dispatch) => {
     if (res.response) {
+        console.log('setUserData -> res.response', res.response);
         if (!getCookie('shouldrelogin')) {
             setCookie('shouldrelogin', 'true', 12 * 60);
         }
@@ -266,7 +268,7 @@ const withLoginData = WrappedComponent => props => {
             goToLogout(dispatch);
         }
 
-        ProductoPremiumId && UsuarioDetalleEmail
+        IS_TOKEN_CREATED
             ? setUserData(
                   {
                       response: JSON.stringify({
