@@ -12,7 +12,6 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
-import MetaRobots from '../private/common/metaRobots';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
 import analytics from '../../resources/json/analytics.json';
@@ -144,15 +143,10 @@ const Amp = props => {
                     arcSite={arcSite}
                 />
                 <Syndication
+                    type={type}
                     arcSite={arcSite}
                     subtype={subtype}
                     syndication={syndication}
-                />
-                <MetaRobots
-                    type={type}
-                    subtype={subtype}
-                    syndication={syndication}
-                    outputType={outputType}
                 />
             </head>
             <body>

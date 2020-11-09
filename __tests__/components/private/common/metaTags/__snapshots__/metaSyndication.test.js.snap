@@ -3,6 +3,7 @@
 exports[`LN - Common - MetaSyndication MetaSyndication nota snapshot 1`] = `
 <Syndication
   arcSite="la-nacion-ar"
+  outputType="default"
   subtype="1"
   syndication={
     Object {
@@ -10,6 +11,7 @@ exports[`LN - Common - MetaSyndication MetaSyndication nota snapshot 1`] = `
       "search": false,
     }
   }
+  type="story"
 >
   <meta
     content="noindex, follow, max-image-preview:large"
