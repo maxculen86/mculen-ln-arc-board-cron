@@ -115,6 +115,7 @@
 
     .--top {
         //para refactor
+        //hay que borrar .com-logo que no se usa
         .mod-categories {
             position: relative;
             width: 100%;
@@ -185,6 +186,7 @@
                 .com-logo {
                     margin-bottom: 0;
                     margin-right: px(24);
+                    padding-bottom: px(4);
                 }
                 .mod-logo {
                     margin: 0;
@@ -252,11 +254,11 @@
                 .com-button {
                     color: $blanco;
                 }
-                @media ($media-l) {
-                    .--category {
-                        margin-bottom: 0;
-                    }
-                }
+                // @media ($media-l) {
+                //     .--category {
+                //         margin-bottom: 0;
+                //     }
+                // }
             }
         }
     }
