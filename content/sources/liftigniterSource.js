@@ -1,11 +1,12 @@
 import request from 'request-promise-native';
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import {
+    FOTOAL100,
+    STORYTELLING
+} from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
 import sourceSetting from './utils/sourceSetting';
-import {
-    createResizer,
-    resizePromoItems
-} from '../../components/private/common/utils/image/resizer';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
 
 /**
@@ -69,50 +70,32 @@ const fetch = query => {
  * 1. fijarse en funcion de acuArticlesSource para crear utilitario de promoItems
  */
 
-const getImageResized = (ansDoc, options) => {
-    const {
-        resizerSecret,
-        resizerUrl,
-        presets,
-        presets: { promoItems: presetsPromoItems, zoomSizes = [] },
-        presetsDefault
-    } = options;
-    const { promo_items: promoItems } = ansDoc;
-
-    if (!resizerSecret || !resizerUrl || !presets)
-        throw new Error(
-            'Debe proporcionar el resizerSecret, resizerUrl y presets'
-        );
-
-    const resizer = createResizer(resizerSecret, resizerUrl);
-    return {
-        ...ansDoc,
-        ...(promoItems && {
-            promo_items: resizePromoItems(
-                promoItems,
-                presetsPromoItems || presetsDefault,
-                resizer,
-                zoomSizes,
-                '-1'
-            )
-        })
-    };
-};
-
 const transform = (data, siteProps) => {
     const { presets, presetsDefault } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     return data.map(elem => {
+        const promoItems = get(elem, `promo_items`, null);
+        const subtype = get(elem, `subtype`, null);
+        const isFotoAl100orStorytelling =
+            subtype === FOTOAL100 || subtype === STORYTELLING;
         return {
-            ...getImageResized(elem, {
-                resizerSecret: RESIZER_KEY,
-                resizerUrl: RESIZER_URL,
-                presets: {
-                    promoItems: presetsPromoItems,
-                    presetsDefault
+            ...elem,
+            ...addResizedUrls(
+                { promo_items: promoItems },
+                {
+                    resizerSecret: RESIZER_KEY,
+                    resizerUrl: RESIZER_URL,
+                    presets: {
+                        promoItems: presetsPromoItems,
+                        presetsDefault
+                    },
+                    // Se pasa el subtype para que las notas de foto al 100
+                    // y storytelling no sean excluidas de las validaciones del resizer
+                    // y pueda aplicarse 3:2, focal point o smartcrop
+                    subtype: isFotoAl100orStorytelling ? '-1' : subtype
                 }
-            })
+            )
         };
     });
 };
