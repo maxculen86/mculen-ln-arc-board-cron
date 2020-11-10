@@ -95,9 +95,6 @@ const fetch = query => {
 // directamente nosotros desde el fetch
 const transform = (data, arcSite, properties) => {
     // Data
-    const promoItems = get(data, `promo_items`, null);
-    const contentElements = get(data, `content_elements`, null);
-    const credits = get(data, `credits`, null);
     const subtype = get(data, `subtype`, null);
 
     // Presets
@@ -132,28 +129,21 @@ const transform = (data, arcSite, properties) => {
     // Data con urls Resizeadas
     const resp = {
         ...data,
-        ...addResizedUrls(
-            {
-                promo_items: promoItems,
-                content_elements: contentElements,
-                credits
-            },
-            {
-                resizerSecret: RESIZER_KEY,
-                resizerUrl: RESIZER_URL,
-                presets: {
-                    promoItems: promoItemsRatio,
-                    contentElements:
-                        presetsFotoAl100 ||
-                        presetsContentElements ||
-                        presetsDefault,
-                    credits: presetsCredits,
+        ...addResizedUrls(data, {
+            resizerSecret: RESIZER_KEY,
+            resizerUrl: RESIZER_URL,
+            presets: {
+                promoItems: promoItemsRatio,
+                contentElements:
+                    presetsFotoAl100 ||
+                    presetsContentElements ||
                     presetsDefault,
-                    zoomSizes: presetsZoom
-                },
-                subtype
-            }
-        )
+                credits: presetsCredits,
+                presetsDefault,
+                zoomSizes: presetsZoom
+            },
+            subtype
+        })
     };
 
     return transformContent(resp, arcSite);

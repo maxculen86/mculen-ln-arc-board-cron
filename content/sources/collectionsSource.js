@@ -38,7 +38,7 @@ const transform = (data, siteProps) => {
             return {
                 ...elem,
                 ...addResizedUrls(
-                    { promo_items: promoItems },
+                    { ...(promoItems && { promo_items: promoItems }) },
                     {
                         resizerSecret: RESIZER_KEY,
                         resizerUrl: RESIZER_URL,
