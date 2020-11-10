@@ -23,17 +23,6 @@ import {
 import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
 
-// TODO: Pasar esto a properties
-const optionsImgResized = [
-    {
-        width: 80,
-        height: 80,
-        media: '(min-width: 320px)',
-        class: '',
-        type: 'image'
-    }
-];
-
 const resolve = (key, a) => {
     const { url, id, published } = key;
     const arcSite = key['arc-site'];
@@ -109,7 +98,7 @@ const transform = (data, arcSite, properties) => {
         get(properties, 'imageConfig.resize.fotoAl100.content_elements', null);
     const presetsPromoItems = get(
         properties,
-        'imageConfig.resize.xl.promo_items',
+        'imageConfig.resize.l.promo_items',
         null
     );
     const presetsContentElements = get(
@@ -117,7 +106,11 @@ const transform = (data, arcSite, properties) => {
         'imageConfig.resize.l.content_elements',
         null
     );
-    const presetsCredits = { sizes: optionsImgResized };
+    const presetsCredits = get(
+        properties,
+        'imageConfig.resize.l.credits',
+        null
+    );
 
     // Si el subType es recetas o noticias applico el ratio
     const notesWithRatio = ['1', '7'];
