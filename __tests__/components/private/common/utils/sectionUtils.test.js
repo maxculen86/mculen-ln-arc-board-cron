@@ -228,7 +228,7 @@ describe('Utils - SectionUtils', () => {
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'bbc',
-            path: ''
+            path: '/tema/bbc-mundo-tid56419'
         });
     });
 });

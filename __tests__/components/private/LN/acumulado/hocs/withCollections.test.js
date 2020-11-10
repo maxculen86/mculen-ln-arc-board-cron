@@ -108,7 +108,7 @@ describe('Private - Common - hocs - withCollections => ', () => {
     const ComponentWithCollections = withCollections(
         component(props),
         filter,
-        'notaM'
+        'm'
     );
 
     it('Render OK', () => {
@@ -124,7 +124,7 @@ describe('Private - Common - hocs - withCollections => ', () => {
         const ComponentWithCollections = withCollections(
             component(props),
             filter,
-            'notaM'
+            'm'
         );
 
         const wrapper = render(<ComponentWithCollections {...props} />);

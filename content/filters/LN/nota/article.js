@@ -351,4 +351,10 @@ export default `
     content_restrictions {
         content_code
     }
+    siteService {
+        trustLabels {
+            label
+            text
+        }
+    }
 }`;

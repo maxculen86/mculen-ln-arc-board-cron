@@ -25,7 +25,6 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
-import MetaRobots from '../private/common/metaRobots';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
 
@@ -125,6 +124,7 @@ const Default = props => {
         Payload,
         _id
     } = globalContent || {};
+
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
@@ -223,14 +223,10 @@ const Default = props => {
                     arcSite={arcSite}
                 />
                 <Syndication
+                    type={type}
                     arcSite={arcSite}
                     subtype={subtype}
                     syndication={syndication}
-                />
-                <MetaRobots
-                    syndication={syndication}
-                    type={type}
-                    subtype={subtype}
                     outputType={outputType}
                 />
                 <Libs />

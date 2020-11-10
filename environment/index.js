@@ -15,6 +15,7 @@ export default {
     DOMINIO_COOKIE: '.lanacion.com.ar',
     RANKING_URL:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/ans/most-read/',
+    OPTA_WIDGET_URL: 'https://recetas.lanacion.com.ar/opta-embed',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com',
     SITE_LANACION: 'https://www.lanacion.com.ar',

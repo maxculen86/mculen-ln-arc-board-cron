@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import BreadcrumbComponent from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 import getDomain from '../../../common/utils/getDomain';
+import get from '../../../common/utils/get';
 
 const getPrimaryTree = (sections, section, resultSections) => {
     resultSections.push({
@@ -18,14 +19,22 @@ const getPrimaryTree = (sections, section, resultSections) => {
     }
 };
 
+const getTrust = (label, siteService) => {
+    const { trustLabels } = siteService || {};
+    const trust = get(label, 'trust.text', '');
+    const trustFinded = trustLabels.find(t => t.text === trust);
+    return trustFinded;
+};
+
 const breadcrumbArticle = ({
     globalContent: {
         taxonomy: { primary_section, sections },
         website_url,
-        _id
+        _id,
+        label,
+        siteService
     },
-    siteProperties: { title: siteTitle, host },
-    arcSite
+    siteProperties: { title: siteTitle, host }
 }) => {
     let allSections = [];
     if (primary_section) {
@@ -37,6 +46,7 @@ const breadcrumbArticle = ({
     });
     allSections = allSections.reverse();
     const domainForRecetas = getDomain({ _id, website_url });
+    const trust = getTrust(label, siteService);
 
     return (
         <>
@@ -45,6 +55,7 @@ const breadcrumbArticle = ({
                 sections={allSections}
                 lastLinked
                 host={host}
+                trust={trust}
             />
             <BreadCrumbSchema sections={allSections} host={domainForRecetas} />
         </>

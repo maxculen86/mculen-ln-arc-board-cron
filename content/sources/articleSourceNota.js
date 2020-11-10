@@ -8,12 +8,13 @@ import {
 } from 'fusion:environment';
 import get from 'lodash.get';
 import getProperties from 'fusion:properties';
-import addAspectRatio from './utils/getRatio';
+import { addAspectRatio } from './utils/getRatio';
 import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
+import navigationTreeSource from './navigationTreeSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import {
@@ -22,6 +23,7 @@ import {
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 import getImageResized from '../../components/private/common/utils/getImageResized';
+import paywallUtils from './utils/paywall';
 
 // TODO: Pasar esto a properties
 const optionsImgResized = {
@@ -43,25 +45,6 @@ const resolve = (key, a) => {
     if (url) return `${basePath}&website_url=${url}`;
 
     throw new Error('Debe definir url o id para obtener la nota');
-};
-
-const checkPaywall = (
-    { paywallEnabled, meteringVariant, paywallUrl, url },
-    response
-) => {
-    if (
-        (paywallEnabled === '1' || paywallEnabled === 'true') &&
-        meteringVariant === 'D' &&
-        paywallUrl &&
-        (!response.content_restrictions ||
-            response.content_restrictions.content_code !== 'abierta')
-    ) {
-        const callback = Buffer.from(`${SITE_LANACION}${url}`).toString(
-            'base64'
-        );
-        const finalUrl = paywallUrl.replace('{{callback}}', callback);
-        throw new Redirect(finalUrl, 302);
-    }
 };
 
 const fetch = query => {
@@ -94,7 +77,11 @@ const fetch = query => {
                 throw new Redirect(forwardUrl, 301);
             }
 
-            checkPaywall(query, response);
+            paywallUtils.checkPaywall({
+                queryData: query,
+                urlBase: SITE_LANACION,
+                responseData: response
+            });
 
             return transform(response, arcSite, properties);
         })
@@ -213,6 +200,16 @@ const transformContent = (jsonArticle, arcSite) => {
         );
     });
 
+    promiseArr.push(
+        new Promise(resolver =>
+            resolver(getNavigationSiteProperties(resp, arcSite))
+        ).then(data => {
+            console.log("transformContent -> data", data)
+            resp.siteService = { trustLabels: data.trustLabels };
+            // console.log("transformContent -> resp", resp)
+        })
+    );
+
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
@@ -269,6 +266,42 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
         })
         .catch(e => {
             // console.log('TCL: addFollowAnotherNoteData -> e', e);
+        });
+};
+
+const getNavigationSiteProperties = (anotherNoteData, arcSite) => {
+    const urlNavigationTreeSource = navigationTreeSource.resolve({
+        website: arcSite
+    });
+    const opt = {
+        uri: `${CONTENT_BASE}${urlNavigationTreeSource}`,
+        json: true
+    };
+
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+
+    return request(opt)
+        .then(fetchedRelated => {
+            const { site } = fetchedRelated || {};
+            const { trust_labels: trustLabels } = site;
+            const trusts = [];
+            Object.keys(trustLabels).forEach(key => {
+                trusts.push({
+                    label: trustLabels[key],
+                    text: key
+                });
+            });
+            const resp = {
+                trustLabels: trusts
+            };
+            return resp;
+        })
+        .catch(e => {
+            // console.log('Error article source: getNavigationSiteProperties -> e', e);
         });
 };
 

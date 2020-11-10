@@ -2,7 +2,12 @@ import { useContent } from 'fusion:content';
 import get from './get';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 
-const getArticlesFromCollection = (id, size = 2, website = 'la-nacion-ar') => {
+const getArticlesFromCollection = (
+    id,
+    size = 2,
+    imageConfig,
+    website = 'la-nacion-ar'
+) => {
     if (!id) return [];
 
     const articleList = useContent({
@@ -10,6 +15,7 @@ const getArticlesFromCollection = (id, size = 2, website = 'la-nacion-ar') => {
         query: {
             id,
             size,
+            imageConfig,
             website
         },
         filter,

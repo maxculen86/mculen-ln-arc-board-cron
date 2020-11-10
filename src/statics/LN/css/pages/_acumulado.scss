@@ -45,9 +45,6 @@
                 margin-bottom: $spacing-lg;
             }
         }
-        .com-anexo {
-            margin-bottom: $spacing-lg;
-        }
     }
     .sidebar__main > .row {
         > .mod-article {
@@ -105,7 +102,7 @@
         li {
             display: inline-flex;
             .com-link {
-                text-transform: capitalize;
+                //text-transform: capitalize;
                 white-space: nowrap;
                 position: relative;
             }
@@ -119,10 +116,12 @@
     .--top {
         //para refactor
         .mod-categories {
+            position: relative;
             width: 100%;
             display: inline-flex;
             flex-direction: column;
             flex-wrap: nowrap;
+            padding-bottom: $spacing;
             .com-title,
             .com-logo {
                 margin-bottom: $spacing-sm;
@@ -141,7 +140,31 @@
             }
 
             .com-button {
-                display: none;
+                width: px(30);
+                position: absolute;
+                right: px(-24);
+                bottom: px(2);
+                height: px(50);
+                flex-direction: column;
+                &.--left {
+                    right: auto;
+                    left: px(-24);
+                }
+                &:active {
+                    background: none;
+                    color: initial;
+                }
+                @media ($media-l) {
+                    width: auto;
+                    height: auto;
+                    position: relative;
+                    bottom: auto;
+                    left: auto;
+                    right: auto;
+                    &.--left {
+                        left: auto;
+                    }
+                }
             }
 
             @media ($media-m) {
@@ -155,7 +178,8 @@
 
             @media ($media-l) {
                 flex-direction: row;
-                align-items: baseline;
+                align-items: flex-end;
+                padding-bottom: $spacing-lg;
 
                 .com-title,
                 .com-logo {
@@ -171,16 +195,14 @@
                 }
                 .com-button {
                     padding: 0;
-                    margin-bottom: px(-6);
+                    margin-bottom: px(2);
                     &:not(.hlp-none) {
                         display: inline-flex;
                     }
                 }
             }
         }
-        .com-anexo {
-            margin-bottom: $spacing-md;
-        }
+
         .mod-banner.--bg-banner {
             background: none;
         }
@@ -204,13 +226,13 @@
     &.--opening {
         main {
             .--top.--top {
-                padding-bottom: px(142);
+                padding-bottom: px(118);
                 margin-bottom: 0;
             }
             .--opening {
                 margin-top: px(-118);
-                border-bottom: 1px solid $gris3;
-                margin-bottom: $spacing-md;
+                // border-bottom: 1px solid $gris3;
+                // margin-bottom: $spacing-md;
                 .mod-figure {
                     background: $blanco; //para el hover de la imagen
                 }
@@ -221,17 +243,19 @@
         main {
             padding-top: 0;
             .--top {
-                padding-top: $spacing-md;
-                padding-bottom: $spacing-md;
-                margin-bottom: $spacing-sm;
+                padding-top: $spacing-lg;
+                padding-bottom: 0;
+                margin-bottom: $spacing-lg;
                 .com-title,
                 .com-logo,
                 .com-link,
                 .com-button {
                     color: $blanco;
                 }
-                .--category {
-                    margin-bottom: 0;
+                @media ($media-l) {
+                    .--category {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
@@ -315,6 +339,10 @@
                 }
             }
         }
+    }
+
+    .com-anexo {
+        margin-bottom: $spacing-lg;
     }
 
     .breaking-news {
@@ -425,12 +453,12 @@
         }
     }
     &.--category {
-        margin-bottom: $spacing-sm;
+        margin-bottom: $spacing;
     }
     &.--tags {
-        margin-bottom: $spacing-md;
+        margin-bottom: $spacing-lg;
         margin-top: 0;
-        padding-top: $spacing-md;
+        padding-top: $spacing-lg;
         border-top: 1px solid $gris3;
         li {
             &:not(:last-child) {
@@ -450,10 +478,13 @@
             }
         }
         .--color &,
-        .--transparent &,
-        .--opening & {
+        .--transparent & {
             padding-top: 0;
             border-top: none;
+        }
+        .--color.--opening & {
+            padding-top: $spacing-md;
+            border-top: 1px solid $gris3;
         }
     }
 }

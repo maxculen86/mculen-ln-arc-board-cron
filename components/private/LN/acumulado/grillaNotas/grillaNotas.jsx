@@ -144,5 +144,5 @@ GrillaNotas.defaultProps = {
 };
 
 export default WithNavigation(
-    withScreenUtils(WithAcuArticlesData(Consumer(GrillaNotas), filter, 'notaM'))
+    withScreenUtils(WithAcuArticlesData(Consumer(GrillaNotas), filter, 'm'))
 );

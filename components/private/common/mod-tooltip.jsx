@@ -5,17 +5,17 @@ import ComText from './com-text';
 import ComIco from './com-icon';
 import '../../../resources/dist/css/ln/modules/mod-tooltip.css';
 
-const ModTooltip = props => {
+const ModTooltip = ({ label }) => {
     return (
         <div className="mod-tooltip">
-            <ComText size="--sixxs">
-                Lana soñaba con volar a la luna. Todas las tardes se tumbaba en
-                su cama y se imaginaba cómo sería su viaje a bordo de su propia
-                nave espacial.
-            </ComText>
+            <ComText size="--sixxs">{label}</ComText>
             <ComIco iconName="close" size="--threexs" />
         </div>
     );
+};
+
+ModTooltip.propTypes = {
+    label: PropTypes.string.isRequired
 };
 
 export default ModTooltip;

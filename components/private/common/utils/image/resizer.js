@@ -1,8 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
-import get from 'lodash.get';
 import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
 import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
+import get from '../get';
+import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 
 // import getProperties from 'fusion:properties';
 // import { useAppContext } from 'fusion:context';
@@ -19,49 +21,51 @@ export const createResizer = (resizerKey, resizerUrl) => {
         smartCropExcluded,
         filterQuality = 70
     ) => {
-        if (!resizeOptions.width && !resizeOptions.height)
-            throw new Error(
-                'Se requiere width o heigth para realizar el resize'
-            );
+        const { isNotSmart, useFullSize } = resizeOptions;
         let { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
+
+        if (!newHeight && !newWidth)
+            throw new Error('Height and Width required');
+
         const cleanedUrl = originalUrl.replace(/(^\w+:|^)\/\//, '');
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
         thumbor.filter(`quality(${filterQuality})`);
 
-        if (
-            focalPoint &&
-            (originalWidth || originalHeight) &&
-            resizeOptions.isNotSmart
-        ) {
-            const [x, y] = focalPoint;
-            // left, top, right, bottom: https://thumbor.readthedocs.io/en/latest/focal.html
-            const rect = [x - 5, y + 5, x + 5, y - 5];
-            thumbor.filter(
-                `focal(${rect[0]}x${rect[1]}:${rect[2]}x${rect[3]})`
-            );
-        } else if (!smartCropExcluded) {
-            thumbor.smartCrop(true);
-        } else {
-            newHeight =
-                !resizeOptions.useFullSize &&
-                originalWidth >= originalHeight &&
-                newWidth
-                    ? 0
-                    : newWidth;
-            newWidth =
-                !resizeOptions.useFullSize &&
-                originalWidth < originalHeight &&
-                newHeight
-                    ? 0
-                    : newWidth;
+        if (!(getAspectRatio(newWidth, newHeight) === '3:2')) {
+            if (
+                focalPoint &&
+                focalPoint[0] &&
+                focalPoint[1] &&
+                (originalWidth || originalHeight) &&
+                isNotSmart
+            ) {
+                thumbor.filter(
+                    `focal(${focalPoint[0] - 5}x${focalPoint[1] +
+                        5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
+                );
+            } else if (!smartCropExcluded) {
+                thumbor.smartCrop(true);
+            } else {
+                newHeight =
+                    !useFullSize && originalWidth >= originalHeight && newWidth
+                        ? 0
+                        : newWidth;
+                newWidth =
+                    !useFullSize && originalWidth < originalHeight && newHeight
+                        ? 0
+                        : newWidth;
+            }
         }
 
-        thumbor.setImagePath(cleanedUrl);
+        const url = thumbor
+            .setImagePath(cleanedUrl)
+            .resize(newWidth, newHeight)
+            .buildUrl();
 
         return IS_DEV === 'true' || IS_SANDBOX === 'true'
-            ? thumbor.resize(newWidth, newHeight).buildUrl()
-            : getCanonincalURL(thumbor.resize(newWidth, newHeight).buildUrl());
+            ? url
+            : url.replace(/^.*\/\/[^\/]+/, '');
     };
 
     const resizeUrls = (
@@ -74,20 +78,21 @@ export const createResizer = (resizerKey, resizerUrl) => {
     ) => {
         const resp = [];
         const finalPreset = presets;
-        finalPreset.forEach(opt => {
-            const resizedUrl = resizeUrl(
-                originalUrl,
-                originalWidth,
-                originalHeight,
-                opt,
-                focalPoint,
-                smartCropExcluded
-            );
-            resp.push({
-                resizedUrl,
-                option: opt
+        finalPreset &&
+            finalPreset.forEach(opt => {
+                const resizedUrl = resizeUrl(
+                    originalUrl,
+                    originalWidth,
+                    originalHeight,
+                    opt,
+                    focalPoint,
+                    smartCropExcluded
+                );
+                resp.push({
+                    resizedUrl,
+                    option: opt
+                });
             });
-        });
 
         return resp;
     };
@@ -112,26 +117,19 @@ export const resizeArcGallery = (
 
     return {
         ...arcgallery,
-        content_elements: arcgallery.content_elements.map(i =>
-            resizeArcImage(
-                i,
-                resizeOptions,
-                resizer,
-                zoomSizes,
-                smartCropExcluded
+        content_elements:
+            arcgallery &&
+            arcgallery.content_elements &&
+            arcgallery.content_elements.map(i =>
+                resizeArcImage(
+                    i,
+                    resizeOptions,
+                    resizer,
+                    zoomSizes,
+                    smartCropExcluded
+                )
             )
-        )
     };
-};
-
-const getCanonincalURL = urlOrigin => {
-    return urlOrigin.replace(/^.*\/\/[^\/]+/, '');
-};
-
-const getFocalPoint = function getFocalPoint(element) {
-    const additionalProperties = element.additional_properties || {};
-    const focalPoint = additionalProperties.focal_point || {};
-    return focalPoint.min;
 };
 
 export const resizeArcImage = (
@@ -151,14 +149,25 @@ export const resizeArcImage = (
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
         );
 
-    const fp = getFocalPoint(arcImage) || undefined;
+    const fp = get(
+        arcImage,
+        'additional_properties.focal_point.min',
+        undefined
+    );
     const defaultResizeWithSmart = {
         ...defaultResize,
         isNotSmart: typeof fp !== 'undefined'
     };
-    const zs =
+
+    const _resizeOptions =
         typeof fp !== 'undefined'
-            ? zoomSizes.map(e => ({ ...e, isNotSmart: true }))
+            ? resizeOptions &&
+              resizeOptions.map(e => ({ ...e, isNotSmart: true }))
+            : resizeOptions;
+
+    const _zoomSizes =
+        typeof fp !== 'undefined'
+            ? zoomSizes && zoomSizes.map(e => ({ ...e, isNotSmart: true }))
             : zoomSizes;
 
     let urlResize = resizer.resizeUrl(
@@ -171,7 +180,7 @@ export const resizeArcImage = (
     );
 
     if (IS_DEV !== 'true' && IS_SANDBOX !== 'true') {
-        urlResize = getCanonincalURL(urlResize);
+        urlResize = urlResize && urlResize.replace(/^.*\/\/[^\/]+/, '');
     }
 
     return {
@@ -183,7 +192,7 @@ export const resizeArcImage = (
             arcImage.url,
             arcImage.width,
             arcImage.height,
-            resizeOptions,
+            _resizeOptions,
             fp,
             smartCropExcluded
         ),
@@ -191,7 +200,7 @@ export const resizeArcImage = (
             arcImage.url,
             arcImage.width,
             arcImage.height,
-            zs,
+            _zoomSizes,
             fp,
             smartCropExcluded
         )
@@ -210,29 +219,31 @@ const resizeCredits = (credits, resizeOptions, resizer) => {
 
     Object.keys(credits).forEach(key => {
         const credit = credits[key];
-        resp[key] = credit.map(c => {
-            if (!!c.image && !!c.image.url) {
-                const resizes = resizer.resizeUrls(
-                    c.image.url,
-                    c.image.width,
-                    c.image.height,
-                    optionsFinal
-                );
-                return {
-                    ...c,
-                    image: {
-                        ...c.image,
-                        resized_urls: resizes
-                    }
-                };
-            }
-            return c;
-        });
+        resp[key] =
+            credit &&
+            credit.map(c => {
+                if (!!c.image && !!c.image.url) {
+                    const resizes = resizer.resizeUrls(
+                        c.image.url,
+                        c.image.width,
+                        c.image.height,
+                        optionsFinal
+                    );
+                    return {
+                        ...c,
+                        image: {
+                            ...c.image,
+                            resized_urls: resizes
+                        }
+                    };
+                }
+                return c;
+            });
     });
     return resp;
 };
 
-const resizePromoItems = (
+export const resizePromoItems = (
     promoItems,
     resizeOptions,
     resizer,
@@ -303,6 +314,7 @@ export const addResizedUrls = (ansDoc, option) => {
     const respDoc = {
         ...ansDoc,
         content_elements:
+            ansDoc &&
             ansDoc.content_elements &&
             ansDoc.content_elements.map(elem => {
                 if (elem.type === 'image') {

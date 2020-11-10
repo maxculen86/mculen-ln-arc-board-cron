@@ -34,13 +34,32 @@ export const getFirstParentSection = section => {
     return null;
 };
 
+/**
+ * TODO: Pasar a configurable de site Services
+ * TODO: Resolver desde contentSource
+ * No harcodear codigo para evitar release
+ * @param {string} sectionId
+ */
 const getRegex = sectionId => {
     const magazineRegex = /\/revista-(.\w+[^\W]?)/;
     const propertiesRegex = /^\/propiedades$/;
+    const propertiesInmueblesComercialesRegex = /^\/propiedades\/inmuebles-comerciales$/;
+    const propertiesCasasDepartamentosRegex = /^\/propiedades\/casas-y-departamentos$/;
+    const propertiesConstruccionDisenoRegex = /^\/propiedades\/construccion-y-diseno$/;
+    const propertiesInversionesRegex = /^\/propiedades\/inversiones$/;
     const lnmasRegex = /\/lnmas/;
 
     if (sectionId === '/lnmas') return lnmasRegex;
     if (sectionId === '/propiedades') return propertiesRegex;
+    if (sectionId === '/propiedades/inmuebles-comerciales')
+        return propertiesInmueblesComercialesRegex;
+    if (sectionId === '/propiedades/casas-y-departamentos')
+        return propertiesCasasDepartamentosRegex;
+    if (sectionId === '/propiedades/construccion-y-diseno')
+        return propertiesConstruccionDisenoRegex;
+    if (sectionId === '/propiedades/inversiones')
+        return propertiesInversionesRegex;
+
     return magazineRegex;
 };
 
@@ -87,11 +106,15 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     if (!logoSection) return null;
     const { _id } = logoSection;
     const matchRegex = getRegex(_id);
-    const path = _id.match(matchRegex);
+    const path = _id.match(matchRegex) || [];
     const logoForPath = getLogoForPath(path);
+    const distName = path ? path[0] : '';
     return {
         logoName: distributorName === 'BBC Mundo' ? 'bbc' : logoForPath,
-        path: distributorName === 'BBC Mundo' ? '' : `${path[0]}/`,
+        path:
+            distributorName === 'BBC Mundo'
+                ? '/tema/bbc-mundo-tid56419'
+                : `${distName}/`,
         color
     };
 };

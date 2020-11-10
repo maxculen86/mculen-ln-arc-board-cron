@@ -30,6 +30,7 @@ const BreadcrumbBase = props => {
         dataSection,
         lastLinked,
         host,
+        trust,
         colorCategory = ''
     } = props;
 
@@ -73,16 +74,19 @@ const BreadcrumbBase = props => {
             host,
             colorCategory
         );
+
     return (
         <nav className={`com-breadcrumb ${extraClasses || ''}`}>
             {listSections}
             {/* Último item */}
-            <span className="com-text --tooltip">
-                Tooltip
-                <ComContainer>
-                    <ModTooltip />
-                </ComContainer>
-            </span>
+            {trust && (
+                <span className="com-text --tooltip">
+                    {trust.text}
+                    <ComContainer>
+                        <ModTooltip label={trust.label} />
+                    </ComContainer>
+                </span>
+            )}
         </nav>
     );
 };
@@ -97,14 +101,22 @@ BreadcrumbBase.propTypes = {
     ).isRequired,
     extraClasses: PropTypes.string,
     dataSection: PropTypes.string,
+    colorCategory: PropTypes.string,
     lastLinked: PropTypes.boolean,
-    host: PropTypes.string.isRequired
+    host: PropTypes.string.isRequired,
+    trust: PropTypes.shape({
+        id: PropTypes.string,
+        text: PropTypes.string,
+        label: PropTypes.string
+    })
 };
 
-// BreadcrumbBase.defaultProps = {
-//     extraClasses: undefined,
-//     dataSection: undefined,
-//     lastLinked: false
-// };
+BreadcrumbBase.defaultProps = {
+    extraClasses: undefined,
+    dataSection: undefined,
+    trust: undefined,
+    lastLinked: undefined,
+    colorCategory: ''
+};
 
 export default BreadcrumbBase;

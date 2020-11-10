@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
+import LoginProvider from '../private/LN/common/context/loginContext';
 
 // import '../../resources/dist/css/ln/base.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
@@ -67,7 +68,11 @@ const LNAcumuladoLayout = props => {
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
-    const articlesInCollection = getArticlesFromCollection(idCollection);
+    const articlesInCollection = getArticlesFromCollection(
+        idCollection,
+        2,
+        'l'
+    );
 
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
@@ -75,51 +80,53 @@ const LNAcumuladoLayout = props => {
     const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
 
     return (
-        <GlobalProviderAcu
-            acumuladoGeneral={acumuladoGeneral}
-            acumuladoColor={acumuladoColor}
-            articlesInCollection={articlesInCollection}
-        >
-            {megatop}
-            <div
-                id="wrapper"
-                className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${OPENING_CLASS} ${amp}`}
+        <LoginProvider>
+            <GlobalProviderAcu
+                acumuladoGeneral={acumuladoGeneral}
+                acumuladoColor={acumuladoColor}
+                articlesInCollection={articlesInCollection}
             >
-                <Header />
-                <main>
-                    {stickyMobile}
-                    <div
-                        className="row --top"
-                        style={{ backgroundColor: backgroundCategory }}
-                    >
+                {megatop}
+                <div
+                    id="wrapper"
+                    className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${OPENING_CLASS} ${amp}`}
+                >
+                    <Header />
+                    <main>
+                        {stickyMobile}
+                        <div
+                            className="row --top"
+                            style={{ backgroundColor: backgroundCategory }}
+                        >
+                            <div className="lay">
+                                {/* BANNER y ANEXO */}
+                                {preApertura}
+                                {/* TITULO/LOGO Y CATEGORIAS */}
+                                {breadcrumbTitulo}
+                            </div>
+                        </div>
                         <div className="lay">
-                            {/* BANNER y ANEXO */}
-                            {preApertura}
-                            {/* TITULO/LOGO Y CATEGORIAS */}
-                            {breadcrumbTitulo}
+                            {/* APERTURA: CAJA DE DOS COLUMNAS */}
+                            {apertura}
+                            {/* LISTA DE TAGS */}
+                            {links}
                         </div>
-                    </div>
-                    <div className="lay">
-                        {/* APERTURA: CAJA DE DOS COLUMNAS */}
-                        {apertura}
-                        {/* LISTA DE TAGS */}
-                        {links}
-                    </div>
-                    <div id="content-main" className="lay-sidebar">
-                        {/* Cuerpo */}
-                        <div className="sidebar__main">
-                            {/* NOTAS */}
-                            {notas}
+                        <div id="content-main" className="lay-sidebar">
+                            {/* Cuerpo */}
+                            <div className="sidebar__main">
+                                {/* NOTAS */}
+                                {notas}
+                            </div>
+                            <div className="sidebar__aside hlp-tablet-none">
+                                {/* BANNERS, RANKING DE NOTAS */}
+                                {aside}
+                            </div>
                         </div>
-                        <div className="sidebar__aside hlp-tablet-none">
-                            {/* BANNERS, RANKING DE NOTAS */}
-                            {aside}
-                        </div>
-                    </div>
-                </main>
-                <Footer />
-            </div>
-        </GlobalProviderAcu>
+                    </main>
+                    <Footer />
+                </div>
+            </GlobalProviderAcu>
+        </LoginProvider>
     );
 };
 

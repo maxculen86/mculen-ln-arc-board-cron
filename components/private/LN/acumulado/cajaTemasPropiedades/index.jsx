@@ -59,4 +59,4 @@ Index.propTypes = {
     idCollection: PropTypes.string.isRequired
 };
 
-export default withCollectionsInClass(Consumer(Index), filter, 6);
+export default withCollectionsInClass(Consumer(Index), filter, 6, 'm');

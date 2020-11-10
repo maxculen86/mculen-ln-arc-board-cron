@@ -17,9 +17,10 @@ import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
 import Html from './html';
-// import HtmlAMP from './htmlAMP';
+import HtmlAMP from './htmlAMP';
 import Video from './video';
 import { setStorageConfiguration } from '../../../common/utils/storage';
+import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
 
 const Cuerpo = props => {
     const {
@@ -48,7 +49,8 @@ const Cuerpo = props => {
         RawHTML,
         OembedAMP,
         BotonLink,
-        Html
+        Html,
+        HtmlAMP
     ];
     // TODO: Ver si este es el mejor lugar donde poner este script.
     // Setea valores en el Local Storage solo del lado del cliente
@@ -70,7 +72,7 @@ const Cuerpo = props => {
     let counter = 0;
     const output = contentElements.map((element, currentIndex) => {
         const Component = bodyComponents.find(bc => {
-            if (subtype === '8') {
+            if (subtype === FOTOAL100) {
                 return (
                     !(
                         element.type === 'oembed_response' ||
