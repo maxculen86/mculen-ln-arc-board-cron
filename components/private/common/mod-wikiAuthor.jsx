@@ -5,6 +5,8 @@ import ComLink from './com-link';
 import ComContainer from './com-container';
 import ListSocialIcons from './list-socialicons';
 import ModImage from './mod-image';
+import ComTitle from './com-title';
+import ComParagraph from './com-paragraph';
 
 const ModWikiAuthor = props => {
     const { classesNames, classCondition, size } = props;
@@ -23,13 +25,13 @@ const ModWikiAuthor = props => {
                     {/* <ModImage /> */}
                 </div>
                 <div className="col-8">
-                    <div>Nombre Autor</div>
-                    <div>Profesión</div>
+                    <ComTitle tag="h2" content="Nombre Autor" size="--l" />
+                    <ComTitle tag="h4" content="Profesión" size="--threexs" />
                     <ComContainer>
-                        <div>cpagni@lanacion.com</div>
-                        <div>www.carlospagni.com</div>
+                        <ComLink>cpagni@lanacion.com</ComLink>
+                        <ComLink>www.carlospagni.com</ComLink>
                     </ComContainer>
-                    <div>
+                    <ComParagraph>
                         Columnista político del diario LA NACION. Es profesor de
                         Historia en la Universidad Nacional de Mar del Plata y
                         fue docente de la cátedra de Historia de las Ideas
@@ -40,9 +42,9 @@ const ModWikiAuthor = props => {
                         instituciones y empresas del país y el exterior. En 2002
                         fue condecorado por el gobierno de la República de
                         Brasil con la Orden de Río Branco.
-                    </div>
+                    </ComParagraph>
                     <ComContainer>
-                        <div>Educacion</div>
+                        <ComTitle tag="h3" content="Educación" size="--l" />
                         <div>
                             Periodismo, Universidad de Buenos Aires, 1989.
                         </div>
