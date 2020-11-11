@@ -33,7 +33,7 @@ const ComImage = props => {
                 />
             ) : (
                 <img
-                    src={src}
+                    src="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/nMbuBq0SHLPv9uoOJsHiZBeyoYw=/768x513/smart/filters:quality(70)/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/2TEGAEFZO5B3DLRIP7P47ZTCPY.jpg"
                     srcSet={srcset}
                     loading={withLazy ? 'lazy' : undefined}
                     className={`com-image ${classCondition || ''}`}
@@ -59,6 +59,5 @@ ComImage.propTypes = {
     height: sizeProps,
     withLazy: PropTypes.bool
 };
-
 
 export default ComImage;

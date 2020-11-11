@@ -8,38 +8,41 @@ import ModImage from './mod-image';
 import ComTitle from './com-title';
 import ComParagraph from './com-paragraph';
 
-const descriptionItems = [
+const list = [
     {
         textlink: 'Carlos Pagni en Odisea Argentina',
-        textname: 'Editorial.',
+        textname: ', Editorial.',
         link: '#'
     },
     {
         textlink: 'Carlos Pagni en Odisea Argentina',
-        textname: 'Editorial.',
+        textname: ', Editorial.',
         link: '#'
     }
 ];
 
 const ModDescriptionList = props => {
-    const { classesNames, classCondition, size, descriptionItems } = props;
-    const listItem = descriptionItems.map(item => (
+    const {
+        classesNames,
+        classCondition,
+        size,
+        descriptionTitle,
+        descriptionItems,
+        link
+    } = props;
+    const listItem = list.map(item => (
         <dd className={`com-descriptionilist ${classCondition || ''} ${size}`}>
             <>
-                {link ? (
-                    <>
-                        <ComLink link={link}>{item.textlink}</ComLink>
-                        {item.textname}
-                    </>
-                ) : (
-                    item.textname
-                )}
+                <a className="com-link" href={item.link}>
+                    {item.textlink}
+                </a>
+                {item.textname}
             </>
         </dd>
     ));
     return (
-        <dl className={`mod-descriptionilist ${classCondition || ''} ${size}`}>
-            <dt className={`com-title ${classCondition || ''} ${size}`}>
+        <dl className={`mod-descriptionilist ${classCondition || ''}`}>
+            <dt className={`com-title --threexs ${classCondition || ''}`}>
                 {descriptionTitle}
             </dt>
             {listItem}

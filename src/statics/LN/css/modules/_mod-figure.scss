@@ -78,4 +78,7 @@
             }
         }
     }
+    .mod-wikiauthor & {
+        @include flex(flex, row, center, start);
+    }
 }
