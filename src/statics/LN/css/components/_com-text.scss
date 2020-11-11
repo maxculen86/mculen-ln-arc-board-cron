@@ -76,6 +76,7 @@
     &.--tooltip {
         display: flex;
         padding: 0;
+        line-height: px(1);
         &:hover {
             cursor: pointer;
             .com-container {
@@ -137,6 +138,10 @@
         }
         .mod-trust & {
             margin-right: $spacing-xs;
+        }
+        &.--sponsor,
+        &.--tooltip {
+            position: relative;
         }
     }
 }

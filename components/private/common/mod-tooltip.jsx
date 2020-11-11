@@ -9,7 +9,6 @@ const ModTooltip = ({ label }) => {
     return (
         <div className="mod-tooltip">
             <ComText size="--sixxs">{label}</ComText>
-            <ComIco iconName="close" size="--threexs" />
         </div>
     );
 };

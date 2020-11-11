@@ -11,7 +11,7 @@ import ModTooltip from './mod-tooltip';
 
 const ModSponsor = props => {
     const { type, sponsor, textName, link, tooltip = {} } = props;
-    console.log("tooltip", tooltip)
+    console.log('tooltip', tooltip);
     // console.log("type", type)
     // console.log("sponsor", sponsor)
 
@@ -25,7 +25,7 @@ const ModSponsor = props => {
 
             <>
                 {type === '--contentlab' ? (
-                    <ComText tag="" size="" classCondition="">
+                    <ComText tag="" size="--threexs" classCondition="">
                         ContentLAB para {textName}
                         {tooltip.label && (
                             <span className="com-text --tooltip">
@@ -36,7 +36,7 @@ const ModSponsor = props => {
                         )}
                     </ComText>
                 ) : (
-                    <ComText tag="" size="" classCondition="--sponsor">
+                    <ComText tag="" size="--threexs" classCondition="--sponsor">
                         Espacio Patrocinado
                         {tooltip.label && (
                             <span className="com-text --tooltip">
