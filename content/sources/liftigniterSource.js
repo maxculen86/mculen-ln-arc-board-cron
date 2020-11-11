@@ -1,5 +1,11 @@
 import request from 'request-promise-native';
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import {
+    RESIZER_KEY,
+    RESIZER_URL,
+    WIDGETS,
+    LIFTIGNITER_X_API_KEY,
+    JSK_ID
+} from 'fusion:environment';
 import {
     FOTOAL100,
     STORYTELLING
@@ -8,15 +14,6 @@ import get from '../../components/private/common/utils/get';
 import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
-
-/**
- * TODO: Por completar de tarea
- * 1. Pasar variables a encriptar y a ambiente
- */
-
-const JSK_ID = '8561ps8ov66e7mim';
-const LIFTIGNITER_X_API_KEY = '2f03f8f6-6086-4203-a8e7-8eede90d6766';
-const WIDGETS = 'li-nacion-recommended-item-template-1';
 
 const transformArticles = (liftigniterArticles = []) =>
     liftigniterArticles.map(({ url, id, title, image }) => ({
