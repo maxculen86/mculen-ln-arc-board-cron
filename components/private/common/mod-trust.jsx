@@ -9,7 +9,6 @@ import ComContainer from './com-container';
 const ModTrust = props => {
     const { classesNames, classCondition, trustProject, size } = props;
     if (!trustProject) return null;
-    console.log("trustProject", trustProject)
 
     return (
         <section

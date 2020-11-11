@@ -10,7 +10,10 @@ import ComContainer from './com-container';
 import ModTooltip from './mod-tooltip';
 
 const ModSponsor = props => {
-    const { type, sponsor, textName, link } = props;
+    const { type, sponsor, textName, link, tooltip = {} } = props;
+    console.log("tooltip", tooltip)
+    // console.log("type", type)
+    // console.log("sponsor", sponsor)
 
     return (
         <div className={`mod-sponsor ${type} ${sponsor}`}>
@@ -24,13 +27,24 @@ const ModSponsor = props => {
                 {type === '--contentlab' ? (
                     <ComText tag="" size="" classCondition="">
                         ContentLAB para {textName}
+                        {tooltip.label && (
+                            <span className="com-text --tooltip">
+                                <ComContainer>
+                                    <ModTooltip label={tooltip.label} />
+                                </ComContainer>
+                            </span>
+                        )}
                     </ComText>
                 ) : (
                     <ComText tag="" size="" classCondition="--sponsor">
                         Espacio Patrocinado
-                        <ComContainer>
-                            <ModTooltip />
-                        </ComContainer>
+                        {tooltip.label && (
+                            <span className="com-text --tooltip">
+                                <ComContainer>
+                                    <ModTooltip label={tooltip.label} />
+                                </ComContainer>
+                            </span>
+                        )}
                     </ComText>
                 )}
             </>

@@ -204,8 +204,8 @@ const transformContent = (jsonArticle, arcSite) => {
         new Promise(resolver =>
             resolver(getNavigationSiteProperties(resp, arcSite))
         ).then(data => {
-            console.log("transformContent -> data", data)
-            resp.siteService = { trustLabels: data.trustLabels };
+            // console.log("transformContent -> data", data)
+            resp.siteService = { tooltips: data.tooltips };
             // console.log("transformContent -> resp", resp)
         })
     );
@@ -287,16 +287,16 @@ const getNavigationSiteProperties = (anotherNoteData, arcSite) => {
     return request(opt)
         .then(fetchedRelated => {
             const { site } = fetchedRelated || {};
-            const { trust_labels: trustLabels } = site;
-            const trusts = [];
-            Object.keys(trustLabels).forEach(key => {
-                trusts.push({
-                    label: trustLabels[key],
+            const { tooltips } = site;
+            const customTooltips = [];
+            Object.keys(tooltips).forEach(key => {
+                customTooltips.push({
+                    label: tooltips[key],
                     text: key
                 });
             });
             const resp = {
-                trustLabels: trusts
+                tooltips: customTooltips
             };
             return resp;
         })

@@ -5,6 +5,7 @@ import get from 'lodash.get';
 import LogoBase from '../../common/logoBase';
 import TitleArticle from './titleArticle';
 import '../../../../../resources/dist/css/ln/components/title.css';
+import getTooltip from '../../common/utils/getTooltip';
 
 const titleAndIconArticle = ({
     customFields: { prefix },
@@ -14,12 +15,18 @@ const titleAndIconArticle = ({
         label,
         distributor,
         owner,
-        subtype
+        subtype,
+        siteService,
     },
     layout
 }) => {
     const sponsored = get(owner, 'sponsored', false);
     const advertiser = get(label, 'marca_anunciante.text', null);
+
+    let keyTooltip = '';
+    if (sponsored) keyTooltip = 'Espacio Patrocinado';
+    if (advertiser) keyTooltip = 'Content LAB';
+    const tooltip = getTooltip(keyTooltip, siteService);
 
     return (
         <>
@@ -30,6 +37,7 @@ const titleAndIconArticle = ({
                 sponsored={sponsored}
                 advertiser={advertiser}
                 subtype={subtype}
+                tooltip={tooltip}
             />
             <TitleArticle
                 prefix={prefix || ''}

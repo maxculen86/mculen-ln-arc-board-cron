@@ -352,7 +352,7 @@ export default `
         content_code
     }
     siteService {
-        trustLabels {
+        tooltips {
             label
             text
         }
