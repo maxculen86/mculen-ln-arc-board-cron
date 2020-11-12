@@ -16,10 +16,12 @@ const imageCommon = image => {
     };
 
     resizedUrls.forEach(e => {
-        resp.parametros.push({
-            ancho: e.option.width,
-            firma: e.resizedUrl.replace(regex, '$1')
-        });
+        if (!e.resizedUrl.includes('smart')) {
+            resp.parametros.push({
+                ancho: e.option.width,
+                firma: e.resizedUrl.replace(regex, '$1')
+            });
+        }
     });
 
     return resp;
