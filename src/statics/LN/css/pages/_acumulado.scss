@@ -115,7 +115,6 @@
 
     .--top {
         //para refactor
-        //hay que borrar .com-logo que no se usa
         .mod-categories {
             position: relative;
             width: 100%;
@@ -123,17 +122,13 @@
             flex-direction: column;
             flex-wrap: nowrap;
             padding-bottom: $spacing;
-            .com-title,
-            .com-logo {
+            .com-title {
                 margin-bottom: $spacing-sm;
                 margin-right: 0;
                 min-width: max-content;
             }
-            .com-logo {
-                font-size: px(70);
-            }
             .mod-logo {
-                display: flex;
+                //display: flex;
                 margin-bottom: $spacing-sm;
                 .com-image {
                     height: auto;
@@ -182,11 +177,10 @@
                 align-items: flex-end;
                 padding-bottom: $spacing-lg;
 
-                .com-title,
-                .com-logo {
+                .com-title {
                     margin-bottom: 0;
                     margin-right: px(24);
-                    padding-bottom: px(4);
+                    padding-bottom: px(10);
                 }
                 .mod-logo {
                     margin: 0;
@@ -197,7 +191,7 @@
                 }
                 .com-button {
                     padding: 0;
-                    margin-bottom: px(2);
+                    margin-bottom: px(8);
                     &:not(.hlp-none) {
                         display: inline-flex;
                     }
@@ -249,7 +243,6 @@
                 padding-bottom: 0;
                 margin-bottom: $spacing-lg;
                 .com-title,
-                .com-logo,
                 .com-link,
                 .com-button {
                     color: $blanco;
@@ -456,6 +449,9 @@
     }
     &.--category {
         margin-bottom: $spacing;
+        @media ($media-l) {
+            margin-bottom: px(14);
+        }
     }
     &.--tags {
         margin-bottom: $spacing-lg;
