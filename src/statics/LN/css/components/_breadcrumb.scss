@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 //=======================================
 // Se saca los espacios al top
 //=======================================
@@ -40,6 +41,8 @@
         }
     }
     span {
+        @include flex(flex, row, center, center);
+
         //border-left: solid 1px $gris5;
         padding: 0 px(6);
         margin-bottom: $spacing;
