@@ -25,7 +25,7 @@ const ModSponsor = props => {
 
             <>
                 {type === '--contentlab' ? (
-                    <ComText tag="" size="--threexs" classCondition="">
+                    <ComText tag="" size="--threexs" classCondition="--sponsor">
                         ContentLAB para {textName}
                         {tooltip.label && (
                             <span className="com-text --tooltip">
