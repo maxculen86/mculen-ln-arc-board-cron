@@ -16,7 +16,7 @@ const titleAndIconArticle = ({
         distributor,
         owner,
         subtype,
-        siteService,
+        siteService
     },
     layout
 }) => {
@@ -74,7 +74,15 @@ titleAndIconArticle.propTypes = {
         owner: PropTypes.shape({
             sponsored: PropTypes.bool
         }),
-        subtype: PropTypes.string
+        subtype: PropTypes.string,
+        siteService: PropTypes.shape({
+            tooltips: PropTypes.arrayOf(
+                PropTypes.shape({
+                    text: PropTypes.string,
+                    label: PropTypes.string,
+                })
+            )
+        }).isRequired
     }).isRequired,
     layout: PropTypes.string.isRequired
 };

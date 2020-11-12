@@ -45,9 +45,7 @@ const breadcrumbArticle = ({
     const trust = get(label, 'trust.text', '');
     const tooltip = getTooltip(trust, siteService);
     const sponsored = get(owner, 'sponsored', false);
-    // console.log("sponsored", sponsored)
     const advertiser = get(label, 'marca_anunciante.text', null);
-    // console.log("advertiser", advertiser)
 
     return (
         <>

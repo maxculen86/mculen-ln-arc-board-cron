@@ -11,9 +11,6 @@ import ModTooltip from './mod-tooltip';
 
 const ModSponsor = props => {
     const { type, sponsor, textName, link, tooltip = {} } = props;
-    console.log('tooltip', tooltip);
-    // console.log("type", type)
-    // console.log("sponsor", sponsor)
 
     return (
         <div className={`mod-sponsor ${type} ${sponsor}`}>
@@ -25,7 +22,7 @@ const ModSponsor = props => {
 
             <>
                 {type === '--contentlab' ? (
-                    <ComText tag="" size="--threexs" classCondition="">
+                    <ComText tag="" size="--threexs" classCondition="--sponsor">
                         ContentLAB para {textName}
                         {tooltip.label && (
                             <span className="com-text --tooltip">
@@ -56,7 +53,19 @@ ModSponsor.propTypes = {
     type: PropTypes.string,
     sponsor: PropTypes.string,
     textName: PropTypes.string,
-    link: PropTypes.string
+    link: PropTypes.string,
+    tooltip: PropTypes.shape({
+        text: PropTypes.string,
+        label: PropTypes.string
+    })
+};
+
+ModSponsor.defaultProps = {
+    type: undefined,
+    sponsor: undefined,
+    tooltip: undefined,
+    textName: undefined,
+    link: undefined
 };
 
 export default ModSponsor;
