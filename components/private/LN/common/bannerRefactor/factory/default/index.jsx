@@ -156,8 +156,14 @@ function getBannerForAccumTemplate(config) {
         case MEGATOP_MOB:
         case MEGATOP_DSK:
             return <Megatop {...config} />;
+        case ADHESION_MOB:
+            return createElement(withBondingToBottomMobile(Default), {
+                ...config,
+                closeButton: true
+            });
         case CABEZAL_DSK:
         case CABEZAL_TAB:
+        case ADHESION_DSK:
         case CAJA_1_DSK:
         case CAJA_2_DSK:
         case CAJA_3_DSK:
