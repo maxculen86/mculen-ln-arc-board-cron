@@ -1,10 +1,14 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import config from '../../properties/sites/la-nacion-ar';
 
 const Opta = props => {
-    const { Fusion, children } = props;
+    const { children, globalContent } = props;
+    const { content_elements: contentElement } = globalContent || {};
+    const { content = '' } = contentElement || {};
+
     const script = `
         var opta_settings = {
             subscription_id: '${config.optaConfig.subscription_id}',
@@ -25,6 +29,10 @@ const Opta = props => {
                 <noscript>Your browser does not suport javascript</noscript>
             </head>
             <body>
+                <div
+                    style={{ width: '800px', padding: '20px' }}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
                 <div id="fusion-app">{children}</div>
                 {/* <Fusion /> */}
             </body>
