@@ -9,9 +9,12 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
-
+import get from '../../../common/utils/get';
 import ConfigBuilder from '../../common/bannerRefactor/builder';
-import { getSlotForDevice } from '../../common/bannerRefactor/utils';
+import {
+    getSlotForDevice,
+    isPrimarySectionInBannerSegments
+} from '../../common/bannerRefactor/utils';
 import { slotsConfig } from '../../common/bannerRefactor/config';
 
 class GrillaNotas extends React.Component {
@@ -37,11 +40,7 @@ class GrillaNotas extends React.Component {
 
     getBanner = index => {
         const position = index + 1;
-        const {
-            bannerConfig,
-            hideBanners,
-            globalContent: { banners: bannersDimensions }
-        } = this.props;
+        const { bannerConfig, hideBanners, globalContent } = this.props;
         const { banners: termicaShowBanner } = this.props.termicas || {
             banners: true
         };
@@ -49,6 +48,11 @@ class GrillaNotas extends React.Component {
         const {
             screenUtils: { device }
         } = this.props;
+
+        const bannersSiteConfig = get(globalContent, 'siteService.banners');
+        const adserver = get(globalContent, 'siteService.adserver');
+        const segments = adserver.map(segment => segment.value);
+        const primarySection = get(globalContent, '_id');
 
         return bannerConfig
             .filter(banner => banner.position === position)
@@ -76,9 +80,16 @@ class GrillaNotas extends React.Component {
                     }
                 });
 
-                if (bannersDimensions)
+                const [present, section] = isPrimarySectionInBannerSegments(
+                    primarySection
+                )(segments);
+                if (present) {
+                    configBuilder.segmentAdUnit(section, device);
+                }
+
+                if (bannersSiteConfig)
                     configBuilder.setDimensionsFromSiteService(
-                        bannersDimensions,
+                        bannersSiteConfig,
                         'acumulado',
                         slotId
                     );

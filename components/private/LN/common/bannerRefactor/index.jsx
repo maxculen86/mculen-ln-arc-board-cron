@@ -1,31 +1,39 @@
 /* eslint-disable react/require-default-props */
+
 import React from 'react';
+import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 
-import BannerManager from './manager/banner';
+import { slotsConfig } from './config';
+
+import DefaultFactory from './factory/default';
+import AmpFactory from './factory/amp';
 
 const index = props => {
-    const { banner } = props;
+    const { outputType, config } = props;
 
-    return <BannerManager config={banner} />;
+    if (outputType === 'amp') {
+        return AmpFactory(config);
+    }
+
+    const Component = DefaultFactory(config);
+    return <Component />;
 };
 
 index.propTypes = {
-    banner: PropTypes.shape({
-        slotGroup: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired,
+    config: PropTypes.shape({
+        group: PropTypes.oneOf(Object.keys(slotsConfig)).isRequired,
         selectedSlots: PropTypes.shape({
             desktopSlot: PropTypes.string,
             mobileSlot: PropTypes.string,
             tabletSlot: PropTypes.string
-        }).isRequired,
+        }),
         sticky: PropTypes.bool,
         background: PropTypes.bool,
         fixed: PropTypes.bool,
-        show: PropTypes.shape({
-            termicas: PropTypes.bool,
-            collection: PropTypes.bool
-        })
+        show: PropTypes.bool
     })
 };
 
-export default index;
+export default Context(index);

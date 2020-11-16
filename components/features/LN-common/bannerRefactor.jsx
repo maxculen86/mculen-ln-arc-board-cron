@@ -13,7 +13,10 @@ import {
 } from '../../private/LN/common/bannerRefactor/config';
 import ConfigBuilder from '../../private/LN/common/bannerRefactor/builder';
 
-import { getSlotForDevice } from '../../private/LN/common/bannerRefactor/utils';
+import {
+    getSlotForDevice,
+    isPrimarySectionInBannerSegments
+} from '../../private/LN/common/bannerRefactor/utils';
 
 const Banner = props => {
     const configBuilder = useRef();
@@ -21,9 +24,7 @@ const Banner = props => {
     let config = null;
 
     const {
-        siteProperties: {
-            bannerConfig: { dfp_id: dfpId }
-        },
+        siteProperties,
         isAdmin,
         customFields: {
             group: slotGroup,
@@ -42,8 +43,18 @@ const Banner = props => {
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
 
-    const banner = get(globalContent, 'banner');
-    const termicas = get(globalContent, 'termicas.banners');
+    const termicas = get(globalContent, 'siteService.termicas', []).some(
+        termica => termica.key === 'banners'
+    )
+        ? get(globalContent, 'siteService.termicas', []).find(
+              termica => termica.key === 'banners'
+          ).value === 'true'
+        : 'false';
+
+    const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
+    const bannersSiteConfig = get(globalContent, 'siteService.banners');
+    const adserver = get(globalContent, 'siteService.adserver', []);
+    const segments = adserver.map(segment => segment.value);
 
     if (!desktop && !mobile && !tablet) return null;
 
@@ -53,8 +64,13 @@ const Banner = props => {
         { name: 'mobile', slot: mobile }
     ];
 
+    const type = get(globalContent, 'type');
     const sponsored = get(globalContent, 'owner.sponsored');
     const advertiser = get(globalContent, 'label.marca_anunciante.text');
+    const primarySection =
+        type && type === 'story'
+            ? get(globalContent, 'taxonomy.primary_section._id')
+            : get(globalContent, '_id');
 
     const hideBanners = get(
         globalContent,
@@ -84,19 +100,28 @@ const Banner = props => {
             background,
             fixed,
             show: {
-                termicas: termicas === 'true',
+                termicas,
                 collection: !(hideBanners === 'true')
             }
         });
+
+        // Site service banner segments check
+        const [present, section] = isPrimarySectionInBannerSegments(
+            primarySection
+        )(segments);
+
+        if (present) {
+            configBuilder.current.segmentAdUnit(section, device);
+        }
 
         // Contentlab check
         if (sponsored && advertiser)
             configBuilder.current.setCustomAdUnit('ContentLab');
 
         // Site service dimensions check
-        if (banner)
+        if (bannersSiteConfig)
             configBuilder.current.setDimensionsFromSiteService(
-                banner,
+                bannersSiteConfig,
                 slotGroup,
                 slotId
             );
@@ -124,7 +149,7 @@ const Banner = props => {
         return (
             <BannerComponent
                 isAdmin={isAdmin}
-                banner={configBuilder.current.get()}
+                config={configBuilder.current.get()}
             />
         );
     return <></>;

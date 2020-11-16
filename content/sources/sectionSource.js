@@ -21,31 +21,10 @@ const resolve = key => {
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
 
-const fetch = query => {
-    const arcSite = query['arc-site'];
-    const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-
-    return request(opt)
-        .then(response => {
-            return transform(response, query, arcSite);
-        })
-        .catch(error => {
-            //logger.push(error, { source: 'content/source', url }, arcSite);
-            throw error;
-        });
-};
-
-const transform = (data, query, website) => {
+const transform = (data, query) => {
     const { _id: idData } = data;
     const { id: idQuery } = query;
+    const { website } = query;
 
     /**
      * Se valida que la sección consultada tenga
@@ -62,12 +41,75 @@ const transform = (data, query, website) => {
 
     const response = data;
 
-    /* return navigationTreeSource.fetch({ website }).then(res => {
-        response.banner = res.bannerConfig;
-        response.termicas = res.Termicas;
+    return getNavigationSiteProperties(null, website).then(result => {
+        response.siteService = {
+            banners: result.banners,
+            adserver: result.adserver,
+            termicas: result.termicas
+        };
         return response;
-    }); */
-    return response;
+    });
+};
+
+const getNavigationSiteProperties = (anotherNoteData, arcSite) => {
+    const urlNavigationTreeSource = navigationTreeSource.resolve({
+        website: arcSite
+    });
+    const opt = {
+        uri: `${CONTENT_BASE}${urlNavigationTreeSource}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    return request(opt)
+        .then(fetchedRelated => {
+            const { site } = fetchedRelated || {};
+            const { bannerConfig } = fetchedRelated || { bannerConfig: {} };
+            const { Termicas: termicasConfig } = fetchedRelated || {
+                Termicas: {}
+            };
+            const { sitio_adserver: sitioAdserver } = site;
+
+            // Banner dimensions
+            const banners = [];
+            Object.keys(bannerConfig).forEach(key => {
+                banners.push({
+                    adunit: key,
+                    dimensions: bannerConfig[key]
+                });
+            });
+
+            // Termicas
+            const termicas = [];
+            Object.keys(termicasConfig).forEach(key => {
+                termicas.push({
+                    key,
+                    value: termicasConfig[key]
+                });
+            });
+
+            // Banner segments
+            const adserver = [];
+            Object.keys(sitioAdserver).forEach(key => {
+                adserver.push({
+                    key,
+                    value: sitioAdserver[key]
+                });
+            });
+
+            const resp = {
+                banners,
+                adserver,
+                termicas
+            };
+            return resp;
+        })
+        .catch(e => {
+            // console.log('Error article source: getNavigationSiteProperties -> e', e);
+        });
 };
 
 const ttlValue = () => {

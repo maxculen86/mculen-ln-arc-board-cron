@@ -200,17 +200,96 @@ const transformContent = (jsonArticle, arcSite) => {
         );
     });
 
-    // NavigationTreeSource
     promiseArr.push(
-        navigationTreeSource.fetch({ website: arcSite }).then(res => {
-            resp.banner = res.bannerConfig;
-            resp.termicas = res.Termicas;
+        new Promise(resolver =>
+            resolver(getNavigationSiteProperties(resp, arcSite))
+        ).then(data => {
+            console.log('transformContent -> data', data);
+            resp.siteService = {
+                tooltips: data.tooltips,
+                banners: data.banners,
+                adserver: data.adserver,
+                termicas: data.termicas
+            };
+            //console.log("transformContent -> resp", resp)
         })
     );
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
+};
+
+const getNavigationSiteProperties = (anotherNoteData, arcSite) => {
+    const urlNavigationTreeSource = navigationTreeSource.resolve({
+        website: arcSite
+    });
+    const opt = {
+        uri: `${CONTENT_BASE}${urlNavigationTreeSource}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    return request(opt)
+        .then(fetchedRelated => {
+            const { site } = fetchedRelated || {};
+            const { tooltips } = site;
+            const { bannerConfig } = fetchedRelated || { bannerConfig: {} };
+            const { Termicas: termicasConfig } = fetchedRelated || {
+                Termicas: {}
+            };
+            const { sitio_adserver: sitioAdserver } = site;
+
+            // Trust
+            const customTooltips = [];
+            Object.keys(tooltips).forEach(key => {
+                customTooltips.push({
+                    label: tooltips[key],
+                    text: key
+                });
+            });
+
+            // Banner dimensions
+            const banners = [];
+            Object.keys(bannerConfig).forEach(key => {
+                banners.push({
+                    adunit: key,
+                    dimensions: bannerConfig[key]
+                });
+            });
+
+            // Termicas
+            const termicas = [];
+            Object.keys(termicasConfig).forEach(key => {
+                termicas.push({
+                    key,
+                    value: termicasConfig[key]
+                });
+            });
+
+            // Banner segments
+            const adserver = [];
+            Object.keys(sitioAdserver).forEach(key => {
+                adserver.push({
+                    key,
+                    value: sitioAdserver[key]
+                });
+            });
+
+            const resp = {
+                tooltips: customTooltips,
+                banners,
+                adserver,
+                termicas
+            };
+            return resp;
+        })
+        .catch(e => {
+            // console.log('Error article source: getNavigationSiteProperties -> e', e);
+        });
 };
 
 const addGalleryData = (gallery, arcSite) => {

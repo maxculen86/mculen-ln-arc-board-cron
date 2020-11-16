@@ -13,6 +13,7 @@ const componentDidReachViewportTop = element => {
 };
 
 const show = element => {
+    if (!element) return;
     if (!element.classList.contains('--sticky')) {
         element.classList.add('--sticky');
     }
@@ -23,6 +24,7 @@ const show = element => {
 };
 
 const hide = element => {
+    if (!element) return;
     if (element.classList.contains('--sticky')) {
         element.classList.remove('--sticky');
     }
