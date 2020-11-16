@@ -6,7 +6,7 @@ import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 import BannerComponent from '../../private/LN/common/bannerRefactor';
 import Placeholder from '../../private/LN/common/bannerRefactor/placeholder';
-import WithScreenUtils from '../../private/common/hocs/withScreenUtils';
+import useViewportSize from '../../private/common/hooks/useViewportSize';
 import {
     slotsConfig,
     getSlotsOptions
@@ -34,10 +34,10 @@ const Banner = props => {
             background,
             fixed
         },
-        screenUtils: { device },
         globalContent
     } = props;
 
+    const device = useViewportSize();
     const { label } = globalContent || { label: { mostrar_banners: false } };
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
@@ -150,9 +150,6 @@ Banner.propTypes = {
         })
     }),
     isAdmin: PropTypes.bool.isRequired,
-    screenUtils: PropTypes.shape({
-        device: PropTypes.string
-    }),
     globalContent: PropTypes.shape({
         label: PropTypes.shape({
             mostrar_banners: PropTypes.shape({
@@ -165,4 +162,4 @@ Banner.propTypes = {
     })
 };
 
-export default Consumer(WithScreenUtils(Banner));
+export default Consumer(Banner);

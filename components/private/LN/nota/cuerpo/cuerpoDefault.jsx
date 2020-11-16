@@ -13,6 +13,13 @@ import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitle from './subtitle';
 import Paragraph from './parrafo';
 import Banner from '../../common/bannerRefactor';
+import ConfigBuilder from '../../common/bannerRefactor/builder';
+import {
+    getSlotForDevice,
+    isPrimarySectionInBannerSegments
+} from '../../common/bannerRefactor/utils';
+import { slotsConfig } from '../../common/bannerRefactor/config';
+import get from '../../../common/utils/get';
 import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
@@ -21,10 +28,10 @@ import Html from './html';
 import Video from './video';
 import { setStorageConfiguration } from '../../../common/utils/storage';
 
+import useViewportSize from '../../../common/hooks/useViewportSize';
+
 const Cuerpo = props => {
     const {
-        isAdmin,
-        siteProperties,
         bannerConfig: banners,
         outputType,
         globalContent: {
@@ -34,6 +41,27 @@ const Cuerpo = props => {
             subtype
         }
     } = props;
+
+    const device = useViewportSize();
+
+    const mostrarBanners = get(
+        props.globalContent,
+        'label.mostrar_banners.text'
+    );
+    const termicas = get(props.globalContent, 'siteService.termicas', []).some(
+        termica => termica.key === 'banners'
+    )
+        ? get(props.globalContent, 'siteService.termicas', []).find(
+              termica => termica.key === 'banners'
+          ).value === 'true'
+        : 'false';
+    const bannersSiteConfig = get(props.globalContent, 'siteService.banners');
+    const adserver = get(props.globalContent, 'siteService.adserver', []);
+    const segments = adserver.map(segment => segment.value);
+    const primarySection = get(
+        props.globalContent,
+        'taxonomy.primary_section._id'
+    );
 
     const bodyComponents = [
         Paragraph,
@@ -126,24 +154,59 @@ const Cuerpo = props => {
                             banners
                                 .filter(banner => banner.position === counter)
                                 .map(value => {
-                                    const data = {
-                                        siteProperties,
-                                        isAdmin,
-                                        banner: {
-                                            slotGroup: 'nota',
-                                            selectedSlots: {
-                                                desktopSlot: value.desktop,
-                                                mobileSlot: value.mobile,
-                                                tabletSlot: value.tablet
-                                            },
-                                            sticky: value.sticky,
-                                            background: value.background
+                                    if (mostrarBanners !== 'Si') return <></>;
+
+                                    const slots = [
+                                        {
+                                            name: 'desktop',
+                                            slot: value.desktop
+                                        },
+                                        { name: 'mobile', slot: value.mobile },
+                                        { name: 'tablet', slot: value.tablet }
+                                    ];
+                                    const slotId = getSlotForDevice(device)(
+                                        slots
+                                    );
+
+                                    if (!slotId) return <></>;
+
+                                    const config = slotsConfig.nota[slotId];
+                                    if (!config) return <></>;
+
+                                    // TODO: Move this logic somewhere else (utils)
+                                    const configBuilder = new ConfigBuilder();
+                                    configBuilder.init({
+                                        ...config,
+                                        slotId,
+                                        slotGroup: 'nota',
+                                        show: {
+                                            termicas,
+                                            collection: true
                                         }
-                                    };
+                                    });
+
+                                    const [
+                                        present,
+                                        section
+                                    ] = isPrimarySectionInBannerSegments(
+                                        primarySection
+                                    )(segments);
+                                    if (present) {
+                                        configBuilder.segmentAdUnit(section);
+                                    }
+
+                                    if (bannersSiteConfig)
+                                        configBuilder.setDimensionsFromSiteService(
+                                            bannersSiteConfig,
+                                            'nota',
+                                            slotId
+                                        );
 
                                     return (
                                         elementsCount > counter && (
-                                            <Banner {...data} />
+                                            <Banner
+                                                config={configBuilder.get()}
+                                            />
                                         )
                                     );
                                 })}

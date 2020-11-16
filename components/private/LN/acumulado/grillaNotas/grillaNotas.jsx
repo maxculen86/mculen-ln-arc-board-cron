@@ -50,8 +50,6 @@ class GrillaNotas extends React.Component {
             screenUtils: { device }
         } = this.props;
 
-        // console.log('#### GRILLA PROPS: ', this.props);
-
         return bannerConfig
             .filter(banner => banner.position === position)
             .map(value => {
@@ -85,7 +83,7 @@ class GrillaNotas extends React.Component {
                         slotId
                     );
 
-                return <Banner key={slotId} banner={configBuilder.get()} />;
+                return <Banner key={slotId} config={configBuilder.get()} />;
             });
     };
 

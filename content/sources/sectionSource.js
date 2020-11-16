@@ -62,11 +62,12 @@ const transform = (data, query, website) => {
 
     const response = data;
 
-    return navigationTreeSource.fetch({ website }).then(res => {
+    /* return navigationTreeSource.fetch({ website }).then(res => {
         response.banner = res.bannerConfig;
         response.termicas = res.Termicas;
         return response;
-    });
+    }); */
+    return response;
 };
 
 const ttlValue = () => {
@@ -80,10 +81,11 @@ const ttlValue = () => {
  */
 
 export default {
-    fetch,
+    resolve,
     schemaName: 'section-schema',
     params: {
         id: 'text',
         website: 'text'
-    }
+    },
+    transform
 };
