@@ -8,31 +8,31 @@ import ComBullet from './com-bullet';
 
 const list = [
     {
-        textname: 'twitter',
+        textname: '@cpagni',
         link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
         icon: 'twitter',
         classCondition: ''
     },
     {
-        textname: 'whatsapp',
+        textname: '@cpagni',
         link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
         icon: 'whatsapp',
         classCondition: ''
     },
     {
-        textname: 'instagram',
+        textname: '@cpagni',
         link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
         icon: 'instagram',
         classCondition: ''
     },
     {
-        textname: 'rss',
+        textname: '@cpagni',
         link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
         icon: 'rss',
         classCondition: ''
     },
     {
-        textname: 'Facebook',
+        textname: '@cpagni',
         link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
         icon: 'facebook',
         classCondition: ''
