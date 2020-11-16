@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-fragments          */
 
@@ -55,7 +56,11 @@ const Cuerpo = props => {
     // TODO: Ver si este es el mejor lugar donde poner este script.
     // Setea valores en el Local Storage solo del lado del cliente
     useEffect(() => {
-        setStorageConfiguration(_id);
+        try {
+            setStorageConfiguration(_id);
+        } catch (e) {
+            console.error('Error en setear Local Storage');
+        }
     }, [_id]);
 
     const types = ['text', 'image', 'oembed_response', 'video'];
