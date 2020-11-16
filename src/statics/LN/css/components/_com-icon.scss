@@ -28,6 +28,9 @@
         text-align: center;
         text-transform: initial;
     }
+    .mod-wikiauthor & {
+        color: $negro;
+    }
 }
 @media ($media-l) {
     .com-icon {

@@ -1,0 +1,12 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.com-bullet {
+    @include flex(inline, row, center, center);
+    padding: $spacing-xs;
+    .com-li:first-child & {
+        .mod-wikiauthor & {
+            display: none;
+        }
+    }
+}

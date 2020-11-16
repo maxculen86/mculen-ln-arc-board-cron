@@ -4,6 +4,7 @@ import ComLi from './com-li';
 import ComLink from './com-link';
 import ComIco from './com-icon';
 import '../../../resources/dist/css/ln/components/com-unordered.css';
+import ComBullet from './com-bullet';
 
 const list = [
     {
@@ -42,11 +43,18 @@ const ListSocialIcons = props => {
     const { vertical, size } = props;
     const listItem = list.map(item => (
         <ComLi>
-            <ComLink link={item.link} blank={item.blank}>
+            <ComLink
+                link={item.link}
+                blank={item.blank}
+                classCondition="--sociallist"
+            >
+                <ComBullet sizeBullet="--xs" />
                 <ComIco
-                    size={size}
+                    sizeText={size}
+                    sizeIcon="--lg"
                     iconName={item.icon}
                     classCondition={item.classCondition}
+                    textname={item.textname}
                 />
             </ComLink>
         </ComLi>

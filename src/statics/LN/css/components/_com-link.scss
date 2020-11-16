@@ -93,6 +93,9 @@
         margin-right: $spacing-sm;
         margin-bottom: $spacing-sm;
     }
+    &.--sociallist {
+        @include flex(inline, row, center, center);
+    }
 }
 @media ($media-l) {
     .com-link {
