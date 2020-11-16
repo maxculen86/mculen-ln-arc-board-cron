@@ -16,9 +16,13 @@ const imageCommon = image => {
     };
 
     resizedUrls.forEach(e => {
+        let signature = '';
+        if (e.resizedUrl.includes('smart') && !baseUrl.includes('smart'))
+            signature = `${e.resizedUrl.replace(regex, '$1')}/smart`;
+
         resp.parametros.push({
             ancho: e.option.width,
-            firma: e.resizedUrl.replace(regex, '$1')
+            firma: signature || e.resizedUrl.replace(regex, '$1')
         });
     });
 

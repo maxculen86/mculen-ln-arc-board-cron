@@ -69,7 +69,7 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
             message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
         />
     );
-    return isValid ? (isAdmin && component) || component[0] : null;
+    return isValid ? component : null;
 };
 
 const lnNotaNoticia = ({
