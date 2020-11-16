@@ -1,9 +1,8 @@
-/* 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
-}); */
+});
 
 import Consumer from 'fusion:consumer';
 
