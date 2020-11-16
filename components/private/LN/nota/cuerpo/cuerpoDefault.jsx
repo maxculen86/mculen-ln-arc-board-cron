@@ -56,6 +56,7 @@ const Cuerpo = props => {
           ).value === 'true'
         : 'false';
     const bannersSiteConfig = get(props.globalContent, 'siteService.banners');
+    const dfpId = get(props, 'siteProperties.bannerConfig.dfpId');
     const adserver = get(props.globalContent, 'siteService.adserver', []);
     const segments = adserver.map(segment => segment.value);
     const primarySection = get(
@@ -178,6 +179,7 @@ const Cuerpo = props => {
                                     configBuilder.init({
                                         ...config,
                                         slotId,
+                                        dfpId,
                                         slotGroup: 'nota',
                                         show: {
                                             termicas,

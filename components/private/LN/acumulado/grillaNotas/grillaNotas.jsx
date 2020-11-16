@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import getProperties from 'fusion:properties';
 import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
 import Banner from '../../common/bannerRefactor';
@@ -53,6 +54,8 @@ class GrillaNotas extends React.Component {
         const adserver = get(globalContent, 'siteService.adserver');
         const segments = adserver.map(segment => segment.value);
         const primarySection = get(globalContent, '_id');
+        const site = this.props.arcSite || 'la-nacion-ar';
+        const { dfpId } = getProperties(site);
 
         return bannerConfig
             .filter(banner => banner.position === position)
@@ -73,6 +76,7 @@ class GrillaNotas extends React.Component {
                 configBuilder.init({
                     ...config,
                     slotId,
+                    dfpId,
                     slotGroup: 'acumulado',
                     show: {
                         termicas: termicaShowBanner,
