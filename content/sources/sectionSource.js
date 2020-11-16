@@ -1,5 +1,10 @@
 // import { transform } from "@babel/core";
+import request from 'request-promise-native';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import getProperties from 'fusion:properties';
+import collectionsSource from './collectionsSource';
+import get from '../../components/private/common/utils/get';
+import logger from '../../components/private/common/utils/logger';
 
 const resolve = key => {
     const { id, website } = key;
@@ -20,7 +25,7 @@ const resolve = key => {
 const transform = (data, query) => {
     const { _id: idData } = data;
     const { id: idQuery } = query;
-
+    const arcSite = query['arc-site'];
     /**
      * Se valida que la sección consultada tenga
      * consistencia con la data respondida en la data
@@ -34,7 +39,59 @@ const transform = (data, query) => {
         throw err;
     }
 
-    return data;
+    const promiseArr = [];
+    const resp = { ...data };
+    const idCollection = get(
+        resp,
+        'acumuladoGeneral.id_collection_promo_items'
+    );
+
+    if (idCollection) {
+        promiseArr.push(
+            new Promise(resolver =>
+                resolver(getCollections(idCollection, arcSite))
+            ).then(response => {
+                resp.articlesInCollection = response.content_elements;
+            })
+        );
+    }
+
+    // console.log("transform -> resp", resp)
+    return Promise.all(promiseArr).then(() => {
+        return resp;
+    });
+};
+
+const getCollections = (idCollection, arcSite) => {
+    const query = collectionsSource.resolve({
+        id: idCollection,
+        size: 2,
+        imageConfig: 'l',
+        website: arcSite
+    });
+    const properties = getProperties(arcSite);
+
+    const opt = {
+        uri: `${CONTENT_BASE}${query}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    return request(opt)
+        .then(response => {
+            const newResponse = collectionsSource.transform(
+                response,
+                properties
+            );
+            return newResponse;
+        })
+        .catch(error => {
+            logger.push(error, { source: 'content/source', query }, arcSite);
+            throw error;
+        });
 };
 
 const ttlValue = () => {

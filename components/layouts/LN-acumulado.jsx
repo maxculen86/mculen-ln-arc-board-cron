@@ -51,7 +51,7 @@ const LNAcumuladoLayout = props => {
         tree,
         isAdmin
     } = props;
-    const { style } = globalContent;
+    const { style, articlesInCollection } = globalContent;
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =
@@ -68,11 +68,12 @@ const LNAcumuladoLayout = props => {
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
-    const articlesInCollection = getArticlesFromCollection(
+    /*const articlesInCollection = getArticlesFromCollection(
         idCollection,
         2,
         'l'
-    );
+    );*/
+    console.log("globalContent", globalContent)
 
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
