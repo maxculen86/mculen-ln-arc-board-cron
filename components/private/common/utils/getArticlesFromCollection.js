@@ -20,7 +20,6 @@ const getArticlesFromCollection = (
         },
         filter,
         transform(data) {
-            //console.log("transform -> data", data)
             if (data && data.content_elements) {
                 return { content_elements: [...data.content_elements] };
             }

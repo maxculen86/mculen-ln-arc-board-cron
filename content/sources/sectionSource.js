@@ -5,6 +5,7 @@ import getProperties from 'fusion:properties';
 import collectionsSource from './collectionsSource';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
+import filter from '../content/filters/LN/acumulado/articleAcu';
 
 const resolve = key => {
     const { id, website } = key;
@@ -22,10 +23,9 @@ const resolve = key => {
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
 
-const transform = (data, query) => {
+const transform = (data, siteProps) => {
     const { _id: idData } = data;
-    const { id: idQuery } = query;
-    const arcSite = query['arc-site'];
+    const { id: idQuery } = siteProps;
     /**
      * Se valida que la sección consultada tenga
      * consistencia con la data respondida en la data
@@ -40,7 +40,7 @@ const transform = (data, query) => {
     }
 
     const promiseArr = [];
-    const resp = { ...data };
+    const resp = { ...data, articlesInCollection: [] };
     const idCollection = get(
         resp,
         'acumuladoGeneral.id_collection_promo_items'
@@ -48,28 +48,29 @@ const transform = (data, query) => {
 
     if (idCollection) {
         promiseArr.push(
-            new Promise(resolver =>
-                resolver(getCollections(idCollection, arcSite))
-            ).then(response => {
-                resp.articlesInCollection = response.content_elements;
+            getCollections(idCollection, siteProps).then(response => {
+                if (response && response.content_elements) {
+                    resp.articlesInCollection = response.content_elements;
+                }
             })
         );
     }
 
-    // console.log("transform -> resp", resp)
-    return Promise.all(promiseArr).then(() => {
+    Promise.all(promiseArr).then(() => {
         return resp;
     });
+
+    return resp;
 };
 
-const getCollections = (idCollection, arcSite) => {
+const getCollections = (idCollection, siteProps) => {
+    const arcSite = siteProps['arc-site'];
     const query = collectionsSource.resolve({
         id: idCollection,
         size: 2,
-        imageConfig: 'l',
         website: arcSite
     });
-    const properties = getProperties(arcSite);
+    const properties = { ...siteProps, imageConfig: 'l' };
 
     const opt = {
         uri: `${CONTENT_BASE}${query}`,
@@ -80,6 +81,7 @@ const getCollections = (idCollection, arcSite) => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
+
     return request(opt)
         .then(response => {
             const newResponse = collectionsSource.transform(
