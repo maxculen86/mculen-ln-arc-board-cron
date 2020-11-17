@@ -35,7 +35,7 @@ function ConfigBuilder() {
         const { slotName } = this._config;
         this._config = {
             ...this._config,
-            slotName: slotName.replace(/([^/]+$)/g, unit)
+            slotName: slotName.replace(/(?<=\/).+(?=\/)/g, unit)
         };
     };
 
@@ -43,10 +43,7 @@ function ConfigBuilder() {
         const { slotName } = this._config;
         this._config = {
             ...this._config,
-            slotName: slotName.replace(
-                /(?<=\/).+(?=\/)/g,
-                `${section}_${device}`
-            )
+            slotName: slotName.replace(/^.*?(?=\/)/g, `${section}_${device}`)
         };
     };
 
