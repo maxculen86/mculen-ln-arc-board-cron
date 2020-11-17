@@ -1,14 +1,20 @@
+/* eslint-disable no-nested-ternary */
+
 import React from 'react';
 
+const isSSR = () => typeof window === 'undefined';
+
 export default function useViewportSize() {
-    const isSSR = typeof window !== 'undefined';
-    const [viewportSize, setViewportSize] = React.useState({
-        width: isSSR
-            ? 'desktop'
-            : isTabletOrMobile(
-                  navigator.userAgent || navigator.vendor || window.opera
-              )
-    });
+    const userAgent =
+        typeof navigator !== 'undefined'
+            ? navigator.userAgent || navigator.vendor
+            : isSSR()
+            ? ''
+            : window.opera;
+
+    const [viewportSize, setViewportSize] = React.useState(
+        isSSR() ? 'desktop' : ''
+    );
 
     function isTabletOrMobile(a) {
         return (
@@ -23,9 +29,7 @@ export default function useViewportSize() {
     }
 
     function getViewportSize() {
-        const mobileOrTablet = isTabletOrMobile(
-            navigator.userAgent || navigator.vendor || window.opera
-        );
+        const mobileOrTablet = isTabletOrMobile(userAgent);
         const isTablet = screen.width >= 768 && screen.width < 1024;
         const isMobile = screen.width < 768;
         if (mobileOrTablet) {
@@ -36,9 +40,10 @@ export default function useViewportSize() {
     }
 
     // useEffect hook always runs client side
+    // useEffect with no dependency array will run the side effect after each rendering
     React.useEffect(() => {
         getViewportSize();
-    }, []);
+    });
 
     return viewportSize;
 }

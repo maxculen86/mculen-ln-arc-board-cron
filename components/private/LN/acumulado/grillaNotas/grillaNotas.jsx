@@ -55,7 +55,7 @@ class GrillaNotas extends React.Component {
         const segments = adserver.map(segment => segment.value);
         const primarySection = get(globalContent, '_id');
         const site = this.props.arcSite || 'la-nacion-ar';
-        const { dfpId } = getProperties(site);
+        const dfpId = get(getProperties(site), 'bannerConfig.dfp_id');
 
         return bannerConfig
             .filter(banner => banner.position === position)

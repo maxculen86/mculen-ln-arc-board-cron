@@ -135,7 +135,7 @@ const Banner = props => {
         return <Placeholder missDfpId />;
     }
 
-    if (isAdmin) {
+    if (isAdmin && config) {
         return (
             <Placeholder
                 slotName={config.slotName}
