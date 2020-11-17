@@ -24,10 +24,26 @@ function ConfigBuilder() {
     };
 
     this.changeSlotName = function(name) {
-        const { slotName } = this.config;
+        const { slotName } = this._config;
         this._config = {
             ...this._config,
             slotName: slotName.replace(/[^/]+$/g, name)
+        };
+    };
+
+    this.setCustomAdUnit = function(unit) {
+        const { slotName } = this._config;
+        this._config = {
+            ...this._config,
+            slotName: slotName.replace(/([^/]+$)/g, unit)
+        };
+    };
+
+    this.segmentAdUnit = function(section, device) {
+        const { slotName } = this._config;
+        this._config = {
+            ...this._config,
+            slotName: slotName.replace(/^.*?(?=\/)/g, `${section}_${device}`)
         };
     };
 

@@ -44,6 +44,9 @@ const Cuerpo = props => {
 
     const device = useViewportSize();
 
+    const sponsored = get(props.globalContent, 'owner.sponsored');
+    const advertiser = get(props.globalContent, 'label.marca_anunciante.text');
+
     const mostrarBanners = get(
         props.globalContent,
         'label.mostrar_banners.text'
@@ -196,6 +199,11 @@ const Cuerpo = props => {
                                     if (present) {
                                         configBuilder.segmentAdUnit(section);
                                     }
+
+                                    if (sponsored && advertiser)
+                                        configBuilder.current.setCustomAdUnit(
+                                            'ContentLab'
+                                        );
 
                                     if (bannersSiteConfig)
                                         configBuilder.setDimensionsFromSiteService(
