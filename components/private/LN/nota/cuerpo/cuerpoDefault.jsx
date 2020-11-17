@@ -197,7 +197,10 @@ const Cuerpo = props => {
                                         primarySection
                                     )(segments);
                                     if (present) {
-                                        configBuilder.segmentAdUnit(section);
+                                        configBuilder.segmentAdUnit(
+                                            section,
+                                            device
+                                        );
                                     }
 
                                     if (sponsored && advertiser)
