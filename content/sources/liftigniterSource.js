@@ -4,7 +4,8 @@ import {
     RESIZER_URL,
     WIDGETS,
     LIFTIGNITER_X_API_KEY,
-    JSK_ID
+    JSK_ID,
+    SITE_LANACION
 } from 'fusion:environment';
 import {
     FOTOAL100,
@@ -36,7 +37,12 @@ const transformArticles = (liftigniterArticles = []) =>
  */
 
 const fetch = query => {
-    const { cantidadNotas, referrer } = query;
+    const {
+        cantidadNotas = 10,
+        referrer = SITE_LANACION,
+        imageConfig = 'm'
+    } = query;
+
     return request({
         uri: `https://query.petametrics.com/v3/${JSK_ID}/model`,
         method: 'POST',
@@ -104,5 +110,10 @@ const transform = (data, siteProps) => {
 export default {
     fetch,
     transform,
+    params: {
+        cantidadNotas: 'text',
+        referrer: 'text',
+        imageConfig: 'text'
+    },
     ttl: sourceSetting.liftigniterSource.ttl
 };
