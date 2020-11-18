@@ -57,6 +57,7 @@ const BreadcrumbBase = props => {
         )[0];
         listSections.push(
             <span
+                className="prueba"
                 key={lastSection.path}
                 style={{
                     color: colorCategory,
