@@ -20,7 +20,7 @@ export const getSlotForDevice = device => slots =>
         : null;
 
 export const isPrimarySectionInBannerSegments = primarySection => segments => {
-    if (!segments || !primarySection) return false;
+    if (!segments || !primarySection) return [false, null];
     const [section] = primarySection.match(/(?<=\/).+?(?=\/|\b)/g);
     const included = segments.includes(section);
     return [included, section];

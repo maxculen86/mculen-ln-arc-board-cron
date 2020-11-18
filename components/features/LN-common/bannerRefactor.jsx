@@ -35,7 +35,8 @@ const Banner = props => {
             background,
             fixed
         },
-        globalContent
+        globalContent,
+        globalContentConfig
     } = props;
 
     const device = useViewportSize();
@@ -70,7 +71,7 @@ const Banner = props => {
     const primarySection =
         type && type === 'story'
             ? get(globalContent, 'taxonomy.primary_section._id')
-            : get(globalContent, '_id');
+            : get(globalContentConfig, 'query.id');
 
     const hideBanners = get(
         globalContent,
@@ -184,7 +185,12 @@ Banner.propTypes = {
         termicas: PropTypes.shape({
             banners: PropTypes.string
         })
-    })
+    }).isRequired,
+    globalContentConfig: PropTypes.shape({
+        query: PropTypes.shape({
+            id: PropTypes.string
+        })
+    }).isRequired
 };
 
 export default Consumer(Banner);
