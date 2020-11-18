@@ -1,44 +1,28 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComText from './com-text';
 import ComLink from './com-link';
-import ComContainer from './com-container';
-import ListSocialIcons from './list-socialicons';
-import ModImage from './mod-image';
-import ComTitle from './com-title';
-import ComParagraph from './com-paragraph';
-
-const list = [
-    {
-        textlink: 'Carlos Pagni en Odisea Argentina',
-        textname: ', Editorial.',
-        link: '#'
-    },
-    {
-        textlink: 'Carlos Pagni en Odisea Argentina',
-        textname: ', Editorial.',
-        link: '#'
-    }
-];
 
 const ModDescriptionList = props => {
     const {
-        classesNames,
-        classCondition,
+        classCondition = '',
         size,
         descriptionTitle,
-        descriptionItems,
-        link
+        list = [],
+        text
     } = props;
-    const listItem = list.map(item => (
-        <dd className={`com-descriptionilist ${classCondition || ''} ${size}`}>
-            <>
-                <a className="com-link" href={item.link}>
-                    {item.textlink}
-                </a>
-                {item.textname}
-            </>
-        </dd>
+
+    const listItem =
+        text ||
+        list.map(item => (
+            <dd className={`com-descriptionilist ${classCondition} ${size}`}>
+                {item.url && (
+                    <ComLink
+                        link={item.url}
+                        textname={item.name || item.title}
+                    />
+                )}
+                {!item.url && (item.name || item.title)}
+            </dd>
     ));
     return (
         <dl className={`mod-descriptionilist ${classCondition || ''}`}>

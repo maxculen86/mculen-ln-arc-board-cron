@@ -19,6 +19,7 @@ const transform = data => {
     };
 
     if (dataResp.image.url.length === 0) return dataResp;
+    console.log("dataResp", dataResp)
 
     return {
         ...dataResp,

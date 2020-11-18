@@ -6,5 +6,28 @@ export default `
     image { url },
     longBio,
     twitter,
-    slug
+    slug,
+    role,
+    email,
+    firstName,
+    lastName,
+    books {
+        title,
+        publisher,
+        url
+    },
+    podcast {
+        name,
+        url
+    },
+    education {
+        name
+    },
+    awards {
+        name
+    },
+    personal_website,
+    facebook,
+    languages,
+    affiliations
 }`;
