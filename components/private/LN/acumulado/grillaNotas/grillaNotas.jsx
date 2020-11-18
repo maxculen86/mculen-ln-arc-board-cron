@@ -41,7 +41,12 @@ class GrillaNotas extends React.Component {
 
     getBanner = index => {
         const position = index + 1;
-        const { bannerConfig, hideBanners, globalContent } = this.props;
+        const {
+            bannerConfig,
+            hideBanners,
+            globalContent,
+            globalContentConfig
+        } = this.props;
         const { banners: termicaShowBanner } = this.props.termicas || {
             banners: true
         };
@@ -53,7 +58,7 @@ class GrillaNotas extends React.Component {
         const bannersSiteConfig = get(globalContent, 'siteService.banners');
         const adserver = get(globalContent, 'siteService.adserver');
         const segments = adserver.map(segment => segment.value);
-        const primarySection = get(globalContent, '_id');
+        const primarySection = get(globalContentConfig, 'query.id');
         const site = this.props.arcSite || 'la-nacion-ar';
         const dfpId = get(getProperties(site), 'bannerConfig.dfp_id');
 
@@ -153,7 +158,6 @@ GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
     hideBanners: PropTypes.string.isRequired,
-    articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     articlesInGlobalProvider: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
@@ -161,8 +165,12 @@ GrillaNotas.propTypes = {
     globalContent: PropTypes.shape({
         name: PropTypes.string
     }).isRequired,
+    globalContentConfig: PropTypes.shape({
+        query: PropTypes.shape({
+            id: PropTypes.string
+        })
+    }).isRequired,
     loading: PropTypes.bool.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
@@ -174,10 +182,6 @@ GrillaNotas.propTypes = {
         sticky: PropTypes.bool,
         tablet: PropTypes.string
     }).isRequired
-};
-
-GrillaNotas.defaultProps = {
-    articlesInCollection: []
 };
 
 export default WithNavigation(
