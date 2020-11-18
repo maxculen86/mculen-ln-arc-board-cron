@@ -8,7 +8,8 @@ import {
 } from 'fusion:environment';
 import apiIngresar from '../../../common/services/apIngresar';
 import handleCookie from '../utils/handleCookie';
-import { LoginStore } from '../context/loginContext';
+
+import { LoginStore } from './loginContext';
 
 const {
     setCookie,
@@ -19,7 +20,6 @@ const {
 
 const ProductoPremiumId = getCookie('ProductoPremiumId');
 const UsuarioDetalleEmail = getCookie('usuarioemail');
-const IS_TOKEN_CREATED = getCookie('token');
 
 const goToLoginUrl = () => {
     location.href = LOGIN_URL + window.btoa(location.href);
@@ -234,15 +234,15 @@ const setUserData = (res, dispatch) => {
     }
 };
 
-const withLoginData = WrappedComponent => props => {
-    const { state, dispatch } = React.useContext(LoginStore);
+const LoginData = () => {
+    const { dispatch } = React.useContext(LoginStore);
 
     useEffect(() => {
         if (mustRelogin()) {
             const token = getCookie('token');
             const xvalue = getCookie('xvalue');
 
-            if (token && xvalue) {
+            if ((token, xvalue)) {
                 apiIngresar.reLogin(token, xvalue).then(res => {
                     const newToken = getTokenBodyHelper(res.response, 1);
                     const newXvalue = getTokenBodyHelper(res.response, 2);
@@ -267,7 +267,7 @@ const withLoginData = WrappedComponent => props => {
             goToLogout(dispatch);
         }
 
-        IS_TOKEN_CREATED
+        ProductoPremiumId && UsuarioDetalleEmail
             ? setUserData(
                   {
                       response: JSON.stringify({
@@ -291,14 +291,16 @@ const withLoginData = WrappedComponent => props => {
               });
     }, [dispatch]);
 
-    return (
+    return <></>;
+
+    /*     return (
         <WrappedComponent
             logueado={state.logueado}
             loginData={state.loginData}
-            goToLogout={() => goToLogout(dispatch)}
+            goToLogout={() => goToLogout(setState)}
             {...props}
         />
-    );
+    ); */
 };
 
-export default withLoginData;
+export default LoginData;

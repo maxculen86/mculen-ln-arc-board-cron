@@ -203,7 +203,7 @@
             .com-logo.com-logo,
             .com-logo.com-logo:before,
             .com-logo.com-logo:after,
-            .com-text.com-text {
+            > .com-text.com-text {
                 //duplico class para evitar !important
                 color: $blanco;
                 margin-bottom: 0;
