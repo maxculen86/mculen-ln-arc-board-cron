@@ -1,9 +1,7 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import getProperties from 'fusion:properties';
-import collectionsSource from './collectionsSource';
 import navigationTreeSource from './navigationTreeSource';
-import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
 
 const resolve = key => {
