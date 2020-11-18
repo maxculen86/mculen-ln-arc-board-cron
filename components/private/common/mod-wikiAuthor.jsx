@@ -18,7 +18,7 @@ const ModWikiAuthor = props => {
                 ''}`}
         >
             <div className="row">
-                <div className="col-4">
+                <div className="col-12 col-desksm-4">
                     <figure role="button" class="mod-figure --horizontal">
                         <div class="mod-picture ">
                             <img
@@ -32,7 +32,7 @@ const ModWikiAuthor = props => {
                         </div>
                     </figure>
                 </div>
-                <div className="col-8">
+                <div className="col-12 col-desksm-8">
                     <ComContainer classCondition="--info">
                         <ComTitle tag="h2" content="Nombre Autor" size="--l" />
                         <ComText textname="Profesión" size="--threexs" />
