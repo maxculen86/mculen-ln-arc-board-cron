@@ -82,7 +82,7 @@ const transformContent = (data, siteProps, arcSite) => {
         imageConfig: 'l'
     };
 
-    promiseArr.push(
+    /*     promiseArr.push(
         getNavigationSiteProperties(arcSite).then(result => {
             resp.siteService = {
                 banners: result.banners,
@@ -91,12 +91,12 @@ const transformContent = (data, siteProps, arcSite) => {
             };
             return resp;
         })
-    );
+    ); */
 
     if (idCollection) {
         promiseArr.push(
             collectionsSource.fetch(newSiteProps).then(response => {
-                console.log("RESPONDIO")
+                console.log('RESPONDIO');
                 if (response && response.content_elements) {
                     resp.articlesInCollection = response.content_elements;
                 }
@@ -121,7 +121,7 @@ const transformContent = (data, siteProps, arcSite) => {
     }*/
 
     return Promise.all(promiseArr).then(() => {
-        console.log("transformContent -> resp", resp)
+        console.log('transformContent -> resp', resp);
         return resp;
     });
 };
@@ -232,6 +232,5 @@ export default {
     params: {
         id: 'text',
         website: 'text'
-    },
-    transform
+    }
 };
