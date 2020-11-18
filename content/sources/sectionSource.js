@@ -3,6 +3,7 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import getProperties from 'fusion:properties';
+import logger from '../../components/private/common/utils/logger';
 import navigationTreeSource from './navigationTreeSource';
 
 const resolve = key => {
@@ -19,6 +20,29 @@ const resolve = key => {
             'El id de sección debe comenzar con / - Section Source'
         );
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
+};
+
+const fetch = query => {
+    const { url = '' } = query;
+    // console.log("query", query)
+    const arcSite = query['arc-site'];
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    return request(opt)
+        .then(response => {
+            return transform(response, query);
+        })
+        .catch(error => {
+            logger.push(error, { source: 'content/source', url }, arcSite);
+            throw error;
+        });
 };
 
 const transform = (data, query) => {
@@ -123,11 +147,10 @@ const ttlValue = () => {
  */
 
 export default {
-    resolve,
+    fetch,
     schemaName: 'section-schema',
     params: {
         id: 'text',
         website: 'text'
-    },
-    transform
+    }
 };
