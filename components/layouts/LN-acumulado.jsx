@@ -49,6 +49,7 @@ const LNAcumuladoLayout = props => {
         isAdmin
     } = props;
     const { style, articlesInCollection = [] } = globalContent;
+    // console.log("articlesInCollection", articlesInCollection)
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =

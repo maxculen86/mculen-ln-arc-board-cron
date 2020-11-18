@@ -1,4 +1,10 @@
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import request from 'request-promise-native';
+import {
+    CONTENT_BASE,
+    ARC_ACCESS_TOKEN,
+    RESIZER_KEY,
+    RESIZER_URL
+} from 'fusion:environment';
 import {
     FOTOAL100,
     STORYTELLING
@@ -7,6 +13,7 @@ import getPresets from './utils/presets';
 import sourceSetting from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import get from '../../components/private/common/utils/get';
+import logger from '../../components/private/common/utils/logger';
 
 const resolve = key => {
     const { id, size, website } = key;
@@ -19,6 +26,29 @@ const resolve = key => {
 
     return `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size ||
         2}`;
+};
+
+const fetch = query => {
+    const { url = '' } = query;
+    const arcSite = query['arc-site'];
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+
+    return request(opt)
+        .then(response => {
+            return transform(response, query);
+        })
+        .catch(error => {
+            logger.push(error, { source: 'content/source', url }, arcSite);
+            throw error;
+        });
 };
 
 const transform = (data, siteProps) => {
@@ -59,7 +89,7 @@ const transform = (data, siteProps) => {
 };
 
 export default {
-    resolve,
+    fetch,
     params: {
         id: 'text',
         size: 'text',
