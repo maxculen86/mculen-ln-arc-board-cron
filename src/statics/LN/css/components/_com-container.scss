@@ -20,10 +20,15 @@
 }
 @media ($media-l) {
     .com-container {
-        .mod-sponsor &,
-        .com-breadcrumb & {
+        .mod-sponsor & {
             left: calc(20% - 120px);
             top: calc(100% + 20px);
+            bottom: inherit;
+            z-index: 999; // se deja porque a veces falla
+        }
+        .com-breadcrumb & {
+            left: calc(20% - 120px);
+            top: 100%;
             bottom: inherit;
             z-index: 999; // se deja porque a veces falla
         }
