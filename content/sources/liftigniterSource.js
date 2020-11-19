@@ -11,7 +11,7 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
-import sourceSetting from './utils/sourceSetting';
+import getTTLValue from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
 
@@ -104,5 +104,5 @@ const transform = (data, siteProps) => {
 export default {
     fetch,
     transform,
-    ttl: sourceSetting.liftigniterSource.ttl
+    ttl: getTTLValue('liftigniterSource')
 };

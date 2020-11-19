@@ -1,4 +1,4 @@
-import getProperties from 'fusion:properties';
+import getTTLValue from './utils/sourceSetting';
 
 const resolve = key => {
     const { website } = key;
@@ -6,20 +6,11 @@ const resolve = key => {
     return `/site/v3/website/${website}/section/`;
 };
 
-const ttlValue = () => {
-    const properties = getProperties('la-nacion-ar');
-    const value = properties.ttlConfig.sectionsSource.ttl;
-    return value;
-};
-
-/**
- * TODO: Revisar ttl para este contentSource
- */
-
 export default {
     resolve,
     schemaName: 'sections-schema',
     params: {
         website: 'text'
-    }
+    },
+    ttl: getTTLValue('sectionsSource')
 };
