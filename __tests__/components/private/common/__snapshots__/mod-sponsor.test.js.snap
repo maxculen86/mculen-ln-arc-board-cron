@@ -13,7 +13,7 @@ exports[`ModSponsor Matches Snapshot 1`] = `
     />
   </a>
   <span
-    class="com-text  "
+    class="com-text --threexs --sponsor"
   >
     Espacio Patrocinado
   </span>

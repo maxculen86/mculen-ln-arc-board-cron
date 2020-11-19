@@ -60,6 +60,10 @@ const customElementForAcu = [
         src: 'https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js'
     },
     {
+        customElement: 'amp-lightbox',
+        src: 'https://cdn.ampproject.org/v0/amp-lightbox-0.1.js'
+    },
+    {
         customElement: 'amp-ad',
         src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js'
     }

@@ -120,42 +120,39 @@ describe('private - common - scriptManager - scriptVideoValidator', () => {
 
 describe('private - LN - common - media - videoPlayer - urlForPrerollAds', () => {
     it('Probar formato segmentacion de ads en powa', () => {
-
-        const tags = [{description: "Crónicas", text:"Crónicas"}];
+        const tags = [{ description: 'Crónicas', text: 'Crónicas' }];
         const sections = [
             {
-                "name":"Economía",
+                name: 'Economía'
             },
             {
-                "name":"Dólar Hoy",
+                name: 'Dólar Hoy'
             },
             {
-                "name":"Industria",
+                name: 'Industria'
             },
             {
-                "name":"Comercio Exterior"
+                name: 'Comercio Exterior'
             },
             {
-                "name":"Revista ¡HOLA!"
+                name: 'Revista ¡HOLA!'
             },
             {
-                "name":"Estilo ¡HOLA!"
+                name: 'Estilo ¡HOLA!'
             }
         ];
 
         const custParamsEncoded = getCustParamsEnconde(tags, sections);
-        expect(custParamsEncoded).toEqual("te_cronicas%2Cca_economia%2Cca_dolar_hoy%2Cca_industria%2Cca_comercio_exterior%2Cca_revista__hola_%2Cca_estilo__hola_");
+        expect(custParamsEncoded).toEqual(
+            'te_cronicas%2Cca_economia%2Cca_dolar_hoy%2Cca_industria%2Cca_comercio_exterior%2Cca_revista__hola_%2Cca_estilo__hola_'
+        );
 
-        
         const sections2 = [
             {
-                "name":"Economía",
+                name: 'Economía'
             }
         ];
         const custParamsEncoded2 = getCustParamsEnconde([], sections2);
-        expect(custParamsEncoded2).toEqual("ca_economia");
-
-
+        expect(custParamsEncoded2).toEqual('ca_economia');
     });
 });
-

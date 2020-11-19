@@ -7,7 +7,9 @@ import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 
 export const createResizer = (resizerKey, resizerUrl) => {
-    const Thumbor = require('thumbor');
+    const Thumbor =
+        // eslint-disable-next-line no-eval
+        typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
 
     const resizeUrl = (
         originalUrl,

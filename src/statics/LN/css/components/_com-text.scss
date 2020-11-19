@@ -72,6 +72,39 @@
             margin-left: $spacing-2xs;
         }
     }
+    &.--sponsor,
+    &.--tooltip {
+        display: flex;
+        padding: 0;
+        line-height: px(1);
+        &:hover {
+            cursor: pointer;
+            .com-container {
+                visibility: visible;
+            }
+        }
+    }
+    &.--sponsor {
+        .mod-tooltip & {
+            color: $gris5;
+        }
+    }
+    .mod-tooltip & {
+        border: none;
+        margin-bottom: 0;
+        color: $gris5;
+    }
+    &:before {
+        .mod-tooltip & {
+            content: none;
+        }
+    }
+    .com-breadcrumb & {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media ($media-xs) {
@@ -111,6 +144,10 @@
         }
         .mod-trust & {
             margin-right: $spacing-xs;
+        }
+        &.--sponsor,
+        &.--tooltip {
+            position: relative;
         }
     }
 }
