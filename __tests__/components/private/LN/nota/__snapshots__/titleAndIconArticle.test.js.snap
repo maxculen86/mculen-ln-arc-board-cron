@@ -4,10 +4,10 @@ exports[`features - LaNacion - Nota - TituloNota Test de snapshot Titulo e Icono
 Array [
   <a
     class="com-link"
-    href="/tema/bbc-mundo-tid56419"
+    href="/revista-brando"
   >
     <i
-      class="com-logo logo-bbc  --color --xs"
+      class="com-logo logo-brando  --color --xs"
     />
   </a>,
   <h1
