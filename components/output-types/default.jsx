@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ScriptManager from '../private/common/scriptManager';
@@ -12,6 +13,7 @@ import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
 import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
+import ScriptCustomLoader from '../private/common/scriptManager/ScriptCustomLoader';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
@@ -81,6 +83,10 @@ const scriptList = [
     {
         component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
         feature: 'none'
+    },
+    {
+        component: { name: 'ScriptCustomLoader', function: ScriptCustomLoader },
+        feature: ['LN-common/ScriptLoader']
     }
 ];
 
@@ -111,7 +117,6 @@ const Default = props => {
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
-        promo_items: promoItems,
         headlines,
         description,
         type,
@@ -132,8 +137,8 @@ const Default = props => {
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
 
-    const getPageBuilderFeatures = renderables =>
-        renderables.filter(renderable => renderable.collection === 'features');
+    const getPageBuilderFeatures = _renderables =>
+        _renderables.filter(renderable => renderable.collection === 'features');
 
     const getScriptsFilterFunction = scripts => features =>
         scripts
@@ -172,17 +177,6 @@ const Default = props => {
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
-
-                <style
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                    html, body {
-                        height: 100%;
-                    }
-                `
-                    }}
-                />
-
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
@@ -264,6 +258,17 @@ const Default = props => {
 };
 
 Default.propTypes = {
+    arcSite: PropTypes.string.isRequired,
+    children: PropTypes.arrayOf(PropTypes.node).isRequired,
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired,
+    CssLinks: PropTypes.func.isRequired,
+    Fusion: PropTypes.node.isRequired,
+    Libs: PropTypes.node.isRequired,
+    metaValue: PropTypes.func.isRequired,
+    renderables: PropTypes.arrayOf(PropTypes.any).isRequired,
+    globalContent: PropTypes.objectOf(PropTypes.any).isRequired,
+    outputType: PropTypes.string.isRequired,
     siteProperties: PropTypes.isRequired
 };
 

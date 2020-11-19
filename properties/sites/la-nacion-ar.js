@@ -58,6 +58,10 @@ export default {
         ScriptHtmlLibre: {
             props: {},
             location: ['head']
+        },
+        ScriptCustomLoader: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {
