@@ -17,21 +17,21 @@ const FooterAMP = ({ copyrightText }) => {
                             target="_blank"
                             rel="noreferrer noopener"
                         >
-                            <i className="icon-facebook" />
+                            <i className="icon-facebook-filled" />
                         </a>
                         <a
                             href="https://twitter.com/LANACION"
                             target="_blank"
                             rel="noreferrer noopener"
                         >
-                            <i className="icon-twitter" />
+                            <i className="icon-twitter-filled" />
                         </a>
                         <a
                             href="https://www.instagram.com/lanacioncom/"
                             target="_blank"
                             rel="noreferrer noopener"
                         >
-                            <i className="icon-instagram" />
+                            <i className="icon-instagram-filled" />
                         </a>
                         <a
                             href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
