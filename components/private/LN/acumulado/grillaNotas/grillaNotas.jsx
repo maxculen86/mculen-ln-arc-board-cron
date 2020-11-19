@@ -77,6 +77,7 @@ class GrillaNotas extends React.Component {
                 const config = slotsConfig.acumulado[slotId];
                 if (!config) return <></>;
 
+                // TODO: Mover esta lógica a un utilitario ?)
                 const configBuilder = new ConfigBuilder();
                 configBuilder.init({
                     ...config,

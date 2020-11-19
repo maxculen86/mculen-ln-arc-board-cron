@@ -177,7 +177,7 @@ const Cuerpo = props => {
                                     const config = slotsConfig.nota[slotId];
                                     if (!config) return <></>;
 
-                                    // TODO: Move this logic somewhere else (utils)
+                                    // TODO: Mover esta lógica a un utilitario ?)
                                     const configBuilder = new ConfigBuilder();
                                     configBuilder.init({
                                         ...config,

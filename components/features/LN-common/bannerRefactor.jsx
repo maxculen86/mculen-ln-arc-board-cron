@@ -90,6 +90,7 @@ const Banner = props => {
 
         if (!config) return null;
 
+        // TODO: Mover esta lógica a un utilitario ?)
         configBuilder.current = new ConfigBuilder();
         configBuilder.current.init({
             ...config,
