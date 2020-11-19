@@ -300,18 +300,18 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 838,
-                            height: 768,
+                            width: 878,
+                            height: 450,
                             media: '(min-width: 1280px)'
                         },
                         {
-                            width: 1025,
-                            height: 465,
+                            width: 1120,
+                            height: 400,
                             media: '(min-width: 1024px)'
                         },
                         {
                             width: 768,
-                            height: 513,
+                            height: 961,
                             media: '(min-width: 768px)'
                         },
                         {
@@ -643,5 +643,32 @@ export default {
         subscription_id: '2f9d4a3fdc61653e686a4be85a25e1ac',
         language: 'es_CO',
         timezone: 'America/Buenos_Aires'
+    },
+    ttlConfig: {
+        acuArticlesSource: 120,
+        articleSourceHome: 120,
+        articleSourceNota: 240,
+        authorsColumnistSource: 600,
+        authorSource: 3600,
+        authorSourceColumnist: 900,
+        collectionsSource: 120,
+        collectionsV2Source: 300,
+        feedArticlesSource: 900,
+        gallerySource: 600,
+        imageResizeSource: 600,
+        imageSource: 600,
+        liftigniterSource: 120,
+        navigationSource: 300,
+        navigationTreeSource: 300,
+        notaCortaArticleSource: 900,
+        optaSource: 300,
+        ottVideosSource: 300,
+        rankingArticlesSource: 120,
+        relatedSource: 600,
+        sectionSource: 900,
+        sectionsSource: 900,
+        tagSource: 900,
+        videoSource: 600,
+        videoSearchSource: 600
     }
 };

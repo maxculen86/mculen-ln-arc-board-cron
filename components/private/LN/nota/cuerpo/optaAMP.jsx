@@ -5,7 +5,7 @@ import { useAppContext } from 'fusion:context';
 
 const hasOptaElements = content => content.includes('opta-widget');
 
-const HtmlAMP = props => {
+const OptaAMP = props => {
     const { data } = props;
     const { globalContent } = useAppContext();
     const { _id: idNote } = globalContent;
@@ -37,12 +37,12 @@ const HtmlAMP = props => {
     );
 };
 
-HtmlAMP.arcType = 'raw_html';
-HtmlAMP.outputType = 'amp';
-HtmlAMP.propTypes = {
+OptaAMP.arcType = 'raw_html';
+OptaAMP.outputType = 'opta';
+OptaAMP.propTypes = {
     data: PropTypes.shape({
         content: PropTypes.string
     }).isRequired
 };
 
-export default HtmlAMP;
+export default OptaAMP;

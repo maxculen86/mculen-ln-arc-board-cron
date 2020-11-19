@@ -6,10 +6,10 @@ import {
     ARC_ACCESS_TOKEN,
     SITE_LANACION
 } from 'fusion:environment';
-import get from 'lodash.get';
 import getProperties from 'fusion:properties';
+import get from '../../components/private/common/utils/get';
 import { addAspectRatio } from './utils/getRatio';
-import sourceSetting from './utils/sourceSetting';
+import getTTLValue from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
@@ -22,17 +22,7 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
-import getImageResized from '../../components/private/common/utils/getImageResized';
 import paywallUtils from './utils/paywall';
-
-// TODO: Pasar esto a properties
-const optionsImgResized = {
-    width: 80,
-    height: 80,
-    media: '(min-width: 320px)',
-    class: '',
-    type: 'image'
-};
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -94,40 +84,62 @@ const fetch = query => {
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
 const transform = (data, arcSite, properties) => {
+    // Data
+    const subtype = get(data, `subtype`, null);
+
+    // Presets
     const presetsDefault = get(properties, `imageConfig.resize.default`, null);
     const presetsZoom = get(
         properties,
-        `imageConfig.resize.zoom`,
+        'imageConfig.resize.zoom.promo_items.sizes',
         presetsDefault
     );
-    const presetsXL = get(properties, `imageConfig.resize.xl`, null);
-    const presetsL = get(properties, `imageConfig.resize.l`, null);
+    const presetsFotoAl100 =
+        (data.subtype === FOTOAL100 || data.subtype === STORYTELLING) &&
+        get(properties, 'imageConfig.resize.fotoAl100.content_elements', null);
+    const presetsPromoItems = get(
+        properties,
+        'imageConfig.resize.l.promo_items',
+        null
+    );
+    const presetsContentElements = get(
+        properties,
+        'imageConfig.resize.l.content_elements',
+        null
+    );
+    const presetsCredits = get(
+        properties,
+        'imageConfig.resize.l.credits',
+        null
+    );
 
     // Si el subType es recetas o noticias applico el ratio
     const notesWithRatio = ['1', '7'];
     const promoItemsRatio =
-        notesWithRatio.indexOf(data.subtype) === 0
-            ? { sizes: addAspectRatio(presetsXL.promo_items.sizes) }
-            : presetsXL.promo_items || presetsDefault;
+        notesWithRatio.indexOf(data.subtype) === 0 && presetsPromoItems
+            ? { sizes: addAspectRatio(presetsPromoItems.sizes) }
+            : presetsPromoItems || presetsDefault;
 
-    let presetsFotoAl100 = {};
-    if (data.subtype === FOTOAL100 || data.subtype === STORYTELLING) {
-        presetsFotoAl100 = get(properties, `imageConfig.resize.fotoAl100`, {});
-    }
-
-    const resp = addResizedUrls(data, {
-        resizerSecret: RESIZER_KEY,
-        resizerUrl: RESIZER_URL,
-        presets: {
-            promoItems: promoItemsRatio,
-            contentElements:
-                presetsFotoAl100.content_elements ||
-                presetsL.content_elements ||
+    // Data con urls Resizeadas
+    const resp = {
+        ...data,
+        ...addResizedUrls(data, {
+            resizerSecret: RESIZER_KEY,
+            resizerUrl: RESIZER_URL,
+            presets: {
+                promoItems: promoItemsRatio,
+                contentElements:
+                    presetsFotoAl100 ||
+                    presetsContentElements ||
+                    presetsDefault,
+                credits: presetsCredits,
                 presetsDefault,
-            presetsDefault,
-            zoomSizes: presetsZoom.promo_items.sizes
-        }
-    });
+                zoomSizes: presetsZoom
+            },
+            subtype
+        })
+    };
+
     return transformContent(resp, arcSite);
 };
 
@@ -185,12 +197,7 @@ const transformContent = (jsonArticle, arcSite) => {
     get(resp, 'credits.by', []).map((elem, i) => {
         promiseArr.push(
             new Promise(resolver =>
-                resolver(
-                    getImageResized(
-                        get(elem, 'additional_properties.original.image'),
-                        optionsImgResized
-                    )
-                )
+                resolver(get(elem, 'image.resized_urls[0].resizedUrl'))
             ).then(url => {
                 if (url)
                     resp.credits.by[
@@ -357,5 +364,5 @@ export default {
         paywallEnabled: 'text'
     },
     filter,
-    ttl: sourceSetting.articleSourceNota.ttl
+    ttl: getTTLValue('articleSourceNota')
 };

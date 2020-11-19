@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-fragments          */
 
@@ -24,9 +25,10 @@ import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
 import Html from './html';
-// import HtmlAMP from './htmlAMP';
+import OptaAMP from './optaAMP';
 import Video from './video';
 import { setStorageConfiguration } from '../../../common/utils/storage';
+import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
 
 import useViewportSize from '../../../common/hooks/useViewportSize';
 
@@ -80,12 +82,17 @@ const Cuerpo = props => {
         RawHTML,
         OembedAMP,
         BotonLink,
-        Html
+        Html,
+        OptaAMP
     ];
     // TODO: Ver si este es el mejor lugar donde poner este script.
     // Setea valores en el Local Storage solo del lado del cliente
     useEffect(() => {
-        setStorageConfiguration(_id);
+        try {
+            setStorageConfiguration(_id);
+        } catch (e) {
+            console.error('Error en setear Local Storage');
+        }
     }, [_id]);
 
     const types = ['text', 'image', 'oembed_response', 'video'];
@@ -101,8 +108,10 @@ const Cuerpo = props => {
 
     let counter = 0;
     const output = contentElements.map((element, currentIndex) => {
+        const hasOptaElements =
+            element.content && element.content.includes('opta-widget');
         const Component = bodyComponents.find(bc => {
-            if (subtype === '8') {
+            if (subtype === FOTOAL100) {
                 return (
                     !(
                         element.type === 'oembed_response' ||
@@ -112,6 +121,13 @@ const Cuerpo = props => {
                 );
             }
             if (element.type === 'quote') return bc.arcType === element.subtype;
+            if (
+                hasOptaElements &&
+                element.type === 'raw_html' &&
+                outputType === 'amp'
+            ) {
+                return bc.arcType === element.type && bc.outputType === 'opta';
+            }
             if (
                 element.type === 'oembed_response' ||
                 element.type === 'raw_html'

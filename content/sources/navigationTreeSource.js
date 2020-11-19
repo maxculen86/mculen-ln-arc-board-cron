@@ -1,5 +1,6 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import getTTLValue from './utils/sourceSetting';
 
 const fetch = query => {
     const opt = {
@@ -25,9 +26,9 @@ const resolve = key => {
 
 export default {
     fetch,
-    resolve,
     schemaName: 'navigation-tree-schema',
     params: {
         website: 'text'
-    }
+    },
+    ttl: getTTLValue('navigationTreeSource')
 };

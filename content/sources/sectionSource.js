@@ -1,8 +1,8 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import getProperties from 'fusion:properties';
 import navigationTreeSource from './navigationTreeSource';
 import logger from '../../components/private/common/utils/logger';
+import getTTLValue from './utils/sourceSetting';
 
 const resolve = key => {
     const { id, website } = key;
@@ -131,22 +131,16 @@ const getNavigationSiteProperties = arcSite => {
             return resp;
         })
         .catch(e => {
-            // console.log('Error article source: getNavigationSiteProperties -> e', e);
+            throw e;
         });
 };
-const ttlValue = () => {
-    const properties = getProperties('la-nacion-ar');
-    const value = properties.ttlConfig.sectionSource.ttl;
-    return value;
-};
-/**
- * TODO: Revisar ttl para este contentSource
- */
+
 export default {
     fetch,
     schemaName: 'section-schema',
     params: {
         id: 'text',
         website: 'text'
-    }
+    },
+    ttl: getTTLValue('sectionSource')
 };
