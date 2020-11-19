@@ -2,6 +2,15 @@ import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import getTTLValue from './utils/sourceSetting';
 
+const resolve = key => {
+    const { website } = key;
+    if (!website)
+        throw new Error(
+            'Debe definir un website para obtener el arbol de navigation'
+        );
+    return `/site/v3/navigation/${website}/`;
+};
+
 const fetch = query => {
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -15,17 +24,9 @@ const fetch = query => {
     return request(opt);
 };
 
-const resolve = key => {
-    const { website } = key;
-    if (!website)
-        throw new Error(
-            'Debe definir un website para obtener el arbol de navigation'
-        );
-    return `/site/v3/navigation/${website}/`;
-};
-
 export default {
     fetch,
+    resolve,
     schemaName: 'navigation-tree-schema',
     params: {
         website: 'text'
