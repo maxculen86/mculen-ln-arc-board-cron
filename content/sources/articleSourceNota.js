@@ -9,7 +9,7 @@ import {
 import getProperties from 'fusion:properties';
 import get from '../../components/private/common/utils/get';
 import { addAspectRatio } from './utils/getRatio';
-import sourceSetting from './utils/sourceSetting';
+import getTTLValue from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
@@ -209,17 +209,81 @@ const transformContent = (jsonArticle, arcSite) => {
 
     promiseArr.push(
         new Promise(resolver =>
-            resolver(getNavigationSiteProperties(resp, arcSite))
+            resolver(getNavigationSiteProperties(arcSite))
         ).then(data => {
-            // console.log("transformContent -> data", data)
-            resp.siteService = { tooltips: data.tooltips };
-            // console.log("transformContent -> resp", resp)
+            resp.siteService = {
+                tooltips: data.tooltips,
+                banners: data.banners,
+                adserver: data.adserver,
+                termicas: data.termicas
+            };
         })
     );
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
+};
+
+const getNavigationSiteProperties = arcSite => {
+    return navigationTreeSource
+        .fetch({ website: arcSite })
+        .then(fetchedRelated => {
+            const { site } = fetchedRelated || {};
+            const { tooltips } = site;
+            const { bannerConfig } = fetchedRelated || { bannerConfig: {} };
+            const { Termicas: termicasConfig } = fetchedRelated || {
+                Termicas: {}
+            };
+            const { sitio_adserver: sitioAdserver } = site;
+
+            // Trust
+            const customTooltips = [];
+            Object.keys(tooltips).forEach(key => {
+                customTooltips.push({
+                    label: tooltips[key],
+                    text: key
+                });
+            });
+
+            // Banner dimensions
+            const banners = [];
+            Object.keys(bannerConfig).forEach(key => {
+                banners.push({
+                    adunit: key,
+                    dimensions: bannerConfig[key]
+                });
+            });
+
+            // Termicas
+            const termicas = [];
+            Object.keys(termicasConfig).forEach(key => {
+                termicas.push({
+                    key,
+                    value: termicasConfig[key]
+                });
+            });
+
+            // Banner segments
+            const adserver = [];
+            Object.keys(sitioAdserver).forEach(key => {
+                adserver.push({
+                    key,
+                    value: sitioAdserver[key]
+                });
+            });
+
+            const resp = {
+                tooltips: customTooltips,
+                banners,
+                adserver,
+                termicas
+            };
+            return resp;
+        })
+        .catch(e => {
+            // console.log('Error article source: getNavigationSiteProperties -> e', e);
+        });
 };
 
 const addGalleryData = (gallery, arcSite) => {
@@ -276,42 +340,6 @@ const addFollowAnotherNoteData = (anotherNoteData, arcSite, i) => {
         });
 };
 
-const getNavigationSiteProperties = (anotherNoteData, arcSite) => {
-    const urlNavigationTreeSource = navigationTreeSource.resolve({
-        website: arcSite
-    });
-    const opt = {
-        uri: `${CONTENT_BASE}${urlNavigationTreeSource}`,
-        json: true
-    };
-
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-
-    return request(opt)
-        .then(fetchedRelated => {
-            const { site } = fetchedRelated || {};
-            const { tooltips } = site;
-            const customTooltips = [];
-            Object.keys(tooltips).forEach(key => {
-                customTooltips.push({
-                    label: tooltips[key],
-                    text: key
-                });
-            });
-            const resp = {
-                tooltips: customTooltips
-            };
-            return resp;
-        })
-        .catch(e => {
-            // console.log('Error article source: getNavigationSiteProperties -> e', e);
-        });
-};
-
 export default {
     fetch,
     params: {
@@ -323,5 +351,5 @@ export default {
         paywallEnabled: 'text'
     },
     filter,
-    ttl: sourceSetting.articleSourceNota.ttl
+    ttl: getTTLValue('articleSourceNota')
 };

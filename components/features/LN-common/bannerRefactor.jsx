@@ -1,23 +1,33 @@
 /* eslint-disable react/require-default-props */
 
-import React from 'react';
-import { useFusionContext } from 'fusion:context';
+import React, { useRef } from 'react';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 import BannerComponent from '../../private/LN/common/bannerRefactor';
+import Placeholder from '../../private/LN/common/bannerRefactor/placeholder';
+import useViewportSize from '../../private/common/hooks/useViewportSize';
 import {
-    getSlotsOptions,
-    slotsConfig
+    slotsConfig,
+    getSlotsOptions
 } from '../../private/LN/common/bannerRefactor/config';
+import ConfigBuilder from '../../private/LN/common/bannerRefactor/builder';
+
+import {
+    getSlotForDevice,
+    isPrimarySectionInBannerSegments
+} from '../../private/LN/common/bannerRefactor/utils';
 
 const Banner = props => {
-    const fusionContext = useFusionContext();
+    const configBuilder = useRef();
+    let slotId;
+    let config = null;
 
     const {
         siteProperties,
         isAdmin,
         customFields: {
-            group,
+            group: slotGroup,
             desktop,
             mobile,
             tablet,
@@ -25,12 +35,43 @@ const Banner = props => {
             background,
             fixed
         },
-        globalContent
-    } = fusionContext;
+        globalContent,
+        globalContentConfig
+    } = props;
 
+    const device = useViewportSize();
     const { label } = globalContent || { label: { mostrar_banners: false } };
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
+
+    const termicas = get(globalContent, 'siteService.termicas', []).some(
+        termica => termica.key === 'banners'
+    )
+        ? get(globalContent, 'siteService.termicas', []).find(
+              termica => termica.key === 'banners'
+          ).value === 'true'
+        : 'false';
+
+    const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
+    const bannersSiteConfig = get(globalContent, 'siteService.banners');
+    const adserver = get(globalContent, 'siteService.adserver', []);
+    const segments = adserver.map(segment => segment.value);
+
+    if (!desktop && !mobile && !tablet) return null;
+
+    const slots = [
+        { name: 'tablet', slot: tablet },
+        { name: 'desktop', slot: desktop },
+        { name: 'mobile', slot: mobile }
+    ];
+
+    const type = get(globalContent, 'type');
+    const sponsored = get(globalContent, 'owner.sponsored');
+    const advertiser = get(globalContent, 'label.marca_anunciante.text');
+    const primarySection =
+        type && type === 'story'
+            ? get(globalContent, 'taxonomy.primary_section._id')
+            : get(globalContentConfig, 'query.id');
 
     const hideBanners = get(
         globalContent,
@@ -38,27 +79,79 @@ const Banner = props => {
         'false'
     );
 
-    const banner = {
-        slotGroup: group,
-        selectedSlots: {
-            desktopSlot: desktop,
-            mobileSlot: mobile,
-            tabletSlot: tablet
-        },
-        sticky,
-        background,
-        fixed,
-        show: {
-            collection: !(hideBanners === 'true')
+    if (!configBuilder.current) {
+        slotId = getSlotForDevice(device)(slots);
+
+        // if (slotId === 'NINGUNO') return null;
+
+        if (!slotGroup || !slotId) return null;
+
+        config = slotsConfig[slotGroup][slotId];
+
+        if (!config) return null;
+
+        // TODO: Mover esta lógica a un utilitario ?)
+        configBuilder.current = new ConfigBuilder();
+        configBuilder.current.init({
+            ...config,
+            device,
+            slotId,
+            slotGroup,
+            dfpId,
+            sticky,
+            background,
+            fixed,
+            show: {
+                termicas,
+                collection: !(hideBanners === 'true')
+            }
+        });
+
+        // Site service banner segments check
+        const [present, section] = isPrimarySectionInBannerSegments(
+            primarySection
+        )(segments);
+
+        if (present) {
+            configBuilder.current.segmentAdUnit(section, device);
         }
-    };
+
+        // Contentlab check
+        if (sponsored && advertiser)
+            configBuilder.current.setCustomAdUnit('ContentLab');
+
+        // Site service dimensions check
+        if (bannersSiteConfig)
+            configBuilder.current.setDimensionsFromSiteService(
+                bannersSiteConfig,
+                slotGroup,
+                slotId
+            );
+    }
+
+    if (!dfpId) {
+        if (!isAdmin) {
+            return null;
+        }
+
+        return <Placeholder missDfpId />;
+    }
+
+    if (isAdmin && config) {
+        return (
+            <Placeholder
+                slotName={config.slotName}
+                dimensions={config.dimensions}
+                targeting={config.targeting}
+            />
+        );
+    }
 
     if (mostrarBannersValue !== 'No')
         return (
             <BannerComponent
-                siteProperties={siteProperties}
                 isAdmin={isAdmin}
-                banner={banner}
+                config={configBuilder.current.get()}
             />
         );
     return <></>;
@@ -77,19 +170,28 @@ Banner.propTypes = {
         sticky: PropTypes.bool,
         background: PropTypes.bool,
         fixed: PropTypes.bool
-    }).isRequired,
+    }),
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
         })
     }),
+    isAdmin: PropTypes.bool.isRequired,
     globalContent: PropTypes.shape({
         label: PropTypes.shape({
             mostrar_banners: PropTypes.shape({
                 text: PropTypes.string
             })
+        }),
+        termicas: PropTypes.shape({
+            banners: PropTypes.string
         })
-    })
+    }).isRequired,
+    globalContentConfig: PropTypes.shape({
+        query: PropTypes.shape({
+            id: PropTypes.string
+        })
+    }).isRequired
 };
 
-export default Banner;
+export default Consumer(Banner);

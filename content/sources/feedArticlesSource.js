@@ -1,5 +1,6 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from '../../components/private/common/utils/image/resizer';
+import getTTLValue from './utils/sourceSetting';
 
 const resolve = key => {
     const {
@@ -144,5 +145,6 @@ export default {
         size: 'text',
         website: 'text'
     },
-    transform
+    transform,
+    ttl: getTTLValue('feedArticlesSource')
 };
