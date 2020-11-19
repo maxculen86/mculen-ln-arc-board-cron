@@ -228,19 +228,8 @@ const transformContent = (jsonArticle, arcSite) => {
 };
 
 const getNavigationSiteProperties = (anotherNoteData, arcSite) => {
-    const urlNavigationTreeSource = navigationTreeSource.resolve({
-        website: arcSite
-    });
-    const opt = {
-        uri: `${CONTENT_BASE}${urlNavigationTreeSource}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-    return request(opt)
+    return navigationTreeSource
+        .fetch({ website: arcSite })
         .then(fetchedRelated => {
             const { site } = fetchedRelated || {};
             const { tooltips } = site;
