@@ -369,10 +369,4 @@ export default `
     content_restrictions {
         content_code
     }
-    siteService {
-        tooltips {
-            label
-            text
-        }
-    }
 }`;
