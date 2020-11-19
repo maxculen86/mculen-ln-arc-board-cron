@@ -210,6 +210,24 @@ export default `
     canonical_url
     type
     subtype
+    siteService {
+        tooltips {
+            label
+            text
+        }
+        banners {
+            adunit
+            dimensions
+        }
+        termicas {
+            key
+            value
+        }
+        adserver {
+            key
+            value
+        }
+    }
     distributor {
         name
         category
