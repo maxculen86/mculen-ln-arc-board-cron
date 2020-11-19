@@ -19,12 +19,12 @@ class SectionMayInterest {
         ];
         const { globalContent } = this.props;
 
-        return globalContent;
-        // try {
-        //     return IndexMayInterestV1(globalContent);
-        // } catch (err) {
-        //     return { Success: false, Message: err.message };
-        // }
+        //return globalContent;
+        try {
+            return IndexMayInterestV1(globalContent);
+        } catch (err) {
+            return { Success: false, Message: err.message };
+        }
     }
 }
 

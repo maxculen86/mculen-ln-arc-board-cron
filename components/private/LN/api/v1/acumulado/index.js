@@ -1,6 +1,7 @@
 import ArticleList from '../common/articles/list';
 import Configuration from './configuration';
-import Article from './article';
+//import Article from './article';
+import Article from '../article';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
 
 const index = acuData => {

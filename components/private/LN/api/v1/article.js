@@ -1,8 +1,9 @@
 import get from 'lodash.get';
-import Image from '../common/image';
-import Author from '../common/author';
-import { dateAndTimeForAppsUtil } from '../../../../common/utils/dateAndTimeUtil';
-import { getPrincipalCategory } from '../common/category';
+import Image from './common/image';
+import Author from './common/author';
+import { getTag } from './common/tag';
+import { dateAndTimeForAppsUtil } from '../../.././common/utils/dateAndTimeUtil';
+import { getPrincipalCategory } from './common/category';
 
 const articleItem = article => {
     const {
@@ -13,18 +14,22 @@ const articleItem = article => {
         last_updated_date: lastUpdatedDate
     } = article;
 
+    const authors = get(article, 'credits.by', null);
+    const image = get(article, 'promo_items.basic', null);
+    const primarySection = get(article, 'taxonomy.primary_section', null);
+    const tags = get(article, 'taxonomy.tags', null);
+    const bajada = get(article, 'subheadlines.basic', null);
+
     const resp = {
         id,
         templateId,
         titulo: tituloMobile || titulo,
-        fecha: dateAndTimeForAppsUtil(article.first_publish_date),
+        //fecha: dateAndTimeForAppsUtil(article.first_publish_date),
+        fecha: dateAndTimeForAppsUtil(article.display_date), //Aplicar ultimo fix!!!
         fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
-        url
+        url,
+        bajada
     };
-
-    const authors = get(article, 'credits.by', null);
-    const image = get(article, 'promo_items.basic');
-    const primarySection = get(article, 'taxonomy.primary_section', null);
 
     if (image && image.type === 'image') {
         resp.imagen = Image(image);
@@ -41,6 +46,12 @@ const articleItem = article => {
 
     if (primarySection) {
         resp.categoria = getPrincipalCategory(primarySection);
+    }
+
+    if (tags && tags.length > 0) {
+        resp.tags = tags.map(v => {
+            return getTag(v);
+        });
     }
 
     return resp;
