@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import getProperties from 'fusion:properties';
 import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
 import Banner from '../../common/bannerRefactor';
@@ -9,6 +10,13 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
+import get from '../../../common/utils/get';
+import ConfigBuilder from '../../common/bannerRefactor/builder';
+import {
+    getSlotForDevice,
+    isPrimarySectionInBannerSegments
+} from '../../common/bannerRefactor/utils';
+import { slotsConfig } from '../../common/bannerRefactor/config';
 
 class GrillaNotas extends React.Component {
     constructor(props) {
@@ -33,35 +41,70 @@ class GrillaNotas extends React.Component {
 
     getBanner = index => {
         const position = index + 1;
-        const { bannerConfig, hideBanners } = this.props;
+        const {
+            bannerConfig,
+            hideBanners,
+            globalContent,
+            globalContentConfig
+        } = this.props;
         const { banners: termicaShowBanner } = this.props.termicas || {
             banners: true
         };
-        const { siteProperties, isAdmin } = this.props;
+
+        const {
+            screenUtils: { device }
+        } = this.props;
+
+        const bannersSiteConfig = get(globalContent, 'siteService.banners');
+        const adserver = get(globalContent, 'siteService.adserver');
+        const segments = adserver.map(segment => segment.value);
+        const primarySection = get(globalContentConfig, 'query.id');
+        const site = this.props.arcSite || 'la-nacion-ar';
+        const dfpId = get(getProperties(site), 'bannerConfig.dfp_id');
 
         return bannerConfig
             .filter(banner => banner.position === position)
             .map(value => {
-                const props = {
-                    siteProperties,
-                    isAdmin,
-                    banner: {
-                        slotGroup: 'acumulado',
-                        selectedSlots: {
-                            desktopSlot: value.desktop,
-                            mobileSlot: value.mobile,
-                            tabletSlot: value.tablet
-                        },
-                        show: {
-                            termicas: termicaShowBanner,
-                            collection: !(hideBanners === 'true')
-                        }
-                    }
-                };
+                const slots = [
+                    { name: 'desktop', slot: value.desktop },
+                    { name: 'mobile', slot: value.mobile },
+                    { name: 'tablet', slot: value.tablet }
+                ];
+                const slotId = getSlotForDevice(device)(slots);
 
-                return (
-                    <Banner key={Math.floor(Math.random() * 100)} {...props} />
-                );
+                if (!slotId) return <></>;
+
+                const config = slotsConfig.acumulado[slotId];
+                if (!config) return <></>;
+
+                // TODO: Mover esta lógica a un utilitario ?)
+                const configBuilder = new ConfigBuilder();
+                configBuilder.init({
+                    ...config,
+                    slotId,
+                    dfpId,
+                    slotGroup: 'acumulado',
+                    show: {
+                        termicas: termicaShowBanner,
+                        collection: !(hideBanners === 'true')
+                    }
+                });
+
+                const [present, section] = isPrimarySectionInBannerSegments(
+                    primarySection
+                )(segments);
+                if (present) {
+                    configBuilder.segmentAdUnit(section, device);
+                }
+
+                if (bannersSiteConfig)
+                    configBuilder.setDimensionsFromSiteService(
+                        bannersSiteConfig,
+                        'acumulado',
+                        slotId
+                    );
+
+                return <Banner key={slotId} config={configBuilder.get()} />;
             });
     };
 
@@ -116,7 +159,6 @@ GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
     hideBanners: PropTypes.string.isRequired,
-    articlesInCollection: PropTypes.arrayOf(PropTypes.string),
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     articlesInGlobalProvider: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
@@ -124,8 +166,12 @@ GrillaNotas.propTypes = {
     globalContent: PropTypes.shape({
         name: PropTypes.string
     }).isRequired,
+    globalContentConfig: PropTypes.shape({
+        query: PropTypes.shape({
+            id: PropTypes.string
+        })
+    }).isRequired,
     loading: PropTypes.bool.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({
             dfp_id: PropTypes.number.isRequired
@@ -137,10 +183,6 @@ GrillaNotas.propTypes = {
         sticky: PropTypes.bool,
         tablet: PropTypes.string
     }).isRequired
-};
-
-GrillaNotas.defaultProps = {
-    articlesInCollection: []
 };
 
 export default WithNavigation(

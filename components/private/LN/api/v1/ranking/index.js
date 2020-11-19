@@ -5,7 +5,8 @@ import Articles from './article';
 const index = (name, rankingData) => {
     const resp = {
         acumuladoTotal: rankingData.length,
-        items: ArticleList(Articles, rankingData)
+        titulo: name,
+        notas: ArticleList(Articles, rankingData)
     };
 
     return removeEmptyItems(resp);
