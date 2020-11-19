@@ -12,7 +12,7 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
-import sourceSetting from './utils/sourceSetting';
+import getTTLValue from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
 
@@ -115,5 +115,5 @@ export default {
         referrer: 'text',
         imageConfig: 'text'
     },
-    ttl: sourceSetting.liftigniterSource.ttl
+    ttl: getTTLValue('liftigniterSource')
 };

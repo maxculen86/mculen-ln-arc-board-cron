@@ -11,7 +11,7 @@ import {
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import getPresets from './utils/presets';
 import get from '../../components/private/common/utils/get';
-import sourceSetting from './utils/sourceSetting';
+import getTTLValue from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import Redirect from './utils/redirect';
 
@@ -110,5 +110,5 @@ export default {
         size: 'number',
         website: 'text'
     },
-    ttl: sourceSetting.rankingArticlesSource.ttl
+    ttl: getTTLValue('rankingArticlesSource')
 };

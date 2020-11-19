@@ -1,4 +1,4 @@
-import getProperties from 'fusion:properties';
+import getTTLValue from './utils/sourceSetting';
 
 const resolve = key => {
     const { query, published, website } = key;
@@ -14,20 +14,11 @@ const resolve = key => {
     return `/content/v4/search${qryPublished}?website=${website}&${query}`;
 };
 
-const ttlValue = () => {
-    const properties = getProperties('la-nacion-ar');
-    const value = properties.ttlConfig.videoSearchSource.ttl;
-    return value;
-};
-
-/**
- * TODO: Revisar ttl para este contentSource
- */
-
 export default {
     resolve,
     schemaName: 'videos-schema',
     params: {
         query: 'text'
-    }
+    },
+    ttl: getTTLValue('videosSearchSource')
 };

@@ -1,3 +1,5 @@
+import getTTLValue from './utils/sourceSetting';
+
 const resolve = key => {
     const { website } = key;
     if (!website)
@@ -12,5 +14,6 @@ export default {
     schemaName: 'navigation-tree-schema',
     params: {
         website: 'text'
-    }
+    },
+    ttl: getTTLValue('navigationTreeSource')
 };
