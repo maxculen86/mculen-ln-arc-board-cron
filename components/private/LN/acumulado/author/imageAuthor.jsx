@@ -18,4 +18,8 @@ const ImageAuthor = ({ url }) => {
     );
 };
 
+ImageAuthor.propTypes = {
+    url: PropTypes.string.isRequired
+};
+
 export default ImageAuthor;

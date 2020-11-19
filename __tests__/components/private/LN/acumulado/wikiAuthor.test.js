@@ -7,7 +7,7 @@ describe('private - LN - acumulado - Author - wikiAuthor', () => {
     const globalContent = {
         byline: 'Joaquín Morales Solá',
         bio_page: 'https://google.com',
-        image: 'https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png',
+        image: {url: 'https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png' },
         longBio: `Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
                 ser prosecretario de la sección Política. Durante 12 años
@@ -28,7 +28,7 @@ describe('private - LN - acumulado - Author - wikiAuthor', () => {
                 errores que condujeron al fracaso de la Alianza.`,
         twitter: '@moralessola'
     };
-    const component = render(<WikiAuthor globalContent={globalContent} />);
+    const component = render(<WikiAuthor data={globalContent} />);
     it('Test de snapshot Bio Author', () => {
         expect(component).toMatchSnapshot();
     });

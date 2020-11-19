@@ -18,27 +18,24 @@ import ComParagraph from '../../../common/com-paragraph';
 import ModDescriptionList from '../../../common/mod-descriptionList';
 import ListSocialIcons from '../../../common/list-socialicons';
 import ImageAuthor from './imageAuthor';
+import ComLink from '../../../common/com-link';
 // import ModWikiAuthor from '../../../common/mod-wikiAuthor';
 //import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ data, classesNames, classCondition }) => {
     const {
         byline,
-        firstName,
-        lastName,
         email,
         role,
         longBio,
         image: { url },
-        books,
-        podcasts,
-        education,
-        awards,
-        personal_website,
+        books = [],
+        podcasts = [],
+        education = [],
+        awards = [],
+        personal_website: personalWebsite,
         languages,
-        affiliations,
-        facebook,
-        twitter
+        affiliations
     } = data || {};
     console.log("WikiAuthor -> data", data)
     console.log("WikiAuthor -> books", books)
@@ -54,54 +51,78 @@ const WikiAuthor = ({ data, classesNames, classCondition }) => {
                 </div>
                 <div className="col-12 col-desksm-8">
                     <ComContainer classCondition="--info">
-                        <ComTitle tag="h2" content="Nombre Autor" size="--l" />
+                        <ComTitle tag="h2" content={byline} size="--l" />
                         <ComText textname={role} size="--threexs" />
                         <ComContainer>
-                            <ModDescriptionList size="--threexs" />
+                            {email && (
+                                <ComLink
+                                    link={`mailto:${email}`}
+                                    textname={email}
+                                />
+                            )}
+                            {' - '}
+                            {personalWebsite && (
+                                <ComLink
+                                    link={personalWebsite}
+                                    textname={personalWebsite}
+                                />
+                            )}
                         </ComContainer>
                         <ComParagraph size="--threexs" content={longBio} />
-                        <ComContainer>
-                            <ModDescriptionList
-                                descriptionTitle="Educación"
-                                size="--threexs"
-                                list={education}
-                            />
-                        </ComContainer>
-                        <ComContainer>
-                            <ModDescriptionList
-                                descriptionTitle="Reconocimientos"
-                                size="--threexs"
-                                list={awards}
-                            />
-                        </ComContainer>
-                        <ComContainer>
-                            <ModDescriptionList
-                                descriptionTitle="Idiomas:"
-                                size="--threexs"
-                                text={languages}
-                            />
-                        </ComContainer>
-                        <ComContainer>
-                            <ModDescriptionList
-                                descriptionTitle="Membresías profesionales:"
-                                size="--threexs"
-                                text={affiliations}
-                            />
-                        </ComContainer>
-                        <ComContainer>
-                            <ModDescriptionList
-                                descriptionTitle="Publicaciones"
-                                size="--threexs"
-                                list={books}
-                            />
-                        </ComContainer>
-                        <ComContainer>
-                            <ModDescriptionList
-                                descriptionTitle="Podscat"
-                                size="--threexs"
-                                list={podcasts}
-                            />
-                        </ComContainer>
+                        {education.length > 0 && (
+                            <ComContainer>
+                                <ModDescriptionList
+                                    descriptionTitle="Educación"
+                                    size="--threexs"
+                                    list={education}
+                                />
+                            </ComContainer>
+                        )}
+                        {awards.length > 0 && (
+                            <ComContainer>
+                                <ModDescriptionList
+                                    descriptionTitle="Reconocimientos"
+                                    size="--threexs"
+                                    list={awards}
+                                />
+                            </ComContainer>
+                        )}
+                        {languages && (
+                            <ComContainer>
+                                <ModDescriptionList
+                                    descriptionTitle="Idiomas:"
+                                    size="--threexs"
+                                    text={languages}
+                                />
+                            </ComContainer>
+                        )}
+                        {affiliations && (
+                            <ComContainer>
+                                <ModDescriptionList
+                                    descriptionTitle="Membresías profesionales:"
+                                    size="--threexs"
+                                    text={affiliations}
+                                />
+                            </ComContainer>
+                        )}
+                        {books.length > 0 && (
+                            <ComContainer>
+                                <ModDescriptionList
+                                    descriptionTitle="Publicaciones"
+                                    size="--threexs"
+                                    list={books}
+                                />
+                            </ComContainer>
+                        )}
+                        {podcasts.length > 0 && (
+                            <ComContainer>
+                                <ModDescriptionList
+                                    descriptionTitle="Podscat"
+                                    size="--threexs"
+                                    list={podcasts}
+                                />
+                            </ComContainer>
+                        )}
                     </ComContainer>
                 </div>
                 <div className="col-12">
@@ -111,57 +132,61 @@ const WikiAuthor = ({ data, classesNames, classCondition }) => {
                             content="Conectar"
                             size="--threexs"
                         />
-                        <ListSocialIcons size="--threexs" />
+                        <ListSocialIcons
+                            data={data}
+                            size="--threexs"
+                            vertical=""
+                        />
                     </ComContainer>
                 </div>
             </div>
         </section>
     );
-        // return (
-        //   <ModWikiAuthor />
-        // <div className="wiki-autor row">
-        //     <div className="col-12">
-        //         <section id="" className="cont-figure-wiki">
-        //             <div href={bioPage} className="figure">
-        //                 <picture className="content-pic picture">
-        //                     {url && (
-        //                         <img src={url} alt="" className="content-img" />
-        //                     )}
-        //                 </picture>
-        //             </div>
-        //         </section>
-        //         <div className="wiki-calc">
-        //             <ComTitle tag="h1" size="--xl" content={byline} />
-        //             <label>LA NACION</label>
-        //         </div>
-        //         <p className="hlp-mobile-none col-12">
-        //             {longBio}
-        //             {twitter && (
-        //                 <span>
-        //                     Twitter:&nbsp;
-        //                     <a
-        //                         href={`https://twitter.com/${twitter}`}
-        //                         target="_blank"
-        //                         rel="noopener noreferrer"
-        //                     >
-        //                         {twitter}
-        //                     </a>
-        //                 </span>
-        //             )}
-        //         </p>
-        //     </div>
-        // </div>
-        // );
 };
 
 WikiAuthor.propTypes = {
-    globalContent: PropTypes.shape({
-        byline: PropTypes.string.isRequired,
-        bio_page: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        longBio: PropTypes.string.isRequired,
-        twitter: PropTypes.string.isRequired
-    }).isRequired
+    data: PropTypes.shape({
+        byline: PropTypes.string,
+        email: PropTypes.string,
+        role: PropTypes.string,
+        longBio: PropTypes.string,
+        image: PropTypes.shape({
+            url: PropTypes.string
+        }),
+        books: PropTypes.arrayOf(
+            PropTypes.shape({
+                title: PropTypes.string,
+                publisher: PropTypes.string,
+                url: PropTypes.string
+            })
+        ),
+        podcasts: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string,
+                url: PropTypes.string
+            })
+        ),
+        education: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string,
+            })
+        ),
+        awards: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string,
+            })
+        ),
+        personal_website: PropTypes.string,
+        languages: PropTypes.string,
+        affiliations: PropTypes.string
+    }).isRequired,
+    classesNames: PropTypes.string,
+    classCondition: PropTypes.string
+};
+
+WikiAuthor.defaultProps = {
+    classesNames: '',
+    classCondition: ''
 };
 
 export default WikiAuthor;

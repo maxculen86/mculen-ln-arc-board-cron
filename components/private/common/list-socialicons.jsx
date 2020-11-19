@@ -1,5 +1,5 @@
 import React from 'react';
-//import ComLi from './com-li';
+import PropTypes from 'fusion:prop-types';
 import ComLi from './com-li';
 import ComLink from './com-link';
 import ComIco from './com-icon';
@@ -7,63 +7,69 @@ import '../../../resources/dist/css/ln/components/com-unordered.css';
 import ComBullet from './com-bullet';
 
 const list = [
-    {
-        textname: '@cpagni',
-        link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
-        icon: 'twitter',
-        classCondition: ''
-    },
-    {
-        textname: '@cpagni',
-        link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
-        icon: 'whatsapp',
-        classCondition: ''
-    },
-    {
-        textname: '@cpagni',
-        link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
-        icon: 'instagram',
-        classCondition: ''
-    },
-    {
-        textname: '@cpagni',
-        link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
-        icon: 'rss',
-        classCondition: ''
-    },
-    {
-        textname: '@cpagni',
-        link: 'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html',
-        icon: 'facebook',
-        classCondition: ''
-    }
+    'twitter',
+    'facebook',
+    'youtube',
+    'instagram',
+    'linkedin',
+    'rss',
+    'medium',
+    'reddit',
+    'pinterest',
+    'soundcloud',
+    'snapchat',
+    'whatsapp',
+    'tumblr'
 ];
 
 const ListSocialIcons = props => {
-    const { vertical, size } = props;
-    const listItem = list.map(item => (
-        <ComLi>
-            <ComLink
-                link={item.link}
-                blank={item.blank}
-                classCondition="--sociallist"
-            >
-                <ComBullet sizeBullet="--xs" />
-                <ComIco
-                    sizeText={size}
-                    sizeIcon="--lg"
-                    iconName={item.icon}
-                    classCondition={item.classCondition}
-                    textname={item.textname}
-                />
-            </ComLink>
-        </ComLi>
-    ));
-    return (
-        <ul className={`com-unordered ${vertical ? '--vertical' : ''}`}>
-            {listItem}
-        </ul>
-    );
+    const { vertical, size, data } = props;
+    const listItem = list.map(item => {
+        if (!data[item]) return null;
+        return (
+            <ComLi>
+                <ComLink
+                    link={data[item]}
+                    blank={item.blank}
+                    classCondition="--sociallist"
+                >
+                    <ComBullet sizeBullet="--xs" />
+                    <ComIco
+                        sizeText={size}
+                        sizeIcon="--lg"
+                        iconName={item}
+                        textname={item}
+                    />
+                </ComLink>
+            </ComLi>
+        );
+    });
+
+    return <ul className={`com-unordered ${vertical}`}>{listItem}</ul>;
+};
+
+ListSocialIcons.propTypes = {
+    data: PropTypes.shape({
+        twitter: PropTypes.string,
+        facebook: PropTypes.string,
+        youtube: PropTypes.string,
+        instagram: PropTypes.string,
+        linkedin: PropTypes.string,
+        rss: PropTypes.string,
+        medium: PropTypes.string,
+        reddit: PropTypes.string,
+        pinterest: PropTypes.string,
+        soundcloud: PropTypes.string,
+        snapchat: PropTypes.string,
+        whatsapp: PropTypes.string,
+        tumblr: PropTypes.string
+    }).isRequired,
+    size: PropTypes.string.isRequired,
+    vertical: PropTypes.string
+};
+
+ListSocialIcons.defaultProps = {
+    vertical: ''
 };
 
 export default ListSocialIcons;

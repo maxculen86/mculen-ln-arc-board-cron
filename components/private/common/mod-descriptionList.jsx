@@ -22,6 +22,7 @@ const ModDescriptionList = props => {
                     />
                 )}
                 {!item.url && (item.name || item.title)}
+                {item.publisher && `, ${item.publisher}`}
             </dd>
     ));
     return (
@@ -32,6 +33,21 @@ const ModDescriptionList = props => {
             {listItem}
         </dl>
     );
+};
+
+ModDescriptionList.propTypes = {
+    descriptionTitle: PropTypes.string.isRequired,
+    list: PropTypes.arrayOf(PropTypes.node),
+    text: PropTypes.string,
+    size: PropTypes.string,
+    classCondition: PropTypes.string
+};
+
+ModDescriptionList.defaultProps = {
+    size: '',
+    classCondition: '',
+    text: '',
+    list: []
 };
 
 export default ModDescriptionList;

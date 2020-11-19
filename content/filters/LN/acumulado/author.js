@@ -5,18 +5,15 @@ export default `
     bio_page,
     image { url },
     longBio,
-    twitter,
     slug,
     role,
     email,
-    firstName,
-    lastName,
     books {
         title,
         publisher,
         url
     },
-    podcast {
+    podcasts {
         name,
         url
     },
@@ -27,7 +24,19 @@ export default `
         name
     },
     personal_website,
-    facebook,
     languages,
     affiliations
+    twitter,
+    facebook,
+    youtube,
+    instagram,
+    linkedin,
+    rss,
+    medium,
+    reddit,
+    pinterest,
+    soundcloud,
+    snapchat,
+    whatsapp,
+    tumblr
 }`;

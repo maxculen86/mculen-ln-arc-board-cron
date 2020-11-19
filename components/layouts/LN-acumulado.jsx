@@ -66,7 +66,8 @@ const LNAcumuladoLayout = props => {
         header_class_name: headerDark
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
-    const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
+    const megatop =
+        tree && getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     const articlesInCollection = getArticlesFromCollection(
         idCollection,
         2,
@@ -129,9 +130,9 @@ const LNAcumuladoLayout = props => {
 
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
-    outputType: PropTypes.string.isRequired,
-    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired,
+    outputType: PropTypes.string,
+    tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
+    isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
             section_style_name: PropTypes.string,
@@ -151,7 +152,14 @@ LNAcumuladoLayout.propTypes = {
             navigation_color_tags: PropTypes.string,
             id_logo_image: PropTypes.string
         })
-    }).isRequired
+    })
+};
+
+LNAcumuladoLayout.defaultProps = {
+    outputType: 'default',
+    tree: undefined,
+    isAdmin: false,
+    globalContent: {}
 };
 
 LNAcumuladoLayout.sections = pageBuilderSections;
