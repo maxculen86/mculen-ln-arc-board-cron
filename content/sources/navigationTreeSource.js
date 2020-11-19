@@ -26,7 +26,6 @@ const fetch = query => {
 
 export default {
     fetch,
-    resolve,
     schemaName: 'navigation-tree-schema',
     params: {
         website: 'text'
