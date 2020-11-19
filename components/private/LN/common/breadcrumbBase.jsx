@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import '../../../../resources/dist/css/ln/components/breadcrumb.css';
+import ModTooltip from '../../common/mod-tooltip';
+import ComContainer from '../../common/com-container';
+import ComBullet from '../../common/com-bullet';
 
 const getListSections = (sections, extraOpts, host, colorCategory) =>
     sections.map(section => {
@@ -11,11 +14,21 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 : section.path;
         return (
             <a
+                className="com-link --threexs"
                 key={path}
                 href={`${path}/`}
                 {...extraOpts}
                 style={{ color: colorCategory, borderLeftColor: colorCategory }}
             >
+                <div className="com-bullet">
+                    <i
+                        style={{
+                            color: colorCategory,
+                            borderLeftColor: colorCategory
+                        }}
+                        className="com-icon bullet icon-bullet --xs"
+                    />
+                </div>
                 {section.name}
             </a>
         );
@@ -28,6 +41,7 @@ const BreadcrumbBase = props => {
         dataSection,
         lastLinked,
         host,
+        tooltip,
         colorCategory = ''
     } = props;
 
@@ -54,6 +68,7 @@ const BreadcrumbBase = props => {
         )[0];
         listSections.push(
             <span
+                className="com-text --threexs"
                 key={lastSection.path}
                 style={{
                     color: colorCategory,
@@ -61,6 +76,15 @@ const BreadcrumbBase = props => {
                     opacity: `.7`
                 }}
             >
+                <div className="com-bullet">
+                    <i
+                        style={{
+                            color: colorCategory,
+                            borderLeftColor: colorCategory
+                        }}
+                        className="com-icon bullet icon-bullet --xs"
+                    />
+                </div>
                 {lastSection.name}
             </span>
         );
@@ -71,9 +95,30 @@ const BreadcrumbBase = props => {
             host,
             colorCategory
         );
+
     return (
         <nav className={`com-breadcrumb ${extraClasses || ''}`}>
             {listSections}
+            {/* Último item */}
+            {tooltip && (
+                <span className="com-text --tooltip">
+                    <div className="com-bullet">
+                        <i
+                            style={{
+                                color: colorCategory,
+                                borderLeftColor: colorCategory
+                            }}
+                            className="com-icon bullet icon-bullet --xs"
+                        />
+                    </div>
+                    {tooltip.text}
+                    {tooltip.label && (
+                        <ComContainer>
+                            <ModTooltip label={tooltip.label} />
+                        </ComContainer>
+                    )}
+                </span>
+            )}
         </nav>
     );
 };
@@ -88,14 +133,21 @@ BreadcrumbBase.propTypes = {
     ).isRequired,
     extraClasses: PropTypes.string,
     dataSection: PropTypes.string,
+    colorCategory: PropTypes.string,
     lastLinked: PropTypes.boolean,
-    host: PropTypes.string.isRequired
+    host: PropTypes.string.isRequired,
+    tooltip: PropTypes.shape({
+        text: PropTypes.string,
+        label: PropTypes.string
+    })
 };
 
-// BreadcrumbBase.defaultProps = {
-//     extraClasses: undefined,
-//     dataSection: undefined,
-//     lastLinked: false
-// };
+BreadcrumbBase.defaultProps = {
+    extraClasses: undefined,
+    dataSection: undefined,
+    tooltip: undefined,
+    lastLinked: undefined,
+    colorCategory: ''
+};
 
 export default BreadcrumbBase;

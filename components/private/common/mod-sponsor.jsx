@@ -6,9 +6,11 @@ import ComLogo from './com-logo';
 import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/modules/mod-sponsor.css';
+import ComContainer from './com-container';
+import ModTooltip from './mod-tooltip';
 
 const ModSponsor = props => {
-    const { type, sponsor, textName, link } = props;
+    const { type, sponsor, textName, link, tooltip = {} } = props;
 
     return (
         <div className={`mod-sponsor ${type} ${sponsor}`}>
@@ -18,15 +20,31 @@ const ModSponsor = props => {
                 </ComLink>
             )}
 
-            {type === '--contentlab' ? (
-                <ComText tag="" size="" classCondition="">
-                    ContentLAB para {textName}
-                </ComText>
-            ) : (
-                <ComText tag="" size="" classCondition="">
-                    Espacio Patrocinado
-                </ComText>
-            )}
+            <>
+                {type === '--contentlab' ? (
+                    <ComText tag="" size="--threexs" classCondition="--sponsor">
+                        ContentLAB para {textName}
+                        {tooltip.label && (
+                            <span className="com-text --tooltip">
+                                <ComContainer>
+                                    <ModTooltip label={tooltip.label} />
+                                </ComContainer>
+                            </span>
+                        )}
+                    </ComText>
+                ) : (
+                    <ComText tag="" size="--threexs" classCondition="--sponsor">
+                        Espacio Patrocinado
+                        {tooltip.label && (
+                            <span className="com-text --tooltip">
+                                <ComContainer>
+                                    <ModTooltip label={tooltip.label} />
+                                </ComContainer>
+                            </span>
+                        )}
+                    </ComText>
+                )}
+            </>
         </div>
     );
 };
@@ -35,7 +53,19 @@ ModSponsor.propTypes = {
     type: PropTypes.string,
     sponsor: PropTypes.string,
     textName: PropTypes.string,
-    link: PropTypes.string
+    link: PropTypes.string,
+    tooltip: PropTypes.shape({
+        text: PropTypes.string,
+        label: PropTypes.string
+    })
+};
+
+ModSponsor.defaultProps = {
+    type: undefined,
+    sponsor: undefined,
+    tooltip: undefined,
+    textName: undefined,
+    link: undefined
 };
 
 export default ModSponsor;

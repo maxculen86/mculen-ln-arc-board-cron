@@ -52,7 +52,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-comment "
+        class="com-icon icon-comment   "
       />
       <span
         class="com-text l "

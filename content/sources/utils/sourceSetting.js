@@ -1,8 +1,5 @@
 import getProperties from 'fusion:properties';
-import environment from 'fusion:environment';
 import get from '../../../components/private/common/utils/get';
-
-console.log('************ environment', environment);
 
 const getTTLValue = contentSource => {
     // TODO: buscar forma dinámica de agregar el arcSite.

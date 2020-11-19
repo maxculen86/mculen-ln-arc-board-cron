@@ -53,10 +53,10 @@
         }
     }
     .mod-breadcrumb & {
-        display: flex;
         border-left: solid 1px $gris5;
         padding: 0 px(9);
         text-transform: initial;
+        display: flex;
     }
     &:first-letter {
         .mod-breadcrumb & {
@@ -92,6 +92,12 @@
     .mod-themes & {
         margin-right: $spacing-sm;
         margin-bottom: $spacing-sm;
+    }
+    .com-breadcrumb & {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 }
 @media ($media-l) {

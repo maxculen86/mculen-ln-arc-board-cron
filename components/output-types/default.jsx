@@ -124,6 +124,7 @@ const Default = props => {
         Payload,
         _id
     } = globalContent || {};
+
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};

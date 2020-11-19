@@ -209,16 +209,14 @@ const transformContent = (jsonArticle, arcSite) => {
 
     promiseArr.push(
         new Promise(resolver =>
-            resolver(getNavigationSiteProperties(resp, arcSite))
+            resolver(getNavigationSiteProperties(arcSite))
         ).then(data => {
-            console.log('transformContent -> data', data);
             resp.siteService = {
                 tooltips: data.tooltips,
                 banners: data.banners,
                 adserver: data.adserver,
                 termicas: data.termicas
             };
-            //console.log("transformContent -> resp", resp)
         })
     );
 
@@ -227,7 +225,7 @@ const transformContent = (jsonArticle, arcSite) => {
     });
 };
 
-const getNavigationSiteProperties = (anotherNoteData, arcSite) => {
+const getNavigationSiteProperties = arcSite => {
     return navigationTreeSource
         .fetch({ website: arcSite })
         .then(fetchedRelated => {
