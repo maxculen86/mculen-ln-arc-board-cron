@@ -22,7 +22,7 @@ import ComLink from '../../../common/com-link';
 // import ModWikiAuthor from '../../../common/mod-wikiAuthor';
 //import '../../../../../resources/dist/css/ln/base/helpers.css';
 
-const WikiAuthor = ({ data, classesNames, classCondition }) => {
+const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
     const {
         byline,
         email,
@@ -46,7 +46,7 @@ const WikiAuthor = ({ data, classesNames, classCondition }) => {
             <div className="row">
                 {url && (
                     <div className="col-12 col-desksm-4">
-                        <ImageAuthor url={url} />
+                        <ImageAuthor outputType={outputType} url={url} />
                     </div>
                 )}
                 <div className="col-12 col-desksm-8">
@@ -181,7 +181,8 @@ WikiAuthor.propTypes = {
         affiliations: PropTypes.string
     }).isRequired,
     classesNames: PropTypes.string,
-    classCondition: PropTypes.string
+    classCondition: PropTypes.string,
+    outputType: PropTypes.string.isRequired
 };
 
 WikiAuthor.defaultProps = {

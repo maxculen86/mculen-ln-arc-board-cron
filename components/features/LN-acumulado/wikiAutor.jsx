@@ -5,8 +5,8 @@ import WikiAuthor from '../../private/LN/acumulado/author/wikiAuthor';
 import withStatic from '../../private/common/hocs/withStatic';
 // import ModWikiAuthor from '../../private/common/mod-wikiAuthor';
 
-const wikiAuthor = ({ globalContent }) => {
-    return <WikiAuthor data={globalContent} />;
+const wikiAuthor = ({ globalContent, outputType }) => {
+    return <WikiAuthor data={globalContent} outputType={outputType} />;
 };
 
 wikiAuthor.label = 'LN-Acumulado-Wiki-Autor';
@@ -46,7 +46,8 @@ wikiAuthor.propTypes = {
         personal_website: PropTypes.string,
         languages: PropTypes.string,
         affiliations: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    outputType: PropTypes.string.isRequired
 };
 
 export default withStatic(Consumer(wikiAuthor));

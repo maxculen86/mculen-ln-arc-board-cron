@@ -1,5 +1,7 @@
 export default `
 {
+    node_type,
+    canonical_url,
     author_type,
     byline,
     bio_page,
