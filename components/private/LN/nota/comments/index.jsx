@@ -253,15 +253,13 @@ const Comments = props => {
                                     const { attributes } = collection;
                                     const commentsCount = get(
                                         attributes,
-                                        'headDocument.content',
-                                        []
+                                        'numVisible',
+                                        0
                                     );
 
                                     setCommentsEnabledAndCount(
                                         attributes.commentsEnabled,
-                                        commentsCount.filter(
-                                            el => el.vis === 1 && el.type === 0
-                                        ).length
+                                        commentsCount
                                     );
 
                                     if (!auth.isAuthenticated()) {
