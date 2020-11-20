@@ -56,7 +56,7 @@ class GrillaNotas extends React.Component {
         } = this.props;
 
         const bannersSiteConfig = get(globalContent, 'siteService.banners');
-        const adserver = get(globalContent, 'siteService.adserver');
+        const adserver = get(globalContent, 'siteService.adserver', []);
         const segments = adserver.map(segment => segment.value);
         const primarySection = get(globalContentConfig, 'query.id');
         const site = this.props.arcSite || 'la-nacion-ar';
