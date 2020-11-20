@@ -1,5 +1,3 @@
-import getTTLValue from './utils/sourceSetting';
-
 const resolve = key => {
     const { id, url, website } = key;
     const basePath = `/content/v4/videos?website=${website}`;
@@ -17,5 +15,5 @@ export default {
         url: 'text',
         website: 'text'
     },
-    ttl: getTTLValue('videoSource')
+    ttl: 600
 };

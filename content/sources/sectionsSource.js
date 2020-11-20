@@ -1,5 +1,3 @@
-import getTTLValue from './utils/sourceSetting';
-
 const resolve = key => {
     const { website } = key;
     if (!website) throw new Error('Debe indicar el website - Section Source');
@@ -12,5 +10,5 @@ export default {
     params: {
         website: 'text'
     },
-    ttl: getTTLValue('sectionsSource')
+    ttl: 900
 };

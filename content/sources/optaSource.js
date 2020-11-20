@@ -2,7 +2,6 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
-import getTTLValue from './utils/sourceSetting';
 import logger from '../../components/private/common/utils/logger';
 
 const getRawIdAndNoteId = url => {
@@ -63,5 +62,5 @@ const transform = (data, url) => {
 
 export default {
     fetch,
-    ttl: getTTLValue('optaSource')
+    ttl: 300
 };

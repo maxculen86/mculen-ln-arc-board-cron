@@ -1,6 +1,5 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import getTTLValue from './utils/sourceSetting';
 
 const resolve = key => {
     const { website } = key;
@@ -30,5 +29,5 @@ export default {
     params: {
         website: 'text'
     },
-    ttl: getTTLValue('navigationTreeSource')
+    ttl: 300
 };
