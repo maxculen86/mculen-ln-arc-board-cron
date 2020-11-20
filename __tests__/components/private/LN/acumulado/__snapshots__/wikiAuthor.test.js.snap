@@ -12,16 +12,14 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
     >
       <figure
         class="mod-figure --horizontal"
-        role="button"
       >
         <div
           class="mod-picture "
         >
           <img
-            alt="ver que onda"
-            class="i-amphtml-fill-content i-amphtml-replaced-content"
-            decoding="async"
-            sizes="(max-width: 320px) 320px, 100vw"
+            alt="Imagen de Autor"
+            class="com-image "
+            loading="lazy"
             src="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
             srcset="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
           />
