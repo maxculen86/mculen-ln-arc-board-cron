@@ -46,6 +46,12 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
            - 
+          <a
+            class="com-link"
+            href="https://google.com"
+          >
+            https://google.com
+          </a>
         </div>
         <p
           class="com-paragraph   --threexs"
@@ -69,6 +75,563 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 sobornos en el Senado, las causas de su renuncia y los
                 errores que condujeron al fracaso de la Alianza.
         </p>
+        <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionilist "
+          >
+            <dt
+              class="com-title --threexs "
+            >
+              Educación
+            </dt>
+            <dd
+              class="com-descriptionilist  --threexs"
+            >
+              Periodismo, Universidad de Buenos Aires, 1989.
+            </dd>
+            <dd
+              class="com-descriptionilist  --threexs"
+            >
+              Periodismo, Universidad de Buenos Aires, 1995.
+            </dd>
+          </dl>
+        </div>
+        <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionilist "
+          >
+            <dt
+              class="com-title --threexs "
+            >
+              Reconocimientos
+            </dt>
+            <dd
+              class="com-descriptionilist  --threexs"
+            >
+              Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.
+            </dd>
+            <dd
+              class="com-descriptionilist  --threexs"
+            >
+              Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.
+            </dd>
+          </dl>
+        </div>
+        <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionilist "
+          >
+            <dt
+              class="com-title --threexs "
+            >
+              Idiomas:
+            </dt>
+            Ingles, Frances
+          </dl>
+        </div>
+        <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionilist "
+          >
+            <dt
+              class="com-title --threexs "
+            >
+              Membresías profesionales:
+            </dt>
+            Academia de Periodismo.
+          </dl>
+        </div>
+        <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionilist "
+          >
+            <dt
+              class="com-title --threexs "
+            >
+              Publicaciones
+            </dt>
+            <dd
+              class="com-descriptionilist  --threexs"
+            >
+              <a
+                class="com-link"
+                href="https://google.com"
+              >
+                Carlos Pagni en Odisea Argentina
+              </a>
+              , Editorial
+            </dd>
+          </dl>
+        </div>
+        <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionilist "
+          >
+            <dt
+              class="com-title --threexs "
+            >
+              Podscat
+            </dt>
+            <dd
+              class="com-descriptionilist  --threexs"
+            >
+              <a
+                class="com-link"
+                href="http://google.com"
+              >
+                Un podcast
+              </a>
+            </dd>
+            <dd
+              class="com-descriptionilist  --threexs"
+            >
+              <a
+                class="com-link"
+                href="http://google.com"
+              >
+                Dos podcast
+              </a>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-12"
+    >
+      <div
+        class="com-container  --socialicons"
+      >
+        <h4
+          class="com-title --threexs"
+        >
+          Conectar
+        </h4>
+        <ul
+          class="com-unordered "
+        >
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-twitter --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                twitter
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-facebook --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                facebook
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-youtube --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                youtube
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-instagram --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                instagram
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-linkedin --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                linkedin
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-rss --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                rss
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-medium --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                medium
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-reddit --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                reddit
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-pinterest --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                pinterest
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-soundcloud --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                soundcloud
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-snapchat --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                snapchat
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-whatsapp --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                whatsapp
+              </span>
+            </a>
+          </li>
+          <li
+            class="com-li  "
+          >
+            <a
+              class="com-link --sociallist"
+              href="@moralessola"
+            >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet  --xs "
+                  style="color:#cccccc"
+                />
+              </div>
+              <i
+                class="com-icon icon-tumblr --lg  "
+              />
+              <span
+                class="com-text --threexs "
+              >
+                tumblr
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Author Sin muchos datos 1`] = `
+<section
+  class="mod-wikiauthor  "
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 col-desksm-8"
+    >
+      <div
+        class="com-container  --info"
+      >
+        <h2
+          class="com-title --l"
+        >
+          Joaquín Morales Solá
+        </h2>
+        <span
+          class="com-text --threexs "
+        />
+        <div
+          class="com-container  "
+        >
+           - 
+          <a
+            class="com-link"
+            href="https://google.com"
+          >
+            https://google.com
+          </a>
+        </div>
+        <p
+          class="com-paragraph   --threexs"
+        >
+          Ejerce el periodismo desde los 16 años cuando ingresó al
+                diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
+                ser prosecretario de la sección Política. Durante 12 años
+                fue segundo jefe de Redacción y autor de la columna política
+                dominical de ese diario.
+        </p>
+        <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionilist "
+          >
+            <dt
+              class="com-title --threexs "
+            >
+              Idiomas:
+            </dt>
+            Ingles, Frances
+          </dl>
+        </div>
+        <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionilist "
+          >
+            <dt
+              class="com-title --threexs "
+            >
+              Podscat
+            </dt>
+            <dd
+              class="com-descriptionilist  --threexs"
+            >
+              <a
+                class="com-link"
+                href="http://google.com"
+              >
+                Dos podcast
+              </a>
+            </dd>
+          </dl>
+        </div>
       </div>
     </div>
     <div

@@ -37,8 +37,6 @@ const WikiAuthor = ({ data, classesNames, classCondition }) => {
         languages,
         affiliations
     } = data || {};
-    console.log("WikiAuthor -> data", data)
-    console.log("WikiAuthor -> books", books)
 
     return (
         <section
@@ -46,9 +44,11 @@ const WikiAuthor = ({ data, classesNames, classCondition }) => {
                 ''}`}
         >
             <div className="row">
-                <div className="col-12 col-desksm-4">
-                    <ImageAuthor url={url} />
-                </div>
+                {url && (
+                    <div className="col-12 col-desksm-4">
+                        <ImageAuthor url={url} />
+                    </div>
+                )}
                 <div className="col-12 col-desksm-8">
                     <ComContainer classCondition="--info">
                         <ComTitle tag="h2" content={byline} size="--l" />

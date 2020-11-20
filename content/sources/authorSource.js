@@ -19,18 +19,17 @@ const transform = data => {
     };
 
     if (dataResp.image.url.length === 0) return dataResp;
-    console.log("dataResp", dataResp)
 
     return {
         ...dataResp,
         image: {
             url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl(
                 data.image,
-                80,
-                80,
+                280,
+                280,
                 {
-                    width: 80,
-                    height: 80,
+                    width: 280,
+                    height: 280,
                     media: '(min-width: 320px)',
                     class: '',
                     type: 'image'
