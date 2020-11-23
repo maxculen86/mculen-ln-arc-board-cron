@@ -13,7 +13,7 @@ import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
 import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
-import ScriptCustomLoader from '../private/common/scriptManager/ScriptCustomLoader';
+import ScriptLoadingList from '../private/common/scriptManager/scriptLoadingList';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
@@ -83,10 +83,6 @@ const scriptList = [
     {
         component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
         feature: 'none'
-    },
-    {
-        component: { name: 'ScriptCustomLoader', function: ScriptCustomLoader },
-        feature: ['LN-common/ScriptLoader']
     }
 ];
 
@@ -245,6 +241,7 @@ const Default = props => {
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
                 {/* <Scripts name="Microdata" /> */}
+                <ScriptLoadingList arcSite={arcSite} />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
