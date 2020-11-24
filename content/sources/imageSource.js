@@ -1,8 +1,7 @@
-import getProperties from 'fusion:properties';
 import { RESIZER_SECRET, RESIZER_URL } from 'fusion:environment';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import SourceSetSizes from '../../components/private/OTT/programa/programImage/sourceSets.json';
-import sourceSetting from './utils/sourceSetting';
+import getTTLValue from './utils/sourceSetting';
 // import { SSL_OP_ALL } from 'constants';
 
 const resolve = key => {
@@ -38,6 +37,6 @@ export default {
     params: {
         id: 'text'
     },
-    ttl: sourceSetting.imageSource.ttl
+    ttl: getTTLValue('imageSource')
     // transform
 };

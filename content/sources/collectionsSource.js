@@ -10,7 +10,7 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import getPresets from './utils/presets';
-import sourceSetting from './utils/sourceSetting';
+import getTTLValue from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
@@ -97,5 +97,5 @@ export default {
         website: 'text'
     },
     transform,
-    ttl: sourceSetting.collectionSource.ttl
+    ttl: getTTLValue('collectionSource')
 };

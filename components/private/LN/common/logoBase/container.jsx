@@ -11,7 +11,8 @@ const LogoBaseContainer = ({
     distributor,
     sponsored,
     advertiser,
-    subtype
+    subtype,
+    tooltip
 }) => {
     const { name: distributorName } = distributor || {};
     const sectionData = getSectionLogo(sections, layout, distributorName);
@@ -29,6 +30,7 @@ const LogoBaseContainer = ({
                 sponsor={logoName}
                 textName={advertiser}
                 link={path}
+                tooltip={tooltip}
             />
         );
     }

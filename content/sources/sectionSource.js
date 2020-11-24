@@ -1,11 +1,10 @@
-// import { transform } from "@babel/core";
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import getProperties from 'fusion:properties';
-import collectionsSource from './collectionsSource';
 import navigationTreeSource from './navigationTreeSource';
-import get from '../../components/private/common/utils/get';
+import collectionsSource from './collectionsSource';
 import logger from '../../components/private/common/utils/logger';
+import getTTLValue from './utils/sourceSetting';
+import get from '../../components/private/common/utils/get';
 
 const resolve = key => {
     const { id, website } = key;
@@ -22,10 +21,8 @@ const resolve = key => {
         );
     return `/site/v3/navigation/${finalWebsite}/?_id=${id}`;
 };
-
 const fetch = query => {
     const { url = '' } = query;
-    // console.log("query", query)
     const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
@@ -36,7 +33,6 @@ const fetch = query => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
-
     return request(opt)
         .then(response => {
             return transform(response, query);
@@ -46,7 +42,6 @@ const fetch = query => {
             throw error;
         });
 };
-
 const transform = (data, siteProps) => {
     const { _id: idData } = data;
     const { id: idQuery } = siteProps;
@@ -63,10 +58,8 @@ const transform = (data, siteProps) => {
         err.statusCode = 404;
         throw err;
     }
-
     return transformContent(data, siteProps, arcSite);
 };
-
 const transformContent = (data, siteProps, arcSite) => {
     const promiseArr = [];
     const resp = { ...data, articlesInCollection: [] };
@@ -82,7 +75,17 @@ const transformContent = (data, siteProps, arcSite) => {
         imageConfig: 'l'
     };
 
-    /*     promiseArr.push(
+    if (idCollection) {
+        promiseArr.push(
+            collectionsSource.fetch(newSiteProps).then(response => {
+                if (response && response.content_elements) {
+                    resp.articlesInCollection = response.content_elements;
+                }
+            })
+        );
+    }
+
+    promiseArr.push(
         getNavigationSiteProperties(arcSite).then(result => {
             resp.siteService = {
                 banners: result.banners,
@@ -91,88 +94,16 @@ const transformContent = (data, siteProps, arcSite) => {
             };
             return resp;
         })
-    ); */
-
-    if (idCollection) {
-        promiseArr.push(
-            collectionsSource.fetch(newSiteProps).then(response => {
-                console.log('RESPONDIO');
-                if (response && response.content_elements) {
-                    resp.articlesInCollection = response.content_elements;
-                }
-            })
-        );
-        /*
-        promiseArr.push(
-            getCollections(idCollection, arcSite, siteProps).then(response => {
-                // console.log("transform -> response", response)
-                if (response && response.content_elements) {
-                    resp.articlesInCollection = response.content_elements;
-                }
-            })
-        );
-        */
-    }
-
-    // Si no tiene uri viene de una page y no funciona retornando Promise
-    /*if (!siteProps.uri) {
-        console.log("transformContent -> resp", resp)
-        return resp;
-    }*/
+    );
 
     return Promise.all(promiseArr).then(() => {
-        console.log('transformContent -> resp', resp);
         return resp;
     });
 };
-/*
-const getCollections = (idCollection, arcSite, siteProps) => {
-    const query = collectionsSource.resolve({
-        id: idCollection,
-        size: 2,
-        website: arcSite
-    });
 
-    const properties = { ...siteProps, imageConfig: 'l' };
-
-    const opt = {
-        uri: `${CONTENT_BASE}${query}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-
-    return request(opt)
-        .then(response => {
-            const newResponse = collectionsSource.transform(
-                response,
-                properties
-            );
-            return newResponse;
-        })
-        .catch(error => {
-            logger.push(error, { source: 'content/source', query }, arcSite);
-            throw error;
-        });
-};
-*/
 const getNavigationSiteProperties = arcSite => {
-    const urlNavigationTreeSource = navigationTreeSource.resolve({
-        website: arcSite
-    });
-    const opt = {
-        uri: `${CONTENT_BASE}${urlNavigationTreeSource}`,
-        json: true
-    };
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
-    return request(opt)
+    return navigationTreeSource
+        .fetch({ website: arcSite })
         .then(fetchedRelated => {
             const { site } = fetchedRelated || {};
             const { bannerConfig } = fetchedRelated || { bannerConfig: {} };
@@ -212,19 +143,9 @@ const getNavigationSiteProperties = arcSite => {
             return resp;
         })
         .catch(e => {
-            // console.log('Error article source: getNavigationSiteProperties -> e', e);
+            throw e;
         });
 };
-
-const ttlValue = () => {
-    const properties = getProperties('la-nacion-ar');
-    const value = properties.ttlConfig.sectionSource.ttl;
-    return value;
-};
-
-/**
- * TODO: Revisar ttl para este contentSource
- */
 
 export default {
     fetch,
@@ -232,5 +153,6 @@ export default {
     params: {
         id: 'text',
         website: 'text'
-    }
+    },
+    ttl: getTTLValue('sectionSource')
 };

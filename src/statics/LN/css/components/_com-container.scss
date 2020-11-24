@@ -2,9 +2,35 @@
 @import '../abstracts/mixins';
 
 .com-container {
+    .mod-sponsor &,
+    .com-breadcrumb & {
+        position: absolute;
+        left: calc(50% - 140px);
+        top: 100%;
+        width: px(280);
+        visibility: hidden;
+        z-index: 99;
+    }
+
     &.--button {
         .cuerpo__nota & {
             @include flex(flex, row, center, center);
+        }
+    }
+}
+@media ($media-l) {
+    .com-container {
+        .mod-sponsor & {
+            left: calc(20% - 120px);
+            top: calc(100% + 20px);
+            bottom: inherit;
+            z-index: 999; // se deja porque a veces falla
+        }
+        .com-breadcrumb & {
+            left: calc(20% - 120px);
+            top: 100%;
+            bottom: inherit;
+            z-index: 999; // se deja porque a veces falla
         }
     }
 }
