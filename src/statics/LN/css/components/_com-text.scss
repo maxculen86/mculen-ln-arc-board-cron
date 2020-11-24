@@ -72,6 +72,10 @@
             margin-left: $spacing-2xs;
         }
     }
+    &.--profesion {
+        margin-bottom: $spacing-xs;
+        display: inline-flex;
+    }
 }
 
 @media ($media-xs) {

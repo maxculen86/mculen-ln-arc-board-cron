@@ -96,6 +96,12 @@
     &.--sociallist {
         @include flex(inline, row, center, center);
     }
+    .--contact & {
+        .mod-wikiauthor & {
+            margin-bottom: $spacing-xs;
+            display: inline-flex;
+        }
+    }
 }
 @media ($media-l) {
     .com-link {

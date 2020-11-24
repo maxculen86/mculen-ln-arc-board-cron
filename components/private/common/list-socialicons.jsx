@@ -23,7 +23,7 @@ const list = [
 ];
 
 const ListSocialIcons = props => {
-    const { vertical, size, data } = props;
+    const { vertical, size, data, sizeIcon, sizeBullet } = props;
     const listItem = list.map(item => {
         if (!data[item]) return null;
         return (
@@ -33,10 +33,10 @@ const ListSocialIcons = props => {
                     blank={item.blank}
                     classCondition="--sociallist"
                 >
-                    <ComBullet sizeBullet="--xs" />
+                    <ComBullet sizeBullet={sizeBullet} />
                     <ComIco
                         sizeText={size}
-                        sizeIcon="--lg"
+                        sizeIcon={sizeIcon}
                         iconName={item}
                         textname={item}
                     />

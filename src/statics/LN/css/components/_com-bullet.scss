@@ -9,4 +9,17 @@
             display: none;
         }
     }
+    .--info & {
+        .mod-wikiauthor & {
+            padding: 0;
+        }
+    }
+
+    .com-icon {
+        .com-container.--info & {
+            .mod-wikiauthor & {
+                color: $gris4;
+            }
+        }
+    }
 }

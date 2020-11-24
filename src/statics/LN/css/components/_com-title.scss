@@ -21,5 +21,10 @@
 @media ($media-l) {
     .com-title {
         margin-bottom: $spacing-sm;
+        &.--membresia,
+        &.--idiomas {
+            margin: 0;
+            margin-right: $spacing-xs;
+        }
     }
 }
