@@ -57,11 +57,11 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0]['_t']).toBe('img');
         expect(resp.imagenes[0].id).toBe(imageData._id);
         expect(resp.imagenes[0].baseUrl).toBe(
-            '/resizer/{{param}}/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg'
+            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg'
         );
         expect(resp.imagenes[0].parametros[0].ancho).toBe(1260);
         expect(resp.imagenes[0].parametros[0].firma).toBe(
-            'll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840'
+            'll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840/smart'
         );
         expect(resp.imagenes[0].epigrafe).toBe(imageData.caption);
     });
@@ -72,9 +72,13 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.multimedio).toBeUndefined();
         expect(resp.imagenes[0]['_t']).toBe('img');
         expect(resp.imagenes[0].id).toBe(imageData._id);
-        expect(resp.imagenes[0].baseUrl).toBe('/resizer/{{param}}/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SITTWPHGIZHMRNZH3DBQINBEXA.jpg');
+        expect(resp.imagenes[0].baseUrl).toBe(
+            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SITTWPHGIZHMRNZH3DBQINBEXA.jpg'
+        );
         expect(resp.imagenes[0].parametros[0].ancho).toBe(878);
-        expect(resp.imagenes[0].parametros[0].firma).toBe('g6OS3FXUAFmIOTNg2qOQSqWv5Uo=/0x878');
+        expect(resp.imagenes[0].parametros[0].firma).toBe(
+            'g6OS3FXUAFmIOTNg2qOQSqWv5Uo=/0x878/filters:quality(70)'
+        );
         expect(resp.imagenes[0].epigrafe).toBeUndefined();
     });
 
