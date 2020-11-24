@@ -41,45 +41,58 @@ export const getFirstParentSection = section => {
  * @param {string} sectionId
  */
 const getRegex = sectionId => {
-    const magazineRegex = /\/revista-(.\w+[^\W]?)/;
-    const propertiesRegex = /^\/propiedades$/;
-    const propertiesInmueblesComercialesRegex = /^\/propiedades\/inmuebles-comerciales$/;
-    const propertiesCasasDepartamentosRegex = /^\/propiedades\/casas-y-departamentos$/;
-    const propertiesConstruccionDisenoRegex = /^\/propiedades\/construccion-y-diseno$/;
-    const propertiesInversionesRegex = /^\/propiedades\/inversiones$/;
-    const lnmasRegex = /\/lnmas/;
+    const regexList = [
+        /\/(lnmas)/,
+        /^\/(propiedades)(?:\/.+)?/,
+        /\/revista-(.\w+[^\W]?)/
+    ];
 
-    if (sectionId === '/lnmas') return lnmasRegex;
-    if (sectionId === '/propiedades') return propertiesRegex;
-    if (sectionId === '/propiedades/inmuebles-comerciales')
-        return propertiesInmueblesComercialesRegex;
-    if (sectionId === '/propiedades/casas-y-departamentos')
-        return propertiesCasasDepartamentosRegex;
-    if (sectionId === '/propiedades/construccion-y-diseno')
-        return propertiesConstruccionDisenoRegex;
-    if (sectionId === '/propiedades/inversiones')
-        return propertiesInversionesRegex;
-
-    return magazineRegex;
+    return regexList.find(regex => {
+        const match = sectionId && sectionId.match(regex);
+        // Se necesita que match.length > 1 para que traiga grupo $1 y tomar de ahí el nombre del logo
+        return match && match.length > 1;
+    });
 };
 
-const getLogoForPath = path => {
-    if (path.length < 1) return '';
-    switch (path[0]) {
-        case '/lnmas':
-            return 'ln-mas';
-        case '/propiedades':
-            return 'propiedades';
-        default:
-            return path[1];
-    }
+const getLogoData = sections => {
+    const resp = {};
+
+    sections.find(section => {
+        const { _id: sectionId } = section;
+
+        const regex = getRegex(sectionId);
+        const match = (regex && sectionId.match(regex)) || [];
+        const [fullMatch, $1] = match;
+
+        const logoName = ($1 === 'lnmas' && 'ln-mas') || $1;
+
+        const path =
+            regex &&
+            sectionId &&
+            sectionId.replace(
+                regex,
+                (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
+            );
+
+        return (
+            logoName &&
+            path &&
+            Object.assign(resp, {
+                logoName,
+                path
+            })
+        );
+    });
+
+    return resp;
 };
 
 export const getSectionLogo = (sections, layout, distributorName) => {
-    let color = true;
-    if (layout === 'LN-nota-storytelling' || layout === 'LN-nota-foto-al-100') {
-        color = false;
-    }
+    const color = !(
+        layout === 'LN-nota-storytelling' || layout === 'LN-nota-foto-al-100'
+    );
+
+    const isBBC = distributorName === 'BBC Mundo';
 
     const layoutsExcludingLogo = [{ name: 'LN-nota-receta' }];
 
@@ -89,34 +102,24 @@ export const getSectionLogo = (sections, layout, distributorName) => {
 
     if (!sections || !layout || currentLayoutExcludesLogo) return null;
 
-    const logoSection = sections.find(section => {
-        const { _id } = section;
-        const resSection =
-            _id.includes('/revista-') ||
-            _id.includes('/lnmas') ||
-            _id.includes('/propiedades');
-        return resSection;
-    });
-    if (!logoSection && distributorName === 'BBC Mundo')
+    const { logoName, path } = getLogoData(sections);
+
+    if (!logoName && !path && isBBC)
         return {
             logoName: 'bbc',
             path: '/tema/bbc-mundo-tid56419',
             color
         };
-    if (!logoSection) return null;
-    const { _id } = logoSection;
-    const matchRegex = getRegex(_id);
-    const path = _id.match(matchRegex) || [];
-    const logoForPath = getLogoForPath(path);
-    const distName = path ? path[0] : '';
-    return {
-        logoName: distributorName === 'BBC Mundo' ? 'bbc' : logoForPath,
-        path:
-            distributorName === 'BBC Mundo'
-                ? '/tema/bbc-mundo-tid56419'
-                : `${distName}/`,
-        color
-    };
+
+    return (
+        (logoName &&
+            path && {
+                logoName,
+                path,
+                color
+            }) ||
+        null
+    );
 };
 
 export default {
