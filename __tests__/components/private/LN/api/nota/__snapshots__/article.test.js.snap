@@ -22,30 +22,30 @@ Object {
     "imagenes": Array [
       Object {
         "_t": "img",
-        "baseUrl": "/resizer/{{param}}/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg",
+        "baseUrl": "/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/X2MJ25TCRRD63NGNBDAZGLYRZY.jpg",
         "credito": "Mariano Grondona",
         "epigrafe": "prueba de epigrafe de messi",
         "id": "X2MJ25TCRRD63NGNBDAZGLYRZY",
         "parametros": Array [
           Object {
             "ancho": 1260,
-            "firma": "Jvik4UuWUb3CBd4fHrEn3v8THpE=/1260x840",
+            "firma": "Jvik4UuWUb3CBd4fHrEn3v8THpE=/1260x840/smart",
           },
           Object {
             "ancho": 1120,
-            "firma": "O6Hi7KaUFlbX9FinZ90ovn9YbqM=/1120x746",
+            "firma": "O6Hi7KaUFlbX9FinZ90ovn9YbqM=/1120x746/smart",
           },
           Object {
             "ancho": 768,
-            "firma": "gjSAiqxUQKPG6auGxxXrfu1tujU=/768x512",
+            "firma": "gjSAiqxUQKPG6auGxxXrfu1tujU=/768x512/smart",
           },
           Object {
             "ancho": 350,
-            "firma": "Az0Rj0edj1ZwPlsrn35HJrfivZ8=/350x233",
+            "firma": "Az0Rj0edj1ZwPlsrn35HJrfivZ8=/350x233/smart",
           },
           Object {
             "ancho": 310,
-            "firma": "gM6LxEhq1MRzEqyKLzL_dQAej-c=/310x206",
+            "firma": "gM6LxEhq1MRzEqyKLzL_dQAej-c=/310x206/smart",
           },
         ],
       },
@@ -91,29 +91,29 @@ Object {
       "_t": "p",
       "valor": Object {
         "_t": "img",
-        "baseUrl": "/resizer/{{param}}/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
+        "baseUrl": "/resizer/{{param}}/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
         "credito": "agustina-de-alba",
         "id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
         "parametros": Array [
           Object {
             "ancho": 560,
-            "firma": "CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400",
+            "firma": "CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart",
           },
           Object {
             "ancho": 690,
-            "firma": "QDGXzjfRLeFMhMDt00OIpSOM-eQ=/690x465",
+            "firma": "QDGXzjfRLeFMhMDt00OIpSOM-eQ=/690x465/smart",
           },
           Object {
             "ancho": 768,
-            "firma": "kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513",
+            "firma": "kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513/smart",
           },
           Object {
             "ancho": 350,
-            "firma": "BzVLCnK9gEIAVvnlzN4NI0ahjS8=/350x438",
+            "firma": "BzVLCnK9gEIAVvnlzN4NI0ahjS8=/350x438/smart",
           },
           Object {
             "ancho": 310,
-            "firma": "K_22ffHgLCV5Q6WkvDVsjpYi0ac=/310x203",
+            "firma": "K_22ffHgLCV5Q6WkvDVsjpYi0ac=/310x203/smart",
           },
         ],
       },

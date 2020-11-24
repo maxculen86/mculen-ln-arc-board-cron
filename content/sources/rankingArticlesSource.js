@@ -5,13 +5,13 @@ import {
     RESIZER_URL,
     ARC_ACCESS_TOKEN
 } from 'fusion:environment';
+import {
+    FOTOAL100,
+    STORYTELLING
+} from '../../components/private/common/utils/subtypes/subtypeHelper';
 import getPresets from './utils/presets';
 import get from '../../components/private/common/utils/get';
-import sourceSetting from './utils/sourceSetting';
-import {
-    createResizer,
-    resizePromoItems
-} from '../../components/private/common/utils/image/resizer';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import Redirect from './utils/redirect';
 
 const resolve = (key, a) => {
@@ -66,63 +66,35 @@ const fetch = query => {
     });
 };
 
-const getImageResized = (ansDoc, options) => {
-    const {
-        resizerSecret,
-        resizerUrl,
-        presets,
-        presets: { promoItems: presetsPromoItems, zoomSizes = [] },
-        presetsDefault
-    } = options;
-    const { promo_items: promoItems } = ansDoc;
-
-    if (!resizerSecret || !resizerUrl || !presets)
-        throw new Error(
-            'Debe proporcionar el resizerSecret, resizerUrl y presets'
-        );
-
-    const resizer = createResizer(resizerSecret, resizerUrl);
-    return {
-        ...ansDoc,
-        ...(promoItems && {
-            promo_items: resizePromoItems(
-                promoItems,
-                presetsPromoItems || presetsDefault,
-                resizer,
-                zoomSizes,
-                '-1'
-            )
-        })
-    };
-};
-
 const transform = (data, siteProps) => {
     const { presets, presetsDefault } = getPresets(siteProps);
-
-    const presetsPromoItems = get(presets, 'promo_items', presetsDefault);
-    const presetsContentElement = get(
-        presets,
-        'content_elements',
-        presetsDefault
-    );
-    const presetsCredits = get(presets, 'credits', presetsDefault);
+    const presetsPromoItems = get(presets, 'promo_items', null);
 
     const resp = {
-        content_elements: data.map(v => {
-            const headlines = get(v, `headlines`, {});
-            const shortTitle = get(v, `headlines.mobile`, null);
-
+        content_elements: data.map(elem => {
+            const headlines = get(elem, `headlines`, {});
+            const shortTitle = get(elem, `headlines.mobile`, null);
+            const promoItems = get(elem, `promo_items`, null);
+            const subtype = get(elem, `subtype`, null);
+            const isFotoAl100orStorytelling =
+                subtype === FOTOAL100 || subtype === STORYTELLING;
             return {
-                ...getImageResized(v, {
-                    resizerSecret: RESIZER_KEY,
-                    resizerUrl: RESIZER_URL,
-                    presets: {
-                        promoItems: presetsPromoItems,
-                        contentElements: presetsContentElement,
-                        credits: presetsCredits,
-                        presetsDefault
+                ...elem,
+                ...addResizedUrls(
+                    { ...(promoItems && { promo_items: promoItems }) },
+                    {
+                        resizerSecret: RESIZER_KEY,
+                        resizerUrl: RESIZER_URL,
+                        presets: {
+                            promoItems: presetsPromoItems,
+                            presetsDefault
+                        },
+                        // Se pasa el subtype para que las notas de foto al 100
+                        // y storytelling no sean excluidas de las validaciones del resizer
+                        // y pueda aplicarse 3:2, focal point o smartcrop
+                        subtype: isFotoAl100orStorytelling ? '-1' : subtype
                     }
-                }),
+                ),
                 headlines: { ...headlines, shortTitle }
             };
         })
@@ -137,5 +109,5 @@ export default {
         size: 'number',
         website: 'text'
     },
-    ttl: sourceSetting.rankingArticlesSource.ttl
+    ttl: 120
 };

@@ -14,6 +14,7 @@ jest.mock('fusion:context', () => () => ({
 }));
 
 import Context from 'fusion:context';
+import { getCustParamsEnconde } from '../../../../../../components/private/LN/common/utils/getDataFormated';
 
 describe('private - LN - common - media - videoPlayer', () => {
     Context.useAppContext = jest.fn(() => ({ outputType: 'amp' }));
@@ -114,5 +115,44 @@ describe('private - common - scriptManager - scriptVideoValidator', () => {
 
         loadVideo = scriptVideoValidator(articleSinVideo);
         expect(loadVideo).toBe(false);
+    });
+});
+
+describe('private - LN - common - media - videoPlayer - urlForPrerollAds', () => {
+    it('Probar formato segmentacion de ads en powa', () => {
+        const tags = [{ description: 'Crónicas', text: 'Crónicas' }];
+        const sections = [
+            {
+                name: 'Economía'
+            },
+            {
+                name: 'Dólar Hoy'
+            },
+            {
+                name: 'Industria'
+            },
+            {
+                name: 'Comercio Exterior'
+            },
+            {
+                name: 'Revista ¡HOLA!'
+            },
+            {
+                name: 'Estilo ¡HOLA!'
+            }
+        ];
+
+        const custParamsEncoded = getCustParamsEnconde(tags, sections);
+        expect(custParamsEncoded).toEqual(
+            'te_cronicas%2Cca_economia%2Cca_dolar_hoy%2Cca_industria%2Cca_comercio_exterior%2Cca_revista__hola_%2Cca_estilo__hola_'
+        );
+
+        const sections2 = [
+            {
+                name: 'Economía'
+            }
+        ];
+        const custParamsEncoded2 = getCustParamsEnconde([], sections2);
+        expect(custParamsEncoded2).toEqual('ca_economia');
     });
 });

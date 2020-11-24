@@ -1,8 +1,5 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import get from 'lodash.get';
-import sourceSetting from './utils/sourceSetting';
 import { createResizer } from '../../components/private/common/utils/image/resizer';
-import filter from '../filters/LN/acumulado/authors';
 
 const resolve = key => {
     const { website, last } = key;
@@ -47,5 +44,5 @@ export default {
         website: 'text'
     },
     transform,
-    ttl: sourceSetting.authorsColumnistSource.ttl
+    ttl: 600
 };

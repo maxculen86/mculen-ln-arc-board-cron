@@ -15,8 +15,8 @@ const indexNota = dataNota => {
         subtype: template,
         website_url: url,
         taxonomy: { primary_section: primarySection },
-        first_publish_date: firstPublishDate,
-        publish_date: publishDate
+        publish_date: publishDate,
+        display_date: displayDate
     } = dataNota;
 
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
@@ -34,10 +34,11 @@ const indexNota = dataNota => {
     const { date: formatPublishDate, time: formatUpdateTime } = dateAndTimeUtil(
         publishDate
     );
+
     const {
-        date: formatFirstPublishDate,
-        time: formatFirstPublishTime
-    } = dateAndTimeUtil(firstPublishDate);
+        date: formatDislplayDate,
+        time: formatDislplayTime
+    } = dateAndTimeUtil(displayDate);
 
     const resp = {
         id,
@@ -56,9 +57,12 @@ const indexNota = dataNota => {
     if (dataNota.subtype === '9') {
         resp.HTML = Cuerpo(dataNota);
     } else {
-        resp.fechaActualizacion = `${formatFirstPublishDate}${!isPrintEdition ? ` • ${formatFirstPublishTime}` : ''
+        resp.fechaActualizacion = `${formatDislplayDate}${
+            !isPrintEdition ? ` • ${formatDislplayTime}` : ''
         }`;
-        resp.fecha = `${formatPublishDate}${!isPrintEdition ? ` • ${formatUpdateTime}` : ''
+
+        resp.fecha = `${formatPublishDate}${
+            !isPrintEdition ? ` • ${formatUpdateTime}` : ''
         }`;
 
         resp.apertura = Apertura(dataNota);

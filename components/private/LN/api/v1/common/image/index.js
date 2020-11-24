@@ -3,7 +3,7 @@ const imageCommon = image => {
     const { _id: id, resized_urls: resizedUrls } = image;
     if (!resizedUrls || resizedUrls.length === 0) return null;
 
-    const regex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+)\/.*/;
+    const regex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
     const baseUrl = resizedUrls[0].resizedUrl.replace(regex, (str, match) => {
         return str.replace(match, '{{param}}');
     });
@@ -18,7 +18,9 @@ const imageCommon = image => {
     resizedUrls.forEach(e => {
         resp.parametros.push({
             ancho: e.option.width,
-            firma: e.resizedUrl.replace(regex, '$1')
+            firma: e.resizedUrl.match(regex)
+                ? e.resizedUrl.replace(regex, '$1')
+                : ''
         });
     });
 

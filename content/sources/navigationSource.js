@@ -11,5 +11,6 @@ export default {
     params: {
         website: 'text',
         hierarchy: 'text'
-    }
+    },
+    ttl: 300
 };

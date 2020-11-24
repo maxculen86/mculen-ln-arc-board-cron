@@ -1,5 +1,3 @@
-import sourceSetting from './utils/sourceSetting';
-
 const resolve = key => {
     const { ids, website, published } = key;
 
@@ -20,5 +18,5 @@ export default {
         website: 'text',
         published: 'bool'
     },
-    ttl: sourceSetting.ottVideosSource.ttl
+    ttl: 300
 };

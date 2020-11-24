@@ -38,12 +38,11 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           Joaquín Morales Solá
         </h2>
         <span
-          class="com-text --threexs "
+          class="com-text --threexs --profesion"
         />
         <div
-          class="com-container  "
+          class="com-container  --contact"
         >
-           - 
           <a
             class="com-link"
             href="https://google.com"
@@ -77,7 +76,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionilist "
+            class="mod-descriptionlist "
           >
             <dt
               class="com-title --threexs "
@@ -85,13 +84,27 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               Educación
             </dt>
             <dd
-              class="com-descriptionilist  --threexs"
+              class="com-itemlist  --threexs"
             >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet --sm"
+                />
+              </div>
               Periodismo, Universidad de Buenos Aires, 1989.
             </dd>
             <dd
-              class="com-descriptionilist  --threexs"
+              class="com-itemlist  --threexs"
             >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet --sm"
+                />
+              </div>
               Periodismo, Universidad de Buenos Aires, 1995.
             </dd>
           </dl>
@@ -100,7 +113,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionilist "
+            class="mod-descriptionlist "
           >
             <dt
               class="com-title --threexs "
@@ -108,13 +121,27 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               Reconocimientos
             </dt>
             <dd
-              class="com-descriptionilist  --threexs"
+              class="com-itemlist  --threexs"
             >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet --sm"
+                />
+              </div>
               Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.
             </dd>
             <dd
-              class="com-descriptionilist  --threexs"
+              class="com-itemlist  --threexs"
             >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet --sm"
+                />
+              </div>
               Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.
             </dd>
           </dl>
@@ -123,10 +150,10 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionilist "
+            class="mod-descriptionlist --idiomas"
           >
             <dt
-              class="com-title --threexs "
+              class="com-title --threexs --idiomas"
             >
               Idiomas:
             </dt>
@@ -137,10 +164,10 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionilist "
+            class="mod-descriptionlist --membresia"
           >
             <dt
-              class="com-title --threexs "
+              class="com-title --threexs --membresia"
             >
               Membresías profesionales:
             </dt>
@@ -151,7 +178,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionilist "
+            class="mod-descriptionlist "
           >
             <dt
               class="com-title --threexs "
@@ -159,8 +186,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               Publicaciones
             </dt>
             <dd
-              class="com-descriptionilist  --threexs"
+              class="com-itemlist  --threexs"
             >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet --sm"
+                />
+              </div>
               <a
                 class="com-link"
                 href="https://google.com"
@@ -175,7 +209,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionilist "
+            class="mod-descriptionlist "
           >
             <dt
               class="com-title --threexs "
@@ -183,8 +217,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               Podscat
             </dt>
             <dd
-              class="com-descriptionilist  --threexs"
+              class="com-itemlist  --threexs"
             >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet --sm"
+                />
+              </div>
               <a
                 class="com-link"
                 href="http://google.com"
@@ -193,8 +234,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               </a>
             </dd>
             <dd
-              class="com-descriptionilist  --threexs"
+              class="com-itemlist  --threexs"
             >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet --sm"
+                />
+              </div>
               <a
                 class="com-link"
                 href="http://google.com"
@@ -236,7 +284,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-twitter --lg  "
+                class="com-icon icon-twitter --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -261,7 +309,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-facebook --lg  "
+                class="com-icon icon-facebook --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -286,7 +334,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-youtube --lg  "
+                class="com-icon icon-youtube --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -311,7 +359,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-instagram --lg  "
+                class="com-icon icon-instagram --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -336,7 +384,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-linkedin --lg  "
+                class="com-icon icon-linkedin --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -361,7 +409,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-rss --lg  "
+                class="com-icon icon-rss --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -386,7 +434,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-medium --lg  "
+                class="com-icon icon-medium --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -411,7 +459,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-reddit --lg  "
+                class="com-icon icon-reddit --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -436,7 +484,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-pinterest --lg  "
+                class="com-icon icon-pinterest --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -461,7 +509,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-soundcloud --lg  "
+                class="com-icon icon-soundcloud --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -486,7 +534,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-snapchat --lg  "
+                class="com-icon icon-snapchat --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -511,7 +559,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-whatsapp --lg  "
+                class="com-icon icon-whatsapp --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -536,7 +584,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-tumblr --lg  "
+                class="com-icon icon-tumblr --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -571,12 +619,11 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           Joaquín Morales Solá
         </h2>
         <span
-          class="com-text --threexs "
+          class="com-text --threexs --profesion"
         />
         <div
-          class="com-container  "
+          class="com-container  --contact"
         >
-           - 
           <a
             class="com-link"
             href="https://google.com"
@@ -597,10 +644,10 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionilist "
+            class="mod-descriptionlist --idiomas"
           >
             <dt
-              class="com-title --threexs "
+              class="com-title --threexs --idiomas"
             >
               Idiomas:
             </dt>
@@ -611,7 +658,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionilist "
+            class="mod-descriptionlist "
           >
             <dt
               class="com-title --threexs "
@@ -619,8 +666,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               Podscat
             </dt>
             <dd
-              class="com-descriptionilist  --threexs"
+              class="com-itemlist  --threexs"
             >
+              <div
+                class="com-bullet"
+              >
+                <i
+                  class="com-icon bullet icon-bullet --sm"
+                />
+              </div>
               <a
                 class="com-link"
                 href="http://google.com"
@@ -662,7 +716,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-twitter --lg  "
+                class="com-icon icon-twitter --xl  "
               />
               <span
                 class="com-text --threexs "

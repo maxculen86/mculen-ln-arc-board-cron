@@ -1,6 +1,5 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from '../../components/private/common/utils/image/resizer';
-import filter from '../filters/LN/acumulado/authorColumnist';
 
 const resolve = key => {
     const { _id, website } = key;
@@ -43,5 +42,6 @@ export default {
     params: {
         website: 'text'
     },
-    transform
+    transform,
+    ttl: 900
 };

@@ -31,6 +31,12 @@
     .mod-wikiauthor & {
         color: $negro;
     }
+    .mod-tooltip & {
+        position: absolute;
+        right: 0;
+        top: -5px;
+        color: $gris3;
+    }
 }
 @media ($media-l) {
     .com-icon {
@@ -45,6 +51,9 @@
                     font-size: px(25);
                 }
             }
+        }
+        .mod-tooltip & {
+            display: none;
         }
     }
 }

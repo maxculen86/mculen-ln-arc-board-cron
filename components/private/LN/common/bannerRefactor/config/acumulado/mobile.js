@@ -12,7 +12,7 @@ export default {
         slotName: `${PATH_SLOT}/sticky1_mob`,
         dimensions: [
             [320, 50],
-            [320, 50]
+            [320, 100]
         ],
         targeting: defaultTargeting
     },
@@ -20,39 +20,57 @@ export default {
         slotName: `${PATH_SLOT}/sticky2_mob`,
         dimensions: [
             [300, 50],
-            [300, 50]
+            [320, 50]
         ],
+        targeting: defaultTargeting
+    },
+    adhesion_mob: {
+        slotName: `${PATH_SLOT}/adhesion_mob`,
+        dimensions: [[320, 50]],
         targeting: defaultTargeting
     },
     caja1_mob: {
         slotName: `${PATH_SLOT}/caja1_mob`,
         dimensions: [
+            [320, 50],
+            [320, 100],
+            [300, 250],
             [300, 450],
-            [300, 250]
+            [1, 1]
         ],
         targeting: defaultTargeting
     },
     caja2_mob: {
         slotName: `${PATH_SLOT}/caja2_mob`,
         dimensions: [
+            [360, 270],
+            [320, 50],
+            [320, 100],
+            [300, 250],
             [300, 450],
-            [300, 250]
+            [1, 1]
         ],
         targeting: defaultTargeting
     },
     caja3_mob: {
         slotName: `${PATH_SLOT}/caja3_mob`,
         dimensions: [
+            [320, 50],
+            [320, 100],
+            [300, 250],
             [300, 450],
-            [300, 250]
+            [1, 1]
         ],
         targeting: defaultTargeting
     },
     caja4_mob: {
         slotName: `${PATH_SLOT}/caja4_mob`,
         dimensions: [
+            [320, 50],
+            [320, 100],
+            [300, 250],
             [300, 450],
-            [300, 250]
+            [1, 1]
         ],
         targeting: defaultTargeting
     },

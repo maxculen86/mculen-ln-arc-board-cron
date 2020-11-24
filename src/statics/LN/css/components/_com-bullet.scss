@@ -22,4 +22,12 @@
             }
         }
     }
+    .com-link:first-child & {
+        .com-breadcrumb & {
+            display: none;
+        }
+    }
+    .com-link & {
+        display: none;
+    }
 }
