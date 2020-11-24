@@ -4,7 +4,6 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import getPresets from './utils/presets';
-import getTTLValue from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import get from '../../components/private/common/utils/get';
 
@@ -67,5 +66,5 @@ export default {
         website: 'text'
     },
     transform,
-    ttl: getTTLValue('collectionSource')
+    ttl: 120
 };
