@@ -1,5 +1,6 @@
+//TODO actualizar y volver a probar con el browser firefox
 const configPlaywright = {
-    browsers: ['chromium', 'firefox', 'webkit'],
+    browsers: ['chromium', 'webkit'],
     exitOnPageError: false,
     launchOptions: {
         headless: true,
