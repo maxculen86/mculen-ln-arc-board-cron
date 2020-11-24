@@ -1,5 +1,3 @@
-import getTTLValue from './utils/sourceSetting';
-
 const resolve = key => {
     const { query, published, website } = key;
     if (!query || !website)
@@ -20,5 +18,5 @@ export default {
     params: {
         query: 'text'
     },
-    ttl: getTTLValue('videosSearchSource')
+    ttl: 600
 };

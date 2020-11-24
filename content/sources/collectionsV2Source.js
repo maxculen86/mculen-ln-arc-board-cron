@@ -1,5 +1,3 @@
-import getTTLValue from './utils/sourceSetting';
-
 const resolve = key => {
     // Llamado desde chain
     // en la key viene { id: 'OCTOV4V54FCFLJHOVB5IAJKHHM', 'arc-site': 'la-nacion-ar' }
@@ -22,5 +20,5 @@ export default {
         id: 'text',
         website: 'text'
     },
-    ttl: getTTLValue('collectionsV2Source')
+    ttl: 300
 };

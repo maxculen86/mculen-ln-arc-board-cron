@@ -1,4 +1,3 @@
-import getTTLValue from './utils/sourceSetting';
 import filter from '../filters/LN/acumulado/tag';
 
 const resolve = key => {
@@ -38,5 +37,5 @@ export default {
         slug: 'text'
     },
     filter,
-    ttl: getTTLValue('tagSource')
+    ttl: 900
 };

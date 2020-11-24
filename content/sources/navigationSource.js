@@ -1,5 +1,3 @@
-import getTTLValue from './utils/sourceSetting';
-
 const resolve = key => {
     const { website, hierarchy } = key;
     const finalWebsite = website || key['arc-site'];
@@ -14,5 +12,5 @@ export default {
         website: 'text',
         hierarchy: 'text'
     },
-    ttl: getTTLValue('navigationSource')
+    ttl: 300
 };

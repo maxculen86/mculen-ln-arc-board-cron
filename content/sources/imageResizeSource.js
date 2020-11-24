@@ -3,7 +3,6 @@ import getProperties from 'fusion:properties';
 import get from '../../components/private/common/utils/get';
 
 import { createResizer } from '../../components/private/common/utils/image/resizer';
-import getTTLValue from './utils/sourceSetting';
 
 const fetch = key => {
     const { url, preset, presetType } = key;
@@ -40,5 +39,5 @@ export default {
         presetType: 'text'
     },
     transform,
-    ttl: getTTLValue('imageResizeSource')
+    ttl: 600
 };
