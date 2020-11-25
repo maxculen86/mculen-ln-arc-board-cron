@@ -3,7 +3,6 @@ import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import navigationTreeSource from './navigationTreeSource';
 import collectionsSource from './collectionsSource';
 import logger from '../../components/private/common/utils/logger';
-import getTTLValue from './utils/sourceSetting';
 import get from '../../components/private/common/utils/get';
 
 const resolve = key => {
@@ -77,11 +76,20 @@ const transformContent = (data, siteProps, arcSite) => {
 
     if (idCollection) {
         promiseArr.push(
-            collectionsSource.fetch(newSiteProps).then(response => {
-                if (response && response.content_elements) {
-                    resp.articlesInCollection = response.content_elements;
-                }
-            })
+            collectionsSource
+                .fetch(newSiteProps)
+                .then(response => {
+                    if (response && response.content_elements) {
+                        resp.articlesInCollection = response.content_elements;
+                    }
+                })
+                .catch(error => {
+                    logger.push(
+                        error,
+                        { source: 'content/source', idCollection },
+                        arcSite
+                    );
+                })
         );
     }
 
@@ -100,6 +108,7 @@ const transformContent = (data, siteProps, arcSite) => {
         return resp;
     });
 };
+
 
 const getNavigationSiteProperties = arcSite => {
     return navigationTreeSource
