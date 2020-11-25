@@ -154,5 +154,5 @@ export default {
         id: 'text',
         website: 'text'
     },
-    ttl: getTTLValue('sectionSource')
+    ttl: 900
 };

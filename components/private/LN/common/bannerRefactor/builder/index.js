@@ -1,16 +1,5 @@
 /* eslint-disable no-underscore-dangle */
 
-/**
- * The Builder pattern allows a client to construct a complex object
- * by specifying the type and content only. Construction details are
- * hidden from the client entirely.
- */
-
-/**
- * The most common motivation for using Builder is to simplify client
- * code that creates complex objects
- */
-
 import { getDimsFromSiteService } from '../utils';
 
 function ConfigBuilder() {
@@ -18,7 +7,7 @@ function ConfigBuilder() {
 
     this.init = function(config) {
         this._config = {
-            ...this.config,
+            ...this._config,
             ...config
         };
     };
@@ -54,6 +43,50 @@ function ConfigBuilder() {
     };
 
     this.get = function() {
+        /** HARDCODED TEMPORARILY */
+        if (
+            this._config.slotId === 'cabezal_dsk' &&
+            this._config.slotGroup === 'nota'
+        ) {
+            this._config.dimensions = [
+                [[1260, 170]],
+                [
+                    [920, 170],
+                    [920, 100],
+                    [970, 90],
+                    [728, 90]
+                ]
+            ];
+            this._config.sizemap = {
+                breakpoints: [
+                    [1260, 100],
+                    [0, 0]
+                ],
+                refresh: true
+            };
+        } else if (
+            this._config.slotId === 'cabezal_dsk' &&
+            this._config.slotGroup === 'acumulado'
+        ) {
+            this._config.dimensions = [
+                [[1260, 170]],
+                [
+                    [920, 170],
+                    [970, 90],
+                    [728, 90]
+                ]
+            ];
+            this._config.sizemap = {
+                breakpoints: [
+                    [1260, 100],
+                    [0, 0]
+                ],
+                refresh: true
+            };
+        }
+
+        /** END */
+
         return this._config;
     };
 }

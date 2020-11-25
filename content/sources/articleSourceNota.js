@@ -9,7 +9,6 @@ import {
 import getProperties from 'fusion:properties';
 import get from '../../components/private/common/utils/get';
 import { addAspectRatio } from './utils/getRatio';
-import getTTLValue from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
@@ -351,5 +350,5 @@ export default {
         paywallEnabled: 'text'
     },
     filter,
-    ttl: getTTLValue('articleSourceNota')
+    ttl: 240
 };

@@ -1,6 +1,5 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import getTTLValue from './utils/sourceSetting';
 
 const resolve = key => {
     const { id, includedFields } = key;
@@ -31,5 +30,5 @@ export default {
         id: 'text',
         includeFields: 'text'
     },
-    ttl: getTTLValue('gallerySource')
+    ttl: 600
 };
