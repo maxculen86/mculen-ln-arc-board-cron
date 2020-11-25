@@ -144,5 +144,6 @@ export default {
         size: 'text',
         website: 'text'
     },
-    transform
+    transform,
+    ttl: 900
 };

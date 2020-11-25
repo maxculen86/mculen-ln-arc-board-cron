@@ -58,6 +58,10 @@ export default {
         ScriptHtmlLibre: {
             props: {},
             location: ['head']
+        },
+        ScriptCustomLoader: {
+            props: {},
+            location: ['head']
         }
     },
     imageConfig: {
@@ -300,18 +304,18 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 838,
-                            height: 768,
+                            width: 878,
+                            height: 450,
                             media: '(min-width: 1280px)'
                         },
                         {
-                            width: 1025,
-                            height: 465,
+                            width: 1120,
+                            height: 400,
                             media: '(min-width: 1024px)'
                         },
                         {
                             width: 768,
-                            height: 513,
+                            height: 961,
                             media: '(min-width: 768px)'
                         },
                         {

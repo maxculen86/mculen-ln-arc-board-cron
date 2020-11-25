@@ -5,17 +5,14 @@ import {
     RESIZER_URL,
     ARC_ACCESS_TOKEN
 } from 'fusion:environment';
-import get from 'lodash.get';
 import getProperties from 'fusion:properties';
-import sourceSetting from './utils/sourceSetting';
+import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import Redirect from './utils/redirect';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
-    console.log('*************************RESOLVE*********************');
-    console.log('resolve -> url, id, published', url, id, published);
 
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
@@ -29,8 +26,6 @@ const resolve = (key, a) => {
 };
 
 const fetch = query => {
-    console.log('*************************QUERY*********************');
-
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
@@ -42,7 +37,6 @@ const fetch = query => {
     }
 
     return request(opt).then(response => {
-        console.log('response', response);
         if (response.type === 'redirect' && response.redirect_url) {
             throw new Redirect(response.redirect_url, 301);
         }
@@ -52,7 +46,6 @@ const fetch = query => {
 };
 
 const transform = (data, siteProps) => {
-    console.log('*************************TRANSFORM*********************');
     const arcSite = siteProps['arc-site'];
     const properties = getProperties(arcSite);
 
@@ -70,7 +63,6 @@ const transform = (data, siteProps) => {
         }
     });
 
-    console.log('transform -> resp', resp);
     return resp;
 };
 
@@ -82,5 +74,5 @@ export default {
         published: 'text'
     },
     filter,
-    ttl: sourceSetting.articleSourceHome.ttl
+    ttl: 120
 };

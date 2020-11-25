@@ -1,4 +1,3 @@
-import getProperties from 'fusion:properties';
 import filter from '../filters/LN/acumulado/tag';
 
 const resolve = key => {
@@ -30,16 +29,6 @@ const transform = (data, query) => {
     return newData;
 };
 
-const ttlValue = () => {
-    const properties = getProperties('la-nacion-ar');
-    const value = properties.ttlConfig.tagSource.ttl;
-    return value;
-};
-
-/**
- * TODO: Revisar ttl para este contentSource
- */
-
 export default {
     resolve,
     transform,
@@ -47,5 +36,6 @@ export default {
     params: {
         slug: 'text'
     },
-    filter
+    filter,
+    ttl: 900
 };

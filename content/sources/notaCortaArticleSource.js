@@ -1,6 +1,6 @@
-import get from 'lodash.get';
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import get from '../../components/private/common/utils/get';
 import Redirect from './utils/redirect';
 import ArticleSourceNota from './articleSourceNota';
 
@@ -36,5 +36,6 @@ export default {
     fetch,
     params: {
         url: 'text'
-    }
+    },
+    ttl: 900
 };

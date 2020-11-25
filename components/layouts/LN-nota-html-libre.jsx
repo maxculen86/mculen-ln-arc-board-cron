@@ -5,6 +5,7 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
+import LoginProvider from '../private/LN/common/context/loginContext';
 
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
@@ -68,7 +69,7 @@ const getBannerMegatop = (element, outputType, tree, isAdmin) => {
             message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
         />
     );
-    return isValid ? (isAdmin && component) || component[0] : null;
+    return isValid ? component : null;
 };
 
 const lnNotaNoticia = ({
@@ -81,38 +82,40 @@ const lnNotaNoticia = ({
 
     return (
         <GlobalProvider>
-            <CommentsProvider>
-                {/* Banner Megatop */}
-                {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
+            <LoginProvider>
+                <CommentsProvider>
+                    {/* Banner Megatop */}
+                    {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
 
-                <div id="wrapper" className={`nota noticia ${amp}`}>
-                    <Header />
-                    <main style={{ paddingTop: '0px' }}>
-                        <div
-                            className="lay --apertura"
-                            style={{ maxWidth: '100%', padding: '0rem' }}
-                        >
-                            <div className="row">
-                                <div className="col-12">
-                                    {/* Html libre */}
-                                    <HtmlLibre />
+                    <div id="wrapper" className={`nota noticia ${amp}`}>
+                        <Header />
+                        <main style={{ paddingTop: '0px' }}>
+                            <div
+                                className="lay --apertura"
+                                style={{ maxWidth: '100%', padding: '0rem' }}
+                            >
+                                <div className="row">
+                                    <div className="col-12">
+                                        {/* Html libre */}
+                                        <HtmlLibre />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {/* Bottom */}
-                                {bottom}
+                            <div className="lay-sidebar">
+                                <div className="sidebar__main">
+                                    {/* Bottom */}
+                                    {bottom}
+                                </div>
+                                <div className="sidebar__aside">
+                                    {/* Bottom-Tercera */}
+                                    {bottomTercera}
+                                </div>
                             </div>
-                            <div className="sidebar__aside">
-                                {/* Bottom-Tercera */}
-                                {bottomTercera}
-                            </div>
-                        </div>
-                    </main>
-                </div>
-            </CommentsProvider>
+                        </main>
+                    </div>
+                </CommentsProvider>
+            </LoginProvider>
         </GlobalProvider>
     );
 };

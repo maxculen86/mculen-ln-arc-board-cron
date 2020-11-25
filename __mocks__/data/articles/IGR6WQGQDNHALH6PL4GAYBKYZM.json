@@ -1,0 +1,670 @@
+{
+    "_id": "IGR6WQGQDNHALH6PL4GAYBKYZM",
+    "type": "story",
+    "version": "0.10.6",
+    "content_elements": [
+        {
+            "_id": "XZRFEYKKEJFI3ONPW5EFJL2V44",
+            "type": "interstitial_link",
+            "additional_properties": {
+                "_id": "IYFD2T6ZARF6LFKGVUIIOKDELQ",
+                "comments": [],
+                "inline_comments": []
+            },
+            "url": "//www.infobae.com",
+            "content": "Boton que linkea a infobae"
+        },
+        {
+            "_id": "IKHUWCIKQRDQZGBOZH5W7AQ7CA",
+            "type": "interstitial_link",
+            "additional_properties": {
+                "_id": "S73L55FRFJF4RJHDAY6LJM4YTM",
+                "comments": []
+            },
+            "url": "//www.google.com",
+            "content": "Boton a google"
+        },
+        {
+            "type": "video",
+            "_id": "76c88e0b-33e7-405f-b6ad-b6a98fef7c77",
+            "version": "0.8.0",
+            "canonical_url": "/video/test-cambio-de-nombre-y-ordenn-vid76c88e0b",
+            "canonical_website": "ott",
+            "short_url": "/video/test-cambio-de-nombre-y-ordenn-vid76c88e0b",
+            "created_date": "2019-06-10T17:20:12Z",
+            "last_updated_date": "2020-03-18T12:35:29Z",
+            "publish_date": "2020-03-18T12:35:37Z",
+            "first_publish_date": "2019-06-10T17:22:52Z",
+            "display_date": "2019-06-10T17:22:00Z",
+            "headlines": {
+                "basic": "Test cambio de nombre y ordenn"
+            },
+            "credits": {},
+            "taxonomy": {
+                "tags": [
+                    {
+                        "text": "test test test test test test test for ticket"
+                    },
+                    {
+                        "text": "testtesttest"
+                    },
+                    {
+                        "text": "test tag video"
+                    },
+                    {
+                        "text": "especiales"
+                    },
+                    {
+                        "text": "programa"
+                    }
+                ],
+                "primary_site": {
+                    "type": "site",
+                    "_id": "/terapia-de-noticias",
+                    "version": "0.5.8",
+                    "name": "Terapia de noticias",
+                    "path": "/terapia-de-noticias",
+                    "primary": true
+                },
+                "sites": [
+                    {
+                        "type": "site",
+                        "_id": "/terapia-de-noticias",
+                        "version": "0.5.8",
+                        "name": "Terapia de noticias",
+                        "path": "/terapia-de-noticias",
+                        "primary": true
+                    }
+                ],
+                "primary_section": {
+                    "type": "section",
+                    "_id": "/terapia-de-noticias",
+                    "_website": "ott",
+                    "version": "0.6.0",
+                    "name": "Terapia de noticias",
+                    "path": "/terapia-de-noticias",
+                    "primary": true
+                },
+                "sections": [
+                    {
+                        "type": "section",
+                        "_id": "/terapia-de-noticias",
+                        "_website": "ott",
+                        "version": "0.6.0",
+                        "name": "Terapia de noticias",
+                        "path": "/terapia-de-noticias",
+                        "primary": true
+                    }
+                ],
+                "seo_keywords": ["test"]
+            },
+            "promo_items": {
+                "basic": {
+                    "type": "image",
+                    "version": "0.5.8",
+                    "credits": {},
+                    "caption": "ver que onda",
+                    "url": "https://d3us6z9haan6vf.cloudfront.net/06-10-2019/t_2214b49fc13b40e9a536fe92a650694e_name_file_1280x720_2000_v3_1_.jpg",
+                    "width": 1280,
+                    "height": 720
+                }
+            },
+            "related_content": {
+                "redirect": [],
+                "basic": []
+            },
+            "owner": {
+                "sponsored": false
+            },
+            "planning": {
+                "scheduling": {}
+            },
+            "revision": {
+                "published": true
+            },
+            "syndication": {
+                "search": true
+            },
+            "source": {
+                "system": "video center",
+                "edit_url": "https://sandbox.lanacionar.arcpublishing.com/goldfish/video/5cfe914c46e0fb000981496e"
+            },
+            "distributor": {
+                "category": "staff"
+            },
+            "tracking": {
+                "in_url_headline": "video"
+            },
+            "additional_properties": {
+                "subsection": "Terapia de noticias",
+                "videoCategory": "ln---ln-mas",
+                "anglerfishArcId": "2TEGAEFZO5B3DLRIP7P47ZTCPY",
+                "2TEGAEFZO5B3DLRIP7P47ZTCPY": "06-10-2019/t_2214b49fc13b40e9a536fe92a650694e_name_file_1280x720_2000_v3_1_.jpg",
+                "isWire": false,
+                "gifAsThumbnail": false,
+                "videoId": "5cfe914c46e0fb000981496e",
+                "vertical": false,
+                "embedContinuousPlay": true,
+                "published": true,
+                "imageResizerUrls": [],
+                "advertising": {
+                    "allowPrerollOnDomain": false,
+                    "autoPlayPreroll": false,
+                    "commercialAdNode": "/terapia-de-noticias",
+                    "enableAdInsertion": false,
+                    "enableAutoPreview": true,
+                    "enableServerSideFallback": false,
+                    "forceAd": false,
+                    "playAds": true,
+                    "playVideoAds": true,
+                    "videoAdZone": ""
+                },
+                "disableUpNext": false,
+                "videoAdZone": "",
+                "lastPublishedBy": {
+                    "name": "Diego Lopez",
+                    "email": "dlopez@lanacion.com.ar",
+                    "lastname": ""
+                },
+                "permalinkUrl": "/video/test-cambio-de-nombre-y-ordenn-vid76c88e0b",
+                "platform": "desktop",
+                "playVideoAds": true,
+                "forceClosedCaptionsOn": false,
+                "doNotShowTranscripts": false,
+                "useVariants": false,
+                "has_published_copy": true,
+                "playlistTags": [],
+                "comments": [],
+                "_id": "SBWZOSHHX5HMTNLPC7OE65FORI"
+            },
+            "duration": 59178,
+            "video_type": "clip",
+            "streams": [
+                {
+                    "height": 360,
+                    "width": 640,
+                    "filesize": 5488035,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_640x360-600.mp4",
+                    "bitrate": 600,
+                    "provider": "elastictranscoder"
+                },
+                {
+                    "height": 720,
+                    "width": 1280,
+                    "filesize": 15962449,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4",
+                    "bitrate": 2000,
+                    "provider": "elastictranscoder"
+                }
+            ],
+            "subtitles": {},
+            "promo_image": {
+                "type": "image",
+                "version": "0.5.8",
+                "credits": {},
+                "caption": "ver que onda",
+                "url": "https://d3us6z9haan6vf.cloudfront.net/06-10-2019/t_2214b49fc13b40e9a536fe92a650694e_name_file_1280x720_2000_v3_1_.jpg",
+                "width": 1280,
+                "height": 720
+            },
+            "embed_html": "<div class=\"powa\" id=\"powa-76c88e0b-33e7-405f-b6ad-b6a98fef7c77\" data-env=\"sandbox\" data-api=\"sandbox\" data-org=\"lanacionar\" data-uuid=\"76c88e0b-33e7-405f-b6ad-b6a98fef7c77\" data-aspect-ratio=\"0.562\"><script src=\"https://lanacionar.video-player.arcpublishing.com/sandbox/powaBoot.js?org=lanacionar\"></script></div>",
+            "websites": {
+                "ott": {
+                    "website_section": {
+                        "path": "/terapia-de-noticias",
+                        "_website": "ott",
+                        "name": "Terapia de noticias",
+                        "_id": "/terapia-de-noticias",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "primary": true
+                    },
+                    "website_url": "/video/test-cambio-de-nombre-y-ordenn-vid76c88e0b"
+                }
+            }
+        }
+    ],
+    "created_date": "2020-05-18T19:23:48.016Z",
+    "revision": {
+        "revision_id": "7KLWKOTUIJHQPHOE4X2ZP4CYPE",
+        "parent_id": "4OQYXMVV4NH2TPMIDEAD6FTIBY",
+        "editions": ["default"],
+        "branch": "default",
+        "user_id": "XPaparella@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2020-10-22T17:04:51.621Z",
+    "canonical_url": "/autos/sdasdsa-asdsad-nid19052020/",
+    "headlines": {
+        "basic": "sdasdsa asdsad",
+        "mobile": "",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": "",
+        "meta_title": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "sandbox.lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "address": {},
+    "workflow": {
+        "status_code": 1
+    },
+    "syndication": {
+        "external_distribution": false,
+        "search": false
+    },
+    "subheadlines": {
+        "basic": ""
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "label": {},
+    "source": {
+        "name": "BBC Mundo",
+        "system": "composer",
+        "source_type": "staff"
+    },
+    "taxonomy": {
+        "tags": [],
+        "sites": [
+            {
+                "_id": "/autos",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Autos",
+                "path": "/autos",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/autos",
+                        "acumuladoGeneral": {
+                            "hidetagslist": "false",
+                            "hidesectionslist": "false"
+                        },
+                        "name": "Autos",
+                        "parent": "/",
+                        "inactive": false
+                    }
+                }
+            }
+        ],
+        "sections": [
+            {
+                "_id": "/autos",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Autos",
+                "path": "/autos",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/autos",
+                        "acumuladoGeneral": {
+                            "hidetagslist": "false",
+                            "hidesectionslist": "false"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Autos",
+                        "order": {
+                            "Header-FirstNav": 2005
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/economia"
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/", "/economia"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./autos"
+            }
+        ],
+        "primary_section": {
+            "_id": "/autos",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Autos",
+            "path": "/autos",
+            "parent_id": "/",
+            "parent": {
+                "default": "/"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/autos",
+                    "acumuladoGeneral": {
+                        "hidetagslist": "false",
+                        "hidesectionslist": "false"
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Autos",
+                    "order": {
+                        "Header-FirstNav": 2005
+                    },
+                    "parent": {
+                        "default": "/",
+                        "Header-FirstNav": "/economia"
+                    },
+                    "ancestors": {
+                        "Header-FirstNav": ["/", "/economia"]
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "primary_site": {
+            "_id": "/autos",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Autos",
+            "path": "/autos",
+            "parent_id": "/",
+            "additional_properties": {
+                "original": {
+                    "_id": "/autos",
+                    "acumuladoGeneral": {
+                        "hidetagslist": "false",
+                        "hidesectionslist": "false"
+                    },
+                    "name": "Autos",
+                    "parent": "/",
+                    "inactive": false
+                }
+            }
+        }
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "promo_items": {
+        "basic": {
+            "type": "video",
+            "_id": "6c75af33-e0f1-4300-bd66-7b2913ca05c1",
+            "version": "0.8.0",
+            "canonical_url": "/video/este-es-el-titulo-del-video-vid6c75af3",
+            "canonical_website": "la-nacion-ar",
+            "short_url": "/video/este-es-el-titulo-del-video-vid6c75af3",
+            "created_date": "2019-10-22T16:23:24Z",
+            "last_updated_date": "2020-04-27T23:34:07Z",
+            "publish_date": "2020-04-27T23:34:14Z",
+            "first_publish_date": "2019-10-22T16:32:55Z",
+            "display_date": "2019-10-22T16:32:55Z",
+            "headlines": {
+                "basic": "Este es el titulo del video"
+            },
+            "credits": {},
+            "taxonomy": {
+                "tags": [],
+                "primary_site": {
+                    "type": "site",
+                    "_id": "/espectaculos",
+                    "version": "0.5.8",
+                    "name": "Espectáculos",
+                    "path": "/espectaculos",
+                    "primary": true
+                },
+                "sites": [
+                    {
+                        "type": "site",
+                        "_id": "/espectaculos",
+                        "version": "0.5.8",
+                        "name": "Espectáculos",
+                        "path": "/espectaculos",
+                        "primary": true
+                    }
+                ],
+                "primary_section": {
+                    "type": "section",
+                    "_id": "/espectaculos",
+                    "_website": "la-nacion-ar",
+                    "version": "0.6.0",
+                    "name": "Espectáculos",
+                    "path": "/espectaculos",
+                    "primary": true
+                },
+                "sections": [
+                    {
+                        "type": "section",
+                        "_id": "/espectaculos",
+                        "_website": "la-nacion-ar",
+                        "version": "0.6.0",
+                        "name": "Espectáculos",
+                        "path": "/espectaculos",
+                        "primary": true
+                    }
+                ],
+                "seo_keywords": [
+                    "bla bla",
+                    "series",
+                    "algo mas",
+                    "game of trones"
+                ]
+            },
+            "promo_items": {
+                "basic": {
+                    "type": "image",
+                    "version": "0.5.8",
+                    "credits": {},
+                    "caption": "epigrafe de la imagen que capture",
+                    "url": "https://d3us6z9haan6vf.cloudfront.net/10-22-2019/t_499f59d0c4e74cdc93ffc1937097565b_name_file_1280x720_2000_v3_1_.jpg",
+                    "width": 1280,
+                    "height": 720
+                }
+            },
+            "related_content": {
+                "redirect": [],
+                "basic": []
+            },
+            "owner": {
+                "sponsored": false
+            },
+            "planning": {
+                "scheduling": {}
+            },
+            "revision": {
+                "published": true
+            },
+            "syndication": {
+                "search": true
+            },
+            "source": {
+                "system": "video center",
+                "edit_url": "https://sandbox.lanacionar.arcpublishing.com/goldfish/video/5daf2cfc46e0fb0009c12a9b"
+            },
+            "distributor": {
+                "category": "staff"
+            },
+            "tracking": {
+                "in_url_headline": "video"
+            },
+            "additional_properties": {
+                "subsection": "Espectáculos",
+                "videoCategory": "ln---videos-no-propios",
+                "anglerfishArcId": "DRITV4L2Y5CDBKHVDCEKBXW34Q",
+                "isWire": false,
+                "gifAsThumbnail": false,
+                "videoId": "5daf2cfc46e0fb0009c12a9b",
+                "vertical": false,
+                "embedContinuousPlay": true,
+                "published": true,
+                "imageResizerUrls": [],
+                "advertising": {
+                    "allowPrerollOnDomain": false,
+                    "autoPlayPreroll": false,
+                    "commercialAdNode": "/espectaculos",
+                    "enableAdInsertion": false,
+                    "enableAutoPreview": true,
+                    "enableServerSideFallback": false,
+                    "forceAd": false,
+                    "playAds": true,
+                    "playVideoAds": true,
+                    "videoAdZone": ""
+                },
+                "disableUpNext": false,
+                "videoAdZone": "",
+                "lastPublishedBy": {
+                    "name": "Diego Lopez",
+                    "email": "dlopez@lanacion.com.ar",
+                    "lastname": ""
+                },
+                "permalinkUrl": "/video/este-es-el-titulo-del-video-vid6c75af3",
+                "platform": "desktop",
+                "playVideoAds": true,
+                "forceClosedCaptionsOn": false,
+                "doNotShowTranscripts": true,
+                "useVariants": false,
+                "DRITV4L2Y5CDBKHVDCEKBXW34Q": "10-22-2019/t_499f59d0c4e74cdc93ffc1937097565b_name_file_1280x720_2000_v3_1_.jpg",
+                "has_published_copy": false,
+                "playlistTags": []
+            },
+            "duration": 42804,
+            "video_type": "clip",
+            "streams": [
+                {
+                    "height": 360,
+                    "width": 640,
+                    "filesize": 3968364,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_640x360-600.mp4",
+                    "bitrate": 600,
+                    "provider": "mediaconvert"
+                },
+                {
+                    "height": 720,
+                    "width": 1280,
+                    "filesize": 11595794,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_1280x720-2000-v3_1.mp4",
+                    "bitrate": 2000,
+                    "provider": "mediaconvert"
+                }
+            ],
+            "subtitles": {},
+            "promo_image": {
+                "type": "image",
+                "version": "0.5.8",
+                "credits": {},
+                "caption": "epigrafe de la imagen que capture",
+                "url": "https://d3us6z9haan6vf.cloudfront.net/10-22-2019/t_499f59d0c4e74cdc93ffc1937097565b_name_file_1280x720_2000_v3_1_.jpg",
+                "width": 1280,
+                "height": 720
+            },
+            "embed_html": "<div class=\"powa\" id=\"powa-6c75af33-e0f1-4300-bd66-7b2913ca05c1\" data-env=\"sandbox\" data-api=\"sandbox\" data-org=\"lanacionar\" data-uuid=\"6c75af33-e0f1-4300-bd66-7b2913ca05c1\" data-aspect-ratio=\"0.562\"><script src=\"https://lanacionar.video-player.arcpublishing.com/sandbox/powaBoot.js?org=lanacionar\"></script></div>",
+            "websites": {
+                "la-nacion-ar": {
+                    "website_section": {
+                        "path": "/espectaculos",
+                        "_website": "la-nacion-ar",
+                        "name": "Espectáculos",
+                        "_id": "/espectaculos",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "primary": true
+                    },
+                    "website_url": "/video/este-es-el-titulo-del-video-vid6c75af3"
+                }
+            }
+        }
+    },
+    "distributor": {
+        "name": "BBC Mundo",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "e22f1457-19ad-4f07-9043-614ec3921308",
+        "mode": "reference_denormalized"
+    },
+    "canonical_website": "la-nacion-ar",
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "word_count_actual": 0,
+            "character_count_actual": 0,
+            "character_encoding": "UTF-16",
+            "line_count_actual": 0,
+            "inch_count_actual": 0
+        }
+    },
+    "display_date": "2020-05-19T18:28:31.789Z",
+    "credits": {
+        "by": []
+    },
+    "subtype": "4",
+    "first_publish_date": "2020-05-19T18:28:31.789Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/autos",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Autos",
+                "path": "/autos",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/autos",
+                        "acumuladoGeneral": {
+                            "hidetagslist": "false",
+                            "hidesectionslist": "false"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Autos",
+                        "order": {
+                            "Header-FirstNav": 2005
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/economia"
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/", "/economia"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./autos"
+            },
+            "website_url": "/autos/sdasdsa-asdsad-nid19052020/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": true,
+        "publish_date": "2020-10-22T17:04:51.227Z"
+    },
+    "publish_date": "2020-10-22T17:04:51.227Z",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/autos/sdasdsa-asdsad-nid19052020/"
+}

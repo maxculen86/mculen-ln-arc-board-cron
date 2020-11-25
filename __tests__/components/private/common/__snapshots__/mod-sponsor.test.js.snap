@@ -9,11 +9,11 @@ exports[`ModSponsor Matches Snapshot 1`] = `
     href="/revista-jardin"
   >
     <i
-      class="com-logo logo-jardin --color "
+      class="com-logo logo-jardin  --color --xs"
     />
   </a>
   <span
-    class="com-text  "
+    class="com-text --threexs --sponsor"
   >
     Espacio Patrocinado
   </span>

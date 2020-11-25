@@ -6,11 +6,10 @@ import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
 
-// import getProperties from 'fusion:properties';
-// import { useAppContext } from 'fusion:context';
-
 export const createResizer = (resizerKey, resizerUrl) => {
-    const Thumbor = require('thumbor');
+    const Thumbor =
+        // eslint-disable-next-line no-eval
+        typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
 
     const resizeUrl = (
         originalUrl,
@@ -298,39 +297,53 @@ const getDefaultSize = subtype => {
     return { defaultResize, shouldExcludeCrop };
 };
 
-export const addResizedUrls = (ansDoc, option) => {
-    if (!option.resizerSecret || !option.resizerUrl || !option.presets)
+export const addResizedUrls = (ansDoc, options) => {
+    const {
+        resizerSecret,
+        resizerUrl,
+        presets,
+        presets: {
+            promoItems: presetsPromoItems,
+            contentElements: { sizes: presetsContentElements } = {},
+            credits: presetsCredits,
+            zoomSizes = []
+        },
+        presetsDefault,
+        subtype
+    } = options;
+    const {
+        promo_items: promoItems,
+        content_elements: contentElements,
+        credits
+    } = ansDoc;
+    if (!resizerSecret || !resizerUrl || !presets)
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
-    const { zoomSizes = [] } = option.presets;
 
-    const resizer = createResizer(option.resizerSecret, option.resizerUrl);
+    const resizer = createResizer(resizerSecret, resizerUrl);
 
-    const optionsContentElements = option.presets.contentElements.sizes;
+    const { defaultResize } = getDefaultSize(subtype);
 
-    const { defaultResize } = getDefaultSize(ansDoc.subtype);
-
-    const respDoc = {
+    return {
         ...ansDoc,
-        content_elements:
-            ansDoc &&
-            ansDoc.content_elements &&
-            ansDoc.content_elements.map(elem => {
-                if (elem.type === 'image') {
+        ...(contentElements && {
+            content_elements: contentElements.map(elem => {
+                const { type } = elem;
+                if (type === 'image') {
                     return resizeArcImage(
                         elem,
-                        optionsContentElements,
+                        presetsContentElements || presetsDefault,
                         resizer,
                         zoomSizes,
                         true,
                         defaultResize
                     );
                 }
-                if (elem.type === 'gallery') {
+                if (type === 'gallery') {
                     return resizeArcGallery(
                         elem,
-                        optionsContentElements,
+                        presetsContentElements || presetsDefault,
                         resizer,
                         zoomSizes,
                         true
@@ -338,25 +351,22 @@ export const addResizedUrls = (ansDoc, option) => {
                 }
                 return elem;
             })
+        }),
+        ...(promoItems && {
+            promo_items: resizePromoItems(
+                promoItems,
+                presetsPromoItems || presetsDefault,
+                resizer,
+                zoomSizes,
+                subtype
+            )
+        }),
+        ...(credits && {
+            credits: resizeCredits(
+                credits,
+                presetsCredits || presetsDefault,
+                resizer
+            )
+        })
     };
-
-    if (ansDoc.promo_items) {
-        respDoc.promo_items = resizePromoItems(
-            ansDoc.promo_items,
-            option.presets.promoItems,
-            resizer,
-            zoomSizes,
-            ansDoc.subtype
-        );
-    }
-
-    // TODO: Buscar caso de uso de credits y validar
-    if (ansDoc.credits) {
-        respDoc.credits = resizeCredits(
-            ansDoc.credits,
-            option.presetsDefault,
-            resizer
-        );
-    }
-    return respDoc;
 };

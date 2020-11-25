@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-fragments          */
 
@@ -13,18 +14,26 @@ import ListOrderedOrUnordered from './listOrderedOrUnordered';
 import Subtitle from './subtitle';
 import Paragraph from './parrafo';
 import Banner from '../../common/bannerRefactor';
+import ConfigBuilder from '../../common/bannerRefactor/builder';
+import {
+    getSlotForDevice,
+    isPrimarySectionInBannerSegments
+} from '../../common/bannerRefactor/utils';
+import { slotsConfig } from '../../common/bannerRefactor/config';
+import get from '../../../common/utils/get';
 import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
 import Html from './html';
-// import HtmlAMP from './htmlAMP';
+import OptaAMP from './optaAMP';
 import Video from './video';
 import { setStorageConfiguration } from '../../../common/utils/storage';
+import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
+
+import useViewportSize from '../../../common/hooks/useViewportSize';
 
 const Cuerpo = props => {
     const {
-        isAdmin,
-        siteProperties,
         bannerConfig: banners,
         outputType,
         globalContent: {
@@ -34,6 +43,31 @@ const Cuerpo = props => {
             subtype
         }
     } = props;
+
+    const device = useViewportSize();
+
+    const sponsored = get(props.globalContent, 'owner.sponsored');
+    const advertiser = get(props.globalContent, 'label.marca_anunciante.text');
+
+    const mostrarBanners = get(
+        props.globalContent,
+        'label.mostrar_banners.text'
+    );
+    const termicas = get(props.globalContent, 'siteService.termicas', []).some(
+        termica => termica.key === 'banners'
+    )
+        ? get(props.globalContent, 'siteService.termicas', []).find(
+              termica => termica.key === 'banners'
+          ).value === 'true'
+        : 'false';
+    const bannersSiteConfig = get(props.globalContent, 'siteService.banners');
+    const dfpId = get(props, 'siteProperties.bannerConfig.dfpId');
+    const adserver = get(props.globalContent, 'siteService.adserver', []);
+    const segments = adserver.map(segment => segment.value);
+    const primarySection = get(
+        props.globalContent,
+        'taxonomy.primary_section._id'
+    );
 
     const bodyComponents = [
         Paragraph,
@@ -48,12 +82,17 @@ const Cuerpo = props => {
         RawHTML,
         OembedAMP,
         BotonLink,
-        Html
+        Html,
+        OptaAMP
     ];
     // TODO: Ver si este es el mejor lugar donde poner este script.
     // Setea valores en el Local Storage solo del lado del cliente
     useEffect(() => {
-        setStorageConfiguration(_id);
+        try {
+            setStorageConfiguration(_id);
+        } catch (e) {
+            console.error('Error en setear Local Storage');
+        }
     }, [_id]);
 
     const types = ['text', 'image', 'oembed_response', 'video'];
@@ -69,8 +108,10 @@ const Cuerpo = props => {
 
     let counter = 0;
     const output = contentElements.map((element, currentIndex) => {
+        const hasOptaElements =
+            element.content && element.content.includes('opta-widget');
         const Component = bodyComponents.find(bc => {
-            if (subtype === '8') {
+            if (subtype === FOTOAL100) {
                 return (
                     !(
                         element.type === 'oembed_response' ||
@@ -80,6 +121,13 @@ const Cuerpo = props => {
                 );
             }
             if (element.type === 'quote') return bc.arcType === element.subtype;
+            if (
+                hasOptaElements &&
+                element.type === 'raw_html' &&
+                outputType === 'amp'
+            ) {
+                return bc.arcType === element.type && bc.outputType === 'opta';
+            }
             if (
                 element.type === 'oembed_response' ||
                 element.type === 'raw_html'
@@ -126,24 +174,68 @@ const Cuerpo = props => {
                             banners
                                 .filter(banner => banner.position === counter)
                                 .map(value => {
-                                    const data = {
-                                        siteProperties,
-                                        isAdmin,
-                                        banner: {
-                                            slotGroup: 'nota',
-                                            selectedSlots: {
-                                                desktopSlot: value.desktop,
-                                                mobileSlot: value.mobile,
-                                                tabletSlot: value.tablet
-                                            },
-                                            sticky: value.sticky,
-                                            background: value.background
+                                    if (mostrarBanners !== 'Si') return <></>;
+
+                                    const slots = [
+                                        {
+                                            name: 'desktop',
+                                            slot: value.desktop
+                                        },
+                                        { name: 'mobile', slot: value.mobile },
+                                        { name: 'tablet', slot: value.tablet }
+                                    ];
+                                    const slotId = getSlotForDevice(device)(
+                                        slots
+                                    );
+
+                                    if (!slotId) return <></>;
+
+                                    const config = slotsConfig.nota[slotId];
+                                    if (!config) return <></>;
+
+                                    // TODO: Mover esta lógica a un utilitario ?)
+                                    const configBuilder = new ConfigBuilder();
+                                    configBuilder.init({
+                                        ...config,
+                                        slotId,
+                                        dfpId,
+                                        slotGroup: 'nota',
+                                        show: {
+                                            termicas,
+                                            collection: true
                                         }
-                                    };
+                                    });
+
+                                    const [
+                                        present,
+                                        section
+                                    ] = isPrimarySectionInBannerSegments(
+                                        primarySection
+                                    )(segments);
+                                    if (present) {
+                                        configBuilder.segmentAdUnit(
+                                            section,
+                                            device
+                                        );
+                                    }
+
+                                    if (sponsored && advertiser)
+                                        configBuilder.current.setCustomAdUnit(
+                                            'ContentLab'
+                                        );
+
+                                    if (bannersSiteConfig)
+                                        configBuilder.setDimensionsFromSiteService(
+                                            bannersSiteConfig,
+                                            'nota',
+                                            slotId
+                                        );
 
                                     return (
                                         elementsCount > counter && (
-                                            <Banner {...data} />
+                                            <Banner
+                                                config={configBuilder.get()}
+                                            />
                                         )
                                     );
                                 })}
