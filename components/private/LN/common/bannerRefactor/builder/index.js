@@ -12,6 +12,8 @@ function ConfigBuilder() {
         };
     };
 
+    // TODO: revisar si es necesario un regex
+    // TODO: ubicar donde es usada esta función
     this.changeSlotName = function(name) {
         const { slotName } = this._config;
         this._config = {
@@ -22,17 +24,38 @@ function ConfigBuilder() {
 
     this.setCustomAdUnit = function(unit) {
         const { slotName } = this._config;
+
+        const slotNameSections =
+            slotName && slotName.split('/').filter(Boolean);
+
+        const stringToReplace =
+            (slotNameSections &&
+                slotNameSections.length > 2 &&
+                slotNameSections
+                    .slice(1, slotNameSections.length - 1)
+                    .join('/')) ||
+            '';
+
         this._config = {
             ...this._config,
-            slotName: slotName.replace(/(?<=\/).+(?=\/)/g, unit)
+            slotName: slotName.replace(stringToReplace, unit)
         };
     };
 
     this.segmentAdUnit = function(section, device) {
         const { slotName } = this._config;
+
+        const stringToReplace =
+            (slotName &&
+                slotName
+                    .split('/')
+                    .filter(Boolean)
+                    .shift()) ||
+            '';
+
         this._config = {
             ...this._config,
-            slotName: slotName.replace(/^.*?(?=\/)/g, `${section}_${device}`)
+            slotName: slotName.replace(stringToReplace, `${section}_${device}`)
         };
     };
 
