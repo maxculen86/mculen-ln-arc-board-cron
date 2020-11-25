@@ -3,10 +3,12 @@
 //para reemplazar por los nuevos
 @import '../components/title';
 @import '../components/tag';
-
+@import '../components/com-container';
 @import '../components/com-hour';
+@import '../components/com-paragraph';
 
 @import '../modules/mod-article';
+@import '../modules/mod-descriptionlist';
 
 // MANTENER SIEMPRE AL FINAL
 @import './amp-basic';
