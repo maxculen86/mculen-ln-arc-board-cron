@@ -5,7 +5,6 @@ import {
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
 import getPresets from './utils/presets';
-import getTTLValue from './utils/sourceSetting';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
@@ -183,5 +182,5 @@ export default {
         imageConfig: 'text'
     },
     transform,
-    ttl: getTTLValue('acuArticlesSource')
+    ttl: 120
 };

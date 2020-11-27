@@ -19,7 +19,6 @@ const index = memo(
             show,
             bidding,
             sizemap,
-            device,
             closeButton
         } = props;
 
@@ -69,7 +68,6 @@ const index = memo(
 
 index.propTypes = {
     slotId: PropTypes.string.isRequired,
-    device: PropTypes.string.isRequired,
     dfpId: PropTypes.string.isRequired,
     dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
         .isRequired,
@@ -85,7 +83,12 @@ index.propTypes = {
     bidding: PropTypes.object.isRequired,
     background: PropTypes.bool,
     fixed: PropTypes.bool,
-    closeButton: PropTypes.bool
+    closeButton: PropTypes.bool,
+    sticky: PropTypes.bool,
+    show: PropTypes.shape({
+        termicas: PropTypes.bool,
+        collection: PropTypes.bool
+    })
 };
 
 export default index;

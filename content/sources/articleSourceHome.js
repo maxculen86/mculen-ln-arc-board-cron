@@ -6,7 +6,6 @@ import {
     ARC_ACCESS_TOKEN
 } from 'fusion:environment';
 import getProperties from 'fusion:properties';
-import getTTLValue from './utils/sourceSetting';
 import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
@@ -75,5 +74,5 @@ export default {
         published: 'text'
     },
     filter,
-    ttl: getTTLValue('articleSourceHome')
+    ttl: 120
 };

@@ -1,6 +1,5 @@
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import request from 'request-promise-native';
-import getTTLValue from './utils/sourceSetting';
 
 const resolve = (key, a) => {
     const { includedFields, id } = key;
@@ -33,5 +32,5 @@ export default {
         id: 'text',
         includeFields: 'text'
     },
-    ttl: getTTLValue('relatedSource')
+    ttl: 600
 };

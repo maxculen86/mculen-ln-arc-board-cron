@@ -39,11 +39,11 @@ class LiftIgniter extends Component {
         const { primary_section: primarySection, tags = [] } = taxonomy || {};
         const { name: tematica } = primarySection || {};
         const { by: authors = [] } = credits || {};
-        const recomendar = get(label, 'recomendar.text');
+        const recomendar = get(label, 'recomendar.text', 'Si');
 
         const script = {
-            noShow: true,
-            noIndex: recomendar !== 'No',
+            noShow: recomendar !== 'Si',
+            noIndex: false,
             tematica,
             tags: tags.map(tag => tag.text),
             autor:

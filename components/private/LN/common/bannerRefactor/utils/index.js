@@ -2,10 +2,29 @@
 
 export const getDimsFromSiteService = config => slotGroup => finalSlot => {
     if (!config || !slotGroup) return null;
-    const position = config[`${slotGroup}_${finalSlot}`];
-    if (!position) return null;
-    const dimensions = position.split(',');
+
+    const position = config.find(
+        item => item.adunit === `${slotGroup}_${finalSlot}`
+    );
+    if (!position || !position.dimensions || position.dimensions === '')
+        return null;
+    const dimensions = position.dimensions.split(',');
     return dimensions.map(dimension =>
         dimension.split('x').map(size => parseInt(size, 10))
     );
+};
+
+export const getSlotForDevice = device => slots =>
+    slots.find(slot => slot.name === device)
+        ? slots.find(slot => slot.name === device).slot || null
+        : null;
+
+export const isPrimarySectionInBannerSegments = primarySection => segments => {
+    if (!segments || !primarySection) return [false, null];
+    const section = primarySection
+        .split('/')
+        .filter(Boolean)
+        .shift();
+    const included = segments.includes(section);
+    return [included, section];
 };

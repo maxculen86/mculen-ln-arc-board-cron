@@ -1,7 +1,5 @@
 import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import getTTLValue from './utils/sourceSetting';
 import { createResizer } from '../../components/private/common/utils/image/resizer';
-import filter from '../filters/LN/acumulado/authorColumnist';
 
 const resolve = key => {
     const { _id, website } = key;
@@ -45,5 +43,5 @@ export default {
         website: 'text'
     },
     transform,
-    ttl: getTTLValue('authorSourceColumnist')
+    ttl: 900
 };
