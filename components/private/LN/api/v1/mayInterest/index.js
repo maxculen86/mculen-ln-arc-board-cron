@@ -1,6 +1,5 @@
 import ArticleList from '../common/articles/list';
-//import Article from './article';
-import Article from '../article';
+import Article from '../common/articles/index';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
 
 const index = globalContent => {

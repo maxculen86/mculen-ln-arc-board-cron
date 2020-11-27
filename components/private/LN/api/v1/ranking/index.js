@@ -1,7 +1,6 @@
 import ArticleList from '../common/articles/list';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
-//import Articles from './article';
-import Articles from '../article';
+import Articles from '../common/articles/index';
 
 const index = (name, rankingData) => {
     const resp = {
