@@ -1,5 +1,5 @@
 const configPlaywright = {
-    browsers: ['chromium', 'firefox', 'webkit'],
+    browsers: ['chromium', 'webkit', 'firefox'],
     exitOnPageError: false,
     launchOptions: {
         headless: true,

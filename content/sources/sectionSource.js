@@ -1,8 +1,9 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import navigationTreeSource from './navigationTreeSource';
+import collectionsSource from './collectionsSource';
 import logger from '../../components/private/common/utils/logger';
-import getTTLValue from './utils/sourceSetting';
+import get from '../../components/private/common/utils/get';
 
 const resolve = key => {
     const { id, website } = key;
@@ -61,6 +62,36 @@ const transform = (data, siteProps) => {
 const transformContent = (data, siteProps, arcSite) => {
     const promiseArr = [];
     const resp = { ...data, articlesInCollection: [] };
+    const idCollection = get(
+        resp,
+        'acumuladoGeneral.id_collection_promo_items'
+    );
+    const newSiteProps = {
+        ...siteProps,
+        id: idCollection,
+        size: 2,
+        webSite: arcSite,
+        imageConfig: 'l'
+    };
+
+    if (idCollection) {
+        promiseArr.push(
+            collectionsSource
+                .fetch(newSiteProps)
+                .then(response => {
+                    if (response && response.content_elements) {
+                        resp.articlesInCollection = response.content_elements;
+                    }
+                })
+                .catch(error => {
+                    logger.push(
+                        error,
+                        { source: 'content/source', idCollection },
+                        arcSite
+                    );
+                })
+        );
+    }
 
     promiseArr.push(
         getNavigationSiteProperties(arcSite).then(result => {
@@ -77,6 +108,7 @@ const transformContent = (data, siteProps, arcSite) => {
         return resp;
     });
 };
+
 
 const getNavigationSiteProperties = arcSite => {
     return navigationTreeSource

@@ -1,16 +1,5 @@
 /* eslint-disable no-underscore-dangle */
 
-/**
- * The Builder pattern allows a client to construct a complex object
- * by specifying the type and content only. Construction details are
- * hidden from the client entirely.
- */
-
-/**
- * The most common motivation for using Builder is to simplify client
- * code that creates complex objects
- */
-
 import { getDimsFromSiteService } from '../utils';
 
 function ConfigBuilder() {
@@ -18,11 +7,13 @@ function ConfigBuilder() {
 
     this.init = function(config) {
         this._config = {
-            ...this.config,
+            ...this._config,
             ...config
         };
     };
 
+    // TODO: revisar si es necesario un regex
+    // TODO: ubicar donde es usada esta función
     this.changeSlotName = function(name) {
         const { slotName } = this._config;
         this._config = {
@@ -33,17 +24,38 @@ function ConfigBuilder() {
 
     this.setCustomAdUnit = function(unit) {
         const { slotName } = this._config;
+
+        const slotNameSections =
+            slotName && slotName.split('/').filter(Boolean);
+
+        const stringToReplace =
+            (slotNameSections &&
+                slotNameSections.length > 2 &&
+                slotNameSections
+                    .slice(1, slotNameSections.length - 1)
+                    .join('/')) ||
+            '';
+
         this._config = {
             ...this._config,
-            slotName: slotName.replace(/(?<=\/).+(?=\/)/g, unit)
+            slotName: slotName.replace(stringToReplace, unit)
         };
     };
 
     this.segmentAdUnit = function(section, device) {
         const { slotName } = this._config;
+
+        const stringToReplace =
+            (slotName &&
+                slotName
+                    .split('/')
+                    .filter(Boolean)
+                    .shift()) ||
+            '';
+
         this._config = {
             ...this._config,
-            slotName: slotName.replace(/^.*?(?=\/)/g, `${section}_${device}`)
+            slotName: slotName.replace(stringToReplace, `${section}_${device}`)
         };
     };
 
@@ -54,6 +66,50 @@ function ConfigBuilder() {
     };
 
     this.get = function() {
+        /** HARDCODED TEMPORARILY */
+        if (
+            this._config.slotId === 'cabezal_dsk' &&
+            this._config.slotGroup === 'nota'
+        ) {
+            this._config.dimensions = [
+                [[1260, 170]],
+                [
+                    [920, 170],
+                    [920, 100],
+                    [970, 90],
+                    [728, 90]
+                ]
+            ];
+            this._config.sizemap = {
+                breakpoints: [
+                    [1260, 100],
+                    [0, 0]
+                ],
+                refresh: true
+            };
+        } else if (
+            this._config.slotId === 'cabezal_dsk' &&
+            this._config.slotGroup === 'acumulado'
+        ) {
+            this._config.dimensions = [
+                [[1260, 170]],
+                [
+                    [920, 170],
+                    [970, 90],
+                    [728, 90]
+                ]
+            ];
+            this._config.sizemap = {
+                breakpoints: [
+                    [1260, 100],
+                    [0, 0]
+                ],
+                refresh: true
+            };
+        }
+
+        /** END */
+
         return this._config;
     };
 }
