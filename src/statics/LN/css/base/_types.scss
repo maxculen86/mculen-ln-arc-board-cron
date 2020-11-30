@@ -5,7 +5,7 @@
 
 @include font-face('SuecaSlab', suecaslab-medium-webfont, 500);
 @include font-face('SuecaSlab', suecaslab-bold-webfont, 700);
-@include font-face('LNicons', ln-icons-v5, normal);
+@include font-face('LNicons', lana-icons, normal);
 @include font-face('LNlogos', ln-logos-v2, normal);
 
 strong,
@@ -30,11 +30,11 @@ strong,
 
 //variables
 $icon-close: '\e913';
-$icon-zoom: '\e97d';
+$icon-email: '\e91b';
 $icon-facebook-filled: '\e926';
 $icon-twitter-filled: '\e973';
 $icon-whatsapp-filled: '\e979';
-$icon-email: '\e91b';
+$icon-zoom: '\e97d';
 
 .icon-alert:before {
     content: '\e900';
@@ -57,7 +57,7 @@ $icon-email: '\e91b';
 .icon-arrow-up:before {
     content: '\e906';
 }
-.icon-bullet:before {
+.icon-bullet-default:before {
     content: '\e907';
     color: #5a5a5a;
 }
@@ -268,10 +268,10 @@ $icon-email: '\e91b';
 .icon-qr:before {
     content: '\e94b';
 }
-.icon-radio-filled:before {
+.icon-radio-blank:before {
     content: '\e94c';
 }
-.icon-radio-blank:before {
+.icon-radio-filled:before {
     content: '\e94d';
 }
 .icon-rain:before {
