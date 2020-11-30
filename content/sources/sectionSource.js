@@ -109,7 +109,6 @@ const transformContent = (data, siteProps, arcSite) => {
     });
 };
 
-
 const getNavigationSiteProperties = arcSite => {
     return navigationTreeSource
         .fetch({ website: arcSite })

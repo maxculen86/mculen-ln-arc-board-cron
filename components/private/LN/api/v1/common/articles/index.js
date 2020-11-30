@@ -1,44 +1,45 @@
 import get from 'lodash.get';
-import Image from '../common/image';
-import Author from '../common/author';
-import { getTag } from '../common/tag';
-import { getPrincipalCategory } from '../common/category';
-import { dateAndTimeForAppsUtil } from '../../../../common/utils/dateAndTimeUtil';
+import Image from '../image';
+import Author from '../author';
+import { getTag } from '../tag';
+import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
+import { getPrincipalCategory } from '../category';
 
 const articleItem = article => {
     const {
         _id: id,
         subtype: templateId,
         headlines: { basic: titulo, mobile: tituloMobile },
-        subheadlines: { basic: bajada },
         website_url: url,
         last_updated_date: lastUpdatedDate
     } = article;
-
-    const resp = {
-        id,
-        templateId,
-        titulo,
-        fecha: dateAndTimeForAppsUtil(article.display_date),
-        fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
-        url,
-        tituloMobile,
-        bajada
-    };
 
     const authors = get(article, 'credits.by', null);
     const image = get(article, 'promo_items.basic', null);
     const primarySection = get(article, 'taxonomy.primary_section', null);
     const tags = get(article, 'taxonomy.tags', null);
+    const bajada = get(article, 'subheadlines.basic', null);
+
+    const resp = {
+        id,
+        templateId,
+        titulo: tituloMobile || titulo,
+        fecha: dateAndTimeForAppsUtil(article.display_date),
+        fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
+        url,
+        bajada
+    };
 
     if (image && image.type === 'image') {
         resp.imagen = Image(image);
     }
 
-    if (authors) {
+    if (authors && authors.length > 0) {
         const authorsFixed = authors.filter(v => v.type === 'author');
         if (authorsFixed.length > 0) {
-            resp.autores = Author(authorsFixed[0]);
+            resp.autores = authorsFixed.map(v => {
+                return Author(v);
+            });
         }
     }
 
