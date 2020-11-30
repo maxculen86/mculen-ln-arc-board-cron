@@ -15,6 +15,15 @@
 -   Ej: Si tengo varias cosas a chequear en nota-noticia, hago el request a la nota de prueba en el _beforeAll()_, y luego hago N _test()_ de jest usando el frame obtenido
 -   Tener en cuenta que si realizo alguna accion que modifique el estado actual (ej: click en un link), los siguientes tests se encontraran en esa situacion (nueva url en el ej).
 
+## Tips para debuggear en localHost ante falla en pipeline
+
+-   Para correr los test e2e en localhost, contra la version en preview de sandbox ejecutar: ARC_ENDPOINT=SANDBOX_PREVIEW ARC_PREVIEW_VERSION=[Numero de version de preview] SANDBOX_TOKEN=[valor de cookie *el_arc*] npm run test:e2e
+-   Para ejecutar lo mismo pero contra el preview de produccion, usar: ARC_ENDPOINT=PROD_PREVIEW
+-   Otros valores posibles para ARC_ENDPOINT=LOCAL|SANDBOX|PROD|PROD_PREVIEW|SANDBOX_PREVIEW
+-   SANDBOX_TOKEN solo es obligatorio en los 2 sandbox.
+-   Para poder ver los browsers, modificar el valor _headless_, dentro del archivo _jest.config.js_ a _false_ (asegurarse de NO subir este cambio)
+-   Si desean correr los tests con solo un navegador, agregar la variable BROWSER=chromium|webkit|firefox al primer comando
+
 ## Links utiles
 
 -   https://playwright.dev/

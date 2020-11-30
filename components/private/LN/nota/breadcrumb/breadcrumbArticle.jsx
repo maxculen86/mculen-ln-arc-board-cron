@@ -81,7 +81,7 @@ breadcrumbArticle.propTypes = {
             tooltips: PropTypes.arrayOf(
                 PropTypes.shape({
                     text: PropTypes.string,
-                    label: PropTypes.string,
+                    label: PropTypes.string
                 })
             )
         }).isRequired,
