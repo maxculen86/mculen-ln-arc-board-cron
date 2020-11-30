@@ -15,14 +15,29 @@ const imageCommon = image => {
         parametros: []
     };
 
-    resizedUrls.forEach(e => {
-        resp.parametros.push({
-            ancho: e.option.width,
-            firma: e.resizedUrl.match(regex)
-                ? e.resizedUrl.replace(regex, '$1')
-                : ''
-        });
-    });
+    Object.keys(resizedUrls)
+        .sort(function(a, b) {
+            if (resizedUrls[a].option.width < resizedUrls[b].option.width) {
+                return 1;
+            }
+            if (resizedUrls[a].option.width === resizedUrls[b].option.width) {
+                if (
+                    resizedUrls[a].option.height < resizedUrls[b].option.height
+                ) {
+                    return 1;
+                }
+                return -1;
+            }
+            return -1;
+        })
+        .map(key =>
+            resp.parametros.push({
+                ancho: resizedUrls[key].option.width,
+                firma: resizedUrls[key].resizedUrl.match(regex)
+                    ? resizedUrls[key].resizedUrl.replace(regex, '$1')
+                    : ''
+            })
+        );
 
     return resp;
 };

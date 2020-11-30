@@ -31,25 +31,27 @@ describe('Test de index en Json ranking', () => {
         expect(resp[0].imagen.baseUrl).toBe(
             'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/www.lanacion.com.ar/resizer/YcJ0gmw6h3B4fXhg5pbuZ8H1uzg=/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg'
         );
-        expect(resp[0].imagen.parametros[0].ancho).toBe(278);
+        expect(resp[0].imagen.parametros[0].ancho).toBe(768);
         expect(resp[0].imagen.parametros[0].firma).toBe(
-            'LQ03Y-iOcWjwQct4YQRLT0jJrT8=/278x186/smart'
-        );
-        expect(resp[0].imagen.parametros[1].ancho).toBe(344);
-        expect(resp[0].imagen.parametros[1].firma).toBe(
-            'u7prcuGJ9u3mTD7wHR1Bsfghsds=/344x230/smart'
-        );
-        expect(resp[0].imagen.parametros[2].ancho).toBe(768);
-        expect(resp[0].imagen.parametros[2].firma).toBe(
             '3rTgc9lUK5alrZXDhSplwsoCIKY=/768x513/smart'
         );
-        expect(resp[0].imagen.parametros[3].ancho).toBe(350);
-        expect(resp[0].imagen.parametros[3].firma).toBe(
+
+        expect(resp[0].imagen.parametros[1].ancho).toBe(360);
+        expect(resp[0].imagen.parametros[1].firma).toBe(
+            'rOip72RROban7m1g3eTptCLHu2A=/360x234/smart'
+        );
+
+        expect(resp[0].imagen.parametros[2].ancho).toBe(350);
+        expect(resp[0].imagen.parametros[2].firma).toBe(
             '-DltLyGogW8thkDsacSPwDsL5Vg=/350x234/smart'
         );
-        expect(resp[0].imagen.parametros[4].ancho).toBe(360);
+        expect(resp[0].imagen.parametros[3].ancho).toBe(344);
+        expect(resp[0].imagen.parametros[3].firma).toBe(
+            'u7prcuGJ9u3mTD7wHR1Bsfghsds=/344x230/smart'
+        );
+        expect(resp[0].imagen.parametros[4].ancho).toBe(278);
         expect(resp[0].imagen.parametros[4].firma).toBe(
-            'rOip72RROban7m1g3eTptCLHu2A=/360x234/smart'
+            'LQ03Y-iOcWjwQct4YQRLT0jJrT8=/278x186/smart'
         );
     });
 
