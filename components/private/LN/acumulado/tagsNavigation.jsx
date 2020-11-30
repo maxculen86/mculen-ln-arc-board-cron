@@ -44,7 +44,8 @@ const TagsNavigation = ({ orderAndCountTags, colorTags }) => {
     );
 
     return (
-        tagList && (
+        tagList &&
+        tagList.length(
             <ul className="com-unordered --tags">
                 {tagList.map(({ item, key }) => (
                     <li key={key}>{item}</li>
