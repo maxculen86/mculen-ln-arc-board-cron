@@ -87,7 +87,9 @@
     //     }
     // }
     .mod-keepreading & {
+        display: block;
         margin-bottom: $spacing-sm;
+        font-weight: 700;
     }
     .mod-themes & {
         margin-right: $spacing-sm;
