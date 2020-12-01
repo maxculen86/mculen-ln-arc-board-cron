@@ -1,75 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SeguirLeyendo Matches snapshot con canonical_url 1`] = `
-<div
+<ul
   class="mod-keepreading"
 >
-  <article
+  <li
     data-id="1"
     data-pos="toi1"
   >
-    <h2
-      class="com-title --threexs"
+    <a
+      class="com-link --threexs"
+      href="/comunidad/de-cocaina-psicofarmacos-que-efectos-tiene-consumo-nid2470491/"
     >
-      <a
-        class="com-link"
-        href="/comunidad/de-cocaina-psicofarmacos-que-efectos-tiene-consumo-nid2470491/"
-      >
-         De cocaína a psicofármacos: qué efectos tiene el consumo de sustancias ilícitas
-      </a>
-    </h2>
-  </article>
-  <article
+       De cocaína a psicofármacos: qué efectos tiene el consumo de sustancias ilícitas
+    </a>
+  </li>
+  <li
     data-id="1"
     data-pos="toi2"
   >
-    <h2
-      class="com-title --threexs"
+    <a
+      class="com-link --threexs"
+      href="/comunidad/alcoholismo-senales-alerta-peligros-salud-nid2464890/"
     >
-      <a
-        class="com-link"
-        href="/comunidad/alcoholismo-senales-alerta-peligros-salud-nid2464890/"
-      >
-         Alcoholismo. Señales de alerta y los peligros para la salud
-      </a>
-    </h2>
-  </article>
-</div>
+       Alcoholismo. Señales de alerta y los peligros para la salud
+    </a>
+  </li>
+</ul>
 `;
 
 exports[`SeguirLeyendo Matches snapshot con website_url 1`] = `
-<div
+<ul
   class="mod-keepreading"
 >
-  <article
+  <li
     data-id="1"
     data-pos="toi1"
   >
-    <h2
-      class="com-title --threexs"
+    <a
+      class="com-link --threexs"
+      href="/arquitectura/prueba-storytelling-roger-nid15072020/"
     >
-      <a
-        class="com-link"
-        href="/arquitectura/prueba-storytelling-roger-nid15072020/"
-      >
-         Prueba Storytelling roger.
-      </a>
-    </h2>
-  </article>
-  <article
+       Prueba Storytelling roger.
+    </a>
+  </li>
+  <li
     data-id="1"
     data-pos="toi2"
   >
-    <h2
-      class="com-title --threexs"
+    <a
+      class="com-link --threexs"
+      href="/propiedades/los-desarrolladores-ponen-la-mira-en-la-zona-de-canning-nid20102020/"
     >
-      <a
-        class="com-link"
-        href="/propiedades/los-desarrolladores-ponen-la-mira-en-la-zona-de-canning-nid20102020/"
-      >
-         Los desarrolladores ponen la mira en la zona de Canning
-      </a>
-    </h2>
-  </article>
-</div>
+       Los desarrolladores ponen la mira en la zona de Canning
+    </a>
+  </li>
+</ul>
 `;
