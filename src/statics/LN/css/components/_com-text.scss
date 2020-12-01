@@ -72,19 +72,21 @@
             margin-left: $spacing-2xs;
         }
     }
-    &.--sponsor,
-    &.--tooltip {
-        display: flex;
-        padding: 0;
-        line-height: px(1);
+
+    &.--sponsor {
         &:hover {
             cursor: pointer;
             .com-container {
                 visibility: visible;
             }
         }
-    }
-    &.--sponsor {
+
+        .--tooltip {
+            display: flex;
+            padding: 0;
+            line-height: px(1);
+        }
+
         .mod-tooltip & {
             color: $gris5;
         }
