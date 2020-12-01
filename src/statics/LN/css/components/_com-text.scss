@@ -73,6 +73,18 @@
         }
     }
 
+    &.--tooltip {
+        display: flex;
+        padding: 0;
+        line-height: px(1);
+        &:hover {
+            cursor: pointer;
+            .com-container {
+                visibility: visible;
+            }
+        }
+    }
+
     &.--sponsor {
         display: flex;
 
@@ -81,12 +93,6 @@
             .com-container {
                 visibility: visible;
             }
-        }
-
-        .--tooltip {
-            display: flex;
-            padding: 0;
-            line-height: px(1);
         }
 
         .mod-tooltip & {
