@@ -19,6 +19,7 @@
     > .com-text {
         color: $sponsor;
         font-weight: bold;
+        align-items: center;
         &::before {
             content: '●';
             font-size: px(16);
