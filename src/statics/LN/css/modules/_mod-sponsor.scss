@@ -16,44 +16,44 @@
             margin: px(-1) px(8) 0;
         }
     }
-    .com-text {
+    > .com-text {
         color: $sponsor;
         font-weight: bold;
     }
 
     &.ohlala {
-        .com-text {
+        > .com-text {
             color: $ohlala;
         }
     }
     &.brando {
-        .com-text {
+        > .com-text {
             color: $brando;
         }
     }
     &.living {
-        .com-text {
+        > .com-text {
             color: $living;
         }
     }
     &.hola {
-        .com-text {
+        > .com-text {
             color: $hola;
         }
     }
     &.jardin {
-        .com-text {
+        > .com-text {
             color: $jardin;
         }
     }
     &.lugares {
-        .com-text {
+        > .com-text {
             color: $lugares;
         }
     }
     &.rolling,
     &.rolling-stone {
-        .com-text {
+        > .com-text {
             color: $rolling;
         }
     }
@@ -64,7 +64,7 @@
                 color: $negro;
             }
         }
-        .com-text {
+        > .com-text {
             color: $negro;
         }
     }
