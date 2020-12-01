@@ -10,15 +10,20 @@
         display: flex;
         margin: 0;
         font-size: px(18);
-        &::after {
-            content: '●';
-            font-size: px(16);
-            margin: px(-1) px(8) 0;
-        }
+        // &::after {
+        //     content: '●';
+        //     font-size: px(16);
+        //     margin: px(-1) px(8) 0;
+        // }
     }
     > .com-text {
         color: $sponsor;
         font-weight: bold;
+        &::before {
+            content: '●';
+            font-size: px(16);
+            margin: 0 px(8);
+        }
     }
 
     &.ohlala {
@@ -59,11 +64,11 @@
     }
 
     &.--contentlab {
-        .com-logo {
-            &::after {
-                color: $negro;
-            }
-        }
+        // .com-logo {
+        //     &::after {
+        //         color: $negro;
+        //     }
+        // }
         > .com-text {
             color: $negro;
         }
