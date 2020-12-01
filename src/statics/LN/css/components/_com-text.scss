@@ -74,6 +74,8 @@
     }
 
     &.--sponsor {
+        display: flex;
+
         &:hover {
             cursor: pointer;
             .com-container {
@@ -95,6 +97,7 @@
         border: none;
         margin-bottom: 0;
         color: $gris5;
+        font-weight: 100;
     }
     &:before {
         .mod-tooltip & {
