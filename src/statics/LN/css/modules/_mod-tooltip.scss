@@ -4,7 +4,7 @@
 .mod-tooltip {
     @include flex(flex);
     margin-bottom: $spacing-sm;
-    padding: $spacing-xs $spacing-sm;
+    padding: $spacing-xs;
     background: $blanco;
     border: solid 1px $gris3;
     border-radius: px(4);
