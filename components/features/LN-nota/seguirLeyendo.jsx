@@ -20,11 +20,7 @@ const seguirLeyendo = ({ globalContent }) => {
                         data-block-name="n_segui_leyendo"
                         data-diagramacion-id="0"
                     >
-                        <ComTitle
-                            size="--l"
-                            tag="h4"
-                            content="Seguir Leyendo"
-                        />
+                        <ComTitle size="--l" tag="h4" content="Seguí leyendo" />
                         <SeguirLeyendo relatedContent={relatedContent} />
                     </section>
                 </div>
