@@ -34,6 +34,9 @@
             top: px(80);
         }
     }
+    &.--adhesion_dsk.--adhesion_dsk {
+        margin-bottom: 0;
+    }
     &.--fixed {
         position: fixed;
         bottom: px(60);
