@@ -5,7 +5,10 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import get from '../utils/get';
 
-const ScriptLoadingList = ({ arcSite: website = 'la-nacion-ar' }) => {
+const ScriptLoadingList = ({
+    arcSite: website = 'la-nacion-ar',
+    location = 'body-bottom'
+}) => {
     const data = useContent({
         sourceName: 'navigationTreeSource',
         query: {
@@ -20,7 +23,11 @@ const ScriptLoadingList = ({ arcSite: website = 'la-nacion-ar' }) => {
 
     return get(data, 'site.script_loading_list', []).map(scriptConfig => {
         try {
-            return <script {...JSON.parse(scriptConfig)} />;
+            const scriptData = JSON.parse(scriptConfig);
+            const { location: _location = 'body-bottom' } = scriptData;
+            delete scriptData.location;
+
+            return location === _location && <script {...scriptData} />;
         } catch (error) {
             console.log('🚀 ~ file: scriptLoadingList ~ error', error);
             return <></>;
@@ -29,7 +36,8 @@ const ScriptLoadingList = ({ arcSite: website = 'la-nacion-ar' }) => {
 };
 
 ScriptLoadingList.propTypes = {
-    arcSite: PropTypes.string.isRequired
+    arcSite: PropTypes.string.isRequired,
+    location: PropTypes.string
 };
 
 export default ScriptLoadingList;
