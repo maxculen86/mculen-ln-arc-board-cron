@@ -16,14 +16,14 @@ const ModSponsor = props => {
         <div className={`mod-sponsor ${type} ${sponsor}`}>
             {sponsor && (
                 <ComLink link={link}>
-                    <ComLogo color="true" logoName={sponsor} size="--xs" />
+                    <ComLogo color="true" logoName={sponsor} size="--sm" />
                 </ComLink>
             )}
 
             <>
                 {type === '--contentlab' ? (
                     <ComText tag="" size="--threexs" classCondition="--sponsor">
-                        ContentLAB para {textName}
+                        Content LAB para {textName}
                         {tooltip.label && (
                             <span className="com-text --tooltip">
                                 <ComContainer>
