@@ -101,7 +101,7 @@ const BreadcrumbBase = props => {
             {listSections}
             {/* Último item */}
             {tooltip && (
-                <span className="com-text --tooltip">
+                <span className="com-text --threexs --tooltip">
                     <div className="com-bullet">
                         <i
                             style={{

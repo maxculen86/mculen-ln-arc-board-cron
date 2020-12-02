@@ -35,7 +35,7 @@ describe('ModSponsor', () => {
         };
         const component = mount(<ModSponsor {...props} />);
         expect(component.find('.com-text')).toHaveLength(1);
-        expect(component.html()).toContain('ContentLAB para Volkswagen');
+        expect(component.html()).toContain('Content LAB para Volkswagen');
     });
 
     it('Sets Sponsored Content', () => {

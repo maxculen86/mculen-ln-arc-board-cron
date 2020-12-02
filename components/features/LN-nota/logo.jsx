@@ -34,6 +34,7 @@ const Logo = props => {
                     { link: path },
                     React.createElement(ComLogo, {
                         color: true,
+                        size: '--xs',
                         logoName
                     })
                 )
