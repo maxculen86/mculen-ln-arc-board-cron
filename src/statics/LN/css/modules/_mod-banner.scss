@@ -104,9 +104,9 @@
             display: block;
         }
         &.--fixed {
-            left: calc((100% - 920px - 300px) / 2);
+            left: calc((100% - 1260px) / 2);
             &.--small {
-                left: calc((100% - 728px - 300px) / 2);
+                left: calc((100% - 1068px) / 2);
             }
         }
     }
