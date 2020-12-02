@@ -47,6 +47,9 @@
         }
         .mod-banner {
             margin-bottom: $spacing-lg;
+            &.--adhesion_dsk {
+                margin-bottom: 0;
+            }
         }
     }
     .sidebar__main > .row {
