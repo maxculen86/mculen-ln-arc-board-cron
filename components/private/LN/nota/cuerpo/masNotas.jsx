@@ -5,7 +5,7 @@ import ComTitle from '../../../common/com-title';
 export default function masNotas() {
     return (
         <div className="keep-reading">
-            <ComTitle size="--l" tag="h2" content="Seguir Leyendo" />
+            <ComTitle size="--l" tag="h2" content="Seguí leyendo" />
             <a className="link">
                 <strong>Villa La Angostura.</strong> Un choque en la ruta de los
                 7 Lagos complica más la situación
