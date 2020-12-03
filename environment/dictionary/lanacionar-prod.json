@@ -100,7 +100,7 @@
             "_id": "1",
             "ArcSectionId": "/cultura",
             "name": "Cultura",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "62",
@@ -136,7 +136,7 @@
             "_id": "1312",
             "ArcSectionId": "/moda-y-belleza",
             "name": "Moda y Belleza",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "70",
@@ -214,7 +214,7 @@
             "_id": "371",
             "ArcSectionId": "/autos/al-volante",
             "name": "Al Volante",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "127",
@@ -226,7 +226,7 @@
             "_id": "432",
             "ArcSectionId": "/tecnologia",
             "name": "Tecnología",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "142",
@@ -238,7 +238,7 @@
             "_id": "504",
             "ArcSectionId": "/turismo",
             "name": "Turismo",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "129",
@@ -304,7 +304,7 @@
             "_id": "492",
             "ArcSectionId": "/moda-y-belleza/moda",
             "name": "Moda",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "63",
@@ -358,7 +358,7 @@
             "_id": "504",
             "ArcSectionId": "/revista-lugares",
             "name": "Revista Lugares",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "156",
@@ -442,13 +442,13 @@
             "_id": "8012",
             "ArcSectionId": "/turismo/viajes",
             "name": "Viajes",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "8013",
             "ArcSectionId": "/autos",
             "name": "Autos",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "126",
@@ -1000,7 +1000,7 @@
             "_id": "504",
             "ArcSectionId": "/revista-lugares/tapas",
             "name": "Tapas Lugares",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "173",
