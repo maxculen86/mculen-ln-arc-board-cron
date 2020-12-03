@@ -15,7 +15,7 @@ const DetalleReceta = props => {
         return (
             <div className="row">
                 <div className="col-2 col-tablet-1">
-                    <i className="icon-clock" />
+                    <i className="icon-timer" />
                 </div>
                 <div className="time-number col-10 col-tablet-11">
                     <span>

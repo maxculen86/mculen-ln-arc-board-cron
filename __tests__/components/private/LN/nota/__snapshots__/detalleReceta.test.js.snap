@@ -11,7 +11,7 @@ exports[`features - LaNacion - Nota - Detalle Receta Test de snapshot Detalle Re
       class="col-2 col-tablet-1"
     >
       <i
-        class="icon-clock"
+        class="icon-timer"
       />
     </div>
     <div

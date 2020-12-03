@@ -19,7 +19,7 @@ const header = ({ host }) => (
                 <ComIcon iconName="twitter-filled" />
             </ComLink>
             <ComLink link="https://www.instagram.com/lanacion" target="_blank">
-                <ComIcon iconName="instagram-filled" />
+                <ComIcon iconName="instagram" />
             </ComLink>
             <ComLink
                 link="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"

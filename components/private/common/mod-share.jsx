@@ -21,7 +21,7 @@ const ModShare = props => {
             />
             <ComIcon
                 link="https://www.instagram.com/lanacioncom/"
-                iconName="instagram-filled"
+                iconName="instagram"
             />
             <ComIcon
                 link="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
