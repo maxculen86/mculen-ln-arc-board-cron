@@ -20,15 +20,6 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 {...extraOpts}
                 style={{ color: colorCategory, borderLeftColor: colorCategory }}
             >
-                {/* <div className="com-bullet"> */}
-                <i
-                    style={{
-                        color: colorCategory,
-                        borderLeftColor: colorCategory
-                    }}
-                    className="com-icon bullet icon-bullet --xs"
-                />
-                {/* </div> */}
                 {section.name}
             </a>
         );
