@@ -13,7 +13,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-facebook   "
+        class="com-icon icon-facebook-filled   "
       />
     </button>
     <button
@@ -21,7 +21,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-twitter   "
+        class="com-icon icon-twitter-filled   "
       />
     </button>
     <button
@@ -29,7 +29,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-whatsapp   "
+        class="com-icon icon-whatsapp-filled   "
       />
     </button>
   </div>
@@ -44,7 +44,7 @@ exports[`Share Matches snapshot 1`] = `
       type="button"
     >
       <i
-        class="com-icon icon-mail   "
+        class="com-icon icon-email   "
       />
     </button>
     <button
