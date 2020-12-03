@@ -40,11 +40,11 @@
             }
         }
     }
-    // .com-link:first-child {
-    //     .com-bullet {
-    //         display: none;
-    //     }
-    // }
+    .com-link:first-child {
+        .icon-bullet {
+            display: none;
+        }
+    }
     span {
         //border-left: solid 1px $gris5;
         //padding: 0 px(6);

@@ -12,6 +12,10 @@ Array [
       href="https://www.lanacion.com.ar/"
       style="color:;border-left-color:"
     >
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       LA NACION
     </a>
     <span

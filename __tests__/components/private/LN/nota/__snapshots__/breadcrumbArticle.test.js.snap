@@ -10,6 +10,10 @@ Array [
       href="//"
       style="color:;border-left-color:"
     >
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       LA NACION
     </a>
     <a
@@ -17,6 +21,10 @@ Array [
       href="/recetas/"
       style="color:;border-left-color:"
     >
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       Recetas
     </a>
     <a
@@ -24,6 +32,10 @@ Array [
       href="/recetas/recetas-con-ingredientes/"
       style="color:;border-left-color:"
     >
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       Recetas con ingredientes
     </a>
     <a
@@ -31,6 +43,10 @@ Array [
       href="/recetas/recetas-con-ingredientes/pollo/"
       style="color:;border-left-color:"
     >
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       Pollo
     </a>
   </nav>,
