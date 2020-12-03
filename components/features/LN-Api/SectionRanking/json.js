@@ -18,8 +18,12 @@ class SectionRanking {
                 weeks: weeksCf,
                 days: daysCf,
                 paramUrlId
-            }
+            },
+            outputType
         } = props;
+
+        console.log(outputType);
+
         this.state = {};
 
         const categoryMigrated = isMigratedCategory(id, true);
