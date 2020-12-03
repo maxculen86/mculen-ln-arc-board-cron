@@ -18,7 +18,17 @@ describe('GooglePublisherTagAcumulado', () => {
                 count: 1
             },
             slug: 'alberto-fernandez',
-            name: 'recetas'
+            name: 'recetas',
+            ancestors:{
+                default:[
+                   "/",
+                   "/deportes",
+                   "/deportes/futbol"
+                ]
+             },
+             parent:{
+                default:"/deportes/futbol"
+             },
         }
     };
 
@@ -43,7 +53,25 @@ describe('GooglePublisherTagAcumulado', () => {
         const component = mount(<GooglePublisherTagAcumulado {...content} />);
         expect(component.find('script')).toHaveLength(1);
         expect(component.html()).toMatch('ca_recetas');
+        expect(component.html()).toMatch('ca_deportes');
+        expect(component.html()).toMatch('ca_futbol');
         expect(component.html()).toMatch('te_deportes');
         expect(component.html()).toMatch('au_alberto-fernandez');
+    });
+
+    const content2 = {
+        globalContent: {
+            name: 'futbol',
+            parent:{
+                default:"/deportes"
+            },
+        }
+    };
+
+    it('Builds the json object without ancestors', () => {
+        const component = mount(<GooglePublisherTagAcumulado {...content2} />);
+        expect(component.find('script')).toHaveLength(1);
+        expect(component.html()).toMatch('ca_deportes');
+        expect(component.html()).toMatch('ca_futbol');
     });
 });
