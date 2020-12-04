@@ -100,7 +100,7 @@
             "_id": "1",
             "ArcSectionId": "/cultura",
             "name": "Cultura",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "62",
@@ -130,13 +130,13 @@
             "_id": "67",
             "ArcSectionId": "/deportes",
             "name": "Deportes",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "1312",
             "ArcSectionId": "/moda-y-belleza",
             "name": "Moda y Belleza",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "70",
@@ -178,7 +178,7 @@
             "_id": "123",
             "ArcSectionId": "/economia",
             "name": "Economía",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "146",
@@ -214,9 +214,8 @@
             "_id": "371",
             "ArcSectionId": "/autos/al-volante",
             "name": "Al Volante",
-            "migrada": true
+            "migrada": false
         },
-
         {
             "_id": "127",
             "ArcSectionId": "/empleos",
@@ -227,7 +226,7 @@
             "_id": "432",
             "ArcSectionId": "/tecnologia",
             "name": "Tecnología",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "142",
@@ -239,7 +238,7 @@
             "_id": "504",
             "ArcSectionId": "/turismo",
             "name": "Turismo",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "129",
@@ -305,7 +304,7 @@
             "_id": "492",
             "ArcSectionId": "/moda-y-belleza/moda",
             "name": "Moda",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "63",
@@ -359,7 +358,7 @@
             "_id": "504",
             "ArcSectionId": "/revista-lugares",
             "name": "Revista Lugares",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "156",
@@ -443,13 +442,13 @@
             "_id": "8012",
             "ArcSectionId": "/turismo/viajes",
             "name": "Viajes",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "8013",
             "ArcSectionId": "/autos",
             "name": "Autos",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "126",
@@ -548,82 +547,88 @@
             "migrada": true
         },
         {
+            "_id": "43",
+            "ArcSectionId": "/recetas",
+            "name": "Recetas",
+            "migrada": true
+        },
+        {
             "_id": "44",
             "ArcSectionId": "/platos-de-comida-principal",
             "name": "Platos de comida principal",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "45",
             "ArcSectionId": "/postres",
             "name": "Postres",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "46",
             "ArcSectionId": "/dulces",
             "name": "Dulces",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "47",
             "ArcSectionId": "/entradas",
             "name": "Entradas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "48",
             "ArcSectionId": "/carnes",
             "name": "Carnes",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "49",
             "ArcSectionId": "/tortas",
             "name": "Tortas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "50",
             "ArcSectionId": "/pollo",
             "name": "Pollo",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "51",
             "ArcSectionId": "/faciles-y-rapidas",
             "name": "Fáciles y rápidas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "52",
             "ArcSectionId": "/ensaladas",
             "name": "Ensaladas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "53",
             "ArcSectionId": "/guarniciones",
             "name": "Guarniciones",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "54",
             "ArcSectionId": "/vegetarianas",
             "name": "Vegetarianas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "55",
             "ArcSectionId": "/celiacos-sin-gluten",
             "name": "Celíacos sin gluten",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "56",
             "ArcSectionId": "/veganas",
             "name": "Veganas",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "60",
@@ -995,7 +1000,7 @@
             "_id": "504",
             "ArcSectionId": "/revista-lugares/tapas",
             "name": "Tapas Lugares",
-            "migrada": true
+            "migrada": false
         },
         {
             "_id": "173",
