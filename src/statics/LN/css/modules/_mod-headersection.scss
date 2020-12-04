@@ -3,4 +3,24 @@
 
 .mod-headersection {
     display: flex;
+    flex-direction: column;
+    margin-bottom: $spacing-sm;
+    &.--propiedades {
+        background: $propiedades;
+    }
+    &.--bbc {
+        background: $bbc;
+    }
+    &.--lifestyle {
+        background: $lifestyle;
+    }
+    &.--espectaculos {
+        background: $espectaculos;
+    }
+    &.--propiedades,
+    &.--bbc,
+    &.--lifestyle,
+    &.--espectaculos {
+        padding: $spacing-sm;
+    }
 }
