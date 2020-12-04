@@ -163,6 +163,14 @@
         &.--tooltip {
             position: relative;
         }
+        .--info & {
+            .mod-wikiauthor & {
+                .acumulado & {
+                    margin-bottom: $spacing-sm;
+                    display: flex;
+                }
+            }
+        }
     }
 }
 

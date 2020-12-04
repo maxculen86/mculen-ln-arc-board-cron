@@ -14,7 +14,6 @@ import '../../../../../resources/dist/css/ln/components/link.css';
 import ComTitle from '../../../common/com-title';
 import ComContainer from '../../../common/com-container';
 import ComText from '../../../common/com-text';
-import ComParagraph from '../../../common/com-paragraph';
 import ModDescriptionList from '../../../common/mod-descriptionList';
 import ListSocialIcons from '../../../common/list-socialicons';
 import ImageAuthor from './imageAuthor';
@@ -72,9 +71,9 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                                 />
                             )}
                         </ComContainer>
-                        <ComParagraph size="--threexs" content={longBio} />
+                        <ComText size="--threexs" textname={longBio} />
                         {education.length > 0 && (
-                            <ComContainer>
+                            <ComContainer classCondition="--educacion">
                                 <ModDescriptionList
                                     bullet
                                     sizeBullet="--xs"
@@ -85,7 +84,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             </ComContainer>
                         )}
                         {awards.length > 0 && (
-                            <ComContainer>
+                            <ComContainer classCondition="--reconocimientos">
                                 <ModDescriptionList
                                     descriptionTitle="Reconocimientos"
                                     size="--threexs"

@@ -9,19 +9,17 @@
     }
     .com-li:first-child & {
         .mod-wikiauthor & {
-            display: none;
+            visibility: hidden;
         }
     }
-    .--info & {
-        .mod-wikiauthor & {
-            padding: 0;
-        }
+    .mod-wikiauthor & {
+        padding: 0;
     }
 
     .com-icon {
         .com-container.--info & {
             .mod-wikiauthor & {
-                color: $gris4;
+                color: $gris5;
             }
         }
     }
@@ -30,7 +28,16 @@
             display: none;
         }
     }
-    .com-link & {
-        display: none;
+    // .com-link & { Se saca porque le esta pegando a todo (ALE)
+    //     display: none;
+    // }
+}
+@media ($media-l) {
+    .com-bullet {
+        .com-li:first-child & {
+            .mod-wikiauthor & {
+                display: none;
+            }
+        }
     }
 }

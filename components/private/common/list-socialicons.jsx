@@ -14,7 +14,6 @@ const list = [
     'linkedin',
     'rss',
     'medium',
-    'reddit',
     'pinterest',
     'soundcloud',
     'snapchat',

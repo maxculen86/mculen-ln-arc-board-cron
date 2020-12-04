@@ -8,6 +8,11 @@
     .com-itemlist {
         @include flex(flex, row, start, center);
         margin-bottom: $spacing-xs;
+        flex-wrap: wrap;
+        .--educacion &,
+        .--reconocimientos & {
+            flex-wrap: nowrap;
+        }
     }
 }
 @media ($media-l) {
