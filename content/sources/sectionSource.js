@@ -163,5 +163,5 @@ export default {
         id: 'text',
         website: 'text'
     },
-    ttl: 900
+    ttl: 300
 };
