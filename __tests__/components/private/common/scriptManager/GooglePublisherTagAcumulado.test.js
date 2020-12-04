@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import GooglePublisherTagAcumulado from '../../../../../components/private/common/scriptManager/googlePublisherTagAcumulado';
 
 describe('GooglePublisherTagAcumulado', () => {
@@ -73,5 +73,14 @@ describe('GooglePublisherTagAcumulado', () => {
         expect(component.find('script')).toHaveLength(1);
         expect(component.html()).toMatch('ca_deportes');
         expect(component.html()).toMatch('ca_futbol');
+    });
+
+    const content3 = {
+        globalContent: {}
+    };
+
+    it('Builds the json object without ancestors', () => {
+        const component = render(<GooglePublisherTagAcumulado {...content3} />);
+        expect(component).toBeDefined();
     });
 });

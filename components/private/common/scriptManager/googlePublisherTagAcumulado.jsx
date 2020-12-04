@@ -15,12 +15,11 @@ const formatExpression = text => {
 };
 
 const getCategories = (name, parent, ancestors) => {
-    const { default: defaultParent } = parent;
+    const { default: defaultParent } = parent || {};
     const { default: defaultAncestors } = ancestors || {};
-    const actualCategory = [formatExpression(name)];
-    const parentCategory = defaultParent !== '/' && [
-        formatExpression(defaultParent)
-    ];
+    const actualCategory = name ? [formatExpression(name)] : [];
+    const parentCategory = defaultParent &&
+        defaultParent !== '/' && [formatExpression(defaultParent)];
     const ancestorsCategorys =
         defaultAncestors &&
         defaultAncestors.length > 1 &&
