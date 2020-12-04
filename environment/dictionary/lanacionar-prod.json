@@ -100,7 +100,7 @@
 			"_id": "1",
 			"ArcSectionId": "/cultura",
 			"name": "Cultura",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "62",
@@ -136,7 +136,7 @@
 			"_id": "1312",
 			"ArcSectionId": "/moda-y-belleza",
 			"name": "Moda y Belleza",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "70",
@@ -214,7 +214,7 @@
 			"_id": "371",
 			"ArcSectionId": "/autos/al-volante",
 			"name": "Al Volante",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "127",
@@ -238,7 +238,7 @@
 			"_id": "504",
 			"ArcSectionId": "/turismo",
 			"name": "Turismo",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "129",
@@ -304,7 +304,7 @@
 			"_id": "492",
 			"ArcSectionId": "/moda-y-belleza/moda",
 			"name": "Moda",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "63",
@@ -358,7 +358,7 @@
 			"_id": "504",
 			"ArcSectionId": "/revista-lugares",
 			"name": "Revista Lugares",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "156",
@@ -442,13 +442,13 @@
 			"_id": "8012",
 			"ArcSectionId": "/turismo/viajes",
 			"name": "Viajes",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "8013",
 			"ArcSectionId": "/autos",
 			"name": "Autos",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "126",
@@ -1000,7 +1000,7 @@
 			"_id": "504",
 			"ArcSectionId": "/revista-lugares/tapas",
 			"name": "Tapas Lugares",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "173",
