@@ -50,8 +50,8 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             https://google.com
           </a>
         </div>
-        <p
-          class="com-paragraph   --threexs"
+        <span
+          class="com-text --threexs "
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
@@ -71,9 +71,9 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 vicepresidente Chacho Alvarez, sobre la trama secreta de los
                 sobornos en el Senado, las causas de su renuncia y los
                 errores que condujeron al fracaso de la Alianza.
-        </p>
+        </span>
         <div
-          class="com-container  "
+          class="com-container  --educacion"
         >
           <dl
             class="mod-descriptionlist "
@@ -110,7 +110,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           </dl>
         </div>
         <div
-          class="com-container  "
+          class="com-container  --reconocimientos"
         >
           <dl
             class="mod-descriptionlist "
@@ -459,31 +459,6 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-reddit --xl  "
-              />
-              <span
-                class="com-text --threexs "
-              >
-                reddit
-              </span>
-            </a>
-          </li>
-          <li
-            class="com-li  "
-          >
-            <a
-              class="com-link --sociallist"
-              href="@moralessola"
-            >
-              <div
-                class="com-bullet"
-              >
-                <i
-                  class="com-icon bullet icon-bullet  --xs "
-                  style="color:#cccccc"
-                />
-              </div>
-              <i
                 class="com-icon icon-pinterest --xl  "
               />
               <span
@@ -631,15 +606,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             https://google.com
           </a>
         </div>
-        <p
-          class="com-paragraph   --threexs"
+        <span
+          class="com-text --threexs "
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
                 ser prosecretario de la sección Política. Durante 12 años
                 fue segundo jefe de Redacción y autor de la columna política
                 dominical de ese diario.
-        </p>
+        </span>
         <div
           class="com-container  "
         >
