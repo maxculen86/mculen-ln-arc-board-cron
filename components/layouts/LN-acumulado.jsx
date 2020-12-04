@@ -16,9 +16,6 @@ import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
-import getArticlesFromCollection from '../private/common/utils/getArticlesFromCollection';
-
-// import withCollections from '../private/LN/acumulado/hocs/withCollections';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -51,7 +48,7 @@ const LNAcumuladoLayout = props => {
         tree,
         isAdmin
     } = props;
-    const { style } = globalContent;
+    const { style, articlesInCollection = [] } = globalContent;
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =
@@ -60,20 +57,13 @@ const LNAcumuladoLayout = props => {
             : '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
-    const { id_collection_promo_items: idCollection } = acumuladoGeneral;
     const {
         background_color: backgroundCategory,
         navigation_color_tags: colorTags,
         header_class_name: headerDark
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
-    const megatop =
-        tree && getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
-    const articlesInCollection = getArticlesFromCollection(
-        idCollection,
-        2,
-        'l'
-    );
+    const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
 
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
@@ -154,15 +144,13 @@ LNAcumuladoLayout.propTypes = {
             navigation_color: PropTypes.string,
             navigation_color_tags: PropTypes.string,
             id_logo_image: PropTypes.string
-        })
-    })
-};
-
-LNAcumuladoLayout.defaultProps = {
-    outputType: 'default',
-    tree: undefined,
-    isAdmin: false,
-    globalContent: {}
+        }),
+        articlesInCollection: PropTypes.arrayOf(
+            PropTypes.shape({
+                _id: PropTypes.string
+            })
+        ).isRequired
+    }).isRequired
 };
 
 LNAcumuladoLayout.sections = pageBuilderSections;

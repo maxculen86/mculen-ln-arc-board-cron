@@ -10,6 +10,7 @@
     font-weight: 700;
     border-radius: px(4);
     outline: none;
+    white-space: nowrap;
     //max-width: px(360);
     border: 1px solid transparent;
     cursor: pointer;
@@ -182,8 +183,8 @@
         background: $negro;
         border-radius: 0;
 
-        &.icon-left,
-        &.icon-right {
+        &.icon-arrow-left,
+        &.icon-arrow-right {
             display: block;
             padding: 0;
             cursor: pointer;
@@ -218,13 +219,13 @@
                 top: px(215);
             }
         }
-        &.icon-left {
+        &.icon-arrow-left {
             left: px(-16);
             @media ($media-m) {
                 left: 0;
             }
         }
-        &.icon-right {
+        &.icon-arrow-right {
             right: px(-16);
             @media ($media-m) {
                 right: 0;
@@ -232,14 +233,14 @@
         }
     }
     .--slider.--active & {
-        &.icon-left,
-        &.icon-right {
+        &.icon-arrow-left,
+        &.icon-arrow-right {
             top: 45%;
         }
-        &.icon-left {
+        &.icon-arrow-left {
             left: 0;
         }
-        &.icon-right {
+        &.icon-arrow-right {
             right: 0;
         }
     }

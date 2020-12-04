@@ -47,6 +47,9 @@
         }
         .mod-banner {
             margin-bottom: $spacing-lg;
+            &.--adhesion_dsk {
+                margin-bottom: 0;
+            }
         }
     }
     .sidebar__main > .row {
@@ -178,7 +181,7 @@
             @media ($media-l) {
                 flex-direction: row;
                 align-items: flex-end;
-                padding-bottom: $spacing-lg;
+                padding-bottom: $spacing-sm;
 
                 .com-title {
                     margin-bottom: 0;

@@ -74,7 +74,7 @@ amp-sidebar {
                     font-weight: bold;
                     font-size: 16px;
 
-                    &.icon-right:before {
+                    &.icon-arrow-right:before {
                         top: calc(50% - 10px);
                         font-family: 'LNicons';
                         font-size: 20px;
@@ -82,7 +82,7 @@ amp-sidebar {
                         position: absolute;
                         right: 15px;
                     }
-                    &.icon-right[aria-expanded='true'] {
+                    &.icon-arrow-right[aria-expanded='true'] {
                         background-color: #f2f2f2;
                         text-decoration: underline;
 

@@ -13,7 +13,7 @@ import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
 import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
-import ScriptCustomLoader from '../private/common/scriptManager/ScriptCustomLoader';
+import ScriptLoadingList from '../private/common/scriptManager/scriptLoadingList';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
@@ -83,10 +83,6 @@ const scriptList = [
     {
         component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
         feature: 'none'
-    },
-    {
-        component: { name: 'ScriptCustomLoader', function: ScriptCustomLoader },
-        feature: ['LN-common/ScriptLoader']
     }
 ];
 
@@ -180,6 +176,7 @@ const Default = props => {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
+                <ScriptLoadingList location="head" arcSite={arcSite} />
                 {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
                 {/* {subtype === '7' && <MetaTags />} */}
                 <MetasOG {...props} />
@@ -248,9 +245,12 @@ const Default = props => {
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
+                <ScriptLoadingList location="body-top" arcSite={arcSite} />
+
                 <div id="fusion-app">{children}</div>
                 <Fusion />
                 <Scripts location="body-bottom" />
+                <ScriptLoadingList location="body-bottom" arcSite={arcSite} />
                 <ScriptLogoBBC distributorName={distributorName} />
             </body>
         </html>

@@ -220,7 +220,7 @@ const Cuerpo = props => {
                                     }
 
                                     if (sponsored && advertiser)
-                                        configBuilder.current.setCustomAdUnit(
+                                        configBuilder.setCustomAdUnit(
                                             'ContentLab'
                                         );
 

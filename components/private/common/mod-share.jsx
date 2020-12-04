@@ -13,9 +13,12 @@ const ModShare = props => {
         >
             <ComIcon
                 link="https://www.facebook.com/lanacion"
-                iconName="facebook"
+                iconName="facebook-filled"
             />
-            <ComIcon link="https://twitter.com/LANACION" iconName="twitter" />
+            <ComIcon
+                link="https://twitter.com/LANACION"
+                iconName="twitter-filled"
+            />
             <ComIcon
                 link="https://www.instagram.com/lanacioncom/"
                 iconName="instagram"

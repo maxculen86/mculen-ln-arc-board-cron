@@ -63,7 +63,10 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0].parametros[0].firma).toBe(
             'll9UIKBF1TEj9aV7Fvgnp39l3KM=/1260x840/smart'
         );
+        expect(resp.imagenes[0].parametros[1].firma).toBe('');
         expect(resp.imagenes[0].epigrafe).toBe(imageData.caption);
+
+        console.log(resp.imagenes[0].parametros[1].firma);
     });
 
     it('Render de imagenes de Story Telling apertura', () => {
@@ -75,8 +78,8 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0].baseUrl).toBe(
             '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SITTWPHGIZHMRNZH3DBQINBEXA.jpg'
         );
-        expect(resp.imagenes[0].parametros[0].ancho).toBe(878);
-        expect(resp.imagenes[0].parametros[0].firma).toBe(
+        expect(resp.imagenes[0].parametros[1].ancho).toBe(878);
+        expect(resp.imagenes[0].parametros[1].firma).toBe(
             'g6OS3FXUAFmIOTNg2qOQSqWv5Uo=/0x878/filters:quality(70)'
         );
         expect(resp.imagenes[0].epigrafe).toBeUndefined();

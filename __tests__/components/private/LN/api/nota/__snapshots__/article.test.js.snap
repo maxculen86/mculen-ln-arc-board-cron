@@ -96,16 +96,16 @@ Object {
         "id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
         "parametros": Array [
           Object {
-            "ancho": 560,
-            "firma": "CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart",
+            "ancho": 768,
+            "firma": "kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513/smart",
           },
           Object {
             "ancho": 690,
             "firma": "QDGXzjfRLeFMhMDt00OIpSOM-eQ=/690x465/smart",
           },
           Object {
-            "ancho": 768,
-            "firma": "kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513/smart",
+            "ancho": 560,
+            "firma": "CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart",
           },
           Object {
             "ancho": 350,

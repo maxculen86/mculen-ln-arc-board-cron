@@ -15,6 +15,7 @@ import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
 
 import analytics from '../../resources/json/analytics.json';
+import dataLayerIndexAmp from '../private/common/dataLayerIndexAmp';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -75,6 +76,7 @@ const Amp = props => {
     );
 
     const metaTitleValue = metaValue('title') || title || 'LA NACION';
+    const dataLayerAmp = dataLayerIndexAmp(arcSite, layout, globalContent);
 
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
@@ -151,15 +153,17 @@ const Amp = props => {
             </head>
             <body>
                 <amp-analytics
-                    config={`https://www.googletagmanager.com/amp.json?id=${idAMP}&gtm.url=SOURCE_URL`}
+                    config={`https://www.googletagmanager.com/amp.json?id=${idAMP}`}
                     data-credentials="include"
                 >
-                    <script
-                        type="application/json"
-                        dangerouslySetInnerHTML={{
-                            __html: JSON.stringify(analytics, null, null)
-                        }}
-                    />
+                    {dataLayerAmp && (
+                        <script
+                            type="application/json"
+                            dangerouslySetInnerHTML={{
+                                __html: dataLayerAmp
+                            }}
+                        />
+                    )}
                 </amp-analytics>
                 {children}
             </body>

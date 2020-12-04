@@ -4,6 +4,9 @@
 .com-bullet {
     @include flex(inline, row, center, center);
     padding: $spacing-xs;
+    .com-icon {
+        color: $gris3;
+    }
     .com-li:first-child & {
         .mod-wikiauthor & {
             display: none;

@@ -11,7 +11,7 @@
         &::before {
             //@extend .icon-zoom;
             font-family: 'LNicons';
-            content: '\e928';
+            content: $icon-zoom;
             color: $blanco;
             background: rgba(0, 0, 0, 0.7);
             font-size: px(24);
@@ -64,7 +64,7 @@
             }
         }
         &::before {
-            content: '\e902';
+            content: $icon-close;
             display: flex;
             position: fixed;
             right: px(8);

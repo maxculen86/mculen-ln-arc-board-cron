@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../../../resources/dist/css/ln/modules/mod-keepreading.css';
-import ComTitle from '../../../common/com-title';
+//import ComTitle from '../../../common/com-title';
+import ComLink from '../../../common/com-link';
 
 const getContent = element => {
     const span =
@@ -18,24 +19,30 @@ const getContent = element => {
 
 const Index = ({ relatedContent = [] }) => {
     return (
-        <div className="mod-keepreading">
+        <ul className="mod-keepreading">
             {relatedContent.map((element, index) => {
                 if (!element) return null;
                 const content = getContent(element);
                 return (
-                    <article data-pos={`toi${index + 1}`} data-id="1">
-                        <ComTitle
+                    <li data-pos={`toi${index + 1}`} data-id="1">
+                        {/* <ComTitle
                             tag="h2"
                             content={content}
                             link={element.website_url || element.canonical_url}
                             size="--threexs"
                         >
                             {element.headlines ? element.headlines.basic : ''}
-                        </ComTitle>
-                    </article>
+                        </ComTitle> */}
+                        <ComLink
+                            link={element.website_url || element.canonical_url}
+                            size="--threexs"
+                        >
+                            {content}
+                        </ComLink>
+                    </li>
                 );
             })}
-        </div>
+        </ul>
     );
 };
 

@@ -10,6 +10,10 @@
         font-weight: 700;
     }
 
+    &.icon-bullet {
+        color: $gris3;
+    }
+
     .footer .--share & {
         display: inline-flex;
         color: $negro;
