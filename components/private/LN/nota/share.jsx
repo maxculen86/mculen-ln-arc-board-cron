@@ -55,14 +55,14 @@ const Share = props => {
                 <div className="container --left">
                     <ComButton
                         size="l"
-                        iconName="facebook"
+                        iconName="facebook-filled"
                         onClick={() =>
                             popUpCompartirNotaFB(requestUri, config.host, title)
                         }
                     />
                     <ComButton
                         size="l"
-                        iconName="twitter"
+                        iconName="twitter-filled"
                         onClick={() =>
                             popUpCompartirNotaTW(
                                 requestUri,
@@ -72,7 +72,7 @@ const Share = props => {
                         }
                     />
                     <ComButton
-                        iconName="whatsapp"
+                        iconName="whatsapp-filled"
                         id="whatsAppShareDesktop"
                         size="l"
                         onClick={() =>
@@ -86,7 +86,7 @@ const Share = props => {
                 <div className="container --right">
                     <ComButton
                         size="l"
-                        iconName="mail"
+                        iconName="email"
                         onClick={() =>
                             popUpCompartirMailTo(requestUri, config.host)
                         }

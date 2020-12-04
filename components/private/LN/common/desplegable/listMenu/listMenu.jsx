@@ -86,7 +86,7 @@ const ListMenu = ({
                     className="button__item"
                     onClick={() => showMenu(dispatch)(elRef)}
                 >
-                    <i className="icon-down" />
+                    <i className="icon-arrow-down" />
                 </button>
             )}
             {getChilds(childs, onResizeDeskTop)}

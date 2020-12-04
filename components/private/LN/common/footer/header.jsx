@@ -13,10 +13,10 @@ const header = ({ host }) => (
         </section>
         <section className="col-12 col-desksm-4 col-desk-3 footer-header__redes --shared">
             <ComLink link="https://www.facebook.com/lanacion" target="_blank">
-                <ComIcon iconName="facebook" />
+                <ComIcon iconName="facebook-filled" />
             </ComLink>
             <ComLink link="https://www.twitter.com/lanacion" target="_blank">
-                <ComIcon iconName="twitter" />
+                <ComIcon iconName="twitter-filled" />
             </ComLink>
             <ComLink link="https://www.instagram.com/lanacion" target="_blank">
                 <ComIcon iconName="instagram" />

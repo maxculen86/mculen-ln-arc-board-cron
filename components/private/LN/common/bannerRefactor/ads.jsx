@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import PropTypes from 'fusion:prop-types';
 import useMutationObserver from '../../../common/hooks/useMutationObserver';
 import hasAdsTestParam from '../utils/hasAdsTesParam';
+import { ADHESION_DSK } from './factory/constants/index';
 
 import ArcAdLib from './arcAdLib';
 
@@ -38,7 +39,21 @@ const Ads = props => {
             mutations.forEach(mutation => {
                 const nodes = mutation.addedNodes;
                 nodes.forEach(node => {
-                    if (node.localName === 'iframe') {
+                    const {
+                        nodeId,
+                        style: { width },
+                        localName
+                    } = node;
+
+                    const nodeDimension =
+                        width && parseInt(width.replace('px', ''), 10);
+
+                    if (nodeId === ADHESION_DSK && nodeDimension === 728)
+                        document
+                            .querySelector(`#${id}`)
+                            .parentNode.classList.add('--small');
+
+                    if (localName === 'iframe') {
                         document
                             .querySelector(`#${id}`)
                             .parentNode.classList.remove('hlp-none');

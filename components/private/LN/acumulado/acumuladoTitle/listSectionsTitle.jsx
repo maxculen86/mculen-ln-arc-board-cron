@@ -64,7 +64,7 @@ const ListSectionsTitle = ({
                 className={`arrow left-paddle${showBtnScrollLeft}`}
                 onMouseDown={() => moveScroll('left')}
             >
-                <i className="icon-left" />
+                <i className="icon-arrow-left" />
             </button>
             <ol className="com-category" ref={categoryEl}>
                 {_children.map(({ _id, navigation, _website, name }) => (
@@ -85,7 +85,7 @@ const ListSectionsTitle = ({
                 className={`arrow right-paddle${showBtnScrollRight}`}
                 onMouseDown={() => moveScroll('right')}
             >
-                <i className="icon-right" />
+                <i className="icon-arrow-right" />
             </button>
         </>
     ) : null;

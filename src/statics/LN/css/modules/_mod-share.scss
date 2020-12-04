@@ -61,19 +61,19 @@
         }
 
         &[type='facebook']:before {
-            content: '\e908';
+            content: $icon-facebook-filled;
         }
         &[type='twitter']:before {
-            content: '\e922';
+            content: $icon-twitter-filled;
         }
         &[type='whatsapp']:before {
-            content: '\e926';
+            content: $icon-whatsapp-filled;
         }
 
         &[type='email'] {
             margin-right: 0;
             &:before {
-                content: '\e907';
+                content: $icon-email;
             }
         }
     }
