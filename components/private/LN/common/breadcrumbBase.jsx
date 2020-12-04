@@ -26,7 +26,7 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                             color: colorCategory,
                             borderLeftColor: colorCategory
                         }}
-                        className="com-icon bullet icon-bullet --xs"
+                        className="com-icon bullet icon-bullet --fivexs"
                     />
                 </div>
                 {section.name}
@@ -82,7 +82,7 @@ const BreadcrumbBase = props => {
                             color: colorCategory,
                             borderLeftColor: colorCategory
                         }}
-                        className="com-icon bullet icon-bullet --xs"
+                        className="com-icon bullet icon-bullet --fivexs"
                     />
                 </div>
                 {lastSection.name}
@@ -108,7 +108,7 @@ const BreadcrumbBase = props => {
                                 color: colorCategory,
                                 borderLeftColor: colorCategory
                             }}
-                            className="com-icon bullet icon-bullet --xs"
+                            className="com-icon bullet icon-bullet --fivexs"
                         />
                     </div>
                     {tooltip.text}

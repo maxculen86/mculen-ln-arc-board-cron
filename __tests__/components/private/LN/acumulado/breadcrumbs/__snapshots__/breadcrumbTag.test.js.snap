@@ -16,7 +16,7 @@ Array [
         class="com-bullet"
       >
         <i
-          class="com-icon bullet icon-bullet --xs"
+          class="com-icon bullet icon-bullet --fivexs"
           style="color:;border-left-color:"
         />
       </div>
@@ -30,7 +30,7 @@ Array [
         class="com-bullet"
       >
         <i
-          class="com-icon bullet icon-bullet --xs"
+          class="com-icon bullet icon-bullet --fivexs"
           style="color:;border-left-color:"
         />
       </div>
