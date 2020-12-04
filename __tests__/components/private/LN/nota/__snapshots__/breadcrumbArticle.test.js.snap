@@ -6,7 +6,7 @@ Array [
     class="com-breadcrumb "
   >
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="//"
       style="color:;border-left-color:"
     >
@@ -21,7 +21,7 @@ Array [
       LA NACION
     </a>
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="/recetas/"
       style="color:;border-left-color:"
     >
@@ -36,7 +36,7 @@ Array [
       Recetas
     </a>
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/"
       style="color:;border-left-color:"
     >
@@ -51,7 +51,7 @@ Array [
       Recetas con ingredientes
     </a>
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/pollo/"
       style="color:;border-left-color:"
     >
