@@ -99,7 +99,7 @@
         padding-top: calc((4 / 3) * 100%);
     }
     @media ($media-m) {
-        .--zoom.--active & {
+        .--zoom.--active:not(.--slider) & {
             .mod-picture {
                 padding-top: initial;
             }
