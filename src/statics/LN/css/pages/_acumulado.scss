@@ -450,6 +450,16 @@
             display: inline-flex;
         }
     }
+    &.--category,
+    &.--tags {
+        li {
+            .com-link {
+                &:first-letter {
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
     &.--category {
         margin-bottom: $spacing;
         @media ($media-l) {

@@ -4,10 +4,10 @@ import dateAndTimeUtil from '../common/utils/dateAndTimeUtil';
 
 import '../../../resources/dist/css/ln/components/com-date.css';
 
-const ComDate = ({ display_date }) => {
+const ComDate = ({ display_date, size }) => {
     const { date } = dateAndTimeUtil(display_date);
     return (
-        <time className="com-date --fivexs" dateTime={`${date}`}>
+        <time className={`com-date ${size || '--fourxs'}`} dateTime={`${date}`}>
             {date}
         </time>
     );
