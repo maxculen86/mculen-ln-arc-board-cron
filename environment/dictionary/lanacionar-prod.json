@@ -226,7 +226,7 @@
 			"_id": "432",
 			"ArcSectionId": "/tecnologia",
 			"name": "Tecnología",
-			"migrada": false
+			"migrada": true
 		},
 		{
 			"_id": "142",
