@@ -14,7 +14,7 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 : section.path;
         return (
             <a
-                className="com-link --threexs"
+                className="com-link --fourxs"
                 key={path}
                 href={`${path}/`}
                 {...extraOpts}
@@ -26,7 +26,7 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                             color: colorCategory,
                             borderLeftColor: colorCategory
                         }}
-                        className="com-icon bullet icon-bullet --xs"
+                        className="com-icon bullet icon-bullet --fivexs"
                     />
                 </div>
                 {section.name}
@@ -68,7 +68,7 @@ const BreadcrumbBase = props => {
         )[0];
         listSections.push(
             <span
-                className="com-text --threexs"
+                className="com-text --fourxs"
                 key={lastSection.path}
                 style={{
                     color: colorCategory,
@@ -82,7 +82,7 @@ const BreadcrumbBase = props => {
                             color: colorCategory,
                             borderLeftColor: colorCategory
                         }}
-                        className="com-icon bullet icon-bullet --xs"
+                        className="com-icon bullet icon-bullet --fivexs"
                     />
                 </div>
                 {lastSection.name}
@@ -101,14 +101,14 @@ const BreadcrumbBase = props => {
             {listSections}
             {/* Último item */}
             {tooltip && (
-                <span className="com-text --threexs --tooltip">
+                <span className="com-text --fourxs --tooltip">
                     <div className="com-bullet">
                         <i
                             style={{
                                 color: colorCategory,
                                 borderLeftColor: colorCategory
                             }}
-                            className="com-icon bullet icon-bullet --xs"
+                            className="com-icon bullet icon-bullet --fivexs"
                         />
                     </div>
                     {tooltip.text}

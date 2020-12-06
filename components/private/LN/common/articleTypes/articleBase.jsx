@@ -29,7 +29,8 @@ const ArticleBase = ({
     }
     return (
         <article
-            className={`mod-caja-nota ${borderClass} ${extraClasses || ''}`}
+            //className={`mod-caja-nota ${borderClass} ${extraClasses || ''}`}
+            className={`mod-caja-nota ${extraClasses || ''}`}
             {...extraOpts}
         >
             {hourComponent}

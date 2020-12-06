@@ -6,7 +6,7 @@ Array [
     class="com-breadcrumb "
   >
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="//"
       style="color:;border-left-color:"
     >
@@ -14,14 +14,14 @@ Array [
         class="com-bullet"
       >
         <i
-          class="com-icon bullet icon-bullet --xs"
+          class="com-icon bullet icon-bullet --fivexs"
           style="color:;border-left-color:"
         />
       </div>
       LA NACION
     </a>
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="/recetas/"
       style="color:;border-left-color:"
     >
@@ -29,14 +29,14 @@ Array [
         class="com-bullet"
       >
         <i
-          class="com-icon bullet icon-bullet --xs"
+          class="com-icon bullet icon-bullet --fivexs"
           style="color:;border-left-color:"
         />
       </div>
       Recetas
     </a>
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/"
       style="color:;border-left-color:"
     >
@@ -44,14 +44,14 @@ Array [
         class="com-bullet"
       >
         <i
-          class="com-icon bullet icon-bullet --xs"
+          class="com-icon bullet icon-bullet --fivexs"
           style="color:;border-left-color:"
         />
       </div>
       Recetas con ingredientes
     </a>
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/pollo/"
       style="color:;border-left-color:"
     >
@@ -59,7 +59,7 @@ Array [
         class="com-bullet"
       >
         <i
-          class="com-icon bullet icon-bullet --xs"
+          class="com-icon bullet icon-bullet --fivexs"
           style="color:;border-left-color:"
         />
       </div>
