@@ -10,6 +10,10 @@ const section = `
     parent_id
     additional_properties {
         original {
+            migration {
+                id_section_ln9
+                migrated_mob
+            }
             ancestors {
                 default
             }
@@ -216,7 +220,6 @@ const sectionSites = `{
         }
     }
 }`;
-
 
 export default `
 {

@@ -87,7 +87,7 @@ class AcuSection {
         const indexAcu = this.versions[
             browser.getApiVersion(this.props.requestUri)
         ];
-        console.log(this.props.globalContent);
+
         if (!acuArticlesSource || !acuArticlesSource.content_elements)
             return null;
 
@@ -99,7 +99,7 @@ class AcuSection {
                 code: 202
             };
         }
-       
+
         const acuData = {
             name,
             articles: acuArticlesSource.content_elements,
