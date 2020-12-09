@@ -51,8 +51,8 @@ const dataLayerScriptNotaAmp = globalContent => {
                 mySubtype.nombre &&
                 mySubtype.nombre.toLowerCase()) ||
                 ''}",
-            "valor": "${valor}",
-            "nota_id": "${_id}",
+            "articleValue": "${valor}",
+            "articleID": "${_id}",
             "articleSection": "${name || ''}",
             "articlePublicationDate": "${new Date(
                 firstPublishDate
@@ -60,7 +60,7 @@ const dataLayerScriptNotaAmp = globalContent => {
             "articleAuthor": "${authors}",
             "articleTags": "${keywords}",
             "articleTitle": "${title}",
-            "articleLastUpdate": "${new Date(displayDate).toUTCString() || ""}",
+            "articleLastUpdate": "${new Date(displayDate).toUTCString() || ''}",
             "credentialType": "N/A",
             "payUser": "no",
             "userRegistered": "no",
