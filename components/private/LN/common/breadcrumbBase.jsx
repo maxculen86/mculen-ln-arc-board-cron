@@ -14,7 +14,7 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 : section.path;
         return (
             <a
-                className="com-link --threexs"
+                className="com-link --fourxs"
                 key={path}
                 href={`${path}/`}
                 {...extraOpts}
@@ -68,7 +68,7 @@ const BreadcrumbBase = props => {
         )[0];
         listSections.push(
             <span
-                className="com-text --threexs"
+                className="com-text --fourxs"
                 key={lastSection.path}
                 style={{
                     color: colorCategory,

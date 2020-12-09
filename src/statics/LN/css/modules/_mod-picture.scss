@@ -98,11 +98,11 @@
     .mod-picture {
         padding-top: calc((4 / 3) * 100%);
     }
-    // @media ($media-m) {
-    //     .--active & {
-    //         .mod-picture {
-    //             padding-top: initial;
-    //         }
-    //     }
-    // }
+    @media ($media-m) {
+        .--zoom.--active:not(.--slider) & {
+            .mod-picture {
+                padding-top: initial;
+            }
+        }
+    }
 }

@@ -18,7 +18,10 @@ const header = ({ host }) => (
             <ComLink link="https://www.twitter.com/lanacion" target="_blank">
                 <ComIcon iconName="twitter-filled" />
             </ComLink>
-            <ComLink link="https://www.instagram.com/lanacion" target="_blank">
+            <ComLink
+                link="https://www.instagram.com/lanacioncom"
+                target="_blank"
+            >
                 <ComIcon iconName="instagram" />
             </ComLink>
             <ComLink
