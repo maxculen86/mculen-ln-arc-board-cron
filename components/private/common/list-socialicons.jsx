@@ -36,7 +36,7 @@ const ListSocialIcons = props => {
                     <ComIco
                         sizeText={size}
                         sizeIcon={sizeIcon}
-                        iconName={item}
+                        iconName={`${item}-filled`}
                         textname={item}
                     />
                 </ComLink>

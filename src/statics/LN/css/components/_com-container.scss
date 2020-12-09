@@ -24,27 +24,21 @@
         margin-bottom: $spacing-lg;
     }
     &.--socialicons {
-        @include flex(flex, row, center, center);
+        @include flex(flex, row, center, start);
         .mod-wikiauthor & {
             padding: $spacing-lg 0 $spacing-lg 0;
             border-top: 1px solid $gris3;
             border-bottom: 1px solid $gris3;
-            @include flex(flex, column, center, start);
-        }
-    }
-}
-
-@media ($media-l) {
-    .com-container {
-        &.--socialicons {
-            .mod-wikiauthor & {
-                @include flex(flex, row, center, center);
-            }
         }
     }
 }
 @media ($media-l) {
     .com-container {
+        // &.--socialicons {
+        //     .mod-wikiauthor & {
+        //         @include flex(flex, row, center, start);
+        //     }
+        // }
         .mod-sponsor & {
             left: calc(20% - 120px);
             top: calc(100% + 20px);

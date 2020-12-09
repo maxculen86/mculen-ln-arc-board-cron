@@ -18,6 +18,7 @@ import ModDescriptionList from '../../../common/mod-descriptionList';
 import ListSocialIcons from '../../../common/list-socialicons';
 import ImageAuthor from './imageAuthor';
 import ComLink from '../../../common/com-link';
+import ComSubtitle from '../../../common/com-subtitle';
 // import ModWikiAuthor from '../../../common/mod-wikiAuthor';
 //import '../../../../../resources/dist/css/ln/base/helpers.css';
 
@@ -124,7 +125,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                         {podcasts.length > 0 && (
                             <ComContainer>
                                 <ModDescriptionList
-                                    descriptionTitle="Podscat"
+                                    descriptionTitle="Podcast"
                                     size="--threexs"
                                     list={podcasts}
                                 />
@@ -133,20 +134,20 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                     </ComContainer>
                 </div>
                 <div className="col-12">
-                    <ComContainer classCondition="--socialicons">
-                        <ComTitle
-                            tag="h4"
-                            content="Conectar"
-                            size="--threexs"
-                        />
-                        <ListSocialIcons
-                            sizeIcon="--xl"
-                            sizeBullet="--xs"
-                            data={data}
-                            size="--threexs"
-                            vertical=""
-                        />
-                    </ComContainer>
+                    {data ? (
+                        <ComContainer classCondition="--socialicons">
+                            <ComSubtitle children="Conectar" size="--threexs" />
+                            <ListSocialIcons
+                                sizeIcon="--l"
+                                sizeBullet="--xs"
+                                data={data}
+                                size="--threexs"
+                                vertical=""
+                            />
+                        </ComContainer>
+                    ) : (
+                        ''
+                    )}
                 </div>
             </div>
         </section>
