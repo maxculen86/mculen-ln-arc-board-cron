@@ -71,15 +71,23 @@ function getBannerForStoryTemplate(config) {
         case ADHESION_TAB:
         case ADHESION_MOB:
             // Meterle comportamiento viejo de adhesion, va para los dos tab y mob
-            return createElement(withBondingToBottomMobile(Default), {
-                ...config,
-                closeButton: true
-            });
+            return createElement(
+                withNonSubscribersConstraint(
+                    withBondingToBottomMobile(Default)
+                ),
+                {
+                    ...config,
+                    closeButton: true
+                }
+            );
         case ADHESION_DSK:
-            return createElement(withBondingToBottom(Default), {
-                ...config,
-                closeButton: true
-            });
+            return createElement(
+                withNonSubscribersConstraint(withBondingToBottom(Default)),
+                {
+                    ...config,
+                    closeButton: true
+                }
+            );
         case MEGATOP_MOB:
         case MEGATOP_DSK:
             return <Megatop {...config} />;
@@ -158,10 +166,15 @@ function getBannerForAccumTemplate(config) {
             return <Megatop {...config} />;
         case ADHESION_DSK:
         case ADHESION_MOB:
-            return createElement(withBondingToBottomMobile(Default), {
-                ...config,
-                closeButton: true
-            });
+            return createElement(
+                withNonSubscribersConstraint(
+                    withBondingToBottomMobile(Default)
+                ),
+                {
+                    ...config,
+                    closeButton: true
+                }
+            );
         case CABEZAL_DSK:
         case CABEZAL_TAB:
         case CAJA_1_DSK:

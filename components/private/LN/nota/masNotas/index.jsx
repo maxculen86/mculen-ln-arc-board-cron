@@ -77,7 +77,7 @@ const index = props => {
 
 index.filterTypes = {
     0: 'Ultimas Noticias',
-    1: 'Por Seccion'
+    1: 'Por Sección'
 };
 
 export default index;

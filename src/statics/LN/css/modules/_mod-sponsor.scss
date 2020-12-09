@@ -10,61 +10,69 @@
         display: flex;
         margin: 0;
         font-size: px(18);
-        &::after {
-            content: '●';
-            font-size: px(16);
-            margin: px(-1) px(8) 0;
-        }
+        // &::after {
+        //     content: '●';
+        //     font-size: px(16);
+        //     margin: px(-1) px(8) 0;
+        // }
     }
-    .com-text {
+    > .com-text {
         color: $sponsor;
         font-weight: bold;
+        align-items: center;
+        &::before {
+            content: '●';
+            font-size: px(16);
+            margin: 0 px(8);
+        }
     }
-
+    &.null > .com-text:before {
+        display: none;
+    }
     &.ohlala {
-        .com-text {
+        > .com-text {
             color: $ohlala;
         }
     }
     &.brando {
-        .com-text {
+        > .com-text {
             color: $brando;
         }
     }
     &.living {
-        .com-text {
+        > .com-text {
             color: $living;
         }
     }
     &.hola {
-        .com-text {
+        > .com-text {
             color: $hola;
         }
     }
     &.jardin {
-        .com-text {
+        > .com-text {
             color: $jardin;
         }
     }
     &.lugares {
-        .com-text {
+        > .com-text {
             color: $lugares;
         }
     }
     &.rolling,
     &.rolling-stone {
-        .com-text {
+        > .com-text {
             color: $rolling;
         }
     }
 
     &.--contentlab {
-        .com-logo {
-            &::after {
-                color: $negro;
-            }
-        }
-        .com-text {
+        // .com-logo {
+        //     &::after {
+        //         color: $negro;
+        //     }
+        // }
+        > .com-text {
             color: $negro;
         }
     }

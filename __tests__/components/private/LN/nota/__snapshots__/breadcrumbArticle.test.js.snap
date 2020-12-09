@@ -6,63 +6,47 @@ Array [
     class="com-breadcrumb "
   >
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="//"
       style="color:;border-left-color:"
     >
-      <div
-        class="com-bullet"
-      >
-        <i
-          class="com-icon bullet icon-bullet --xs"
-          style="color:;border-left-color:"
-        />
-      </div>
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       LA NACION
     </a>
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="/recetas/"
       style="color:;border-left-color:"
     >
-      <div
-        class="com-bullet"
-      >
-        <i
-          class="com-icon bullet icon-bullet --xs"
-          style="color:;border-left-color:"
-        />
-      </div>
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       Recetas
     </a>
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/"
       style="color:;border-left-color:"
     >
-      <div
-        class="com-bullet"
-      >
-        <i
-          class="com-icon bullet icon-bullet --xs"
-          style="color:;border-left-color:"
-        />
-      </div>
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       Recetas con ingredientes
     </a>
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/pollo/"
       style="color:;border-left-color:"
     >
-      <div
-        class="com-bullet"
-      >
-        <i
-          class="com-icon bullet icon-bullet --xs"
-          style="color:;border-left-color:"
-        />
-      </div>
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       Pollo
     </a>
   </nav>,

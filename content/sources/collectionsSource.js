@@ -95,6 +95,5 @@ export default {
         imageConfig: 'text',
         website: 'text'
     },
-    transform,
     ttl: 120
 };

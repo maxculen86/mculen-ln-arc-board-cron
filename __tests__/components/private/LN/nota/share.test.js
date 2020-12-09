@@ -65,25 +65,25 @@ describe('Share', () => {
     });
 
     it('Triggers defined facebook button click event function', () => {
-        const button = component.find('.icon-facebook');
+        const button = component.find('.icon-facebook-filled');
         button.simulate('click');
         expect(window.FB.ui).toHaveBeenCalled();
     });
 
     it('Triggers defined twitter button click event function', () => {
-        const button = component.find('.icon-twitter');
+        const button = component.find('.icon-twitter-filled');
         button.simulate('click');
         expect(window.open).toHaveBeenCalled();
     });
 
     it('Triggers defined whatsapp button click function', () => {
-        const button = component.find('.icon-whatsapp');
+        const button = component.find('.icon-whatsapp-filled');
         button.simulate('click');
         expect(window.open).toHaveBeenCalled();
     });
 
     it('Triggers defined mail button click function', () => {
-        const button = component.find('.icon-mail');
+        const button = component.find('.icon-email');
         button.simulate('click');
         expect(window.open).toHaveBeenCalled();
     });

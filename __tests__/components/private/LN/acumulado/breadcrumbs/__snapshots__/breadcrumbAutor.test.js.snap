@@ -6,34 +6,26 @@ Array [
     class="com-breadcrumb "
   >
     <a
-      class="com-link --threexs"
+      class="com-link --fourxs"
       data-event="LinkClick"
       data-section="AperturaAcuRecetas"
       href="https://www.lanacion.com.ar/"
       style="color:;border-left-color:"
     >
-      <div
-        class="com-bullet"
-      >
-        <i
-          class="com-icon bullet icon-bullet --xs"
-          style="color:;border-left-color:"
-        />
-      </div>
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       LA NACION
     </a>
     <span
-      class="com-text --threexs"
+      class="com-text --fourxs"
       style="color:;border-left-color:;opacity:.7"
     >
-      <div
-        class="com-bullet"
-      >
-        <i
-          class="com-icon bullet icon-bullet --xs"
-          style="color:;border-left-color:"
-        />
-      </div>
+      <i
+        class="com-icon bullet icon-bullet --xs"
+        style="color:;border-left-color:"
+      />
       Emilse Pizarro
     </span>
   </nav>,

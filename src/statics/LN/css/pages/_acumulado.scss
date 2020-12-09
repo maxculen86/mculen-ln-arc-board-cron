@@ -47,6 +47,9 @@
         }
         .mod-banner {
             margin-bottom: $spacing-lg;
+            &.--adhesion_dsk {
+                margin-bottom: 0;
+            }
         }
     }
     .sidebar__main > .row {
@@ -448,6 +451,16 @@
         }
         @media ($media-l) {
             display: inline-flex;
+        }
+    }
+    &.--category,
+    &.--tags {
+        li {
+            .com-link {
+                &:first-letter {
+                    text-transform: capitalize;
+                }
+            }
         }
     }
     &.--category {
