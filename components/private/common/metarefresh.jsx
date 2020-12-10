@@ -1,32 +1,29 @@
-/* eslint-disable react/no-unused-prop-types */
-/* eslint-disable react/no-danger            */
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-
 import { useContent } from 'fusion:content';
-import get from 'lodash.get';
-
+import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
 import withLoginData from '../LN/common/hocs/withLoginData';
 import handleCookie from '../LN/common/utils/handleCookie';
 
-const getInterval = type => resolution => config => {
+const { getCookie } = handleCookie();
+
+const getInterval = (type, resolution, config) => {
     const template = ['story', 'results'].includes(type) ? 'nota' : 'home';
     const device = resolution === 'tablet' ? 'mobile' : resolution;
     const seconds = config[`${template}_${device}`];
     return parseInt(seconds, 10) * 1000;
 };
 
-const hasVideo = contentElements => promoItem =>
-    contentElements.some(contentElement => contentElement.type === 'video') ||
-    (promoItem && promoItem.type === 'video');
-
-const hasAudioFromSpotify = contentElements =>
+const shouldBeExcluded = (contentElements, promoItem) =>
     contentElements.some(
-        contentElement => contentElement.subtype === 'spotify'
-    );
+        contentElement =>
+            contentElement.type === 'raw_html' ||
+            contentElement.type === 'oembed_response' ||
+            contentElement.type === 'video'
+    ) ||
+    (promoItem && promoItem.type === 'video');
 
 const Component = props => {
     const contentElements = get(props, 'globalContent.content_elements', null);
@@ -35,7 +32,6 @@ const Component = props => {
     const resolution = get(props, 'screenUtils.device', null);
     const isAdmin = get(props, 'isAdmin');
     const outputType = get(props, 'outputType');
-
     const content = useContent({
         source: 'navigationTreeSource',
         query: {
@@ -48,40 +44,46 @@ const Component = props => {
         loginData: { subscription }
     } = props;
 
-    if (isAdmin) return null; // It won't render in pagebuilder
-
     const metarefresh = content && content.Metarefresh;
-    if (!metarefresh) return null;
-
-    const interval = getInterval(type)(resolution)(metarefresh);
-
-    const { getCookie } = handleCookie();
+    const interval = getInterval(type, resolution, metarefresh);
     const cookieProductoPremium = getCookie('ProductoPremiumId');
-    const CDmetaRefresh = !cookieProductoPremium
-        ? "localStorage.setItem('CDmetaRefresh', true)"
-        : '';
 
-    const script = `
-        setInterval(() => {
-            ${CDmetaRefresh}
+    useEffect(() => {
+        if (
+            !metarefresh ||
+            isAdmin ||
+            outputType === 'amp' ||
+            subscription ||
+            interval < 1 ||
+            shouldBeExcluded(contentElements, promoItem)
+        )
+            return;
+
+        setTimeout(() => {
+            !cookieProductoPremium &&
+                localStorage.setItem('CDmetaRefresh', true);
             window.location.reload();
-        }, ${interval});
-    `;
+        }, interval);
+    }, [
+        contentElements,
+        cookieProductoPremium,
+        interval,
+        isAdmin,
+        metarefresh,
+        outputType,
+        promoItem,
+        subscription
+    ]);
 
-    if (outputType === 'amp') return null;
-    if (hasVideo(contentElements)(promoItem)) return null;
-    if (hasAudioFromSpotify(contentElements)) return null;
-    if (subscription || interval < 1) return null;
-
-    return (
-        <script id="metarefresh" dangerouslySetInnerHTML={{ __html: script }} />
-    );
+    return <></>;
 };
 
 Component.propTypes = {
-    arcSite: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         type: PropTypes.string
+    }).isRequired,
+    loginData: PropTypes.shape({
+        subscription: PropTypes.bool
     }).isRequired
 };
 
