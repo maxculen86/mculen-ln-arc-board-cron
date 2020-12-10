@@ -109,51 +109,33 @@ const transformContent = (data, siteProps, arcSite) => {
     });
 };
 
-const getNavigationSiteProperties = arcSite => {
-    return navigationTreeSource
+const getNavigationSiteProperties = arcSite =>
+    navigationTreeSource
         .fetch({ website: arcSite })
         .then(fetchedRelated => {
             const { site } = fetchedRelated || {};
-            const { bannerConfig } = fetchedRelated || { bannerConfig: {} };
-            const { Termicas: termicasConfig } = fetchedRelated || {
-                Termicas: {}
-            };
-            const { sitio_adserver: sitioAdserver } = site;
-            // Banner dimensions
-            const banners = [];
-            Object.keys(bannerConfig).forEach(key => {
-                banners.push({
+            const { bannerConfig = {} } = fetchedRelated || {};
+            const { sitio_adserver: sitioAdserver = {} } = site || {};
+            const { Termicas: termicasConfig = {} } = fetchedRelated || {};
+
+            return {
+                banners: Object.keys(bannerConfig).map(key => ({
                     adunit: key,
                     dimensions: bannerConfig[key]
-                });
-            });
-            // Termicas
-            const termicas = [];
-            Object.keys(termicasConfig).forEach(key => {
-                termicas.push({
-                    key,
-                    value: termicasConfig[key]
-                });
-            });
-            // Banner segments
-            const adserver = [];
-            Object.keys(sitioAdserver).forEach(key => {
-                adserver.push({
+                })),
+                adserver: Object.keys(sitioAdserver).map(key => ({
                     key,
                     value: sitioAdserver[key]
-                });
-            });
-            const resp = {
-                banners,
-                adserver,
-                termicas
+                })),
+                termicas: Object.keys(termicasConfig).forEach(key => ({
+                    key,
+                    value: termicasConfig[key]
+                }))
             };
-            return resp;
         })
         .catch(e => {
             throw e;
         });
-};
 
 export default {
     fetch,
