@@ -4,28 +4,34 @@
 .mod-newsletter {
     @include flex(flex, row, center, center);
     padding: $spacing-sm;
-    padding-bottom: $spacing-md;
     margin-bottom: $spacing-lg;
     border: 1px solid $gris3;
     .container {
         @include flex(flex, column, center, start);
+        padding-top: px(37);
         .container-text {
             @include flex(flex, column, center, start);
             margin-bottom: $spacing-md;
+
+            .com-icon {
+                margin-left: px(-6);
+                margin-top: px(-48);
+            }
         }
     }
 }
 @media ($media-l) {
     .mod-newsletter {
-        padding-bottom: $spacing-sm;
         .container {
-            @include flex(flex, row, center, center);
+            max-width: px(700);
+            flex-direction: row;
             .container-text {
                 margin-right: $spacing-md;
+                margin-bottom: 0;
             }
-            .container-button {
-                width: px(300);
-            }
+            // .container-button {
+            //     width: px(300);
+            // }
         }
     }
 }
