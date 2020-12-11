@@ -20,13 +20,13 @@ const index = props => {
         let prefix = '';
         switch (Number(noteType)) {
             case 1:
-                prefix = 'Otras noticias de ';
+                prefix = 'Otras noticias de&nbsp;';
                 break;
             case 7:
-                prefix = 'Más recetas de ';
+                prefix = 'Más recetas de&nbsp;';
                 break;
             default:
-                prefix = 'Más notas de ';
+                prefix = 'Más notas de&nbsp;';
         }
         return prefix;
     };
@@ -40,11 +40,11 @@ const index = props => {
             border = true;
             title = `${getSectionTitle(
                 subtype
-            )}&nbsp; <a href='${path}' class='com-link'>${sectionName}</a>`;
+            )}<a href='${path}' class='com-link'>${sectionName}</a>`;
             dataBlockName = 'n_otras_noticias';
             break;
         default:
-            title = `Últimas notas de &nbsp;<a href='${path}' class='com-link'> ${sectionName}</a>`;
+            title = `Últimas notas de <a href='${path}' class='com-link'> ${sectionName}</a>`;
             dataBlockName = 'n_ultimas_noticias';
             break;
     }
