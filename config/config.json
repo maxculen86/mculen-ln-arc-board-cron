@@ -1,0 +1,29 @@
+[
+    { "site": "OTT", "entries": [{ "[site]/style": "style.scss" }] },
+    {
+        "site": "LN",
+        "entries": [
+            {
+                "[site]/[dirname]/[basename]": {
+                    "pattern": "css/amp/*.scss",
+                    "ignore": ["css/amp/_amp_ln-acu.scss"]
+                }
+            }
+        ],
+        "maxSize": 76800,
+        "env": "prod"
+    },
+    {
+        "site": "LN",
+        "entries": [
+            { "[site]/base": "css/base/*.scss" },
+            { "[site]/abstracts": "css/abstracts/*.scss" },
+            {
+                "[site]/[dirname]/[basename]": {
+                    "pattern": "css/*/*.scss",
+                    "ignore": ["css/abstracts/**", "css/amp/**"]
+                }
+            }
+        ]
+    }
+]
