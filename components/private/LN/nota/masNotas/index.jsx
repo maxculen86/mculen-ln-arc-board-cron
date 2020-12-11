@@ -7,7 +7,7 @@ const index = props => {
         globalContent: {
             subtype,
             taxonomy: {
-                primary_section: { _id, parent_id, _website, name: sectionName }
+                primary_section: { _id, parent_id, _website, name: sectionName, path }
             }
         }
     } = props;
@@ -38,11 +38,13 @@ const index = props => {
             break;
         case '1':
             border = true;
-            title = `${getSectionTitle(subtype)} ${sectionName}`;
+            title = `${getSectionTitle(
+                subtype
+            )}&nbsp; <a href='${path}' class='com-link'>${sectionName}</a>`;
             dataBlockName = 'n_otras_noticias';
             break;
         default:
-            title = `Últimas notas de ${sectionName}`;
+            title = `Últimas notas de &nbsp;<a href='${path}' class='com-link'> ${sectionName}</a>`;
             dataBlockName = 'n_ultimas_noticias';
             break;
     }
