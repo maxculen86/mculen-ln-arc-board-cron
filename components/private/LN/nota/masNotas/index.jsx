@@ -7,7 +7,7 @@ const index = props => {
         globalContent: {
             subtype,
             taxonomy: {
-                primary_section: { _id, parent_id, _website, name: sectionName }
+                primary_section: { _id, parent_id, _website, name: sectionName, path }
             }
         }
     } = props;
@@ -20,13 +20,13 @@ const index = props => {
         let prefix = '';
         switch (Number(noteType)) {
             case 1:
-                prefix = 'Otras noticias de ';
+                prefix = 'Otras noticias de&nbsp;';
                 break;
             case 7:
-                prefix = 'Más recetas de ';
+                prefix = 'Más recetas de&nbsp;';
                 break;
             default:
-                prefix = 'Más notas de ';
+                prefix = 'Más notas de&nbsp;';
         }
         return prefix;
     };
@@ -38,11 +38,13 @@ const index = props => {
             break;
         case '1':
             border = true;
-            title = `${getSectionTitle(subtype)} ${sectionName}`;
+            title = `${getSectionTitle(
+                subtype
+            )}<a href='${path}' class='com-link'>${sectionName}</a>`;
             dataBlockName = 'n_otras_noticias';
             break;
         default:
-            title = `Últimas notas de ${sectionName}`;
+            title = `Últimas notas de <a href='${path}' class='com-link'> ${sectionName}</a>`;
             dataBlockName = 'n_ultimas_noticias';
             break;
     }
