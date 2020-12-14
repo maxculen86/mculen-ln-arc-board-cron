@@ -7,14 +7,12 @@ import ComTitle from './com-title';
 import ComLogo from './com-logo';
 
 const ModheaderSection = props => {
-    const { title, line, size, sizeLogo, logo, classCondition } = props;
-    if (!title && !logo) {
-        null;
-    }
+    const { title, line, size, sizeLogo, logo, classCondition, link } = props;
+    if (!title && !logo) return null;
     return (
         <section className={`mod-headersection ${classCondition || ''}`}>
             {title ? (
-                <ComTitle size={size} content={title} />
+                <ComTitle size={size} content={title} link={link} />
             ) : (
                 <ComLogo
                     size={sizeLogo}
@@ -25,6 +23,26 @@ const ModheaderSection = props => {
             {line ? <ComLine /> : ''}
         </section>
     );
+};
+
+ModheaderSection.propTypes = {
+    link: PropTypes.string,
+    title: PropTypes.string,
+    logo: PropTypes.string,
+    classCondition: PropTypes.string,
+    sizeLogo: PropTypes.string,
+    line: PropTypes.boolean,
+    size: PropTypes.string
+};
+
+ModheaderSection.defaultProps = {
+    link: null,
+    title: null,
+    logo: null,
+    classCondition: '',
+    sizeLogo: null,
+    line: true,
+    size: '--l'
 };
 
 export default ModheaderSection;

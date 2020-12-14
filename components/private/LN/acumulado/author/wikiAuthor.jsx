@@ -9,11 +9,10 @@ import '../../../../../resources/dist/css/ln/components/author.css';
 
 // TODO: los siguientes enlaces son para agregar en base
 
-//import '../../../../../resources/dist/css/ln/components/title.css';
+// import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
 import ComTitle from '../../../common/com-title';
-import ModheaderSection from '../../../common/mod-headerSection';
-//import '../../../../../resources/dist/css/ln/base/helpers.css';
+// import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ globalContent }) => {
     const {
@@ -54,86 +53,6 @@ const WikiAuthor = ({ globalContent }) => {
                         </span>
                     )}
                 </p>
-            </div>
-            <div className="col-12">
-                <ModheaderSection
-                    title="Grilla por tres en 3:2"
-                    size="--l"
-                    line
-                />
-                <ModheaderSection
-                    title="Grilla por tres en 3:2, Grilla por tres en 3:2, Grilla por tres en 3:2, Grilla por tres en 3:2"
-                    size="--l"
-                    line
-                />
-                <ModheaderSection
-                    title="Grilla por tres en 3:2"
-                    size="--l"
-                    classCondition="--bbc"
-                />
-                <ModheaderSection
-                    title="Grilla por tres en 3:2"
-                    size="--l"
-                    classCondition="--lifestyle"
-                />
-                <ModheaderSection
-                    title="Grilla por tres en 3:2"
-                    size="--l"
-                    classCondition="--propiedades"
-                />
-                <ModheaderSection
-                    title="Grilla por tres en 3:2"
-                    size="--l"
-                    classCondition="--espectaculos"
-                />
-                <ModheaderSection
-                    logo="la-nacion"
-                    classCondition="--color"
-                    sizeLogo="--md"
-                    line
-                />
-                <ModheaderSection
-                    logo="brando"
-                    classCondition="--color"
-                    sizeLogo="--md"
-                    line
-                />
-                <ModheaderSection
-                    logo="hola"
-                    classCondition="--color"
-                    sizeLogo="--md"
-                    line
-                />
-                <ModheaderSection
-                    logo="jardin"
-                    classCondition="--color"
-                    sizeLogo="--md"
-                    line
-                />
-                <ModheaderSection
-                    logo="rolling"
-                    classCondition="--color"
-                    sizeLogo="--md"
-                    line
-                />
-                <ModheaderSection
-                    logo="ohlala"
-                    classCondition="--color"
-                    sizeLogo="--md"
-                    line
-                />
-                <ModheaderSection
-                    logo="lugares"
-                    classCondition="--color"
-                    sizeLogo="--md"
-                    line
-                />
-                <ModheaderSection
-                    logo="ln-mas"
-                    classCondition="--color"
-                    sizeLogo="--md"
-                    line
-                />
             </div>
         </div>
     );
