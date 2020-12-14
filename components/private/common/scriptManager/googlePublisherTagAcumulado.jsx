@@ -3,18 +3,40 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
-const getCategory = content =>
-    content.name
-        ? [
-              'ca_'.concat(
-                  content.name
-                      .toLowerCase()
-                      .normalize('NFD')
-                      .replace(/[\u0300-\u036f]/g, '')
-                      .replace(/\W/g, '_')
-              )
-          ]
-        : [];
+const formatExpression = text => {
+    return 'ca_'.concat(
+        text
+            .toLowerCase()
+            .normalize('NFD')
+            .replace('/', '')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/\W/g, '_')
+    );
+};
+
+const getCategories = (name, parent, ancestors) => {
+    const { default: defaultParent } = parent || {};
+    const { default: defaultAncestors } = ancestors || {};
+    const actualCategory = name ? [formatExpression(name)] : [];
+    const parentCategory = defaultParent &&
+        defaultParent !== '/' && [formatExpression(defaultParent)];
+    const ancestorsCategorys =
+        defaultAncestors &&
+        defaultAncestors.length > 1 &&
+        defaultAncestors.slice(1).map(anc => {
+            const treeCategory = anc.split('/');
+            return formatExpression(treeCategory[treeCategory.length - 1]);
+        });
+
+    // eslint-disable-next-line no-nested-ternary
+    const categories = ancestorsCategorys
+        ? actualCategory.concat(ancestorsCategorys)
+        : parentCategory
+        ? actualCategory.concat(parentCategory)
+        : actualCategory;
+
+    return categories;
+};
 
 const getTopic = content =>
     content.Payload && content.Payload.items && content.Payload.items.length > 0
@@ -25,11 +47,11 @@ const getAuthor = content => (content.slug ? ['au_'.concat(content.slug)] : []);
 
 const googlePublisherTagAcumulado = props => {
     const { globalContent } = props;
-    const { type } = globalContent;
+    const { type, parent, ancestors, name } = globalContent;
 
     if (type === 'story') return null;
 
-    const category = getCategory(globalContent);
+    const category = getCategories(name, parent, ancestors);
 
     const topic = getTopic(globalContent);
 
@@ -62,8 +84,15 @@ const googlePublisherTagAcumulado = props => {
 googlePublisherTagAcumulado.propTypes = {
     globalContent: PropTypes.shape({
         id: PropTypes.string,
-        type: PropTypes.string
-    })
+        type: PropTypes.string,
+        name: PropTypes.string,
+        parent: PropTypes.shape({
+            default: PropTypes.string
+        }),
+        ancestors: PropTypes.shape({
+            default: PropTypes.arrayOf(PropTypes.string)
+        })
+    }).isRequired
 };
 
 export default googlePublisherTagAcumulado;

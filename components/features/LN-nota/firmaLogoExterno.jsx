@@ -1,12 +1,13 @@
 import React from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
-
-import FirmaExterno from '../../private/LN/nota/firmaExterno';
+import withStatic from '../../private/common/hocs/withStatic';
+import ComPartner from '../../private/common/com-partner';
 
 const FirmaLogoExterno = ({ globalContent: { distributor } }) => {
-    const { name: distributorName } = distributor || {};
-    return <FirmaExterno distributorName={distributorName} />;
+    const { name } = distributor || {};
+    if (name === 'LA NACION') return <></>;
+    return <ComPartner size="--xs">{name}</ComPartner>;
 };
 
 FirmaLogoExterno.propTypes = {
@@ -15,9 +16,9 @@ FirmaLogoExterno.propTypes = {
             name: PropTypes.string,
             category: PropTypes.string
         })
-    })
+    }).isRequired
 };
 
 FirmaLogoExterno.label = 'LN-Nota-FirmaLogoExterno';
 
-export default Context(FirmaLogoExterno);
+export default withStatic(Context(FirmaLogoExterno));

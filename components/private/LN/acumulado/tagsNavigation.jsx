@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
-import get from '../../common/utils/get';
 import ComLink from '../../common/com-link';
 
 const convertToComLink = ({ key, link, text, title, style }) => (
@@ -45,7 +44,7 @@ const TagsNavigation = ({ orderAndCountTags, colorTags }) => {
 
     return (
         tagList &&
-        tagList.length(
+        tagList.length > 0 && (
             <ul className="com-unordered --tags">
                 {tagList.map(({ item, key }) => (
                     <li key={key}>{item}</li>

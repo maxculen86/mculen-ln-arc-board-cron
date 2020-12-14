@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .com-title {
-    @include flex(flex);
+    @include flex(flex); //no estoy seguro que se necesite este flex
     margin-bottom: $spacing;
     font-family: $font-SuecaSlab;
     font-weight: 700;
@@ -10,6 +10,24 @@
     .mod-newsletter & {
         display: block;
         font-weight: 300;
+    }
+    .mod-headersection & {
+        margin-bottom: $spacing;
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .mod-headersection.--propiedades &,
+    .mod-headersection.--bbc &,
+    .mod-headersection.--lifestyle &,
+    .mod-headersection.--espectaculos & {
+        margin-bottom: 0;
+        color: $blanco;
+    }
+    .more-articles & {
+        display: block;
     }
 }
 @media ($media-l) {
@@ -19,6 +37,9 @@
         &.--idiomas {
             margin: 0;
             margin-right: $spacing-xs;
+        }
+        .mod-headersection & {
+            width: 50%;
         }
     }
 }

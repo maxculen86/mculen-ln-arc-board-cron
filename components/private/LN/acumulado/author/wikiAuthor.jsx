@@ -9,7 +9,7 @@ import '../../../../../resources/dist/css/ln/components/author.css';
 
 // TODO: los siguientes enlaces son para agregar en base
 
-//import '../../../../../resources/dist/css/ln/components/title.css';
+// import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/link.css';
 import ComTitle from '../../../common/com-title';
 import ComContainer from '../../../common/com-container';

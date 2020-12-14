@@ -30,7 +30,21 @@ jest.mock('fusion:content', () => ({
 import Metarefresh from '../../../../components/private/common/metarefresh';
 
 describe('Metarefresh', () => {
+    const { reload } = window.location;
     const Component = Metarefresh.WrappedComponent;
+
+    beforeAll(() => {
+        Object.defineProperty(window.location, 'reload', {
+            configurable: true
+        });
+        window.location.reload = jest.fn();
+        jest.useFakeTimers();
+    });
+
+    afterAll(() => {
+        window.location.reload = reload;
+        jest.clearAllTimers();
+    });
 
     let props = {
         arcSite: 'la-nacion-ar',
@@ -46,12 +60,12 @@ describe('Metarefresh', () => {
         }
     };
 
-    it('Does not render when subscriptor is present', () => {
+    it('Does not reload when subscriptor is present', () => {
         const component = mount(<Component {...props} />);
-        expect(component.find('script')).toHaveLength(0);
+        expect(window.location.reload).toHaveBeenCalledTimes(0);
     });
 
-    it('Does not render when videos are present', () => {
+    it('Does not reload when videos are present', () => {
         props = {
             ...props,
             globalContent: {
@@ -68,17 +82,18 @@ describe('Metarefresh', () => {
         };
 
         const component = mount(<Component {...props} />);
-        expect(component.find('script')).toHaveLength(0);
+        expect(window.location.reload).not.toBeCalled();
     });
 
-    it('Does not render when spotify audio is present', () => {
+    it('Does not reload when spotify audio is present', () => {
         props = {
             ...props,
             globalContent: {
                 type: 'story',
                 content_elements: [
                     {
-                        subtype: 'spotify'
+                        subtype: 'spotify',
+                        type: 'raw_html'
                     }
                 ]
             },
@@ -88,10 +103,31 @@ describe('Metarefresh', () => {
         };
 
         const component = mount(<Component {...props} />);
-        expect(component.find('script')).toHaveLength(0);
+        expect(window.location.reload).not.toBeCalled();
     });
 
-    it('Does not render on accelerated mobile pages', () => {
+    it('Does not reload when any element of the content elements is type oembed_response', () => {
+        props = {
+            ...props,
+            globalContent: {
+                type: 'story',
+                content_elements: [
+                    {
+                        subtype: 'instagram',
+                        type: 'oembed_response'
+                    }
+                ]
+            },
+            loginData: {
+                subscription: false
+            }
+        };
+
+        const component = mount(<Component {...props} />);
+        expect(window.location.reload).not.toBeCalled();
+    });
+
+    it('Does not reload on accelerated mobile pages', () => {
         props = {
             ...props,
             outputType: 'amp',
@@ -105,11 +141,11 @@ describe('Metarefresh', () => {
         };
 
         const component = mount(<Component {...props} />);
-        expect(component.find('script')).toHaveLength(0);
+        expect(window.location.reload).not.toBeCalled();
     });
 
-    it('Renders when required conditions are met', () => {
-        const props = {
+    it('Reload when required conditions are met', () => {
+        props = {
             arcSite: 'la-nacion-ar',
             globalContent: {
                 type: 'story',
@@ -126,10 +162,9 @@ describe('Metarefresh', () => {
             }
         };
         const component = mount(<Component {...props} />);
-        expect(component.find('script')).toHaveLength(1);
-        const {
-            dangerouslySetInnerHTML: { __html: html }
-        } = component.find('script').props();
-        expect(html).toContain(3000);
+        jest.advanceTimersByTime(1000);
+        expect(window.location.reload).not.toBeCalled();
+        jest.advanceTimersByTime(30000);
+        expect(window.location.reload).toHaveBeenCalledTimes(1);
     });
 });
