@@ -18,7 +18,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
         resizeOptions,
         focalPoint,
         smartCropExcluded,
-        filterQuality = 70
+        filterQuality = 100
     ) => {
         const { isNotSmart, useFullSize } = resizeOptions;
         let { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
@@ -31,7 +31,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
         const thumbor = new Thumbor(resizerKey, resizerUrl);
         thumbor.filter(`quality(${filterQuality})`);
 
-        if (!(getAspectRatio(newWidth, newHeight) === '3:2')) {
+        if (!(getAspectRatio(originalWidth, originalHeight) === '3:2')) {
             if (
                 focalPoint &&
                 focalPoint[0] &&

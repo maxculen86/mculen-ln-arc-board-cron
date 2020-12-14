@@ -1,7 +1,7 @@
 import React from 'react';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
-import ComTitle from '../../private/common/com-title';
+import ModheaderSection from '../../private/common/mod-headerSection';
 
 const TechoFeatured = props => {
     const {
@@ -13,7 +13,7 @@ const TechoFeatured = props => {
 
     return (
         <Static id={featureId}>
-            <ComTitle tag="h2" size="--l" content={title} link={url} />
+            <ModheaderSection title={title} link={url} size="--l" line />
         </Static>
     );
 };
