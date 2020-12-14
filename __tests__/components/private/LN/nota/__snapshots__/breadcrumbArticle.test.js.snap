@@ -8,44 +8,36 @@ Array [
     <a
       class="com-link --fourxs"
       href="//"
-      style="color:;border-left-color:"
     >
       <i
-        class="com-icon bullet icon-bullet --xs"
-        style="color:;border-left-color:"
+        class="com-icon bullet icon-bullet-xs"
       />
       LA NACION
     </a>
     <a
       class="com-link --fourxs"
       href="/recetas/"
-      style="color:;border-left-color:"
     >
       <i
-        class="com-icon bullet icon-bullet --xs"
-        style="color:;border-left-color:"
+        class="com-icon bullet icon-bullet-xs"
       />
       Recetas
     </a>
     <a
       class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/"
-      style="color:;border-left-color:"
     >
       <i
-        class="com-icon bullet icon-bullet --xs"
-        style="color:;border-left-color:"
+        class="com-icon bullet icon-bullet-xs"
       />
       Recetas con ingredientes
     </a>
     <a
       class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/pollo/"
-      style="color:;border-left-color:"
     >
       <i
-        class="com-icon bullet icon-bullet --xs"
-        style="color:;border-left-color:"
+        class="com-icon bullet icon-bullet-xs"
       />
       Pollo
     </a>
