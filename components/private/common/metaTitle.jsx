@@ -8,12 +8,13 @@ const getPrefix = _id => {
 };
 
 const MetaTitle = ({ metaTitleBasic, arcSite, title, nodeType, _id = '' }) => {
+console.log("🚀 ~ file: metaTitle.jsx ~ line 11 ~ MetaTitle ~ nodeType", nodeType)
     if (arcSite !== 'la-nacion-ar') return <></>;
 
     const metaTitleForStory = metaTitleBasic && `${metaTitleBasic} - LA NACION`;
     let metaTitleForAcum = '';
 
-    const acusWithMeta = ['section'];
+    const acusWithMeta = ['section', 'author'];
     if (acusWithMeta.includes(nodeType)) {
         const prefix = getPrefix(_id);
         metaTitleForAcum = `Últimas${prefix}${title}`;

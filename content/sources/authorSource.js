@@ -14,7 +14,8 @@ const resolve = key => {
 const transform = data => {
     const dataResp = {
         ...data,
-        image: { url: data.image || '' }
+        image: { url: data.image || '' },
+        node_type: 'author'
     };
 
     if (dataResp.image.url.length === 0) return dataResp;

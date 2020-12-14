@@ -36,7 +36,7 @@ const MetaDescription = ({
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
     // TODO: faltan meta descripction para otros acumulados (tags, author, recetas)
-    const acusWithMeta = ['section'];
+    const acusWithMeta = ['section', 'author'];
     if (acusWithMeta.includes(nodeType) && _id !== '/recetas') {
         // const { tagId, tagName } = extractDataFromTags(payload);
         return (
