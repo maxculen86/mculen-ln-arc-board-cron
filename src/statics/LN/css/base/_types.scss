@@ -21,7 +21,7 @@ strong,
     font-variant: normal;
     text-transform: none;
     font-size: px(24);
-    padding: px(4);
+    //padding: px(4);
     line-height: 1;
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
@@ -56,7 +56,7 @@ strong,
     content: '\e908';
 }
 .icon-bullet-xs:before {
-    content: '\e909';
+    content: $icon-bullet-xs;
 }
 .icon-calendar:before {
     content: '\e90a';

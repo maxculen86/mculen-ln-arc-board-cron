@@ -5,81 +5,42 @@
 //=======================================
 .com-breadcrumb {
     position: relative;
-    font-family: $font-arial;
-    font-size: px(14);
-    //Se saca none en mobile
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: $spacing-sm;
+    margin-bottom: $spacing-md;
     color: $gris5;
 
-    a {
+    .com-link,
+    .com-text {
         position: relative;
-        color: $link;
-        //border-left: solid 1px $gris5;
-        //padding: 0 px(9);
         margin-bottom: $spacing;
-        &:first-letter {
-            text-transform: capitalize;
+        &::first-letter {
+            text-transform: uppercase;
         }
-        // &:before {
-        //     content: '•';
-        //     color: $link;
-        //     display: block;
-        //     position: absolute;
-        //     left: -2px;
-        // }
+        .com-icon {
+            margin-bottom: px(-2);
+        }
+    }
+
+    .com-link {
         &:first-child {
-            padding-left: 0;
-            border-left: 0;
-            color: $link;
-            &:before {
-                content: none;
+            .com-icon {
+                display: none;
             }
         }
     }
-    .com-link:first-child {
-        .icon-bullet {
-            display: none;
-        }
-    }
-    span {
-        //border-left: solid 1px $gris5;
-        //padding: 0 px(6);
-        margin-bottom: $spacing;
 
-        &:first-letter {
-            text-transform: capitalize;
-        }
-    }
-    // span {
-    //     @include flex(flex, row, center, center);
-
-    //     //border-left: solid 1px $gris5;
+    // p {
+    //     border-left: solid 1px $gris5;
     //     padding: 0 px(6);
-    //     margin-bottom: $spacing;
-
-    //     &:first-letter {
-    //         text-transform: capitalize;
-    //     }
-    //     &:before {
-    //         content: '•';
-    //         color: $gris5;
-    //         display: block;
-    //         margin-right: px(6);
-    //     }
     // }
-    p {
-        border-left: solid 1px $gris5;
-        padding: 0 px(6);
-    }
 }
 
 //Valores de tablet para arriba
-@media (min-width: 768px) {
-    .com-breadcrumb {
-        display: flex;
-    }
-}
+// @media (min-width: 768px) {
+//     .com-breadcrumb {
+//         display: flex;
+//     }
+// }
