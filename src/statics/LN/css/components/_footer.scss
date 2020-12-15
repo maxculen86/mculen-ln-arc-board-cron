@@ -46,9 +46,9 @@ footer {
                 display: inline-flex;
             }
             i {
-                margin-right: px(20);
+                margin-right: px(32);
                 @media (max-width: 1023px) {
-                    margin: px(10);
+                    margin: px(16);
                 }
             }
         }
