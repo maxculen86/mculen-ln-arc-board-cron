@@ -7,5 +7,7 @@ export default `
     longBio,
     twitter,
     slug,
-    node_type
+    node_type,
+    name,
+    canonical_url
 }`;
