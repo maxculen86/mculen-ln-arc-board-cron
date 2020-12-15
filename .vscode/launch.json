@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Fusion Engine",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "address": "0.0.0.0",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack://Fusion.components/./bundle/src/*": "${workspaceRoot}/*",
+                "webpack:///./bundle/src/*": "${workspaceRoot}/*",
+                "webpack-internal://Fusion.components/./bundle/src/*": "${workspaceRoot}/*",
+                "webpack-internal:///./bundle/src/*": "${workspaceRoot}/*"
+            }
+        }
+    ]
+}
