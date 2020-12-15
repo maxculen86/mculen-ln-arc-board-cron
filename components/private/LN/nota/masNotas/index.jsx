@@ -7,7 +7,13 @@ const index = props => {
         globalContent: {
             subtype,
             taxonomy: {
-                primary_section: { _id, parent_id, _website, name: sectionName, path }
+                primary_section: {
+                    _id,
+                    parent_id,
+                    _website,
+                    name: sectionName,
+                    path
+                }
             }
         }
     } = props;
