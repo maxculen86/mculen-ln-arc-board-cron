@@ -39,8 +39,8 @@
 //=======================================
 // lay al 100%
 //=======================================
-[class^='lay'],
-[class*=' lay'] {
+//[class^='lay'],
+[class*='lay'] {
     width: 100%;
     padding-right: $spacing-sm;
     padding-left: $spacing-sm;

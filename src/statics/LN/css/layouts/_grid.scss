@@ -301,8 +301,8 @@
 //         grid-row-gap: px(40);
 //     }
 // }
-[class^='row-gap'],
-[class*=' row-gap'] {
+//[class^='row-gap'],
+[class*='row-gap'] {
     display: grid;
     grid-column-gap: $spacing-sm;
     grid-row-gap: $spacing-lg;
