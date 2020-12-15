@@ -43,10 +43,10 @@ strong,
     content: '\e903';
 }
 .icon-arrow-left:before {
-    content: '\e904';
+    content: $icon-arrow-left;
 }
 .icon-arrow-right:before {
-    content: '\e905';
+    content: $icon-arrow-right;
 }
 .icon-arrow-up:before {
     content: '\e906';

@@ -73,7 +73,7 @@ const headerAMP = props => {
                     <li className="menu_li desplegable">
                         <amp-accordion class="sample">
                             <section>
-                                <h2 className="icon-arrow-right">
+                                <h2 className="arrow-right">
                                     <a
                                         href="https://www.lanacion.com.ar/ultimas-noticias"
                                         className="url-link"
@@ -110,7 +110,7 @@ const headerAMP = props => {
                     <li className="menu_li desplegable">
                         <amp-accordion class="sample">
                             <section>
-                                <h2 className="icon-arrow-right">
+                                <h2 className="arrow-right">
                                     <a
                                         href="https://www.lanacion.com.ar/economia"
                                         className="url-link"
@@ -171,7 +171,7 @@ const headerAMP = props => {
                     <li className="menu_li desplegable">
                         <amp-accordion class="sample">
                             <section>
-                                <h2 className="icon-arrow-right">
+                                <h2 className="arrow-right">
                                     <a
                                         href="https://www.lanacion.com.ar/sociedad"
                                         className="url-link"
@@ -227,7 +227,7 @@ const headerAMP = props => {
                     <li className="menu_li desplegable">
                         <amp-accordion class="sample">
                             <section>
-                                <h2 className="icon-arrow-right">
+                                <h2 className="arrow-right">
                                     <a
                                         href="https://www.lanacion.com.ar/opinion/"
                                         className="url-link"
@@ -248,7 +248,7 @@ const headerAMP = props => {
                     <li className="menu_li desplegable">
                         <amp-accordion class="sample">
                             <section>
-                                <h2 className="icon-arrow-right">
+                                <h2 className="arrow-right">
                                     <a
                                         href="https://www.lanacion.com.ar/deportes"
                                         className="url-link"
@@ -289,7 +289,7 @@ const headerAMP = props => {
                     <li className="menu_li desplegable">
                         <amp-accordion class="sample">
                             <section>
-                                <h2 className="icon-arrow-right">
+                                <h2 className="arrow-right">
                                     <a
                                         href="https://www.lanacion.com.ar/lifestyle"
                                         className="url-link"
@@ -343,7 +343,7 @@ const headerAMP = props => {
                     <li className="menu_li desplegable">
                         <amp-accordion class="sample">
                             <section>
-                                <h2 className="icon-arrow-right">
+                                <h2 className="arrow-right">
                                     <a
                                         href="https://www.lanacion.com.ar/espectaculos"
                                         className="url-link"
@@ -369,7 +369,7 @@ const headerAMP = props => {
                     <li className="menu_li desplegable">
                         <amp-accordion class="sample">
                             <section>
-                                <h2 className="icon-arrow-right">
+                                <h2 className="arrow-right">
                                     <a
                                         href="https://www.lanacion.com.ar/edicion-impresa"
                                         className="url-link"
@@ -430,7 +430,7 @@ const headerAMP = props => {
                     <li className="menu_li desplegable">
                         <amp-accordion class="sample">
                             <section>
-                                <h2 className="icon-arrow-right">
+                                <h2 className="arrow-right">
                                     <a href="#" className="url-link">
                                         Revistas
                                     </a>
