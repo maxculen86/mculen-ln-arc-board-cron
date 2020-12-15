@@ -43,9 +43,9 @@ const MetaDescription = ({
             <MetaDescriptionAcumulado
                 size="2"
                 title={name}
-                sectionId={_id || null}
+                sectionId={nodeType === 'section' ? _id : null}
+                authorId={nodeType === 'author' ? _id : null}
                 // tagId={tagId || null}
-                // authorId={authorType || null}
             />
         );
     }
