@@ -45,6 +45,39 @@
             height: px(40);
         }
     }
+
+    .home & {
+        margin-bottom: px(32);
+        .mod-figure {
+            .mod-picture {
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .com-image {
+                    display: block;
+                    position: absolute;
+                    object-fit: cover;
+                    height: 100%;
+                    top: 0;
+                }
+                &::before {
+                    font-family: 'LNlogos';
+                    content: $logo-ln-placeholder;
+                    color: #d9d9d9;
+                    font-size: 4.22em;
+                    font-weight: 400;
+                    text-transform: none;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                padding-top: calc((2 / 3) * 100%);
+                //padding-top: calc((4 / 3) * 100%);
+            }
+        }
+    }
 }
 
 .--ranking li {
@@ -53,6 +86,45 @@
             .mod-article:before {
                 content: '#{$i}';
             }
+        }
+    }
+}
+
+.box-articles {
+    margin-bottom: px(32);
+    &.--left {
+        .col-tablet-8 {
+            padding-right: 3.315rem;
+
+            display: flex;
+            flex-direction: column;
+
+            .mod-media {
+                order: 2;
+                margin-bottom: 0;
+            }
+            .mod-description {
+                order: 1;
+                margin-bottom: px(16);
+            }
+            &:before {
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                right: 0.875rem;
+                top: 0;
+                border-right: 1px solid #d9d9d9;
+            }
+        }
+        .col-tablet-4 {
+            padding-left: 1.6875rem;
+        }
+    }
+
+    > div {
+        .mod-article:last-child {
+            margin-bottom: 0;
         }
     }
 }
