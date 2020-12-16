@@ -4,14 +4,14 @@
 .mod-paragraph {
     @include flex(flex, row, center, center);
     padding: $spacing-sm;
-    border: 1px solid $gris3;
+    border: 1px solid $light-neutral-400;
     position: relative;
     margin-bottom: $spacing-lg;
     &:before {
         content: '';
         width: px(80);
         height: px(1);
-        background: $negro;
+        background: $neutral-black;
         position: absolute;
         display: block;
         top: -1px;

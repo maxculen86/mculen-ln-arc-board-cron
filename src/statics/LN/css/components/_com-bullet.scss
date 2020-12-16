@@ -5,7 +5,7 @@
     @include flex(inline, row, center, center);
     padding: $spacing-xs;
     .com-icon {
-        color: $gris3;
+        color: $light-neutral-400;
     }
     .com-li:first-child & {
         .mod-wikiauthor & {

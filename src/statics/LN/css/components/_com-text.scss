@@ -9,7 +9,7 @@
         }
     }
     .footer & {
-        color: $gris5;
+        color: $light-neutral-600;
         line-height: px(17);
         font-size: px(14);
     }
@@ -26,17 +26,17 @@
     }
     .mod-breadcrumb & {
         @include flex(flex, row, center, center);
-        color: $gris5;
+        color: $light-neutral-600;
         padding: 0 px(9);
         line-height: 1;
-        border-left: solid 1px $gris5;
+        border-left: solid 1px $light-neutral-600;
     }
     &.--autor {
         .mod-autor & {
             line-height: px(24);
             font-size: px(16);
             font-weight: bold;
-            color: $negro;
+            color: $neutral-black;
         }
     }
     &.--medio {
@@ -48,11 +48,11 @@
         }
     }
     &.--paginator {
-        background: $negro;
+        background: $neutral-black;
         font-family: $font-arial;
         font-size: px(12);
         padding: 0 px(5);
-        color: $blanco;
+        color: $neutral-white;
         position: absolute;
         top: 0;
         right: px(16);
@@ -96,13 +96,13 @@
         }
 
         .mod-tooltip & {
-            color: $gris5;
+            color: $light-neutral-600;
         }
     }
     .mod-tooltip & {
         border: none;
         margin-bottom: 0;
-        color: $gris5;
+        color: $light-neutral-600;
         font-weight: 100;
     }
     &:before {

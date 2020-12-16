@@ -47,18 +47,18 @@
 }
 
 @mixin headerBlanco {
-    background: $blanco;
-    border-bottom: 1px solid $gris2;
+    background: $neutral-white;
+    border-bottom: 1px solid $light-neutral-300;
     .logo-la-nacion {
         color: $ln;
     }
     .--btn.--secondary {
-        background-color: $blanco;
+        background-color: $neutral-white;
         border: 1px solid $link;
         color: $link;
     }
     .com-hamburger:before {
-        color: $negro;
+        color: $neutral-black;
     }
 }
 @mixin flex($display, $direction: null, $ejeX: null, $ejeY: null) {
@@ -126,7 +126,7 @@
         .mod-picture {
             width: 100%;
             margin: 0;
-            background: $gris6;
+            background: $light-neutral-700;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -192,7 +192,7 @@
             margin: 0;
             margin-bottom: $spacing;
             &::before {
-                color: $blanco;
+                color: $neutral-white;
             }
             @media ($media-m) {
                 margin-bottom: $spacing-sm;
@@ -205,7 +205,7 @@
             .com-logo.com-logo:after,
             > .com-text.com-text {
                 //duplico class para evitar !important
-                color: $blanco;
+                color: $neutral-white;
                 margin-bottom: 0;
             }
         }
@@ -215,7 +215,7 @@
                 font-family: $font-SuecaSlab;
                 font-size: px(24);
                 line-height: px(32);
-                color: $blanco;
+                color: $neutral-white;
 
                 @media ($media-m) {
                     font-size: px(46);
@@ -230,7 +230,7 @@
         }
     }
     .mod-figcaption {
-        border-bottom: 1px solid $gris3;
+        border-bottom: 1px solid $light-neutral-400;
         margin-top: px(8);
         .--credit,
         .--caption {

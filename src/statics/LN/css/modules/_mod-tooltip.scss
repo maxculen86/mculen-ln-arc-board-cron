@@ -5,8 +5,8 @@
     @include flex(flex);
     margin-bottom: $spacing-sm;
     padding: $spacing-xs;
-    background: $blanco;
-    border: solid 1px $gris3;
+    background: $neutral-white;
+    border: solid 1px $light-neutral-400;
     border-radius: px(4);
     -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
@@ -14,7 +14,7 @@
     position: relative;
     max-width: px(280);
     // .--transparent & {
-    //     background: $negro;
-    //     color: $blanco;
+    //     background: $neutral-black;
+    //     color: $neutral-white;
     // }
 }

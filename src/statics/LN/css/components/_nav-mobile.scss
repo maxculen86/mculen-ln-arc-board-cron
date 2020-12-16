@@ -5,9 +5,9 @@
     position: fixed;
     bottom: 0;
     padding: px(5) px(10) px(10);
-    background: $blanco;
+    background: $neutral-white;
     z-index: 15000;
-    border-top: 1px solid $gris2;
+    border-top: 1px solid $light-neutral-300;
     width: 100%;
     max-height: px(60);
     height: px(60);
@@ -28,7 +28,7 @@
         p {
             font-family: $font-arial;
             font-size: px(9);
-            color: $gris6;
+            color: $light-neutral-700;
         }
         i {
             margin-bottom: px(4);

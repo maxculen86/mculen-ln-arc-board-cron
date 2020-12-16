@@ -2,14 +2,14 @@
 .com-title_list {
     font-family: $font-SuecaSlab;
     font-size: px(24);
-    color: $negro;
+    color: $neutral-black;
 }
 
 .com-subtitle_list {
     font-family: Arial;
     font-size: px(16);
     font-weight: bold;
-    color: $negro;
+    color: $neutral-black;
 }
 
 .com-unordered {
@@ -23,7 +23,7 @@
         font-size: px(16);
         line-height: px(37);
         margin-bottom: $spacing;
-        color: $negro;
+        color: $neutral-black;
         position: relative;
         &::first-letter {
             text-transform: uppercase;
@@ -34,8 +34,8 @@
             height: px(7);
             border-radius: 50%;
             top: px(14);
-            background-color: $negro;
-            color: $blanco;
+            background-color: $neutral-black;
+            color: $neutral-white;
             position: absolute;
             left: 0;
             font-family: Arial, sans-serif;

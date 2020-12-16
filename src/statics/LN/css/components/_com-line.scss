@@ -3,7 +3,7 @@
 .com-line {
     width: 100%;
     height: px(1);
-    background: $gris3;
+    background: $light-neutral-400;
     .footer & {
         display: flex;
         margin-bottom: $spacing-md;
@@ -17,7 +17,7 @@
         .mod-opening.--recipe & {
             content: '';
             width: px(32);
-            background: $negro;
+            background: $neutral-black;
         }
     }
 
@@ -34,7 +34,7 @@
         }
         .mod-share & {
             display: flex;
-            background: $negro;
+            background: $neutral-black;
             margin-bottom: $spacing-sm;
         }
     }

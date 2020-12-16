@@ -3,7 +3,7 @@
     font-family: SuecaSlab, Georgia;
     font-size: px(24);
     line-height: px(35);
-    color: $negro;
+    color: $neutral-black;
     &.--bold {
         font-weight: bold;
     }
@@ -14,7 +14,7 @@
     font-size: px(16);
     line-height: px(29);
     font-weight: bold;
-    color: $negro;
+    color: $neutral-black;
 }
 
 .com-ordered {
@@ -30,7 +30,7 @@
         font-size: px(19);
         line-height: px(30);
         margin-bottom: px(25);
-        color: $negro;
+        color: $neutral-black;
         position: relative;
         &:first-of-type {
             margin: 0 0 1em 0;
@@ -41,8 +41,8 @@
             width: px(26);
             height: px(36);
             top: px(-4);
-            background-color: $negro;
-            color: $blanco;
+            background-color: $neutral-black;
+            color: $neutral-white;
             position: absolute;
             left: 0;
             font-family: Arial, sans-serif;
