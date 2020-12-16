@@ -2,25 +2,30 @@ import {
     getCategory,
     isMigratedCategory
 } from '../../../../../common/utils/migratedCategoriesHelper';
+import get from 'lodash.get';
 
 const getPrincipalCategory = section => {
     const { _id: slug, name: valor } = section;
 
-    if (!isMigratedCategory(slug, true)) {
-        const category = getCategory(slug, true);
+    const migration = get(
+        section,
+        'additional_properties.original.migration',
+        null
+    );
+    const id_section_ln9 = get(
+        section,
+        'additional_properties.original.migration.id_section_ln9',
+        null
+    );
+    const name = get(section, 'additional_properties.original.name', null);
 
+    if (!isMigratedCategory(slug, migration)) {
         return {
-            // eslint-disable-next-line radix
-            // eslint-disable-next-line no-underscore-dangle
-            id: parseInt(category._id, 10),
-            valor: category.name
+            id: parseInt(id_section_ln9),
+            valor: name
         };
     }
-
-    return {
-        slug,
-        valor
-    };
+    return { slug, valor };
 };
 
 const getSubCategory = (category, isMigratedPrincipalCategory) => {

@@ -3,6 +3,7 @@ import IndexRankingV1 from '../../../private/LN/api/v1/ranking';
 import browser from '../../../private/common/utils/browser';
 import filter from '../../../../content/filters/LN/nota/articleRanking';
 import { isMigratedCategory } from '../../../private/common/utils/migratedCategoriesHelper';
+import get from 'lodash.get';
 
 // URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/params=size:1;weeks:1;days:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/ranking\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
@@ -26,7 +27,10 @@ class SectionRanking {
 
         this.state = {};
 
-        const categoryMigrated = isMigratedCategory(id, true);
+        const migration = get(this.props.globalContent, 'migration', null);
+
+        const categoryMigrated = isMigratedCategory(id, migration);
+
         if (categoryMigrated) {
             const days = browser.getSizesFrom(
                 isAdmin,
@@ -99,7 +103,6 @@ class SectionRanking {
                 code: 202
             };
         }
-
         return indexRanking(name, rankingArticleSource.content_elements);
     }
 }

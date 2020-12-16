@@ -3,13 +3,13 @@ import PropTypes from 'fusion:prop-types';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 import { isMigratedCategory } from '../../../private/common/utils/migratedCategoriesHelper';
+import get from 'lodash.get';
 
 // URL de ejemplo: http://localhost/api/v1/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
 class AcuSection {
     constructor(props) {
         this.props = props;
-
         const {
             globalContent: { _id: id },
             isAdmin,
@@ -18,7 +18,10 @@ class AcuSection {
 
         this.state = {};
 
-        const categoryMigrated = isMigratedCategory(id, true);
+        const migration = get(this.props.globalContent, 'migration', null);
+
+        const categoryMigrated = isMigratedCategory(id, migration);
+
         if (categoryMigrated) {
             let size = browser.getSizesFrom(
                 isAdmin,

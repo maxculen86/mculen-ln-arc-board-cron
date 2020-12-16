@@ -28,19 +28,15 @@ function getPrincipalCategory(category) {
     return principalCategory;
 }
 
-const isMigratedCategory = (category, isPrincipal = false) => {
-    const categoryToFind = isPrincipal
-        ? getPrincipalCategory(category)
-        : getSecundaryCategory(category);
-
-    const elem = findCategory(categoryToFind);
-
-    if (!elem)
+const isMigratedCategory = (category, migration) => {
+    if (!migration) {
         throw new Error(
-            `La categoria '${category}' no existe en el diccionario`
+            `La categoria '${category}' no posee la propiedad migration`
         );
+    }
 
-    return elem.migrada;
+    const migrada = migration.migrated_mob === 'true' ? true : false;
+    return migrada;
 };
 
 const getCategory = (category, isPrincipal = false) => {
