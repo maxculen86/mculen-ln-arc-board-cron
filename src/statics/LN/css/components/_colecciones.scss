@@ -4,13 +4,13 @@
     font-size: px(16);
     line-height: px(23);
     margin: px(40) 0;
-    border: 1px solid $gris2;
+    border: 1px solid $light-neutral-300;
     .cont-figure {
         border-bottom: 11px solid $highlight;
         background: url('../../img/colecciones.svg') no-repeat center center;
         background-size: 90%;
         height: 187px;
-        background-color: $negro;
+        background-color: $neutral-black;
         object-fit: contain;
     }
 }

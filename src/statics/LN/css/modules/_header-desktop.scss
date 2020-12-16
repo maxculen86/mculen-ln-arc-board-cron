@@ -5,9 +5,9 @@
 .header {
     // display: none;
     position: relative;
-    border-bottom: 1px solid $gris1;
+    border-bottom: 1px solid $light-neutral-200;
     padding: px(13) 0;
-    background: $blanco;
+    background: $neutral-white;
     width: 100%;
     z-index: 101;
     transition: top 0.2s ease-in-out;
@@ -49,36 +49,36 @@
             .com-hamburger {
                 &:before,
                 .com-icon {
-                    color: $blanco;
+                    color: $neutral-white;
                 }
                 &:hover {
-                    color: $blanco;
+                    color: $neutral-white;
                 }
             }
 
             .com-search {
                 &__input {
-                    color: $blanco;
+                    color: $neutral-white;
 
                     &::placeholder {
-                        color: $gris3;
+                        color: $light-neutral-400;
                     }
                 }
 
                 &__submit {
-                    background: $blanco;
+                    background: $neutral-white;
                     color: $link;
                 }
 
                 .icon-search {
-                    color: $blanco;
+                    color: $neutral-white;
                 }
             }
         }
 
         .header__middle {
             .logo-la-nacion {
-                color: $blanco;
+                color: $neutral-white;
             }
         }
 
@@ -86,31 +86,31 @@
             .com-usuario {
                 .com-button {
                     &.--special.--special {
-                        color: $blanco;
+                        color: $neutral-white;
                     }
                     @media ($media-l) {
                         &.--special.--special {
                             border-color: $highlight;
-                            color: $gris6;
+                            color: $light-neutral-700;
                             &:hover {
-                                border-color: $negro;
-                                color: $blanco;
+                                border-color: $neutral-black;
+                                color: $neutral-white;
                             }
                         }
                         &.--secondary.--secondary {
-                            color: $blanco;
-                            border-color: $blanco;
+                            color: $neutral-white;
+                            border-color: $neutral-white;
                             &:hover {
-                                background: $blanco;
-                                border-color: $blanco;
-                                color: $gris6;
+                                background: $neutral-white;
+                                border-color: $neutral-white;
+                                color: $light-neutral-700;
                             }
                         }
                     }
                 }
                 .com-usuario__name,
                 .com-usuario__valueSuscrib {
-                    color: $blanco;
+                    color: $neutral-white;
                 }
             }
         }
@@ -160,7 +160,7 @@
 
     @media ($media-l) {
         height: px(65);
-        border-bottom: 1px solid $gris2;
+        border-bottom: 1px solid $light-neutral-300;
 
         &__left {
             padding-top: 0;

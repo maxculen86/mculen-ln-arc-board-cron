@@ -4,7 +4,7 @@
 .com-hour {
     @include flex(inline);
     height: fit-content;
-    color: $gris5;
+    color: $light-neutral-600;
     &:before {
         content: '•';
         margin: 0 px(5);

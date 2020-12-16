@@ -21,7 +21,7 @@
                 &:before {
                     content: ',';
                     padding-right: px(5);
-                    color: $negro;
+                    color: $neutral-black;
                     font-weight: 100;
                 }
                 &:first-child {
@@ -33,7 +33,7 @@
                     &:before {
                         content: 'y';
                         padding: 0 px(5);
-                        color: $negro;
+                        color: $neutral-black;
                         font-weight: 100;
                     }
                 }
@@ -42,7 +42,7 @@
                         .cuerpo__nota & {
                             content: 'Por';
                             padding-right: px(5);
-                            color: $negro;
+                            color: $neutral-black;
                             font-weight: 100;
                         }
                     }

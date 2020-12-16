@@ -306,7 +306,7 @@
     content: '';
     width: 1px;
     height: calc(100% - 80px);
-    background-color: $blanco;
+    background-color: $neutral-white;
     opacity: 0.4;
     display: inline-block;
     position: absolute;
@@ -383,7 +383,7 @@
 //=============================
 ::selection {
     background-color: $ln;
-    color: $blanco;
+    color: $neutral-white;
 }
 
 //=============================

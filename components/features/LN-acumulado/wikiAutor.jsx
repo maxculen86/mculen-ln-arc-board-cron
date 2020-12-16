@@ -35,12 +35,12 @@ wikiAuthor.propTypes = {
         ),
         education: PropTypes.arrayOf(
             PropTypes.shape({
-                name: PropTypes.string,
+                name: PropTypes.string
             })
         ),
         awards: PropTypes.arrayOf(
             PropTypes.shape({
-                name: PropTypes.string,
+                name: PropTypes.string
             })
         ),
         personal_website: PropTypes.string,

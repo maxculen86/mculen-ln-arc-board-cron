@@ -7,8 +7,8 @@
     position: relative;
     padding-top: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid $gris2;
-    background: $blanco;
+    border-bottom: 1px solid $light-neutral-300;
+    background: $neutral-white;
     z-index: 1;
     .header-mobile__logo {
         .logo-la-nacion {
@@ -34,9 +34,9 @@
         background: rgba(0, 0, 0, 0.5);
         border: none;
         a {
-            color: $blanco;
+            color: $neutral-white;
             .logo-la-nacion {
-                color: $blanco;
+                color: $neutral-white;
             }
         }
     }
