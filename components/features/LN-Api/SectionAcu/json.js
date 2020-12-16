@@ -91,14 +91,15 @@ class AcuSection {
             browser.getApiVersion(this.props.requestUri)
         ];
 
-        if (!acuArticlesSource || !acuArticlesSource.content_elements)
-            return null;
+        // if (!acuArticlesSource || !acuArticlesSource.content_elements)
+        //     return null;
 
         if (!categoryMigrated) {
             return {
                 success: false,
                 message:
                     'Esta categoria aún no ha sido migrada, debe de consultar en Api Contenidos',
+                //`La categoria ${id} aún no ha sido migrada, debe de consultar en Api Contenidos`,
                 code: 202
             };
         }

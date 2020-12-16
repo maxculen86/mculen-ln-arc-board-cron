@@ -17,7 +17,8 @@ const getPrincipalCategory = section => {
         'additional_properties.original.migration.id_section_ln9',
         null
     );
-    const name = get(section, 'additional_properties.original.name', null);
+    //const name = get(section, 'additional_properties.original.name', null);
+    const name = get(section, 'name', null);
 
     if (!isMigratedCategory(slug, migration)) {
         return {

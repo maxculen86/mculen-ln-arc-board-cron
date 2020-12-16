@@ -91,9 +91,9 @@ class SectionRanking {
             browser.getApiVersion(this.props.requestUri)
         ];
 
-        if (!rankingArticleSource || !rankingArticleSource.content_elements) {
-            return null;
-        }
+        // if (!rankingArticleSource || !rankingArticleSource.content_elements) {
+        //     return null;
+        // }
 
         if (!categoryMigrated) {
             return {
@@ -103,6 +103,7 @@ class SectionRanking {
                 code: 202
             };
         }
+        return rankingArticleSource;
         return indexRanking(name, rankingArticleSource.content_elements);
     }
 }
