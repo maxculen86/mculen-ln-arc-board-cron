@@ -19,16 +19,12 @@ describe('GooglePublisherTagAcumulado', () => {
             },
             slug: 'alberto-fernandez',
             name: 'recetas',
-            ancestors:{
-                default:[
-                   "/",
-                   "/deportes",
-                   "/deportes/futbol"
-                ]
-             },
-             parent:{
-                default:"/deportes/futbol"
-             },
+            ancestors: {
+                default: ['/', '/deportes', '/deportes/futbol']
+            },
+            parent: {
+                default: '/deportes/futbol'
+            }
         }
     };
 
@@ -62,9 +58,9 @@ describe('GooglePublisherTagAcumulado', () => {
     const content2 = {
         globalContent: {
             name: 'futbol',
-            parent:{
-                default:"/deportes"
-            },
+            parent: {
+                default: '/deportes'
+            }
         }
     };
 

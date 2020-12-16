@@ -13,7 +13,14 @@
 
     //100% mobile
     @include fullwidth;
-
+    &.mod-picture {
+        .mod-wikiauthor.mod-wikiauthor & {
+            border-radius: 50%;
+            padding-top: inherit;
+            width: px(280);
+            height: px(280);
+        }
+    }
     //100% ipad dentro de nota
     .mod-opening &,
     .cuerpo__nota & {

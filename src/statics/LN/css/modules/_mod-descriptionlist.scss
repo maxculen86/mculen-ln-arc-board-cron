@@ -1,0 +1,25 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-descriptionlist {
+    margin-bottom: $spacing-sm;
+    display: flex;
+    flex-direction: column;
+    .com-itemlist {
+        @include flex(flex, row, start, center);
+        margin-bottom: $spacing-xs;
+        flex-wrap: wrap;
+        .--educacion &,
+        .--reconocimientos & {
+            flex-wrap: nowrap;
+        }
+    }
+}
+@media ($media-l) {
+    .mod-descriptionlist {
+        &.--membresia,
+        &.--idiomas {
+            @include flex(inline, row, center, center);
+        }
+    }
+}
