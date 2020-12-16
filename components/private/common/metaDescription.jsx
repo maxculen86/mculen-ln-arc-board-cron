@@ -36,16 +36,16 @@ const MetaDescription = ({
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
     // TODO: faltan meta descripction para otros acumulados (tags, author, recetas)
-    const acusWithMeta = ['section'];
+    const acusWithMeta = ['section', 'author'];
     if (acusWithMeta.includes(nodeType) && _id !== '/recetas') {
         // const { tagId, tagName } = extractDataFromTags(payload);
         return (
             <MetaDescriptionAcumulado
                 size="2"
                 title={name}
-                sectionId={_id || null}
+                sectionId={nodeType === 'section' ? _id : null}
+                authorId={nodeType === 'author' ? _id : null}
                 // tagId={tagId || null}
-                // authorId={authorType || null}
             />
         );
     }

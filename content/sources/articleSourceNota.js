@@ -228,57 +228,33 @@ const getNavigationSiteProperties = arcSite => {
     return navigationTreeSource
         .fetch({ website: arcSite })
         .then(fetchedRelated => {
-            const { site } = fetchedRelated || {};
-            const { tooltips } = site;
-            const { bannerConfig } = fetchedRelated || { bannerConfig: {} };
-            const { Termicas: termicasConfig } = fetchedRelated || {
-                Termicas: {}
-            };
-            const { sitio_adserver: sitioAdserver } = site;
+            const {
+                site = {},
+                Termicas: termicasConfig = {},
+                bannerConfig = {}
+            } = fetchedRelated || {};
 
-            // Trust
-            const customTooltips = [];
-            Object.keys(tooltips).forEach(key => {
-                customTooltips.push({
-                    label: tooltips[key],
-                    text: key
-                });
-            });
+            const { sitio_adserver: sitioAdserver = {}, tooltips = {} } =
+                site || {};
 
-            // Banner dimensions
-            const banners = [];
-            Object.keys(bannerConfig).forEach(key => {
-                banners.push({
+            return {
+                tooltips: Object.keys(tooltips).map(key => ({
+                    text: key,
+                    label: tooltips[key]
+                })),
+                banners: Object.keys(bannerConfig).map(key => ({
                     adunit: key,
                     dimensions: bannerConfig[key]
-                });
-            });
-
-            // Termicas
-            const termicas = [];
-            Object.keys(termicasConfig).forEach(key => {
-                termicas.push({
-                    key,
-                    value: termicasConfig[key]
-                });
-            });
-
-            // Banner segments
-            const adserver = [];
-            Object.keys(sitioAdserver).forEach(key => {
-                adserver.push({
+                })),
+                adserver: Object.keys(sitioAdserver).map(key => ({
                     key,
                     value: sitioAdserver[key]
-                });
-            });
-
-            const resp = {
-                tooltips: customTooltips,
-                banners,
-                adserver,
-                termicas
+                })),
+                termicas: Object.keys(termicasConfig).forEach(key => ({
+                    key,
+                    value: termicasConfig[key]
+                }))
             };
-            return resp;
         })
         .catch(e => {
             // console.log('Error article source: getNavigationSiteProperties -> e', e);

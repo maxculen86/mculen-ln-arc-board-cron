@@ -6,5 +6,8 @@ export default `
     image { url },
     longBio,
     twitter,
-    slug
+    slug,
+    node_type,
+    name,
+    canonical_url
 }`;

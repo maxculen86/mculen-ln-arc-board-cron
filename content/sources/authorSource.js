@@ -14,7 +14,10 @@ const resolve = key => {
 const transform = data => {
     const dataResp = {
         ...data,
-        image: { url: data.image || '' }
+        image: { url: data.image || '' },
+        node_type: 'author',
+        name: data.byline,
+        canonical_url: data.bio_page
     };
 
     if (dataResp.image.url.length === 0) return dataResp;
