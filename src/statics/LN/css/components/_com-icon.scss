@@ -32,6 +32,9 @@
         text-align: center;
         text-transform: initial;
     }
+    .mod-wikiauthor & {
+        color: $negro;
+    }
     .mod-tooltip & {
         position: absolute;
         right: 0;
