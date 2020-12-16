@@ -79,7 +79,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             class="mod-descriptionlist "
           >
             <dt
-              class="com-title --threexs "
+              class="com-subtitle --threexs "
             >
               Educación
             </dt>
@@ -116,7 +116,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             class="mod-descriptionlist "
           >
             <dt
-              class="com-title --threexs "
+              class="com-subtitle --threexs "
             >
               Reconocimientos
             </dt>
@@ -153,7 +153,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             class="mod-descriptionlist --idiomas"
           >
             <dt
-              class="com-title --threexs --idiomas"
+              class="com-subtitle --threexs --idiomas"
             >
               Idiomas:
             </dt>
@@ -167,7 +167,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             class="mod-descriptionlist --membresia"
           >
             <dt
-              class="com-title --threexs --membresia"
+              class="com-subtitle --threexs --membresia"
             >
               Membresías profesionales:
             </dt>
@@ -181,7 +181,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             class="mod-descriptionlist "
           >
             <dt
-              class="com-title --threexs "
+              class="com-subtitle --threexs "
             >
               Publicaciones
             </dt>
@@ -212,9 +212,9 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             class="mod-descriptionlist "
           >
             <dt
-              class="com-title --threexs "
+              class="com-subtitle --threexs "
             >
-              Podscat
+              Podcast
             </dt>
             <dd
               class="com-itemlist  --threexs"
@@ -261,7 +261,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
         class="com-container  --socialicons"
       >
         <h4
-          class="com-title --threexs"
+          class="com-subtitle --threexs "
         >
           Conectar
         </h4>
@@ -284,7 +284,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-twitter --xl  "
+                class="com-icon icon-twitter-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -309,7 +309,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-facebook --xl  "
+                class="com-icon icon-facebook-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -334,7 +334,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-youtube --xl  "
+                class="com-icon icon-youtube-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -359,7 +359,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-instagram --xl  "
+                class="com-icon icon-instagram-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -384,7 +384,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-linkedin --xl  "
+                class="com-icon icon-linkedin-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -409,7 +409,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-rss --xl  "
+                class="com-icon icon-rss-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -434,7 +434,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-medium --xl  "
+                class="com-icon icon-medium-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -459,7 +459,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-pinterest --xl  "
+                class="com-icon icon-pinterest-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -484,7 +484,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-soundcloud --xl  "
+                class="com-icon icon-soundcloud-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -509,7 +509,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-snapchat --xl  "
+                class="com-icon icon-snapchat-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -534,7 +534,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-whatsapp --xl  "
+                class="com-icon icon-whatsapp-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -559,7 +559,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-tumblr --xl  "
+                class="com-icon icon-tumblr-filled --l  "
               />
               <span
                 class="com-text --threexs "
@@ -622,7 +622,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             class="mod-descriptionlist --idiomas"
           >
             <dt
-              class="com-title --threexs --idiomas"
+              class="com-subtitle --threexs --idiomas"
             >
               Idiomas:
             </dt>
@@ -636,9 +636,9 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
             class="mod-descriptionlist "
           >
             <dt
-              class="com-title --threexs "
+              class="com-subtitle --threexs "
             >
-              Podscat
+              Podcast
             </dt>
             <dd
               class="com-itemlist  --threexs"
@@ -668,7 +668,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
         class="com-container  --socialicons"
       >
         <h4
-          class="com-title --threexs"
+          class="com-subtitle --threexs "
         >
           Conectar
         </h4>
@@ -691,7 +691,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-twitter --xl  "
+                class="com-icon icon-twitter-filled --l  "
               />
               <span
                 class="com-text --threexs "
