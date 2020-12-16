@@ -154,4 +154,62 @@ describe('Common - getMetasOG function', () => {
 
         expect(getMetasOG(props)).toStrictEqual(metas);
     });
+
+    it('metas og de acumulado autor', () => {
+        const props = {
+            globalContent: {
+                _id: 'EZYG5OEVH5HSJJCUMJO5XAHTTA',
+                canonical_url: '/autor/javier-blanco-170/',
+                node_type: 'author',
+                name: 'Javier Blanco',
+                website_url:
+                    '/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/'
+            },
+            siteProperties: {
+                title: 'LA NACION',
+                shareConfig: {
+                    facebook: {
+                        appID: '205326199490321'
+                    }
+                }
+            },
+            metaValue: function metaValue(name) {
+                return name === 'title' ? 'Javier Blanco' : '';
+            },
+            contextPath: '/pf',
+            deployment: function deployment() {
+                return '$LATEST';
+            }
+        };
+
+        const metas = [
+            {
+                property: 'fb_app_id',
+                content: '205326199490321'
+            },
+            {
+                property: 'og:type',
+                content: 'website'
+            },
+            {
+                property: 'og:title',
+                content: 'Javier Blanco'
+            },
+            {
+                property: 'og:description',
+                content: 'Últimas Noticias de Javier Blanco'
+            },
+            {
+                property: 'og:image',
+                content: getAssetsPath(props.contextPath)(props.deployment)(
+                    'placeholderLN.jpg'
+                )
+            },
+            {
+                property: 'og:url',
+                content: `https://recetas.lanacion.com.ar/autor/javier-blanco-170/`
+            }
+        ];
+        expect(getMetasOG(props)).toStrictEqual(metas);
+    });
 });

@@ -7,11 +7,9 @@ import getTitleText from '../../common/utils/getTitleText';
 const MetaDescriptionAcumulado = ({ articles = [], title }) => {
     const firstPart = `Últimas Noticias de ${title}`;
     const withDots = articles && articles.length > 0 ? ':' : '';
-    const articlesTitles = [];
-    articles &&
-        articles.forEach(art => {
-            articlesTitles.push(` ${getTitleText(art.headlines)}`);
-        });
+    const articlesTitles = articles.map(
+        art => ` ${getTitleText(art.headlines)}`
+    );
     const description = `${firstPart}${withDots}${articlesTitles.join(',')}`;
     return <meta name="description" content={`${description} - LA NACION`} />;
 };

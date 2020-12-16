@@ -31,7 +31,7 @@ const FooterAMP = ({ copyrightText }) => {
                             target="_blank"
                             rel="noreferrer noopener"
                         >
-                            <i className="icon-instagram-filled" />
+                            <i className="icon-instagram" />
                         </a>
                         <a
                             href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"

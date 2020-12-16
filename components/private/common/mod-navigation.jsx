@@ -42,7 +42,7 @@ const ModNavigation = props => {
         <>
             <ComButton
                 classCondition={`--left ${showBtnScrollLeft}`}
-                iconName="left"
+                iconName="arrow-left"
                 onMouseDown={() => moveScroll(categoryEl, 'left')}
                 style={style}
             />
@@ -54,7 +54,7 @@ const ModNavigation = props => {
             </ul>
             <ComButton
                 classCondition={`${showBtnScrollRight}`}
-                iconName="right"
+                iconName="arrow-right"
                 onMouseDown={() => moveScroll(categoryEl, 'right')}
                 style={style}
             />

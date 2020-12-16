@@ -110,8 +110,8 @@ h1.com-title-nota {
     @media (min-width: 1024px) {
         margin-bottom: px(40);
     }
-    [class^='com-title'],
-    [class*=' com-title'] {
+    //[class^='com-title'],
+    [class*='com-title'] {
         display: inline-block;
         margin-right: px(10);
         vertical-align: middle;

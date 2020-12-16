@@ -41,4 +41,8 @@ export default `
     snapchat,
     whatsapp,
     tumblr
+    slug,
+    node_type,
+    name,
+    canonical_url
 }`;

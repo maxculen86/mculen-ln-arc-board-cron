@@ -16,6 +16,7 @@ const transform = data => {
         ...data,
         image: { url: data.image || '' },
         node_type: 'author',
+        name: data.byline,
         canonical_url: data.bio_page
     };
 
