@@ -1,72 +1,72 @@
-@import '../../../../../src/statics/LN/css/base/reset.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/base/types.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/base/reset.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/base/types.scss'; //se pasa a BASIC
 
-//@import '../../../../../src/statics/LN/css/base/helpers.scss';
+// //@import '../../../../../src/statics/LN/css/base/helpers.scss';
 
-@import '../../../../../src/statics/LN/css/layouts/grid.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/layouts/layout.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/layouts/grid.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/layouts/layout.scss'; //se pasa a BASIC
 
-// TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
-// EL COMPONENTE Y EN OTROS NO
-//@import '../../../../../src/statics/LN/css/components/button.scss'; Se saca para probar si ya se puede eliminar
-//@import '../../../../../src/statics/LN/css/components/share.scss'; Se saca para probar si ya se puede eliminar
-//@import '../../../../../src/statics/LN/css/components/date.scss'; Se saca para probar si ya se puede eliminar
-@import '../../../../../src/statics/LN/css/components/tag.scss'; //se pasa a BASIC
-//@import '../../../../../src/statics/LN/css/components/author.scss'; Se saca para probar si ya se puede eliminar
-@import '../../../../../src/statics/LN/css/components/lead.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/com-ordered.scss'; //se pasa a RECETA
-@import '../../../../../src/statics/LN/css/components/com-unordered.scss'; //se pasa a RECETA
-@import '../../../../../src/statics/LN/css/components/breadcrumb.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/input.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/blockquote.scss'; //se pasa a NOTICIA
-//@import '../../../../../src/statics/LN/css/components/text.scss'; Se saca para probar si ya se puede eliminar
-//@import '../../../../../src/statics/LN/css/components/link.scss'; Se saca para probar si ya se puede eliminar
-//@import '../../../../../src/statics/LN/css/components/subtitle.scss'; Se saca para probar si ya se puede eliminar
-//@import '../../../../../src/statics/LN/css/components/title.scss'; Se saca para probar si ya se puede eliminar
-//@import '../../../../../src/statics/LN/css/components/epigraph.scss';
-//@import '../../../../../src/statics/LN/css/components/appointment.scss';
-@import '../../../../../src/statics/LN/css/components/footer.scss'; //se pasa a BASIC
-//daro @import '../../../../../src/statics/LN/css/base/aspect-ratios.scss';
-@import '../../../../../src/statics/LN/css/components/_nav-mobile.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/banners.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/modules/caja-nota.scss'; //se pasa a BASIC
-//@import '../../../../../src/statics/LN/css/components/colecciones.scss';
-//@import '../../../../../src/statics/LN/css/components/carta-lectores.scss';
-//@import '../../../../../src/statics/LN/css/components/dropdown.scss';
-//@import '../../../../../src/statics/LN/css/modules/newsletter.scss';
+// // TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
+// // EL COMPONENTE Y EN OTROS NO
+// //@import '../../../../../src/statics/LN/css/components/button.scss'; Se saca para probar si ya se puede eliminar
+// //@import '../../../../../src/statics/LN/css/components/share.scss'; Se saca para probar si ya se puede eliminar
+// //@import '../../../../../src/statics/LN/css/components/date.scss'; Se saca para probar si ya se puede eliminar
+// @import '../../../../../src/statics/LN/css/components/tag.scss'; //se pasa a BASIC
+// //@import '../../../../../src/statics/LN/css/components/author.scss'; Se saca para probar si ya se puede eliminar
+// @import '../../../../../src/statics/LN/css/components/lead.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/com-ordered.scss'; //se pasa a RECETA
+// @import '../../../../../src/statics/LN/css/components/com-unordered.scss'; //se pasa a RECETA
+// @import '../../../../../src/statics/LN/css/components/breadcrumb.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/input.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/blockquote.scss'; //se pasa a NOTICIA
+// //@import '../../../../../src/statics/LN/css/components/text.scss'; Se saca para probar si ya se puede eliminar
+// //@import '../../../../../src/statics/LN/css/components/link.scss'; Se saca para probar si ya se puede eliminar
+// //@import '../../../../../src/statics/LN/css/components/subtitle.scss'; Se saca para probar si ya se puede eliminar
+// //@import '../../../../../src/statics/LN/css/components/title.scss'; Se saca para probar si ya se puede eliminar
+// //@import '../../../../../src/statics/LN/css/components/epigraph.scss';
+// //@import '../../../../../src/statics/LN/css/components/appointment.scss';
+// @import '../../../../../src/statics/LN/css/components/footer.scss'; //se pasa a BASIC
+// //daro @import '../../../../../src/statics/LN/css/base/aspect-ratios.scss';
+// @import '../../../../../src/statics/LN/css/components/_nav-mobile.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/banners.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/modules/caja-nota.scss'; //se pasa a BASIC
+// //@import '../../../../../src/statics/LN/css/components/colecciones.scss';
+// //@import '../../../../../src/statics/LN/css/components/carta-lectores.scss';
+// //@import '../../../../../src/statics/LN/css/components/dropdown.scss';
+// //@import '../../../../../src/statics/LN/css/modules/newsletter.scss';
 
-@import '../../../../../src/statics/LN/css/components/com-link.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/com-image.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/com-text.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/com-icon.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/com-button.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/com-container.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/com-logo.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/com-partner.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/components/com-title.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/components/com-date.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/components/com-hour.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/components/com-paragraph.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/components/com-line.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/components/com-link.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/com-image.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/com-text.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/com-icon.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/com-button.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/com-container.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/com-logo.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/com-partner.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/components/com-title.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/components/com-date.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/components/com-hour.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/components/com-paragraph.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/components/com-line.scss'; //se pasa a NOTICIA
 
-@import '../../../../../src/statics/LN/css/modules/mod-date.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/modules/mod-image.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/modules/mod-media.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/modules/mod-picture.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/modules/mod-figure.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/modules/mod-figcaption.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/modules/mod-autor.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/modules/mod-sponsor.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/modules/mod-opening.scss'; //se pasa a RECETA
-@import '../../../../../src/statics/LN/css/modules/mod-title.scss'; //se pasa a BASIC
-@import '../../../../../src/statics/LN/css/modules/mod-paragraph.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/modules/mod-newsletter.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/modules/mod-themes.scss'; //se pasa a NOTICIA
-@import '../../../../../src/statics/LN/css/modules/mod-keepreading.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/modules/mod-date.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/modules/mod-image.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/modules/mod-media.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/modules/mod-picture.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/modules/mod-figure.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/modules/mod-figcaption.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/modules/mod-autor.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/modules/mod-sponsor.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/modules/mod-opening.scss'; //se pasa a RECETA
+// @import '../../../../../src/statics/LN/css/modules/mod-title.scss'; //se pasa a BASIC
+// @import '../../../../../src/statics/LN/css/modules/mod-paragraph.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/modules/mod-newsletter.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/modules/mod-themes.scss'; //se pasa a NOTICIA
+// @import '../../../../../src/statics/LN/css/modules/mod-keepreading.scss'; //se pasa a NOTICIA
 
-@import '../../../../../src/statics/LN/css/pages/_photo100.scss';
-@import '../../../../../src/statics/LN/css/pages/_storytelling.scss';
+// @import '../../../../../src/statics/LN/css/pages/_photo100.scss';
+// @import '../../../../../src/statics/LN/css/pages/_storytelling.scss';
 
-@import '../../../../../src/statics/LN/css/components/nav-amp.scss';
+// @import '../../../../../src/statics/LN/css/components/nav-amp.scss';
 
-@import '../../../../../src/statics/LN/css/base/helpers-amp.scss'; //se usan solo los helpers necesarios
+// @import '../../../../../src/statics/LN/css/base/helpers-amp.scss'; //se usan solo los helpers necesarios

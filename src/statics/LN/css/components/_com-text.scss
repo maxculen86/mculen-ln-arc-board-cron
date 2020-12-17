@@ -72,7 +72,6 @@
             margin-left: $spacing-2xs;
         }
     }
-
     &.--tooltip {
         display: flex;
         padding: 0;
@@ -83,6 +82,10 @@
                 visibility: visible;
             }
         }
+    }
+    &.--profesion {
+        margin-bottom: $spacing-xs;
+        display: inline-flex;
     }
 
     &.--sponsor {
@@ -159,6 +162,14 @@
         &.--sponsor,
         &.--tooltip {
             position: relative;
+        }
+        .--info & {
+            .mod-wikiauthor & {
+                .acumulado & {
+                    margin-bottom: $spacing-sm;
+                    display: flex;
+                }
+            }
         }
     }
 }

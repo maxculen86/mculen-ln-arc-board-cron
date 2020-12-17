@@ -60,5 +60,4 @@ ComImage.propTypes = {
     withLazy: PropTypes.bool
 };
 
-
 export default ComImage;
