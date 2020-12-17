@@ -28,24 +28,28 @@ const getPrincipalCategory = section => {
     return { slug, valor };
 };
 
-const getSubCategory = (category, isMigratedPrincipalCategory) => {
-    if (!category) return null;
-
+const getSubCategory = section => {
+    const { _id: slug, name: valor } = section;
     const resp = {};
-
-    if (!isMigratedPrincipalCategory) {
-        // eslint-disable-next-line no-underscore-dangle
-        const migratedCategory = getCategory(category._id);
-        // eslint-disable-next-line radix
-        // eslint-disable-next-line no-underscore-dangle
-        resp.id = parseInt(migratedCategory._id, 10);
-        resp.valor = migratedCategory.name;
+    const migration = get(
+        section,
+        'additional_properties.original.migration',
+        null
+    );
+    // eslint-disable-next-line camelcase
+    const id_section_ln9 = get(
+        section,
+        'additional_properties.original.migration.id_section_ln9',
+        null
+    );
+    if (!isMigratedCategory(slug, migration)) {
+        resp.id = parseInt(id_section_ln9, 10);
+        resp.valor = valor;
+        resp.nivel = slug.match(new RegExp('/', 'g')).length;
     } else {
-        resp.slug = category._id;
-        resp.valor = category.name;
+        resp.slug = slug;
+        resp.valor = valor;
     }
-
-    resp.nivel = category._id.match(new RegExp('/', 'g')).length;
     return resp;
 };
 

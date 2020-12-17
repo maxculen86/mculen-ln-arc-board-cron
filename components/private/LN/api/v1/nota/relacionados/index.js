@@ -17,17 +17,8 @@ const relacionadosIndex = dataArticle => {
             // eslint-disable-next-line no-underscore-dangle
             principalCategory = dataCategories[0]._id;
         }
-
         resp.categorias = dataCategories.map(v => {
-            const migration = get(
-                v,
-                'additional_properties.original.migration',
-                null
-            );
-            // eslint-disable-next-line no-underscore-dangle
-            const categoryMigrated = isMigratedCategory(v._id, migration);
-            const category = getSubCategory(v, categoryMigrated);
-
+            const category = getSubCategory(v);
             return category;
         });
     }
