@@ -16,6 +16,7 @@ import getCollectionsFromRenderables from '../private/common/utils/getCollection
 
 import analytics from '../../resources/json/analytics.json';
 import dataLayerIndexAmp from '../private/common/dataLayerIndexAmp';
+import MetasOG from '../private/common/metaTags/metasOG';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -116,6 +117,7 @@ const Amp = props => {
                     type="image/x-icon"
                     href={deployment(`${contextPath}/resources/favicon.ico`)}
                 />
+                <MetasOG {...props} />
                 <Robot
                     subtype={subtype}
                     canonicalUrl={canonicalUrl || _id}
