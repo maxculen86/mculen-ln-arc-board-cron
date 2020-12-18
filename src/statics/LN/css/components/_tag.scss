@@ -15,7 +15,7 @@
         color: $link;
         &:hover {
             background: $link;
-            color: $blanco;
+            color: $neutral-white;
         }
         &:last-of-type {
             margin-right: 0;
@@ -30,7 +30,7 @@
     p {
         display: inline-flex;
         font-family: $font-arial;
-        color: $gris5;
+        color: $light-neutral-600;
     }
     a {
         font-family: $font-arial;
@@ -82,7 +82,7 @@
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    border-bottom: 1px solid $gris3;
+    border-bottom: 1px solid $light-neutral-400;
     margin-bottom: $spacing-sm;
 
     .com-title-section-xl {
@@ -126,7 +126,7 @@
                 font-weight: 700;
                 width: px(100);
                 background: $link;
-                color: $blanco;
+                color: $neutral-white;
                 padding: px(4) 0;
                 position: absolute;
                 top: -10px;

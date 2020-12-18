@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 /* .mod-newsletter {
     background: $link;
-    color: $blanco;
+    color: $neutral-white;
     padding: 0 px(15);
     .col-12 {
         p {
@@ -44,10 +44,10 @@
         line-height: px(23);
         margin-bottom: 0;
         a {
-            color: $blanco;
-            border-color: $blanco;
+            color: $neutral-white;
+            border-color: $neutral-white;
             &:first-child {
-                color: $blanco;
+                color: $neutral-white;
             }
         }
     }
@@ -91,8 +91,8 @@
         display: block;
         width: fit-content;
         border-radius: 3px;
-        background-color: $blanco;
-        color: $negro;
+        background-color: $neutral-white;
+        color: $neutral-black;
         padding: 3px 6px;
         font-family: $font-arial;
         font-size: px(16);
@@ -124,9 +124,9 @@
                     a {
                         display: inline-block;
                         margin-bottom: 0;
-                        color: $blanco;
+                        color: $neutral-white;
                         &:last-child {
-                            border-left: solid 1px $blanco;
+                            border-left: solid 1px $neutral-white;
                             padding-left: px(5);
                             margin-left: px(5);
                         }

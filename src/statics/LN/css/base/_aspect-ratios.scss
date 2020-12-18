@@ -1,6 +1,6 @@
 @import '../abstracts/variables';
 .cont-figure {
-    background-color: $placeholder;
+    background-color: $light-neutral-200;
 
     .more-articles & {
         .cuerpo__nota & {
@@ -46,7 +46,7 @@
         }
         /*.content-video {
             width: 100%;
-            background: $gris1;
+            background: $light-neutral-200;
             max-height: 100%;
             max-width: 100%;
             position: relative;
@@ -64,7 +64,7 @@
         }*/
         .content-pic {
             width: 100%;
-            background: $gris1;
+            background: $light-neutral-200;
             max-height: 100%;
             max-width: 100%;
             position: relative;
@@ -72,7 +72,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid $gris3;
+            border: 1px solid $light-neutral-400;
 
             padding-top: $picture;
 
@@ -101,7 +101,7 @@
             &.zoom {
                 &:after {
                     font-family: 'LNicons';
-                    color: $blanco;
+                    color: $neutral-white;
                     font-size: px(25);
                     content: '\e91d';
                     position: absolute;
@@ -109,7 +109,7 @@
                     height: px(42);
                     top: 0;
                     right: 0;
-                    background: $negro;
+                    background: $neutral-black;
                     opacity: 0.7;
                     z-index: 10;
                     display: flex;
@@ -156,7 +156,7 @@
 
 .cont-figure-wiki {
     border-radius: 50%;
-    background: $blanco;
+    background: $neutral-white;
     .figure {
         display: flex;
         width: 100%;
@@ -181,7 +181,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: $blanco;
+            background: $neutral-white;
             &:before {
                 font-family: 'LNlogos';
                 content: $logo-ln-placeholder;
@@ -206,7 +206,7 @@
                 width: 80px;
                 height: 80px;
                 z-index: 1;
-                background-color: $blanco;
+                background-color: $neutral-white;
                 &:before {
                     content: '324';
                     background: black;

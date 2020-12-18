@@ -5,10 +5,10 @@ footer {
         margin-bottom: px(20);
         @media ($media-l) {
             padding-bottom: px(15);
-            border-bottom: 1px solid $gris3;
+            border-bottom: 1px solid $light-neutral-400;
         }
         .footer-header__logo {
-            border-bottom: 1px solid $gris3;
+            border-bottom: 1px solid $light-neutral-400;
             padding-bottom: px(20);
             display: flex;
             justify-content: center;
@@ -90,7 +90,7 @@ footer {
                 display: flex;
             }
             p {
-                color: $gris5;
+                color: $light-neutral-600;
                 font-size: px(14);
                 line-height: px(20);
                 /*height: fit-content;
@@ -122,7 +122,7 @@ footer {
         margin-bottom: px(20);
         .footer-copyright__fiscal {
             p {
-                color: $gris5;
+                color: $light-neutral-600;
                 font-size: px(14);
                 line-height: px(20);
                 /*height: fit-content;
@@ -196,7 +196,7 @@ footer {
         .footer-copyright__reserved {
             font-size: px(14);
             line-height: px(24);
-            color: $gris5;
+            color: $light-neutral-600;
             text-align: center;
             @media ($media-l) {
                 text-align: left;

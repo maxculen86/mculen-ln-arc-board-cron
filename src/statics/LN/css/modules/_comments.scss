@@ -3,7 +3,7 @@
 .comments {
     margin-top: px(20);
     padding-top: px(50);
-    border-top: 1px solid $gris3;
+    border-top: 1px solid $light-neutral-400;
 
     .comment-title {
         position: relative;
@@ -24,7 +24,7 @@
         background: #ffffbf;
         font-size: px(14);
         text-align: center;
-        color: $gris5;
+        color: $light-neutral-600;
         margin: px(20) 0;
         padding: px(25) 0;
     }

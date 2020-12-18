@@ -28,14 +28,14 @@
             top: px(1);
             transform: rotate(224deg);
             .--transparent & {
-                border-color: $blanco;
+                border-color: $neutral-white;
             }
         }
     }
     &__valueSuscrib {
         font-weight: 400;
         font-size: px(12);
-        color: $gris5;
+        color: $light-neutral-600;
     }
     #menuUser {
         outline: none;
@@ -46,8 +46,8 @@
 .com-desplegable {
     display: none;
     width: 200px;
-    border: 1px solid $gris1;
-    background: $blanco;
+    border: 1px solid $light-neutral-200;
+    background: $neutral-white;
     border-radius: 3px;
     text-align: left;
     position: absolute;
@@ -60,12 +60,12 @@
         transform: rotate(45deg);
         width: px(12);
         height: px(12);
-        border: 2px solid $gris1;
+        border: 2px solid $light-neutral-200;
         border-right: none;
         border-bottom: none;
         border-radius: 0 0 6px 0;
         margin: px(-8) auto 0;
-        background: $blanco;
+        background: $neutral-white;
         display: block;
         box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     }
@@ -76,7 +76,7 @@
         position: absolute;
         top: 0;
         left: px(80);
-        background: $blanco;
+        background: $neutral-white;
         display: block;
         z-index: 0;
     }
@@ -84,7 +84,7 @@
         z-index: 2;
         position: relative;
         &:last-child {
-            border-top: 1px solid $gris3;
+            border-top: 1px solid $light-neutral-400;
         }
         a {
             font-size: px(14);
@@ -93,7 +93,7 @@
             display: block;
             color: $link;
             &:hover {
-                background: $gris1;
+                background: $light-neutral-200;
             }
         }
     }

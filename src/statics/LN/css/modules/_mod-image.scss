@@ -8,7 +8,7 @@
     margin-bottom: $spacing-xs;
     .mod-autor & {
         @include flex(inline);
-        background: $gris3;
+        background: $light-neutral-400;
         width: px(80);
         max-width: px(80);
         height: px(80);

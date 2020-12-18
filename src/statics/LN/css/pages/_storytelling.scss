@@ -8,14 +8,14 @@
             @include OpeningFull;
 
             .com-logo.com-logo {
-                color: $blanco;
+                color: $neutral-white;
             }
         }
         .mod-sponsor {
             .com-texto,
             .com-logo,
             .com-logo::after {
-                color: $blanco;
+                color: $neutral-white;
             }
         }
     }
