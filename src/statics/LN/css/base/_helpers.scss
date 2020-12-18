@@ -398,12 +398,12 @@
     line-height: px(40);
 }
 .--xl {
-    font-size: px(32);
-    line-height: px(40);
+    font-size: px(20);
+    line-height: px(28);
 }
 .--l {
-    font-size: px(24);
-    line-height: px(32);
+    font-size: px(20);
+    line-height: px(28);
 }
 .--m {
     font-size: px(20);
@@ -455,6 +455,10 @@
         font-size: px(32);
         line-height: px(40);
     }
+    .--l {
+        font-size: px(24);
+        line-height: px(32);
+    }
     .--s {
         font-size: px(18);
         line-height: px(26);
@@ -465,14 +469,14 @@
         font-size: px(48);
         line-height: px(56);
     }
-    .--twoxl {
-        font-size: px(40);
-        line-height: px(52);
-    }
-    .--xl {
-        font-size: px(32);
-        line-height: px(40);
-    }
+    // .--twoxl {
+    //     font-size: px(40);
+    //     line-height: px(52);
+    // }
+    // .--xl {
+    //     font-size: px(32);
+    //     line-height: px(40);
+    // }
 }
 
 //=============================
