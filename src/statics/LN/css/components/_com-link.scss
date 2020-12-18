@@ -96,6 +96,15 @@
         margin-bottom: $spacing-sm;
         white-space: nowrap;
     }
+    &.--sociallist {
+        @include flex(inline, row, center, center);
+    }
+    .--contact & {
+        .mod-wikiauthor & {
+            margin-bottom: $spacing-xs;
+            display: inline-flex;
+        }
+    }
     .com-breadcrumb & {
         display: flex;
         flex-direction: row;

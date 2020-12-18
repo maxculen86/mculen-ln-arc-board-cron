@@ -1,0 +1,25 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.com-subtitle {
+    @include flex(inline);
+    font-family: $font-arial;
+    font-weight: bold;
+    color: $negro;
+    margin-bottom: $spacing-sm;
+    .--socialicons & {
+        .mod-wikiauthor & {
+            margin: 0;
+            margin-right: $spacing-sm;
+        }
+    }
+}
+@media ($media-l) {
+    .com-subtitle {
+        &.--membresia,
+        &.--idiomas {
+            margin: 0;
+            margin-right: $spacing-xs;
+        }
+    }
+}

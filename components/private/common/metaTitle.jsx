@@ -32,7 +32,7 @@ MetaTitle.propTypes = {
     arcSite: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
     _id: PropTypes.string,
-    title: PropTypes.string,
+    title: PropTypes.string
 };
 
 export default MetaTitle;

@@ -123,9 +123,9 @@ const LNAcumuladoLayout = props => {
 
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
-    outputType: PropTypes.string.isRequired,
-    tree: PropTypes.arrayOf(PropTypes.node).isRequired,
-    isAdmin: PropTypes.bool.isRequired,
+    outputType: PropTypes.string,
+    tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
+    isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({
         style: PropTypes.shape({
             section_style_name: PropTypes.string,
