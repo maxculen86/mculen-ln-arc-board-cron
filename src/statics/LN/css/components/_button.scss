@@ -16,32 +16,32 @@
 //     &.--primary {
 //         background-color: $link;
 //         border: 1px solid $link;
-//         color: $blanco;
+//         color: $neutral-white;
 //     }
 //     &.--secondary {
-//         background-color: $blanco;
+//         background-color: $neutral-white;
 //         border: 1px solid $link;
 //         color: $link;
 //         &:hover {
 //             background-color: $link;
 //             border: 1px solid $link;
-//             color: $blanco;
+//             color: $neutral-white;
 //         }
 //     }
 //     &.--highlight {
 //         background-color: $highlight;
-//         border: 1px solid $gris3;
-//         color: $negro;
+//         border: 1px solid $light-neutral-400;
+//         color: $neutral-black;
 //         &:hover {
-//             background: $negro;
-//             border-color: $negro;
-//             color: $blanco;
+//             background: $neutral-black;
+//             border-color: $neutral-black;
+//             color: $neutral-white;
 //         }
 //     }
 //     &.--bright {
 //         background-color: inherit;
-//         border: 1px solid $blanco;
-//         color: $blanco;
+//         border: 1px solid $neutral-white;
+//         color: $neutral-white;
 //     }
 //     &:hover {
 //         opacity: 0.8;

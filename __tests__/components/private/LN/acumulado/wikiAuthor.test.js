@@ -7,7 +7,9 @@ describe('private - LN - acumulado - Author - wikiAuthor', () => {
     const globalContent1 = {
         byline: 'Joaquín Morales Solá',
         bio_page: 'https://google.com',
-        image: {url: 'https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png' },
+        image: {
+            url: 'https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png'
+        },
         longBio: `Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
                 ser prosecretario de la sección Política. Durante 12 años
@@ -26,40 +28,44 @@ describe('private - LN - acumulado - Author - wikiAuthor', () => {
                 vicepresidente Chacho Alvarez, sobre la trama secreta de los
                 sobornos en el Senado, las causas de su renuncia y los
                 errores que condujeron al fracaso de la Alianza.`,
-        books: [{ 
-            title:"Carlos Pagni en Odisea Argentina",
-            publisher:"Editorial",
-            url:"https://google.com" 
-        }],
+        books: [
+            {
+                title: 'Carlos Pagni en Odisea Argentina',
+                publisher: 'Editorial',
+                url: 'https://google.com'
+            }
+        ],
         podcasts: [
             {
-                name:"Un podcast",
-                url:"http://google.com",
+                name: 'Un podcast',
+                url: 'http://google.com'
             },
             {
-                name:"Dos podcast",
-                url:"http://google.com",
+                name: 'Dos podcast',
+                url: 'http://google.com'
             }
         ],
         education: [
             {
-                name:"Periodismo, Universidad de Buenos Aires, 1989."
+                name: 'Periodismo, Universidad de Buenos Aires, 1989.'
             },
             {
-                name:"Periodismo, Universidad de Buenos Aires, 1995."
+                name: 'Periodismo, Universidad de Buenos Aires, 1995.'
             }
         ],
         awards: [
             {
-                name:"Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002."
+                name:
+                    'Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.'
             },
             {
-                name:"Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002."
+                name:
+                    'Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.'
             }
         ],
-        personal_website: "https://google.com",
-        languages: "Ingles, Frances",
-        affiliations: "Academia de Periodismo.",
+        personal_website: 'https://google.com',
+        languages: 'Ingles, Frances',
+        affiliations: 'Academia de Periodismo.',
         twitter: '@moralessola',
         facebook: '@moralessola',
         youtube: '@moralessola',
@@ -83,26 +89,25 @@ describe('private - LN - acumulado - Author - wikiAuthor', () => {
     const globalContent2 = {
         byline: 'Joaquín Morales Solá',
         bio_page: 'https://google.com',
-        image: { },
+        image: {},
         longBio: `Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
                 ser prosecretario de la sección Política. Durante 12 años
                 fue segundo jefe de Redacción y autor de la columna política
                 dominical de ese diario.`,
         books: [],
-        podcasts: [          
+        podcasts: [
             {
-                name:"Dos podcast",
-                url:"http://google.com",
+                name: 'Dos podcast',
+                url: 'http://google.com'
             }
         ],
-        education: [ ],
-        awards: [ ],
-        personal_website: "https://google.com",
-        languages: "Ingles, Frances",
-        twitter: '@moralessola',
+        education: [],
+        awards: [],
+        personal_website: 'https://google.com',
+        languages: 'Ingles, Frances',
+        twitter: '@moralessola'
     };
-
 
     const component2 = render(<WikiAuthor data={globalContent2} />);
     it('Test de snapshot Bio Author Sin muchos datos', () => {

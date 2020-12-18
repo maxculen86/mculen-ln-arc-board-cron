@@ -11,7 +11,7 @@
         font-size: px(16);
         line-height: px(37);
         margin-bottom: $spacing;
-        color: $negro;
+        color: $neutral-black;
         position: relative;
         &::first-letter {
             text-transform: uppercase;
@@ -22,11 +22,11 @@
             height: px(7);
             border-radius: 50%;
             top: px(14);
-            background-color: $negro;
-            color: $blanco;
+            background-color: $neutral-black;
+            color: $neutral-white;
             position: absolute;
             left: 0;
-            font-family: Arial, sans-serif;
+            font-family: $font-arial;
             font-weight: bold;
             font-size: px(14);
         }

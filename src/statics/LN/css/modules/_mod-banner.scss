@@ -9,7 +9,7 @@
     overflow: hidden;
     z-index: 1;
     &.--bg-banner {
-        background: $gris1;
+        background: $light-neutral-200;
         width: 100%;
     }
     &.--mobile,
@@ -44,7 +44,7 @@
             bottom: px(0);
         }
         &.--bg-banner {
-            background: $gris1;
+            background: $light-neutral-200;
             width: 100%;
         }
     }
@@ -52,11 +52,11 @@
         .icon-close {
             width: px(20);
             height: px(20);
-            background: $negro;
+            background: $neutral-black;
             position: absolute;
             top: 0;
             right: px(1);
-            color: $blanco;
+            color: $neutral-white;
             font-size: px(16);
         }
     }

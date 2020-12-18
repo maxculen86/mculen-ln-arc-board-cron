@@ -4,7 +4,7 @@
 // article a.figure {
 //     position: relative;
 //     display: inline-block;
-//     background-color: $gris1;
+//     background-color: $light-neutral-200;
 //     img {
 //         position: relative;
 //         z-index: 1;
@@ -36,7 +36,7 @@
 // }
 
 // // .breaking-news {
-// //     border-left: 2px solid $gris4;
+// //     border-left: 2px solid $light-neutral-500;
 // //     padding-left: px(20);
 // //     &.hlp-degrade .transparency {
 // //         width: 104%;
@@ -96,26 +96,26 @@
 //     @include revista($logo, $primario);
 // }
 // .living {
-//     $primario: $blanco;
+//     $primario: $neutral-white;
 //     $logo: $logo-living;
 //     @include revista($logo, $primario);
 //     .cont-figure .figure .content-pic:before,
 //     &.acu-revista .subheader-acu i.logo-revista,
 //     .subheader-acu .com-link,
 //     &.acu-revista .subheader-acu .com-share a i {
-//         color: $negro;
+//         color: $neutral-black;
 //     }
 //     .header {
 //         @include headerBlanco;
 //     }
 // }
 // .rolling {
-//     $primario: $blanco;
+//     $primario: $neutral-white;
 //     $logo: $logo-rolling;
 //     @include revista($logo, $primario);
 //     .subheader-acu .com-link,
 //     &.acu-revista .subheader-acu .com-share a i {
-//         color: $negro;
+//         color: $neutral-black;
 //     }
 //     .cont-figure .figure .content-pic:before,
 //     &.acu-revista .subheader-acu i.logo-revista {

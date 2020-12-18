@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .com-paragraph {
-    font-family: Georgia;
+    font-family: $font-georgia;
     font-weight: normal;
     margin-bottom: $spacing-lg;
     &.--bajada {
@@ -16,7 +16,7 @@
         @include flex(flex);
         text-align: center;
         font-family: $font-SuecaSlab;
-        color: $gris6;
+        color: $light-neutral-700;
         font-size: px(20);
         line-height: px(28);
         font-weight: bold;

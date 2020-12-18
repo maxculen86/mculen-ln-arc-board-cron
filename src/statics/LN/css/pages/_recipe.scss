@@ -1,17 +1,17 @@
 @import '../abstracts/variables';
 
 .aper-receta {
-    background: $gris1;
+    background: $light-neutral-200;
     margin-bottom: px(40);
     &.sin-foto {
         .col-desksm-8 .content-pic {
-            background: $blanco;
+            background: $neutral-white;
         }
         .cont-aper {
             .tags {
                 border-bottom: 0;
                 margin-right: px(50);
-                border-right: solid 1px $gris3;
+                border-right: solid 1px $light-neutral-400;
                 > div:last-of-type {
                     margin-top: px(20);
                 }
@@ -62,7 +62,7 @@
             order: 1;
         }
         .tags {
-            border-bottom: solid 1px $gris3;
+            border-bottom: solid 1px $light-neutral-400;
             padding-bottom: px(20);
             position: relative;
             &:before {
@@ -71,7 +71,7 @@
                 position: absolute;
                 height: px(1);
                 width: px(30);
-                background: $negro;
+                background: $neutral-black;
                 bottom: px(-1);
             }
         }

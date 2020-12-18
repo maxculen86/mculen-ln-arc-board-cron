@@ -19,7 +19,7 @@ amp-sidebar {
         justify-content: space-between;
         align-items: center;
         padding: 15px 20px;
-        background: $blanco;
+        background: $neutral-white;
         border-bottom: solid 1px #eaeaea;
         margin-bottom: $spacing;
 
@@ -40,7 +40,7 @@ amp-sidebar {
         height: calc(100% - 130px);
 
         .menu_li {
-            background: $blanco;
+            background: $neutral-white;
 
             a {
                 font-family: arial;
@@ -69,7 +69,7 @@ amp-sidebar {
                     text-align: left;
                     border-top: 0;
                     border-bottom: 1px solid #dfdfdf;
-                    background: $blanco;
+                    background: $neutral-white;
                     color: #3f3f3f;
                     font-weight: bold;
                     font-size: 16px;
@@ -182,27 +182,27 @@ amp-sidebar {
 
         .header__left {
             button.icon-menu {
-                color: $blanco;
+                color: $neutral-white;
             }
         }
 
         .header__middle {
             .header__middle__logo {
                 .logo-la-nacion {
-                    color: $blanco;
+                    color: $neutral-white;
                 }
             }
         }
         .header__right {
             .suscribir__header {
-                color: $blanco;
+                color: $neutral-white;
             }
         }
 
         @media (min-width: 768px) {
             .header__right {
                 .suscribir__header {
-                    color: $negro;
+                    color: $neutral-black;
                 }
             }
         }
@@ -231,13 +231,13 @@ amp-sidebar {
 
         .suscribir__header {
             background-color: #ffff24;
-            border: 1px solid $gris3;
-            color: $negro;
+            border: 1px solid $light-neutral-400;
+            color: $neutral-black;
             padding: 0.625rem 1.5rem;
             &:hover {
-                background: $negro;
-                border-color: $negro;
-                color: $blanco;
+                background: $neutral-black;
+                border-color: $neutral-black;
+                color: $neutral-white;
             }
         }
 
