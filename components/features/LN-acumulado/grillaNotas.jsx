@@ -95,7 +95,7 @@ function GrillaNotasFeature(props) {
         hide_banner = true
     } = acumuladoGeneral;
     const {
-        globalContent: { author_type: authorType, _id, Payload },
+        globalContent: { author_type: authorType, _id, Payload, distributorId },
         siteProperties,
         outputType
     } = useAppContext();
@@ -115,6 +115,7 @@ function GrillaNotasFeature(props) {
             authorId={authorId}
             tagId={tagId}
             sectionId={sectionId}
+            distributorId={distributorId}
             size={outputType === 'amp' ? 30 : cantidad_notas}
             page={1}
             siteProperties={siteProperties}

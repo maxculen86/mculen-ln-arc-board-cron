@@ -60,6 +60,7 @@ function WithAcuArticlesData(
                 let sectionId = get(this, 'props.sectionId', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
+                const distributorId = get(this, 'props.distributorId', null);
                 const size = get(this, 'props.size', 30);
 
                 if (!sectionId && !tagId && !authorId)
@@ -87,7 +88,8 @@ function WithAcuArticlesData(
                         imageConfig,
                         page,
                         excludeSectionId,
-                        promoItemsOnly
+                        promoItemsOnly,
+                        distributorId
                     },
                     filter
                 });
