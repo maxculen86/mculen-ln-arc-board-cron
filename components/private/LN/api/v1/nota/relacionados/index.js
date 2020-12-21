@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import { getCategory } from '../../../../../common/utils/migratedCategoriesHelper';
+import { isMigratedCategory } from '../../../../../common/utils/migratedCategoriesHelper';
 import { getSubCategory } from '../../common/category';
 import { getTag } from '../../common/tag';
 import NotaRelacionadas from './notaRelacionada';
@@ -17,16 +17,10 @@ const relacionadosIndex = dataArticle => {
             // eslint-disable-next-line no-underscore-dangle
             principalCategory = dataCategories[0]._id;
         }
-
-        const migratedPrincipalCategory = getCategory(principalCategory, true);
         resp.categorias = dataCategories.map(v => {
-            const category = getSubCategory(
-                v,
-                migratedPrincipalCategory.migrada
-            );
+            const category = getSubCategory(v);
             return category;
         });
-
     }
 
     if (dataTags && dataTags.length > 0) {

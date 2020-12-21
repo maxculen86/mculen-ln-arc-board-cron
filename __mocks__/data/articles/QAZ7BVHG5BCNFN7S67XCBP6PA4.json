@@ -336,6 +336,10 @@
             "_website": "la-nacion-ar",
             "additional_properties": {
                 "original": {
+                    "migration": {
+                        "id_section_ln9": 1,
+                        "migrated_mob": "true"
+                    },
                     "ancestors": {}
                 }
             },
@@ -349,6 +353,10 @@
                 "_website": "la-nacion-ar",
                 "additional_properties": {
                     "original": {
+                        "migration": {
+                            "id_section_ln9": 0,
+                            "migrated_mob": "true"
+                        },
                         "ancestors": {},
                         "site": {},
                         "style": {}
@@ -363,6 +371,10 @@
                 "_website": "la-nacion-ar",
                 "additional_properties": {
                     "original": {
+                        "migration": {
+                            "id_section_ln9": 1,
+                            "migrated_mob": "true"
+                        },
                         "ancestors": {}
                     }
                 },
@@ -374,7 +386,12 @@
                 "_id": "/revista-hola",
                 "_website": "la-nacion-ar",
                 "additional_properties": {
-                    "original": {}
+                    "original": {
+                        "migration": {
+                            "id_section_ln9": 1,
+                            "migrated_mob": "true"
+                        }
+                    }
                 },
                 "name": "Revista ¡HOLA!",
                 "parent_id": "/",
@@ -384,9 +401,14 @@
                 "_id": "/revista-hola",
                 "_website": "la-nacion-ar",
                 "additional_properties": {
-                    "original": {}
+                    "original": {
+                        "migration": {
+                            "id_section_ln9": 1,
+                            "migrated_mob": "true"
+                        }
+                    }
                 },
-                
+
                 "parent_id": "/",
                 "path": "/revista-hola"
             }
