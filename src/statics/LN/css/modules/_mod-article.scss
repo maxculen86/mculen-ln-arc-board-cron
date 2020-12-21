@@ -189,8 +189,8 @@
         &.--right {
             @media ($media-m) {
                 //768
-                display: flex;
-                flex-direction: row;
+                // display: flex;
+                // flex-direction: row;
 
                 .col-tablet-8 {
                     order: 2;
@@ -399,6 +399,11 @@
 
         &.--cinema {
             margin-top: px(64);
+            margin-bottom: px(64);
+
+            &:first-child {
+                margin-top: 0;
+            }
 
             .mod-media {
                 margin-bottom: 0;
@@ -524,7 +529,7 @@
                     display: inline-flex;
                     flex-direction: column;
 
-                    width: 45%;
+                    width: 46%;
                     margin: 0;
                     padding: px(16);
                     left: px(16);
