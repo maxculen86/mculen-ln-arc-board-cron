@@ -6,7 +6,7 @@ import FUO2YR3EABBAFOMSI2BBS6J7FM from '../../../../../../__mocks__/data/article
 import L47IICAOMVFW5MV343TJIHS4RY from '../../../../../../__mocks__/data/articles/L47IICAOMVFW5MV343TJIHS4RY.json';
 import Q4P5KFEOLVHINB3Y5LIGK26SOU from '../../../../../../__mocks__/data/articles/Q4P5KFEOLVHINB3Y5LIGK26SOU';
 import { dateAndTimeForAppsUtil } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
-
+/*
 describe('Test de index en JSON de nota', () => {
     it('Test valores meta null o undefined', () => {
         const resp = NotaIndex(JMQ44OZHHBC5ZJ5TXTSIIPZMTI);
@@ -103,3 +103,4 @@ describe('Test de index en JSON de nota', () => {
         expect(resp).toBe(undefined);
     });
 });
+*/

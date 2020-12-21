@@ -18,15 +18,10 @@ const relacionadosIndex = dataArticle => {
             principalCategory = dataCategories[0]._id;
         }
 
-        const migratedPrincipalCategory = getCategory(principalCategory, true);
         resp.categorias = dataCategories.map(v => {
-            const category = getSubCategory(
-                v,
-                migratedPrincipalCategory.migrada
-            );
+            const category = getSubCategory(v);
             return category;
         });
-
     }
 
     if (dataTags && dataTags.length > 0) {

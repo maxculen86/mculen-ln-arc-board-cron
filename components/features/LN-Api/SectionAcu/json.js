@@ -1,3 +1,4 @@
+import get from 'lodash.get';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
@@ -18,7 +19,9 @@ class AcuSection {
 
         this.state = {};
 
-        const categoryMigrated = isMigratedCategory(id, true);
+        const migration = get(this.props.globalContent, 'migration', null);
+        const categoryMigrated = isMigratedCategory(id, migration);
+
         if (categoryMigrated) {
             let size = browser.getSizesFrom(
                 isAdmin,

@@ -195,7 +195,12 @@
                 "primary_section": {
                     "_id": "/recetas/dulces",
                     "additional_properties": {
-                        "original": {}
+                        "original": {
+                            "migration": {
+                                "id_section_ln9": "43",
+                                "migrated_mob": "false"
+                            }
+                        }
                     },
                     "name": "Dulces"
                 },
@@ -269,7 +274,12 @@
                 "primary_section": {
                     "_id": "/recetas/guarniciones",
                     "additional_properties": {
-                        "original": {}
+                        "original": {
+                            "migration": {
+                                "id_section_ln9": "43",
+                                "migrated_mob": "false"
+                            }
+                        }
                     },
                     "name": "Guarniciones"
                 },
@@ -375,7 +385,12 @@
                 "primary_section": {
                     "_id": "/recetas/dulces",
                     "additional_properties": {
-                        "original": {}
+                        "original": {
+                            "migration": {
+                                "id_section_ln9": "43",
+                                "migrated_mob": "false"
+                            }
+                        }
                     },
                     "name": "Dulces"
                 },
@@ -481,7 +496,12 @@
                 "primary_section": {
                     "_id": "/recetas/platos-de-comida-principal",
                     "additional_properties": {
-                        "original": {}
+                        "original": {
+                            "migration": {
+                                "id_section_ln9": "43",
+                                "migrated_mob": "false"
+                            }
+                        }
                     },
                     "name": "Platos de comida principal"
                 },
@@ -579,7 +599,12 @@
                 "primary_section": {
                     "_id": "/recetas/entradas",
                     "additional_properties": {
-                        "original": {}
+                        "original": {
+                            "migration": {
+                                "id_section_ln9": "43",
+                                "migrated_mob": "false"
+                            }
+                        }
                     },
                     "name": "Entradas"
                 },
@@ -698,7 +723,12 @@
                 "primary_section": {
                     "_id": "/recetas/dulces",
                     "additional_properties": {
-                        "original": {}
+                        "original": {
+                            "migration": {
+                                "id_section_ln9": "43",
+                                "migrated_mob": "false"
+                            }
+                        }
                     },
                     "name": "Dulces"
                 },
@@ -809,7 +839,12 @@
                 "primary_section": {
                     "_id": "/recetas/guarniciones",
                     "additional_properties": {
-                        "original": {}
+                        "original": {
+                            "migration": {
+                                "id_section_ln9": "43",
+                                "migrated_mob": "false"
+                            }
+                        }
                     },
                     "name": "Guarniciones"
                 },
@@ -899,7 +934,12 @@
                 "primary_section": {
                     "_id": "/recetas/postres",
                     "additional_properties": {
-                        "original": {}
+                        "original": {
+                            "migration": {
+                                "id_section_ln9": "43",
+                                "migrated_mob": "false"
+                            }
+                        }
                     },
                     "name": "Postres"
                 },

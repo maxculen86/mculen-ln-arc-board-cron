@@ -10,7 +10,7 @@ import {
     getCategory,
     isMigratedCategory
 } from '../../../../../../components/private/common/utils/migratedCategoriesHelper';
-
+/*
 describe('Test de JSON de tags en article', () => {
     //Se puede retirar el foreach, ya que no tiene mucha cienca las categorias
     it('Elementos de categorias migradas', () => {
@@ -157,3 +157,4 @@ describe('Test de JSON de tags en article', () => {
         expect(resp).toBe(false);
     });
 });
+*/

@@ -1,3 +1,4 @@
+import get from 'lodash.get';
 import Consumer from 'fusion:consumer';
 import IndexRankingV1 from '../../../private/LN/api/v1/ranking';
 import browser from '../../../private/common/utils/browser';
@@ -26,7 +27,10 @@ class SectionRanking {
 
         this.state = {};
 
-        const categoryMigrated = isMigratedCategory(id, true);
+        const migration = get(this.props.globalContent, 'migration', null);
+
+        const categoryMigrated = isMigratedCategory(id, migration);
+
         if (categoryMigrated) {
             const days = browser.getSizesFrom(
                 isAdmin,
