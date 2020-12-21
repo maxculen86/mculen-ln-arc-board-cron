@@ -6,9 +6,12 @@ import MillisecondsToTime from '../utils/millisecondsToTime';
 import get from '../utils/get';
 
 const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
-    const { content: primerParrafo } = parrafo;
-    const { promo_items: promoItems, created_date: createdDate, duration } =
-        mediaData || {};
+    const { content: primerParrafo } = parrafo || {};
+    const {
+        promo_items: promoItems,
+        created_date: createdDate = '',
+        duration
+    } = mediaData || {};
     const caption = get(promoItems, 'basic.caption', null);
     const epigrafe = get(mediaData, 'headlines.basic', caption);
 
