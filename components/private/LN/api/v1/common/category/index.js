@@ -1,10 +1,10 @@
-import {
-    getCategory,
-    isMigratedCategory
-} from '../../../../../common/utils/migratedCategoriesHelper';
+import { isMigratedCategory } from '../../../../../common/utils/migratedCategoriesHelper';
 import get from 'lodash.get';
 
 const getPrincipalCategory = section => {
+    if (!section) {
+        throw new Error(`La categoria principal viene en null o undefined`);
+    }
     const { _id: slug, name: valor } = section;
 
     const migration = get(
@@ -29,6 +29,9 @@ const getPrincipalCategory = section => {
 };
 
 const getSubCategory = section => {
+    if (!section) {
+        throw new Error(`La SubCategoria viene en null o undefined`);
+    }
     const { _id: slug, name: valor } = section;
     const resp = {};
     const migration = get(
@@ -36,7 +39,6 @@ const getSubCategory = section => {
         'additional_properties.original.migration',
         null
     );
-    // eslint-disable-next-line camelcase
     const id_section_ln9 = get(
         section,
         'additional_properties.original.migration.id_section_ln9',

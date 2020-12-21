@@ -1713,7 +1713,12 @@
             "_id": "/deportes/ajedrez",
             "_website": "la-nacion-ar",
             "additional_properties": {
-                "original": {}
+                "original": {
+                    "migration": {
+                        "id_section_ln9": 68,
+                        "migrated_mob": "true"
+                    }
+                }
             },
             "name": "Ajedrez",
             "parent_id": "/deportes",
@@ -1725,7 +1730,11 @@
                 "_website": "la-nacion-ar",
                 "additional_properties": {
                     "original": {
-                        "ancestors": {}
+                        "ancestors": {},
+                        "migration": {
+                            "id_section_ln9": 67,
+                            "migrated_mob": "false"
+                        }
                     }
                 },
                 "name": "Deportes",
@@ -1736,7 +1745,12 @@
                 "_id": "/deportes/ajedrez",
                 "_website": "la-nacion-ar",
                 "additional_properties": {
-                    "original": {}
+                    "original": {
+                        "migration": {
+                            "id_section_ln9": 68,
+                            "migrated_mob": "true"
+                        }
+                    }
                 },
                 "name": "Ajedrez",
                 "parent_id": "/deportes",
@@ -1746,17 +1760,17 @@
                 "_id": "/economia",
                 "_website": "la-nacion-ar",
                 "additional_properties": {
-                  "original": {
-                    "ancestors": {},
-                    "site": {},
-                    "style": {}
-                  }
+                    "original": {
+                        "ancestors": {},
+                        "site": {},
+                        "style": {}
+                    }
                 },
                 "name": "Economía",
                 "parent_id": "/",
                 "path": "/economia",
                 "type": "section"
-              }
+            }
         ],
         "tags": [
             {
