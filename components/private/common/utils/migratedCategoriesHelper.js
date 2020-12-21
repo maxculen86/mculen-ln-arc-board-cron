@@ -11,4 +11,4 @@ const isMigratedCategory = (category, migration) => {
     const migrada = migration.migrated_mob === 'true' ? true : false;
     return migrada;
 };
-export { isMigratedCategory };
+export default isMigratedCategory;

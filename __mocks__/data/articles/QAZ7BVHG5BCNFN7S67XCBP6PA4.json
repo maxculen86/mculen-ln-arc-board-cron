@@ -336,11 +336,11 @@
             "_website": "la-nacion-ar",
             "additional_properties": {
                 "original": {
+                    "ancestors": {},
                     "migration": {
-                        "id_section_ln9": 1,
+                        "id_section_ln9": "43",
                         "migrated_mob": "true"
-                    },
-                    "ancestors": {}
+                    }
                 }
             },
             "name": "Platos de comida principal",
@@ -359,7 +359,11 @@
                         },
                         "ancestors": {},
                         "site": {},
-                        "style": {}
+                        "style": {},
+                        "migration": {
+                            "id_section_ln9": "43",
+                            "migrated_mob": "false"
+                        }
                     }
                 },
                 "name": "Recetas",
@@ -371,11 +375,11 @@
                 "_website": "la-nacion-ar",
                 "additional_properties": {
                     "original": {
+                        "ancestors": {},
                         "migration": {
-                            "id_section_ln9": 1,
+                            "id_section_ln9": "44",
                             "migrated_mob": "true"
-                        },
-                        "ancestors": {}
+                        }
                     }
                 },
                 "name": "Platos de comida principal",
@@ -388,7 +392,7 @@
                 "additional_properties": {
                     "original": {
                         "migration": {
-                            "id_section_ln9": 1,
+                            "id_section_ln9": "154",
                             "migrated_mob": "true"
                         }
                     }
@@ -403,12 +407,12 @@
                 "additional_properties": {
                     "original": {
                         "migration": {
-                            "id_section_ln9": 1,
+                            "id_section_ln9": "154",
                             "migrated_mob": "true"
                         }
                     }
                 },
-
+                "name": "Revista ¡HOLA!",
                 "parent_id": "/",
                 "path": "/revista-hola"
             }

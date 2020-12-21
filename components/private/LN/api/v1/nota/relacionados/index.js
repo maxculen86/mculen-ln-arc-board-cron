@@ -1,5 +1,4 @@
 import get from 'lodash.get';
-import { isMigratedCategory } from '../../../../../common/utils/migratedCategoriesHelper';
 import { getSubCategory } from '../../common/category';
 import { getTag } from '../../common/tag';
 import NotaRelacionadas from './notaRelacionada';
