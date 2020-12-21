@@ -339,7 +339,7 @@
                     "ancestors": {},
                     "migration": {
                         "id_section_ln9": "43",
-                        "migrated_mob": "true"
+                        "migrated_mob": "false"
                     }
                 }
             },
@@ -353,10 +353,6 @@
                 "_website": "la-nacion-ar",
                 "additional_properties": {
                     "original": {
-                        "migration": {
-                            "id_section_ln9": 0,
-                            "migrated_mob": "true"
-                        },
                         "ancestors": {},
                         "site": {},
                         "style": {},
@@ -378,7 +374,7 @@
                         "ancestors": {},
                         "migration": {
                             "id_section_ln9": "44",
-                            "migrated_mob": "true"
+                            "migrated_mob": "false"
                         }
                     }
                 },
@@ -393,7 +389,7 @@
                     "original": {
                         "migration": {
                             "id_section_ln9": "154",
-                            "migrated_mob": "true"
+                            "migrated_mob": "false"
                         }
                     }
                 },
@@ -408,7 +404,7 @@
                     "original": {
                         "migration": {
                             "id_section_ln9": "154",
-                            "migrated_mob": "true"
+                            "migrated_mob": "false"
                         }
                     }
                 },
