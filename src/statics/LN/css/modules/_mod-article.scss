@@ -30,7 +30,7 @@
     }
 
     &:before {
-        .--ranking & {
+        .mod-ranking & {
             display: block;
             background-color: $neutral-black;
             color: $neutral-white;
@@ -47,7 +47,7 @@
     }
 }
 
-.--ranking li {
+.mod-ranking li {
     @for $i from 1 through 4 {
         &:nth-child(#{$i}) {
             .mod-article:before {
@@ -63,6 +63,9 @@
 
 .home {
     overflow: hidden;
+    .lay-sidebar {
+        margin-bottom: 0;
+    }
     .mod-article {
         margin-bottom: px(32);
 
@@ -106,24 +109,25 @@
         }
     }
 
-    .box-articles {
-        .mod-headersection {
-            margin-top: px(64);
+    .mod-headersection {
+        width: 100%;
+        margin-top: px(64);
 
-            &.--bg {
-                padding: $spacing $spacing-sm;
-                background: $light-blue-500;
+        &.--bg {
+            padding: $spacing $spacing-sm;
+            background: $light-blue-500;
 
-                .com-title {
-                    color: $neutral-white;
-                    margin: 0;
-                }
-                .com-line {
-                    display: none;
-                }
+            .com-title {
+                color: $neutral-white;
+                margin: 0;
+            }
+            .com-line {
+                display: none;
             }
         }
+    }
 
+    .box-articles {
         &.--focal {
             @media ($media-m) {
                 //768
@@ -295,6 +299,7 @@
         &.--opinion {
             @media ($media-m) {
                 //768
+                margin-bottom: px(32);
 
                 .mod-article {
                     margin-bottom: 0;
@@ -394,6 +399,8 @@
         }
 
         &.--cinema {
+            margin-top: px(64);
+
             .mod-media {
                 margin-bottom: 0;
                 .mod-picture {
@@ -421,6 +428,11 @@
 
             .mod-headersection {
                 margin-top: 0;
+            }
+            .row-gap-tablet-2,
+            .row-gap-tablet-3,
+            .row-gap-tablet-4 {
+                margin-bottom: 0;
             }
 
             &.--blue {
@@ -482,7 +494,7 @@
 
         @media ($media-m) {
             //768
-            margin-bottom: px(32);
+            margin-bottom: px(0);
 
             // &.--color {
             //     padding-top: px(32);
@@ -545,7 +557,7 @@
 
         @media ($media-m) {
             //768
-            margin-bottom: px(0);
+            //margin-bottom: px(0);
             .mod-article {
                 .mod-description {
                     .com-title {

@@ -31,34 +31,36 @@ const LNHome = props => {
                         <div className="row">
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">
-                                    <section className="row box-articles --focal --left">
-                                        <div className="col-tablet-8">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="Focal izquierdo. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
-                                                titleTag="h1"
-                                                titleSize="--xl"
-                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
-                                                authors="Por Maia Jastreblansky"
-                                            />
-                                        </div>
-                                        <div className="col-tablet-4">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
-                                                authors="Por Maia Jastreblansky"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Maia Jastreblansky"
-                                            />
+                                    <section className="box-articles --focal --left">
+                                        <div className="row">
+                                            <div className="col-tablet-8">
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x200"
+                                                    link="#"
+                                                    titleText="Focal izquierdo. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                    titleTag="h1"
+                                                    titleSize="--xl"
+                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                    authors="Por Maia Jastreblansky"
+                                                />
+                                            </div>
+                                            <div className="col-tablet-4">
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x200"
+                                                    link="#"
+                                                    titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                    authors="Por Maia Jastreblansky"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x200"
+                                                    link="#"
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Maia Jastreblansky"
+                                                />
+                                            </div>
                                         </div>
                                     </section>
 
@@ -88,38 +90,73 @@ const LNHome = props => {
                                         </section>
                                     </section>
 
-                                    <section className="row box-articles --focal --right">
-                                        <div className="col-tablet-8">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleSize="--l"
-                                                titleText="Focal derecho. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
-                                                authors="Por Maia Jastreblansky"
-                                            />
-                                        </div>
-                                        <div className="col-tablet-4">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="Nota NYT. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
-                                                titleTag="h1"
-                                                titleSize="--xl"
-                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
-                                                authors="Por Maia Jastreblansky"
-                                            />
+                                    <section className="box-articles --focal --right">
+                                        <div className="row">
+                                            <div className="col-tablet-8">
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x200"
+                                                    link="#"
+                                                    titleSize="--l"
+                                                    titleText="Focal derecho. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                    authors="Por Maia Jastreblansky"
+                                                />
+                                            </div>
+                                            <div className="col-tablet-4">
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x200"
+                                                    link="#"
+                                                    titleText="Nota NYT. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                    titleTag="h1"
+                                                    titleSize="--xl"
+                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                    authors="Por Maia Jastreblansky"
+                                                />
+                                            </div>
                                         </div>
                                     </section>
 
+                                    <section className="box-articles">
+                                        <section className="mod-headersection">
+                                            <ComTitle
+                                                content="Techo caja notas 3, 6 o 9"
+                                                size="--l"
+                                            />
+                                            <div className="com-line"></div>
+                                        </section>
+                                        <section className="row-gap-tablet-3">
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/300x200"
+                                                link="#"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Daro Aguilar"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/300x200"
+                                                link="#"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Daro Aguilar"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/300x200"
+                                                link="#"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Daro Aguilar"
+                                            />
+                                        </section>
+                                    </section>
+
                                     <section className="box-articles --opinion">
-                                        <section className="mod-headersection ">
+                                        <section className="mod-headersection">
                                             <ComTitle
                                                 content="Techo caja opinión"
                                                 size="--l"
                                             />
-                                            <div className="com-line  "></div>
+                                            <div className="com-line"></div>
                                         </section>
                                         <section className="row">
                                             <div className="col-tablet-5">
@@ -196,12 +233,12 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --blue">
-                                        <section className="mod-headersection ">
+                                        <section className="mod-headersection">
                                             <ComTitle
                                                 content="Techo de sección"
                                                 size="--l"
                                             />
-                                            <div className="com-line  "></div>
+                                            <div className="com-line"></div>
                                         </section>
                                         <div className="row-gap-tablet-3">
                                             <Article
@@ -229,12 +266,12 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --pink">
-                                        <section className="mod-headersection ">
+                                        <section className="mod-headersection">
                                             <ComTitle
                                                 content="Techo de sección"
                                                 size="--l"
                                             />
-                                            <div className="com-line  "></div>
+                                            <div className="com-line"></div>
                                         </section>
                                         <div className="row-gap-tablet-3">
                                             <Article
@@ -267,7 +304,7 @@ const LNHome = props => {
                                                 content="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
                                                 size="--l"
                                             />
-                                            <div className="com-line  "></div>
+                                            <div className="com-line"></div>
                                         </section>
                                         <section className="row-gap-tablet-3">
                                             <Article
@@ -316,12 +353,12 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --teal">
-                                        <section className="mod-headersection ">
+                                        <section className="mod-headersection">
                                             <ComTitle
                                                 content="Techo de sección"
                                                 size="--l"
                                             />
-                                            <div className="com-line  "></div>
+                                            <div className="com-line"></div>
                                         </section>
                                         <div className="row-gap-tablet-3">
                                             <Article
@@ -349,12 +386,12 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --red">
-                                        <section className="mod-headersection ">
+                                        <section className="mod-headersection">
                                             <ComTitle
                                                 content="Techo de sección"
                                                 size="--l"
                                             />
-                                            <div className="com-line  "></div>
+                                            <div className="com-line"></div>
                                         </section>
                                         <div className="row-gap-tablet-3">
                                             <Article
@@ -382,12 +419,66 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --bgcolor --pink">
-                                        <section className="mod-headersection ">
+                                        <section className="mod-headersection">
                                             <ComTitle
                                                 content="Techo de sección"
                                                 size="--l"
                                             />
-                                            <div className="com-line  "></div>
+                                            <div className="com-line"></div>
+                                        </section>
+                                        <section className="row-gap-tablet-3">
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/300x200"
+                                                link="#"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Daro Aguilar"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/300x200"
+                                                link="#"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Daro Aguilar"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/300x200"
+                                                link="#"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Daro Aguilar"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/300x200"
+                                                link="#"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Daro Aguilar"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/300x200"
+                                                link="#"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Daro Aguilar"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/300x200"
+                                                link="#"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Daro Aguilar"
+                                            />
+                                        </section>
+                                    </section>
+
+                                    <section className="box-articles">
+                                        <section className="mod-headersection">
+                                            <ComTitle
+                                                content="Techo de sección"
+                                                size="--l"
+                                            />
+                                            <div className="com-line"></div>
                                         </section>
                                         <section className="row-gap-tablet-3">
                                             <Article
@@ -438,17 +529,14 @@ const LNHome = props => {
                                 <div className="sidebar__aside hlp-tablet-none"></div>
                             </div>
                             <div className="lay">
-                                <section className="box-articles --cinema">
-                                    <Article
-                                        frontdemo
-                                        srcdemo="https://source.unsplash.com/1260x500"
-                                        link="#"
-                                        titleText="La casa Breuer Moreno se prepara para su último remate"
-                                        titleSize="--l"
-                                        authors="Por Daro Aguilar"
-                                    />
-                                </section>
-                                <section className="box-articles --ranking">
+                                <section className="mod-ranking">
+                                    <section className="mod-headersection">
+                                        <ComTitle
+                                            content="Las más leídas"
+                                            size="--l"
+                                        />
+                                        <div className="com-line"></div>
+                                    </section>
                                     <ol className="com-ordered row-gap-tablet-4">
                                         <li>
                                             <Article
@@ -487,6 +575,17 @@ const LNHome = props => {
                                             />
                                         </li>
                                     </ol>
+                                </section>
+
+                                <section className="box-articles --cinema">
+                                    <Article
+                                        frontdemo
+                                        srcdemo="https://source.unsplash.com/1260x500"
+                                        link="#"
+                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                        titleSize="--l"
+                                        authors="Por Daro Aguilar"
+                                    />
                                 </section>
                             </div>
                         </div>
