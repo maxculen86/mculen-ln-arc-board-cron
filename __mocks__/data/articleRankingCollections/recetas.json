@@ -74,7 +74,12 @@
                 "primary_section": {
                     "_id": "/recetas/faciles-y-rapidas",
                     "additional_properties": {
-                        "original": {}
+                        "original": {
+                            "migration": {
+                                "id_section_ln9": "43",
+                                "migrated_mob": "false"
+                            }
+                        }
                     },
                     "name": "Fáciles y rápidas"
                 },
