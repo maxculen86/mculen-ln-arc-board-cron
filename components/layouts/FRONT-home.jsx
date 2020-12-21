@@ -436,42 +436,42 @@ const LNHome = props => {
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x233"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x234"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x235"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x236"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x237"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x238"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
@@ -480,60 +480,6 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
-                                        <section className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
-                                                link="#"
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                        </section>
-                                    </section>
-
-                                    <section className="box-articles --bgcolor --red">
                                         <section className="mod-headersection --bg">
                                             <ComTitle
                                                 content="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
@@ -544,42 +490,42 @@ const LNHome = props => {
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x233"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x234"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x235"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x236"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x237"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x238"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
@@ -602,7 +548,7 @@ const LNHome = props => {
                                         <li>
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200/?ranking"
+                                                srcdemo="https://source.unsplash.com/300x220/?ranking"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
@@ -611,7 +557,7 @@ const LNHome = props => {
                                         <li>
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200/?ranking"
+                                                srcdemo="https://source.unsplash.com/300x225/?ranking"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
@@ -620,7 +566,7 @@ const LNHome = props => {
                                         <li>
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200/?ranking"
+                                                srcdemo="https://source.unsplash.com/300x230/?ranking"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
@@ -629,7 +575,7 @@ const LNHome = props => {
                                         <li>
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200/?ranking"
+                                                srcdemo="https://source.unsplash.com/300x235/?ranking"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
@@ -1067,42 +1013,42 @@ const LNHome = props => {
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x233"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x234"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x235"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x236"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x237"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x238"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
@@ -1121,63 +1067,63 @@ const LNHome = props => {
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x230"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x231"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x232"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x233"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x234"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x235"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x236"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x237"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
-                                                srcdemo="https://source.unsplash.com/300x200"
+                                                srcdemo="https://source.unsplash.com/300x238"
                                                 link="#"
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
