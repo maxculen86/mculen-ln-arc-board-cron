@@ -105,6 +105,9 @@
             }
             .com-link.com-link {
                 color: $light-neutral-800;
+                &:hover {
+                    color: $light-blue-500;
+                }
             }
         }
     }
@@ -395,6 +398,60 @@
                     }
                 }
             }
+
+            .mod-footersection {
+                border: 1px solid #ccc;
+                border-width: 1px 0;
+                padding: px(16) 0;
+                //display: block;
+                grid-template-columns: 122px 1fr;
+                //align-items: center;
+                .com-title {
+                    margin-bottom: 16px;
+                }
+                .com-unordered {
+                    font-size: 1.0625rem;
+                    line-height: 1.5rem;
+                    font-family: $font-SuecaSlab;
+                    font-weight: 700;
+                    display: block;
+                    margin: 0;
+                    li {
+                        //align-items: center;
+                        display: flex;
+                        margin-bottom: 8px;
+
+                        a {
+                            display: inline-flex;
+
+                            &:hover {
+                                color: $light-blue-500;
+                            }
+
+                            &:before {
+                                font-family: LNicons;
+                                color: $light-neutral-400;
+                                content: $icon-bullet-xs;
+                                font-size: px(24);
+                            }
+                        }
+                    }
+                }
+                @media ($media-m) {
+                    display: grid;
+                    margin: px(32) 0 0;
+
+                    .com-title {
+                        margin: 0;
+                    }
+                    .com-unordered {
+                        display: inline-flex;
+                        li {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
         }
 
         &.--cinema {
@@ -593,5 +650,31 @@
             rgba(255, 255, 255, 0.1) 4px,
             rgba(0, 0, 0, 0.15) 6px
         );
+    }
+
+    .mod-banner {
+        display: none;
+        background: wheat;
+        margin-bottom: px(64);
+        .com-banner {
+            align-items: center;
+            &.cabezal_dsk {
+                height: 100px;
+            }
+            &.billboard_dsk {
+                height: 250px;
+            }
+        }
+    }
+    .mod-anexo {
+        display: none;
+        background: skyblue;
+        margin-bottom: px(64);
+        .com-anexo {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }

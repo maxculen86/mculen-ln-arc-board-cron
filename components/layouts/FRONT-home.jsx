@@ -31,6 +31,11 @@ const LNHome = props => {
                         <div className="row">
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">
+                                    <section className="mod-banner">
+                                        <div className="com-banner cabezal_dsk">
+                                            Banner
+                                        </div>
+                                    </section>
                                     <section className="box-articles --focal --left">
                                         <div className="row">
                                             <div className="col-tablet-8">
@@ -88,6 +93,16 @@ const LNHome = props => {
                                                 authors="Por Nombre Apellido"
                                             />
                                         </section>
+                                    </section>
+
+                                    <section className="mod-banner">
+                                        <div className="com-banner billboard_dsk">
+                                            Banner
+                                        </div>
+                                    </section>
+
+                                    <section className="mod-anexo">
+                                        <div className="com-anexo">ANEXO 2</div>
                                     </section>
 
                                     <section className="box-articles --focal --right">
@@ -193,6 +208,41 @@ const LNHome = props => {
                                                 />
                                             </div>
                                         </section>
+                                        <section className="mod-footersection">
+                                            <ComTitle
+                                                content="EDITORIALES"
+                                                size="--xs"
+                                            />
+                                            <ul className="com-unordered">
+                                                <li>
+                                                    <a
+                                                        href="/editoriales/mafia-politica-narcotrafico-peor-pandemia-nid2547665"
+                                                        className="--xs"
+                                                        title="Mafia política y narcotráfico, la peor pandemia"
+                                                    >
+                                                        Mafia política y
+                                                        narcotráfico, la peor
+                                                        pandemia
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="/editoriales/la-remocion-jueces-fiscales-nid2547655"
+                                                        className="--xs"
+                                                        title="La remoción de jueces y fiscales"
+                                                    >
+                                                        La remoción de jueces y
+                                                        fiscales
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </section>
+
+                                    <section className="mod-banner">
+                                        <div className="com-banner billboard_dsk">
+                                            Banner
+                                        </div>
                                     </section>
 
                                     <section className="box-articles">
