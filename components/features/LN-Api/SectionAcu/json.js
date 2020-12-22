@@ -20,54 +20,41 @@ class AcuSection {
         const migration = get(this.props.globalContent, 'migration', null);
         const categoryMigrated = isMigratedCategory(id, migration);
 
-        if (categoryMigrated) {
-            let size = browser.getSizesFrom(
-                isAdmin,
-                sizeCf,
-                paramUrlId,
-                'size',
-                this.props.requestUri
+        if (!categoryMigrated) {
+            throw new Error(
+                `La categoria '${id}' no posee la propiedad migration`
             );
-
-            if (size > 100) size = 100;
-
-            const page = browser.getSizesFrom(
-                isAdmin,
-                pageCf,
-                paramUrlId,
-                'page',
-                this.props.requestUri
-            );
-
-            this.fetchContent({
-                acuArticlesSource: {
-                    source: 'acuArticlesSource',
-                    query: {
-                        sectionId: id,
-                        imageConfig: 'm',
-                        size,
-                        page
-                    }
-                }
-            });
-
-            this.fetchContent({
-                sectionSource: {
-                    source: 'sectionSource',
-                    query: {
-                        id
-                    },
-                    transform(data) {
-                        if (data && data.acumuladoColor) {
-                            return data.acumuladoColor;
-                        }
-                        return {};
-                    }
-                }
-            });
         }
 
-        this.state = { ...this.state, categoryMigrated };
+        let size = browser.getSizesFrom(
+            isAdmin,
+            sizeCf,
+            paramUrlId,
+            'size',
+            this.props.requestUri
+        );
+
+        if (size > 100) size = 100;
+
+        const page = browser.getSizesFrom(
+            isAdmin,
+            pageCf,
+            paramUrlId,
+            'page',
+            this.props.requestUri
+        );
+
+        this.fetchContent({
+            acuArticlesSource: {
+                source: 'acuArticlesSource',
+                query: {
+                    sectionId: id,
+                    imageConfig: 'm',
+                    size,
+                    page
+                }
+            }
+        });
 
         this.versions = {
             1: IndexAcuV1
@@ -75,42 +62,33 @@ class AcuSection {
     }
 
     render() {
-        const {
-            acuArticlesSource,
-            sectionSource: configuration,
-            categoryMigrated
-        } = this.state || {};
+        try {
+            const { acuArticlesSource, globalContent: configuration } =
+                this.state || {};
 
-        const {
-            globalContent: { name }
-        } = this.props;
+            const {
+                globalContent: { name },
+                requestUri
+            } = this.props;
 
-        const indexAcu = this.versions[
-            browser.getApiVersion(this.props.requestUri)
-        ];
+            const indexAcu = this.versions[browser.getApiVersion(requestUri)];
 
-        if (!acuArticlesSource || !acuArticlesSource.content_elements) {
-            return null;
-        }
+            if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+                return null;
+            }
 
-        if (!categoryMigrated) {
-            return {
-                success: false,
-                message:
-                    'Esta categoria aún no ha sido migrada, debe de consultar en Api Contenidos',
-                code: 202
+            const acuData = {
+                name,
+                articles: acuArticlesSource.content_elements,
+                paginator: acuArticlesSource.next,
+                total: acuArticlesSource.count,
+                configuration
             };
+
+            return indexAcu(acuData);
+        } catch (err) {
+            return { Success: false, Message: err.message };
         }
-
-        const acuData = {
-            name,
-            articles: acuArticlesSource.content_elements,
-            paginator: acuArticlesSource.next,
-            total: acuArticlesSource.count,
-            configuration
-        };
-
-        return indexAcu(acuData);
     }
 }
 
