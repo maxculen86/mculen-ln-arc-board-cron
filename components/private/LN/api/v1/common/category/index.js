@@ -21,7 +21,7 @@ const getPrincipalCategory = section => {
 
     if (!isMigratedCategory(slug, migration)) {
         return {
-            id: parseInt(idSectionLn9),
+            id: parseInt(idSectionLn9, 10),
             valor: name
         };
     }

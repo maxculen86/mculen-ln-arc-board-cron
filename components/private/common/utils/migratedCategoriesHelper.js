@@ -8,7 +8,7 @@ const isMigratedCategory = (category, migration) => {
         );
     }
 
-    const migrada = migration.migrated_mob === 'true' ? true : false;
+    const migrada = migration.migrated_mob === 'true';
     return migrada;
 };
 export { isMigratedCategory };
