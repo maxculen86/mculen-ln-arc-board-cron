@@ -24,7 +24,7 @@ class SectionRanking {
 
         if (!categoryMigrated) {
             throw new Error(
-                `La categoria '${sectionId}' no posee la propiedad migration`
+                `La categoria '${sectionId}' no esta marcada como migrada`
             );
         }
 
