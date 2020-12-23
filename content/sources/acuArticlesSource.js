@@ -16,18 +16,13 @@ const resolve = key => {
         tagId,
         size,
         page,
-        website,
-        distributorId
+        website
     } = key;
     const arcSite = key['arc-site'];
     const cant = size || 30;
     const from = ((page || 1) - 1) * cant;
     const basePath = `/content/v4/search/published/?website=${website ||
         arcSite}`;
-
-    if (distributorId)
-        return `${basePath}&q=type:story&include_distributor_name=${distributorId}&size=${cant}&from=${from}
-            &sort=display_date:desc`;
 
     const sectionFilter =
         sectionId &&

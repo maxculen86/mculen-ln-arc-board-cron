@@ -6,6 +6,7 @@ import ComLine from '../LN/common/footer/com-line';
 import ComTitle from './com-title';
 import withImage from './hocs/withImage';
 import ComImage from './com-image';
+import ComLink from './com-link';
 
 const ModheaderSection = props => {
     const {
@@ -18,22 +19,25 @@ const ModheaderSection = props => {
         outputType
     } = props;
     const { width, height, url } = image || {};
-    if (!title && !image) return null;
+    if (!title && !url) return null;
+
+    const Image = url && (
+        <ComImage
+            width={width}
+            height={height}
+            src={url}
+            alt="Logo"
+            amp={outputType === 'amp'}
+        />
+    );
+    const ImageWithLink = link && <ComLink link={link}>{Image}</ComLink>;
 
     return (
         <section className={`mod-headersection ${classCondition}`}>
-            {!url ? (
+            {!Image ? (
                 <ComTitle size={size} content={title} link={link} />
             ) : (
-                <div className="mod-logo">
-                    <ComImage
-                        width={width}
-                        height={height}
-                        src={url}
-                        alt="Logo"
-                        amp={outputType === 'amp'}
-                    />
-                </div>
+                <div className="mod-logo">{link ? ImageWithLink : Image}</div>
             )}
             {line ? <ComLine /> : ''}
         </section>
