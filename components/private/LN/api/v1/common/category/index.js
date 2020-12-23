@@ -12,14 +12,22 @@ const getPrincipalCategory = section => {
         'additional_properties.original.migration',
         null
     );
-    const idSectionLn9 = get(
-        section,
-        'additional_properties.original.migration.id_section_ln9',
-        null
-    );
+
     const name = get(section, 'name', null);
 
     if (!isMigratedCategory(slug, migration)) {
+        const idSectionLn9 = get(
+            section,
+            'additional_properties.original.migration.id_section_ln9',
+            null
+        );
+
+        if (!idSectionLn9) {
+            throw new Error(
+                `No existe id_section_ln9 en la categoria '${slug}'`
+            );
+        }
+
         return {
             id: parseInt(idSectionLn9, 10),
             valor: name
@@ -39,12 +47,20 @@ const getSubCategory = section => {
         'additional_properties.original.migration',
         null
     );
-    const idSectionLn9 = get(
-        section,
-        'additional_properties.original.migration.id_section_ln9',
-        null
-    );
+
     if (!isMigratedCategory(slug, migration)) {
+        const idSectionLn9 = get(
+            section,
+            'additional_properties.original.migration.id_section_ln9',
+            null
+        );
+
+        if (!idSectionLn9) {
+            throw new Error(
+                `No existe id_section_ln9 en la categoria '${slug}'`
+            );
+        }
+
         resp.id = parseInt(idSectionLn9, 10);
         resp.valor = valor;
         resp.nivel = slug.match(new RegExp('/', 'g')).length;
