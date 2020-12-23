@@ -240,6 +240,8 @@ const Comments = props => {
                             [LiveFyreConfig.convConfig],
                             widget => {
                                 widget.on('commentPosted', data => {
+                                    if (window.dataLayer === 'undefined')
+                                        return;
                                     if (data.parent) {
                                         window.dataLayer.push({
                                             'event': 'Comentar',
