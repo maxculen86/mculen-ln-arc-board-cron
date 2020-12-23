@@ -239,7 +239,21 @@ const Comments = props => {
                             LiveFyreConfig.networkConfig,
                             [LiveFyreConfig.convConfig],
                             widget => {
-                                widget.on('commentPosted', data => {});
+                                widget.on('commentPosted', data => {
+                                    if (window.dataLayer === 'undefined')
+                                        return;
+                                    if (data.parent) {
+                                        window.dataLayer.push({
+                                            'event': 'Comentar',
+                                            'Type': 'Responder'
+                                        });
+                                    } else {
+                                        window.dataLayer.push({
+                                            'event': 'Comentar',
+                                            'Type': 'Comentar'
+                                        });
+                                    }
+                                });
                                 widget.on('commentCountUpdated', data => {
                                     setCommentsEnabledAndCount(true, data);
                                 });
