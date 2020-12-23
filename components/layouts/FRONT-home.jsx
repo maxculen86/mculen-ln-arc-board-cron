@@ -27,6 +27,18 @@ const LNHome = props => {
                 {seccion1}
                 <div id="wrapper" className={`home ${amp}`}>
                     <Header />
+                    <section className="mod-opening">
+                        <Article
+                            frontdemo
+                            srcdemo="https://source.unsplash.com/1200x800"
+                            link="#"
+                            titleText="Bomba. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                            titleTag="h1"
+                            titleSize="--threexl"
+                            // subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                            authors="Por Maia Jastreblansky"
+                        />
+                    </section>
                     <main>
                         <div className="row">
                             <div className="lay-sidebar">
