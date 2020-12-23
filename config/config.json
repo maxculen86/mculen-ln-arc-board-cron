@@ -10,7 +10,7 @@
                 }
             }
         ],
-        "maxSize": 76800,
+        "maxSize": 75000,
         "env": "prod"
     },
     {
