@@ -1,4 +1,3 @@
-import env from '../../../../../../__mocks__/fusion:environment';
 import articlesRanking from '../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
 import articlesAcumulado from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articlesTPInteresar from '../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
@@ -252,7 +251,7 @@ describe('Test de index en Json', () => {
 
     test('Categoria principal', () => {
         expect(respRanking[0].categoria.id).toBe(43);
-        expect(respRanking[0].categoria.valor).toBe('Recetas');
+        expect(respRanking[0].categoria.valor).toBe('Fáciles y rápidas');
     });
 
     test('Sin Tags', () => {
