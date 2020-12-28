@@ -21,7 +21,7 @@ const TechoFeatured = props => {
                 classCondition={color !== 'default' && color}
                 imageId={imageId}
                 outputType={outputType}
-                line
+                line={color !== 'default' ? true : false}
             />
         </Static>
     );
