@@ -55,6 +55,7 @@ const LNHome = props => {
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/300x200"
                                                     link="#"
+                                                    leadText="Sputnik V."
                                                     titleText="Focal izquierdo. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                     titleTag="h1"
                                                     titleSize="--xl"
@@ -67,6 +68,7 @@ const LNHome = props => {
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/300x201"
                                                     link="#"
+                                                    leadText="Vacuna rusa."
                                                     titleText="Los nexos ocultos entre los Moyano y la barra brava de Independiente"
                                                     authors="Por Maia Jastreblansky"
                                                 />
@@ -74,6 +76,7 @@ const LNHome = props => {
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/300x202"
                                                     link="#"
+                                                    leadText="Covid."
                                                     titleText='El Gobierno "autoengañado", el incendio y por qué cayó "en la trampa"'
                                                     authors="Por Maia Jastreblansky"
                                                 />
@@ -87,6 +90,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x203"
                                                 link="#"
+                                                leadText="Pandemia."
                                                 titleText="La dura respuesta de Bullrich a la acusación de Frederic"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -94,6 +98,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x204"
                                                 link="#"
+                                                leadText="PJ."
                                                 titleText="La historia de la fábrica que prometía hacer cientos de vagones"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -101,6 +106,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x205"
                                                 link="#"
+                                                leadText="Tragedia en al ruta."
                                                 titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                                 authors="Por Nombre Apellido"
                                             />

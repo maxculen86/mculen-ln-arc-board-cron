@@ -4,6 +4,7 @@ import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
+//para demo front
 import ComImage from './com-image';
 import ModMedia from './mod-media';
 
@@ -26,6 +27,8 @@ const ModArticle = props => {
         subheadSize,
         dateText,
         dateSize,
+        leadText,
+        anexo,
         hour
     } = props;
 
@@ -49,6 +52,7 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
+                    //labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
 
@@ -67,13 +71,15 @@ const ModArticle = props => {
             <ModDescription
                 link={link}
                 titleTag={titleTag}
-                titleSize={titleSize}
+                //titleSize={titleSize}
+                titleSize={withMedia ? titleSize : '--m'}
                 titleText={titleText}
                 authors={authors}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 dateText={dateText}
                 dateSize={dateSize}
+                lead={leadText}
             />
         </article>
     );

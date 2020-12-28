@@ -1,0 +1,8 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.com-lead {
+    color: $ln;
+    margin-right: $spacing-2xs;
+    font-style: normal;
+}

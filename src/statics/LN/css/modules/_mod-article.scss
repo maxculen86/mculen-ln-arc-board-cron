@@ -45,6 +45,49 @@
             height: px(40);
         }
     }
+
+    &.--author {
+        border: 1px solid $light-neutral-400;
+        padding: px(16);
+        padding-bottom: px(140);
+        text-align: center;
+        align-items: center;
+        div {
+            display: flex;
+            justify-content: center;
+            .mod-media {
+                margin: 0;
+                position: absolute;
+                width: px(80);
+                height: px(80);
+                bottom: px(-1);
+                border-bottom: 1px solid $neutral-black;
+                padding-bottom: px(126);
+                .mod-figure {
+                    border-radius: 100%;
+                    overflow: hidden;
+                    border: 1px solid $light-neutral-400;
+
+                    .mod-picture.mod-picture {
+                        padding-top: 100%;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        .mod-description {
+            .mod-marquee {
+                position: absolute;
+                overflow: hidden;
+                white-space: nowrap;
+                margin: 0;
+                bottom: px(16);
+                left: px(16);
+                width: calc(100% - 32px);
+            }
+        }
+    }
 }
 
 .mod-ranking li {

@@ -16,7 +16,8 @@ const ModDescription = props => {
         subheadText,
         subheadSize,
         dateText,
-        dateSize
+        dateSize,
+        lead
     } = props;
 
     return (
@@ -26,6 +27,7 @@ const ModDescription = props => {
                 size={titleSize || '--s'}
                 link={link}
                 content={titleText}
+                lead={lead}
             />
 
             {subheadText && (
