@@ -39,11 +39,12 @@ const transform = (data, query) => {
     const { uri, slug } = query || {};
     const { site } = data || {};
     const { distributor_name: distributor = {} } = site || {};
-    const distributorId = distributor[slug];
+    const name = distributor[slug];
 
     const newData = {
-        distributorId,
-        byline: distributorId,
+        distributorId: name,
+        name,
+        byline: name,
         node_type: 'distributor',
         canonical_url: uri
     };

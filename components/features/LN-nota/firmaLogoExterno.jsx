@@ -1,13 +1,32 @@
 import React from 'react';
+import { SITE_LANACION } from 'fusion:environment';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import withStatic from '../../private/common/hocs/withStatic';
 import ComPartner from '../../private/common/com-partner';
+import ComLink from '../../private/common/com-link';
+import formatDistributorName from '../../private/LN/common/utils/formatDistributorName';
+import {
+    HTMLLIBRE,
+    RECETA
+} from '../../private/common/utils/subtypes/subtypeHelper';
 
-const FirmaLogoExterno = ({ globalContent: { distributor } }) => {
+const FirmaLogoExterno = props => {
+    const { globalContent } = props;
+    const { distributor, subtype, credits } = globalContent || {};
     const { name } = distributor || {};
-    if (name === 'LA NACION') return <></>;
-    return <ComPartner size="--xs">{name}</ComPartner>;
+    const { by = [] } = credits || {};
+
+    if (name === 'LA NACION' && by.length > 0) return <></>;
+    if (name === 'LA NACION' || subtype === HTMLLIBRE || subtype === RECETA)
+        return <ComPartner size="--xs">{name}</ComPartner>;
+
+    const nameFormated = formatDistributorName(name);
+    return (
+        <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}`}>
+            <ComPartner size="--xs">{name}</ComPartner>
+        </ComLink>
+    );
 };
 
 FirmaLogoExterno.propTypes = {
@@ -15,7 +34,14 @@ FirmaLogoExterno.propTypes = {
         distributor: PropTypes.shape({
             name: PropTypes.string,
             category: PropTypes.string
-        })
+        }),
+        credits: PropTypes.shape({
+            by: PropTypes.array
+        }),
+        subtype: PropTypes.string
+    }).isRequired,
+    siteProperties: PropTypes.shape({
+        host: PropTypes.string.isRequired
     }).isRequired
 };
 
