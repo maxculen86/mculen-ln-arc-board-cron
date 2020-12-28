@@ -1715,8 +1715,8 @@
             "additional_properties": {
                 "original": {
                     "migration": {
-                        "id_section_ln9": 68,
-                        "migrated_mob": "true"
+                        "id_section_ln9": "67",
+                        "migrated_mob": "false"
                     }
                 }
             },
@@ -1732,7 +1732,7 @@
                     "original": {
                         "ancestors": {},
                         "migration": {
-                            "id_section_ln9": 67,
+                            "id_section_ln9": "67",
                             "migrated_mob": "false"
                         }
                     }
@@ -1747,8 +1747,8 @@
                 "additional_properties": {
                     "original": {
                         "migration": {
-                            "id_section_ln9": 68,
-                            "migrated_mob": "true"
+                            "id_section_ln9": "68",
+                            "migrated_mob": "false"
                         }
                     }
                 },
@@ -1763,7 +1763,11 @@
                     "original": {
                         "ancestors": {},
                         "site": {},
-                        "style": {}
+                        "style": {},
+                        "migration": {
+                            "id_section_ln9": "123",
+                            "migrated_mob": "false"
+                        }
                     }
                 },
                 "name": "Economía",

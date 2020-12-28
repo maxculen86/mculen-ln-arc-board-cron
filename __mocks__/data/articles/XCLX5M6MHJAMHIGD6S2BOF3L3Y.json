@@ -73,7 +73,11 @@
                 "_website": "la-nacion-ar",
                 "additional_properties": {
                     "original": {
-                        "ancestors": {}
+                        "ancestors": {},
+                        "migration": {
+                            "id_section_ln9": "58",
+                            "migrated_mob": "false"
+                        }
                     }
                 },
                 "name": "Autos",
@@ -84,7 +88,12 @@
                 "_id": "/buenos-aires",
                 "_website": "la-nacion-ar",
                 "additional_properties": {
-                    "original": {}
+                    "original": {
+                        "migration": {
+                            "id_section_ln9": "61",
+                            "migrated_mob": "false"
+                        }
+                    }
                 },
                 "name": "Buenos Aires",
                 "parent_id": "/",
