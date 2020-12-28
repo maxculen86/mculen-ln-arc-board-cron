@@ -10,6 +10,10 @@ const section = `
     parent_id
     additional_properties {
         original {
+            migration {
+                id_section_ln9
+                migrated_mob
+            }
             ancestors {
                 default
             }
@@ -204,6 +208,19 @@ const gallery = `
         }
     }
 `;
+
+const sectionSites = `{    
+    additional_properties{
+        original{
+            migration{
+                id_section_ln9
+                migrated_mob
+            }
+            _id
+        }
+    }
+}`;
+
 export default `
 {
     _id
@@ -297,6 +314,7 @@ export default `
         sections ${section}
         primary_section ${section}
         seo_keywords
+        sites ${sectionSites}
     }
     syndication {
         external_distribution
