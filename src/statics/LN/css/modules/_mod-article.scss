@@ -350,6 +350,7 @@
                 margin-left: -1rem;
                 .com-label {
                     top: px(-30);
+                    left: px(8);
                 }
                 .com-link.com-link {
                     color: $neutral-white;
@@ -532,9 +533,11 @@
 
                 .com-label {
                     top: px(-30);
+                    left: px(8);
                 }
 
-                .com-link.com-link {
+                .com-link.com-link,
+                .com-lead {
                     color: $neutral-white;
                 }
             }
@@ -634,6 +637,9 @@
                 .mod-description {
                     width: 100%;
                     margin-left: 0;
+                    .com-label {
+                        left: 0;
+                    }
                 }
             }
             &.--cinema {
@@ -668,6 +674,9 @@
 
                     .com-link.com-link {
                         color: $light-neutral-800;
+                    }
+                    .com-lead {
+                        color: $light-blue-500;
                     }
                 }
             }
@@ -747,7 +756,7 @@
     .--bomba {
         background: #111;
         .mod-article {
-            max-width: px(1340);
+            //max-width: px(1340);
             margin: 0 auto;
 
             .mod-media {
@@ -755,8 +764,10 @@
                 .mod-picture {
                     height: calc(100vh - 105px);
                     border: none;
+                    padding-top: $video;
                     @media ($media-m) {
-                        height: auto;
+                        height: calc(100vh - 65px);
+                        margin-top: -65px;
                     }
                 }
             }

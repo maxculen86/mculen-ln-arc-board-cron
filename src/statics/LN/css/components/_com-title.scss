@@ -12,18 +12,18 @@
         font-weight: 300;
     }
     .mod-headersection & {
-        margin-bottom: $spacing;
+        margin-bottom: 0;
         width: 100%;
         display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .mod-headersection.--bg &,
     .mod-headersection.--teal &,
     .mod-headersection.--blue &,
     .mod-headersection.--red &,
     .mod-headersection.--pink & {
-        margin-bottom: 0;
         color: $neutral-white;
     }
     .more-articles & {

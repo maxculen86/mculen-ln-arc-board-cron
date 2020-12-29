@@ -1118,7 +1118,16 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --bgcolor --pink">
-                                        <HeaderSection title="Techo de sección" />
+                                        <section className="mod-headersection --bg">
+                                            <div className="mod-logo">
+                                                <img
+                                                    src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FZTZM34MYZD47PZF4QLBPYIHCM.png"
+                                                    loading="lazy"
+                                                    className="com-image "
+                                                    alt="Logo"
+                                                />
+                                            </div>
+                                        </section>
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -1174,10 +1183,22 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles">
-                                        <HeaderSection
-                                            title="Techo de sección con link"
-                                            link="#"
-                                        />
+                                        <section className="mod-headersection false">
+                                            <div className="mod-logo">
+                                                <a
+                                                    href="https://lanacion.com.ar"
+                                                    className="com-link"
+                                                >
+                                                    <img
+                                                        src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6YYTSMN3HZHL5KX25RFWWO5VLU.png"
+                                                        loading="lazy"
+                                                        className="com-image "
+                                                        alt="Logo"
+                                                    />
+                                                </a>
+                                            </div>
+                                            <div className="com-line"></div>
+                                        </section>
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
