@@ -6,6 +6,7 @@ import Footer from '../private/LN/common/footer';
 import LoginProvider from '../private/LN/common/context/loginContext';
 import ComTitle from '../private/common/com-title';
 import Article from '../private/common/mod-article';
+import HeaderSection from '../private/common/mod-headerSection';
 
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -130,13 +131,12 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --focal --right">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo con link"
+                                            link="#"
+                                        />
+                                        {/* logo color: https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6YYTSMN3HZHL5KX25RFWWO5VLU.png
+                                        logo blanco: https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FZTZM34MYZD47PZF4QLBPYIHCM.png */}
                                         <div className="row">
                                             <div className="col-tablet-8">
                                                 <Article
@@ -192,13 +192,8 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --opinion">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo caja opinión"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection title="Techo caja opinión" />
+
                                         <section className="row">
                                             <div className="col-tablet-5">
                                                 <Article
@@ -282,13 +277,7 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo caja notas 3, 6 o 9"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection title="Techo caja notas 3, 6 o 9" />
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -333,13 +322,10 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --blue">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo con link"
+                                            link="#"
+                                        />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -372,13 +358,10 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --pink">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo con link"
+                                            link="#"
+                                        />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -409,13 +392,10 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --bgcolor --teal">
-                                        <section className="mod-headersection --bg">
-                                            <ComTitle
-                                                content="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
+                                            classCondition="--bg"
+                                        />
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -607,13 +587,11 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles">
-                                        <section className="mod-headersection --bg">
-                                            <ComTitle
-                                                content="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo de sección con link"
+                                            link="#"
+                                            classCondition="--bg"
+                                        />
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -670,13 +648,8 @@ const LNHome = props => {
                             </div>
                             <div className="lay">
                                 <section className="mod-ranking">
-                                    <section className="mod-headersection">
-                                        <ComTitle
-                                            content="Las más leídas"
-                                            size="--l"
-                                        />
-                                        <div className="com-line"></div>
-                                    </section>
+                                    <HeaderSection title="Las más laídas" />
+
                                     <ol className="com-ordered row-gap-tablet-4">
                                         <li>
                                             <Article
@@ -750,13 +723,10 @@ const LNHome = props => {
                                         />
                                     </section>
                                     <section className="box-articles --focal --left">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo caja opinión"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo caja opinión con link"
+                                            link="#"
+                                        />
                                         <div className="row">
                                             <div className="col-tablet-8">
                                                 <Article
@@ -868,13 +838,7 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --opinion">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo caja opinión"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection title="Techo caja opinión" />
                                         <section className="row">
                                             <div className="col-tablet-5">
                                                 <Article
@@ -922,13 +886,10 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo caja notas 3, 6 o 9"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo caja notas 3, 6 o 9 con link"
+                                            link="#"
+                                        />
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -970,13 +931,10 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --blue">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo de sección"
+                                            classCondition="--bg"
+                                        />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -1006,13 +964,10 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --pink">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo de sección con link"
+                                            link="#"
+                                        />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -1042,13 +997,10 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --bgcolor --teal">
-                                        <section className="mod-headersection --bg">
-                                            <ComTitle
-                                                content="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
+                                            classCondition="--bg"
+                                        />
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -1103,13 +1055,7 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --teal">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection title="Techo de sección" />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -1139,13 +1085,10 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --red">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo de sección con link"
+                                            link="#"
+                                        />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -1175,13 +1118,7 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --bgcolor --pink">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection title="Techo de sección" />
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -1237,13 +1174,10 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo de sección con link"
+                                            link="#"
+                                        />
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
