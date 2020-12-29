@@ -22,6 +22,6 @@
     &.--red,
     &.--teal,
     &.--pink {
-        padding: $spacing-xs;
+        padding: $spacing-xs $spacing-sm;
     }
 }
