@@ -21,7 +21,7 @@ describe('Test de las embebidos en el cuerpo de una nota', () => {
         const resp = Embed(ArticleEmbed[0]);
         expect(resp['valor']['id']).toBe('html');
         expect(resp['valor']['src']).toContain(
-            '<blockquote class="twitter-tweet"><a href = "https://twitter.com/'
+            '<blockquote class="twitter-tweet" style="min-height: 130px;"><a href = "https://twitter.com/'
         );
     });
 
