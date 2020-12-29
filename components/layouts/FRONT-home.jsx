@@ -27,12 +27,13 @@ const LNHome = props => {
                 {seccion1}
                 <div id="wrapper" className={`home ${amp}`}>
                     <Header />
-                    <section className="mod-opening">
+                    <section className="mod-opening --bomba">
                         <Article
                             frontdemo
                             srcdemo="https://source.unsplash.com/1200x800"
                             link="#"
-                            titleText="Bomba. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                            leadText="Bomba."
+                            titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                             titleTag="h1"
                             titleSize="--threexl"
                             // subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
@@ -105,10 +106,11 @@ const LNHome = props => {
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x205"
+                                                renderAutor
                                                 link="#"
                                                 leadText="Tragedia en al ruta."
                                                 titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
-                                                authors="Por Nombre Apellido"
+                                                authors="Nombre Apellido"
                                             />
                                         </section>
                                     </section>
@@ -137,8 +139,9 @@ const LNHome = props => {
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/300x206"
                                                     link="#"
+                                                    leadText="Focal derecho."
                                                     titleSize="--l"
-                                                    titleText="Focal derecho. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                    titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                     authors="Por Maia Jastreblansky"
                                                 />
                                             </div>
@@ -147,7 +150,8 @@ const LNHome = props => {
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/300x207"
                                                     link="#"
-                                                    titleText="Nota NYT. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                    leadText="Nota NYT."
+                                                    titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                     titleTag="h1"
                                                     titleSize="--xl"
                                                     subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
@@ -163,6 +167,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/600x400"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 titleSize="--l"
                                                 authors="Por Nombre Apellido"
@@ -171,6 +176,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/600x401"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 titleSize="--l"
                                                 authors="Por Nombre Apellido"
@@ -192,36 +198,40 @@ const LNHome = props => {
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/300x208"
                                                     link="#"
+                                                    leadText="Opinión 1."
                                                     titleSize="--l"
-                                                    titleText="Opinión 1. Sonrisas arriba del escenario y disputas abajo"
+                                                    titleText="Sonrisas arriba del escenario y disputas abajo"
                                                     authors="Por Maia Jastreblansky"
                                                 />
                                             </div>
                                             <div className="col-tablet-4">
                                                 <Article
                                                     frontdemo
-                                                    classCondition="--author"
+                                                    renderAutor
                                                     srcdemo="https://source.unsplash.com/300x300/?face"
                                                     link="#"
-                                                    titleText="Opinión 2. Una ventana al bienestar que promete el verano"
+                                                    leadText="Opinión 2."
+                                                    titleText="Una ventana al bienestar que promete el verano"
                                                     authors="Nombre Apellido"
                                                 />
                                                 <Article
                                                     frontdemo
-                                                    classCondition="--author"
+                                                    renderAutor
                                                     srcdemo="https://source.unsplash.com/300x301/?face"
                                                     link="#"
-                                                    titleText="Opinión 3. Trumpismo, maoísmo y peronismo"
+                                                    leadText="Opinión 3."
+                                                    titleText="Trumpismo, maoísmo y peronismo"
                                                     authors="Nombre Apellido"
                                                 />
                                             </div>
                                             <div className="col-tablet-3">
                                                 <Article
                                                     frontdemo
-                                                    classCondition="--author"
+                                                    renderAutor
                                                     srcdemo="https://source.unsplash.com/300x302/?face"
                                                     link="#"
-                                                    titleText="Opinión 4. Inolvidable declaración de amor a la ciudad de Madrid"
+                                                    leadText="Opinión 4."
+                                                    titleText="Inolvidable declaración de amor a la ciudad de Madrid"
                                                     authors="Nombre Apellido"
                                                 />
                                             </div>
@@ -276,6 +286,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x209"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -283,13 +294,17 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x210"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                noMedia
+                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x211"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -301,6 +316,7 @@ const LNHome = props => {
                                             frontdemo
                                             srcdemo="https://source.unsplash.com/1260x500"
                                             link="#"
+                                            leadText="Volanta."
                                             titleText="La casa Breuer Moreno se prepara para su último remate"
                                             titleSize="--l"
                                             authors="Por Nombre Apellido"
@@ -320,6 +336,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x600"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -327,6 +344,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x601"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -334,6 +352,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x602"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -353,6 +372,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x603"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -360,6 +380,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x604"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -367,6 +388,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x605"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -386,6 +408,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x212"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -393,6 +416,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x213"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -400,6 +424,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x214"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -407,6 +432,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x215"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -414,6 +440,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x216"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -421,6 +448,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x217"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -440,6 +468,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x606"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -447,6 +476,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x607"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -454,6 +484,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x608"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -473,6 +504,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x609"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -480,6 +512,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x610"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -487,6 +520,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x611"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -506,6 +540,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x233"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -513,6 +548,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x234"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -520,6 +556,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x235"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -527,6 +564,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x236"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -534,6 +572,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x237"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -541,6 +580,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x238"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -560,6 +600,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x233"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -567,6 +608,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x234"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -574,6 +616,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x235"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -581,6 +624,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x236"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -588,6 +632,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x237"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -595,6 +640,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x238"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -618,6 +664,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x220/?ranking"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -627,6 +674,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x225/?ranking"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -636,6 +684,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x230/?ranking"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -645,6 +694,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x235/?ranking"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -657,6 +707,7 @@ const LNHome = props => {
                                         frontdemo
                                         srcdemo="https://source.unsplash.com/1260x500"
                                         link="#"
+                                        leadText="Volanta."
                                         titleText="La casa Breuer Moreno se prepara para su último remate"
                                         titleSize="--l"
                                         authors="Por Nombre Apellido"
@@ -671,6 +722,7 @@ const LNHome = props => {
                                             frontdemo
                                             srcdemo="https://source.unsplash.com/1260x505"
                                             link="#"
+                                            leadText="Volanta."
                                             titleText="La casa Breuer Moreno se prepara para su último remate"
                                             titleSize="--l"
                                             authors="Por Nombre Apellido"
@@ -722,6 +774,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x203"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La dura respuesta de Bullrich a la acusación de Frederic"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -729,6 +782,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x204"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La historia de la fábrica que prometía hacer cientos de vagones"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -775,6 +829,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/600x400"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 titleSize="--l"
                                                 authors="Por Nombre Apellido"
@@ -783,6 +838,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/600x401"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 titleSize="--l"
                                                 authors="Por Nombre Apellido"
@@ -805,35 +861,39 @@ const LNHome = props => {
                                                     srcdemo="https://source.unsplash.com/300x208"
                                                     link="#"
                                                     titleSize="--l"
-                                                    titleText="Opinión 1. Sonrisas arriba del escenario y disputas abajo"
+                                                    leadText="Opinión 1."
+                                                    titleText="Sonrisas arriba del escenario y disputas abajo"
                                                     authors="Por Maia Jastreblansky"
                                                 />
                                             </div>
                                             <div className="col-tablet-4">
                                                 <Article
                                                     frontdemo
-                                                    classCondition="--author"
+                                                    renderAutor
                                                     srcdemo="https://source.unsplash.com/300x300/?face"
                                                     link="#"
-                                                    titleText="Opinión 2. Una ventana al bienestar que promete el verano"
+                                                    leadText="Opinión 2."
+                                                    titleText="Una ventana al bienestar que promete el verano"
                                                     authors="Nombre Apellido"
                                                 />
                                                 <Article
                                                     frontdemo
-                                                    classCondition="--author"
+                                                    renderAutor
                                                     srcdemo="https://source.unsplash.com/300x301/?face"
                                                     link="#"
-                                                    titleText="Opinión 3. Trumpismo, maoísmo y peronismo"
+                                                    leadText="Opinión 3."
+                                                    titleText="Trumpismo, maoísmo y peronismo"
                                                     authors="Nombre Apellido"
                                                 />
                                             </div>
                                             <div className="col-tablet-3">
                                                 <Article
                                                     frontdemo
-                                                    classCondition="--author"
+                                                    renderAutor
                                                     srcdemo="https://source.unsplash.com/300x302/?face"
                                                     link="#"
-                                                    titleText="Opinión 4. Inolvidable declaración de amor a la ciudad de Madrid"
+                                                    leadText="Opinión 4."
+                                                    titleText="Inolvidable declaración de amor a la ciudad de Madrid"
                                                     authors="Nombre Apellido"
                                                 />
                                             </div>
@@ -853,6 +913,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x209"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -860,6 +921,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x210"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -867,6 +929,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x211"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -878,6 +941,7 @@ const LNHome = props => {
                                             frontdemo
                                             srcdemo="https://source.unsplash.com/1260x500"
                                             link="#"
+                                            leadText="Volanta."
                                             titleText="La casa Breuer Moreno se prepara para su último remate"
                                             titleSize="--l"
                                             authors="Por Nombre Apellido"
@@ -897,6 +961,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x600"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -904,6 +969,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x601"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -911,6 +977,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x602"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -930,6 +997,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x603"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -937,6 +1005,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x604"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -944,6 +1013,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x605"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -963,6 +1033,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x212"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -970,6 +1041,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x213"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -977,13 +1049,16 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x214"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
+                                                renderAutor
+                                                authors="Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x215"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -991,6 +1066,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x216"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -998,6 +1074,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x217"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1017,6 +1094,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x606"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1024,6 +1102,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x607"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1031,6 +1110,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x608"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1050,6 +1130,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x609"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1057,6 +1138,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x610"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1064,6 +1146,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x611"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1083,6 +1166,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x233"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1090,6 +1174,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x234"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1097,6 +1182,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x235"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1104,6 +1190,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x236"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1111,13 +1198,17 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x237"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                noMedia
+                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x238"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1137,6 +1228,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x230"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1144,6 +1236,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x231"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1151,13 +1244,17 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x232"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                noMedia
+                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                                 authors="Por Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x233"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1165,13 +1262,16 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x234"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
+                                                renderAutor
+                                                authors="Nombre Apellido"
                                             />
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x235"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1179,6 +1279,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x236"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1186,6 +1287,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x237"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
@@ -1193,6 +1295,7 @@ const LNHome = props => {
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x238"
                                                 link="#"
+                                                leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />

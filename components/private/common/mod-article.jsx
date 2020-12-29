@@ -22,6 +22,8 @@ const ModArticle = props => {
         titleText,
         marqueeSize,
         authors,
+        authorSize,
+        renderAutor,
         withMedia,
         subheadText,
         subheadSize,
@@ -29,6 +31,7 @@ const ModArticle = props => {
         dateSize,
         leadText,
         anexo,
+        noMedia,
         hour
     } = props;
 
@@ -42,7 +45,9 @@ const ModArticle = props => {
 
     return (
         <article
-            className={`mod-article ${classCondition || ''}`}
+            className={`mod-article ${classCondition || ''} ${
+                noMedia ? '--no-media' : ''
+            } ${renderAutor ? '--author' : ''}`}
             {...extraOpts}
         >
             {hour && hour}
@@ -71,10 +76,10 @@ const ModArticle = props => {
             <ModDescription
                 link={link}
                 titleTag={titleTag}
-                titleSize={titleSize}
-                //titleSize={withMedia ? titleSize : '--m'}
+                titleSize={noMedia ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
+                authorSize={renderAutor ? '--threexs' : authorSize}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 dateText={dateText}

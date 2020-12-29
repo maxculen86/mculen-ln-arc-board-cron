@@ -2,7 +2,11 @@
 @import '../abstracts/mixins';
 
 .com-lead {
-    color: $ln;
-    margin-right: $spacing-2xs;
+    color: $light-blue-500;
+    margin-right: px(2);
     font-style: normal;
+    .--bomba &,
+    .--highlight & {
+        color: $neutral-white;
+    }
 }

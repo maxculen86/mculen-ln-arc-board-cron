@@ -38,7 +38,7 @@ const ModDescription = props => {
                 />
             )}
 
-            <ModMarquesina text={authors} link={link} />
+            <ModMarquesina text={authors} size={authorSize} link={link} />
 
             {dateText && <ComDate display_date={dateText} size="--fivexs" />}
         </section>

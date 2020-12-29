@@ -1,6 +1,46 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+@mixin renderAutor {
+    border: 1px solid $light-neutral-400;
+    padding: px(16);
+    padding-bottom: px(140);
+
+    text-align: center;
+    align-items: center;
+    .mod-media {
+        margin: 0;
+        position: absolute;
+        width: px(80);
+        height: px(80);
+        bottom: px(-1);
+        border-bottom: 1px solid $neutral-black;
+        padding-bottom: px(126);
+
+        .mod-figure {
+            border-radius: 100%;
+            overflow: hidden;
+            border: 1px solid $light-neutral-400;
+
+            .mod-picture.mod-picture {
+                padding-top: 100%;
+                border: none;
+            }
+        }
+    }
+    .mod-description {
+        .mod-marquee {
+            position: absolute;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0;
+            bottom: px(16);
+            left: px(16);
+            width: calc(100% - 32px);
+        }
+    }
+}
+
 .mod-article {
     position: relative;
     width: 100%;
@@ -47,45 +87,23 @@
     }
 
     &.--author {
-        border: 1px solid $light-neutral-400;
-        padding: px(16);
-        padding-bottom: px(140);
-        text-align: center;
-        align-items: center;
-        div {
-            display: flex;
-            justify-content: center;
-            .mod-media {
-                margin: 0;
-                position: absolute;
-                width: px(80);
-                height: px(80);
-                bottom: px(-1);
-                border-bottom: 1px solid $neutral-black;
-                padding-bottom: px(126);
-                .mod-figure {
-                    border-radius: 100%;
-                    overflow: hidden;
-                    border: 1px solid $light-neutral-400;
+        @include renderAutor;
+    }
 
-                    .mod-picture.mod-picture {
-                        padding-top: 100%;
-                        border: none;
-                    }
-                }
-            }
+    &.--no-media {
+        border-top: 1px solid #ccc;
+        width: calc(100% + #{$spacing-lg});
+        margin-left: -$spacing-sm;
+        padding: px(32) $spacing-sm 0;
+
+        .mod-media {
+            display: none;
         }
-
-        .mod-description {
-            .mod-marquee {
-                position: absolute;
-                overflow: hidden;
-                white-space: nowrap;
-                margin: 0;
-                bottom: px(16);
-                left: px(16);
-                width: calc(100% - 32px);
-            }
+        @media ($media-m) {
+            width: auto;
+            margin-left: 0;
+            padding: 0;
+            border: none;
         }
     }
 }
@@ -362,43 +380,7 @@
             .col-tablet-4,
             .col-tablet-3 {
                 .mod-article {
-                    border: 1px solid $light-neutral-400;
-                    padding: px(16);
-                    padding-bottom: px(140);
-
-                    text-align: center;
-                    align-items: center;
-                    .mod-media {
-                        margin: 0;
-                        position: absolute;
-                        width: px(80);
-                        height: px(80);
-                        bottom: px(-1);
-                        border-bottom: 1px solid $neutral-black;
-                        padding-bottom: px(126);
-
-                        .mod-figure {
-                            border-radius: 100%;
-                            overflow: hidden;
-                            border: 1px solid $light-neutral-400;
-
-                            .mod-picture.mod-picture {
-                                padding-top: 100%;
-                                border: none;
-                            }
-                        }
-                    }
-                    .mod-description {
-                        .mod-marquee {
-                            position: absolute;
-                            overflow: hidden;
-                            white-space: nowrap;
-                            margin: 0;
-                            bottom: px(16);
-                            left: px(16);
-                            width: calc(100% - 32px);
-                        }
-                    }
+                    @include renderAutor;
                 }
             }
 
@@ -449,6 +431,11 @@
                 //display: block;
                 grid-template-columns: 122px 1fr;
                 //align-items: center;
+
+                width: calc(100% + #{$spacing-lg});
+                margin-left: -$spacing-sm;
+                padding: $spacing-sm;
+
                 .com-title {
                     margin-bottom: 16px;
                 }
@@ -480,9 +467,14 @@
                         }
                     }
                 }
+
                 @media ($media-m) {
                     display: grid;
                     margin: px(32) 0 0;
+
+                    width: auto;
+                    margin-left: 0;
+                    padding: $spacing-sm 0;
 
                     .com-title {
                         margin: 0;
@@ -546,7 +538,8 @@
                 }
                 .mod-article {
                     .mod-description {
-                        .com-volanta {
+                        .com-lead,
+                        .com-link.com-link:hover {
                             color: $light-blue-500;
                         }
                     }
@@ -560,7 +553,8 @@
                 }
                 .mod-article {
                     .mod-description {
-                        .com-volanta {
+                        .com-lead,
+                        .com-link.com-link:hover {
                             color: $pink-600;
                         }
                     }
@@ -574,7 +568,8 @@
                 }
                 .mod-article {
                     .mod-description {
-                        .com-volanta {
+                        .com-lead,
+                        .com-link.com-link:hover {
                             color: $teal-600;
                         }
                     }
@@ -588,7 +583,8 @@
                 }
                 .mod-article {
                     .mod-description {
-                        .com-volanta {
+                        .com-lead,
+                        .com-link.com-link:hover {
                             color: $red-600;
                         }
                     }
@@ -783,7 +779,7 @@
                 }
 
                 .com-title,
-                .com-volanta,
+                //.com-lead,
                 .com-subhead,
                 .mod-marquee {
                     position: relative;
