@@ -38,6 +38,7 @@ const LNHome = props => {
                             titleSize="--threexl"
                             // subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                             authors="Por Maia Jastreblansky"
+                            label="Infografía"
                         />
                     </section>
                     <main>
