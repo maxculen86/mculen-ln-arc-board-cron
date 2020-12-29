@@ -4,6 +4,7 @@ import ComTitle from './com-title';
 import ComDate from './com-date';
 import ModBajada from './mod-bajada';
 import ModMarquesina from './mod-marquee';
+import ComLabel from './com-labelArticle';
 
 const ModDescription = props => {
     const {
@@ -17,11 +18,13 @@ const ModDescription = props => {
         subheadSize,
         dateText,
         dateSize,
+        label,
         lead
     } = props;
 
     return (
         <section className="mod-description">
+            {label && <ComLabel labelArticle={label} />}
             <ComTitle
                 tag={titleTag || 'h2'}
                 size={titleSize || '--s'}

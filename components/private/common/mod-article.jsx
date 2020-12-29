@@ -32,6 +32,7 @@ const ModArticle = props => {
         leadText,
         anexo,
         noMedia,
+        label,
         hour
     } = props;
 
@@ -85,6 +86,7 @@ const ModArticle = props => {
                 dateText={dateText}
                 dateSize={dateSize}
                 lead={leadText}
+                label={label}
             />
         </article>
     );

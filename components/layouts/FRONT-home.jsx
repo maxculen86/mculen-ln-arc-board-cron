@@ -62,6 +62,7 @@ const LNHome = props => {
                                                     titleSize="--xl"
                                                     subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                                     authors="Por Maia Jastreblansky"
+                                                    label="Chapita"
                                                 />
                                             </div>
                                             <div className="col-tablet-4">
@@ -80,6 +81,7 @@ const LNHome = props => {
                                                     leadText="Covid."
                                                     titleText='El Gobierno "autoengañado", el incendio y por qué cayó "en la trampa"'
                                                     authors="Por Maia Jastreblansky"
+                                                    label="Chapita"
                                                 />
                                             </div>
                                         </div>
@@ -94,6 +96,7 @@ const LNHome = props => {
                                                 leadText="Pandemia."
                                                 titleText="La dura respuesta de Bullrich a la acusación de Frederic"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita"
                                             />
                                             <Article
                                                 frontdemo
@@ -143,6 +146,7 @@ const LNHome = props => {
                                                     titleSize="--l"
                                                     titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                     authors="Por Maia Jastreblansky"
+                                                    label="Chapita"
                                                 />
                                             </div>
                                             <div className="col-tablet-4">
@@ -171,6 +175,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 titleSize="--l"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita"
                                             />
                                             <Article
                                                 frontdemo
@@ -180,6 +185,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 titleSize="--l"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita"
                                             />
                                         </div>
                                     </section>
@@ -202,6 +208,7 @@ const LNHome = props => {
                                                     titleSize="--l"
                                                     titleText="Sonrisas arriba del escenario y disputas abajo"
                                                     authors="Por Maia Jastreblansky"
+                                                    label="Chapita"
                                                 />
                                             </div>
                                             <div className="col-tablet-4">
@@ -316,10 +323,11 @@ const LNHome = props => {
                                             frontdemo
                                             srcdemo="https://source.unsplash.com/1260x500"
                                             link="#"
-                                            leadText="Volanta."
+                                            leadText="Volanta más."
                                             titleText="La casa Breuer Moreno se prepara para su último remate"
                                             titleSize="--l"
                                             authors="Por Nombre Apellido"
+                                            label="Chapita más larga"
                                         />
                                     </section>
 
@@ -339,6 +347,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita larga"
                                             />
                                             <Article
                                                 frontdemo
@@ -347,6 +356,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita muchísimo más larga"
                                             />
                                             <Article
                                                 frontdemo
@@ -355,6 +365,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita muchísimo más larga para que se llegue a cortar"
                                             />
                                         </div>
                                     </section>
@@ -383,6 +394,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita"
                                             />
                                             <Article
                                                 frontdemo
@@ -411,6 +423,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita"
                                             />
                                             <Article
                                                 frontdemo
@@ -427,6 +440,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita"
                                             />
                                             <Article
                                                 frontdemo
@@ -443,6 +457,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Chapita"
                                             />
                                             <Article
                                                 frontdemo
@@ -471,6 +486,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Content Lab"
                                             />
                                             <Article
                                                 frontdemo
@@ -479,6 +495,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Living"
                                             />
                                             <Article
                                                 frontdemo
@@ -487,6 +504,7 @@ const LNHome = props => {
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
+                                                label="Rolling Stone"
                                             />
                                         </div>
                                     </section>
@@ -708,9 +726,10 @@ const LNHome = props => {
                                         srcdemo="https://source.unsplash.com/1260x500"
                                         link="#"
                                         leadText="Volanta."
-                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                        titleText="La casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate"
                                         titleSize="--l"
                                         authors="Por Nombre Apellido"
+                                        label="Content Lab"
                                     />
                                 </section>
                             </div>
@@ -726,6 +745,7 @@ const LNHome = props => {
                                             titleText="La casa Breuer Moreno se prepara para su último remate"
                                             titleSize="--l"
                                             authors="Por Nombre Apellido"
+                                            label="LIVING"
                                         />
                                     </section>
                                     <section className="box-articles --focal --left">
