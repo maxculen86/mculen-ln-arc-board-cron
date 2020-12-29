@@ -18,6 +18,16 @@ const html = htmlData => {
         default:
             resp.id = 'html';
             resp.src = htmlData.content;
+            if (resp.src.indexOf('twitter-tweet') !== -1) {
+                const linksTwitter = resp.src.match(/(<a([^>]+)>)/gi);
+                if (linksTwitter && linksTwitter.length > 0) {
+                    resp.src = `<blockquotet class="twitter-tweet">${
+                        linksTwitter[linksTwitter.length - 1]
+                    }</blockquote><script async src="https://platform.twitter.com/widgets.js" charset ="utf-8"></script>`;
+                }
+                resp.src = resp.src.replace(RegExp('\\n  |\\n', 'g'), '');
+            }
+
             break;
     }
 

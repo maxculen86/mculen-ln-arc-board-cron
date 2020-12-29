@@ -14,9 +14,12 @@ const embed = embedData => {
 
     switch (valor.type) {
         case 'instagram':
-        case 'twitter':
             resp.id = 'html';
             resp.src = valor.html;
+            break;
+        case 'twitter':
+            resp.id = 'html';
+            resp.src = `<blockquote class="twitter-tweet"><a href = "${valor.url}"></a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset ="utf-8"></script>`;
             break;
         case 'facebook-video':
             resp.id = 'facebook-post';
