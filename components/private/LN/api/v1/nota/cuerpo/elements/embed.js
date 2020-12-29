@@ -19,7 +19,7 @@ const embed = embedData => {
             break;
         case 'twitter':
             resp.id = 'html';
-            resp.src = `<blockquote class="twitter-tweet"><a href = "${valor.url}"></a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset ="utf-8"></script>`;
+            resp.src = `<blockquote class="twitter-tweet" style="min-height: 130px;"><a href = "${valor.url}"></a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset ="utf-8"></script>`;
             break;
         case 'facebook-video':
             resp.id = 'facebook-post';
