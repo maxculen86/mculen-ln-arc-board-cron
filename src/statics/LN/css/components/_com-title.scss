@@ -11,21 +11,7 @@
         display: block;
         font-weight: 300;
     }
-    .mod-headersection & {
-        margin-bottom: 0;
-        width: 100%;
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .mod-headersection.--bg &,
-    .mod-headersection.--teal &,
-    .mod-headersection.--blue &,
-    .mod-headersection.--red &,
-    .mod-headersection.--pink & {
-        color: $neutral-white;
-    }
+
     .more-articles & {
         display: block;
     }
@@ -37,9 +23,6 @@
         &.--idiomas {
             margin: 0;
             margin-right: $spacing-xs;
-        }
-        .mod-headersection & {
-            width: 50%;
         }
     }
 }

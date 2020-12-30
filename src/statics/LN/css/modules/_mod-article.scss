@@ -864,3 +864,27 @@
         left: px(8);
     }
 }
+
+.com-title {
+    .mod-headersection & {
+        margin-bottom: 0;
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .mod-headersection.--bg &,
+    .mod-headersection.--teal &,
+    .mod-headersection.--blue &,
+    .mod-headersection.--red &,
+    .mod-headersection.--pink & {
+        color: $neutral-white;
+    }
+
+    @media ($media-l) {
+        .mod-headersection & {
+            width: 50%;
+        }
+    }
+}
