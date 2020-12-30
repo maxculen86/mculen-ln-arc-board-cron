@@ -242,13 +242,13 @@ const LNHome = props => {
                                         <section className="mod-footersection">
                                             <ComTitle
                                                 content="EDITORIALES"
-                                                size="--xs"
+                                                size="--twoxs"
                                             />
                                             <ul className="com-unordered">
                                                 <li>
                                                     <a
                                                         href="/editoriales/mafia-politica-narcotrafico-peor-pandemia-nid2547665"
-                                                        className="--xs"
+                                                        className="--twoxs"
                                                         title="Mafia política y narcotráfico, la peor pandemia"
                                                     >
                                                         Mafia política y
@@ -259,7 +259,7 @@ const LNHome = props => {
                                                 <li>
                                                     <a
                                                         href="/editoriales/la-remocion-jueces-fiscales-nid2547655"
-                                                        className="--xs"
+                                                        className="--twoxs"
                                                         title="La remoción de jueces y fiscales"
                                                     >
                                                         La remoción de jueces y
@@ -493,7 +493,7 @@ const LNHome = props => {
                                     <section className="box-articles --highlight --red">
                                         <section className="mod-headersection">
                                             <ComTitle
-                                                content="Techo de sección"
+                                                content="Techo de notas color con título largo"
                                                 size="--l"
                                             />
                                             <div className="com-line"></div>
@@ -520,7 +520,7 @@ const LNHome = props => {
                                                 srcdemo="https://source.unsplash.com/400x611"
                                                 link="#"
                                                 leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
                                         </div>
@@ -826,7 +826,7 @@ const LNHome = props => {
                                                 srcdemo="https://source.unsplash.com/600x400"
                                                 link="#"
                                                 leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                titleText="La casa Breuer Moreno se prepara para su último remate para su último remate"
                                                 titleSize="--l"
                                                 authors="Por Nombre Apellido"
                                             />
