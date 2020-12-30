@@ -26,7 +26,7 @@ const LNHome = props => {
         <LoginProvider>
             <GlobalProviderAcu>
                 {seccion1}
-                <div id="wrapper" className={`home ${amp}`}>
+                <div id="wrapper" className={`home ${amp} --transparent`}>
                     <Header />
                     <section className="mod-opening --bomba">
                         <Article
