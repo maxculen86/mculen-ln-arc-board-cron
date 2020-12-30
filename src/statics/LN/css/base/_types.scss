@@ -2,11 +2,22 @@
 @import '../abstracts/mixins';
 
 /* FONTS --------------- */
-
 @include font-face('SuecaSlab', suecaslab-medium-webfont, 500);
 @include font-face('SuecaSlab', suecaslab-bold-webfont, 700);
 @include font-face('LNicons', lana-icons, normal);
 @include font-face('LNlogos', ln-logos-v2, normal);
+
+[class*='georgia'] {
+    font-family: $font-georgia;
+}
+
+[class*='sueca'] {
+    font-family: $font-SuecaSlab;
+}
+
+[class*='arial'] {
+    font-family: $font-arial;
+}
 
 strong,
 .element-paragraph b {

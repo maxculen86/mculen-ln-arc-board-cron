@@ -413,108 +413,6 @@
 //=============================
 // MEDIDAS DE FONT
 //=============================
-// .--threexl {
-//     font-size: px(32);
-//     line-height: px(40);
-// }
-// .twoxl {
-//     font-size: px(32);
-//     line-height: px(40);
-// }
-// .--xl {
-//     font-size: px(20);
-//     line-height: px(28);
-// }
-// .--l {
-//     font-size: px(20);
-//     line-height: px(28);
-// }
-// .--m {
-//     font-size: px(20);
-//     line-height: px(28);
-// }
-// .--s {
-//     font-size: px(20);
-//     line-height: px(28);
-// }
-// .--xs {
-//     font-size: px(16);
-//     line-height: px(24);
-// }
-// .--twoxs {
-//     font-size: px(19);
-//     line-height: px(30);
-// }
-// .--threexs {
-//     font-size: px(16);
-//     line-height: px(24);
-// }
-// .--fourxs {
-//     font-size: px(15);
-//     line-height: px(17);
-// }
-// .--fivexs {
-//     font-size: px(14);
-//     line-height: px(17);
-// }
-// .--sixxs {
-//     font-size: px(12);
-//     line-height: px(14);
-// }
-// .--sevenxs {
-//     font-size: px(11);
-//     line-height: px(14);
-// }
-
-// @media ($media-m) {
-//     .--threexl {
-//         font-size: px(40);
-//         line-height: px(52);
-//     }
-//     .--twoxl {
-//         font-size: px(40);
-//         line-height: px(52);
-//     }
-//     .--xl {
-//         font-size: px(32);
-//         line-height: px(40);
-//     }
-//     .--l {
-//         font-size: px(24);
-//         line-height: px(32);
-//     }
-//     .--s {
-//         font-size: px(18);
-//         line-height: px(26);
-//     }
-// }
-// @media ($media-l) {
-//     .--threexl {
-//         font-size: px(48);
-//         line-height: px(56);
-//     }
-// }
-
-//NUEVO
-
-// @mixin sizeFont ($size, $line) {
-//     font-size: px($size);
-//     line-height: px($line);
-// }
-
-// .--tresxl {
-//     @include sizeFont (20, 32);
-// }
-
-// @mixin fontSize($name, $size, $line) {
-//     .--#{$name} {
-//         font-size: $size;
-//         line-height: $line;
-//     }
-// }
-
-// @include fontSize('xl', '24px', '30px');
-
 @mixin size3XL {
     font-size: px(48);
     line-height: px(56);
@@ -537,29 +435,68 @@
 
 @mixin sizeM {
     font-size: px(20);
+    font-size: 20px;
     line-height: px(28);
 }
 
+@mixin sizeNuevoS {
+    //nuevo s
+    font-size: px(19);
+    line-height: px(30);
+}
+
 @mixin sizeS {
+    //cambia a xs
     font-size: px(18);
     line-height: px(26);
 }
 
 @mixin sizeXS {
+    //cambia a 2xs
     font-size: px(16);
     line-height: px(24);
 }
 
 @mixin size2XS {
+    //cambia a 3xs (15/17)
     font-size: px(18);
     line-height: px(30);
 }
 
+@mixin size3XS {
+    //cambia a 4xs (14/16)
+    font-size: px(16);
+    line-height: px(24);
+}
+
+@mixin size4XS {
+    //cambia a 5xs (12/16)
+    font-size: px(15);
+    line-height: px(17);
+}
+
+@mixin size5XS {
+    //cambia a 6xs (11/16)
+    font-size: px(14);
+    line-height: px(17);
+}
+
+@mixin size6XS {
+    font-size: px(12);
+    line-height: px(14);
+}
+
+@mixin size7XS {
+    font-size: px(11);
+    line-height: px(14);
+}
+
+//TABLA DE CONVERSIÓN
 .--threexl {
     @include sizeL; //mobile
     @media (max-width: 767px) {
         //mobile home
-        .home & {
+        .mod-article:not(&.--bomba) & {
             @include sizeM;
         }
     }
@@ -577,7 +514,7 @@
     @include sizeXL; //mobile
     @media (max-width: 767px) {
         //mobile home
-        .home & {
+        .mod-article & {
             @include sizeM;
         }
     }
@@ -591,7 +528,7 @@
     @include sizeXL; //mobile
     @media (max-width: 767px) {
         //mobile home
-        .home & {
+        .mod-article & {
             @include sizeM;
         }
     }
@@ -610,7 +547,11 @@
 }
 
 .--s {
-    @include sizeS; //all
+    @include sizeM; //mobile
+    @media ($media-m) {
+        //768
+        @include sizeS;
+    }
 }
 
 .--xs {
@@ -622,26 +563,25 @@
 }
 
 .--twoxs {
-    @include size2XS; //mobile
+    @include size2XS; //all
 }
 
 .--threexs {
-    font-size: px(16);
-    line-height: px(24);
+    @include size3XS; //all
 }
+
 .--fourxs {
-    font-size: px(15);
-    line-height: px(17);
+    @include size4XS; //all
 }
+
 .--fivexs {
-    font-size: px(14);
-    line-height: px(17);
+    @include size5XS; //all
 }
+
 .--sixxs {
-    font-size: px(12);
-    line-height: px(14);
+    @include size6XS; //all
 }
+
 .--sevenxs {
-    font-size: px(11);
-    line-height: px(14);
+    @include size7XS; //all
 }

@@ -35,7 +35,7 @@ const ModheaderSection = props => {
     return (
         <section className={`mod-headersection ${classCondition}`}>
             {!Image ? (
-                <ComTitle size={size || '--l'} content={title} link={link} />
+                <ComTitle size={size} content={title} link={link} />
             ) : (
                 <div className="mod-logo">{link ? ImageWithLink : Image}</div>
             )}

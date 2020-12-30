@@ -733,7 +733,8 @@ const LNHome = props => {
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/300x200"
                                                     link="#"
-                                                    titleText="Focal izquierdo. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                    leadText="Volanta."
+                                                    titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                     titleTag="h1"
                                                     titleSize="--xl"
                                                     subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
@@ -747,6 +748,8 @@ const LNHome = props => {
                                                     link="#"
                                                     titleText="Los nexos ocultos entre los Moyano y la barra brava de Independiente"
                                                     authors="Por Maia Jastreblansky"
+                                                    noMedia
+                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                                 />
                                                 <Article
                                                     frontdemo
@@ -795,7 +798,8 @@ const LNHome = props => {
                                                     srcdemo="https://source.unsplash.com/300x206"
                                                     link="#"
                                                     titleSize="--l"
-                                                    titleText="Focal derecho. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                    leadText="Volanta."
+                                                    titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                     authors="Por Maia Jastreblansky"
                                                 />
                                             </div>
@@ -804,7 +808,8 @@ const LNHome = props => {
                                                     frontdemo
                                                     srcdemo="https://source.unsplash.com/300x207"
                                                     link="#"
-                                                    titleText="Nota NYT. Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                    leadText="Nota NYT."
+                                                    titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                     titleTag="h1"
                                                     titleSize="--xl"
                                                     subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
