@@ -6,6 +6,7 @@ import BreadcrumbTag from './breadcrumbTag';
 import BreadcrumbSection from './breadcrumbSection';
 import BreadcrumbCustom from './BreadcrumbCustom';
 import get from '../../../common/utils/get';
+import BreadcrumbDistributor from './breadcrumbDistributor';
 
 const renderBreadCrumbTag = (globalContent, host) => {
     const tag = globalContent.Payload.items[0];
@@ -22,6 +23,14 @@ const renderBreadcrumbSection = (globalContent, host, colorCategory) => (
 
 const renderBreadcrumbAutor = (globalContent, host) => (
     <BreadcrumbAutor author={globalContent} host={host} />
+);
+
+const renderBreadcrumbDistributor = (globalContent, host) => (
+    <BreadcrumbDistributor
+        name={globalContent.name}
+        canonicalUrl={globalContent.canonical_url}
+        host={host}
+    />
 );
 
 function isRender(
@@ -41,12 +50,16 @@ function isRender(
             />
         );
 
-    if (globalContent.Payload) return renderBreadCrumbTag(globalContent, host);
+    const { Payload, node_type: nodeType, byline } = globalContent;
+    if (Payload) return renderBreadCrumbTag(globalContent, host);
 
-    if (globalContent.node_type === 'section')
+    if (nodeType === 'section')
         return renderBreadcrumbSection(globalContent, host, colorCategory);
 
-    if (globalContent.byline) return renderBreadcrumbAutor(globalContent, host);
+    if (nodeType === 'distributor')
+        return renderBreadcrumbDistributor(globalContent, host);
+
+    if (byline) return renderBreadcrumbAutor(globalContent, host);
 
     throw new Error(
         'Breadcrumb invalido en esta página. Verificar si hay un content source asociado o si ha completado el nombre de la sección'
