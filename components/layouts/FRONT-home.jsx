@@ -648,7 +648,7 @@ const LNHome = props => {
                             </div>
                             <div className="lay">
                                 <section className="mod-ranking">
-                                    <HeaderSection title="Las más laídas" />
+                                    <HeaderSection title="Las más leídas" />
 
                                     <ol className="com-ordered row-gap-tablet-4">
                                         <li>
