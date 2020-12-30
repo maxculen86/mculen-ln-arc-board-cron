@@ -80,7 +80,7 @@ const ModArticle = props => {
                 titleSize={noMedia ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
-                authorSize={renderAutor ? '--threexs' : authorSize}
+                authorSize={renderAutor ? '--twoxs' : authorSize}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 dateText={dateText}
@@ -118,7 +118,7 @@ ModArticle.defaultProps = {
     dataSection: undefined,
     classCondition: undefined,
     titleTag: 'h4',
-    titleSize: '--s',
+    titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
     dateText: undefined,

@@ -435,61 +435,48 @@
 
 @mixin sizeM {
     font-size: px(20);
-    font-size: 20px;
     line-height: px(28);
 }
 
-@mixin sizeNuevoS {
-    //nuevo s
+@mixin sizeS {
     font-size: px(19);
     line-height: px(30);
 }
 
-@mixin sizeS {
-    //cambia a xs
+@mixin sizeXS {
     font-size: px(18);
     line-height: px(26);
 }
 
-@mixin sizeXS {
-    //cambia a 2xs
+@mixin size2XS {
     font-size: px(16);
     line-height: px(24);
-}
-
-@mixin size2XS {
-    //cambia a 3xs (15/17)
-    font-size: px(18);
-    line-height: px(30);
 }
 
 @mixin size3XS {
-    //cambia a 4xs (14/16)
-    font-size: px(16);
-    line-height: px(24);
-}
-
-@mixin size4XS {
-    //cambia a 5xs (12/16)
     font-size: px(15);
     line-height: px(17);
 }
 
-@mixin size5XS {
-    //cambia a 6xs (11/16)
+@mixin size4XS {
     font-size: px(14);
-    line-height: px(17);
+    line-height: px(16);
+}
+
+@mixin size5XS {
+    font-size: px(12);
+    line-height: px(16);
 }
 
 @mixin size6XS {
-    font-size: px(12);
-    line-height: px(14);
+    font-size: px(11);
+    line-height: px(16);
 }
 
-@mixin size7XS {
-    font-size: px(11);
-    line-height: px(14);
-}
+// @mixin size7XS {
+//     font-size: px(11);
+//     line-height: px(14);
+// }
 
 //TABLA DE CONVERSIÓN
 .--threexl {
@@ -582,6 +569,6 @@
     @include size6XS; //all
 }
 
-.--sevenxs {
-    @include size7XS; //all
-}
+// .--sevenxs {
+//     @include size7XS; //all
+// }

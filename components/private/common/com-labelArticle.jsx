@@ -8,7 +8,7 @@ const ComlabelArticle = props => {
     if (!labelArticle) return null;
 
     return (
-        <div className="com-label --sevenxs" title={labelArticle}>
+        <div className="com-label --sixxs" title={labelArticle}>
             {labelArticle}
         </div>
     );

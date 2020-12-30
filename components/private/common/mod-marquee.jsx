@@ -9,7 +9,7 @@ const ModMarquee = props => {
     return (
         <strong
             className={`mod-marquee ${classCondition || ''} ${size ||
-                '--fivexs'}`}
+                '--fourxs'}`}
         >
             <ComLink
                 textname={text}
