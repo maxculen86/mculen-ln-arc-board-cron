@@ -534,11 +534,7 @@
 }
 
 .--s {
-    @include sizeM; //mobile
-    @media ($media-m) {
-        //768
-        @include sizeS;
-    }
+    @include sizeS; //all
 }
 
 .--xs {
