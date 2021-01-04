@@ -207,6 +207,8 @@
         &.--focal {
             @media ($media-m) {
                 //768
+                border-bottom: 1px solid #ccc;
+                padding-bottom: px(32);
                 margin-bottom: px(32);
                 > div {
                     .mod-article:last-child {

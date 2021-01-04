@@ -98,7 +98,7 @@ const LNHome = props => {
                                                 leadText="Pandemia."
                                                 titleText="La dura respuesta de Bullrich a la acusación de Frederic"
                                                 authors="Por Nombre Apellido"
-                                                label="Chapita"
+                                                label="Chapita larga muy pero muy larga se corta"
                                             />
                                             <Article
                                                 frontdemo
