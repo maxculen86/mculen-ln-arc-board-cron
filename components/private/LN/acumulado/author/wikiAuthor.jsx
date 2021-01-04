@@ -45,11 +45,11 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
         >
             <div className="row">
                 {url && (
-                    <div className="col-12 col-desksm-4">
+                    <div className="col-12 col-tablet-4 col-deskxl-3">
                         <ImageAuthor outputType={outputType} url={url} />
                     </div>
                 )}
-                <div className="col-12 col-desksm-8">
+                <div className="col-12 col-tablet-8 col-deskxl-9">
                     <ComContainer classCondition="--info">
                         <ComTitle tag="h2" content={byline} size="--l" />
                         <ComText
@@ -139,7 +139,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             <ComSubtitle children="Conectar" size="--threexs" />
                             <ListSocialIcons
                                 sizeIcon="--l"
-                                sizeBullet="--xs"
+                                //sizeBullet="--xs"
                                 data={data}
                                 size="--threexs"
                                 vertical=""

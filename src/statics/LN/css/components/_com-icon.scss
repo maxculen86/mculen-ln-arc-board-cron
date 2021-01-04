@@ -33,7 +33,10 @@
         text-transform: initial;
     }
     .mod-wikiauthor & {
-        color: $negro;
+        &:not(.icon-bullet-xs) {
+            color: $negro;
+            margin-right: px(8);
+        }
     }
     .mod-tooltip & {
         position: absolute;

@@ -62,7 +62,7 @@ function WithAcuArticlesData(
                 const authorId = get(this, 'props.authorId', null);
                 const size = get(this, 'props.size', 30);
 
-                if (!sectionId && !tagId && !authorId)
+                if (!sectionId && !tagId && !authorId && !distributorId)
                     return {
                         articles: [],
                         hayMasNotas: 0

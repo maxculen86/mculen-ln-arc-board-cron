@@ -8,7 +8,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
     class="row"
   >
     <div
-      class="col-12 col-desksm-4"
+      class="col-12 col-tablet-4 col-deskxl-3"
     >
       <figure
         class="mod-figure --horizontal"
@@ -27,7 +27,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
       </figure>
     </div>
     <div
-      class="col-12 col-desksm-8"
+      class="col-12 col-tablet-8 col-deskxl-9"
     >
       <div
         class="com-container  --info"
@@ -279,7 +279,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -304,7 +304,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -329,7 +329,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -354,7 +354,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -379,7 +379,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -404,7 +404,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -429,7 +429,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -454,7 +454,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -479,7 +479,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -504,7 +504,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -529,7 +529,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -554,7 +554,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>
@@ -583,7 +583,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
     class="row"
   >
     <div
-      class="col-12 col-desksm-8"
+      class="col-12 col-tablet-8 col-deskxl-9"
     >
       <div
         class="com-container  --info"
@@ -686,7 +686,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 class="com-bullet"
               >
                 <i
-                  class="com-icon bullet icon-bullet  --xs "
+                  class="com-icon icon-bullet-xs   "
                   style="color:#cccccc"
                 />
               </div>

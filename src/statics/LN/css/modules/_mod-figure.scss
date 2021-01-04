@@ -79,6 +79,15 @@
         }
     }
     .mod-wikiauthor & {
-        @include flex(flex, row, center, start);
+        width: px(138);
+        @media ($media-m) {
+            width: 100%;
+            height: auto;
+            max-width: px(282);
+            padding-right: px(16);
+        }
+        @media ($media-l) {
+            padding-right: 0;
+        }
     }
 }
