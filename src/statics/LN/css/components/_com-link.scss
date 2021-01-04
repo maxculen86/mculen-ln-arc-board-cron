@@ -112,10 +112,10 @@
         align-items: center;
     }
     .com-title & {
-        .mod-headersection.--teal &,
-        .mod-headersection.--blue &,
-        .mod-headersection.--red &,
-        .mod-headersection.--pink & {
+        // .mod-headersection.--teal &,
+        // .mod-headersection.--blue &,
+        // .mod-headersection.--red &,
+        .mod-headersection.--bg & {
             color: $blanco;
         }
     }

@@ -19,10 +19,10 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .mod-headersection.--teal &,
-    .mod-headersection.--blue &,
-    .mod-headersection.--red &,
-    .mod-headersection.--pink & {
+    // .mod-headersection.--teal &,
+    // .mod-headersection.--blue &,
+    // .mod-headersection.--red &,
+    .mod-headersection.--bg & {
         margin-bottom: 0;
         color: $neutral-white;
     }
