@@ -109,15 +109,15 @@
         }
     }
 
-    // &:hover {
-    //     cursor: pointer;
-    //     .mod-media {
-
-    //     }
-    //     .mod-description {
-
-    //     }
-    // }
+    &:hover {
+        cursor: pointer;
+        .mod-description {
+            .com-link.com-link {
+                //color: $light-blue-500;
+                opacity: 0.8;
+            }
+        }
+    }
 }
 
 .mod-ranking li {
@@ -179,9 +179,6 @@
             }
             .com-link.com-link {
                 color: $light-neutral-800;
-                &:hover {
-                    color: $light-blue-500;
-                }
             }
         }
     }
@@ -480,9 +477,9 @@
                         a {
                             display: inline-flex;
 
-                            &:hover {
-                                color: $light-blue-500;
-                            }
+                            // &:hover {
+                            //     color: $light-blue-500;
+                            // }
 
                             &:before {
                                 font-family: LNicons;
@@ -570,8 +567,8 @@
                 }
                 .mod-article {
                     .mod-description {
-                        .com-lead,
-                        .com-link.com-link:hover {
+                        //.com-link.com-link:hover,
+                        .com-lead {
                             color: $light-blue-500;
                         }
                     }
@@ -585,8 +582,8 @@
                 }
                 .mod-article {
                     .mod-description {
-                        .com-lead,
-                        .com-link.com-link:hover {
+                        //.com-link.com-link:hover,
+                        .com-lead {
                             color: $pink-600;
                         }
                     }
@@ -600,8 +597,8 @@
                 }
                 .mod-article {
                     .mod-description {
-                        .com-lead,
-                        .com-link.com-link:hover {
+                        //.com-link.com-link:hover,
+                        .com-lead {
                             color: $teal-600;
                         }
                     }
@@ -615,8 +612,8 @@
                 }
                 .mod-article {
                     .mod-description {
-                        .com-lead,
-                        .com-link.com-link:hover {
+                        //.com-link.com-link:hover,
+                        .com-lead {
                             color: $red-600;
                         }
                     }
