@@ -74,11 +74,12 @@ export default function WithStorytellingData(WrappedComponent) {
 
             return {
                 video: isMobile ? '' : video || '',
-                altText: data.alt_text || '',
-                src: data.url || '',
-                srcset: data.url || '',
-                caption: epigrafe || data.caption || '',
-                credit: EpigrafeAndCreditsData(data)
+                altText: (data && data.alt_text) || '',
+                src: (data && data.url) || '',
+                srcset: (data && data.url) || '',
+                caption: epigrafe || (data && data.caption) || '',
+                credit: data && EpigrafeAndCreditsData(data),
+                resizedUrls: data && data.resized_urls
             };
         };
 
