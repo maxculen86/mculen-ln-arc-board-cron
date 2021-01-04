@@ -18,7 +18,7 @@ const TechoFeatured = props => {
                 title={title}
                 link={url}
                 size="--l"
-                classCondition={color !== 'default' && color}
+                classCondition={color !== 'default' && `--bg ${color}`}
                 imageId={imageId}
                 outputType={outputType}
                 line={color !== 'default' ? false : true}
