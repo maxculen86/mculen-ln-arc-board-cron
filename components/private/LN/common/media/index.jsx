@@ -28,7 +28,7 @@ const media = ({
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
-    const { height = 0, width = 0 } = mediaData || {};
+    const { height = 0, width = 0, _id } = mediaData || {};
     const isVertical = isApertura ? false : height > width;
     let item = null;
     const { subtipo } = useSubtype();
