@@ -1281,6 +1281,201 @@ const LNHome = props => {
                                                 authors="Por Nombre Apellido"
                                             />
                                         </section>
+                                        <section className="demofonts">
+                                            <div>
+                                                <h1 className="--threexl">
+                                                    <strong>
+                                                        Arial en 3XL
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--twoxl">
+                                                    <strong>
+                                                        Arial en 2XL
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--xl">
+                                                    <strong>Arial en XL</strong>
+                                                </h1>
+                                                <h1 className="--l">
+                                                    <strong>Arial en L</strong>
+                                                </h1>
+                                                <h1 className="--m">
+                                                    <strong>Arial en M</strong>
+                                                </h1>
+                                                <h1 className="--s">
+                                                    <strong>Arial en S</strong>
+                                                </h1>
+                                                <h1 className="--xs">
+                                                    <strong>Arial en XS</strong>
+                                                </h1>
+                                                <h1 className="--twoxs">
+                                                    <strong>
+                                                        Arial en 2XS
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--threexs">
+                                                    <strong>
+                                                        Arial en 3XS
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--fourxs">
+                                                    <strong>
+                                                        Arial en 4XS
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--fivexs">
+                                                    <strong>
+                                                        Arial en 5XS
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--sixxs">
+                                                    <strong>
+                                                        Arial en 6XS
+                                                    </strong>
+                                                </h1>
+                                            </div>
+
+                                            <div>
+                                                <h1 className="--threexl">
+                                                    Arial en 3XL
+                                                </h1>
+                                                <h1 className="--twoxl">
+                                                    Arial en 2XL
+                                                </h1>
+                                                <h1 className="--xl">
+                                                    Arial en XL
+                                                </h1>
+                                                <h1 className="--l">
+                                                    Arial en L
+                                                </h1>
+                                                <h1 className="--m">
+                                                    Arial en M
+                                                </h1>
+                                                <h1 className="--s">
+                                                    Arial en S
+                                                </h1>
+                                                <h1 className="--xs">
+                                                    Arial en XS
+                                                </h1>
+                                                <h1 className="--twoxs">
+                                                    Arial en 2XS
+                                                </h1>
+                                                <h1 className="--threexs">
+                                                    Arial en 3XS
+                                                </h1>
+                                                <h1 className="--fourxs">
+                                                    Arial en 4XS
+                                                </h1>
+                                                <h1 className="--fivexs">
+                                                    Arial en 5XS
+                                                </h1>
+                                                <h1 className="--sixxs">
+                                                    Arial en 6XS
+                                                </h1>
+                                            </div>
+
+                                            <div>
+                                                <h1 className="--threexl suecas">
+                                                    <strong>
+                                                        SuecaSlab en 3XL
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--twoxl suecas">
+                                                    <strong>
+                                                        SuecaSlab en 2XL
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--xl suecas">
+                                                    <strong>
+                                                        SuecaSlab en XL
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--l suecas">
+                                                    <strong>
+                                                        SuecaSlab en L
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--m suecas">
+                                                    <strong>
+                                                        SuecaSlab en M
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--s suecas">
+                                                    <strong>
+                                                        SuecaSlab en S
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--xs suecas">
+                                                    <strong>
+                                                        SuecaSlab en XS
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--twoxs suecas">
+                                                    <strong>
+                                                        SuecaSlab en 2XS
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--threexs suecas">
+                                                    <strong>
+                                                        SuecaSlab en 3XS
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--fourxs suecas">
+                                                    <strong>
+                                                        SuecaSlab en 4XS
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--fivexs suecas">
+                                                    <strong>
+                                                        SuecaSlab en 5XS
+                                                    </strong>
+                                                </h1>
+                                                <h1 className="--sixxs suecas">
+                                                    <strong>
+                                                        SuecaSlab en 6XS
+                                                    </strong>
+                                                </h1>
+                                            </div>
+
+                                            <div>
+                                                <h1 className="--threexl suecas">
+                                                    SuecaSlab en 3XL
+                                                </h1>
+                                                <h1 className="--twoxl suecas">
+                                                    SuecaSlab en 2XL
+                                                </h1>
+                                                <h1 className="--xl suecas">
+                                                    SuecaSlab en XL
+                                                </h1>
+                                                <h1 className="--l suecas">
+                                                    SuecaSlab en L
+                                                </h1>
+                                                <h1 className="--m suecas">
+                                                    SuecaSlab en M
+                                                </h1>
+                                                <h1 className="--s suecas">
+                                                    SuecaSlab en S
+                                                </h1>
+                                                <h1 className="--xs suecas">
+                                                    SuecaSlab en XS
+                                                </h1>
+                                                <h1 className="--twoxs suecas">
+                                                    SuecaSlab en 2XS
+                                                </h1>
+                                                <h1 className="--threexs suecas">
+                                                    SuecaSlab en 3XS
+                                                </h1>
+                                                <h1 className="--fourxs suecas">
+                                                    SuecaSlab en 4XS
+                                                </h1>
+                                                <h1 className="--fivexs suecas">
+                                                    SuecaSlab en 5XS
+                                                </h1>
+                                                <h1 className="--sixxs suecas">
+                                                    SuecaSlab en 6XS
+                                                </h1>
+                                            </div>
+                                        </section>
                                     </section>
                                 </div>
                                 <div className="sidebar__aside hlp-tablet-none"></div>
