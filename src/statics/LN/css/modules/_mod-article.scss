@@ -763,13 +763,26 @@
 
             .mod-media {
                 margin: 0;
-                .mod-picture {
-                    height: calc(100vh - 105px);
-                    border: none;
-                    padding-top: $video;
+                margin-top: -65px;
+
+                .mod-figure {
+                    .mod-picture {
+                        height: 100%;
+                        border: none;
+                        padding-top: calc((3 / 2) * 100%);
+                    }
                     @media ($media-m) {
-                        height: calc(100vh - 65px);
-                        margin-top: -65px;
+                        height: 100vh;
+
+                        .mod-picture {
+                            padding-top: $video;
+
+                            height: calc(100vh - 65px);
+                            height: 100vh;
+                            .com-image {
+                                height: 100vh;
+                            }
+                        }
                     }
                 }
             }
