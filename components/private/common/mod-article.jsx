@@ -77,7 +77,7 @@ const ModArticle = props => {
             <ModDescription
                 link={link}
                 titleTag={titleTag}
-                titleSize={noMedia ? '--m' : titleSize}
+                titleSize={noMedia || renderAutor ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
                 authorSize={renderAutor ? '--twoxs' : authorSize}
