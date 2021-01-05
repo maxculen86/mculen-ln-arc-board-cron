@@ -474,7 +474,7 @@ const LNHome = props => {
                                                 srcdemo="https://source.unsplash.com/400x607"
                                                 link="#"
                                                 leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                titleText="La casa Breuer Moreno se prepara"
                                                 authors="Por Nombre Apellido"
                                                 label="Living"
                                             />
