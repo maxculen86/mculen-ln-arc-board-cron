@@ -90,7 +90,7 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles">
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x203"
@@ -117,7 +117,7 @@ const LNHome = props => {
                                                 titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                                 authors="Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                     </section>
 
                                     <section className="mod-banner">
@@ -278,7 +278,7 @@ const LNHome = props => {
 
                                     <section className="box-articles">
                                         <HeaderSection title="Techo caja notas 3, 6 o 9 largo para que se corte" />
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x209"
@@ -305,7 +305,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                     </section>
 
                                     <section className="box-articles --cinema">
@@ -396,7 +396,7 @@ const LNHome = props => {
                                             title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
                                             classCondition="--bg"
                                         />
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x212"
@@ -448,7 +448,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                     </section>
 
                                     <section className="box-articles --highlight --teal">
@@ -534,7 +534,7 @@ const LNHome = props => {
                                             />
                                             <div className="com-line"></div>
                                         </section>
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x233"
@@ -583,7 +583,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                     </section>
 
                                     <section className="box-articles">
@@ -592,7 +592,7 @@ const LNHome = props => {
                                             link="#"
                                             classCondition="--bg"
                                         />
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x233"
@@ -641,7 +641,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                     </section>
                                 </div>
                                 <div className="sidebar__aside hlp-tablet-none"></div>
@@ -763,7 +763,7 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles">
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x203"
@@ -787,7 +787,7 @@ const LNHome = props => {
                                                 titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                                 authors="Por Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                     </section>
 
                                     <section className="box-articles --focal --right">
@@ -847,7 +847,7 @@ const LNHome = props => {
                                             title="Techo caja notas 3, 6 o 9 con link"
                                             link="#"
                                         />
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x209"
@@ -872,7 +872,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                     </section>
 
                                     <section className="box-articles --cinema">
@@ -958,7 +958,7 @@ const LNHome = props => {
                                             title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
                                             classCondition="--bg"
                                         />
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x212"
@@ -1008,7 +1008,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                     </section>
 
                                     <section className="box-articles --highlight --teal">
@@ -1085,7 +1085,7 @@ const LNHome = props => {
                                                 />
                                             </div>
                                         </section>
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x233"
@@ -1136,7 +1136,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                     </section>
 
                                     <section className="box-articles">
@@ -1156,7 +1156,7 @@ const LNHome = props => {
                                             </div>
                                             <div className="com-line"></div>
                                         </section>
-                                        <section className="row-gap-tablet-3">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x230"
@@ -1232,7 +1232,7 @@ const LNHome = props => {
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
                                                 authors="Por Nombre Apellido"
                                             />
-                                        </section>
+                                        </div>
                                         <section className="demofonts">
                                             <div>
                                                 <h1 className="--threexl">
