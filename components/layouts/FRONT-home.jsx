@@ -130,7 +130,7 @@ const LNHome = props => {
                                         <div className="com-anexo">ANEXO 2</div>
                                     </section>
 
-                                    <section className="box-articles --right">
+                                    <section className="box-articles --focal --right">
                                         <HeaderSection
                                             title="Techo con link"
                                             link="#"
@@ -277,7 +277,7 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles">
-                                        <HeaderSection title="Techo caja notas 3, 6 o 9" />
+                                        <HeaderSection title="Techo caja notas 3, 6 o 9 largo para que se corte" />
                                         <section className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -722,7 +722,7 @@ const LNHome = props => {
                                             label="LIVING"
                                         />
                                     </section>
-                                    <section className="box-articles --left">
+                                    <section className="box-articles --focal --left">
                                         <HeaderSection
                                             title="Techo caja opinión con link"
                                             link="#"
@@ -790,7 +790,7 @@ const LNHome = props => {
                                         </section>
                                     </section>
 
-                                    <section className="box-articles --right">
+                                    <section className="box-articles --focal --right">
                                         <div className="row">
                                             <div className="col-tablet-8">
                                                 <Article
