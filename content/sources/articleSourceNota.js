@@ -115,12 +115,13 @@ const transform = (data, arcSite, properties) => {
         null
     );
 
-    // if (
-    //     (data && data._id === 'VNGGPUOJQNE4BEIRXOF36Q34K4') ||
-    //     (data && data._id === '5MZXE7B4ZRH47HNRMGUB2D7I3E')
-    // ) {
-    //     console.log('*****transform -> data', data);
-    // }
+    if (
+        (data && data._id === 'VNGGPUOJQNE4BEIRXOF36Q34K4') ||
+        (data && data._id === '5MZXE7B4ZRH47HNRMGUB2D7I3E')
+    ) {
+        console.log('*****transform -> data', data);
+    }
+
     // Data con urls Resizeadas
     const resp = {
         ...data,
@@ -143,12 +144,6 @@ const transform = (data, arcSite, properties) => {
             subtype
         })
     };
-    // if (
-    //     (resp && resp._id === 'VNGGPUOJQNE4BEIRXOF36Q34K4') ||
-    //     (resp && resp._id === '5MZXE7B4ZRH47HNRMGUB2D7I3E')
-    // ) {
-    //     console.log('*****transform -> resp', resp);
-    // }
     return transformContent(resp, arcSite);
 };
 
