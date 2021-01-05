@@ -842,54 +842,6 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles --opinion">
-                                        <HeaderSection title="Techo caja opinión" />
-                                        <section className="row">
-                                            <div className="col-tablet-5">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x208"
-                                                    link="#"
-                                                    titleSize="--l"
-                                                    leadText="Opinión 1."
-                                                    titleText="Sonrisas arriba del escenario y disputas abajo"
-                                                    authors="Por Maia Jastreblansky"
-                                                />
-                                            </div>
-                                            <div className="col-tablet-4">
-                                                <Article
-                                                    frontdemo
-                                                    renderAutor
-                                                    srcdemo="https://source.unsplash.com/300x300/?face"
-                                                    link="#"
-                                                    leadText="Opinión 2."
-                                                    titleText="Una ventana al bienestar que promete el verano"
-                                                    authors="Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    renderAutor
-                                                    srcdemo="https://source.unsplash.com/300x301/?face"
-                                                    link="#"
-                                                    leadText="Opinión 3."
-                                                    titleText="Trumpismo, maoísmo y peronismo"
-                                                    authors="Nombre Apellido"
-                                                />
-                                            </div>
-                                            <div className="col-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    renderAutor
-                                                    srcdemo="https://source.unsplash.com/300x302/?face"
-                                                    link="#"
-                                                    leadText="Opinión 4."
-                                                    titleText="Inolvidable declaración de amor a la ciudad de Madrid"
-                                                    authors="Nombre Apellido"
-                                                />
-                                            </div>
-                                        </section>
-                                    </section>
-
                                     <section className="box-articles">
                                         <HeaderSection
                                             title="Techo caja notas 3, 6 o 9 con link"
