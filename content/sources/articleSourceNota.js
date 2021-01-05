@@ -115,13 +115,6 @@ const transform = (data, arcSite, properties) => {
         null
     );
 
-    if (
-        (data && data._id === 'VNGGPUOJQNE4BEIRXOF36Q34K4') ||
-        (data && data._id === '5MZXE7B4ZRH47HNRMGUB2D7I3E')
-    ) {
-        console.log('*****transform -> data', data);
-    }
-
     // Data con urls Resizeadas
     const resp = {
         ...data,
