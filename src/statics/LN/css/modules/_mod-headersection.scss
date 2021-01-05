@@ -5,22 +5,23 @@
     display: flex;
     flex-direction: column;
     margin-bottom: $spacing-sm;
-    &.--propiedades {
-        background: $propiedades;
+    //max-height: px(44);
+    &.--blue {
+        background: $light-blue-500;
     }
-    &.--bbc {
-        background: $bbc;
+    &.--red {
+        background: $red-600;
     }
-    &.--lifestyle {
-        background: $lifestyle;
+    &.--teal {
+        background: $teal-600;
     }
-    &.--espectaculos {
-        background: $espectaculos;
+    &.--pink {
+        background: $pink-600;
     }
-    &.--propiedades,
-    &.--bbc,
-    &.--lifestyle,
-    &.--espectaculos {
-        padding: $spacing-sm;
+    // &.--blue,
+    // &.--red,
+    // &.--teal,
+    &.--bg {
+        padding: $spacing-xs $spacing-sm;
     }
 }
