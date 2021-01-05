@@ -52,6 +52,12 @@
             top: 0;
         }
     }
+    .--shield & {
+        .--shields & {
+            width: px(48);
+            height: auto;
+        }
+    }
 }
 
 amp-img {

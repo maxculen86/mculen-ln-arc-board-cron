@@ -20,4 +20,9 @@
         //     width: 100%;
         // }
     }
+    &.--shields {
+        margin-bottom: $spacing-xl;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
 }

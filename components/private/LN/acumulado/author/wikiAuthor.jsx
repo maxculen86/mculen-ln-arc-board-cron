@@ -19,6 +19,11 @@ import ListSocialIcons from '../../../common/list-socialicons';
 import ImageAuthor from './imageAuthor';
 import ComLink from '../../../common/com-link';
 import ComSubtitle from '../../../common/com-subtitle';
+import ModImage from '../../../common/mod-image';
+import ComImage from '../../../common/com-image';
+import ModheaderSection from '../../../common/mod-headerSection';
+import ComShield from '../../../common/com-shield';
+import ModShield from '../../../common/mod-shield';
 // import ModWikiAuthor from '../../../common/mod-wikiAuthor';
 //import '../../../../../resources/dist/css/ln/base/helpers.css';
 
@@ -148,6 +153,18 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                     ) : (
                         ''
                     )}
+                </div>
+            </div>
+
+            {/* BORRARRRRRRRR */}
+            <div className="row">
+                <div className="col-6">
+                    <ModShield
+                        size="--l"
+                        title="Liga Profesional de Fútbol"
+                        link="#"
+                        src="https://bucket1.glanacion.com/canchallena/escudos/200032w86.png"
+                    />
                 </div>
             </div>
         </section>
