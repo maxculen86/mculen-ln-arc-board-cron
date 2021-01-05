@@ -72,14 +72,21 @@ export default function WithStorytellingData(WrappedComponent) {
                 ? basicImageMobile || {}
                 : basicVideoDsk || basicImageDsk || {};
 
+            const {
+                alt_text: altText,
+                url,
+                caption,
+                resized_urls: resizedUrls
+            } = data;
+
             return {
                 video: isMobile ? '' : video || '',
-                altText: (data && data.alt_text) || '',
-                src: (data && data.url) || '',
-                srcset: (data && data.url) || '',
-                caption: epigrafe || (data && data.caption) || '',
+                altText: altText || '',
+                src: url || '',
+                srcset: url || '',
+                caption: epigrafe || caption || '',
                 credit: data && EpigrafeAndCreditsData(data),
-                resizedUrls: data && data.resized_urls
+                resizedUrls
             };
         };
 

@@ -28,8 +28,8 @@ const media = ({
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
-    const { height = 0, width = 0, _id } = mediaData || {};
-    const isVertical = isApertura ? false : height > width;
+    const { height = 0, width = 0 } = mediaData || {};
+    const isVertical = height > width;
     let item = null;
     const { subtipo } = useSubtype();
 
@@ -53,12 +53,23 @@ const media = ({
     if (mediaData) {
         const { type, _id } = mediaData;
         // TODO: Sacar switch
+        if (_id === 'NFUJ2DODORF5XMRN4ELPPAHMWE') {
+            console.log('width', width);
+            console.log('height', height);
+            console.log('isVertical', isVertical);
+            console.log('isApertura', isApertura);
+            console.log('withZoom', withZoom);
+            console.log('active', active);
+        }
         switch (type) {
             case 'image':
                 item = (
                     <ComFigure
                         classCondition={`${
-                            isVertical ? '--vertical' : '--horizontal'
+                            (isVertical && !isApertura) ||
+                            (isVertical && withZoom && active)
+                                ? '--vertical'
+                                : '--horizontal'
                         }`}
                         withZoom={withZoom}
                         width={width}
