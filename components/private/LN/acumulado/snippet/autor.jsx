@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
+import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
 
 const extractLanguajes = languages => {
     const lang = languages.split(',');
@@ -24,42 +25,6 @@ const extractAreasExpertise = (expertise, location) => {
     return experts;
 };
 
-const extractSocialNetworks = globalContent => {
-    const {
-        twitter = '',
-        facebook = '',
-        youtube = '',
-        instagram = '',
-        linkedin = '',
-        rss = '',
-        medium = '',
-        reddit = '',
-        pinterest = '',
-        soundcloud = '',
-        snapchat = '',
-        whatsapp = '',
-        tumblr = ''
-    } = globalContent || {};
-
-    const socialNetworks = [
-        twitter,
-        facebook,
-        youtube,
-        instagram,
-        linkedin,
-        rss,
-        medium,
-        reddit,
-        pinterest,
-        soundcloud,
-        snapchat,
-        whatsapp,
-        tumblr
-    ];
-
-    return socialNetworks.filter(social => social !== '');
-};
-
 const SnippetAutor = ({ globalContent = {} }) => {
     const {
         byline = '',
@@ -76,7 +41,7 @@ const SnippetAutor = ({ globalContent = {} }) => {
     const awardsFormated = awards.map(aw => aw.name);
     const languajesFormated = extractLanguajes(languages);
     const knowsAbout = extractAreasExpertise(expertise, location);
-    const sameAs = extractSocialNetworks(globalContent);
+    const sameAs = getSocialsNetwork(globalContent);
 
     const data = {
         '@context': 'http://schema.org',
