@@ -5,7 +5,7 @@
     @include flex(inline, row, center, center);
     background: transparent;
     padding: $spacing-sm;
-    color: $negro;
+    color: $neutral-black;
     font-size: px(12);
     font-weight: 700;
     border-radius: px(4);
@@ -31,28 +31,28 @@
 
     &.facebook {
         background: $facebook;
-        color: $blanco;
+        color: $neutral-white;
         &:hover {
             background: rgba($facebook, 0.7);
         }
     }
     &.instagram {
         background: $instagram;
-        color: $blanco;
+        color: $neutral-white;
         &:hover {
             background: rgba($instagram, 0.7);
         }
     }
     &.twitter {
         background: $twitter;
-        color: $blanco;
+        color: $neutral-white;
         &:hover {
             background: rgba($twitter, 0.7);
         }
     }
     &.whatsapp {
         background: $whatsapp;
-        color: $blanco;
+        color: $neutral-white;
         &:hover {
             background: rgba($whatsapp, 0.7);
         }
@@ -63,17 +63,17 @@
     }
     &:active {
         background: $ln;
-        color: $blanco;
+        color: $neutral-white;
     }
     &:disabled {
-        background: $gris3;
+        background: $light-neutral-400;
     }
 
     //variantes
     &.--primary {
         background: $ln;
         border-color: $ln;
-        color: $blanco;
+        color: $neutral-white;
 
         &:hover {
             background: rgba($ln, 0.8);
@@ -82,8 +82,8 @@
             background: $ln-active;
         }
         &:disabled {
-            background: $gris2;
-            color: $gris3;
+            background: $light-neutral-300;
+            color: $light-neutral-400;
         }
     }
     &.--secondary {
@@ -91,17 +91,17 @@
         color: $ln;
         &:hover {
             background: rgba($ln, 1);
-            color: $blanco;
+            color: $neutral-white;
         }
         &:active {
             background: $ln-active;
             border: 1px solid;
-            color: $blanco;
+            color: $neutral-white;
         }
         &:disabled {
-            background: $gris2;
-            color: $gris3;
-            border: 1px solid $gris3;
+            background: $light-neutral-300;
+            color: $light-neutral-400;
+            border: 1px solid $light-neutral-400;
         }
         .com-usuario & {
             .header & {
@@ -109,11 +109,11 @@
             }
             .amp.--transparent & {
                 @media ($media-l) {
-                    color: $blanco;
-                    border-color: $blanco;
+                    color: $neutral-white;
+                    border-color: $neutral-white;
                     &:hover {
-                        background: $blanco;
-                        color: $gris6;
+                        background: $neutral-white;
+                        color: $light-neutral-700;
                     }
                 }
             }
@@ -123,42 +123,42 @@
         }
     }
     &.--tertiary {
-        border-color: $gris3;
-        background: $gris3;
-        color: $gris5;
+        border-color: $light-neutral-400;
+        background: $light-neutral-400;
+        color: $light-neutral-600;
 
         &:hover {
-            background: rgba($gris3, 0.7);
+            background: rgba($light-neutral-400, 0.7);
         }
         &:active {
-            background: $gris4;
-            color: $gris6;
+            background: $light-neutral-500;
+            color: $light-neutral-700;
         }
         &:disabled {
-            background: $gris2;
-            color: $gris3;
+            background: $light-neutral-300;
+            color: $light-neutral-400;
         }
     }
     &.--special,
     &.--highlight {
         background: $highlight;
-        border-color: $gris3;
-        color: $gris6;
+        border-color: $light-neutral-400;
+        color: $light-neutral-700;
 
         &:hover {
-            background: $negro;
-            border-color: $negro;
-            color: $blanco;
+            background: $neutral-black;
+            border-color: $neutral-black;
+            color: $neutral-white;
         }
         &:active {
             background: $highlight-active;
-            border-color: $gris3;
-            color: $gris6;
+            border-color: $light-neutral-400;
+            color: $light-neutral-700;
         }
         &:disabled {
-            background: $gris2;
-            color: $gris3;
-            border-color: $gris3;
+            background: $light-neutral-300;
+            color: $light-neutral-400;
+            border-color: $light-neutral-400;
         }
         .com-usuario & {
             .header & {
@@ -168,9 +168,9 @@
                 font-weight: 100;
             }
             .amp.--transparent & {
-                color: $blanco;
+                color: $neutral-white;
                 @media ($media-l) {
-                    color: $gris6;
+                    color: $light-neutral-700;
                     border-color: $highlight;
                 }
             }
@@ -180,7 +180,7 @@
         padding: $spacing-xs $spacing-sm;
     }
     .--slider & {
-        background: $negro;
+        background: $neutral-black;
         border-radius: 0;
 
         &.icon-arrow-left,
@@ -192,7 +192,7 @@
             background: rgba(0, 0, 0, 0.9);
             position: absolute;
             z-index: 2;
-            color: $blanco;
+            color: $neutral-white;
             transition: all 0.2s ease;
             font-size: px(20);
             width: px(30);
@@ -249,7 +249,7 @@
         top: 0;
         padding: px(8) px(10);
         background: $link;
-        color: $blanco;
+        color: $neutral-white;
         text-transform: uppercase;
         border-radius: 0 0 px(4) px(4);
         & span {
@@ -284,15 +284,15 @@
             .com-usuario & {
                 .header & {
                     background: $highlight;
-                    color: $gris6;
-                    border-color: $gris3;
+                    color: $light-neutral-700;
+                    border-color: $light-neutral-400;
                     margin-right: px(16);
                     padding: px(8) px(16);
                     font-weight: 700;
                     &:hover {
-                        background: $negro;
-                        border-color: $negro;
-                        color: $blanco;
+                        background: $neutral-black;
+                        border-color: $neutral-black;
+                        color: $neutral-white;
                     }
                 }
             }

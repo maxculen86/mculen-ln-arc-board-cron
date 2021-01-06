@@ -1,14 +1,14 @@
 @import '../abstracts/variables';
 
 .mod-caja-autorAcu {
-    border: 1px solid $gris3;
+    border: 1px solid $light-neutral-400;
     padding: 15px 20px;
     position: relative;
     &:before {
         content: '';
         width: 100px;
         height: 3px;
-        background: $negro;
+        background: $neutral-black;
         position: absolute;
         left: 50%;
         top: 0;
@@ -33,7 +33,7 @@
         width: 90px;
         height: 90px;
         overflow: hidden;
-        background: $gris3;
+        background: $light-neutral-400;
         position: relative;
         border-radius: 50%;
         margin-bottom: 20px;

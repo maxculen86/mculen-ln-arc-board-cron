@@ -42,10 +42,10 @@ body {
             @media (min-width: 769px) {
                 width: 280px;
                 max-height: 100vh;
-                background: $blanco;
+                background: $neutral-white;
             }
             .header__dropdown {
-                background: $blanco;
+                background: $neutral-white;
                 margin-bottom: 10px;
                 @media (min-width: 769px) {
                     margin-bottom: 0;
@@ -128,7 +128,7 @@ body {
                             border: 0;
                         }
                         border: 1px solid #d9d9d9;
-                        background: $blanco;
+                        background: $neutral-white;
                         &.secondary--nav {
                             .item__nav {
                                 .link__item {
@@ -183,7 +183,7 @@ body {
                                             color: #3f3f3f;
                                             text-decoration: none;
                                             padding-left: 40px;
-                                            background: $blanco;
+                                            background: $neutral-white;
                                         }
                                     }
                                 }
@@ -202,7 +202,7 @@ body {
                                         left: 98%;
                                         top: -20px;
                                         width: 180px;
-                                        background: $blanco;
+                                        background: $neutral-white;
                                         border-radius: 3px;
                                         padding: 20px 0;
                                         -webkit-box-shadow: -1px 2px 5px 0px
@@ -214,7 +214,7 @@ body {
                                         .item__nav {
                                             margin: 0 10px;
                                             .link__item {
-                                                color: $negro;
+                                                color: $neutral-black;
                                                 text-decoration: none;
                                                 padding: 13px;
                                             }
@@ -237,7 +237,7 @@ body {
                                         top: 13px;
                                         transform: rotate(136deg);
                                         position: absolute;
-                                        background: $blanco;
+                                        background: $neutral-white;
                                         box-shadow: 2px 2px 2px 1px
                                             rgba(189, 189, 189, 0.4);
                                         z-index: 99;
@@ -262,7 +262,7 @@ body {
                             position: relative;
 
                             .link__item {
-                                color: $negro;
+                                color: $neutral-black;
                             }
                             &:hover {
                                 background: #f2f2f2;
@@ -366,7 +366,7 @@ body {
                                             left: 98%;
                                             top: 0;
                                             width: 180px;
-                                            background: $blanco;
+                                            background: $neutral-white;
                                             border-radius: 3px;
                                             padding: 20px 0;
                                             -webkit-box-shadow: -1px 2px 5px 0px

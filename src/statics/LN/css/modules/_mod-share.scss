@@ -5,11 +5,11 @@
     position: fixed;
     @include flex(flex, row, between, center);
     z-index: 100;
-    background: $blanco;
+    background: $neutral-white;
     width: 100%;
     left: 0;
     padding: px(6) $spacing-sm;
-    border-bottom: 1px solid $gris1;
+    border-bottom: 1px solid $light-neutral-200;
     display: none;
 
     .container {

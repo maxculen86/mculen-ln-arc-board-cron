@@ -95,7 +95,7 @@ function GrillaNotasFeature(props) {
         hide_banner = true
     } = acumuladoGeneral;
     const {
-        globalContent: { author_type: authorType, _id, Payload },
+        globalContent: { author_type: authorType, _id, Payload, distributorId },
         siteProperties,
         outputType
     } = useAppContext();

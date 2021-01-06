@@ -8,7 +8,7 @@ import urlForPrerollAds from '../utils/urlForPrerollAds';
 import get from '../../../common/utils/get';
 
 const video = ({ videoId, mediaData, screenUtils, parrafo, tituloNota }) => {
-    const { streams = [], promo_items } = mediaData;
+    const { streams = [], promo_items: promoItems } = mediaData;
     const tituloVideo = get(mediaData, 'headlines.basic', '');
     if (streams.length === 0) return <div className="mod-video" />;
 
@@ -26,19 +26,13 @@ const video = ({ videoId, mediaData, screenUtils, parrafo, tituloNota }) => {
                     adsURL={adsURL}
                     tituloVideo={tituloVideo}
                 />
-                <VideoPlayerSnippet
-                    parrafo={parrafo}
-                    tituloNota={tituloNota}
-                    mediaData={mediaData}
-                    minStream={minStream}
-                />
             </AmpContainer>
             <AmpContainer isForAmp>
                 <amp-ima-video
                     width={minStream.width}
                     height={minStream.height}
                     layout="responsive"
-                    data-poster={promo_items.basic.url}
+                    data-poster={promoItems.basic.url}
                     data-tag={adsURL}
                 >
                     <source
@@ -50,6 +44,12 @@ const video = ({ videoId, mediaData, screenUtils, parrafo, tituloNota }) => {
                     </div>
                 </amp-ima-video>
             </AmpContainer>
+            <VideoPlayerSnippet
+                parrafo={parrafo}
+                tituloNota={tituloNota}
+                mediaData={mediaData}
+                minStream={minStream}
+            />
         </div>
     );
 };

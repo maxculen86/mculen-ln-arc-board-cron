@@ -6,7 +6,7 @@
     color: $link;
     text-transform: initial;
     &.--acu {
-        color: $negro;
+        color: $neutral-black;
     }
     // .text & {
     //     //CAMBIAR
@@ -22,9 +22,9 @@
     }
     &.--highlight {
         &:hover {
-            background: $negro;
-            border-color: $negro;
-            color: $blanco;
+            background: $neutral-black;
+            border-color: $neutral-black;
+            color: $neutral-white;
         }
     }
     .mod-fiscal & {
@@ -40,7 +40,7 @@
         }
     }
     .--shared & {
-        color: $negro;
+        color: $neutral-black;
     }
     .mod-link & {
         .footer & {
@@ -53,7 +53,7 @@
         }
     }
     .mod-breadcrumb & {
-        border-left: solid 1px $gris5;
+        border-left: solid 1px $light-neutral-600;
         padding: 0 px(9);
         text-transform: initial;
         display: flex;
@@ -111,6 +111,14 @@
         justify-content: center;
         align-items: center;
     }
+    .com-title & {
+        // .mod-headersection.--teal &,
+        // .mod-headersection.--blue &,
+        // .mod-headersection.--red &,
+        .mod-headersection.--bg & {
+            color: $blanco;
+        }
+    }
 }
 @media ($media-l) {
     .com-link {
@@ -129,8 +137,8 @@
             border-radius: 3px;
             transition: opacity 0.2s ease-in-out;
             background-color: $highlight;
-            border: 1px solid $gris3;
-            color: $negro;
+            border: 1px solid $light-neutral-400;
+            color: $neutral-black;
         }
         // .com-paragraph & {
         //     .amp & {

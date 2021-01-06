@@ -5,11 +5,11 @@
     @include flex(inline, row, center, center);
     padding: $spacing-xs;
     .com-icon {
-        color: $gris3;
+        color: $light-neutral-400;
     }
     .com-li:first-child & {
         .mod-wikiauthor & {
-            visibility: hidden;
+            display: none;
         }
     }
     .mod-wikiauthor & {
@@ -32,12 +32,12 @@
     //     display: none;
     // }
 }
-@media ($media-l) {
-    .com-bullet {
-        .com-li:first-child & {
-            .mod-wikiauthor & {
-                display: none;
-            }
-        }
-    }
-}
+// @media ($media-l) {
+//     .com-bullet {
+//         .com-li:first-child & {
+//             .mod-wikiauthor & {
+//                 display: none;
+//             }
+//         }
+//     }
+// }

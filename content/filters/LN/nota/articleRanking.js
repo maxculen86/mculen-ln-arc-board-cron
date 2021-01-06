@@ -34,6 +34,10 @@ export default `
                         style {
                             section_style_name
                         }
+                        migration{
+                            id_section_ln9
+                            migrated_mob
+                        }
                     }
                     
                 }

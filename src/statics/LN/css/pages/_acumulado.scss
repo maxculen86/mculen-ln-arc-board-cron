@@ -5,7 +5,7 @@
         margin-bottom: $spacing-lg;
         .mod-description {
             .com-link {
-                color: $gris6;
+                color: $light-neutral-700;
             }
             .com-subhead {
                 margin-bottom: $spacing;
@@ -55,7 +55,7 @@
     .sidebar__main > .row {
         > .mod-article {
             padding-bottom: $spacing;
-            border-bottom: 1px solid $gris3;
+            border-bottom: 1px solid $light-neutral-400;
             @media ($media-m) {
                 flex-direction: row-reverse;
                 .mod-media {
@@ -72,7 +72,7 @@
                         -webkit-box-orient: vertical;
                     }
                     .com-date {
-                        color: $gris5;
+                        color: $light-neutral-600;
                     }
                 }
             }
@@ -233,10 +233,10 @@
             }
             .--opening {
                 margin-top: px(-118);
-                // border-bottom: 1px solid $gris3;
+                // border-bottom: 1px solid $light-neutral-400;
                 // margin-bottom: $spacing-md;
                 .mod-figure {
-                    background: $blanco; //para el hover de la imagen
+                    background: $neutral-white; //para el hover de la imagen
                 }
             }
         }
@@ -251,7 +251,7 @@
                 .com-title,
                 .com-link,
                 .com-button {
-                    color: $blanco;
+                    color: $neutral-white;
                 }
                 // @media ($media-l) {
                 //     .--category {
@@ -347,21 +347,21 @@
     }
 
     .breaking-news {
-        border-left: 1px solid $gris4;
+        border-left: 1px solid $light-neutral-500;
         padding-left: px(16);
 
         .mod-article {
             .com-hour {
                 font-family: $font-SuecaSlab;
                 font-weight: 700;
-                color: $negro;
+                color: $neutral-black;
                 margin: -5px 0 5px;
                 &:before {
                     content: '';
                     width: px(16);
                     height: px(16);
                     border-radius: px(16);
-                    border: 1px solid $gris4;
+                    border: 1px solid $light-neutral-500;
                     background: #fff;
                     left: -31px;
                     top: 0;
@@ -373,7 +373,7 @@
                     width: px(8);
                     height: px(8);
                     border-radius: px(8);
-                    background: $gris4;
+                    background: $light-neutral-500;
                     top: 5px;
                     left: -21px;
                     z-index: 2;
@@ -409,7 +409,7 @@
     &.maqueta {
         .com-anexo,
         .com-banner {
-            background: $gris3;
+            background: $light-neutral-400;
             margin-bottom: px(16);
             font-size: 20px;
             line-height: 100px;
@@ -444,9 +444,9 @@
             padding-right: px(16);
             flex-wrap: nowrap;
             .com-link {
-                font-family: $font-SuecaSlab;
+                font-family: $font-arial;
                 font-size: px(18);
-                color: $gris6;
+                color: $light-neutral-700;
             }
         }
         @media ($media-l) {
@@ -473,7 +473,7 @@
         margin-bottom: $spacing-lg;
         margin-top: 0;
         padding-top: $spacing-lg;
-        border-top: 1px solid $gris3;
+        border-top: 1px solid $light-neutral-400;
         li {
             &:not(:last-child) {
                 .com-link {
@@ -482,7 +482,7 @@
                     &:after {
                         content: '•';
                         position: absolute;
-                        color: $gris3;
+                        color: $light-neutral-400;
                         right: px(-16);
                     }
                 }
@@ -498,7 +498,7 @@
         }
         .--color.--opening & {
             padding-top: $spacing-md;
-            border-top: 1px solid $gris3;
+            border-top: 1px solid $light-neutral-400;
         }
     }
 }

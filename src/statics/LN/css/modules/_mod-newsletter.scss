@@ -5,7 +5,7 @@
     @include flex(flex, row, center, center);
     padding: $spacing-sm;
     margin-bottom: $spacing-lg;
-    border: 1px solid $gris3;
+    border: 1px solid $light-neutral-400;
     .container {
         @include flex(flex, column, center, start);
         padding-top: px(37);

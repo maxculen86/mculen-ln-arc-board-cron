@@ -3,12 +3,12 @@
 
 .mod-picture {
     position: relative;
-    background: $gris1;
+    background: $light-neutral-200;
     display: block;
     transition: all 0.2s ease-in-out;
 
-    border-top: 1px solid $gris3;
-    border-bottom: 1px solid $gris3;
+    border-top: 1px solid $light-neutral-400;
+    border-bottom: 1px solid $light-neutral-400;
     margin-bottom: $spacing;
 
     //100% mobile
@@ -16,9 +16,9 @@
     &.mod-picture {
         .mod-wikiauthor.mod-wikiauthor & {
             border-radius: 50%;
-            padding-top: inherit;
-            width: px(280);
-            height: px(280);
+            padding-top: 100%;
+            width: 100%;
+            margin: 0 0 px(16) 0;
         }
     }
     //100% ipad dentro de nota
@@ -30,7 +30,7 @@
     @media ($media-m) {
         width: 100%;
         margin-left: 0;
-        border: 1px solid $gris3;
+        border: 1px solid $light-neutral-400;
 
         .mod-opening &,
         .cuerpo__nota & {
@@ -43,7 +43,7 @@
         display: flex;
         padding-top: $picture;
         justify-content: center;
-        background: $gris1;
+        background: $light-neutral-200;
     }
     .--active.--active &,
     .--active.--slider & {

@@ -11,12 +11,12 @@
     }
 
     &.icon-bullet-xs {
-        color: $gris3;
+        color: $light-neutral-400;
     }
 
     .footer .--share & {
         display: inline-flex;
-        color: $negro;
+        color: $neutral-black;
 
         i {
             margin-right: px(20);
@@ -28,18 +28,21 @@
     .mod-nav & {
         @include flex(flex, column, center, center);
         font-size: px(11);
-        color: $negro;
+        color: $neutral-black;
         text-align: center;
         text-transform: initial;
     }
     .mod-wikiauthor & {
-        color: $negro;
+        &:not(.icon-bullet-xs) {
+            color: $negro;
+            margin-right: px(8);
+        }
     }
     .mod-tooltip & {
         position: absolute;
         right: 0;
         top: -5px;
-        color: $gris3;
+        color: $light-neutral-400;
     }
 }
 @media ($media-l) {

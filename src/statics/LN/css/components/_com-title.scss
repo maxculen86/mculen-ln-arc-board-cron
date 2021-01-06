@@ -12,19 +12,18 @@
         font-weight: 300;
     }
     .mod-headersection & {
-        margin-bottom: $spacing;
+        margin-bottom: 0;
         width: 100%;
         display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .mod-headersection.--propiedades &,
-    .mod-headersection.--bbc &,
-    .mod-headersection.--lifestyle &,
-    .mod-headersection.--espectaculos & {
-        margin-bottom: 0;
-        color: $blanco;
+    // .mod-headersection.--teal &,
+    // .mod-headersection.--blue &,
+    // .mod-headersection.--red &,
+    .mod-headersection.--bg & {
+        color: $neutral-white;
     }
     .more-articles & {
         display: block;
@@ -32,7 +31,7 @@
 }
 @media ($media-l) {
     .com-title {
-        margin-bottom: $spacing-sm;
+        //margin-bottom: $spacing-sm;
         &.--membresia,
         &.--idiomas {
             margin: 0;
