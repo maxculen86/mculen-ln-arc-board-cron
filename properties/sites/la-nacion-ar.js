@@ -98,21 +98,21 @@ export default {
                     sizes: [
                         {
                             width: 1920,
-                            height: 850,
+                            height: 1280,
                             media: '(min-width: 1280px)',
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 1200,
-                            height: 515,
+                            height: 800,
                             media: '(min-width: 1024px)',
                             useFullSize: true,
                             proportion: '3:2'
                         },
                         {
                             width: 1023,
-                            height: 579,
+                            height: 682,
                             media: '(min-width: 768px)',
                             useFullSize: true,
                             proportion: '3:2'
