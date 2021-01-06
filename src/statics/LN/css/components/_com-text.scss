@@ -4,9 +4,9 @@
 .com-text {
     .com-button & {
         text-transform: uppercase;
-        @media ($media-m) {
-            white-space: nowrap;
-        }
+        // @media ($media-m) {
+        //     white-space: nowrap;
+        // }
     }
     .footer & {
         color: $gris5;
