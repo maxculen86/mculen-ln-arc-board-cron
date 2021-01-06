@@ -53,20 +53,13 @@ const media = ({
     if (mediaData) {
         const { type, _id } = mediaData;
         // TODO: Sacar switch
-        if (_id === 'NFUJ2DODORF5XMRN4ELPPAHMWE') {
-            console.log('width', width);
-            console.log('height', height);
-            console.log('isVertical', isVertical);
-            console.log('isApertura', isApertura);
-            console.log('withZoom', withZoom);
-            console.log('active', active);
-        }
         switch (type) {
             case 'image':
                 item = (
                     <ComFigure
                         classCondition={`${
-                            (isVertical && !isApertura) ||
+                            (isVertical &&
+                                !(isApertura || subtipo.id === FOTOAL100)) ||
                             (isVertical && withZoom && active)
                                 ? '--vertical'
                                 : '--horizontal'
