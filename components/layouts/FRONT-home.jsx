@@ -210,19 +210,19 @@ const LNHome = props => {
                                             <div className="col-tablet-4">
                                                 <Article
                                                     frontdemo
-                                                    renderAutor
                                                     srcdemo="https://source.unsplash.com/300x300/?face"
                                                     link="#"
                                                     leadText="Opinión 2."
+                                                    titleSize="--twoxs"
                                                     titleText="Una ventana al bienestar que promete el verano"
                                                     authors="Nombre Apellido"
                                                 />
                                                 <Article
                                                     frontdemo
-                                                    renderAutor
                                                     srcdemo="https://source.unsplash.com/300x301/?face"
                                                     link="#"
                                                     leadText="Opinión 3."
+                                                    titleSize="--twoxs"
                                                     titleText="Trumpismo, maoísmo y peronismo"
                                                     authors="Nombre Apellido"
                                                 />
@@ -230,10 +230,10 @@ const LNHome = props => {
                                             <div className="col-tablet-3">
                                                 <Article
                                                     frontdemo
-                                                    renderAutor
                                                     srcdemo="https://source.unsplash.com/300x302/?face"
                                                     link="#"
                                                     leadText="Opinión 4."
+                                                    titleSize="--l"
                                                     titleText="Inolvidable declaración de amor a la ciudad de Madrid"
                                                     authors="Nombre Apellido"
                                                 />
@@ -299,6 +299,7 @@ const LNHome = props => {
                                             />
                                             <Article
                                                 frontdemo
+                                                renderAutor
                                                 srcdemo="https://source.unsplash.com/300x211"
                                                 link="#"
                                                 leadText="Volanta."
