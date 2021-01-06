@@ -359,8 +359,8 @@ export default {
                 content_elements: {
                     sizes: [
                         {
-                            width: 768,
-                            height: 731,
+                            width: 879,
+                            height: 586,
                             media: '(min-width: 1280px)'
                         },
                         {
