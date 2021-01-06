@@ -11,6 +11,7 @@ export default `
     slug,
     role,
     email,
+    expertise,
     location,
     books {
         title,

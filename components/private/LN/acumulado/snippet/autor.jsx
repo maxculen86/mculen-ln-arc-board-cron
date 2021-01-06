@@ -12,29 +12,71 @@ const extractLanguajes = languages => {
     });
 };
 
-const SnippetAutor = props => {
+const extractAreasExpertise = (expertise, location) => {
+    const experts = expertise.split(',');
+    if (experts[0] === '') return [];
+
+    experts.push({
+        '@type': 'Place',
+        name: location
+    });
+
+    return experts;
+};
+
+const extractSocialNetworks = globalContent => {
     const {
-        globalContent: {
-            byline = '',
-            email = '',
-            author_type: authorType = '',
-            role,
-            longBio = '',
-            location = '',
-            image: { url },
-            books = [],
-            podcasts = [],
-            education = [],
-            awards = [],
-            personal_website: personalWebsite,
-            languages = '',
-            affiliations = ''
-        }
-    } = props || {};
+        twitter = '',
+        facebook = '',
+        youtube = '',
+        instagram = '',
+        linkedin = '',
+        rss = '',
+        medium = '',
+        reddit = '',
+        pinterest = '',
+        soundcloud = '',
+        snapchat = '',
+        whatsapp = '',
+        tumblr = ''
+    } = globalContent || {};
+
+    const socialNetworks = [
+        twitter,
+        facebook,
+        youtube,
+        instagram,
+        linkedin,
+        rss,
+        medium,
+        reddit,
+        pinterest,
+        soundcloud,
+        snapchat,
+        whatsapp,
+        tumblr
+    ];
+
+    return socialNetworks.filter(social => social !== '');
+};
+
+const SnippetAutor = ({ globalContent = {} }) => {
+    const {
+        byline = '',
+        email = '',
+        author_type: authorType = '',
+        longBio = '',
+        location = '',
+        image: { url },
+        awards = [],
+        languages = '',
+        expertise = ''
+    } = globalContent;
 
     const awardsFormated = awards.map(aw => aw.name);
     const languajesFormated = extractLanguajes(languages);
-    // const affiliationsFormated = affiliations
+    const knowsAbout = extractAreasExpertise(expertise, location);
+    const sameAs = extractSocialNetworks(globalContent);
 
     const data = {
         '@context': 'http://schema.org',
@@ -52,73 +94,30 @@ const SnippetAutor = props => {
             contactType: authorType,
             email
         },
-        knowsAbout: [
-            'National Security',
-            'Transgender issues',
-            {
-                '@type': 'Place',
-                name: 'Charleston, West Virginia, USA'
-            }
-        ],
+        knowsAbout,
         knowsLanguage: languajesFormated,
-        sameAs: [
-            'https://twitter.com/maggieNYT',
-            'https://www.nytimes.com/by/maggie-haberman'
-        ],
-        jobTitle: 'Reporter',
-        affiliation: [
-            {
-                '@type': 'Organization',
-                name: 'Investigative Reporters and Editors',
-                url: 'http://ire.org'
-            },
-            {
-                '@type': 'Organization',
-                name: 'Society of Environmental Journalists',
-                url: 'http://www.sej.org/'
-            }
-        ],
+        sameAs,
+        jobTitle: authorType,
         award: awardsFormated
     };
 
-    return <SnippetRender id="Schema_NewsArticle" data={data} />;
+    return <SnippetRender data={data} />;
 };
 
 SnippetAutor.propTypes = {
     globalContent: PropTypes.shape({
         byline: PropTypes.string,
         email: PropTypes.string,
-        role: PropTypes.string,
         longBio: PropTypes.string,
         image: PropTypes.shape({
             url: PropTypes.string
         }),
-        books: PropTypes.arrayOf(
-            PropTypes.shape({
-                title: PropTypes.string,
-                publisher: PropTypes.string,
-                url: PropTypes.string
-            })
-        ),
-        podcasts: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string,
-                url: PropTypes.string
-            })
-        ),
-        education: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string
-            })
-        ),
         awards: PropTypes.arrayOf(
             PropTypes.shape({
                 name: PropTypes.string
             })
         ),
-        personal_website: PropTypes.string,
         languages: PropTypes.string,
-        affiliations: PropTypes.string,
         location: PropTypes.string
     }).isRequired
 };

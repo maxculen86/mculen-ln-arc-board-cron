@@ -35,19 +35,14 @@ describe('Private - LN - nota - snippet - noticia ', () => {
                }
             ],
             "email":"javier_blanco@lanacion.com.ar",
-            "facebook":"facebook.com.ar",
             "image":{
                "url":"https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/JQRxXq2iDva6pauwin-CdNwiWD8=/80x80/smart/filters:quality(100)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png"
             },
-            "instagram":"https://instagram.com",
             "languages":"Ingles, Frances",
-            "linkedin":"https://linkedIn.com",
             "longBio":"Columnista político del diario LA NACION. Es profesor de Historia en la Universidad Nacional de Mar del Plata y fue docente de la cátedra de Historia de las Ideas Políticas de la Facultad de Derecho de la Universidad Nacional de Mar del Plata, e investigador del Instituto Emilio Ravignani de la Facultad de Filosofía y Letras de la UBA. Presta servicios de consultoría política para instituciones y empresas del país y el exterior. En 2002 fue condecorado por el gobierno de la República de Brasil con la Orden de Río Branco.",
-            "medium":"https://google.com.ar",
             "name":"Javier Blanco",
             "node_type":"author",
             "personal_website":"https://google.com",
-            "pinterest":"https://google.com.ar",
             "podcasts":[
                {
                   "name":"Un podcast",
@@ -58,14 +53,19 @@ describe('Private - LN - nota - snippet - noticia ', () => {
                   "url":"https://google.com"
                }
             ],
-            "reddit":"https://google.com.ar",
             "role":"LA NACION",
             "slug":"javier-blanco-170",
-            "snapchat":"https://google.com.ar",
-            "soundcloud":"https://google.com.ar",
-            "tumblr":"https://google.com.ar",
+            "facebook":"facebook.com.ar",
+            "instagram":"https://instagram.com",
+            "medium":"https://medium.com.ar",
+            "linkedin":"https://linkedIn.com",
+            "reddit":"https://reddit.com.ar",
+            "snapchat":"https://snapchat.com.ar",
+            "pinterest":"https://pinterest.com.ar",
+            "soundcloud":"https://soundcloud.com.ar",
+            "tumblr":"https://tumblr.com.ar",
             "twitter":"@javierblancook",
-            "whatsapp":"https://google.com.ar",
+            "whatsapp":"https://whatsapp.com.ar",
             "youtube":"https://youtube.com",
             "_id":"javier-blanco-170"
         }
@@ -120,8 +120,8 @@ describe('Private - LN - nota - snippet - noticia ', () => {
                 email: authorEmail
             },
             knowsLanguage,
-            affiliation: authorAffiliation,
-            award: authorAward
+            award: authorAward,
+            sameAs: socialNetworks
         } = JSON.parse(data);
 
         expect(context).toBe('http://schema.org');
@@ -145,6 +145,20 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(authorAward).toStrictEqual([
             "Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.",
             "Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002."
+          ]);
+        expect(socialNetworks).toStrictEqual([
+            "@javierblancook",
+            "facebook.com.ar",
+            "https://youtube.com",
+            "https://instagram.com",
+            "https://linkedIn.com",
+            "https://medium.com.ar",
+            "https://reddit.com.ar",
+            "https://pinterest.com.ar",
+            "https://soundcloud.com.ar",
+            "https://snapchat.com.ar",
+            "https://whatsapp.com.ar",
+            "https://tumblr.com.ar"
           ]);
     });
 
