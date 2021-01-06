@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 
 const ModBajada = ({ link, subheadSize, subheadText }) => {
     return (
-        <p className={`com-subhead ${subheadSize || '--threexs'}`}>
+        <p className={`com-subhead ${subheadSize || '--twoxs'}`}>
             <a
                 href={link}
                 aria-label={subheadText}

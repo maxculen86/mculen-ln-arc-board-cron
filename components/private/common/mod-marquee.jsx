@@ -4,10 +4,13 @@ import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 
 const ModMarquee = props => {
-    const { text, link, classCondition } = props;
+    const { text, link, classCondition, size } = props;
 
     return (
-        <strong className={`mod-marquee ${classCondition || '--fivexs'}`}>
+        <strong
+            className={`mod-marquee ${classCondition || ''} ${size ||
+                '--fourxs'}`}
+        >
             <ComLink
                 textname={text}
                 link={link}

@@ -2,7 +2,7 @@
 
 exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
 <article
-  class="mod-article "
+  class="mod-article   "
 >
   <div>
     <section
@@ -32,7 +32,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       </a>
     </h1>
     <p
-      class="com-subhead --threexs"
+      class="com-subhead --twoxs"
     >
       <a
         aria-label="Este es el subtitulo"
@@ -44,7 +44,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       </a>
     </p>
     <strong
-      class="mod-marquee --fivexs"
+      class="mod-marquee  --fourxs"
     >
       <a
         class="com-link"
@@ -54,7 +54,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       </a>
     </strong>
     <time
-      class="com-date --fivexs"
+      class="com-date --fourxs"
       datetime="2 de Junio de 2020"
     >
       2 de Junio de 2020
