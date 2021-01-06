@@ -115,11 +115,13 @@
 }
 
 .cuerpo__nota {
-    .--horizontal.--horizontal .mod-picture.mod-picture,
-    .--vertical.--vertical .mod-picture.mod-picture {
-        padding: 0;
-        .com-image {
-            position: relative;
+    .mod-media:not(.--slider) {
+        .--horizontal.--horizontal .mod-picture.mod-picture,
+        .--vertical.--vertical .mod-picture.mod-picture {
+            padding: 0;
+            .com-image {
+                position: relative;
+            }
         }
     }
 }
