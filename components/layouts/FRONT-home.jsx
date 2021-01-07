@@ -309,6 +309,42 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
+                                    <section className="box-articles">
+                                        <HeaderSection
+                                            title="Techo caja autores"
+                                            classCondition="--bg --red"
+                                        />
+                                        <div className="row-gap-tablet-3">
+                                            <Article
+                                                frontdemo
+                                                renderAutor
+                                                srcdemo="https://source.unsplash.com/300x209"
+                                                link="#"
+                                                leadText="Volanta."
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Nombre Apellido"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                renderAutor
+                                                srcdemo="https://source.unsplash.com/300x210"
+                                                link="#"
+                                                leadText="Volanta."
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Nombre Apellido"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                renderAutor
+                                                srcdemo="https://source.unsplash.com/300x211"
+                                                link="#"
+                                                leadText="Volanta."
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Nombre Apellido"
+                                            />
+                                        </div>
+                                    </section>
+
                                     <section className="box-articles --cinema">
                                         <div className="row">
                                             <Article
@@ -494,13 +530,11 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --red">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de notas color con título largo"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo de notas color con título largo"
+                                            link="#"
+                                            classCondition="--bg"
+                                        />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -530,13 +564,7 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --bgcolor --pink">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection title="Techo de sección" />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
