@@ -35,7 +35,9 @@ const ArticleAcum = ({
     typeArticle = 'Grilla',
     outputType,
     titleTag,
-    titleSize
+    titleSize,
+    withSubhead,
+    isRenderAuthor
 }) => {
     const { display_date, headlines, website_url, label } = article;
 
@@ -43,7 +45,7 @@ const ArticleAcum = ({
         typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(article);
 
     const subheadText =
-        typeAcumRules[typeArticle].withSubhead &&
+        (typeAcumRules[typeArticle].withSubhead || withSubhead) &&
         getBajadaOrFirstTextParagraph(article);
 
     const titleText = getTitleText(headlines, label);
@@ -67,6 +69,7 @@ const ArticleAcum = ({
                 hour={hourToDisplay}
                 subheadText={subheadText}
                 outputType={outputType}
+                isRenderAuthor={isRenderAuthor}
             />
             {children}
         </>

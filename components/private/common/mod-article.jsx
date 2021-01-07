@@ -23,7 +23,7 @@ const ModArticle = props => {
         marqueeSize,
         authors,
         authorSize,
-        renderAutor,
+        isRenderAuthor,
         withMedia,
         subheadText,
         subheadSize,
@@ -48,7 +48,7 @@ const ModArticle = props => {
         <article
             className={`mod-article ${classCondition || ''} ${
                 noMedia ? '--no-media' : ''
-            } ${renderAutor ? '--author' : ''}`}
+            } ${isRenderAuthor ? '--author' : ''}`}
             {...extraOpts}
         >
             {hour && hour}
@@ -58,7 +58,7 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
-                    //labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
+                    // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
 
@@ -77,10 +77,10 @@ const ModArticle = props => {
             <ModDescription
                 link={link}
                 titleTag={titleTag}
-                titleSize={noMedia || renderAutor ? '--m' : titleSize}
+                titleSize={noMedia || isRenderAuthor ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
-                authorSize={renderAutor ? '--twoxs' : authorSize}
+                authorSize={isRenderAuthor ? '--twoxs' : authorSize}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 dateText={dateText}

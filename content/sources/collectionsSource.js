@@ -15,7 +15,7 @@ import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
 
 const resolve = key => {
-    const { id, size, website } = key;
+    const { id, size, website, from = 0 } = key;
     if (!id)
         throw new Error(
             'Debe definir un id para realizar la consulta - Collections Source'
@@ -24,7 +24,7 @@ const resolve = key => {
         throw new Error('Debe indicar el website - Collections Source');
 
     return `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size ||
-        2}`;
+        2}&from=${from}`;
 };
 
 const fetch = query => {

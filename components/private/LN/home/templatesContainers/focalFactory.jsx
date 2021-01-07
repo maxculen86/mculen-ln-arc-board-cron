@@ -1,20 +1,47 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import FocalIzquierdo from './focalIzquierdo';
-import FocalDerecho from './focalDerecho';
-// import './focalFactory.css';
+import ArticleAcum from '../../acumulado/articleAcum';
 
-const FocalFactory = ({ directionFocal, children }) => {
-    if (directionFocal === 'FocalDerecho')
-        return <FocalDerecho>{children}</FocalDerecho>;
-    if (directionFocal === 'FocalIzquierdo')
-        return <FocalIzquierdo>{children}</FocalIzquierdo>;
-    return null;
+const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
+    if (articles.length < 2) return null;
+    if (directionFocal === 'focalLeft' && articles.length < 3) return null;
+    return (
+        <>
+            <div className="col-tablet-8">
+                <ArticleAcum
+                    article={articles[0]}
+                    outputType={outputType}
+                    label="Chapita"
+                    frontdemo
+                    titleSize="--xl"
+                    withSubhead={directionFocal === 'focalLeft'}
+                />
+            </div>
+            <div className="col-tablet-4">
+                <ArticleAcum
+                    article={articles[1]}
+                    outputType={outputType}
+                    label="Chapita"
+                    frontdemo
+                    withSubhead={directionFocal === 'focalRight'}
+                />
+                {directionFocal === 'focalLeft' && (
+                    <ArticleAcum
+                        article={articles[2]}
+                        outputType={outputType}
+                        label="Chapita"
+                        frontdemo
+                    />
+                )}
+            </div>
+        </>
+    );
 };
 
 FocalFactory.propTypes = {
     directionFocal: PropTypes.string.isRequired,
-    children: PropTypes.arrayOf(PropTypes.node).isRequired
+    outputType: PropTypes.string.isRequired,
+    articles: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
 export default FocalFactory;
