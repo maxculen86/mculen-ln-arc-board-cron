@@ -18,6 +18,9 @@
         .com-title {
             color: $neutral-white;
             margin: 0;
+            .com-link {
+                color: $blanco;
+            }
         }
         .com-line {
             display: none;
@@ -48,5 +51,10 @@
 
     .com-line {
         margin-top: px(8);
+    }
+
+    .com-image {
+        //margin-bottom: $spacing-sm;
+        max-height: px(24);
     }
 }
