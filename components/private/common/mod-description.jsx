@@ -16,7 +16,8 @@ const ModDescription = props => {
         subheadText,
         subheadSize,
         dateText,
-        dateSize
+        dateSize,
+        marquesina
     } = props;
 
     return (
@@ -36,7 +37,7 @@ const ModDescription = props => {
                 />
             )}
 
-            <ModMarquesina text={authors} link={link} />
+            <ModMarquesina text={marquesina || authors} link={link} />
 
             {dateText && <ComDate display_date={dateText} size="--fivexs" />}
         </section>
@@ -52,7 +53,8 @@ ModDescription.propTypes = {
     subheadSize: PropTypes.string,
     dateText: PropTypes.string,
     dateSize: PropTypes.string,
-    authors: PropTypes.string
+    authors: PropTypes.string,
+    marquesina: PropTypes.string
 };
 
 ModDescription.defaultProps = {
@@ -63,7 +65,8 @@ ModDescription.defaultProps = {
     dateText: undefined,
     dateSize: undefined,
     authors: '',
-    link: undefined
+    link: undefined,
+    marquesina: ''
 };
 
 export default ModDescription;

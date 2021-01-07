@@ -24,13 +24,13 @@ const ModArticle = props => {
         dateSize,
         hour
     } = props;
-
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
     }
     const imagenDestacada = get(articleData, 'promo_items.basic', null);
+    const marquesina = get(articleData, 'marquesina', null);
     const type = get(imagenDestacada, 'type', null);
 
     return (
@@ -58,6 +58,7 @@ const ModArticle = props => {
                 subheadSize={subheadSize}
                 dateText={dateText}
                 dateSize={dateSize}
+                marquesina={marquesina}
             />
         </article>
     );

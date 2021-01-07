@@ -41,5 +41,7 @@ export default `
         website_url       
     }
     next
-    
+    description {
+        basic
+    }
 }`;

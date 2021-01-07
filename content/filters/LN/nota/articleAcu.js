@@ -29,4 +29,5 @@ export default `
         basic
     }
     display_date
+    marquesina
 }`;
