@@ -8,7 +8,7 @@
 
     text-align: center;
     align-items: center;
-    .mod-media {
+    > div {
         margin: 0;
         position: absolute;
         width: px(80);
@@ -17,14 +17,16 @@
         border-bottom: 1px solid $neutral-black;
         padding-bottom: px(126);
 
-        .mod-figure {
-            border-radius: 100%;
-            overflow: hidden;
-            border: 1px solid $light-neutral-400;
+        .mod-media {
+            .mod-figure {
+                border-radius: 100%;
+                overflow: hidden;
+                border: 1px solid $light-neutral-400;
 
-            .mod-picture.mod-picture {
-                padding-top: 100%;
-                border: none;
+                .mod-picture.mod-picture {
+                    padding-top: 100%;
+                    border: none;
+                }
             }
         }
     }
@@ -223,19 +225,22 @@
                 .col-tablet-8 {
                     display: flex;
                     flex-direction: column;
-
                     padding-right: px(24);
-                    .mod-media {
-                        order: 2;
-                        margin-bottom: 0;
-                    }
-                    .mod-description {
-                        position: static;
-                        order: 1;
-                        margin-bottom: px(16);
-                        .com-label {
-                            top: auto;
-                            bottom: px(8);
+
+                    .mod-article {
+                        > div {
+                            //mod-media container
+                            order: 2;
+                            margin-bottom: 0;
+                        }
+                        .mod-description {
+                            position: static;
+                            order: 1;
+                            margin-bottom: px(16);
+                            .com-label {
+                                top: auto;
+                                bottom: px(8);
+                            }
                         }
                     }
                     &:before {
@@ -418,7 +423,8 @@
                         align-items: initial;
                         padding-bottom: px(80);
 
-                        .mod-media {
+                        > div {
+                            //mod-media container
                             width: px(48);
                             height: px(48);
                             bottom: px(16);

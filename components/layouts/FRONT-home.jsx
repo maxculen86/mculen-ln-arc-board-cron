@@ -310,16 +310,18 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --cinema">
-                                        <Article
-                                            frontdemo
-                                            srcdemo="https://source.unsplash.com/1260x500"
-                                            link="#"
-                                            leadText="Volanta más."
-                                            titleText="La casa Breuer Moreno se prepara para su último remate"
-                                            titleSize="--l"
-                                            authors="Por Nombre Apellido"
-                                            label="Chapita más larga"
-                                        />
+                                        <div className="row">
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/1260x500"
+                                                link="#"
+                                                leadText="Volanta más."
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                titleSize="--l"
+                                                authors="Por Nombre Apellido"
+                                                label="Chapita más larga"
+                                            />
+                                        </div>
                                     </section>
 
                                     <section className="box-articles --highlight --blue">
@@ -696,32 +698,36 @@ const LNHome = props => {
                                 </section>
 
                                 <section className="box-articles --cinema">
-                                    <Article
-                                        frontdemo
-                                        srcdemo="https://source.unsplash.com/1260x500"
-                                        link="#"
-                                        leadText="Volanta."
-                                        titleText="La casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate"
-                                        titleSize="--l"
-                                        authors="Por Nombre Apellido"
-                                        label="Content Lab"
-                                    />
+                                    <div className="row">
+                                        <Article
+                                            frontdemo
+                                            srcdemo="https://source.unsplash.com/1260x500"
+                                            link="#"
+                                            leadText="Volanta."
+                                            titleText="La casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate"
+                                            titleSize="--l"
+                                            authors="Por Nombre Apellido"
+                                            label="Content Lab"
+                                        />
+                                    </div>
                                 </section>
                             </div>
 
                             <div className="lay-sidebar">
                                 <div className="sidebar__main">
                                     <section className="box-articles --cinema">
-                                        <Article
-                                            frontdemo
-                                            srcdemo="https://source.unsplash.com/1260x505"
-                                            link="#"
-                                            leadText="Volanta."
-                                            titleText="La casa Breuer Moreno se prepara para su último remate"
-                                            titleSize="--l"
-                                            authors="Por Nombre Apellido"
-                                            label="LIVING"
-                                        />
+                                        <div className="row">
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/1260x505"
+                                                link="#"
+                                                leadText="Volanta."
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                titleSize="--l"
+                                                authors="Por Nombre Apellido"
+                                                label="LIVING"
+                                            />
+                                        </div>
                                     </section>
                                     <section className="box-articles --focal --left">
                                         <HeaderSection
@@ -877,15 +883,17 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --cinema">
-                                        <Article
-                                            frontdemo
-                                            srcdemo="https://source.unsplash.com/1260x500"
-                                            link="#"
-                                            leadText="Volanta."
-                                            titleText="La casa Breuer Moreno se prepara para su último remate"
-                                            titleSize="--l"
-                                            authors="Por Nombre Apellido"
-                                        />
+                                        <div className="row">
+                                            <Article
+                                                frontdemo
+                                                srcdemo="https://source.unsplash.com/1260x500"
+                                                link="#"
+                                                leadText="Volanta."
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                titleSize="--l"
+                                                authors="Por Nombre Apellido"
+                                            />
+                                        </div>
                                     </section>
 
                                     <section className="box-articles --highlight --blue">
