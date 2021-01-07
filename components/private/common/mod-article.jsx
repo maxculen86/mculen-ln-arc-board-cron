@@ -63,15 +63,17 @@ const ModArticle = props => {
             )}
 
             {frontdemo && (
-                <ModMedia>
-                    <figure className="mod-figure">
-                        <a href={link}>
-                            <picture className="mod-picture">
-                                <ComImage src={srcdemo} />
-                            </picture>
-                        </a>
-                    </figure>
-                </ModMedia>
+                <div>
+                    <ModMedia>
+                        <figure className="mod-figure">
+                            <a href={link}>
+                                <picture className="mod-picture">
+                                    <ComImage src={srcdemo} />
+                                </picture>
+                            </a>
+                        </figure>
+                    </ModMedia>
+                </div>
             )}
 
             <ModDescription
