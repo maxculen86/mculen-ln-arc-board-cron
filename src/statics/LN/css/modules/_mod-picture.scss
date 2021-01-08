@@ -16,9 +16,9 @@
     &.mod-picture {
         .mod-wikiauthor.mod-wikiauthor & {
             border-radius: 50%;
-            padding-top: inherit;
-            width: px(280);
-            height: px(280);
+            padding-top: 100%;
+            width: 100%;
+            margin: 0 0 px(16) 0;
         }
     }
     //100% ipad dentro de nota

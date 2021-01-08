@@ -1,6 +1,3 @@
-// TODO: Chequear si se agregan estas reglas al eslint
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
@@ -19,8 +16,9 @@ import ListSocialIcons from '../../../common/list-socialicons';
 import ImageAuthor from './imageAuthor';
 import ComLink from '../../../common/com-link';
 import ComSubtitle from '../../../common/com-subtitle';
+import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
 // import ModWikiAuthor from '../../../common/mod-wikiAuthor';
-//import '../../../../../resources/dist/css/ln/base/helpers.css';
+// import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
     const {
@@ -38,6 +36,8 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
         affiliations
     } = data || {};
 
+    const socialsNetworks = getSocialsNetwork(data);
+
     return (
         <section
             className={`mod-wikiauthor ${classesNames || ''} ${classCondition ||
@@ -45,11 +45,11 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
         >
             <div className="row">
                 {url && (
-                    <div className="col-12 col-desksm-4">
+                    <div className="col-12 col-tablet-4 col-deskxl-3">
                         <ImageAuthor outputType={outputType} url={url} />
                     </div>
                 )}
-                <div className="col-12 col-desksm-8">
+                <div className="col-12 col-tablet-8 col-deskxl-9">
                     <ComContainer classCondition="--info">
                         <ComTitle tag="h2" content={byline} size="--l" />
                         <ComText
@@ -133,22 +133,20 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                         )}
                     </ComContainer>
                 </div>
-                <div className="col-12">
-                    {data ? (
+                {socialsNetworks.length > 0 && (
+                    <div className="col-12">
                         <ComContainer classCondition="--socialicons">
-                            <ComSubtitle children="Conectar" size="--threexs" />
+                            <ComSubtitle size="--threexs">Conectar</ComSubtitle>
                             <ListSocialIcons
                                 sizeIcon="--l"
-                                sizeBullet="--xs"
+                                // sizeBullet="--xs"
                                 data={data}
                                 size="--threexs"
                                 vertical=""
                             />
                         </ComContainer>
-                    ) : (
-                        ''
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
         </section>
     );
