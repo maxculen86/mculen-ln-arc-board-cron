@@ -20,7 +20,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
         smartCropExcluded,
         filterQuality = 100
     ) => {
-        const { isNotSmart, useFullSize } = resizeOptions;
+        const { isNotSmart, useFullSize, proportion } = resizeOptions;
         let { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
 
         if (!newHeight && !newWidth)
@@ -31,30 +31,27 @@ export const createResizer = (resizerKey, resizerUrl) => {
         const thumbor = new Thumbor(resizerKey, resizerUrl);
         thumbor.filter(`quality(${filterQuality})`);
 
-        if (!(getAspectRatio(originalWidth, originalHeight) === '3:2')) {
+        if (proportion) {
             if (
-                focalPoint &&
-                focalPoint[0] &&
-                focalPoint[1] &&
-                (originalWidth || originalHeight) &&
-                isNotSmart
+                !(getAspectRatio(originalWidth, originalHeight) === proportion)
             ) {
-                thumbor.filter(
-                    `focal(${focalPoint[0] - 5}x${focalPoint[1] +
-                        5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
-                );
-            } else if (!smartCropExcluded) {
-                thumbor.smartCrop(true);
-            } else {
-                newHeight =
-                    !useFullSize && originalWidth >= originalHeight && newWidth
-                        ? 0
-                        : newWidth;
-                newWidth =
-                    !useFullSize && originalWidth < originalHeight && newHeight
-                        ? 0
-                        : newWidth;
+                if (
+                    focalPoint &&
+                    focalPoint[0] &&
+                    focalPoint[1] &&
+                    (originalWidth || originalHeight) &&
+                    isNotSmart
+                ) {
+                    thumbor.filter(
+                        `focal(${focalPoint[0] - 5}x${focalPoint[1] +
+                            5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
+                    );
+                } else if (!smartCropExcluded) {
+                    thumbor.smartCrop(true);
+                }
             }
+        } else {
+            newHeight = !useFullSize ? 0 : newHeight;
         }
 
         const url = thumbor
@@ -274,22 +271,14 @@ export const resizePromoItems = (
 };
 
 const getDefaultSize = subtype => {
-    const isFotoAl100orStorytelling =
-        subtype === FOTOAL100 || subtype === STORYTELLING;
-
-    const defaultSize = {
-        width: 768,
-        height: 513,
-        media: '(min-width: 768px)'
-    };
-
-    const defaultResize = isFotoAl100orStorytelling
-        ? {
-              width: 1920,
-              height: 850,
-              media: '(min-width: 1280px)'
-          }
-        : defaultSize;
+    const defaultResize =
+        subtype === FOTOAL100 || subtype === STORYTELLING
+            ? {
+                  width: 1920,
+                  height: 850,
+                  media: '(min-width: 1280px)'
+              }
+            : { width: 768, height: 513, media: '(min-width: 768px)' };
 
     const shouldExcludeCrop =
         subtype === FOTOAL100 || subtype === STORYTELLING || subtype === RECETA;
@@ -330,26 +319,26 @@ export const addResizedUrls = (ansDoc, options) => {
         ...(contentElements && {
             content_elements: contentElements.map(elem => {
                 const { type } = elem;
-                if (type === 'image') {
-                    return resizeArcImage(
-                        elem,
-                        presetsContentElements || presetsDefault,
-                        resizer,
-                        zoomSizes,
-                        true,
-                        defaultResize
-                    );
-                }
-                if (type === 'gallery') {
-                    return resizeArcGallery(
-                        elem,
-                        presetsContentElements || presetsDefault,
-                        resizer,
-                        zoomSizes,
-                        true
-                    );
-                }
-                return elem;
+                return (
+                    (type === 'image' &&
+                        resizeArcImage(
+                            elem,
+                            presetsContentElements || presetsDefault,
+                            resizer,
+                            zoomSizes,
+                            true,
+                            defaultResize
+                        )) ||
+                    (type === 'gallery' &&
+                        resizeArcGallery(
+                            elem,
+                            presetsContentElements || presetsDefault,
+                            resizer,
+                            zoomSizes,
+                            true
+                        )) ||
+                    elem
+                );
             })
         }),
         ...(promoItems && {
