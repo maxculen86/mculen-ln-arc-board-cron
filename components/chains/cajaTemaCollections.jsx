@@ -36,6 +36,12 @@ const CajaTemaCollections = props => {
                 message: 'El diseño de Autor requiere solo 3 notas'
             };
 
+        if (layout === 'notaColor' && notesQuantity !== 3)
+            error = {
+                type: 'warning',
+                message: 'El diseño de Notas a Color requiere solo 3 notas'
+            };
+
         if (
             layout === 'grilla' &&
             notesQuantity !== 2 &&
@@ -91,6 +97,12 @@ const CajaTemaCollections = props => {
         notesQuantity,
         initialPosition
     );
+    console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 94 ~ articles", articles)
+
+    const bgColor =
+        backgroundColor !== 'default' && layout !== 'notaColor'
+            ? '--bgcolor '
+            : '';
 
     return (
         <Static id={featureId}>
@@ -104,7 +116,7 @@ const CajaTemaCollections = props => {
                 notesQuantity={notesQuantity}
                 backgroundColor={
                     backgroundColor !== 'default'
-                        ? `--bgcolor ${backgroundColor}`
+                        ? `${bgColor}${backgroundColor}`
                         : ''
                 }
             />

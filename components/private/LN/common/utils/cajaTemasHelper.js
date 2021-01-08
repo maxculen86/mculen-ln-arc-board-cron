@@ -4,6 +4,7 @@ export const classRules = {
     focalLeft: '--focal --left',
     focalRight: '--focal --right',
     notaAl100: '--cinema',
+    notaColor: '--highlight',
     grilla: '',
     author: ''
 };
@@ -34,7 +35,8 @@ export const cajaTemasCustomsFields = () => {
             'grilla',
             'focalLeft',
             'focalRight',
-            'author'
+            'author',
+            'notaColor'
         ]).tag({
             label: 'Diseño',
             defaultValue: 'grilla',
@@ -45,7 +47,8 @@ export const cajaTemasCustomsFields = () => {
                 grilla: 'Grilla 2, 3, 4, 6, 9, 12',
                 focalLeft: 'Focal Izquierdo',
                 focalRight: 'Focal Derecho',
-                author: 'Autor'
+                author: 'Autor',
+                notaColor: '3 Notas a color'
             }
         }).isRequired,
         notesQuantity: PropTypes.number.tag({

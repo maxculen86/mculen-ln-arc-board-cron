@@ -14,6 +14,7 @@ const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
                     label="Chapita"
                     frontdemo
                     titleSize="--xl"
+                    titleTag="h1"
                     withSubhead={directionFocal === 'focalLeft'}
                 />
             </div>
@@ -24,6 +25,7 @@ const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
                     label="Chapita"
                     frontdemo
                     withSubhead={directionFocal === 'focalRight'}
+                    titleSize={directionFocal === 'focalRight' && '--l'}
                 />
                 {directionFocal === 'focalLeft' && (
                     <ArticleAcum

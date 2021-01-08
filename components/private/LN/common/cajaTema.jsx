@@ -19,7 +19,6 @@ const CajaTema = props => {
 
     const isFocal = layout.includes('focal');
     const isRenderAuthor = layout.includes('author');
-    console.log("🚀 ~ file: cajaTema.jsx ~ line 22 ~ isRenderAuthor", isRenderAuthor)
 
     return (
         <div className="home">
