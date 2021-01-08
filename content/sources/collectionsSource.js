@@ -53,7 +53,6 @@ const fetch = query => {
 const transform = (data, siteProps) => {
     const respData = data;
     const contentElements = get(data, `content_elements`, null);
-    const marquesina = get(data, `description.basic`, null);
 
     const { presets, presetsDefault } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
@@ -62,6 +61,7 @@ const transform = (data, siteProps) => {
         contentElements &&
         contentElements.map(elem => {
             const promoItems = get(elem, `promo_items`, null);
+            const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
