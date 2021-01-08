@@ -908,3 +908,15 @@
         margin-bottom: px(40);
     }
 }
+
+.negocios.negocios {
+    .com-lead,
+    .com-link {
+        &:not(.--highlight &) {
+            color: $negocios;
+        }
+    }
+    .mod-headersection.--bg.mod-headersection.--bg {
+        background-color: $negocios;
+    }
+}
