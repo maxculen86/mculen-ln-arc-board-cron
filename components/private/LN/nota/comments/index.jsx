@@ -244,13 +244,13 @@ const Comments = props => {
                                         return;
                                     if (data.parent) {
                                         window.dataLayer.push({
-                                            'event': 'Comentar',
-                                            'Type': 'Responder'
+                                            event: 'Comentar',
+                                            Type: 'Responder'
                                         });
                                     } else {
                                         window.dataLayer.push({
-                                            'event': 'Comentar',
-                                            'Type': 'Comentar'
+                                            event: 'Comentar',
+                                            Type: 'Comentar'
                                         });
                                     }
                                 });

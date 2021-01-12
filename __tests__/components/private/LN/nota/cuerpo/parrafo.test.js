@@ -39,13 +39,15 @@ describe('Paragraph', () => {
     it('Sets target _blank attribute on external links', () => {
         const data = {
             type: 'text',
-            content: `target='_blank'>I'm external`
+            content: `<a href="https://cutt.ly/TjrhkTT" target='_blank'>I'm external`
         };
         component = mount(<Paragraph data={data} />);
         const {
             dangerouslySetInnerHTML: { __html: html }
         } = component.find('p').props();
-        expect(html).toContain(`target='_blank'>I'm external`);
+        expect(html).toEqual(
+            `<a href="https://cutt.ly/TjrhkTT" target='_blank'>I'm external`
+        );
     });
 
     it('Applies `capital` class to paragraph in order to upper-case the first letter', () => {

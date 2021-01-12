@@ -25,7 +25,15 @@ const Component = props => {
     }, [storytellingData]);
 
     const { apertura = {} } = data;
-    const { src, srcset, altText, video, caption, credit } = apertura;
+    const {
+        src,
+        srcset,
+        altText,
+        video,
+        caption,
+        credit,
+        resizedUrls
+    } = apertura;
     const sizes = outputType === 'amp' ? { width: 80, height: 537 } : {};
     return (
         <section className="mod-opening">
@@ -38,6 +46,7 @@ const Component = props => {
                     video={video || ''}
                     amp={outputType === 'amp'}
                     sizes={sizes}
+                    sources={resizedUrls}
                 />
                 <div className="mod-title">
                     <div className="lay">

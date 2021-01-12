@@ -29,7 +29,7 @@ const media = ({
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
     const { height = 0, width = 0 } = mediaData || {};
-    const isVertical = isApertura ? false : height > width;
+    const isVertical = height > width;
     let item = null;
     const { subtipo } = useSubtype();
 
@@ -58,7 +58,11 @@ const media = ({
                 item = (
                     <ComFigure
                         classCondition={`${
-                            isVertical ? '--vertical' : '--horizontal'
+                            (isVertical &&
+                                !(isApertura || subtipo.id === FOTOAL100)) ||
+                            (isVertical && withZoom && active)
+                                ? '--vertical'
+                                : '--horizontal'
                         }`}
                         withZoom={withZoom}
                         width={width}
