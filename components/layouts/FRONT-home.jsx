@@ -7,6 +7,7 @@ import LoginProvider from '../private/LN/common/context/loginContext';
 import ComTitle from '../private/common/com-title';
 import Article from '../private/common/mod-article';
 import HeaderSection from '../private/common/mod-headerSection';
+import Dolar from '../private/common/mod-dolar';
 
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -681,6 +682,13 @@ const LNHome = props => {
                                 <div className="sidebar__aside hlp-tablet-none"></div>
                             </div>
                             <div className="lay">
+                                <Dolar
+                                    compra="84"
+                                    venta="90"
+                                    compraBlue="154"
+                                    ventaBlue="160"
+                                    compraLiqui="118,18"
+                                />
                                 <section className="mod-ranking">
                                     <HeaderSection title="Las más leídas" />
 
@@ -1273,6 +1281,7 @@ const LNHome = props => {
                                                 authors="Por Nombre Apellido"
                                             />
                                         </div>
+                                        {/*
                                         <section className="demofonts">
                                             <div>
                                                 <h1 className="--threexl">
@@ -1468,6 +1477,7 @@ const LNHome = props => {
                                                 </h1>
                                             </div>
                                         </section>
+                                        */}
                                     </section>
                                 </div>
                                 <div className="sidebar__aside hlp-tablet-none"></div>

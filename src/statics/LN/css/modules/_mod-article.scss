@@ -910,13 +910,33 @@
 }
 
 .negocios.negocios {
-    .com-lead,
-    .com-link {
+    .com-breadcrumb .com-link,
+    .com-button .com-icon,
+    .--category .com-link,
+    .--tags .com-link,
+    .sidebar__main .com-link,
+    .sidebar__main .com-lead {
         &:not(.--highlight &) {
             color: $negocios;
         }
     }
     .mod-headersection.--bg.mod-headersection.--bg {
         background-color: $negocios;
+    }
+}
+
+.deportes.deportes {
+    .com-breadcrumb .com-link,
+    .com-button .com-icon,
+    .--category .com-link,
+    .--tags .com-link,
+    .sidebar__main .com-link,
+    .sidebar__main .com-lead {
+        &:not(.--highlight &) {
+            color: $deportes;
+        }
+    }
+    .mod-headersection.--bg.mod-headersection.--bg {
+        background-color: $deportes;
     }
 }
