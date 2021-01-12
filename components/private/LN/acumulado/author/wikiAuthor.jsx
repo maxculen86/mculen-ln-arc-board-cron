@@ -150,7 +150,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
             </div>
 
             {/* BORRARRRRRRRR */}
-            <div className="row">
+            {/* <div className="row">
                 <div className="col-6">
                     <ModShield
                         size="--l"
@@ -159,7 +159,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                         src="https://bucket1.glanacion.com/canchallena/escudos/200032w86.png"
                     />
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 };
