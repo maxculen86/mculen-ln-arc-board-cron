@@ -65,12 +65,47 @@
     .mod-media {
         .mod-picture {
             margin-bottom: 0;
+
+            //de home
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: $picture;
+
+            .com-image {
+                display: block;
+                position: absolute;
+                object-fit: cover;
+                height: 100%;
+                top: 0;
+            }
+            &::before {
+                font-family: 'LNlogos';
+                content: $logo-ln-placeholder;
+                color: #d9d9d9;
+                font-size: 4.22em;
+                font-weight: 400;
+                text-transform: none;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
         }
     }
 
     .mod-description {
         position: relative;
         width: 100%;
+
+        //de home
+        .com-subhead {
+            color: $light-neutral-700;
+            margin-bottom: px(8);
+        }
+        .com-link.com-link {
+            color: $light-neutral-800;
+        }
     }
 
     &:before {
@@ -145,45 +180,45 @@
     .mod-article {
         margin-bottom: px(32);
 
-        .mod-media {
-            .mod-figure {
-                .mod-picture {
-                    overflow: hidden;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    .com-image {
-                        display: block;
-                        position: absolute;
-                        object-fit: cover;
-                        height: 100%;
-                        top: 0;
-                    }
-                    &::before {
-                        font-family: 'LNlogos';
-                        content: $logo-ln-placeholder;
-                        color: #d9d9d9;
-                        font-size: 4.22em;
-                        font-weight: 400;
-                        text-transform: none;
-                        position: absolute;
-                        top: 50%;
-                        transform: translateY(-50%);
-                    }
+        // .mod-media {
+        //     .mod-figure {
+        //         .mod-picture {
+        //             overflow: hidden;
+        //             display: flex;
+        //             justify-content: center;
+        //             align-items: center;
+        //             padding-top: $picture;
 
-                    padding-top: $picture;
-                }
-            }
-        }
-        .mod-description {
-            .com-subhead {
-                color: $light-neutral-700;
-                margin-bottom: px(8);
-            }
-            .com-link.com-link {
-                color: $light-neutral-800;
-            }
-        }
+        //             .com-image {
+        //                 display: block;
+        //                 position: absolute;
+        //                 object-fit: cover;
+        //                 height: 100%;
+        //                 top: 0;
+        //             }
+        //             &::before {
+        //                 font-family: 'LNlogos';
+        //                 content: $logo-ln-placeholder;
+        //                 color: #d9d9d9;
+        //                 font-size: 4.22em;
+        //                 font-weight: 400;
+        //                 text-transform: none;
+        //                 position: absolute;
+        //                 top: 50%;
+        //                 transform: translateY(-50%);
+        //             }
+        //         }
+        //     }
+        // }
+        // .mod-description {
+        //     .com-subhead {
+        //         color: $light-neutral-700;
+        //         margin-bottom: px(8);
+        //     }
+        //     .com-link.com-link {
+        //         color: $light-neutral-800;
+        //     }
+        //}
     }
 
     .row-gap-tablet-2,
@@ -252,9 +287,8 @@
     .com-breadcrumb .com-link,
     .com-button .com-icon,
     .--category .com-link,
-    .--tags .com-link,
-    .sidebar__main .com-link,
-    .sidebar__main .com-lead {
+    .mod-headersection .com-link,
+    .mod-description .com-lead {
         &:not(.--highlight &) {
             color: $negocios;
         }
@@ -269,8 +303,8 @@
     .com-button .com-icon,
     .--category .com-link,
     .--tags .com-link,
-    .sidebar__main .com-link,
-    .sidebar__main .com-lead {
+    .mod-headersection .com-link,
+    .mod-description .com-lead {
         &:not(.--highlight &) {
             color: $deportes;
         }

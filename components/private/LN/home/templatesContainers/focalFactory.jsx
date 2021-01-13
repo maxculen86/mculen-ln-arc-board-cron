@@ -12,8 +12,7 @@ const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
                     article={articles[0]}
                     outputType={outputType}
                     label="Chapita"
-                    frontdemo
-                    titleSize="--xl"
+                    titleSize={directionFocal === 'focalLeft' ? '--xl' : '--l'}
                     withSubhead={directionFocal === 'focalLeft'}
                 />
             </div>
@@ -22,7 +21,9 @@ const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
                     article={articles[1]}
                     outputType={outputType}
                     label="Chapita"
-                    frontdemo
+                    titleSize={
+                        directionFocal === 'focalRight' ? '--xl' : titleSize
+                    }
                     withSubhead={directionFocal === 'focalRight'}
                 />
                 {directionFocal === 'focalLeft' && (
@@ -30,7 +31,6 @@ const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
                         article={articles[2]}
                         outputType={outputType}
                         label="Chapita"
-                        frontdemo
                     />
                 )}
             </div>
