@@ -14,47 +14,47 @@ const CajaTema = props => {
         layout = 'grilla',
         backgroundColor = '',
         classCondition = '',
-        notesQuantity = 3,
+        notesQuantity = 3
     } = props;
 
     const isFocal = layout.includes('focal');
     const isRenderAuthor = layout.includes('author');
-    console.log("🚀 ~ file: cajaTema.jsx ~ line 22 ~ isRenderAuthor", isRenderAuthor)
+    console.log(
+        '🚀 ~ file: cajaTema.jsx ~ line 22 ~ isRenderAuthor',
+        isRenderAuthor
+    );
 
     return (
-        <div className="home">
-            <section
-                className={`box-articles ${classCondition} ${backgroundColor}`}
+        <section
+            className={`box-articles ${classCondition} ${backgroundColor}`}
+        >
+            <ModHeaderSection title={title} link={url} />
+            <ModRowGap
+                typeArticle={isFocal ? 'Focal' : 'Grilla'}
+                column={notesQuantity}
+                classCondition={classCondition}
             >
-                <ModHeaderSection title={title} link={url} />
-                <ModRowGap
-                    typeArticle={isFocal ? 'Focal' : 'Grilla'}
-                    column={notesQuantity}
-                    classCondition={classCondition}
-                >
-                    {isFocal ? (
-                        <FocalFactory
-                            directionFocal={layout}
-                            articles={articles}
-                            outputType={outputType}
-                        />
-                    ) : (
-                        articles.map(art => {
-                            const artWithoutDate = { ...art, display_date: '' };
-                            return (
-                                <ArticleAcum
-                                    key={artWithoutDate._id}
-                                    article={artWithoutDate}
-                                    outputType={outputType}
-                                    frontdemo
-                                    isRenderAuthor={isRenderAuthor}
-                                />
-                            );
-                        })
-                    )}
-                </ModRowGap>
-            </section>
-        </div>
+                {isFocal ? (
+                    <FocalFactory
+                        directionFocal={layout}
+                        articles={articles}
+                        outputType={outputType}
+                    />
+                ) : (
+                    articles.map(art => {
+                        const artWithoutDate = { ...art, display_date: '' };
+                        return (
+                            <ArticleAcum
+                                key={artWithoutDate._id}
+                                article={artWithoutDate}
+                                outputType={outputType}
+                                isRenderAuthor={isRenderAuthor}
+                            />
+                        );
+                    })
+                )}
+            </ModRowGap>
+        </section>
     );
 };
 
