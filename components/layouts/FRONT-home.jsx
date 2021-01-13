@@ -7,6 +7,7 @@ import LoginProvider from '../private/LN/common/context/loginContext';
 import ComTitle from '../private/common/com-title';
 import Article from '../private/common/mod-article';
 import HeaderSection from '../private/common/mod-headerSection';
+import Dolar from '../private/common/mod-dolar';
 
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -26,7 +27,10 @@ const LNHome = props => {
         <LoginProvider>
             <GlobalProviderAcu>
                 {seccion1}
-                <div id="wrapper" className={`home ${amp} --transparent`}>
+                <div
+                    id="wrapper"
+                    className={`home negocios ${amp} --transparent`}
+                >
                     <Header />
                     <section className="mod-opening --bomba">
                         <Article
@@ -309,6 +313,42 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
+                                    <section className="box-articles">
+                                        <HeaderSection
+                                            title="Techo caja autores"
+                                            classCondition="--bg --red"
+                                        />
+                                        <div className="row-gap-tablet-3">
+                                            <Article
+                                                frontdemo
+                                                renderAutor
+                                                srcdemo="https://source.unsplash.com/300x209"
+                                                link="#"
+                                                leadText="Volanta."
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Nombre Apellido"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                renderAutor
+                                                srcdemo="https://source.unsplash.com/300x210"
+                                                link="#"
+                                                leadText="Volanta."
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Nombre Apellido"
+                                            />
+                                            <Article
+                                                frontdemo
+                                                renderAutor
+                                                srcdemo="https://source.unsplash.com/300x211"
+                                                link="#"
+                                                leadText="Volanta."
+                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                authors="Por Nombre Apellido"
+                                            />
+                                        </div>
+                                    </section>
+
                                     <section className="box-articles --cinema">
                                         <div className="row">
                                             <Article
@@ -494,13 +534,11 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --highlight --red">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de notas color con título largo"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection
+                                            title="Techo de notas color con título largo"
+                                            link="#"
+                                            classCondition="--bg"
+                                        />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -530,13 +568,7 @@ const LNHome = props => {
                                     </section>
 
                                     <section className="box-articles --bgcolor --pink">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
+                                        <HeaderSection title="Techo de sección" />
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
@@ -650,6 +682,13 @@ const LNHome = props => {
                                 <div className="sidebar__aside hlp-tablet-none"></div>
                             </div>
                             <div className="lay">
+                                <Dolar
+                                    compra="84"
+                                    venta="90"
+                                    compraBlue="154"
+                                    ventaBlue="160"
+                                    compraLiqui="118,18"
+                                />
                                 <section className="mod-ranking">
                                     <HeaderSection title="Las más leídas" />
 
@@ -1242,6 +1281,7 @@ const LNHome = props => {
                                                 authors="Por Nombre Apellido"
                                             />
                                         </div>
+                                        {/*
                                         <section className="demofonts">
                                             <div>
                                                 <h1 className="--threexl">
@@ -1437,6 +1477,7 @@ const LNHome = props => {
                                                 </h1>
                                             </div>
                                         </section>
+                                        */}
                                     </section>
                                 </div>
                                 <div className="sidebar__aside hlp-tablet-none"></div>
