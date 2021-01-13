@@ -20,28 +20,6 @@ const setTitle = (
     return '';
 };
 
-const convertToComLink = ({ key, link, text, title, style }) => (
-    <ComLink
-        key={key}
-        link={link}
-        textname={text}
-        title={title}
-        style={style}
-    />
-);
-
-convertToComLink.propTypes = {
-    key: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    style: PropTypes.obj
-};
-
-convertToComLink.defaultProps = {
-    style: {}
-};
-
 const AcumuladoTitle = props => {
     const { outputType, idLogoImage, colorCategory } = props;
     const isPrimarySection = get(props, 'isPrimarySection', {});
@@ -62,21 +40,23 @@ const AcumuladoTitle = props => {
     const categories =
         navigationList &&
         navigationList.map(({ _id, navigation, name }) => {
+            const textname =
+                navigation && navigation.nav_title
+                    ? navigation.nav_title
+                    : name;
             return {
                 key: _id,
-                item: convertToComLink({
-                    key: _id,
-                    link: `${_id}/`,
-                    text:
-                        navigation && navigation.nav_title
-                            ? navigation.nav_title
-                            : name,
-                    title:
-                        navigation && navigation.nav_title
-                            ? navigation.nav_title
-                            : name,
-                    ...(colorCategory && { style: { color: colorCategory } })
-                })
+                item: (
+                    <ComLink
+                        key={_id}
+                        link={`${_id}/`}
+                        textname={textname}
+                        title={textname}
+                        style={
+                            colorCategory && { style: { color: colorCategory } }
+                        }
+                    />
+                )
             };
         });
 

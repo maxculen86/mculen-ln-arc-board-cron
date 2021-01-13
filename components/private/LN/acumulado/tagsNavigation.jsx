@@ -4,40 +4,20 @@ import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 import ComLink from '../../common/com-link';
 
-const convertToComLink = ({ key, link, text, title, style }) => (
-    <ComLink
-        key={key}
-        link={link}
-        textname={text}
-        title={title}
-        style={style}
-    />
-);
-
-convertToComLink.propTypes = {
-    key: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    style: PropTypes.obj
-};
-
-convertToComLink.defaultProps = {
-    style: {}
-};
-
 const TagsNavigation = ({ orderAndCountTags, colorTags }) => {
     const [tagList] = useState(() =>
         orderAndCountTags
             ? orderAndCountTags.map(({ slug, text }) => ({
                   key: slug,
-                  item: convertToComLink({
-                      key: slug,
-                      link: `/tema/${slug}/`,
-                      text,
-                      title: text,
-                      ...(colorTags && { style: { color: colorTags } })
-                  })
+                  item: (
+                      <ComLink
+                          key={slug}
+                          link={`/tema/${slug}/`}
+                          textname={text}
+                          title={text}
+                          style={colorTags && { style: { color: colorTags } }}
+                      />
+                  )
               }))
             : []
     );
