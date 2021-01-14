@@ -3,6 +3,7 @@ import IndexRankingV1 from '../../../private/LN/api/v1/ranking';
 import browser from '../../../private/common/utils/browser';
 import filter from '../../../../content/filters/LN/nota/articleRanking';
 import { isMigratedCategory } from '../../../private/common/utils/migratedCategoriesHelper';
+import get from '../../../private/common/utils/get';
 
 // URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/params=size:1;weeks:1;days:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/ranking\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
@@ -11,58 +12,21 @@ class SectionRanking {
         this.props = props;
 
         const {
-            globalContent: { _id: id },
-            isAdmin,
-            customFields: {
-                size: sizeCf,
-                weeks: weeksCf,
-                days: daysCf,
-                paramUrlId
-            }
+            globalContent: { _id: sectionId },
+            customFields
         } = props;
-        this.state = {};
 
-        const categoryMigrated = isMigratedCategory(id, true);
+        const categoryMigrated = isMigratedCategory(sectionId, true);
         if (categoryMigrated) {
-            const days = browser.getSizesFrom(
-                isAdmin,
-                daysCf,
-                paramUrlId,
-                'days',
-                this.props.requestUri
-            );
+            this.state = {};
+            this.fetch(sectionId, customFields, 1);
 
-            const weeks = browser.getSizesFrom(
-                isAdmin,
-                weeksCf,
-                paramUrlId,
-                'weeks',
-                this.props.requestUri
-            );
-
-            let size = browser.getSizesFrom(
-                isAdmin,
-                sizeCf,
-                paramUrlId,
-                'size',
-                this.props.requestUri
-            );
-
-            if (size > 100) size = 100;
-
-            this.fetchContent({
-                rankingArticleSource: {
-                    source: 'rankingArticlesSource',
-                    query: {
-                        sectionId: id,
-                        weeksAgo: weeks,
-                        daysAgo: days,
-                        size,
-                        imageConfig: 'm'
-                    },
-                    filter
-                }
-            });
+            if (
+                !this.state.rankingArticleSource ||
+                this.state.rankingArticleSource.content_elements.length === 0
+            ) {
+                this.fetch(sectionId, customFields, 2);
+            }
         }
 
         this.state = { ...this.state, categoryMigrated };
@@ -70,6 +34,26 @@ class SectionRanking {
         this.versions = {
             1: IndexRankingV1
         };
+    }
+
+    fetch(sectionId, customFields, index) {
+        const weeksAgo = get(customFields, `weeksAgo${index}`, 1);
+        const daysAgo = get(customFields, `daysAgo${index}`, 1);
+        const size = get(customFields, `size${index}`, 3);
+
+        this.fetchContent({
+            rankingArticleSource: {
+                source: 'rankingArticlesSource',
+                query: {
+                    sectionId,
+                    weeksAgo,
+                    daysAgo,
+                    size,
+                    imageConfig: 'm'
+                },
+                filter
+            }
+        });
     }
 
     render() {

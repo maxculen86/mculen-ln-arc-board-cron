@@ -20,11 +20,14 @@ function getSecundaryCategory(category) {
 function getPrincipalCategory(category) {
     if (!category) throw new Error(`No se admiten categorias null`);
 
+    if (category === '/') return category;
+
     const principalCategory = `/${
         category.split('/').filter(e => {
             return e;
         })[0]
     }`;
+
     return principalCategory;
 }
 
@@ -32,9 +35,7 @@ const isMigratedCategory = (category, isPrincipal = false) => {
     const categoryToFind = isPrincipal
         ? getPrincipalCategory(category)
         : getSecundaryCategory(category);
-
     const elem = findCategory(categoryToFind);
-
     if (!elem)
         throw new Error(
             `La categoria '${category}' no existe en el diccionario`

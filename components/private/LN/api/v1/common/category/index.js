@@ -5,7 +5,6 @@ import {
 
 const getPrincipalCategory = section => {
     const { _id: slug, name: valor } = section;
-
     if (!isMigratedCategory(slug, true)) {
         const category = getCategory(slug, true);
 
