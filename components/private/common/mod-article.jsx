@@ -7,6 +7,7 @@ import ModDescription from './mod-description';
 //para demo front
 import ComImage from './com-image';
 import ModMedia from './mod-media';
+import getAuthorsPhoto from './utils/getAuthorsPhoto';
 
 const ModArticle = props => {
     const {
@@ -41,7 +42,9 @@ const ModArticle = props => {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
     }
-    const imagenDestacada = get(articleData, 'promo_items.basic', null);
+    const imagenDestacada = isRenderAuthor
+        ? getAuthorsPhoto(articleData)
+        : get(articleData, 'promo_items.basic', null);
     const type = get(imagenDestacada, 'type', null);
 
     return (

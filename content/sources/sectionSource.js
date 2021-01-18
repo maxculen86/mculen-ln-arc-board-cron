@@ -61,20 +61,21 @@ const transform = (data, siteProps) => {
 };
 const transformContent = (data, siteProps, arcSite) => {
     const promiseArr = [];
-    const resp = { ...data, articlesInCollection: [] };
-    const idCollection = get(
+    const resp = { ...data, articlesInCollection: [], collectionsInPage: [] };
+    const idCollectionApertura = get(
         resp,
         'acumuladoGeneral.id_collection_promo_items'
     );
+    const idCollections = get(resp, 'acumuladoGeneral.colecciones', []);
     const newSiteProps = {
         ...siteProps,
-        id: idCollection,
+        id: idCollectionApertura,
         size: 2,
         webSite: arcSite,
         imageConfig: 'l'
     };
 
-    if (idCollection) {
+    if (idCollectionApertura) {
         promiseArr.push(
             collectionsSource
                 .fetch(newSiteProps)
@@ -86,12 +87,41 @@ const transformContent = (data, siteProps, arcSite) => {
                 .catch(error => {
                     logger.push(
                         error,
-                        { source: 'content/source', idCollection },
+                        { source: 'content/source', idCollectionApertura },
                         arcSite
                     );
                 })
         );
     }
+
+    idCollections.forEach(id => {
+        const collectionsProps = {
+            ...siteProps,
+            id,
+            size: 20,
+            webSite: arcSite,
+            imageConfig: 'l'
+        };
+        promiseArr.push(
+            collectionsSource
+                .fetch(collectionsProps)
+                .then(response => {
+                    if (response && response.content_elements) {
+                        resp.collectionsInPage.push({
+                            idCollection: id,
+                            articles: response.content_elements
+                        });
+                    }
+                })
+                .catch(error => {
+                    logger.push(
+                        error,
+                        { source: 'content/source', id },
+                        arcSite
+                    );
+                })
+        );
+    });
 
     promiseArr.push(
         getNavigationSiteProperties(arcSite).then(result => {
@@ -144,5 +174,5 @@ export default {
         id: 'text',
         website: 'text'
     },
-    ttl: 300
+    ttl: 30//300
 };

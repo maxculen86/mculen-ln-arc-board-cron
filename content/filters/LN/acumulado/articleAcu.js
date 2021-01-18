@@ -43,6 +43,17 @@ export default `
             by {
                 name
                 type
+                image {
+                    url
+                    resized_urls {
+                        ${imageResizedUrl}             
+                    }
+                }
+                additional_properties {
+                    original {
+                        image
+                    }
+                }
             }
         }
         headlines {

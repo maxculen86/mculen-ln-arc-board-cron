@@ -53,34 +53,31 @@ const fetch = query => {
 const transform = (data, siteProps) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
-    const { presets, presetsDefault } = getPresets(siteProps);
+    const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
 
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     respData.content_elements =
         contentElements &&
         contentElements.map(elem => {
-            const promoItems = get(elem, `promo_items`, null);
             const subtype = get(elem, `subtype`, null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
             return {
                 ...elem,
-                ...addResizedUrls(
-                    { ...(promoItems && { promo_items: promoItems }) },
-                    {
-                        resizerSecret: RESIZER_KEY,
-                        resizerUrl: RESIZER_URL,
-                        presets: {
-                            promoItems: presetsPromoItems,
-                            presetsDefault
-                        },
-                        // Se pasa el subtype para que las notas de foto al 100
-                        // y storytelling no sean excluidas de las elemalidaciones del resizer
-                        // y pueda aplicarse 3:2, focal point o smartcrop
-                        subtype: isFotoAl100orStorytelling ? '-1' : subtype
-                    }
-                ),
+                ...addResizedUrls(elem, {
+                    resizerSecret: RESIZER_KEY,
+                    resizerUrl: RESIZER_URL,
+                    presets: {
+                        promoItems: presetsPromoItems,
+                        presetsDefault,
+                        credits: presetsCredits
+                    },
+                    // Se pasa el subtype para que las notas de foto al 100
+                    // y storytelling no sean excluidas de las elemalidaciones del resizer
+                    // y pueda aplicarse 3:2, focal point o smartcrop
+                    subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                }),
                 ...(elem.canonical_url && { website_url: elem.canonical_url })
             };
         });

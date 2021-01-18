@@ -1,60 +1,52 @@
 import PropTypes from 'fusion:prop-types';
 
-export const classRules = {
-    focalLeft: '--focal --left',
-    focalRight: '--focal --right',
-    notaAl100: '--cinema',
-    notaColor: '--highlight',
-    grilla: '',
-    author: ''
-};
-
-export const cajaTemasCustomsFields = () => {
+const cajaTemasCustomsFields = () => {
     return {
         url: PropTypes.url.tag({
-            label: 'Url',
+            label: 'Link',
             description:
                 'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
             defaultValue: '',
-            group: 'Custom Fields'
+            group: 'Techo'
+        }),
+        imageId: PropTypes.string.tag({
+            name: 'Logo',
+            description: 'Ingrese aquí el id de Photo Center de la imagen',
+            defaultValue: '',
+            group: 'Techo'
         }),
         title: PropTypes.string.tag({
-            name: 'Título / Techo',
+            name: 'Texto',
             description: 'Ingrese aquí el título de la caja de temas',
             defaultValue: '',
-            group: 'Custom Fields'
+            group: 'Techo'
         }),
-        initialPosition: PropTypes.number.tag({
-            label: 'Nota Inicial',
-            description: 'Indicar a partir de que nota desea mostrar',
-            defaultValue: 1,
-            group: 'Custom Fields'
-        }).isRequired,
+        hideTitle: PropTypes.boolean.tag({
+            name: 'Ocultar techo',
+            description: 'Marque para ocultar el techo',
+            defaultValue: false,
+            group: 'Techo'
+        }),
         layout: PropTypes.oneOf([
-            'notaAl100',
-            'grilla',
-            'focalLeft',
-            'focalRight',
-            'author',
-            'notaColor'
+            'focalLeft3',
+            'author3',
+            'notaColor3',
+            'grilla3',
+            'grilla6',
+            'grilla9'
         ]).tag({
-            label: 'Diseño',
-            defaultValue: 'grilla',
+            label: 'Diagramación',
+            defaultValue: 'grilla3',
             description: 'Cambiar el diseño de la caja',
-            group: 'Custom Fields',
+            group: 'Ajuste Collection',
             labels: {
-                notaAl100: 'Nota al 100',
-                grilla: 'Grilla 2, 3, 4, 6, 9, 12',
-                focalLeft: 'Focal Izquierdo',
-                focalRight: 'Focal Derecho',
-                author: 'Autor',
-                notaColor: '3 Notas a color'
+                grilla3: 'Grilla 3',
+                grilla6: 'Grilla 6',
+                grilla9: 'Grilla 9',
+                focalLeft3: 'Focal Izquierdo',
+                author3: 'Opinión',
+                notaColor3: 'Vertical 3 color'
             }
-        }).isRequired,
-        notesQuantity: PropTypes.number.tag({
-            label: 'Cantidad Notas',
-            description: 'Indicar cantidad de notas',
-            group: 'Custom Fields'
         }).isRequired,
         backgroundColor: PropTypes.oneOf([
             'default',
@@ -66,14 +58,23 @@ export const cajaTemasCustomsFields = () => {
             label: 'Color de Fondo',
             defaultValue: 'default',
             description: 'Cambiar el color de fondo de la caja',
-            group: 'Custom Fields',
+            group: 'Ajuste Collection',
             labels: {
                 default: 'Sin Color',
                 '--pink': 'Rosa',
-                '--blue': 'Azul',
+                '--blue': 'Celeste LN',
                 '--red': 'Rojo',
-                '--teal': 'Turqueza'
+                '--teal': 'Verde',
+                '--grey': 'Gris'
             }
-        })
+        }),
+        initialPosition: PropTypes.number.tag({
+            label: 'N° de nota inicial',
+            description: 'Indicar a partir de que nota desea mostrar',
+            defaultValue: 1,
+            group: 'Ajuste Collection'
+        }).isRequired
     };
 };
+
+export default cajaTemasCustomsFields;

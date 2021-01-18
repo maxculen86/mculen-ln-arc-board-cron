@@ -1,23 +1,23 @@
 import React from 'react';
 import Static from 'fusion:static';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import getArticleInCollection from '../private/LN/common/utils/getArticleInCollection';
 import CajaTema from '../private/LN/common/cajaTema';
-import {
-    cajaTemasCustomsFields,
-    classRules
-} from '../private/LN/common/utils/cajaTemasHelper';
+import cajaTemasCustomsFields from '../private/LN/common/utils/cajaTemasHelper';
+import config from '../../properties/sites/la-nacion-ar';
+import get from '../private/common/utils/get';
 
 const CajaTemaCollections = props => {
-    const validateFeature = (idCollection, layout, notesQuantity) => {
+    const validateFeature = (idCollection, layout) => {
         let error;
         if (!idCollection)
             error = {
                 type: 'warning',
                 message: 'Se requiere el id de la colección de la caja de temas'
             };
-
+        /*
         if (layout === 'focalRight' && notesQuantity !== 2)
             error = {
                 type: 'warning',
@@ -30,7 +30,7 @@ const CajaTemaCollections = props => {
                 message: 'El diseño Focal Izquierdo requiere solo 3 notas'
             };
 
-        if (layout === 'autor' && notesQuantity !== 3)
+        if (layout === 'author' && notesQuantity !== 3)
             error = {
                 type: 'warning',
                 message: 'El diseño de Autor requiere solo 3 notas'
@@ -44,15 +44,16 @@ const CajaTemaCollections = props => {
 
         if (
             layout === 'grilla' &&
+            notesQuantity !== 1 &&
             notesQuantity !== 2 &&
-            notesQuantity !== 4 &&
             notesQuantity % 3 !== 0
         )
             error = {
                 type: 'warning',
                 message:
-                    'El diseño de Grilla requiere que sean 2, 3, 4, 6, 9 o 12 notas'
+                    'El diseño de Grilla requiere que sean 1, 2, 3, 6, 9 o 12 notas'
             };
+            */
         return error;
     };
 
@@ -66,13 +67,32 @@ const CajaTemaCollections = props => {
             layout = '',
             backgroundColor,
             initialPosition,
-            notesQuantity
+            imageId,
+            hideTitle
         },
-        outputType
+        outputType,
+        globalContent
     } = props;
-    console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 32 ~ props", props.customFields)
 
-    const error = validateFeature(idCollection, layout, notesQuantity);
+    const { cajaTemaCss = {} } = config || {};
+    const { collectionsInPage = [] } = globalContent || {};
+    const error = validateFeature(idCollection, layout);
+    const notesQuantity = layout.slice(-1);
+    const totalArticlesInCollections = collectionsInPage.reduce(
+        (total, currentValue) => {
+            return total + currentValue.articles.length;
+        },
+        0
+    );
+    console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 86 ~ totalArticlesInCollections", totalArticlesInCollections)
+    const currentCollection = collectionsInPage.find(
+        collect => collect.idCollection === idCollection
+    );
+    // console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 32 ~ articlesInCollection", currentCollection)
+    const articlesFiltered = currentCollection
+        ? currentCollection.articles.slice(initialPosition - 1, notesQuantity)
+        : [];
+    // console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 32 ~ articlesFiltered", articlesFiltered)
 
     if (isAdmin || error) {
         return (
@@ -91,28 +111,30 @@ const CajaTemaCollections = props => {
             </div>
         );
     }
-
+    /*
     const articles = getArticleInCollection(
         idCollection,
         notesQuantity,
         initialPosition
     );
-    console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 94 ~ articles", articles)
-
+    */
     const bgColor =
         backgroundColor !== 'default' && layout !== 'notaColor'
             ? '--bgcolor '
             : '';
+    const classCondition = cajaTemaCss[layout];
 
     return (
         <Static id={featureId}>
             <CajaTema
                 title={title}
+                hideTitle={hideTitle}
                 url={url}
+                imageId={imageId}
                 outputType={outputType}
                 layout={layout}
-                classCondition={classRules[layout]}
-                articles={articles}
+                classCondition={classCondition}
+                articles={articlesFiltered}
                 notesQuantity={notesQuantity}
                 backgroundColor={
                     backgroundColor !== 'default'
@@ -132,13 +154,13 @@ CajaTemaCollections.propTypes = {
     outputType: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         idCollection: PropTypes.string.tag({
-            label: 'ID de la collection',
+            label: 'ID',
             description: 'Ingrese aquí el ID de la collection',
             defaultValue: '',
-            group: 'Custom Fields'
+            group: 'Ajuste Collection'
         }).isRequired,
         ...cajaTemasCustomsFields()
     }).isRequired
 };
 
-export default CajaTemaCollections;
+export default Consumer(CajaTemaCollections);

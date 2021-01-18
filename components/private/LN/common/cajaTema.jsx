@@ -9,12 +9,14 @@ const CajaTema = props => {
     const {
         outputType,
         title,
+        imageId,
         url,
         articles = [],
         layout = 'grilla',
         backgroundColor = '',
         classCondition = '',
         notesQuantity = 3,
+        hideTitle = false
     } = props;
 
     const isFocal = layout.includes('focal');
@@ -25,7 +27,13 @@ const CajaTema = props => {
             <section
                 className={`box-articles ${classCondition} ${backgroundColor}`}
             >
-                <ModHeaderSection title={title} link={url} />
+                {hideTitle && (
+                    <ModHeaderSection
+                        imageId={imageId}
+                        title={title}
+                        link={url}
+                    />
+                )}
                 <ModRowGap
                     typeArticle={isFocal ? 'Focal' : 'Grilla'}
                     column={notesQuantity}
