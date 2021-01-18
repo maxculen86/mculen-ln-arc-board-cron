@@ -4,18 +4,21 @@ import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import ComTitle from './com-title';
 
+import '../../../resources/dist/css/ln/modules/mod-linklist.css';
+
 const ComLinkList = ({ title, list, separator }) =>
     (list && list.length && (
-        <>
-            <ComTitle tag="h1" size="s" content={title} />
+        <section className="mod-linklist">
+            {title ? <ComTitle size="--twoxs" content={title} /> : ''}
+
             <ul className={`com-unordered ${separator || ''}`}>
                 {list.map(element => (
-                    <li className="com-link">
+                    <li className="item">
                         <ComLink {...element} />
                     </li>
                 ))}
             </ul>
-        </>
+        </section>
     )) ||
     null;
 
