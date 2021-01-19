@@ -1,6 +1,12 @@
 {
     "categories": [
         {
+            "_id": "8013",
+            "ArcSectionId": "/",
+            "name": "La Nacion",
+            "migrada": true
+        },
+        {
             "_id": "6251",
             "ArcSectionId": "/propiedades",
             "name": "Propiedades",
@@ -103,118 +109,10 @@
             "migrada": true
         },
         {
-            "_id": "62",
-            "ArcSectionId": "/transito",
-            "name": "Tránsito",
-            "migrada": false
-        },
-        {
-            "_id": "132",
-            "ArcSectionId": "/espectaculos",
-            "name": "Espectáculos",
-            "migrada": false
-        },
-        {
-            "_id": "133",
-            "ArcSectionId": "/cine",
-            "name": "Cine",
-            "migrada": false
-        },
-        {
-            "_id": "139",
-            "ArcSectionId": "/teatro",
-            "name": "Teatro",
-            "migrada": false
-        },
-        {
-            "_id": "67",
-            "ArcSectionId": "/deportes",
-            "name": "Deportes",
-            "migrada": true
-        },
-        {
             "_id": "1312",
             "ArcSectionId": "/moda-y-belleza",
             "name": "Moda y Belleza",
             "migrada": true
-        },
-        {
-            "_id": "70",
-            "ArcSectionId": "/automovilismo",
-            "name": "Automovilismo",
-            "migrada": false
-        },
-        {
-            "_id": "64",
-            "ArcSectionId": "/comunidad",
-            "name": "Comunidad",
-            "migrada": false
-        },
-        {
-            "_id": "152",
-            "ArcSectionId": "/inmuebles-comerciales",
-            "name": "Inmuebles Comerciales",
-            "migrada": false
-        },
-        {
-            "_id": "75",
-            "ArcSectionId": "/futbol",
-            "name": "Fútbol",
-            "migrada": false
-        },
-        {
-            "_id": "71",
-            "ArcSectionId": "/basquetbol",
-            "name": "Basquetbol",
-            "migrada": false
-        },
-        {
-            "_id": "117",
-            "ArcSectionId": "/tenis",
-            "name": "Tenis",
-            "migrada": false
-        },
-        {
-            "_id": "113",
-            "ArcSectionId": "/rugby",
-            "name": "Rugby",
-            "migrada": false
-        },
-        {
-            "_id": "123",
-            "ArcSectionId": "/economia",
-            "name": "Economía",
-            "migrada": true
-        },
-        {
-            "_id": "146",
-            "ArcSectionId": "/opinion",
-            "name": "Opinión",
-            "migrada": false
-        },
-        {
-            "_id": "150",
-            "ArcSectionId": "/politica",
-            "name": "Política",
-            "migrada": true
-        },
-        {
-            "_id": "124",
-            "ArcSectionId": "/campo",
-            "name": "Campo",
-            "migrada": false
-        },
-        {
-            "_id": "125",
-            "ArcSectionId": "/comercio-exterior",
-            "name": "Comercio Exterior",
-            "migrada": false
-        },
-        {
-            "_id": "57",
-            "ArcSectionId": "/arquitectura",
-            "name": "Arquitectura",
-            "migrada": false
         },
         {
             "_id": "371",
@@ -223,22 +121,10 @@
             "migrada": true
         },
         {
-            "_id": "127",
-            "ArcSectionId": "/empleos",
-            "name": "Empleos",
-            "migrada": false
-        },
-        {
             "_id": "432",
             "ArcSectionId": "/tecnologia",
             "name": "Tecnología",
             "migrada": true
-        },
-        {
-            "_id": "142",
-            "ArcSectionId": "/la-nacion-revista",
-            "name": "LA NACION Revista",
-            "migrada": false
         },
         {
             "_id": "504",
@@ -247,202 +133,16 @@
             "migrada": true
         },
         {
-            "_id": "129",
-            "ArcSectionId": "/editoriales",
-            "name": "Editoriales",
-            "migrada": false
-        },
-        {
-            "_id": "147",
-            "ArcSectionId": "/carta-de-lectores",
-            "name": "Carta de lectores",
-            "migrada": false
-        },
-        {
-            "_id": "135",
-            "ArcSectionId": "/musica",
-            "name": "Música",
-            "migrada": false
-        },
-        {
-            "_id": "134",
-            "ArcSectionId": "/danza",
-            "name": "Danza",
-            "migrada": false
-        },
-        {
-            "_id": "137",
-            "ArcSectionId": "/radio",
-            "name": "Radio",
-            "migrada": false
-        },
-        {
-            "_id": "140",
-            "ArcSectionId": "/television",
-            "name": "Televisión",
-            "migrada": false
-        },
-        {
-            "_id": "187",
-            "ArcSectionId": "/the-wall-street-journal-americas",
-            "name": "The Wall Street Journal Americas",
-            "migrada": false
-        },
-        {
-            "_id": "131",
-            "ArcSectionId": "/el-mundo",
-            "name": "El Mundo",
-            "migrada": false
-        },
-        {
-            "_id": "143",
-            "ArcSectionId": "/lifestyle",
-            "name": "Lifestyle",
-            "migrada": false
-        },
-        {
-            "_id": "182",
-            "ArcSectionId": "/salud",
-            "name": "Salud",
-            "migrada": false
-        },
-        {
             "_id": "492",
             "ArcSectionId": "/moda-y-belleza/moda",
             "name": "Moda",
             "migrada": true
         },
         {
-            "_id": "63",
-            "ArcSectionId": "/ciencia",
-            "name": "Ciencia",
-            "migrada": false
-        },
-        {
-            "_id": "148",
-            "ArcSectionId": "/miradas",
-            "name": "Miradas",
-            "migrada": false
-        },
-        {
-            "_id": "184",
-            "ArcSectionId": "/sociedad",
-            "name": "Sociedad",
-            "migrada": false
-        },
-        {
-            "_id": "61",
-            "ArcSectionId": "/buenos-aires",
-            "name": "Buenos Aires",
-            "migrada": false
-        },
-        {
-            "_id": "183",
-            "ArcSectionId": "/seguridad",
-            "name": "Seguridad",
-            "migrada": false
-        },
-        {
-            "_id": "191",
-            "ArcSectionId": "/edicion-empresa",
-            "name": "Edicion Empresa",
-            "migrada": false
-        },
-        {
-            "_id": "141",
-            "ArcSectionId": "/ideas",
-            "name": "Ideas",
-            "migrada": false
-        },
-        {
-            "_id": "153",
-            "ArcSectionId": "/revista-brando",
-            "name": "Revista Brando",
-            "migrada": false
-        },
-        {
             "_id": "504",
             "ArcSectionId": "/revista-lugares",
             "name": "Revista Lugares",
             "migrada": true
-        },
-        {
-            "_id": "156",
-            "ArcSectionId": "/revista-jardin",
-            "name": "Revista Jardín",
-            "migrada": false
-        },
-        {
-            "_id": "154",
-            "ArcSectionId": "/revista-hola",
-            "name": "Revista ¡HOLA!",
-            "migrada": true
-        },
-        {
-            "_id": "157",
-            "ArcSectionId": "/revista-living",
-            "name": "Revista Living",
-            "migrada": false
-        },
-        {
-            "_id": "172",
-            "ArcSectionId": "/revista-ohlala",
-            "name": "Revista OHLALÁ!",
-            "migrada": false
-        },
-        {
-            "_id": "177",
-            "ArcSectionId": "/revista-rolling-stone",
-            "name": "Revista Rolling Stone",
-            "migrada": false
-        },
-        {
-            "_id": "128",
-            "ArcSectionId": "/industria",
-            "name": "Industria",
-            "migrada": false
-        },
-        {
-            "_id": "103",
-            "ArcSectionId": "/futsal",
-            "name": "Futsal",
-            "migrada": false
-        },
-        {
-            "_id": "116",
-            "ArcSectionId": "/taekwondo",
-            "name": "Taekwondo",
-            "migrada": false
-        },
-        {
-            "_id": "119",
-            "ArcSectionId": "/ufc",
-            "name": "UFC",
-            "migrada": false
-        },
-        {
-            "_id": "115",
-            "ArcSectionId": "/surf",
-            "name": "Surf",
-            "migrada": false
-        },
-        {
-            "_id": "130",
-            "ArcSectionId": "/educacion",
-            "name": "Educación",
-            "migrada": false
-        },
-        {
-            "_id": "136",
-            "ArcSectionId": "/personajes",
-            "name": "Personajes",
-            "migrada": false
-        },
-        {
-            "_id": "138",
-            "ArcSectionId": "/series-de-tv",
-            "name": "Series de tv",
-            "migrada": false
         },
         {
             "_id": "8012",
@@ -455,18 +155,6 @@
             "ArcSectionId": "/autos",
             "name": "Autos",
             "migrada": true
-        },
-        {
-            "_id": "126",
-            "ArcSectionId": "/dolar",
-            "name": "Dólar Hoy",
-            "migrada": false
-        },
-        {
-            "_id": "114",
-            "ArcSectionId": "/running",
-            "name": "Running",
-            "migrada": false
         },
         {
             "_id": "",
@@ -635,6 +323,438 @@
             "ArcSectionId": "/veganas",
             "name": "Veganas",
             "migrada": true
+        },
+        {
+            "_id": "504",
+            "ArcSectionId": "/revista-lugares/tapas",
+            "name": "Tapas Lugares",
+            "migrada": true
+        },
+        {
+            "_id": "153",
+            "ArcSectionId": "/revista-brando",
+            "name": "Revista Brando",
+            "migrada": true
+        },
+        {
+            "_id": "156",
+            "ArcSectionId": "/revista-jardin",
+            "name": "Revista Jardín",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living",
+            "name": "Revista Living",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/agenda-living",
+            "name": "Agenda Living",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/banos",
+            "name": "Baños",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/cocinas",
+            "name": "Cocinas",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/comedores",
+            "name": "Comedores",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/dormitorios",
+            "name": "Dormitorios",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/espacios-exteriores",
+            "name": "Espacios exteriores",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/fachadas",
+            "name": "Fachadas",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/home-office",
+            "name": "Home Office",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/inspiracion",
+            "name": "Inspiración",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/living",
+            "name": "Living",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/playroom",
+            "name": "Playroom",
+            "migrada": true
+        },
+        {
+            "_id": "157",
+            "ArcSectionId": "/revista-living/soluciones",
+            "name": "Soluciones",
+            "migrada": true
+        },
+        {
+            "_id": "172",
+            "ArcSectionId": "/revista-ohlala",
+            "name": "Revista OHLALÁ!",
+            "migrada": true
+        },
+        {
+            "_id": "172",
+            "ArcSectionId": "/revista-ohlala/fabrica-ohlala",
+            "name": "Fábrica OHLALÁ!",
+            "migrada": true
+        },
+        {
+            "_id": "172",
+            "ArcSectionId": "/revista-ohlala/ohlala-moda",
+            "name": "OHLALA! Moda ",
+            "migrada": true
+        },
+        {
+            "_id": "172",
+            "ArcSectionId": "/revista-ohlala/ohlala-fest",
+            "name": "OHLALÁ! Fest",
+            "migrada": true
+        },
+        {
+            "_id": "172",
+            "ArcSectionId": "/revista-ohlala/ohlala-makers",
+            "name": "OHLALÁ! Makers",
+            "migrada": true
+        },
+        {
+            "_id": "172",
+            "ArcSectionId": "/revista-ohlala/ohlala-viaja",
+            "name": "OHLALÁ! Viaja",
+            "migrada": true
+        },
+        {
+            "_id": "154",
+            "ArcSectionId": "/revista-hola",
+            "name": "Revista ¡HOLA!",
+            "migrada": true
+        },
+        {
+            "_id": "154",
+            "ArcSectionId": "/revista-hola/estilo-hola",
+            "name": "Estilo ¡HOLA!",
+            "migrada": true
+        },
+        {
+            "_id": "181",
+            "ArcSectionId": "/sabado",
+            "name": "Sábado",
+            "migrada": true
+        },
+        {
+            "_id": "366",
+            "ArcSectionId": "/arquitectura",
+            "name": "Arquitectura",
+            "migrada": true
+        },
+        {
+            "_id": "143",
+            "ArcSectionId": "/lifestyle",
+            "name": "Lifestyle",
+            "migrada": true
+        },
+        {
+            "_id": "62",
+            "ArcSectionId": "/transito",
+            "name": "Tránsito",
+            "migrada": false
+        },
+        {
+            "_id": "132",
+            "ArcSectionId": "/espectaculos",
+            "name": "Espectáculos",
+            "migrada": false
+        },
+        {
+            "_id": "133",
+            "ArcSectionId": "/cine",
+            "name": "Cine",
+            "migrada": false
+        },
+        {
+            "_id": "139",
+            "ArcSectionId": "/teatro",
+            "name": "Teatro",
+            "migrada": false
+        },
+        {
+            "_id": "67",
+            "ArcSectionId": "/deportes",
+            "name": "Deportes",
+            "migrada": false
+        },
+        {
+            "_id": "70",
+            "ArcSectionId": "/automovilismo",
+            "name": "Automovilismo",
+            "migrada": false
+        },
+        {
+            "_id": "152",
+            "ArcSectionId": "/inmuebles-comerciales",
+            "name": "Inmuebles Comerciales",
+            "migrada": false
+        },
+        {
+            "_id": "75",
+            "ArcSectionId": "/futbol",
+            "name": "Fútbol",
+            "migrada": false
+        },
+        {
+            "_id": "71",
+            "ArcSectionId": "/basquetbol",
+            "name": "Basquetbol",
+            "migrada": false
+        },
+        {
+            "_id": "117",
+            "ArcSectionId": "/tenis",
+            "name": "Tenis",
+            "migrada": false
+        },
+        {
+            "_id": "113",
+            "ArcSectionId": "/rugby",
+            "name": "Rugby",
+            "migrada": false
+        },
+        {
+            "_id": "123",
+            "ArcSectionId": "/economia",
+            "name": "Economía",
+            "migrada": false
+        },
+        {
+            "_id": "146",
+            "ArcSectionId": "/opinion",
+            "name": "Opinión",
+            "migrada": false
+        },
+        {
+            "_id": "150",
+            "ArcSectionId": "/politica",
+            "name": "Política",
+            "migrada": false
+        },
+        {
+            "_id": "124",
+            "ArcSectionId": "/campo",
+            "name": "Campo",
+            "migrada": false
+        },
+        {
+            "_id": "125",
+            "ArcSectionId": "/comercio-exterior",
+            "name": "Comercio Exterior",
+            "migrada": false
+        },
+        {
+            "_id": "127",
+            "ArcSectionId": "/empleos",
+            "name": "Empleos",
+            "migrada": false
+        },
+        {
+            "_id": "142",
+            "ArcSectionId": "/la-nacion-revista",
+            "name": "LA NACION Revista",
+            "migrada": false
+        },
+        {
+            "_id": "129",
+            "ArcSectionId": "/editoriales",
+            "name": "Editoriales",
+            "migrada": false
+        },
+        {
+            "_id": "147",
+            "ArcSectionId": "/carta-de-lectores",
+            "name": "Carta de lectores",
+            "migrada": false
+        },
+        {
+            "_id": "135",
+            "ArcSectionId": "/musica",
+            "name": "Música",
+            "migrada": false
+        },
+        {
+            "_id": "134",
+            "ArcSectionId": "/danza",
+            "name": "Danza",
+            "migrada": false
+        },
+        {
+            "_id": "137",
+            "ArcSectionId": "/radio",
+            "name": "Radio",
+            "migrada": false
+        },
+        {
+            "_id": "140",
+            "ArcSectionId": "/television",
+            "name": "Televisión",
+            "migrada": false
+        },
+        {
+            "_id": "187",
+            "ArcSectionId": "/the-wall-street-journal-americas",
+            "name": "The Wall Street Journal Americas",
+            "migrada": false
+        },
+        {
+            "_id": "131",
+            "ArcSectionId": "/el-mundo",
+            "name": "El Mundo",
+            "migrada": false
+        },
+        {
+            "_id": "182",
+            "ArcSectionId": "/salud",
+            "name": "Salud",
+            "migrada": false
+        },
+        {
+            "_id": "63",
+            "ArcSectionId": "/ciencia",
+            "name": "Ciencia",
+            "migrada": false
+        },
+        {
+            "_id": "148",
+            "ArcSectionId": "/miradas",
+            "name": "Miradas",
+            "migrada": false
+        },
+        {
+            "_id": "184",
+            "ArcSectionId": "/sociedad",
+            "name": "Sociedad",
+            "migrada": false
+        },
+        {
+            "_id": "61",
+            "ArcSectionId": "/buenos-aires",
+            "name": "Buenos Aires",
+            "migrada": false
+        },
+        {
+            "_id": "183",
+            "ArcSectionId": "/seguridad",
+            "name": "Seguridad",
+            "migrada": false
+        },
+        {
+            "_id": "191",
+            "ArcSectionId": "/edicion-empresa",
+            "name": "Edicion Empresa",
+            "migrada": false
+        },
+        {
+            "_id": "141",
+            "ArcSectionId": "/ideas",
+            "name": "Ideas",
+            "migrada": false
+        },
+        {
+            "_id": "177",
+            "ArcSectionId": "/revista-rolling-stone",
+            "name": "Revista Rolling Stone",
+            "migrada": false
+        },
+        {
+            "_id": "128",
+            "ArcSectionId": "/industria",
+            "name": "Industria",
+            "migrada": false
+        },
+        {
+            "_id": "103",
+            "ArcSectionId": "/futsal",
+            "name": "Futsal",
+            "migrada": false
+        },
+        {
+            "_id": "116",
+            "ArcSectionId": "/taekwondo",
+            "name": "Taekwondo",
+            "migrada": false
+        },
+        {
+            "_id": "119",
+            "ArcSectionId": "/ufc",
+            "name": "UFC",
+            "migrada": false
+        },
+        {
+            "_id": "115",
+            "ArcSectionId": "/surf",
+            "name": "Surf",
+            "migrada": false
+        },
+        {
+            "_id": "130",
+            "ArcSectionId": "/educacion",
+            "name": "Educación",
+            "migrada": false
+        },
+        {
+            "_id": "136",
+            "ArcSectionId": "/personajes",
+            "name": "Personajes",
+            "migrada": false
+        },
+        {
+            "_id": "138",
+            "ArcSectionId": "/series-de-tv",
+            "name": "Series de tv",
+            "migrada": false
+        },
+        {
+            "_id": "126",
+            "ArcSectionId": "/dolar",
+            "name": "Dólar Hoy",
+            "migrada": false
+        },
+        {
+            "_id": "114",
+            "ArcSectionId": "/running",
+            "name": "Running",
+            "migrada": false
         },
         {
             "_id": "60",
@@ -1003,12 +1123,6 @@
             "migrada": false
         },
         {
-            "_id": "504",
-            "ArcSectionId": "/revista-lugares/tapas",
-            "name": "Tapas Lugares",
-            "migrada": true
-        },
-        {
             "_id": "173",
             "ArcSectionId": "/fabrica-ohlala",
             "name": "Fábrica OHLALÁ!",
@@ -1048,12 +1162,6 @@
             "_id": "180",
             "ArcSectionId": "/tapas",
             "name": "RS Tapas",
-            "migrada": false
-        },
-        {
-            "_id": "181",
-            "ArcSectionId": "/sabado",
-            "name": "Sábado",
             "migrada": false
         },
         {
