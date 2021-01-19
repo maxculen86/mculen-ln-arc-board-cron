@@ -9,8 +9,7 @@ import '../../../resources/dist/css/ln/modules/mod-linklist.css';
 const ComLinkList = ({ title, list, separator }) =>
     (list && list.length && (
         <section className="mod-linklist">
-            {title ? <ComTitle size="--twoxs" content={title} /> : ''}
-
+            <ComTitle size="--twoxs" content={title} />
             <ul className={`com-unordered ${separator || ''}`}>
                 {list.map(element => (
                     <li className="item">
