@@ -4,7 +4,7 @@ import ArticleAcum from '../../acumulado/articleAcum';
 
 const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
     if (articles.length < 2) return null;
-    if (directionFocal === 'focalLeft' && articles.length < 3) return null;
+    if (directionFocal === 'focalLeft3' && articles.length < 3) return null;
     return (
         <>
             <div className="col-tablet-8">
@@ -12,10 +12,8 @@ const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
                     article={articles[0]}
                     outputType={outputType}
                     label="Chapita"
-                    frontdemo
-                    titleSize="--xl"
-                    titleTag="h1"
-                    withSubhead={directionFocal === 'focalLeft'}
+                    titleSize={directionFocal === 'focalLeft3' ? '--xl' : '--l'}
+                    withSubhead={directionFocal === 'focalLeft3'}
                 />
             </div>
             <div className="col-tablet-4">
@@ -23,16 +21,16 @@ const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
                     article={articles[1]}
                     outputType={outputType}
                     label="Chapita"
-                    frontdemo
-                    withSubhead={directionFocal === 'focalRight'}
-                    titleSize={directionFocal === 'focalRight' && '--l'}
+                    titleSize={
+                        directionFocal === 'focalRight3' ? '--xl' : '--xs'
+                    }
+                    withSubhead={directionFocal === 'focalRight3'}
                 />
-                {directionFocal === 'focalLeft' && (
+                {directionFocal === 'focalLeft3' && (
                     <ArticleAcum
                         article={articles[2]}
                         outputType={outputType}
                         label="Chapita"
-                        frontdemo
                     />
                 )}
             </div>

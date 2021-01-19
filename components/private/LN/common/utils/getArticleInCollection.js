@@ -5,7 +5,7 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 const getArticleInCollection = (
     idCollection = null,
     size = 2,
-    initialPosition = 1,
+    initialPosition = 0,
     website = 'la-nacion-ar'
 ) => {
     const articleList = useContent({
@@ -14,15 +14,14 @@ const getArticleInCollection = (
             id: idCollection,
             size,
             website,
-            from: initialPosition - 1
+            from: initialPosition
         },
         filter
     });
 
     const articles = get(articleList, 'content_elements', []);
-    const result = articles.length >= size && articles.splice(0, size);
 
-    return result || [];
+    return articles;
 };
 
 export default getArticleInCollection;

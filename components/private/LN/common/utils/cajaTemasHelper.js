@@ -1,6 +1,15 @@
 import PropTypes from 'fusion:prop-types';
 
-const cajaTemasCustomsFields = () => {
+const featuredRules = {
+    cajaTemaCollections: {
+        hideInitialPosition: false
+    },
+    cajaTemaAutomatic: {
+        hideInitialPosition: true
+    }
+};
+
+const cajaTemasCustomsFields = featuredName => {
     return {
         url: PropTypes.url.tag({
             label: 'Link',
@@ -27,6 +36,12 @@ const cajaTemasCustomsFields = () => {
             defaultValue: false,
             group: 'Techo'
         }),
+        idCollection: PropTypes.string.tag({
+            label: 'ID',
+            description: 'Ingrese aquí el ID de la collection',
+            defaultValue: '',
+            group: 'Ajuste Collection'
+        }).isRequired,
         layout: PropTypes.oneOf([
             'focalLeft3',
             'author3',
@@ -53,14 +68,15 @@ const cajaTemasCustomsFields = () => {
             '--pink',
             '--blue',
             '--red',
-            '--teal'
+            '--teal',
+            '--grey'
         ]).tag({
             label: 'Color de Fondo',
             defaultValue: 'default',
             description: 'Cambiar el color de fondo de la caja',
             group: 'Ajuste Collection',
             labels: {
-                default: 'Sin Color',
+                default: 'Sin Fondo',
                 '--pink': 'Rosa',
                 '--blue': 'Celeste LN',
                 '--red': 'Rojo',
@@ -72,7 +88,8 @@ const cajaTemasCustomsFields = () => {
             label: 'N° de nota inicial',
             description: 'Indicar a partir de que nota desea mostrar',
             defaultValue: 1,
-            group: 'Ajuste Collection'
+            group: 'Ajuste Collection',
+            hidden: featuredRules[featuredName].hideInitialPosition
         }).isRequired
     };
 };

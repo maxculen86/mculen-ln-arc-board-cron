@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-//import '../../../resources/dist/css/ln/components/com-labelarticle.css';
+import '../../../resources/dist/css/ln/components/com-label.css';
 
 const ComlabelArticle = props => {
     const { labelArticle } = props;
@@ -12,6 +12,10 @@ const ComlabelArticle = props => {
             {labelArticle}
         </div>
     );
+};
+
+ComlabelArticle.propTypes = {
+    labelArticle: PropTypes.string.isRequired
 };
 
 export default ComlabelArticle;

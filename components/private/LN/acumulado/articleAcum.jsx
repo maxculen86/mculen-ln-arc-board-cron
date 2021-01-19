@@ -10,19 +10,16 @@ import getAuthorsAsString from '../../common/utils/getAuthorsAsString';
 const typeAcumRules = {
     Grilla: {
         withMedia: true,
-        withSubhead: false,
         withAuthors: true,
         withHour: false
     },
     Listado: {
         withMedia: false,
-        withSubhead: true,
         withAuthors: true,
         withHour: false
     },
     Timeline: {
         withMedia: true,
-        withSubhead: false,
         withAuthors: false,
         withHour: true
     }
@@ -44,9 +41,7 @@ const ArticleAcum = ({
     const authors =
         typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(article);
 
-    const subheadText =
-        (typeAcumRules[typeArticle].withSubhead || withSubhead) &&
-        getBajadaOrFirstTextParagraph(article);
+    const subheadText = withSubhead && getBajadaOrFirstTextParagraph(article);
 
     const titleText = getTitleText(headlines, label);
 

@@ -3,11 +3,19 @@ import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import getArticleInCollection from '../private/LN/common/utils/getArticleInCollection';
 import CajaTema from '../private/LN/common/cajaTema';
 import cajaTemasCustomsFields from '../private/LN/common/utils/cajaTemasHelper';
 import config from '../../properties/sites/la-nacion-ar';
 
-const CajaTemaCollections = props => {
+const isInAnotherCollection = (idArticle, collectionsInPage) => {
+    const rto = collectionsInPage.find(collect =>
+        collect.articles.some(artCol => artCol._id === idArticle)
+    );
+    return rto || false;
+};
+
+const CajaTemaAutomatic = props => {
     const validateFeature = (idCollection, layout) => {
         let error;
         if (!idCollection)
@@ -38,7 +46,7 @@ const CajaTemaCollections = props => {
     const { cajaTemaCss = {} } = config || {};
     const { collectionsInPage = [] } = globalContent || {};
     const error = validateFeature(idCollection, layout);
-    const notesQuantity = layout.slice(-1);
+    const notesQuantity = Number(layout.slice(-1));
     const bgColor =
         backgroundColor !== 'default' && layout !== 'notaColor'
             ? '--bgcolor '
@@ -63,13 +71,27 @@ const CajaTemaCollections = props => {
         );
     }
 
-    const currentCollection = collectionsInPage.find(
-        collect => collect.idCollection === idCollection
+    const totalArticlesInCollections = collectionsInPage.reduce(
+        (total, currentValue) => {
+            return total + currentValue.articles.length;
+        },
+        0
     );
-    // console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 32 ~ articlesInCollection", currentCollection)
-    const articlesFiltered = currentCollection
-        ? currentCollection.articles.slice(initialPosition - 1, notesQuantity)
-        : currentCollection.articles;
+    const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
+    const size = totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
+    const articles = getArticleInCollection(
+        idCollection,
+        size,
+        initialPosition - 1
+    );
+
+    const articlesFiltered = articles.filter(
+        art => isInAnotherCollection(art._id, collectionsInPage) === false
+    );
+
+    const articlesToShow = articlesFiltered
+        ? articlesFiltered.slice(initialPosition - 1, notesQuantity)
+        : [];
 
     return (
         <Static id={featureId}>
@@ -81,7 +103,7 @@ const CajaTemaCollections = props => {
                 outputType={outputType}
                 layout={layout}
                 classCondition={classCondition}
-                articles={articlesFiltered}
+                articles={articlesToShow}
                 notesQuantity={notesQuantity}
                 backgroundColor={
                     backgroundColor !== 'default'
@@ -93,15 +115,15 @@ const CajaTemaCollections = props => {
     );
 };
 
-CajaTemaCollections.label = 'LN Caja Tema Collections';
+CajaTemaAutomatic.label = 'LN Caja Tema Automatica';
 
-CajaTemaCollections.propTypes = {
+CajaTemaAutomatic.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     outputType: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaTemaCollections')
+        ...cajaTemasCustomsFields('cajaTemaAutomatic')
     }).isRequired
 };
 
-export default Consumer(CajaTemaCollections);
+export default Consumer(CajaTemaAutomatic);

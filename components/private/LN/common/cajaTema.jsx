@@ -23,45 +23,40 @@ const CajaTema = props => {
     const isRenderAuthor = layout.includes('author');
 
     return (
-        <div className="home">
-            <section
-                className={`box-articles ${classCondition} ${backgroundColor}`}
+        <section
+            className={`box-articles ${classCondition} ${backgroundColor}`}
+        >
+            {!hideTitle && (
+                <ModHeaderSection imageId={imageId} title={title} link={url} />
+            )}
+            <ModRowGap
+                typeArticle={isFocal ? 'Focal' : 'Grilla'}
+                column={notesQuantity}
+                classCondition={classCondition}
             >
-                {hideTitle && (
-                    <ModHeaderSection
-                        imageId={imageId}
-                        title={title}
-                        link={url}
+                {isFocal ? (
+                    <FocalFactory
+                        directionFocal={layout}
+                        articles={articles}
+                        outputType={outputType}
                     />
+                ) : (
+                    articles.map(art => {
+                        const artWithoutDate = { ...art, display_date: '' };
+                        return (
+                            <ArticleAcum
+                                key={artWithoutDate._id}
+                                article={artWithoutDate}
+                                outputType={outputType}
+                                frontdemo
+                                isRenderAuthor={isRenderAuthor}
+                                withSubhead={false}
+                            />
+                        );
+                    })
                 )}
-                <ModRowGap
-                    typeArticle={isFocal ? 'Focal' : 'Grilla'}
-                    column={notesQuantity}
-                    classCondition={classCondition}
-                >
-                    {isFocal ? (
-                        <FocalFactory
-                            directionFocal={layout}
-                            articles={articles}
-                            outputType={outputType}
-                        />
-                    ) : (
-                        articles.map(art => {
-                            const artWithoutDate = { ...art, display_date: '' };
-                            return (
-                                <ArticleAcum
-                                    key={artWithoutDate._id}
-                                    article={artWithoutDate}
-                                    outputType={outputType}
-                                    frontdemo
-                                    isRenderAuthor={isRenderAuthor}
-                                />
-                            );
-                        })
-                    )}
-                </ModRowGap>
-            </section>
-        </div>
+            </ModRowGap>
+        </section>
     );
 };
 

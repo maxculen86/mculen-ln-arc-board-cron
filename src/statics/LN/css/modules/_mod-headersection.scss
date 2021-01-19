@@ -7,17 +7,40 @@
     margin-bottom: $spacing-sm;
     width: 100%;
 
-    //max-height: px(44);
+    .com-title {
+        margin-bottom: 0;
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @media ($media-l) {
+            width: 50%;
+        }
+    }
+
+    .com-line {
+        margin-top: px(8);
+    }
+
+    .com-image {
+        //margin-bottom: $spacing-sm;
+        max-height: px(24);
+    }
 
     // &.--blue,
     // &.--red,
     // &.--teal,
     &.--bg {
         padding: $spacing-xs $spacing-sm;
-        background: $light-blue-500; //color default
+        background: $light-neutral-100; //color default
+
         .com-title {
             color: $neutral-white;
             margin: 0;
+            .com-link {
+                color: $neutral-white;
+            }
         }
         .com-line {
             display: none;
@@ -35,18 +58,5 @@
         &.--pink {
             background: $pink-600;
         }
-    }
-
-    .com-title {
-        margin-bottom: 0;
-        width: 50%;
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .com-line {
-        margin-top: px(8);
     }
 }
