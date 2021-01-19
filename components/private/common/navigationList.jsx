@@ -5,7 +5,7 @@ import LinkList from './com-link-list';
 import withNavigation from './hocs/withNavigation';
 import withStatic from './hocs/withStatic';
 
-const NavigationList = ({ title, hierarchy, separator, navigations }) => {
+const NavigationList = ({ title, separator, navigations }) => {
     const list =
         (navigations &&
             navigations.length &&
@@ -28,10 +28,8 @@ const NavigationList = ({ title, hierarchy, separator, navigations }) => {
         [];
 
     return (
-        (hierarchy && list && list.length && (
-            <>
-                <LinkList list={list} title={title} separator={separator} />
-            </>
+        (list && list.length && (
+            <LinkList title={title} list={list} separator={separator} />
         )) ||
         null
     );
