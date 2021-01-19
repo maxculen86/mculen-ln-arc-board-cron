@@ -39,26 +39,38 @@ const AcumuladoTitle = props => {
 
     const categories =
         navigationList &&
-        navigationList.map(({ _id, navigation, name }) => {
-            const textname =
-                navigation && navigation.nav_title
-                    ? navigation.nav_title
-                    : name;
-            return {
-                key: _id,
-                item: (
-                    <ComLink
-                        key={_id}
-                        link={`${_id}/`}
-                        textname={textname}
-                        title={textname}
-                        style={
-                            colorCategory && { style: { color: colorCategory } }
-                        }
-                    />
-                )
-            };
-        });
+        navigationList.map(
+            ({
+                _id,
+                navigation,
+                name,
+                node_type: nodeType,
+                url: categoryUrl,
+                display_name: displayName
+            }) => {
+                const isLink = nodeType === 'link';
+                const textname =
+                    navigation && navigation.nav_title
+                        ? navigation.nav_title
+                        : name;
+                return {
+                    key: _id,
+                    item: (
+                        <ComLink
+                            key={_id}
+                            link={isLink ? categoryUrl : `${_id}/`}
+                            textname={isLink ? displayName : textname}
+                            title={isLink ? displayName : textname}
+                            style={
+                                colorCategory && {
+                                    style: { color: colorCategory }
+                                }
+                            }
+                        />
+                    )
+                };
+            }
+        );
 
     return (
         <ModCategory
