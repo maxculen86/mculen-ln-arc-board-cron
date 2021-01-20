@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import PropTypes from 'fusion:prop-types';
 
 const featuredRules = {
@@ -9,7 +10,66 @@ const featuredRules = {
     }
 };
 
-const cajaTemasCustomsFields = featuredName => {
+export const getArticlesFromMyCurrentCollection = (
+    collections,
+    idCollection,
+    initialPosition,
+    notesQuantity
+) => {
+    const currentCollection = collections.find(
+        collect => collect.idCollection === idCollection
+    );
+
+    if (!currentCollection) return [];
+
+    const articlesFiltered = currentCollection.articles
+        ? currentCollection.articles.slice(
+              initialPosition - 1,
+              initialPosition - 1 + notesQuantity
+          )
+        : [];
+
+    return articlesFiltered;
+};
+
+export const calculateSizeOfCollection = (collections, notesQuantity) => {
+    const totalArticlesInCollections = collections.reduce(
+        (total, currentValue) => {
+            return total + currentValue.articles.length;
+        },
+        0
+    );
+    const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
+    return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
+};
+
+const isInAnotherCollection = (idArticle, collections) => {
+    const rto = collections.find(collect =>
+        collect.articles.some(artCol => artCol._id === idArticle)
+    );
+    return rto || false;
+};
+
+export const getArticlesToShow = (
+    articles = [],
+    collections,
+    initialPosition,
+    notesQuantity
+) => {
+    const articlesFiltered = articles.filter(
+        art => isInAnotherCollection(art._id, collections) === false
+    );
+
+    const articlesToShow = articlesFiltered
+        ? articlesFiltered.slice(
+              initialPosition - 1,
+              initialPosition - 1 + notesQuantity
+          )
+        : [];
+    return articlesToShow;
+};
+
+export const cajaTemasCustomsFields = featuredName => {
     return {
         url: PropTypes.url.tag({
             label: 'Link',
@@ -45,7 +105,10 @@ const cajaTemasCustomsFields = featuredName => {
         layout: PropTypes.oneOf([
             'focalLeft3',
             'author3',
-            'notaColor3',
+            'notaColorAzul3',
+            'notaColorRojo3',
+            'notaColorRosa3',
+            'notaColorVerde3',
             'grilla3',
             'grilla6',
             'grilla9'
@@ -60,7 +123,10 @@ const cajaTemasCustomsFields = featuredName => {
                 grilla9: 'Grilla 9',
                 focalLeft3: 'Focal Izquierdo',
                 author3: 'Opinión',
-                notaColor3: 'Vertical 3 color'
+                notaColorAzul3: 'Vertical 3 color Azul',
+                notaColorRojo3: 'Vertical 3 color Rojo',
+                notaColorRosa3: 'Vertical 3 color Rosa',
+                notaColorVerde3: 'Vertical 3 color Verde'
             }
         }).isRequired,
         backgroundColor: PropTypes.oneOf([
@@ -93,5 +159,3 @@ const cajaTemasCustomsFields = featuredName => {
         }).isRequired
     };
 };
-
-export default cajaTemasCustomsFields;

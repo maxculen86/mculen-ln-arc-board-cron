@@ -4,11 +4,14 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import CajaTema from '../private/LN/common/cajaTema';
-import cajaTemasCustomsFields from '../private/LN/common/utils/cajaTemasHelper';
+import {
+    cajaTemasCustomsFields,
+    getArticlesFromMyCurrentCollection
+} from '../private/LN/common/utils/cajaTemasHelper';
 import config from '../../properties/sites/la-nacion-ar';
 
 const CajaTemaCollections = props => {
-    const validateFeature = (idCollection, layout) => {
+    const validateFeature = idCollection => {
         let error;
         if (!idCollection)
             error = {
@@ -37,8 +40,9 @@ const CajaTemaCollections = props => {
 
     const { cajaTemaCss = {} } = config || {};
     const { collectionsInPage = [] } = globalContent || {};
-    const error = validateFeature(idCollection, layout);
+    const error = validateFeature(idCollection);
     const notesQuantity = layout.slice(-1);
+    // TODO: ver con daro
     const bgColor =
         backgroundColor !== 'default' && layout !== 'notaColor'
             ? '--bgcolor '
@@ -63,13 +67,12 @@ const CajaTemaCollections = props => {
         );
     }
 
-    const currentCollection = collectionsInPage.find(
-        collect => collect.idCollection === idCollection
+    const articlesFiltered = getArticlesFromMyCurrentCollection(
+        collectionsInPage,
+        idCollection,
+        initialPosition,
+        notesQuantity
     );
-    // console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 32 ~ articlesInCollection", currentCollection)
-    const articlesFiltered = currentCollection
-        ? currentCollection.articles.slice(initialPosition - 1, notesQuantity)
-        : currentCollection.articles;
 
     return (
         <Static id={featureId}>
@@ -93,7 +96,7 @@ const CajaTemaCollections = props => {
     );
 };
 
-CajaTemaCollections.label = 'LN Caja Tema Collections';
+CajaTemaCollections.label = 'LN Caja Collections';
 
 CajaTemaCollections.propTypes = {
     id: PropTypes.string.isRequired,

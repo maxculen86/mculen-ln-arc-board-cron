@@ -52,6 +52,7 @@ const fetch = query => {
 
 const transform = (data, siteProps) => {
     const respData = data;
+    console.log("🚀 ~ file: collectionsSource.js ~ line 55 ~ transform ~ data", JSON.stringify(data))
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
 

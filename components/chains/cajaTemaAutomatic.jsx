@@ -5,15 +5,12 @@ import PropTypes from 'fusion:prop-types';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import getArticleInCollection from '../private/LN/common/utils/getArticleInCollection';
 import CajaTema from '../private/LN/common/cajaTema';
-import cajaTemasCustomsFields from '../private/LN/common/utils/cajaTemasHelper';
+import {
+    cajaTemasCustomsFields,
+    calculateSizeOfCollection,
+    getArticlesToShow
+} from '../private/LN/common/utils/cajaTemasHelper';
 import config from '../../properties/sites/la-nacion-ar';
-
-const isInAnotherCollection = (idArticle, collectionsInPage) => {
-    const rto = collectionsInPage.find(collect =>
-        collect.articles.some(artCol => artCol._id === idArticle)
-    );
-    return rto || false;
-};
 
 const CajaTemaAutomatic = props => {
     const validateFeature = (idCollection, layout) => {
@@ -71,27 +68,19 @@ const CajaTemaAutomatic = props => {
         );
     }
 
-    const totalArticlesInCollections = collectionsInPage.reduce(
-        (total, currentValue) => {
-            return total + currentValue.articles.length;
-        },
-        0
-    );
-    const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
-    const size = totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
+    const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
     const articles = getArticleInCollection(
         idCollection,
         size,
         initialPosition - 1
     );
 
-    const articlesFiltered = articles.filter(
-        art => isInAnotherCollection(art._id, collectionsInPage) === false
+    const articlesToShow = getArticlesToShow(
+        articles,
+        collectionsInPage,
+        initialPosition,
+        notesQuantity
     );
-
-    const articlesToShow = articlesFiltered
-        ? articlesFiltered.slice(initialPosition - 1, notesQuantity)
-        : [];
 
     return (
         <Static id={featureId}>
@@ -115,7 +104,7 @@ const CajaTemaAutomatic = props => {
     );
 };
 
-CajaTemaAutomatic.label = 'LN Caja Tema Automatica';
+CajaTemaAutomatic.label = 'LN Caja Automatica';
 
 CajaTemaAutomatic.propTypes = {
     id: PropTypes.string.isRequired,
