@@ -1,8 +1,10 @@
+import env from '../../../../../../../__mocks__/fusion:environment';
 import get from 'lodash.get';
+
 import Relacionados from '../../../../../../../components/private/LN/api/v1/nota/relacionados';
 import articleFull from '../../../../../../../__mocks__/data/articles/QAZ7BVHG5BCNFN7S67XCBP6PA4.json';
 import articleNoElements from '../../../../../../../__mocks__/data/articles/FM2M3Y4ZXZD6VGONEPLLSQJWVA.json';
-import articleRelatedNotes from '../../../../../../../__mocks__/data/articles/RelacionadosArticle.json';
+import articleRelatedNotes from '../../../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
 import articleRelatedNotesWithoutPrincipalCategory from '../../../../../../../__mocks__/data/articles/XCLX5M6MHJAMHIGD6S2BOF3L3Y.json';
 
 describe('Test de JSON de relacionados en article', () => {
