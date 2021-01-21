@@ -40,6 +40,7 @@ const CajaTemaCollections = props => {
 
     const { cajaTemaCss = {} } = config || {};
     const { collectionsInPage = [] } = globalContent || {};
+    console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 43 ~ collectionsInPage", collectionsInPage)
     const error = validateFeature(idCollection);
     const notesQuantity = layout.slice(-1);
     const bgColor =

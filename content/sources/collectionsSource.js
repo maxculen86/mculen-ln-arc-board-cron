@@ -52,14 +52,16 @@ const fetch = query => {
 
 const transform = (data, siteProps) => {
     const respData = data;
-    const { content_elements: contentElements } = data || {};
-    const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
+    const contentElements = get(data, `content_elements`, null);
 
+    const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     respData.content_elements =
         contentElements &&
         contentElements.map(elem => {
+            // const promoItems = get(elem, `promo_items`, null);
+            const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
@@ -74,11 +76,12 @@ const transform = (data, siteProps) => {
                         credits: presetsCredits
                     },
                     // Se pasa el subtype para que las notas de foto al 100
-                    // y storytelling no sean excluidas de las elemalidaciones del resizer
+                    // y storytelling no sean excluidas de las validaciones del resizer
                     // y pueda aplicarse 3:2, focal point o smartcrop
                     subtype: isFotoAl100orStorytelling ? '-1' : subtype
                 }),
-                ...(elem.canonical_url && { website_url: elem.canonical_url })
+                ...(elem.canonical_url && { website_url: elem.canonical_url }),
+                marquesina
             };
         });
     return respData;

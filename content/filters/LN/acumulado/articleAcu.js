@@ -69,6 +69,7 @@ export default `
         }
         display_date 
         website_url     
+        marquesina
         label  {
             recomendar {
                 text
@@ -80,5 +81,4 @@ export default `
         ids
     }
     next
-    
 }`;
