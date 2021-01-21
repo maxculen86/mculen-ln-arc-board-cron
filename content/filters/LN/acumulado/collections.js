@@ -38,8 +38,10 @@ export default `
             shortTitle
         }
         display_date
-        website_url       
+        website_url 
+        description {
+            basic
+        }
     }
     next
-    
 }`;
