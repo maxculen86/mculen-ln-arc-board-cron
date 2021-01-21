@@ -58,7 +58,7 @@ export default `
         }
         display_date
         website_url       
+        marquesina
     }
     next
-    
 }`;
