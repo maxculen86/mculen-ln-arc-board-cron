@@ -42,11 +42,10 @@ const CajaTemaCollections = props => {
     const { collectionsInPage = [] } = globalContent || {};
     const error = validateFeature(idCollection);
     const notesQuantity = layout.slice(-1);
-    // TODO: ver con daro
     const bgColor =
-        backgroundColor !== 'default' && layout !== 'notaColor'
-            ? '--bgcolor '
-            : '';
+        backgroundColor === 'default' || backgroundColor === null
+            ? ''
+            : '--bgcolor ';
     const classCondition = cajaTemaCss[layout];
 
     if (isAdmin && !!error) {

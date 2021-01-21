@@ -67,8 +67,17 @@ export default `
             type
             content
         }
-        display_date
-        website_url       
+        display_date 
+        website_url     
+        label  {
+            recomendar {
+                text
+            }
+        }
+    }
+    dynamic_items {
+        type
+        ids
     }
     next
     

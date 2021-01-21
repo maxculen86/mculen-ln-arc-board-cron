@@ -45,9 +45,9 @@ const CajaTemaAutomatic = props => {
     const error = validateFeature(idCollection, layout);
     const notesQuantity = Number(layout.slice(-1));
     const bgColor =
-        backgroundColor !== 'default' && layout !== 'notaColor'
-            ? '--bgcolor '
-            : '';
+        backgroundColor === 'default' || backgroundColor === null
+            ? ''
+            : '--bgcolor ';
     const classCondition = cajaTemaCss[layout];
 
     if (isAdmin && !!error) {

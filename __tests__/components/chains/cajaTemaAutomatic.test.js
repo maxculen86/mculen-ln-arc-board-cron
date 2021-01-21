@@ -42,13 +42,16 @@ describe('Test del Chain - <CajaTema />', () => {
             _id: 'LX2MDOW4NZF6DONWUQZPS4AHKM'
         },
         {
-            _id: 'BBB'
+            _id: 'BBB',
+            label: {}
         },
         {
-            _id: 'CCC'
+            _id: 'CCC',
+            label: { recomendar: {text: 'Si'}}
         },
         {
-            _id: 'DDD'
+            _id: 'DDD',
+            label: { recomendar: {text: 'No'}}
         }
     ]
 
@@ -116,10 +119,20 @@ describe('Test del Chain - <CajaTema />', () => {
             articlesFromAutomatic,
             collectionsInPage,
             1,
-            3
+            2
         );
-        expect(articles1.length).toBe(3);
+        expect(articles1.length).toBe(2);
         expect(articles1[0]._id).toBe('BBB');   
+    });
+
+    it('Deberia filtrar 1 nota que ya esta en la manual y otra nota que tiene el label NO RECOMENDAR', () => {
+        const articles2 = getArticlesToShow(
+            articlesFromAutomatic,
+            collectionsInPage,
+            1,
+            4
+        );
+        expect(articles2.length).toBe(2);
     });
 
     it('Deberia traer un array vacio cuando sobrepasa la posicion de la colleccion', () => {

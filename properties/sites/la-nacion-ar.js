@@ -511,7 +511,10 @@ export default {
     cajaTemaCss: {
         focalLeft3: '--focal --left',
         focalRight3: '--focal --right',
-        notaColor3: '--highlight',
+        notaColorAzul3: '--highlight --blue',
+        notaColorRojo3: '--highlight --red',
+        notaColorRosa3: '--highlight --pink',
+        notaColorVerde3: '--highlight --teal',
         author3: '',
         grilla1: '--cinema',
         grilla3: '',

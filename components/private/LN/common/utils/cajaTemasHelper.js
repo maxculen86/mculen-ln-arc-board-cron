@@ -50,13 +50,21 @@ const isInAnotherCollection = (idArticle, collections) => {
     return rto || false;
 };
 
+const isNotRecommend = article => {
+    const { label = {} } = article;
+    const { recomendar = {} } = label;
+    return recomendar.text === 'No';
+};
+
 export const getArticlesToShow = (
     articles = [],
     collections,
     initialPosition,
     notesQuantity
 ) => {
-    const articlesFiltered = articles.filter(
+    const articlesRecomended = articles.filter(art => !isNotRecommend(art));
+
+    const articlesFiltered = articlesRecomended.filter(
         art => isInAnotherCollection(art._id, collections) === false
     );
 
@@ -71,31 +79,6 @@ export const getArticlesToShow = (
 
 export const cajaTemasCustomsFields = featuredName => {
     return {
-        url: PropTypes.url.tag({
-            label: 'Link',
-            description:
-                'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
-            defaultValue: '',
-            group: 'Techo'
-        }),
-        imageId: PropTypes.string.tag({
-            name: 'Logo',
-            description: 'Ingrese aquí el id de Photo Center de la imagen',
-            defaultValue: '',
-            group: 'Techo'
-        }),
-        title: PropTypes.string.tag({
-            name: 'Texto',
-            description: 'Ingrese aquí el título de la caja de temas',
-            defaultValue: '',
-            group: 'Techo'
-        }),
-        hideTitle: PropTypes.boolean.tag({
-            name: 'Ocultar techo',
-            description: 'Marque para ocultar el techo',
-            defaultValue: false,
-            group: 'Techo'
-        }),
         idCollection: PropTypes.string.tag({
             label: 'ID',
             description: 'Ingrese aquí el ID de la collection',
@@ -156,6 +139,31 @@ export const cajaTemasCustomsFields = featuredName => {
             defaultValue: 1,
             group: 'Ajuste Collection',
             hidden: featuredRules[featuredName].hideInitialPosition
-        }).isRequired
+        }).isRequired,
+        url: PropTypes.url.tag({
+            label: 'Link',
+            description:
+                'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
+            defaultValue: '',
+            group: 'Techo'
+        }),
+        imageId: PropTypes.string.tag({
+            name: 'Logo',
+            description: 'Ingrese aquí el id de Photo Center de la imagen',
+            defaultValue: '',
+            group: 'Techo'
+        }),
+        title: PropTypes.string.tag({
+            name: 'Texto',
+            description: 'Ingrese aquí el título de la caja de temas',
+            defaultValue: '',
+            group: 'Techo'
+        }),
+        hideTitle: PropTypes.boolean.tag({
+            name: 'Ocultar techo',
+            description: 'Marque para ocultar el techo',
+            defaultValue: false,
+            group: 'Techo'
+        })
     };
 };

@@ -20,6 +20,7 @@ const getArticleInCollection = (
     });
 
     const articles = get(articleList, 'content_elements', []);
+    // const dynamicItems = get(articleList, 'dynamic_items', {});
 
     return articles;
 };
