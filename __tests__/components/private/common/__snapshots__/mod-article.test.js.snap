@@ -55,9 +55,9 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
     </strong>
     <time
       class="com-date --fivexs"
-      datetime="2 de Junio de 2020"
+      datetime="2 de junio de 2020"
     >
-      2 de Junio de 2020
+      2 de junio de 2020
     </time>
   </section>
 </article>
