@@ -26,6 +26,9 @@
                 .mod-picture.mod-picture {
                     padding-top: 100%;
                     border: none;
+                    .com-image {
+                        background: white;
+                    }
                 }
             }
         }
@@ -583,7 +586,7 @@
         }
     }
 
-    .--highlight.--highlight {
+    &.--highlight.--highlight {
         .mod-article {
             .mod-media {
                 margin-bottom: 0;
@@ -811,7 +814,7 @@
             margin-bottom: 0;
         }
 
-        &.--blue {
+        &.--bgblue {
             background: $light-blue-100;
             .mod-headersection.--bg {
                 background: $light-blue-500;
@@ -826,7 +829,7 @@
             }
         }
 
-        &.--pink {
+        &.--bgpink {
             background: $pink-100;
             .mod-headersection.--bg {
                 background: $pink-600;
@@ -841,7 +844,7 @@
             }
         }
 
-        &.--teal {
+        &.--bgteal {
             background: $teal-100;
             .mod-headersection.--bg {
                 background: $teal-600;
@@ -856,7 +859,7 @@
             }
         }
 
-        &.--red {
+        &.--bgred {
             background: $red-100;
             .mod-headersection.--bg {
                 background: $red-600;
@@ -881,7 +884,7 @@
         //     padding-bottom: px(32);
         // }
 
-        .--highlight.--highlight {
+        &.--highlight.--highlight {
             .mod-article {
                 .mod-media {
                     .mod-picture {

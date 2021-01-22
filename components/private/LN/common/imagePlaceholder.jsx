@@ -6,9 +6,11 @@ import ModFigcaption from '../../common/mod-figcaption';
 
 function ImagePlaceholder({ href, children, outputType, isVertical, amp }) {
     const image = (
-        <ComPicture href={href} amp={amp}>
-            {children}
-        </ComPicture>
+        <ComFigure>
+            <ComPicture href={href} amp={amp}>
+                {children}
+            </ComPicture>
+        </ComFigure>
     );
 
     return (
