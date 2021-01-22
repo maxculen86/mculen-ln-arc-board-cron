@@ -2,27 +2,18 @@ import React from 'react';
 import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import getArticleInCollection from '../private/LN/common/utils/getArticleInCollection';
 import CajaTema from '../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
     calculateSizeOfCollection,
-    getArticlesToShow
+    getArticlesToShow,
+    validateFeature,
+    getCommonProps
 } from '../private/LN/common/utils/cajaTemasHelper';
-import config from '../../properties/sites/la-nacion-ar';
+import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const CajaTemaAutomatic = props => {
-    const validateFeature = (idCollection, layout) => {
-        let error;
-        if (!idCollection)
-            error = {
-                type: 'warning',
-                message: 'Se requiere el id de la colección de la caja de temas'
-            };
-        return error;
-    };
-
     const {
         id: featureId,
         isAdmin,
@@ -36,19 +27,36 @@ const CajaTemaAutomatic = props => {
             imageId,
             hideTitle
         },
-        outputType,
-        globalContent
+        outputType
     } = props;
 
-    const { cajaTemaCss = {} } = config || {};
-    const { collectionsInPage = [] } = globalContent || {};
-    const error = validateFeature(idCollection, layout);
-    const notesQuantity = Number(layout.slice(-1));
-    const bgColor =
-        backgroundColor === 'default' || backgroundColor === null
-            ? ''
-            : '--bgcolor ';
-    const classCondition = cajaTemaCss[layout];
+    const {
+        collectionsInPage,
+        notesQuantity,
+        bgColor,
+        classCondition
+    } = getCommonProps(props);
+
+    const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
+
+    const articles = getArticleInCollection(
+        idCollection,
+        size,
+        initialPosition - 1
+    );
+
+    const error = validateFeature(
+        idCollection,
+        articles,
+        `La colección ${idCollection} no encontró notas (verificar si el tamaño de la colección esta configurado en 20 notas)`
+    );
+
+    const articlesToShow = getArticlesToShow(
+        articles,
+        collectionsInPage,
+        initialPosition,
+        notesQuantity
+    );
 
     if (isAdmin && !!error) {
         return (
@@ -67,20 +75,6 @@ const CajaTemaAutomatic = props => {
             </div>
         );
     }
-
-    const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
-    const articles = getArticleInCollection(
-        idCollection,
-        size,
-        initialPosition - 1
-    );
-
-    const articlesToShow = getArticlesToShow(
-        articles,
-        collectionsInPage,
-        initialPosition,
-        notesQuantity
-    );
 
     return (
         <Static id={featureId}>

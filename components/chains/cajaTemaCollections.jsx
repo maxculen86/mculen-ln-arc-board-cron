@@ -2,25 +2,16 @@ import React from 'react';
 import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import CajaTema from '../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
-    getArticlesFromMyCurrentCollection
+    getArticlesFromMyCurrentCollection,
+    validateFeature,
+    getCommonProps
 } from '../private/LN/common/utils/cajaTemasHelper';
-import config from '../../properties/sites/la-nacion-ar';
+import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const CajaTemaCollections = props => {
-    const validateFeature = idCollection => {
-        let error;
-        if (!idCollection)
-            error = {
-                type: 'warning',
-                message: 'Se requiere el id de la colección de la caja de temas'
-            };
-        return error;
-    };
-
     const {
         id: featureId,
         isAdmin,
@@ -34,20 +25,28 @@ const CajaTemaCollections = props => {
             imageId,
             hideTitle
         },
-        outputType,
-        globalContent
+        outputType
     } = props;
 
-    const { cajaTemaCss = {} } = config || {};
-    const { collectionsInPage = [] } = globalContent || {};
-    console.log("🚀 ~ file: cajaTemaCollections.jsx ~ line 43 ~ collectionsInPage", collectionsInPage)
-    const error = validateFeature(idCollection);
-    const notesQuantity = layout.slice(-1);
-    const bgColor =
-        backgroundColor === 'default' || backgroundColor === null
-            ? ''
-            : '--bgcolor ';
-    const classCondition = cajaTemaCss[layout];
+    const {
+        collectionsInPage,
+        notesQuantity,
+        bgColor,
+        classCondition
+    } = getCommonProps(props);
+
+    const articlesFiltered = getArticlesFromMyCurrentCollection(
+        collectionsInPage,
+        idCollection,
+        initialPosition,
+        notesQuantity
+    );
+
+    const error = validateFeature(
+        idCollection,
+        articlesFiltered,
+        `La colección ${idCollection} no encontró notas (verificar si está en Site Service)`
+    );
 
     if (isAdmin && !!error) {
         return (
@@ -66,13 +65,6 @@ const CajaTemaCollections = props => {
             </div>
         );
     }
-
-    const articlesFiltered = getArticlesFromMyCurrentCollection(
-        collectionsInPage,
-        idCollection,
-        initialPosition,
-        notesQuantity
-    );
 
     return (
         <Static id={featureId}>

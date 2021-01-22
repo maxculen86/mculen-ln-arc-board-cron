@@ -16,7 +16,8 @@ const getArticleInCollection = (
             website,
             from: initialPosition
         },
-        filter
+        filter,
+        staticMode: true
     });
 
     const articles = get(articleList, 'content_elements', []);

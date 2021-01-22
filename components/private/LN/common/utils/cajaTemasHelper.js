@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import PropTypes from 'fusion:prop-types';
+import config from '../../../../../properties/sites/la-nacion-ar';
 
 const featuredRules = {
     cajaTemaCollections: {
@@ -8,6 +9,45 @@ const featuredRules = {
     cajaTemaAutomatic: {
         hideInitialPosition: true
     }
+};
+
+export const validateFeature = (idCollection, articles, message) => {
+    let error;
+    if (!idCollection)
+        error = {
+            type: 'warning',
+            message: 'Se requiere el id de la colección de la caja de temas'
+        };
+
+    if (idCollection && articles.length === 0)
+        error = {
+            type: 'warning',
+            message
+        };
+    return error;
+};
+
+export const getCommonProps = props => {
+    const {
+        customFields: { layout = '', backgroundColor },
+        globalContent
+    } = props;
+
+    const { cajaTemaCss = {} } = config || {};
+    const { collectionsInPage = [] } = globalContent || {};
+    const notesQuantity = layout.slice(-1);
+    const bgColor =
+        backgroundColor === 'default' || backgroundColor === null
+            ? ''
+            : '--bgcolor ';
+    const classCondition = cajaTemaCss[layout];
+
+    return {
+        collectionsInPage,
+        notesQuantity,
+        bgColor,
+        classCondition
+    };
 };
 
 export const getArticlesFromMyCurrentCollection = (
