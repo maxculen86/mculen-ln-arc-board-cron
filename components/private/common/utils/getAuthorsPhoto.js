@@ -7,7 +7,6 @@ const getAuthorsPhoto = article => {
     const authorWithPhoto = authorFiltered.find(
         auth => get(auth, 'image.resized_urls', null) !== null
     );
-    console.log("🚀 ~ file: getAuthorsPhoto.js ~ line 10 ~ authorWithPhoto", authorFiltered)
     const urlsResizes = get(authorWithPhoto, 'image.resized_urls', []);
     if (urlsResizes.length === 0) return null;
     return {

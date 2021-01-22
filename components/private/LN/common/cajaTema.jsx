@@ -23,9 +23,7 @@ const CajaTema = props => {
     const isRenderAuthor = layout.includes('author');
 
     return (
-        <section
-            className={`box-articles ${classCondition} ${backgroundColor}`}
-        >
+        <section className={`box-articles ${backgroundColor}`}>
             {!hideTitle && (
                 <ModHeaderSection imageId={imageId} title={title} link={url} />
             )}
