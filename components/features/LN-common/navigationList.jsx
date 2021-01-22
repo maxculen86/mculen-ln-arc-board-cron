@@ -10,7 +10,7 @@ const NavigationListFeature = ({
         <NavigationList
             title={title}
             hierarchy={hierarchy}
-            separator="--tags"
+            extraClass="--tags"
         />
     )) ||
     null;

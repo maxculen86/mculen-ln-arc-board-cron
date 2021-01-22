@@ -2,10 +2,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import LinkList from './com-link-list';
+import ComTitle from './com-title';
 import withNavigation from './hocs/withNavigation';
 import withStatic from './hocs/withStatic';
 
-const NavigationList = ({ title, separator, navigations }) => {
+const NavigationList = ({ title, extraClass, navigations }) => {
     const list =
         (navigations &&
             navigations.length &&
@@ -18,10 +19,10 @@ const NavigationList = ({ title, separator, navigations }) => {
                     name
                 }) => {
                     return {
-                        link: nodeType === 'link' ? url : _id,
-                        textname: nodeType === 'link' ? displayName : name,
-                        title: nodeType === 'link' ? displayName : name,
-                        target: nodeType === 'link' ? '_blank' : ''
+                        link: (nodeType === 'link' && url) || _id,
+                        textname: (nodeType === 'link' && displayName) || name,
+                        title: (nodeType === 'link' && displayName) || name,
+                        target: (nodeType === 'link' && '_blank') || ''
                     };
                 }
             )) ||
@@ -29,7 +30,10 @@ const NavigationList = ({ title, separator, navigations }) => {
 
     return (
         (list && list.length && (
-            <LinkList title={title} list={list} separator={separator} />
+            <section className="mod-linklist">
+                <ComTitle size="--twoxs" content={title} />
+                <LinkList title={title} list={list} extraClass={extraClass} />
+            </section>
         )) ||
         null
     );
@@ -38,13 +42,13 @@ const NavigationList = ({ title, separator, navigations }) => {
 NavigationList.propTypes = {
     title: PropTypes.string,
     list: PropTypes.arrayOf(PropTypes.obj),
-    separator: PropTypes.string
+    extraClass: PropTypes.string
 };
 
 NavigationList.defaultProps = {
     title: '',
     list: [],
-    separator: ''
+    extraClass: ''
 };
 
 export default withStatic(withNavigation(NavigationList, null, 'la-nacion-ar'));
