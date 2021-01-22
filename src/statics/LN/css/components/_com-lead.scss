@@ -5,8 +5,8 @@
     color: $light-blue-500;
     margin-right: px(2);
     font-style: normal;
-    .--bomba &,
-    .--highlight & {
+    .--bomba.--bomba &,
+    .--highlight.--highlight & {
         color: $neutral-white;
     }
 }
