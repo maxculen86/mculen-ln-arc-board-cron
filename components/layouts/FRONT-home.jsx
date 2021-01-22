@@ -364,12 +364,12 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles --bgcolor">
+                                    <section className="box-articles --bgcolor --highlight --blue">
                                         <HeaderSection
                                             title="Techo con link"
                                             link="#"
                                         />
-                                        <div className="row-gap-tablet-3 --highlight --blue">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x600"
@@ -400,12 +400,12 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles --bgcolor --pink">
+                                    <section className="box-articles --bgcolor --bgpink --highlight --pink">
                                         <HeaderSection
                                             title="Techo con link"
                                             link="#"
                                         />
-                                        <div className="row-gap-tablet-3 --highlight --pink">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x603"
@@ -434,7 +434,7 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles --bgcolor --teal">
+                                    <section className="box-articles --bgcolor --bgteal">
                                         <HeaderSection
                                             title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
                                             classCondition="--bg"
@@ -494,7 +494,7 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles">
+                                    <section className="box-articles --highlight --teal">
                                         <section className="mod-headersection">
                                             <ComTitle
                                                 content="Techo de sección"
@@ -502,7 +502,7 @@ const LNHome = props => {
                                             />
                                             <div className="com-line"></div>
                                         </section>
-                                        <div className="row-gap-tablet-3 --highlight --teal">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x606"
@@ -533,13 +533,13 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles --bgcolro --blue">
+                                    <section className="box-articles --bgcolro --blue --highlight --red">
                                         <HeaderSection
                                             title="Techo de notas color con título largo"
                                             link="#"
                                             classCondition="--bg"
                                         />
-                                        <div className="row-gap-tablet-3 --highlight --red">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x609"
@@ -567,7 +567,7 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles --bgcolor --pink">
+                                    <section className="box-articles --bgcolor --bgpink">
                                         <HeaderSection title="Techo de sección" />
                                         <div className="row-gap-tablet-3">
                                             <Article
@@ -935,12 +935,12 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles">
+                                    <section className="box-articles --highlight --blue">
                                         <HeaderSection
                                             title="Techo de sección"
                                             classCondition="--bg"
                                         />
-                                        <div className="row-gap-tablet-3 --highlight --blue">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x600"
@@ -968,12 +968,12 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles">
+                                    <section className="box-articles --highlight --pink">
                                         <HeaderSection
                                             title="Techo de sección con link"
                                             link="#"
                                         />
-                                        <div className="row-gap-tablet-3 --highlight --pink">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x603"
@@ -1001,7 +1001,7 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles --bgcolor --teal">
+                                    <section className="box-articles --bgcolor --bgteal">
                                         <HeaderSection
                                             title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
                                             classCondition="--bg"
@@ -1059,9 +1059,9 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles">
+                                    <section className="box-articles --highlight --teal">
                                         <HeaderSection title="Techo de sección" />
-                                        <div className="row-gap-tablet-3 --highlight --teal">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x606"
@@ -1089,12 +1089,12 @@ const LNHome = props => {
                                         </div>
                                     </section>
 
-                                    <section className="box-articles">
+                                    <section className="box-articles --highlight --red">
                                         <HeaderSection
                                             title="Techo de sección con link"
                                             link="#"
                                         />
-                                        <div className="row-gap-tablet-3 --highlight --red">
+                                        <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/400x609"
@@ -1133,7 +1133,7 @@ const LNHome = props => {
                                                 />
                                             </div>
                                         </section>
-                                        <div className="row-gap-tablet-3 --bgcolor --pink">
+                                        <div className="row-gap-tablet-3 --bgcolor --bgpink">
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x233"
