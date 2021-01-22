@@ -115,7 +115,7 @@ const LNHome = props => {
                                             <Article
                                                 frontdemo
                                                 srcdemo="https://source.unsplash.com/300x205"
-                                                renderAutor
+                                                isRenderAuthor
                                                 link="#"
                                                 leadText="Tragedia en al ruta."
                                                 titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
@@ -303,7 +303,7 @@ const LNHome = props => {
                                             />
                                             <Article
                                                 frontdemo
-                                                renderAutor
+                                                isRenderAuthor
                                                 srcdemo="https://source.unsplash.com/300x211"
                                                 link="#"
                                                 leadText="Volanta."
@@ -321,7 +321,7 @@ const LNHome = props => {
                                         <div className="row-gap-tablet-3">
                                             <Article
                                                 frontdemo
-                                                renderAutor
+                                                isRenderAuthor
                                                 srcdemo="https://source.unsplash.com/300x209"
                                                 link="#"
                                                 leadText="Volanta."
@@ -330,7 +330,7 @@ const LNHome = props => {
                                             />
                                             <Article
                                                 frontdemo
-                                                renderAutor
+                                                isRenderAuthor
                                                 srcdemo="https://source.unsplash.com/300x210"
                                                 link="#"
                                                 leadText="Volanta."
@@ -339,7 +339,7 @@ const LNHome = props => {
                                             />
                                             <Article
                                                 frontdemo
-                                                renderAutor
+                                                isRenderAuthor
                                                 srcdemo="https://source.unsplash.com/300x211"
                                                 link="#"
                                                 leadText="Volanta."
@@ -1029,7 +1029,7 @@ const LNHome = props => {
                                                 link="#"
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                renderAutor
+                                                isRenderAuthor
                                                 authors="Nombre Apellido"
                                             />
                                             <Article
@@ -1245,7 +1245,7 @@ const LNHome = props => {
                                                 link="#"
                                                 leadText="Volanta."
                                                 titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                renderAutor
+                                                isRenderAuthor
                                                 authors="Nombre Apellido"
                                             />
                                             <Article
