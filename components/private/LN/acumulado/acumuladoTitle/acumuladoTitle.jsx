@@ -7,7 +7,6 @@ import get from '../../../common/utils/get';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
 import ModCategory from '../../../common/mod-category';
-import ComLink from '../../../common/com-link';
 
 const setTitle = (
     replaceTitle,
@@ -48,26 +47,19 @@ const AcumuladoTitle = props => {
                 url: categoryUrl,
                 display_name: displayName
             }) => {
-                const isLink = nodeType === 'link';
-                const textname =
-                    navigation && navigation.nav_title
-                        ? navigation.nav_title
-                        : name;
+                const { nav_title: navTitle } = navigation || {};
                 return {
                     key: _id,
-                    item: (
-                        <ComLink
-                            key={_id}
-                            link={isLink ? categoryUrl : `${_id}/`}
-                            textname={isLink ? displayName : textname}
-                            title={isLink ? displayName : textname}
-                            style={
-                                colorCategory && {
-                                    style: { color: colorCategory }
-                                }
-                            }
-                        />
-                    )
+                    link: nodeType === 'link' ? categoryUrl : `${_id}/`,
+                    textname:
+                        navTitle ||
+                        (nodeType === 'link' && displayName) ||
+                        name,
+                    title:
+                        navTitle ||
+                        (nodeType === 'link' && displayName) ||
+                        name,
+                    ...(colorCategory && { style: { color: colorCategory } })
                 };
             }
         );

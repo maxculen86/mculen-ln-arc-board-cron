@@ -2,36 +2,22 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
-import ComLink from '../../common/com-link';
+import ComLinkList from '../../common/com-link-list';
 
-const TagsNavigation = ({ orderAndCountTags, colorTags }) => {
+const TagsNavigation = ({ orderAndCountTags, colorTags, hideTagsList }) => {
     const [tagList] = useState(() =>
         orderAndCountTags
             ? orderAndCountTags.map(({ slug, text }) => ({
                   key: slug,
-                  item: (
-                      <ComLink
-                          key={slug}
-                          link={`/tema/${slug}/`}
-                          textname={text}
-                          title={text}
-                          style={colorTags && { style: { color: colorTags } }}
-                      />
-                  )
+                  link: `/tema/${slug}/`,
+                  textname: text,
+                  title: text,
+                  style: colorTags && { style: { color: colorTags } }
               }))
             : []
     );
 
-    return (
-        tagList &&
-        tagList.length > 0 && (
-            <ul className="com-unordered --tags">
-                {tagList.map(({ item, key }) => (
-                    <li key={key}>{item}</li>
-                ))}
-            </ul>
-        )
-    );
+    return !hideTagsList && <ComLinkList list={tagList} extraClass="--tags" />;
 };
 
 TagsNavigation.propTypes = {
@@ -43,11 +29,13 @@ TagsNavigation.propTypes = {
             })
         })
     ),
+    colorTags: PropTypes.string,
     hideTagsList: PropTypes.bool
 };
 
 TagsNavigation.defaultProps = {
     orderAndCountTags: undefined,
+    colorTags: undefined,
     hideTagsList: false
 };
 
