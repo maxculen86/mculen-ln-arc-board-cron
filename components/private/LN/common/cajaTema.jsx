@@ -23,14 +23,15 @@ const CajaTema = props => {
     const isRenderAuthor = layout.includes('author');
 
     return (
-        <section className={`box-articles ${backgroundColor}`}>
+        <section
+            className={`box-articles ${backgroundColor} ${classCondition}`}
+        >
             {!hideTitle && (
                 <ModHeaderSection imageId={imageId} title={title} link={url} />
             )}
             <ModRowGap
                 typeArticle={isFocal ? 'Focal' : 'Grilla'}
                 column={notesQuantity}
-                classCondition={classCondition}
             >
                 {isFocal ? (
                     <FocalFactory

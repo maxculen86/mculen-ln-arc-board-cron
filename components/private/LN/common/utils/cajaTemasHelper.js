@@ -154,11 +154,11 @@ export const cajaTemasCustomsFields = featuredName => {
         }).isRequired,
         backgroundColor: PropTypes.oneOf([
             'default',
-            '--pink',
-            '--blue',
-            '--red',
-            '--teal',
-            '--grey'
+            '--bgpink',
+            '--bgblue',
+            '--bgred',
+            '--bgteal',
+            '--bggrey'
         ]).tag({
             label: 'Color de Fondo',
             defaultValue: 'default',
@@ -166,11 +166,11 @@ export const cajaTemasCustomsFields = featuredName => {
             group: 'Ajuste Collection',
             labels: {
                 default: 'Sin Fondo',
-                '--pink': 'Rosa',
-                '--blue': 'Celeste LN',
-                '--red': 'Rojo',
-                '--teal': 'Verde',
-                '--grey': 'Gris'
+                '--bgpink': 'Rosa',
+                '--bgblue': 'Celeste LN',
+                '--bgred': 'Rojo',
+                '--bgteal': 'Verde',
+                '--bggrey': 'Gris'
             }
         }),
         initialPosition: PropTypes.number.tag({
