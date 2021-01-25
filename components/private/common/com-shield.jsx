@@ -7,7 +7,11 @@ const ComShield = props => {
     if (!src && !link) return null;
     return (
         <ComLink classCondition="com-link --shield" link={link}>
-            <img className="com-image" src={src} alt="escudo"></img>
+            {src ? (
+                <img className="com-image" src={src} alt="escudo"></img>
+            ) : (
+                <SvgSanLorenzo />
+            )}
         </ComLink>
     );
 };
