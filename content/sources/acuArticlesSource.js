@@ -181,6 +181,8 @@ export default {
     resolve,
     params: {
         sectionId: 'text',
+        authorId: 'text',
+        tagId: 'text',
         size: 'text',
         page: 'text',
         website: 'text',
