@@ -54,13 +54,8 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       </a>
     </strong>
     <time
-<<<<<<< HEAD
       class="com-date --fourxs"
-      datetime="2 de Junio de 2020"
-=======
-      class="com-date --fivexs"
       datetime="2 de junio de 2020"
->>>>>>> develop
     >
       2 de junio de 2020
     </time>
