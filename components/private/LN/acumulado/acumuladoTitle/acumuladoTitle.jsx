@@ -48,17 +48,12 @@ const AcumuladoTitle = props => {
                 display_name: displayName
             }) => {
                 const { nav_title: navTitle } = navigation || {};
+                const isLink = nodeType === 'link';
                 return {
                     key: _id,
-                    link: nodeType === 'link' ? categoryUrl : `${_id}/`,
-                    textname:
-                        navTitle ||
-                        (nodeType === 'link' && displayName) ||
-                        name,
-                    title:
-                        navTitle ||
-                        (nodeType === 'link' && displayName) ||
-                        name,
+                    link: (isLink && categoryUrl) || `${_id}/`,
+                    textname: navTitle || (isLink && displayName) || name,
+                    title: navTitle || (isLink && displayName) || name,
                     ...(colorCategory && { style: { color: colorCategory } })
                 };
             }

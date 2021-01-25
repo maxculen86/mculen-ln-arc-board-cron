@@ -7,7 +7,8 @@
  * at the top of your unit test file, this will
  * trigger jest to mock the Content import below
  * */
-import ReactDOMServer from 'react-dom/server';
 
-export default Comp => props =>
-    Comp ? ReactDOMServer.renderToString(<Comp {...props} />) : null;
+// Se hace un pasa mano del componente con static para poder revisar las props de los componentes
+jest.mock('fusion:static', () => Comp => props =>
+    Comp ? <Comp {...props} /> : null
+);
