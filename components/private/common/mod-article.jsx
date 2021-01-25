@@ -4,9 +4,14 @@ import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
+//para demo front
+import ComImage from './com-image';
+import ModMedia from './mod-media';
 
 const ModArticle = props => {
     const {
+        frontdemo,
+        srcdemo,
         articleData,
         dataSection,
         outputType,
@@ -17,11 +22,17 @@ const ModArticle = props => {
         titleText,
         marqueeSize,
         authors,
+        authorSize,
+        renderAutor,
         withMedia,
         subheadText,
         subheadSize,
         dateText,
         dateSize,
+        leadText,
+        anexo,
+        noMedia,
+        label,
         hour
     } = props;
     const extraOpts = {};
@@ -35,7 +46,9 @@ const ModArticle = props => {
 
     return (
         <article
-            className={`mod-article ${classCondition || ''}`}
+            className={`mod-article ${classCondition || ''} ${
+                noMedia ? '--no-media' : ''
+            } ${renderAutor ? '--author' : ''}`}
             {...extraOpts}
         >
             {hour && hour}
@@ -45,19 +58,37 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
+                    //labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
+            )}
+
+            {frontdemo && (
+                <div>
+                    <ModMedia>
+                        <figure className="mod-figure">
+                            <a href={link}>
+                                <picture className="mod-picture">
+                                    <ComImage src={srcdemo} />
+                                </picture>
+                            </a>
+                        </figure>
+                    </ModMedia>
+                </div>
             )}
 
             <ModDescription
                 link={link}
                 titleTag={titleTag}
-                titleSize={titleSize}
+                titleSize={noMedia || renderAutor ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
+                authorSize={renderAutor ? '--twoxs' : authorSize}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 dateText={dateText}
                 dateSize={dateSize}
+                lead={leadText}
+                label={label}
                 marquesina={marquesina}
             />
         </article>
@@ -90,7 +121,7 @@ ModArticle.defaultProps = {
     dataSection: undefined,
     classCondition: undefined,
     titleTag: 'h4',
-    titleSize: '--s',
+    titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
     dateText: undefined,

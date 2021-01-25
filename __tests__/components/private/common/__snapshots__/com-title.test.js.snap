@@ -16,11 +16,7 @@ exports[`Private - Common - ComTitle =>  Snapshot h2 con content tags  y link 1`
     class="com-link"
     href="/ultimas-noticias"
   >
-    Soy un 
-    <em>
-      Título
-    </em>
-     de impacto H2 con ComLink
+    Soy un &lt;em&gt;Título&lt;/em&gt; de impacto H2 con ComLink
   </a>
 </h2>
 `;

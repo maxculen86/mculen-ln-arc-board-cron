@@ -2,7 +2,7 @@
 
 exports[`Paragraph Matches snapshot 1`] = `
 <p
-  class="com-paragraph  --capital --twoxs"
+  class="com-paragraph  --capital --s"
 >
   Lorem ipsum dolor sit amet, 
   <strong>

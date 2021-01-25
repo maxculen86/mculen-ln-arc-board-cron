@@ -107,9 +107,6 @@
 }
 
 @mixin fullwidth {
-    // $spacing-lg: 2.5rem;
-    // $spacing-sm: 1.25rem;
-
     width: calc(100% + #{$spacing-lg});
     margin-left: -$spacing-sm;
 }
