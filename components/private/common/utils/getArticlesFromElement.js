@@ -4,17 +4,10 @@ import Consumer from 'fusion:consumer';
 
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
 import browser from './browser';
-const getArticlesFromElement = async values => {
-    const {
-        id,
-        isAdmin,
-        sizeCf,
-        pageCf,
-        paramUrlId,
-        requestUri,
-        fetchContent
-    } = values || {};
-    if (!id) return [];
+const getArticlesFromElement = values => {
+    const { id, isAdmin, sizeCf, pageCf, paramUrlId, requestUri } =
+        values || {};
+    // if (!id) return [];
 
     let size = browser.getSizesFrom(
         isAdmin,
@@ -33,8 +26,8 @@ const getArticlesFromElement = async values => {
         'page',
         requestUri
     );
-
-    fetchContent({
+    console.log('FUNCTIONGETART', this);
+    this.fetchContent({
         acuArticlesSource: {
             source: 'acuArticlesSource',
             query: {

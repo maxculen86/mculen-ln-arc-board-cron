@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
+import Author from '../../../private/LN/api/v1/common/author';
 import getArticlesFromElement from '../../../private/common/utils/getArticlesFromElement';
 // URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v([1]+)\/notas\/byAuthor\/(.+)\/(params.+)\/(.*)$ , donde "params" dependera del customField "paramUrlId" configurado
@@ -25,17 +26,16 @@ class AuthorAcu {
             requestUri,
             fetchContent: this.fetchContent
         };
-        /*
-        const resp = getArticlesFromElement(
+
+        /* const resp = getArticlesFromElement(
             id,
             isAdmin,
             sizeCf,
             pageCf,
             paramUrlId,
-            requestUri,
-            this.fetchContent
+            requestUri
         );
-        */
+*/
 
         let size = browser.getSizesFrom(
             isAdmin,
@@ -76,15 +76,12 @@ class AuthorAcu {
 
     render() {
         try {
-            // const resp = getArticlesFromElement(this.state);
+            //const resp = getArticlesFromElement(this.state);
 
             const { acuArticlesSource, globalContent: configuration } =
                 this.state || {};
-
-            const {
-                globalContent: { name },
-                requestUri
-            } = this.props;
+            return this.props.globalContent;
+            const { globalContent: autor, requestUri } = this.props;
 
             const indexAcu = this.versions[browser.getApiVersion(requestUri)];
 
@@ -93,10 +90,12 @@ class AuthorAcu {
             }
 
             const acuData = {
-                name,
+                tipoAcumulado: 3,
+                name: autor.byline,
                 articles: acuArticlesSource.content_elements,
                 paginator: acuArticlesSource.next,
                 total: acuArticlesSource.count,
+                autor: Author(autor),
                 configuration
             };
 
