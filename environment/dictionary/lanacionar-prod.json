@@ -487,27 +487,129 @@
             "migrada": true
         },
         {
+            "_id": "7383",
+            "ArcSectionId": "/ciencia",
+            "name": "Ciencia",
+            "migrada": true
+        },
+        {
+            "_id": "8009",
+            "ArcSectionId": "/educacion",
+            "name": "Educación",
+            "migrada": true
+        },
+        {
+            "_id": "120",
+            "ArcSectionId": "/espectaculos",
+            "name": "Espectáculos",
+            "migrada": true
+        },
+        {
+            "_id": "121",
+            "ArcSectionId": "/cine",
+            "name": "Cine",
+            "migrada": true
+        },
+        {
+            "_id": "602",
+            "ArcSectionId": "/danza",
+            "name": "Danza",
+            "migrada": true
+        },
+        {
+            "_id": "601",
+            "ArcSectionId": "/musica",
+            "name": "Música",
+            "migrada": true
+        },
+        {
+            "_id": "8010",
+            "ArcSectionId": "/personajes",
+            "name": "Personajes",
+            "migrada": true
+        },
+        {
+            "_id": "603",
+            "ArcSectionId": "/radio",
+            "name": "Radio",
+            "migrada": true
+        },
+        {
+            "_id": "8011",
+            "ArcSectionId": "/series-de-tv",
+            "name": "Series de tv",
+            "migrada": true
+        },
+        {
+            "_id": "126",
+            "ArcSectionId": "/teatro",
+            "name": "Teatro",
+            "migrada": true
+        },
+        {
+            "_id": "604",
+            "ArcSectionId": "/television",
+            "name": "Televisión",
+            "migrada": true
+        },
+        {
+            "_id": "7773",
+            "ArcSectionId": "/data",
+            "name": "LA NACION Data",
+            "migrada": true
+        },
+        {
+            "_id": "7773",
+            "ArcSectionId": "/la-nacion-revista",
+            "name": "LA NACION Revista",
+            "migrada": true
+        },
+        {
+            "_id": "7773",
+            "ArcSectionId": "/lnmas",
+            "name": "LN+",
+            "migrada": true
+        },
+        {
+            "_id": "120",
+            "ArcSectionId": "/revista-rolling-stone",
+            "name": "Revista Rolling Stone",
+            "migrada": true
+        },
+        {
+            "_id": "120",
+            "ArcSectionId": "/criticas",
+            "name": "Críticas",
+            "migrada": true
+        },
+        {
+            "_id": "120",
+            "ArcSectionId": "/entrevistas",
+            "name": "Entrevistas RS",
+            "migrada": true
+        },
+        {
+            "_id": "120",
+            "ArcSectionId": "/tapas",
+            "name": "RS Tapas",
+            "migrada": true
+        },
+        {
+            "_id": "7355",
+            "ArcSectionId": "/salud",
+            "name": "Salud",
+            "migrada": true
+        },
+        {
+            "_id": "7773",
+            "ArcSectionId": "/sociedad",
+            "name": "Sociedad",
+            "migrada": true
+        },
+        {
             "_id": "62",
             "ArcSectionId": "/transito",
             "name": "Tránsito",
-            "migrada": false
-        },
-        {
-            "_id": "132",
-            "ArcSectionId": "/espectaculos",
-            "name": "Espectáculos",
-            "migrada": false
-        },
-        {
-            "_id": "133",
-            "ArcSectionId": "/cine",
-            "name": "Cine",
-            "migrada": false
-        },
-        {
-            "_id": "139",
-            "ArcSectionId": "/teatro",
-            "name": "Teatro",
             "migrada": false
         },
         {
@@ -589,12 +691,6 @@
             "migrada": false
         },
         {
-            "_id": "142",
-            "ArcSectionId": "/la-nacion-revista",
-            "name": "LA NACION Revista",
-            "migrada": false
-        },
-        {
             "_id": "129",
             "ArcSectionId": "/editoriales",
             "name": "Editoriales",
@@ -604,30 +700,6 @@
             "_id": "147",
             "ArcSectionId": "/carta-de-lectores",
             "name": "Carta de lectores",
-            "migrada": false
-        },
-        {
-            "_id": "135",
-            "ArcSectionId": "/musica",
-            "name": "Música",
-            "migrada": false
-        },
-        {
-            "_id": "134",
-            "ArcSectionId": "/danza",
-            "name": "Danza",
-            "migrada": false
-        },
-        {
-            "_id": "137",
-            "ArcSectionId": "/radio",
-            "name": "Radio",
-            "migrada": false
-        },
-        {
-            "_id": "140",
-            "ArcSectionId": "/television",
-            "name": "Televisión",
             "migrada": false
         },
         {
@@ -643,27 +715,9 @@
             "migrada": false
         },
         {
-            "_id": "182",
-            "ArcSectionId": "/salud",
-            "name": "Salud",
-            "migrada": false
-        },
-        {
-            "_id": "63",
-            "ArcSectionId": "/ciencia",
-            "name": "Ciencia",
-            "migrada": false
-        },
-        {
             "_id": "148",
             "ArcSectionId": "/miradas",
             "name": "Miradas",
-            "migrada": false
-        },
-        {
-            "_id": "184",
-            "ArcSectionId": "/sociedad",
-            "name": "Sociedad",
             "migrada": false
         },
         {
@@ -688,12 +742,6 @@
             "_id": "141",
             "ArcSectionId": "/ideas",
             "name": "Ideas",
-            "migrada": false
-        },
-        {
-            "_id": "177",
-            "ArcSectionId": "/revista-rolling-stone",
-            "name": "Revista Rolling Stone",
             "migrada": false
         },
         {
@@ -727,24 +775,6 @@
             "migrada": false
         },
         {
-            "_id": "130",
-            "ArcSectionId": "/educacion",
-            "name": "Educación",
-            "migrada": false
-        },
-        {
-            "_id": "136",
-            "ArcSectionId": "/personajes",
-            "name": "Personajes",
-            "migrada": false
-        },
-        {
-            "_id": "138",
-            "ArcSectionId": "/series-de-tv",
-            "name": "Series de tv",
-            "migrada": false
-        },
-        {
             "_id": "126",
             "ArcSectionId": "/dolar",
             "name": "Dólar Hoy",
@@ -760,12 +790,6 @@
             "_id": "60",
             "ArcSectionId": "/bbc-mundo",
             "name": "BBC Mundo",
-            "migrada": false
-        },
-        {
-            "_id": "66",
-            "ArcSectionId": "/data",
-            "name": "LA NACION Data",
             "migrada": false
         },
         {
@@ -1144,24 +1168,6 @@
             "_id": "176",
             "ArcSectionId": "/ohlala-viaja",
             "name": "OHLALÁ! Viaja",
-            "migrada": false
-        },
-        {
-            "_id": "178",
-            "ArcSectionId": "/criticas",
-            "name": "Críticas",
-            "migrada": false
-        },
-        {
-            "_id": "179",
-            "ArcSectionId": "/entrevistas",
-            "name": "Entrevistas RS",
-            "migrada": false
-        },
-        {
-            "_id": "180",
-            "ArcSectionId": "/tapas",
-            "name": "RS Tapas",
             "migrada": false
         },
         {
