@@ -1,73 +1,45 @@
-import get from 'lodash.get';
-import { isMigratedCategory } from '../../../../../common/utils/migratedCategoriesHelper';
+import {
+    getCategory,
+    isMigratedCategory
+} from '../../../../../common/utils/migratedCategoriesHelper';
 
 const getPrincipalCategory = section => {
-    if (!section) {
-        throw new Error(`La categoria principal viene en null o undefined`);
-    }
     const { _id: slug, name: valor } = section;
-
-    const migration = get(
-        section,
-        'additional_properties.original.migration',
-        null
-    );
-
-    const name = get(section, 'name', null);
-
-    if (!isMigratedCategory(slug, migration)) {
-        const idSectionLn9 = get(
-            section,
-            'additional_properties.original.migration.id_section_ln9',
-            null
-        );
-
-        if (!idSectionLn9) {
-            throw new Error(
-                `No existe id_section_ln9 en la categoria '${slug}'`
-            );
-        }
+    if (!isMigratedCategory(slug, true)) {
+        const category = getCategory(slug, true);
 
         return {
-            id: parseInt(idSectionLn9, 10),
-            valor: name
+            // eslint-disable-next-line radix
+            // eslint-disable-next-line no-underscore-dangle
+            id: parseInt(category._id, 10),
+            valor: category.name
         };
     }
-    return { slug, valor };
+
+    return {
+        slug,
+        valor
+    };
 };
 
-const getSubCategory = section => {
-    if (!section) {
-        throw new Error(`La SubCategoria viene en null o undefined`);
-    }
-    const { _id: slug, name: valor } = section;
+const getSubCategory = (category, isMigratedPrincipalCategory) => {
+    if (!category) return null;
+
     const resp = {};
-    const migration = get(
-        section,
-        'additional_properties.original.migration',
-        null
-    );
 
-    if (!isMigratedCategory(slug, migration)) {
-        const idSectionLn9 = get(
-            section,
-            'additional_properties.original.migration.id_section_ln9',
-            null
-        );
-
-        if (!idSectionLn9) {
-            throw new Error(
-                `No existe id_section_ln9 en la categoria '${slug}'`
-            );
-        }
-
-        resp.id = parseInt(idSectionLn9, 10);
-        resp.valor = valor;
-        resp.nivel = slug.match(new RegExp('/', 'g')).length;
+    if (!isMigratedPrincipalCategory) {
+        // eslint-disable-next-line no-underscore-dangle
+        const migratedCategory = getCategory(category._id);
+        // eslint-disable-next-line radix
+        // eslint-disable-next-line no-underscore-dangle
+        resp.id = parseInt(migratedCategory._id, 10);
+        resp.valor = migratedCategory.name;
     } else {
-        resp.slug = slug;
-        resp.valor = valor;
+        resp.slug = category._id;
+        resp.valor = category.name;
     }
+
+    resp.nivel = category._id.match(new RegExp('/', 'g')).length;
     return resp;
 };
 

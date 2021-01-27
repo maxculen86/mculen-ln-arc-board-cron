@@ -50,6 +50,7 @@ describe('Common - getMetasOG function', () => {
                     },
                     receta: {}
                 },
+                publish_date: '2021-01-08T15:24:00.940Z',
                 subheadlines: { basic: '' },
                 subtype: '7',
                 type: 'story',
@@ -97,6 +98,14 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'og:url',
                 content: `https://recetas.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
+            },
+            {
+                property: 'article:published_time',
+                content: '2021-01-08T15:24:00.940Z'
+            },
+            {
+                property: 'article:content_tier',
+                content: 'metered'
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);
