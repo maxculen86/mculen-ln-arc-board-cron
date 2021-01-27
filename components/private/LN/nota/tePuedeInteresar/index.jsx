@@ -6,14 +6,21 @@ import ArticleMain from '../../common/articleTypes/articleMain';
 import ComTitle from '../../../common/com-title';
 
 const Index = ({ cantidadNotas }) => {
-    const { outputType, requestUri, siteProperties } = useAppContext();
+    const {
+        outputType,
+        requestUri,
+        siteProperties,
+        globalContent
+    } = useAppContext();
     const { host = 'https://www.lanacion.com.ar' } = siteProperties;
+    const { _id } = globalContent || {};
     const articles = useContent({
         source: 'liftigniterSource',
         query: {
             cantidadNotas,
             referrer: `${host}${requestUri}`,
-            imageConfig: 'm'
+            imageConfig: 'm',
+            idArticle: _id
         }
     });
 
