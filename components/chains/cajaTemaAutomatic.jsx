@@ -30,7 +30,6 @@ const CajaTemaAutomatic = props => {
         outputType,
         renderables
     } = props;
-        console.log("🚀 ~ file: cajaTemaAutomatic.jsx ~ line 33 ~ renderables", renderables)
 
     const {
         collectionsInPage,
@@ -43,8 +42,6 @@ const CajaTemaAutomatic = props => {
         renderables,
         collectionsInPage
     );
-
-    console.log("🚀 ~ file: cajaTemaAutomatic.jsx ~ line 55 ~ articlesViewables", idsArticlesToExclude)
 
     const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
 
@@ -62,14 +59,7 @@ const CajaTemaAutomatic = props => {
         articlesToShow,
         `La colección ${idCollection} no encontró notas (verificar si el tamaño de la colección esta configurado en 20 notas)`
     );
-    /*
-    const articlesToShow = getArticlesToShow(
-        articles,
-        collectionsInPage,
-        initialPosition,
-        notesQuantity
-    );
-    */
+
     if (isAdmin && !!error) {
         return (
             <div
@@ -116,6 +106,18 @@ CajaTemaAutomatic.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     outputType: PropTypes.bool.isRequired,
+    renderables: PropTypes.arrayOf(
+        PropTypes.shape({
+            type: PropTypes.string,
+            props: PropTypes.shape({
+                customFields: PropTypes.shape({
+                    layout: PropTypes.string,
+                    idCollection: PropTypes.string,
+                    initialPosition: PropTypes.string
+                })
+            })
+        })
+    ).isRequired,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaTemaAutomatic')
     }).isRequired

@@ -94,7 +94,7 @@ describe('Test del Chain - <CajaTema />', () => {
         const articles1 = getArticlesFromMyCurrentCollection(
             collectionsInPage,
             idCollection,
-            1,
+            0,
             3
         );
         expect(articles1.length).toBe(3);
@@ -105,7 +105,7 @@ describe('Test del Chain - <CajaTema />', () => {
         const articles2 = getArticlesFromMyCurrentCollection(
             collectionsInPage,
             idCollection,
-            2,
+            1,
             2
         );
         expect(articles2.length).toBe(2);

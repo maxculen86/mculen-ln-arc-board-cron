@@ -76,7 +76,7 @@ export const getIdsArticlesFromOtherCollections = (
             collectionsInPage,
             get(chain, 'props.customFields.idCollection', null),
             Number(position) - 1,
-            layoutChain.slice(-1)
+            Number(layoutChain.slice(-1))
         );
 
         return arts.map(art => art._id);

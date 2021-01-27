@@ -38,8 +38,8 @@ const CajaTemaCollections = props => {
     const articlesFiltered = getArticlesFromMyCurrentCollection(
         collectionsInPage,
         idCollection,
-        initialPosition,
-        notesQuantity - 1
+        initialPosition - 1,
+        notesQuantity
     );
 
     const error = validateFeature(
