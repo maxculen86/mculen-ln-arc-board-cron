@@ -6,6 +6,9 @@ const getArticleInCollection = (
     idCollection = null,
     size = 2,
     initialPosition = 0,
+    idsArticlesToExclude = [],
+    shouldFilter = false,
+    notesQuantity,
     website = 'la-nacion-ar'
 ) => {
     const articleList = useContent({
@@ -14,7 +17,10 @@ const getArticleInCollection = (
             id: idCollection,
             size,
             website,
-            from: initialPosition
+            from: initialPosition,
+            idsArticlesToExclude,
+            shouldFilter,
+            notesQuantity
         },
         filter,
         staticMode: true

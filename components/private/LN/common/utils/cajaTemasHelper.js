@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
+import get from '../../../common/utils/get';
 
 const featuredRules = {
     cajaTemaCollections: {
@@ -50,6 +51,40 @@ export const getCommonProps = props => {
     };
 };
 
+export const flattenArray = arr1 => {
+    return arr1.reduce(
+        (acc, val) =>
+            Array.isArray(val)
+                ? acc.concat(flattenArray(val))
+                : acc.concat(val),
+        []
+    );
+};
+
+export const getIdsArticlesFromOtherCollections = (
+    renderables,
+    collectionsInPage
+) => {
+    const chainsCollections = renderables.filter(
+        ren => ren.collection === 'chains' && ren.type === 'cajaTemaCollections'
+    );
+
+    const articlesViewables = chainsCollections.map(chain => {
+        const layoutChain = get(chain, 'props.customFields.layout', '');
+        const position = get(chain, 'props.customFields.initialPosition', 1);
+        const arts = getArticlesFromMyCurrentCollection(
+            collectionsInPage,
+            get(chain, 'props.customFields.idCollection', null),
+            Number(position) - 1,
+            layoutChain.slice(-1)
+        );
+
+        return arts.map(art => art._id);
+    });
+
+    return flattenArray(articlesViewables);
+};
+
 export const getArticlesFromMyCurrentCollection = (
     collections,
     idCollection,
@@ -64,8 +99,8 @@ export const getArticlesFromMyCurrentCollection = (
 
     const articlesFiltered = currentCollection.articles
         ? currentCollection.articles.slice(
-              initialPosition - 1,
-              initialPosition - 1 + notesQuantity
+              initialPosition,
+              initialPosition + notesQuantity
           )
         : [];
 
@@ -81,40 +116,6 @@ export const calculateSizeOfCollection = (collections, notesQuantity) => {
     );
     const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
     return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
-};
-
-const isInAnotherCollection = (idArticle, collections) => {
-    const rto = collections.find(collect =>
-        collect.articles.some(artCol => artCol._id === idArticle)
-    );
-    return rto || false;
-};
-
-const isNotRecommend = article => {
-    const { label = {} } = article;
-    const { recomendar = {} } = label;
-    return recomendar.text === 'No';
-};
-
-export const getArticlesToShow = (
-    articles = [],
-    collections,
-    initialPosition,
-    notesQuantity
-) => {
-    const articlesRecomended = articles.filter(art => !isNotRecommend(art));
-
-    const articlesFiltered = articlesRecomended.filter(
-        art => isInAnotherCollection(art._id, collections) === false
-    );
-
-    const articlesToShow = articlesFiltered
-        ? articlesFiltered.slice(
-              initialPosition - 1,
-              initialPosition - 1 + notesQuantity
-          )
-        : [];
-    return articlesToShow;
 };
 
 export const cajaTemasCustomsFields = featuredName => {
@@ -207,3 +208,39 @@ export const cajaTemasCustomsFields = featuredName => {
         })
     };
 };
+
+/*
+const isInAnotherCollection = (idArticle, collections) => {
+    const rto = collections.find(collect =>
+        collect.articles.some(artCol => artCol._id === idArticle)
+    );
+    return rto || false;
+};
+
+const isNotRecommend = article => {
+    const { label = {} } = article;
+    const { recomendar = {} } = label;
+    return recomendar.text === 'No';
+};
+
+export const getArticlesToShow = (
+    articles = [],
+    collections = [],
+    initialPosition,
+    notesQuantity
+) => {
+    const articlesRecomended = articles.filter(art => !isNotRecommend(art));
+
+    const articlesFiltered = articlesRecomended.filter(
+        art => isInAnotherCollection(art._id, collections) === false
+    );
+
+    const articlesToShow = articlesFiltered
+        ? articlesFiltered.slice(
+              initialPosition - 1,
+              initialPosition - 1 + notesQuantity
+          )
+        : [];
+    return articlesToShow;
+};
+*/

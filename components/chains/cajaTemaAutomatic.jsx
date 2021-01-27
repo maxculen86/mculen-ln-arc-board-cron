@@ -7,9 +7,9 @@ import CajaTema from '../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
     calculateSizeOfCollection,
-    getArticlesToShow,
     validateFeature,
-    getCommonProps
+    getCommonProps,
+    getIdsArticlesFromOtherCollections
 } from '../private/LN/common/utils/cajaTemasHelper';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
@@ -27,8 +27,10 @@ const CajaTemaAutomatic = props => {
             imageId,
             hideTitle
         },
-        outputType
+        outputType,
+        renderables
     } = props;
+        console.log("🚀 ~ file: cajaTemaAutomatic.jsx ~ line 33 ~ renderables", renderables)
 
     const {
         collectionsInPage,
@@ -37,27 +39,37 @@ const CajaTemaAutomatic = props => {
         classCondition
     } = getCommonProps(props);
 
+    const idsArticlesToExclude = getIdsArticlesFromOtherCollections(
+        renderables,
+        collectionsInPage
+    );
+
+    console.log("🚀 ~ file: cajaTemaAutomatic.jsx ~ line 55 ~ articlesViewables", idsArticlesToExclude)
+
     const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
 
-    const articles = getArticleInCollection(
+    const articlesToShow = getArticleInCollection(
         idCollection,
         size,
-        initialPosition - 1
+        initialPosition - 1,
+        idsArticlesToExclude,
+        true,
+        notesQuantity
     );
 
     const error = validateFeature(
         idCollection,
-        articles,
+        articlesToShow,
         `La colección ${idCollection} no encontró notas (verificar si el tamaño de la colección esta configurado en 20 notas)`
     );
-
+    /*
     const articlesToShow = getArticlesToShow(
         articles,
         collectionsInPage,
         initialPosition,
         notesQuantity
     );
-
+    */
     if (isAdmin && !!error) {
         return (
             <div

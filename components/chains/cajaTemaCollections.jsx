@@ -39,7 +39,7 @@ const CajaTemaCollections = props => {
         collectionsInPage,
         idCollection,
         initialPosition,
-        notesQuantity
+        notesQuantity - 1
     );
 
     const error = validateFeature(

@@ -6,7 +6,8 @@ jest.mock(
 import React from 'react';
 import { mount } from 'enzyme';
 import CajaTemaAutomatic from '../../../components/chains/cajaTemaAutomatic.jsx';
-import { calculateSizeOfCollection, getArticlesFromMyCurrentCollection, getArticlesToShow } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
+import { calculateSizeOfCollection, getIdsArticlesFromOtherCollections } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
+import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
 
 describe('Test del Chain - <CajaTema />', () => {
     const idCollection = 'WPDJCUD7RNAQVA4JEPFJYZMCSE';
@@ -26,6 +27,21 @@ describe('Test del Chain - <CajaTema />', () => {
                 },
                 {
                     _id: 'FUO2YR3EABBAFOMSI2BBS6J7FM'
+                },
+                {
+                    _id: 'AVYWDWDAVVESZGD7HXMW46GTYA'
+                },
+                {
+                    _id: 'VD7B5NVJQFEVDP4CACDCKLACFQ'
+                },
+                {
+                    _id: 'C5FCAISVEBE5BH5SLWSAWB2VKI'
+                },
+                {
+                    _id: 'ZZZZ'
+                },
+                {
+                    _id: 'XXXX'
                 }
 
             ]
@@ -107,7 +123,7 @@ describe('Test del Chain - <CajaTema />', () => {
 
     it('Deberia setear el size de la collection en 7', () => {
         const size1 = calculateSizeOfCollection(collectionsInPage, 3);
-        expect(size1).toBe(7);
+        expect(size1).toBe(12);
     });
     it('Deberia setear el size de la collection en 20', () => {
         const size1 = calculateSizeOfCollection(collectionsInPage, 30);
@@ -143,6 +159,38 @@ describe('Test del Chain - <CajaTema />', () => {
             3
         );
         expect(articles2.length).toBe(0);
+    });
+
+    const renderables = [
+        { 
+            collection: 'chains',
+            type: 'cajaTemaCollections',
+            props: { 
+                customFields: {
+                    idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
+                    layout: 'grilla3',
+                    initialPosition: 1
+                }
+            }
+        },
+        { 
+            collection: 'chains',
+            type: 'cajaTemaCollections',
+            props: { 
+                customFields: {
+                    idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
+                    layout: 'grilla3',
+                    initialPosition: 4
+                }
+            }
+        },
+    ];
+    it('Deberia traer un array de ids de articulos a excluir', () => {
+        const idsArticlesToExclude = getIdsArticlesFromOtherCollections(
+            renderables,
+            collectionsInPage
+        );
+        expect(idsArticlesToExclude).toBe(6);
     });
 
 

@@ -66,7 +66,7 @@ const transformContent = (data, siteProps, arcSite) => {
         resp,
         'acumuladoGeneral.id_collection_promo_items'
     );
-    const idCollections = get(resp, 'acumuladoGeneral.colecciones', []);
+    const idCollectionsInPage = get(resp, 'acumuladoGeneral.colecciones', []);
     const newSiteProps = {
         ...siteProps,
         id: idCollectionApertura,
@@ -94,7 +94,7 @@ const transformContent = (data, siteProps, arcSite) => {
         );
     }
 
-    idCollections.forEach(id => {
+    idCollectionsInPage.forEach(id => {
         const collectionsProps = {
             ...siteProps,
             id,

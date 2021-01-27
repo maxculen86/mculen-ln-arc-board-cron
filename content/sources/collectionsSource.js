@@ -13,6 +13,8 @@ import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
+import { getArticlesToShow } from './utils/collectionsHelper';
+// import { getArticlesToShow } from '../../components/private/LN/common/utils/cajaTemasHelper';
 
 const resolve = key => {
     const { id, size, website, from = 0 } = key;
@@ -57,9 +59,25 @@ const transform = (data, siteProps) => {
     const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
+    const {
+        idsArticlesToExclude = [],
+        from = 0,
+        shouldFilter = false,
+        notesQuantity = 3
+    } = siteProps || {};
+
+    const contentElementsFiltered = shouldFilter
+        ? getArticlesToShow(
+              contentElements,
+              idsArticlesToExclude,
+              from,
+              notesQuantity
+          )
+        : contentElements;
+
     respData.content_elements =
-        contentElements &&
-        contentElements.map(elem => {
+        contentElementsFiltered &&
+        contentElementsFiltered.map(elem => {
             // const promoItems = get(elem, `promo_items`, null);
             const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
@@ -84,6 +102,7 @@ const transform = (data, siteProps) => {
                 marquesina
             };
         });
+
     return respData;
 };
 
