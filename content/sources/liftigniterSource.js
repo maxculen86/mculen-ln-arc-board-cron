@@ -39,7 +39,8 @@ const fetch = query => {
     const {
         cantidadNotas = 10,
         referrer = SITE_LANACION,
-        imageConfig = 'm'
+        imageConfig = 'm',
+        idArticle
     } = query;
 
     return request({
@@ -54,7 +55,10 @@ const fetch = query => {
             widgetName: WIDGETS,
             maxCount: cantidadNotas,
             requestFields: ['url', 'title', 'image', 'id', 'published_time'],
-            referrer
+            referrer,
+            pageviewId: idArticle,
+            url: referrer,
+            excludeItems: [referrer]
         })
     })
         .then(response => {
