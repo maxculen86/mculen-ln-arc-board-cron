@@ -1,6 +1,5 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
-//import PropTypes from 'fusion:prop-types';
+import PropTypes from 'fusion:prop-types';
 
 import ComTitle from './com-title';
 import ComLink from './com-link';
@@ -8,21 +7,21 @@ import ComImage from './com-image';
 
 import '../../../resources/dist/css/ln/modules/mod-dolar.css';
 
-const ModDolar = ({ compra, venta, compraBlue, ventaBlue, compraLiqui }) => {
+const ModDolar = ({ buy, sale, buyBlue, saleBlue, buyLiqui }) => {
     return (
         <ul className="mod-dolar row-gap-tablet-4">
             <li className="item">
                 <ComTitle tag="h2" size="--xs" content="Dólar Banco Nación" />
                 <span>
-                    Compra <strong>${compra}</strong> Venta{' '}
-                    <strong>${venta}</strong>
+                    Compra <strong>${buy}</strong> Venta{' '}
+                    <strong>${sale}</strong>
                 </span>
             </li>
             <li className="item">
                 <ComTitle tag="h2" size="--xs" content="Dólar Blue" />
                 <span>
-                    Compra <strong>${compraBlue}</strong> Venta{' '}
-                    <strong>${ventaBlue}</strong>
+                    Compra <strong>${buyBlue}</strong> Venta{' '}
+                    <strong>${saleBlue}</strong>
                 </span>
             </li>
             <li className="item">
@@ -32,7 +31,7 @@ const ModDolar = ({ compra, venta, compraBlue, ventaBlue, compraLiqui }) => {
                     content="Dólar Contado con Liqui"
                 />
                 <span>
-                    Compra <strong>${compraLiqui}</strong>
+                    Compra <strong>${buyLiqui}</strong>
                 </span>
             </li>
             <li className="item">
@@ -47,10 +46,12 @@ const ModDolar = ({ compra, venta, compraBlue, ventaBlue, compraLiqui }) => {
     );
 };
 
-// ModDolar.propTypes = {
-//     link: PropTypes.string.isRequired,
-//     subheadSize: PropTypes.string.isRequired,
-//     subheadText: PropTypes.string.isRequired
-// };
+ModDolar.propTypes = {
+    buy: PropTypes.string.isRequired,
+    sale: PropTypes.string.isRequired,
+    buyBlue: PropTypes.string.isRequired,
+    saleBlue: PropTypes.string.isRequired,
+    buyLiqui: PropTypes.string.isRequired
+};
 
 export default ModDolar;
