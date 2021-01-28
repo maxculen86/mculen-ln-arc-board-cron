@@ -13,7 +13,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
       type="button"
     >
       <span
-        class="com-text --sixxs "
+        class="com-text --fivexs "
       >
         asd 1
       </span>
@@ -28,7 +28,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
       type="button"
     >
       <span
-        class="com-text --sixxs "
+        class="com-text --fivexs "
       >
         asd 2
       </span>
@@ -43,7 +43,7 @@ exports[`components - private - LN - common - TaxonomyImportantList Test de snap
       type="button"
     >
       <span
-        class="com-text --sixxs "
+        class="com-text --fivexs "
       >
         asd 3
       </span>
