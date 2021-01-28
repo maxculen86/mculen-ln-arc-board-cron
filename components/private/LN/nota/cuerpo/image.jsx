@@ -30,13 +30,13 @@ const image = ({ data, withZoom, outputType }) => {
                     <ComFigcaption>
                         {data.caption && (
                             <ComText
-                                classCondition="--caption"
+                                classCondition="--caption --twoxs"
                                 textname={data.caption}
                             />
                         )}
                         {credito && (
                             <ComText
-                                classCondition="--credit"
+                                classCondition="--credit --twoxs"
                                 textname={credito}
                             />
                         )}
