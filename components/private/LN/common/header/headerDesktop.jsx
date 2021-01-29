@@ -9,6 +9,7 @@ import ComLogo from '../../../common/com-logo';
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
+import ModsubHeather from './subHeather';
 
 const ItemAnchor = ({ url, text }) => {
     const callURL = address => {
@@ -68,91 +69,94 @@ const HeaderDesktop = ({
     }, [loading]);
 
     return (
-        <Header id="header" className={`header`}>
-            <div className="col-4 header__left">
-                <Hamburguer _onMouseDown={toglleDesplegable} />
-            </div>
-            <div className="col-4 header__middle">
-                <ComLink
-                    link={host || '/'}
-                    classCondition="header__middle__logo"
-                >
-                    <ComLogo logoName="la-nacion" />
-                </ComLink>
-            </div>
-            <div className="col-4 header__right">
-                <div
-                    id="user-menu"
-                    className={`com-usuario${active}${loadingUserData}`}
-                >
-                    {!loginData.subscription && (
-                        <button
-                            className="com-button --special --compact"
-                            type="button"
-                            onClick={() => {
-                                location.href =
-                                    `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                                        location.href
-                                    )}` || '/';
-                            }}
-                        >
-                            SUSCRIBITE
-                        </button>
-                    )}
-                    {logueado && (
-                        <div
-                            onMouseUp={toggleMenu}
-                            tabIndex="0"
-                            role="button"
-                            id="menuUser"
-                            onBlur={() => setActive('')}
-                            onScroll={() => setActive('')}
-                        >
-                            <p className="com-usuario__name">
-                                {loginData.userName}
-                            </p>
-                            {loginData.subscription ? (
-                                <p className="com-usuario__valueSuscrib">
-                                    Suscriptor digital
-                                </p>
-                            ) : (
-                                <p className="com-usuario__valueSuscrib">
-                                    Sin suscripción digital
-                                </p>
-                            )}
-                            <ul className="com-desplegable">
-                                {enlaces.map(({ url, text }) => (
-                                    <ItemAnchor
-                                        key={text}
-                                        url={url}
-                                        text={text}
-                                    />
-                                ))}
-                                <li>
-                                    <a
-                                        href="javascript:void(0);"
-                                        onMouseDown={() => {
-                                            goToLogout();
-                                        }}
-                                    >
-                                        Salir
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    )}
-                    {!logueado && (
-                        <button
-                            type="button"
-                            className="com-button --secondary --compact"
-                            onClick={() => goToLoginUrl()}
-                        >
-                            INGRESAR
-                        </button>
-                    )}
+        <>
+            <Header id="header" className={`header`}>
+                <div className="col-4 header__left">
+                    <Hamburguer _onMouseDown={toglleDesplegable} />
                 </div>
-            </div>
-        </Header>
+                <div className="col-4 header__middle">
+                    <ComLink
+                        link={host || '/'}
+                        classCondition="header__middle__logo"
+                    >
+                        <ComLogo logoName="la-nacion" />
+                    </ComLink>
+                </div>
+                <div className="col-4 header__right">
+                    <div
+                        id="user-menu"
+                        className={`com-usuario${active}${loadingUserData}`}
+                    >
+                        {!loginData.subscription && (
+                            <button
+                                className="com-button --special --compact"
+                                type="button"
+                                onClick={() => {
+                                    location.href =
+                                        `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                            location.href
+                                        )}` || '/';
+                                }}
+                            >
+                                SUSCRIBITE
+                            </button>
+                        )}
+                        {logueado && (
+                            <div
+                                onMouseUp={toggleMenu}
+                                tabIndex="0"
+                                role="button"
+                                id="menuUser"
+                                onBlur={() => setActive('')}
+                                onScroll={() => setActive('')}
+                            >
+                                <p className="com-usuario__name">
+                                    {loginData.userName}
+                                </p>
+                                {loginData.subscription ? (
+                                    <p className="com-usuario__valueSuscrib">
+                                        Suscriptor digital
+                                    </p>
+                                ) : (
+                                    <p className="com-usuario__valueSuscrib">
+                                        Sin suscripción digital
+                                    </p>
+                                )}
+                                <ul className="com-desplegable">
+                                    {enlaces.map(({ url, text }) => (
+                                        <ItemAnchor
+                                            key={text}
+                                            url={url}
+                                            text={text}
+                                        />
+                                    ))}
+                                    <li>
+                                        <a
+                                            href="javascript:void(0);"
+                                            onMouseDown={() => {
+                                                goToLogout();
+                                            }}
+                                        >
+                                            Salir
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
+                        {!logueado && (
+                            <button
+                                type="button"
+                                className="com-button --secondary --compact"
+                                onClick={() => goToLoginUrl()}
+                            >
+                                INGRESAR
+                            </button>
+                        )}
+                    </div>
+                </div>
+            </Header>
+            <ModsubHeather />
+        </>
     );
 };
 
