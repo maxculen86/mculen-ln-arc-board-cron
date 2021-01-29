@@ -48,6 +48,7 @@
 @media ($media-m) {
     .mod-subheather {
         justify-content: space-between;
+        padding: $spacing-xs $spacing-lg $spacing-xs $spacing-lg;
         .precioDolar {
             font-weight: bold;
         }
@@ -81,7 +82,6 @@
 @media ($media-l) {
     .mod-subheather {
         background: $light-neutral-200;
-        padding: $spacing-xs $spacing-lg $spacing-xs $spacing-lg;
         .com-dolar,
         .com-weather,
         .com-link,
