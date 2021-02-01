@@ -27,7 +27,8 @@ const Share = props => {
         classesNames,
         requestUri,
         globalContent: {
-            headlines: { basic: title, mobile: mobileTitle }
+            headlines: { basic: title, mobile: mobileTitle },
+            comments: { display_comments: displayComments } = {}
         }
     } = props;
     const { arcSite } = useAppContext();
@@ -87,13 +88,15 @@ const Share = props => {
                             popUpCompartirMailTo(requestUri, config.host)
                         }
                     />
-                    <ComButton
-                        onClick={() => scrollToComments()}
-                        size="--fourxs"
-                        iconName="comment"
-                    >
-                        <label htmlFor="">{commentsCount}</label>
-                    </ComButton>
+                    {displayComments && (
+                        <ComButton
+                            onClick={() => scrollToComments()}
+                            size="--fourxs"
+                            iconName="comment"
+                        >
+                            <label htmlFor="">{commentsCount}</label>
+                        </ComButton>
+                    )}
                 </div>
             </AmpContainer>
 
@@ -133,6 +136,9 @@ Share.propTypes = {
         headlines: PropTypes.shape({
             basic: PropTypes.string,
             mobile: PropTypes.string
+        }),
+        comments: PropTypes.shape({
+            display_comments: PropTypes.bool
         })
     }).isRequired
 };
