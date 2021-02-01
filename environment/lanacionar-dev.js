@@ -5,7 +5,7 @@ export default {
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
     RANKING_URL:
-        'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/arcio/ans/most-read/',
+        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/arcio/ans/most-read/',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
     OPTA_WIDGET_URL: 'https://sandbox.lanacion.com.ar/opta-embed',

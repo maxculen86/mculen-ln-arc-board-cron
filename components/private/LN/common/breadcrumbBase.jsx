@@ -13,7 +13,7 @@ const getListSections = (sections, extraOpts, host, colorCategory) =>
                 : section.path;
         return (
             <a
-                className="com-link --twoxs"
+                className="com-link --fourxs"
                 key={path}
                 href={`${path}/`}
                 {...extraOpts}
@@ -72,7 +72,7 @@ const BreadcrumbBase = props => {
         )[0];
         listSections.push(
             <span
-                className="com-text --twoxs"
+                className="com-text --fourxs"
                 key={lastSection.path}
                 style={{
                     ...(colorCategory && {
@@ -105,7 +105,7 @@ const BreadcrumbBase = props => {
             {listSections}
             {/* Último item */}
             {tooltip && (
-                <span className="com-text --twoxs --tooltip">
+                <span className="com-text --fourxs --tooltip">
                     <i
                         className="com-icon bullet icon-bullet-xs"
                         style={{
