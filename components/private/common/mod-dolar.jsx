@@ -15,11 +15,12 @@ const ModDolar = ({ imageUrl, data }) =>
                 return (
                     <li className="item">
                         <ComTitle tag="h2" size="--xs" content={title} />
-                        <span>
-                            Compra <strong>${compra}</strong>
-                            {sourceName !== 'dccl' && 'Venta '}
+                        <p className="com-text --twoxs">
+                            <span>Compra </span>
+                            <strong>${compra}</strong>
+                            {sourceName !== 'dccl' && <span>Venta </span>}
                             {sourceName !== 'dccl' && <strong>${venta}</strong>}
-                        </span>
+                        </p>
                     </li>
                 );
             })}

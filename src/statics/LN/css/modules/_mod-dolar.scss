@@ -9,9 +9,14 @@
         .com-title {
             margin-bottom: $spacing;
         }
-        strong:first-child {
-            margin-right: $spacing;
+
+        strong {
+            margin-right: $spacing-sm;
+            &:last-child {
+                margin: 0;
+            }
         }
+
         .com-link {
             display: flex;
             justify-content: center;
@@ -23,6 +28,12 @@
         }
     }
 
+    &.row-gap-tablet-4 {
+        grid-row-gap: 1px;
+        @media ($media-m) {
+            grid-row-gap: px(32);
+        }
+    }
     // &.row-gap-2 {
     //     grid-gap: 0;
     //     @media ($media-m) {
