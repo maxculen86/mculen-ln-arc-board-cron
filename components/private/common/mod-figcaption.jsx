@@ -12,8 +12,8 @@ const ModFigcaption = props => {
 
     return (
         <ComFigcaption>
-            <ComText classCondition="--caption" textname={title} />
-            <ComText classCondition="--credit" textname={credit} />
+            <ComText classCondition="--caption --twoxs" textname={title} />
+            <ComText classCondition="--credit --twoxs" textname={credit} />
         </ComFigcaption>
     );
 };

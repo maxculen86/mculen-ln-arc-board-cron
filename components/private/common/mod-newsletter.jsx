@@ -37,7 +37,7 @@ const ModNewsletter = props => {
                     <ComButton
                         onClick={handleClick}
                         classesNames="--primary"
-                        size="--sixxs"
+                        size="--fivexs"
                     >
                         SUSCRIBITE AL NEWSLETTER
                     </ComButton>

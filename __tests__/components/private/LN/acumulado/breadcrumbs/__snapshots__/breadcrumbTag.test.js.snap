@@ -6,7 +6,7 @@ Array [
     class="com-breadcrumb "
   >
     <a
-      class="com-link --twoxs"
+      class="com-link --fourxs"
       data-event="LinkClick"
       data-section="AperturaAcuRecetas"
       href="https://www.lanacion.com.ar/"
@@ -17,7 +17,7 @@ Array [
       LA NACION
     </a>
     <span
-      class="com-text --twoxs"
+      class="com-text --fourxs"
     >
       <i
         class="com-icon bullet icon-bullet-xs"

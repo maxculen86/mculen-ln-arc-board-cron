@@ -6,7 +6,7 @@ Array [
     class="com-breadcrumb "
   >
     <a
-      class="com-link --twoxs"
+      class="com-link --fourxs"
       href="//"
     >
       <i
@@ -15,7 +15,7 @@ Array [
       LA NACION
     </a>
     <a
-      class="com-link --twoxs"
+      class="com-link --fourxs"
       href="/recetas/"
     >
       <i
@@ -24,7 +24,7 @@ Array [
       Recetas
     </a>
     <a
-      class="com-link --twoxs"
+      class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/"
     >
       <i
@@ -33,7 +33,7 @@ Array [
       Recetas con ingredientes
     </a>
     <a
-      class="com-link --twoxs"
+      class="com-link --fourxs"
       href="/recetas/recetas-con-ingredientes/pollo/"
     >
       <i

@@ -55,7 +55,7 @@ exports[`Share Matches snapshot 1`] = `
         class="com-icon icon-comment   "
       />
       <span
-        class="com-text l "
+        class="com-text --fourxs "
       >
         <label
           for=""
