@@ -26,6 +26,16 @@
                 max-width: px(160);
             }
         }
+        @media ($media-m) {
+            span {
+                display: none;
+            }
+        }
+        @media ($media-lm) {
+            span {
+                display: inline;
+            }
+        }
     }
 
     &.row-gap-tablet-4 {
