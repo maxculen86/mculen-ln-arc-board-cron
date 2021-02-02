@@ -5,6 +5,7 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import LoginProvider from '../private/LN/common/context/loginContext';
 import ComTitle from '../private/common/com-title';
+import GlobalProvider from '../private/common/context/globalContext';
 
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -21,26 +22,28 @@ const LNHome = props => {
     const amp = outputType === 'amp' ? 'amp' : '';
 
     return (
-        <LoginProvider>
-            <GlobalProviderAcu>
-                {seccion1}
-                <div id="wrapper" className={`home ${amp}`}>
-                    <Header />
-                    <main>
-                        <div className="row">
-                            <div className="lay">
-                                <ComTitle
-                                    tag="h1"
-                                    size="--l"
-                                    content="LAYOUT HOME"
-                                />
+        <GlobalProvider>
+            <LoginProvider>
+                <GlobalProviderAcu>
+                    {seccion1}
+                    <div id="wrapper" className={`home ${amp}`}>
+                        <Header />
+                        <main>
+                            <div className="row">
+                                <div className="lay">
+                                    <ComTitle
+                                        tag="h1"
+                                        size="--l"
+                                        content="LAYOUT HOME"
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    </main>
-                    <Footer />
-                </div>
-            </GlobalProviderAcu>
-        </LoginProvider>
+                        </main>
+                        <Footer />
+                    </div>
+                </GlobalProviderAcu>
+            </LoginProvider>
+        </GlobalProvider>
     );
 };
 
