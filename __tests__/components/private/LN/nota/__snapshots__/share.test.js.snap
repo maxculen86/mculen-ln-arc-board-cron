@@ -65,3 +65,54 @@ exports[`Share Matches snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`Share Note display comment in false  Matches snapshot 1`] = `
+<div
+  class="mod-share  "
+  id="v-share"
+>
+  <div
+    class="container --left"
+  >
+    <button
+      class="com-button   --icon "
+      type="button"
+    >
+      <i
+        class="com-icon icon-facebook-filled   "
+      />
+    </button>
+    <button
+      class="com-button   --icon "
+      type="button"
+    >
+      <i
+        class="com-icon icon-twitter-filled   "
+      />
+    </button>
+    <button
+      class="com-button   --icon "
+      type="button"
+    >
+      <i
+        class="com-icon icon-whatsapp-filled   "
+      />
+    </button>
+  </div>
+  <div
+    class="com-line  "
+  />
+  <div
+    class="container --right"
+  >
+    <button
+      class="com-button   --icon "
+      type="button"
+    >
+      <i
+        class="com-icon icon-email   "
+      />
+    </button>
+  </div>
+</div>
+`;
