@@ -133,6 +133,7 @@ export const cajaTemasCustomsFields = featuredName => {
             'notaColorRojo3',
             'notaColorRosa3',
             'notaColorVerde3',
+            'grilla2',
             'grilla3',
             'grilla6',
             'grilla9'
@@ -142,6 +143,7 @@ export const cajaTemasCustomsFields = featuredName => {
             description: 'Cambiar el diseño de la caja',
             group: 'Ajuste Collection',
             labels: {
+                grilla2: 'Grilla 2',
                 grilla3: 'Grilla 3',
                 grilla6: 'Grilla 6',
                 grilla9: 'Grilla 9',

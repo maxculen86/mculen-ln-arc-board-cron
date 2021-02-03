@@ -16,7 +16,8 @@ const CajaTema = props => {
         backgroundColor = '',
         classCondition = '',
         notesQuantity = 3,
-        hideTitle = false
+        hideTitle = false,
+        withSubhead = false
     } = props;
 
     const isFocal = layout.includes('focal');
@@ -49,7 +50,7 @@ const CajaTema = props => {
                                 outputType={outputType}
                                 frontdemo
                                 isRenderAuthor={isRenderAuthor}
-                                withSubhead={false}
+                                withSubhead={withSubhead}
                             />
                         );
                     })
