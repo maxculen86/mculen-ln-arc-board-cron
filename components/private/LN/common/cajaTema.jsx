@@ -12,7 +12,7 @@ const CajaTema = props => {
         imageId,
         url,
         articles = [],
-        layout = 'grilla',
+        layout = 'grilla3',
         backgroundColor = '',
         classCondition = '',
         notesQuantity = 3,
@@ -67,6 +67,11 @@ CajaTema.propTypes = {
         })
     ).isRequired,
     outputType: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    url: PropTypes.string
+};
+
+CajaTema.defaultProps = {
     title: PropTypes.string,
     url: PropTypes.string
 };
