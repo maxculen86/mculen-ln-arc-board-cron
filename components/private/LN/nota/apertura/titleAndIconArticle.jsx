@@ -20,11 +20,8 @@ const TitleAndIconArticle = ({
     },
     layout
 }) => {
-    const siteService = useContext(GlobalContext);
-    console.log(
-        '🚀 ~ file: titleAndIconArticle.jsx ~ line 24 ~ siteService',
-        siteService
-    );
+    const gc = { ...useContext(GlobalContext) };
+    const siteService = get(gc, 'state.siteService', {});
     const sponsored = get(owner, 'sponsored', false);
     const advertiser = get(label, 'marca_anunciante.text', null);
 

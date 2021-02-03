@@ -32,7 +32,9 @@ const BreadcrumbArticle = ({
     },
     siteProperties: { title: siteTitle, host }
 }) => {
-    const siteService = useContext(GlobalContext);
+    const gc = { ...useContext(GlobalContext) };
+    const siteService = get(gc, 'state.siteService', {});
+
     let allSections = [];
     if (primary_section) {
         getPrimaryTree(sections, primary_section, allSections);

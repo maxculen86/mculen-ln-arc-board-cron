@@ -1,5 +1,3 @@
-/* eslint-disable no-shadow */
-
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
@@ -17,8 +15,7 @@ const reducer = (state, action) => {
 const GlobalProvider = ({ children }) => {
     const { arcSite: website = 'la-nacion-ar' } = useAppContext();
     const [state, dispatch] = React.useReducer(reducer, {
-        authenticated: false,
-        navigationTreeSource: useContent({
+        siteService: useContent({
             source: 'navigationTreeSource',
             query: {
                 website
@@ -28,10 +25,41 @@ const GlobalProvider = ({ children }) => {
                     tooltips
                     Termicas
                     bannerConfig
+                    site
                 }
-            `
+            `,
+            transform: ({
+                site = {},
+                Termicas: termicasConfig = {},
+                bannerConfig = {}
+            }) => {
+                const {
+                    sitio_adserver: sitioAdserver = {},
+                    tooltips = {}
+                } = site;
+
+                return {
+                    tooltips: Object.keys(tooltips).map(key => ({
+                        text: key,
+                        label: tooltips[key]
+                    })),
+                    banners: Object.keys(bannerConfig).map(key => ({
+                        adunit: key,
+                        dimensions: bannerConfig[key]
+                    })),
+                    adserver: Object.keys(sitioAdserver).map(key => ({
+                        key,
+                        value: sitioAdserver[key]
+                    })),
+                    termicas: Object.keys(termicasConfig).forEach(key => ({
+                        key,
+                        value: termicasConfig[key]
+                    }))
+                };
+            }
         })
     });
+
     const value = { state, dispatch };
 
     return (
