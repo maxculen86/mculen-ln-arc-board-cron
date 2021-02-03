@@ -65,7 +65,7 @@
 }
 
 .living {
-    $primario: $living;
+    $primario: $ln;
     $logo: $logo-living;
     @include magazine($logo, $primario);
 }
