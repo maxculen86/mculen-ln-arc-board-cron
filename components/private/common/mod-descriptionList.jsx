@@ -33,7 +33,10 @@ const ModDescriptionList = props => {
             </dd>
         ));
     return (
-        <dl className={`mod-descriptionlist ${classCondition || ''}`}>
+        <dl
+            className={`mod-descriptionlist ${classCondition || ''} ${size ||
+                ''}`}
+        >
             <dt className={`com-subtitle --twoxs ${classCondition || ''}`}>
                 {descriptionTitle}
             </dt>

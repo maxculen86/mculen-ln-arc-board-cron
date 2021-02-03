@@ -51,7 +51,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           </a>
         </div>
         <span
-          class="com-text --twoxs "
+          class="com-text --twoxs --bio"
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
@@ -76,7 +76,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  --educacion"
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
               class="com-subtitle --twoxs "
@@ -113,7 +113,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  --reconocimientos"
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
               class="com-subtitle --twoxs "
@@ -150,7 +150,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist --idiomas"
+            class="mod-descriptionlist --idiomas --twoxs"
           >
             <dt
               class="com-subtitle --twoxs --idiomas"
@@ -164,7 +164,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist --membresia"
+            class="mod-descriptionlist --membresia --twoxs"
           >
             <dt
               class="com-subtitle --twoxs --membresia"
@@ -178,7 +178,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
               class="com-subtitle --twoxs "
@@ -209,7 +209,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
               class="com-subtitle --twoxs "
@@ -607,7 +607,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           </a>
         </div>
         <span
-          class="com-text --twoxs "
+          class="com-text --twoxs --bio"
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
@@ -619,7 +619,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist --idiomas"
+            class="mod-descriptionlist --idiomas --twoxs"
           >
             <dt
               class="com-subtitle --twoxs --idiomas"
@@ -633,7 +633,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
               class="com-subtitle --twoxs "

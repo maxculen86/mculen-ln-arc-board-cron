@@ -72,7 +72,11 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                                 />
                             )}
                         </ComContainer>
-                        <ComText size="--twoxs" textname={longBio} />
+                        <ComText
+                            size="--twoxs"
+                            classCondition="--bio"
+                            textname={longBio}
+                        />
                         {education.length > 0 && (
                             <ComContainer classCondition="--educacion">
                                 <ModDescriptionList

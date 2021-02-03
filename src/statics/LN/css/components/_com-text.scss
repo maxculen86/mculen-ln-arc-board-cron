@@ -119,6 +119,12 @@
         justify-content: center;
         align-items: center;
     }
+    &.--bio {
+        .mod-wikiauthor & {
+            margin-bottom: $spacing-sm;
+            display: flex;
+        }
+    }
 }
 
 @media ($media-xs) {
