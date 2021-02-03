@@ -54,7 +54,6 @@ const Cuerpo = props => {
         'label.mostrar_banners.text'
     );
 
-    // const siteService = get(props.globalContent, 'siteService', []);
     const gc = useContext(GlobalContext);
     const siteService = get(gc, 'state.siteService', {});
     const termicas = get(siteService, 'termicas', []).some(
