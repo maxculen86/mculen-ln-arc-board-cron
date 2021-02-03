@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import getMetaDescription from './utils/getMetaDescription';
 import MetaDescriptionAcumulado from '../LN/acumulado/metaDescriptionAcumulado';
 
-/*
 const extractDataFromTags = payload => {
     const tagId =
         payload && payload.items && payload.items.length
@@ -20,7 +19,6 @@ const extractDataFromTags = payload => {
         tagName
     };
 };
-*/
 
 const MetaDescription = ({
     subtype,
@@ -30,15 +28,15 @@ const MetaDescription = ({
     arcSite,
     nodeType,
     name,
-    _id
-    // payload,
+    _id,
+    payload
     // authorType
 }) => {
     if (arcSite !== 'la-nacion-ar') return <></>;
     // TODO: faltan meta descripction para otros acumulados (tags, author, recetas)
-    const acusWithMeta = ['section', 'author', 'distributor'];
+    const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
     if (acusWithMeta.includes(nodeType) && _id !== '/recetas') {
-        // const { tagId, tagName } = extractDataFromTags(payload);
+        const { tagId } = extractDataFromTags(payload);
         return (
             <MetaDescriptionAcumulado
                 size="2"
@@ -46,7 +44,7 @@ const MetaDescription = ({
                 sectionId={nodeType === 'section' ? _id : null}
                 authorId={nodeType === 'author' ? _id : null}
                 distributorId={nodeType === 'distributor' ? name : null}
-                // tagId={tagId || null}
+                tagId={nodeType === 'tags' ? tagId : null}
             />
         );
     }
