@@ -32,7 +32,7 @@ const BreadcrumbArticle = ({
     },
     siteProperties: { title: siteTitle, host }
 }) => {
-    const gc = { ...useContext(GlobalContext) };
+    const gc = useContext(GlobalContext);
     const siteService = get(gc, 'state.siteService', {});
 
     let allSections = [];

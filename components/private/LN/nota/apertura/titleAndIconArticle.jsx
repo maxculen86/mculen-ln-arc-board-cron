@@ -20,7 +20,7 @@ const TitleAndIconArticle = ({
     },
     layout
 }) => {
-    const gc = { ...useContext(GlobalContext) };
+    const gc = useContext(GlobalContext);
     const siteService = get(gc, 'state.siteService', {});
     const sponsored = get(owner, 'sponsored', false);
     const advertiser = get(label, 'marca_anunciante.text', null);
