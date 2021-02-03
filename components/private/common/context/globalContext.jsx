@@ -39,6 +39,7 @@ const GlobalProvider = ({ children }) => {
                 } = site;
 
                 return {
+                    bannerConfig: { dfp_id: bannerConfig.dfp_id },
                     tooltips: Object.keys(tooltips).map(key => ({
                         text: key,
                         label: tooltips[key]

@@ -64,11 +64,7 @@ const Cuerpo = props => {
           ).value === 'true'
         : 'false';
     const bannersSiteConfig = get(siteService, 'banners');
-    /**
-     * TODO: Analisis de siteProperties de la siguiente sentencia
-     * ! Evaluar de que siteProperties deba ir en globalContext o si ya viene de GlobalContext
-     */
-    const dfpId = get(props, 'siteProperties.bannerConfig.dfpId');
+    const dfpId = get(siteService, 'bannerConfig.dfp_id');
     const adserver = get(siteService, 'adserver', []);
     const segments = adserver.map(segment => segment.value);
     const primarySection = get(
