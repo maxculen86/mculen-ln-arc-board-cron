@@ -53,7 +53,7 @@ import '../../resources/dist/css/ln/base/helpers.css';
 
 import '../../resources/dist/css/ln/pages/magazine.css';
 
-import { GlobalProvider } from '../private/common/context/globalContext';
+import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 
