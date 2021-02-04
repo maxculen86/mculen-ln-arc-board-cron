@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import HTMLLIBRE from '../../../common/utils/subtypes/htmlLibre';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 import getPathForImage from '../../../common/utils/getPathForImage';
@@ -135,7 +136,8 @@ const SnippetNoticia = props => {
             display_date: displayDate,
             content_restrictions: { content_code: contentCode } = {},
             label,
-            owner: { sponsored }
+            owner: { sponsored },
+            subtype
         },
         contextPath,
         deployment
@@ -161,7 +163,7 @@ const SnippetNoticia = props => {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
-        articleBody: getFirstParagraph(contentElements),
+        articleBody: getFirstParagraph(contentElements) || '',
         url: `${siteProperties.host}${requestUri || ''}`,
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
@@ -249,19 +251,20 @@ const SnippetNoticia = props => {
             display_date: PropTypes.string,
             content_restrictions: PropTypes.shape({
                 content_code: PropTypes.string
-            })
+            }),
+            subtype: PropTypes.string
         }).isRequired,
         deployment: PropTypes.func.isRequired,
         contextPath: PropTypes.string.isRequired
     };
 
-    if (type !== 'story') return null;
-    if (!getFirstParagraph(contentElements)) return null;
-
     return (
-        <>
-            <SnippetRender id="Schema_NewsArticle" data={data} />
-        </>
+        (type === 'story' &&
+            (getFirstParagraph(contentElements) ||
+                subtype === HTMLLIBRE.id) && (
+                <SnippetRender id="Schema_NewsArticle" data={data} />
+            )) ||
+        null
     );
 };
 
