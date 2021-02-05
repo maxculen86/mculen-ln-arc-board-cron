@@ -30,5 +30,5 @@ export default {
     params: {
         website: 'text'
     },
-    ttl: 120
+    ttl: 43200
 };
