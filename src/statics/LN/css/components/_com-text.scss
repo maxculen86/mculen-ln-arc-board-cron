@@ -119,6 +119,12 @@
         justify-content: center;
         align-items: center;
     }
+    &.--bio {
+        .mod-wikiauthor & {
+            margin-bottom: $spacing-sm;
+            display: flex;
+        }
+    }
 }
 
 @media ($media-xs) {
@@ -186,4 +192,5 @@
     text-decoration-color: $highlight;
     text-decoration-thickness: 2px;
     font-weight: 700;
+    color: inherit;
 }

@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-fragments          */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import BlockQuote from './blockQuote';
@@ -29,8 +29,8 @@ import OptaAMP from './optaAMP';
 import Video from './video';
 import { setStorageConfiguration } from '../../../common/utils/storage';
 import { FOTOAL100 } from '../../../common/utils/subtypes/subtypeHelper';
-
 import useViewportSize from '../../../common/hooks/useViewportSize';
+import { GlobalContext } from '../../../common/context/globalContext';
 
 const Cuerpo = props => {
     const {
@@ -53,16 +53,19 @@ const Cuerpo = props => {
         props.globalContent,
         'label.mostrar_banners.text'
     );
-    const termicas = get(props.globalContent, 'siteService.termicas', []).some(
+
+    const gc = useContext(GlobalContext);
+    const siteService = get(gc, 'state.siteService', {});
+    const termicas = get(siteService, 'termicas', []).some(
         termica => termica.key === 'banners'
     )
-        ? get(props.globalContent, 'siteService.termicas', []).find(
+        ? get(siteService, 'termicas', []).find(
               termica => termica.key === 'banners'
           ).value === 'true'
         : 'false';
-    const bannersSiteConfig = get(props.globalContent, 'siteService.banners');
-    const dfpId = get(props, 'siteProperties.bannerConfig.dfpId');
-    const adserver = get(props.globalContent, 'siteService.adserver', []);
+    const bannersSiteConfig = get(siteService, 'banners');
+    const dfpId = get(siteService, 'bannerConfig.dfp_id');
+    const adserver = get(siteService, 'adserver', []);
     const segments = adserver.map(segment => segment.value);
     const primarySection = get(
         props.globalContent,

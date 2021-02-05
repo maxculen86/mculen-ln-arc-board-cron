@@ -6,6 +6,7 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import LoginProvider from '../private/LN/common/context/loginContext';
+import GlobalProvider from '../private/common/context/globalContext';
 
 // Es importante mantener el orden de las secciones tanto en el layout como en su configuración para su validación
 import sectionsConfig from './config/LN-home.config';
@@ -56,15 +57,17 @@ const LNHomeLayout = ({ isAdmin, children, renderables }) => {
                 : children[index]
         );
     return (
-        <LoginProvider>
-            <Header />
-            <main>
-                <div id="content-main" className="lay-sidebar">
-                    <div className="row">{elements}</div>
-                </div>
-            </main>
-            <Footer />
-        </LoginProvider>
+        <GlobalProvider>
+            <LoginProvider>
+                <Header />
+                <main>
+                    <div id="content-main" className="lay-sidebar">
+                        <div className="row">{elements}</div>
+                    </div>
+                </main>
+                <Footer />
+            </LoginProvider>
+        </GlobalProvider>
     );
 };
 

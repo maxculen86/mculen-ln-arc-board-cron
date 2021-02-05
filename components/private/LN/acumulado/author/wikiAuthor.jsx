@@ -55,7 +55,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                         <ComText
                             textname={role}
                             classCondition="--profesion"
-                            size="--threexs"
+                            size="--twoxs"
                         />
                         <ComContainer classCondition="--contact">
                             {email && (
@@ -72,14 +72,18 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                                 />
                             )}
                         </ComContainer>
-                        <ComText size="--threexs" textname={longBio} />
+                        <ComText
+                            size="--twoxs"
+                            classCondition="--bio"
+                            textname={longBio}
+                        />
                         {education.length > 0 && (
                             <ComContainer classCondition="--educacion">
                                 <ModDescriptionList
                                     bullet
-                                    sizeBullet="--xs"
+                                    sizeBullet="--twoxs"
                                     descriptionTitle="Educación"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     list={education}
                                 />
                             </ComContainer>
@@ -88,7 +92,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             <ComContainer classCondition="--reconocimientos">
                                 <ModDescriptionList
                                     descriptionTitle="Reconocimientos"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     list={awards}
                                 />
                             </ComContainer>
@@ -98,7 +102,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                                 <ModDescriptionList
                                     classCondition="--idiomas"
                                     descriptionTitle="Idiomas:"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     text={languages}
                                 />
                             </ComContainer>
@@ -108,7 +112,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                                 <ModDescriptionList
                                     classCondition="--membresia"
                                     descriptionTitle="Membresías profesionales:"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     text={affiliations}
                                 />
                             </ComContainer>
@@ -117,7 +121,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             <ComContainer>
                                 <ModDescriptionList
                                     descriptionTitle="Publicaciones"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     list={books}
                                 />
                             </ComContainer>
@@ -126,7 +130,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             <ComContainer>
                                 <ModDescriptionList
                                     descriptionTitle="Podcast"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     list={podcasts}
                                 />
                             </ComContainer>
@@ -136,9 +140,9 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                 {socialsNetworks.length > 0 && (
                     <div className="col-12">
                         <ComContainer classCondition="--socialicons">
-                            <ComSubtitle size="--threexs">Conectar</ComSubtitle>
+                            <ComSubtitle size="--twoxs">Conectar</ComSubtitle>
                             <ListSocialIcons
-                                sizeIcon="--l"
+                                sizeIcon="--xl"
                                 // sizeBullet="--xs"
                                 data={data}
                                 size="--threexs"
