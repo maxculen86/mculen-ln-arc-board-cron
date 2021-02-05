@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
-import { IS_DEV, IS_SANDBOX, RESIZER_URL_PUBLIC } from 'fusion:environment';
+import { RESIZER_URL_PUBLIC } from 'fusion:environment';
 import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
@@ -187,24 +187,18 @@ export const resizeArcImage = (
             ? zoomSizes && zoomSizes.map(e => ({ ...e, isNotSmart: true }))
             : zoomSizes;
 
-    let urlResize = resizer.resizeUrl(
-        arcImage.url,
-        arcImage.width,
-        arcImage.height,
-        defaultResizeWithSmart,
-        fp,
-        smartCropExcluded
-    );
-
-    if (IS_DEV !== 'true' && IS_SANDBOX !== 'true') {
-        urlResize = urlResize && urlResize.replace(/^.*\/\/[^\/]+/, '');
-    }
-
     return {
         ...arcImage,
         width: fp || !smartCropExcluded ? 768 : arcImage.width,
         height: fp || !smartCropExcluded ? 513 : arcImage.height,
-        url: urlResize,
+        url: resizer.resizeUrl(
+            arcImage.url,
+            arcImage.width,
+            arcImage.height,
+            defaultResizeWithSmart,
+            fp,
+            smartCropExcluded
+        ),
         resized_urls: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
