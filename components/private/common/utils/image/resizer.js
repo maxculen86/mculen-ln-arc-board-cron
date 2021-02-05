@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
-import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
+import { IS_DEV, IS_SANDBOX, RESIZER_URL_PUBLIC } from 'fusion:environment';
 import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
@@ -59,9 +59,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
             .resize(newWidth, newHeight)
             .buildUrl();
 
-        return IS_DEV === 'true' || IS_SANDBOX === 'true'
-            ? url
-            : url.replace(/^.*\/\/[^\/]+/, '');
+        return url.replace(/^.*\/\/[^\/]+/, RESIZER_URL_PUBLIC);
     };
 
     const resizeUrls = (
@@ -144,6 +142,29 @@ export const resizeArcImage = (
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
         );
+
+    /**
+     * Antes del paso por resizer validamos que no venga de bucket para así
+     * usar el resizer de bucket y no de Arc
+     */
+    if (arcImage.url.match(/\/\/bucket+[\d]+.glanacion.com+/g)) {
+        const getUrlwithWidth = (url, width) =>
+            url.replace('.jpg', `w${defaultResize.width}.jpg`);
+
+        return {
+            ...arcImage,
+            url: getUrlwithWidth(arcImage.url, defaultResize.width),
+            ...defaultResize,
+            resized_urls: resizeOptions.map(config => {
+                const { width, height, media } = config || defaultResize;
+
+                return {
+                    resizedUrl: getUrlwithWidth(arcImage.url, width), // transformar la url con with necesario
+                    option: { width, height, media }
+                };
+            })
+        };
+    }
 
     const fp = get(
         arcImage,
