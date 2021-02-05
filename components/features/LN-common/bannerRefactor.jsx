@@ -18,6 +18,7 @@ import {
     getSlotForDevice,
     isPrimarySectionInBannerSegments
 } from '../../private/LN/common/bannerRefactor/utils';
+import findTermica from '../../private/common/utils/findTermica';
 
 const Banner = props => {
     const configBuilder = useRef();
@@ -48,13 +49,7 @@ const Banner = props => {
     const gc = useContext(GlobalContext);
     const siteService = get(gc, 'state.siteService', {});
 
-    const termicas = get(siteService, 'termicas', []).some(
-        termica => termica.key === 'banners'
-    )
-        ? get(siteService, 'termicas', []).find(
-              termica => termica.key === 'banners'
-          ).value === 'true'
-        : 'false';
+    const termicas = findTermica('banners');
 
     const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
     const bannersSiteConfig = get(siteService, 'banners');

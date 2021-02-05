@@ -8,6 +8,7 @@ import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProv
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
 import get from '../../private/common/utils/get';
 import getArticleInCollection from '../../private/LN/common/utils/getArticleInCollection';
+import findTermica from '../../private/common/utils/findTermica';
 /*
 const getArticlesFromCajaCollection = (renderables = []) => {
     const cajaCollections = renderables.filter(
@@ -131,7 +132,7 @@ function GrillaNotasFeature(props) {
     const authorId = authorType ? _id : null;
 
     const bannerConfig = groupBannerConfig(props);
-    // const articlesFromCajaCollection = getArticlesFromCajaCollection(renderables);
+    const termicas = findTermica('banners');
 
     return (
         <Static>
@@ -148,6 +149,7 @@ function GrillaNotasFeature(props) {
             outputType={outputType}
             hideBanner={hide_banner}
             articlesInGlobalProvider={articlesInCollection}
+            termicas={termicas}
         />
         </Static>
     );

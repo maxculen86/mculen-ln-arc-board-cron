@@ -52,7 +52,7 @@ const GlobalProvider = ({ children }) => {
                         key,
                         value: sitioAdserver[key]
                     })),
-                    termicas: Object.keys(termicasConfig).forEach(key => ({
+                    termicas: Object.keys(termicasConfig).map(key => ({
                         key,
                         value: termicasConfig[key]
                     }))
