@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
+import findTermica from '../../../private/common/utils/findTermica';
 
 const getVariablesFromLocalStorage = () => {
     const urls = JSON.parse(localStorage.getItem('excludeItems')) || [];
@@ -44,6 +45,9 @@ const saveUrlToExclude = (urls, currentUrl) => {
 };
 
 const tePuedeInteresar = props => {
+    const showLiftigniter = findTermica('liftigniter');
+    if (showLiftigniter === 'false') return <></>;
+
     const {
         customFields: { cantidadNotas = 6 },
         outputType,
