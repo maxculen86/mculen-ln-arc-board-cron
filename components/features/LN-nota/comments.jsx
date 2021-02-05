@@ -5,7 +5,7 @@ import Comments from '../../private/LN/nota/comments';
 
 const CommentsFeature = props => {
     const showLivefyre = findTermica('livefyre');
-    if (showLivefyre === 'false') return <></>;
+    if (!showLivefyre) return <></>;
 
     return <Comments {...props} />;
 };

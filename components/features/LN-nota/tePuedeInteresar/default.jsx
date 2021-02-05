@@ -46,7 +46,7 @@ const saveUrlToExclude = (urls, currentUrl) => {
 
 const tePuedeInteresar = props => {
     const showLiftigniter = findTermica('liftigniter');
-    if (showLiftigniter === 'false') return <></>;
+    if (!showLiftigniter) return <></>;
 
     const {
         customFields: { cantidadNotas = 6 },
