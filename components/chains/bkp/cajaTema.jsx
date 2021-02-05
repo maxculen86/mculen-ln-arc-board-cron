@@ -122,4 +122,4 @@ CajaTema.propTypes = {
     }).isRequired
 };
 
-export default Consumer(CajaTema);
+// export default Consumer(CajaTema);

@@ -2,56 +2,22 @@ import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import WithAcuArticlesData from '../common/hocs/WithAcuArticlesData';
 import filter from '../../../../content/filters/LN/acumulado/articleAcu';
-import ComLink from '../../common/com-link';
+import ComLinkList from '../../common/com-link-list';
 
-const convertToComLink = ({ key, link, text, title, style }) => (
-    <ComLink
-        key={key}
-        link={link}
-        textname={text}
-        title={title}
-        style={style}
-    />
-);
-
-convertToComLink.propTypes = {
-    key: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    style: PropTypes.obj
-};
-
-convertToComLink.defaultProps = {
-    style: {}
-};
-
-const TagsNavigation = ({ orderAndCountTags, colorTags }) => {
+const TagsNavigation = ({ orderAndCountTags, colorTags, hideTagsList }) => {
     const [tagList] = useState(() =>
         orderAndCountTags
             ? orderAndCountTags.map(({ slug, text }) => ({
                   key: slug,
-                  item: convertToComLink({
-                      key: slug,
-                      link: `/tema/${slug}/`,
-                      text,
-                      title: text,
-                      ...(colorTags && { style: { color: colorTags } })
-                  })
+                  link: `/tema/${slug}/`,
+                  textname: text,
+                  title: text,
+                  style: colorTags && { style: { color: colorTags } }
               }))
             : []
     );
 
-    return (
-        tagList &&
-        tagList.length > 0 && (
-            <ul className="com-unordered --tags">
-                {tagList.map(({ item, key }) => (
-                    <li key={key}>{item}</li>
-                ))}
-            </ul>
-        )
-    );
+    return !hideTagsList && <ComLinkList list={tagList} extraClass="--tags" />;
 };
 
 TagsNavigation.propTypes = {
@@ -63,11 +29,13 @@ TagsNavigation.propTypes = {
             })
         })
     ),
+    colorTags: PropTypes.string,
     hideTagsList: PropTypes.bool
 };
 
 TagsNavigation.defaultProps = {
     orderAndCountTags: undefined,
+    colorTags: undefined,
     hideTagsList: false
 };
 

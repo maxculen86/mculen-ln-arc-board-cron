@@ -2,10 +2,32 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
+import Static from 'fusion:static';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
+import get from '../../private/common/utils/get';
+import getArticleInCollection from '../../private/LN/common/utils/getArticleInCollection';
+import findTermica from '../../private/common/utils/findTermica';
+/*
+const getArticlesFromCajaCollection = (renderables = []) => {
+    const cajaCollections = renderables.filter(
+        elem => elem.type === 'cajaTemaCollections'
+    );
 
+    return cajaCollections.map(caja => {
+        const id = get(caja, 'props.customFields.idCollection', null);
+        const size = Number(caja.props.customFields.layout.slice(-1));
+        const initialPosition = caja.props.customFields.initialPosition;
+        const art = getArticleInCollection(
+            id,
+            size,
+            initialPosition,
+        );
+        return art;
+    });
+};
+*/
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
 
@@ -97,7 +119,8 @@ function GrillaNotasFeature(props) {
     const {
         globalContent: { author_type: authorType, _id, Payload, distributorId },
         siteProperties,
-        outputType
+        outputType,
+        renderables
     } = useAppContext();
 
     const tagId =
@@ -109,8 +132,10 @@ function GrillaNotasFeature(props) {
     const authorId = authorType ? _id : null;
 
     const bannerConfig = groupBannerConfig(props);
+    const termicas = findTermica('banners');
 
     return (
+        <Static>
         <GrillaNotas
             authorId={authorId}
             tagId={tagId}
@@ -124,7 +149,9 @@ function GrillaNotasFeature(props) {
             outputType={outputType}
             hideBanner={hide_banner}
             articlesInGlobalProvider={articlesInCollection}
+            termicas={termicas}
         />
+        </Static>
     );
 }
 

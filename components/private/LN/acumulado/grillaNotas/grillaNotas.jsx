@@ -46,13 +46,8 @@ class GrillaNotas extends React.Component {
             bannerConfig,
             hideBanners,
             globalContentConfig,
-            arcSite
-        } = this.props;
-        const { banners: termicaShowBanner } = this.props.termicas || {
-            banners: true
-        };
-
-        const {
+            arcSite,
+            termicas,
             screenUtils: { device }
         } = this.props;
 
@@ -92,7 +87,7 @@ class GrillaNotas extends React.Component {
                     dfpId,
                     slotGroup: 'acumulado',
                     show: {
-                        termicas: termicaShowBanner,
+                        termicas,
                         collection: !(hideBanners === 'true')
                     }
                 });
@@ -166,6 +161,8 @@ GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
     hideBanners: PropTypes.string.isRequired,
+    termicas: PropTypes.string.isRequired,
+    arcSite: PropTypes.string.isRequired,
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     articlesInGlobalProvider: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,

@@ -1,26 +1,30 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import { useAppContext } from 'fusion:context';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import ComTitle from '../../../common/com-title';
 
-const Index = ({ cantidadNotas }) => {
+const Index = props => {
     const {
+        userId,
+        sessionId,
+        cantidadNotas,
+        excludeItems,
         outputType,
-        requestUri,
-        siteProperties,
-        globalContent
-    } = useAppContext();
-    const { host = 'https://www.lanacion.com.ar' } = siteProperties;
-    const { _id } = globalContent || {};
+        url,
+        idArticle
+    } = props;
+
     const articles = useContent({
         source: 'liftigniterSource',
         query: {
             cantidadNotas,
-            referrer: `${host}${requestUri}`,
+            referrer: url,
             imageConfig: 'm',
-            idArticle: _id
+            idArticle,
+            userId,
+            sessionId,
+            excludeItems
         }
     });
 
@@ -46,7 +50,19 @@ const Index = ({ cantidadNotas }) => {
 };
 
 Index.propTypes = {
-    cantidadNotas: PropTypes.number.isRequired
+    cantidadNotas: PropTypes.number.isRequired,
+    userId: PropTypes.string,
+    sessionId: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired,
+    idArticle: PropTypes.string,
+    url: PropTypes.string.isRequired,
+    excludeItems: PropTypes.arrayOf(PropTypes.string)
+};
+
+Index.defaultProps = {
+    userId: null,
+    excludeItems: null,
+    idArticle: null
 };
 
 export default Index;

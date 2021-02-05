@@ -40,11 +40,16 @@ const fetch = query => {
         cantidadNotas = 10,
         referrer = SITE_LANACION,
         imageConfig = 'm',
-        idArticle
+        idArticle,
+        userId,
+        sessionId,
+        excludeItems
     } = query;
 
+    const userIdParam = userId ? `/${userId}` : '';
+
     return request({
-        uri: `https://query.petametrics.com/v3/${JSK_ID}/model`,
+        uri: `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}/model`,
         method: 'POST',
         headers: {
             'Accept-Encoding': '*,q=0.8',
@@ -58,7 +63,8 @@ const fetch = query => {
             referrer,
             pageviewId: idArticle,
             url: referrer,
-            excludeItems: [referrer]
+            sessionId,
+            excludeItems
         })
     })
         .then(response => {

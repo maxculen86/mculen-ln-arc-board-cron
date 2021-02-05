@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LN-Private-Common-ComLinkList  passing a filled list by params with extra class Snapshot 1`] = `
+<ul
+  class="com-unordered --tags"
+>
+  <li
+    class="item"
+  >
+    <a
+      class="com-link"
+      href="http://www.google.com"
+      rel="nonoopener noreferrer"
+      target="_blank"
+      title="LN Link Custom"
+    >
+      LN Link Custom
+    </a>
+  </li>
+  <li
+    class="item"
+  >
+    <a
+      class="com-link"
+      href="/revista-ohlala"
+      target=""
+      title="OHLALA"
+    >
+      OHLALA
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`LN-Private-Common-ComLinkList  passing a filled list by params without extra class Snapshot 1`] = `
+<ul
+  class="com-unordered "
+>
+  <li
+    class="item"
+  >
+    <a
+      class="com-link"
+      href="http://www.google.com"
+      rel="nonoopener noreferrer"
+      target="_blank"
+      title="LN Link Custom"
+    >
+      LN Link Custom
+    </a>
+  </li>
+  <li
+    class="item"
+  >
+    <a
+      class="com-link"
+      href="/revista-ohlala"
+      target=""
+      title="OHLALA"
+    >
+      OHLALA
+    </a>
+  </li>
+</ul>
+`;
