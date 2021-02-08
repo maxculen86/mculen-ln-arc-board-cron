@@ -10,12 +10,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Ovvdkcs13HUJ7VQysRS-3JO1NIo=/768x513/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
+                "url": "https://resizer.glanacion.com/resizer/Ovvdkcs13HUJ7VQysRS-3JO1NIo=/768x513/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/2Rifu6S-2jyVOQlG4gkWJPDFkxQ=/360x240/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/2Rifu6S-2jyVOQlG4gkWJPDFkxQ=/360x240/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -23,7 +23,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Ovvdkcs13HUJ7VQysRS-3JO1NIo=/768x513/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Ovvdkcs13HUJ7VQysRS-3JO1NIo=/768x513/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -31,7 +31,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Ryh_P4HUvecHEPdFYHIh8EqdDM4=/350x234/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Ryh_P4HUvecHEPdFYHIh8EqdDM4=/350x234/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -39,7 +39,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/foWiBsfin59DMdAtjiMek7UTDTE=/360x234/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/foWiBsfin59DMdAtjiMek7UTDTE=/360x234/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg",
                         "option": {
                             "width": 360,
                             "height": 234,
@@ -62,12 +62,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/qrzRnczpt55CqQR9V-jqNLsf6QE=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
+                "url": "https://resizer.glanacion.com/resizer/qrzRnczpt55CqQR9V-jqNLsf6QE=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/nngZxtseEWj6Lb1W1TnKTRj__QQ=/360x240/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/nngZxtseEWj6Lb1W1TnKTRj__QQ=/360x240/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -75,7 +75,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/qrzRnczpt55CqQR9V-jqNLsf6QE=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/qrzRnczpt55CqQR9V-jqNLsf6QE=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -83,7 +83,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/bdZX5_ma5vX-UrY4sR1nfUybelY=/350x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/bdZX5_ma5vX-UrY4sR1nfUybelY=/350x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -91,7 +91,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/TLM3ZU-ngvfLAEN_23j9laGQuwc=/360x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/TLM3ZU-ngvfLAEN_23j9laGQuwc=/360x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/50/3448850.png",
                         "option": {
                             "width": 360,
                             "height": 234,
@@ -114,12 +114,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/kdGq66yXKsAuQRh6x3hEQzCtIMM=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
+                "url": "https://resizer.glanacion.com/resizer/kdGq66yXKsAuQRh6x3hEQzCtIMM=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/bOBvZGchDXeX4qoguHJ0ghkY1GY=/360x240/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/bOBvZGchDXeX4qoguHJ0ghkY1GY=/360x240/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -127,7 +127,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/kdGq66yXKsAuQRh6x3hEQzCtIMM=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/kdGq66yXKsAuQRh6x3hEQzCtIMM=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -135,7 +135,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/4wzMS2xMRX3m-ceslmOfMgKMQZk=/350x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/4wzMS2xMRX3m-ceslmOfMgKMQZk=/350x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -143,7 +143,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/IH20K-qhXRga8p9RXmU35XjnU9E=/360x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/IH20K-qhXRga8p9RXmU35XjnU9E=/360x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/32/3499832.jpg",
                         "option": {
                             "width": 360,
                             "height": 234,
@@ -166,12 +166,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/W6Hhu2G-eRnMg9dHGYiOSYWVGZo=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
+                "url": "https://resizer.glanacion.com/resizer/W6Hhu2G-eRnMg9dHGYiOSYWVGZo=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Z9tMAmWVi_04VABdOunb-B_RG5g=/360x240/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Z9tMAmWVi_04VABdOunb-B_RG5g=/360x240/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -179,7 +179,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/W6Hhu2G-eRnMg9dHGYiOSYWVGZo=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/W6Hhu2G-eRnMg9dHGYiOSYWVGZo=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -187,7 +187,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/frCM6UcWHjwkSYjWfm6n4L78ve0=/350x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/frCM6UcWHjwkSYjWfm6n4L78ve0=/350x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -195,7 +195,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/P-tMsO31rWxPxgvM5FNpfROmm7Q=/360x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/P-tMsO31rWxPxgvM5FNpfROmm7Q=/360x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/20/3483520.jpg",
                         "option": {
                             "width": 360,
                             "height": 234,
@@ -218,12 +218,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/UD1vcDk0Xi_vHoAVaroSGyRGVT8=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
+                "url": "https://resizer.glanacion.com/resizer/UD1vcDk0Xi_vHoAVaroSGyRGVT8=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/zXZPTpJppUf9kirk2qvKJjwYpaY=/360x240/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/zXZPTpJppUf9kirk2qvKJjwYpaY=/360x240/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -231,7 +231,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/UD1vcDk0Xi_vHoAVaroSGyRGVT8=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/UD1vcDk0Xi_vHoAVaroSGyRGVT8=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -239,7 +239,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/IJFoMkyyYfvhDNI0h32GZjy1m1o=/350x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/IJFoMkyyYfvhDNI0h32GZjy1m1o=/350x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -247,7 +247,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/OVABLqmCIGzAD1VBaoq_3K0vC80=/360x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/OVABLqmCIGzAD1VBaoq_3K0vC80=/360x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/96/3479296.jpg",
                         "option": {
                             "width": 360,
                             "height": 234,
@@ -270,12 +270,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/bnQ-VWKFFHUTmMSBev-cpP8HWdc=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
+                "url": "https://resizer.glanacion.com/resizer/bnQ-VWKFFHUTmMSBev-cpP8HWdc=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/n5kSNd0Mj3FdMAN33cmKid5oJVs=/360x240/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/n5kSNd0Mj3FdMAN33cmKid5oJVs=/360x240/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -283,7 +283,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/bnQ-VWKFFHUTmMSBev-cpP8HWdc=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/bnQ-VWKFFHUTmMSBev-cpP8HWdc=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -291,7 +291,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/NvLc5FdG1s5CM8Udcm4NZjFxjy8=/350x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/NvLc5FdG1s5CM8Udcm4NZjFxjy8=/350x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -299,7 +299,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/F9crsqqLJA6302r9MRWMvNPqfB8=/360x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/F9crsqqLJA6302r9MRWMvNPqfB8=/360x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/47/3471647.jpg",
                         "option": {
                             "width": 360,
                             "height": 234,
@@ -322,12 +322,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/X42OpD95F0b5pooB3m7XkLTI17s=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
+                "url": "https://resizer.glanacion.com/resizer/X42OpD95F0b5pooB3m7XkLTI17s=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/eNa4gWLEAYFk4EbTPUlS2cgFGHw=/360x240/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/eNa4gWLEAYFk4EbTPUlS2cgFGHw=/360x240/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -335,7 +335,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/X42OpD95F0b5pooB3m7XkLTI17s=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/X42OpD95F0b5pooB3m7XkLTI17s=/768x513/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -343,7 +343,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Heyv9FSvc0rWF4gJhdecqS1Sulo=/350x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Heyv9FSvc0rWF4gJhdecqS1Sulo=/350x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -351,7 +351,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lf5Dnha5YSinDk4O9kaUE8K6_lY=/360x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Lf5Dnha5YSinDk4O9kaUE8K6_lY=/360x234/smart/filters:quality(70)/bucket1.glanacion.com/anexos/fotos/22/3492322.jpg",
                         "option": {
                             "width": 360,
                             "height": 234,
@@ -374,12 +374,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/agXfxnyT-bbFERgiCXCwPfDJ99I=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
+                "url": "https://resizer.glanacion.com/resizer/agXfxnyT-bbFERgiCXCwPfDJ99I=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Sw2r2Z7WdiB_-LqrET6lC9BlBdg=/360x240/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Sw2r2Z7WdiB_-LqrET6lC9BlBdg=/360x240/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -387,7 +387,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/agXfxnyT-bbFERgiCXCwPfDJ99I=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/agXfxnyT-bbFERgiCXCwPfDJ99I=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -395,7 +395,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/hAgTopeoCOXXnJErqqHTd-RYfWo=/350x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/hAgTopeoCOXXnJErqqHTd-RYfWo=/350x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -403,7 +403,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/E9WbHmxMEZM02RRfuFS8O7qYPhE=/360x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/E9WbHmxMEZM02RRfuFS8O7qYPhE=/360x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/68/3498568.jpg",
                         "option": {
                             "width": 360,
                             "height": 234,
@@ -426,12 +426,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/1tqnfT_mmb43vH3YU5x2AZjqXng=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
+                "url": "https://resizer.glanacion.com/resizer/1tqnfT_mmb43vH3YU5x2AZjqXng=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/eQQiH3F5NkViSRYdPpyM7-LjPfA=/360x240/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/eQQiH3F5NkViSRYdPpyM7-LjPfA=/360x240/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -439,7 +439,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/1tqnfT_mmb43vH3YU5x2AZjqXng=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/1tqnfT_mmb43vH3YU5x2AZjqXng=/768x513/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -447,7 +447,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/syuY53T09Mo9Yy0lzBCk7BaZvhk=/350x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/syuY53T09Mo9Yy0lzBCk7BaZvhk=/350x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -455,7 +455,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/wReIhZp7q6IJhdWcXn2HGcXn5EE=/360x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/wReIhZp7q6IJhdWcXn2HGcXn5EE=/360x234/smart/filters:quality(70)/bucket3.glanacion.com/anexos/fotos/79/3496379.jpg",
                         "option": {
                             "width": 360,
                             "height": 234,
@@ -478,12 +478,12 @@
         "promo_items": {
             "basic": {
                 "type": "image",
-                "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/CBtJ-aI5MsHDXGOesEbMwb1AiBY=/768x513/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
+                "url": "https://resizer.glanacion.com/resizer/CBtJ-aI5MsHDXGOesEbMwb1AiBY=/768x513/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
                 "width": 768,
                 "height": 513,
                 "resized_urls": [
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/wGVPWjzz1LENbncW0QbmvPdCAfg=/360x240/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/wGVPWjzz1LENbncW0QbmvPdCAfg=/360x240/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
                         "option": {
                             "width": 360,
                             "height": 240,
@@ -491,7 +491,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/CBtJ-aI5MsHDXGOesEbMwb1AiBY=/768x513/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/CBtJ-aI5MsHDXGOesEbMwb1AiBY=/768x513/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
                         "option": {
                             "width": 768,
                             "height": 513,
@@ -499,7 +499,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/NpK7D6pA8C601GI9rwJLj4WDBRE=/350x234/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/NpK7D6pA8C601GI9rwJLj4WDBRE=/350x234/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
                         "option": {
                             "width": 350,
                             "height": 234,
@@ -507,7 +507,7 @@
                         }
                     },
                     {
-                        "resizedUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/TqzPVaOeQLxHqhbJdwl_NXmsOSw=/360x234/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/TqzPVaOeQLxHqhbJdwl_NXmsOSw=/360x234/smart/filters:quality(70)/bucket2.glanacion.com/anexos/fotos/53/3486953.jpg",
                         "option": {
                             "width": 360,
                             "height": 234,

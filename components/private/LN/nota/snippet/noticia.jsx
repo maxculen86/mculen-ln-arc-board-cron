@@ -4,7 +4,6 @@ import PropTypes from 'fusion:prop-types';
 import HTMLLIBRE from '../../../common/utils/subtypes/htmlLibre';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
-import getPathForImage from '../../../common/utils/getPathForImage';
 import getAuthorByline from '../../../common/utils/getAuthorByline';
 import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import get from '../../../common/utils/get';
@@ -44,7 +43,7 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     };
 
     if (promoItems && isImage) {
-        const pathImagen = getPathForImage(url);
+        const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
         image = {
             '@context': 'https://schema.org',

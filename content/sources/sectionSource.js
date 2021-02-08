@@ -122,7 +122,7 @@ const transformContent = (data, siteProps, arcSite) => {
                 })
         );
     });
-
+    /*
     promiseArr.push(
         getNavigationSiteProperties(arcSite).then(result => {
             resp.siteService = {
@@ -133,12 +133,12 @@ const transformContent = (data, siteProps, arcSite) => {
             return resp;
         })
     );
-
+    */
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
 };
-
+/*
 const getNavigationSiteProperties = arcSite =>
     navigationTreeSource
         .fetch({ website: arcSite })
@@ -166,7 +166,7 @@ const getNavigationSiteProperties = arcSite =>
         .catch(e => {
             throw e;
         });
-
+*/
 export default {
     fetch,
     schemaName: 'section-schema',
