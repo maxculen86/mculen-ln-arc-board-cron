@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import Static from 'fusion:static';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
@@ -114,23 +113,21 @@ function GrillaNotasFeature(props) {
     const termicas = findTermica('banners');
 
     return (
-        <Static>
-            <GrillaNotas
-                authorId={authorId}
-                tagId={tagId}
-                sectionId={sectionId}
-                distributorId={distributorId}
-                size={outputType === 'amp' ? 30 : cantidad_notas}
-                page={1}
-                siteProperties={siteProperties}
-                typeArticle={tipo_acumulado}
-                bannerConfig={bannerConfig}
-                outputType={outputType}
-                hideBanner={hide_banner}
-                articlesInGlobalProvider={articlesInCollection}
-                termicas={termicas}
-            />
-        </Static>
+        <GrillaNotas
+            authorId={authorId}
+            tagId={tagId}
+            sectionId={sectionId}
+            distributorId={distributorId}
+            size={outputType === 'amp' ? 30 : cantidad_notas}
+            page={1}
+            siteProperties={siteProperties}
+            typeArticle={tipo_acumulado}
+            bannerConfig={bannerConfig}
+            outputType={outputType}
+            hideBanner={hide_banner}
+            articlesInGlobalProvider={articlesInCollection}
+            termicas={termicas}
+        />
     );
 }
 
