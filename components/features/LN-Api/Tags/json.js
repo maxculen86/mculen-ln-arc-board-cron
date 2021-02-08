@@ -69,11 +69,12 @@ class AcuTag {
             };
 
             const acuDataTag = {
+                tipoAcumulado: 2,
                 name: this.props.globalContent.Payload.items[0].name,
                 articles: acuArticlesSource.content_elements,
                 paginator: acuArticlesSource.next,
                 total: acuArticlesSource.count,
-                tema: getTag(dataTag),
+                tag: getTag(dataTag),
                 configuration
             };
 

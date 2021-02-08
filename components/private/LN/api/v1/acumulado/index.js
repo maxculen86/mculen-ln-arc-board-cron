@@ -5,11 +5,12 @@ import { removeEmptyItems } from '../common/utils/responseCleaner';
 
 const index = acuData => {
     const resp = {
-        //tipoAcumulado : 2, //ESTE DATO DEBERIA SER DINAMICO?
+        tipoAcumulado: acuData.tipoAcumulado, //Lo Harcodeo en acuTag
         acumuladoTotal: acuData.total,
         paginar: acuData.paginator > 0,
         titulo: acuData.name,
-        tema: acuData.tema,
+        tema: acuData.tag,
+        autor: acuData.autor,
         notas: ArticleList(Article, acuData.articles)
     };
 
