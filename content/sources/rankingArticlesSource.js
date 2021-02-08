@@ -13,6 +13,7 @@ import getPresets from './utils/presets';
 import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import Redirect from './utils/redirect';
+import { isNotRecommend } from '../sources/utils/collectionsHelper';
 
 const resolve = (key, a) => {
     const { sectionId, size = 3, website, weeksAgo = 1, daysAgo = 1 } = key;
@@ -72,7 +73,7 @@ const transform = (data, siteProps) => {
 
     const resp = {
         content_elements: data
-            .filter(x => x.label.recomendar.text !== 'No')
+            .filter(art => !isNotRecommend(art))
             .slice(0, siteProps.size)
             .map(elem => {
                 const headlines = get(elem, `headlines`, {});
