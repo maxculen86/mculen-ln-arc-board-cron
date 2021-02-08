@@ -6,28 +6,8 @@ import Static from 'fusion:static';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
-import get from '../../private/common/utils/get';
-import getArticleInCollection from '../../private/LN/common/utils/getArticleInCollection';
 import findTermica from '../../private/common/utils/findTermica';
-/*
-const getArticlesFromCajaCollection = (renderables = []) => {
-    const cajaCollections = renderables.filter(
-        elem => elem.type === 'cajaTemaCollections'
-    );
 
-    return cajaCollections.map(caja => {
-        const id = get(caja, 'props.customFields.idCollection', null);
-        const size = Number(caja.props.customFields.layout.slice(-1));
-        const initialPosition = caja.props.customFields.initialPosition;
-        const art = getArticleInCollection(
-            id,
-            size,
-            initialPosition,
-        );
-        return art;
-    });
-};
-*/
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
 
@@ -108,7 +88,7 @@ function buildCustomFieldsForBanners() {
 
 function GrillaNotasFeature(props) {
     const {
-        acumuladoGeneral,
+        acumuladoGeneral = {},
         articlesInCollection = []
     } = useGlobalProviderAcu();
     const {
@@ -119,8 +99,7 @@ function GrillaNotasFeature(props) {
     const {
         globalContent: { author_type: authorType, _id, Payload, distributorId },
         siteProperties,
-        outputType,
-        renderables
+        outputType
     } = useAppContext();
 
     const tagId =
@@ -136,21 +115,21 @@ function GrillaNotasFeature(props) {
 
     return (
         <Static>
-        <GrillaNotas
-            authorId={authorId}
-            tagId={tagId}
-            sectionId={sectionId}
-            distributorId={distributorId}
-            size={outputType === 'amp' ? 30 : cantidad_notas}
-            page={1}
-            siteProperties={siteProperties}
-            typeArticle={tipo_acumulado}
-            bannerConfig={bannerConfig}
-            outputType={outputType}
-            hideBanner={hide_banner}
-            articlesInGlobalProvider={articlesInCollection}
-            termicas={termicas}
-        />
+            <GrillaNotas
+                authorId={authorId}
+                tagId={tagId}
+                sectionId={sectionId}
+                distributorId={distributorId}
+                size={outputType === 'amp' ? 30 : cantidad_notas}
+                page={1}
+                siteProperties={siteProperties}
+                typeArticle={tipo_acumulado}
+                bannerConfig={bannerConfig}
+                outputType={outputType}
+                hideBanner={hide_banner}
+                articlesInGlobalProvider={articlesInCollection}
+                termicas={termicas}
+            />
         </Static>
     );
 }

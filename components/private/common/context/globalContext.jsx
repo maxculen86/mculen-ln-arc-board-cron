@@ -28,11 +28,12 @@ const GlobalProvider = ({ children }) => {
                     site
                 }
             `,
-            transform: ({
-                site = {},
-                Termicas: termicasConfig = {},
-                bannerConfig = {}
-            }) => {
+            transform: response => {
+                const {
+                    site = {},
+                    Termicas: termicasConfig = {},
+                    bannerConfig = {}
+                } = response || {};
                 const {
                     sitio_adserver: sitioAdserver = {},
                     tooltips = {}
