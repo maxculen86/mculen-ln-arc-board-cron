@@ -85,4 +85,4 @@ Feed.propTypes = {
     }).isRequired
 };
 
-export default Feed;
+// export default Feed;

@@ -4,8 +4,12 @@ import PropTypes from 'fusion:prop-types';
 import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
+import findTermica from '../../../private/common/utils/findTermica';
 
 const tePuedeInteresar = props => {
+    const showLiftigniter = findTermica('liftigniter');
+    if (!showLiftigniter) return <></>;
+
     const {
         customFields: { cantidadNotas = 6 },
         outputType,

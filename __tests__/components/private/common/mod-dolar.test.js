@@ -37,7 +37,7 @@ describe('with data list', () => {
     const result = wrapper.first();
     const ulTag = result.find('ul');
     const liTags = result.find('li');
-    const spanTag = result.find('span');
+    const strongTag = result.find('strong');
     const titleComponent = result.find('mock-com-title');
     const linkComponent = result.find('mock-com-link');
 
@@ -48,9 +48,9 @@ describe('with data list', () => {
         expect(className).toContain('mod-dolar');
     });
 
-    it('should render 3 ComTitle components, 3 spans and 1 ComLink component', () => {
+    it('should render 3 ComTitle components, 6 strongs and 1 ComLink component', () => {
         expect(titleComponent.length).toBe(3);
-        expect(spanTag.length).toBe(3);
+        expect(strongTag.length).toBe(5);
         expect(linkComponent.length).toBe(1);
     });
 
@@ -75,24 +75,23 @@ describe('with data list', () => {
         } else {
             const { title, compra, venta, sourceName } = data[index];
             const titleComponent = children.find('mock-com-title');
-            const spanTag = children.find('span');
+            const spanTags = children.find('strong');
 
             it(`Validate item ${sourceName} - ${title}`, () => {
-                expect(titleComponent.exists()).toBeTruthy();
-                expect(titleComponent.prop('content')).toBe(title);
-                expect(titleComponent.prop('size')).toBe('--xs');
-                expect(titleComponent.prop('tag')).toBe('h2');
-                expect(spanTag.exists()).toBeTruthy();
-                expect(spanTag.html()).toContain(
-                    `Compra <strong>$${compra}</strong>`
-                );
-                sourceName === 'dccl'
-                    ? expect(spanTag.html()).not.toContain(
-                          `Venta <strong>$${venta}</strong>`
-                      )
-                    : expect(spanTag.html()).toContain(
-                          `Venta <strong>$${venta}</strong>`
-                      );
+                const saleValue = spanTags.at(0).prop('children')[1];
+
+                if (sourceName === 'dccl') {
+                    expect(spanTags.length).toBe(1);
+                } else {
+                    const buyValue = spanTags.at(1).prop('children')[1];
+                    expect(titleComponent.exists()).toBeTruthy();
+                    expect(titleComponent.prop('content')).toBe(title);
+                    expect(titleComponent.prop('size')).toBe('--xs');
+                    expect(titleComponent.prop('tag')).toBe('h2');
+                    expect(spanTags.length).toBe(2);
+                    expect(spanTags.at(0).html()).toContain(saleValue);
+                    expect(spanTags.at(1).html()).toContain(buyValue);
+                }
             });
         }
     });

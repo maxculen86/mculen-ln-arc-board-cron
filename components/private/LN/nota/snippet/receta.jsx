@@ -5,7 +5,6 @@ import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
-import getPathForImage from '../../../common/utils/getPathForImage';
 import getDomain from '../../../common/utils/getDomain';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
 import get from '../../../common/utils/get';
@@ -53,7 +52,7 @@ const extractDataFromPromoItems = promoItems => {
         const { basic } = promoItems;
         const { type, url } = basic || {};
         if (type === 'image') {
-            image = getPathForImage(url);
+            image = url;
         }
 
         if (promoItems.receta) {

@@ -17,7 +17,8 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
     const props = {
         dataSection: 'CuerpoAcu',
         article: article,
-        typeArticle: 'Grilla'
+        typeArticle: 'Grilla',
+        withSubhead: false
     };
 
     it('Validar que las props lleguen bien en caso de Grilla a ModArticle', () => {
@@ -37,7 +38,7 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
 
     it('Validar que las props lleguen bien en caso de Listado a ModArticle', () => {
         const component = mount(
-            <ArticleAcum {...props} typeArticle="Listado" />
+            <ArticleAcum {...props} typeArticle="Listado" withSubhead={true} />
         );
 
         expect(component.find('mod-article-mock').props().withMedia).toBe(

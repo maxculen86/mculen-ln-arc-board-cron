@@ -12,16 +12,22 @@ exports[`with data list snapshot 1`] = `
       size="--xs"
       tag="h2"
     />
-    <span>
-      Compra 
+    <p
+      class="com-text --twoxs"
+    >
+      <span>
+        Compra 
+      </span>
       <strong>
         $86,25
       </strong>
-      Venta 
+      <span>
+        Venta 
+      </span>
       <strong>
         $92,25
       </strong>
-    </span>
+    </p>
   </li>
   <li
     class="item"
@@ -31,16 +37,22 @@ exports[`with data list snapshot 1`] = `
       size="--xs"
       tag="h2"
     />
-    <span>
-      Compra 
+    <p
+      class="com-text --twoxs"
+    >
+      <span>
+        Compra 
+      </span>
       <strong>
         $148,00
       </strong>
-      Venta 
+      <span>
+        Venta 
+      </span>
       <strong>
         $153,00
       </strong>
-    </span>
+    </p>
   </li>
   <li
     class="item"
@@ -50,12 +62,16 @@ exports[`with data list snapshot 1`] = `
       size="--xs"
       tag="h2"
     />
-    <span>
-      Compra 
+    <p
+      class="com-text --twoxs"
+    >
+      <span>
+        Compra 
+      </span>
       <strong>
         $118,18
       </strong>
-    </span>
+    </p>
   </li>
   <li
     class="item"
