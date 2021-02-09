@@ -632,13 +632,13 @@
         },
         {
             "_id": "563",
-            "ArcSectionId": "/carta-de-lectores",
+            "ArcSectionId": "/opinion/carta-de-lectores",
             "name": "Carta de lectores",
             "migrada": true
         },
         {
             "_id": "7641",
-            "ArcSectionId": "/miradas",
+            "ArcSectionId": "/opinion/miradas",
             "name": "Miradas",
             "migrada": true
         },
