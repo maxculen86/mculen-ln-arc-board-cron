@@ -5,6 +5,7 @@ import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
+import findTermica from '../../private/common/utils/findTermica';
 
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
@@ -86,7 +87,7 @@ function buildCustomFieldsForBanners() {
 
 function GrillaNotasFeature(props) {
     const {
-        acumuladoGeneral,
+        acumuladoGeneral = {},
         articlesInCollection = []
     } = useGlobalProviderAcu();
     const {
@@ -109,6 +110,7 @@ function GrillaNotasFeature(props) {
     const authorId = authorType ? _id : null;
 
     const bannerConfig = groupBannerConfig(props);
+    const termicas = findTermica('banners');
 
     return (
         <GrillaNotas
@@ -124,6 +126,7 @@ function GrillaNotasFeature(props) {
             outputType={outputType}
             hideBanner={hide_banner}
             articlesInGlobalProvider={articlesInCollection}
+            termicas={termicas}
         />
     );
 }

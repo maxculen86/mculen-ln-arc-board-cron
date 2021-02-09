@@ -1,6 +1,5 @@
 import { SITE_LANACION } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
-import getPathForImage from '../utils/getPathForImage';
 
 const getAppId = siteProperties =>
     siteProperties &&
@@ -73,7 +72,7 @@ const getData = ({
         FB_APP_ID: ''
     };
 
-    const pathImagen = getPathForImage(urlBasicPI);
+    const pathImagen = urlBasicPI;
     const url = canonicalUrl || _id;
     const description = getDescription(
         isArticle,

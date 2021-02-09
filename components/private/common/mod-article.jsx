@@ -7,6 +7,7 @@ import ModDescription from './mod-description';
 //para demo front
 import ComImage from './com-image';
 import ModMedia from './mod-media';
+import getAuthorsPhoto from './utils/getAuthorsPhoto';
 
 const ModArticle = props => {
     const {
@@ -23,7 +24,7 @@ const ModArticle = props => {
         marqueeSize,
         authors,
         authorSize,
-        renderAutor,
+        isRenderAuthor,
         withMedia,
         subheadText,
         subheadSize,
@@ -40,7 +41,9 @@ const ModArticle = props => {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
     }
-    const imagenDestacada = get(articleData, 'promo_items.basic', null);
+    const imagenDestacada = isRenderAuthor
+        ? getAuthorsPhoto(articleData)
+        : get(articleData, 'promo_items.basic', null);
     const marquesina = get(articleData, 'marquesina', null);
     const type = get(imagenDestacada, 'type', null);
 
@@ -48,7 +51,7 @@ const ModArticle = props => {
         <article
             className={`mod-article ${classCondition || ''} ${
                 noMedia ? '--no-media' : ''
-            } ${renderAutor ? '--author' : ''}`}
+            } ${isRenderAuthor ? '--author' : ''}`}
             {...extraOpts}
         >
             {hour && hour}
@@ -58,7 +61,7 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
-                    //labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
+                    // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
 
@@ -79,10 +82,10 @@ const ModArticle = props => {
             <ModDescription
                 link={link}
                 titleTag={titleTag}
-                titleSize={noMedia || renderAutor ? '--m' : titleSize}
+                titleSize={noMedia || isRenderAuthor ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
-                authorSize={renderAutor ? '--twoxs' : authorSize}
+                authorSize={isRenderAuthor ? '--twoxs' : authorSize}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 dateText={dateText}

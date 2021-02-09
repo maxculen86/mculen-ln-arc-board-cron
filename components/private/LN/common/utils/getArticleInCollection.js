@@ -5,6 +5,10 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 const getArticleInCollection = (
     idCollection = null,
     size = 2,
+    initialPosition = 0,
+    idsArticlesToExclude = [],
+    shouldFilter = false,
+    notesQuantity,
     website = 'la-nacion-ar'
 ) => {
     const articleList = useContent({
@@ -12,17 +16,20 @@ const getArticleInCollection = (
         query: {
             id: idCollection,
             size,
-            website
+            website,
+            from: initialPosition,
+            idsArticlesToExclude,
+            shouldFilter,
+            notesQuantity
         },
         filter,
-        staticMode: false
+        staticMode: true
     });
 
-    const articles = get(articleList, 'content_elements', null);
-    const result =
-        articles && articles.length >= size && articles.splice(0, size);
+    const articles = get(articleList, 'content_elements', []);
+    // const dynamicItems = get(articleList, 'dynamic_items', {});
 
-    return result || [];
+    return articles;
 };
 
 export default getArticleInCollection;

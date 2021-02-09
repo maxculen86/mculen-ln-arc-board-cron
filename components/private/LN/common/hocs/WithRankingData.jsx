@@ -113,7 +113,9 @@ const getArticles = (index, props, sectionId, imageConfig) => {
         website
     );
 
-    return get(articlesData, 'content_elements', null);
+    const articles = get(articlesData, 'content_elements', null);
+
+    return articles && articles.length >= size ? articles : null;
 };
 
 const WithRankingData = (WrappedComponent, imageConfig) => props => {

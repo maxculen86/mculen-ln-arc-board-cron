@@ -8,7 +8,6 @@ import React, {
     useMemo
 } from 'react';
 import PropTypes from 'fusion:prop-types';
-import Consumer from 'fusion:consumer';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 // import get from 'lodash.get';
@@ -16,10 +15,7 @@ import { messages, providersToBlock } from './strings';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import handleCookie from '../../common/utils/handleCookie';
 import withLoginData from '../../common/hocs/withLoginData';
-import withNavigation from '../../common/hocs/WithNavigation';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
-
-import useGlobal from '../../../common/hooks/useGlobal';
 import useComments from '../../../common/hooks/useComments';
 import get from '../../../common/utils/get';
 
@@ -34,8 +30,7 @@ const Comments = props => {
         },
         logueado,
         loginData,
-        deployment,
-        termicas
+        deployment
     } = props;
 
     const {
@@ -300,8 +295,6 @@ const Comments = props => {
 
     if (!displayComments) return null;
 
-    // if (!termicas.livefyre) return <></>;
-
     return (
         <>
             <section
@@ -380,5 +373,4 @@ Comments.propTypes = {
     }).isRequired
 };
 
-// export default withNavigation(withLoginData(Comments));
 export default withLoginData(Comments);
