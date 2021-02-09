@@ -1,23 +1,59 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
 
 const GlobalContext = React.createContext([{}, () => {}]);
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+};
+
+const getCollectionsInPage = (idCollectionsInPage = []) => {
+    const listOfCollections = [];
+    idCollectionsInPage.forEach(id => {
+        const collectionsProps = {
+            id,
+            size: 20,
+            website: 'la-nacion-ar',
+            imageConfig: 'l'
+        };
+        const collect = useContent({
+            source: 'collectionsSource',
+            query: collectionsProps,
+            transform: response => {
+                return {
+                    idCollection: id,
+                    articles: response ? response.content_elements : []
+                };
+            }
+        });
+        listOfCollections.push(collect);
+    });
+    return listOfCollections;
+};
 
 const GlobalProviderAcu = props => {
     const {
         acumuladoGeneral,
         acumuladoColor,
         articlesInCollection,
+        idCollectionsInPage,
         children
     } = props;
-    const [state, setState] = useState({
+
+    const collectionsInPage = getCollectionsInPage(idCollectionsInPage);
+    const [state, dispatch] = useReducer(reducer, {
         acumuladoGeneral,
         acumuladoColor,
-        articlesInCollection
+        articlesInCollection,
+        collectionsInPage
     });
 
     return (
-        <GlobalContext.Provider value={[state, setState]}>
+        <GlobalContext.Provider value={[state, dispatch]}>
             {children}
         </GlobalContext.Provider>
     );

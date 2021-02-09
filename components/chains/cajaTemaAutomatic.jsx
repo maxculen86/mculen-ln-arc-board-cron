@@ -53,6 +53,8 @@ const CajaTemaAutomatic = props => {
         true,
         notesQuantity
     );
+    
+    console.log("🚀 ~ file: cajaTemaAutomatic.jsx ")
 
     const error = validateFeature(
         idCollection,
@@ -79,24 +81,26 @@ const CajaTemaAutomatic = props => {
     }
 
     return (
-        <Static id={featureId}>
-            <CajaTema
-                title={title}
-                hideTitle={hideTitle}
-                url={url}
-                imageId={imageId}
-                outputType={outputType}
-                layout={layout}
-                classCondition={classCondition}
-                articles={articlesToShow}
-                notesQuantity={notesQuantity}
-                backgroundColor={
-                    backgroundColor !== 'default'
-                        ? `${bgColor}${backgroundColor}`
-                        : ''
-                }
-            />
-        </Static>
+        <CajaTema
+            title={title}
+            hideTitle={hideTitle}
+            url={url}
+            imageId={imageId}
+            outputType={outputType}
+            layout={layout}
+            classCondition={classCondition}
+            idsArticlesToExclude={idsArticlesToExclude}
+            notesQuantity={notesQuantity}
+            articles={articlesToShow}
+            idCollection={idCollection}
+            size={size}
+            from={initialPosition - 1}
+            backgroundColor={
+                backgroundColor !== 'default'
+                    ? `${bgColor}${backgroundColor}`
+                    : ''
+            }
+        />
     );
 };
 
@@ -123,4 +127,15 @@ CajaTemaAutomatic.propTypes = {
     }).isRequired
 };
 
-export default Consumer(CajaTemaAutomatic);
+const areEqual = (prevProps, nextProps) => {
+    /*
+    retorna true si al pasar los nextProps a renderizar retorna
+    el mismo resultado que al pasar los prevProps a renderizar,
+    de otro modo retorna false
+    */
+    if (prevProps.customFields.idCollection === nextProps.customFields.idCollection) return true;
+
+    return false;
+};
+
+export default React.memo(Consumer(CajaTemaAutomatic, areEqual));

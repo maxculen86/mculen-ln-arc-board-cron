@@ -93,7 +93,7 @@ const transformContent = (data, siteProps, arcSite) => {
                 })
         );
     }
-
+    /*
     idCollectionsInPage.forEach(id => {
         const collectionsProps = {
             ...siteProps,
@@ -122,7 +122,8 @@ const transformContent = (data, siteProps, arcSite) => {
                 })
         );
     });
-    /*
+
+    
     promiseArr.push(
         getNavigationSiteProperties(arcSite).then(result => {
             resp.siteService = {

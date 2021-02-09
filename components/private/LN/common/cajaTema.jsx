@@ -19,7 +19,8 @@ const CajaTema = props => {
         hideTitle = false,
         withSubhead = false
     } = props;
-
+    
+    console.log("🚀 ~ file: cajaTema.jsx ~ line 15 ~ articles", articles.length)
     const isFocal = layout.includes('focal');
     const isRenderAuthor = layout.includes('author');
 
@@ -76,4 +77,11 @@ CajaTema.defaultProps = {
     url: PropTypes.string
 };
 
-export default CajaTema;
+const areEqual = (prevProps, nextProps) => {
+    // Retorna true para no renderizar otra vez
+    if (prevProps.articles.length === nextProps.articles.length) return true;
+
+    return false;
+};
+
+export default React.memo(CajaTema, areEqual);

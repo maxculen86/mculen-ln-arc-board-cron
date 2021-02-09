@@ -1,7 +1,9 @@
 /* eslint-disable no-underscore-dangle */
+import { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
+import { GlobalContext } from '../../acumulado/context/globalContextAcu';
 
 const featuredRules = {
     cajaTemaCollections: {
@@ -33,9 +35,9 @@ export const getCommonProps = props => {
         customFields: { layout = '', backgroundColor },
         globalContent
     } = props;
-
     const { cajaTemaCss = {} } = config || {};
-    const { collectionsInPage = [] } = globalContent || {};
+    const gc = useContext(GlobalContext);
+    const collectionsInPage = get(gc[0], 'collectionsInPage', []);
     const notesQuantity = layout.slice(-1);
     const bgColor =
         backgroundColor === 'default' || backgroundColor === null

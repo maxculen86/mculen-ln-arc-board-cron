@@ -23,7 +23,9 @@ const getArticleInCollection = (
             notesQuantity
         },
         filter,
-        staticMode: true
+        transform: response => {
+            return response;
+        }
     });
 
     const articles = get(articleList, 'content_elements', []);

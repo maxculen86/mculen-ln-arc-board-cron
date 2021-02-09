@@ -65,7 +65,7 @@ const CajaTemaCollections = props => {
             </div>
         );
     }
-
+    console.log('CAJA COLLECTION')
     return (
         <Static id={featureId}>
             <CajaTema
