@@ -7,4 +7,4 @@ describe('Test de index en Json ranking', () => {
         const resp = RankingIndex('recetas', articles.content_elements);
         expect(resp.acumuladoTotal).toBe(articles.content_elements.length);
     });
-})
+});
