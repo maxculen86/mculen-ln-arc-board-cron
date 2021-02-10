@@ -324,5 +324,5 @@ export default {
         paywallEnabled: 'text'
     },
     filter,
-    ttl: 240
+    ttl: 120
 };
