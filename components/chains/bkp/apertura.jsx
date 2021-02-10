@@ -160,4 +160,4 @@ Apertura.propTypes = {
     }).isRequired
 };
 
-export default Consumer(Apertura);
+// export default Consumer(Apertura);

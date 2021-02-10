@@ -19,6 +19,9 @@
             padding-top: 100%;
             width: 100%;
             margin: 0 0 px(16) 0;
+            @media ($media-m) {
+                margin-bottom: $spacing-xl;
+            }
         }
     }
     //100% ipad dentro de nota

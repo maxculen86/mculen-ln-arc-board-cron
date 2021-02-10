@@ -13,9 +13,10 @@ import getPresets from './utils/presets';
 import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import Redirect from './utils/redirect';
+import { isNotRecommend } from '../sources/utils/collectionsHelper';
 
 const resolve = (key, a) => {
-    const { sectionId, size, website, weeksAgo = 1, daysAgo = 1 } = key;
+    const { sectionId, size = 3, website, weeksAgo = 1, daysAgo = 1 } = key;
     const arcSite = key['arc-site'];
     const basePath = `?website=${website || arcSite}`;
 
@@ -31,7 +32,7 @@ const resolve = (key, a) => {
 
     const query = `&query=type:story+AND+revision.published:true${sectionFilter}${publishDateFilter}${offsetFilter}`;
 
-    const finalPath = `${basePath}${query}&size=${size || 3}`;
+    const finalPath = `${basePath}${query}&size=10`;
     return finalPath;
 };
 
@@ -71,33 +72,43 @@ const transform = (data, siteProps) => {
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     const resp = {
-        content_elements: data.map(elem => {
-            const headlines = get(elem, `headlines`, {});
-            const shortTitle = get(elem, `headlines.mobile`, null);
-            const promoItems = get(elem, `promo_items`, null);
-            const subtype = get(elem, `subtype`, null);
-            const isFotoAl100orStorytelling =
-                subtype === FOTOAL100 || subtype === STORYTELLING;
-            return {
-                ...elem,
-                ...addResizedUrls(
-                    { ...(promoItems && { promo_items: promoItems }) },
-                    {
-                        resizerSecret: RESIZER_KEY,
-                        resizerUrl: RESIZER_URL,
-                        presets: {
-                            promoItems: presetsPromoItems,
-                            presetsDefault
+        content_elements: data
+            .filter(art => !isNotRecommend(art))
+            .slice(0, siteProps.size)
+            .map(elem => {
+                const headlines = get(elem, `headlines`, {});
+                const shortTitle = get(elem, `headlines.mobile`, null);
+                const promoItems = get(elem, `promo_items`, null);
+                const subtype = get(elem, `subtype`, null);
+                const isFotoAl100orStorytelling =
+                    subtype === FOTOAL100 || subtype === STORYTELLING;
+                return {
+                    ...elem,
+                    ...addResizedUrls(
+                        {
+                            ...(promoItems && {
+                                promo_items: promoItems
+                            })
                         },
-                        // Se pasa el subtype para que las notas de foto al 100
-                        // y storytelling no sean excluidas de las validaciones del resizer
-                        // y pueda aplicarse 3:2, focal point o smartcrop
-                        subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                        {
+                            resizerSecret: RESIZER_KEY,
+                            resizerUrl: RESIZER_URL,
+                            presets: {
+                                promoItems: presetsPromoItems,
+                                presetsDefault
+                            },
+                            // Se pasa el subtype para que las notas de foto al 100
+                            // y storytelling no sean excluidas de las validaciones del resizer
+                            // y pueda aplicarse 3:2, focal point o smartcrop
+                            subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                        }
+                    ),
+                    headlines: {
+                        ...headlines,
+                        shortTitle
                     }
-                ),
-                headlines: { ...headlines, shortTitle }
-            };
-        })
+                };
+            })
     };
     return resp;
 };

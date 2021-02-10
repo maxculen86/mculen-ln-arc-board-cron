@@ -20,7 +20,7 @@ describe('Test imagen en nota', () => {
 
     test('Titulo existe?', async () => {
         const selector =
-            'div.lay.--apertura div.row div.col-12 h1.com-title.--threexl';
+            'div.lay.--apertura div.row div.col-12 h1.com-title.--twoxl';
         const titulo = await frame.$(selector);
         expect(titulo.innerText).not.toBe('');
     });

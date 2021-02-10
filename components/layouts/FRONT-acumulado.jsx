@@ -55,7 +55,7 @@ import '../../resources/dist/css/ln/components/banners.css';
 /* Se debe dejar último los helpers */
 import '../../resources/dist/css/ln/base/helpers.css';
 
-import { GlobalProvider } from '../private/common/context/globalContext';
+import GlobalProvider from '../private/common/context/globalContext';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;

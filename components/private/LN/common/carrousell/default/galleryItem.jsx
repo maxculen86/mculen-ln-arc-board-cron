@@ -30,11 +30,14 @@ const galleryItem = ({
                     <ComFigcaption>
                         {mediaData.caption && (
                             <ComText
-                                classCondition="--caption"
+                                classCondition="--caption --twoxs"
                                 textname={mediaData.caption}
                             />
                         )}
-                        <ComText classCondition="--credit" textname={credito} />
+                        <ComText
+                            classCondition="--credit --twoxs"
+                            textname={credito}
+                        />
                         <ComText classCondition="--paginator">
                             {galleryOrder + 1}
                             &nbsp;de&nbsp;

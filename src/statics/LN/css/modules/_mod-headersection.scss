@@ -5,23 +5,58 @@
     display: flex;
     flex-direction: column;
     margin-bottom: $spacing-sm;
-    //max-height: px(44);
-    &.--blue {
-        background: $light-blue-500;
+    width: 100%;
+
+    .com-title {
+        margin-bottom: 0;
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @media ($media-l) {
+            width: 50%;
+        }
     }
-    &.--red {
-        background: $red-600;
+
+    .com-line {
+        margin-top: px(8);
     }
-    &.--teal {
-        background: $teal-600;
+
+    .com-image {
+        //margin-bottom: $spacing-sm;
+        max-height: px(24);
     }
-    &.--pink {
-        background: $pink-600;
-    }
+
     // &.--blue,
     // &.--red,
     // &.--teal,
     &.--bg {
         padding: $spacing-xs $spacing-sm;
+        background: $light-neutral-100; //color default
+
+        .com-title {
+            color: $neutral-white;
+            margin: 0;
+            .com-link {
+                color: $neutral-white;
+            }
+        }
+        .com-line {
+            display: none;
+        }
+
+        &.--blue {
+            background: $light-blue-500;
+        }
+        &.--red {
+            background: $red-600;
+        }
+        &.--teal {
+            background: $teal-600;
+        }
+        &.--pink {
+            background: $pink-600;
+        }
     }
 }

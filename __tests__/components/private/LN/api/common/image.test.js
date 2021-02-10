@@ -9,7 +9,7 @@ describe('Json imagen common', () => {
         const resp = Image(img);
         expect(resp.id).toBe(img._id);
         expect(resp.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
+            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
         );
         expect(resp.parametros[0].ancho).toBe(768);
         expect(resp.parametros[0].firma).toBe(

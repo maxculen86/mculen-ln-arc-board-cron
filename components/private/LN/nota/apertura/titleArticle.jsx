@@ -15,7 +15,7 @@ const titleArticle = ({ label, headlines, prefix }) => {
     return (
         <ComTitle
             tag="h1"
-            size="--threexl"
+            size="--twoxl"
             content={`${prefixText}${volantaText}${basic}`}
         />
     );

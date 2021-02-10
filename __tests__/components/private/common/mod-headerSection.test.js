@@ -28,7 +28,7 @@ describe('Private - Common - ModheaderSection => ', () => {
                 title="Titulo Separador"
                 link="https://lanacion.com.ar"
                 size="--l"
-                classCondition='--pink'
+                classCondition="--pink"
                 line
             />
         );

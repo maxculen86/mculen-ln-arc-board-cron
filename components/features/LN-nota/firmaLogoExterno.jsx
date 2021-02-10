@@ -21,8 +21,12 @@ const FirmaLogoExterno = props => {
     if (name === 'LA NACION' || subtype === HTMLLIBRE || subtype === RECETA)
         return <ComPartner size="--xs">{name}</ComPartner>;
 
-    // const nameFormated = formatDistributorName(name);
-    return <ComPartner size="--xs">{name}</ComPartner>;
+    const nameFormated = formatDistributorName(name);
+    return (
+        <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
+            <ComPartner size="--xs">{name}</ComPartner>
+        </ComLink>
+    );
 };
 
 FirmaLogoExterno.propTypes = {
@@ -44,9 +48,3 @@ FirmaLogoExterno.propTypes = {
 FirmaLogoExterno.label = 'LN-Nota-FirmaLogoExterno';
 
 export default withStatic(Context(FirmaLogoExterno));
-
-/*
-<ComLink link={`${SITE_LANACION}/distributor/${nameFormated}`}>
-    <ComPartner size="--xs">{name}</ComPartner>
-</ComLink>
-*/

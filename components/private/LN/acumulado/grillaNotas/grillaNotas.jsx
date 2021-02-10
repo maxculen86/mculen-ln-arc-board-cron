@@ -1,6 +1,6 @@
-import Consumer from 'fusion:consumer';
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
@@ -17,6 +17,7 @@ import {
     isPrimarySectionInBannerSegments
 } from '../../common/bannerRefactor/utils';
 import { slotsConfig } from '../../common/bannerRefactor/config';
+import { GlobalContext } from '../../../common/context/globalContext';
 
 class GrillaNotas extends React.Component {
     constructor(props) {
@@ -44,22 +45,23 @@ class GrillaNotas extends React.Component {
         const {
             bannerConfig,
             hideBanners,
-            globalContent,
-            globalContentConfig
-        } = this.props;
-        const { banners: termicaShowBanner } = this.props.termicas || {
-            banners: true
-        };
-
-        const {
+            globalContentConfig,
+            arcSite,
+            termicas,
             screenUtils: { device }
         } = this.props;
 
-        const bannersSiteConfig = get(globalContent, 'siteService.banners');
-        const adserver = get(globalContent, 'siteService.adserver', []);
+        const gc = useContext(GlobalContext);
+        const siteService = get(gc, 'state.siteService', {});
+
+        const bannersSiteConfig = get(siteService, 'banners');
+        const adserver = get(siteService, 'adserver', []);
         const segments = adserver.map(segment => segment.value);
         const primarySection = get(globalContentConfig, 'query.id');
-        const site = this.props.arcSite || 'la-nacion-ar';
+        const site = arcSite || 'la-nacion-ar';
+        /**
+         * ! extraer siguiente linea desde el contexto global
+         */
         const dfpId = get(getProperties(site), 'bannerConfig.dfp_id');
 
         return bannerConfig
@@ -85,7 +87,7 @@ class GrillaNotas extends React.Component {
                     dfpId,
                     slotGroup: 'acumulado',
                     show: {
-                        termicas: termicaShowBanner,
+                        termicas,
                         collection: !(hideBanners === 'true')
                     }
                 });
@@ -159,6 +161,8 @@ GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
     hideBanners: PropTypes.string.isRequired,
+    termicas: PropTypes.string.isRequired,
+    arcSite: PropTypes.string.isRequired,
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
     articlesInGlobalProvider: PropTypes.arrayOf(PropTypes.object).isRequired,
     hayMasNotas: PropTypes.number.isRequired,

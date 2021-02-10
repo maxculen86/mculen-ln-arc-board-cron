@@ -1,3 +1,4 @@
+import env from '../../../../../../__mocks__/fusion:environment';
 import articlesRanking from '../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
 import articlesAcumulado from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articlesTPInteresar from '../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
@@ -42,7 +43,7 @@ describe('Test de index en Json', () => {
     test('Imagenes del articulo', () => {
         expect(respTPInteresar[0].imagen['_t']).toBe('img');
         expect(respTPInteresar[0].imagen.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg'
+            '/resizer/{{param}}/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg'
         );
         expect(respTPInteresar[0].imagen.parametros[0].ancho).toBe(768);
         expect(respTPInteresar[0].imagen.parametros[0].firma).toBe(
@@ -114,7 +115,7 @@ describe('Test de index en Json', () => {
     test('Test imagen de Autores de articulo', () => {
         expect(respAcumulado[2].autores[0].image['_t']).toBe('img');
         expect(respAcumulado[2].autores[0].image.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/bucket.glanacion.com/anexos/fotos/33/3121633.png'
+            '/resizer/{{param}}/bucket.glanacion.com/anexos/fotos/33/3121633.png'
         );
         expect(respAcumulado[2].autores[0].image.parametros[0].ancho).toBe(768);
         expect(respAcumulado[2].autores[0].image.parametros[0].firma).toBe(
@@ -126,7 +127,7 @@ describe('Test de index en Json', () => {
         expect(respAcumulado[9].imagen.id).toBe('LGFOVH6SFFGZVP5V3V7NOW2KFY');
         expect(respAcumulado[9].imagen['_t']).toBe('img');
         expect(respAcumulado[9].imagen.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
+            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
         );
         expect(respAcumulado[9].imagen.parametros[0].ancho).toBe(768);
         expect(respAcumulado[9].imagen.parametros[0].firma).toBe(
@@ -188,7 +189,7 @@ describe('Test de index en Json', () => {
     test('Imagenes del articulo', () => {
         expect(respRanking[0].imagen['_t']).toBe('img');
         expect(respRanking[0].imagen.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/www.lanacion.com.ar/resizer/YcJ0gmw6h3B4fXhg5pbuZ8H1uzg=/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg'
+            '/resizer/{{param}}/www.lanacion.com.ar/resizer/YcJ0gmw6h3B4fXhg5pbuZ8H1uzg=/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg'
         );
         expect(respRanking[0].imagen.parametros[0].ancho).toBe(768);
         expect(respRanking[0].imagen.parametros[0].firma).toBe(
@@ -251,7 +252,7 @@ describe('Test de index en Json', () => {
 
     test('Categoria principal', () => {
         expect(respRanking[0].categoria.id).toBe(43);
-        expect(respRanking[0].categoria.valor).toBe('Fáciles y rápidas');
+        expect(respRanking[0].categoria.valor).toBe('Recetas');
     });
 
     test('Sin Tags', () => {

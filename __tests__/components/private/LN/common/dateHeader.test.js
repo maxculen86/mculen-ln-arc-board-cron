@@ -26,6 +26,6 @@ describe('features - LaNacion - Nota - DateHeader', () => {
     });
 
     it('Nota - Author - AuthorAndDate - DateHeader', () => {
-        expect(component.text()).toEqual('12 de Mayo de 2020 • 19:43');
+        expect(component.text()).toEqual('12 de mayo de 2020 • 19:43');
     });
 });

@@ -1,0 +1,38 @@
+{
+    "data": [
+        {
+            "fuente": "InvertirOnline",
+            "compra": "86,25",
+            "venta": "92,25",
+            "aumento": true,
+            "variacion": "+0,3",
+            "fecha": "2021-01-29T17:21:00",
+            "sourceName": "dbna",
+            "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacion/DBNA",
+            "title": "Dólar Banco Nación"
+        },
+        {
+            "fuente": "InvertirOnline",
+            "compra": "148,00",
+            "venta": "153,00",
+            "aumento": false,
+            "variacion": "-0,65",
+            "fecha": "2021-01-29T16:10:00",
+            "sourceName": "dblue",
+            "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DBLUE",
+            "title": "Dólar Blue"
+        },
+        {
+            "fuente": "InvertirOnline",
+            "compra": "118,18",
+            "venta": "118,18",
+            "aumento": false,
+            "variacion": "-0,21",
+            "fecha": "2021-05-07T12:35:00",
+            "sourceName": "dccl",
+            "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DCCL",
+            "title": "Dólar Contado con Liqui"
+        }
+    ],
+    "imageUrl": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png"
+}

@@ -5,6 +5,17 @@ import ModRowGap from '../../common/mod-rowgap';
 
 // const CLASS_W_100 = 'w-100-mobile';
 const DATA_SECTION = 'CuerpoAcu';
+const typeAcumRules = {
+    Grilla: {
+        withSubhead: false
+    },
+    Listado: {
+        withSubhead: true
+    },
+    Timeline: {
+        withSubhead: false
+    }
+};
 
 const ArticlesAcum = ({
     articles = [],
@@ -27,7 +38,9 @@ const ArticlesAcum = ({
                         dataSection={DATA_SECTION}
                         article={art}
                         typeArticle={typeArticle}
+                        titleSize={typeArticle === 'Listado' && '--m'}
                         outputType={outputType}
+                        withSubhead={typeAcumRules[typeArticle].withSubhead}
                     >
                         {banner}
                     </ArticleAcum>

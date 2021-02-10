@@ -1,25 +1,36 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import { useAppContext } from 'fusion:context';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import ComTitle from '../../../common/com-title';
 
-const Index = ({ cantidadNotas }) => {
-    const { outputType, requestUri, siteProperties } = useAppContext();
-    const { host = 'https://www.lanacion.com.ar' } = siteProperties;
+const Index = props => {
+    const {
+        userId,
+        sessionId,
+        cantidadNotas,
+        excludeItems,
+        outputType,
+        url,
+        idArticle
+    } = props;
+
     const articles = useContent({
         source: 'liftigniterSource',
         query: {
             cantidadNotas,
-            referrer: `${host}${requestUri}`,
-            imageConfig: 'm'
+            referrer: url,
+            imageConfig: 'm',
+            idArticle,
+            userId,
+            sessionId,
+            excludeItems
         }
     });
 
     return articles && articles.length > 0 ? (
         <div className="row interest">
-            <ComTitle tag="h4" size="--l" content="Te puede interesar" />
+            <ComTitle tag="h4" size="--xl" content="Te puede interesar" />
             <section className="row-gap-tablet-3 row-gap-desksm-3">
                 {articles.map((article, index) => {
                     return (
@@ -39,7 +50,19 @@ const Index = ({ cantidadNotas }) => {
 };
 
 Index.propTypes = {
-    cantidadNotas: PropTypes.number.isRequired
+    cantidadNotas: PropTypes.number.isRequired,
+    userId: PropTypes.string,
+    sessionId: PropTypes.string.isRequired,
+    outputType: PropTypes.string.isRequired,
+    idArticle: PropTypes.string,
+    url: PropTypes.string.isRequired,
+    excludeItems: PropTypes.arrayOf(PropTypes.string)
+};
+
+Index.defaultProps = {
+    userId: null,
+    excludeItems: null,
+    idArticle: null
 };
 
 export default Index;
