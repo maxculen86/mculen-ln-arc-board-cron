@@ -15,12 +15,12 @@ const CajaTema = props => {
         layout = 'grilla3',
         backgroundColor = '',
         classCondition = '',
+        titleSize,
         notesQuantity = 3,
         hideTitle = false,
         withSubhead = false
     } = props;
-    
-    console.log("🚀 ~ file: cajaTema.jsx ~ line 15 ~ articles", articles.length)
+
     const isFocal = layout.includes('focal');
     const isRenderAuthor = layout.includes('author');
 
@@ -50,6 +50,7 @@ const CajaTema = props => {
                                 article={artWithoutDate}
                                 outputType={outputType}
                                 frontdemo
+                                titleSize={titleSize}
                                 isRenderAuthor={isRenderAuthor}
                                 withSubhead={withSubhead}
                             />
@@ -68,20 +69,24 @@ CajaTema.propTypes = {
         })
     ).isRequired,
     outputType: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string.isRequired,
+    classCondition: PropTypes.string.isRequired,
+    notesQuantity: PropTypes.number.isRequired,
+    hideTitle: PropTypes.boolean.isRequired,
+    withSubhead: PropTypes.boolean.isRequired,
     title: PropTypes.string,
-    url: PropTypes.string
+    url: PropTypes.string,
+    imageId: PropTypes.string
 };
 
 CajaTema.defaultProps = {
-    title: PropTypes.string,
-    url: PropTypes.string
+    title: null,
+    url: null,
+    imageId: null
 };
 
-const areEqual = (prevProps, nextProps) => {
-    // Retorna true para no renderizar otra vez
-    if (prevProps.articles.length === nextProps.articles.length) return true;
-
-    return false;
-};
+const areEqual = (prevProps, nextProps) =>
+    prevProps.articles.length === nextProps.articles.length;
 
 export default React.memo(CajaTema, areEqual);

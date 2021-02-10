@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
@@ -65,7 +66,7 @@ const CajaTemaCollections = props => {
             </div>
         );
     }
-    console.log('CAJA COLLECTION')
+
     return (
         <Static id={featureId}>
             <CajaTema

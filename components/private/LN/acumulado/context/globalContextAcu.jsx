@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
+import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 
 const GlobalContext = React.createContext([{}, () => {}]);
 
@@ -23,6 +24,7 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
         const collect = useContent({
             source: 'collectionsSource',
             query: collectionsProps,
+            filter,
             transform: response => {
                 return {
                     idCollection: id,
@@ -35,14 +37,34 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
     return listOfCollections;
 };
 
+const getCollectionApertura = id => {
+    const collectionsProps = {
+        id,
+        size: 2,
+        website: 'la-nacion-ar',
+        imageConfig: 'l'
+    };
+    return useContent({
+        source: 'collectionsSource',
+        query: collectionsProps,
+        transform: response => {
+            return response ? response.content_elements : [];
+        }
+    });
+};
+
 const GlobalProviderAcu = props => {
     const {
         acumuladoGeneral,
         acumuladoColor,
-        articlesInCollection,
         idCollectionsInPage,
+        idCollectionApertura,
         children
     } = props;
+
+    const articlesInCollection = idCollectionApertura
+        ? getCollectionApertura(idCollectionApertura)
+        : [];
 
     const collectionsInPage = getCollectionsInPage(idCollectionsInPage);
     const [state, dispatch] = useReducer(reducer, {
@@ -75,7 +97,8 @@ GlobalProviderAcu.propTypes = {
         navigation_color_tags: PropTypes.string,
         id_logo_image: PropTypes.string
     }).isRequired,
-    articlesInCollection: PropTypes.arrayOf(PropTypes.object).isRequired
+    idCollectionsInPage: PropTypes.arrayOf(PropTypes.string).isRequired,
+    idCollectionApertura: PropTypes.string.isRequired
 };
 
 export { GlobalContext, GlobalProviderAcu };

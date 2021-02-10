@@ -1,5 +1,4 @@
 import React from 'react';
-import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import getArticleInCollection from '../private/LN/common/utils/getArticleInCollection';
@@ -9,7 +8,8 @@ import {
     calculateSizeOfCollection,
     validateFeature,
     getCommonProps,
-    getIdsArticlesFromOtherCollections
+    getIdsArticlesFromOtherCollections,
+    isInApertura
 } from '../private/LN/common/utils/cajaTemasHelper';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
@@ -28,7 +28,8 @@ const CajaTemaAutomatic = props => {
             hideTitle
         },
         outputType,
-        renderables
+        renderables,
+        tree
     } = props;
 
     const {
@@ -43,6 +44,8 @@ const CajaTemaAutomatic = props => {
         collectionsInPage
     );
 
+    const isInsideApertura = isInApertura(tree, featureId);
+
     const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
 
     const articlesToShow = getArticleInCollection(
@@ -53,8 +56,6 @@ const CajaTemaAutomatic = props => {
         true,
         notesQuantity
     );
-    
-    console.log("🚀 ~ file: cajaTemaAutomatic.jsx ")
 
     const error = validateFeature(
         idCollection,
@@ -94,6 +95,7 @@ const CajaTemaAutomatic = props => {
             articles={articlesToShow}
             idCollection={idCollection}
             size={size}
+            titleSize={isInsideApertura && '--l'}
             from={initialPosition - 1}
             backgroundColor={
                 backgroundColor !== 'default'
@@ -127,15 +129,4 @@ CajaTemaAutomatic.propTypes = {
     }).isRequired
 };
 
-const areEqual = (prevProps, nextProps) => {
-    /*
-    retorna true si al pasar los nextProps a renderizar retorna
-    el mismo resultado que al pasar los prevProps a renderizar,
-    de otro modo retorna false
-    */
-    if (prevProps.customFields.idCollection === nextProps.customFields.idCollection) return true;
-
-    return false;
-};
-
-export default React.memo(Consumer(CajaTemaAutomatic, areEqual));
+export default Consumer(CajaTemaAutomatic);

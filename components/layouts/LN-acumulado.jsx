@@ -78,6 +78,10 @@ const LNAcumuladoLayout = props => {
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
     const OPENING_CLASS = articlesInCollection.length > 0 ? '--opening' : '';
     const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
+    const idCollectionApertura = get(
+        globalContent,
+        'acumuladoGeneral.id_collection_promo_items'
+    );
     const idCollectionsInPage = get(
         globalContent,
         'acumuladoGeneral.colecciones',
@@ -92,6 +96,7 @@ const LNAcumuladoLayout = props => {
                     acumuladoColor={acumuladoColor}
                     articlesInCollection={articlesInCollection}
                     idCollectionsInPage={idCollectionsInPage}
+                    idCollectionApertura={idCollectionApertura}
                 >
                     {megatop}
                     <div

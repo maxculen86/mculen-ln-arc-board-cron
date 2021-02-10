@@ -120,6 +120,11 @@ export const calculateSizeOfCollection = (collections, notesQuantity) => {
     return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
 };
 
+export const isInApertura = (tree = {}, idFeature) => {
+    const sectionApertura = get(tree, 'children[4].children', []);
+    return sectionApertura.find(child => child.props.id === idFeature);
+};
+
 export const cajaTemasCustomsFields = featuredName => {
     return {
         idCollection: PropTypes.string.tag({
