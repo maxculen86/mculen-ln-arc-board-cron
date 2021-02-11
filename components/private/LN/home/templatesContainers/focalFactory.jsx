@@ -13,7 +13,6 @@ const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
                     outputType={outputType}
                     label="Chapita"
                     titleSize={directionFocal === 'focalLeft3' ? '--xl' : '--l'}
-                    withSubhead={directionFocal === 'focalLeft3'}
                 />
             </div>
             <div className="col-tablet-4">
@@ -24,7 +23,6 @@ const FocalFactory = ({ directionFocal, articles = [], outputType }) => {
                     titleSize={
                         directionFocal === 'focalRight3' ? '--xl' : '--xs'
                     }
-                    withSubhead={directionFocal === 'focalRight3'}
                 />
                 {directionFocal === 'focalLeft3' && (
                     <ArticleAcum

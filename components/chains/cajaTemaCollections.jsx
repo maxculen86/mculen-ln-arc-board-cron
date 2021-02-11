@@ -8,7 +8,8 @@ import {
     cajaTemasCustomsFields,
     getArticlesFromMyCurrentCollection,
     validateFeature,
-    getCommonProps
+    getCommonProps,
+    isInApertura
 } from '../private/LN/common/utils/cajaTemasHelper';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
@@ -26,7 +27,8 @@ const CajaTemaCollections = props => {
             imageId,
             hideTitle
         },
-        outputType
+        outputType,
+        tree
     } = props;
 
     const {
@@ -42,6 +44,8 @@ const CajaTemaCollections = props => {
         initialPosition - 1,
         notesQuantity
     );
+
+    const isInsideApertura = isInApertura(tree, featureId);
 
     const error = validateFeature(
         idCollection,
@@ -78,6 +82,7 @@ const CajaTemaCollections = props => {
                 layout={layout}
                 classCondition={classCondition}
                 articles={articlesFiltered}
+                titleSize={isInsideApertura && '--l'}
                 notesQuantity={notesQuantity}
                 backgroundColor={
                     backgroundColor !== 'default'
