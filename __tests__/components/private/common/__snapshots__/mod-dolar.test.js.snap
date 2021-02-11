@@ -2,7 +2,7 @@
 
 exports[`with data list snapshot 1`] = `
 <ul
-  class="mod-dolar row-gap-tablet-4"
+  class="mod-dolar row-gap-2 row-gap-tablet-4"
 >
   <li
     class="item"
