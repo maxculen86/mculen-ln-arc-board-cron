@@ -23,17 +23,11 @@ const getArticleInCollection = (
                   shouldFilter,
                   notesQuantity
               },
-              filter,
-              transform: response => {
-                  return response;
-              }
+              filter
           })
         : [];
 
-    const articles = get(articleList, 'content_elements', []);
-    // const dynamicItems = get(articleList, 'dynamic_items', {});
-
-    return articles;
+    return get(articleList, 'content_elements', []);
 };
 
 export default getArticleInCollection;
