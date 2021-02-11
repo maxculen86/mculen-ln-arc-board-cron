@@ -11,22 +11,24 @@ const getArticleInCollection = (
     notesQuantity,
     website = 'la-nacion-ar'
 ) => {
-    const articleList = useContent({
-        source: 'collectionsSource',
-        query: {
-            id: idCollection,
-            size,
-            website,
-            from: initialPosition,
-            idsArticlesToExclude,
-            shouldFilter,
-            notesQuantity
-        },
-        filter,
-        transform: response => {
-            return response;
-        }
-    });
+    const articleList = idCollection
+        ? useContent({
+              source: 'collectionsSource',
+              query: {
+                  id: idCollection,
+                  size,
+                  website,
+                  from: initialPosition,
+                  idsArticlesToExclude,
+                  shouldFilter,
+                  notesQuantity
+              },
+              filter,
+              transform: response => {
+                  return response;
+              }
+          })
+        : [];
 
     const articles = get(articleList, 'content_elements', []);
     // const dynamicItems = get(articleList, 'dynamic_items', {});

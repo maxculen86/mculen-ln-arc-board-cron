@@ -47,6 +47,7 @@ const getCollectionApertura = id => {
     return useContent({
         source: 'collectionsSource',
         query: collectionsProps,
+        filter,
         transform: response => {
             return response ? response.content_elements : [];
         }
