@@ -102,7 +102,8 @@ CajaTemaCollections.propTypes = {
     outputType: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaTemaCollections')
-    }).isRequired
+    }).isRequired,
+    tree: PropTypes.shape(PropTypes.node).isRequired
 };
 
 export default Consumer(CajaTemaCollections);

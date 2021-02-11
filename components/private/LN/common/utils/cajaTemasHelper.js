@@ -4,6 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import { GlobalContext } from '../../acumulado/context/globalContextAcu';
+import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const featuredRules = {
     cajaTemaCollections: {
@@ -33,11 +34,9 @@ export const validateFeature = (idCollection, articles, message) => {
 export const getCommonProps = props => {
     const {
         customFields: { layout = '', backgroundColor },
-        globalContent
     } = props;
     const { cajaTemaCss = {} } = config || {};
-    const gc = useContext(GlobalContext);
-    const collectionsInPage = get(gc[0], 'collectionsInPage', []);
+    const { collectionsInPage = [] } = useGlobalProviderAcu();
     const notesQuantity = layout.slice(-1);
     const bgColor =
         backgroundColor === 'default' || backgroundColor === null
