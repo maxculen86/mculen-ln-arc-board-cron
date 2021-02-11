@@ -4,6 +4,7 @@ import ComTitle from './com-title';
 import ComDate from './com-date';
 import ModBajada from './mod-bajada';
 import ModMarquesina from './mod-marquee';
+import ComLabel from './com-labelArticle';
 
 const ModDescription = props => {
     const {
@@ -16,16 +17,21 @@ const ModDescription = props => {
         subheadText,
         subheadSize,
         dateText,
-        dateSize
+        dateSize,
+        label,
+        lead,
+        marquesina
     } = props;
 
     return (
         <section className="mod-description">
+            {label && <ComLabel labelArticle={label} />}
             <ComTitle
                 tag={titleTag || 'h2'}
-                size={titleSize || '--s'}
+                size={titleSize || '--xs'}
                 link={link}
                 content={titleText}
+                lead={lead}
             />
 
             {subheadText && (
@@ -36,9 +42,13 @@ const ModDescription = props => {
                 />
             )}
 
-            <ModMarquesina text={authors} link={link} />
+            <ModMarquesina
+                text={marquesina || authors}
+                size={authorSize}
+                link={link}
+            />
 
-            {dateText && <ComDate display_date={dateText} size="--fivexs" />}
+            {dateText && <ComDate display_date={dateText} size="--fourxs" />}
         </section>
     );
 };
@@ -52,18 +62,20 @@ ModDescription.propTypes = {
     subheadSize: PropTypes.string,
     dateText: PropTypes.string,
     dateSize: PropTypes.string,
-    authors: PropTypes.string
+    authors: PropTypes.string,
+    marquesina: PropTypes.string
 };
 
 ModDescription.defaultProps = {
     titleTag: 'h4',
-    titleSize: '--s',
+    titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
     dateText: undefined,
     dateSize: undefined,
     authors: '',
-    link: undefined
+    link: undefined,
+    marquesina: ''
 };
 
 export default ModDescription;

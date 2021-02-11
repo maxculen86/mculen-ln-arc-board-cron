@@ -1,18 +1,25 @@
 function formatDate(originalDate) {
-    const date = formatDateTreeHoursMore(originalDate);
+    // TODO: en  el render desde el cliente toma la hora del mismo,
+    // cuando es ssr toma la hora del servidor.
+
+    const date =
+        typeof window === 'object'
+            ? originalDate
+            : formatDateTreeHoursMore(originalDate);
+
     const monthNames = [
-        'Enero',
-        'Febrero',
-        'Marzo',
-        'Abril',
-        'Mayo',
-        'Junio',
-        'Julio',
-        'Agosto',
-        'Septiembre',
-        'Octubre',
-        'Noviembre',
-        'Diciembre'
+        'enero',
+        'febrero',
+        'marzo',
+        'abril',
+        'mayo',
+        'junio',
+        'julio',
+        'agosto',
+        'septiembre',
+        'octubre',
+        'noviembre',
+        'diciembre'
     ];
 
     const monthIndex = date.getMonth();

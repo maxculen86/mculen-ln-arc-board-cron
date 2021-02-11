@@ -29,8 +29,16 @@ const pageBuilderSections = [
     'Aside'
 ];
 
+const formatText = str => {
+    return str
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+};
+
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
+const sections = ['economia'];
 
 const LNAcumuladoLayout = props => {
     const {
@@ -49,13 +57,14 @@ const LNAcumuladoLayout = props => {
         tree,
         isAdmin
     } = props;
-    const { style, articlesInCollection = [] } = globalContent;
+    const { style, articlesInCollection = [], name = '' } = globalContent;
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =
         revistas.indexOf(sectionStyleName || '') !== -1
             ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
             : '';
+    const sectionClass = sections.find(sec => sec === formatText(name)) || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
     const {
@@ -65,7 +74,6 @@ const LNAcumuladoLayout = props => {
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
-
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
     const OPENING_CLASS = articlesInCollection.length > 0 ? '--opening' : '';

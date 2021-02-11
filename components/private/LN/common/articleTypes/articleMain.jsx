@@ -39,7 +39,7 @@ const articleMain = ({
     }
 
     const hourComponent = hourToDisplay ? (
-        <div className="com-hour --fivexs">{hourToDisplay}</div>
+        <div className="com-hour --fourxs">{hourToDisplay}</div>
     ) : null;
 
     return (

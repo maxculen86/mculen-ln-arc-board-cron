@@ -50,7 +50,7 @@ const Parrafo = ({ data, capital }) => {
                         {
                             link,
                             target,
-                            classCondition: '--twoxs',
+                            classCondition: '--s',
                             title: string
                         },
                         string
@@ -74,7 +74,7 @@ const Parrafo = ({ data, capital }) => {
         <>
             <ComParagraph
                 capital={capital && isLetter(content) ? `--capital` : ''}
-                size="--twoxs"
+                size="--s"
                 content={content}
             />
         </>

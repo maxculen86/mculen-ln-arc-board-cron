@@ -33,8 +33,11 @@ const ModDescriptionList = props => {
             </dd>
         ));
     return (
-        <dl className={`mod-descriptionlist ${classCondition || ''}`}>
-            <dt className={`com-subtitle --threexs ${classCondition || ''}`}>
+        <dl
+            className={`mod-descriptionlist ${classCondition || ''} ${size ||
+                ''}`}
+        >
+            <dt className={`com-subtitle --twoxs ${classCondition || ''}`}>
                 {descriptionTitle}
             </dt>
             {/* {bullet ? <ComBullet sizeBullet={sizeBullet} color={color} /> : '' } */}

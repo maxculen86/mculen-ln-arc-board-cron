@@ -1,0 +1,54 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.mod-dolar {
+    margin-bottom: $spacing-lg;
+    .item {
+        background: $light-neutral-200;
+        padding: $spacing-sm;
+        .com-title {
+            margin-bottom: $spacing;
+        }
+
+        strong {
+            margin-right: $spacing-sm;
+            &:last-child {
+                margin: 0;
+            }
+        }
+
+        .com-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            .com-image {
+                max-width: px(160);
+            }
+        }
+        @media ($media-m) {
+            span {
+                display: none;
+            }
+        }
+        @media ($media-lm) {
+            span {
+                display: inline;
+            }
+        }
+    }
+
+    &.row-gap-tablet-4 {
+        grid-row-gap: 1px;
+        @media ($media-m) {
+            grid-row-gap: px(32);
+        }
+    }
+    // &.row-gap-2 {
+    //     grid-gap: 0;
+    //     @media ($media-m) {
+    //         grid-column-gap: 1rem;
+    //         grid-row-gap: 2rem;
+    //     }
+    // }
+}

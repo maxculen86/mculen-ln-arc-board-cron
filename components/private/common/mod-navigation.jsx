@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import ComButton from './com-button';
+import ComLinkList from './com-link-list';
 
 const ModNavigation = props => {
     const categoryEl = useRef();
@@ -46,12 +47,11 @@ const ModNavigation = props => {
                 onMouseDown={() => moveScroll(categoryEl, 'left')}
                 style={style}
             />
-            {/* // TODO: Preguntar a Daro si va ul u ol */}
-            <ul className={`com-unordered${EXTRA_CLASS}`} ref={categoryEl}>
-                {navigation.map(({ item, key }) => (
-                    <li key={key}>{item}</li>
-                ))}
-            </ul>
+            <ComLinkList
+                list={navigation}
+                extraClass={EXTRA_CLASS}
+                _ref={categoryEl}
+            />
             <ComButton
                 classCondition={`${showBtnScrollRight}`}
                 iconName="arrow-right"

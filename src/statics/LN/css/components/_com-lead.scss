@@ -1,0 +1,12 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.com-lead {
+    color: $light-blue-500;
+    margin-right: px(2);
+    font-style: normal;
+    .--bomba.--bomba &,
+    .--highlight.--highlight & {
+        color: $neutral-white;
+    }
+}

@@ -17,13 +17,13 @@ const video = ({ data, outputType, tituloNota, primerParrafo }) => {
             <>
                 {textEpigrafe && (
                     <ComText
-                        classCondition="--caption"
+                        classCondition="--caption --twoxs"
                         textname={textEpigrafe}
                     />
                 )}
                 {creditoVideo && (
                     <ComText
-                        classCondition="--credit"
+                        classCondition="--credit --twoxs"
                         textname={creditoVideo}
                     />
                 )}
