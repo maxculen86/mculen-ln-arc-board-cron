@@ -3,7 +3,7 @@
 .com-advance {
     @include flex(flex, row, start);
     background: $light-neutral-900;
-    padding: $spacing-sm;
+    padding: $spacing-md;
     .com-title {
         color: $blanco;
         margin-bottom: 0;

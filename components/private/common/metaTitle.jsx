@@ -13,7 +13,7 @@ const MetaTitle = ({ metaTitleBasic, arcSite, title, nodeType, _id = '' }) => {
     const metaTitleForStory = metaTitleBasic && `${metaTitleBasic} - LA NACION`;
     let metaTitleForAcum = '';
 
-    const acusWithMeta = ['section', 'author', 'distributor'];
+    const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
     if (acusWithMeta.includes(nodeType)) {
         const prefix = getPrefix(_id);
         metaTitleForAcum = `Últimas${prefix}${title}`;
@@ -33,6 +33,11 @@ MetaTitle.propTypes = {
     nodeType: PropTypes.string.isRequired,
     _id: PropTypes.string,
     title: PropTypes.string
+};
+
+MetaTitle.defaultProps = {
+    _id: '',
+    title: ''
 };
 
 export default MetaTitle;
