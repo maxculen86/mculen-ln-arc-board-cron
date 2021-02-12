@@ -13,6 +13,7 @@ const embed = (nodo, dataNota) => {
     };
 
     switch (valor.type) {
+        case 'tiktok':
         case 'instagram':
             resp.id = 'html';
             resp.src = valor.html;
