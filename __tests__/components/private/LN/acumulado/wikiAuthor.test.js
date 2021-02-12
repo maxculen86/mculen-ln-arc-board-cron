@@ -7,6 +7,7 @@ describe('private - LN - acumulado - Author - wikiAuthor', () => {
     const globalContent1 = {
         byline: 'Joaquín Morales Solá',
         bio_page: 'https://google.com',
+        location: 'Argentina',
         image: {
             url: 'https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png'
         },
