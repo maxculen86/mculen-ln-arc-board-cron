@@ -81,6 +81,14 @@ describe('Test de las embebidos en el cuerpo de una nota', () => {
         );
     });
 
+    it('Valores de embebidos Tiktok', () => {
+        const resp = Embed(ArticleEmbed[10]);
+        expect(resp['valor']['id']).toBe('html');
+        expect(resp['valor']['src']).toContain(
+            'class="tiktok-embed" cite="https://www.tiktok.com/@youneszarou/video/6898643532253351169"'
+        );
+    });
+
     it('Check respuesta general de los embebidos', () => {
         const resp = Embed(ArticleEmbed[7]);
         expect(resp['_t']).toBe('p');
