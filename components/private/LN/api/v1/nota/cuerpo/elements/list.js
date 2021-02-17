@@ -1,13 +1,13 @@
 import get from 'lodash.get';
 import htmlText from './htmlText';
 
-const list = dataList => {
-    if (!dataList) return null;
+const list = (nodo, dataNota) => {
+    if (!nodo) return null;
 
-    const listElements = get(dataList, 'items');
+    const listElements = get(nodo, 'items');
     if (!listElements || listElements.length === 0) return null;
 
-    const type = get(dataList, 'list_type', null);
+    const type = get(nodo, 'list_type', null);
     const resp = {
         _t: type === 'unordered' ? 'ul' : 'ol'
     };

@@ -3,17 +3,13 @@ import { useContext } from 'react';
 import { GlobalContext } from '../context/globalContextAcu';
 
 const useGlobalProviderAcu = () => {
-    const [state, setState] = useContext(GlobalContext);
-
-    function setArticlesInCollection(value) {
-        setState({ ...state, articlesInCollection: value });
-    }
+    const [state] = useContext(GlobalContext);
 
     return {
-        acumuladoGeneral: state.acumuladoGeneral,
-        acumuladoColor: state.acumuladoColor,
-        articlesInCollection: state.articlesInCollection,
-        setArticlesInCollection
+        acumuladoGeneral: state ? state.acumuladoGeneral : {},
+        acumuladoColor: state ? state.acumuladoColor : {},
+        articlesInCollection: state ? state.articlesInCollection : [],
+        collectionsInPage: state ? state.collectionsInPage : []
     };
 };
 

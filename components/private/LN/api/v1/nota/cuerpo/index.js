@@ -4,7 +4,7 @@ import RecetaCuerpo from './templates/receta';
 import htmlCuerpo from './templates/htmlLibre';
 import fotoAlCienCuerpo from './templates/fotoAlCien';
 
-const cuerpoIndex = article => {
+const cuerpoIndex = dataNota => {
     const templates = {
         '1': DefaultCuerpo,
         '2': DefaultCuerpo,
@@ -14,20 +14,20 @@ const cuerpoIndex = article => {
         '9': htmlCuerpo
     };
 
-    if (!article.content_elements) throw new Error('Esta nota no posee cuerpo');
+    const contentElements = dataNota.content_elements;
+    if (!contentElements) throw new Error('Esta nota no posee cuerpo');
 
-    const contentElements = article.content_elements;
-    const infographic = get(article, 'promo_items.basic');
+    const infographic = get(dataNota, 'promo_items.basic');
 
-    if (article.subtype === '2' && infographic) {
+    if (dataNota.subtype === '2' && infographic) {
         contentElements.unshift(infographic);
     }
 
-    if (templates[article.subtype]) {
-        return templates[article.subtype](contentElements);
+    if (templates[dataNota.subtype]) {
+        return templates[dataNota.subtype](dataNota);
     }
 
-    throw new Error(`El ID de template ${article.subtype} no esta declarado`);
+    throw new Error(`El ID de template ${dataNota.subtype} no esta declarado`);
 };
 
 export default cuerpoIndex;

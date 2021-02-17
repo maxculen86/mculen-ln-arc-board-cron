@@ -1,13 +1,13 @@
 import get from 'lodash.get';
 
-const quote = dataQuote => {
-    if (!dataQuote) return null;
+const quote = (nodo, dataNota) => {
+    if (!nodo) return null;
 
-    const textCita = get(dataQuote, 'content_elements');
+    const textCita = get(nodo, 'content_elements');
     if (!textCita || !textCita.length) return null;
 
     const resp = {
-        _t: dataQuote.subtype === 'pullquote' ? 'textual' : 'des',
+        _t: nodo.subtype === 'pullquote' ? 'textual' : 'des',
         valor: []
     };
 
@@ -15,8 +15,8 @@ const quote = dataQuote => {
         resp.valor.push(e.content);
     });
 
-    if (dataQuote.subtype === 'pullquote') {
-        const authorQuote = get(dataQuote, 'citation.content');
+    if (nodo.subtype === 'pullquote') {
+        const authorQuote = get(nodo, 'citation.content');
         if (authorQuote) resp.valor.push({ _t: 'fue', valor: authorQuote });
     }
 

@@ -1,6 +1,9 @@
+import env from '../../../../../../../../__mocks__/fusion:environment';
 import ArticleHtmlContent from '../../../../../../../../__mocks__/data/nota/cuerpo/htmlContent/htmlContent.json';
 import HtmlContent from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/htmlContent';
 import getEmbedHref from '../../../../../../../../components/private/common/utils/getEmbedHref';
+
+const dataNota = { _id: 'idnota' };
 
 describe('Test de htmlContent en el cuepo de nota', () => {
     it('Verificar en caso que el contenido html sea null', () => {
@@ -9,12 +12,12 @@ describe('Test de htmlContent en el cuepo de nota', () => {
     });
 
     it('Verificar en caso que el contenido html sea null', () => {
-        const resp = HtmlContent(ArticleHtmlContent[1]);
+        const resp = HtmlContent(ArticleHtmlContent[1], dataNota);
         expect(resp).toBe(null);
     });
 
     it('Verificar los valores del contenido html', () => {
-        const resp = HtmlContent(ArticleHtmlContent[0]);
+        const resp = HtmlContent(ArticleHtmlContent[0], dataNota);
         expect(resp['_t']).toBe('p');
         expect(resp['valor']['_t']).toBe('ext');
         expect(resp['valor']['id']).toBe('html');
@@ -24,7 +27,7 @@ describe('Test de htmlContent en el cuepo de nota', () => {
     });
 
     it('Verificar los valores cuando el contenido html es un iframe', () => {
-        const resp = HtmlContent(ArticleHtmlContent[2]);
+        const resp = HtmlContent(ArticleHtmlContent[2], dataNota);
         expect(resp['_t']).toBe('p');
         expect(resp['valor']['_t']).toBe('ext');
         expect(resp['valor']['id']).toBe('ifrme');
@@ -33,8 +36,20 @@ describe('Test de htmlContent en el cuepo de nota', () => {
         );
     });
 
+    it('Verificar los valores cuando el contenido html es un iframe', () => {
+        const resp = HtmlContent(ArticleHtmlContent[3], dataNota);
+        expect(resp['_t']).toBe('p');
+        expect(resp['valor']['_t']).toBe('ext');
+        expect(resp['valor']['id']).toBe('html');
+        expect(resp['valor']['src']).toEqual(
+            expect.stringContaining(
+                `opta-embed/${ArticleHtmlContent[3]._id}/${dataNota._id}`
+            )
+        );
+    });
+
     it('Verificar Helper enviando una url no valida', () => {
-        const resp = getEmbedHref('href',`<a src='www.google.com'>test</a>`)
+        const resp = getEmbedHref('href', `<a src='www.google.com'>test</a>`);
         expect(resp).toBe(null);
     });
 });

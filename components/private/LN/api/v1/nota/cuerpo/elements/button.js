@@ -1,11 +1,11 @@
-const button = buttonData => {
-    if (!buttonData) return null;
+const button = (nodo, dataNota) => {
+    if (!nodo) return null;
 
     const resp = {
         _t: 'boton',
         class: 'linkboton',
-        valor: buttonData.content,
-        href: buttonData.url
+        valor: nodo.content,
+        href: nodo.url
     };
 
     return {

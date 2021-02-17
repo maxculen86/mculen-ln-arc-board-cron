@@ -9,18 +9,13 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
       class="mod-media   "
       role="button"
     >
-      <figure
-        class="mod-figure "
-        role="button"
+      <a
+        href="http://google.com"
       >
-        <a
-          href="http://google.com"
-        >
-          <picture
-            class="mod-picture "
-          />
-        </a>
-      </figure>
+        <picture
+          class="mod-picture "
+        />
+      </a>
     </section>
   </div>
   <section

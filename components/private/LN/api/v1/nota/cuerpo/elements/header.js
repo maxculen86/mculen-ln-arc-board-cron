@@ -1,14 +1,14 @@
 import htmlText from './htmlText';
 
-const header = dataHeader => {
-    if (!dataHeader) return null;
+const header = (nodo, dataNota) => {
+    if (!nodo) return null;
 
-    const valor = htmlText(dataHeader.content);
+    const valor = htmlText(nodo.content);
 
     if (!valor) return null;
 
     return {
-        _t: `sub${dataHeader.level}`,
+        _t: `sub${nodo.level}`,
         valor
     };
 };

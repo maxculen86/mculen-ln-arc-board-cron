@@ -2,12 +2,12 @@ import { parse } from 'node-html-parser';
 import walkerBuilder from '../../../../../../common/utils/walker';
 import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
 
-const htmlText = text => {
-    if (!text) return null;
+const htmlText = (nodo, dataNota) => {
+    if (!nodo) return null;
 
     const rootTagName = 'root';
 
-    const html = parse(`<${rootTagName}>${text}</${rootTagName}>`);
+    const html = parse(`<${rootTagName}>${nodo}</${rootTagName}>`);
     const walker = walkerBuilder([]);
     walker.addCondition(
         node => Array.isArray(node),

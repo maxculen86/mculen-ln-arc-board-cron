@@ -1,10 +1,10 @@
 import Text from '../elements/text';
 import Image from '../elements/image';
 
-const fotoAlCienCuerpo = contentElements => {
+const fotoAlCienCuerpo = dataNota => {
     const components = [Text, Image];
 
-    const resp = contentElements
+    const resp = dataNota.content_elements
         .filter(v => {
             const selectedComponent = components.find(c => c.type === v.type);
             if (selectedComponent) return true;

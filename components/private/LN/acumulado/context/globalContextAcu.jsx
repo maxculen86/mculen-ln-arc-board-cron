@@ -1,23 +1,82 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
+import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 
 const GlobalContext = React.createContext([{}, () => {}]);
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+};
+
+const getCollectionsInPage = (idCollectionsInPage = []) => {
+    const listOfCollections = [];
+    idCollectionsInPage.forEach(id => {
+        const collectionsProps = {
+            id,
+            size: 20,
+            website: 'la-nacion-ar',
+            imageConfig: 'l'
+        };
+        const collect = useContent({
+            source: 'collectionsSource',
+            query: collectionsProps,
+            filter,
+            transform: response => {
+                return {
+                    idCollection: id,
+                    articles: response ? response.content_elements : []
+                };
+            }
+        });
+        listOfCollections.push(collect);
+    });
+    return listOfCollections;
+};
+
+const getCollectionApertura = id => {
+    const collectionsProps = {
+        id,
+        size: 2,
+        website: 'la-nacion-ar',
+        imageConfig: 'l'
+    };
+    return useContent({
+        source: 'collectionsSource',
+        query: collectionsProps,
+        filter,
+        transform: response => {
+            return response ? response.content_elements : [];
+        }
+    });
+};
 
 const GlobalProviderAcu = props => {
     const {
         acumuladoGeneral,
         acumuladoColor,
-        articlesInCollection,
+        idCollectionsInPage,
+        idCollectionApertura,
         children
     } = props;
-    const [state, setState] = useState({
+
+    const articlesInCollection = idCollectionApertura
+        ? getCollectionApertura(idCollectionApertura)
+        : [];
+
+    const collectionsInPage = getCollectionsInPage(idCollectionsInPage);
+    const [state, dispatch] = useReducer(reducer, {
         acumuladoGeneral,
         acumuladoColor,
-        articlesInCollection
+        articlesInCollection,
+        collectionsInPage
     });
 
     return (
-        <GlobalContext.Provider value={[state, setState]}>
+        <GlobalContext.Provider value={[state, dispatch]}>
             {children}
         </GlobalContext.Provider>
     );
@@ -39,7 +98,8 @@ GlobalProviderAcu.propTypes = {
         navigation_color_tags: PropTypes.string,
         id_logo_image: PropTypes.string
     }).isRequired,
-    articlesInCollection: PropTypes.arrayOf(PropTypes.object).isRequired
+    idCollectionsInPage: PropTypes.arrayOf(PropTypes.string).isRequired,
+    idCollectionApertura: PropTypes.string.isRequired
 };
 
 export { GlobalContext, GlobalProviderAcu };
