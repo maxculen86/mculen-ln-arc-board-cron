@@ -9,7 +9,7 @@ import Embed from '../elements/embed';
 import Html from '../elements/htmlContent';
 import Button from '../elements/button';
 
-const defaultCuerpo = contentElements => {
+const defaultCuerpo = dataNota => {
     const components = [
         Text,
         Header,
@@ -23,7 +23,7 @@ const defaultCuerpo = contentElements => {
         Button
     ];
 
-    const resp = contentElements
+    const resp = dataNota.content_elements
         .filter(v => {
             const selectedComponent = components.find(c => c.type === v.type);
             if (selectedComponent) return true;
@@ -31,7 +31,7 @@ const defaultCuerpo = contentElements => {
         })
         .map(v => {
             const selectedComponent = components.find(c => c.type === v.type);
-            const render = selectedComponent(v);
+            const render = selectedComponent(v, dataNota);
             return render;
         });
 

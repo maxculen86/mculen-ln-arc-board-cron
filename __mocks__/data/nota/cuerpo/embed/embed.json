@@ -113,5 +113,16 @@
         },
         "subtype": "twitter",
         "type": "oembed_response"
+    },
+    {
+        "_id": "CFCM5ZBXVNAKNPQOPWQL6DZ4MM",
+        "raw_oembed": {
+            "height": "100%",
+            "html": "<blockquote class=\"tiktok-embed\" cite=\"https://www.tiktok.com/@youneszarou/video/6898643532253351169\" data-video-id=\"6898643532253351169\" style=\"max-width: 605px;min-width: 325px;\" > <section> <a target=\"_blank\" title=\"@youneszarou\" href=\"https://www.tiktok.com/@youneszarou\">@youneszarou</a> <p>My dreams are the feathers I need to fly <a title=\"yzfamily\" target=\"_blank\" href=\"https://www.tiktok.com/tag/yzfamily\">#yzfamily</a> <a title=\"tutorial\" target=\"_blank\" href=\"https://www.tiktok.com/tag/tutorial\">#tutorial</a> <a title=\"foryoupage\" target=\"_blank\" href=\"https://www.tiktok.com/tag/foryoupage\">#foryoupage</a> <a title=\"fürdich\" target=\"_blank\" href=\"https://www.tiktok.com/tag/fürdich\">#fürdich</a></p> <a target=\"_blank\" title=\"♬ Roses (Imanbek Remix) - SAINt JHN\" href=\"https://www.tiktok.com/music/Roses-Imanbek-Remix-6745161928949106690\">♬ Roses (Imanbek Remix) - SAINt JHN</a> </section> </blockquote> <script async src=\"https://www.tiktok.com/embed.js\"></script>",
+            "type": "tiktok",
+            "width": "100%"
+        },
+        "subtype": "tiktok",
+        "type": "oembed_response"
     }
 ]
