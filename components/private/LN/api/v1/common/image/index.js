@@ -11,12 +11,15 @@ const imageCommon = image => {
     const hrefRegex = new RegExp(
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
+
     const regexResult = hrefRegex.exec(resizedUrls[0].resizedUrl);
 
     const resp = {
         id,
         _t: 'img',
-        baseUrl: regexResult[0].replace(regexResult[1], '{{param}}'),
+        baseUrl: regexResult
+            ? regexResult[0].replace(regexResult[1], '{{param}}')
+            : resizedUrls[0].resizedUrl,
         parametros: []
     };
 

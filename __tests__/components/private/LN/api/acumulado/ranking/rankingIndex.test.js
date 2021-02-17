@@ -4,7 +4,6 @@ import RankingIndex from '../../../../../../../components/private/LN/api/v1/rank
 
 describe('Test de index en Json ranking', () => {
     test('Test render', () => {
-        var test = console.log(articles.content_elements);
         const resp = RankingIndex('recetas', articles.content_elements);
         expect(resp.acumuladoTotal).toBe(articles.content_elements.length);
     });

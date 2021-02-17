@@ -1,5 +1,5 @@
 import Consumer from 'fusion:consumer';
-import IndexRankingV1 from '../../../private/LN/api/v1/ranking';
+import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 import filter from '../../../../content/filters/LN/nota/articleRanking';
 import { isMigratedCategory } from '../../../private/common/utils/migratedCategoriesHelper';
@@ -32,7 +32,7 @@ class SectionRanking {
         this.state = { ...this.state, categoryMigrated };
 
         this.versions = {
-            1: IndexRankingV1
+            1: IndexAcuV1
         };
     }
 
@@ -57,15 +57,18 @@ class SectionRanking {
     }
 
     render() {
-        const { rankingArticleSource, categoryMigrated } = this.state || {};
+        const {
+            rankingArticleSource,
+            categoryMigrated,
+            globalContent: configuration
+        } = this.state || {};
 
         const {
-            globalContent: { name }
+            globalContent: { name },
+            requestUri
         } = this.props;
 
-        const indexRanking = this.versions[
-            browser.getApiVersion(this.props.requestUri)
-        ];
+        const indexAcu = this.versions[browser.getApiVersion(requestUri)];
 
         if (!rankingArticleSource || !rankingArticleSource.content_elements) {
             return null;
@@ -80,7 +83,14 @@ class SectionRanking {
             };
         }
 
-        return indexRanking(name, rankingArticleSource.content_elements);
+        const acuData = {
+            name,
+            articles: rankingArticleSource.content_elements,
+            total: rankingArticleSource.content_elements.length,
+            configuration
+        };
+
+        return indexAcu(acuData);
     }
 }
 

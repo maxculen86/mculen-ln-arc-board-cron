@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Json Acumulado section. Test de integracion Test de snapshot Recetas 1`] = `
-Object {
-  "paginar": false,
-}
-`;
