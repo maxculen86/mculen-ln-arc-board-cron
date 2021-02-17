@@ -195,7 +195,8 @@
     .com-breadcrumb .com-link,
     .com-button .com-icon,
     .--category .com-link,
-    .mod-headersection .com-link,
+    .--tags .com-link,
+    //.mod-headersection .com-link,
     .mod-description .com-lead {
         color: $negocios;
     }
@@ -210,7 +211,7 @@
     .com-button .com-icon,
     .--category .com-link,
     .--tags .com-link,
-    .mod-headersection .com-link,
+    //.mod-headersection .com-link,
     .mod-description .com-lead {
         color: $deportes;
     }
