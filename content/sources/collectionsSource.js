@@ -121,7 +121,7 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
 
     const articlesIn24HourAgo = filter24hsAgo
         ? articlesNoFuture.filter(
-              art => !isOlderThan24HourAgo(art.publish_date)
+              art => !isOlderThan24HourAgo(art.display_date)
           )
         : articlesNoFuture;
 
