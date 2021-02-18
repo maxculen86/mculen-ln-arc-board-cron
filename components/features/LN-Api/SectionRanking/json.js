@@ -5,7 +5,7 @@ import filter from '../../../../content/filters/LN/nota/articleRanking';
 import { isMigratedCategory } from '../../../private/common/utils/migratedCategoriesHelper';
 import get from '../../../private/common/utils/get';
 
-// URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/params=size:1;weeks:1;days:1/?_website=la-nacion-ar&outputType=json
+// URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/ranking\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
 class SectionRanking {
     constructor(props) {

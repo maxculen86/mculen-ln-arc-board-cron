@@ -2,6 +2,7 @@ import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 
+// URL de ejemplo: http://localhost/api/v1/notas/mayInterest/10/?_website=la-nacion-ar&outputType=json
 class SectionMayInterest {
     constructor(props) {
         this.props = props;
