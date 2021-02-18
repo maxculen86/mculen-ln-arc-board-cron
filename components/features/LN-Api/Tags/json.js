@@ -2,7 +2,6 @@ import get from 'lodash.get';
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
-import { getTag } from '../../../private/LN/api/v1/common/tag/index';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 
 // URL de ejemplo: http://localhost/api/v1/notas/byTag/cronicas-tid61570/params=size:1;page:1/?_website=la-nacion-ar&outputType=json
@@ -70,11 +69,11 @@ class AcuTag {
 
             const acuDataTag = {
                 tipoAcumulado: 2,
-                name: this.props.globalContent.Payload.items[0].name,
+                name: dataTag.text,
                 articles: acuArticlesSource.content_elements,
                 paginator: acuArticlesSource.next,
                 total: acuArticlesSource.count,
-                tag: getTag(dataTag),
+                tag: dataTag,
                 configuration
             };
 

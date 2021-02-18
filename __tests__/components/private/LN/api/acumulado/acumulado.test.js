@@ -13,12 +13,10 @@ describe('Json Acumulado section. Test de integracion', () => {
     };
     const resp = AcuIndex(acuData);
     test('Test name', () => {
-        //expect(resp).toBe(acuData.name);
         expect('Recetas').toMatch(acuData.name);
     });
 
     test('Test total', () => {
-        //expect(resp).toBe(acuData.name);
         expect(acuData.articles.length).toBeGreaterThan(0);
     });
 });

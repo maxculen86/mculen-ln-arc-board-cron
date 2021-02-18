@@ -6,7 +6,6 @@ describe('Test de index en Json MayInterest', () => {
     const acuData = {
         name: 'Te puede interesar',
         articles: articlesMayInterest,
-        //paginator: 100,
         total: articlesMayInterest.length,
         configuration: undefined
     };
