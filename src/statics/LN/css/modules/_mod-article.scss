@@ -174,107 +174,12 @@
 
 // }
 
-#wrapper {
+#wrapper:not(.nota) {
     overflow: hidden;
+}
 
-    .lay-sidebar {
-        margin-bottom: 0;
-    }
-    // .mod-article {
-    //     margin-bottom: px(32);
-
-    // .mod-media {
-    //     .mod-figure {
-    //         .mod-picture {
-    //             overflow: hidden;
-    //             display: flex;
-    //             justify-content: center;
-    //             align-items: center;
-    //             padding-top: $picture;
-
-    //             .com-image {
-    //                 display: block;
-    //                 position: absolute;
-    //                 object-fit: cover;
-    //                 height: 100%;
-    //                 top: 0;
-    //             }
-    //             &::before {
-    //                 font-family: 'LNlogos';
-    //                 content: $logo-ln-placeholder;
-    //                 color: #d9d9d9;
-    //                 font-size: 4.22em;
-    //                 font-weight: 400;
-    //                 text-transform: none;
-    //                 position: absolute;
-    //                 top: 50%;
-    //                 transform: translateY(-50%);
-    //             }
-    //         }
-    //     }
-    // }
-    // .mod-description {
-    //     .com-subhead {
-    //         color: $light-neutral-700;
-    //         margin-bottom: px(8);
-    //     }
-    //     .com-link.com-link {
-    //         color: $light-neutral-800;
-    //     }
-    //}
-    //}
-
-    // .row-gap-tablet-2,
-    // .row-gap-tablet-3,
-    // .row-gap-tablet-4 {
-    //     margin-bottom: px(32);
-
-    //     .mod-article {
-    //         margin-bottom: 0;
-    //     }
-
-    // @media ($media-m) {
-    //     //768
-    //     //margin-bottom: px(0);
-    //     .mod-article {
-    //         .mod-description {
-    //             .com-title {
-    //                 overflow: hidden;
-    //                 text-overflow: ellipsis;
-    //                 display: -webkit-box;
-    //                 -webkit-line-clamp: 3;
-    //                 -webkit-box-orient: vertical;
-    //             }
-    //         }
-    //     }
-    // }
-    //}
-
-    // .mod-banner {
-    //     display: none;
-    //     background: wheat;
-    //     margin-bottom: px(64);
-    //     .com-banner {
-    //         align-items: center;
-    //         &.cabezal_dsk {
-    //             height: 100px;
-    //         }
-    //         &.billboard_dsk {
-    //             height: 250px;
-    //         }
-    //     }
-    // }
-    // .mod-anexo {
-    //     display: none;
-    //     background: skyblue;
-    //     margin-bottom: px(64);
-    //     .com-anexo {
-    //         height: 200px;
-    //         display: flex;
-    //         justify-content: center;
-    //         align-items: center;
-    //     }
-    // }
+.lay-sidebar {
+    margin-bottom: 0;
 }
 
 .demofonts {
