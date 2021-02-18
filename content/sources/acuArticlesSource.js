@@ -180,7 +180,7 @@ export default {
     resolve,
     params: {
         sectionId: 'text',
-        author: 'text',
+        authorId: 'text',
         tagId: 'text',
         size: 'text',
         page: 'text',

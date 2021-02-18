@@ -5,6 +5,16 @@ import { removeEmptyItems } from '../common/utils/responseCleaner';
 import { getTag } from '../common/tag';
 
 const index = acuData => {
+    switch (acuData.tipoAcumulado) {
+        case 3:
+            if (!acuData.name) {
+                throw new Error('Nombre de Autor inexistente');
+            }
+            break;
+        default:
+            break;
+    }
+
     const resp = {
         tipoAcumulado: acuData.tipoAcumulado, //Lo Harcodeo en acuTag
         acumuladoTotal: acuData.total,
