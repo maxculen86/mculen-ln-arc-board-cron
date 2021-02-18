@@ -68,6 +68,7 @@ export default `
             content
         }
         display_date 
+        publish_date
         website_url     
         marquesina
         label  {
@@ -75,10 +76,6 @@ export default `
                 text
             }
         }
-    }
-    dynamic_items {
-        type
-        ids
     }
     next
 }`;

@@ -38,6 +38,7 @@ export default `
             shortTitle
         }
         display_date
+        publish_date
         website_url 
         description {
             basic

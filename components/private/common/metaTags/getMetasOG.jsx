@@ -21,8 +21,12 @@ const getDescription = (
         description = subheadlinesBasic || descriptionDefault;
     }
     if (!isArticle && !url.includes('recetas')) {
+        const customTitle =
+            metaValue('title') === 'Últimas noticias - LA NACION'
+                ? 'día de hoy en Argentina'
+                : metaValue('title');
         description =
-            `Últimas Noticias de ${metaValue('title')}` || descriptionDefault;
+            `Últimas Noticias de ${customTitle}` || descriptionDefault;
     }
     return description;
 };

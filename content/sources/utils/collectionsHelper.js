@@ -10,9 +10,7 @@ export const getArticlesToShow = (
     from,
     notesQuantity
 ) => {
-    const articlesRecomended = articles.filter(art => !isNotRecommend(art));
-
-    const articlesFiltered = articlesRecomended.filter(
+    const articlesFiltered = articles.filter(
         art => idsArticlesToExclude.some(id => art._id === id) === false
     );
 
