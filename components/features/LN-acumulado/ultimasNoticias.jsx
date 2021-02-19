@@ -56,7 +56,7 @@ class UltimasNoticias extends React.Component {
             const artWithDatePlus3Hour = articlesFetched.map((art, i) => {
                 return {
                     ...art,
-                    display_date: addHoursAndFormat(6, art.display_date)
+                    display_date: addHoursAndFormat(3, art.display_date)
                 };
             });
             fetchedCallback({

@@ -23,10 +23,9 @@ const getDescription = (
     if (!isArticle && !url.includes('recetas')) {
         const customTitle =
             metaValue('title') === 'Últimas noticias - LA NACION'
-                ? 'día de hoy en Argentina'
-                : metaValue('title');
-        description =
-            `Últimas Noticias de ${customTitle}` || descriptionDefault;
+                ? 'del día de hoy en Argentina'
+                : `de ${metaValue('title')}`;
+        description = `Últimas Noticias ${customTitle}` || descriptionDefault;
     }
     return description;
 };

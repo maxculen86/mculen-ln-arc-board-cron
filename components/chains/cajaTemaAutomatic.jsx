@@ -51,11 +51,11 @@ const CajaTemaAutomatic = props => {
     const articlesToShow = getArticleInCollection(
         idCollection,
         size,
-        initialPosition - 1,
+        Number(initialPosition) - 1,
         idsArticlesToExclude,
         true,
         true,
-        notesQuantity
+        Number(notesQuantity)
     );
 
     const error = validateFeature(

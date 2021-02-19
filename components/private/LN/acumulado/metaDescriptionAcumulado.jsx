@@ -6,8 +6,10 @@ import getTitleText from '../../common/utils/getTitleText';
 
 const MetaDescriptionAcumulado = ({ articles = [], title }) => {
     const customTitle =
-        title === 'Últimas noticias' ? 'día de hoy en Argentina' : title;
-    const firstPart = `Últimas Noticias de ${customTitle}`;
+        title === 'Últimas noticias'
+            ? 'del día de hoy en Argentina'
+            : `de ${title}`;
+    const firstPart = `Últimas Noticias ${customTitle}`;
     const withDots = articles && articles.length > 0 ? ':' : '';
     const articlesTitles = articles.map(
         art => ` ${getTitleText(art.headlines)}`
