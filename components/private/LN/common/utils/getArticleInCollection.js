@@ -7,7 +7,8 @@ const getArticleInCollection = (
     size = 2,
     initialPosition = 0,
     idsArticlesToExclude = [],
-    shouldFilter = false,
+    filterRecomendar = false,
+    filterRepetead = false,
     notesQuantity,
     website = 'la-nacion-ar'
 ) => {
@@ -20,7 +21,8 @@ const getArticleInCollection = (
                   website,
                   from: initialPosition,
                   idsArticlesToExclude,
-                  shouldFilter,
+                  filterRecomendar,
+                  filterRepetead,
                   notesQuantity
               },
               filter
