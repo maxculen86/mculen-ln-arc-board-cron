@@ -649,6 +649,12 @@
             "migrada": true
         },
         {
+            "_id": "0",
+            "ArcSectionId": "/cocina",
+            "name": "Cocina",
+            "migrada": true
+        },
+        {
             "_id": "62",
             "ArcSectionId": "/transito",
             "name": "Tránsito",

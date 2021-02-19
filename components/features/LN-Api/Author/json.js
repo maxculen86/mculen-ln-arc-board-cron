@@ -1,7 +1,6 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
-import Author from '../../../private/LN/api/v1/common/authorAcu';
 // URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v([1]+)\/notas\/byAuthor\/(.+)\/(params.+)\/(.*)$ , donde "params" dependera del customField "paramUrlId" configurado
 
@@ -67,22 +66,20 @@ class AuthorAcu {
         try {
             const { acuArticlesSource } = this.state || {};
 
-            const { globalContent: autor, requestUri } = this.props;
+            const { globalContent: author, requestUri } = this.props;
             const indexAcu = this.versions[browser.getApiVersion(requestUri)];
 
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 return null;
             }
-
             const acuData = {
                 tipoAcumulado: 3,
-                name: autor.byline,
+                name: author.byline,
                 articles: acuArticlesSource.content_elements,
                 paginator: acuArticlesSource.next,
                 total: acuArticlesSource.count,
-                autor: Author(autor)
+                author
             };
-
             return indexAcu(acuData);
         } catch (err) {
             return { Success: false, Message: err.message };

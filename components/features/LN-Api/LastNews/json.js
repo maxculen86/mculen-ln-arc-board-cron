@@ -2,12 +2,11 @@ import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 
+// URL de ejemplo: http://localhost/api/v1/notas/lastNews/?_website=la-nacion-ar&outputType=json
 class JsonLastNews {
     constructor(props) {
         this.props = props;
 
-        // Responde al resolver que permite pasar las versiones existentes
-        // Regex actual: ^/api/v([1]+)/notas/byId/(.+)/$
         this.versions = {
             1: IndexAcuV1
         };
@@ -21,6 +20,7 @@ class JsonLastNews {
 
         try {
             const acuData = {
+                tipoAcumulado: 4,
                 name: 'Ultimas Noticias',
                 articles: globalContent.content_elements,
                 paginator: 1,

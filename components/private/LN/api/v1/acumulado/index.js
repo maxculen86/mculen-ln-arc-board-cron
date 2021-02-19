@@ -3,27 +3,20 @@ import Configuration from './configuration';
 import Article from '../common/articles/index';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
 import { getTag } from '../common/tag';
+import { authorAcu } from '../common/author';
 
 const index = acuData => {
-    switch (acuData.tipoAcumulado) {
-        case 3:
-            if (!acuData.name) {
-                throw new Error('Nombre de Autor inexistente');
-            }
-            break;
-        default:
-            break;
-    }
-
     const resp = {
-        tipoAcumulado: acuData.tipoAcumulado, //Lo Harcodeo en acuTag
+        tipoAcumulado: acuData.tipoAcumulado,
         acumuladoTotal: acuData.total,
         paginar: acuData.paginator > 0,
         titulo: acuData.name,
-        //tema: getTag(acuData.tag),
-        autor: acuData.autor,
         notas: ArticleList(Article, acuData.articles)
     };
+
+    if (acuData.author) {
+        resp.autor = authorAcu(acuData.author);
+    }
 
     if (acuData.tag) {
         resp.tema = getTag(acuData.tag);

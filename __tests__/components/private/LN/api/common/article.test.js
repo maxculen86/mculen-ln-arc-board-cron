@@ -112,17 +112,6 @@ describe('Test de index en Json', () => {
         expect(respAcumulado[1].autores[1].tipo).toBe(1);
     });
 
-    test('Test imagen de Autores de articulo', () => {
-        expect(respAcumulado[2].autores[0].image['_t']).toBe('img');
-        expect(respAcumulado[2].autores[0].image.baseUrl).toBe(
-            '/resizer/{{param}}/bucket.glanacion.com/anexos/fotos/33/3121633.png'
-        );
-        expect(respAcumulado[2].autores[0].image.parametros[0].ancho).toBe(768);
-        expect(respAcumulado[2].autores[0].image.parametros[0].firma).toBe(
-            '1A2IA1EhLsE2VJ1rysww_o0qLYc=/768x513/smart'
-        );
-    });
-
     test('Imagenes del articulo', () => {
         expect(respAcumulado[9].imagen.id).toBe('LGFOVH6SFFGZVP5V3V7NOW2KFY');
         expect(respAcumulado[9].imagen['_t']).toBe('img');

@@ -26,6 +26,9 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.autores[0].id).toBe(getAutorId(articleAuthor._id));
         expect(resp.autores[0].slug).toBe(articleAuthor.slug);
         expect(resp.autores[0].valor).toBe(articleAuthor.name);
+        expect(resp.autores[0].imagen).toBe(
+            '/resizer/qd_3dkJemiLUloOXwofkHeixPiU=/80x0/filters:quality(100)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
+        );
         expect(resp.autores[0].tipo).toBe(1);
     });
 

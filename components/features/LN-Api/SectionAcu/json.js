@@ -1,6 +1,5 @@
 import get from 'lodash.get';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 import { isMigratedCategory } from '../../../private/common/utils/migratedCategoriesHelper';

@@ -2,40 +2,22 @@ import env from '../../../../../../../__mocks__/fusion:environment';
 import dataAuthor from '../../../../../../../__mocks__/data/author/author.json';
 import articlesAuthor from '../../../../../../../__mocks__/data/author/articlesbyAuthor.json';
 import AcuIndex from '../../../../../../../components/private/LN/api/v1/acumulado';
-import Author from '../../../../../../../components/private/LN/api/v1/common/authorAcu';
+import { authorAcu } from '../../../../../../../components/private/LN/api/v1/common/author';
 describe('Json que valida data del Autor', () => {
     it('Test de Autor', () => {
-        const resp = Author(dataAuthor);
+        const resp = authorAcu(dataAuthor[0]);
         expect(resp.id).toBe(9110);
-        expect(resp.nombre).toBe('Vinciane Smeets');
-        expect(resp.imagen).toBe(null);
+        expect(resp.valor).toBe('Vinciane Smeets');
+        expect(resp.imagen).toBe(
+            '/resizer/sZs50EMtDoyumsGsL1Hlp6g08S0=/280x0/filters:quality(100)/bucket.glanacion.com/anexos/fotos/33/3121633.png'
+        );
         expect(resp.mail).toBe('');
         expect(resp.twitter).toBe('');
     });
-    it('Test de Autor null', () => {
-        try {
-            const resp = Author(null);
-            expect(resp).toBe(null);
-        } catch (err) {
-            expect(err.message).toBe("Cannot read property '_id' of null");
-        }
-    });
-    test('Test de Autor con id null', () => {
-        try {
-            const dataAuthorMock = {
-                author_type: 'Estándar',
-                byline: 'Vinciane Smeets',
-                name: 'Vinciane Smeets',
-                node_type: 'author',
-                role: 'PARA LA NACION',
-                slug: 'vinciane-smeets-9110'
-            };
 
-            const resp = Author(dataAuthorMock);
-            expect(resp).toBe(null);
-        } catch (err) {
-            expect(err.message).toBe('id de autor inexistente');
-        }
+    it('Test de Autor sin Imagen', () => {
+        const resp = authorAcu(dataAuthor[1]);
+        expect(resp.imagen).toBe(null);
     });
 
     test('Test de Autor con name null', () => {
@@ -50,10 +32,10 @@ describe('Json que valida data del Autor', () => {
                 _id: 'vinciane-smeets-9110'
             };
 
-            const resp = Author(dataAuthorMock);
+            const resp = authorAcu(dataAuthorMock);
             expect(resp).toBe(null);
         } catch (err) {
-            expect(err.message).toBe('nombre de autor inexistente');
+            expect(err.message).toBe('Nombre de Autor Inexistente');
         }
     });
 });

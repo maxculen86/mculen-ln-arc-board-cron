@@ -1,6 +1,12 @@
 {
     "categories": [
         {
+            "_id": "0",
+            "ArcSectionId": "/cocina",
+            "name": "Cocina",
+            "migrada": true
+        },
+        {
             "_id": "",
             "ArcSectionId": "/",
             "name": "La Nacion",
