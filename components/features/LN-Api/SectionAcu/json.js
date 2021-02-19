@@ -15,8 +15,7 @@ class AcuSection {
             customFields: { size: sizeCf, page: pageCf, paramUrlId }
         } = props;
         this.state = {};
-        const migration = get(this.props.globalContent, 'migration', null);
-        const categoryMigrated = isMigratedCategory(id, migration);
+        const categoryMigrated = isMigratedCategory(id, true);
         if (!categoryMigrated) {
             throw new Error(
                 `La categoria '${id}' no posee la propiedad migration`
@@ -58,6 +57,7 @@ class AcuSection {
                 return null;
             }
             const acuData = {
+                tipoAcumulado: 1,
                 name,
                 articles: acuArticlesSource.content_elements,
                 paginator: acuArticlesSource.next,
