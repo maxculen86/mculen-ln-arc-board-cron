@@ -8,12 +8,10 @@ import {
 } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import get from '../../components/private/common/utils/get';
-import { addAspectRatio } from './utils/getRatio';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
 import gallerySource from './gallerySource';
 import relatedSource from './relatedSource';
-import navigationTreeSource from './navigationTreeSource';
 import Redirect from './utils/redirect';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
 import {
