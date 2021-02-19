@@ -21,16 +21,12 @@ class SectionMayInterest {
         try {
             const { globalContent } = this.props;
 
-            const {
-                globalContent: { name },
-                requestUri
-            } = this.props;
+            const { requestUri } = this.props;
 
             const indexAcu = this.versions[browser.getApiVersion(requestUri)];
 
             const acuData = {
                 name: 'Te puede interesar',
-                tipoAcumulado: 1,
                 total: globalContent.length,
                 articles: globalContent
             };

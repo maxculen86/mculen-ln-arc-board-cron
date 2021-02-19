@@ -13,8 +13,11 @@ import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
-import { getArticlesToShow } from './utils/collectionsHelper';
-// import { getArticlesToShow } from '../../components/private/LN/common/utils/cajaTemasHelper';
+import { getArticlesToShow, isNotRecommend } from './utils/collectionsHelper';
+import {
+    hasFutureDisplayDate,
+    isOlderThan24HourAgo
+} from '../../components/private/common/utils/dateAndTimeUtil';
 
 const resolve = key => {
     const { id, size, website, from = 0 } = key;
@@ -54,26 +57,15 @@ const fetch = query => {
 
 const transform = (data, siteProps) => {
     const respData = data;
-    const contentElements = get(data, `content_elements`, null);
+    const contentElements = get(data, `content_elements`, []);
 
     const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
-    const {
-        idsArticlesToExclude = [],
-        from = 0,
-        shouldFilter = false,
-        notesQuantity = 3
-    } = siteProps || {};
-
-    const contentElementsFiltered = shouldFilter
-        ? getArticlesToShow(
-              contentElements,
-              idsArticlesToExclude,
-              from,
-              notesQuantity
-          )
-        : contentElements;
+    const contentElementsFiltered = filterArticlesInCollection(
+        siteProps,
+        contentElements
+    );
 
     respData.content_elements =
         contentElementsFiltered &&
@@ -104,6 +96,45 @@ const transform = (data, siteProps) => {
         });
 
     return respData;
+};
+
+const filterArticlesInCollection = (siteProps, originalArticles) => {
+    const {
+        idsArticlesToExclude = [],
+        from = 0,
+        filterRecomendar = false,
+        filterRepetead = false,
+        filterFutureDisplayDate = false,
+        filter24hsAgo = false,
+        notesQuantity = 3
+    } = siteProps || {};
+
+    const articlesRecomended = filterRecomendar
+        ? originalArticles.filter(art => !isNotRecommend(art))
+        : originalArticles;
+
+    const articlesNoFuture = filterFutureDisplayDate
+        ? articlesRecomended.filter(
+              art => !hasFutureDisplayDate(art.display_date)
+          )
+        : articlesRecomended;
+
+    const articlesIn24HourAgo = filter24hsAgo
+        ? articlesNoFuture.filter(
+              art => !isOlderThan24HourAgo(art.display_date)
+          )
+        : articlesNoFuture;
+
+    const contentElementsFiltered = filterRepetead
+        ? getArticlesToShow(
+              articlesIn24HourAgo,
+              idsArticlesToExclude,
+              from,
+              notesQuantity
+          )
+        : articlesIn24HourAgo;
+
+    return contentElementsFiltered;
 };
 
 export default {
