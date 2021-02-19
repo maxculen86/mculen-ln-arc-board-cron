@@ -27,24 +27,21 @@ describe('Test del Chain - <CajaTema />', () => {
                 {
                     _id: 'FUO2YR3EABBAFOMSI2BBS6J7FM'
                 }
-
             ]
         },
         {
             idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
-            articles: [
-                
-            ]
+            articles: []
         }
-    ]
+    ];
 
     const customFields = {
-         idCollection: idCollection,
-         title: title,
-         layout: 'grilla3',
-         backgroundColor: '--pink',
-         initialPosition: 1,
-         hideTitle: false
+        idCollection: idCollection,
+        title: title,
+        layout: 'grilla3',
+        backgroundColor: '--pink',
+        initialPosition: 1,
+        hideTitle: false
     };
 
     const childProps = [
@@ -53,7 +50,9 @@ describe('Test del Chain - <CajaTema />', () => {
         { collection: 'features', type: 'LN-home/noteFeature' }
     ];
 
-    const component = mount(<CajaTemaCollections customFields={customFields}></CajaTemaCollections>);
+    const component = mount(
+        <CajaTemaCollections customFields={customFields}></CajaTemaCollections>
+    );
 
     const mock = component.find('mock-component');
     it('Montaje del componente', () => {
@@ -78,17 +77,13 @@ describe('Test del Chain - <CajaTema />', () => {
         expect(
             mock.props('customFields').customFields.initialPosition
         ).toBeTruthy();
-        expect(mock.props('customFields').customFields.initialPosition).toBe(
-            1
-        );
+        expect(mock.props('customFields').customFields.initialPosition).toBe(1);
     });
 
     it('Recibe de customFields el campo opcional title', () => {
         expect(mock.props('customFields').customFields.title).toBeTruthy();
         expect(mock.props('customFields').customFields.title).toBe(title);
     });
-
-
 
     it('Deberia traer los 3 primeros articulos de mi collection de 4', () => {
         const articles1 = getArticlesFromMyCurrentCollection(
@@ -98,7 +93,7 @@ describe('Test del Chain - <CajaTema />', () => {
             3
         );
         expect(articles1.length).toBe(3);
-        expect(articles1[0]._id).toBe('LX2MDOW4NZF6DONWUQZPS4AHKM');   
+        expect(articles1[0]._id).toBe('LX2MDOW4NZF6DONWUQZPS4AHKM');
     });
 
     it('Deberia traer el 2do y 3er articulo de mi collection de 4', () => {
@@ -111,7 +106,6 @@ describe('Test del Chain - <CajaTema />', () => {
         expect(articles2.length).toBe(2);
         expect(articles2[0]._id).toBe('VNGGPUOJQNE4BEIRXOF36Q34K4');
         expect(articles2[1]._id).toBe('QONFVVZ7FZECXHNW2EKEUKOIXQ');
-        
     });
 
     it('Deberia traer un array vacio si no existe mi collection', () => {
@@ -136,12 +130,11 @@ describe('Test del Chain - <CajaTema />', () => {
 
     it('Deberia traer un array vacio si mi objeto collectionsInPage no tiene la prop articles', () => {
         const articles4 = getArticlesFromMyCurrentCollection(
-            [{idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE'}],
+            [{ idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE' }],
             idCollection,
             1,
             3
         );
         expect(articles4.length).toBe(0);
     });
-
 });

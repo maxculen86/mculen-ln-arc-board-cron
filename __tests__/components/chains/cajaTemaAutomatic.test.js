@@ -6,7 +6,10 @@ jest.mock(
 import React from 'react';
 import { mount } from 'enzyme';
 import CajaTemaAutomatic from '../../../components/chains/cajaTemaAutomatic.jsx';
-import { calculateSizeOfCollection, getIdsArticlesFromOtherCollections, isInApertura } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
+import {
+    calculateSizeOfCollection,
+    getIdsArticlesFromOtherCollections
+} from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
 import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
 
 describe('Test del Chain - <CajaTema />', () => {
@@ -43,14 +46,11 @@ describe('Test del Chain - <CajaTema />', () => {
                 {
                     _id: 'XXXX'
                 }
-
             ]
         },
         {
             idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
-            articles: [
-                
-            ]
+            articles: []
         }
     ];
     const articlesFromAutomatic = [
@@ -66,28 +66,28 @@ describe('Test del Chain - <CajaTema />', () => {
         },
         {
             _id: 'DDD',
-            label: { recomendar: {text: 'No'}}
+            label: { recomendar: { text: 'No' } }
         },
         {
             _id: 'CCC',
-            label: { recomendar: {text: 'Si'}}
-        },
-    ]
+            label: { recomendar: { text: 'Si' } }
+        }
+    ];
 
     const customFields = {
-         idCollection: idCollection,
-         title: title,
-         layout: 'grilla3',
-         backgroundColor: '--pink',
-         initialPosition: 1,
-         hideTitle: false
+        idCollection: idCollection,
+        title: title,
+        layout: 'grilla3',
+        backgroundColor: '--pink',
+        initialPosition: 1,
+        hideTitle: false
     };
 
     const renderables = [
-        { 
+        {
             collection: 'chains',
             type: 'cajaTemaCollections',
-            props: { 
+            props: {
                 customFields: {
                     idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
                     layout: 'grilla3',
@@ -95,17 +95,17 @@ describe('Test del Chain - <CajaTema />', () => {
                 }
             }
         },
-        { 
+        {
             collection: 'chains',
             type: 'cajaTemaCollections',
-            props: { 
+            props: {
                 customFields: {
                     idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
                     layout: 'grilla3',
                     initialPosition: 4
                 }
             }
-        },
+        }
     ];
 
     const childProps = [
@@ -114,7 +114,9 @@ describe('Test del Chain - <CajaTema />', () => {
         { collection: 'features', type: 'LN-home/noteFeature' }
     ];
 
-    const component = mount(<CajaTemaAutomatic customFields={customFields}></CajaTemaAutomatic>);
+    const component = mount(
+        <CajaTemaAutomatic customFields={customFields}></CajaTemaAutomatic>
+    );
 
     const mock = component.find('mock-component');
     it('Montaje del componente', () => {
@@ -139,9 +141,7 @@ describe('Test del Chain - <CajaTema />', () => {
         expect(
             mock.props('customFields').customFields.initialPosition
         ).toBeTruthy();
-        expect(mock.props('customFields').customFields.initialPosition).toBe(
-            1
-        );
+        expect(mock.props('customFields').customFields.initialPosition).toBe(1);
     });
 
     it('Recibe de customFields el campo opcional title', () => {
@@ -153,7 +153,7 @@ describe('Test del Chain - <CajaTema />', () => {
         const size1 = calculateSizeOfCollection(collectionsInPage, 3);
         expect(size1).toBe(12);
     });
-    
+
     it('Deberia setear el size de la collection en 20', () => {
         const size1 = calculateSizeOfCollection(collectionsInPage, 30);
         expect(size1).toBe(20);
@@ -180,7 +180,7 @@ describe('Test del Chain - <CajaTema />', () => {
             2
         );
         expect(articles1.length).toBe(2);
-        expect(articles1[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI');   
+        expect(articles1[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI');
     });
 
     it('Deberia filtrar 1 nota que ya esta en la manual y otra nota que tiene el label NO RECOMENDAR', () => {
@@ -188,7 +188,7 @@ describe('Test del Chain - <CajaTema />', () => {
             renderables,
             collectionsInPage
         );
-        
+
         const articles2 = getArticlesToShow(
             articlesFromAutomatic,
             idsArticlesToExclude,
@@ -196,9 +196,9 @@ describe('Test del Chain - <CajaTema />', () => {
             3
         );
         expect(articles2.length).toBe(3);
-        expect(articles2[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI'); 
-        expect(articles2[1]._id).toBe('BBB'); 
-        expect(articles2[2]._id).toBe('CCC'); 
+        expect(articles2[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI');
+        expect(articles2[1]._id).toBe('BBB');
+        expect(articles2[2]._id).toBe('CCC');
     });
 
     it('Deberia traer un array vacio cuando sobrepasa la posicion de la colleccion', () => {
@@ -210,28 +210,4 @@ describe('Test del Chain - <CajaTema />', () => {
         );
         expect(articles2.length).toBe(0);
     });
-
-    const tree = {
-        children: [
-            { children: [] },
-            { children: [] },
-            { children: [] },
-            { children: [] },
-            { children: [ 
-                { props: {id: 'aaa'}}
-            ] },
-            { children: [] }
-        ]
-    };
-
-    it('Deberia decirme que la caja esta en Apertura', () => {
-        const result = isInApertura(tree, 'aaa');
-        expect(result).toBeDefined();
-    });
-
-    it('Deberia decirme que la caja NO esta en Apertura', () => {
-        const result = isInApertura(tree, 'bbb');
-        expect(result).toBeUndefined();
-    });
-
 });

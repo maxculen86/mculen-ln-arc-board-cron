@@ -1,0 +1,646 @@
+{
+    "tipoAcumulado": 2,
+    "name": "Crónicas",
+    "articles": [
+        {
+            "type": "story",
+            "version": "0.10.7",
+            "content_elements": [
+                {
+                    "_id": "FGX72F2P2FB4DBUMS5GAPX6TNM",
+                    "type": "text",
+                    "additional_properties": {
+                        "_id": 1613513287929,
+                        "comments": [],
+                        "inline_comments": []
+                    },
+                    "content": "Aunque el comienzo fue parejo, desde un p"
+                }
+            ],
+            "created_date": "2021-02-16T22:32:09.750Z",
+            "revision": {
+                "revision_id": "UEHHZV47YVALBHZBYZ3UEBKLDA",
+                "parent_id": "U5KYEATB55ETLNESL6MBG5MZ4E",
+                "editions": ["default"],
+                "branch": "default",
+                "user_id": "ARC_Amiranda@lnexternos.com.ar",
+                "published": true
+            },
+            "last_updated_date": "2021-02-17T16:13:22.996Z",
+            "canonical_url": "/deportes/rugby/central-campeon-nid16022021/",
+            "headlines": {
+                "basic": "Central campeón",
+                "meta_title": "",
+                "mobile": "",
+                "native": "",
+                "print": "",
+                "tablet": "",
+                "web": ""
+            },
+            "owner": {
+                "sponsored": false,
+                "id": "sandbox.lanacionar"
+            },
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "address": {},
+            "comments": {
+                "allow_comments": true,
+                "display_comments": true,
+                "moderation_required": false
+            },
+            "syndication": {
+                "external_distribution": true,
+                "search": true
+            },
+            "workflow": {
+                "status_code": 1
+            },
+            "subheadlines": {
+                "basic": "Venció 2-1 a AJ"
+            },
+            "description": {
+                "basic": ""
+            },
+            "language": "",
+            "label": {
+                "autor": {
+                    "display": true,
+                    "text": "Firma",
+                    "url": ""
+                },
+                "edicion": {
+                    "display": true,
+                    "text": "Impresa",
+                    "url": ""
+                },
+                "enviar_a_apps": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "mostrar_banners": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "recomendar": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "trust": {
+                    "display": true,
+                    "text": "Noticia Original",
+                    "url": ""
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "rugby"
+                }
+            },
+            "source": {
+                "name": "LA NACION",
+                "source_type": "staff",
+                "system": "composer"
+            },
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/deportes",
+                    "_website": "la-nacion-ar",
+                    "type": "section",
+                    "version": "0.6.0",
+                    "name": "Deportes",
+                    "path": "/deportes",
+                    "parent_id": "/",
+                    "parent": {
+                        "default": "/"
+                    },
+                    "additional_properties": {
+                        "original": {
+                            "_id": "/deportes",
+                            "acumuladoColor": {
+                                "header_class_name": "true",
+                                "background_color": "#eeeeee",
+                                "navigation_color": "#333",
+                                "navigation_color_tags": "#000",
+                                "id_logo_image": "PZ4PFVHE55BBRPQNBHN3BKVWYQ"
+                            },
+                            "acumuladoGeneral": {
+                                "hidetagslist": "false",
+                                "hidesectionslist": "true",
+                                "tipo_acumulado": "Grilla",
+                                "hierarchy_navigation": null,
+                                "hide_banner": null,
+                                "cantidad_notas": "30",
+                                "id_collection_promo_items": null
+                            },
+                            "migration": {
+                                "id_section_ln9": "131",
+                                "migrated_mob": "false"
+                            },
+                            "_website": "la-nacion-ar",
+                            "name": "Deportes",
+                            "order": {
+                                "Header-FirstNav": 1007,
+                                "Architecture": 1001,
+                                "default": 1001
+                            },
+                            "parent": {
+                                "default": "/",
+                                "Header-FirstNav": "/",
+                                "Architecture": "/",
+                                "CustomNavigationComunidadNegocios": null
+                            },
+                            "ancestors": {
+                                "Header-FirstNav": ["/"],
+                                "Architecture": ["/"],
+                                "default": ["/"],
+                                "CustomNavigationComunidadNegocios": []
+                            },
+                            "inactive": false,
+                            "node_type": "section"
+                        }
+                    }
+                },
+                "primary_site": {
+                    "_id": "/deportes",
+                    "type": "site",
+                    "version": "0.5.8",
+                    "name": "Deportes",
+                    "path": "/deportes",
+                    "parent_id": "/",
+                    "additional_properties": {
+                        "original": {
+                            "_id": "/deportes",
+                            "acumuladoColor": {
+                                "header_class_name": "true",
+                                "background_color": "#eeeeee",
+                                "navigation_color": "#333",
+                                "navigation_color_tags": "#000",
+                                "id_logo_image": "PZ4PFVHE55BBRPQNBHN3BKVWYQ"
+                            },
+                            "acumuladoGeneral": {
+                                "hidetagslist": "false",
+                                "hidesectionslist": "true",
+                                "tipo_acumulado": "Grilla",
+                                "hierarchy_navigation": null,
+                                "hide_banner": null,
+                                "cantidad_notas": "30",
+                                "id_collection_promo_items": null
+                            },
+                            "migration": {
+                                "id_section_ln9": "131",
+                                "migrated_mob": "false"
+                            },
+                            "name": "Deportes",
+                            "order": 1001,
+                            "parent": "/",
+                            "ancestors": ["/"],
+                            "inactive": false,
+                            "node_type": "section"
+                        }
+                    }
+                },
+                "sections": [
+                    {
+                        "_id": "/deportes",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Deportes",
+                        "path": "/deportes",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/deportes",
+                                "acumuladoColor": {
+                                    "header_class_name": "true",
+                                    "background_color": "#eeeeee",
+                                    "navigation_color": "#333",
+                                    "navigation_color_tags": "#000",
+                                    "id_logo_image": "PZ4PFVHE55BBRPQNBHN3BKVWYQ"
+                                },
+                                "acumuladoGeneral": {
+                                    "hidetagslist": "false",
+                                    "hidesectionslist": "true",
+                                    "tipo_acumulado": "Grilla",
+                                    "hierarchy_navigation": null,
+                                    "hide_banner": null,
+                                    "cantidad_notas": "30",
+                                    "id_collection_promo_items": null
+                                },
+                                "migration": {
+                                    "id_section_ln9": "131",
+                                    "migrated_mob": "false"
+                                },
+                                "_website": "la-nacion-ar",
+                                "name": "Deportes",
+                                "order": {
+                                    "Header-FirstNav": 1007,
+                                    "Architecture": 1001,
+                                    "default": 1001
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/",
+                                    "Architecture": "/",
+                                    "CustomNavigationComunidadNegocios": null
+                                },
+                                "ancestors": {
+                                    "Header-FirstNav": ["/"],
+                                    "Architecture": ["/"],
+                                    "default": ["/"],
+                                    "CustomNavigationComunidadNegocios": []
+                                },
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./deportes"
+                    },
+                    {
+                        "_id": "/deportes/rugby",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Rugby",
+                        "path": "/deportes/rugby",
+                        "parent_id": "/deportes",
+                        "parent": {
+                            "default": "/deportes"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/deportes/rugby",
+                                "migration": {
+                                    "migrated_mob": "false",
+                                    "id_section_ln9": "255"
+                                },
+                                "_website": "la-nacion-ar",
+                                "name": "Rugby",
+                                "order": {
+                                    "Header-FirstNav": 2004
+                                },
+                                "parent": {
+                                    "default": "/deportes",
+                                    "Header-FirstNav": "/deportes"
+                                },
+                                "ancestors": {
+                                    "Header-FirstNav": ["/", "/deportes"],
+                                    "default": ["/", "/deportes"]
+                                },
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./deportes/rugby"
+                    }
+                ],
+                "sites": [
+                    {
+                        "_id": "/deportes",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Deportes",
+                        "path": "/deportes",
+                        "parent_id": "/",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/deportes",
+                                "acumuladoColor": {
+                                    "header_class_name": "true",
+                                    "background_color": "#eeeeee",
+                                    "navigation_color": "#333",
+                                    "navigation_color_tags": "#000",
+                                    "id_logo_image": "PZ4PFVHE55BBRPQNBHN3BKVWYQ"
+                                },
+                                "acumuladoGeneral": {
+                                    "hidetagslist": "false",
+                                    "hidesectionslist": "true",
+                                    "tipo_acumulado": "Grilla",
+                                    "hierarchy_navigation": null,
+                                    "hide_banner": null,
+                                    "cantidad_notas": "30",
+                                    "id_collection_promo_items": null
+                                },
+                                "migration": {
+                                    "id_section_ln9": "131",
+                                    "migrated_mob": "false"
+                                },
+                                "name": "Deportes",
+                                "order": 1001,
+                                "parent": "/",
+                                "ancestors": ["/"],
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        }
+                    },
+                    {
+                        "_id": "/deportes/rugby",
+                        "type": "site",
+                        "version": "0.5.8",
+                        "name": "Rugby",
+                        "path": "/deportes/rugby",
+                        "parent_id": "/deportes",
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/deportes/rugby",
+                                "migration": {
+                                    "migrated_mob": "false",
+                                    "id_section_ln9": "255"
+                                },
+                                "name": "Rugby",
+                                "parent": "/deportes",
+                                "ancestors": ["/", "/deportes"],
+                                "inactive": false
+                            }
+                        }
+                    }
+                ],
+                "tags": []
+            },
+            "promo_items": {
+                "storytelling_mobile": {
+                    "_id": "QG5U23JMVVE47C5UNLFYVLX4W4",
+                    "additional_properties": {
+                        "fullSizeResizeUrl": "/resizer/TYgwV1KMYrAwdTjAub-pI9Q7Tjg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                        "galleries": [],
+                        "mime_type": "image/jpeg",
+                        "originalName": "2575567.jpg",
+                        "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                        "proxyUrl": "/resizer/TYgwV1KMYrAwdTjAub-pI9Q7Tjg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                        "published": true,
+                        "resizeUrl": "/resizer/TYgwV1KMYrAwdTjAub-pI9Q7Tjg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                        "restricted": false,
+                        "thumbnailResizeUrl": "/resizer/DizMHC-NBDE5Y5WcNJssC3hEUTc=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                        "version": 0
+                    },
+                    "alt_text": "Los Pumas, en Florencia",
+                    "caption": "Los Pumas, en Florencia",
+                    "copyright": "",
+                    "created_date": "2019-08-27T02:32:11Z",
+                    "distributor": {
+                        "mode": "custom",
+                        "name": "AFP"
+                    },
+                    "height": 513,
+                    "last_updated_date": "2019-08-27T02:32:11Z",
+                    "licensable": false,
+                    "owner": {
+                        "id": "sandbox.lanacionar"
+                    },
+                    "source": {
+                        "source_id": "2575567.jpg",
+                        "source_type": "other",
+                        "additional_properties": {
+                            "editor": "photo center"
+                        },
+                        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/QG5U23JMVVE47C5UNLFYVLX4W4",
+                        "system": "photo center"
+                    },
+                    "status": "published",
+                    "subtitle": "Los Pumas, en Florencia",
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/nejeyZRXOiyjCfelPotXgUaABls=/768x0/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                    "version": "0.10.3",
+                    "width": 768,
+                    "display_date": "2017-11-22T21:10:00Z",
+                    "first_publish_date": "2017-11-22T21:10:00Z",
+                    "description": "Los Pumas, en Florencia",
+                    "language": "es-419",
+                    "publish_date": "2017-11-22T21:10:00Z",
+                    "resized_urls": [
+                        {
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/eCamDlVsO_S9gQ_LjhbYAT_JKZQ=/360x240/smart/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                            "option": {
+                                "width": 360,
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "proportion": "3:2"
+                            }
+                        },
+                        {
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/FvjbrDxFbIe1qy-MtEu_P_uXyog=/768x512/smart/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                            "option": {
+                                "width": 768,
+                                "height": 512,
+                                "media": "(min-width: 768px)",
+                                "proportion": "3:2"
+                            }
+                        },
+                        {
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/WcRZnj0zGzk4V7hqbnlFSfP2_OY=/351x234/smart/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                            "option": {
+                                "width": 351,
+                                "height": 234,
+                                "media": "(min-width: 360px)",
+                                "proportion": "3:2"
+                            }
+                        },
+                        {
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/eCamDlVsO_S9gQ_LjhbYAT_JKZQ=/360x240/smart/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QG5U23JMVVE47C5UNLFYVLX4W4.jpg",
+                            "option": {
+                                "width": 360,
+                                "height": 240,
+                                "media": "(min-width: 320px)",
+                                "proportion": "3:2"
+                            }
+                        }
+                    ],
+                    "resized_urls_zoom": []
+                }
+            },
+            "related_content": {
+                "basic": [],
+                "clonedChildren": [],
+                "clonedFromParent": [
+                    {
+                        "referent": {
+                            "id": "VTCKPWAMC5HJXDLZ6RD2UFEXJY"
+                        },
+                        "type": "reference"
+                    }
+                ],
+                "redirect": []
+            },
+            "distributor": {
+                "name": "LA NACION",
+                "category": "staff",
+                "subcategory": "",
+                "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568",
+                "mode": "reference_denormalized"
+            },
+            "canonical_website": "la-nacion-ar",
+            "geo": {},
+            "planning": {
+                "internal_note": "",
+                "story_length": {
+                    "character_count_actual": 1790,
+                    "character_encoding": "UTF-16",
+                    "inch_count_actual": 3,
+                    "line_count_actual": 15,
+                    "word_count_actual": 322
+                }
+            },
+            "display_date": "2021-02-16T22:38:22Z",
+            "credits": {
+                "by": [
+                    {
+                        "_id": "alejo-miranda-1050",
+                        "type": "author",
+                        "version": "0.5.8",
+                        "name": "Alejo Miranda",
+                        "image": {
+                            "url": "",
+                            "version": "0.5.8"
+                        },
+                        "url": "/autor/alejo-miranda-1050/",
+                        "slug": "alejo-miranda-1050",
+                        "social_links": [
+                            {
+                                "site": "email",
+                                "url": ""
+                            },
+                            {
+                                "site": "twitter",
+                                "url": ""
+                            }
+                        ],
+                        "socialLinks": [
+                            {
+                                "site": "email",
+                                "url": "",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links."
+                            },
+                            {
+                                "site": "twitter",
+                                "url": "",
+                                "deprecated": true,
+                                "deprecation_msg": "Please use social_links."
+                            }
+                        ],
+                        "additional_properties": {
+                            "original": {
+                                "_id": "alejo-miranda-1050",
+                                "byline": "Alejo Miranda",
+                                "firstName": "Alejo",
+                                "lastName": "Miranda",
+                                "author_type": "Estándar",
+                                "email": "",
+                                "image": "",
+                                "twitter": "",
+                                "status": true,
+                                "role": "PARA LA NACION",
+                                "longBio": "",
+                                "slug": "alejo-miranda-1050",
+                                "bio_page": "/autor/alejo-miranda-1050/",
+                                "last_updated_date": "2019-11-12T18:38:30.692Z",
+                                "books": [],
+                                "podcasts": [],
+                                "education": [],
+                                "awards": []
+                            }
+                        }
+                    }
+                ]
+            },
+            "subtype": "1",
+            "first_publish_date": "2021-02-16T22:38:27.510Z",
+            "websites": {
+                "la-nacion-ar": {
+                    "website_section": {
+                        "_id": "/deportes",
+                        "_website": "la-nacion-ar",
+                        "type": "section",
+                        "version": "0.6.0",
+                        "name": "Deportes",
+                        "path": "/deportes",
+                        "parent_id": "/",
+                        "parent": {
+                            "default": "/"
+                        },
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/deportes",
+                                "acumuladoColor": {
+                                    "header_class_name": "true",
+                                    "background_color": "#eeeeee",
+                                    "navigation_color": "#333",
+                                    "navigation_color_tags": "#000",
+                                    "id_logo_image": "PZ4PFVHE55BBRPQNBHN3BKVWYQ"
+                                },
+                                "acumuladoGeneral": {
+                                    "hidetagslist": "false",
+                                    "hidesectionslist": "true",
+                                    "tipo_acumulado": "Grilla",
+                                    "hierarchy_navigation": null,
+                                    "hide_banner": null,
+                                    "cantidad_notas": "30",
+                                    "id_collection_promo_items": null
+                                },
+                                "migration": {
+                                    "id_section_ln9": "131",
+                                    "migrated_mob": "false"
+                                },
+                                "_website": "la-nacion-ar",
+                                "name": "Deportes",
+                                "order": {
+                                    "Header-FirstNav": 1007,
+                                    "Architecture": 1001,
+                                    "default": 1001
+                                },
+                                "parent": {
+                                    "default": "/",
+                                    "Header-FirstNav": "/",
+                                    "Architecture": "/",
+                                    "CustomNavigationComunidadNegocios": null
+                                },
+                                "ancestors": {
+                                    "Header-FirstNav": ["/"],
+                                    "Architecture": ["/"],
+                                    "default": ["/"],
+                                    "CustomNavigationComunidadNegocios": []
+                                },
+                                "inactive": false,
+                                "node_type": "section"
+                            }
+                        },
+                        "_website_section_id": "la-nacion-ar./deportes"
+                    },
+                    "website_url": "/deportes/rugby/central-campeon-nid16022021/"
+                }
+            },
+            "additional_properties": {
+                "clipboard": {},
+                "has_published_copy": true
+            },
+            "publish_date": "2021-02-17T16:13:23.001Z",
+            "publishing": {
+                "scheduled_operations": {
+                    "publish_edition": [],
+                    "unpublish_edition": []
+                }
+            },
+            "_id": "M2C3X7MLXZB4JHUK4KACZ2NDJU",
+            "website": "la-nacion-ar",
+            "website_url": "/deportes/rugby/central-campeon-nid16022021/"
+        }
+    ],
+    "paginator": 1,
+    "total": 3878,
+    "tag": {
+        "id": 61570,
+        "slug": "cronicas-tid61570",
+        "valor": "Crónicas",
+        "tipoId": 1,
+        "formatoId": 1,
+        "tipoDescripcion": "Topico"
+    }
+}

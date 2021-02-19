@@ -124,39 +124,38 @@ const LNHome = props => {
                                                     authors="Nombre Apellido"
                                                 />
                                             </div>
+                                        </section>
 
-                                    </section>
-
-                                    <section className="box-articles">
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x203"
-                                                link="#"
-                                                leadText="Pandemia."
-                                                titleText="La dura respuesta de Bullrich a la acusación de Frederic"
-                                                authors="Por Nombre Apellido"
-                                                label="Chapita larga muy pero muy larga se corta"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x204"
-                                                link="#"
-                                                leadText="PJ."
-                                                titleText="La historia de la fábrica que prometía hacer cientos de vagones"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x205"
-                                                isRenderAuthor
-                                                link="#"
-                                                leadText="Tragedia en al ruta."
-                                                titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
-                                                authors="Nombre Apellido"
-                                            />
-                                        </div>
-                                    </section>
+                                        <section className="box-articles">
+                                            <div className="row-gap-tablet-3">
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x203"
+                                                    link="#"
+                                                    leadText="Pandemia."
+                                                    titleText="La dura respuesta de Bullrich a la acusación de Frederic"
+                                                    authors="Por Nombre Apellido"
+                                                    label="Chapita larga muy pero muy larga se corta"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x204"
+                                                    link="#"
+                                                    leadText="PJ."
+                                                    titleText="La historia de la fábrica que prometía hacer cientos de vagones"
+                                                    authors="Por Nombre Apellido"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x205"
+                                                    isRenderAuthor
+                                                    link="#"
+                                                    leadText="Tragedia en al ruta."
+                                                    titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
+                                                    authors="Nombre Apellido"
+                                                />
+                                            </div>
+                                        </section>
 
                                         <section className="mod-banner">
                                             <div className="com-banner billboard_dsk">
@@ -400,37 +399,194 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                    <section className="mod-banner">
-                                        <div className="com-banner billboard_dsk">
-                                            Banner
-                                        </div>
-                                    </section>
+                                        <section className="mod-banner">
+                                            <div className="com-banner billboard_dsk">
+                                                Banner
+                                            </div>
+                                        </section>
 
-                                    <section className="box-articles">
-                                        <HeaderSection title="Techo caja notas 3, 6 o 9 largo para que se corte" />
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x209"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
+                                        <section className="box-articles">
+                                            <HeaderSection title="Techo caja notas 3, 6 o 9 largo para que se corte" />
+                                            <div className="row-gap-tablet-3">
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x209"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Nombre Apellido"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x210"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    noMedia
+                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                    authors="Por Nombre Apellido"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    isRenderAuthor
+                                                    srcdemo="https://source.unsplash.com/300x211"
+                                                    link="#"
+                                                />
+                                                <div className="row-gap-tablet-3">
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/400x600"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                        label="Chapita larga"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/400x601"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                        label="Chapita muchísimo más larga"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/400x602"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                        label="Chapita muchísimo más larga para que se llegue a cortar"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <section className="box-articles">
+                                            <HeaderSection
+                                                title="Techo caja autores"
+                                                classCondition="--bg --red"
                                             />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x210"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                noMedia
-                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
-                                                authors="Por Nombre Apellido"
+                                            <div className="row-gap-tablet-3">
+                                                <Article
+                                                    frontdemo
+                                                    isRenderAuthor
+                                                    srcdemo="https://source.unsplash.com/300x209"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Nombre Apellido"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    isRenderAuthor
+                                                    srcdemo="https://source.unsplash.com/300x210"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Nombre Apellido"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    isRenderAuthor
+                                                    srcdemo="https://source.unsplash.com/300x211"
+                                                    link="#"
+                                                />
+                                                <div className="row-gap-tablet-3">
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/400x603"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/400x604"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                        label="Chapita"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/400x605"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <section className="box-articles --bgcolor --teal">
+                                            <HeaderSection
+                                                title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
+                                                classCondition="--bg"
                                             />
-                                            <Article
-                                                frontdemo
-                                                isRenderAuthor
-                                                srcdemo="https://source.unsplash.com/300x211"
+                                            <div className="row-gap-tablet-3">
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x212"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Nombre Apellido"
+                                                    label="Chapita"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x213"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Nombre Apellido"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x214"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Nombre Apellido"
+                                                    label="Chapita"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x215"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Nombre Apellido"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x216"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Nombre Apellido"
+                                                    label="Chapita"
+                                                />
+                                                <Article
+                                                    frontdemo
+                                                    srcdemo="https://source.unsplash.com/300x217"
+                                                    link="#"
+                                                    leadText="Volanta."
+                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                    authors="Por Nombre Apellido"
+                                                />
+                                            </div>
+                                        </section>
+
+                                        <section className="box-articles --bgcolor --highlight --blue">
+                                            <HeaderSection
+                                                title="Techo con link"
                                                 link="#"
                                             />
                                             <div className="row-gap-tablet-3">
@@ -462,37 +618,11 @@ const LNHome = props => {
                                                     label="Chapita muchísimo más larga para que se llegue a cortar"
                                                 />
                                             </div>
-                                            </div>
                                         </section>
 
-                                    <section className="box-articles">
-                                        <HeaderSection
-                                            title="Techo caja autores"
-                                            classCondition="--bg --red"
-                                        />
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                isRenderAuthor
-                                                srcdemo="https://source.unsplash.com/300x209"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                isRenderAuthor
-                                                srcdemo="https://source.unsplash.com/300x210"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                isRenderAuthor
-                                                srcdemo="https://source.unsplash.com/300x211"
+                                        <section className="box-articles --bgcolor --bgpink --highlight --pink">
+                                            <HeaderSection
+                                                title="Techo con link"
                                                 link="#"
                                             />
                                             <div className="row-gap-tablet-3">
@@ -522,10 +652,9 @@ const LNHome = props => {
                                                     authors="Por Nombre Apellido"
                                                 />
                                             </div>
-                                            </div>
                                         </section>
 
-                                        <section className="box-articles --bgcolor --teal">
+                                        <section className="box-articles --bgcolor --bgteal">
                                             <HeaderSection
                                                 title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
                                                 classCondition="--bg"
@@ -585,954 +714,823 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                    <section className="box-articles --bgcolor --highlight --blue">
-                                        <HeaderSection
-                                            title="Techo con link"
-                                            link="#"
-                                        />
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/400x600"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                                label="Chapita larga"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/400x601"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                                label="Chapita muchísimo más larga"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/400x602"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                                label="Chapita muchísimo más larga para que se llegue a cortar"
-                                            />
-                                        </div>
-                                    </section>
+                                        <section className="box-articles --highlight --teal">
+                                            <section className="mod-headersection">
+                                                <ComTitle
+                                                    content="Techo de sección"
+                                                    size="--l"
+                                                />
+                                                <div className="com-line"></div>
+                                            </section>
 
-                                    <section className="box-articles --bgcolor --bgpink --highlight --pink">
-                                        <HeaderSection
-                                            title="Techo con link"
-                                            link="#"
-                                        />
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/400x603"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/400x604"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                                label="Chapita"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/400x605"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                        </div>
-                                    </section>
-
-                                    <section className="box-articles --bgcolor --bgteal">
-                                        <HeaderSection
-                                            title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
-                                            classCondition="--bg"
-                                        />
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x212"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                                label="Chapita"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x213"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x214"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                                label="Chapita"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x215"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x216"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                                label="Chapita"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x217"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                        </div>
-                                    </section>
-
-                                    <section className="box-articles --highlight --teal">
-                                        <section className="mod-headersection">
-                                            <ComTitle
-                                                content="Techo de sección"
-                                                size="--l"
-                                            />
-                                            <div className="com-line"></div>
-                                        </section>
-
-                                    <section className="box-articles --bgcolro --blue --highlight --red">
-                                        <HeaderSection
-                                            title="Techo de notas color con título largo"
-                                            link="#"
-                                            classCondition="--bg"
-                                        />
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/400x609"
-                                                link="#"
-                                                classCondition="--bg"
-                                            />
-                                            <div className="row-gap-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x609"
+                                            <section className="box-articles --bgcolro --blue --highlight --red">
+                                                <HeaderSection
+                                                    title="Techo de notas color con título largo"
                                                     link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
+                                                    classCondition="--bg"
                                                 />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x610"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x611"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </div>
-                                            </div>
-                                        </section>
-
-                                    <section className="box-articles --bgcolor --bgpink">
-                                        <HeaderSection title="Techo de sección" />
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x233"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x234"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x235"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x236"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x237"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x238"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                        </div>
-                                    </section>
-
-                                        <section className="box-articles">
-                                            <HeaderSection
-                                                title="Techo de sección con link"
-                                                link="#"
-                                                classCondition="--bg"
-                                            />
-                                            <div className="row-gap-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x233"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x234"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x235"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x236"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x237"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x238"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </div>
-                                   
-                                        </section>
-                                   
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
-                        
-                                <div className="lay">
-                                    <Dolar
-                                        compra="84"
-                                        venta="90"
-                                        compraBlue="154"
-                                        ventaBlue="160"
-                                        compraLiqui="118,18"
-                                    />
-                                    <section className="mod-ranking">
-                                        <HeaderSection title="Las más leídas" />
-
-                                        <ol className="com-ordered row-gap-tablet-4">
-                                            <li>
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x220/?ranking"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </li>
-                                            <li>
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x225/?ranking"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </li>
-                                            <li>
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x230/?ranking"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </li>
-                                            <li>
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x235/?ranking"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </li>
-                                        </ol>
-                                    </section>
-
-                                    <section className="box-articles --cinema">
-                                        <div className="row">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/1260x500"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate"
-                                                titleSize="--l"
-                                                authors="Por Nombre Apellido"
-                                                label="Content Lab"
-                                            />
-                                        </div>
-                                    </section>
-                                </div>
-
-                                <div className="lay-sidebar">
-                                    <div className="sidebar__main">
-                                        <section className="box-articles --cinema">
-                                            <div className="row">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/1260x505"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    titleSize="--l"
-                                                    authors="Por Nombre Apellido"
-                                                    label="LIVING"
-                                                />
-                                            </div>
-                                        </section>
-                                        <section className="box-articles --focal --left">
-                                            <HeaderSection
-                                                title="Techo caja opinión con link"
-                                                link="#"
-                                            />
-                                            <div className="row">
-                                                <div className="col-tablet-8">
+                                                <div className="row-gap-tablet-3">
                                                     <Article
                                                         frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x200"
+                                                        srcdemo="https://source.unsplash.com/400x609"
+                                                        link="#"
+                                                        classCondition="--bg"
+                                                    />
+                                                    <div className="row-gap-tablet-3">
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/400x609"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/400x610"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/400x611"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section className="box-articles --bgcolor --bgpink">
+                                                <HeaderSection title="Techo de sección" />
+                                                <div className="row-gap-tablet-3">
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x233"
                                                         link="#"
                                                         leadText="Volanta."
-                                                        titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
-                                                        titleTag="h1"
-                                                        titleSize="--xl"
-                                                        subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
-                                                        authors="Por Maia Jastreblansky"
-                                                    />
-                                                </div>
-                                                <div className="col-tablet-4">
-                                                    <Article
-                                                        frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x201"
-                                                        link="#"
-                                                        titleText="Los nexos ocultos entre los Moyano y la barra brava de Independiente"
-                                                        authors="Por Maia Jastreblansky"
-                                                        noMedia
-                                                        subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
                                                     />
                                                     <Article
                                                         frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x202"
+                                                        srcdemo="https://source.unsplash.com/300x234"
                                                         link="#"
-                                                        titleText='El Gobierno "autoengañado", el incendio y por qué cayó "en la trampa"'
-                                                        authors="Por Maia Jastreblansky"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </section>
-
-                                        <section className="box-articles">
-                                            <div className="row-gap-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x203"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La dura respuesta de Bullrich a la acusación de Frederic"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x204"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La historia de la fábrica que prometía hacer cientos de vagones"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x205"
-                                                    link="#"
-                                                    titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </div>
-                                        </section>
-
-                                        <section className="box-articles --focal --right">
-                                            <div className="row">
-                                                <div className="col-tablet-8">
-                                                    <Article
-                                                        frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x206"
-                                                        link="#"
-                                                        titleSize="--l"
                                                         leadText="Volanta."
-                                                        titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
-                                                        authors="Por Maia Jastreblansky"
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
                                                     />
-                                                </div>
-                                                <div className="col-tablet-4">
                                                     <Article
                                                         frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x207"
+                                                        srcdemo="https://source.unsplash.com/300x235"
                                                         link="#"
-                                                        leadText="Nota NYT."
-                                                        titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
-                                                        titleTag="h1"
-                                                        titleSize="--xl"
-                                                        subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
-                                                        authors="Por Maia Jastreblansky"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
                                                     />
-                                                </div>
-                                            </div>
-                                        </section>
-
-                                        <section className="box-articles">
-                                            <div className="row-gap-tablet-2">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/600x400"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate para su último remate"
-                                                    titleSize="--l"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/600x401"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    titleSize="--l"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </div>
-                                        </section>
-
-                                        <section className="box-articles">
-                                            <HeaderSection
-                                                title="Techo caja notas 3, 6 o 9 con link"
-                                                link="#"
-                                            />
-                                            <div className="row-gap-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x209"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x210"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x211"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </div>
-                                        </section>
-
-                                    <section className="box-articles --bgcolor --bgteal">
-                                        <HeaderSection
-                                            title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
-                                            classCondition="--bg"
-                                        />
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x212"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x213"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x214"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                isRenderAuthor
-                                                authors="Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x215"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x216"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x217"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                        </div>
-                                    </section>
-
-                                        <section className="box-articles --highlight --blue">
-                                            <HeaderSection
-                                                title="Techo de sección"
-                                                classCondition="--bg"
-                                            />
-                                            <div className="row-gap-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x600"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x601"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x602"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </div>
-                                        </section>
-
-                                        <section className="box-articles --highlight --pink">
-                                            <HeaderSection
-                                                title="Techo de sección con link"
-                                                link="#"
-                                            />
-                                            <div className="row-gap-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x603"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x604"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x605"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </div>
-                                        </section>
-
-                                        <section className="box-articles --bgcolor --teal">
-                                            <HeaderSection
-                                                title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
-                                                classCondition="--bg"
-                                            />
-                                            <div className="row-gap-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x212"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x213"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x214"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    renderAutor
-                                                    authors="Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x215"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x216"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x217"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </div>
-                                        </section>
-
-                                    <section className="box-articles">
-                                        <section className="mod-headersection --bg">
-                                            <div className="mod-logo">
-                                                <img
-                                                    src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FZTZM34MYZD47PZF4QLBPYIHCM.png"
-                                                    loading="lazy"
-                                                    className="com-image "
-                                                    alt="Logo"
-                                                />
-                                            </div>
-                                        </section>
-                                        <div className="row-gap-tablet-3 --bgcolor --bgpink">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x233"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x234"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x235"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x236"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x237"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                noMedia
-                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x238"
-                                                link="#"
-                                            />
-                                            <div className="row-gap-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x609"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x610"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/400x611"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                            </div>
-                                            </div>
-                                        </section>
-
-                                        <section className="box-articles --bgcolor --pink">
-                                            <section className="mod-headersection --bg">
-                                                <div className="mod-logo">
-                                                    <img
-                                                        src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FZTZM34MYZD47PZF4QLBPYIHCM.png"
-                                                        loading="lazy"
-                                                        className="com-image "
-                                                        alt="Logo"
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x236"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x237"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x238"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
                                                     />
                                                 </div>
                                             </section>
-                                            <div className="row-gap-tablet-3">
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x233"
+
+                                            <section className="box-articles">
+                                                <HeaderSection
+                                                    title="Techo de sección con link"
                                                     link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
+                                                    classCondition="--bg"
                                                 />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x234"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
+                                                <div className="row-gap-tablet-3">
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x233"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x234"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x235"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x236"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x237"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x238"
+                                                        link="#"
+                                                        leadText="Volanta."
+                                                        titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                        authors="Por Nombre Apellido"
+                                                    />
+                                                </div>
+                                            </section>
+
+                                            <div className="sidebar__aside hlp-tablet-none"></div>
+
+                                            <div className="lay">
+                                                <Dolar
+                                                    compra="84"
+                                                    venta="90"
+                                                    compraBlue="154"
+                                                    ventaBlue="160"
+                                                    compraLiqui="118,18"
                                                 />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x235"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x236"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x237"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    noMedia
-                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
-                                                    authors="Por Nombre Apellido"
-                                                />
-                                                <Article
-                                                    frontdemo
-                                                    srcdemo="https://source.unsplash.com/300x238"
-                                                    link="#"
-                                                    leadText="Volanta."
-                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                    authors="Por Nombre Apellido"
-                                                />
+                                                <section className="mod-ranking">
+                                                    <HeaderSection title="Las más leídas" />
+
+                                                    <ol className="com-ordered row-gap-tablet-4">
+                                                        <li>
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x220/?ranking"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </li>
+                                                        <li>
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x225/?ranking"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </li>
+                                                        <li>
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x230/?ranking"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </li>
+                                                        <li>
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x235/?ranking"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </li>
+                                                    </ol>
+                                                </section>
+
+                                                <section className="box-articles --cinema">
+                                                    <div className="row">
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/1260x500"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate a casa Breuer Moreno se prepara para su último remate"
+                                                            titleSize="--l"
+                                                            authors="Por Nombre Apellido"
+                                                            label="Content Lab"
+                                                        />
+                                                    </div>
+                                                </section>
                                             </div>
-                                        </section>
-                                        <div className="row-gap-tablet-3">
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x230"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x231"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x232"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                noMedia
-                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x233"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x234"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                isRenderAuthor
-                                                authors="Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x235"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x236"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x237"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                            <Article
-                                                frontdemo
-                                                srcdemo="https://source.unsplash.com/300x238"
-                                                link="#"
-                                                leadText="Volanta."
-                                                titleText="La casa Breuer Moreno se prepara para su último remate"
-                                                authors="Por Nombre Apellido"
-                                            />
-                                        </div>
-                                        {/*
+
+                                            <div className="lay-sidebar">
+                                                <div className="sidebar__main">
+                                                    <section className="box-articles --cinema">
+                                                        <div className="row">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/1260x505"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                titleSize="--l"
+                                                                authors="Por Nombre Apellido"
+                                                                label="LIVING"
+                                                            />
+                                                        </div>
+                                                    </section>
+                                                    <section className="box-articles --focal --left">
+                                                        <HeaderSection
+                                                            title="Techo caja opinión con link"
+                                                            link="#"
+                                                        />
+                                                        <div className="row">
+                                                            <div className="col-tablet-8">
+                                                                <Article
+                                                                    frontdemo
+                                                                    srcdemo="https://source.unsplash.com/300x200"
+                                                                    link="#"
+                                                                    leadText="Volanta."
+                                                                    titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                                    titleTag="h1"
+                                                                    titleSize="--xl"
+                                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                                    authors="Por Maia Jastreblansky"
+                                                                />
+                                                            </div>
+                                                            <div className="col-tablet-4">
+                                                                <Article
+                                                                    frontdemo
+                                                                    srcdemo="https://source.unsplash.com/300x201"
+                                                                    link="#"
+                                                                    titleText="Los nexos ocultos entre los Moyano y la barra brava de Independiente"
+                                                                    authors="Por Maia Jastreblansky"
+                                                                    noMedia
+                                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                                />
+                                                                <Article
+                                                                    frontdemo
+                                                                    srcdemo="https://source.unsplash.com/300x202"
+                                                                    link="#"
+                                                                    titleText='El Gobierno "autoengañado", el incendio y por qué cayó "en la trampa"'
+                                                                    authors="Por Maia Jastreblansky"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles">
+                                                        <div className="row-gap-tablet-3">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x203"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La dura respuesta de Bullrich a la acusación de Frederic"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x204"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La historia de la fábrica que prometía hacer cientos de vagones"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x205"
+                                                                link="#"
+                                                                titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles --focal --right">
+                                                        <div className="row">
+                                                            <div className="col-tablet-8">
+                                                                <Article
+                                                                    frontdemo
+                                                                    srcdemo="https://source.unsplash.com/300x206"
+                                                                    link="#"
+                                                                    titleSize="--l"
+                                                                    leadText="Volanta."
+                                                                    titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                                    authors="Por Maia Jastreblansky"
+                                                                />
+                                                            </div>
+                                                            <div className="col-tablet-4">
+                                                                <Article
+                                                                    frontdemo
+                                                                    srcdemo="https://source.unsplash.com/300x207"
+                                                                    link="#"
+                                                                    leadText="Nota NYT."
+                                                                    titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
+                                                                    titleTag="h1"
+                                                                    titleSize="--xl"
+                                                                    subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                                    authors="Por Maia Jastreblansky"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles">
+                                                        <div className="row-gap-tablet-2">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/600x400"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate para su último remate"
+                                                                titleSize="--l"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/600x401"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                titleSize="--l"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles">
+                                                        <HeaderSection
+                                                            title="Techo caja notas 3, 6 o 9 con link"
+                                                            link="#"
+                                                        />
+                                                        <div className="row-gap-tablet-3">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x209"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x210"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x211"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles --bgcolor --bgteal">
+                                                        <HeaderSection
+                                                            title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
+                                                            classCondition="--bg"
+                                                        />
+                                                        <div className="row-gap-tablet-3">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x212"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x213"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x214"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                isRenderAuthor
+                                                                authors="Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x215"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x216"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x217"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles --highlight --blue">
+                                                        <HeaderSection
+                                                            title="Techo de sección"
+                                                            classCondition="--bg"
+                                                        />
+                                                        <div className="row-gap-tablet-3">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/400x600"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/400x601"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/400x602"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles --highlight --pink">
+                                                        <HeaderSection
+                                                            title="Techo de sección con link"
+                                                            link="#"
+                                                        />
+                                                        <div className="row-gap-tablet-3">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/400x603"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/400x604"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/400x605"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles --bgcolor --teal">
+                                                        <HeaderSection
+                                                            title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
+                                                            classCondition="--bg"
+                                                        />
+                                                        <div className="row-gap-tablet-3">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x212"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x213"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x214"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                renderAutor
+                                                                authors="Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x215"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x216"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x217"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles">
+                                                        <section className="mod-headersection --bg">
+                                                            <div className="mod-logo">
+                                                                <img
+                                                                    src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FZTZM34MYZD47PZF4QLBPYIHCM.png"
+                                                                    loading="lazy"
+                                                                    className="com-image "
+                                                                    alt="Logo"
+                                                                />
+                                                            </div>
+                                                        </section>
+                                                        <div className="row-gap-tablet-3 --bgcolor --bgpink">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x233"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x234"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x235"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x236"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x237"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                noMedia
+                                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x238"
+                                                                link="#"
+                                                            />
+                                                            <div className="row-gap-tablet-3">
+                                                                <Article
+                                                                    frontdemo
+                                                                    srcdemo="https://source.unsplash.com/400x609"
+                                                                    link="#"
+                                                                    leadText="Volanta."
+                                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                    authors="Por Nombre Apellido"
+                                                                />
+                                                                <Article
+                                                                    frontdemo
+                                                                    srcdemo="https://source.unsplash.com/400x610"
+                                                                    link="#"
+                                                                    leadText="Volanta."
+                                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                    authors="Por Nombre Apellido"
+                                                                />
+                                                                <Article
+                                                                    frontdemo
+                                                                    srcdemo="https://source.unsplash.com/400x611"
+                                                                    link="#"
+                                                                    leadText="Volanta."
+                                                                    titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                    authors="Por Nombre Apellido"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </section>
+
+                                                    <section className="box-articles --bgcolor --pink">
+                                                        <section className="mod-headersection --bg">
+                                                            <div className="mod-logo">
+                                                                <img
+                                                                    src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FZTZM34MYZD47PZF4QLBPYIHCM.png"
+                                                                    loading="lazy"
+                                                                    className="com-image "
+                                                                    alt="Logo"
+                                                                />
+                                                            </div>
+                                                        </section>
+                                                        <div className="row-gap-tablet-3">
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x233"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x234"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x235"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x236"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x237"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                noMedia
+                                                                subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                            <Article
+                                                                frontdemo
+                                                                srcdemo="https://source.unsplash.com/300x238"
+                                                                link="#"
+                                                                leadText="Volanta."
+                                                                titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                                authors="Por Nombre Apellido"
+                                                            />
+                                                        </div>
+                                                    </section>
+                                                    <div className="row-gap-tablet-3">
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x230"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x231"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x232"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            noMedia
+                                                            subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x233"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x234"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            isRenderAuthor
+                                                            authors="Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x235"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x236"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x237"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                        <Article
+                                                            frontdemo
+                                                            srcdemo="https://source.unsplash.com/300x238"
+                                                            link="#"
+                                                            leadText="Volanta."
+                                                            titleText="La casa Breuer Moreno se prepara para su último remate"
+                                                            authors="Por Nombre Apellido"
+                                                        />
+                                                    </div>
+                                                    {/*
                                         <section className="demofonts">
                                             <div>
                                                 <h1 className="--threexl">
@@ -1729,14 +1727,13 @@ const LNHome = props => {
                                             </div>
                                         </section>
                                         */}
-
+                                                </div>
+                                                <div className="sidebar__aside hlp-tablet-none"></div>
+                                            </div>
+                                            <Footer />
+                                        </section>
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
                                 </div>
-                                <Footer />
-                                </section>
-                            </div>
-                            </div>
                             </div>
                         </main>
                     </div>
