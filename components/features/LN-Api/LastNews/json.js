@@ -22,9 +22,7 @@ class JsonLastNews {
             const acuData = {
                 tipoAcumulado: 4,
                 name: 'Ultimas Noticias',
-                articles: globalContent.content_elements,
-                paginator: 1,
-                total: globalContent.count
+                articles: globalContent.content_elements
             };
 
             return indexAcu(acuData);
