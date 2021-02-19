@@ -45,6 +45,7 @@ class AcuSection {
             1: IndexAcuV1
         };
     }
+
     render() {
         try {
             const { acuArticlesSource, globalContent: configuration } =
