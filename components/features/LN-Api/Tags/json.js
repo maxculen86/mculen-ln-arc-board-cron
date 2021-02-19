@@ -72,7 +72,7 @@ class AcuTag {
                 name: dataTag.text,
                 articles: acuArticlesSource.content_elements,
                 paginator: acuArticlesSource.next,
-                total: acuArticlesSource.count,
+                total: acuArticlesSource.content_elements.length,
                 tag: dataTag,
                 configuration
             };

@@ -8,8 +8,8 @@ describe('Test de index en Json Tags', () => {
         expect(resp.tema).toBeDefined();
     });
 
-    // test('Test propiedad Tags Undefined', () => {
-    //     const resp = TagsIndex(AcuTags);
-    //     expect(resp.tags).toBeUndefined();
-    // });
+    test('Test propiedad Tags Undefined', () => {
+        const resp = TagsIndex(AcuTags);
+        expect(resp.tags).toBeUndefined();
+    });
 });
