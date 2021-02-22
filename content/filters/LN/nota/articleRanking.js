@@ -58,7 +58,15 @@ export default `
             basic
         }
         display_date
-        website_url       
+        website_url
+        related_content {
+            basic{
+                _id
+                referent {
+                    type
+                }
+            }
+        }
     }
     
 }`;
