@@ -14,12 +14,14 @@ class SectionMayInterest {
     }
 
     render() {
+        const IndexMayInterestV1 = this.versions[
+            browser.getApiVersion(this.props.requestUri)
+        ];
+        const { globalContent } = this.props;
+
+        //return globalContent;
         try {
-            const { globalContent, requestUri } = this.props;
-            const indexMayInterestV1 = this.versions[
-                browser.getApiVersion(requestUri)
-            ];
-            return indexMayInterestV1(globalContent);
+            return IndexMayInterestV1(globalContent);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

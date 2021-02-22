@@ -8,6 +8,7 @@
     .com-itemlist {
         @include flex(flex, row, start, start);
         margin-bottom: $spacing-xs;
+        padding-left: px(16);
         flex-wrap: wrap;
         .--educacion &,
         .--reconocimientos & {
@@ -19,7 +20,10 @@
     .mod-descriptionlist {
         &.--membresia,
         &.--idiomas {
-            @include flex(inline, row, center, center);
+            @include flex(inline, row, center, start);
+        }
+        .com-itemlist {
+            padding-left: px(32);
         }
     }
 }

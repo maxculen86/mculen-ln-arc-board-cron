@@ -114,6 +114,7 @@ const getArticles = (index, props, sectionId, imageConfig) => {
     );
 
     const articles = get(articlesData, 'content_elements', null);
+
     return articles && articles.length >= size ? articles : null;
 };
 

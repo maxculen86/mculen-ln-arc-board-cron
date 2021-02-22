@@ -4,18 +4,28 @@
 .com-subtitle {
     @include flex(inline);
     font-family: $font-arial;
-    font-weight: bold;
-    color: $negro;
+    font-weight: 700;
+    color: $neutral-black;
     margin-bottom: $spacing-sm;
+
     .--socialicons & {
         .mod-wikiauthor & {
-            margin: 0;
-            margin-right: $spacing-sm;
+            margin: 0 0 $spacing-xs;
         }
     }
-}
-@media ($media-l) {
-    .com-subtitle {
+    &.--membresia {
+        min-width: px(207);
+    }
+
+    @media ($media-m) {
+        .--socialicons & {
+            .mod-wikiauthor & {
+                margin: $spacing $spacing-sm 0 0;
+            }
+        }
+    }
+
+    @media ($media-l) {
         &.--membresia,
         &.--idiomas {
             margin: 0;

@@ -22,7 +22,6 @@ import ScriptHtmlLibre from '../private/common/scriptManager/scriptHtmlLibre';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
-import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
@@ -180,11 +179,12 @@ const Default = props => {
                 {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
                 {/* {subtype === '7' && <MetaTags />} */}
                 <MetasOG {...props} />
-                <Robot
-                    subtype={subtype}
-                    canonicalUrl={canonicalUrl}
-                    arcSite={arcSite}
-                />
+                {canonicalUrl && (
+                    <link
+                        rel="canonical"
+                        href={`https://www.lanacion.com.ar${canonicalUrl}`}
+                    />
+                )}
                 <LinkAmpHTML
                     subtype={subtype}
                     canonicalUrl={canonicalUrl || _id}
@@ -202,7 +202,7 @@ const Default = props => {
                 <MetaDescription
                     subtype={subtype}
                     nodeType={nodeType}
-                    name={name}
+                    name={name || title}
                     _id={_id}
                     payload={Payload}
                     authorType={authorType}

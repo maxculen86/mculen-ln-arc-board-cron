@@ -5,6 +5,7 @@ export default {
     API_ENV: 'prod',
     RESIZER_URL:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer',
+    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
     RESIZER_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFBlPZMQdmI1mewscHTzb/BAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAyE1bawAzVQX0z2mAgEQgDsU2eFLGS7c9DKgHAiRtFqUlI1iDycLd4NJQOX7QpYVZjTiLT9AUmFefdVOop88yABc4R+YYCzSh24wCA==}',
     API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',

@@ -5,7 +5,11 @@ import filter from '../../../../content/filters/LN/acumulado/articleAcuTitles';
 import getTitleText from '../../common/utils/getTitleText';
 
 const MetaDescriptionAcumulado = ({ articles = [], title }) => {
-    const firstPart = `Últimas Noticias de ${title}`;
+    const customTitle =
+        title === 'Últimas noticias'
+            ? 'del día de hoy en Argentina'
+            : `de ${title}`;
+    const firstPart = `Últimas Noticias ${customTitle}`;
     const withDots = articles && articles.length > 0 ? ':' : '';
     const articlesTitles = articles.map(
         art => ` ${getTitleText(art.headlines)}`

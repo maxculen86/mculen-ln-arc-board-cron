@@ -1,8 +1,8 @@
 import dictionary from './dictionary/lanacionar-sandbox.json';
 
 export default {
-    IS_DEV: false,
-    IS_SANDBOX: true,
+    IS_DEV: 'false',
+    IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
     RANKING_URL:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/arcio/ans/most-read/',

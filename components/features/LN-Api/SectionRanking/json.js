@@ -12,31 +12,24 @@ class SectionRanking {
         this.props = props;
 
         const {
-            globalContent,
             globalContent: { _id: sectionId },
             customFields
         } = props;
 
-        const categoryMigrated = isMigratedCategory(
-            sectionId,
-            get(globalContent, 'migration', null)
-        );
+        const categoryMigrated = isMigratedCategory(sectionId, true);
+        if (categoryMigrated) {
+            this.state = {};
+            this.fetch(sectionId, customFields, 1);
 
-        if (!categoryMigrated) {
-            throw new Error(
-                `La categoria '${sectionId}' no esta marcada como migrada`
-            );
+            if (
+                !this.state.rankingArticleSource ||
+                this.state.rankingArticleSource.content_elements.length === 0
+            ) {
+                this.fetch(sectionId, customFields, 2);
+            }
         }
 
-        this.state = {};
-        this.fetch(sectionId, customFields, 1);
-
-        if (
-            !this.state.rankingArticleSource ||
-            this.state.rankingArticleSource.content_elements.length === 0
-        ) {
-            this.fetch(sectionId, customFields, 2);
-        }
+        this.state = { ...this.state, categoryMigrated };
 
         this.versions = {
             1: IndexRankingV1
@@ -64,28 +57,30 @@ class SectionRanking {
     }
 
     render() {
-        try {
-            const { rankingArticleSource } = this.state || {};
+        const { rankingArticleSource, categoryMigrated } = this.state || {};
 
-            const {
-                globalContent: { name }
-            } = this.props;
+        const {
+            globalContent: { name }
+        } = this.props;
 
-            const indexRanking = this.versions[
-                browser.getApiVersion(this.props.requestUri)
-            ];
+        const indexRanking = this.versions[
+            browser.getApiVersion(this.props.requestUri)
+        ];
 
-            if (
-                !rankingArticleSource ||
-                !rankingArticleSource.content_elements
-            ) {
-                return null;
-            }
-
-            return indexRanking(name, rankingArticleSource.content_elements);
-        } catch (err) {
-            return { Success: false, Message: err.message };
+        if (!rankingArticleSource || !rankingArticleSource.content_elements) {
+            return null;
         }
+
+        if (!categoryMigrated) {
+            return {
+                success: false,
+                message:
+                    'Esta categoria aún no ha sido migrada, debe de consultar en Api Contenidos',
+                code: 202
+            };
+        }
+
+        return indexRanking(name, rankingArticleSource.content_elements);
     }
 }
 

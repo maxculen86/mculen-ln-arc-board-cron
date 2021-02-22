@@ -25,6 +25,7 @@
     }
     &.--socialicons {
         @include flex(flex, column, center, start);
+        margin-bottom: $spacing-xl;
         .mod-wikiauthor & {
             padding: $spacing-lg 0 $spacing-lg 0;
             border-top: 1px solid $gris3;

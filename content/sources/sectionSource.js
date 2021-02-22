@@ -1,9 +1,6 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
-import navigationTreeSource from './navigationTreeSource';
-import collectionsSource from './collectionsSource';
 import logger from '../../components/private/common/utils/logger';
-import get from '../../components/private/common/utils/get';
 
 const resolve = key => {
     const { id, website } = key;
@@ -44,7 +41,6 @@ const fetch = query => {
 const transform = (data, siteProps) => {
     const { _id: idData } = data;
     const { id: idQuery } = siteProps;
-    const arcSite = siteProps['arc-site'];
     /**
      * Se valida que la sección consultada tenga
      * consistencia con la data respondida en la data
@@ -57,85 +53,8 @@ const transform = (data, siteProps) => {
         err.statusCode = 404;
         throw err;
     }
-    return transformContent(data, siteProps, arcSite);
+    return data;
 };
-const transformContent = (data, siteProps, arcSite) => {
-    const promiseArr = [];
-    const resp = { ...data, articlesInCollection: [] };
-    const idCollection = get(
-        resp,
-        'acumuladoGeneral.id_collection_promo_items'
-    );
-    const newSiteProps = {
-        ...siteProps,
-        id: idCollection,
-        size: 2,
-        webSite: arcSite,
-        imageConfig: 'l'
-    };
-
-    if (idCollection) {
-        promiseArr.push(
-            collectionsSource
-                .fetch(newSiteProps)
-                .then(response => {
-                    if (response && response.content_elements) {
-                        resp.articlesInCollection = response.content_elements;
-                    }
-                })
-                .catch(error => {
-                    logger.push(
-                        error,
-                        { source: 'content/source', idCollection },
-                        arcSite
-                    );
-                })
-        );
-    }
-
-    promiseArr.push(
-        getNavigationSiteProperties(arcSite).then(result => {
-            resp.siteService = {
-                banners: result.banners,
-                adserver: result.adserver,
-                termicas: result.termicas
-            };
-            return resp;
-        })
-    );
-
-    return Promise.all(promiseArr).then(() => {
-        return resp;
-    });
-};
-
-const getNavigationSiteProperties = arcSite =>
-    navigationTreeSource
-        .fetch({ website: arcSite })
-        .then(fetchedRelated => {
-            const { site } = fetchedRelated || {};
-            const { bannerConfig = {} } = fetchedRelated || {};
-            const { sitio_adserver: sitioAdserver = {} } = site || {};
-            const { Termicas: termicasConfig = {} } = fetchedRelated || {};
-
-            return {
-                banners: Object.keys(bannerConfig).map(key => ({
-                    adunit: key,
-                    dimensions: bannerConfig[key]
-                })),
-                adserver: Object.keys(sitioAdserver).map(key => ({
-                    key,
-                    value: sitioAdserver[key]
-                })),
-                termicas: Object.keys(termicasConfig).forEach(key => ({
-                    key,
-                    value: termicasConfig[key]
-                }))
-            };
-        })
-        .catch(e => {
-            throw e;
-        });
 
 export default {
     fetch,

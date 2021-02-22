@@ -84,3 +84,51 @@ export function dateAndTimeForAppsUtil(displayDate) {
     }
     return displayDate;
 }
+
+export function hasFutureDisplayDate(displayDate = '') {
+    const dateInJS = new Date(displayDate);
+    // dateInJS.setHours(dateInJS.getHours() + 3);
+    return dateInJS > new Date();
+}
+
+export function isOlderThan24HourAgo(date) {
+    const oneDay = 1000 * 60 * 60 * 24;
+    const aDayAgo = Date.now() - oneDay;
+    const dateInJS = new Date(date);
+    // dateInJS.setHours(dateInJS.getHours() + 3);
+    return dateInJS < aDayAgo;
+}
+
+export function addHoursAndFormat(hours, originalDate) {
+    const dateInJS = addHours(hours, originalDate);
+    const dateFormated = convertToFormat(dateInJS);
+    return dateFormated;
+}
+
+export function addHours(hours, originalDate) {
+    const dateInJS = new Date(originalDate);
+    dateInJS.setHours(dateInJS.getHours() + hours);
+    return dateInJS;
+}
+
+export function convertToFormat(dateInJS) {
+    const dateFormated = `${dateInJS
+        .getFullYear()
+        .toString()
+        .padStart(4, '0')}-${(dateInJS.getMonth() + 1)
+        .toString()
+        .padStart(2, '0')}-${dateInJS
+        .getDate()
+        .toString()
+        .padStart(2, '0')}T${dateInJS
+        .getHours()
+        .toString()
+        .padStart(2, '0')}:${dateInJS
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}:${dateInJS
+        .getSeconds()
+        .toString()
+        .padStart(2, '0')}`;
+    return dateFormated;
+}

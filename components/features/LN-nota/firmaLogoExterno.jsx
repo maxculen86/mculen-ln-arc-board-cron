@@ -23,8 +23,8 @@ const FirmaLogoExterno = props => {
 
     const nameFormated = formatDistributorName(name);
     return (
-        <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}`}>
-            <ComPartner size="--xs">{name}</ComPartner>
+        <ComLink link={`${SITE_LANACION}/distributor/${nameFormated}/`}>
+            <ComPartner size="--twoxs">{name}</ComPartner>
         </ComLink>
     );
 };

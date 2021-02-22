@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with data list snapshot 1`] = `
+<ul
+  class="mod-dolar row-gap-2 row-gap-tablet-4"
+>
+  <li
+    class="item"
+  >
+    <mock-com-title
+      content="Dólar Banco Nación"
+      size="--xs"
+      tag="h2"
+    />
+    <p
+      class="com-text --twoxs"
+    >
+      <span>
+        Compra 
+      </span>
+      <strong>
+        $86,25
+      </strong>
+      <span>
+        Venta 
+      </span>
+      <strong>
+        $92,25
+      </strong>
+    </p>
+  </li>
+  <li
+    class="item"
+  >
+    <mock-com-title
+      content="Dólar Blue"
+      size="--xs"
+      tag="h2"
+    />
+    <p
+      class="com-text --twoxs"
+    >
+      <span>
+        Compra 
+      </span>
+      <strong>
+        $148,00
+      </strong>
+      <span>
+        Venta 
+      </span>
+      <strong>
+        $153,00
+      </strong>
+    </p>
+  </li>
+  <li
+    class="item"
+  >
+    <mock-com-title
+      content="Dólar Contado con Liqui"
+      size="--xs"
+      tag="h2"
+    />
+    <p
+      class="com-text --twoxs"
+    >
+      <span>
+        Compra 
+      </span>
+      <strong>
+        $118,18
+      </strong>
+    </p>
+  </li>
+  <li
+    class="item"
+  >
+    <mock-com-link
+      link="https://www.invertironline.com/"
+      target="_blank"
+    >
+      <mock-com-image
+        alt="invertirOnline.com"
+        src="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png"
+      />
+    </mock-com-link>
+  </li>
+</ul>
+`;

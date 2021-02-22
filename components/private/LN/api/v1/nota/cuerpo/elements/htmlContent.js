@@ -1,10 +1,12 @@
+import { OPTA_WIDGET_URL } from 'fusion:environment';
 import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
 
-const html = htmlData => {
-    if (!htmlData || !htmlData.content) return null;
-
+const html = (nodo, dataNota) => {
+    if (!nodo || !nodo.content) return null;
+    const { _id: notaId } = dataNota;
+    const { _id: contentId, content } = nodo;
     const hrefRegex = new RegExp('(?<=</?)([^ >/]+)');
-    const htmlTag = hrefRegex.exec(htmlData.content)[1];
+    const htmlTag = hrefRegex.exec(nodo.content)[1];
 
     const resp = {
         _t: 'ext'
@@ -12,12 +14,16 @@ const html = htmlData => {
 
     switch (htmlTag) {
         case 'iframe':
-            resp.src = getEmbedHref('src', htmlData.content).trim();
+            resp.src = getEmbedHref('src', content).trim();
             resp.id = 'ifrme';
+            break;
+        case 'opta-widget':
+            resp.src = `${OPTA_WIDGET_URL}/${contentId}/${notaId}/?_website=la-nacion-ar&outputType=opta`;
+            resp.id = 'html';
             break;
         default:
             resp.id = 'html';
-            resp.src = htmlData.content;
+            resp.src = content;
             break;
     }
 

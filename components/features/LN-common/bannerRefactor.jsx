@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props */
 
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
@@ -12,11 +12,13 @@ import {
     getSlotsOptions
 } from '../../private/LN/common/bannerRefactor/config';
 import ConfigBuilder from '../../private/LN/common/bannerRefactor/builder';
+import { GlobalContext } from '../../private/common/context/globalContext';
 
 import {
     getSlotForDevice,
     isPrimarySectionInBannerSegments
 } from '../../private/LN/common/bannerRefactor/utils';
+import findTermica from '../../private/common/utils/findTermica';
 
 const Banner = props => {
     const configBuilder = useRef();
@@ -44,17 +46,14 @@ const Banner = props => {
     const { mostrar_banners: mostrarBanners } = label || {};
     const { text: mostrarBannersValue } = mostrarBanners || '';
 
-    const termicas = get(globalContent, 'siteService.termicas', []).some(
-        termica => termica.key === 'banners'
-    )
-        ? get(globalContent, 'siteService.termicas', []).find(
-              termica => termica.key === 'banners'
-          ).value === 'true'
-        : 'false';
+    const gc = useContext(GlobalContext);
+    const siteService = get(gc, 'state.siteService', {});
+
+    const termicas = findTermica('banners');
 
     const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
-    const bannersSiteConfig = get(globalContent, 'siteService.banners');
-    const adserver = get(globalContent, 'siteService.adserver', []);
+    const bannersSiteConfig = get(siteService, 'banners');
+    const adserver = get(siteService, 'adserver', []);
     const segments = adserver.map(segment => segment.value);
 
     if (!desktop && !mobile && !tablet) return null;

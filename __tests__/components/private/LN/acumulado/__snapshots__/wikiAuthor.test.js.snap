@@ -38,7 +38,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           Joaquín Morales Solá
         </h2>
         <span
-          class="com-text --threexs --profesion"
+          class="com-text --twoxs --profesion"
         />
         <div
           class="com-container  --contact"
@@ -51,7 +51,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           </a>
         </div>
         <span
-          class="com-text --threexs "
+          class="com-text --twoxs --bio"
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
@@ -76,15 +76,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  --educacion"
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
-              class="com-subtitle --threexs "
+              class="com-subtitle --twoxs "
             >
               Educación
             </dt>
             <dd
-              class="com-itemlist  --threexs"
+              class="com-itemlist  --twoxs"
             >
               <div
                 class="com-bullet"
@@ -96,7 +96,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               Periodismo, Universidad de Buenos Aires, 1989.
             </dd>
             <dd
-              class="com-itemlist  --threexs"
+              class="com-itemlist  --twoxs"
             >
               <div
                 class="com-bullet"
@@ -110,18 +110,32 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           </dl>
         </div>
         <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionlist --idiomas --twoxs"
+          >
+            <dt
+              class="com-subtitle --twoxs --idiomas"
+            >
+              Ubicación:
+            </dt>
+            Argentina
+          </dl>
+        </div>
+        <div
           class="com-container  --reconocimientos"
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
-              class="com-subtitle --threexs "
+              class="com-subtitle --twoxs "
             >
               Reconocimientos
             </dt>
             <dd
-              class="com-itemlist  --threexs"
+              class="com-itemlist  --twoxs"
             >
               <div
                 class="com-bullet"
@@ -133,7 +147,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               Condecorado por el gobierno de la República de Brasil con la Orden de Río Branco, 2002.
             </dd>
             <dd
-              class="com-itemlist  --threexs"
+              class="com-itemlist  --twoxs"
             >
               <div
                 class="com-bullet"
@@ -150,10 +164,10 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist --idiomas"
+            class="mod-descriptionlist --idiomas --twoxs"
           >
             <dt
-              class="com-subtitle --threexs --idiomas"
+              class="com-subtitle --twoxs --idiomas"
             >
               Idiomas:
             </dt>
@@ -164,10 +178,10 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist --membresia"
+            class="mod-descriptionlist --membresia --twoxs"
           >
             <dt
-              class="com-subtitle --threexs --membresia"
+              class="com-subtitle --twoxs --membresia"
             >
               Membresías profesionales:
             </dt>
@@ -178,15 +192,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
-              class="com-subtitle --threexs "
+              class="com-subtitle --twoxs "
             >
               Publicaciones
             </dt>
             <dd
-              class="com-itemlist  --threexs"
+              class="com-itemlist  --twoxs"
             >
               <div
                 class="com-bullet"
@@ -209,15 +223,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
-              class="com-subtitle --threexs "
+              class="com-subtitle --twoxs "
             >
               Podcast
             </dt>
             <dd
-              class="com-itemlist  --threexs"
+              class="com-itemlist  --twoxs"
             >
               <div
                 class="com-bullet"
@@ -234,7 +248,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
               </a>
             </dd>
             <dd
-              class="com-itemlist  --threexs"
+              class="com-itemlist  --twoxs"
             >
               <div
                 class="com-bullet"
@@ -261,7 +275,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
         class="com-container  --socialicons"
       >
         <h4
-          class="com-subtitle --threexs "
+          class="com-subtitle --twoxs "
         >
           Conectar
         </h4>
@@ -284,7 +298,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-twitter-filled --l  "
+                class="com-icon icon-twitter-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -309,7 +323,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-facebook-filled --l  "
+                class="com-icon icon-facebook-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -334,7 +348,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-youtube-filled --l  "
+                class="com-icon icon-youtube-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -359,7 +373,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-instagram-filled --l  "
+                class="com-icon icon-instagram-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -384,7 +398,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-linkedin-filled --l  "
+                class="com-icon icon-linkedin-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -409,7 +423,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-rss-filled --l  "
+                class="com-icon icon-rss-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -434,7 +448,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-medium-filled --l  "
+                class="com-icon icon-medium-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -459,7 +473,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-pinterest-filled --l  "
+                class="com-icon icon-pinterest-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -484,7 +498,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-soundcloud-filled --l  "
+                class="com-icon icon-soundcloud-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -509,7 +523,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-snapchat-filled --l  "
+                class="com-icon icon-snapchat-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -534,7 +548,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-whatsapp-filled --l  "
+                class="com-icon icon-whatsapp-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -559,7 +573,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-tumblr-filled --l  "
+                class="com-icon icon-tumblr-filled --xl  "
               />
               <span
                 class="com-text --threexs "
@@ -594,7 +608,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           Joaquín Morales Solá
         </h2>
         <span
-          class="com-text --threexs --profesion"
+          class="com-text --twoxs --profesion"
         />
         <div
           class="com-container  --contact"
@@ -607,7 +621,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           </a>
         </div>
         <span
-          class="com-text --threexs "
+          class="com-text --twoxs --bio"
         >
           Ejerce el periodismo desde los 16 años cuando ingresó al
                 diario La Gaceta de Tucumán. En 1975, Clarín lo convocó para
@@ -619,10 +633,10 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist --idiomas"
+            class="mod-descriptionlist --idiomas --twoxs"
           >
             <dt
-              class="com-subtitle --threexs --idiomas"
+              class="com-subtitle --twoxs --idiomas"
             >
               Idiomas:
             </dt>
@@ -633,15 +647,15 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  "
         >
           <dl
-            class="mod-descriptionlist "
+            class="mod-descriptionlist  --twoxs"
           >
             <dt
-              class="com-subtitle --threexs "
+              class="com-subtitle --twoxs "
             >
               Podcast
             </dt>
             <dd
-              class="com-itemlist  --threexs"
+              class="com-itemlist  --twoxs"
             >
               <div
                 class="com-bullet"
@@ -668,7 +682,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
         class="com-container  --socialicons"
       >
         <h4
-          class="com-subtitle --threexs "
+          class="com-subtitle --twoxs "
         >
           Conectar
         </h4>
@@ -691,7 +705,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
                 />
               </div>
               <i
-                class="com-icon icon-twitter-filled --l  "
+                class="com-icon icon-twitter-filled --xl  "
               />
               <span
                 class="com-text --threexs "

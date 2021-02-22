@@ -1,9 +1,9 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import HTMLLIBRE from '../../../common/utils/subtypes/htmlLibre';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
-import getPathForImage from '../../../common/utils/getPathForImage';
 import getAuthorByline from '../../../common/utils/getAuthorByline';
 import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import get from '../../../common/utils/get';
@@ -43,7 +43,7 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
     };
 
     if (promoItems && isImage) {
-        const pathImagen = getPathForImage(url);
+        const pathImagen = url;
         thumbnailUrl = `${pathImagen}`;
         image = {
             '@context': 'https://schema.org',
@@ -121,9 +121,9 @@ const getTrustProject = trust => data => sponsored => {
 
 const SnippetNoticia = props => {
     const {
-        requestUri,
         siteProperties,
         globalContent: {
+            canonical_url,
             type,
             headlines,
             content_elements: contentElements,
@@ -135,7 +135,8 @@ const SnippetNoticia = props => {
             display_date: displayDate,
             content_restrictions: { content_code: contentCode } = {},
             label,
-            owner: { sponsored }
+            owner: { sponsored },
+            subtype
         },
         contextPath,
         deployment
@@ -161,8 +162,8 @@ const SnippetNoticia = props => {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
-        articleBody: getFirstParagraph(contentElements),
-        url: `${siteProperties.host}${requestUri || ''}`,
+        articleBody: getFirstParagraph(contentElements) || '',
+        url: `${siteProperties.host}${canonical_url || ''}`,
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
         dateModified: `${new Date(displayDate).toUTCString() || ''}`,
@@ -249,19 +250,20 @@ const SnippetNoticia = props => {
             display_date: PropTypes.string,
             content_restrictions: PropTypes.shape({
                 content_code: PropTypes.string
-            })
+            }),
+            subtype: PropTypes.string
         }).isRequired,
         deployment: PropTypes.func.isRequired,
         contextPath: PropTypes.string.isRequired
     };
 
-    if (type !== 'story') return null;
-    if (!getFirstParagraph(contentElements)) return null;
-
     return (
-        <>
-            <SnippetRender id="Schema_NewsArticle" data={data} />
-        </>
+        (type === 'story' &&
+            (getFirstParagraph(contentElements) ||
+                subtype === HTMLLIBRE.id) && (
+                <SnippetRender id="Schema_NewsArticle" data={data} />
+            )) ||
+        null
     );
 };
 

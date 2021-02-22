@@ -7,7 +7,6 @@ import get from '../../../common/utils/get';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import '../../../../../resources/dist/css/ln/components/tag.css';
 import ModCategory from '../../../common/mod-category';
-import ComLink from '../../../common/com-link';
 
 const setTitle = (
     replaceTitle,
@@ -18,28 +17,6 @@ const setTitle = (
     if (nodeType === 'section') return capitalizeFirstLetter(name);
     if (byline) return capitalizeFirstLetter(byline);
     return '';
-};
-
-const convertToComLink = ({ key, link, text, title, style }) => (
-    <ComLink
-        key={key}
-        link={link}
-        textname={text}
-        title={title}
-        style={style}
-    />
-);
-
-convertToComLink.propTypes = {
-    key: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    style: PropTypes.obj
-};
-
-convertToComLink.defaultProps = {
-    style: {}
 };
 
 const AcumuladoTitle = props => {
@@ -61,24 +38,26 @@ const AcumuladoTitle = props => {
 
     const categories =
         navigationList &&
-        navigationList.map(({ _id, navigation, name }) => {
-            return {
-                key: _id,
-                item: convertToComLink({
+        navigationList.map(
+            ({
+                _id,
+                navigation,
+                name,
+                node_type: nodeType,
+                url: categoryUrl,
+                display_name: displayName
+            }) => {
+                const { nav_title: navTitle } = navigation || {};
+                const isLink = nodeType === 'link';
+                return {
                     key: _id,
-                    link: `${_id}/`,
-                    text:
-                        navigation && navigation.nav_title
-                            ? navigation.nav_title
-                            : name,
-                    title:
-                        navigation && navigation.nav_title
-                            ? navigation.nav_title
-                            : name,
+                    link: (isLink && categoryUrl) || `${_id}/`,
+                    textname: navTitle || (isLink && displayName) || name,
+                    title: navTitle || (isLink && displayName) || name,
                     ...(colorCategory && { style: { color: colorCategory } })
-                })
-            };
-        });
+                };
+            }
+        );
 
     return (
         <ModCategory

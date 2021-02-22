@@ -507,5 +507,18 @@ export default {
         subscription_id: '2f9d4a3fdc61653e686a4be85a25e1ac',
         language: 'es_CO',
         timezone: 'America/Buenos_Aires'
+    },
+    cajaTemaCss: {
+        focalLeft3: '--focal --left',
+        focalRight3: '--focal --right',
+        notaColorAzul3: '--highlight --blue',
+        notaColorRojo3: '--highlight --red',
+        notaColorRosa3: '--highlight --pink',
+        notaColorVerde3: '--highlight --teal',
+        author3: '',
+        grilla1: '--cinema',
+        grilla3: '',
+        grilla6: '',
+        grilla9: ''
     }
 };

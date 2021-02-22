@@ -5,24 +5,31 @@ import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 const getArticleInCollection = (
     idCollection = null,
     size = 2,
+    initialPosition = 0,
+    idsArticlesToExclude = [],
+    filterRecomendar = false,
+    filterRepetead = false,
+    notesQuantity,
     website = 'la-nacion-ar'
 ) => {
-    const articleList = useContent({
-        source: 'collectionsSource',
-        query: {
-            id: idCollection,
-            size,
-            website
-        },
-        filter,
-        staticMode: false
-    });
+    const articleList = idCollection
+        ? useContent({
+              source: 'collectionsSource',
+              query: {
+                  id: idCollection,
+                  size,
+                  website,
+                  from: initialPosition,
+                  idsArticlesToExclude,
+                  filterRecomendar,
+                  filterRepetead,
+                  notesQuantity
+              },
+              filter
+          })
+        : [];
 
-    const articles = get(articleList, 'content_elements', null);
-    const result =
-        articles && articles.length >= size && articles.splice(0, size);
-
-    return result || [];
+    return get(articleList, 'content_elements', []);
 };
 
 export default getArticleInCollection;

@@ -204,7 +204,7 @@ const transformContent = (jsonArticle, arcSite) => {
         );
     });
 
-    promiseArr.push(
+    /*     promiseArr.push(
         new Promise(resolver =>
             resolver(getNavigationSiteProperties(arcSite))
         ).then(data => {
@@ -215,14 +215,14 @@ const transformContent = (jsonArticle, arcSite) => {
                 termicas: data.termicas
             };
         })
-    );
+    ); */
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
 };
 
-const getNavigationSiteProperties = arcSite => {
+/* const getNavigationSiteProperties = arcSite => {
     return navigationTreeSource
         .fetch({ website: arcSite })
         .then(fetchedRelated => {
@@ -257,7 +257,7 @@ const getNavigationSiteProperties = arcSite => {
         .catch(e => {
             // console.log('Error article source: getNavigationSiteProperties -> e', e);
         });
-};
+}; */
 
 const addGalleryData = (gallery, arcSite) => {
     const { _id: galleryId } = gallery;
@@ -324,5 +324,5 @@ export default {
         paywallEnabled: 'text'
     },
     filter,
-    ttl: 240
+    ttl: 120
 };

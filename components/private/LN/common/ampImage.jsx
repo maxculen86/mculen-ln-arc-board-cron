@@ -61,12 +61,15 @@ const AmpImage = props => {
                 <ComFigcaption>
                     {caption && (
                         <ComText
-                            classCondition="--caption"
+                            classCondition="--caption --twoxs"
                             textname={caption}
                         />
                     )}
                     {credito && (
-                        <ComText classCondition="--credit" textname={credito} />
+                        <ComText
+                            classCondition="--credit --twoxs"
+                            textname={credito}
+                        />
                     )}
                 </ComFigcaption>
             )}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 
@@ -6,8 +6,9 @@ import LogoBase from '../../common/logoBase';
 import TitleArticle from './titleArticle';
 import '../../../../../resources/dist/css/ln/components/title.css';
 import getTooltip from '../../common/utils/getTooltip';
+import { GlobalContext } from '../../../common/context/globalContext';
 
-const titleAndIconArticle = ({
+const TitleAndIconArticle = ({
     customFields: { prefix },
     globalContent: {
         taxonomy: { sections },
@@ -15,11 +16,12 @@ const titleAndIconArticle = ({
         label,
         distributor,
         owner,
-        subtype,
-        siteService
+        subtype
     },
     layout
 }) => {
+    const gc = useContext(GlobalContext);
+    const siteService = get(gc, 'state.siteService', {});
     const sponsored = get(owner, 'sponsored', false);
     const advertiser = get(label, 'marca_anunciante.text', null);
 
@@ -48,7 +50,7 @@ const titleAndIconArticle = ({
     );
 };
 
-titleAndIconArticle.propTypes = {
+TitleAndIconArticle.propTypes = {
     customFields: PropTypes.shape({
         prefix: PropTypes.string.tag({
             label: 'Prefijo',
@@ -87,4 +89,4 @@ titleAndIconArticle.propTypes = {
     layout: PropTypes.string.isRequired
 };
 
-export default titleAndIconArticle;
+export default TitleAndIconArticle;

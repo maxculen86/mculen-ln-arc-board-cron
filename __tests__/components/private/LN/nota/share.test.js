@@ -2,6 +2,7 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import Share from '../../../../../components/private/LN/nota/share';
 import nota from '../../../../../__mocks__/data/articles/JZQDUAOPSRF3LLDZOT6374IDOM';
+import notaNotAllowComments from '../../../../../__mocks__/data/articles/L47IICAOMVFW5MV343TJIHS4RY';
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
@@ -86,5 +87,18 @@ describe('Share', () => {
         const button = component.find('.icon-email');
         button.simulate('click');
         expect(window.open).toHaveBeenCalled();
+    });
+
+    describe('Note display comment in false ', () => {
+        it('Matches snapshot', () => {
+            const shareWithoutCommentIcon = render(
+                <Share
+                    globalContent={notaNotAllowComments}
+                    requestUri="https://arc.lanacion.com.ar"
+                />
+            );
+
+            expect(shareWithoutCommentIcon).toMatchSnapshot();
+        });
     });
 });

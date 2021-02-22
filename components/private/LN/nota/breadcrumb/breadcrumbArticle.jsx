@@ -1,11 +1,12 @@
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import BreadcrumbComponent from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 import getDomain from '../../../common/utils/getDomain';
 import get from '../../../common/utils/get';
 import getTooltip from '../../common/utils/getTooltip';
+import { GlobalContext } from '../../../common/context/globalContext';
 
 const getPrimaryTree = (sections, section, resultSections) => {
     resultSections.push({
@@ -21,17 +22,19 @@ const getPrimaryTree = (sections, section, resultSections) => {
     }
 };
 
-const breadcrumbArticle = ({
+const BreadcrumbArticle = ({
     globalContent: {
         taxonomy: { primary_section, sections },
         website_url,
         _id,
         label,
-        siteService,
         owner
     },
     siteProperties: { title: siteTitle, host }
 }) => {
+    const gc = useContext(GlobalContext);
+    const siteService = get(gc, 'state.siteService', {});
+
     let allSections = [];
     if (primary_section) {
         getPrimaryTree(sections, primary_section, allSections);
@@ -61,7 +64,7 @@ const breadcrumbArticle = ({
     );
 };
 
-breadcrumbArticle.propTypes = {
+BreadcrumbArticle.propTypes = {
     globalContent: PropTypes.shape({
         taxonomy: PropTypes.shape({
             sections: PropTypes.array.isRequired,
@@ -95,4 +98,4 @@ breadcrumbArticle.propTypes = {
     }).isRequired
 };
 
-export default breadcrumbArticle;
+export default BreadcrumbArticle;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
+import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbTag({ tag, host }) {
@@ -12,7 +13,7 @@ function BreadcrumbTag({ tag, host }) {
         },
         {
             path: `/tema/${tag.slug}`,
-            name: tag.name
+            name: capitalizeFirstLetter(tag.name)
         }
     ];
     return (
@@ -26,7 +27,7 @@ function BreadcrumbTag({ tag, host }) {
 BreadcrumbTag.propTypes = {
     tag: PropTypes.shape({
         slug: PropTypes.string,
-        text: PropTypes.string
+        name: PropTypes.string
     }).isRequired,
     host: PropTypes.string.isRequired
 };

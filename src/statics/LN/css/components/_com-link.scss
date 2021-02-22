@@ -98,11 +98,13 @@
     }
     &.--sociallist {
         @include flex(inline, row, center, center);
+        font-weight: 700;
     }
     .--contact & {
         .mod-wikiauthor & {
             margin-bottom: $spacing-xs;
             display: inline-flex;
+            font-weight: 700;
         }
     }
     .com-breadcrumb & {

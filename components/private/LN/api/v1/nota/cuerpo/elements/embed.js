@@ -1,10 +1,10 @@
 import get from 'lodash.get';
 import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
 
-const embed = embedData => {
-    if (!embedData) return null;
+const embed = (nodo, dataNota) => {
+    if (!nodo) return null;
 
-    const valor = get(embedData, 'raw_oembed');
+    const valor = get(nodo, 'raw_oembed');
 
     if (!valor.html) return null;
 
@@ -13,6 +13,7 @@ const embed = embedData => {
     };
 
     switch (valor.type) {
+        case 'tiktok':
         case 'instagram':
             resp.id = 'html';
             resp.src = valor.html;
@@ -33,7 +34,7 @@ const embed = embedData => {
         case 'vimeo':
         case 'dailymotion':
         case 'spotify':
-            resp.id = embedData.subtype;
+            resp.id = nodo.subtype;
             resp.src = getEmbedHref('src', valor.html);
             break;
         default:

@@ -16,19 +16,25 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import getPresets from './utils/presets';
 
 const transformArticles = (liftigniterArticles = []) =>
-    liftigniterArticles.map(({ url, id, title, image }) => ({
-        subtype: 1,
-        by: {},
-        website_url: url,
-        _id: id,
-        headlines: { basic: title },
-        promo_items: {
-            basic: {
-                type: 'image',
-                url: image
+    liftigniterArticles
+        .filter(
+            e => !(e.image || e.image.includes('/images/placeholderLN.jpg'))
+        )
+        .map(({ url, id, title, image }) => ({
+            subtype: 1,
+            by: {},
+            website_url: url,
+            _id: id,
+            headlines: {
+                basic: title
+            },
+            promo_items: {
+                basic: {
+                    type: 'image',
+                    url: image
+                }
             }
-        }
-    }));
+        }));
 
 /**
  * TODO: Por completar de tarea
@@ -39,11 +45,17 @@ const fetch = query => {
     const {
         cantidadNotas = 10,
         referrer = SITE_LANACION,
-        imageConfig = 'm'
+        imageConfig = 'm',
+        idArticle,
+        userId,
+        sessionId,
+        excludeItems
     } = query;
 
+    const userIdParam = userId ? `/${userId}` : '';
+
     return request({
-        uri: `https://query.petametrics.com/v3/${JSK_ID}/model`,
+        uri: `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}/model`,
         method: 'POST',
         headers: {
             'Accept-Encoding': '*,q=0.8',
@@ -54,7 +66,11 @@ const fetch = query => {
             widgetName: WIDGETS,
             maxCount: cantidadNotas,
             requestFields: ['url', 'title', 'image', 'id', 'published_time'],
-            referrer
+            referrer,
+            pageviewId: idArticle,
+            url: referrer,
+            sessionId,
+            excludeItems
         })
     })
         .then(response => {

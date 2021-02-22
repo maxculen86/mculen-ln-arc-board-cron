@@ -19,6 +19,7 @@ const NotaApertura = props => {
                     dataSection={DATA_SECTION}
                     typeArticle={ARTICLE_TYPE}
                     outputType={outputType}
+                    withSubhead={false}
                     titleTag="h1"
                     titleSize="--l"
                 />

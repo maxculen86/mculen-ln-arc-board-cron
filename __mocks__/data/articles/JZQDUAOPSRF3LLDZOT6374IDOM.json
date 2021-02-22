@@ -2,6 +2,10 @@
     "_id": "JZQDUAOPSRF3LLDZOT6374IDOM",
     "type": "story",
     "version": "0.9.0",
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true
+    },
     "content_elements": [
         {
             "_id": "VZRCD27MXFAIFC6XEPY2KJFUQM",
