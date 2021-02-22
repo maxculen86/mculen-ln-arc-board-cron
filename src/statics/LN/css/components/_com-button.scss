@@ -4,7 +4,7 @@
 .com-button {
     @include flex(inline, row, center, center);
     background: transparent;
-    padding: $spacing-sm;
+    padding: px(12) $spacing-sm;
     color: $neutral-black;
     font-size: px(12);
     font-weight: 700;

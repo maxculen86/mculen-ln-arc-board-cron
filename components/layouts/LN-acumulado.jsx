@@ -100,7 +100,7 @@ const LNAcumuladoLayout = props => {
                     {megatop}
                     <div
                         id="wrapper"
-                        className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${OPENING_CLASS} ${amp}`}
+                        className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${sectionClass} ${OPENING_CLASS} ${amp}`}
                     >
                         <Header />
                         <main>
@@ -144,7 +144,7 @@ const LNAcumuladoLayout = props => {
 
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
-    outputType: PropTypes.string,
+    outputType: PropTypes.string.isRequired,
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
     isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({
@@ -152,6 +152,7 @@ LNAcumuladoLayout.propTypes = {
             section_style_name: PropTypes.string,
             headerdark: PropTypes.string
         }),
+        name: PropTypes.string,
         acumuladoGeneral: PropTypes.shape({
             tipo_acumulado: PropTypes.string,
             hierarchy_navigation: PropTypes.string,

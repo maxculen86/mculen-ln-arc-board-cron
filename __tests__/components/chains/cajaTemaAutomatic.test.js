@@ -183,7 +183,7 @@ describe('Test del Chain - <CajaTema />', () => {
         expect(articles1[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI');   
     });
 
-    it('Deberia filtrar 1 nota que ya esta en la manual y otra nota que tiene el label NO RECOMENDAR', () => {
+    it('Deberia filtrar 1 nota que ya esta en la manual', () => {
         const idsArticlesToExclude = getIdsArticlesFromOtherCollections(
             renderables,
             collectionsInPage
@@ -198,7 +198,7 @@ describe('Test del Chain - <CajaTema />', () => {
         expect(articles2.length).toBe(3);
         expect(articles2[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI'); 
         expect(articles2[1]._id).toBe('BBB'); 
-        expect(articles2[2]._id).toBe('CCC'); 
+        expect(articles2[2]._id).toBe('DDD'); 
     });
 
     it('Deberia traer un array vacio cuando sobrepasa la posicion de la colleccion', () => {

@@ -16,7 +16,9 @@ const MetaTitle = ({ metaTitleBasic, arcSite, title, nodeType, _id = '' }) => {
     const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
     if (acusWithMeta.includes(nodeType)) {
         const prefix = getPrefix(_id);
-        metaTitleForAcum = `Últimas${prefix}${title}`;
+        const customTitle =
+            title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
+        metaTitleForAcum = `Últimas${prefix}${customTitle}`;
     }
 
     return (
