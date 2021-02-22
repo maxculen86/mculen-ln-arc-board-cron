@@ -71,6 +71,9 @@ const HeaderDesktop = ({
         <Header id="header" className={`header`}>
             <div className="col-4 header__left">
                 <Hamburguer _onMouseDown={toglleDesplegable} />
+                <label for="queryly_toggle">
+                    <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i>
+                </label>
             </div>
             <div className="col-4 header__middle">
                 <ComLink
