@@ -1,0 +1,10 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+.mod-commentamp {
+    @include flex(flex, column, center, center);
+}
+@media ($media-l) {
+    .mod-commentamp {
+        @include flex(flex, row, between, center);
+    }
+}

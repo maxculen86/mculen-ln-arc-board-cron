@@ -18,6 +18,7 @@ import ComLink from '../../../common/com-link';
 import ComSubtitle from '../../../common/com-subtitle';
 import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
 import ComAdvance from '../../../common/com-advance';
+import ModCommentAmp from '../../../common/mod-commentAmp';
 // import ModWikiAuthor from '../../../common/mod-wikiAuthor';
 // import '../../../../../resources/dist/css/ln/base/helpers.css';
 
@@ -163,6 +164,11 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                         </ComContainer>
                     </div>
                 )}
+            </div>
+            <div className="row">
+                <div className="col-12">
+                    <ModCommentAmp />
+                </div>
             </div>
         </section>
     );
