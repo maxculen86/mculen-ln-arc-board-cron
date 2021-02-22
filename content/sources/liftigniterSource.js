@@ -16,19 +16,25 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import getPresets from './utils/presets';
 
 const transformArticles = (liftigniterArticles = []) =>
-    liftigniterArticles.map(({ url, id, title, image }) => ({
-        subtype: 1,
-        by: {},
-        website_url: url,
-        _id: id,
-        headlines: { basic: title },
-        promo_items: {
-            basic: {
-                type: 'image',
-                url: image
+    liftigniterArticles
+        .filter(
+            e => !(e.image || e.image.includes('/images/placeholderLN.jpg'))
+        )
+        .map(({ url, id, title, image }) => ({
+            subtype: 1,
+            by: {},
+            website_url: url,
+            _id: id,
+            headlines: {
+                basic: title
+            },
+            promo_items: {
+                basic: {
+                    type: 'image',
+                    url: image
+                }
             }
-        }
-    }));
+        }));
 
 /**
  * TODO: Por completar de tarea
