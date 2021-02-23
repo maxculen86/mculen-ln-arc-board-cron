@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-import React from 'react';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/promoItemsRelatedImage';
 
@@ -26,15 +25,13 @@ const addRelatedImage = article => {
             filter
         });
 
-    const a =
+    return (
         (imageData && {
             ...article,
             promo_items: { ...imageData?.promo_items }
         }) ||
-        article;
-
-    id && withoutPromoItems && imageData && console.log('a', a);
-    return a;
+        article
+    );
 };
 
 export default addRelatedImage;

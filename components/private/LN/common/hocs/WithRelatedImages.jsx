@@ -7,7 +7,7 @@ const WithRelatedImages = WrappedComponent => props => {
     const articleList = articles?.map(article => {
         return addRelatedImage(article);
     });
-    return <WrappedComponent articles={articleList || articles} />;
+    return <WrappedComponent {...props} articles={articleList || articles} />;
 };
 
 WithRelatedImages.propTypes = {

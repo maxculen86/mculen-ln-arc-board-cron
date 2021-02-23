@@ -330,6 +330,9 @@ export default `
             ${labels}
             website_url
             canonical_url
+            referent {
+                type
+            }
         }
         redirect {
             redirect_url
