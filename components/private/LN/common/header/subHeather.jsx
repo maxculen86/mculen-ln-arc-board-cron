@@ -10,8 +10,7 @@ import ComLogo from '../../../common/com-logo';
 
 const ModsubHeather = props => {
     const { data } = useContent({ source: 'dolarSource' }) || {};
-    const [dolarBna, dolarBlue] = data;
-    const {} = props;
+    const [dolarBna = {}, dolarBlue = {}] = data || [];
 
     return (
         <nav>
