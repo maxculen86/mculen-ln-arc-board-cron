@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import withRankingData from '../hocs/WithRankingData';
+import WithRelatedImages from '../hocs/WithRelatedImages';
 
 import OrderedList from '../lists/ordered';
 import ArticleMain from '../articleTypes/articleMain';
@@ -9,13 +10,7 @@ import ComTitle from '../../../common/com-title';
 
 import '../../../../../resources/dist/css/ln/components/ranking.css';
 
-const Ranking = ({ articles: a, dataSection, title }) => {
-    const [articles, setArticles] = useState(a);
-
-    useEffect(() => {
-        setArticles(a);
-    }, [a]);
-
+const Ranking = ({ articles, dataSection, title }) => {
     return (
         (articles?.length && (
             <section
@@ -52,4 +47,4 @@ Ranking.defaultProps = {
     articles: []
 };
 
-export default withRankingData(Ranking, 'm');
+export default withRankingData(WithRelatedImages(Ranking), 'm');

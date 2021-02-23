@@ -97,11 +97,7 @@ const getRankingContent = (
         filter
     });
 
-    const articleList = articles?.content_elements?.map(article => {
-        return addRelatedImage(article);
-    });
-
-    return articleList;
+    return articles?.content_elements;
 };
 
 const getArticles = (index, props, sectionId, imageConfig) => {
