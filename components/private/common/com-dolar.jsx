@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
-import ComIco from './com-icon';
 import ComLink from './com-link';
 import ComText from './com-text';
 
@@ -23,11 +21,11 @@ const ComDolar = props => {
             </ComLink>
             <ComText textname="BNA:" size={size} />
             <span id="precioCompraBna" className={`precioDolar ${size}`}>
-                {precioCompraBna ? precioCompraBna : '$00,00'}
+                {precioCompraBna ? `$${precioCompraBna}` : '$00,00'}
             </span>
             <i>/</i>
             <span id="precioVentaBna" className={`precioDolar ${size}`}>
-                {precioVentaBna ? precioVentaBna : '$00,00'}
+                {precioVentaBna ? `$${precioVentaBna}` : '$00,00'}
             </span>
             <ComLink
                 link="https://www.lanacion.com.ar/dolar-hoy"
@@ -37,11 +35,11 @@ const ComDolar = props => {
                 Blue:
             </ComLink>
             <span id="precioCompraBlue" className={`precioDolar ${size}`}>
-                {precioCompraBlue ? precioCompraBlue : '$00,00'}
+                {precioCompraBlue ? `$${precioCompraBlue}` : '$00,00'}
             </span>
             <i>/</i>
             <span id="precioVentaBlue" className={`precioDolar ${size}`}>
-                {precioVentaBlue ? precioVentaBlue : '$00,00'}
+                {precioVentaBlue ? `$${precioVentaBlue}` : '$00,00'}
             </span>
         </div>
     );

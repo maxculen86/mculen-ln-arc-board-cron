@@ -5,7 +5,10 @@ import withStatic from '../../private/common/hocs/withStatic';
 
 import TituloNota from '../../private/LN/nota/apertura/titleAndIconArticle';
 
-const tituloNota = props => <TituloNota {...props} />;
+const tituloNota = props => {
+    console.log('TESTING');
+    return <TituloNota {...props} />;
+};
 
 tituloNota.label = 'LN-Nota-Titulo';
 

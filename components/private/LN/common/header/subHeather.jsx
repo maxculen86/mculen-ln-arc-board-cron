@@ -1,26 +1,38 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
+
 import '../../../../../resources/dist/css/ln/modules/mod-subheather.css';
-import ComIco from '../../../common/com-icon';
+
 import ComWeather from '../../../common/com-weather';
-import ComText from '../../../common/com-text';
 import ComDolar from '../../../common/com-dolar';
 import ComLink from '../../../common/com-link';
 import ComLogo from '../../../common/com-logo';
 
 const ModsubHeather = props => {
+    const { data } = useContent({ source: 'dolarSource' }) || {};
+    const [dolarBna, dolarBlue] = data;
     const {} = props;
+
     return (
         <nav>
             <div className="mod-subheather">
-                <ComDolar size="--fourxs" />
-                <ComWeather size="--fourxs" iconName="sun-cloudy" />
+                <ComDolar
+                    precioCompraBna={dolarBna.compra}
+                    precioVentaBna={dolarBna.venta}
+                    precioCompraBlue={dolarBlue.compra}
+                    precioVentaBlue={dolarBlue.venta}
+                    size="--fourxs"
+                />
+
+                <ComWeather iconName="sun-cloudy" size="--fourxs" />
+
                 <ComLink
-                    textname="Recibí Newsletters"
+                    classCondition="--newsletter"
                     link="https://newsletter.lanacion.com.ar/#/"
                     size="--fourxs"
-                    classCondition="--newsletter"
+                    textname="Recibí Newsletters"
                 />
+
                 <ComLink
                     classCondition="com-club"
                     link="https://club.lanacion.com.ar/"
