@@ -34,6 +34,7 @@ const ModArticle = props => {
         anexo,
         noMedia,
         label,
+        pos,
         hour
     } = props;
     const extraOpts = {};
@@ -47,12 +48,25 @@ const ModArticle = props => {
     const marquesina = get(articleData, 'marquesina', null);
     const type = get(imagenDestacada, 'type', null);
 
+    const classDemo = `toi${pos} nid1234${pos}`;
+
+    const extraDemo = {};
+    if (frontdemo) {
+        extraDemo['data-pos'] = pos;
+        extraOpts['data-id'] = `1234${pos}`;
+        extraOpts['data-notaid'] = `1234${pos}`;
+        extraOpts['data-source'] = `editor`;
+    }
+
     return (
         <article
             className={`mod-article ${classCondition || ''} ${
-                noMedia ? '--no-media' : ''
-            } ${isRenderAuthor ? '--author' : ''}`}
+                frontdemo ? classDemo : ''
+            } ${noMedia ? '--no-media' : ''} ${
+                isRenderAuthor ? '--author' : ''
+            }`}
             {...extraOpts}
+            {...extraDemo}
         >
             {hour && hour}
 
