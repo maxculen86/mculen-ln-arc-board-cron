@@ -1,15 +1,20 @@
 jest.mock(
-    '../../../components/chains/cajaTemaAutomatic.jsx',
+    '../../../components/chains/Ln_Caja_Collection.jsx',
     () => 'mock-component'
 );
 
 import React from 'react';
 import { mount } from 'enzyme';
-import CajaTemaAutomatic from '../../../components/chains/cajaTemaAutomatic.jsx';
-import { calculateSizeOfCollection, getIdsArticlesFromOtherCollections, isInApertura } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
+import { 
+    calculateSizeOfCollection, 
+    getArticlesFromMyCurrentCollection, 
+    getIdsArticlesFromOtherCollections, 
+    isInApertura 
+} from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
 import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
+import CajaCollection from '../../../components/chains/Ln_Caja_Collection.jsx';
 
-describe('Test del Chain - <CajaTema />', () => {
+describe('Test del Chain - <Ln_Caja_Collection />', () => {
     const idCollection = 'WPDJCUD7RNAQVA4JEPFJYZMCSE';
     const title = 'Caja Tema';
     const collectionsInPage = [
@@ -86,7 +91,7 @@ describe('Test del Chain - <CajaTema />', () => {
     const renderables = [
         { 
             collection: 'chains',
-            type: 'cajaTemaCollections',
+            type: 'Ln_Caja_Collection',
             props: { 
                 customFields: {
                     idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
@@ -97,7 +102,7 @@ describe('Test del Chain - <CajaTema />', () => {
         },
         { 
             collection: 'chains',
-            type: 'cajaTemaCollections',
+            type: 'Ln_Caja_Collection',
             props: { 
                 customFields: {
                     idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
@@ -114,7 +119,7 @@ describe('Test del Chain - <CajaTema />', () => {
         { collection: 'features', type: 'LN-home/noteFeature' }
     ];
 
-    const component = mount(<CajaTemaAutomatic customFields={customFields}></CajaTemaAutomatic>);
+    const component = mount(<CajaCollection customFields={customFields} />);
 
     const mock = component.find('mock-component');
     it('Montaje del componente', () => {
@@ -149,6 +154,7 @@ describe('Test del Chain - <CajaTema />', () => {
         expect(mock.props('customFields').customFields.title).toBe(title);
     });
 
+    // Collections del tipo automatica
     it('Deberia setear el size de la collection en 7', () => {
         const size1 = calculateSizeOfCollection(collectionsInPage, 3);
         expect(size1).toBe(12);
@@ -232,6 +238,88 @@ describe('Test del Chain - <CajaTema />', () => {
     it('Deberia decirme que la caja NO esta en Apertura', () => {
         const result = isInApertura(tree, 'bbb');
         expect(result).toBeUndefined();
+    });
+
+    // Collections del tipo Manual
+    const collectionsInPage2 = [
+        {
+            idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
+            articles: [
+                {
+                    _id: 'LX2MDOW4NZF6DONWUQZPS4AHKM'
+                },
+                {
+                    _id: 'VNGGPUOJQNE4BEIRXOF36Q34K4'
+                },
+                {
+                    _id: 'QONFVVZ7FZECXHNW2EKEUKOIXQ'
+                },
+                {
+                    _id: 'FUO2YR3EABBAFOMSI2BBS6J7FM'
+                }
+
+            ]
+        },
+        {
+            idCollection: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
+            articles: [
+                
+            ]
+        }
+    ]
+
+    it('Deberia traer los 3 primeros articulos de mi collection de 4', () => {
+        const articles1 = getArticlesFromMyCurrentCollection(
+            collectionsInPage2,
+            idCollection,
+            0,
+            3
+        );
+        expect(articles1.length).toBe(3);
+        expect(articles1[0]._id).toBe('LX2MDOW4NZF6DONWUQZPS4AHKM');   
+    });
+
+    it('Deberia traer el 2do y 3er articulo de mi collection de 4', () => {
+        const articles2 = getArticlesFromMyCurrentCollection(
+            collectionsInPage2,
+            idCollection,
+            1,
+            2
+        );
+        expect(articles2.length).toBe(2);
+        expect(articles2[0]._id).toBe('VNGGPUOJQNE4BEIRXOF36Q34K4');
+        expect(articles2[1]._id).toBe('QONFVVZ7FZECXHNW2EKEUKOIXQ');
+        
+    });
+
+    it('Deberia traer un array vacio si no existe mi collection', () => {
+        const articles3 = getArticlesFromMyCurrentCollection(
+            [],
+            idCollection,
+            1,
+            3
+        );
+        expect(articles3.length).toBe(0);
+    });
+
+    it('Deberia traer un array vacio si me salgo del array de collections', () => {
+        const articles4 = getArticlesFromMyCurrentCollection(
+            collectionsInPage2,
+            idCollection,
+            5,
+            3
+        );
+        expect(articles4.length).toBe(0);
+    });
+
+    it('Deberia traer un array vacio si mi objeto collectionsInPage no tiene la prop articles', () => {
+        const articles4 = getArticlesFromMyCurrentCollection(
+            [{idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE'}],
+            idCollection,
+            1,
+            3
+        );
+        expect(articles4.length).toBe(0);
     });
 
 });

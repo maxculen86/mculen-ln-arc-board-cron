@@ -9,11 +9,12 @@ import {
     validateFeature,
     getCommonProps,
     getIdsArticlesFromOtherCollections,
-    isInApertura
+    isInApertura,
+    getArticlesFromMyCurrentCollection
 } from '../private/LN/common/utils/cajaTemasHelper';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
-const CajaTemaAutomatic = props => {
+const CajaCollection = props => {
     const {
         id: featureId,
         isAdmin,
@@ -25,12 +26,15 @@ const CajaTemaAutomatic = props => {
             backgroundColor,
             initialPosition,
             imageId,
-            hideTitle
+            hideTitle,
+            hideCaja
         },
         outputType,
         renderables,
         tree
     } = props;
+
+    if (hideCaja) return <></>;
 
     const {
         collectionsInPage,
@@ -39,29 +43,39 @@ const CajaTemaAutomatic = props => {
         classCondition
     } = getCommonProps(props);
 
-    const idsArticlesToExclude = getIdsArticlesFromOtherCollections(
-        renderables,
-        collectionsInPage
+    const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
+        collectionsInPage,
+        idCollection,
+        Number(initialPosition) - 1,
+        Number(notesQuantity)
     );
+
+    const isManualCollection = articlesFromCollectionSiteService.length > 0;
+
+    const idsArticlesToExclude = !isManualCollection
+        ? getIdsArticlesFromOtherCollections(renderables, collectionsInPage)
+        : [];
 
     const isInsideApertura = isInApertura(tree, featureId);
 
     const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
 
-    const articlesToShow = getArticleInCollection(
-        idCollection,
-        size,
-        Number(initialPosition) - 1,
-        idsArticlesToExclude,
-        true,
-        true,
-        Number(notesQuantity)
-    );
+    const articlesToShow = !isManualCollection
+        ? getArticleInCollection(
+              idCollection,
+              size,
+              Number(initialPosition) - 1,
+              idsArticlesToExclude,
+              true,
+              !isManualCollection,
+              Number(notesQuantity)
+          )
+        : [];
 
     const error = validateFeature(
         idCollection,
-        articlesToShow,
-        `La colección ${idCollection} no encontró notas (verificar si el tamaño de la colección esta configurado en 20 notas)`
+        isManualCollection ? articlesFromCollectionSiteService : articlesToShow,
+        `La colección ${idCollection} no encontró notas`
     );
 
     if (isAdmin && !!error) {
@@ -93,7 +107,11 @@ const CajaTemaAutomatic = props => {
             classCondition={classCondition}
             idsArticlesToExclude={idsArticlesToExclude}
             notesQuantity={notesQuantity}
-            articles={articlesToShow}
+            articles={
+                isManualCollection
+                    ? articlesFromCollectionSiteService
+                    : articlesToShow
+            }
             idCollection={idCollection}
             size={size}
             titleSize={isInsideApertura && '--l'}
@@ -107,9 +125,9 @@ const CajaTemaAutomatic = props => {
     );
 };
 
-CajaTemaAutomatic.label = 'LN Caja Automatica';
+CajaCollection.label = 'LN Caja Collection';
 
-CajaTemaAutomatic.propTypes = {
+CajaCollection.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     outputType: PropTypes.bool.isRequired,
@@ -126,9 +144,9 @@ CajaTemaAutomatic.propTypes = {
         })
     ).isRequired,
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaTemaAutomatic')
+        ...cajaTemasCustomsFields('cajaCollection')
     }).isRequired,
     tree: PropTypes.shape(PropTypes.node).isRequired
 };
 
-export default Consumer(CajaTemaAutomatic);
+export default Consumer(CajaCollection);

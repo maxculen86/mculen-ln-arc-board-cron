@@ -20,26 +20,6 @@ import { slotsConfig } from '../../common/bannerRefactor/config';
 import { GlobalContext } from '../../../common/context/globalContext';
 
 class GrillaNotas extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { articlesInBox: [] };
-    }
-
-    componentDidMount() {
-        const msgHandler = message => {
-            this.setState(prevState => {
-                return {
-                    ...prevState,
-                    articlesInBox: prevState.articlesInBox.concat(
-                        message.articlesInBox
-                    )
-                };
-            });
-            // this.removeEventListener('articlesInBox', msgHandler);
-        };
-        this.addEventListener('articlesInBox', msgHandler);
-    }
-
     getBanner = index => {
         const position = index + 1;
         const {
@@ -119,17 +99,11 @@ class GrillaNotas extends React.Component {
             loading,
             typeArticle,
             outputType,
-            articlesInGlobalProvider
+            idsArticlesToExclude
         } = this.props;
-        const { articlesInBox } = this.state;
 
         const articlesInNoCollection = articles.filter(
-            art =>
-                !articlesInBox.some(artInColl => artInColl._id === art._id) &&
-                !articlesInGlobalProvider.some(
-                    artInColl => artInColl._id === art._id
-                ) &&
-                art
+            art => !idsArticlesToExclude.some(idArt => idArt === art._id)
         );
 
         return (
@@ -164,7 +138,7 @@ GrillaNotas.propTypes = {
     termicas: PropTypes.string.isRequired,
     arcSite: PropTypes.string.isRequired,
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
-    articlesInGlobalProvider: PropTypes.arrayOf(PropTypes.object).isRequired,
+    idsArticlesToExclude: PropTypes.arrayOf(PropTypes.string).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
     obtenerMasNotas: PropTypes.func.isRequired,
     globalContent: PropTypes.shape({
