@@ -182,7 +182,6 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
         const articles1 = getArticlesToShow(
             articlesFromAutomatic,
             idsArticlesToExclude,
-            0,
             2
         );
         expect(articles1.length).toBe(2);
@@ -198,7 +197,6 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
         const articles2 = getArticlesToShow(
             articlesFromAutomatic,
             idsArticlesToExclude,
-            0,
             3
         );
         expect(articles2.length).toBe(3);
@@ -207,14 +205,13 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
         expect(articles2[2]._id).toBe('DDD'); 
     });
 
-    it('Deberia traer un array vacio cuando sobrepasa la posicion de la colleccion', () => {
+    it('Deberia traer 5 articulos a pesar que pedi 10', () => {
         const articles2 = getArticlesToShow(
             articlesFromAutomatic,
-            collectionsInPage,
-            5,
-            3
+            [],
+            10
         );
-        expect(articles2.length).toBe(0);
+        expect(articles2.length).toBe(5);
     });
 
     const tree = {

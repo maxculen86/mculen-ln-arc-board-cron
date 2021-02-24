@@ -5,7 +5,6 @@ import getArticleInCollection from '../private/LN/common/utils/getArticleInColle
 import CajaTema from '../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
-    calculateSizeOfCollection,
     validateFeature,
     getCommonProps,
     getIdsArticlesFromOtherCollections,
@@ -50,31 +49,29 @@ const CajaCollection = props => {
         Number(notesQuantity)
     );
 
-    const isManualCollection = articlesFromCollectionSiteService.length > 0;
+    const isInSiteService = articlesFromCollectionSiteService.length > 0;
 
-    const idsArticlesToExclude = !isManualCollection
+    const idsArticlesToExclude = !isInSiteService
         ? getIdsArticlesFromOtherCollections(renderables, collectionsInPage)
         : [];
 
     const isInsideApertura = isInApertura(tree, featureId);
 
-    const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
-
-    const articlesToShow = !isManualCollection
+    const articlesToShow = !isInSiteService
         ? getArticleInCollection(
               idCollection,
-              size,
+              20,
               Number(initialPosition) - 1,
               idsArticlesToExclude,
               true,
-              !isManualCollection,
+              !isInSiteService,
               Number(notesQuantity)
           )
         : [];
 
     const error = validateFeature(
         idCollection,
-        isManualCollection ? articlesFromCollectionSiteService : articlesToShow,
+        isInSiteService ? articlesFromCollectionSiteService : articlesToShow,
         `La colección ${idCollection} no encontró notas`
     );
 
@@ -105,17 +102,13 @@ const CajaCollection = props => {
             outputType={outputType}
             layout={layout}
             classCondition={classCondition}
-            idsArticlesToExclude={idsArticlesToExclude}
             notesQuantity={notesQuantity}
             articles={
-                isManualCollection
+                isInSiteService
                     ? articlesFromCollectionSiteService
                     : articlesToShow
             }
-            idCollection={idCollection}
-            size={size}
             titleSize={isInsideApertura && '--l'}
-            from={initialPosition - 1}
             backgroundColor={
                 backgroundColor !== 'default'
                     ? `${bgColor}${backgroundColor}`
