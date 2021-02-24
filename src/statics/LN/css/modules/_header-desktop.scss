@@ -6,7 +6,7 @@
     // display: none;
     position: relative;
     border-bottom: 1px solid $light-neutral-200;
-    padding: px(13) 0;
+    padding: px(12) 0;
     background: $neutral-white;
     width: 100%;
     z-index: 101;
@@ -32,10 +32,13 @@
         // max-width: 66.66667%;
         // display: flex;
         //aca logo lanacion
+        .com-link {
+            display: flex;
+        }
         .logo-la-nacion {
             color: $ln-active;
             @media ($media-m) {
-                font-size: px(26);
+                font-size: px(20);
             }
             @media ($media-l) {
                 font-size: px(30);
@@ -181,13 +184,14 @@
 
     @media ($media-l) {
         //height: px(65);
+        padding: px(16) 0;
         border-bottom: 1px solid $light-neutral-300;
 
         &__left {
             display: block;
             //padding-top: 0;
             display: grid;
-            grid-template-columns: px(140) 1fr;
+            grid-template-columns: px(151) 1fr;
             align-items: center;
 
             // .com-hamburger {
@@ -217,7 +221,7 @@
             .com-usuario {
                 .--secondary {
                     display: flex;
-                    margin-left: px(16);
+                    margin-left: px(24);
                 }
             }
         }

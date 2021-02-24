@@ -4,7 +4,7 @@
 .com-button {
     @include flex(inline, row, center, center);
     background: transparent;
-    padding: px(11) px(15);
+    padding: px(12) px(16);
     color: $neutral-black;
     font-size: px(12);
     font-weight: 700;
@@ -169,7 +169,7 @@
         }
     }
     &.--compact {
-        padding: px(7) px(15);
+        padding: px(8) px(16);
     }
     .--slider & {
         background: $neutral-black;
