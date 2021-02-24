@@ -17,6 +17,7 @@ import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import CargaEnBloque from '../private/LN/common/cargaEnBloque';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -55,7 +56,8 @@ const LNAcumuladoLayout = props => {
         globalContent,
         outputType,
         tree,
-        isAdmin
+        isAdmin,
+        renderables
     } = props;
     const { style, name = '' } = globalContent;
     const sectionStyleName =
@@ -127,6 +129,7 @@ const LNAcumuladoLayout = props => {
                                 <div className="sidebar__main">
                                     {/* NOTAS */}
                                     {notas}
+                                    <CargaEnBloque renderables={renderables} />
                                 </div>
                                 <div className="sidebar__aside hlp-tablet-none">
                                     {/* BANNERS, RANKING DE NOTAS */}
