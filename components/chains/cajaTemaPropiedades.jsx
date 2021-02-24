@@ -52,7 +52,7 @@ const CajaTemaPropiedades = props => {
     );
 };
 
-CajaTemaPropiedades.label = 'LN Acum Caja Tema Propiedades';
+CajaTemaPropiedades.label = 'LN Acum Caja Tema Propiedades (no usar)';
 
 CajaTemaPropiedades.propTypes = {
     id: PropTypes.string.isRequired,
