@@ -72,7 +72,10 @@ const HeaderDesktop = ({
             <div className="col-4 header__left">
                 <Hamburguer _onMouseDown={toglleDesplegable} />
                 <label for="queryly_toggle">
-                    <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i>
+                    <i className="com-button --tertiary queryly_searchicon">
+                        BUSCAR
+                    </i>
+                    {/* <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i> */}
                 </label>
             </div>
             <div className="col-4 header__middle">
@@ -90,7 +93,7 @@ const HeaderDesktop = ({
                 >
                     {!loginData.subscription && (
                         <button
-                            className="com-button --special --compact"
+                            className="com-button --special"
                             type="button"
                             onClick={() => {
                                 location.href =
@@ -147,7 +150,7 @@ const HeaderDesktop = ({
                     {!logueado && (
                         <button
                             type="button"
-                            className="com-button --secondary --compact"
+                            className="com-button --secondary"
                             onClick={() => goToLoginUrl()}
                         >
                             INGRESAR

@@ -71,37 +71,36 @@
 
     //variantes
     &.--primary {
-        background: $ln;
-        border-color: $ln;
-        color: $neutral-white;
+        background: $light-blue-500;
+        border-color: $light-blue-500;
+        color: $light-neutral-50;
 
         &:hover {
-            background: rgba($ln, 0.8);
+            background: $light-blue-400;
         }
         &:active {
-            background: $ln-active;
+            background: $light-blue-600;
         }
         &:disabled {
-            background: $light-neutral-300;
-            color: $light-neutral-400;
+            background: $light-neutral-400;
         }
     }
     &.--secondary {
-        border-color: $ln;
-        color: $ln;
+        border-color: $light-blue-500;
+        color: $light-blue-500;
         &:hover {
-            background: rgba($ln, 1);
-            color: $neutral-white;
+            background: $light-blue-500;
+            color: $light-neutral-50;
         }
         &:active {
-            background: $ln-active;
-            border: 1px solid;
-            color: $neutral-white;
+            border-color: $light-blue-600;
+            background: $light-blue-600;
+            color: $light-neutral-50;
         }
         &:disabled {
-            background: $light-neutral-300;
+            background: $light-neutral-400;
             color: $light-neutral-400;
-            border: 1px solid $light-neutral-400;
+            border-color: $light-neutral-400;
         }
         .com-usuario & {
             .header & {
@@ -123,40 +122,39 @@
         }
     }
     &.--tertiary {
-        border-color: $light-neutral-400;
-        background: $light-neutral-400;
-        color: $light-neutral-600;
+        border-color: $light-neutral-200;
+        background: $light-neutral-200;
+        color: $light-neutral-800;
 
         &:hover {
-            background: rgba($light-neutral-400, 0.7);
+            background: $light-neutral-300;
         }
         &:active {
-            background: $light-neutral-500;
-            color: $light-neutral-700;
+            background: $light-neutral-400;
         }
         &:disabled {
             background: $light-neutral-300;
-            color: $light-neutral-400;
+            color: $light-neutral-500;
         }
     }
     &.--special,
     &.--highlight {
         background: $highlight;
         border-color: $light-neutral-400;
-        color: $light-neutral-700;
+        color: $neutral-black;
 
         &:hover {
             background: $neutral-black;
             border-color: $neutral-black;
-            color: $neutral-white;
+            color: $light-neutral-50;
         }
         &:active {
-            background: $highlight-active;
-            border-color: $light-neutral-400;
-            color: $light-neutral-700;
+            background: $neutral-black;
+            border-color: $neutral-black;
+            color: $light-neutral-50;
         }
         &:disabled {
-            background: $light-neutral-300;
+            background: $light-neutral-400;
             color: $light-neutral-400;
             border-color: $light-neutral-400;
         }
