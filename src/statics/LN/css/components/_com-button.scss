@@ -4,7 +4,7 @@
 .com-button {
     @include flex(inline, row, center, center);
     background: transparent;
-    padding: px(12) $spacing-sm;
+    padding: px(11) px(15);
     color: $neutral-black;
     font-size: px(12);
     font-weight: 700;
@@ -103,9 +103,9 @@
             border-color: $light-neutral-400;
         }
         .com-usuario & {
-            .header & {
-                display: none;
-            }
+            // .header & {
+            //     display: none;
+            // }
             .amp.--transparent & {
                 @media ($media-l) {
                     color: $neutral-white;
@@ -137,8 +137,8 @@
             color: $light-neutral-500;
         }
     }
-    &.--special,
-    &.--highlight {
+    //&.--highlight,
+    &.--special {
         background: $highlight;
         border-color: $light-neutral-400;
         color: $neutral-black;
@@ -159,12 +159,6 @@
             border-color: $light-neutral-400;
         }
         .com-usuario & {
-            .header & {
-                background: transparent;
-                border-color: transparent;
-                padding: px(3) px(16);
-                font-weight: 100;
-            }
             .amp.--transparent & {
                 color: $neutral-white;
                 @media ($media-l) {
@@ -175,7 +169,7 @@
         }
     }
     &.--compact {
-        padding: $spacing-xs $spacing-sm;
+        padding: px(7) px(15);
     }
     .--slider & {
         background: $neutral-black;
@@ -270,30 +264,34 @@
                 flex-direction: column;
             }
         }
-        &.--secondary {
-            .com-usuario & {
-                .header & {
-                    display: flex;
-                }
-            }
-        }
+        // &.--secondary {
+        //     .com-usuario & {
+        //         .header & {
+        //             display: flex;
+        //         }
+        //     }
+        // }
         //&.--highlight,
-        &.--special.--special {
-            .com-usuario & {
-                .header & {
-                    background: $highlight;
-                    color: $light-neutral-700;
-                    border-color: $light-neutral-400;
-                    margin-right: px(16);
-                    padding: px(8) px(16);
-                    font-weight: 700;
-                    &:hover {
-                        background: $neutral-black;
-                        border-color: $neutral-black;
-                        color: $neutral-white;
-                    }
-                }
-            }
-        }
+        // &.--special.--special {
+        //     .com-usuario & {
+        //         .header & {
+        //             background: $highlight;
+        //             color: $light-neutral-700;
+        //             border-color: $light-neutral-400;
+        //             margin-right: px(16);
+        //             padding: px(8) px(16);
+        //             font-weight: 700;
+        //             &:hover {
+        //                 background: $neutral-black;
+        //                 border-color: $neutral-black;
+        //                 color: $neutral-white;
+        //             }
+        //         }
+        //     }
+        // }
     }
+}
+
+.double-teaser__title.double-teaser__title {
+    color: lightcoral;
 }

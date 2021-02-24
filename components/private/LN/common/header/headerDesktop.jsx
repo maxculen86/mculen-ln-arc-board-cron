@@ -5,6 +5,7 @@ import Header from './headerBase';
 import Hamburguer from './hamburger';
 import ComLink from '../../../common/com-link';
 import ComLogo from '../../../common/com-logo';
+import ComIcon from '../../../common/com-icon';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
@@ -72,13 +73,14 @@ const HeaderDesktop = ({
             <div className="col-4 header__left">
                 <Hamburguer _onMouseDown={toglleDesplegable} />
                 <label for="queryly_toggle">
-                    <i className="com-button --tertiary queryly_searchicon">
+                    <i className="com-button --tertiary --icon queryly_searchicon">
+                        <ComIcon iconName="search" />
                         BUSCAR
                     </i>
                     {/* <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i> */}
                 </label>
             </div>
-            <div className="col-4 header__middle">
+            <div className="col-7 col-desksm-4 header__middle">
                 <ComLink
                     link={host || '/'}
                     classCondition="header__middle__logo"
@@ -157,6 +159,11 @@ const HeaderDesktop = ({
                         </button>
                     )}
                 </div>
+            </div>
+            <div className="col-1 header__search">
+                <label for="queryly_toggle">
+                    <i className="com-icon icon-search queryly_searchicon" />
+                </label>
             </div>
         </Header>
     );

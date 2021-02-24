@@ -2,29 +2,29 @@
 //=========================
 // Hamburger
 //=========================
-.com-hamburger {
-    position: relative;
-    width: px(40);
-    height: px(32);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    transition: all 0.2s ease-in-out;
+//.com-hamburger {
+//     position: relative;
+//     width: px(40);
+//     height: px(32);
+//     cursor: pointer;
+//     display: flex;
+//     justify-content: space-around;
+//     flex-direction: column;
+//     transition: all 0.2s ease-in-out;
 
-    &:before {
-        content: 'Secciones';
-        position: absolute;
-        width: px(60);
-        left: px(42);
-        top: px(10);
-        font-size: px(12);
-    }
-    &:hover {
-        color: $link;
-    }
+//     &:before {
+//         content: 'Secciones';
+//         position: absolute;
+//         width: px(60);
+//         left: px(42);
+//         top: px(10);
+//         font-size: px(12);
+//     }
+//     &:hover {
+//         color: $link;
+//     }
 
-    .com-icon {
-        font-size: px(30);
-    }
-}
+//     .com-icon {
+//         font-size: px(30);
+//     }
+//}
