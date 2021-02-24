@@ -51,7 +51,7 @@
         .--secondary {
             display: none;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 1023px) {
             .com-usuario {
                 .--special {
                     background: transparent;
@@ -162,38 +162,29 @@
         }
     }
 
-    @media (min-width: 769px) {
-        &__left {
-            display: block;
-            //padding-top: px(5);
+    // @media (min-width: 769px) {
 
-            .com-hamburger {
-                display: none;
-            }
-        }
+    //     // &__middle {
+    //     //     &.col-4 {
+    //     //         -ms-flex: 0 0 33.33333%;
+    //     //         flex: 0 0 33.33333%;
+    //     //         max-width: 33.33333%;
+    //     //         //aca logo lanacion
+    //     //     }
+    //     // }
 
-        // &__middle {
-        //     &.col-4 {
-        //         -ms-flex: 0 0 33.33333%;
-        //         flex: 0 0 33.33333%;
-        //         max-width: 33.33333%;
-        //         //aca logo lanacion
-        //     }
-        // }
+    //     // &__right {
+    //     //     //padding-top: px(5);
+    //     // }
 
-        // &__right {
-        //     //padding-top: px(5);
-        // }
-        &__search {
-            display: none;
-        }
-    }
+    // }
 
     @media ($media-l) {
         //height: px(65);
         border-bottom: 1px solid $light-neutral-300;
 
         &__left {
+            display: block;
             //padding-top: 0;
             display: grid;
             grid-template-columns: px(140) 1fr;
@@ -203,7 +194,9 @@
                 display: block;
             }
         }
+
         &__middle {
+            text-align: center;
             &.col-4 {
                 text-align: center;
                 justify-content: center;
@@ -227,6 +220,10 @@
                     margin-left: px(16);
                 }
             }
+        }
+
+        &__search {
+            display: none;
         }
 
         //=================================
