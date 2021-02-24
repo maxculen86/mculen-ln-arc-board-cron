@@ -512,17 +512,31 @@ export default {
         language: 'es_CO',
         timezone: 'America/Buenos_Aires'
     },
-    cajaTemaCss: {
-        focalLeft3: '--focal --left',
-        focalRight3: '--focal --right',
-        notaColorAzul3: '--highlight --blue',
-        notaColorRojo3: '--highlight --red',
-        notaColorRosa3: '--highlight --pink',
-        notaColorVerde3: '--highlight --teal',
-        author3: '',
-        grilla1: '--cinema',
-        grilla3: '',
-        grilla6: '',
-        grilla9: ''
+    cajaTemaConfig: {
+        focalLeft3: {
+            className: '--focal --left',
+            articles: {
+                0: { titleSize: '--xl', withSubheadAndMedia: true },
+                1: { titleSize: '--xs', withSubheadAndMedia: false },
+                2: { titleSize: '--xs', withSubheadAndMedia: false }
+            }
+        },
+        focalRight2: {
+            className: '--focal --right',
+            articles: {
+                0: { titleSize: '--l', withSubheadAndMedia: true },
+                1: { titleSize: '--xl', withSubheadAndMedia: true }
+            }
+        },
+        notaColorAzul3: { className: '--highlight --blue' },
+        notaColorRojo3: { className: '--highlight --red' },
+        notaColorRosa3: { className: '--highlight --pink' },
+        notaColorVerde3: { className: '--highlight --teal' },
+        author3: { className: '' },
+        grilla1: { className: '--cinema' },
+        grilla2: { className: '' },
+        grilla3: { className: '' },
+        grilla6: { className: '' },
+        grilla9: { className: '' }
     }
 };

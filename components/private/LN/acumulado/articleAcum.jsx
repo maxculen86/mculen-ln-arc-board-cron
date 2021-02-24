@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModArticle from '../../common/mod-article';
 import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTextParagraph';
-import getTitleText from '../../common/utils/getTitleText';
 import ComHour from '../../common/com-hour';
+import get from '../../common/utils/get';
 import getAuthorsAsString from '../../common/utils/getAuthorsAsString';
 
 const typeAcumRules = {
@@ -51,7 +51,8 @@ const ArticleAcum = ({
 
     const subheadText = withSubhead && getBajadaOrFirstTextParagraph(article);
 
-    const titleText = getTitleText(headlines, label);
+    const titleText = get(headlines, 'mobile') || get(headlines, 'basic');
+    const leadText = get(label, 'volanta.text', '');
 
     const tagList =
         (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
@@ -74,6 +75,7 @@ const ArticleAcum = ({
                 titleTag={titleTag}
                 titleSize={titleSize}
                 titleText={titleText}
+                leadText={leadText}
                 authors={authors}
                 dateText={!typeAcumRules[typeArticle].withHour && display_date}
                 hour={hourToDisplay}

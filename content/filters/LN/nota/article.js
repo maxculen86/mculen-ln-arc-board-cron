@@ -282,6 +282,9 @@ export default `
             slug
             image {
                 url
+                resized_urls {
+                    ${imageResizedUrl}
+                }
             }
             additional_properties {
                 original {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import NoteCard from '../../../features/LN-home/noteFeature';
+import NoteCard from '../../../features/LN-common/articulo';
 
 const FeedNotes = feedName => {
     const content = useContent({
