@@ -22,14 +22,10 @@ const lnBuscador = ({ children }) => {
     return (
         <GlobalProvider>
             <LoginProvider>
-                <div id="wrapper" className="nota">
+                <div id="wrapper" className="buscador">
                     <Header />
                     <main>
-                        <div className="lay">
-                            <div className="row">
-                                <div className="col-12"> {children[0]} </div>
-                            </div>
-                        </div>
+                        <div className="lay">{children[0]}</div>
                     </main>
                     <Footer />
                 </div>
