@@ -26,7 +26,10 @@ export const createResizer = (resizerKey, resizerUrl) => {
         if (!newHeight && !newWidth)
             throw new Error('Height and Width required');
 
-        const cleanedUrl = originalUrl.replace(/(^\w+:|^)\/\//, '');
+        const cleanedUrl = originalUrl.replace(
+            /.*\/resizer\/[a-zA-Z0-9_\-=]+((?:\/[0-9x]+)?(?:\/smart)?(?:\/+(?:filters:.+?)?)?)?\/|(^\w+:\/\/|^)/,
+            ''
+        );
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
         thumbor.filter(`quality(${filterQuality})`);

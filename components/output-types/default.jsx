@@ -202,7 +202,7 @@ const Default = props => {
                 <MetaDescription
                     subtype={subtype}
                     nodeType={nodeType}
-                    name={name}
+                    name={name || title}
                     _id={_id}
                     payload={Payload}
                     authorType={authorType}

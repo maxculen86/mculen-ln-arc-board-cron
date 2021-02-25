@@ -1,7 +1,10 @@
 /* eslint-disable no-underscore-dangle */
+import { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
+import { GlobalContext } from '../../acumulado/context/globalContextAcu';
+import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const featuredRules = {
     cajaTemaCollections: {
@@ -31,11 +34,9 @@ export const validateFeature = (idCollection, articles, message) => {
 export const getCommonProps = props => {
     const {
         customFields: { layout = '', backgroundColor },
-        globalContent
     } = props;
-
     const { cajaTemaCss = {} } = config || {};
-    const { collectionsInPage = [] } = globalContent || {};
+    const { collectionsInPage = [] } = useGlobalProviderAcu();
     const notesQuantity = layout.slice(-1);
     const bgColor =
         backgroundColor === 'default' || backgroundColor === null
@@ -116,6 +117,11 @@ export const calculateSizeOfCollection = (collections, notesQuantity) => {
     );
     const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
     return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
+};
+
+export const isInApertura = (tree = {}, idFeature) => {
+    const sectionApertura = get(tree, 'children[4].children', []);
+    return sectionApertura.find(child => child.props.id === idFeature);
 };
 
 export const cajaTemasCustomsFields = featuredName => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import getArticleInCollection from '../private/LN/common/utils/getArticleInCollection';
@@ -9,7 +8,8 @@ import {
     calculateSizeOfCollection,
     validateFeature,
     getCommonProps,
-    getIdsArticlesFromOtherCollections
+    getIdsArticlesFromOtherCollections,
+    isInApertura
 } from '../private/LN/common/utils/cajaTemasHelper';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
@@ -28,7 +28,8 @@ const CajaTemaAutomatic = props => {
             hideTitle
         },
         outputType,
-        renderables
+        renderables,
+        tree
     } = props;
 
     const {
@@ -42,6 +43,8 @@ const CajaTemaAutomatic = props => {
         renderables,
         collectionsInPage
     );
+
+    const isInsideApertura = isInApertura(tree, featureId);
 
     const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
 
@@ -79,24 +82,27 @@ const CajaTemaAutomatic = props => {
     }
 
     return (
-        <Static id={featureId}>
-            <CajaTema
-                title={title}
-                hideTitle={hideTitle}
-                url={url}
-                imageId={imageId}
-                outputType={outputType}
-                layout={layout}
-                classCondition={classCondition}
-                articles={articlesToShow}
-                notesQuantity={notesQuantity}
-                backgroundColor={
-                    backgroundColor !== 'default'
-                        ? `${bgColor}${backgroundColor}`
-                        : ''
-                }
-            />
-        </Static>
+        <CajaTema
+            title={title}
+            hideTitle={hideTitle}
+            url={url}
+            imageId={imageId}
+            outputType={outputType}
+            layout={layout}
+            classCondition={classCondition}
+            idsArticlesToExclude={idsArticlesToExclude}
+            notesQuantity={notesQuantity}
+            articles={articlesToShow}
+            idCollection={idCollection}
+            size={size}
+            titleSize={isInsideApertura && '--l'}
+            from={initialPosition - 1}
+            backgroundColor={
+                backgroundColor !== 'default'
+                    ? `${bgColor}${backgroundColor}`
+                    : ''
+            }
+        />
     );
 };
 
@@ -120,7 +126,8 @@ CajaTemaAutomatic.propTypes = {
     ).isRequired,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaTemaAutomatic')
-    }).isRequired
+    }).isRequired,
+    tree: PropTypes.shape(PropTypes.node).isRequired
 };
 
 export default Consumer(CajaTemaAutomatic);

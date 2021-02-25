@@ -121,9 +121,9 @@ const getTrustProject = trust => data => sponsored => {
 
 const SnippetNoticia = props => {
     const {
-        requestUri,
         siteProperties,
         globalContent: {
+            canonical_url,
             type,
             headlines,
             content_elements: contentElements,
@@ -163,7 +163,7 @@ const SnippetNoticia = props => {
         '@type': 'NewsArticle',
         headline: headlines && `${headlines.basic || 'LA NACION - Noticia'}`,
         articleBody: getFirstParagraph(contentElements) || '',
-        url: `${siteProperties.host}${requestUri || ''}`,
+        url: `${siteProperties.host}${canonical_url || ''}`,
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
         dateModified: `${new Date(displayDate).toUTCString() || ''}`,
