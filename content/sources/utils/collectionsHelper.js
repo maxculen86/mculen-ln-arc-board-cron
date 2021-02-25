@@ -7,7 +7,6 @@ export const isNotRecommend = article => {
 export const getArticlesToShow = (
     articles = [],
     idsArticlesToExclude = [],
-    from,
     notesQuantity
 ) => {
     const articlesFiltered = articles.filter(
@@ -15,7 +14,7 @@ export const getArticlesToShow = (
     );
 
     const articlesToShow = articlesFiltered
-        ? articlesFiltered.slice(from, from + notesQuantity)
+        ? articlesFiltered.slice(0, notesQuantity)
         : [];
     return articlesToShow;
 };
