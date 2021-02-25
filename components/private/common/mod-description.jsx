@@ -5,6 +5,11 @@ import ComDate from './com-date';
 import ModBajada from './mod-bajada';
 import ModMarquesina from './mod-marquee';
 import ComLabel from './com-labelArticle';
+import ComLink from './com-link';
+import listItems from './listItems';
+import ListItemsFactory from './listItems';
+import ListOrderedOrUnordered from '../LN/nota/cuerpo/listOrderedOrUnordered';
+import ComTag from './com-tag';
 
 const ModDescription = props => {
     const {
@@ -22,6 +27,13 @@ const ModDescription = props => {
         lead,
         marquesina
     } = props;
+    const list = [
+        'Sección o Categoría',
+        'Tag uno',
+        'Tag dos',
+        'Tag tres',
+        'Tag cuatro con tema extra largo'
+    ]; //BORRAR
 
     return (
         <section className="mod-description">
@@ -41,12 +53,23 @@ const ModDescription = props => {
                     subheadText={subheadText}
                 />
             )}
-
-            <ModMarquesina
-                text={marquesina || authors}
-                size={authorSize}
-                link={link}
-            />
+            <div>
+                <ModMarquesina
+                    text="Autor y Marquesina" /*{marquesina || authors}*/
+                    size="--fourxs" /* {authorSize} */
+                    link={link}
+                />
+                {list.map(item => (
+                    <ComTag
+                        iconName="bullet"
+                        textname={item}
+                        sizeText="--fourxs"
+                        sizeBullet="--fourxs"
+                        link="#"
+                        classCondition="--tags"
+                    />
+                ))}
+            </div>
 
             {dateText && <ComDate display_date={dateText} size="--fourxs" />}
         </section>
@@ -67,15 +90,15 @@ ModDescription.propTypes = {
 };
 
 ModDescription.defaultProps = {
-    titleTag: 'h4',
+    titleTag: 'h2',
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
     dateText: undefined,
     dateSize: undefined,
-    authors: '',
+    authors: 'Autor y',
     link: undefined,
-    marquesina: ''
+    marquesina: 'Marquesina'
 };
 
 export default ModDescription;

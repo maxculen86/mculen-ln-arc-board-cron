@@ -114,6 +114,18 @@
         justify-content: center;
         align-items: center;
     }
+    .--tags {
+        .mod-description & {
+            .mod-article & {
+                .breaking-news & {
+                    .acumulado & {
+                        color: $link;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
 }
 @media ($media-l) {
     .com-link {
