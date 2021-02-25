@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-import { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
@@ -7,11 +6,15 @@ import { GlobalContext } from '../../acumulado/context/globalContextAcu';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const featuredRules = {
-    cajaTemaCollections: {
-        hideInitialPosition: false
+    cajaCollection: {
+        hideInitialPosition: false,
+        hideIdCollection: false,
+        hideHideCaja: false
     },
-    cajaTemaAutomatic: {
-        hideInitialPosition: true
+    cajaManual: {
+        hideInitialPosition: true,
+        hideIdCollection: true,
+        hideHideCaja: true
     }
 };
 
@@ -67,7 +70,7 @@ export const getIdsArticlesFromOtherCollections = (
     collectionsInPage
 ) => {
     const chainsCollections = renderables.filter(
-        ren => ren.collection === 'chains' && ren.type === 'cajaTemaCollections'
+        ren => ren.collection === 'chains' && ren.type === 'Ln_Caja_Collection'
     );
 
     const articlesViewables = chainsCollections.map(chain => {
@@ -130,10 +133,12 @@ export const cajaTemasCustomsFields = featuredName => {
             label: 'ID',
             description: 'Ingrese aquí el ID de la collection',
             defaultValue: '',
-            group: 'Ajuste Collection'
+            group: 'Ajuste Collection',
+            hidden: featuredRules[featuredName].hideIdCollection
         }).isRequired,
         layout: PropTypes.oneOf([
             'focalLeft3',
+            'focalRight3',
             'author3',
             'notaColorAzul3',
             'notaColorRojo3',
@@ -154,6 +159,7 @@ export const cajaTemasCustomsFields = featuredName => {
                 grilla6: 'Grilla 6',
                 grilla9: 'Grilla 9',
                 focalLeft3: 'Focal Izquierdo',
+                focalRight3: 'Focal Derecho',
                 author3: 'Opinión',
                 notaColorAzul3: 'Vertical 3 color Azul',
                 notaColorRojo3: 'Vertical 3 color Rojo',
@@ -189,6 +195,13 @@ export const cajaTemasCustomsFields = featuredName => {
             group: 'Ajuste Collection',
             hidden: featuredRules[featuredName].hideInitialPosition
         }).isRequired,
+        hideCaja: PropTypes.boolean.tag({
+            name: 'Ocultar Caja',
+            description: 'Marque para ocultar la caja',
+            defaultValue: false,
+            group: 'Ajuste Collection',
+            hidden: featuredRules[featuredName].hideHideCaja
+        }),
         url: PropTypes.url.tag({
             label: 'Link',
             description:
@@ -211,7 +224,7 @@ export const cajaTemasCustomsFields = featuredName => {
         hideTitle: PropTypes.boolean.tag({
             name: 'Ocultar techo',
             description: 'Marque para ocultar el techo',
-            defaultValue: false,
+            defaultValue: true,
             group: 'Techo'
         })
     };
