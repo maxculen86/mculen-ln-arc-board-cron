@@ -4,7 +4,10 @@ import articlesAcumulado from '../../../../../../__mocks__/data/articles/newsNot
 import articlesTPInteresar from '../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
 import AcuList from '../../../../../../components/private/LN/api/v1/common/articles/list';
 import Article from '../../../../../../components/private/LN/api/v1/common/articles/index';
-import { dateAndTimeForAppsUtil } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
+import {
+    dateAndTimeForAppsUtil,
+    dateAndTimeUtil
+} from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 describe('Test de index en Json', () => {
     const respRanking = AcuList(Article, articlesRanking.content_elements);
@@ -27,6 +30,12 @@ describe('Test de index en Json', () => {
             dateAndTimeForAppsUtil(articlesTPInteresar[0].display_date)
         );
     });
+
+    // test('Test Fecha del articulo2', () => {
+    //     expect(respTPInteresar[0].fecha).toBe(
+    //         dateAndTimeUtil(articlesTPInteresar[0].display_date)
+    //     );
+    // });
 
     test('Test Articulo sin Autor', () => {
         expect(respTPInteresar[3].autores).toBeUndefined();
@@ -240,8 +249,10 @@ describe('Test de index en Json', () => {
     });
 
     test('Categoria principal', () => {
-        expect(respRanking[0].categoria.id).toBe(43);
-        expect(respRanking[0].categoria.valor).toBe('Recetas');
+        expect(respRanking[0].categoria.slug).toBe(
+            '/recetas/faciles-y-rapidas'
+        );
+        expect(respRanking[0].categoria.valor).toBe('Fáciles y rápidas');
     });
 
     test('Sin Tags', () => {
