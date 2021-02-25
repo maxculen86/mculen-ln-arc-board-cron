@@ -40,7 +40,7 @@ ComTitle.propTypes = {
 };
 
 ComTitle.defaultProps = {
-    tag: 'h4',
+    tag: 'h2',
     size: undefined,
     classCondition: undefined,
     link: undefined

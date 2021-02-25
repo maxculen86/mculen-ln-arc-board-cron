@@ -123,7 +123,7 @@ ModArticle.propTypes = {
 ModArticle.defaultProps = {
     dataSection: undefined,
     classCondition: undefined,
-    titleTag: 'h4',
+    titleTag: 'h2',
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
