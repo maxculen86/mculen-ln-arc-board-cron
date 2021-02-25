@@ -3,11 +3,12 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
 import ComText from './com-text';
 import ComLink from './com-link';
+import ComTitle from './com-title';
 
 const ComTag = props => {
     const {
         iconName,
-        textname,
+        content,
         style,
         sizeBullet,
         sizeText,
@@ -16,9 +17,9 @@ const ComTag = props => {
         classCondition
     } = props;
 
-    if (!textname) return null;
+    if (!content) return null;
     return (
-        <ComLink classCondition={classCondition} link={link}>
+        <>
             {iconName == 'bullet' ? (
                 <>
                     <i
@@ -26,22 +27,26 @@ const ComTag = props => {
                             ''} ${sizeBullet || ''} `}
                         style={style}
                     />
-                    {textname ? (
-                        <ComText textname={textname} size={sizeText || ''} />
-                    ) : (
-                        ''
-                    )}
+                    <ComTitle
+                        tag="h3"
+                        content={content}
+                        link={link}
+                        size={sizeText || ''}
+                        classCondition={classCondition}
+                    />
                 </>
             ) : (
                 <>
-                    {textname ? (
-                        <ComText textname={textname} size={sizeText || ''} />
-                    ) : (
-                        ''
-                    )}
+                    <ComTitle
+                        tag="h3"
+                        content={textname}
+                        link={link}
+                        size={sizeText || ''}
+                        classCondition={classCondition}
+                    />
                 </>
             )}
-        </ComLink>
+        </>
     );
 };
 
