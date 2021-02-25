@@ -4,7 +4,7 @@
 .com-button {
     @include flex(inline, row, center, center);
     background: transparent;
-    padding: px(12) $spacing-sm;
+    padding: px(12) px(16);
     color: $neutral-black;
     font-size: px(12);
     font-weight: 700;
@@ -71,42 +71,41 @@
 
     //variantes
     &.--primary {
-        background: $ln;
-        border-color: $ln;
-        color: $neutral-white;
+        background: $light-blue-500;
+        border-color: $light-blue-500;
+        color: $light-neutral-50;
 
         &:hover {
-            background: rgba($ln, 0.8);
+            background: $light-blue-400;
         }
         &:active {
-            background: $ln-active;
+            background: $light-blue-600;
         }
         &:disabled {
-            background: $light-neutral-300;
-            color: $light-neutral-400;
+            background: $light-neutral-400;
         }
     }
     &.--secondary {
-        border-color: $ln;
-        color: $ln;
+        border-color: $light-blue-500;
+        color: $light-blue-500;
         &:hover {
-            background: rgba($ln, 1);
-            color: $neutral-white;
+            background: $light-blue-500;
+            color: $light-neutral-50;
         }
         &:active {
-            background: $ln-active;
-            border: 1px solid;
-            color: $neutral-white;
+            border-color: $light-blue-600;
+            background: $light-blue-600;
+            color: $light-neutral-50;
         }
         &:disabled {
-            background: $light-neutral-300;
+            background: $light-neutral-400;
             color: $light-neutral-400;
-            border: 1px solid $light-neutral-400;
+            border-color: $light-neutral-400;
         }
         .com-usuario & {
-            .header & {
-                display: none;
-            }
+            // .header & {
+            //     display: none;
+            // }
             .amp.--transparent & {
                 @media ($media-l) {
                     color: $neutral-white;
@@ -123,50 +122,43 @@
         }
     }
     &.--tertiary {
-        border-color: $light-neutral-400;
-        background: $light-neutral-400;
-        color: $light-neutral-600;
+        border-color: $light-neutral-200;
+        background: $light-neutral-200;
+        color: $light-neutral-800;
 
         &:hover {
-            background: rgba($light-neutral-400, 0.7);
+            background: $light-neutral-300;
         }
         &:active {
-            background: $light-neutral-500;
-            color: $light-neutral-700;
+            background: $light-neutral-400;
         }
         &:disabled {
             background: $light-neutral-300;
-            color: $light-neutral-400;
+            color: $light-neutral-500;
         }
     }
-    &.--special,
-    &.--highlight {
+    //&.--highlight,
+    &.--special {
         background: $highlight;
         border-color: $light-neutral-400;
-        color: $light-neutral-700;
+        color: $neutral-black;
 
         &:hover {
             background: $neutral-black;
             border-color: $neutral-black;
-            color: $neutral-white;
+            color: $light-neutral-50;
         }
         &:active {
-            background: $highlight-active;
-            border-color: $light-neutral-400;
-            color: $light-neutral-700;
+            background: $neutral-black;
+            border-color: $neutral-black;
+            color: $light-neutral-50;
         }
         &:disabled {
-            background: $light-neutral-300;
+            background: $light-neutral-400;
             color: $light-neutral-400;
             border-color: $light-neutral-400;
         }
         .com-usuario & {
-            .header & {
-                background: transparent;
-                border-color: transparent;
-                padding: px(3) px(16);
-                font-weight: 100;
-            }
             .amp.--transparent & {
                 color: $neutral-white;
                 @media ($media-l) {
@@ -177,7 +169,7 @@
         }
     }
     &.--compact {
-        padding: $spacing-xs $spacing-sm;
+        padding: px(8) px(16);
     }
     .--slider & {
         background: $neutral-black;
@@ -257,9 +249,9 @@
             margin-left: px(5);
         }
     }
-    .header & {
-        font-family: $font-arial;
-    }
+    // .header & {
+    //     font-family: $font-arial;
+    // }
 }
 @media ($media-l) {
     .com-button {
@@ -272,30 +264,34 @@
                 flex-direction: column;
             }
         }
-        &.--secondary {
-            .com-usuario & {
-                .header & {
-                    display: flex;
-                }
-            }
-        }
+        // &.--secondary {
+        //     .com-usuario & {
+        //         .header & {
+        //             display: flex;
+        //         }
+        //     }
+        // }
         //&.--highlight,
-        &.--special.--special {
-            .com-usuario & {
-                .header & {
-                    background: $highlight;
-                    color: $light-neutral-700;
-                    border-color: $light-neutral-400;
-                    margin-right: px(16);
-                    padding: px(8) px(16);
-                    font-weight: 700;
-                    &:hover {
-                        background: $neutral-black;
-                        border-color: $neutral-black;
-                        color: $neutral-white;
-                    }
-                }
-            }
-        }
+        // &.--special.--special {
+        //     .com-usuario & {
+        //         .header & {
+        //             background: $highlight;
+        //             color: $light-neutral-700;
+        //             border-color: $light-neutral-400;
+        //             margin-right: px(16);
+        //             padding: px(8) px(16);
+        //             font-weight: 700;
+        //             &:hover {
+        //                 background: $neutral-black;
+        //                 border-color: $neutral-black;
+        //                 color: $neutral-white;
+        //             }
+        //         }
+        //     }
+        // }
     }
+}
+
+.double-teaser__title.double-teaser__title {
+    color: lightcoral;
 }

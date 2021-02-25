@@ -5,6 +5,7 @@ import Header from './headerBase';
 import Hamburguer from './hamburger';
 import ComLink from '../../../common/com-link';
 import ComLogo from '../../../common/com-logo';
+import ComIcon from '../../../common/com-icon';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
@@ -71,8 +72,15 @@ const HeaderDesktop = ({
         <Header id="header" className={`header`}>
             <div className="col-4 header__left">
                 <Hamburguer _onMouseDown={toglleDesplegable} />
+                <label for="queryly_toggle">
+                    <i className="com-button --tertiary --icon queryly_searchicon">
+                        <ComIcon iconName="search" />
+                        BUSCAR
+                    </i>
+                    {/* <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i> */}
+                </label>
             </div>
-            <div className="col-4 header__middle">
+            <div className="col-7 col-desksm-4 header__middle">
                 <ComLink
                     link={host || '/'}
                     classCondition="header__middle__logo"
@@ -87,7 +95,7 @@ const HeaderDesktop = ({
                 >
                     {!loginData.subscription && (
                         <button
-                            className="com-button --special --compact"
+                            className="com-button --special"
                             type="button"
                             onClick={() => {
                                 location.href =
@@ -144,13 +152,18 @@ const HeaderDesktop = ({
                     {!logueado && (
                         <button
                             type="button"
-                            className="com-button --secondary --compact"
+                            className="com-button --secondary"
                             onClick={() => goToLoginUrl()}
                         >
                             INGRESAR
                         </button>
                     )}
                 </div>
+            </div>
+            <div className="col-1 header__search">
+                <label for="queryly_toggle">
+                    <i className="com-icon icon-search queryly_searchicon" />
+                </label>
             </div>
         </Header>
     );
