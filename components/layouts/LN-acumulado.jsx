@@ -18,6 +18,7 @@ import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContext
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import CargaEnBloque from '../private/LN/common/cargaEnBloque';
+import CargaEnBloqueLazy from '../private/LN/common/cargaEnBloqueLazy';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -128,8 +129,9 @@ const LNAcumuladoLayout = props => {
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
                                     {/* NOTAS */}
-                                    {notas}
-                                    <CargaEnBloque renderables={renderables} />
+                                    {/* {notas} */}
+                                    {/* <CargaEnBloque renderables={renderables} /> */}
+                                    <CargaEnBloqueLazy renderables={renderables} />
                                 </div>
                                 <div className="sidebar__aside hlp-tablet-none">
                                     {/* BANNERS, RANKING DE NOTAS */}
