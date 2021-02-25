@@ -62,7 +62,7 @@ const ModDescription = props => {
                 {list.map(item => (
                     <ComTag
                         iconName="bullet"
-                        textname={item}
+                        content={item}
                         sizeText="--fourxs"
                         sizeBullet="--fourxs"
                         link="#"

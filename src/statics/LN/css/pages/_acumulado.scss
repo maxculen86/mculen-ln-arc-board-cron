@@ -14,6 +14,7 @@
                 }
                 .com-link {
                     &.--tags {
+                        font-family: $font-arial;
                         color: $light-blue-400;
                         font-weight: bold;
                         display: flex;
