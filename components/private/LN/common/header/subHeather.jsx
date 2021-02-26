@@ -9,8 +9,11 @@ import ComLink from '../../../common/com-link';
 import ComLogo from '../../../common/com-logo';
 
 const ModsubHeather = props => {
-    const { data } = useContent({ source: 'dolarSource' }) || {};
-    const [dolarBna = {}, dolarBlue = {}] = data || [];
+    const { data: dolar } = useContent({ source: 'dolarSource' }) || {};
+    const { weather } = useContent({ source: 'weatherSource' }) || {};
+
+    const [dolarBna = {}, dolarBlue = {}] = dolar || [];
+    const { icon_name, temperatura, nombre } = weather || {};
 
     return (
         <nav>
@@ -23,7 +26,12 @@ const ModsubHeather = props => {
                     size="--fourxs"
                 />
 
-                <ComWeather iconName="sun-cloudy" size="--fourxs" />
+                <ComWeather
+                    iconName={icon_name}
+                    size="--fourxs"
+                    temperature={temperatura}
+                    weatherPlace={nombre}
+                />
 
                 <ComLink
                     classCondition="--newsletter"

@@ -15,7 +15,7 @@ const ComWeather = props => {
                     <ComIco iconName={iconName} sizeIcon={sizeIcon} />
                 ) : null}
                 <span id="spanTemperatura" className={size}>
-                    {temperature ? temperature : '0°'}
+                    {temperature ? `${temperature}°` : '0°'}
                 </span>
                 <span id="spanPlace" className={size}>
                     {weatherPlace ? weatherPlace : 'Capital Federal'}
