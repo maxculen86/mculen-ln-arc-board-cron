@@ -34,7 +34,7 @@ describe('Private - Common - ComTitle => ', () => {
         expect(component.find('h4')).toHaveLength(1);
     });
 
-    it('Render de la etiqueta h4 por defecto', () => {
+    it('Render de la etiqueta h2 por defecto', () => {
         const component = mount(
             <div>
                 <ComTitle content="Título sin tag definido" />
@@ -43,7 +43,7 @@ describe('Private - Common - ComTitle => ', () => {
                 <ComTitle tag="span" content="Título con la etiqueta SPAN" />
             </div>
         );
-        expect(component.find('h4')).toHaveLength(4);
+        expect(component.find('h2')).toHaveLength(4);
     });
 
     it('Validación de propiedades size y classCondition (opcionales)', () => {
