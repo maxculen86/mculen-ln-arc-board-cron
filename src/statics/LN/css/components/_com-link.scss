@@ -95,6 +95,7 @@
         margin-right: $spacing-sm;
         margin-bottom: $spacing-sm;
         white-space: nowrap;
+        display: inline-block;
     }
     &.--sociallist {
         @include flex(inline, row, center, center);
