@@ -6,6 +6,7 @@ import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
 import findTermica from '../../private/common/utils/findTermica';
+import { getIdsArticlesFromOtherCollections } from '../../private/LN/common/utils/cajaTemasHelper';
 
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
@@ -88,7 +89,8 @@ function buildCustomFieldsForBanners() {
 function GrillaNotasFeature(props) {
     const {
         acumuladoGeneral = {},
-        articlesInCollection = []
+        articlesInCollection = [],
+        collectionsInPage = []
     } = useGlobalProviderAcu();
     const {
         cantidad_notas = 30,
@@ -98,7 +100,8 @@ function GrillaNotasFeature(props) {
     const {
         globalContent: { author_type: authorType, _id, Payload, distributorId },
         siteProperties,
-        outputType
+        outputType,
+        renderables
     } = useAppContext();
 
     const tagId =
@@ -111,6 +114,15 @@ function GrillaNotasFeature(props) {
 
     const bannerConfig = groupBannerConfig(props);
     const termicas = findTermica('banners');
+
+    const idsArticlesFromOtherCollection = getIdsArticlesFromOtherCollections(
+        renderables,
+        collectionsInPage
+    );
+
+    const idsArticlesToExclude = idsArticlesFromOtherCollection.concat(
+        articlesInCollection.map(art => art._id)
+    );
 
     return (
         <GrillaNotas
@@ -125,7 +137,7 @@ function GrillaNotasFeature(props) {
             bannerConfig={bannerConfig}
             outputType={outputType}
             hideBanner={hide_banner}
-            articlesInGlobalProvider={articlesInCollection}
+            idsArticlesToExclude={idsArticlesToExclude}
             termicas={termicas}
         />
     );

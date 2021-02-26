@@ -94,14 +94,14 @@ const CajaTemaCollections = props => {
     );
 };
 
-CajaTemaCollections.label = 'LN Caja Collections';
+CajaTemaCollections.label = 'LN Caja Collections (no usar)';
 
 CajaTemaCollections.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     outputType: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaTemaCollections')
+        ...cajaTemasCustomsFields('cajaCollection')
     }).isRequired,
     tree: PropTypes.shape(PropTypes.node).isRequired
 };

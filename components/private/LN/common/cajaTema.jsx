@@ -76,6 +76,7 @@ CajaTema.propTypes = {
     hideTitle: PropTypes.boolean.isRequired,
     withSubhead: PropTypes.boolean.isRequired,
     title: PropTypes.string,
+    titleSize: PropTypes.string,
     url: PropTypes.string,
     imageId: PropTypes.string
 };
@@ -83,7 +84,8 @@ CajaTema.propTypes = {
 CajaTema.defaultProps = {
     title: null,
     url: null,
-    imageId: null
+    imageId: null,
+    titleSize: null
 };
 
 const areEqual = (prevProps, nextProps) =>
