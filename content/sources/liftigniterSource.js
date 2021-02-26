@@ -16,9 +16,12 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import getPresets from './utils/presets';
 
 const transformArticles = (liftigniterArticles = []) =>
+    liftigniterArticles &&
     liftigniterArticles
         .filter(
-            e => !(e.image || e.image.includes('/images/placeholderLN.jpg'))
+            e =>
+                e.image &&
+                !(e.image && e.image.includes('/images/placeholderLN.jpg'))
         )
         .map(({ url, id, title, image }) => ({
             subtype: 1,
