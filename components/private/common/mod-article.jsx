@@ -48,16 +48,18 @@ const ModArticle = props => {
     const marquesina = get(articleData, 'marquesina', null);
     const type = get(imagenDestacada, 'type', null);
 
+    //Esto es para una demo para Leito ********************
     const idArc = `nid5E23BMUH${position}XZ3LSXEK3BKOOA`;
     const classDemo = `toi${position} ${idArc}`;
 
     const extraDemo = {};
     if (frontdemo) {
         extraDemo['data-pos'] = position;
-        extraOpts['data-id'] = idArc;
-        extraOpts['data-notaid'] = idArc;
-        extraOpts['data-source'] = `editor`;
+        extraDemo['data-id'] = idArc;
+        extraDemo['data-notaid'] = idArc;
+        extraDemo['data-source'] = `editor`;
     }
+    // demo front *****************************************
 
     return (
         <article
