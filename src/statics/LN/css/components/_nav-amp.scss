@@ -141,6 +141,15 @@ amp-sidebar {
     padding: px(13) 0;
     position: relative;
     z-index: 10;
+
+    .header__left {
+        display: none;
+        .com-button .com-icon {
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+        }
+    }
+
     .header__middle {
         display: flex;
         align-items: center;
@@ -155,11 +164,21 @@ amp-sidebar {
         }
     }
 
-    button {
-        &.icon-menu {
-            display: none;
+    .header__right {
+        .com-usuario {
+            text-align: right;
+            .--secondary {
+                display: none;
+                margin-left: 1rem;
+            }
         }
     }
+
+    // button {
+    //     &.icon-menu {
+    //         display: none;
+    //     }
+    // }
     .suscribir__header {
         display: flex;
         justify-content: flex-end;
@@ -181,8 +200,13 @@ amp-sidebar {
         background: rgba(0, 0, 0, 0.5);
 
         .header__left {
-            button.icon-menu {
-                color: $neutral-white;
+            .com-button.--tertiary {
+                background: $light-neutral-800;
+                border-color: $light-neutral-800;
+                color: $light-neutral-200;
+                &:hover {
+                    background: $neutral-black;
+                }
             }
         }
 
@@ -209,6 +233,15 @@ amp-sidebar {
     }
 }
 
+@media (max-width: 1023px) {
+    .header .header__right .com-usuario .--special {
+        background: transparent;
+        border-color: transparent;
+        padding: 0.1875rem 1rem;
+        color: #0074c4;
+    }
+}
+
 @media (min-width: 768px) {
     amp-sidebar {
         width: 40%;
@@ -229,6 +262,10 @@ amp-sidebar {
         justify-content: center;
         border-color: #d9d9d9;
 
+        .header__left {
+            display: block;
+        }
+
         .suscribir__header {
             background-color: #ffff24;
             border: 1px solid $light-neutral-400;
@@ -241,6 +278,14 @@ amp-sidebar {
             }
         }
 
+        .header__right {
+            .com-usuario {
+                .--secondary {
+                    display: inline-flex;
+                }
+            }
+        }
+
         .lay {
             .row {
                 align-items: center;
@@ -248,28 +293,28 @@ amp-sidebar {
                     //Logo LN
                     color: $ln-active;
                     &:before {
-                        font-size: 25px;
+                        font-size: 30px;
                     }
                 }
             }
         }
 
-        button {
-            &.icon-menu {
-                font-family: $font-arial;
-                background: transparent;
-                border: none;
-                font-size: px(15);
-                @include flex(flex, row, center, center);
-                cursor: pointer;
+        // button {
+        //     &.icon-menu {
+        //         font-family: $font-arial;
+        //         background: transparent;
+        //         border: none;
+        //         font-size: px(15);
+        //         @include flex(flex, row, center, center);
+        //         cursor: pointer;
 
-                &:before {
-                    font-size: 30px;
-                    display: block;
-                    font-family: 'LNicons';
-                }
-            }
-        }
+        //         &:before {
+        //             font-size: 30px;
+        //             display: block;
+        //             font-family: 'LNicons';
+        //         }
+        //     }
+        // }
     }
     amp-sidebar {
         width: 25%;

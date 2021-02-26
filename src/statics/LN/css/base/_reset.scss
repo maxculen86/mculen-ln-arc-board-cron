@@ -150,7 +150,6 @@ body {
 
 #wrapper {
     position: relative;
-    //overflow: hidden;
     margin-bottom: 80px;
     @media (min-width: 1023px) {
         margin-bottom: 0;
@@ -158,6 +157,10 @@ body {
             padding-top: 64px;
         }
     }
+}
+
+#wrapper:not(.nota) {
+    overflow: hidden;
 }
 
 main {

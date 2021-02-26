@@ -36,7 +36,7 @@ export const validateFeature = (idCollection, articles, message) => {
 
 export const getCommonProps = props => {
     const {
-        customFields: { layout = '', backgroundColor },
+        customFields: { layout = '', backgroundColor }
     } = props;
     const { cajaTemaCss = {} } = config || {};
     const { collectionsInPage = [] } = useGlobalProviderAcu();

@@ -54,7 +54,6 @@ const CajaTemaAutomatic = props => {
         Number(initialPosition) - 1,
         idsArticlesToExclude,
         true,
-        true,
         Number(notesQuantity)
     );
 

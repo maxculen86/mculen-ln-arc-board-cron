@@ -35,7 +35,7 @@ const LNHome = props => {
                     >
                         <Header />
                         <div
-                            data-module="tema_01"
+                            data-module="tema_00"
                             data-is-loading="false"
                             data-is-loaded="true"
                         >
@@ -43,7 +43,7 @@ const LNHome = props => {
                                 className="mod-opening --bomba"
                                 id="tema_01"
                                 data-is-block="true"
-                                data-block-name="h_tema-01"
+                                data-block-name="h_tema-00"
                                 data-diagramacion-id="h_bomba"
                             >
                                 <Article
@@ -57,7 +57,7 @@ const LNHome = props => {
                                     // subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                     authors="Por Maia Jastreblansky"
                                     label="Infografía"
-                                    pos="0101"
+                                    position="0001"
                                 />
                             </section>
                         </div>
@@ -71,15 +71,15 @@ const LNHome = props => {
                                             </div>
                                         </section>
                                         <div
-                                            data-module="tema_02"
+                                            data-module="tema_01"
                                             data-is-loading="false"
                                             data-is-loaded="true"
                                         >
                                             <section
                                                 className="box-articles --focal --left"
-                                                id="tema_02"
+                                                id="tema_01"
                                                 data-is-block="true"
-                                                data-block-name="h_tema-02"
+                                                data-block-name="h_tema-01"
                                                 data-diagramacion-id="h_apertura-focalIzq-3"
                                             >
                                                 <div className="row">
@@ -95,7 +95,7 @@ const LNHome = props => {
                                                             subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                                             authors="Por Maia Jastreblansky"
                                                             label="Chapita"
-                                                            pos="0201"
+                                                            position="0101"
                                                         />
                                                     </div>
                                                     <div className="col-tablet-4">
@@ -106,7 +106,7 @@ const LNHome = props => {
                                                             leadText="Vacuna rusa."
                                                             titleText="Los nexos ocultos entre los Moyano y la barra brava de Independiente"
                                                             authors="Por Maia Jastreblansky"
-                                                            pos="0202"
+                                                            position="0102"
                                                         />
                                                         <Article
                                                             frontdemo
@@ -116,9 +116,55 @@ const LNHome = props => {
                                                             titleText='El Gobierno "autoengañado", el incendio y por qué cayó "en la trampa"'
                                                             authors="Por Maia Jastreblansky"
                                                             label="Chapita"
-                                                            pos="0203"
+                                                            position="0103"
                                                         />
                                                     </div>
+                                                </div>
+                                            </section>
+                                        </div>
+
+                                        <div
+                                            data-module="tema_02"
+                                            data-is-loading="false"
+                                            data-is-loaded="true"
+                                        >
+                                            <section
+                                                className="box-articles"
+                                                id="tema_02"
+                                                data-is-block="true"
+                                                data-block-name="h_tema-02"
+                                                data-diagramacion-id="h_caja-3notas"
+                                            >
+                                                <div className="row-gap-tablet-3">
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x203"
+                                                        link="#"
+                                                        leadText="Pandemia."
+                                                        titleText="La dura respuesta de Bullrich a la acusación de Frederic"
+                                                        authors="Por Nombre Apellido"
+                                                        label="Chapita larga muy pero muy larga se corta"
+                                                        position="0201"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x204"
+                                                        link="#"
+                                                        leadText="PJ."
+                                                        titleText="La historia de la fábrica que prometía hacer cientos de vagones"
+                                                        authors="Por Nombre Apellido"
+                                                        position="0202"
+                                                    />
+                                                    <Article
+                                                        frontdemo
+                                                        srcdemo="https://source.unsplash.com/300x205"
+                                                        renderAutor
+                                                        link="#"
+                                                        leadText="Tragedia en al ruta."
+                                                        titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
+                                                        authors="Nombre Apellido"
+                                                        position="0203"
+                                                    />
                                                 </div>
                                             </section>
                                         </div>
@@ -144,7 +190,7 @@ const LNHome = props => {
                                                         titleText="La dura respuesta de Bullrich a la acusación de Frederic"
                                                         authors="Por Nombre Apellido"
                                                         label="Chapita larga muy pero muy larga se corta"
-                                                        pos="0301"
+                                                        position="0301"
                                                     />
                                                     <Article
                                                         frontdemo
@@ -153,53 +199,7 @@ const LNHome = props => {
                                                         leadText="PJ."
                                                         titleText="La historia de la fábrica que prometía hacer cientos de vagones"
                                                         authors="Por Nombre Apellido"
-                                                        pos="0302"
-                                                    />
-                                                    <Article
-                                                        frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x205"
-                                                        renderAutor
-                                                        link="#"
-                                                        leadText="Tragedia en al ruta."
-                                                        titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
-                                                        authors="Nombre Apellido"
-                                                        pos="0303"
-                                                    />
-                                                </div>
-                                            </section>
-                                        </div>
-
-                                        <div
-                                            data-module="tema_04"
-                                            data-is-loading="false"
-                                            data-is-loaded="true"
-                                        >
-                                            <section
-                                                className="box-articles"
-                                                id="tema_04"
-                                                data-is-block="true"
-                                                data-block-name="h_tema-04"
-                                                data-diagramacion-id="h_caja-3notas"
-                                            >
-                                                <div className="row-gap-tablet-3">
-                                                    <Article
-                                                        frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x203"
-                                                        link="#"
-                                                        leadText="Pandemia."
-                                                        titleText="La dura respuesta de Bullrich a la acusación de Frederic"
-                                                        authors="Por Nombre Apellido"
-                                                        label="Chapita larga muy pero muy larga se corta"
-                                                        pos="0401"
-                                                    />
-                                                    <Article
-                                                        frontdemo
-                                                        srcdemo="https://source.unsplash.com/300x204"
-                                                        link="#"
-                                                        leadText="PJ."
-                                                        titleText="La historia de la fábrica que prometía hacer cientos de vagones"
-                                                        authors="Por Nombre Apellido"
-                                                        pos="0402"
+                                                        position="0302"
                                                     />
                                                     <Article
                                                         frontdemo
@@ -209,7 +209,7 @@ const LNHome = props => {
                                                         leadText="Tragedia en al ruta."
                                                         titleText='Piden al FMI que tenga en cuenta la "impunidad" en Argentina'
                                                         authors="Nombre Apellido"
-                                                        pos="0403"
+                                                        position="0303"
                                                     />
                                                 </div>
                                             </section>
@@ -227,15 +227,15 @@ const LNHome = props => {
                                         </section>
 
                                         <div
-                                            data-module="tema_05"
+                                            data-module="tema_04"
                                             data-is-loading="false"
                                             data-is-loaded="true"
                                         >
                                             <section
                                                 className="box-articles --focal --right"
-                                                id="tema_05"
+                                                id="tema_04"
                                                 data-is-block="true"
-                                                data-block-name="h_tema-05"
+                                                data-block-name="h_tema-04"
                                                 data-diagramacion-id="h_caja-2notas"
                                             >
                                                 <HeaderSection
@@ -253,7 +253,7 @@ const LNHome = props => {
                                                             titleText="Gestiones con Rusia para traer las primeras vacunas antes de fin de año"
                                                             authors="Por Maia Jastreblansky"
                                                             label="Chapita"
-                                                            pos="0501"
+                                                            position="0401"
                                                         />
                                                     </div>
                                                     <div className="col-tablet-4">
@@ -267,7 +267,7 @@ const LNHome = props => {
                                                             titleSize="--xl"
                                                             subheadText="Desde Moscú, la delegación argentina se mostró confiada en poder transportar los primeros lotes antes de que termine diciembre"
                                                             authors="Por Maia Jastreblansky"
-                                                            pos="0502"
+                                                            position="0402"
                                                         />
                                                     </div>
                                                 </div>
@@ -275,15 +275,15 @@ const LNHome = props => {
                                         </div>
 
                                         <div
-                                            data-module="tema_06"
+                                            data-module="tema_05"
                                             data-is-loading="false"
                                             data-is-loaded="true"
                                         >
                                             <section
                                                 className="box-articles"
-                                                id="tema_06"
+                                                id="tema_05"
                                                 data-is-block="true"
-                                                data-block-name="h_tema-06"
+                                                data-block-name="h_tema-05"
                                                 data-diagramacion-id="h_caja-2notas"
                                             >
                                                 <div className="row-gap-tablet-2">
@@ -296,7 +296,7 @@ const LNHome = props => {
                                                         titleSize="--l"
                                                         authors="Por Nombre Apellido"
                                                         label="Chapita"
-                                                        pos="0601"
+                                                        position="0501"
                                                     />
                                                     <Article
                                                         frontdemo
@@ -307,22 +307,22 @@ const LNHome = props => {
                                                         titleSize="--l"
                                                         authors="Por Nombre Apellido"
                                                         label="Chapita"
-                                                        pos="0602"
+                                                        position="0502"
                                                     />
                                                 </div>
                                             </section>
                                         </div>
 
                                         <div
-                                            data-module="tema_07"
+                                            data-module="tema_06"
                                             data-is-loading="false"
                                             data-is-loaded="true"
                                         >
                                             <section
                                                 className="box-articles --opinion"
-                                                id="tema_07"
+                                                id="tema_06"
                                                 data-is-block="true"
-                                                data-block-name="h_tema-07"
+                                                data-block-name="h_tema-06"
                                                 data-diagramacion-id="h_caja-opinion"
                                             >
                                                 <HeaderSection title="Techo caja opinión" />
@@ -338,7 +338,7 @@ const LNHome = props => {
                                                             titleText="Sonrisas arriba del escenario y disputas abajo"
                                                             authors="Por Maia Jastreblansky"
                                                             label="Chapita"
-                                                            pos="0701"
+                                                            position="0601"
                                                         />
                                                     </div>
                                                     <div className="col-tablet-4">
@@ -350,7 +350,7 @@ const LNHome = props => {
                                                             titleSize="--twoxs"
                                                             titleText="Una ventana al bienestar que promete el verano"
                                                             authors="Nombre Apellido"
-                                                            pos="0702"
+                                                            position="0602"
                                                         />
                                                         <Article
                                                             frontdemo
@@ -360,7 +360,7 @@ const LNHome = props => {
                                                             titleSize="--twoxs"
                                                             titleText="Trumpismo, maoísmo y peronismo"
                                                             authors="Nombre Apellido"
-                                                            pos="0703"
+                                                            position="0603"
                                                         />
                                                     </div>
                                                     <div className="col-tablet-3">
@@ -372,7 +372,7 @@ const LNHome = props => {
                                                             titleSize="--l"
                                                             titleText="Inolvidable declaración de amor a la ciudad de Madrid"
                                                             authors="Nombre Apellido"
-                                                            pos="0704"
+                                                            position="0604"
                                                         />
                                                     </div>
                                                 </section>
@@ -415,10 +415,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles"
-                                            id="tema_08"
-                                        >
+                                        <section className="box-articles">
                                             <HeaderSection title="Techo caja notas 3, 6 o 9 largo para que se corte" />
                                             <div className="row-gap-tablet-3">
                                                 <Article
@@ -451,10 +448,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles"
-                                            id="tema_09"
-                                        >
+                                        <section className="box-articles">
                                             <HeaderSection
                                                 title="Techo caja color"
                                                 classCondition="--bg --red"
@@ -487,10 +481,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles --cinema"
-                                            id="tema_10"
-                                        >
+                                        <section className="box-articles --cinema">
                                             <div className="row">
                                                 <Article
                                                     frontdemo
@@ -511,10 +502,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles"
-                                            id="tema_11"
-                                        >
+                                        <section className="box-articles">
                                             <HeaderSection
                                                 title="Techo caja autores"
                                                 classCondition="--bg --red"
@@ -550,10 +538,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles --bgcolor --bgteal"
-                                            id="tema_12"
-                                        >
+                                        <section className="box-articles --bgcolor --bgteal">
                                             <HeaderSection
                                                 title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
                                                 classCondition="--bg"
@@ -613,10 +598,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles --bgcolor --highlight --bgblue"
-                                            id="tema_13"
-                                        >
+                                        <section className="box-articles --bgcolor --highlight --bgblue">
                                             <HeaderSection
                                                 title="Techo con link"
                                                 link="#"
@@ -652,10 +634,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles --bgcolor --bgpink --highlight --pink"
-                                            id="tema_14"
-                                        >
+                                        <section className="box-articles --bgcolor --bgpink --highlight --pink">
                                             <HeaderSection
                                                 title="Techo con link"
                                                 link="#"
@@ -689,10 +668,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles --bgcolor --bgteal"
-                                            id="tema_15"
-                                        >
+                                        <section className="box-articles --bgcolor --bgteal">
                                             <HeaderSection
                                                 title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"
                                                 classCondition="--bg"
@@ -752,10 +728,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles --bgcolor --bgblue --highlight --red"
-                                            id="tema_16"
-                                        >
+                                        <section className="box-articles --bgcolor --bgblue --highlight --red">
                                             <HeaderSection
                                                 title="Techo de notas color con título largo"
                                                 link="#"
@@ -789,10 +762,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles --bgcolor --bgpink"
-                                            id="tema_17"
-                                        >
+                                        <section className="box-articles --bgcolor --bgpink">
                                             <HeaderSection title="Techo de sección" />
                                             <div className="row-gap-tablet-3">
                                                 <Article
@@ -846,10 +816,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section
-                                            className="box-articles"
-                                            id="tema_18"
-                                        >
+                                        <section className="box-articles">
                                             <HeaderSection
                                                 title="Techo de sección con link"
                                                 link="#"
