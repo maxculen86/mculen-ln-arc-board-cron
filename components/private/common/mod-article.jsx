@@ -34,7 +34,7 @@ const ModArticle = props => {
         anexo,
         noMedia,
         label,
-        pos,
+        position,
         hour
     } = props;
     const extraOpts = {};
@@ -48,12 +48,12 @@ const ModArticle = props => {
     const marquesina = get(articleData, 'marquesina', null);
     const type = get(imagenDestacada, 'type', null);
 
-    const idArc = `nid5E23BMUH${pos}XZ3LSXEK3BKOOA`;
-    const classDemo = `toi${pos} ${idArc}`;
+    const idArc = `nid5E23BMUH${position}XZ3LSXEK3BKOOA`;
+    const classDemo = `toi${position} ${idArc}`;
 
     const extraDemo = {};
     if (frontdemo) {
-        extraDemo['data-pos'] = pos;
+        extraDemo['data-pos'] = position;
         extraOpts['data-id'] = idArc;
         extraOpts['data-notaid'] = idArc;
         extraOpts['data-source'] = `editor`;
