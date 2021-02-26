@@ -5,10 +5,6 @@ import ComDate from './com-date';
 import ModBajada from './mod-bajada';
 import ModMarquesina from './mod-marquee';
 import ComLabel from './com-labelArticle';
-import ComLink from './com-link';
-import listItems from './listItems';
-import ListItemsFactory from './listItems';
-import ListOrderedOrUnordered from '../LN/nota/cuerpo/listOrderedOrUnordered';
 import ComTag from './com-tag';
 
 const ModDescription = props => {
@@ -22,18 +18,14 @@ const ModDescription = props => {
         subheadText,
         subheadSize,
         dateText,
-        dateSize,
         label,
         lead,
-        marquesina
+        marquesina,
+        category,
+        tags
     } = props;
-    const list = [
-        'Sección o Categoría',
-        'Tag uno',
-        'Tag dos',
-        'Tag tres',
-        'Tag cuatro con tema extra largo'
-    ]; //BORRAR
+    const withMarquee = !!(marquesina || authors);
+    const { name: categoryName, path: categoryPath } = category || {};
 
     return (
         <section className="mod-description">
@@ -54,21 +46,41 @@ const ModDescription = props => {
                 />
             )}
             <div>
-                <ModMarquesina
-                    text="Autor y Marquesina" /*{marquesina || authors}*/
-                    size="--fourxs" /* {authorSize} */
-                    link={link}
-                />
-                {list.map(item => (
+                {withMarquee && (
+                    <ModMarquesina
+                        text={marquesina || authors}
+                        size={authorSize}
+                        link={link}
+                    />
+                )}
+                {category && (
                     <ComTag
-                        iconName="bullet"
-                        content={item}
+                        iconName={withMarquee && 'bullet'}
+                        content={categoryName}
                         sizeText="--fourxs"
-                        sizeBullet="--fourxs"
-                        link="#"
+                        sizeBullet={withMarquee && '--fourxs'}
+                        link={categoryPath}
                         classCondition="--tags"
                     />
-                ))}
+                )}
+                {tags &&
+                    tags.map(item => {
+                        const { text, slug } = item;
+                        return (
+                            <ComTag
+                                iconName={
+                                    (withMarquee || !!category) && 'bullet'
+                                }
+                                content={text}
+                                sizeText="--fourxs"
+                                sizeBullet={
+                                    (withMarquee || !!category) && '--fourxs'
+                                }
+                                link={(slug && `/${slug}`) || ''}
+                                classCondition="--tags"
+                            />
+                        );
+                    })}
             </div>
 
             {dateText && <ComDate display_date={dateText} size="--fourxs" />}
@@ -81,12 +93,16 @@ ModDescription.propTypes = {
     titleTag: PropTypes.string,
     titleSize: PropTypes.string,
     titleText: PropTypes.string.isRequired,
+    authorSize: PropTypes.string.isRequired,
     subheadText: PropTypes.string,
     subheadSize: PropTypes.string,
     dateText: PropTypes.string,
-    dateSize: PropTypes.string,
+    label: PropTypes.string,
+    lead: PropTypes.string,
     authors: PropTypes.string,
-    marquesina: PropTypes.string
+    marquesina: PropTypes.string,
+    category: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.obj)
 };
 
 ModDescription.defaultProps = {
@@ -95,10 +111,13 @@ ModDescription.defaultProps = {
     subheadText: false,
     subheadSize: '',
     dateText: undefined,
-    dateSize: undefined,
-    authors: 'Autor y',
+    label: undefined,
+    lead: undefined,
+    authors: undefined,
     link: undefined,
-    marquesina: 'Marquesina'
+    marquesina: undefined,
+    category: undefined,
+    tags: undefined
 };
 
 export default ModDescription;

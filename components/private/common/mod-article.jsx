@@ -35,7 +35,8 @@ const ModArticle = props => {
         noMedia,
         label,
         position,
-        hour
+        hour,
+        typeArticle
     } = props;
     const extraOpts = {};
     if (dataSection) {
@@ -46,6 +47,15 @@ const ModArticle = props => {
         ? getAuthorsPhoto(articleData)
         : get(articleData, 'promo_items.basic', null);
     const marquesina = get(articleData, 'marquesina', null);
+    const category =
+        (typeArticle === 'Timeline' &&
+            get(articleData, 'taxonomy.primary_section', null)) ||
+        null;
+    const tags = get(articleData, 'taxonomy.tags', []);
+
+    const tagList =
+        (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
+
     const type = get(imagenDestacada, 'type', null);
 
     //Esto es para una demo para Leito ********************
@@ -110,6 +120,8 @@ const ModArticle = props => {
                 lead={leadText}
                 label={label}
                 marquesina={marquesina}
+                category={category}
+                tags={tagList}
             />
         </article>
     );
@@ -134,7 +146,8 @@ ModArticle.propTypes = {
         promo_items: PropTypes.shape({
             basic: PropTypes.object
         })
-    }).isRequired
+    }).isRequired,
+    typeArticle: PropTypes.string
 };
 
 ModArticle.defaultProps = {
@@ -150,7 +163,8 @@ ModArticle.defaultProps = {
     withMedia: false,
     link: undefined,
     hour: undefined,
-    outputType: 'default'
+    outputType: 'default',
+    typeArticle: undefined
 };
 
 export default ModArticle;
