@@ -41,7 +41,7 @@ const LNHome = props => {
                         >
                             <section
                                 className="mod-opening --bomba"
-                                id="tema_01"
+                                id="tema_00"
                                 data-is-block="true"
                                 data-block-name="h_tema-00"
                                 data-diagramacion-id="h_bomba"
