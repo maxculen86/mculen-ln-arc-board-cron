@@ -58,6 +58,10 @@ export default {
         ScriptHtmlLibre: {
             props: {},
             location: ['head']
+        },
+        Queryly: {
+            props: {},
+            location: ['body-bottom']
         }
     },
     imageConfig: {

@@ -29,6 +29,8 @@ export default `
             }
             primary_section {
                 _id
+                name
+                path
                 additional_properties {
                     original {
                         style {

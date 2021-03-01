@@ -114,9 +114,9 @@
 @mixin OpeningFull {
     //.mod-opening
 
-    margin-top: px(-45); //header mobile
+    margin-top: px(-48); //header mobile sin linea
     @media ($media-l) {
-        margin-top: px(-65); //header
+        margin-top: px(-72); //header sin linea
     }
 
     .mod-figure {
