@@ -112,7 +112,8 @@ const Default = props => {
         siteProperties,
         renderables,
         globalContent,
-        outputType
+        outputType,
+        layout
     } = props;
     const {
         canonical_url: canonicalUrl,
@@ -189,6 +190,9 @@ const Default = props => {
                         rel="canonical"
                         href={`https://www.lanacion.com.ar${canonicalUrl}`}
                     />
+                )}
+                {layout === 'FRONT-home' && ( //Borrarlo una vez subida al home a producción
+                    <meta name="robots" content="noindex, nofollow" />
                 )}
                 <LinkAmpHTML
                     subtype={subtype}

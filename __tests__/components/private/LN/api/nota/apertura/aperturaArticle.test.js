@@ -3,6 +3,7 @@ import AperturaReceta from '../../../../../../../components/private/LN/api/v1/no
 import Apertura from '../../../../../../../components/private/LN/api/v1/nota/apertura/aperturaArticle';
 import ArticleApertura from '../../../../../../../__mocks__/data/nota/apertura/apertura.json';
 import HistoryTellingArticle from '../../../../../../../__mocks__/data/articles/4HFO7YPZBFEYVB6K5XY6IFV3XY.json';
+import HistoryFotoAlCienArticle from '../../../../../../../__mocks__/data/articles/PTAOLSGRDBEZLG6A6T43M7A7PU.json';
 import { getAutorId } from '../../../../../../../components/private/common/utils/getElementId';
 
 describe('Test de JSON de apertura en article', () => {
@@ -81,11 +82,30 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0].baseUrl).toBe(
             '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SITTWPHGIZHMRNZH3DBQINBEXA.jpg'
         );
-        expect(resp.imagenes[0].parametros[1].ancho).toBe(878);
+        expect(resp.imagenes[0].parametros[1].ancho).toBe(1120);
         expect(resp.imagenes[0].parametros[1].firma).toBe(
-            'g6OS3FXUAFmIOTNg2qOQSqWv5Uo=/0x878/filters:quality(70)'
+            'jyC1dEvJPV9p1vrfUcw79zvPx2A=/0x1120/filters:quality(70)'
         );
         expect(resp.imagenes[0].epigrafe).toBeUndefined();
+    });
+
+    it('Render de imagenes de Foto al cien apertura', () => {
+        const resp = Apertura(HistoryFotoAlCienArticle);
+        const imageData =
+            HistoryFotoAlCienArticle.promo_items.storytelling_mobile;
+        expect(resp.multimedio).toBeUndefined();
+        expect(resp.imagenes[0]['_t']).toBe('img');
+        expect(resp.imagenes[0].id).toBe(imageData._id);
+        expect(resp.imagenes[0].baseUrl).toBe(
+            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ORVQL3YRTFENDJCHJRLAWVD7EM.jpg'
+        );
+        expect(resp.imagenes[0].parametros[1].ancho).toBe(1200);
+        expect(resp.imagenes[0].parametros[1].firma).toBe(
+            'P9espymFgLMpoy3MSeSvKvwl8kI=/1200x800/filters:quality(100)'
+        );
+        expect(resp.imagenes[0].epigrafe).toBe(
+            'Esquiadores en el centro de Madrid'
+        );
     });
 
     it('Render de videos de apertura', () => {

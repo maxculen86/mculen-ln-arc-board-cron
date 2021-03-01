@@ -200,8 +200,13 @@ amp-sidebar {
         background: rgba(0, 0, 0, 0.5);
 
         .header__left {
-            button.icon-menu {
-                color: $neutral-white;
+            .com-button.--tertiary {
+                background: $light-neutral-800;
+                border-color: $light-neutral-800;
+                color: $light-neutral-200;
+                &:hover {
+                    background: $neutral-black;
+                }
             }
         }
 

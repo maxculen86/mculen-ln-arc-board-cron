@@ -10,6 +10,7 @@ import ComIcon from '../../../common/com-icon';
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
+import ModsubHeather from './subHeather';
 
 const ItemAnchor = ({ url, text }) => {
     const callURL = address => {
