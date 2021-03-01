@@ -49,6 +49,7 @@ export default {
                         sizes: dsk_1260x170_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -105,6 +106,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: 'la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
@@ -156,12 +158,14 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: 'la_nacion_desktop/Nota/caja2_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
                         sizes: dsk_300x250_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -216,6 +220,7 @@ export default {
                         sizes: dsk_300x600_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -270,6 +275,7 @@ export default {
                         sizes: dsk_300x600_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -321,6 +327,7 @@ export default {
                         sizes: dsk_300x250_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -382,6 +389,7 @@ export default {
                         sizes: dsk_728x90_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -438,6 +446,7 @@ export default {
                         sizes: dsk_728x90_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -494,6 +503,7 @@ export default {
                         sizes: dsk_728x90_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',

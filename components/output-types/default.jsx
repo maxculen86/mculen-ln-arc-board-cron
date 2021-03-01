@@ -38,6 +38,16 @@ const scriptList = [
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
     {
+        component: { name: 'PostBid', function: PostBid },
+        feature: [
+            'LN-common/banner',
+            'LN-common/bannerRefactor',
+            'LN-nota/bannerStickyNota',
+            'LN-common/bannerTercera',
+            'LN-acumulado/bannerSticky'
+        ]
+    },
+    {
         component: { name: 'ArcAds', function: ArcAds },
         feature: [
             'LN-common/banner',
@@ -51,7 +61,6 @@ const scriptList = [
         component: { name: 'FacebookSDK', function: FacebookSDK },
         feature: ['LN-nota/share']
     },
-    { component: { name: 'PostBid', function: PostBid }, feature: 'none' },
     {
         component: { name: 'Livefyre', function: Livefyre },
         feature: ['LN-nota/comments']
