@@ -20,7 +20,7 @@ const NotaApertura = props => {
                     typeArticle={ARTICLE_TYPE}
                     outputType={outputType}
                     withSubhead={false}
-                    titleTag="h1"
+                    titleTag="h2"
                     titleSize="--l"
                 />
             ))}

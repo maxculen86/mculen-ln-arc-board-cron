@@ -189,7 +189,7 @@
 
 .economia.economia {
     .com-breadcrumb .com-link,
-    .com-button .com-icon,
+    main .com-button .com-icon,
     .--category .com-link,
     .--tags .com-link,
     //.mod-headersection .com-link,
@@ -204,7 +204,7 @@
 
 .deportes.deportes {
     .com-breadcrumb .com-link,
-    .com-button .com-icon,
+    main .com-button .com-icon,
     .--category .com-link,
     .--tags .com-link,
     //.mod-headersection .com-link,
@@ -221,7 +221,7 @@
 .--bomba {
     background: #111;
     overflow: hidden;
-    margin-top: -65px;
+    margin-top: -73px;
 
     .mod-article {
         //max-width: px(1340);
@@ -510,28 +510,28 @@
                     color: $neutral-white;
                 }
             }
-            &.--blue {
-                .mod-description {
-                    background: $light-blue-500;
-                }
+        }
+        &.--blue {
+            .mod-description {
+                background: $light-blue-500;
             }
+        }
 
-            &.--pink {
-                .mod-description {
-                    background: $pink-600;
-                }
+        &.--pink {
+            .mod-description {
+                background: $pink-600;
             }
+        }
 
-            &.--teal {
-                .mod-description {
-                    background: $teal-600;
-                }
+        &.--teal {
+            .mod-description {
+                background: $teal-600;
             }
+        }
 
-            &.--red {
-                .mod-description {
-                    background: $red-600;
-                }
+        &.--red {
+            .mod-description {
+                background: $red-600;
             }
         }
     }
@@ -859,4 +859,18 @@
         rgba(255, 255, 255, 0.1) 4px,
         rgba(0, 0, 0, 0.15) 6px
     );
+}
+
+.demofront {
+    .mod-banner {
+        margin-bottom: px(32);
+        .com-banner {
+            background: #666;
+            width: 100%;
+            min-height: px(100);
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }

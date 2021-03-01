@@ -107,7 +107,7 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     if (!logoName && !path && isBBC)
         return {
             logoName: 'bbc',
-            path: '/tema/bbc-mundo-tid56419',
+            path: '/distributor/bbc-mundo/',
             color
         };
 

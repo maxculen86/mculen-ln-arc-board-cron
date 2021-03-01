@@ -28,6 +28,7 @@ import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
+import Queryly from '../private/common/scriptManager/queryly';
 
 const scriptList = [
     {
@@ -82,6 +83,10 @@ const scriptList = [
     {
         component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
         feature: 'none'
+    },
+    {
+        component: { name: 'Queryly', function: Queryly },
+        feature: 'none'
     }
 ];
 
@@ -107,7 +112,8 @@ const Default = props => {
         siteProperties,
         renderables,
         globalContent,
-        outputType
+        outputType,
+        layout
     } = props;
     const {
         canonical_url: canonicalUrl,
@@ -185,6 +191,9 @@ const Default = props => {
                         href={`https://www.lanacion.com.ar${canonicalUrl}`}
                     />
                 )}
+                {layout === 'FRONT-home' && ( //Borrarlo una vez subida al home a producción
+                    <meta name="robots" content="noindex, nofollow" />
+                )}
                 <LinkAmpHTML
                     subtype={subtype}
                     canonicalUrl={canonicalUrl || _id}
@@ -249,6 +258,7 @@ const Default = props => {
 
                 <div id="fusion-app">{children}</div>
                 <Fusion />
+
                 <Scripts location="body-bottom" />
                 <ScriptLoadingList location="body-bottom" arcSite={arcSite} />
                 <ScriptLogoBBC distributorName={distributorName} />

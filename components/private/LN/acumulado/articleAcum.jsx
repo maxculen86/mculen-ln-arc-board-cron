@@ -65,6 +65,7 @@ const ArticleAcum = ({
                 subheadText={subheadText}
                 outputType={outputType}
                 isRenderAuthor={isRenderAuthor}
+                typeArticle={typeArticle}
             />
             {children}
         </>
