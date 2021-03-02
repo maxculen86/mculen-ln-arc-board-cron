@@ -10,9 +10,10 @@ const index = acuData => {
         tipoAcumulado: acuData.tipoAcumulado,
         acumuladoTotal: acuData.total,
         paginar: acuData.paginator > 0,
-        titulo: acuData.name,
-        notas: ArticleList(Article, acuData.articles)
+        titulo: acuData.name
     };
+
+    if (acuData.articles) resp.notas = ArticleList(Article, acuData.articles);
 
     if (acuData.author) {
         resp.autor = authorAcu(acuData.author);
