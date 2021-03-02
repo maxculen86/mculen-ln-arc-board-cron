@@ -1,16 +1,20 @@
 /* eslint-disable camelcase */
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/promoItemsRelatedImage';
+import get from '../../../../private/common/utils/get';
 
 const addRelatedImage = article => {
-    const id =
-        article?.related_content?.basic?.find(
-            item => item?.referent?.type === 'image'
-        )?._id || '';
+    const relatedContent = get(article, 'related_content.basic', []);
+    const { _id: id } =
+        (relatedContent &&
+            relatedContent.find(
+                item => get(item, 'referent.type') === 'image'
+            )) ||
+        {};
 
     const withoutPromoItems =
-        !article?.promo_items?.basic ||
-        article?.promo_items?.basic.type !== 'image';
+        !get(article, 'promo_items.basic') ||
+        get(article, 'promo_items.basic.type') !== 'image';
 
     const imageData =
         id &&
@@ -19,7 +23,7 @@ const addRelatedImage = article => {
             source: 'relatedImageSource',
             query: {
                 id,
-                subtype: article?.subtype,
+                subtype: get(article, 'subtype'),
                 imageConfig: 'm'
             },
             filter
@@ -28,7 +32,9 @@ const addRelatedImage = article => {
     return (
         (imageData && {
             ...article,
-            promo_items: { ...imageData?.promo_items }
+            promo_items: {
+                ...imageData.promo_items
+            }
         }) ||
         article
     );

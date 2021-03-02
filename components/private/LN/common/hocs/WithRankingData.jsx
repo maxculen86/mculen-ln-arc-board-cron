@@ -97,7 +97,7 @@ const getRankingContent = (
         filter
     });
 
-    return articles?.content_elements;
+    return articles && articles.content_elements;
 };
 
 const getArticles = (index, props, sectionId, imageConfig) => {

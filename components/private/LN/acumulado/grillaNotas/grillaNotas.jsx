@@ -93,7 +93,7 @@ class GrillaNotas extends React.Component {
 
     render() {
         const {
-            articles,
+            articles = [],
             hayMasNotas,
             obtenerMasNotas,
             globalContent,
