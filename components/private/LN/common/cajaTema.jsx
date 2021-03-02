@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import ModRowGap from '../../common/mod-rowgap';
 import ModHeaderSection from '../../common/mod-headerSection';
 import ArticleAcum from '../acumulado/articleAcum';
@@ -35,6 +36,31 @@ const CajaTema = props => {
                 typeArticle={isFocal ? 'Focal' : 'Grilla'}
                 column={notesQuantity}
             >
+                {articles.length === 0 && (
+                    <>
+                        <SkeletonTheme color="lightGray">
+                            <section>
+                                <Skeleton reactangle={true} height={150} width={'100%'} />
+                                <Skeleton count={2} />
+                                <Skeleton count={1} />
+                            </section>
+                        </SkeletonTheme>
+                        <SkeletonTheme color="lightGray">
+                            <section>
+                                <Skeleton reactangle={true} height={150} width={'100%'} />
+                                <Skeleton count={2} />
+                                <Skeleton count={1} />
+                            </section>
+                        </SkeletonTheme>
+                        <SkeletonTheme color="lightGray">
+                            <section>
+                                <Skeleton reactangle={true} height={150} width={'100%'} />
+                                <Skeleton count={2} />
+                                <Skeleton count={1} />
+                            </section>
+                        </SkeletonTheme>
+                    </>
+                )}
                 {isFocal ? (
                     <FocalFactory
                         directionFocal={layout}
