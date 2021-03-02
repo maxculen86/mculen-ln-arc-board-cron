@@ -8,6 +8,9 @@ import { ADHESION_DSK } from './factory/constants/index';
 
 import ArcAdLib from './arcAdLib';
 
+const PREBID_TIMEOUT = 2000;
+const FAILSAFE_TIMEOUT = 3000;
+
 const Ads = props => {
     const {
         id,
@@ -27,38 +30,69 @@ const Ads = props => {
                 const { prebid = {} } = bidding || {};
 
                 if (
-                    ['object'].includes(typeof pbjs) &&
-                    pbjs &&
-                    Object.keys(prebid).length > 0
+                    Object.keys(prebid || {}).length > 0 &&
+                    typeof pbjs === 'object' &&
+                    Object.keys(pbjs || {}).length > 0 &&
+                    typeof googletag === 'object' &&
+                    Object.keys(googletag || {}).length > 0
                 ) {
+                    googletag.cmd = googletag.cmd || [];
                     pbjs.que = pbjs.que || [];
+
+                    const initAdserver = () => {
+                        /* if (pbjs.initAdserverSet) return;
+                        pbjs.initAdserverSet = true; */
+                        googletag.cmd.push(() => {
+                            pbjs.que.push(() => {
+                                pbjs.setTargetingForGPTAsync();
+                                googletag.pubads().refresh([adDetails.adSlot]);
+                            });
+                        });
+
+                        resolve(adDetails);
+                    };
 
                     pbjs.que.push(() => {
                         const { adUnits = [] } = pbjs;
-                        const _id = adDetails.adUnit
+                        /* const _id = adDetails.adUnit
                             .getAdUnitPath()
                             .split('/')[1];
-                        const code = `/${_id}/${prebid.code || slotName}`;
+                        const code = prebid.code
+                            ? `/${_id}/${prebid.code}`
+                            : adDetails.adSlot; */
+                        const code = adDetails.adSlot;
+
+                        // Se borran atributos innecesarios
+                        delete prebid.code;
+                        delete prebid.enabled;
+                        delete prebid.useSlotForAdUnit;
+
                         const isCodeAdded =
                             adUnits.filter(e => e.code === code).length > -1;
 
                         if (isCodeAdded) resolve(adDetails);
 
                         const thisAdUnit = {
-                            ...prebid,
-                            code
+                            code: adDetails.adSlot,
+                            ...prebid
                         };
                         pbjs.addAdUnits([{ ...thisAdUnit }]);
                         pbjs.setConfig({
                             priceGranularity: 'dense',
                             rubicon: { singleRequest: true },
-                            useBidCache: true
+                            useBidCache: true,
+                            bidderTimeout: PREBID_TIMEOUT
                         });
-                        /*  pbjs.requestBids({
+                        pbjs.requestBids({
                             bidsBackHandler: initAdserver,
                             timeout: PREBID_TIMEOUT
-                        }); */
+                        });
                     });
+
+                    // En caso de que PBJS no cargue
+                    /* setTimeout(() => {
+                        initAdserver();
+                    }, FAILSAFE_TIMEOUT); */
                 }
 
                 resolve(adDetails);

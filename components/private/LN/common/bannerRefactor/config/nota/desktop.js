@@ -214,6 +214,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: 'la_nacion_desktop/Nota/caja3_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
@@ -269,6 +270,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: 'la_nacion_desktop/Nota/caja4_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
@@ -321,6 +323,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: 'la_nacion_desktop/Nota/caja5_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
