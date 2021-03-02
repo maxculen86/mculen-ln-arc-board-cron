@@ -26,12 +26,13 @@ const ComTitle = ({ lead, tag, size, content, classCondition, link }) => {
     };
 
     return React.createElement(
-        (ALLOWED_TAGS.includes(tag.toLowerCase()) && tag) || 'h4',
+        (ALLOWED_TAGS.includes(tag.toLowerCase()) && tag) || 'h2',
         { ..._props }
     );
 };
 
 ComTitle.propTypes = {
+    lead: PropTypes.string,
     tag: PropTypes.string,
     size: PropTypes.string,
     content: PropTypes.string.isRequired,
@@ -40,6 +41,7 @@ ComTitle.propTypes = {
 };
 
 ComTitle.defaultProps = {
+    lead: undefined,
     tag: 'h2',
     size: undefined,
     classCondition: undefined,

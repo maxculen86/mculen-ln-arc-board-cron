@@ -5,15 +5,15 @@ import getArticleInCollection from '../private/LN/common/utils/getArticleInColle
 import CajaTema from '../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
-    calculateSizeOfCollection,
     validateFeature,
     getCommonProps,
     getIdsArticlesFromOtherCollections,
-    isInApertura
+    isInApertura,
+    getArticlesFromMyCurrentCollection
 } from '../private/LN/common/utils/cajaTemasHelper';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
-const CajaTemaAutomatic = props => {
+const CajaCollection = props => {
     const {
         id: featureId,
         isAdmin,
@@ -25,12 +25,15 @@ const CajaTemaAutomatic = props => {
             backgroundColor,
             initialPosition,
             imageId,
-            hideTitle
+            hideTitle,
+            hideCaja
         },
         outputType,
         renderables,
         tree
     } = props;
+
+    if (hideCaja) return <></>;
 
     const {
         collectionsInPage,
@@ -39,28 +42,37 @@ const CajaTemaAutomatic = props => {
         classCondition
     } = getCommonProps(props);
 
-    const idsArticlesToExclude = getIdsArticlesFromOtherCollections(
-        renderables,
-        collectionsInPage
-    );
-
-    const isInsideApertura = isInApertura(tree, featureId);
-
-    const size = calculateSizeOfCollection(collectionsInPage, notesQuantity);
-
-    const articlesToShow = getArticleInCollection(
+    const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
+        collectionsInPage,
         idCollection,
-        size,
         Number(initialPosition) - 1,
-        idsArticlesToExclude,
-        true,
         Number(notesQuantity)
     );
 
+    const isInSiteService = articlesFromCollectionSiteService.length > 0;
+
+    const idsArticlesToExclude = !isInSiteService
+        ? getIdsArticlesFromOtherCollections(renderables, collectionsInPage)
+        : [];
+
+    const isInsideApertura = isInApertura(tree, featureId);
+
+    const articlesToShow = !isInSiteService
+        ? getArticleInCollection(
+              idCollection,
+              20,
+              Number(initialPosition) - 1,
+              idsArticlesToExclude,
+              true,
+              !isInSiteService,
+              Number(notesQuantity)
+          )
+        : [];
+
     const error = validateFeature(
         idCollection,
-        articlesToShow,
-        `La colección ${idCollection} no encontró notas (verificar si el tamaño de la colección esta configurado en 20 notas)`
+        isInSiteService ? articlesFromCollectionSiteService : articlesToShow,
+        `La colección ${idCollection} no encontró notas`
     );
 
     if (isAdmin && !!error) {
@@ -90,13 +102,13 @@ const CajaTemaAutomatic = props => {
             outputType={outputType}
             layout={layout}
             classCondition={classCondition}
-            idsArticlesToExclude={idsArticlesToExclude}
             notesQuantity={notesQuantity}
-            articles={articlesToShow}
-            idCollection={idCollection}
-            size={size}
+            articles={
+                isInSiteService
+                    ? articlesFromCollectionSiteService
+                    : articlesToShow
+            }
             titleSize={isInsideApertura && '--l'}
-            from={initialPosition - 1}
             backgroundColor={
                 backgroundColor !== 'default'
                     ? `${bgColor}${backgroundColor}`
@@ -106,9 +118,9 @@ const CajaTemaAutomatic = props => {
     );
 };
 
-CajaTemaAutomatic.label = 'LN Caja Automatica (no usar)';
+CajaCollection.label = 'LN Caja Collection';
 
-CajaTemaAutomatic.propTypes = {
+CajaCollection.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     outputType: PropTypes.bool.isRequired,
@@ -130,4 +142,4 @@ CajaTemaAutomatic.propTypes = {
     tree: PropTypes.shape(PropTypes.node).isRequired
 };
 
-export default Consumer(CajaTemaAutomatic);
+export default Consumer(CajaCollection);

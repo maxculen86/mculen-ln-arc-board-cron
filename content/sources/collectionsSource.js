@@ -58,13 +58,15 @@ const fetch = query => {
 const transform = (data, siteProps) => {
     const respData = data;
     const contentElements = get(data, `content_elements`, []);
+    const isCollectionDinamic = get(data, `dynamic_items`, false);
 
     const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     const contentElementsFiltered = filterArticlesInCollection(
         siteProps,
-        contentElements
+        contentElements,
+        isCollectionDinamic
     );
 
     respData.content_elements =
@@ -101,7 +103,6 @@ const transform = (data, siteProps) => {
 const filterArticlesInCollection = (siteProps, originalArticles) => {
     const {
         idsArticlesToExclude = [],
-        from = 0,
         filterRecomendar = false,
         filterRepetead = false,
         filterFutureDisplayDate = false,
@@ -129,7 +130,6 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
         ? getArticlesToShow(
               articlesIn24HourAgo,
               idsArticlesToExclude,
-              from,
               notesQuantity
           )
         : articlesIn24HourAgo;

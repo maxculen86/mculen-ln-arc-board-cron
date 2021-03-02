@@ -2,11 +2,11 @@
 @import '../abstracts/mixins';
 
 .mod-themes {
-    @include flex(flex, row, start, start);
-    flex-wrap: nowrap;
-    width: 100%;
-    overflow: scroll;
-    margin-bottom: $spacing-lg;
+    // @include flex(flex, row, start, start);
+    // flex-wrap: nowrap;
+    // width: 100%;
+    // overflow: scroll;
+    margin-bottom: $spacing-sm;
 
     .com-button.com-button {
         margin: 0;
