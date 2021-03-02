@@ -81,7 +81,7 @@ const HeaderDesktop = ({
                     {/* <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i> */}
                 </label>
             </div>
-            <div className="col-8 col-desksm-4 header__middle">
+            <div className="col-7 col-desksm-4 header__middle">
                 <ComLink
                     link={host || '/'}
                     classCondition="header__middle__logo"
@@ -161,11 +161,11 @@ const HeaderDesktop = ({
                     )}
                 </div>
             </div>
-            {/* <div className="col-1 header__search">
+            <div className="col-1 header__search">
                 <label for="queryly_toggle">
                     <i className="com-icon icon-search queryly_searchicon" />
                 </label>
-            </div> */}
+            </div>
         </Header>
     );
 };
