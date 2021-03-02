@@ -20,7 +20,7 @@ const typeAcumRules = {
     },
     Timeline: {
         withMedia: true,
-        withAuthors: false,
+        withAuthors: true,
         withHour: true
     }
 };
