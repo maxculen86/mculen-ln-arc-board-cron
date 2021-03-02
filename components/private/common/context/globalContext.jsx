@@ -38,7 +38,6 @@ const GlobalProvider = ({ children }) => {
                     sitio_adserver: sitioAdserver = {},
                     tooltips = {}
                 } = site;
-
                 return {
                     bannerConfig: { dfp_id: bannerConfig.dfp_id },
                     tooltips: Object.keys(tooltips).map(key => ({

@@ -110,6 +110,20 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           </dl>
         </div>
         <div
+          class="com-container  "
+        >
+          <dl
+            class="mod-descriptionlist --idiomas --twoxs"
+          >
+            <dt
+              class="com-subtitle --twoxs --idiomas"
+            >
+              Ubicación:
+            </dt>
+            Argentina
+          </dl>
+        </div>
+        <div
           class="com-container  --reconocimientos"
         >
           <dl

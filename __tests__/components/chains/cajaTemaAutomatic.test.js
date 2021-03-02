@@ -6,7 +6,7 @@ jest.mock(
 import React from 'react';
 import { mount } from 'enzyme';
 import CajaTemaAutomatic from '../../../components/chains/cajaTemaAutomatic.jsx';
-import { calculateSizeOfCollection, getIdsArticlesFromOtherCollections } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
+import { calculateSizeOfCollection, getIdsArticlesFromOtherCollections, isInApertura } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
 import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
 
 describe('Test del Chain - <CajaTema />', () => {
@@ -183,7 +183,7 @@ describe('Test del Chain - <CajaTema />', () => {
         expect(articles1[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI');   
     });
 
-    it('Deberia filtrar 1 nota que ya esta en la manual y otra nota que tiene el label NO RECOMENDAR', () => {
+    it('Deberia filtrar 1 nota que ya esta en la manual', () => {
         const idsArticlesToExclude = getIdsArticlesFromOtherCollections(
             renderables,
             collectionsInPage
@@ -198,7 +198,7 @@ describe('Test del Chain - <CajaTema />', () => {
         expect(articles2.length).toBe(3);
         expect(articles2[0]._id).toBe('C5FCAISVEBE5BH5SLWSAWB2VKI'); 
         expect(articles2[1]._id).toBe('BBB'); 
-        expect(articles2[2]._id).toBe('CCC'); 
+        expect(articles2[2]._id).toBe('DDD'); 
     });
 
     it('Deberia traer un array vacio cuando sobrepasa la posicion de la colleccion', () => {
@@ -209,6 +209,29 @@ describe('Test del Chain - <CajaTema />', () => {
             3
         );
         expect(articles2.length).toBe(0);
+    });
+
+    const tree = {
+        children: [
+            { children: [] },
+            { children: [] },
+            { children: [] },
+            { children: [] },
+            { children: [ 
+                { props: {id: 'aaa'}}
+            ] },
+            { children: [] }
+        ]
+    };
+
+    it('Deberia decirme que la caja esta en Apertura', () => {
+        const result = isInApertura(tree, 'aaa');
+        expect(result).toBeDefined();
+    });
+
+    it('Deberia decirme que la caja NO esta en Apertura', () => {
+        const result = isInApertura(tree, 'bbb');
+        expect(result).toBeUndefined();
     });
 
 });

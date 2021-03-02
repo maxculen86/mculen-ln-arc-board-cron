@@ -1,13 +1,18 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-.mod-dolar {
+.mod-dolar.mod-dolar {
     margin-bottom: $spacing-lg;
+
     .item {
         background: $light-neutral-200;
         padding: $spacing-sm;
         .com-title {
             margin-bottom: $spacing;
+        }
+
+        span {
+            display: none;
         }
 
         strong {
@@ -26,11 +31,7 @@
                 max-width: px(160);
             }
         }
-        @media ($media-m) {
-            span {
-                display: none;
-            }
-        }
+
         @media ($media-lm) {
             span {
                 display: inline;
@@ -38,17 +39,8 @@
         }
     }
 
-    &.row-gap-tablet-4 {
+    @media (max-width: 767px) {
+        grid-column-gap: 1px;
         grid-row-gap: 1px;
-        @media ($media-m) {
-            grid-row-gap: px(32);
-        }
     }
-    // &.row-gap-2 {
-    //     grid-gap: 0;
-    //     @media ($media-m) {
-    //         grid-column-gap: 1rem;
-    //         grid-row-gap: 2rem;
-    //     }
-    // }
 }

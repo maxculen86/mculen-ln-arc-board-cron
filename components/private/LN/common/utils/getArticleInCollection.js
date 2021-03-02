@@ -7,29 +7,29 @@ const getArticleInCollection = (
     size = 2,
     initialPosition = 0,
     idsArticlesToExclude = [],
-    shouldFilter = false,
+    filterRecomendar = false,
+    filterRepetead = false,
     notesQuantity,
     website = 'la-nacion-ar'
 ) => {
-    const articleList = useContent({
-        source: 'collectionsSource',
-        query: {
-            id: idCollection,
-            size,
-            website,
-            from: initialPosition,
-            idsArticlesToExclude,
-            shouldFilter,
-            notesQuantity
-        },
-        filter,
-        staticMode: true
-    });
+    const articleList = idCollection
+        ? useContent({
+              source: 'collectionsSource',
+              query: {
+                  id: idCollection,
+                  size,
+                  website,
+                  from: initialPosition,
+                  idsArticlesToExclude,
+                  filterRecomendar,
+                  filterRepetead,
+                  notesQuantity
+              },
+              filter
+          })
+        : [];
 
-    const articles = get(articleList, 'content_elements', []);
-    // const dynamicItems = get(articleList, 'dynamic_items', {});
-
-    return articles;
+    return get(articleList, 'content_elements', []);
 };
 
 export default getArticleInCollection;

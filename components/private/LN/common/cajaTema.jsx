@@ -15,6 +15,7 @@ const CajaTema = props => {
         layout = 'grilla3',
         backgroundColor = '',
         classCondition = '',
+        titleSize,
         notesQuantity = 3,
         hideTitle = false,
         withSubhead = false
@@ -49,6 +50,7 @@ const CajaTema = props => {
                                 article={artWithoutDate}
                                 outputType={outputType}
                                 frontdemo
+                                titleSize={titleSize}
                                 isRenderAuthor={isRenderAuthor}
                                 withSubhead={withSubhead}
                             />
@@ -67,13 +69,24 @@ CajaTema.propTypes = {
         })
     ).isRequired,
     outputType: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string.isRequired,
+    classCondition: PropTypes.string.isRequired,
+    notesQuantity: PropTypes.number.isRequired,
+    hideTitle: PropTypes.boolean.isRequired,
+    withSubhead: PropTypes.boolean.isRequired,
     title: PropTypes.string,
-    url: PropTypes.string
+    url: PropTypes.string,
+    imageId: PropTypes.string
 };
 
 CajaTema.defaultProps = {
-    title: PropTypes.string,
-    url: PropTypes.string
+    title: null,
+    url: null,
+    imageId: null
 };
 
-export default CajaTema;
+const areEqual = (prevProps, nextProps) =>
+    prevProps.articles.length === nextProps.articles.length;
+
+export default React.memo(CajaTema, areEqual);

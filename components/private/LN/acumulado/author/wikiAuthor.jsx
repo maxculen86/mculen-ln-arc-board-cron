@@ -34,7 +34,8 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
         awards = [],
         personal_website: personalWebsite,
         languages,
-        affiliations
+        affiliations,
+        location
     } = data || {};
 
     const socialsNetworks = getSocialsNetwork(data);
@@ -86,6 +87,16 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                                     descriptionTitle="Educación"
                                     size="--twoxs"
                                     list={education}
+                                />
+                            </ComContainer>
+                        )}
+                        {location && (
+                            <ComContainer>
+                                <ModDescriptionList
+                                    classCondition="--idiomas"
+                                    descriptionTitle="Ubicación:"
+                                    size="--twoxs"
+                                    text={location}
                                 />
                             </ComContainer>
                         )}

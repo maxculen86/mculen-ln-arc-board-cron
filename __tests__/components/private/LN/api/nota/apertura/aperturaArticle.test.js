@@ -79,9 +79,9 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0].baseUrl).toBe(
             '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SITTWPHGIZHMRNZH3DBQINBEXA.jpg'
         );
-        expect(resp.imagenes[0].parametros[1].ancho).toBe(878);
+        expect(resp.imagenes[0].parametros[1].ancho).toBe(1120);
         expect(resp.imagenes[0].parametros[1].firma).toBe(
-            'g6OS3FXUAFmIOTNg2qOQSqWv5Uo=/0x878/filters:quality(70)'
+            'jyC1dEvJPV9p1vrfUcw79zvPx2A=/0x1120/filters:quality(70)'
         );
         expect(resp.imagenes[0].epigrafe).toBeUndefined();
     });

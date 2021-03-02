@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
@@ -7,7 +8,8 @@ import {
     cajaTemasCustomsFields,
     getArticlesFromMyCurrentCollection,
     validateFeature,
-    getCommonProps
+    getCommonProps,
+    isInApertura
 } from '../private/LN/common/utils/cajaTemasHelper';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
@@ -25,7 +27,8 @@ const CajaTemaCollections = props => {
             imageId,
             hideTitle
         },
-        outputType
+        outputType,
+        tree
     } = props;
 
     const {
@@ -41,6 +44,8 @@ const CajaTemaCollections = props => {
         Number(initialPosition) - 1,
         Number(notesQuantity)
     );
+
+    const isInsideApertura = isInApertura(tree, featureId);
 
     const error = validateFeature(
         idCollection,
@@ -77,6 +82,7 @@ const CajaTemaCollections = props => {
                 layout={layout}
                 classCondition={classCondition}
                 articles={articlesFiltered}
+                titleSize={isInsideApertura && '--l'}
                 notesQuantity={notesQuantity}
                 backgroundColor={
                     backgroundColor !== 'default'
@@ -96,7 +102,8 @@ CajaTemaCollections.propTypes = {
     outputType: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaTemaCollections')
-    }).isRequired
+    }).isRequired,
+    tree: PropTypes.shape(PropTypes.node).isRequired
 };
 
 export default Consumer(CajaTemaCollections);

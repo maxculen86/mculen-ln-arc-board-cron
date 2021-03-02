@@ -7,13 +7,16 @@ import ModRowGap from '../../common/mod-rowgap';
 const DATA_SECTION = 'CuerpoAcu';
 const typeAcumRules = {
     Grilla: {
-        withSubhead: false
+        withSubhead: false,
+        titleSize: '--xs'
     },
     Listado: {
-        withSubhead: true
+        withSubhead: true,
+        titleSize: '--m'
     },
     Timeline: {
-        withSubhead: false
+        withSubhead: false,
+        titleSize: '--m'
     }
 };
 
@@ -38,6 +41,8 @@ const ArticlesAcum = ({
                         dataSection={DATA_SECTION}
                         article={art}
                         typeArticle={typeArticle}
+                        //titleSize={typeArticle === 'Listado' && '--m'}
+                        titleSize={typeAcumRules[typeArticle].titleSize}
                         outputType={outputType}
                         withSubhead={typeAcumRules[typeArticle].withSubhead}
                     >

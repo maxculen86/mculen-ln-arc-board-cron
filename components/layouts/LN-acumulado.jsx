@@ -57,7 +57,7 @@ const LNAcumuladoLayout = props => {
         tree,
         isAdmin
     } = props;
-    const { style, articlesInCollection = [], name = '' } = globalContent;
+    const { style, name = '' } = globalContent;
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =
@@ -76,8 +76,17 @@ const LNAcumuladoLayout = props => {
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
-    const OPENING_CLASS = articlesInCollection.length > 0 ? '--opening' : '';
     const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
+    const idCollectionApertura = get(
+        globalContent,
+        'acumuladoGeneral.id_collection_promo_items'
+    );
+    const idCollectionsInPage = get(
+        globalContent,
+        'acumuladoGeneral.colecciones',
+        []
+    );
+    const OPENING_CLASS = idCollectionApertura ? '--opening' : '';
 
     return (
         <GlobalProvider>
@@ -85,12 +94,13 @@ const LNAcumuladoLayout = props => {
                 <GlobalProviderAcu
                     acumuladoGeneral={acumuladoGeneral}
                     acumuladoColor={acumuladoColor}
-                    articlesInCollection={articlesInCollection}
+                    idCollectionsInPage={idCollectionsInPage}
+                    idCollectionApertura={idCollectionApertura}
                 >
                     {megatop}
                     <div
                         id="wrapper"
-                        className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${OPENING_CLASS} ${amp}`}
+                        className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${sectionClass} ${OPENING_CLASS} ${amp}`}
                     >
                         <Header />
                         <main>
@@ -134,7 +144,7 @@ const LNAcumuladoLayout = props => {
 
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
-    outputType: PropTypes.string,
+    outputType: PropTypes.string.isRequired,
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
     isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({
@@ -142,6 +152,7 @@ LNAcumuladoLayout.propTypes = {
             section_style_name: PropTypes.string,
             headerdark: PropTypes.string
         }),
+        name: PropTypes.string,
         acumuladoGeneral: PropTypes.shape({
             tipo_acumulado: PropTypes.string,
             hierarchy_navigation: PropTypes.string,
