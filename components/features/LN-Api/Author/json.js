@@ -16,22 +16,14 @@ class AuthorAcu {
             requestUri
         } = props;
 
-        this.state = {
-            id,
-            isAdmin,
-            sizeCf,
-            pageCf,
-            paramUrlId,
-            requestUri,
-            fetchContent: this.fetchContent
-        };
+        this.state = {};
 
         const { size, page } = getSizesFrom(
             isAdmin,
             sizeCf,
             pageCf,
             paramUrlId,
-            this.props.requestUri
+            requestUri
         );
 
         this.fetchContent({
