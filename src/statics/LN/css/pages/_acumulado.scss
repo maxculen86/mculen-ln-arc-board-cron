@@ -195,6 +195,7 @@
             .mod-logo {
                 .com-image {
                     width: auto;
+                    max-width: 100%;
                     max-height: px(70);
                 }
             }
@@ -222,6 +223,13 @@
                 margin-bottom: px(8);
                 &:not(.hlp-none) {
                     display: inline-flex;
+                }
+            }
+        }
+        @media ($media-lg) {
+            .mod-logo {
+                .com-image {
+                    max-width: none;
                 }
             }
         }
