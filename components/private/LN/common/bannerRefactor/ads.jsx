@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/require-default-props */
 import React, { useCallback } from 'react';
 import PropTypes from 'fusion:prop-types';
@@ -6,6 +7,9 @@ import hasAdsTestParam from '../utils/hasAdsTesParam';
 import { ADHESION_DSK } from './factory/constants/index';
 
 import ArcAdLib from './arcAdLib';
+
+const PREBID_TIMEOUT = 2000;
+const FAILSAFE_TIMEOUT = 3000;
 
 const Ads = props => {
     const {
@@ -20,54 +24,131 @@ const Ads = props => {
         children
     } = props;
 
-    ArcAdLib.getInstance().registerAd(
-        {
-            id,
-            slotName,
-            dimensions,
-            display,
-            targeting: { ...targeting, adstest: hasAdsTestParam() },
-            sizemap,
-            bidding
-        },
-        dfpId,
-        bidding
-    );
+    if (window) {
+        window.arcAdsPrerenderer = adDetails => {
+            return new Promise(resolve => {
+                const { prebid = {} } = bidding || {};
 
-    const onMutate = useCallback(
-        mutations => {
-            mutations.forEach(mutation => {
-                const nodes = mutation.addedNodes;
-                nodes.forEach(node => {
-                    const {
-                        nodeId,
-                        style: { width },
-                        localName
-                    } = node;
+                if (
+                    Object.keys(prebid || {}).length > 0 &&
+                    typeof pbjs === 'object' &&
+                    Object.keys(pbjs || {}).length > 0 &&
+                    typeof googletag === 'object' &&
+                    Object.keys(googletag || {}).length > 0
+                ) {
+                    googletag.cmd = googletag.cmd || [];
+                    pbjs.que = pbjs.que || [];
 
-                    const nodeDimension =
-                        width && parseInt(width.replace('px', ''), 10);
+                    const initAdserver = () => {
+                        /* if (pbjs.initAdserverSet) return;
+                        pbjs.initAdserverSet = true; */
+                        googletag.cmd.push(() => {
+                            pbjs.que.push(() => {
+                                pbjs.setTargetingForGPTAsync();
+                                googletag.pubads().refresh([adDetails.adSlot]);
+                            });
+                        });
 
-                    if (nodeId === ADHESION_DSK && nodeDimension === 728)
-                        document
-                            .querySelector(`#${id}`)
-                            .parentNode.classList.add('--small');
+                        resolve(adDetails);
+                    };
 
-                    if (localName === 'iframe') {
-                        document
-                            .querySelector(`#${id}`)
-                            .parentNode.classList.remove('hlp-none');
-                    }
-                });
+                    pbjs.que.push(() => {
+                        const { adUnits = [] } = pbjs;
+                        /* const _id = adDetails.adUnit
+                            .getAdUnitPath()
+                            .split('/')[1];
+                        const code = prebid.code
+                            ? `/${_id}/${prebid.code}`
+                            : adDetails.adSlot; */
+                        const code = adDetails.adSlot;
+
+                        // Se borran atributos innecesarios
+                        delete prebid.code;
+                        delete prebid.enabled;
+                        delete prebid.useSlotForAdUnit;
+
+                        const isCodeAdded =
+                            adUnits.filter(e => e.code === code).length > -1;
+
+                        if (isCodeAdded) resolve(adDetails);
+
+                        const thisAdUnit = {
+                            code: adDetails.adSlot,
+                            ...prebid
+                        };
+                        pbjs.addAdUnits([{ ...thisAdUnit }]);
+                        pbjs.setConfig({
+                            priceGranularity: 'dense',
+                            rubicon: { singleRequest: true },
+                            useBidCache: true,
+                            bidderTimeout: PREBID_TIMEOUT
+                        });
+                        pbjs.requestBids({
+                            bidsBackHandler: initAdserver,
+                            timeout: PREBID_TIMEOUT
+                        });
+                    });
+
+                    // En caso de que PBJS no cargue
+                    /* setTimeout(() => {
+                        initAdserver();
+                    }, FAILSAFE_TIMEOUT); */
+                }
+
+                resolve(adDetails);
             });
-        },
-        [id]
-    );
+        };
 
-    useMutationObserver(true, onMutate, id, {
-        subtree: true,
-        childList: true
-    });
+        ArcAdLib.getInstance().registerAd(
+            {
+                id,
+                slotName,
+                dimensions,
+                display,
+                targeting: { ...targeting, adstest: hasAdsTestParam() },
+                sizemap,
+                bidding,
+                prerender: window.arcAdsPrerenderer
+            },
+            dfpId,
+            bidding
+        );
+
+        const onMutate = useCallback(
+            mutations => {
+                mutations.forEach(mutation => {
+                    const nodes = mutation.addedNodes;
+                    nodes.forEach(node => {
+                        const {
+                            nodeId,
+                            style: { width },
+                            localName
+                        } = node;
+
+                        const nodeDimension =
+                            width && parseInt(width.replace('px', ''), 10);
+
+                        if (nodeId === ADHESION_DSK && nodeDimension === 728)
+                            document
+                                .querySelector(`#${id}`)
+                                .parentNode.classList.add('--small');
+
+                        if (localName === 'iframe') {
+                            document
+                                .querySelector(`#${id}`)
+                                .parentNode.classList.remove('hlp-none');
+                        }
+                    });
+                });
+            },
+            [id]
+        );
+
+        useMutationObserver(true, onMutate, id, {
+            subtree: true,
+            childList: true
+        });
+    }
 
     return (
         <div id={id} className="com-banner">
