@@ -37,21 +37,13 @@ describe('Private - Common - ComTitle => ', () => {
     it('Render de la etiqueta h4 por defecto', () => {
         const component = mount(
             <div>
+                <ComTitle content="Título sin tag definido" />
                 <ComTitle tag="h5" content="Título con la etiqueta H5" />
                 <ComTitle tag="h6" content="Título con la etiqueta H6" />
                 <ComTitle tag="span" content="Título con la etiqueta SPAN" />
             </div>
         );
-        expect(component.find('h4')).toHaveLength(3);
-    });
-
-    it('Render de la etiqueta h2 cuando el valor de "tag" es null o undefined', () => {
-        const component = mount(
-            <div>
-                <ComTitle content="Título sin tag definido" />
-            </div>
-        );
-        expect(component.find('h2')).toHaveLength(1);
+        expect(component.find('h4')).toHaveLength(4);
     });
 
     it('Validación de propiedades size y classCondition (opcionales)', () => {
