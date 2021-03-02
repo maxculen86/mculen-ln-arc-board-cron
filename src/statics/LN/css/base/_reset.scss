@@ -159,9 +159,9 @@ body {
     }
 }
 
-#wrapper:not(.nota) {
-    overflow: hidden;
-}
+// #wrapper:not(.nota) { Hay que buscar una solución para caja de notas con fonde de color
+//     overflow: hidden;
+// }
 
 main {
     position: relative;

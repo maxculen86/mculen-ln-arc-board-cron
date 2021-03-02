@@ -15,10 +15,13 @@
                 .com-link {
                     &.--tags {
                         font-family: $font-arial;
-                        color: $light-blue-400;
-                        font-weight: bold;
-                        display: flex;
+                        color: $light-blue-500;
+                        font-weight: 700;
+                        letter-spacing: normal;
                         margin-bottom: $spacing;
+                        &:first-letter {
+                            text-transform: capitalize;
+                        }
                     }
                 }
             }
