@@ -34,7 +34,9 @@ const ArticleAcum = ({
     titleTag,
     titleSize,
     withSubhead,
-    isRenderAuthor
+    isRenderAuthor,
+    boxPosition,
+    artPosition
 }) => {
     const { display_date, headlines, website_url, label } = article;
 
@@ -66,6 +68,8 @@ const ArticleAcum = ({
                 outputType={outputType}
                 isRenderAuthor={isRenderAuthor}
                 typeArticle={typeArticle}
+                artPosition={artPosition}
+                boxPosition={boxPosition}
             />
             {children}
         </>

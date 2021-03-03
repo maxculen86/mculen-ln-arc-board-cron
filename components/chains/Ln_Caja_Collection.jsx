@@ -39,14 +39,15 @@ const CajaCollection = props => {
         collectionsInPage,
         notesQuantity,
         bgColor,
-        classCondition
+        classCondition,
+        position
     } = getCommonProps(props);
 
     const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
         collectionsInPage,
         idCollection,
         Number(initialPosition) - 1,
-        Number(notesQuantity)
+        notesQuantity
     );
 
     const isInSiteService = articlesFromCollectionSiteService.length > 0;
@@ -65,7 +66,7 @@ const CajaCollection = props => {
               idsArticlesToExclude,
               true,
               !isInSiteService,
-              Number(notesQuantity)
+              notesQuantity
           )
         : [];
 
@@ -103,6 +104,7 @@ const CajaCollection = props => {
             layout={layout}
             classCondition={classCondition}
             notesQuantity={notesQuantity}
+            position={position}
             articles={
                 isInSiteService
                     ? articlesFromCollectionSiteService

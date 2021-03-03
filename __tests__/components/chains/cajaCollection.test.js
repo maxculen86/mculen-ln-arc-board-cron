@@ -8,11 +8,15 @@ import { mount } from 'enzyme';
 import {
     calculateSizeOfCollection,
     getArticlesFromMyCurrentCollection,
+    getCommonProps,
     getIdsArticlesFromOtherCollections,
     isInApertura
 } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
 import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
 import CajaCollection from '../../../components/chains/Ln_Caja_Collection.jsx';
+import useGlobalProviderAcu from '../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js';
+
+jest.mock('../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js', () => ( jest.fn() ))
 
 describe('Test del Chain - <Ln_Caja_Collection />', () => {
     const idCollection = 'WPDJCUD7RNAQVA4JEPFJYZMCSE';
@@ -94,7 +98,8 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
                     idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
                     layout: 'grilla3',
                     initialPosition: 1
-                }
+                },
+                id: 1
             }
         },
         {
@@ -105,7 +110,8 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
                     idCollection: 'WPDJCUD7RNAQVA4JEPFJYZMCSE',
                     layout: 'grilla3',
                     initialPosition: 4
-                }
+                },
+                id: 2
             }
         }
     ];
@@ -147,6 +153,26 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
     it('Recibe de customFields el campo opcional title', () => {
         expect(mock.props('customFields').customFields.title).toBeTruthy();
         expect(mock.props('customFields').customFields.title).toBe(title);
+    });
+
+    it('Deberia traer propiedades en comun', () => {
+        const props = {
+            customFields,
+            renderables,
+            id: 2
+        }
+        const {
+            collectionsInPage,
+            notesQuantity,
+            bgColor,
+            classCondition,
+            position
+        } = getCommonProps(props);
+        expect(collectionsInPage.length).toBe(0);
+        expect(bgColor).toBe('--bgcolor ');
+        expect(position).toBe('02');
+        expect(notesQuantity).toBe(3);
+        expect(classCondition).toBe('');
     });
 
     // Collections del tipo automatica

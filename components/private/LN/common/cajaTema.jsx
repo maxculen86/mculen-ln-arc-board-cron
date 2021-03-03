@@ -18,47 +18,61 @@ const CajaTema = props => {
         titleSize,
         notesQuantity = 3,
         hideTitle = false,
-        withSubhead = false
+        withSubhead = false,
+        position
     } = props;
 
     const isFocal = layout.includes('focal');
     const isRenderAuthor = layout.includes('author');
 
     return (
-        <section
-            className={`box-articles ${backgroundColor} ${classCondition}`}
-        >
-            {!hideTitle && (
-                <ModHeaderSection imageId={imageId} title={title} link={url} />
-            )}
-            <ModRowGap
-                typeArticle={isFocal ? 'Focal' : 'Grilla'}
-                column={notesQuantity}
+        <div data-module={`tema_${position}`}>
+            <section
+                id={`tema_${position}`}
+                data-block-name={`h_tema-${position}`}
+                data-diagramacion-id={layout}
+                className={`box-articles ${backgroundColor} ${classCondition}`}
             >
-                {isFocal ? (
-                    <FocalFactory
-                        directionFocal={layout}
-                        articles={articles}
-                        outputType={outputType}
+                {!hideTitle && (
+                    <ModHeaderSection
+                        imageId={imageId}
+                        title={title}
+                        link={url}
                     />
-                ) : (
-                    articles.map(art => {
-                        const artWithoutDate = { ...art, display_date: '' };
-                        return (
-                            <ArticleAcum
-                                key={artWithoutDate._id}
-                                article={artWithoutDate}
-                                outputType={outputType}
-                                frontdemo
-                                titleSize={titleSize}
-                                isRenderAuthor={isRenderAuthor}
-                                withSubhead={withSubhead}
-                            />
-                        );
-                    })
                 )}
-            </ModRowGap>
-        </section>
+                <ModRowGap
+                    typeArticle={isFocal ? 'Focal' : 'Grilla'}
+                    column={notesQuantity}
+                >
+                    {isFocal ? (
+                        <FocalFactory
+                            directionFocal={layout}
+                            articles={articles}
+                            outputType={outputType}
+                            boxPosition={position}
+                        />
+                    ) : (
+                        articles.map((art, i) => {
+                            const artPosition = `0${Number(i) + 1}`.slice(-2);
+                            const artWithoutDate = { ...art, display_date: '' };
+                            return (
+                                <ArticleAcum
+                                    key={artWithoutDate._id}
+                                    article={artWithoutDate}
+                                    outputType={outputType}
+                                    frontdemo
+                                    titleSize={titleSize}
+                                    isRenderAuthor={isRenderAuthor}
+                                    withSubhead={withSubhead}
+                                    boxPosition={position}
+                                    artPosition={artPosition}
+                                />
+                            );
+                        })
+                    )}
+                </ModRowGap>
+            </section>
+        </div>
     );
 };
 
@@ -78,7 +92,9 @@ CajaTema.propTypes = {
     title: PropTypes.string,
     titleSize: PropTypes.string,
     url: PropTypes.string,
-    imageId: PropTypes.string
+    imageId: PropTypes.string,
+    position: PropTypes.string.isRequired,
+    dataDiagramacion: PropTypes.string.isRequired
 };
 
 CajaTema.defaultProps = {

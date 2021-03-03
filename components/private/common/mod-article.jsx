@@ -34,14 +34,21 @@ const ModArticle = props => {
         anexo,
         noMedia,
         label,
-        position,
+        artPosition,
+        boxPosition,
         hour,
         typeArticle
     } = props;
+    const { _id } = articleData;
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
+    }
+    if (boxPosition) {
+        extraOpts['data-pos'] = `${boxPosition}${artPosition}`;
+        extraOpts['data-id'] = _id;
+        extraOpts['data-notaid'] = _id;
     }
     const imagenDestacada = isRenderAuthor
         ? getAuthorsPhoto(articleData)
@@ -58,28 +65,14 @@ const ModArticle = props => {
 
     const type = get(imagenDestacada, 'type', null);
 
-    //Esto es para una demo para Leito ********************
-    const idArc = `nid5E23BMUH${position}XZ3LSXEK3BKOOA`;
-    const classDemo = `toi${position} ${idArc}`;
-
-    const extraDemo = {};
-    if (frontdemo) {
-        extraDemo['data-pos'] = position;
-        extraDemo['data-id'] = idArc;
-        extraDemo['data-notaid'] = idArc;
-        extraDemo['data-source'] = `editor`;
-    }
-    // demo front *****************************************
-
     return (
         <article
             className={`mod-article ${classCondition || ''} ${
-                frontdemo ? classDemo : ''
+                boxPosition ? `toi${boxPosition}${artPosition} nid${_id}` : ''
             } ${noMedia ? '--no-media' : ''} ${
                 isRenderAuthor ? '--author' : ''
             }`}
             {...extraOpts}
-            {...extraDemo}
         >
             {hour && hour}
 
@@ -143,6 +136,7 @@ ModArticle.propTypes = {
     withMedia: PropTypes.boolean,
     outputType: PropTypes.string,
     articleData: PropTypes.shape({
+        _id: PropTypes.string,
         promo_items: PropTypes.shape({
             basic: PropTypes.object
         })
