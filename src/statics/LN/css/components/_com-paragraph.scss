@@ -13,13 +13,13 @@
         }
     }
     .mod-paragraph & {
-        @include flex(flex);
+        //@include flex(flex);
         text-align: center;
-        font-family: $font-SuecaSlab;
-        color: $light-neutral-700;
-        font-size: px(20);
-        line-height: px(28);
-        font-weight: bold;
+        //font-family: $font-SuecaSlab;
+        //color: $light-neutral-700;
+        //font-size: px(20);
+        //line-height: px(28);
+        //font-weight: bold;
         margin-bottom: 0;
     }
 }
