@@ -30,13 +30,19 @@
         .--scrollDown & {
             top: 0;
         }
-        .sidebar__aside & {
+        &.--active {
             .--scrollDown & {
-                top: px(10);
+                display: flex;
             }
         }
         .--scrollUp & {
             top: px(80);
+            display: none;
+        }
+        .sidebar__aside & {
+            .--scrollDown & {
+                top: px(10);
+            }
         }
     }
     &.--fixed {

@@ -61,15 +61,15 @@ Array [
 
 exports[`Private - Common - ComTitle =>  Snapshots tags no permitidos 1`] = `
 Array [
-  <h2
+  <h4
     class="com-title"
   >
     Título de impacto H5
-  </h2>,
-  <h2
+  </h4>,
+  <h4
     class="com-title"
   >
     Título de impacto SPAN
-  </h2>,
+  </h4>,
 ]
 `;

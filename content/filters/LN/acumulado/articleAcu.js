@@ -72,10 +72,20 @@ export default `
         display_date 
         publish_date
         website_url     
+        display_date
+        website_url    
         marquesina
         label  {
             recomendar {
                 text
+            }
+        }
+        related_content {
+            basic{
+                _id
+                referent {
+                    type
+                }
             }
         }
     }

@@ -106,7 +106,7 @@ ModDescription.propTypes = {
 };
 
 ModDescription.defaultProps = {
-    titleTag: 'h2',
+    titleTag: 'h4',
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',

@@ -1,0 +1,59 @@
+{
+    "_id": "K7L5NZFU2FDG7MXZVLQRGBA6JU",
+    "additional_properties": {
+        "fullSizeResizeUrl": "/resizer/C3k4xYuGrsRILY7EcKzCLekdKyo=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/K7L5NZFU2FDG7MXZVLQRGBA6JU.jpg",
+        "galleries": [],
+        "ingestionMethod": "manual",
+        "keywords": ["ave", "pajaro"],
+        "mime_type": "image/jpeg",
+        "originalName": "CHIFLÓN-4.jpg",
+        "originalUrl": "https: //cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/K7L5NZFU2FDG7MXZVLQRGBA6JU.jpg",
+        "owner": "jalvarez@lanacion.com.ar",
+        "proxyUrl": "/resizer/C3k4xYuGrsRILY7EcKzCLekdKyo=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/K7L5NZFU2FDG7MXZVLQRGBA6JU.jpg",
+        "published": true,
+        "resizeUrl": "/resizer/C3k4xYuGrsRILY7EcKzCLekdKyo=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/K7L5NZFU2FDG7MXZVLQRGBA6JU.jpg",
+        "restricted": false,
+        "takenOn": "2020-02-20T18:55:47Z",
+        "thumbnailResizeUrl": "/resizer/i8QUw5pR1XxoTspDWvVb8ofjUcQ=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/K7L5NZFU2FDG7MXZVLQRGBA6JU.jpg",
+        "version": 0,
+        "template_id": 770
+    },
+    "address": {},
+    "alt_text": "Un pájaro parado en el pasto",
+    "caption": "Un pájaro",
+    "copyright": "LA NACION",
+    "created_date": "2021-02-09T15:47:55Z",
+    "credits": {
+        "affiliation": [],
+        "by": [
+            {
+                "byline": "Juanelo",
+                "name": "Juanelo",
+                "type": "author"
+            }
+        ]
+    },
+    "height": 1500,
+    "image_type": "photograph",
+    "last_updated_date": "2021-02-09T15:47:55Z",
+    "licensable": false,
+    "owner": {
+        "id": "sandbox.lanacionar",
+        "sponsored": false
+    },
+    "source": {
+        "additional_properties": {
+            "editor": "photo center"
+        },
+        "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/K7L5NZFU2FDG7MXZVLQRGBA6JU",
+        "system": "photo center"
+    },
+    "taxonomy": {
+        "associated_tasks": []
+    },
+    "type": "image",
+    "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/K7L5NZFU2FDG7MXZVLQRGBA6JU.jpg",
+    "version": "0.10.3",
+    "width": 2000,
+    "syndication": {}
+}

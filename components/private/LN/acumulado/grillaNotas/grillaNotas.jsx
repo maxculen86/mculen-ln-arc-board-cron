@@ -10,6 +10,7 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
+import WithRelatedImages from '../../common/hocs/WithRelatedImages';
 import get from '../../../common/utils/get';
 import ConfigBuilder from '../../common/bannerRefactor/builder';
 import {
@@ -92,7 +93,7 @@ class GrillaNotas extends React.Component {
 
     render() {
         const {
-            articles,
+            articles = [],
             hayMasNotas,
             obtenerMasNotas,
             globalContent,
@@ -164,5 +165,11 @@ GrillaNotas.propTypes = {
 };
 
 export default WithNavigation(
-    withScreenUtils(WithAcuArticlesData(Consumer(GrillaNotas), filter, 'm'))
+    withScreenUtils(
+        WithAcuArticlesData(
+            WithRelatedImages(Consumer(GrillaNotas)),
+            filter,
+            'm'
+        )
+    )
 );
