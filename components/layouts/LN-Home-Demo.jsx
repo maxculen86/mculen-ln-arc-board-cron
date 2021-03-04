@@ -84,7 +84,7 @@ const updateBlocks = (blocks, lastBlock) => {
 };
 
 const sectionsWithBlocks = {
-    apertura: 'bloque1',
+    apertura: 'bloque2',
     anexo2: 'bloque2',
     breaking1: 'bloque2',
     breaking2: 'bloque2',
@@ -97,7 +97,7 @@ const sectionsWithBlocks = {
     bloque2: 'bloque4',
     comercial2: 'bloque4',
     bloque3: 'bloque4',
-    bloque4: 'bloque4',
+    bloque4: 'bloque5',
     bloque5: 'bloque5',
     bloque6: 'bloque5',
     bloque7: 'bloque5',
@@ -240,7 +240,7 @@ const LNAcumuladoLayout = props => {
 
         const timer = setTimeout(
             () => window.scrollTo(0, lastScrollPosition),
-            1500
+            2000
         );
         return () => clearTimeout(timer);
     }, []);
