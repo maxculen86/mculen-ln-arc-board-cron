@@ -13,7 +13,13 @@ const blockQuote = ({
 
     return (content || items) && subtype === 'blockquote' ? (
         <ModParagraph>
-            {content && <Paragraph data={{ content }} />}
+            {content && (
+                <Paragraph
+                    size="--m"
+                    classCondition="--sueca --font-bold"
+                    data={{ content }}
+                />
+            )}
             {items && (
                 <ListOrderedOrUnordered data={{ items, list_type: listType }} />
             )}

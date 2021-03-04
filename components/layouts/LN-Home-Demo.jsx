@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import React, { useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import get from '../private/common/utils/get';
@@ -155,7 +155,7 @@ const LNAcumuladoLayout = props => {
     };
 
     const scrollToSection = lastSectionSaw => {
-        if (lastSectionSaw === Object.keys(sectionsWithBlocks)[0]) return;
+        if (lastSectionSaw === Object.keys(sectionsWithBlocks)[0]) return false;
         const element = document.querySelectorAll(
             `[data-section=${lastSectionSaw}]`
         );
@@ -164,6 +164,7 @@ const LNAcumuladoLayout = props => {
         const absoluteElementTop = elementRect.top + window.pageYOffset;
         const middle = absoluteElementTop - window.innerHeight / 2;
         window.scrollTo(0, middle);
+        return true;
     };
 
     // First load
@@ -195,12 +196,11 @@ const LNAcumuladoLayout = props => {
         dispatch({ type: 'updateAll', payload: lastBlockSaw });
         // setBlocksToLoad(newStatusBlocks);
 
-        scrollToSection(lastSectionSaw);
+        const readyToMove = scrollToSection(lastSectionSaw);
 
-        const timer = setTimeout(
-            () => window.scrollTo(0, lastScrollPosition),
-            2000
-        );
+        const timer = setTimeout(() => {
+            if (readyToMove) window.scrollTo(0, lastScrollPosition);
+        }, 1000);
         return () => {
             clearTimeout(timer);
         };
