@@ -73,7 +73,7 @@ const transform = (data, siteProps) => {
         contentElementsFiltered &&
         contentElementsFiltered.map(elem => {
             // const promoItems = get(elem, `promo_items`, null);
-            const marquesina = get(elem, `description.basic`, null);
+            // const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
@@ -92,8 +92,8 @@ const transform = (data, siteProps) => {
                     // y pueda aplicarse 3:2, focal point o smartcrop
                     subtype: isFotoAl100orStorytelling ? '-1' : subtype
                 }),
-                ...(elem.canonical_url && { website_url: elem.canonical_url }),
-                marquesina
+                ...(elem.canonical_url && { website_url: elem.canonical_url })
+                // marquesina
             };
         });
 
