@@ -3,6 +3,7 @@ import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import get from '../private/common/utils/get';
+import throttle from '../private/common/utils/throttle';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import GlobalProvider from '../private/common/context/globalContext';
@@ -167,7 +168,7 @@ const LNAcumuladoLayout = props => {
 
     // First load
     useEffect(() => {
-        const handleScroll = (e, dataSections) => {
+        const handleScroll = throttle((e, dataSections) => {
             // const scrollPercentRounded = getScrollPercent();
             sessionStorage.setItem('homePosition', window.pageYOffset);
             const scrollTop = get(e, 'target.scrollingElement.scrollTop', 0);
@@ -177,7 +178,7 @@ const LNAcumuladoLayout = props => {
             sessionStorage.setItem('lastBlock', sectionVisible);
             const blockToLoad = sectionsWithBlocks[sectionVisible];
             dispatch({ type: 'update', payload: blockToLoad });
-        };
+        }, 25);
 
         const dataSections = document.querySelectorAll('[data-section]');
         window.addEventListener('scroll', e => handleScroll(e, dataSections));
