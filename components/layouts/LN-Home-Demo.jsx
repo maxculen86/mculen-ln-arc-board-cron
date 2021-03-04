@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
@@ -51,25 +51,27 @@ const formatText = str => {
         .replace(/[\u0300-\u036f]/g, '');
 };
 
-const getScrollPercent = () => {
-    const docElem = document.documentElement;
-    const bod = document.body;
-    return (
-        ((docElem.scrollTop || bod.scrollTop) /
-            ((docElem.scrollHeight || bod.scrollHeight) -
-                docElem.clientHeight)) *
-        100
-    );
-};
+const areEqual = (prevProps, nextProps) => prevProps.load === nextProps.load;
 
-const isInViewport = element => {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+const BannerWrapper = React.memo(props => {
+    return props.children;
+}, areEqual);
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'updateAll': {
+            const newState = updateBlocks(state, action.payload);
+            return newState;
+        }
+        case 'update':
+            if (state[action.payload]) return state;
+            return {
+                ...state,
+                [action.payload]: true
+            };
+        default:
+            throw new Error();
+    }
 };
 
 const updateBlocks = (blocks, lastBlock) => {
@@ -82,6 +84,7 @@ const updateBlocks = (blocks, lastBlock) => {
 };
 
 const sectionsWithBlocks = {
+    apertura: 'bloque1',
     anexo2: 'bloque2',
     breaking1: 'bloque2',
     breaking2: 'bloque2',
@@ -90,7 +93,7 @@ const sectionsWithBlocks = {
     opinion: 'bloque3',
     breaking4: 'bloque3',
     breaking5: 'bloque3',
-    comercial1: 'bloque3',
+    comercial1: 'bloque4',
     bloque2: 'bloque4',
     comercial2: 'bloque4',
     bloque3: 'bloque4',
@@ -134,8 +137,7 @@ const LNAcumuladoLayout = props => {
         globalContent,
         outputType,
         tree,
-        isAdmin,
-        renderables
+        isAdmin
     } = props;
     const { style, name = '' } = globalContent;
     const sectionStyleName =
@@ -167,14 +169,13 @@ const LNAcumuladoLayout = props => {
         []
     );
     const OPENING_CLASS = idCollectionApertura ? '--opening' : '';
-
-    const [viewabilityBlocks, setViewabilityBlocks] = useState({
+    const [blocksToLoad, dispatch] = useReducer(reducer, {
+        bloque1: true,
         bloque2: false,
         bloque3: false,
         bloque4: false,
         bloque5: false
     });
-    // const [modules, setModules] = useState([]);
 
     const getSectionVisible = (scrollParent, targetElements) => {
         let bestMatch = {};
@@ -183,11 +184,11 @@ const LNAcumuladoLayout = props => {
             const delta = Math.abs(scrollParent - domElm.offsetTop);
 
             if (!bestMatch.sectionName)
-                bestMatch = { sectionName: domElm.dataset.module, delta };
+                bestMatch = { sectionName: domElm.dataset.section, delta };
 
             // check which delet is closest to "0"
             if (delta < bestMatch.delta) {
-                bestMatch = { sectionName: domElm.dataset.module, delta };
+                bestMatch = { sectionName: domElm.dataset.section, delta };
             }
         });
 
@@ -195,81 +196,33 @@ const LNAcumuladoLayout = props => {
         return bestMatch.sectionName;
     };
 
-    const handleScroll = (e, modules) => {
+    const handleScroll = (e, dataSections) => {
         // const scrollPercentRounded = getScrollPercent();
         sessionStorage.setItem('homePosition', window.pageYOffset);
         const scrollTop = get(e, 'target.scrollingElement.scrollTop', 0);
-        const sectionVisible = getSectionVisible(scrollTop, modules);
+        const sectionVisible = getSectionVisible(scrollTop, dataSections);
         if (!sectionVisible) return;
 
         sessionStorage.setItem('lastBlock', sectionVisible);
         const blockToLoad = sectionsWithBlocks[sectionVisible];
-        setViewabilityBlocks(state => {
-            return {
-                ...state,
-                [blockToLoad]: true
-            };
-        });
-        /*
-        if (viewabilityBlocks.bloque2 !== true) {
-            const bloque2div = document.getElementById('bloque2');
-            if (isInViewport(bloque2div)) {
-                sessionStorage.setItem('lastBlock', 'bloque2');
-                setViewabilityBlocks(state => {
-                    return {
-                        ...state,
-                        bloque2: true
-                    };
-                });
-            }
-        }
-
-        if (viewabilityBlocks.bloque3 !== true) {
-            const bloque3div = document.getElementById('bloque3');
-            if (isInViewport(bloque3div)) {
-                sessionStorage.setItem('lastBlock', 'bloque3');
-                setViewabilityBlocks(state => {
-                    return {
-                        ...state,
-                        bloque3: true
-                    };
-                });
-            }
-        }
-
-        if (viewabilityBlocks.bloque4 !== true) {
-            const bloque4div = document.getElementById('bloque4');
-            if (isInViewport(bloque4div)) {
-                sessionStorage.setItem('lastBlock', 'bloque4');
-                setViewabilityBlocks(state => {
-                    return {
-                        ...state,
-                        bloque4: true
-                    };
-                });
-            }
-        }
-
-        if (viewabilityBlocks.bloque5 !== true) {
-            const bloque5div = document.getElementById('bloque5');
-            if (isInViewport(bloque5div)) {
-                sessionStorage.setItem('lastBlock', 'bloque5');
-                setViewabilityBlocks(state => {
-                    return {
-                        ...state,
-                        bloque5: true
-                    };
-                });
-            }
-        }
-        */
+        dispatch({ type: 'update', payload: blockToLoad });
     };
+
+    const scrollToSection = lastSectionSaw => {
+        const element = document.querySelectorAll(
+            `[data-section=${lastSectionSaw}]`
+        );
+        if (element && element.length === 0) return;
+        const elementRect = element[0].getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        const middle = absoluteElementTop - (window.innerHeight / 2);
+        window.scrollTo(0, middle);
+    };
+
     // First load
     useEffect(() => {
-        const modules = document.querySelectorAll('[data-module]');
-        window.addEventListener('scroll', e => handleScroll(e, modules));
-        // const modul = document.querySelectorAll('[data-module]');
-        // setModules(modul);
+        const dataSections = document.querySelectorAll('[data-section]');
+        window.addEventListener('scroll', e => handleScroll(e, dataSections));
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -279,20 +232,15 @@ const LNAcumuladoLayout = props => {
         const lastScrollPosition = sessionStorage.getItem('homePosition');
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
-        const newStatusBlocks = updateBlocks(viewabilityBlocks, lastBlockSaw);
-        setViewabilityBlocks(newStatusBlocks);
+        // const newStatusBlocks = updateBlocks(blocksToLoad, lastBlockSaw);
+        dispatch({ type: 'updateAll', payload: lastBlockSaw });
+        // setBlocksToLoad(newStatusBlocks);
 
-        // const element = document.getElementById(lastBlockSaw);
-        const element = document.querySelectorAll(`[data-module=${lastSectionSaw}]`);
-        if (element && element.length === 0) return;
-        const elementRect = element[0].getBoundingClientRect();
-        const absoluteElementTop = elementRect.top + window.pageYOffset;
-        const middle = absoluteElementTop - (window.innerHeight / 2);
-        window.scrollTo(0, middle);
+        scrollToSection(lastSectionSaw);
 
         const timer = setTimeout(
             () => window.scrollTo(0, lastScrollPosition),
-            2000
+            1500
         );
         return () => clearTimeout(timer);
     }, []);
@@ -325,87 +273,98 @@ const LNAcumuladoLayout = props => {
                             </div>
                             <div className="lay">
                                 {/* APERTURA: CAJA DE DOS COLUMNAS */}
-                                <div data-module='apertura'></div>
-                                {apertura}
+                                <div data-section='apertura'>
+                                    {apertura}
+                                </div>
                             </div>
                             <div id="content-main" className="lay-sidebar">
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
-                                    {/* NOTAS */}
-                                    <div id='bloque2'>
-                                        {viewabilityBlocks.bloque2 && anexo2}
-                                        <div data-module='breaking1'>
-                                            {viewabilityBlocks.bloque2 && breaking1}
+                                    {/* 1er Bloque */}
+
+                                    {blocksToLoad.bloque2 && anexo2}
+                                    <div data-section='breaking1'>
+                                        {blocksToLoad.bloque2 && breaking1}
+                                    </div>
+                                    {/* BANNER  */}
+                                    {blocksToLoad.bloque2 && (
+                                        <div className="row-gap-tablet-3 --ads">
+                                            <BannerWrapper load={blocksToLoad.bloque2}>
+                                                <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja1_dsk' }} />
+                                                <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja2_dsk' }} />
+                                                <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja3_dsk' }} />
+                                            </BannerWrapper>
                                         </div>
-                                        {/* BANNER  */}
-                                        {viewabilityBlocks.bloque2 && (
-                                        <div class="row-gap-tablet-3 --ads">
-                                            <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja1_dsk' }} />
-                                            <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja2_dsk' }} />
-                                            <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja3_dsk' }} />
+                                    )}
+                                    <div data-section='breaking2'>
+                                        {blocksToLoad.bloque2 && breaking2}
+                                    </div>
+                                    {/* BANNER */}
+                                    {blocksToLoad.bloque2 && (
+                                        <div className="row-gap-tablet-3 --ads">
+                                            <BannerWrapper load={blocksToLoad.bloque2}>
+                                                <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja1_dsk' }} />
+                                                <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja2_dsk' }} />
+                                                <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja3_dsk' }} />
+                                            </BannerWrapper>
                                         </div>
-                                        )}
-                                        <div data-module='breaking2'>
-                                            {viewabilityBlocks.bloque2 && breaking2}
-                                        </div>
-                                        {/* BANNER */}
-                                        <div data-module='breaking3'>
-                                            {viewabilityBlocks.bloque2 && breaking3}
-                                        </div>
+                                    )}
+                                    <div data-section='breaking3'>
+                                        {blocksToLoad.bloque2 && breaking3}
                                     </div>
 
-                                    <div id='bloque3'>
-                                        {viewabilityBlocks.bloque3 && anexo3}
-                                        <div data-module='opinion'>
-                                            {viewabilityBlocks.bloque3 && opinion}
-                                        </div>
-                                        {/* BANNER */}
-                                        {viewabilityBlocks.bloque3 && (
+                                    {/* 2do Bloque */}
+
+                                    {blocksToLoad.bloque3 && anexo3}
+                                    <div data-section='opinion'>
+                                        {blocksToLoad.bloque3 && opinion}
+                                    </div>
+                                    {/* BANNER */}
+                                    {blocksToLoad.bloque3 && (
                                         <div class="row-gap-tablet-3 --ads">
                                             <BannerRefactor customFields={{ group: 'acumulado', desktop: 'caja4_dsk' }} />
-                                            
                                         </div>
-                                        )}
-                                        <div data-module='breaking4'>
-                                            {viewabilityBlocks.bloque3 && breaking4}
-                                        </div>
-                                        {/* BANNER */}
-                                        <div data-module='breaking5'>
-                                            {viewabilityBlocks.bloque3 && breaking5}
-                                        </div>
-                                        <div data-module='comercial1'>
-                                            {viewabilityBlocks.bloque3 && comercial1}
-                                        </div>
+                                    )}
+                                    <div data-section='breaking4'>
+                                        {blocksToLoad.bloque3 && breaking4}
                                     </div>
-                                    <div id='bloque4'>
-                                        <div data-module='bloque2'>
-                                            {viewabilityBlocks.bloque4 && bloque2}
-                                        </div>
-                                        <div data-module='comercial2'>
-                                            {viewabilityBlocks.bloque4 && comercial2}
-                                        </div>
-                                        <div data-module='bloque3'>
-                                            {viewabilityBlocks.bloque4 && bloque3}
-                                        </div>
-                                        <div data-module='bloque4'>
-                                            {viewabilityBlocks.bloque4 && bloque4}
-                                        </div>
+                                    {/* BANNER */}
+                                    <div data-section='breaking5'>
+                                        {blocksToLoad.bloque3 && breaking5}
                                     </div>
-                                    <div id='bloque5'>
-                                        <div data-module='bloque5'>
-                                            {viewabilityBlocks.bloque5 && bloque5}
-                                        </div>
-                                        <div data-module='bloque6'>
-                                            {viewabilityBlocks.bloque5 && bloque6}
-                                        </div>
-                                        <div data-module='bloque7'>
-                                            {viewabilityBlocks.bloque5 && bloque7}
-                                        </div>
-                                        <div data-module='bloque8'>
-                                            {viewabilityBlocks.bloque5 && bloque8}
-                                        </div>
+                                    <div data-section='comercial1'>
+                                        {blocksToLoad.bloque3 && comercial1}
                                     </div>
-                                    {/* <CargaEnBloque renderables={renderables} /> */}
+
+                                    {/* 3er Bloque */}
+
+                                    <div data-section='bloque2'>
+                                        {blocksToLoad.bloque4 && bloque2}
+                                    </div>
+                                    <div data-section='comercial2'>
+                                        {blocksToLoad.bloque4 && comercial2}
+                                    </div>
+                                    <div data-section='bloque3'>
+                                        {blocksToLoad.bloque4 && bloque3}
+                                    </div>
+                                    <div data-section='bloque4'>
+                                        {blocksToLoad.bloque4 && bloque4}
+                                    </div>
+
+                                    {/* 4to Bloque */}
+
+                                    <div data-section='bloque5'>
+                                        {blocksToLoad.bloque5 && bloque5}
+                                    </div>
+                                    <div data-section='bloque6'>
+                                        {blocksToLoad.bloque5 && bloque6}
+                                    </div>
+                                    <div data-section='bloque7'>
+                                        {blocksToLoad.bloque5 && bloque7}
+                                    </div>
+                                    <div data-section='bloque8'>
+                                        {blocksToLoad.bloque5 && bloque8}
+                                    </div>
                                 </div>
                                 <div className="sidebar__aside hlp-tablet-none">
                                     {/* BANNERS, RANKING DE NOTAS */}
