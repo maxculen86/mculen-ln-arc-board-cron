@@ -2,13 +2,11 @@
 import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import get from '../private/common/utils/get';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
-import LoginProvider from '../private/LN/common/context/loginContext';
 import GlobalProvider from '../private/common/context/globalContext';
-
-import '../../resources/dist/css/ln/components/banners.css';
-import get from '../private/common/utils/get';
+import LoginProvider from '../private/LN/common/context/loginContext';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import BannerRefactor from '../features/LN-common/bannerRefactor';
 
@@ -63,10 +61,11 @@ const reducer = (state, action) => {
 };
 
 const updateBlocks = (blocks, lastBlock) => {
+    const b = blocks;
     if (!lastBlock) return blocks;
     const number = lastBlock.slice(-1);
     Object.keys(blocks).forEach(key => {
-        if (key.slice(-1) <= number) blocks[key] = true;
+        if (key.slice(-1) <= number) b[key] = true;
     });
     return blocks;
 };
@@ -155,6 +154,7 @@ const LNAcumuladoLayout = props => {
     };
 
     const scrollToSection = lastSectionSaw => {
+        if (lastSectionSaw === Object.keys(sectionsWithBlocks)[0]) return;
         const element = document.querySelectorAll(
             `[data-section=${lastSectionSaw}]`
         );
