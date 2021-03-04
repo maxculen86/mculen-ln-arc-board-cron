@@ -76,7 +76,7 @@ const ModDescription = props => {
                                 sizeBullet={
                                     (withMarquee || !!category) && '--fourxs'
                                 }
-                                link={(slug && `/${slug}`) || ''}
+                                link={(slug && `/tema/${slug}/`) || ''}
                                 classCondition="--tags"
                             />
                         );

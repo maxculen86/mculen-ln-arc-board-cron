@@ -32,7 +32,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
       classcondition="--tags"
       content="Educación"
       iconname="bullet"
-      link="/educacion-123"
+      link="/tema/educacion-123/"
       sizebullet="--fourxs"
       sizetext="--fourxs"
     />
@@ -40,7 +40,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
       classcondition="--tags"
       content="Inclusión"
       iconname="bullet"
-      link="/inclusion-123"
+      link="/tema/inclusion-123/"
       sizebullet="--fourxs"
       sizetext="--fourxs"
     />
@@ -48,7 +48,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
       classcondition="--tags"
       content="Sociedad"
       iconname="bullet"
-      link="/sociedad-123"
+      link="/tema/sociedad-123/"
       sizebullet="--fourxs"
       sizetext="--fourxs"
     />
