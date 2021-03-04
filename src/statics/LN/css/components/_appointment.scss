@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .com-cita {
-    padding: 0 px(20);
+    padding: px(16) px(16) 0 px(16);
     border: solid 1px $light-neutral-400;
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@
     margin-bottom: px(40);
     width: 100%;
     @media (min-width: 768px) {
-        padding: 0 px(30);
+        //padding: 0 px(30);
         flex-direction: row;
         align-items: stretch;
     }
@@ -60,19 +60,24 @@
         }
         .cont-cita {
             //padding: px(10) 0 px(30) 0; como viene sin imagenes se le corrige el padding
-            padding: px(20) 0;
+            //padding: px(20) 0;
             display: flex;
             flex-wrap: wrap;
-            @media (min-width: 768px) {
-                //padding: px(30) 0 px(30) px(30); como viene sin imagenes se le corrige el padding
-                padding: px(30) 0;
-            }
+            // @media (min-width: 768px) {
+            //     //padding: px(30) 0 px(30) px(30); como viene sin imagenes se le corrige el padding
+            //     padding: px(30) 0;
+            // }
             .title-cita {
                 width: 100%;
                 text-align: center;
+                margin-bottom: px(16);
+
                 .text {
                     font-family: $font-SuecaSlab;
                     font-size: px(24);
+                }
+                .com-paragraph {
+                    margin: 0;
                 }
                 @media (min-width: 768px) {
                     text-align: left;
@@ -81,6 +86,7 @@
             .cont-firma-autor {
                 display: flex;
                 justify-content: center;
+                margin-bottom: px(16);
                 @media (min-width: 768px) {
                     justify-content: flex-start;
                 }
