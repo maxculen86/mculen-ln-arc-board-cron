@@ -9,7 +9,19 @@ import { ADHESION_DSK } from './factory/constants/index';
 import ArcAdLib from './arcAdLib';
 
 const PREBID_TIMEOUT = 2000;
-const FAILSAFE_TIMEOUT = 3000;
+
+const runRefreshEvent = ad => {
+    if (window.blockArcAdsLoad) return 'blockArcAdsLoad';
+    if (window.googletag && googletag.pubadsReady) {
+        window.googletag.pubads().refresh([ad]);
+    } else {
+        setTimeout(() => {
+            runRefreshEvent(ad);
+        }, 200);
+    }
+
+    return true;
+};
 
 const Ads = props => {
     const {
@@ -40,12 +52,13 @@ const Ads = props => {
                     pbjs.que = pbjs.que || [];
 
                     const initAdserver = () => {
-                        /* if (pbjs.initAdserverSet) return;
-                        pbjs.initAdserverSet = true; */
                         googletag.cmd.push(() => {
                             pbjs.que.push(() => {
-                                pbjs.setTargetingForGPTAsync();
-                                googletag.pubads().refresh([adDetails.adSlot]);
+                                pbjs.setTargetingForGPTAsync([
+                                    adDetails.adSlot
+                                ]);
+
+                                runRefreshEvent(adDetails.adUnit);
                             });
                         });
 
@@ -54,13 +67,12 @@ const Ads = props => {
 
                     pbjs.que.push(() => {
                         const { adUnits = [] } = pbjs;
-                        /* const _id = adDetails.adUnit
+                        const _id = adDetails.adUnit
                             .getAdUnitPath()
                             .split('/')[1];
                         const code = prebid.code
                             ? `/${_id}/${prebid.code}`
-                            : adDetails.adSlot; */
-                        const code = adDetails.adSlot;
+                            : adDetails.adSlot;
 
                         // Se borran atributos innecesarios
                         delete prebid.code;

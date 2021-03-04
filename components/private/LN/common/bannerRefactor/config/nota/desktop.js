@@ -106,7 +106,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
-                code: 'la_nacion_desktop/Nota/caja1_dsk',
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
@@ -158,7 +158,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
-                code: 'la_nacion_desktop/Nota/caja2_dsk',
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
@@ -214,7 +214,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
-                code: 'la_nacion_desktop/Nota/caja3_dsk',
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
@@ -270,7 +270,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
-                code: 'la_nacion_desktop/Nota/caja4_dsk',
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
@@ -323,7 +323,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
-                code: 'la_nacion_desktop/Nota/caja5_dsk',
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
