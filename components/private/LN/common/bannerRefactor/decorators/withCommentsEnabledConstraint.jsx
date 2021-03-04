@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 
-import useGlobal from '../../../../common/hooks/useGlobal';
+import useComments from '../../../../common/hooks/useComments';
 
 export default Component => {
     const ref = React.createRef();
 
     return props => {
         const [show, setShow] = useState(false);
-        const { commentsAllowed } = useGlobal();
+        const { commentsAllowed } = useComments();
 
         useEffect(() => {
             setShow(commentsAllowed);
