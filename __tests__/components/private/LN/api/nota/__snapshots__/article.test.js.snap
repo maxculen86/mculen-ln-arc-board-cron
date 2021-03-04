@@ -30,22 +30,27 @@ Object {
           Object {
             "ancho": 1260,
             "firma": "Jvik4UuWUb3CBd4fHrEn3v8THpE=/1260x840/smart",
+            "media": 1280,
           },
           Object {
             "ancho": 1120,
             "firma": "O6Hi7KaUFlbX9FinZ90ovn9YbqM=/1120x746/smart",
+            "media": 1024,
           },
           Object {
             "ancho": 768,
             "firma": "gjSAiqxUQKPG6auGxxXrfu1tujU=/768x512/smart",
+            "media": 768,
           },
           Object {
             "ancho": 350,
             "firma": "Az0Rj0edj1ZwPlsrn35HJrfivZ8=/350x233/smart",
+            "media": 360,
           },
           Object {
             "ancho": 310,
             "firma": "gM6LxEhq1MRzEqyKLzL_dQAej-c=/310x206/smart",
+            "media": 320,
           },
         ],
       },
@@ -96,24 +101,29 @@ Object {
         "id": "DXVMDKSSC5DE3L2P27NFNJUCLE",
         "parametros": Array [
           Object {
-            "ancho": 768,
-            "firma": "kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513/smart",
+            "ancho": 560,
+            "firma": "CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart",
+            "media": 1280,
           },
           Object {
             "ancho": 690,
             "firma": "QDGXzjfRLeFMhMDt00OIpSOM-eQ=/690x465/smart",
+            "media": 1024,
           },
           Object {
-            "ancho": 560,
-            "firma": "CWipbkjvXp2Dcs1_tW7am7dSxX4=/560x400/smart",
+            "ancho": 768,
+            "firma": "kiBk8bJz1DMim47MXzOdTgf8BZQ=/768x513/smart",
+            "media": 768,
           },
           Object {
             "ancho": 350,
             "firma": "BzVLCnK9gEIAVvnlzN4NI0ahjS8=/350x438/smart",
+            "media": 360,
           },
           Object {
             "ancho": 310,
             "firma": "K_22ffHgLCV5Q6WkvDVsjpYi0ac=/310x203/smart",
+            "media": 320,
           },
         ],
       },

@@ -22,10 +22,11 @@ describe('Utils - SectionUtils', () => {
         const layout = 'LN-nota-noticia';
         const distributorName = 'BBC Mundo';
         const LogoComponent = getSectionLogo(sections, layout, distributorName);
+
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'bbc',
-            path: '/tema/bbc-mundo-tid56419'
+            path: '/distributor/bbc-mundo/'
         });
     });
 
@@ -34,10 +35,11 @@ describe('Utils - SectionUtils', () => {
         const layout = 'LN-nota-noticia';
         const distributorName = 'BBC Mundo';
         const LogoComponent = getSectionLogo(sections, layout, distributorName);
+
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'bbc',
-            path: '/tema/bbc-mundo-tid56419'
+            path: '/distributor/bbc-mundo/'
         });
     });
 
@@ -46,6 +48,7 @@ describe('Utils - SectionUtils', () => {
         const layout = 'LN-nota-noticia';
         const distributorName = 'BBC Mundo';
         const LogoComponent = getSectionLogo(sections, layout, distributorName);
+
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'propiedades',
@@ -58,6 +61,7 @@ describe('Utils - SectionUtils', () => {
         const layout = 'LN-nota-noticia';
         const distributorName = 'BBC Mundo';
         const LogoComponent = getSectionLogo(sections, layout, distributorName);
+
         expect(LogoComponent).toMatchObject({
             color: true,
             logoName: 'brando',
@@ -70,10 +74,11 @@ describe('Utils - SectionUtils', () => {
         const layout = 'LN-nota-storytelling';
         const distributorName = 'BBC Mundo';
         const LogoComponent = getSectionLogo(sections, layout, distributorName);
+
         expect(LogoComponent).toMatchObject({
             color: false,
             logoName: 'bbc',
-            path: '/tema/bbc-mundo-tid56419'
+            path: '/distributor/bbc-mundo/'
         });
     });
 });

@@ -6,15 +6,23 @@ const headerAMP = props => {
             <header id="header" className="header">
                 <div className="lay">
                     <div className="row">
-                        <div className="col-desksm-4 header__left">
-                            <button
+                        <div className="col-4 header__left">
+                            {/* <button
                                 on="tap:sidebar-left.toggle"
                                 className="icon-menu"
                             >
                                 Secciones
+                            </button> */}
+                            <button
+                                type="button"
+                                on="tap:sidebar-left.toggle"
+                                class="com-button  --tertiary --icon menu "
+                            >
+                                <i class="com-icon icon-menu   "></i>
+                                <span class="com-text  ">Secciones</span>
                             </button>
                         </div>
-                        <div className="col-6 col-desksm-4 header__middle">
+                        <div className="col-7 col-desksm-4 header__middle">
                             <a
                                 href="https://www.lanacion.com.ar"
                                 className="header__middle__logo"
@@ -22,9 +30,9 @@ const headerAMP = props => {
                                 <i className="logo-la-nacion"></i>
                             </a>
                         </div>
-                        <div className="offset-2 offset-tablet-0 col-4 col-tablet-6 col-desksm-4 header__right">
+                        <div className="col-5 col-desksm-4 header__right">
                             <div id="user-menu" className="com-usuario">
-                                <div className="row">
+                                {/* <div className="row">
                                     <div class="col-desksm-4 hlp-tablet-none">
                                         {' '}
                                     </div>
@@ -44,7 +52,20 @@ const headerAMP = props => {
                                             INGRESAR
                                         </button>
                                     </div>
-                                </div>
+                                </div> */}
+                                <a
+                                    className=" com-button --special"
+                                    href="https://suscripciones.lanacion.com.ar/suscribirme"
+                                >
+                                    SUSCRIBITE
+                                </a>
+
+                                <button
+                                    type="button"
+                                    className="com-button --secondary"
+                                >
+                                    INGRESAR
+                                </button>
                             </div>
                         </div>
                     </div>

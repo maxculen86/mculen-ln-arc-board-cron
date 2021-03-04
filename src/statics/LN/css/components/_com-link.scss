@@ -95,6 +95,7 @@
         margin-right: $spacing-sm;
         margin-bottom: $spacing-sm;
         white-space: nowrap;
+        display: inline-block;
     }
     &.--sociallist {
         @include flex(inline, row, center, center);
@@ -112,6 +113,18 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+    }
+    .--tags {
+        .mod-description & {
+            .mod-article & {
+                .breaking-news & {
+                    .acumulado & {
+                        color: $link;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
     }
 }
 @media ($media-l) {

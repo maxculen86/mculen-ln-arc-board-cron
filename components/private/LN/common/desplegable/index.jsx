@@ -141,7 +141,7 @@ const Desplegable = ({ toglleDesplegable }) => {
                     >
                         <i className="icon-close" />
                     </div>
-                    <div className="search__dropdown row">
+                    {/* <div className="search__dropdown row">
                         <div className="col-12 content-input">
                             <input
                                 type="search"
@@ -153,7 +153,7 @@ const Desplegable = ({ toglleDesplegable }) => {
                             />
                             <i className="icon-search" />
                         </div>
-                    </div>
+                    </div> */}
                 </section>
                 <section className="menu__dropdown">
                     <nav className="nav__dropdown">

@@ -2,7 +2,7 @@
 
 exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
 <article
-  class="mod-article   "
+  class="mod-article    "
 >
   <div>
     <section
@@ -43,16 +43,18 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
         Este es el subtitulo
       </a>
     </p>
-    <strong
-      class="mod-marquee  --fourxs"
-    >
-      <a
-        class="com-link"
-        href="http://google.com"
+    <div>
+      <strong
+        class="mod-marquee  --fourxs"
       >
-        Mariano Grondona
-      </a>
-    </strong>
+        <a
+          class="com-link"
+          href="http://google.com"
+        >
+          Mariano Grondona
+        </a>
+      </strong>
+    </div>
     <time
       class="com-date --fourxs"
       datetime="2 de junio de 2020"

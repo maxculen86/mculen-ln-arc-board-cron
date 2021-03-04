@@ -12,7 +12,7 @@ const apertura = article => {
     } = article;
 
     let promoItem = get(article, 'promo_items.basic', null);
-    if (template === '4')
+    if (template === '4' || template === '8')
         promoItem = get(article, 'promo_items.storytelling_mobile', null);
 
     const recetaPromoItem = get(article, 'promo_items.receta', null);

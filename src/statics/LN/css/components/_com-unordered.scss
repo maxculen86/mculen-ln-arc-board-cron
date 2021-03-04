@@ -6,6 +6,9 @@
     //width: 100%;
     margin-bottom: $spacing-lg;
     .com-item {
+        .breaking-news & {
+            padding-left: 0;
+        }
         padding-left: 1em;
         //font-family: $font-arial;
         //font-size: px(16);
@@ -15,20 +18,6 @@
         position: relative;
         &::first-letter {
             text-transform: uppercase;
-        }
-        &:before {
-            content: '';
-            width: px(7);
-            height: px(7);
-            border-radius: 50%;
-            top: px(10);
-            background-color: $neutral-black;
-            //color: $neutral-white;
-            position: absolute;
-            left: 0;
-            //font-family: $font-arial;
-            //font-weight: bold;
-            //font-size: px(14);
         }
     }
     // .noticia & {

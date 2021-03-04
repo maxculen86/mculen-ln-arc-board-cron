@@ -649,22 +649,22 @@
             "migrada": true
         },
         {
-            "_id": "62",
+            "_id": "7773",
             "ArcSectionId": "/transito",
             "name": "Tránsito",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "67",
+            "_id": "131",
             "ArcSectionId": "/deportes",
             "name": "Deportes",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "70",
-            "ArcSectionId": "/automovilismo",
+            "_id": "132",
+            "ArcSectionId": "/deportes/automovilismo",
             "name": "Automovilismo",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "152",
@@ -673,64 +673,64 @@
             "migrada": false
         },
         {
-            "_id": "75",
-            "ArcSectionId": "/futbol",
+            "_id": "140",
+            "ArcSectionId": "/deportes/futbol",
             "name": "Fútbol",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "71",
-            "ArcSectionId": "/basquetbol",
+            "_id": "229",
+            "ArcSectionId": "/deportes/basquetbol",
             "name": "Basquetbol",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "117",
-            "ArcSectionId": "/tenis",
+            "_id": "247",
+            "ArcSectionId": "/deportes/tenis",
             "name": "Tenis",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "113",
-            "ArcSectionId": "/rugby",
+            "_id": "255",
+            "ArcSectionId": "/deportes/rugby",
             "name": "Rugby",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "123",
+            "_id": "272",
             "ArcSectionId": "/economia",
             "name": "Economía",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "150",
+            "_id": "30",
             "ArcSectionId": "/politica",
             "name": "Política",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "124",
-            "ArcSectionId": "/campo",
+            "_id": "337",
+            "ArcSectionId": "/economia/campo",
             "name": "Campo",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "125",
-            "ArcSectionId": "/comercio-exterior",
+            "_id": "347",
+            "ArcSectionId": "/economia/comercio-exterior",
             "name": "Comercio Exterior",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "127",
-            "ArcSectionId": "/empleos",
+            "_id": "401",
+            "ArcSectionId": "/economia/empleos",
             "name": "Empleos",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "129",
+            "_id": "562",
             "ArcSectionId": "/editoriales",
             "name": "Editoriales",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "187",
@@ -745,46 +745,52 @@
             "migrada": false
         },
         {
-            "_id": "128",
-            "ArcSectionId": "/industria",
+            "_id": "8002",
+            "ArcSectionId": "/economia/industria",
             "name": "Industria",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "103",
-            "ArcSectionId": "/futsal",
+            "_id": "8005",
+            "ArcSectionId": "/deportes/futsal",
             "name": "Futsal",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "116",
-            "ArcSectionId": "/taekwondo",
+            "_id": "8006",
+            "ArcSectionId": "/deportes/taekwondo",
             "name": "Taekwondo",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "119",
-            "ArcSectionId": "/ufc",
+            "_id": "8007",
+            "ArcSectionId": "/deportes/ufc",
             "name": "UFC",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "115",
-            "ArcSectionId": "/surf",
+            "_id": "8008",
+            "ArcSectionId": "/deportes/surf",
             "name": "Surf",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "126",
-            "ArcSectionId": "/dolar",
+            "_id": "8014",
+            "ArcSectionId": "/economia/dolar-hoy",
             "name": "Dólar Hoy",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "114",
-            "ArcSectionId": "/running",
+            "_id": "8018",
+            "ArcSectionId": "/economia/negocios",
+            "name": "Negocios",
+            "migrada": true
+        },
+        {
+            "_id": "8015",
+            "ArcSectionId": "/deportes/running",
             "name": "Running",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "60",
@@ -793,268 +799,262 @@
             "migrada": false
         },
         {
-            "_id": "68",
-            "ArcSectionId": "/ajedrez",
+            "_id": "7372",
+            "ArcSectionId": "/deportes/ajedrez",
             "name": "Ajedrez",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "69",
-            "ArcSectionId": "/atletismo",
+            "_id": "240",
+            "ArcSectionId": "/deportes/atletismo",
             "name": "Atletismo",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "72",
-            "ArcSectionId": "/boxeo",
+            "_id": "217",
+            "ArcSectionId": "/deportes/boxeo",
             "name": "Boxeo",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "73",
-            "ArcSectionId": "/ciclismo",
+            "_id": "243",
+            "ArcSectionId": "/deportes/ciclismo",
             "name": "Ciclismo",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "74",
-            "ArcSectionId": "/equitacion",
+            "_id": "218",
+            "ArcSectionId": "/deportes/equitacion",
             "name": "Equitación",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "76",
-            "ArcSectionId": "/aldosivi",
+            "_id": "7646",
+            "ArcSectionId": "/deportes/futbol/aldosivi",
             "name": "Aldosivi",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "77",
-            "ArcSectionId": "/argentinos-juniors",
+            "_id": "7246",
+            "ArcSectionId": "/deportes/futbol/argentinos-juniors",
             "name": "Argentinos Juniors",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "78",
-            "ArcSectionId": "/arsenal",
+            "_id": "7247",
+            "ArcSectionId": "/deportes/futbol/arsenal",
             "name": "Arsenal",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "79",
-            "ArcSectionId": "/atletico-tucuman",
+            "_id": "7352",
+            "ArcSectionId": "/deportes/futbol/atletico-tucuman",
             "name": "Atlético Tucumán",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "80",
-            "ArcSectionId": "/banfield",
+            "_id": "7248",
+            "ArcSectionId": "/deportes/futbol/banfield",
             "name": "Banfield",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "81",
-            "ArcSectionId": "/belgrano",
+            "_id": "7650",
+            "ArcSectionId": "/deportes/futbol/belgrano",
             "name": "Belgrano",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "82",
-            "ArcSectionId": "/boca-juniors",
+            "_id": "7249",
+            "ArcSectionId": "/deportes/futbol/boca-juniors",
             "name": "Boca Juniors",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "83",
-            "ArcSectionId": "/central-cordoba",
+            "_id": "8016",
+            "ArcSectionId": "/deportes/futbol/central-cordoba",
             "name": "Central Córdoba",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "84",
-            "ArcSectionId": "/colon",
+            "_id": "7250",
+            "ArcSectionId": "/deportes/futbol/colon",
             "name": "Colón",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "85",
-            "ArcSectionId": "/defensa-y-justicia",
+            "_id": "7652",
+            "ArcSectionId": "/deportes/futbol/defensa-y-justicia",
             "name": "Defensa y Justicia",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "86",
-            "ArcSectionId": "/estudiantes-la-plata",
+            "_id": "7251",
+            "ArcSectionId": "/deportes/futbol/estudiantes-la-plata",
             "name": "Estudiantes La Plata",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "87",
-            "ArcSectionId": "/gimnasia-y-esgrima",
+            "_id": "7252",
+            "ArcSectionId": "/deportes/futbol/gimnasia-y-esgrima",
             "name": "Gimnasia y esgrima",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "88",
-            "ArcSectionId": "/godoy-cruz",
+            "_id": "7254",
+            "ArcSectionId": "/deportes/futbol/godoy-cruz",
             "name": "Godoy Cruz",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "89",
-            "ArcSectionId": "/huracan",
+            "_id": "7255",
+            "ArcSectionId": "/deportes/futbol/huracan",
             "name": "Huracán",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "90",
-            "ArcSectionId": "/independiente",
+            "_id": "7256",
+            "ArcSectionId": "/deportes/futbol/independiente",
             "name": "Independiente",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "91",
-            "ArcSectionId": "/lanus",
+            "_id": "7257",
+            "ArcSectionId": "/deportes/futbol/lanus",
             "name": "Lanús",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "92",
-            "ArcSectionId": "/newells",
+            "_id": "7258",
+            "ArcSectionId": "/deportes/futbol/newells",
             "name": "Newells",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "93",
-            "ArcSectionId": "/patronato",
+            "_id": "7658",
+            "ArcSectionId": "/deportes/futbol/patronato",
             "name": "Patronato",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "94",
-            "ArcSectionId": "/racing",
+            "_id": "7261",
+            "ArcSectionId": "/deportes/futbol/racing",
             "name": "Racing",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "95",
-            "ArcSectionId": "/river-plate",
+            "_id": "7262",
+            "ArcSectionId": "/deportes/futbol/river-plate",
             "name": "River Plate",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "96",
-            "ArcSectionId": "/rosario-central",
+            "_id": "7263",
+            "ArcSectionId": "/deportes/futbol/rosario-central",
             "name": "Rosario Central",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "97",
-            "ArcSectionId": "/san-lorenzo",
+            "_id": "7264",
+            "ArcSectionId": "/deportes/futbol/san-lorenzo",
             "name": "San Lorenzo",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "98",
-            "ArcSectionId": "/san-martin-tucuman",
+            "_id": "7259",
+            "ArcSectionId": "/deportes/futbol/san-martin-tucuman",
             "name": "San Martín Tucumán",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "99",
-            "ArcSectionId": "/talleres-cordoba",
+            "_id": "157",
+            "ArcSectionId": "/deportes/futbol/talleres-cordoba",
             "name": "Talleres Córdoba",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "100",
-            "ArcSectionId": "/tigre",
+            "_id": "7260",
+            "ArcSectionId": "/deportes/futbol/tigre",
             "name": "Tigre",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "101",
-            "ArcSectionId": "/union",
+            "_id": "7660",
+            "ArcSectionId": "/deportes/futbol/union",
             "name": "Unión",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "102",
-            "ArcSectionId": "/velez",
+            "_id": "7265",
+            "ArcSectionId": "/deportes/futbol/velez",
             "name": "Vélez",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "104",
-            "ArcSectionId": "/gimnasia",
+            "_id": "220",
+            "ArcSectionId": "/deportes/gimnasia",
             "name": "Gimnasia",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "105",
-            "ArcSectionId": "/golf",
+            "_id": "211",
+            "ArcSectionId": "/deportes/golf",
             "name": "Golf",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "106",
-            "ArcSectionId": "/handball",
+            "_id": "232",
+            "ArcSectionId": "/deportes/handball",
             "name": "Handball",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "107",
-            "ArcSectionId": "/hockey",
+            "_id": "233",
+            "ArcSectionId": "/deportes/hockey",
             "name": "Hockey",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "108",
-            "ArcSectionId": "/judo",
+            "_id": "8004",
+            "ArcSectionId": "/deportes/judo",
             "name": "Judo",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "109",
-            "ArcSectionId": "/natacion",
+            "_id": "244",
+            "ArcSectionId": "/deportes/natacion",
             "name": "Natación",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "110",
-            "ArcSectionId": "/polo",
+            "_id": "253",
+            "ArcSectionId": "/deportes/polo",
             "name": "Polo",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "111",
-            "ArcSectionId": "/remo",
+            "_id": "245",
+            "ArcSectionId": "/deportes/remo",
             "name": "Remo",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "112",
-            "ArcSectionId": "/remo",
-            "name": "Remo",
-            "migrada": false
-        },
-        {
-            "_id": "118",
-            "ArcSectionId": "/turf",
+            "_id": "630",
+            "ArcSectionId": "/deportes/turf",
             "name": "Turf",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "120",
-            "ArcSectionId": "/vela",
+            "_id": "248",
+            "ArcSectionId": "/deportes/vela",
             "name": "Vela",
-            "migrada": false
+            "migrada": true
         },
         {
-            "_id": "121",
-            "ArcSectionId": "/voley",
+            "_id": "235",
+            "ArcSectionId": "/deportes/voley",
             "name": "Voley",
-            "migrada": false
+            "migrada": true
         },
         {
             "_id": "122",

@@ -32,6 +32,7 @@ const ComTitle = ({ lead, tag, size, content, classCondition, link }) => {
 };
 
 ComTitle.propTypes = {
+    lead: PropTypes.string,
     tag: PropTypes.string,
     size: PropTypes.string,
     content: PropTypes.string.isRequired,
@@ -40,6 +41,7 @@ ComTitle.propTypes = {
 };
 
 ComTitle.defaultProps = {
+    lead: undefined,
     tag: 'h4',
     size: undefined,
     classCondition: undefined,

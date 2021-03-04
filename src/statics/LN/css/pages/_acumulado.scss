@@ -4,6 +4,27 @@
     .mod-article {
         margin-bottom: $spacing-lg;
         .mod-description {
+            > div {
+                display: flex;
+                flex-wrap: wrap;
+                :first-child {
+                    .--none {
+                        display: none;
+                    }
+                }
+                .com-link {
+                    &.--tags {
+                        font-family: $font-arial;
+                        color: $light-blue-500;
+                        font-weight: 700;
+                        letter-spacing: normal;
+                        margin-bottom: $spacing;
+                        &:first-letter {
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
             .com-link {
                 color: $light-neutral-700;
             }
@@ -15,7 +36,7 @@
                 }
             }
             .mod-marquee {
-                display: block;
+                display: flex;
             }
         }
     }
@@ -137,6 +158,7 @@
             margin-bottom: $spacing-sm;
             .com-image {
                 height: auto;
+                max-width: 90%;
             }
         }
 
@@ -176,6 +198,7 @@
             .mod-logo {
                 .com-image {
                     width: auto;
+                    max-width: 100%;
                     max-height: px(70);
                 }
             }
@@ -203,6 +226,13 @@
                 margin-bottom: px(8);
                 &:not(.hlp-none) {
                     display: inline-flex;
+                }
+            }
+        }
+        @media ($media-lg) {
+            .mod-logo {
+                .com-image {
+                    max-width: none;
                 }
             }
         }
@@ -268,8 +298,8 @@
         main {
             padding-top: 0;
             .--top {
-                margin-top: px(-65);
-                padding-top: px(89);
+                margin-top: px(-72);
+                padding-top: px(96);
             }
         }
         &.ohlala {
@@ -392,7 +422,7 @@
             @media ($media-m) {
                 flex-direction: row;
                 > div {
-                    min-width: 220px;
+                    min-width: px(150);
                     margin-right: px(16);
                 }
                 .com-hour {
@@ -490,9 +520,6 @@
                     }
                 }
             }
-            @media ($media-l) {
-                margin-bottom: $spacing;
-            }
         }
         .--color &,
         .--transparent & {
@@ -502,6 +529,13 @@
         .--color.--opening & {
             padding-top: $spacing-md;
             border-top: 1px solid $light-neutral-400;
+        }
+
+        @media ($media-l) {
+            display: block;
+            li {
+                margin-bottom: $spacing;
+            }
         }
     }
 }

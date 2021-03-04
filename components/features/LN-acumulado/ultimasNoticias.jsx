@@ -99,20 +99,26 @@ class UltimasNoticias extends React.Component {
         const show = this.showSeeMore(outputType, showMore);
         return (
             <>
-                <ArticlesAcum
-                    articles={articles}
-                    typeArticle="Timeline"
-                    classCondition={show && 'hlp-degrade'}
-                    outputType={outputType}
-                    getBanner={() => {}}
-                />
+                <div className="row">
+                    <div className="col-12">
+                        <ArticlesAcum
+                            articles={articles}
+                            typeArticle="Timeline"
+                            classCondition={show && 'hlp-degrade'}
+                            outputType={outputType}
+                            getBanner={() => {}}
+                        />
+                    </div>
+                </div>
                 {show && (
                     <section className="row">
-                        <BtnMasNotas
-                            onClickHandler={() => this.obtenerMasNotas()}
-                            loadingIcon={<LoadingIcon />}
-                            loading={loading}
-                        />
+                        <div className="col-12">
+                            <BtnMasNotas
+                                onClickHandler={() => this.obtenerMasNotas()}
+                                loadingIcon={<LoadingIcon />}
+                                loading={loading}
+                            />
+                        </div>
                     </section>
                 )}
             </>

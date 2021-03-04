@@ -20,7 +20,7 @@ const typeAcumRules = {
     },
     Timeline: {
         withMedia: true,
-        withAuthors: false,
+        withAuthors: true,
         withHour: true
     }
 };
@@ -65,6 +65,7 @@ const ArticleAcum = ({
                 subheadText={subheadText}
                 outputType={outputType}
                 isRenderAuthor={isRenderAuthor}
+                typeArticle={typeArticle}
             />
             {children}
         </>
