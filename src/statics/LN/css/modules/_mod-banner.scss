@@ -35,9 +35,11 @@
                 display: flex;
             }
         }
-        .--scrollUp & {
-            top: px(80);
-            display: none;
+        &.sticky2_mob {
+            .--scrollUp & {
+                top: px(80);
+                display: none;
+            }
         }
         .sidebar__aside & {
             .--scrollDown & {
