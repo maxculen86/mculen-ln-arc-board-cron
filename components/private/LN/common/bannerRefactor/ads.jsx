@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/require-default-props */
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'fusion:prop-types';
 import useMutationObserver from '../../../common/hooks/useMutationObserver';
 import hasAdsTestParam from '../utils/hasAdsTesParam';
@@ -8,123 +8,22 @@ import { ADHESION_DSK } from './factory/constants/index';
 
 import ArcAdLib from './arcAdLib';
 
-const PREBID_TIMEOUT = 2000;
+const bannersLoaded = [];
 
-const runRefreshEvent = ad => {
-    if (window.blockArcAdsLoad) return 'blockArcAdsLoad';
-    if (window.googletag && googletag.pubadsReady) {
-        window.googletag.pubads().refresh([ad]);
-    } else {
-        setTimeout(() => {
-            runRefreshEvent(ad);
-        }, 200);
-    }
-
-    return true;
-};
-
-const Ads = props => {
-    const {
-        id,
-        slotName,
-        dimensions,
-        targeting,
-        bidding,
-        sizemap,
-        display,
-        dfpId,
-        children
-    } = props;
-
-    if (window) {
-        window.arcAdsPrerenderer = adDetails => {
-            return new Promise(resolve => {
-                const { prebid = {} } = bidding || {};
-
-                if (
-                    Object.keys(prebid || {}).length > 0 &&
-                    typeof pbjs === 'object' &&
-                    Object.keys(pbjs || {}).length > 0 &&
-                    typeof googletag === 'object' &&
-                    Object.keys(googletag || {}).length > 0
-                ) {
-                    googletag.cmd = googletag.cmd || [];
-                    pbjs.que = pbjs.que || [];
-
-                    const initAdserver = () => {
-                        googletag.cmd.push(() => {
-                            pbjs.que.push(() => {
-                                pbjs.setTargetingForGPTAsync([
-                                    adDetails.adSlot
-                                ]);
-
-                                runRefreshEvent(adDetails.adUnit);
-                            });
-                        });
-
-                        resolve(adDetails);
-                    };
-
-                    pbjs.que.push(() => {
-                        const { adUnits = [] } = pbjs;
-                        const _id = adDetails.adUnit
-                            .getAdUnitPath()
-                            .split('/')[1];
-                        const code = prebid.code
-                            ? `/${_id}/${prebid.code}`
-                            : adDetails.adSlot;
-
-                        // Se borran atributos innecesarios
-                        delete prebid.code;
-                        delete prebid.enabled;
-                        delete prebid.useSlotForAdUnit;
-
-                        const isCodeAdded =
-                            adUnits.filter(e => e.code === code).length > -1;
-
-                        if (isCodeAdded) resolve(adDetails);
-
-                        const thisAdUnit = {
-                            code: adDetails.adSlot,
-                            ...prebid
-                        };
-                        pbjs.addAdUnits([{ ...thisAdUnit }]);
-                        pbjs.setConfig({
-                            priceGranularity: 'dense',
-                            rubicon: { singleRequest: true },
-                            useBidCache: true,
-                            bidderTimeout: PREBID_TIMEOUT
-                        });
-                        pbjs.requestBids({
-                            bidsBackHandler: initAdserver,
-                            timeout: PREBID_TIMEOUT
-                        });
-                    });
-
-                    // En caso de que PBJS no cargue
-                    /* setTimeout(() => {
-                        initAdserver();
-                    }, FAILSAFE_TIMEOUT); */
-                }
-
-                resolve(adDetails);
-            });
-        };
-
-        ArcAdLib.getInstance().registerAd(
-            {
-                id,
-                slotName,
-                dimensions,
-                display,
-                targeting: { ...targeting, adstest: hasAdsTestParam() },
-                sizemap,
-                bidding,
-                prerender: window.arcAdsPrerenderer
-            },
+const Ads = React.memo(
+    props => {
+        const {
+            id,
+            slotName,
+            dimensions,
+            targeting,
+            bidding,
+            sizemap,
+            display,
             dfpId,
-            bidding
-        );
+            children
+        } = props;
+        const [instanced, setInstanced] = useState(() => false);
 
         const onMutate = useCallback(
             mutations => {
@@ -160,14 +59,90 @@ const Ads = props => {
             subtree: true,
             childList: true
         });
-    }
 
-    return (
-        <div id={id} className="com-banner">
-            <div>{children}</div>
-        </div>
-    );
-};
+        if (typeof window === 'undefined') return <></>;
+
+        window.arcAdsPrerenderer = adDetails => {
+            return new Promise(resolve => {
+                setInstanced(() => true);
+                const { prebid = {} } = bidding || {};
+
+                if (
+                    Object.keys(prebid || {}).length > 0 &&
+                    typeof pbjs === 'object' &&
+                    Object.keys(pbjs || {}).length > 0 &&
+                    typeof googletag === 'object' &&
+                    Object.keys(googletag || {}).length > 0
+                ) {
+                    googletag.cmd = googletag.cmd || [];
+                    pbjs.que = pbjs.que || [];
+
+                    googletag.cmd.push(() => {
+                        console.time();
+                        console.info(
+                            `::: Se cargara un PREBID ::: /${dfpId}/${slotName}_0`
+                        );
+
+                        googletag.pubads().disableInitialLoad();
+                        googletag.pubads().enableSingleRequest();
+                        googletag.enableServices();
+
+                        const callAdserver = gptSlots => {
+                            if (pbjs.adserverCalled) return;
+                            pbjs.adserverCalled = true;
+                            googletag.pubads().refresh(gptSlots);
+                            resolve(adDetails);
+                        };
+
+                        // request pbjs bids when it loads
+                        pbjs.que.push(() => {
+                            pbjs.rp.requestBids({
+                                callback: callAdserver,
+                                gptSlotObjects: [adDetails.adUnit]
+                            });
+                        });
+
+                        // failsafe in case PBJS doesn't load
+                        setTimeout(() => {
+                            callAdserver([adDetails.adUnit]);
+                        }, 3500);
+                        console.timeEnd();
+                    });
+                }
+
+                resolve(adDetails);
+            });
+        };
+
+        const adInstancer = () => {
+            bannersLoaded.push(`/${dfpId}/${slotName}`);
+            ArcAdLib.getInstance().registerAd(
+                {
+                    id,
+                    slotName,
+                    dimensions,
+                    display,
+                    targeting: { ...targeting, adstest: hasAdsTestParam() },
+                    sizemap,
+                    prerender: window.arcAdsPrerenderer
+                },
+                dfpId,
+                bidding
+            );
+        };
+
+        !instanced &&
+            !bannersLoaded.includes(`/${dfpId}/${slotName}`) &&
+            adInstancer();
+
+        return (
+            <div id={id} className="com-banner">
+                <div>{children}</div>
+            </div>
+        );
+    },
+    (prevProps, nextProps) => prevProps.slotName !== nextProps.slotName
+);
 
 Ads.propTypes = {
     id: PropTypes.string.isRequired,
