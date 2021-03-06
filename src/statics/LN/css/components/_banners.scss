@@ -26,9 +26,9 @@
         top: 0;
         display: none;
 
-        .--scrollUp & {
-            display: none;
-        }
+        // .--scrollUp & {
+        //     display: none;
+        // }
 
         &.--active {
             .--scrollDown & {
