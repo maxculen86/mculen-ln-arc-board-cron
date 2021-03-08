@@ -106,7 +106,6 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
         filterRecomendar = false,
         filterRepetead = false,
         filterFutureDisplayDate = false,
-        filter24hsAgo = false,
         notesQuantity = 3
     } = siteProps || {};
 
@@ -120,19 +119,13 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
           )
         : articlesRecomended;
 
-    const articlesIn24HourAgo = filter24hsAgo
-        ? articlesNoFuture.filter(
-              art => !isOlderThan24HourAgo(art.display_date)
-          )
-        : articlesNoFuture;
-
     const contentElementsFiltered = filterRepetead
         ? getArticlesToShow(
-              articlesIn24HourAgo,
+              articlesNoFuture,
               idsArticlesToExclude,
               notesQuantity
           )
-        : articlesIn24HourAgo;
+        : articlesNoFuture;
 
     return contentElementsFiltered;
 };
