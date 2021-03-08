@@ -24,17 +24,11 @@ const requestConfigProps = (index, defaultDays, defaultWeeks) => {
             description: 'Cantidad de notas a listar',
             label: 'Cantidad de Notas'
         }),
-        [`daysAgo${index}`]: PropTypes.number.tag({
+        [`daysAgo${index}`]: PropTypes.oneOf([1, 2, 3, 4, 5]).tag({
             group: `Configuración consulta ${index}`,
             defaultValue: defaultDays,
             description: 'Número de días atrás en relación a hoy',
             label: 'Días'
-        }),
-        [`weeksAgo${index}`]: PropTypes.number.tag({
-            group: `Configuración consulta ${index}`,
-            defaultValue: defaultWeeks,
-            description: 'Número de semanas de antiguedad de las publicaciones',
-            label: 'Semanas de publicación'
         })
     };
 };
