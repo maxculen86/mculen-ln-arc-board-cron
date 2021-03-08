@@ -5,7 +5,9 @@ import JMQ44OZHHBC5ZJ5TXTSIIPZMTI from '../../../../../../__mocks__/data/article
 import FUO2YR3EABBAFOMSI2BBS6J7FM from '../../../../../../__mocks__/data/articles/FUO2YR3EABBAFOMSI2BBS6J7FM.json';
 import L47IICAOMVFW5MV343TJIHS4RY from '../../../../../../__mocks__/data/articles/L47IICAOMVFW5MV343TJIHS4RY.json';
 import Q4P5KFEOLVHINB3Y5LIGK26SOU from '../../../../../../__mocks__/data/articles/Q4P5KFEOLVHINB3Y5LIGK26SOU';
-import { dateAndTimeForAppsUtil } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
+import dateAndTimeUtil, {
+    dateAndTimeForAppsUtil
+} from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 describe('Test de index en JSON de nota', () => {
     it('Test valores meta null o undefined', () => {
@@ -96,6 +98,14 @@ describe('Test de index en JSON de nota', () => {
     it('Test fechas meses menores a 10', () => {
         const resp = dateAndTimeForAppsUtil('2020-12-06T18:04:25.254Z');
         expect(resp).toBe('2020-12-6 12:04:25');
+    });
+
+    test('Test Fecha del articulo dateAndTimeUtil', () => {
+        const resp = JMQ44OZHHBC5ZJ5TXTSIIPZMTI;
+        expect(dateAndTimeUtil(resp.display_date)).toEqual({
+            date: '29 de septiembre de 2020',
+            time: '06:09'
+        });
     });
 
     it('Test fechas meses menores a 10', () => {

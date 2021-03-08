@@ -25,7 +25,11 @@ describe('Json imagen en acumulado', () => {
         const authors = article.content_elements[12].credits.by;
         const resp = authors.map(a => acuAuthor(a));
         expect(resp[0].tipo).toBe(2);
-    })
+    });
 
-
+    test('Imagen de autor en null', () => {
+        const authors = article.content_elements[0].credits.by;
+        const resp = authors.map(a => acuAuthor(a));
+        expect(resp[0].imagen).toBe(null);
+    });
 });
