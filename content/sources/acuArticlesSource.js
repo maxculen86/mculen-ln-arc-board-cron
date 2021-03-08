@@ -199,7 +199,6 @@ const transform = (data, siteProps) => {
         };
     });
 
-    // Si es ultimas noticias, tengo que formatear la fecha y sacar aquellos articulos anteriores a 24 hs
     if (sectionsIds) {
         respData.content_elements = respData.content_elements
             .filter(story => !isOlderThan24HourAgo(story.first_publish_date))

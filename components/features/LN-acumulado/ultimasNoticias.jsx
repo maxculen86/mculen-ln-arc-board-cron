@@ -9,13 +9,14 @@ const UltimasNoticias = props => {
     const { sections } = customFields;
     const globalContext = useContext(GlobalContext);
     const { siteProperties, outputType } = useAppContext();
-    // const sectionsFormated = JSON.stringify(sections);
-    const sectionsFormated = JSON.stringify(sections)
-        .replaceAll(',', '+OR+')
-        .replace('[', '(')
-        .replace(']', ')');
-    // sections && sections.join().replace(',', '","').replace("\'", "\"");
-    // (%22/el-mundo%22+OR+%22/deportes%22)
+
+    const sectionsFormated = sections
+        ? JSON.stringify(sections)
+              .replaceAll(',', '+OR+')
+              .replace('[', '(')
+              .replace(']', ')')
+        : '';
+
     return (
         <GrillaNotas
             sectionsIds={sectionsFormated}
@@ -28,7 +29,7 @@ const UltimasNoticias = props => {
             gc={globalContext}
         />
     );
-}
+};
 
 UltimasNoticias.label = 'LN Acumulado Ultimas Noticias';
 
