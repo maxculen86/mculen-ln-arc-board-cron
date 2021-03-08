@@ -57,7 +57,11 @@ const ArticleAcum = ({
         (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
 
     const hourToDisplay = typeAcumRules[typeArticle].withHour && (
-        <ComHour display_date={display_date} size="--twoxs" />
+        <ComHour
+            display_date={display_date}
+            size="--twoxs"
+            isUltimasNoticias={typeArticle === 'Timeline'}
+        />
     );
 
     return (

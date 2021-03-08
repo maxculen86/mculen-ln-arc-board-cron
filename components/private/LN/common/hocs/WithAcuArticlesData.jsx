@@ -58,12 +58,20 @@ function WithAcuArticlesData(
             getArticles = (fetchedCallback, page) => {
                 const website = get(this, 'props.website', null);
                 let sectionId = get(this, 'props.sectionId', null);
+                const sectionsIds = get(this, 'props.sectionsIds', null);
+                const sourceOrigin = get(this, 'props.sourceOrigin', null);
                 const tagId = get(this, 'props.tagId', null);
                 const authorId = get(this, 'props.authorId', null);
                 const distributorId = get(this, 'props.distributorId', null);
                 const size = get(this, 'props.size', 30);
 
-                if (!sectionId && !tagId && !authorId && !distributorId)
+                if (
+                    !sectionId &&
+                    !tagId &&
+                    !authorId &&
+                    !distributorId &&
+                    !sectionsIds
+                )
                     return {
                         articles: [],
                         hayMasNotas: 0
@@ -89,7 +97,9 @@ function WithAcuArticlesData(
                         page,
                         excludeSectionId,
                         promoItemsOnly,
-                        distributorId
+                        distributorId,
+                        sectionsIds,
+                        sourceOrigin
                     },
                     filter
                 });
