@@ -23,6 +23,7 @@ import ComShield from '../../../common/com-shield';
 import ModShield from '../../../common/mod-shield';
 import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
 import ComAdvance from '../../../common/com-advance';
+import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
 // import ModWikiAuthor from '../../../common/mod-wikiAuthor';
 // import '../../../../../resources/dist/css/ln/base/helpers.css';
 
@@ -171,7 +172,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
             </div>
 
             {/* BORRARRRRRRRR */}
-            <div className="row">
+            {/* <div className="row">
                 <div className="col-6">
                     <ModShield
                         size="--l"
@@ -180,7 +181,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                         src="https://bucket1.glanacion.com/canchallena/escudos/200032w86.png"
                     />
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 };

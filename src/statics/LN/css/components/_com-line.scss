@@ -26,11 +26,6 @@
             margin-bottom: $spacing-md;
         }
     }
-    .mod-headersection & {
-        .--bgcolor & {
-            display: none;
-        }
-    }
 }
 @media ($media-l) {
     .com-line {
