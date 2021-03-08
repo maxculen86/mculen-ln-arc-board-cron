@@ -76,7 +76,7 @@ const ModDescription = props => {
                                 sizeBullet={
                                     (withMarquee || !!category) && '--fourxs'
                                 }
-                                link={(slug && `/${slug}`) || ''}
+                                link={(slug && `/tema/${slug}/`) || ''}
                                 classCondition="--tags"
                             />
                         );
@@ -106,7 +106,7 @@ ModDescription.propTypes = {
 };
 
 ModDescription.defaultProps = {
-    titleTag: 'h2',
+    titleTag: 'h4',
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',

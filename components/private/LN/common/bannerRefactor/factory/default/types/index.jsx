@@ -63,7 +63,10 @@ const index = memo(
                 </div>
             </>
         );
-    })
+    }),
+    ({ slotId: pId }, { slotId: nId }) => {
+        return pId !== nId;
+    }
 );
 
 index.propTypes = {

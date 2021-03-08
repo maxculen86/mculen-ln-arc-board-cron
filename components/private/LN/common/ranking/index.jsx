@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import withRankingData from '../hocs/WithRankingData';
+import WithRelatedImages from '../hocs/WithRelatedImages';
 
 import OrderedList from '../lists/ordered';
 import ArticleMain from '../articleTypes/articleMain';
@@ -9,8 +10,8 @@ import ComTitle from '../../../common/com-title';
 
 import '../../../../../resources/dist/css/ln/components/ranking.css';
 
-const Ranking = ({ articles, dataSection, title }) =>
-    (articles && articles.length && (
+const Ranking = ({ articles, dataSection, title }) => {
+    return articles && articles.length ? (
         <section
             className="com-ranking hlp-mobile-none"
             data-is-block="true"
@@ -30,8 +31,8 @@ const Ranking = ({ articles, dataSection, title }) =>
                     ))}
             </OrderedList>
         </section>
-    )) ||
-    null;
+    ) : null;
+};
 
 Ranking.propTypes = {
     articles: PropTypes.arrayOf(PropTypes.object),
@@ -43,4 +44,4 @@ Ranking.defaultProps = {
     articles: []
 };
 
-export default withRankingData(Ranking, 'm');
+export default withRankingData(WithRelatedImages(Ranking), 'm');
