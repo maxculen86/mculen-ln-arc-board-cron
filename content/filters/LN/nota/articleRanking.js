@@ -3,7 +3,7 @@ import { imageResizedUrl } from '../common';
 const image = `
     type
     resized_urls {
-        ${imageResizedUrl}               
+        ${imageResizedUrl}
     }
     url
     subtitle
@@ -24,7 +24,7 @@ export default `
         taxonomy {
             tags {
                 text
-                slug                
+                slug
             }
             primary_section {
                 _id
@@ -39,7 +39,7 @@ export default `
                             migrated_mob
                         }
                     }
-                    
+
                 }
             }
         }
@@ -62,11 +62,12 @@ export default `
         related_content {
             basic{
                 _id
+                type
                 referent {
                     type
                 }
             }
         }
     }
-    
+
 }`;

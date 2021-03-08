@@ -98,7 +98,7 @@ export default {
         targeting: defaultTargeting
     },
     caja1_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja1_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja1_dsk',
         dimensions: [
             [300, 600],
             [300, 250]
@@ -153,7 +153,7 @@ export default {
         }
     },
     caja2_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja2_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja2_dsk',
         dimensions: [[300, 250]],
         targeting: defaultTargeting,
         bidding: {
@@ -206,7 +206,7 @@ export default {
         }
     },
     caja3_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja3_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja3_dsk',
         dimensions: [
             [300, 600],
             [300, 250]
@@ -262,7 +262,7 @@ export default {
         }
     },
     caja4_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja4_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja4_dsk',
         dimensions: [
             [300, 600],
             [300, 250]
@@ -318,7 +318,7 @@ export default {
         }
     },
     caja5_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja5_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja5_dsk',
         dimensions: [[300, 250]],
         targeting: defaultTargeting,
         bidding: {

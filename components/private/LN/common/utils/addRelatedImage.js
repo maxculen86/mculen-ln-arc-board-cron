@@ -8,7 +8,9 @@ const addRelatedImage = article => {
     const { _id: id } =
         (relatedContent &&
             relatedContent.find(
-                item => get(item, 'referent.type') === 'image'
+                item =>
+                    get(item, 'referent.type') === 'image' ||
+                    get(item, 'type') === 'image'
             )) ||
         {};
 

@@ -1,6 +1,7 @@
 import { parse } from 'node-html-parser';
 import walkerBuilder from '../../../../../../common/utils/walker';
 import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
+import unescapeHtml from '../../../../../../common/utils/unescapeHtml';
 
 const htmlText = (nodo, dataNota) => {
     if (!nodo) return null;
@@ -67,7 +68,6 @@ const htmlText = (nodo, dataNota) => {
         }
     );
 
-    // Arc permite dale color a palabras 'mark'. Consultar que hacemos en este caso, por ahora, mando solo el texto plano
     walker.addCondition(
         node => node.nodeType === 1 && node.tagName !== 'br',
         (data, next) => {
@@ -82,7 +82,7 @@ const htmlText = (nodo, dataNota) => {
     walker.addCondition(
         node => !!node.rawText,
         (data, next) => {
-            return data.rawText;
+            return unescapeHtml(data.rawText);
         }
     );
 

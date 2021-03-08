@@ -1,11 +1,10 @@
 import Consumer from 'fusion:consumer';
-import IndexRankingV1 from '../../../private/LN/api/v1/ranking';
+import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 import filter from '../../../../content/filters/LN/nota/articleRanking';
-import { isMigratedCategory } from '../../../private/common/utils/migratedCategoriesHelper';
 import get from '../../../private/common/utils/get';
 
-// URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/params=size:1;weeks:1;days:1/?_website=la-nacion-ar&outputType=json
+// URL de ejemplo: http://localhost/api/v1/notas/ranking/bySection/recetas/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/ranking\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
 class SectionRanking {
     constructor(props) {
@@ -16,23 +15,20 @@ class SectionRanking {
             customFields
         } = props;
 
-        const categoryMigrated = isMigratedCategory(sectionId, true);
-        if (categoryMigrated) {
-            this.state = {};
-            this.fetch(sectionId, customFields, 1);
+        this.state = {};
+        this.fetch(sectionId, customFields, 1);
 
-            if (
-                !this.state.rankingArticleSource ||
-                this.state.rankingArticleSource.content_elements.length === 0
-            ) {
-                this.fetch(sectionId, customFields, 2);
-            }
+        if (
+            !this.state.rankingArticleSource ||
+            this.state.rankingArticleSource.content_elements.length === 0
+        ) {
+            this.fetch(sectionId, customFields, 2);
         }
 
-        this.state = { ...this.state, categoryMigrated };
+        this.state = { ...this.state };
 
         this.versions = {
-            1: IndexRankingV1
+            1: IndexAcuV1
         };
     }
 
@@ -57,30 +53,28 @@ class SectionRanking {
     }
 
     render() {
-        const { rankingArticleSource, categoryMigrated } = this.state || {};
+        const { rankingArticleSource, globalContent: configuration } =
+            this.state || {};
 
         const {
-            globalContent: { name }
+            globalContent: { name },
+            requestUri
         } = this.props;
 
-        const indexRanking = this.versions[
-            browser.getApiVersion(this.props.requestUri)
-        ];
+        const indexAcu = this.versions[browser.getApiVersion(requestUri)];
 
         if (!rankingArticleSource || !rankingArticleSource.content_elements) {
             return null;
         }
 
-        if (!categoryMigrated) {
-            return {
-                success: false,
-                message:
-                    'Esta categoria aún no ha sido migrada, debe de consultar en Api Contenidos',
-                code: 202
-            };
-        }
+        const acuData = {
+            name,
+            articles: rankingArticleSource.content_elements,
+            total: rankingArticleSource.content_elements.length,
+            configuration
+        };
 
-        return indexRanking(name, rankingArticleSource.content_elements);
+        return indexAcu(acuData);
     }
 }
 

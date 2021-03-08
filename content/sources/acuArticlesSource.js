@@ -146,7 +146,6 @@ const resolve = key => {
     }`;
     const final = `${basePath}${query}&size=${cant}&from=${from}
             &sort=display_date:desc`;
-    // console.log("final", final)
     return final;
 };
 
@@ -221,6 +220,8 @@ export default {
     resolve,
     params: {
         sectionId: 'text',
+        authorId: 'text',
+        tagId: 'text',
         size: 'text',
         page: 'text',
         website: 'text',
