@@ -17,7 +17,7 @@ export default {
         },
         PostBid: {
             props: {},
-            location: ['body-top']
+            location: ['head']
         },
         ArcAds: {
             props: {},
@@ -58,6 +58,10 @@ export default {
         ScriptHtmlLibre: {
             props: {},
             location: ['head']
+        },
+        Queryly: {
+            props: {},
+            location: ['body-bottom']
         }
     },
     imageConfig: {

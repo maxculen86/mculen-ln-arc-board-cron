@@ -27,7 +27,7 @@ const section = `
 const image = `
     type
     resized_urls {
-        ${imageResizedUrl}             
+        ${imageResizedUrl}
     }
     height
     url
@@ -183,7 +183,7 @@ const labels = `
     }
 `;
 const customReceta = `
-    subtype    
+    subtype
     embed {
         config {
             titleList
@@ -209,7 +209,7 @@ const gallery = `
     }
 `;
 
-const sectionSites = `{    
+const sectionSites = `{
     additional_properties{
         original{
             migration{
@@ -305,7 +305,7 @@ export default `
     subheadlines {
         basic
     }
-    taxonomy { 
+    taxonomy {
         tags {
             text
             description
@@ -330,6 +330,9 @@ export default `
             ${labels}
             website_url
             canonical_url
+            referent {
+                type
+            }
         }
         redirect {
             redirect_url

@@ -11,7 +11,7 @@ exports[`PullQuote Matches snapshot 1`] = `
       class="title-cita"
     >
       <p
-        class="com-paragraph   --s"
+        class="com-paragraph --sueca --font-bold  --m"
       >
         "Lorem ipsum dolor sit amet, 
         <strong>
@@ -30,7 +30,7 @@ exports[`PullQuote Matches snapshot 1`] = `
     >
        
       <h3
-        class="nombre-firma"
+        class="nombre-firma --twoxs"
       >
         Erwe Von Esse
       </h3>

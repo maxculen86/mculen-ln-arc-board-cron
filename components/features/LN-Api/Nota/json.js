@@ -18,7 +18,6 @@ class JsonArticle {
             browser.getApiVersion(this.props.requestUri)
         ];
         const { globalContent } = this.props;
-
         try {
             return indexNota(globalContent);
         } catch (err) {

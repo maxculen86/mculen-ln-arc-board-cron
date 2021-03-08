@@ -58,20 +58,22 @@ const fetch = query => {
 const transform = (data, siteProps) => {
     const respData = data;
     const contentElements = get(data, `content_elements`, []);
+    const isCollectionDinamic = get(data, `dynamic_items`, false);
 
     const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     const contentElementsFiltered = filterArticlesInCollection(
         siteProps,
-        contentElements
+        contentElements,
+        isCollectionDinamic
     );
 
     respData.content_elements =
         contentElementsFiltered &&
         contentElementsFiltered.map(elem => {
             // const promoItems = get(elem, `promo_items`, null);
-            const marquesina = get(elem, `description.basic`, null);
+            // const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
@@ -90,8 +92,8 @@ const transform = (data, siteProps) => {
                     // y pueda aplicarse 3:2, focal point o smartcrop
                     subtype: isFotoAl100orStorytelling ? '-1' : subtype
                 }),
-                ...(elem.canonical_url && { website_url: elem.canonical_url }),
-                marquesina
+                ...(elem.canonical_url && { website_url: elem.canonical_url })
+                // marquesina
             };
         });
 
@@ -101,7 +103,6 @@ const transform = (data, siteProps) => {
 const filterArticlesInCollection = (siteProps, originalArticles) => {
     const {
         idsArticlesToExclude = [],
-        from = 0,
         filterRecomendar = false,
         filterRepetead = false,
         filterFutureDisplayDate = false,
@@ -129,7 +130,6 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
         ? getArticlesToShow(
               articlesIn24HourAgo,
               idsArticlesToExclude,
-              from,
               notesQuantity
           )
         : articlesIn24HourAgo;

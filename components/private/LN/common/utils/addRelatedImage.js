@@ -1,0 +1,45 @@
+/* eslint-disable camelcase */
+import { useContent } from 'fusion:content';
+import filter from '../../../../../content/filters/LN/acumulado/promoItemsRelatedImage';
+import get from '../../../../private/common/utils/get';
+
+const addRelatedImage = article => {
+    const relatedContent = get(article, 'related_content.basic', []);
+    const { _id: id } =
+        (relatedContent &&
+            relatedContent.find(
+                item =>
+                    get(item, 'referent.type') === 'image' ||
+                    get(item, 'type') === 'image'
+            )) ||
+        {};
+
+    const withoutPromoItems =
+        !get(article, 'promo_items.basic') ||
+        get(article, 'promo_items.basic.type') !== 'image';
+
+    const imageData =
+        id &&
+        withoutPromoItems &&
+        useContent({
+            source: 'relatedImageSource',
+            query: {
+                id,
+                subtype: get(article, 'subtype'),
+                imageConfig: 'm'
+            },
+            filter
+        });
+
+    return (
+        (imageData && {
+            ...article,
+            promo_items: {
+                ...imageData.promo_items
+            }
+        }) ||
+        article
+    );
+};
+
+export default addRelatedImage;

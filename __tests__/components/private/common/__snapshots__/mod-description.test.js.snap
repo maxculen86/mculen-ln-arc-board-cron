@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
+<section
+  class="mod-description"
+>
+  <com-title-mock
+    content="Este es el titulo"
+    link="http://google.com"
+    size="--s"
+    tag="h1"
+  />
+  <mod-bajada-mock
+    link="http://google.com"
+    subheadsize=""
+    subheadtext="Este es el subtitulo"
+  />
+  <div>
+    <mod-marquee-mock
+      link="http://google.com"
+      text="Por Carlos Pagni"
+    />
+    <com-tag-mock
+      classcondition="--tags"
+      content="Comunidad"
+      iconname="bullet"
+      link="/comunidad"
+      sizebullet="--fourxs"
+      sizetext="--fourxs"
+    />
+    <com-tag-mock
+      classcondition="--tags"
+      content="Educación"
+      iconname="bullet"
+      link="/tema/educacion-123/"
+      sizebullet="--fourxs"
+      sizetext="--fourxs"
+    />
+    <com-tag-mock
+      classcondition="--tags"
+      content="Inclusión"
+      iconname="bullet"
+      link="/tema/inclusion-123/"
+      sizebullet="--fourxs"
+      sizetext="--fourxs"
+    />
+    <com-tag-mock
+      classcondition="--tags"
+      content="Sociedad"
+      iconname="bullet"
+      link="/tema/sociedad-123/"
+      sizebullet="--fourxs"
+      sizetext="--fourxs"
+    />
+  </div>
+  <com-date-mock
+    display_date="2020-06-02T15:28:04.694Z"
+    size="--fourxs"
+  />
+</section>
+`;

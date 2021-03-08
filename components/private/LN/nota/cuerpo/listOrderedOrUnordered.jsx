@@ -7,6 +7,15 @@ const ListOrderedOrUnordered = ({ data }) => {
         data.list_type === 'ordered' ? 'com-ordered' : 'com-unordered'
     );
 
+    const setExternalLinks = text => {
+        const regex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g;
+        return text.replace(regex, match => {
+            return match.replace(/href=(["'\\])+(.*?)\1/, match => {
+                return match + ` class="com-link"`;
+            });
+        });
+    };
+
     return (
         <ul className={classList}>
             {data.items.map(element => (
@@ -14,7 +23,7 @@ const ListOrderedOrUnordered = ({ data }) => {
                     key={element._id}
                     className="com-item"
                     dangerouslySetInnerHTML={{
-                        __html: element.content
+                        __html: setExternalLinks(element.content)
                     }}
                 />
             ))}

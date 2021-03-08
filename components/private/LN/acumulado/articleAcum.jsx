@@ -20,7 +20,7 @@ const typeAcumRules = {
     },
     Timeline: {
         withMedia: true,
-        withAuthors: false,
+        withAuthors: true,
         withHour: true
     }
 };
@@ -34,9 +34,17 @@ const ArticleAcum = ({
     titleTag,
     titleSize,
     withSubhead,
-    isRenderAuthor
+    isRenderAuthor,
+    withCategory,
+    withTags
 }) => {
-    const { display_date, headlines, website_url, label } = article;
+    const {
+        display_date,
+        headlines,
+        website_url,
+        label,
+        taxonomy: { primary_section: primarySection, tags } = {}
+    } = article;
 
     const authors =
         typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(article);
@@ -44,6 +52,9 @@ const ArticleAcum = ({
     const subheadText = withSubhead && getBajadaOrFirstTextParagraph(article);
 
     const titleText = getTitleText(headlines, label);
+
+    const tagList =
+        (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
 
     const hourToDisplay = typeAcumRules[typeArticle].withHour && (
         <ComHour display_date={display_date} size="--twoxs" />
@@ -65,6 +76,8 @@ const ArticleAcum = ({
                 subheadText={subheadText}
                 outputType={outputType}
                 isRenderAuthor={isRenderAuthor}
+                category={withCategory && primarySection}
+                tags={withTags && tagList}
             />
             {children}
         </>
@@ -82,16 +95,24 @@ ArticleAcum.propTypes = {
             volanta: PropTypes.shape({
                 text: PropTypes.string
             })
+        }),
+        taxonomy: PropTypes.shape({
+            primary_section: PropTypes.string,
+            tags: PropTypes.arrayOf(PropTypes.obj)
         })
     }).isRequired,
     children: PropTypes.node,
     typeArticle: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string.isRequired,
+    withCategory: PropTypes.bool,
+    withTags: PropTypes.bool
 };
 
 ArticleAcum.defaultProps = {
     dataSection: '',
-    children: undefined
+    children: undefined,
+    withCategory: false,
+    withTags: false
 };
 
 export default ArticleAcum;

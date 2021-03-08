@@ -8,9 +8,10 @@ const ranking = props => {
     const { id: featureId, outputType } = props;
     return (
         outputType !== 'amp' && (
-            <Static id={featureId}>
-                <Ranking {...props} />
-            </Static>
+            // Se comentó el static para poder cambiar el promo_items y agregarle la imagen reacionada cuando no tiene
+            // <Static id={featureId}>
+            <Ranking {...props} />
+            // </Static>
         )
     );
 };

@@ -34,7 +34,10 @@ const ModArticle = props => {
         anexo,
         noMedia,
         label,
-        hour
+        position,
+        hour,
+        category,
+        tags
     } = props;
     const extraOpts = {};
     if (dataSection) {
@@ -45,14 +48,31 @@ const ModArticle = props => {
         ? getAuthorsPhoto(articleData)
         : get(articleData, 'promo_items.basic', null);
     const marquesina = get(articleData, 'marquesina', null);
+
     const type = get(imagenDestacada, 'type', null);
+
+    //Esto es para una demo para Leito ********************
+    const idArc = `nid5E23BMUH${position}XZ3LSXEK3BKOOA`;
+    const classDemo = `toi${position} ${idArc}`;
+
+    const extraDemo = {};
+    if (frontdemo) {
+        extraDemo['data-pos'] = position;
+        extraDemo['data-id'] = idArc;
+        extraDemo['data-notaid'] = idArc;
+        extraDemo['data-source'] = `editor`;
+    }
+    // demo front *****************************************
 
     return (
         <article
             className={`mod-article ${classCondition || ''} ${
-                noMedia ? '--no-media' : ''
-            } ${isRenderAuthor ? '--author' : ''}`}
+                frontdemo ? classDemo : ''
+            } ${noMedia ? '--no-media' : ''} ${
+                isRenderAuthor ? '--author' : ''
+            }`}
             {...extraOpts}
+            {...extraDemo}
         >
             {hour && hour}
 
@@ -93,6 +113,8 @@ const ModArticle = props => {
                 lead={leadText}
                 label={label}
                 marquesina={marquesina}
+                category={category}
+                tags={tags}
             />
         </article>
     );
@@ -117,13 +139,15 @@ ModArticle.propTypes = {
         promo_items: PropTypes.shape({
             basic: PropTypes.object
         })
-    }).isRequired
+    }).isRequired,
+    category: PropTypes.string,
+    tags: PropTypes.string
 };
 
 ModArticle.defaultProps = {
     dataSection: undefined,
     classCondition: undefined,
-    titleTag: 'h4',
+    titleTag: 'h2',
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
@@ -133,7 +157,9 @@ ModArticle.defaultProps = {
     withMedia: false,
     link: undefined,
     hour: undefined,
-    outputType: 'default'
+    outputType: 'default',
+    category: undefined,
+    tags: undefined
 };
 
 export default ModArticle;

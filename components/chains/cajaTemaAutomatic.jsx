@@ -54,7 +54,6 @@ const CajaTemaAutomatic = props => {
         Number(initialPosition) - 1,
         idsArticlesToExclude,
         true,
-        true,
         Number(notesQuantity)
     );
 
@@ -107,7 +106,7 @@ const CajaTemaAutomatic = props => {
     );
 };
 
-CajaTemaAutomatic.label = 'LN Caja Automatica';
+CajaTemaAutomatic.label = 'LN Caja Automatica (no usar)';
 
 CajaTemaAutomatic.propTypes = {
     id: PropTypes.string.isRequired,
@@ -126,7 +125,7 @@ CajaTemaAutomatic.propTypes = {
         })
     ).isRequired,
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaTemaAutomatic')
+        ...cajaTemasCustomsFields('cajaCollection')
     }).isRequired,
     tree: PropTypes.shape(PropTypes.node).isRequired
 };

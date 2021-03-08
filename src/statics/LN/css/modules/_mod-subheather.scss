@@ -1,0 +1,104 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+.mod-subheather {
+    display: flex;
+    justify-content: center;
+    background: $blanco;
+    padding: $spacing-2xs $spacing-xs $spacing-2xs $spacing-xs;
+    .precioDolar {
+        font-weight: bold;
+    }
+    .com-club,
+    .--newsletter,
+    .com-weather {
+        display: none;
+    }
+    .com-dolar {
+        .--dolar {
+            font-weight: bold;
+        }
+        .--blue {
+            margin-right: $spacing-3xs;
+            color: $negro;
+        }
+        i {
+            padding: 0;
+        }
+        .com-text {
+            margin-right: $spacing-3xs;
+        }
+    }
+}
+@media ($media-s) {
+    .mod-subheather {
+        .com-dolar {
+            .--dolar {
+                margin-right: $spacing-xs;
+            }
+            .--blue {
+                margin-left: $spacing-xs;
+                margin-right: $spacing-3xs;
+            }
+            i {
+                padding: 0 $spacing-3xs;
+            }
+        }
+    }
+}
+@media ($media-m) {
+    .mod-subheather {
+        justify-content: space-between;
+        padding: $spacing-xs $spacing-lg $spacing-xs $spacing-lg;
+        .precioDolar {
+            font-weight: bold;
+        }
+        .--newsletter,
+        .com-weather {
+            display: none;
+        }
+        .com-club {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-club {
+            margin-right: $spacing-xs;
+        }
+        .com-dolar {
+            .--dolar {
+                margin-right: $spacing-xs;
+                font-weight: bold;
+            }
+            .--blue {
+                margin-left: $spacing-xs;
+                margin-right: $spacing-3xs;
+            }
+            .com-text {
+                margin-right: $spacing-3xs;
+            }
+        }
+    }
+}
+@media ($media-l) {
+    .mod-subheather {
+        background: $light-neutral-200;
+        .com-dolar,
+        .com-weather,
+        .com-link,
+        .com-club {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #spanTemperatura {
+            margin-right: $spacing-2xs;
+            font-weight: bold;
+        }
+        .com-weather {
+            color: $negro;
+            .com-icon {
+                margin-right: $spacing-xs;
+            }
+        }
+    }
+}
