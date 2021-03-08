@@ -4,6 +4,27 @@
     .mod-article {
         margin-bottom: $spacing-lg;
         .mod-description {
+            > div {
+                display: flex;
+                flex-wrap: wrap;
+                :first-child {
+                    .--none {
+                        display: none;
+                    }
+                }
+                .com-link {
+                    &.--tags {
+                        font-family: $font-arial;
+                        color: $light-blue-500;
+                        font-weight: 700;
+                        letter-spacing: normal;
+                        margin-bottom: $spacing;
+                        &:first-letter {
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
             .com-link {
                 color: $light-neutral-700;
             }
@@ -15,7 +36,7 @@
                 }
             }
             .mod-marquee {
-                display: block;
+                display: flex;
             }
         }
     }
@@ -119,96 +140,108 @@
         }
     }
 
-    .--top {
-        //para refactor
-        .mod-categories {
-            position: relative;
-            width: 100%;
-            display: inline-flex;
+    //para refactor
+    .mod-categories {
+        position: relative;
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding-bottom: $spacing;
+        .com-title {
+            margin-bottom: $spacing-sm;
+            margin-right: 0;
+            min-width: max-content;
+        }
+        .mod-logo {
+            //display: flex;
+            margin-bottom: $spacing-sm;
+            .com-image {
+                height: auto;
+                max-width: 90%;
+            }
+        }
+
+        .com-button {
+            width: px(30);
+            position: absolute;
+            right: px(-24);
+            bottom: px(2);
+            height: px(50);
             flex-direction: column;
-            flex-wrap: nowrap;
-            padding-bottom: $spacing;
+            &.--left {
+                right: auto;
+                left: px(-24);
+            }
+            &:active {
+                background: none;
+                color: initial;
+            }
+            @media ($media-l) {
+                width: auto;
+                height: auto;
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                &.--left {
+                    left: auto;
+                }
+            }
+        }
+
+        .--category {
+            font-family: $font-SuecaSlab;
+        }
+
+        @media ($media-m) {
+            .mod-logo {
+                .com-image {
+                    width: auto;
+                    max-width: 100%;
+                    max-height: px(70);
+                }
+            }
+        }
+
+        @media ($media-l) {
+            flex-direction: row;
+            align-items: flex-end;
+            padding-bottom: $spacing-sm;
+
             .com-title {
-                margin-bottom: $spacing-sm;
-                margin-right: 0;
-                min-width: max-content;
+                margin-bottom: 0;
+                margin-right: px(24);
+                padding-bottom: px(10);
             }
             .mod-logo {
-                //display: flex;
-                margin-bottom: $spacing-sm;
+                margin: 0;
+                margin-right: $spacing-md;
                 .com-image {
-                    height: auto;
+                    max-height: px(90);
                 }
             }
-
             .com-button {
-                width: px(30);
-                position: absolute;
-                right: px(-24);
-                bottom: px(2);
-                height: px(50);
-                flex-direction: column;
-                &.--left {
-                    right: auto;
-                    left: px(-24);
-                }
-                &:active {
-                    background: none;
-                    color: initial;
-                }
-                @media ($media-l) {
-                    width: auto;
-                    height: auto;
-                    position: relative;
-                    bottom: auto;
-                    left: auto;
-                    right: auto;
-                    &.--left {
-                        left: auto;
-                    }
-                }
-            }
-
-            @media ($media-m) {
-                .mod-logo {
-                    .com-image {
-                        width: auto;
-                        max-height: px(70);
-                    }
-                }
-            }
-
-            @media ($media-l) {
-                flex-direction: row;
-                align-items: flex-end;
-                padding-bottom: $spacing-sm;
-
-                .com-title {
-                    margin-bottom: 0;
-                    margin-right: px(24);
-                    padding-bottom: px(10);
-                }
-                .mod-logo {
-                    margin: 0;
-                    margin-right: $spacing-md;
-                    .com-image {
-                        max-height: px(90);
-                    }
-                }
-                .com-button {
-                    padding: 0;
-                    margin-bottom: px(8);
-                    &:not(.hlp-none) {
-                        display: inline-flex;
-                    }
+                padding: 0;
+                margin-bottom: px(8);
+                &:not(.hlp-none) {
+                    display: inline-flex;
                 }
             }
         }
-
-        .mod-banner.--bg-banner {
-            background: none;
+        @media ($media-lg) {
+            .mod-logo {
+                .com-image {
+                    max-width: none;
+                }
+            }
         }
     }
+
+    .--top .mod-banner.--bg-banner {
+        background: none;
+    }
+
     &.amp {
         .--top {
             .mod-logo {
@@ -265,8 +298,8 @@
         main {
             padding-top: 0;
             .--top {
-                margin-top: px(-65);
-                padding-top: px(89);
+                margin-top: px(-72);
+                padding-top: px(96);
             }
         }
         &.ohlala {
@@ -389,7 +422,7 @@
             @media ($media-m) {
                 flex-direction: row;
                 > div {
-                    min-width: 220px;
+                    min-width: px(150);
                     margin-right: px(16);
                 }
                 .com-hour {
@@ -444,7 +477,7 @@
             padding-right: px(16);
             flex-wrap: nowrap;
             .com-link {
-                font-family: $font-SuecaSlab;
+                //font-family: $font-arial;
                 font-size: px(18);
                 color: $light-neutral-700;
             }
@@ -487,9 +520,6 @@
                     }
                 }
             }
-            @media ($media-l) {
-                margin-bottom: $spacing;
-            }
         }
         .--color &,
         .--transparent & {
@@ -499,6 +529,13 @@
         .--color.--opening & {
             padding-top: $spacing-md;
             border-top: 1px solid $light-neutral-400;
+        }
+
+        @media ($media-l) {
+            display: block;
+            li {
+                margin-bottom: $spacing;
+            }
         }
     }
 }

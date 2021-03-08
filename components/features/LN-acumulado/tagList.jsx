@@ -19,6 +19,7 @@ const TagsListFeature = props => {
             {...props}
             sectionId={sectionId}
             colorTags={colorTags}
+            hidetagslist={hidetagslist}
         />
     );
 };

@@ -3,7 +3,7 @@ import { imageResizedUrl } from '../common';
 const image = `
     type
     resized_urls {
-        ${imageResizedUrl}               
+        ${imageResizedUrl}
     }
     url
     subtitle
@@ -29,13 +29,15 @@ export default `
             }
             primary_section {
                 _id
+                name
+                path
                 additional_properties {
                     original {
                         style {
                             section_style_name
                         }
                     }
-                    
+
                 }
             }
         }
@@ -43,6 +45,17 @@ export default `
             by {
                 name
                 type
+                image {
+                    url
+                    resized_urls {
+                        ${imageResizedUrl}
+                    }
+                }
+                additional_properties {
+                    original {
+                        image
+                    }
+                }
             }
         }
         headlines {
@@ -57,8 +70,25 @@ export default `
             content
         }
         display_date
-        website_url       
+        publish_date
+        website_url
+        display_date
+        website_url
+        marquesina
+        label  {
+            recomendar {
+                text
+            }
+        }
+        related_content {
+            basic{
+                _id
+                type
+                referent {
+                    type
+                }
+            }
+        }
     }
     next
-    
 }`;

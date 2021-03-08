@@ -4,9 +4,15 @@ import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
 import ModDescription from './mod-description';
+//para demo front
+import ComImage from './com-image';
+import ModMedia from './mod-media';
+import getAuthorsPhoto from './utils/getAuthorsPhoto';
 
 const ModArticle = props => {
     const {
+        frontdemo,
+        srcdemo,
         articleData,
         dataSection,
         outputType,
@@ -17,26 +23,56 @@ const ModArticle = props => {
         titleText,
         marqueeSize,
         authors,
+        authorSize,
+        isRenderAuthor,
         withMedia,
         subheadText,
         subheadSize,
         dateText,
         dateSize,
-        hour
+        leadText,
+        anexo,
+        noMedia,
+        label,
+        position,
+        hour,
+        category,
+        tags
     } = props;
-
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
     }
-    const imagenDestacada = get(articleData, 'promo_items.basic', null);
+    const imagenDestacada = isRenderAuthor
+        ? getAuthorsPhoto(articleData)
+        : get(articleData, 'promo_items.basic', null);
+    const marquesina = get(articleData, 'marquesina', null);
+
     const type = get(imagenDestacada, 'type', null);
+
+    //Esto es para una demo para Leito ********************
+    const idArc = `nid5E23BMUH${position}XZ3LSXEK3BKOOA`;
+    const classDemo = `toi${position} ${idArc}`;
+
+    const extraDemo = {};
+    if (frontdemo) {
+        extraDemo['data-pos'] = position;
+        extraDemo['data-id'] = idArc;
+        extraDemo['data-notaid'] = idArc;
+        extraDemo['data-source'] = `editor`;
+    }
+    // demo front *****************************************
 
     return (
         <article
-            className={`mod-article ${classCondition || ''}`}
+            className={`mod-article ${classCondition || ''} ${
+                frontdemo ? classDemo : ''
+            } ${noMedia ? '--no-media' : ''} ${
+                isRenderAuthor ? '--author' : ''
+            }`}
             {...extraOpts}
+            {...extraDemo}
         >
             {hour && hour}
 
@@ -45,19 +81,40 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
+                    // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
+            )}
+
+            {frontdemo && (
+                <div>
+                    <ModMedia>
+                        <figure className="mod-figure">
+                            <a href={link}>
+                                <picture className="mod-picture">
+                                    <ComImage src={srcdemo} />
+                                </picture>
+                            </a>
+                        </figure>
+                    </ModMedia>
+                </div>
             )}
 
             <ModDescription
                 link={link}
                 titleTag={titleTag}
-                titleSize={titleSize}
+                titleSize={noMedia || isRenderAuthor ? '--m' : titleSize}
                 titleText={titleText}
                 authors={authors}
+                authorSize={isRenderAuthor ? '--twoxs' : authorSize}
                 subheadText={subheadText}
                 subheadSize={subheadSize}
                 dateText={dateText}
                 dateSize={dateSize}
+                lead={leadText}
+                label={label}
+                marquesina={marquesina}
+                category={category}
+                tags={tags}
             />
         </article>
     );
@@ -82,14 +139,16 @@ ModArticle.propTypes = {
         promo_items: PropTypes.shape({
             basic: PropTypes.object
         })
-    }).isRequired
+    }).isRequired,
+    category: PropTypes.string,
+    tags: PropTypes.string
 };
 
 ModArticle.defaultProps = {
     dataSection: undefined,
     classCondition: undefined,
-    titleTag: 'h4',
-    titleSize: '--s',
+    titleTag: 'h2',
+    titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
     dateText: undefined,
@@ -98,7 +157,9 @@ ModArticle.defaultProps = {
     withMedia: false,
     link: undefined,
     hour: undefined,
-    outputType: 'default'
+    outputType: 'default',
+    category: undefined,
+    tags: undefined
 };
 
 export default ModArticle;

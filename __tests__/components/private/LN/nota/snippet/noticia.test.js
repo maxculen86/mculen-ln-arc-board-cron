@@ -56,6 +56,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
             requestUri,
             siteProperties: { host, titleSite },
             globalContent: {
+                canonical_url,
                 headlines: { basic: title },
                 taxonomy: {
                     primary_section: { path, name },
@@ -111,7 +112,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(context).toBe('https://schema.org');
         expect(type).toBe('NewsArticle');
         expect(headline).toBe(title);
-        expect(url).toBe(`${host}${requestUri}`);
+        expect(url).toBe(`${host}${canonical_url}`);
         expect(dateCreated).toBe(`${new Date(createdDate).toUTCString()}`);
         expect(datePublished).toBe(
             `${new Date(firstPublishDate).toUTCString()}`

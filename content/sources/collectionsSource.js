@@ -13,9 +13,14 @@ import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
+import { getArticlesToShow, isNotRecommend } from './utils/collectionsHelper';
+import {
+    hasFutureDisplayDate,
+    isOlderThan24HourAgo
+} from '../../components/private/common/utils/dateAndTimeUtil';
 
 const resolve = key => {
-    const { id, size, website } = key;
+    const { id, size, website, from = 0 } = key;
     if (!id)
         throw new Error(
             'Debe definir un id para realizar la consulta - Collections Source'
@@ -24,7 +29,7 @@ const resolve = key => {
         throw new Error('Debe indicar el website - Collections Source');
 
     return `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size ||
-        2}`;
+        2}&from=${from}`;
 };
 
 const fetch = query => {
@@ -52,39 +57,84 @@ const fetch = query => {
 
 const transform = (data, siteProps) => {
     const respData = data;
-    const { content_elements: contentElements } = data || {};
-    const { presets, presetsDefault } = getPresets(siteProps);
+    const contentElements = get(data, `content_elements`, []);
+    const isCollectionDinamic = get(data, `dynamic_items`, false);
 
+    const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
+    const contentElementsFiltered = filterArticlesInCollection(
+        siteProps,
+        contentElements,
+        isCollectionDinamic
+    );
+
     respData.content_elements =
-        contentElements &&
-        contentElements.map(elem => {
-            const promoItems = get(elem, `promo_items`, null);
+        contentElementsFiltered &&
+        contentElementsFiltered.map(elem => {
+            // const promoItems = get(elem, `promo_items`, null);
+            // const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
             return {
                 ...elem,
-                ...addResizedUrls(
-                    { ...(promoItems && { promo_items: promoItems }) },
-                    {
-                        resizerSecret: RESIZER_KEY,
-                        resizerUrl: RESIZER_URL,
-                        presets: {
-                            promoItems: presetsPromoItems,
-                            presetsDefault
-                        },
-                        // Se pasa el subtype para que las notas de foto al 100
-                        // y storytelling no sean excluidas de las elemalidaciones del resizer
-                        // y pueda aplicarse 3:2, focal point o smartcrop
-                        subtype: isFotoAl100orStorytelling ? '-1' : subtype
-                    }
-                ),
+                ...addResizedUrls(elem, {
+                    resizerSecret: RESIZER_KEY,
+                    resizerUrl: RESIZER_URL,
+                    presets: {
+                        promoItems: presetsPromoItems,
+                        presetsDefault,
+                        credits: presetsCredits
+                    },
+                    // Se pasa el subtype para que las notas de foto al 100
+                    // y storytelling no sean excluidas de las validaciones del resizer
+                    // y pueda aplicarse 3:2, focal point o smartcrop
+                    subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                }),
                 ...(elem.canonical_url && { website_url: elem.canonical_url })
+                // marquesina
             };
         });
+
     return respData;
+};
+
+const filterArticlesInCollection = (siteProps, originalArticles) => {
+    const {
+        idsArticlesToExclude = [],
+        filterRecomendar = false,
+        filterRepetead = false,
+        filterFutureDisplayDate = false,
+        filter24hsAgo = false,
+        notesQuantity = 3
+    } = siteProps || {};
+
+    const articlesRecomended = filterRecomendar
+        ? originalArticles.filter(art => !isNotRecommend(art))
+        : originalArticles;
+
+    const articlesNoFuture = filterFutureDisplayDate
+        ? articlesRecomended.filter(
+              art => !hasFutureDisplayDate(art.display_date)
+          )
+        : articlesRecomended;
+
+    const articlesIn24HourAgo = filter24hsAgo
+        ? articlesNoFuture.filter(
+              art => !isOlderThan24HourAgo(art.display_date)
+          )
+        : articlesNoFuture;
+
+    const contentElementsFiltered = filterRepetead
+        ? getArticlesToShow(
+              articlesIn24HourAgo,
+              idsArticlesToExclude,
+              notesQuantity
+          )
+        : articlesIn24HourAgo;
+
+    return contentElementsFiltered;
 };
 
 export default {

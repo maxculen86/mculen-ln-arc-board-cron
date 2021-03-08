@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useContent } from 'fusion:content';
+import { useContent as getContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/nota/articleRanking';
 import get from '../../../common/utils/get';
+import addRelatedImage from '../utils/addRelatedImage';
 
 const getSectionParent = (primarySection, sectionList, website) => {
-    const navigationTreeSource = useContent({
+    const navigationTreeSource = getContent({
         source: 'navigationTreeSource',
         query: {
             website
@@ -83,7 +84,7 @@ const getRankingContent = (
     weeksAgo,
     website
 ) => {
-    return useContent({
+    const articles = getContent({
         source: 'rankingArticlesSource',
         query: {
             website,
@@ -95,6 +96,8 @@ const getRankingContent = (
         },
         filter
     });
+
+    return articles && articles.content_elements;
 };
 
 const getArticles = (index, props, sectionId, imageConfig) => {
@@ -104,7 +107,7 @@ const getArticles = (index, props, sectionId, imageConfig) => {
     const website = get(props, 'website', null);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const articlesData = getRankingContent(
+    const articles = getRankingContent(
         sectionId,
         size,
         imageConfig,
@@ -113,7 +116,6 @@ const getArticles = (index, props, sectionId, imageConfig) => {
         website
     );
 
-    const articles = get(articlesData, 'content_elements', null);
     return articles && articles.length >= size ? articles : null;
 };
 

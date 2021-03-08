@@ -19,6 +19,7 @@ const CajaTemasPropiedades = props => {
                         <ArticleAcum
                             key={artWithoutDate._id}
                             article={artWithoutDate}
+                            withSubhead={false}
                             dataSection={DATA_SECTION}
                             typeArticle={ARTICLE_TYPE}
                             outputType={outputType}

@@ -7,10 +7,13 @@ const layout = {
         1: 'row',
         2: 'row-gap-tablet-2',
         3: 'row-gap-tablet-3',
-        4: 'row-gap-tablet-4'
+        4: 'row-gap-tablet-4',
+        6: 'row-gap-tablet-3',
+        9: 'row-gap-tablet-3'
     },
     Listado: 'row',
-    Timeline: 'breaking-news'
+    Timeline: 'breaking-news',
+    Focal: 'row'
 };
 
 const ModRowGap = props => {
@@ -35,14 +38,15 @@ const ModRowGap = props => {
 
 ModRowGap.propTypes = {
     children: PropTypes.node.isRequired,
-    column: PropTypes.string,
+    column: PropTypes.number,
     classCondition: PropTypes.string,
-    typeArticle: PropTypes.string.isRequired
+    typeArticle: PropTypes.string
 };
 
 ModRowGap.defaultProps = {
     column: 3,
-    classCondition: ''
+    classCondition: '',
+    typeArticle: 'Grilla'
 };
 
 export default ModRowGap;

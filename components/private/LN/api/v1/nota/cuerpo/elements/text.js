@@ -1,9 +1,9 @@
 import htmlText from './htmlText';
 
-const text = dataText => {
-    if (!dataText) return null;
+const text = (nodo, dataNota) => {
+    if (!nodo) return null;
 
-    const valor = htmlText(dataText.content);
+    const valor = htmlText(nodo.content);
     if (!valor) return null;
     return {
         _t: 'p',

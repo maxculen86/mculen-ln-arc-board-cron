@@ -3,17 +3,7 @@
 
 .mod-media {
     position: relative;
-    //overflow: hidden;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     margin-bottom: $spacing-lg;
-    // .row {
-    //     position: relative;
-    // }
-    // &:not(.cuerpo__nota &) {
-    //     border-bottom: 1px solid #d9d9d9;
-    // }
 
     &.--zoom.--active {
         position: fixed;
@@ -61,6 +51,18 @@
                 max-width: none;
             }
         }
+
+        .--horizontal,
+        .--vertical {
+            .mod-picture {
+                padding: 0;
+                .com-image {
+                    position: relative;
+                    max-height: 80vh;
+                }
+            }
+        }
+
         @media ($media-l) {
             //1024
             background: rgba(0, 0, 0, 0.9);
@@ -194,29 +196,6 @@
         }
     }
 }
-
-// .sidebar__main .mod-media {
-//     //margin-bottom: $spacing-lg;
-//     // border-bottom: 1px solid #b9b9b9;
-//     // padding-bottom: px(16);
-// }
-
-// .cuerpo__nota .mod-media {
-//     // margin-bottom: px(60);
-// }
-
-// .sidebar__main .more-articles .mod-media,
-// .more-articles .mod-media,
-// .mod-caja-nota .mod-media,
-// .cuerpo__nota .mod-media {
-//     // margin-bottom: 0;
-//     // border: none;
-//     // padding-bottom: 0;
-// }
-
-// .cuerpo__nota .mod-media {
-//     //margin-bottom: px(60);
-// }
 
 .more-articles .mod-media,
 .mod-caja-nota .mod-media {

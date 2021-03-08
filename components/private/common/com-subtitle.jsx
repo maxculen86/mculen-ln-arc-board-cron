@@ -13,4 +13,14 @@ const ComSubtitle = props => {
     );
 };
 
+ComSubtitle.propTypes = {
+    children: PropTypes.string.isRequired,
+    classCondition: PropTypes.string,
+    size: PropTypes.string.isRequired
+};
+
+ComSubtitle.defaultProps = {
+    classCondition: ''
+};
+
 export default ComSubtitle;

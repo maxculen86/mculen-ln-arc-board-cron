@@ -1,11 +1,11 @@
 import Video from '../../video';
 
-const video = videoData => {
-    if (!videoData) return null;
+const video = nodo => {
+    if (!nodo) return null;
 
     return {
         _t: 'p',
-        valor: Video(videoData)
+        valor: Video(nodo)
     };
 };
 

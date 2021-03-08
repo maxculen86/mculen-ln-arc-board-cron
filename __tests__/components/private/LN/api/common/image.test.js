@@ -9,27 +9,27 @@ describe('Json imagen common', () => {
         const resp = Image(img);
         expect(resp.id).toBe(img._id);
         expect(resp.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
+            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
         );
-        expect(resp.parametros[0].ancho).toBe(768);
+        expect(resp.parametros[0].ancho).toBe(278);
         expect(resp.parametros[0].firma).toBe(
-            'RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513/smart'
+            'xXjJBfZwE6c26vxfxgfHerlzovg=/278x186/smart'
         );
-        expect(resp.parametros[1].ancho).toBe(360);
+        expect(resp.parametros[1].ancho).toBe(344);
         expect(resp.parametros[1].firma).toBe(
-            'Tu91squMfjTVK8l7oVOdLYs_GHw=/360x234/smart'
-        );
-        expect(resp.parametros[2].ancho).toBe(350);
-        expect(resp.parametros[2].firma).toBe(
-            'Xcn5wLWNR-Jzz6cOGmNUu806tWc=/350x234/smart'
-        );
-        expect(resp.parametros[3].ancho).toBe(344);
-        expect(resp.parametros[3].firma).toBe(
             'HU7HHdAlJjMA1Wo_zPVxdiJEJg8=/344x230/smart'
         );
-        expect(resp.parametros[4].ancho).toBe(278);
+        expect(resp.parametros[2].ancho).toBe(768);
+        expect(resp.parametros[2].firma).toBe(
+            'RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513/smart'
+        );
+        expect(resp.parametros[3].ancho).toBe(350);
+        expect(resp.parametros[3].firma).toBe(
+            'Xcn5wLWNR-Jzz6cOGmNUu806tWc=/350x234/smart'
+        );
+        expect(resp.parametros[4].ancho).toBe(360);
         expect(resp.parametros[4].firma).toBe(
-            'xXjJBfZwE6c26vxfxgfHerlzovg=/278x186/smart'
+            'Tu91squMfjTVK8l7oVOdLYs_GHw=/360x234/smart'
         );
     });
 

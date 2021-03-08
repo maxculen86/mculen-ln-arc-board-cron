@@ -64,11 +64,14 @@ ListSocialIcons.propTypes = {
         tumblr: PropTypes.string
     }).isRequired,
     size: PropTypes.string.isRequired,
-    vertical: PropTypes.string
+    sizeIcon: PropTypes.string.isRequired,
+    vertical: PropTypes.string,
+    sizeBullet: PropTypes.string
 };
 
 ListSocialIcons.defaultProps = {
-    vertical: ''
+    vertical: '',
+    sizeBullet: ''
 };
 
 export default ListSocialIcons;

@@ -14,12 +14,11 @@ class JsonArticle {
     }
 
     render() {
+        const indexNota = this.versions[
+            browser.getApiVersion(this.props.requestUri)
+        ];
+        const { globalContent } = this.props;
         try {
-            const indexNota = this.versions[
-                browser.getApiVersion(this.props.requestUri)
-            ];
-            const { globalContent } = this.props;
-
             return indexNota(globalContent);
         } catch (err) {
             return { Success: false, Message: err.message };

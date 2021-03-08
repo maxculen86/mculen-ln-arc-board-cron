@@ -1,26 +1,44 @@
 import React from 'react';
 import { render, mount, shallow } from 'enzyme';
-
 import ComTitle from '../../../../components/private/common/com-title';
 import ModheaderSection from '../../../../components/private/common/mod-headerSection';
 
+jest.mock('fusion:consumer', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+import Consumer from 'fusion:consumer';
+
+jest.mock('fusion:content', () => ({
+    getContent: () => ({
+        image: {
+            width: '100',
+            height: '100',
+            url: 'https://lanacion.com.ar'
+        }
+    })
+}));
+
 describe('Private - Common - ModheaderSection => ', () => {
     it('Render OK', () => {
-        const component = shallow(
+        const component = mount(
             <ModheaderSection
                 title="Titulo Separador"
                 link="https://lanacion.com.ar"
                 size="--l"
+                classCondition="--pink"
                 line
             />
         );
         expect(component).toBeDefined();
         expect(component.isEmptyRender()).toBeFalsy();
-        expect(component.props().className).toBe('mod-headersection ');
+        expect(component.props().classCondition).toBe('--pink');
     });
 
     it('Render NOTOK', () => {
-        const component = shallow(<ModheaderSection />);
+        const component = mount(<ModheaderSection />);
         expect(component.isEmptyRender()).toBeTruthy();
     });
 
@@ -35,21 +53,6 @@ describe('Private - Common - ModheaderSection => ', () => {
         expect(component.find('a.com-link').html()).toContain(
             '<a href="https://lanacion.com.ar" class="com-link">Titulo Separador</a>'
         );
-    });
-
-    it('Validación de propiedades size y classCondition (opcionales)', () => {
-        const withClass = shallow(
-            <ModheaderSection tag="h1" title="Título" classCondition="--mod" />
-        );
-        const fullTitle = shallow(
-            <ModheaderSection
-                size="--xxl"
-                title="Título"
-                classCondition="--bbc"
-            />
-        );
-        expect(withClass.props().className).toBe('mod-headersection --mod');
-        expect(fullTitle.props().className).toBe('mod-headersection --bbc');
     });
 
     it('Snapshots ModheaderSection', () => {

@@ -1,0 +1,17 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+.com-advance {
+    @include flex(flex, row, start);
+    background: $light-neutral-900;
+    padding: $spacing-md;
+    .com-title {
+        color: $blanco;
+        margin-bottom: 0;
+    }
+}
+
+@media ($media-l) {
+    .com-advance {
+        justify-content: center;
+    }
+}

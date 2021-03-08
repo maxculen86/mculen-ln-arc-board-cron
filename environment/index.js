@@ -1,10 +1,9 @@
-import dictionary from './dictionary/lanacionar-prod.json';
-
 export default {
     IS_DEV: false,
     API_ENV: 'prod',
     RESIZER_URL:
         'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer',
+    RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
     RESIZER_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFBlPZMQdmI1mewscHTzb/BAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAyE1bawAzVQX0z2mAgEQgDsU2eFLGS7c9DKgHAiRtFqUlI1iDycLd4NJQOX7QpYVZjTiLT9AUmFefdVOop88yABc4R+YYCzSh24wCA==}',
     API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
@@ -24,7 +23,6 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEnNbXNiU2zvK/sjhd+ZoFnAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMpbLmk91HmkstVDIDAgEQgDv1oUAMVu4QBhNFxjWCSP4rvY58wGHKENbeNFRn01/jbWHR3mgtLkfJJJGHmP8tZGnCJZCFC1zEdZnEbQ==}',
     ELMAH_LOG_ID:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygESlVe11K6GATfmVlkIN+a9AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDIlEYYv8aNjSALuu1AIBEIA/2o3xL3oFbRPk3rODtGS5xslWc0eubNjRDed0H8OvwWgOzHKiZvnC7FLberqgiweVOHDRSeceU9JAL/duJQXw}',
-    DICTIONARY: dictionary,
     WIDGETS: 'li-nacion-recommended-item-template-1',
     LIFTIGNITER_X_API_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGKhT8RCHVY8qdl4glIcGqbAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDA4Z0sYE9HzpPv0H+QIBEIA/AWg5YKOHqVBYY++UrEtt/vPDWkyF13+S5IpmFaSoEIQKngDxcCizVC1Gsihxz5DLCGb35mQ0Mb2uA/D8aTP6}',

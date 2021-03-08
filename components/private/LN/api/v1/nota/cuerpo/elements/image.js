@@ -1,11 +1,11 @@
 import Image from '../../image';
 
-const image = imageData => {
-    if (!imageData) return null;
+const image = (nodo, dataNota) => {
+    if (!nodo) return null;
 
     return {
         _t: 'p',
-        valor: Image(imageData)
+        valor: Image(nodo)
     };
 };
 

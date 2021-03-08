@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+
 // .com-title_list {
 //     font-family: SuecaSlab, Georgia; //ARREGLAR con el componente nuevo
 //     font-size: px(24);
@@ -18,19 +19,19 @@
 // }
 
 .com-ordered {
-    padding-left: 0;
+    //padding-left: 0;
     counter-reset: item;
-    width: 100%;
+    //width: 100%;
     margin-bottom: $spacing-lg;
     .com-item {
-        list-style-type: none;
+        //list-style-type: none;
         padding-left: 2em;
         margin: 1.5em 0;
         font-family: $font-georgia;
         font-size: px(19);
         line-height: px(30);
         margin-bottom: px(25);
-        color: $neutral-black;
+        //color: $neutral-black;
         position: relative;
         &:first-of-type {
             margin: 0 0 1em 0;

@@ -5,7 +5,9 @@ import JMQ44OZHHBC5ZJ5TXTSIIPZMTI from '../../../../../../__mocks__/data/article
 import FUO2YR3EABBAFOMSI2BBS6J7FM from '../../../../../../__mocks__/data/articles/FUO2YR3EABBAFOMSI2BBS6J7FM.json';
 import L47IICAOMVFW5MV343TJIHS4RY from '../../../../../../__mocks__/data/articles/L47IICAOMVFW5MV343TJIHS4RY.json';
 import Q4P5KFEOLVHINB3Y5LIGK26SOU from '../../../../../../__mocks__/data/articles/Q4P5KFEOLVHINB3Y5LIGK26SOU';
-import { dateAndTimeForAppsUtil } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
+import dateAndTimeUtil, {
+    dateAndTimeForAppsUtil
+} from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 describe('Test de index en JSON de nota', () => {
     it('Test valores meta null o undefined', () => {
@@ -17,9 +19,9 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.paywallStatus).toBe('comun');
         expect(resp.abiertoComentarios).toBe(true);
         expect(resp.fechaActualizacion).toBe(
-            '29 de Septiembre de 2020 • 06:09'
+            '29 de septiembre de 2020 • 06:09'
         );
-        expect(resp.fecha).toBe('29 de Septiembre de 2020 • 09:09');
+        expect(resp.fecha).toBe('29 de septiembre de 2020 • 09:09');
     });
 
     it('Test valores meta con valores y siendo edicion impresa', () => {
@@ -34,8 +36,8 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.enviarApps).toBe(false);
         expect(resp.paywallStatus).toBe('abierta');
         expect(resp.abiertoComentarios).toBe(true);
-        expect(resp.fechaActualizacion).toBe('29 de Septiembre de 2020');
-        expect(resp.fecha).toBe('29 de Septiembre de 2020');
+        expect(resp.fechaActualizacion).toBe('29 de septiembre de 2020');
+        expect(resp.fecha).toBe('29 de septiembre de 2020');
     });
 
     it('Test valores meta con valores cerrada a comentarios', () => {
@@ -50,8 +52,8 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.enviarApps).toBe(true);
         expect(resp.paywallStatus).toBe('comun');
         expect(resp.abiertoComentarios).toBe(false);
-        expect(resp.fechaActualizacion).toBe('29 de Septiembre de 2020');
-        expect(resp.fecha).toBe('29 de Septiembre de 2020');
+        expect(resp.fechaActualizacion).toBe('29 de septiembre de 2020');
+        expect(resp.fecha).toBe('29 de septiembre de 2020');
         expect(resp.HTML).toBeUndefined();
     });
 
@@ -79,8 +81,8 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.paywallStatus).toBe('premium');
         expect(resp.abiertoComentarios).toBe(false);
         expect(resp.comentariosId).toBe('841900');
-        expect(resp.fechaActualizacion).toBe('24 de Abril de 2020 • 08:35');
-        expect(resp.fecha).toBe('24 de Abril de 2020 • 08:35');
+        expect(resp.fechaActualizacion).toBe('24 de abril de 2020 • 08:35');
+        expect(resp.fecha).toBe('24 de abril de 2020 • 08:35');
         expect(resp.enviarApps).toBe(true);
     });
 
@@ -96,6 +98,14 @@ describe('Test de index en JSON de nota', () => {
     it('Test fechas meses menores a 10', () => {
         const resp = dateAndTimeForAppsUtil('2020-12-06T18:04:25.254Z');
         expect(resp).toBe('2020-12-6 12:04:25');
+    });
+
+    test('Test Fecha del articulo dateAndTimeUtil', () => {
+        const resp = JMQ44OZHHBC5ZJ5TXTSIIPZMTI;
+        expect(dateAndTimeUtil(resp.display_date)).toEqual({
+            date: '29 de septiembre de 2020',
+            time: '06:09'
+        });
     });
 
     it('Test fechas meses menores a 10', () => {

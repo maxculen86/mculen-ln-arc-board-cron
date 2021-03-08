@@ -8,7 +8,7 @@ import ComParagraph from '../../../common/com-paragraph';
 import { compose } from '../../../common/utils/functional';
 
 // TODO: cambiar parrafo por paragraph
-const Parrafo = ({ data, capital }) => {
+const Parrafo = ({ data, capital, size, classCondition }) => {
     const isLetter = text => text && text.match(/^[A-Za-z]/);
 
     const setOtherChar = text =>
@@ -34,9 +34,11 @@ const Parrafo = ({ data, capital }) => {
         text.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
             (match, href, string) => {
-                const [, , link] = href
-                    .toLowerCase()
-                    .match(/href=(["'\\])+(.*?)\1/) || [null, null, '#'];
+                const [, , link] = href.match(/href=(["'\\])+(.*?)\1/) || [
+                    null,
+                    null,
+                    '#'
+                ];
                 let target = '_self';
                 if (!href.includes(config.host)) {
                     target = '_blank';
@@ -48,7 +50,7 @@ const Parrafo = ({ data, capital }) => {
                         {
                             link,
                             target,
-                            classCondition: '--twoxs',
+                            //classCondition: '--s',
                             title: string
                         },
                         string
@@ -72,7 +74,8 @@ const Parrafo = ({ data, capital }) => {
         <>
             <ComParagraph
                 capital={capital && isLetter(content) ? `--capital` : ''}
-                size="--twoxs"
+                classCondition={classCondition || ''}
+                size={size || '--s'}
                 content={content}
             />
         </>

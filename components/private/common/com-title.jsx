@@ -3,8 +3,9 @@ import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 
 import '../../../resources/dist/css/ln/components/com-title.css';
+import '../../../resources/dist/css/ln/components/com-lead.css';
 
-const ComTitle = ({ tag, size, content, classCondition, link }) => {
+const ComTitle = ({ lead, tag, size, content, classCondition, link }) => {
     if (!content) return null;
 
     const ALLOWED_TAGS = ['h1', 'h2', 'h3', 'h4'];
@@ -13,6 +14,7 @@ const ComTitle = ({ tag, size, content, classCondition, link }) => {
 
     const linkComponent = link && (
         <ComLink link={link} classCondition={classCondition}>
+            {lead && <em className="com-lead">{`${lead} `}</em>}
             {content}
         </ComLink>
     );
@@ -30,6 +32,7 @@ const ComTitle = ({ tag, size, content, classCondition, link }) => {
 };
 
 ComTitle.propTypes = {
+    lead: PropTypes.string,
     tag: PropTypes.string,
     size: PropTypes.string,
     content: PropTypes.string.isRequired,
@@ -38,6 +41,7 @@ ComTitle.propTypes = {
 };
 
 ComTitle.defaultProps = {
+    lead: undefined,
     tag: 'h4',
     size: undefined,
     classCondition: undefined,

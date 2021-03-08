@@ -147,6 +147,9 @@ const getPerformance = settings => {
         return {
             // maxAssetSize: settings.maxSize,
             maxEntrypointSize: maxSize,
+            assetFilter(assetFilename) {
+                return assetFilename.endsWith('.css');
+            },
             hints: 'error'
         };
     }

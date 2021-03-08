@@ -1,0 +1,42 @@
+[
+    {
+        "author_type": "Estándar",
+        "awards": [],
+        "bio_page": "/autor/vinciane-smeets-9110/",
+        "books": [],
+        "byline": "Vinciane Smeets",
+        "canonical_url": "/autor/vinciane-smeets-9110/",
+        "education": [],
+        "email": "",
+        "image": {
+            "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/sZs50EMtDoyumsGsL1Hlp6g08S0=/280x0/filters:quality(100)/bucket.glanacion.com/anexos/fotos/33/3121633.png"
+        },
+        "longBio": "",
+        "name": "Vinciane Smeets",
+        "node_type": "author",
+        "podcasts": [],
+        "role": "PARA LA NACION",
+        "slug": "vinciane-smeets-9110",
+        "twitter": "",
+        "_id": "vinciane-smeets-9110"
+    },
+    {
+        "author_type": "Estándar",
+        "awards": [],
+        "bio_page": "/autor/vinciane-smeets-9110/",
+        "books": [],
+        "byline": "Vinciane Smeets",
+        "canonical_url": "/autor/vinciane-smeets-9110/",
+        "education": [],
+        "email": "",
+        "image": {},
+        "longBio": "",
+        "name": "Vinciane Smeets",
+        "node_type": "author",
+        "podcasts": [],
+        "role": "PARA LA NACION",
+        "slug": "vinciane-smeets-9110",
+        "twitter": "",
+        "_id": "vinciane-smeets-9110"
+    }
+]

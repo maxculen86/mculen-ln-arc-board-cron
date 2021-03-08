@@ -1,6 +1,5 @@
 import { SITE_LANACION } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
-import getPathForImage from '../utils/getPathForImage';
 
 const getAppId = siteProperties =>
     siteProperties &&
@@ -22,8 +21,11 @@ const getDescription = (
         description = subheadlinesBasic || descriptionDefault;
     }
     if (!isArticle && !url.includes('recetas')) {
-        description =
-            `Últimas Noticias de ${metaValue('title')}` || descriptionDefault;
+        const customTitle =
+            metaValue('title') === 'Últimas noticias - LA NACION'
+                ? 'del día de hoy en Argentina'
+                : `de ${metaValue('title')}`;
+        description = `Últimas Noticias ${customTitle}` || descriptionDefault;
     }
     return description;
 };
@@ -56,8 +58,10 @@ const getData = ({
         subheadlines = {},
         promo_items: promoItems = {},
         canonical_url: canonicalUrl,
-        _id
+        _id,
+        publish_date: publishDate
     } = globalContent || {};
+
     const { basic: headlinesBasic } = headlines;
     const { basic: subheadlinesBasic } = subheadlines;
     const { basic: promoItemsBasic = {} } = promoItems;
@@ -71,7 +75,7 @@ const getData = ({
         FB_APP_ID: ''
     };
 
-    const pathImagen = getPathForImage(urlBasicPI);
+    const pathImagen = urlBasicPI;
     const url = canonicalUrl || _id;
     const description = getDescription(
         isArticle,
@@ -90,7 +94,10 @@ const getData = ({
         image:
             typeBasicPI === 'image' && urlBasicPI ? pathImagen : DEFAULT.IMAGE,
         url: getUrl(isArticle, url, domain),
-        fbAppId: getAppId(siteProperties) || DEFAULT.FB_APP_ID
+        fbAppId: getAppId(siteProperties) || DEFAULT.FB_APP_ID,
+        isArticle,
+        ...(isArticle && { publishDate }),
+        ...(isArticle && { tier: 'metered' })
     };
 };
 
@@ -123,6 +130,18 @@ const getMetasOG = props => {
             content: data.url
         }
     ];
+    if (data.isArticle) {
+        metas.push(
+            {
+                property: 'article:published_time',
+                content: data.publishDate
+            },
+            {
+                property: 'article:content_tier',
+                content: data.tier
+            }
+        );
+    }
     return metas;
 };
 

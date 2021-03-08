@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
-import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
+import { RESIZER_URL_PUBLIC } from 'fusion:environment';
 import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
@@ -20,41 +20,41 @@ export const createResizer = (resizerKey, resizerUrl) => {
         smartCropExcluded,
         filterQuality = 100
     ) => {
-        const { isNotSmart, useFullSize } = resizeOptions;
+        const { isNotSmart, useFullSize, proportion } = resizeOptions;
         let { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
 
         if (!newHeight && !newWidth)
             throw new Error('Height and Width required');
 
-        const cleanedUrl = originalUrl.replace(/(^\w+:|^)\/\//, '');
+        const cleanedUrl = originalUrl.replace(
+            /.*\/resizer\/[a-zA-Z0-9_\-=]+((?:\/[0-9x]+)?(?:\/smart)?(?:\/+(?:filters:.+?)?)?)?\/|(^\w+:\/\/|^)/,
+            ''
+        );
 
         const thumbor = new Thumbor(resizerKey, resizerUrl);
         thumbor.filter(`quality(${filterQuality})`);
 
-        if (!(getAspectRatio(originalWidth, originalHeight) === '3:2')) {
+        if (proportion) {
             if (
-                focalPoint &&
-                focalPoint[0] &&
-                focalPoint[1] &&
-                (originalWidth || originalHeight) &&
-                isNotSmart
+                !(getAspectRatio(originalWidth, originalHeight) === proportion)
             ) {
-                thumbor.filter(
-                    `focal(${focalPoint[0] - 5}x${focalPoint[1] +
-                        5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
-                );
-            } else if (!smartCropExcluded) {
-                thumbor.smartCrop(true);
-            } else {
-                newHeight =
-                    !useFullSize && originalWidth >= originalHeight && newWidth
-                        ? 0
-                        : newWidth;
-                newWidth =
-                    !useFullSize && originalWidth < originalHeight && newHeight
-                        ? 0
-                        : newWidth;
+                if (
+                    focalPoint &&
+                    focalPoint[0] &&
+                    focalPoint[1] &&
+                    (originalWidth || originalHeight) &&
+                    isNotSmart
+                ) {
+                    thumbor.filter(
+                        `focal(${focalPoint[0] - 5}x${focalPoint[1] +
+                            5}:${focalPoint[0] + 5}x${focalPoint[1] - 5})`
+                    );
+                } else if (!smartCropExcluded) {
+                    thumbor.smartCrop(true);
+                }
             }
+        } else {
+            newHeight = !useFullSize ? 0 : newHeight;
         }
 
         const url = thumbor
@@ -62,9 +62,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
             .resize(newWidth, newHeight)
             .buildUrl();
 
-        return IS_DEV === 'true' || IS_SANDBOX === 'true'
-            ? url
-            : url.replace(/^.*\/\/[^\/]+/, '');
+        return url.replace(/^.*\/\/[^\/]+/, RESIZER_URL_PUBLIC);
     };
 
     const resizeUrls = (
@@ -148,6 +146,29 @@ export const resizeArcImage = (
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
         );
 
+    /**
+     * Antes del paso por resizer validamos que no venga de bucket para así
+     * usar el resizer de bucket y no de Arc
+     */
+    if (arcImage.url.match(/\/\/bucket+[\d]+.glanacion.com+/g)) {
+        const getUrlwithWidth = (url, width) =>
+            url.replace('.jpg', `w${defaultResize.width}.jpg`);
+
+        return {
+            ...arcImage,
+            url: getUrlwithWidth(arcImage.url, defaultResize.width),
+            ...defaultResize,
+            resized_urls: resizeOptions.map(config => {
+                const { width, height, media } = config || defaultResize;
+
+                return {
+                    resizedUrl: getUrlwithWidth(arcImage.url, width), // transformar la url con with necesario
+                    option: { width, height, media }
+                };
+            })
+        };
+    }
+
     const fp = get(
         arcImage,
         'additional_properties.focal_point.min',
@@ -169,24 +190,18 @@ export const resizeArcImage = (
             ? zoomSizes && zoomSizes.map(e => ({ ...e, isNotSmart: true }))
             : zoomSizes;
 
-    let urlResize = resizer.resizeUrl(
-        arcImage.url,
-        arcImage.width,
-        arcImage.height,
-        defaultResizeWithSmart,
-        fp,
-        smartCropExcluded
-    );
-
-    if (IS_DEV !== 'true' && IS_SANDBOX !== 'true') {
-        urlResize = urlResize && urlResize.replace(/^.*\/\/[^\/]+/, '');
-    }
-
     return {
         ...arcImage,
         width: fp || !smartCropExcluded ? 768 : arcImage.width,
         height: fp || !smartCropExcluded ? 513 : arcImage.height,
-        url: urlResize,
+        url: resizer.resizeUrl(
+            arcImage.url,
+            arcImage.width,
+            arcImage.height,
+            defaultResizeWithSmart,
+            fp,
+            smartCropExcluded
+        ),
         resized_urls: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
@@ -274,22 +289,14 @@ export const resizePromoItems = (
 };
 
 const getDefaultSize = subtype => {
-    const isFotoAl100orStorytelling =
-        subtype === FOTOAL100 || subtype === STORYTELLING;
-
-    const defaultSize = {
-        width: 768,
-        height: 513,
-        media: '(min-width: 768px)'
-    };
-
-    const defaultResize = isFotoAl100orStorytelling
-        ? {
-              width: 1920,
-              height: 850,
-              media: '(min-width: 1280px)'
-          }
-        : defaultSize;
+    const defaultResize =
+        subtype === FOTOAL100 || subtype === STORYTELLING
+            ? {
+                  width: 1920,
+                  height: 850,
+                  media: '(min-width: 1280px)'
+              }
+            : { width: 768, height: 513, media: '(min-width: 768px)' };
 
     const shouldExcludeCrop =
         subtype === FOTOAL100 || subtype === STORYTELLING || subtype === RECETA;
@@ -330,26 +337,26 @@ export const addResizedUrls = (ansDoc, options) => {
         ...(contentElements && {
             content_elements: contentElements.map(elem => {
                 const { type } = elem;
-                if (type === 'image') {
-                    return resizeArcImage(
-                        elem,
-                        presetsContentElements || presetsDefault,
-                        resizer,
-                        zoomSizes,
-                        true,
-                        defaultResize
-                    );
-                }
-                if (type === 'gallery') {
-                    return resizeArcGallery(
-                        elem,
-                        presetsContentElements || presetsDefault,
-                        resizer,
-                        zoomSizes,
-                        true
-                    );
-                }
-                return elem;
+                return (
+                    (type === 'image' &&
+                        resizeArcImage(
+                            elem,
+                            presetsContentElements || presetsDefault,
+                            resizer,
+                            zoomSizes,
+                            true,
+                            defaultResize
+                        )) ||
+                    (type === 'gallery' &&
+                        resizeArcGallery(
+                            elem,
+                            presetsContentElements || presetsDefault,
+                            resizer,
+                            zoomSizes,
+                            true
+                        )) ||
+                    elem
+                );
             })
         }),
         ...(promoItems && {

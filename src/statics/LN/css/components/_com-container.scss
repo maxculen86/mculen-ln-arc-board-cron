@@ -24,7 +24,8 @@
         margin-bottom: $spacing-lg;
     }
     &.--socialicons {
-        @include flex(flex, row, center, start);
+        @include flex(flex, column, center, start);
+        margin-bottom: $spacing-xl;
         .mod-wikiauthor & {
             padding: $spacing-lg 0 $spacing-lg 0;
             border-top: 1px solid $gris3;
@@ -32,13 +33,15 @@
         }
     }
 }
+@media ($media-m) {
+    .com-container {
+        &.--socialicons {
+            flex-direction: row;
+        }
+    }
+}
 @media ($media-l) {
     .com-container {
-        // &.--socialicons {
-        //     .mod-wikiauthor & {
-        //         @include flex(flex, row, center, start);
-        //     }
-        // }
         .mod-sponsor & {
             left: calc(20% - 120px);
             top: calc(100% + 20px);

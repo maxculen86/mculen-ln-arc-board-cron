@@ -11,35 +11,22 @@
         display: block;
         font-weight: 300;
     }
-    .mod-headersection & {
-        margin-bottom: $spacing;
-        width: 100%;
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .mod-headersection.--propiedades &,
-    .mod-headersection.--bbc &,
-    .mod-headersection.--lifestyle &,
-    .mod-headersection.--espectaculos & {
-        margin-bottom: 0;
-        color: $neutral-white;
-    }
     .more-articles & {
         display: block;
+    }
+    .com-link.com-link {
+        .more-articles & {
+            color: $light-neutral-700;
+        }
     }
 }
 @media ($media-l) {
     .com-title {
-        margin-bottom: $spacing-sm;
+        //margin-bottom: $spacing-sm;
         &.--membresia,
         &.--idiomas {
             margin: 0;
             margin-right: $spacing-xs;
-        }
-        .mod-headersection & {
-            width: 50%;
         }
     }
 }

@@ -8,18 +8,20 @@
     font-size: px(16);
     line-height: px(24);
     border-bottom: 1px solid #e4e4e4;
-    padding-bottom: px(8);
+    //padding-bottom: px(8);
     min-height: px(33);
     //100% mobile
     @include fullwidth;
-    padding-left: px(16);
-    padding-right: px(16);
+    //padding-left: px(16);
+    //padding-right: px(16);
+    padding: 0 px(16) px(8);
 
     @media ($media-l) {
         width: 100%;
         margin-left: 0;
-        padding-left: 0;
-        padding-right: 0;
+        //padding-left: 0;
+        //padding-right: 0;
+        padding: 0 0 px(8);
     }
 
     &:empty {
@@ -28,7 +30,6 @@
 
     .--caption,
     .--credit {
-        display: block;
         display: flex;
         overflow-wrap: anywhere;
 
@@ -75,11 +76,11 @@
         }
     }
 
-    @media (min-width: 769px) {
-        //1024
-        font-size: px(16);
-        .--credit {
-            font-size: px(15);
-        }
-    }
+    // @media (min-width: 769px) {
+    //     //1024
+    //     font-size: px(16);
+    //     .--credit {
+    //         font-size: px(15);
+    //     }
+    // }
 }

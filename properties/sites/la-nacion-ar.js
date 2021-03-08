@@ -17,7 +17,7 @@ export default {
         },
         PostBid: {
             props: {},
-            location: ['body-top']
+            location: ['head']
         },
         ArcAds: {
             props: {},
@@ -58,6 +58,10 @@ export default {
         ScriptHtmlLibre: {
             props: {},
             location: ['head']
+        },
+        Queryly: {
+            props: {},
+            location: ['body-bottom']
         }
     },
     imageConfig: {
@@ -76,8 +80,8 @@ export default {
                             media: '(min-width: 1024px)'
                         },
                         {
-                            width: 1024,
-                            height: 683,
+                            width: 1023,
+                            height: 682,
                             media: '(min-width: 768px)'
                         },
                         {
@@ -98,28 +102,38 @@ export default {
                     sizes: [
                         {
                             width: 1920,
-                            height: 850,
-                            media: '(min-width: 1280px)'
+                            height: 1280,
+                            media: '(min-width: 1280px)',
+                            useFullSize: true,
+                            proportion: '3:2'
                         },
                         {
                             width: 1200,
-                            height: 515,
-                            media: '(min-width: 1024px)'
+                            height: 800,
+                            media: '(min-width: 1024px)',
+                            useFullSize: true,
+                            proportion: '3:2'
                         },
                         {
-                            width: 1024,
-                            height: 579,
-                            media: '(min-width: 768px)'
+                            width: 1023,
+                            height: 682,
+                            media: '(min-width: 768px)',
+                            useFullSize: true,
+                            proportion: '3:2'
                         },
                         {
                             width: 768,
-                            height: 432,
-                            media: '(min-width: 360px)'
+                            height: 1152,
+                            media: '(min-width: 360px)',
+                            useFullSize: true,
+                            proportion: '2:3'
                         },
                         {
                             width: 360,
-                            height: 203,
-                            media: '(min-width: 320px)'
+                            height: 540,
+                            media: '(min-width: 320px)',
+                            useFullSize: true,
+                            proportion: '2:3'
                         }
                     ]
                 },
@@ -127,33 +141,38 @@ export default {
                     sizes: [
                         {
                             width: 1920,
-                            height: 850,
+                            height: 1280,
                             media: '(min-width: 1280px)',
-                            useFullSize: true
+                            useFullSize: true,
+                            proportion: '3:2'
                         },
                         {
                             width: 1200,
-                            height: 515,
+                            height: 800,
                             media: '(min-width: 1024px)',
-                            useFullSize: true
+                            useFullSize: true,
+                            proportion: '3:2'
                         },
                         {
-                            width: 1024,
-                            height: 579,
+                            width: 1023,
+                            height: 682,
                             media: '(min-width: 768px)',
-                            useFullSize: true
+                            useFullSize: true,
+                            proportion: '3:2'
                         },
                         {
                             width: 768,
-                            height: 700,
+                            height: 1152,
                             media: '(min-width: 360px)',
-                            useFullSize: true
+                            useFullSize: true,
+                            proportion: '2:3'
                         },
                         {
                             width: 360,
-                            height: 600,
+                            height: 540,
                             media: '(min-width: 320px)',
-                            useFullSize: true
+                            useFullSize: true,
+                            proportion: '2:3'
                         }
                     ]
                 }
@@ -163,28 +182,33 @@ export default {
                     sizes: [
                         {
                             width: 1920,
-                            height: 850,
-                            media: '(min-width: 1280px)'
+                            height: 1280,
+                            media: '(min-width: 1280px)',
+                            proportion: '3:2'
                         },
                         {
                             width: 1200,
-                            height: 515,
-                            media: '(min-width: 1024px)'
+                            height: 800,
+                            media: '(min-width: 1024px)',
+                            proportion: '3:2'
                         },
                         {
-                            width: 1024,
-                            height: 579,
-                            media: '(min-width: 768px)'
+                            width: 1023,
+                            height: 682,
+                            media: '(min-width: 768px)',
+                            proportion: '3:2'
                         },
                         {
                             width: 768,
-                            height: 432,
-                            media: '(min-width: 360px)'
+                            height: 512,
+                            media: '(min-width: 360px)',
+                            proportion: '3:2'
                         },
                         {
                             width: 360,
-                            height: 203,
-                            media: '(min-width: 320px)'
+                            height: 240,
+                            media: '(min-width: 320px)',
+                            proportion: '3:2'
                         }
                     ]
                 },
@@ -231,29 +255,34 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 878,
-                            height: 450,
-                            media: '(min-width: 1280px)'
+                            width: 879,
+                            height: 586,
+                            media: '(min-width: 1280px)',
+                            proportion: '3:2'
                         },
                         {
-                            width: 1120,
-                            height: 400,
-                            media: '(min-width: 1024px)'
+                            width: 1119,
+                            height: 746,
+                            media: '(min-width: 1024px)',
+                            proportion: '3:2'
                         },
                         {
                             width: 768,
-                            height: 961,
-                            media: '(min-width: 768px)'
+                            height: 512,
+                            media: '(min-width: 768px)',
+                            proportion: '3:2'
                         },
                         {
-                            width: 350,
-                            height: 438,
-                            media: '(min-width: 360px)'
+                            width: 351,
+                            height: 234,
+                            media: '(min-width: 360px)',
+                            proportion: '3:2'
                         },
                         {
-                            width: 310,
-                            height: 203,
-                            media: '(min-width: 320px)'
+                            width: 309,
+                            height: 206,
+                            media: '(min-width: 320px)',
+                            proportion: '3:2'
                         }
                     ]
                 },
@@ -261,7 +290,7 @@ export default {
                     sizes: [
                         {
                             width: 878,
-                            height: 450,
+                            height: 585,
                             media: '(min-width: 1280px)'
                         },
                         {
@@ -300,37 +329,42 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 878,
-                            height: 450,
-                            media: '(min-width: 1280px)'
+                            width: 879,
+                            height: 586,
+                            media: '(min-width: 1280px)',
+                            proportion: '3:2'
                         },
                         {
-                            width: 1120,
-                            height: 400,
-                            media: '(min-width: 1024px)'
+                            width: 1119,
+                            height: 746,
+                            media: '(min-width: 1024px)',
+                            proportion: '3:2'
                         },
                         {
                             width: 768,
-                            height: 961,
-                            media: '(min-width: 768px)'
+                            height: 512,
+                            media: '(min-width: 768px)',
+                            proportion: '3:2'
                         },
                         {
-                            width: 350,
-                            height: 438,
-                            media: '(min-width: 360px)'
+                            width: 351,
+                            height: 234,
+                            media: '(min-width: 360px)',
+                            proportion: '3:2'
                         },
                         {
-                            width: 310,
-                            height: 203,
-                            media: '(min-width: 320px)'
+                            width: 309,
+                            height: 206,
+                            media: '(min-width: 320px)',
+                            proportion: '3:2'
                         }
                     ]
                 },
                 content_elements: {
                     sizes: [
                         {
-                            width: 731,
-                            height: 768,
+                            width: 879,
+                            height: 586,
                             media: '(min-width: 1280px)'
                         },
                         {
@@ -371,22 +405,26 @@ export default {
                         {
                             width: 360,
                             height: 240,
-                            media: '(min-width: 1024px)'
+                            media: '(min-width: 1024px)',
+                            proportion: '3:2'
                         },
                         {
                             width: 768,
-                            height: 513,
-                            media: '(min-width: 768px)'
+                            height: 512,
+                            media: '(min-width: 768px)',
+                            proportion: '3:2'
                         },
                         {
-                            width: 350,
+                            width: 351,
                             height: 234,
-                            media: '(min-width: 360px)'
+                            media: '(min-width: 360px)',
+                            proportion: '3:2'
                         },
                         {
                             width: 360,
-                            height: 234,
-                            media: '(min-width: 320px)'
+                            height: 240,
+                            media: '(min-width: 320px)',
+                            proportion: '3:2'
                         }
                     ]
                 },
@@ -427,176 +465,6 @@ export default {
                             media: '(min-width: 320px)'
                         }
                     ]
-                }
-            },
-            nota: {
-                bySubtype: {
-                    7: {
-                        Normal: {
-                            promo_items: {
-                                sizes: [
-                                    {
-                                        width: 1920,
-                                        height: 850,
-                                        media: '(min-width: 1280px)'
-                                    },
-                                    {
-                                        width: 1033,
-                                        height: 1280,
-                                        media: '(min-width: 1024px)'
-                                    },
-                                    {
-                                        width: 1033,
-                                        height: 1280,
-                                        media: '(min-width: 768px)'
-                                    },
-                                    {
-                                        width: 768,
-                                        height: 200,
-                                        media: '(min-width: 360px)'
-                                    },
-                                    {
-                                        width: 340,
-                                        height: 100,
-                                        media: '(min-width: 320px)',
-                                        class: 'img-mobile'
-                                    }
-                                ]
-                            },
-                            content_elements: {
-                                sizes: [
-                                    {
-                                        width: 768,
-                                        height: 200,
-                                        media: '(min-width: 740px)',
-                                        class: 'img-desktop-sm'
-                                    },
-                                    {
-                                        width: 340,
-                                        height: 100,
-                                        media: '(min-width: 320px)',
-                                        class: 'img-mobile'
-                                    }
-                                ]
-                            },
-                            credits: {
-                                sizes: []
-                            }
-                        },
-                        Amp: {
-                            promo_items: {
-                                containerSize: {
-                                    horizontal: {
-                                        height: 1280,
-                                        width: 850
-                                    },
-                                    vertical: {
-                                        width: 850,
-                                        height: 1280
-                                    }
-                                },
-                                sizes: [
-                                    {
-                                        width: 1033,
-                                        height: 1280,
-                                        class: 'img-desktop'
-                                    },
-                                    {
-                                        width: 768,
-                                        height: 200,
-                                        class: 'img-desktop-sm'
-                                    },
-                                    {
-                                        width: 340,
-                                        height: 100,
-                                        class: 'img-mobile'
-                                    }
-                                ]
-                            },
-                            content_elements: {
-                                sizes: []
-                            }
-                        }
-                    },
-                    1: {
-                        Normal: {
-                            promo_items: {
-                                sizes: [
-                                    {
-                                        width: 1033,
-                                        height: 1280,
-                                        media: '(min-width: 768px)',
-                                        class: 'img-desktop'
-                                    },
-                                    {
-                                        width: 768,
-                                        height: 200,
-                                        media: '(min-width: 740px)',
-                                        class: 'img-desktop-sm'
-                                    },
-                                    {
-                                        width: 340,
-                                        height: 100,
-                                        media: '(min-width: 320px)',
-                                        class: 'img-mobile'
-                                    }
-                                ]
-                            },
-                            content_elements: {
-                                sizes: [
-                                    {
-                                        width: 768,
-                                        height: 200,
-                                        media: '(min-width: 740px)',
-                                        class: 'img-desktop-sm'
-                                    },
-                                    {
-                                        width: 340,
-                                        height: 100,
-                                        media: '(min-width: 320px)',
-                                        class: 'img-mobile'
-                                    }
-                                ]
-                            },
-                            credits: {
-                                sizes: []
-                            }
-                        },
-                        Amp: {
-                            promo_items: {
-                                containerSize: {
-                                    horizontal: {
-                                        width: 1280,
-                                        height: 850
-                                    },
-                                    vertical: {
-                                        width: 850,
-                                        height: 1280
-                                    }
-                                },
-                                sizes: [
-                                    {
-                                        width: 1033,
-                                        height: 1280,
-                                        class: 'img-desktop'
-                                    },
-                                    {
-                                        width: 768,
-                                        height: 200,
-                                        class: 'img-desktop-sm'
-                                    },
-                                    {
-                                        width: 340,
-                                        height: 100,
-                                        class: 'img-mobile'
-                                    }
-                                ]
-                            },
-                            content_elements: {
-                                sizes: []
-                            }
-                        }
-                    }
                 }
             },
             default: [
@@ -643,5 +511,18 @@ export default {
         subscription_id: '2f9d4a3fdc61653e686a4be85a25e1ac',
         language: 'es_CO',
         timezone: 'America/Buenos_Aires'
+    },
+    cajaTemaCss: {
+        focalLeft3: '--focal --left',
+        focalRight3: '--focal --right',
+        notaColorAzul3: '--highlight --blue',
+        notaColorRojo3: '--highlight --red',
+        notaColorRosa3: '--highlight --pink',
+        notaColorVerde3: '--highlight --teal',
+        author3: '',
+        grilla1: '--cinema',
+        grilla3: '',
+        grilla6: '',
+        grilla9: ''
     }
 };

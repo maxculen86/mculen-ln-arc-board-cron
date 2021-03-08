@@ -1,13 +1,14 @@
 import { parse } from 'node-html-parser';
 import walkerBuilder from '../../../../../../common/utils/walker';
 import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
+import unescapeHtml from '../../../../../../common/utils/unescapeHtml';
 
-const htmlText = text => {
-    if (!text) return null;
+const htmlText = (nodo, dataNota) => {
+    if (!nodo) return null;
 
     const rootTagName = 'root';
 
-    const html = parse(`<${rootTagName}>${text}</${rootTagName}>`);
+    const html = parse(`<${rootTagName}>${nodo}</${rootTagName}>`);
     const walker = walkerBuilder([]);
     walker.addCondition(
         node => Array.isArray(node),
@@ -42,21 +43,31 @@ const htmlText = text => {
         }
     );
 
+    // walker.addCondition(
+    //     node => node.nodeType === 1 && node.tagName === 'mark',
+    //     (data, next) => {
+    //         const classRegex = new RegExp('class="hl_(.*)"');
+    //         const attrs = classRegex.exec(data.rawAttrs);
+    //         const resp = {
+    //             _t: 'data.tagName',
+    //             color: attrs[1],
+    //             valor: next(data.childNodes)
+    //         };
+    //         return resp;
+    //     }
+    // );
+
     walker.addCondition(
         node => node.nodeType === 1 && node.tagName === 'mark',
         (data, next) => {
-            const classRegex = new RegExp('class="hl_(.*)"');
-            const attrs = classRegex.exec(data.rawAttrs);
             const resp = {
-                _t: data.tagName,
-                color: attrs[1],
+                _t: 'b',
                 valor: next(data.childNodes)
             };
             return resp;
         }
     );
 
-    // Arc permite dale color a palabras 'mark'. Consultar que hacemos en este caso, por ahora, mando solo el texto plano
     walker.addCondition(
         node => node.nodeType === 1 && node.tagName !== 'br',
         (data, next) => {
@@ -71,7 +82,7 @@ const htmlText = text => {
     walker.addCondition(
         node => !!node.rawText,
         (data, next) => {
-            return data.rawText;
+            return unescapeHtml(data.rawText);
         }
     );
 

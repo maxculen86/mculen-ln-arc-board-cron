@@ -8,15 +8,15 @@ const BotonLink = ({ data }) => {
     const { url, content } = data || {};
 
     return (
-        <ComContainer classesNames="com-container --button">
+        <ComContainer classesNames="--button">
             {url && content ? (
                 <ComLink link={url} target="_blank" title={content}>
                     <ComButton
                         classesNames="--secondary"
-                        classCondition="--compact"
+                        //classCondition="--compact"
                         iconName="right"
                         iconPosition="--right"
-                        size="--sixxs"
+                        size="--fivexs"
                     >
                         {content.toUpperCase()}
                     </ComButton>

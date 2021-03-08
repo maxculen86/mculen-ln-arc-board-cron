@@ -2,6 +2,6 @@
 
 exports[`features - LaNacion - Nota - BajadaNota Test de snapshot TituloNota 1`] = `
 <p
-  class="com-paragraph --bajada  --threexs"
+  class="com-paragraph --bajada  --twoxs"
 />
 `;

@@ -17,7 +17,8 @@ const ModImage = props => {
         classCondition,
         video,
         amp,
-        sizes = {}
+        sizes = {},
+        sources
     } = props;
     // if (!src || !srcset) return null;
 
@@ -27,7 +28,19 @@ const ModImage = props => {
             video={video ? '--video-background' : ''}
             amp={amp}
         >
-            {!amp ? <ComSource media={media} srcset={srcset} /> : <></>}
+            {!amp && !sources && srcset ? (
+                <ComSource media={media} srcset={srcset} />
+            ) : (
+                <></>
+            )}
+            {!amp &&
+                sources &&
+                sources.map(source => (
+                    <ComSource
+                        media={source.option.media}
+                        srcset={source.resizedUrl}
+                    />
+                ))}
             <ComImage src={src} alt={alt} amp={amp} {...sizes} />
             {video ? <ModVideo image={src} video={video} /> : <></>}
         </ComPicture>
@@ -41,7 +54,13 @@ ModImage.propTypes = {
     alt: PropTypes.string,
     classCondition: PropTypes.string,
     video: PropTypes.string,
-    amp: PropTypes.bool
+    amp: PropTypes.bool,
+    sources: PropTypes.shape({
+        option: PropTypes.shape({
+            media: PropTypes.string
+        }),
+        resizedUrl: PropTypes.string
+    })
 };
 
 export default ModImage;

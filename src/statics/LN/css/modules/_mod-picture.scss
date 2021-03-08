@@ -16,9 +16,12 @@
     &.mod-picture {
         .mod-wikiauthor.mod-wikiauthor & {
             border-radius: 50%;
-            padding-top: inherit;
-            width: px(280);
-            height: px(280);
+            padding-top: 100%;
+            width: 100%;
+            margin: 0 0 px(16) 0;
+            @media ($media-m) {
+                margin-bottom: $spacing-xl;
+            }
         }
     }
     //100% ipad dentro de nota
@@ -109,6 +112,18 @@
         .--zoom.--active:not(.--slider) & {
             .mod-picture {
                 padding-top: initial;
+            }
+        }
+    }
+}
+
+.cuerpo__nota {
+    .mod-media:not(.--slider) {
+        .--horizontal.--horizontal .mod-picture.mod-picture,
+        .--vertical.--vertical .mod-picture.mod-picture {
+            padding: 0;
+            .com-image {
+                position: relative;
             }
         }
     }

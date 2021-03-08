@@ -1,6 +1,6 @@
-import Consumer from 'fusion:consumer';
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
+import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import ArticlesAcum from '../articlesAcum';
 import BtnMasNotas from '../botonVerMasNotas';
@@ -10,6 +10,7 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
+import WithRelatedImages from '../../common/hocs/WithRelatedImages';
 import get from '../../../common/utils/get';
 import ConfigBuilder from '../../common/bannerRefactor/builder';
 import {
@@ -17,49 +18,31 @@ import {
     isPrimarySectionInBannerSegments
 } from '../../common/bannerRefactor/utils';
 import { slotsConfig } from '../../common/bannerRefactor/config';
+import { GlobalContext } from '../../../common/context/globalContext';
 
 class GrillaNotas extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { articlesInBox: [] };
-    }
-
-    componentDidMount() {
-        const msgHandler = message => {
-            this.setState(prevState => {
-                return {
-                    ...prevState,
-                    articlesInBox: prevState.articlesInBox.concat(
-                        message.articlesInBox
-                    )
-                };
-            });
-            // this.removeEventListener('articlesInBox', msgHandler);
-        };
-        this.addEventListener('articlesInBox', msgHandler);
-    }
-
     getBanner = index => {
         const position = index + 1;
         const {
             bannerConfig,
             hideBanners,
-            globalContent,
-            globalContentConfig
-        } = this.props;
-        const { banners: termicaShowBanner } = this.props.termicas || {
-            banners: true
-        };
-
-        const {
+            globalContentConfig,
+            arcSite,
+            termicas,
             screenUtils: { device }
         } = this.props;
 
-        const bannersSiteConfig = get(globalContent, 'siteService.banners');
-        const adserver = get(globalContent, 'siteService.adserver', []);
+        const gc = useContext(GlobalContext);
+        const siteService = get(gc, 'state.siteService', {});
+
+        const bannersSiteConfig = get(siteService, 'banners');
+        const adserver = get(siteService, 'adserver', []);
         const segments = adserver.map(segment => segment.value);
         const primarySection = get(globalContentConfig, 'query.id');
-        const site = this.props.arcSite || 'la-nacion-ar';
+        const site = arcSite || 'la-nacion-ar';
+        /**
+         * ! extraer siguiente linea desde el contexto global
+         */
         const dfpId = get(getProperties(site), 'bannerConfig.dfp_id');
 
         return bannerConfig
@@ -85,7 +68,7 @@ class GrillaNotas extends React.Component {
                     dfpId,
                     slotGroup: 'acumulado',
                     show: {
-                        termicas: termicaShowBanner,
+                        termicas,
                         collection: !(hideBanners === 'true')
                     }
                 });
@@ -110,24 +93,18 @@ class GrillaNotas extends React.Component {
 
     render() {
         const {
-            articles,
+            articles = [],
             hayMasNotas,
             obtenerMasNotas,
             globalContent,
             loading,
             typeArticle,
             outputType,
-            articlesInGlobalProvider
+            idsArticlesToExclude
         } = this.props;
-        const { articlesInBox } = this.state;
 
         const articlesInNoCollection = articles.filter(
-            art =>
-                !articlesInBox.some(artInColl => artInColl._id === art._id) &&
-                !articlesInGlobalProvider.some(
-                    artInColl => artInColl._id === art._id
-                ) &&
-                art
+            art => !idsArticlesToExclude.some(idArt => idArt === art._id)
         );
 
         return (
@@ -159,8 +136,10 @@ GrillaNotas.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
     hideBanners: PropTypes.string.isRequired,
+    termicas: PropTypes.string.isRequired,
+    arcSite: PropTypes.string.isRequired,
     articles: PropTypes.arrayOf(PropTypes.object).isRequired,
-    articlesInGlobalProvider: PropTypes.arrayOf(PropTypes.object).isRequired,
+    idsArticlesToExclude: PropTypes.arrayOf(PropTypes.string).isRequired,
     hayMasNotas: PropTypes.number.isRequired,
     obtenerMasNotas: PropTypes.func.isRequired,
     globalContent: PropTypes.shape({
@@ -186,5 +165,11 @@ GrillaNotas.propTypes = {
 };
 
 export default WithNavigation(
-    withScreenUtils(WithAcuArticlesData(Consumer(GrillaNotas), filter, 'm'))
+    withScreenUtils(
+        WithAcuArticlesData(
+            WithRelatedImages(Consumer(GrillaNotas)),
+            filter,
+            'm'
+        )
+    )
 );

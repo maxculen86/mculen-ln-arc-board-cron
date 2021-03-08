@@ -28,25 +28,28 @@ const aperturaNoticia = ({ basic, outputType, primerParrafo, tituloNota }) => {
             <>
                 {basic.caption && (
                     <ComText
-                        classCondition="--caption"
+                        classCondition="--caption --twoxs"
                         textname={basic.caption}
                     />
                 )}
                 {credito && (
-                    <ComText classCondition="--credit" textname={credito} />
+                    <ComText
+                        classCondition="--credit --twoxs"
+                        textname={credito}
+                    />
                 )}
             </>
         ) : (
             <>
                 {textEpigrafe && (
                     <ComText
-                        classCondition="--caption"
+                        classCondition="--caption --twoxs"
                         textname={textEpigrafe}
                     />
                 )}
                 {creditoVideo && (
                     <ComText
-                        classCondition="--credit"
+                        classCondition="--credit --twoxs"
                         textname={creditoVideo}
                     />
                 )}

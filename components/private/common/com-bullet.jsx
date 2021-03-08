@@ -11,7 +11,11 @@ const ComBullet = props => {
 
     return (
         <div className="com-bullet">
-            <ComIco style={color} iconName="bullet" sizeBullet={sizeBullet} />
+            <ComIco
+                style={color}
+                iconName="bullet-xs"
+                sizeBullet={sizeBullet}
+            />
         </div>
     );
 };

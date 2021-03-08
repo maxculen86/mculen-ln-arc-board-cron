@@ -4,8 +4,18 @@ exports[`features - LaNacion - Nota - Hamburguer Test de snapshot Hamburguer 1`]
 <div
   class="com-hamburger"
 >
-  <i
-    class="com-icon icon-menu   "
-  />
+  <button
+    class="com-button  --tertiary --icon menu "
+    type="button"
+  >
+    <i
+      class="com-icon icon-menu   "
+    />
+    <span
+      class="com-text  "
+    >
+      Secciones
+    </span>
+  </button>
 </div>
 `;

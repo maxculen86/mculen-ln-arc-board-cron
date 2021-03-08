@@ -10,8 +10,8 @@ function withCollectionsInClass(WrappedComponent, filter, size, imageConfig) {
                 return {
                     idCollection: PropTypes.string.isRequired,
                     size: PropTypes.number.isRequired,
-                    website: PropTypes.number.isRequired,
-                    outputType: PropTypes.number.isRequired
+                    website: PropTypes.string.isRequired,
+                    outputType: PropTypes.string.isRequired
                 };
             }
 

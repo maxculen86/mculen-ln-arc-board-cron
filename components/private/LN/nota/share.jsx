@@ -27,7 +27,8 @@ const Share = props => {
         classesNames,
         requestUri,
         globalContent: {
-            headlines: { basic: title, mobile: mobileTitle }
+            headlines: { basic: title, mobile: mobileTitle },
+            comments: { display_comments: displayComments } = {}
         }
     } = props;
     const { arcSite } = useAppContext();
@@ -54,14 +55,12 @@ const Share = props => {
             <AmpContainer isForAmp={false}>
                 <div className="container --left">
                     <ComButton
-                        size="l"
                         iconName="facebook-filled"
                         onClick={() =>
                             popUpCompartirNotaFB(requestUri, config.host, title)
                         }
                     />
                     <ComButton
-                        size="l"
                         iconName="twitter-filled"
                         onClick={() =>
                             popUpCompartirNotaTW(
@@ -74,7 +73,6 @@ const Share = props => {
                     <ComButton
                         iconName="whatsapp-filled"
                         id="whatsAppShareDesktop"
-                        size="l"
                         onClick={() =>
                             shareWhatsAppDesktop(requestUri, config.host)
                         }
@@ -85,19 +83,20 @@ const Share = props => {
 
                 <div className="container --right">
                     <ComButton
-                        size="l"
                         iconName="email"
                         onClick={() =>
                             popUpCompartirMailTo(requestUri, config.host)
                         }
                     />
-                    <ComButton
-                        onClick={() => scrollToComments()}
-                        size="l"
-                        iconName="comment"
-                    >
-                        <label htmlFor="">{commentsCount}</label>
-                    </ComButton>
+                    {displayComments && (
+                        <ComButton
+                            onClick={() => scrollToComments()}
+                            size="--fourxs"
+                            iconName="comment"
+                        >
+                            <label htmlFor="">{commentsCount}</label>
+                        </ComButton>
+                    )}
                 </div>
             </AmpContainer>
 
@@ -137,6 +136,9 @@ Share.propTypes = {
         headlines: PropTypes.shape({
             basic: PropTypes.string,
             mobile: PropTypes.string
+        }),
+        comments: PropTypes.shape({
+            display_comments: PropTypes.bool
         })
     }).isRequired
 };

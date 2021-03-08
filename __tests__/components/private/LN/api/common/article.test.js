@@ -1,9 +1,15 @@
+import env from '../../../../../../__mocks__/fusion:environment';
 import articlesRanking from '../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
 import articlesAcumulado from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articlesTPInteresar from '../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
 import AcuList from '../../../../../../components/private/LN/api/v1/common/articles/list';
 import Article from '../../../../../../components/private/LN/api/v1/common/articles/index';
-import { dateAndTimeForAppsUtil } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
+import dateAndTimeUtil, {
+    isOlderThan24HourAgo,
+    hasFutureDisplayDate,
+    addHoursAndFormat,
+    dateAndTimeForAppsUtil
+} from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 describe('Test de index en Json', () => {
     const respRanking = AcuList(Article, articlesRanking.content_elements);
@@ -42,23 +48,23 @@ describe('Test de index en Json', () => {
     test('Imagenes del articulo', () => {
         expect(respTPInteresar[0].imagen['_t']).toBe('img');
         expect(respTPInteresar[0].imagen.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg'
+            '/resizer/{{param}}/bucket2.glanacion.com/anexos/fotos/94/3446794.jpg'
         );
-        expect(respTPInteresar[0].imagen.parametros[0].ancho).toBe(768);
+        expect(respTPInteresar[0].imagen.parametros[0].ancho).toBe(360);
         expect(respTPInteresar[0].imagen.parametros[0].firma).toBe(
-            'Ovvdkcs13HUJ7VQysRS-3JO1NIo=/768x513/smart/filters:quality(70)'
-        );
-        expect(respTPInteresar[0].imagen.parametros[1].ancho).toBe(360);
-        expect(respTPInteresar[0].imagen.parametros[1].firma).toBe(
             '2Rifu6S-2jyVOQlG4gkWJPDFkxQ=/360x240/filters:quality(70)'
         );
-        expect(respTPInteresar[0].imagen.parametros[2].ancho).toBe(360);
-        expect(respTPInteresar[0].imagen.parametros[2].firma).toBe(
-            'foWiBsfin59DMdAtjiMek7UTDTE=/360x234/smart/filters:quality(70)'
+        expect(respTPInteresar[0].imagen.parametros[1].ancho).toBe(768);
+        expect(respTPInteresar[0].imagen.parametros[1].firma).toBe(
+            'Ovvdkcs13HUJ7VQysRS-3JO1NIo=/768x513/smart/filters:quality(70)'
         );
-        expect(respTPInteresar[0].imagen.parametros[3].ancho).toBe(350);
-        expect(respTPInteresar[0].imagen.parametros[3].firma).toBe(
+        expect(respTPInteresar[0].imagen.parametros[2].ancho).toBe(350);
+        expect(respTPInteresar[0].imagen.parametros[2].firma).toBe(
             'Ryh_P4HUvecHEPdFYHIh8EqdDM4=/350x234/smart/filters:quality(70)'
+        );
+        expect(respTPInteresar[0].imagen.parametros[3].ancho).toBe(360);
+        expect(respTPInteresar[0].imagen.parametros[3].firma).toBe(
+            'foWiBsfin59DMdAtjiMek7UTDTE=/360x234/smart/filters:quality(70)'
         );
     });
 
@@ -111,42 +117,31 @@ describe('Test de index en Json', () => {
         expect(respAcumulado[1].autores[1].tipo).toBe(1);
     });
 
-    test('Test imagen de Autores de articulo', () => {
-        expect(respAcumulado[2].autores[0].image['_t']).toBe('img');
-        expect(respAcumulado[2].autores[0].image.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/bucket.glanacion.com/anexos/fotos/33/3121633.png'
-        );
-        expect(respAcumulado[2].autores[0].image.parametros[0].ancho).toBe(768);
-        expect(respAcumulado[2].autores[0].image.parametros[0].firma).toBe(
-            '1A2IA1EhLsE2VJ1rysww_o0qLYc=/768x513/smart'
-        );
-    });
-
     test('Imagenes del articulo', () => {
         expect(respAcumulado[9].imagen.id).toBe('LGFOVH6SFFGZVP5V3V7NOW2KFY');
         expect(respAcumulado[9].imagen['_t']).toBe('img');
         expect(respAcumulado[9].imagen.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
+            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LGFOVH6SFFGZVP5V3V7NOW2KFY.jpg'
         );
-        expect(respAcumulado[9].imagen.parametros[0].ancho).toBe(768);
+        expect(respAcumulado[9].imagen.parametros[0].ancho).toBe(278);
         expect(respAcumulado[9].imagen.parametros[0].firma).toBe(
-            'RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513/smart'
+            'xXjJBfZwE6c26vxfxgfHerlzovg=/278x186/smart'
         );
-        expect(respAcumulado[9].imagen.parametros[1].ancho).toBe(360);
+        expect(respAcumulado[9].imagen.parametros[1].ancho).toBe(344);
         expect(respAcumulado[9].imagen.parametros[1].firma).toBe(
-            'Tu91squMfjTVK8l7oVOdLYs_GHw=/360x234/smart'
-        );
-        expect(respAcumulado[9].imagen.parametros[2].ancho).toBe(350);
-        expect(respAcumulado[9].imagen.parametros[2].firma).toBe(
-            'Xcn5wLWNR-Jzz6cOGmNUu806tWc=/350x234/smart'
-        );
-        expect(respAcumulado[9].imagen.parametros[3].ancho).toBe(344);
-        expect(respAcumulado[9].imagen.parametros[3].firma).toBe(
             'HU7HHdAlJjMA1Wo_zPVxdiJEJg8=/344x230/smart'
         );
-        expect(respAcumulado[9].imagen.parametros[4].ancho).toBe(278);
+        expect(respAcumulado[9].imagen.parametros[2].ancho).toBe(768);
+        expect(respAcumulado[9].imagen.parametros[2].firma).toBe(
+            'RsqppSDbxLIgBko6JrbcfGp8QUA=/768x513/smart'
+        );
+        expect(respAcumulado[9].imagen.parametros[3].ancho).toBe(350);
+        expect(respAcumulado[9].imagen.parametros[3].firma).toBe(
+            'Xcn5wLWNR-Jzz6cOGmNUu806tWc=/350x234/smart'
+        );
+        expect(respAcumulado[9].imagen.parametros[4].ancho).toBe(360);
         expect(respAcumulado[9].imagen.parametros[4].firma).toBe(
-            'xXjJBfZwE6c26vxfxgfHerlzovg=/278x186/smart'
+            'Tu91squMfjTVK8l7oVOdLYs_GHw=/360x234/smart'
         );
     });
 
@@ -188,31 +183,31 @@ describe('Test de index en Json', () => {
     test('Imagenes del articulo', () => {
         expect(respRanking[0].imagen['_t']).toBe('img');
         expect(respRanking[0].imagen.baseUrl).toBe(
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/{{param}}/www.lanacion.com.ar/resizer/YcJ0gmw6h3B4fXhg5pbuZ8H1uzg=/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg'
+            '/resizer/{{param}}/www.lanacion.com.ar/resizer/YcJ0gmw6h3B4fXhg5pbuZ8H1uzg=/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AZ6A7LN5SFDKHG7KHRRJ43FOEE.jpg'
         );
-        expect(respRanking[0].imagen.parametros[0].ancho).toBe(768);
+        expect(respRanking[0].imagen.parametros[0].ancho).toBe(278);
         expect(respRanking[0].imagen.parametros[0].firma).toBe(
-            '3rTgc9lUK5alrZXDhSplwsoCIKY=/768x513/smart'
+            'LQ03Y-iOcWjwQct4YQRLT0jJrT8=/278x186/smart'
         );
-        expect(respRanking[0].imagen.parametros[1].ancho).toBe(360);
+        expect(respRanking[0].imagen.parametros[1].ancho).toBe(344);
         expect(respRanking[0].imagen.parametros[1].firma).toBe(
-            'rOip72RROban7m1g3eTptCLHu2A=/360x234/smart'
-        );
-        expect(respRanking[0].imagen.parametros[2].ancho).toBe(350);
-        expect(respRanking[0].imagen.parametros[2].firma).toBe(
-            '-DltLyGogW8thkDsacSPwDsL5Vg=/350x234/smart'
-        );
-        expect(respRanking[0].imagen.parametros[3].ancho).toBe(344);
-        expect(respRanking[0].imagen.parametros[3].firma).toBe(
             'u7prcuGJ9u3mTD7wHR1Bsfghsds=/344x230/smart'
         );
-        expect(respRanking[0].imagen.parametros[4].ancho).toBe(278);
+        expect(respRanking[0].imagen.parametros[2].ancho).toBe(768);
+        expect(respRanking[0].imagen.parametros[2].firma).toBe(
+            '3rTgc9lUK5alrZXDhSplwsoCIKY=/768x513/smart'
+        );
+        expect(respRanking[0].imagen.parametros[3].ancho).toBe(350);
+        expect(respRanking[0].imagen.parametros[3].firma).toBe(
+            '-DltLyGogW8thkDsacSPwDsL5Vg=/350x234/smart'
+        );
+        expect(respRanking[0].imagen.parametros[4].ancho).toBe(360);
         expect(respRanking[0].imagen.parametros[4].firma).toBe(
-            'LQ03Y-iOcWjwQct4YQRLT0jJrT8=/278x186/smart'
+            'rOip72RROban7m1g3eTptCLHu2A=/360x234/smart'
         );
     });
 
-    test('Test Fecha del articulo', () => {
+    test('Test Fecha del articulo 1', () => {
         expect(respRanking[0].fechaActualizacion).toBe(
             dateAndTimeForAppsUtil(
                 articlesRanking.content_elements[0].last_updated_date
@@ -220,12 +215,21 @@ describe('Test de index en Json', () => {
         );
     });
 
-    test('Test Fecha del articulo', () => {
+    test('Test Fecha del articulo 2', () => {
         expect(respRanking[0].fecha).toBe(
             dateAndTimeForAppsUtil(
                 articlesRanking.content_elements[0].display_date
             )
         );
+    });
+
+    test('Test Fecha del articulo 3', () => {
+        expect(
+            dateAndTimeUtil(articlesRanking.content_elements[0].display_date)
+        ).toEqual({
+            date: '30 de julio de 2020',
+            time: '07:17'
+        });
     });
 
     test('Test Articulo con Autor vacio', () => {
@@ -250,7 +254,9 @@ describe('Test de index en Json', () => {
     });
 
     test('Categoria principal', () => {
-        expect(respRanking[0].categoria.id).toBe(43);
+        expect(respRanking[0].categoria.slug).toBe(
+            '/recetas/faciles-y-rapidas'
+        );
         expect(respRanking[0].categoria.valor).toBe('Fáciles y rápidas');
     });
 
@@ -275,5 +281,27 @@ describe('Test de index en Json', () => {
         expect(respRanking[0].tags[1].tipoId).toBe(1);
         expect(respRanking[0].tags[1].formatoId).toBe(1);
         expect(respRanking[0].tags[1].tipoDescripcion).toBe('Topico');
+    });
+    test('deberia sumar 3 horas a una fecha en formato SQL', () => {
+        const date1 = '2021-02-05T17:34:00.624Z';
+        const result1 = addHoursAndFormat(6, date1);
+        expect(result1).toBe('2021-02-05T20:34:00');
+    });
+
+    test('deberia filtrar notas con display_date a futuro', () => {
+        const date1 = '2021-02-05T17:34:00.624Z';
+        const result1 = hasFutureDisplayDate(date1);
+        expect(result1).toBeFalsy();
+    });
+
+    test('filtrar notas con display_date a futuro parametro vacio', () => {
+        const result1 = hasFutureDisplayDate();
+        expect(result1).toBeFalsy();
+    });
+
+    test('deberia filtrar notas con published_date mayor a 24 hs', () => {
+        const date1 = '2021-02-05T17:34:00.624Z';
+        const result1 = isOlderThan24HourAgo(date1);
+        expect(result1).toBeTruthy();
     });
 });

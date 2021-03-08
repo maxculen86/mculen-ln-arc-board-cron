@@ -93,8 +93,11 @@ const transform = (data, arcSite, properties) => {
         'imageConfig.resize.zoom.promo_items.sizes',
         presetsDefault
     );
-    const presetsFotoAl100 =
+    const presetsPromoItemsFotoAl100 =
         (data.subtype === FOTOAL100 || data.subtype === STORYTELLING) &&
+        get(properties, 'imageConfig.resize.fotoAl100.promo_items', null);
+    const presetsContentElementsFotoAl100 =
+        data.subtype === FOTOAL100 &&
         get(properties, 'imageConfig.resize.fotoAl100.content_elements', null);
     const presetsPromoItems = get(
         properties,
@@ -112,13 +115,6 @@ const transform = (data, arcSite, properties) => {
         null
     );
 
-    // Si el subType es recetas o noticias applico el ratio
-    const notesWithRatio = ['1', '7'];
-    const promoItemsRatio =
-        notesWithRatio.indexOf(data.subtype) === 0 && presetsPromoItems
-            ? { sizes: addAspectRatio(presetsPromoItems.sizes) }
-            : presetsPromoItems || presetsDefault;
-
     // Data con urls Resizeadas
     const resp = {
         ...data,
@@ -126,9 +122,12 @@ const transform = (data, arcSite, properties) => {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,
             presets: {
-                promoItems: promoItemsRatio,
+                promoItems:
+                    presetsPromoItemsFotoAl100 ||
+                    presetsPromoItems ||
+                    presetsDefault,
                 contentElements:
-                    presetsFotoAl100 ||
+                    presetsContentElementsFotoAl100 ||
                     presetsContentElements ||
                     presetsDefault,
                 credits: presetsCredits,
@@ -138,7 +137,6 @@ const transform = (data, arcSite, properties) => {
             subtype
         })
     };
-
     return transformContent(resp, arcSite);
 };
 
@@ -169,7 +167,7 @@ const transformContent = (jsonArticle, arcSite) => {
         });
     }
 
-    /* TODO: validar si related content debe ir vacio si tiene otros 
+    /* TODO: validar si related content debe ir vacio si tiene otros
     items diferentes a reference */
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((element, i) => {
@@ -206,7 +204,7 @@ const transformContent = (jsonArticle, arcSite) => {
         );
     });
 
-    promiseArr.push(
+    /*     promiseArr.push(
         new Promise(resolver =>
             resolver(getNavigationSiteProperties(arcSite))
         ).then(data => {
@@ -217,14 +215,14 @@ const transformContent = (jsonArticle, arcSite) => {
                 termicas: data.termicas
             };
         })
-    );
+    ); */
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
 };
 
-const getNavigationSiteProperties = arcSite => {
+/* const getNavigationSiteProperties = arcSite => {
     return navigationTreeSource
         .fetch({ website: arcSite })
         .then(fetchedRelated => {
@@ -259,7 +257,7 @@ const getNavigationSiteProperties = arcSite => {
         .catch(e => {
             // console.log('Error article source: getNavigationSiteProperties -> e', e);
         });
-};
+}; */
 
 const addGalleryData = (gallery, arcSite) => {
     const { _id: galleryId } = gallery;
@@ -326,5 +324,5 @@ export default {
         paywallEnabled: 'text'
     },
     filter,
-    ttl: 240
+    ttl: 120
 };

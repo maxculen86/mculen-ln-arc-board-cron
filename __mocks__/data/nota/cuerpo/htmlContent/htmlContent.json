@@ -16,5 +16,16 @@
         "additional_properties": {},
         "content": "<iframe style=\"width: 100%; max-width: 640px;\" height=\"360\" src=\" https://www.espn.com.ar/core/video/iframe?id=7188899&endcard=true&adLevel=espn.latam.ar%2Fsyndicated-player%2Flanacion&adEnv=prod&trackingName=LANACION\" width=\"100%\" height=\"100%\" allow=\"fullscreen\" scrolling=\"no\"></iframe>",
         "type": "raw_html"
+    },
+    {
+        "_id": "PONVV66345DPLJIH2YZBJXKVEQ",
+        "additional_properties": {},
+        "content": "<opta-widget widget=\"timeline\" competition=\"6\" season=\"2020\" match=\"2170640\" template=\"normal\" live=\"false\" orientation=\"horizontal\" vertical_timebar_height=\"260\" group_substitutions=\"false\" show_match_header=\"true\" show_score=\"true\" show_crests=\"false\" show_assists=\"all\" show_team_formation=\"true\" show_clock=\"true\" show_period_dividers=\"true\" show_halftime_score=\"false\" show_date=\"true\" date_format=\"dddd D MMMM YYYY\" show_attendance=\"true\" show_images=\"false\" show_referee=\"true\" show_venue=\"true\" show_cards=\"all\" show_goals=\"true\" show_penalties_missed=\"true\" show_subs=\"true\" show_goals_combined=\"false\" show_shootouts=\"true\" show_competition_name=\"true\" competition_naming=\"full\" team_naming=\"full\" player_naming=\"full\" show_live=\"false\" show_logo=\"true\" show_title=\"true\" breakpoints=\"400, 700\" sport=\"football\"></opta-widget>",
+        "type": "raw_html"
+    },
+    {
+        "_id": "HGFHPEQLOJBWLC7FGJ4OVVDHRI",
+        "content": "<externo destacado=\"false\" extra-large=\"false\" fullscreen=\"false\" id=\"opta\" large=\"false\" normal=\"false\"><script>\n        var opta_settings = {\n            subscription_id: '2f9d4a3fdc61653e686a4be85a25e1ac',\n            language: 'es_CO',\n            timezone: 'America/Buenos_Aires'\n        };\n    </script><opta-widget breakpoints=\"400, 700\" competition=\"22\" competition_naming=\"full\" date_format=\"dddd D MMMM YYYY\" live=\"true\" match=\"2125018\" orientation=\"horizontal\" player_naming=\"full\" season=\"2020\" show_attendance=\"true\" show_competition_name=\"true\" show_crests=\"true\" show_date=\"true\" show_event_icons=\"true\" show_halftime_score=\"false\" show_images=\"false\" show_live=\"false\" show_logo=\"true\" show_match_header=\"true\" show_pitch_crests=\"true\" show_pitch_images=\"false\" show_player_names=\"true\" show_player_stats=\"true\" show_referee=\"true\" show_score=\"true\" show_subs=\"all\" show_team_formation=\"true\" show_team_sheets=\"true\" show_title=\"true\" show_venue=\"true\" side=\"both\" sport=\"football\" team_naming=\"full\" template=\"normal\" widget=\"matchday_live\"></opta-widget></externo>",
+        "type": "raw_html"
     }
 ]

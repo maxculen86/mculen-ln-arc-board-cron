@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 import NotaSnippet from '../../LN/nota/snippet/receta';
 import NoticiaSnippet from '../../LN/nota/snippet/noticia';
+import SnippetAcumulado from '../../LN/acumulado/snippet';
 
 const config = {
     OTT: {},
@@ -11,7 +12,9 @@ const config = {
         'LN-nota-noticia': NoticiaSnippet,
         'LN-nota-infografia': NoticiaSnippet,
         'LN-nota-storytelling': NoticiaSnippet,
-        'LN-nota-foto-al-100': NoticiaSnippet
+        'LN-nota-foto-al-100': NoticiaSnippet,
+        'LN-nota-html-libre': NoticiaSnippet,
+        'LN-acumulado': SnippetAcumulado
     }
 };
 

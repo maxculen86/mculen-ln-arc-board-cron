@@ -6,9 +6,12 @@ import ModFigcaption from '../../common/mod-figcaption';
 
 function ImagePlaceholder({ href, children, outputType, isVertical, amp }) {
     const image = (
+        // TODO: Revisar el caso render autor para placeholder en Caja de Temas [Economía]
+        // <ComFigure>
         <ComPicture href={href} amp={amp}>
             {children}
         </ComPicture>
+        // </ComFigure>
     );
 
     return (

@@ -1,6 +1,3 @@
-// TODO: Chequear si se agregan estas reglas al eslint
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
@@ -24,8 +21,10 @@ import ComImage from '../../../common/com-image';
 import ModheaderSection from '../../../common/mod-headerSection';
 import ComShield from '../../../common/com-shield';
 import ModShield from '../../../common/mod-shield';
+import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
+import ComAdvance from '../../../common/com-advance';
 // import ModWikiAuthor from '../../../common/mod-wikiAuthor';
-//import '../../../../../resources/dist/css/ln/base/helpers.css';
+// import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
     const {
@@ -40,8 +39,11 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
         awards = [],
         personal_website: personalWebsite,
         languages,
-        affiliations
+        affiliations,
+        location
     } = data || {};
+
+    const socialsNetworks = getSocialsNetwork(data);
 
     return (
         <section
@@ -50,17 +52,17 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
         >
             <div className="row">
                 {url && (
-                    <div className="col-12 col-desksm-4">
+                    <div className="col-12 col-tablet-4 col-deskxl-3">
                         <ImageAuthor outputType={outputType} url={url} />
                     </div>
                 )}
-                <div className="col-12 col-desksm-8">
+                <div className="col-12 col-tablet-8 col-deskxl-9">
                     <ComContainer classCondition="--info">
                         <ComTitle tag="h2" content={byline} size="--l" />
                         <ComText
                             textname={role}
                             classCondition="--profesion"
-                            size="--threexs"
+                            size="--twoxs"
                         />
                         <ComContainer classCondition="--contact">
                             {email && (
@@ -77,15 +79,29 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                                 />
                             )}
                         </ComContainer>
-                        <ComText size="--threexs" textname={longBio} />
+                        <ComText
+                            size="--twoxs"
+                            classCondition="--bio"
+                            textname={longBio}
+                        />
                         {education.length > 0 && (
                             <ComContainer classCondition="--educacion">
                                 <ModDescriptionList
                                     bullet
-                                    sizeBullet="--xs"
+                                    sizeBullet="--twoxs"
                                     descriptionTitle="Educación"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     list={education}
+                                />
+                            </ComContainer>
+                        )}
+                        {location && (
+                            <ComContainer>
+                                <ModDescriptionList
+                                    classCondition="--idiomas"
+                                    descriptionTitle="Ubicación:"
+                                    size="--twoxs"
+                                    text={location}
                                 />
                             </ComContainer>
                         )}
@@ -93,7 +109,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             <ComContainer classCondition="--reconocimientos">
                                 <ModDescriptionList
                                     descriptionTitle="Reconocimientos"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     list={awards}
                                 />
                             </ComContainer>
@@ -103,7 +119,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                                 <ModDescriptionList
                                     classCondition="--idiomas"
                                     descriptionTitle="Idiomas:"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     text={languages}
                                 />
                             </ComContainer>
@@ -113,7 +129,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                                 <ModDescriptionList
                                     classCondition="--membresia"
                                     descriptionTitle="Membresías profesionales:"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     text={affiliations}
                                 />
                             </ComContainer>
@@ -122,7 +138,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             <ComContainer>
                                 <ModDescriptionList
                                     descriptionTitle="Publicaciones"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     list={books}
                                 />
                             </ComContainer>
@@ -131,29 +147,27 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                             <ComContainer>
                                 <ModDescriptionList
                                     descriptionTitle="Podcast"
-                                    size="--threexs"
+                                    size="--twoxs"
                                     list={podcasts}
                                 />
                             </ComContainer>
                         )}
                     </ComContainer>
                 </div>
-                <div className="col-12">
-                    {data ? (
+                {socialsNetworks.length > 0 && (
+                    <div className="col-12">
                         <ComContainer classCondition="--socialicons">
-                            <ComSubtitle children="Conectar" size="--threexs" />
+                            <ComSubtitle size="--twoxs">Conectar</ComSubtitle>
                             <ListSocialIcons
-                                sizeIcon="--l"
-                                sizeBullet="--xs"
+                                sizeIcon="--xl"
+                                // sizeBullet="--xs"
                                 data={data}
                                 size="--threexs"
                                 vertical=""
                             />
                         </ComContainer>
-                    ) : (
-                        ''
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
 
             {/* BORRARRRRRRRR */}

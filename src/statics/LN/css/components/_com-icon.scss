@@ -33,13 +33,23 @@
         text-transform: initial;
     }
     .mod-wikiauthor & {
-        color: $negro;
+        &:not(.icon-bullet-xs) {
+            color: $negro;
+            margin-right: px(8);
+        }
     }
     .mod-tooltip & {
         position: absolute;
         right: 0;
         top: -5px;
         color: $light-neutral-400;
+    }
+    &.icon-bullet {
+        .mod-description & {
+            align-items: flex-start;
+            color: $light-neutral-400;
+            padding: 1px 2px;
+        }
     }
 }
 @media ($media-l) {

@@ -4,6 +4,7 @@ import Consumer from 'fusion:consumer';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import LoginProvider from '../private/LN/common/context/loginContext';
+import GlobalProvider from '../private/common/context/globalContext';
 
 // import '../../resources/dist/css/ln/base.css';
 // import '../../resources/dist/css/ln/layouts/layout.css';
@@ -28,8 +29,16 @@ const pageBuilderSections = [
     'Aside'
 ];
 
+const formatText = str => {
+    return str
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+};
+
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
+const sections = ['economia'];
 
 const LNAcumuladoLayout = props => {
     const {
@@ -48,13 +57,14 @@ const LNAcumuladoLayout = props => {
         tree,
         isAdmin
     } = props;
-    const { style, articlesInCollection = [] } = globalContent;
+    const { style, name = '' } = globalContent;
     const sectionStyleName =
         style && style.section_style_name ? style.section_style_name : '';
     const classRevista =
         revistas.indexOf(sectionStyleName || '') !== -1
             ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
             : '';
+    const sectionClass = sections.find(sec => sec === formatText(name)) || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
     const acumuladoColor = get(globalContent, 'acumuladoColor', {});
     const {
@@ -64,66 +74,77 @@ const LNAcumuladoLayout = props => {
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
-
     // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
-    const OPENING_CLASS = articlesInCollection.length > 0 ? '--opening' : '';
     const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
+    const idCollectionApertura = get(
+        globalContent,
+        'acumuladoGeneral.id_collection_promo_items'
+    );
+    const idCollectionsInPage = get(
+        globalContent,
+        'acumuladoGeneral.colecciones',
+        []
+    );
+    const OPENING_CLASS = idCollectionApertura ? '--opening' : '';
 
     return (
-        <LoginProvider>
-            <GlobalProviderAcu
-                acumuladoGeneral={acumuladoGeneral}
-                acumuladoColor={acumuladoColor}
-                articlesInCollection={articlesInCollection}
-            >
-                {megatop}
-                <div
-                    id="wrapper"
-                    className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${OPENING_CLASS} ${amp}`}
+        <GlobalProvider>
+            <LoginProvider>
+                <GlobalProviderAcu
+                    acumuladoGeneral={acumuladoGeneral}
+                    acumuladoColor={acumuladoColor}
+                    idCollectionsInPage={idCollectionsInPage}
+                    idCollectionApertura={idCollectionApertura}
                 >
-                    <Header />
-                    <main>
-                        {stickyMobile}
-                        <div
-                            className="row --top"
-                            style={{ backgroundColor: backgroundCategory }}
-                        >
+                    {megatop}
+                    <div
+                        id="wrapper"
+                        className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${sectionClass} ${OPENING_CLASS} ${amp}`}
+                    >
+                        <Header />
+                        <main>
+                            {stickyMobile}
+                            <div
+                                className="row --top"
+                                style={{ backgroundColor: backgroundCategory }}
+                            >
+                                <div className="lay">
+                                    {/* BANNER y ANEXO */}
+                                    {preApertura}
+                                    {/* TITULO/LOGO Y CATEGORIAS */}
+                                    {breadcrumbTitulo}
+                                </div>
+                            </div>
                             <div className="lay">
-                                {/* BANNER y ANEXO */}
-                                {preApertura}
-                                {/* TITULO/LOGO Y CATEGORIAS */}
-                                {breadcrumbTitulo}
+                                {/* APERTURA: CAJA DE DOS COLUMNAS */}
+                                {apertura}
+                                {/* LISTA DE TAGS */}
+                                {links}
                             </div>
-                        </div>
-                        <div className="lay">
-                            {/* APERTURA: CAJA DE DOS COLUMNAS */}
-                            {apertura}
-                            {/* LISTA DE TAGS */}
-                            {links}
-                        </div>
-                        <div id="content-main" className="lay-sidebar">
-                            {/* Cuerpo */}
-                            <div className="sidebar__main">
-                                {/* NOTAS */}
-                                {notas}
+                            <div id="content-main" className="lay-sidebar">
+                                {/* Cuerpo */}
+                                <div className="sidebar__main">
+                                    {/* NOTAS */}
+                                    {notas}
+                                </div>
+                                <div className="sidebar__aside hlp-tablet-none">
+                                    {/* BANNERS, RANKING DE NOTAS */}
+                                    {aside}
+                                </div>
                             </div>
-                            <div className="sidebar__aside hlp-tablet-none">
-                                {/* BANNERS, RANKING DE NOTAS */}
-                                {aside}
-                            </div>
-                        </div>
-                    </main>
-                    <Footer />
-                </div>
-            </GlobalProviderAcu>
-        </LoginProvider>
+                        </main>
+                        <Footer />
+                    </div>
+                </GlobalProviderAcu>
+            </LoginProvider>
+        </GlobalProvider>
     );
 };
 
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node.isRequired,
-    outputType: PropTypes.string,
+    outputType: PropTypes.string.isRequired,
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
     isAdmin: PropTypes.bool,
     globalContent: PropTypes.shape({
@@ -131,6 +152,7 @@ LNAcumuladoLayout.propTypes = {
             section_style_name: PropTypes.string,
             headerdark: PropTypes.string
         }),
+        name: PropTypes.string,
         acumuladoGeneral: PropTypes.shape({
             tipo_acumulado: PropTypes.string,
             hierarchy_navigation: PropTypes.string,

@@ -8,6 +8,18 @@
 @include font-face('LNicons', lana-icons, normal);
 @include font-face('LNlogos', ln-logos-v2, normal);
 
+[class*='georgia'] {
+    font-family: $font-georgia;
+}
+
+[class*='suecas'] {
+    font-family: $font-SuecaSlab;
+}
+
+[class*='arial'] {
+    font-family: $font-arial;
+}
+
 strong,
 .element-paragraph b {
     font-weight: 700;

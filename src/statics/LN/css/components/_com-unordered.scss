@@ -1,44 +1,33 @@
 @import '../abstracts/variables';
 
 .com-unordered {
-    padding-left: 0;
-    list-style: none;
-    width: 100%;
+    //padding-left: 0;
+    //list-style: none;
+    //width: 100%;
     margin-bottom: $spacing-lg;
     .com-item {
+        .breaking-news & {
+            padding-left: 0;
+        }
         padding-left: 1em;
-        font-family: $font-arial;
-        font-size: px(16);
-        line-height: px(37);
+        //font-family: $font-arial;
+        //font-size: px(16);
+        line-height: px(30);
         margin-bottom: $spacing;
-        color: $neutral-black;
+        //color: $neutral-black;
         position: relative;
         &::first-letter {
             text-transform: uppercase;
         }
-        &:before {
-            content: '';
-            width: px(7);
-            height: px(7);
-            border-radius: 50%;
-            top: px(14);
-            background-color: $neutral-black;
-            color: $neutral-white;
-            position: absolute;
-            left: 0;
-            font-family: $font-arial;
-            font-weight: bold;
-            font-size: px(14);
-        }
     }
-    .noticia & {
-        .com-item {
-            line-height: px(30);
-            &:before {
-                top: px(10);
-            }
-        }
-    }
+    // .noticia & {
+    //     .com-item {
+    //         line-height: px(30);
+    //         &:before {
+    //             top: px(10);
+    //         }
+    //     }
+    // }
 }
 @media ($media-l) {
     .com-unordered {

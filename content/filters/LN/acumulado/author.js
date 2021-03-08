@@ -1,5 +1,6 @@
 export default `
 {
+    name,
     node_type,
     canonical_url,
     author_type,
@@ -10,6 +11,8 @@ export default `
     slug,
     role,
     email,
+    expertise,
+    location,
     books {
         title,
         publisher,
@@ -41,8 +44,4 @@ export default `
     snapchat,
     whatsapp,
     tumblr
-    slug,
-    node_type,
-    name,
-    canonical_url
 }`;

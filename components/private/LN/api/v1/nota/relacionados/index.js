@@ -9,15 +9,10 @@ const relacionadosIndex = dataArticle => {
     const dataCategories = get(dataArticle, 'taxonomy.sections');
     const dataTags = get(dataArticle, 'taxonomy.tags');
     const relatedNotes = get(dataArticle, 'related_content.basic');
-    let principalCategory = get(dataArticle, 'taxonomy.primary_section._id');
 
     if (dataCategories && dataCategories.length > 0) {
-        if (!principalCategory) {
-            // eslint-disable-next-line no-underscore-dangle
-            principalCategory = dataCategories[0]._id;
-        }
         resp.categorias = dataCategories.map(v => {
-            const category = getSubCategory(v);
+            const category = getSubCategory(v); //DUDA
             return category;
         });
     }

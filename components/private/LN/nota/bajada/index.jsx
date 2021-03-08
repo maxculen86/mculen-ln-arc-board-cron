@@ -12,7 +12,7 @@ const BajadaNota = props => {
     const subtitulo = basic || null;
     return (
         <ComParagraph
-            size="--threexs"
+            size="--twoxs"
             classCondition="--bajada"
             content={subtitulo}
         />

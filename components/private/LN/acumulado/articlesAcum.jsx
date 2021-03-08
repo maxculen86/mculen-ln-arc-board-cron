@@ -5,6 +5,26 @@ import ModRowGap from '../../common/mod-rowgap';
 
 // const CLASS_W_100 = 'w-100-mobile';
 const DATA_SECTION = 'CuerpoAcu';
+const typeAcumRules = {
+    Grilla: {
+        withSubhead: false,
+        titleSize: '--xs',
+        withCategory: false,
+        withTags: true
+    },
+    Listado: {
+        withSubhead: true,
+        titleSize: '--m',
+        withCategory: true,
+        withTags: true
+    },
+    Timeline: {
+        withSubhead: false,
+        titleSize: '--m',
+        withCategory: true,
+        withTags: true
+    }
+};
 
 const ArticlesAcum = ({
     articles = [],
@@ -27,7 +47,12 @@ const ArticlesAcum = ({
                         dataSection={DATA_SECTION}
                         article={art}
                         typeArticle={typeArticle}
+                        //titleSize={typeArticle === 'Listado' && '--m'}
+                        titleSize={typeAcumRules[typeArticle].titleSize}
                         outputType={outputType}
+                        withSubhead={typeAcumRules[typeArticle].withSubhead}
+                        withCategory={typeAcumRules[typeArticle].withCategory}
+                        withTags={typeAcumRules[typeArticle].withTags}
                     >
                         {banner}
                     </ArticleAcum>

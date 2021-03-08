@@ -58,6 +58,5 @@ describe('ModSponsor', () => {
         expect(distributorFormated1).toEqual('el-pais-uruguay');
         expect(distributorFormated2).toEqual('agencia-cyta');
         expect(distributorFormated3).toEqual('chequeado-com');
-
     });
 });

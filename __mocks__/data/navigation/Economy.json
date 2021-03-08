@@ -1,0 +1,291 @@
+{
+    "_id": "/",
+    "Termicas": {
+        "debug": "true",
+        "banners": "true",
+        "liftigniter": "true",
+        "livefyre": "true"
+    },
+    "bannerConfig": {
+        "dfp_id": "133919216",
+        "nota_adhesion_dsk": "",
+        "nota_megatop_dsk": "",
+        "nota_cabezal_dsk": "",
+        "nota_cabezal_tab": "",
+        "nota_cabezal_mob": null,
+        "nota_megatop_mob": null,
+        "nota_adhesion_mob": null,
+        "nota_adhesion_tab": null,
+        "nota_unoxuno_dsk": null,
+        "nota_unoxuno_tab": null,
+        "nota_unoxuno_mob": null,
+        "nota_caja1_dsk": "",
+        "nota_caja1_tab": null,
+        "nota_caja2_dsk": "",
+        "nota_caja2_tab": null,
+        "nota_caja3_dsk": null,
+        "nota_caja4_dsk": null,
+        "nota_caja5_dsk": null,
+        "nota_caja1_mob": null,
+        "nota_caja2_mob": null,
+        "nota_caja3_mob": null,
+        "nota_caja4_mob": null,
+        "nota_caja5_mob": null,
+        "nota_middle_1_dsk": null,
+        "nota_middle_2_dsk": null,
+        "nota_middle_3_dsk": null,
+        "nota_sticky1_mob": null,
+        "nota_sticky2_mob": null,
+        "nota_caja1_amp": null,
+        "nota_caja2_amp": null,
+        "nota_caja3_amp": null,
+        "acumulado_cabezal_dsk": "",
+        "acumulado_caja1_dsk": "",
+        "acumulado_caja2_dsk": "",
+        "acumulado_caja3_dsk": "",
+        "acumulado_caja4_dsk": "",
+        "acumulado_cabezal_tab": "",
+        "acumulado_caja1_tab": "",
+        "acumulado_caja2_tab": "",
+        "acumulado_sticky1_mob": "",
+        "acumulado_sticky2_mob": "",
+        "acumulado_caja1_mob": "",
+        "acumulado_caja2_mob": "",
+        "acumulado_caja3_mob": "",
+        "acumulado_caja4_mob": ""
+    },
+    "Metarefresh": {
+        "nota_mobile": "0",
+        "nota_desktop": "0",
+        "home_mobile": "0",
+        "home_desktop": "0"
+    },
+    "site": {
+        "with-amp": {
+            "1": "nota-noticia",
+            "2": "nota-infografia",
+            "4": "nota-storytelling",
+            "8": "nota-foto-al-100",
+            "tags": "tags",
+            "author": "author"
+        },
+        "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/",
+        "sitio_adserver": {
+            "propiedades": "propiedades"
+        },
+        "tooltips": {
+            "Análisis": "Interpretación de las noticias basada en evidencia, incluyendo datos y proyecciones posibles en base a eventos pasados.",
+            "Contribución de la audiencia": "Pedido de información a la audiencia.",
+            "Explicativo": "Provee contexto, definición y detalle de un tópico específico.",
+            "Noticia Original": "Información basada en hechos y verificada de primera mano por el cronista, o reportada y verificada por fuentes expertas.",
+            "Opinión": "Basada en la interpretación y juicio de hechos y datos realizados por el autor.",
+            "Review": "Crítica de un servicio, producto u obra creativa.",
+            "Content LAB": "Content LAB es la unidad de generación de ideas y contenidos de LA NACION para las marcas con distribución en sus plataformas digitales y redes sociales. Este contenido fue producido para un anunciante y publicado por el Content LAB. La redacción de LA NACION no estuvo involucrada en la generación de este contenido.",
+            "Espacio Patrocinado": "Brindado por una organización o individuo que ha pagado al proveedor de noticias por este espacio."
+        },
+        "script_loading_list": [
+            "{ \"src\": \"https://qa-static.glanacion.com/v2/datadog/datadog20201228.js\", \"location\": \"head\", \"version\": \"484\", \"sampleRate\" : \"100\", \"env\": \"sandbox\" }",
+            "{ \"src\": \"https://qa-static.glanacion.com/v2/datadog/datadog-rum20201228.js\", \"location\": \"head\", \"version\": \"484\", \"samplerate\" : \"100\", \"env\": \"sandbox\" }"
+        ],
+        "distributor_name": {
+            "bbc-mundo": "BBC Mundo",
+            "the-new-york-times": "The New York Times",
+            "el-pais": "EL PAIS",
+            "the-wall-street-journal": "The Wall Street Journal",
+            "ovrik": "Ovrik",
+            "chequeado-com": "chequeado.com",
+            "el-comercio-ecuador": "El Comercio (Ecuador)",
+            "europa-press": "Europa Press",
+            "alibrate": "Alibrate",
+            "el-comercio-peru": "El Comercio (Perú)",
+            "el-mercurio-chile": "El Mercurio (Chile)",
+            "el-pais-uruguay": "El País (Uruguay)",
+            "el-nacional-venezuela": "El Nacional (Venezuela)",
+            "el-tiempo-colombia": "El Tiempo (Colombia)",
+            "el-universal-mexico": "El Universal (México)",
+            "fast-company": "Fast Company",
+            "the-economist": "The Economist",
+            "the-washington-post": "The Washington Post",
+            "el-tiempo-gda": "EL TIEMPO/GDA",
+            "agencia-tss": "Agencia TSS",
+            "agencia-cyta": "Agencia CyTA",
+            "agencia-sinc": "Agencia SINC",
+            "the-conversation": "The Conversation",
+            "ap": "AP",
+            "reuters": "Reuters",
+            "nexciencia": "NEXCiencia",
+            "mosaic-science": "Mosaic Science",
+            "afp": "AFP",
+            "ansa": "ANSA",
+            "xinhua": "Xinhua",
+            "telam": "Télam",
+            "espn": "ESPN"
+        }
+    },
+    "social": {
+        "instagram": ""
+    },
+    "migration": {
+        "migrated_mob": "true",
+        "id_section_ln9": "0"
+    },
+    "acumuladoGeneral": {
+        "colecciones": [],
+        "cantidad_notas": "30",
+        "hide_banner": null,
+        "tipo_acumulado": "Grilla",
+        "id_collection_promo_items": null,
+        "hierarchy_navigation": null,
+        "hidesectionslist": "true",
+        "hidetagslist": "true"
+    },
+    "acumuladoColor": {
+        "background_color": null,
+        "navigation_color": null,
+        "navigation_color_tags": null,
+        "header_class_name": "No",
+        "id_logo_image": "QJFKLBWXHVGUFA3O65BIHPFILA"
+    },
+    "_website": "la-nacion-ar",
+    "name": "LA NACION",
+    "order": null,
+    "parent": null,
+    "ancestors": null,
+    "inactive": false,
+    "node_type": "section",
+    "children": [
+        {
+            "_id": "/economia/dolar",
+            "migration": {
+                "migrated_mob": "false",
+                "id_section_ln9": "8014"
+            },
+            "_website": "la-nacion-ar",
+            "name": "Dólar Hoy",
+            "order": {
+                "Header-FirstNav": 2001,
+                "Economy": 1001
+            },
+            "parent": {
+                "default": "/economia",
+                "Header-FirstNav": "/economia",
+                "Economy": "/"
+            },
+            "ancestors": {
+                "Header-FirstNav": ["/", "/economia"],
+                "Economy": ["/"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/economia/comercio-exterior",
+            "migration": {
+                "migrated_mob": "false",
+                "id_section_ln9": "347"
+            },
+            "_website": "la-nacion-ar",
+            "name": "Comercio Exterior",
+            "order": {
+                "Header-FirstNav": 2004,
+                "Economy": 1002
+            },
+            "parent": {
+                "default": "/economia",
+                "Header-FirstNav": "/economia",
+                "Economy": "/"
+            },
+            "ancestors": {
+                "Header-FirstNav": ["/", "/economia"],
+                "Economy": ["/"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/economia/campo",
+            "migration": {
+                "migrated_mob": "false",
+                "id_section_ln9": "337"
+            },
+            "_website": "la-nacion-ar",
+            "name": "Campo",
+            "order": {
+                "Header-FirstNav": 2002,
+                "Economy": 1003
+            },
+            "parent": {
+                "default": "/economia",
+                "Header-FirstNav": "/economia",
+                "Economy": "/"
+            },
+            "ancestors": {
+                "Header-FirstNav": ["/", "/economia"],
+                "Economy": ["/"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/economia/industria",
+            "migration": {
+                "migrated_mob": "false",
+                "id_section_ln9": "8002"
+            },
+            "_website": "la-nacion-ar",
+            "name": "Industria",
+            "order": {
+                "Economy": 1004
+            },
+            "parent": {
+                "default": "/economia",
+                "Economy": "/"
+            },
+            "ancestors": {
+                "Economy": ["/"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "/economia/empleos",
+            "migration": {
+                "migrated_mob": "false",
+                "id_section_ln9": "401"
+            },
+            "_website": "la-nacion-ar",
+            "name": "Empleos",
+            "order": {
+                "Economy": 1005
+            },
+            "parent": {
+                "default": "/economia",
+                "Economy": "/"
+            },
+            "ancestors": {
+                "Economy": ["/"]
+            },
+            "inactive": false,
+            "node_type": "section",
+            "children": []
+        },
+        {
+            "_id": "link-M16PYEFH2X3PQCH00J8HTWKNC4",
+            "_website": "la-nacion-ar",
+            "display_name": "Twitter",
+            "url": "https://www.twitter.com",
+            "parent": {
+                "Economy": "/"
+            },
+            "order": {
+                "Economy": 1006
+            },
+            "node_type": "link",
+            "children": []
+        }
+    ]
+}

@@ -26,9 +26,9 @@
 @media ($media-l) {
     .mod-newsletter {
         .container {
-            max-width: px(700);
             flex-direction: row;
             .container-text {
+                max-width: px(500);
                 margin-right: $spacing-md;
                 margin-bottom: 0;
             }

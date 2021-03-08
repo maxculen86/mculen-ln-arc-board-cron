@@ -1,25 +1,37 @@
 import Consumer from 'fusion:consumer';
-import IndexMayInterestV1 from '../../../private/LN/api/v1/mayInterest';
+import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 
+// URL de ejemplo: http://localhost/api/v1/notas/mayInterest/10/?_website=la-nacion-ar&outputType=json
 class SectionMayInterest {
     constructor(props) {
         this.props = props;
 
         // Responde al resolver que permite pasar las versiones existentes
         // Regex actual: ^\/api\/v([1]+)\/notas\/mayInterest\/(\d+)(\/.*)$
+        // this.versions = {
+        //     1: IndexMayInterestV1
+        // };
         this.versions = {
-            1: IndexMayInterestV1
+            1: IndexAcuV1
         };
     }
 
     render() {
         try {
-            const { globalContent, requestUri } = this.props;
-            const indexMayInterestV1 = this.versions[
-                browser.getApiVersion(requestUri)
-            ];
-            return indexMayInterestV1(globalContent);
+            const { globalContent } = this.props;
+
+            const { requestUri } = this.props;
+
+            const indexAcu = this.versions[browser.getApiVersion(requestUri)];
+
+            const acuData = {
+                name: 'Te puede interesar',
+                total: globalContent.length,
+                articles: globalContent
+            };
+
+            return indexAcu(acuData);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

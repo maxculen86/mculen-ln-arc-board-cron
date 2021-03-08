@@ -24,10 +24,11 @@ const fetch = query => {
 };
 
 export default {
+    cache: true,
     fetch,
     schemaName: 'navigation-tree-schema',
     params: {
         website: 'text'
     },
-    ttl: 300
+    ttl: 600
 };

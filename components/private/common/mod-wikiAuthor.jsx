@@ -9,6 +9,7 @@ import ComTitle from './com-title';
 import ComParagraph from './com-paragraph';
 import ModDescriptionList from './mod-descriptionList';
 import ModFigure from './mod-figure';
+import ComAdvance from './com-advance';
 
 const ModWikiAuthor = props => {
     const { classesNames, classCondition, size } = props;

@@ -8,6 +8,11 @@
     max-width: 100%;
     overflow: hidden;
     z-index: 1;
+    &.--megatop {
+        position: relative;
+        z-index: 110;
+        background: $neutral-white;
+    }
     &.--bg-banner {
         background: $light-neutral-200;
         width: 100%;
@@ -25,13 +30,21 @@
         .--scrollDown & {
             top: 0;
         }
+        &.--active {
+            .--scrollDown & {
+                display: flex;
+            }
+        }
+        &.sticky2_mob {
+            .--scrollUp & {
+                top: px(80);
+                display: none;
+            }
+        }
         .sidebar__aside & {
             .--scrollDown & {
                 top: px(10);
             }
-        }
-        .--scrollUp & {
-            top: px(80);
         }
     }
     &.--fixed {
@@ -86,6 +99,7 @@
         .sidebar__aside & {
             display: flex;
             width: 100%;
+            top: px(82);
         }
         &.--fixed {
             left: calc((100% - 920px) / 2);

@@ -1,0 +1,477 @@
+{
+    "_id": "6WTWFSCNKBGHTPTZUBF7WOPC5M",
+    "type": "story",
+    "version": "0.10.6",
+    "content_elements": [
+        {
+            "_id": "KPT6OJW2MBGCTKDXXAXAZ62JCU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1597856572786,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor, lectus at iaculis iaculis, ante metus blandit tellus, eu mollis elit libero volutpat eros. Pellentesque et pulvinar nibh, ac efficitur elit. Morbi euismod rhoncus ultricies. Ut quis nisi venenatis, porta odio ac, sodales massa. Maecenas sit amet eleifend tortor, ut consequat ipsum. Donec non malesuada erat. Curabitur volutpat turpis nec arcu porta laoreet. Fusce tincidunt massa quis est facilisis aliquet. Nunc vehicula dui at ipsum sodales, et aliquam tellus porttitor. Sed maximus, felis id dapibus feugiat, eros ipsum imperdiet tellus, non dignissim purus augue quis nibh. In euismod lorem quis purus aliquet vehicula. In pharetra purus sed felis mollis fringilla. Mauris ut enim et libero vestibulum finibus nec vel velit. Quisque arcu diam, sollicitudin nec finibus at, convallis vitae odio. Vestibulum viverra pulvinar nisi, eget sollicitudin purus."
+        },
+        {
+            "_id": "Q6HBSMTGXFARLEXNUIJCPS7ZRU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1597856572787,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Nam sed lacinia justo, volutpat rutrum turpis. Fusce finibus aliquam libero at ultricies. Nulla ullamcorper elit lectus. Maecenas massa turpis, sagittis eget efficitur eu, condimentum eu libero. Aliquam et placerat libero, quis ultricies nunc. Morbi lacinia, arcu in sagittis lobortis, est odio dictum leo, sed convallis lorem dui vitae eros. Praesent gravida, quam id porta mattis, tellus tortor posuere mauris, eu convallis sem nunc quis dolor. Praesent quis risus mollis, vulputate lectus a, consequat diam."
+        },
+        {
+            "_id": "7THMKJTL5ZD3NPOYOFEJRHFFME",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1597856572788,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Nam sed purus lacus. Pellentesque viverra dapibus magna at lacinia. Aliquam pharetra erat commodo ipsum pellentesque, et efficitur massa bibendum. Fusce faucibus consectetur aliquam. Praesent ultricies ipsum a mi efficitur, eu feugiat sem accumsan. Etiam pharetra sem sed tincidunt malesuada. Maecenas eleifend sapien in fermentum commodo. Morbi euismod iaculis magna in rutrum. Quisque auctor ipsum erat, ac dapibus dui viverra a. Aliquam nunc velit, varius at massa in, imperdiet condimentum justo. Pellentesque sem nisl, ullamcorper a massa at, rutrum ultrices ipsum. Cras faucibus posuere placerat. Quisque nec bibendum massa. Integer hendrerit justo malesuada magna porttitor efficitur. Maecenas venenatis rhoncus congue."
+        },
+        {
+            "_id": "626UIMOPTZGPPDRG2TY6OIBW5M",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1597856572789,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Morbi elementum elementum accumsan. Nulla dapibus imperdiet urna vitae dignissim. Curabitur eu euismod nisl. Nulla facilisi. Praesent non tellus congue, tempor libero sed, sollicitudin sem. Morbi pharetra condimentum ligula in tincidunt. In hac habitasse platea dictumst. Proin ut rhoncus ex. Cras volutpat, nunc sed finibus placerat, orci felis pharetra dui, sed tincidunt urna tortor finibus tortor."
+        },
+        {
+            "_id": "DSTA4YVSGJDJTC4AB7KP3R2FMA",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1597856572790,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Nam eleifend, lectus quis euismod vehicula, nisl ligula malesuada nunc, semper malesuada velit felis ac dolor. Ut vel ante tortor. Maecenas non pharetra ante. Cras eget viverra velit. Curabitur vel gravida erat. Aenean sit amet augue quam. Aliquam erat volutpat. Vivamus vulputate nulla ac diam auctor, eget viverra urna commodo. Integer laoreet enim non semper congue. Nam vitae gravida diam. Sed vitae arcu eget nisi porta cursus quis eu metus. Aenean libero elit, imperdiet efficitur libero vel, imperdiet luctus dolor. Aenean metus neque, sagittis ut tincidunt a, facilisis id sapien. Nam dapibus quam lacus, nec maximus ligula faucibus at."
+        }
+    ],
+    "created_date": "2020-08-19T17:03:23.333Z",
+    "revision": {
+        "revision_id": "5KRIXJ46Y5C5JNNVAXC2WWQ2KU",
+        "parent_id": "HGEDYHFS75C2XI3J6IZ3SKIWZY",
+        "editions": ["default"],
+        "branch": "default",
+        "user_id": "mrodrigues@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2021-02-10T18:50:52.508Z",
+    "canonical_url": "/propiedades/inmuebles-comerciales/nota-3-ln-propiedades-prueba-nid19082020/",
+    "headlines": {
+        "basic": "Nota 3 LN Propiedades (Prueba)",
+        "meta_title": "",
+        "mobile": "",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "sandbox.lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true,
+        "moderation_required": false
+    },
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": "Prueba prueba prueba"
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital",
+            "url": ""
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        }
+    },
+    "source": {
+        "name": "LA NACION",
+        "source_type": "staff",
+        "system": "composer"
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/propiedades/inmuebles-comerciales",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Inmuebles Comerciales",
+            "path": "/propiedades/inmuebles-comerciales",
+            "parent_id": "/propiedades",
+            "parent": {
+                "default": "/propiedades"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/propiedades/inmuebles-comerciales",
+                    "migration": {
+                        "id_section_ln9": "6251",
+                        "migrated_mob": "true"
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Inmuebles Comerciales",
+                    "parent": {
+                        "default": "/propiedades"
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "primary_site": {
+            "_id": "/propiedades/inmuebles-comerciales",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Inmuebles Comerciales",
+            "path": "/propiedades/inmuebles-comerciales",
+            "parent_id": "/propiedades",
+            "additional_properties": {
+                "original": {
+                    "_id": "/propiedades/inmuebles-comerciales",
+                    "migration": {
+                        "id_section_ln9": "6251",
+                        "migrated_mob": "true"
+                    },
+                    "name": "Inmuebles Comerciales",
+                    "parent": "/propiedades",
+                    "inactive": false
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/propiedades/inmuebles-comerciales",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Inmuebles Comerciales",
+                "path": "/propiedades/inmuebles-comerciales",
+                "parent_id": "/propiedades",
+                "parent": {
+                    "default": "/propiedades"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/propiedades/inmuebles-comerciales",
+                        "migration": {
+                            "id_section_ln9": "6251",
+                            "migrated_mob": "true"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Inmuebles Comerciales",
+                        "parent": {
+                            "default": "/propiedades"
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./propiedades/inmuebles-comerciales"
+            },
+            {
+                "_id": "/propiedades",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Propiedades",
+                "path": "/propiedades",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/propiedades",
+                        "acumuladoGeneral": {
+                            "hidetagslist": "false",
+                            "hidesectionslist": "false",
+                            "tipo_acumulado": "Grilla",
+                            "hierarchy_navigation": "",
+                            "hide_banner": null,
+                            "cantidad_notas": "40",
+                            "id_collection_promo_items": "ZGYIL4W3JZCUXCQNLHL2A7VPZY",
+                            "colecciones": [
+                                "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                                "WPDJCUD7RNAQVA4JEPFJYZMCSE"
+                            ]
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No",
+                            "background_color": null,
+                            "navigation_color": "#0074c4",
+                            "navigation_color_tags": "#0074c4",
+                            "id_logo_image": "A5KKOCVHKBBVTMBG6SFT22QRJE"
+                        },
+                        "migration": {
+                            "id_section_ln9": "6251",
+                            "migrated_mob": "true"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Propiedades",
+                        "order": {
+                            "Header-FirstNav": 2003,
+                            "default": 1016
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/economia"
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/", "/economia"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./propiedades"
+            }
+        ],
+        "sites": [
+            {
+                "_id": "/propiedades/inmuebles-comerciales",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Inmuebles Comerciales",
+                "path": "/propiedades/inmuebles-comerciales",
+                "parent_id": "/propiedades",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/propiedades/inmuebles-comerciales",
+                        "migration": {
+                            "id_section_ln9": "6251",
+                            "migrated_mob": "true"
+                        },
+                        "name": "Inmuebles Comerciales",
+                        "parent": "/propiedades",
+                        "inactive": false
+                    }
+                }
+            },
+            {
+                "_id": "/propiedades",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Propiedades",
+                "path": "/propiedades",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/propiedades",
+                        "acumuladoGeneral": {
+                            "hidetagslist": "false",
+                            "hidesectionslist": "false",
+                            "tipo_acumulado": "Grilla",
+                            "hierarchy_navigation": "",
+                            "hide_banner": null,
+                            "cantidad_notas": "40",
+                            "id_collection_promo_items": "ZGYIL4W3JZCUXCQNLHL2A7VPZY",
+                            "colecciones": [
+                                "LPKD4TBYRNGYRCQTIGN3TEFIVU",
+                                "WPDJCUD7RNAQVA4JEPFJYZMCSE"
+                            ]
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No",
+                            "background_color": null,
+                            "navigation_color": "#0074c4",
+                            "navigation_color_tags": "#0074c4",
+                            "id_logo_image": "A5KKOCVHKBBVTMBG6SFT22QRJE"
+                        },
+                        "migration": {
+                            "id_section_ln9": "6251",
+                            "migrated_mob": "true"
+                        },
+                        "name": "Propiedades",
+                        "order": 1016,
+                        "parent": "/",
+                        "inactive": false
+                    }
+                }
+            }
+        ],
+        "tags": []
+    },
+    "related_content": {
+        "basic": [
+            {
+                "_id": "K7L5NZFU2FDG7MXZVLQRGBA6JU",
+                "referent": {
+                    "id": "K7L5NZFU2FDG7MXZVLQRGBA6JU",
+                    "provider": "",
+                    "referent_properties": {},
+                    "type": "image"
+                },
+                "type": "reference"
+            }
+        ],
+        "clonedChildren": [],
+        "clonedFromParent": [
+            {
+                "referent": {
+                    "id": "ENFJJTJJFNF47GFMJJFJYB74BY"
+                },
+                "type": "reference"
+            }
+        ],
+        "redirect": []
+    },
+    "distributor": {
+        "name": "LA NACION",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568",
+        "mode": "reference_denormalized"
+    },
+    "canonical_website": "la-nacion-ar",
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "character_count_actual": 3210,
+            "character_encoding": "UTF-16",
+            "inch_count_actual": 3,
+            "line_count_actual": 17,
+            "word_count_actual": 467
+        }
+    },
+    "display_date": "2021-01-11T10:05:27.397Z",
+    "credits": {
+        "by": [
+            {
+                "_id": "mterrizzi",
+                "type": "author",
+                "version": "0.5.8",
+                "name": "Mauro Terrizzi",
+                "image": {
+                    "url": "",
+                    "version": "0.5.8"
+                },
+                "description": "",
+                "url": "",
+                "slug": "",
+                "social_links": [
+                    {
+                        "site": "email",
+                        "url": "mterrizzi@lanacion.com.ar"
+                    }
+                ],
+                "socialLinks": [
+                    {
+                        "site": "email",
+                        "url": "mterrizzi@lanacion.com.ar",
+                        "deprecated": true,
+                        "deprecation_msg": "Please use social_links."
+                    }
+                ],
+                "additional_properties": {
+                    "original": {
+                        "_id": "mterrizzi",
+                        "firstName": "Mauro",
+                        "lastName": "Terrizzi",
+                        "secondLastName": "",
+                        "byline": "Mauro Terrizzi",
+                        "image": "",
+                        "email": "mterrizzi@lanacion.com.ar",
+                        "affiliations": "COVEDISA S.A.",
+                        "education": [],
+                        "awards": [],
+                        "books": [],
+                        "podcasts": [],
+                        "bio_page": "",
+                        "bio": "",
+                        "longBio": "",
+                        "slug": "",
+                        "native_app_rendering": false,
+                        "fuzzy_match": false,
+                        "contributor": false,
+                        "status": true,
+                        "last_updated_date": "2020-05-12T21:23:58.500Z"
+                    }
+                }
+            }
+        ]
+    },
+    "subtype": "1",
+    "first_publish_date": "2020-08-19T17:03:29.658Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/propiedades/inmuebles-comerciales",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Inmuebles Comerciales",
+                "path": "/propiedades/inmuebles-comerciales",
+                "parent_id": "/propiedades",
+                "parent": {
+                    "default": "/propiedades"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/propiedades/inmuebles-comerciales",
+                        "migration": {
+                            "id_section_ln9": "6251",
+                            "migrated_mob": "true"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Inmuebles Comerciales",
+                        "parent": {
+                            "default": "/propiedades"
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./propiedades/inmuebles-comerciales"
+            },
+            "website_url": "/propiedades/inmuebles-comerciales/nota-3-ln-propiedades-prueba-nid19082020/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true
+    },
+    "publish_date": "2021-02-10T18:50:52.517Z",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/propiedades/inmuebles-comerciales/nota-3-ln-propiedades-prueba-nid19082020/"
+}
