@@ -51,10 +51,7 @@ class AcuTag {
             const { acuArticlesSource, globalContent: configuration } =
                 this.state || {};
 
-            const {
-                globalContent: { name },
-                requestUri
-            } = this.props;
+            const { requestUri } = this.props;
 
             const indexAcu = this.versions[browser.getApiVersion(requestUri)];
 

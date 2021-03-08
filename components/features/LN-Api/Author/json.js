@@ -1,6 +1,7 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
+import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 // URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v([1]+)\/notas\/byAuthor\/(.+)\/(params.+)\/(.*)$ , donde "params" dependera del customField "paramUrlId" configurado
 
@@ -15,31 +16,13 @@ class AuthorAcu {
             requestUri
         } = props;
 
-        this.state = {
-            id,
+        this.state = {};
+
+        const { size, page } = getSizesFrom(
             isAdmin,
             sizeCf,
             pageCf,
             paramUrlId,
-            requestUri,
-            fetchContent: this.fetchContent
-        };
-
-        let size = browser.getSizesFrom(
-            isAdmin,
-            sizeCf,
-            paramUrlId,
-            'size',
-            requestUri
-        );
-
-        if (size > 100) size = 100;
-
-        const page = browser.getSizesFrom(
-            isAdmin,
-            pageCf,
-            paramUrlId,
-            'page',
             requestUri
         );
 

@@ -1,5 +1,3 @@
-import dictionary from './dictionary/lanacionar-sandbox.json';
-
 export default {
     IS_DEV: 'false',
     IS_SANDBOX: 'true',
@@ -16,7 +14,6 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGflhpT13/ZzAc/5NMxEKdrAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMNcrZM1LUHAydCG3/AgEQgDtvKIMrESoH0YRtmpupMNMF7sWKvEgozwQ8d9xswCcTbxKjmvJxx3EnBrGmVKIVZkMYnISE8RBwLn/NUg==}',
     ELMAH_LOG_ID:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygFTsaGACFKTJ6VyRAanSaKqAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDFBnWVdcbZaYkiv5FwIBEIA/KgB5xakuc8CV0LOFAuPtPqb0/5IvxDhvnmTP2yoAJKO4c7lTMVPd21bKITHXjFapizMzmpflRYOfdtfmgof9}',
-    DICTIONARY: dictionary,
     WIDGETS: 'li-nacion-recommended-item-template-1',
     LIFTIGNITER_X_API_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHjjCjIQbRV+iUWcWbQY1D7AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDEle+nWW5GV4mVaLSQIBEIA/Ua0YpoDaeKH5wVfBNbL/Mf4yNWDloQu7B01BM90SMAB19NRVtb/Mf+gE2mxqdckaqIIoluGTVetDimzenvdp}',
