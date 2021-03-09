@@ -1,10 +1,10 @@
-import Consumer from 'fusion:consumer';
+import Consumer from '../Story/node_modules/fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 // URL de ejemplo: http://localhost/api/v1/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
-class AcuSection {
+class AccumulatedSections {
     constructor(props) {
         this.props = props;
         const {
@@ -54,14 +54,13 @@ class AcuSection {
 
             return {
                 ...resp,
-                sectionId: null,
                 sectionsIds: sectionsFormated,
-                sourceOrigin: 'composer'
+                sourceOrigin: 'composer',
+                size: null
             };
         }
         return {
             ...resp,
-            sectionsIds: null,
             sectionId,
             size
         };
@@ -87,11 +86,10 @@ class AcuSection {
                 total: acuArticlesSource.count,
                 configuration
             };
-            //return this.state.query;
             return indexAcu(acuData);
         } catch (err) {
             return { Success: false, Message: err.message };
         }
     }
 }
-export default Consumer(AcuSection);
+export default Consumer(AccumulatedSections);

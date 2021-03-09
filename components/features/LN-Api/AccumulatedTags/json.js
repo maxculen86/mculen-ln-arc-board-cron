@@ -1,19 +1,19 @@
-import Consumer from 'fusion:consumer';
+import Consumer from '../Story/node_modules/fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
-// URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
-// Resolver: ^\/api\/v([1]+)\/notas\/byAuthor\/(.+)\/(params.+)\/(.*)$ , donde "params" dependera del customField "paramUrlId" configurado
 
-class AuthorAcu {
+// URL de ejemplo: http://localhost/api/v1/notas/byTag/cronicas-tid61570/params=size:1;page:1/?_website=la-nacion-ar&outputType=json
+// Resolver: ^\/api\/v([1]+)\/notas\/byTag\/((?!params).+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
+
+class AccumulatedTags {
     constructor(props) {
         this.props = props;
 
         const {
-            globalContent: { _id: id },
+            globalContent: { _id: id, slug: slug },
             isAdmin,
-            customFields: { size: sizeCf, page: pageCf, paramUrlId },
-            requestUri
+            customFields: { size: sizeCf, page: pageCf, paramUrlId }
         } = props;
 
         this.state = {};
@@ -23,7 +23,7 @@ class AuthorAcu {
             sizeCf,
             pageCf,
             paramUrlId,
-            requestUri
+            this.props.requestUri
         );
 
         this.fetchContent({
@@ -31,8 +31,8 @@ class AuthorAcu {
                 source: 'acuArticlesSource',
                 query: {
                     sectionId: null,
-                    authorId: id,
-                    tagId: null,
+                    tagId: slug,
+                    author: null,
                     imageConfig: 'm',
                     size,
                     page
@@ -47,27 +47,37 @@ class AuthorAcu {
 
     render() {
         try {
-            const { acuArticlesSource } = this.state || {};
+            const { acuArticlesSource, globalContent: configuration } =
+                this.state || {};
 
-            const { globalContent: author, requestUri } = this.props;
+            const { requestUri } = this.props;
+
             const indexAcu = this.versions[browser.getApiVersion(requestUri)];
 
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 return null;
             }
-            const acuData = {
-                tipoAcumulado: 3,
-                name: author.byline,
+
+            const dataTag = {
+                slug: this.props.globalContent.Payload.items[0].slug,
+                text: this.props.globalContent.Payload.items[0].name
+            };
+
+            const acuDataTag = {
+                tipoAcumulado: 2,
+                name: dataTag.text,
                 articles: acuArticlesSource.content_elements,
                 paginator: acuArticlesSource.next,
-                total: acuArticlesSource.count,
-                author
+                total: acuArticlesSource.content_elements.length,
+                tag: dataTag,
+                configuration
             };
-            return indexAcu(acuData);
+
+            return indexAcu(acuDataTag);
         } catch (err) {
             return { Success: false, Message: err.message };
         }
     }
 }
 
-export default Consumer(AuthorAcu);
+export default Consumer(AccumulatedTags);

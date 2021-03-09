@@ -1,9 +1,9 @@
-import Consumer from 'fusion:consumer';
+import Consumer from '../Story/node_modules/fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 
 // URL de ejemplo: http://localhost/api/v1/notas/mayInterest/10/?_website=la-nacion-ar&outputType=json
-class SectionMayInterest {
+class MayInterest {
     constructor(props) {
         this.props = props;
 
@@ -38,4 +38,4 @@ class SectionMayInterest {
     }
 }
 
-export default Consumer(SectionMayInterest);
+export default Consumer(MayInterest);

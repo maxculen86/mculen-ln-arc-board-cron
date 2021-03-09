@@ -40,8 +40,7 @@ const resolve = key => {
     if (sectionsIds) {
         const includeField =
             '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,display_date,publish_date,website_url,display_date,website_url,marquesina,label.recomendar.text,related_content';
-        return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
-            &sort=display_date:desc&size=${size}&from=${from}&_sourceInclude=${includeField}`;
+        return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}&sort=display_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
     }
 
     const sourceOriginFilter =
@@ -146,11 +145,11 @@ const resolve = key => {
     }`;
     const final = `${basePath}${query}&size=${cant}&from=${from}
             &sort=display_date:desc`;
+
     return final;
 };
 
 const transform = (data, siteProps) => {
-    // console.log('Source', data)
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
@@ -218,6 +217,7 @@ const transform = (data, siteProps) => {
 
 export default {
     resolve,
+    transform,
     params: {
         sectionId: 'text',
         authorId: 'text',
@@ -229,6 +229,5 @@ export default {
         sectionsIds: 'text',
         sourceOrigin: 'text'
     },
-    transform,
     ttl: 120
 };
