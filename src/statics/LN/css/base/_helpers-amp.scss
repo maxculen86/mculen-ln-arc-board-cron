@@ -64,78 +64,235 @@
 //=============================
 // MEDIDAS DE FONT
 //=============================
-.--threexl {
-    // font-size: px(32);
-    // line-height: px(40);
-    font-size: px(24);
-    line-height: px(32);
+@mixin size3XL {
+    font-size: px(48);
+    line-height: px(56);
 }
-.twoxl {
+
+@mixin size2XL {
+    font-size: px(40);
+    line-height: px(52);
+}
+
+@mixin sizeXL {
     font-size: px(32);
     line-height: px(40);
 }
-.--xl {
-    font-size: px(32);
-    line-height: px(40);
-}
-.--l {
+
+@mixin sizeL {
     font-size: px(24);
     line-height: px(32);
 }
-.--m {
+
+@mixin sizeM {
     font-size: px(20);
     line-height: px(28);
 }
-.--s {
-    font-size: px(20);
-    line-height: px(28);
-}
-.--xs {
-    font-size: px(16);
-    line-height: px(24);
-}
-.--twoxs {
+
+@mixin sizeS {
     font-size: px(19);
     line-height: px(30);
 }
-.--threexs {
+
+@mixin sizeXS {
+    font-size: px(18);
+    line-height: px(26);
+}
+
+@mixin size2XS {
     font-size: px(16);
     line-height: px(24);
 }
-.--fourxs {
+
+@mixin size3XS {
     font-size: px(15);
     line-height: px(17);
 }
-.--fivexs {
+
+@mixin size4XS {
     font-size: px(14);
-    line-height: px(17);
+    line-height: px(16);
 }
-.--sixxs {
+
+@mixin size5XS {
     font-size: px(12);
-    line-height: px(14);
+    line-height: px(16);
 }
-.--sevenxs {
+
+@mixin size6XS {
     font-size: px(11);
-    line-height: px(13);
+    line-height: px(16);
+}
+
+//TABLA DE CONVERSIÓN
+.--threexl {
+    @include sizeL; //mobile
+    @media (max-width: 767px) {
+        //mobile home
+        .mod-article:not(&.--bomba) & {
+            @include sizeM;
+        }
+    }
+    @media ($media-m) {
+        //768
+        @include size2XL;
+    }
+    @media ($media-lm) {
+        //1100
+        @include size3XL;
+    }
+}
+
+.--twoxl {
+    @include sizeXL; //mobile
+    @media (max-width: 767px) {
+        //mobile home
+        .mod-article & {
+            @include sizeM;
+        }
+    }
+    @media ($media-m) {
+        //768
+        @include size2XL;
+    }
+}
+
+.--xl {
+    @include sizeXL; //mobile
+    @media (max-width: 767px) {
+        //mobile home
+        .mod-article & {
+            @include sizeM;
+        }
+    }
+}
+
+.--l {
+    @include sizeM; //mobile
+    @media ($media-m) {
+        //768
+        @include sizeL;
+    }
+}
+
+.--m {
+    @include sizeM; //all
+}
+
+.--s {
+    @include sizeS; //all
+}
+
+.--xs {
+    @include sizeM; //mobile
+    @media ($media-m) {
+        //768
+        @include sizeXS;
+    }
+}
+
+.--twoxs {
+    @include size2XS; //all
+}
+
+.--threexs {
+    @include size3XS; //all
+}
+
+.--fourxs {
+    @include size4XS; //all
+}
+
+.--fivexs {
+    @include size5XS; //all
+}
+
+.--sixxs {
+    @include size6XS; //all
+}
+
+//=============================
+// FONT WEIGHT
+//=============================
+
+.--font-thin {
+    font-weight: 100;
+}
+
+.--font-light {
+    font-weight: 300;
+}
+
+.--font-regular {
+    font-weight: 400;
+}
+
+.--font-medium {
+    font-weight: 500;
+}
+
+strong,
+b,//vienen en las notas
+.--font-bold {
+    font-weight: 700;
+}
+
+.--font-black {
+    font-weight: 900;
+}
+
+//=============================
+// FONTS
+//=============================
+
+.--arial {
+    font-family: $font-arial;
+}
+
+.--georgia {
+    font-family: $font-georgia;
+}
+
+.--sueca {
+    font-family: $font-SuecaSlab;
+}
+
+//=============================
+// DISPLAY NONE / HIDE
+//=============================
+
+.--none {
+    display: none;
+}
+
+.--mobile-none {
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.--tablet-none {
+    @media (max-width: 1023px) {
+        display: none;
+    }
+}
+
+.--hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.--show {
+    visibility: visible;
+    opacity: 1;
+}
+
+i:not(.com-icon) {
+    //vienen en las notas
+    font-style: italic;
 }
 
 @media ($media-m) {
-    .--threexl {
-        font-size: px(40);
-        line-height: px(52);
-    }
-    .--twoxl {
-        font-size: px(40);
-        line-height: px(52);
-    }
-    .--xl {
-        font-size: px(32);
-        line-height: px(40);
-    }
-    .--s {
-        font-size: px(18);
-        line-height: px(26);
-    }
     .--capital::first-letter {
         text-transform: uppercase;
         font-size: px(64);
@@ -143,19 +300,5 @@
         font-weight: bold;
         margin: px(16) px(8) px(8) 0;
         float: left;
-    }
-}
-@media ($media-l) {
-    .--threexl {
-        font-size: px(48);
-        line-height: px(56);
-    }
-    .--twoxl {
-        font-size: px(40);
-        line-height: px(52);
-    }
-    .--xl {
-        font-size: px(32);
-        line-height: px(40);
     }
 }
