@@ -1,4 +1,4 @@
-import Consumer from '../Story/node_modules/fusion:consumer';
+import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 import filter from '../../../../content/filters/LN/nota/articleRanking';
