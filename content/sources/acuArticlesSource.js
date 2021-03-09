@@ -41,7 +41,7 @@ const resolve = key => {
         const includeField =
             '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,display_date,publish_date,website_url,display_date,website_url,marquesina,label.recomendar.text,related_content';
         return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
-            &sort=display_date:desc&size=${size}&from=${from}&_sourceInclude=${includeField}`;
+            &sort=first_publish_date:desc&size=${size}&from=${from}&_sourceInclude=${includeField}`;
     }
 
     const sourceOriginFilter =
