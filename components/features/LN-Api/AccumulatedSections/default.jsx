@@ -9,7 +9,10 @@ index.propTypes = {
     customFields: PropTypes.shape({
         size: PropTypes.number,
         page: PropTypes.number,
-        paramUrlId: PropTypes.string
+        paramUrlId: PropTypes.string,
+        sections: PropTypes.list.tag({
+            label: 'Secciones'
+        })
     })
 };
 

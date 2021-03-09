@@ -573,10 +573,6 @@
     @include size6XS; //all
 }
 
-// .--sevenxs {
-//     @include size7XS; //all
-// }
-
 //=============================
 // FONT WEIGHT
 //=============================
@@ -598,6 +594,7 @@
 }
 
 strong,
+b,//vienen en las notas
 .--font-bold {
     font-weight: 700;
 }

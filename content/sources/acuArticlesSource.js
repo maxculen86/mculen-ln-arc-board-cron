@@ -146,11 +146,11 @@ const resolve = key => {
     }`;
     const final = `${basePath}${query}&size=${cant}&from=${from}
             &sort=display_date:desc`;
+
     return final;
 };
 
 const transform = (data, siteProps) => {
-    // console.log('Source', data)
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
@@ -219,6 +219,7 @@ const transform = (data, siteProps) => {
 
 export default {
     resolve,
+    transform,
     params: {
         sectionId: 'text',
         authorId: 'text',
@@ -230,6 +231,5 @@ export default {
         sectionsIds: 'text',
         sourceOrigin: 'text'
     },
-    transform,
     ttl: 120
 };
