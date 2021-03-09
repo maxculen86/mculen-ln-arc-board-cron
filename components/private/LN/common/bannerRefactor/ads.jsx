@@ -10,134 +10,137 @@ import ArcAdLib from './arcAdLib';
 
 const bannersLoaded = [];
 
-const Ads = props => {
-    const {
-        id,
-        slotName,
-        dimensions,
-        targeting,
-        bidding,
-        sizemap,
-        display,
-        dfpId,
-        children
-    } = props;
-    const [instanced, setInstanced] = useState(() => false);
+const Ads = React.memo(
+    props => {
+        const {
+            id,
+            slotName,
+            dimensions,
+            targeting,
+            bidding,
+            sizemap,
+            display,
+            dfpId,
+            children
+        } = props;
+        const [instanced, setInstanced] = useState(() => false);
 
-    const onMutate = useCallback(
-        mutations => {
-            mutations.forEach(mutation => {
-                const nodes = mutation.addedNodes;
-                nodes.forEach(node => {
-                    const { nodeId, style, localName } = node;
-                    const { width } = style || {};
+        const onMutate = useCallback(
+            mutations => {
+                mutations.forEach(mutation => {
+                    const nodes = mutation.addedNodes;
+                    nodes.forEach(node => {
+                        const { nodeId, style, localName } = node;
+                        const { width } = style || {};
 
-                    const nodeDimension =
-                        width && parseInt(width.replace('px', ''), 10);
+                        const nodeDimension =
+                            width && parseInt(width.replace('px', ''), 10);
 
-                    if (nodeId === ADHESION_DSK && nodeDimension === 728)
-                        document
-                            .querySelector(`#${id}`)
-                            .parentNode.classList.add('--small');
+                        if (nodeId === ADHESION_DSK && nodeDimension === 728)
+                            document
+                                .querySelector(`#${id}`)
+                                .parentNode.classList.add('--small');
 
-                    if (localName === 'iframe') {
-                        document
-                            .querySelector(`#${id}`)
-                            .parentNode.classList.remove('hlp-none');
-                    }
-                });
-            });
-        },
-        [id]
-    );
-
-    useMutationObserver(true, onMutate, id, {
-        subtree: true,
-        childList: true
-    });
-
-    if (typeof window === 'undefined') return <></>;
-
-    window.arcAdsPrerenderer = adDetails => {
-        return new Promise(resolve => {
-            setInstanced(() => true);
-            const { prebid = {} } = bidding || {};
-
-            if (
-                Object.keys(prebid || {}).length > 0 &&
-                typeof pbjs === 'object' &&
-                Object.keys(pbjs || {}).length > 0 &&
-                typeof googletag === 'object' &&
-                Object.keys(googletag || {}).length > 0
-            ) {
-                googletag.cmd = googletag.cmd || [];
-                pbjs.que = pbjs.que || [];
-
-                googletag.cmd.push(() => {
-                    console.time();
-                    console.info(
-                        `::: Se cargara un PREBID ::: /${dfpId}/${slotName}_0`
-                    );
-
-                    googletag.pubads().disableInitialLoad();
-                    googletag.pubads().enableSingleRequest();
-                    googletag.enableServices();
-
-                    const callAdserver = gptSlots => {
-                        if (pbjs.adserverCalled) return;
-                        pbjs.adserverCalled = true;
-
-                        googletag.pubads().refresh(gptSlots, {
-                            changeCorrelator: false
-                        });
-                    };
-
-                    // request pbjs bids when it loads
-                    pbjs.que.push(() => {
-                        pbjs.rp.requestBids({
-                            callback: callAdserver,
-                            gptSlotObjects: [adDetails.adUnit]
-                        });
+                        if (localName === 'iframe') {
+                            document
+                                .querySelector(`#${id}`)
+                                .parentNode.classList.remove('hlp-none');
+                        }
                     });
-
-                    // failsafe in case PBJS doesn't load
-                    setTimeout(() => {
-                        callAdserver([adDetails.adUnit]);
-                    }, 2500);
-                    console.timeEnd();
                 });
-            }
-
-            resolve(adDetails);
-        });
-    };
-
-    const adInstancer = () => {
-        bannersLoaded.push(`/${dfpId}/${slotName}`);
-        ArcAdLib.getInstance().registerAd(
-            {
-                id,
-                slotName,
-                dimensions,
-                display,
-                targeting: { ...targeting, adstest: hasAdsTestParam() },
-                sizemap,
-                prerender: window.arcAdsPrerenderer
             },
-            dfpId
+            [id]
         );
-    };
 
-    !instanced &&
-        !bannersLoaded.includes(`/${dfpId}/${slotName}`) &&
-        adInstancer();
+        useMutationObserver(true, onMutate, id, {
+            subtree: true,
+            childList: true
+        });
 
-    return (
-        <div id={id} className="com-banner">
-            <div>{children}</div>
-        </div>
-    );
-};
+        if (typeof window === 'undefined') return <></>;
+
+        window.arcAdsPrerenderer = adDetails => {
+            return new Promise(resolve => {
+                setInstanced(() => true);
+                const { prebid = {} } = bidding || {};
+
+                if (
+                    Object.keys(prebid || {}).length > 0 &&
+                    typeof pbjs === 'object' &&
+                    Object.keys(pbjs || {}).length > 0 &&
+                    typeof googletag === 'object' &&
+                    Object.keys(googletag || {}).length > 0
+                ) {
+                    googletag.cmd = googletag.cmd || [];
+                    pbjs.que = pbjs.que || [];
+
+                    googletag.cmd.push(() => {
+                        console.time();
+                        console.info(
+                            `::: Se cargara un PREBID ::: /${dfpId}/${slotName}_0`
+                        );
+
+                        googletag.pubads().disableInitialLoad();
+                        googletag.pubads().enableSingleRequest();
+                        googletag.enableServices();
+
+                        const callAdserver = gptSlots => {
+                            if (pbjs.adserverCalled) return;
+                            pbjs.adserverCalled = true;
+
+                            googletag.pubads().refresh(gptSlots, {
+                                changeCorrelator: false
+                            });
+                        };
+
+                        // request pbjs bids when it loads
+                        pbjs.que.push(() => {
+                            pbjs.rp.requestBids({
+                                callback: callAdserver,
+                                gptSlotObjects: [adDetails.adUnit]
+                            });
+                        });
+
+                        // failsafe in case PBJS doesn't load
+                        setTimeout(() => {
+                            callAdserver([adDetails.adUnit]);
+                        }, 2500);
+                        console.timeEnd();
+                    });
+                }
+
+                resolve(adDetails);
+            });
+        };
+
+        const adInstancer = () => {
+            bannersLoaded.push(`/${dfpId}/${slotName}`);
+            ArcAdLib.getInstance().registerAd(
+                {
+                    id,
+                    slotName,
+                    dimensions,
+                    display,
+                    targeting: { ...targeting, adstest: hasAdsTestParam() },
+                    sizemap,
+                    prerender: window.arcAdsPrerenderer
+                },
+                dfpId
+            );
+        };
+
+        !instanced &&
+            !bannersLoaded.includes(`/${dfpId}/${slotName}`) &&
+            adInstancer();
+
+        return (
+            <div id={id} className="com-banner">
+                <div>{children}</div>
+            </div>
+        );
+    },
+    (prevProps, nextProps) => prevProps.slotName === nextProps.slotName
+);
 
 Ads.propTypes = {
     id: PropTypes.string.isRequired,
