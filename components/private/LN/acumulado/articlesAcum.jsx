@@ -47,7 +47,6 @@ const ArticlesAcum = ({
                         dataSection={DATA_SECTION}
                         article={art}
                         typeArticle={typeArticle}
-                        //titleSize={typeArticle === 'Listado' && '--m'}
                         titleSize={typeAcumRules[typeArticle].titleSize}
                         outputType={outputType}
                         withSubhead={typeAcumRules[typeArticle].withSubhead}
