@@ -20,15 +20,14 @@ const Ranking = ({ articles, dataSection, title }) => {
         >
             <ComTitle tag="h2" size="--m" content={title} />
             <OrderedList>
-                {articles.length > 0 &&
-                    articles.map((article, index) => (
-                        <ArticleMain
-                            // border
-                            articleData={article}
-                            dataSection={dataSection}
-                            position={index + 1}
-                        />
-                    ))}
+                {articles.map((article, index) => (
+                    <ArticleMain
+                        // border
+                        articleData={article}
+                        dataSection={dataSection}
+                        position={index + 1}
+                    />
+                ))}
             </OrderedList>
         </section>
     ) : null;

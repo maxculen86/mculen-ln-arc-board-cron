@@ -15,19 +15,16 @@ import getPresets from './utils/presets';
 import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import Redirect from './utils/redirect';
-import { isNotRecommend } from '../sources/utils/collectionsHelper';
+import { isNotRecommend } from './utils/collectionsHelper';
 
 const resolve = (key, a) => {
-    const { sectionId, size = 3, website, weeksAgo = 1, daysAgo = 1 } = key;
+    const { sectionId, website, daysAgo = 1 } = key;
+    const sizeNumber = 10;
     const arcSite = key['arc-site'];
     const basePath = `?website=${website || arcSite}`;
     const sectionFilter = sectionId ? `category${sectionId}` : '';
     const offsetFilter = daysAgo ? `&offset=${daysAgo}` : '';
-    const finalPath = `feeds/most-read/${sectionFilter}/${basePath}&size=10${offsetFilter}`;
-    console.log(
-        '🚀 ~ file: rankingArticlesSource.js ~ line 33 ~ resolve ~ finalPath',
-        finalPath
-    );
+    const finalPath = `/feeds/most-read/${sectionFilter}/${basePath}&size=${sizeNumber}${offsetFilter}`;
     return finalPath;
 };
 
@@ -59,7 +56,7 @@ const fetch = query => {
             throw new Redirect(forwardUrl, 301);
         }
 
-        return transform(response, query);
+        return response && transform(response, query);
     });
 };
 
