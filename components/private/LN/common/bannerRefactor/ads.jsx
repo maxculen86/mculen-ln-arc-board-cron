@@ -24,31 +24,9 @@ const Ads = props => {
     } = props;
     const [instanced, setInstanced] = useState(() => false);
 
-    useEffect(() => {
-        googletag;
-
-        googletag.cmd.push(() => {
-            /* googletag.pubads().enableSingleRequest();
-            googletag.pubads().disableInitialLoad();
-            googletag.enableServices(); */
-            /* console.log(
-                '🚀 ~ file: ads.jsx ~ line 41 ~ googletag.cmd.push ~ dimensions',
-                `/${dfpId}/${slotName}`,
-                dimensions,
-                id
-            ); */
-            // googletag.pubads().collapseEmptyDivs();
-            // console.log('🚀 ~ file: ads.jsx ~ line 25 ~ targeting', targeting);
-            // googletag.pubads().setTargeting
-            // navegg();
-            // console.log("🚀 ~ file: ads.jsx ~ line 70 ~ navegg", navegg)
-        });
-    }, [dimensions]);
-
     const onMutate = useCallback(
         mutations => {
             mutations.forEach(mutation => {
-                I;
                 const nodes = mutation.addedNodes;
                 nodes.forEach(node => {
                     const { nodeId, style, localName } = node;
@@ -109,11 +87,9 @@ const Ads = props => {
                         if (pbjs.adserverCalled) return;
                         pbjs.adserverCalled = true;
 
-                        setTimeout(() => {
-                            googletag.pubads().refresh(gptSlots, {
-                                changeCorrelator: false
-                            });
-                        }, 1000);
+                        googletag.pubads().refresh(gptSlots, {
+                            changeCorrelator: false
+                        });
                     };
 
                     // request pbjs bids when it loads
