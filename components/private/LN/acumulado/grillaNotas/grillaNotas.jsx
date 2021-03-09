@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
@@ -18,7 +18,6 @@ import {
     isPrimarySectionInBannerSegments
 } from '../../common/bannerRefactor/utils';
 import { slotsConfig } from '../../common/bannerRefactor/config';
-import { GlobalContext } from '../../../common/context/globalContext';
 
 class GrillaNotas extends React.Component {
     getBanner = index => {
