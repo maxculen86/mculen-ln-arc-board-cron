@@ -1,4 +1,3 @@
-import get from 'lodash.get';
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
@@ -11,7 +10,7 @@ class AcuSection {
         const {
             globalContent: { _id: id },
             isAdmin,
-            customFields: { size: sizeCf, page: pageCf, paramUrlId }
+            customFields: { size: sizeCf, page: pageCf, paramUrlId, sections }
         } = props;
         this.state = {};
 
@@ -22,21 +21,51 @@ class AcuSection {
             paramUrlId,
             this.props.requestUri
         );
-        this.fetchContent({
-            acuArticlesSource: {
-                source: 'acuArticlesSource',
-                query: {
-                    sectionId: id,
-                    imageConfig: 'm',
-                    size,
-                    page
-                }
-            }
-        });
+
+        const query = this.getQueryElement(id, size, page, sections);
+
+        this.fetch(query);
+
         this.versions = {
             1: IndexAcuV1
         };
     }
+
+    fetch(query) {
+        this.fetchContent({
+            acuArticlesSource: {
+                source: 'acuArticlesSource',
+                query
+            }
+        });
+    }
+
+    getQueryElement = (sectionId, size, page, sections) => {
+        const resp = {
+            page,
+            imageConfig: 'm'
+        };
+
+        if (sectionId.toLowerCase() === '/ultimas-noticias') {
+            const sectionsFormated = JSON.stringify(sections)
+                .replace(/,/g, '+OR+')
+                .replace('[', '(')
+                .replace(']', ')');
+
+            return {
+                ...resp,
+                sectionId: null,
+                sectionsIds: sectionsFormated,
+                sourceOrigin: 'composer'
+            };
+        }
+        return {
+            ...resp,
+            sectionsIds: null,
+            sectionId,
+            size
+        };
+    };
 
     render() {
         try {
@@ -58,6 +87,7 @@ class AcuSection {
                 total: acuArticlesSource.count,
                 configuration
             };
+            //return this.state.query;
             return indexAcu(acuData);
         } catch (err) {
             return { Success: false, Message: err.message };
