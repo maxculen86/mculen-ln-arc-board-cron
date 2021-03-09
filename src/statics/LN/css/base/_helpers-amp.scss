@@ -287,11 +287,6 @@ b,//vienen en las notas
     opacity: 1;
 }
 
-i:not(.com-icon) {
-    //vienen en las notas
-    font-style: italic;
-}
-
 @media ($media-m) {
     .--capital::first-letter {
         text-transform: uppercase;
