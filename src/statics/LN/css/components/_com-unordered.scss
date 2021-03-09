@@ -12,6 +12,11 @@
         margin-bottom: px(16);
         position: relative;
 
+        i {
+            //vienen en las notas
+            font-style: italic;
+        }
+
         &:before {
             font-family: 'LNicons';
             content: $icon-bullet;
