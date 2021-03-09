@@ -77,6 +77,7 @@ const index = props => {
                 destination="article"
                 border={border}
                 excludeSectionId={excludeSectionId}
+                sourceOrigin="composer"
                 dataBlockName={dataBlockName}
             />
         )
