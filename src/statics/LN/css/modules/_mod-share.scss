@@ -10,7 +10,7 @@
     left: 0;
     padding: px(6) $spacing-sm;
     border-bottom: 1px solid $light-neutral-200;
-    display: none;
+    //display: none;
 
     .container {
         @include flex(flex, row, center, center);
@@ -18,7 +18,7 @@
 
     .amp & {
         position: relative;
-        display: flex;
+        //display: flex;
         border: none;
     }
     .cuerpo__nota & {
@@ -29,16 +29,16 @@
     // .--scrollDown & {
     //     display: none;
     // }
-    &:not(.--active) {
-        .--scrollUp & {
-            top: 0;
-            display: flex;
-        }
-        .--scrollDown & {
-            top: 0;
-            display: flex;
-        }
-    }
+    // &:not(.--active) {
+    //     .--scrollUp & {
+    //         top: 0;
+    //         display: flex;
+    //     }
+    //     .--scrollDown & {
+    //         top: 0;
+    //         display: flex;
+    //     }
+    // }
 
     amp-social-share {
         &[type='facebook'],
@@ -88,12 +88,12 @@
         width: px(44);
         padding: px(8) px(2);
         position: sticky;
-        top: px(20);
+        top: px(16);
         transition: all 0.25s;
         background: rgba(255, 255, 255, 0.8);
         float: left;
         border: none;
-        display: block;
+        //display: block;
         border-radius: px(4);
 
         .container {
@@ -107,8 +107,8 @@
                 top: px(85);
             }
         }
-        .--scrollDown & {
-            display: flex;
-        }
+        // .--scrollDown & {
+        //     display: flex;
+        // }
     }
 }
