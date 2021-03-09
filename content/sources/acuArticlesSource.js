@@ -37,7 +37,6 @@ const resolve = key => {
         return `${basePath}&q=type:story&include_distributor_name=${distributorId}&size=${cant}&from=${from}
             &sort=display_date:desc`;
 
-    console.log(sectionsIds);
     if (sectionsIds) {
         const includeField =
             '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,display_date,publish_date,website_url,display_date,website_url,marquesina,label.recomendar.text,related_content';
