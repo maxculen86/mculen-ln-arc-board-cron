@@ -1,17 +1,16 @@
-import get from 'lodash.get';
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
 // URL de ejemplo: http://localhost/api/v1/notas/bySection/recetas/params=size:12;page:120/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v1\/notas\/bySection(\/((?!params).)+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
-class AcuSection {
+class AccumulatedSections {
     constructor(props) {
         this.props = props;
         const {
             globalContent: { _id: id },
             isAdmin,
-            customFields: { size: sizeCf, page: pageCf, paramUrlId }
+            customFields: { size: sizeCf, page: pageCf, paramUrlId, sections }
         } = props;
         this.state = {};
 
@@ -22,21 +21,50 @@ class AcuSection {
             paramUrlId,
             this.props.requestUri
         );
-        this.fetchContent({
-            acuArticlesSource: {
-                source: 'acuArticlesSource',
-                query: {
-                    sectionId: id,
-                    imageConfig: 'm',
-                    size,
-                    page
-                }
-            }
-        });
+
+        const query = this.getQueryElement(id, size, page, sections);
+
+        this.fetch(query);
+
         this.versions = {
             1: IndexAcuV1
         };
     }
+
+    fetch(query) {
+        this.fetchContent({
+            acuArticlesSource: {
+                source: 'acuArticlesSource',
+                query
+            }
+        });
+    }
+
+    getQueryElement = (sectionId, size, page, sections) => {
+        const resp = {
+            page,
+            imageConfig: 'm'
+        };
+
+        if (sectionId.toLowerCase() === '/ultimas-noticias') {
+            const sectionsFormated = JSON.stringify(sections)
+                .replace(/,/g, '+OR+')
+                .replace('[', '(')
+                .replace(']', ')');
+
+            return {
+                ...resp,
+                sectionsIds: sectionsFormated,
+                sourceOrigin: 'composer',
+                size: null
+            };
+        }
+        return {
+            ...resp,
+            sectionId,
+            size
+        };
+    };
 
     render() {
         try {
@@ -64,4 +92,4 @@ class AcuSection {
         }
     }
 }
-export default Consumer(AcuSection);
+export default Consumer(AccumulatedSections);

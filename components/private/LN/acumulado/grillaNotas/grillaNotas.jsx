@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
@@ -18,21 +18,21 @@ import {
     isPrimarySectionInBannerSegments
 } from '../../common/bannerRefactor/utils';
 import { slotsConfig } from '../../common/bannerRefactor/config';
-import { GlobalContext } from '../../../common/context/globalContext';
 
 class GrillaNotas extends React.Component {
     getBanner = index => {
         const position = index + 1;
         const {
-            bannerConfig,
+            bannerConfig = [],
             hideBanners,
             globalContentConfig,
             arcSite,
             termicas,
-            screenUtils: { device }
+            screenUtils: { device },
+            gc
         } = this.props;
 
-        const gc = useContext(GlobalContext);
+        // const gc = useContext(GlobalContext);
         const siteService = get(gc, 'state.siteService', {});
 
         const bannersSiteConfig = get(siteService, 'banners');
@@ -100,7 +100,7 @@ class GrillaNotas extends React.Component {
             loading,
             typeArticle,
             outputType,
-            idsArticlesToExclude
+            idsArticlesToExclude = []
         } = this.props;
 
         const articlesInNoCollection = articles.filter(

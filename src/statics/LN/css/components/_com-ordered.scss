@@ -33,6 +33,12 @@
         margin-bottom: px(25);
         //color: $neutral-black;
         position: relative;
+
+        i {
+            //vienen en las notas
+            font-style: italic;
+        }
+
         &:first-of-type {
             margin: 0 0 1em 0;
         }

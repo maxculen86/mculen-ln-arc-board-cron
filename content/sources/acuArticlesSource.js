@@ -6,6 +6,11 @@ import {
 import get from '../../components/private/common/utils/get';
 import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import {
+    addHoursAndFormat,
+    hasFutureDisplayDate,
+    isOlderThan24HourAgo
+} from '../../components/private/common/utils/dateAndTimeUtil';
 
 const resolve = key => {
     const {
@@ -17,8 +22,11 @@ const resolve = key => {
         size,
         page,
         website,
-        distributorId
+        distributorId,
+        sectionsIds,
+        sourceOrigin
     } = key;
+
     const arcSite = key['arc-site'];
     const cant = size || 30;
     const from = ((page || 1) - 1) * cant;
@@ -28,6 +36,20 @@ const resolve = key => {
     if (distributorId)
         return `${basePath}&q=type:story&include_distributor_name=${distributorId}&size=${cant}&from=${from}
             &sort=display_date:desc`;
+
+    if (sectionsIds) {
+        const includeField =
+            '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,related_content';
+        return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
+            &sort=first_publish_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
+    }
+
+    const sourceOriginFilter =
+        sourceOrigin &&
+        `},{
+            "term": {
+                "source.system":"${sourceOrigin}"
+        }`;
 
     const sectionFilter =
         sectionId &&
@@ -111,6 +133,7 @@ const resolve = key => {
                             "term": {
                                 "revision.published": true
                             }
+                        ${sourceOriginFilter || ''}
                         }
                         ${suggestFilter || ''}
                         ${authorFilter || ''}
@@ -123,6 +146,7 @@ const resolve = key => {
     }`;
     const final = `${basePath}${query}&size=${cant}&from=${from}
             &sort=display_date:desc`;
+
     return final;
 };
 
@@ -130,6 +154,7 @@ const transform = (data, siteProps) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
+    const { sectionsIds } = siteProps;
 
     const presetsPromoItems = get(presets, 'promo_items', null);
 
@@ -173,11 +198,28 @@ const transform = (data, siteProps) => {
         };
     });
 
+    if (sectionsIds) {
+        respData.content_elements = respData.content_elements
+            .filter(story => !isOlderThan24HourAgo(story.first_publish_date))
+            .filter(story => !hasFutureDisplayDate(story.display_date))
+            .map(story => {
+                return {
+                    ...story,
+                    display_date: addHoursAndFormat(-3, story.display_date),
+                    website_url: story.canonical_url
+                };
+            });
+        if (respData.content_elements.length === 0) {
+            respData.next = 0;
+        }
+    }
+
     return respData;
 };
 
 export default {
     resolve,
+    transform,
     params: {
         sectionId: 'text',
         authorId: 'text',
@@ -185,8 +227,9 @@ export default {
         size: 'text',
         page: 'text',
         website: 'text',
-        imageConfig: 'text'
+        imageConfig: 'text',
+        sectionsIds: 'text',
+        sourceOrigin: 'text'
     },
-    transform,
     ttl: 120
 };

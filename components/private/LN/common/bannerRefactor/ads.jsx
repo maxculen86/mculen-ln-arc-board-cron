@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/require-default-props */
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import useMutationObserver from '../../../common/hooks/useMutationObserver';
 import hasAdsTestParam from '../utils/hasAdsTesParam';
@@ -30,11 +30,8 @@ const Ads = React.memo(
                 mutations.forEach(mutation => {
                     const nodes = mutation.addedNodes;
                     nodes.forEach(node => {
-                        const {
-                            nodeId,
-                            style: { width },
-                            localName
-                        } = node;
+                        const { nodeId, style, localName } = node;
+                        const { width } = style || {};
 
                         const nodeDimension =
                             width && parseInt(width.replace('px', ''), 10);
@@ -90,8 +87,10 @@ const Ads = React.memo(
                         const callAdserver = gptSlots => {
                             if (pbjs.adserverCalled) return;
                             pbjs.adserverCalled = true;
-                            googletag.pubads().refresh(gptSlots);
-                            resolve(adDetails);
+
+                            googletag.pubads().refresh(gptSlots, {
+                                changeCorrelator: false
+                            });
                         };
 
                         // request pbjs bids when it loads
@@ -105,7 +104,7 @@ const Ads = React.memo(
                         // failsafe in case PBJS doesn't load
                         setTimeout(() => {
                             callAdserver([adDetails.adUnit]);
-                        }, 3500);
+                        }, 2500);
                         console.timeEnd();
                     });
                 }
@@ -126,8 +125,7 @@ const Ads = React.memo(
                     sizemap,
                     prerender: window.arcAdsPrerenderer
                 },
-                dfpId,
-                bidding
+                dfpId
             );
         };
 
@@ -141,7 +139,7 @@ const Ads = React.memo(
             </div>
         );
     },
-    (prevProps, nextProps) => prevProps.slotName !== nextProps.slotName
+    (prevProps, nextProps) => prevProps.slotName === nextProps.slotName
 );
 
 Ads.propTypes = {
