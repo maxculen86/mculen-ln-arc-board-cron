@@ -3,6 +3,8 @@
 @import '../components/com-date';
 @import '../components/com-hour';
 @import '../components/com-paragraph';
+@import '../components/com-ordered';
+@import '../components/com-unordered';
 
 @import '../modules/mod-date';
 @import '../modules/mod-share';
@@ -10,6 +12,7 @@
 @import '../modules/mod-autor';
 @import '../modules/mod-sponsor';
 @import '../modules/mod-opening';
+@import '../modules/mod-themes';
 
 // MANTENER SIEMPRE AL FINAL
 @import './amp-basic';

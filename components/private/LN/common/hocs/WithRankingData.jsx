@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import { useContent as getContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/nota/articleRanking';
 import get from '../../../common/utils/get';
-import addRelatedImage from '../utils/addRelatedImage';
 
 const getSectionParent = (primarySection, sectionList, website) => {
     const navigationTreeSource = getContent({
@@ -89,7 +88,6 @@ const getRankingContent = (
         query: {
             website,
             sectionId,
-            weeksAgo,
             daysAgo,
             size,
             imageConfig
@@ -101,7 +99,6 @@ const getRankingContent = (
 };
 
 const getArticles = (index, props, sectionId, imageConfig) => {
-    const weeksAgo = get(props, `customFields.weeksAgo${index}`, 1);
     const daysAgo = get(props, `customFields.daysAgo${index}`, 1);
     const size = get(props, `customFields.size${index}`, 3);
     const website = get(props, 'website', null);
@@ -112,7 +109,6 @@ const getArticles = (index, props, sectionId, imageConfig) => {
         size,
         imageConfig,
         daysAgo,
-        weeksAgo,
         website
     );
 
@@ -122,17 +118,15 @@ const getArticles = (index, props, sectionId, imageConfig) => {
 const WithRankingData = (WrappedComponent, imageConfig) => props => {
     const { title, sectionId } = getSectionData(props);
 
-    let articleList;
+    const articleList = {};
     // Por el momento se harán dos llamadas a lo sumo
     for (let i = 1; i <= 2; i += 1) {
-        if (!articleList) {
-            articleList = getArticles(i, props, sectionId, imageConfig);
-        }
+        articleList[i] = getArticles(i, props, sectionId, imageConfig);
     }
 
     return (
         <WrappedComponent
-            articles={articleList}
+            articles={articleList[1] || articleList[2]}
             title={title}
             dataSection={sectionId}
         />

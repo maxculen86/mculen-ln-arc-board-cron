@@ -230,7 +230,7 @@ const Cuerpo = props => {
                                     if (bannersSiteConfig)
                                         configBuilder.setDimensionsFromSiteService(
                                             bannersSiteConfig,
-                                            'nota',
+                                            'Nota',
                                             slotId
                                         );
 

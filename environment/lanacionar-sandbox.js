@@ -2,8 +2,7 @@ export default {
     IS_DEV: 'false',
     IS_SANDBOX: 'true',
     API_ENV: 'sandbox',
-    RANKING_URL:
-        'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/arcio/ans/most-read/',
+    RANKING_URL: 'https://api.lanacionar.arcpublishing.com',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
     OPTA_WIDGET_URL: 'https://recetas.lanacion.com.ar/opta-embed',
