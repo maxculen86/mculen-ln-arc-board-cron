@@ -22,7 +22,14 @@
     }
     &.--shields {
         margin-bottom: $spacing-xl;
+        justify-content: center;
+        .sports {
+            @include flex(inline);
+            flex-wrap: wrap;
+        }
+    }
+    .sports {
+        @include flex(inline);
         flex-wrap: wrap;
-        flex-direction: column;
     }
 }

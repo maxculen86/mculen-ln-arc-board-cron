@@ -6,12 +6,14 @@ import ComShield from './com-shield';
 import ModheaderSection from './mod-headerSection';
 
 const ModShield = props => {
-    const { title, src, link, size, line } = props;
+    const { title, src, link, size, line, children } = props;
     if (!title && !src) return null;
     return (
         <section className="mod-image --shields">
-            <ModheaderSection line size={size} title={title} />
-            <ComShield src={src} link={link} />
+            <div className="sports">
+                <ModheaderSection line size={size} title={title} />
+                {children}
+            </div>
         </section>
     );
 };
