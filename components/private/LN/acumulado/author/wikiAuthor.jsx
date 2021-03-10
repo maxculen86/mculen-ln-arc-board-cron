@@ -16,16 +16,12 @@ import ListSocialIcons from '../../../common/list-socialicons';
 import ImageAuthor from './imageAuthor';
 import ComLink from '../../../common/com-link';
 import ComSubtitle from '../../../common/com-subtitle';
-import ModImage from '../../../common/mod-image';
-import ComImage from '../../../common/com-image';
-import ModheaderSection from '../../../common/mod-headerSection';
-import ComShield from '../../../common/com-shield';
-import ModShield from '../../../common/mod-shield';
 import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
 import ComAdvance from '../../../common/com-advance';
-import getSocialsNetwork from '../../common/utils/getSocialsNetwork';
-import ModWikiAuthor from '../../../common/mod-wikiAuthor';
-import '../../../../../resources/dist/css/ln/base/helpers.css';
+//import ModShield from '../../../common/mod-shield';
+//import ComShield from '../../../common/com-shield';
+// import ModWikiAuthor from '../../../common/mod-wikiAuthor';
+// import '../../../../../resources/dist/css/ln/base/helpers.css';
 
 const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
     const {
