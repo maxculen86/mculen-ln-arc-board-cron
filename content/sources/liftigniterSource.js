@@ -15,7 +15,7 @@ import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
 
-const transformArticles = (liftigniterArticles = []) =>
+const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
     liftigniterArticles &&
     liftigniterArticles
         .filter(
@@ -23,6 +23,7 @@ const transformArticles = (liftigniterArticles = []) =>
                 e.image &&
                 !(e.image && e.image.includes('/images/placeholderLN.jpg'))
         )
+        .slice(0, cantidadNotas)
         .map(({ url, id, title, image }) => ({
             subtype: 1,
             by: {},
@@ -43,10 +44,11 @@ const transformArticles = (liftigniterArticles = []) =>
  * TODO: Por completar de tarea
  * 1. Mejorar armado de uri, version, endpoint y body como parametro de liftigniter
  */
+const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
 const fetch = query => {
     const {
-        cantidadNotas = 10,
+        cantidadNotas = 9,
         referrer = SITE_LANACION,
         imageConfig = 'm',
         idArticle,
@@ -56,7 +58,6 @@ const fetch = query => {
     } = query;
 
     const userIdParam = userId ? `/${userId}` : '';
-
     return request({
         uri: `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}/model`,
         method: 'POST',
@@ -67,7 +68,7 @@ const fetch = query => {
         },
         body: JSON.stringify({
             widgetName: WIDGETS,
-            maxCount: cantidadNotas,
+            maxCount: duplicateMaxCount(cantidadNotas),
             requestFields: ['url', 'title', 'image', 'id', 'published_time'],
             referrer,
             pageviewId: idArticle,
@@ -78,7 +79,7 @@ const fetch = query => {
     })
         .then(response => {
             const { items } = JSON.parse(response);
-            return transformArticles(items);
+            return transformArticles(items, cantidadNotas);
         })
         .catch(() => {
             // TODO: Implementar registro de error en logger

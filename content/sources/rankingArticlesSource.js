@@ -3,7 +3,9 @@ import {
     RANKING_URL,
     RESIZER_KEY,
     RESIZER_URL,
-    ARC_ACCESS_TOKEN
+    ARC_ACCESS_TOKEN,
+    CONTENT_BASE,
+    API_ENV
 } from 'fusion:environment';
 import {
     FOTOAL100,
@@ -13,32 +15,23 @@ import getPresets from './utils/presets';
 import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import Redirect from './utils/redirect';
-import { isNotRecommend } from '../sources/utils/collectionsHelper';
+import { isNotRecommend } from './utils/collectionsHelper';
 
 const resolve = (key, a) => {
-    const { sectionId, size = 3, website, weeksAgo = 1, daysAgo = 1 } = key;
+    const { sectionId, website, daysAgo = 1 } = key;
+    const sizeNumber = 10;
     const arcSite = key['arc-site'];
     const basePath = `?website=${website || arcSite}`;
-
-    const sectionFilter = sectionId
-        ? `+AND+taxonomy.sections._id:"${sectionId}"`
-        : '';
-
-    const publishDateFilter = weeksAgo
-        ? `+AND+first_publish_date:[now-${weeksAgo}w+TO+now]`
-        : '';
-
+    const sectionFilter = sectionId ? `category${sectionId}` : '';
     const offsetFilter = daysAgo ? `&offset=${daysAgo}` : '';
-
-    const query = `&query=type:story+AND+revision.published:true${sectionFilter}${publishDateFilter}${offsetFilter}`;
-
-    const finalPath = `${basePath}${query}&size=10`;
+    const finalPath = `/feeds/most-read/${sectionFilter}/${basePath}&size=${sizeNumber}${offsetFilter}`;
     return finalPath;
 };
 
 const fetch = query => {
+    const baseUrl = API_ENV === 'prod' ? CONTENT_BASE : RANKING_URL;
     const opt = {
-        uri: `${RANKING_URL}${resolve(query)}`,
+        uri: `${baseUrl}${resolve(query)}`,
         json: true
     };
 
@@ -63,7 +56,7 @@ const fetch = query => {
             throw new Redirect(forwardUrl, 301);
         }
 
-        return transform(response, query);
+        return response && transform(response, query);
     });
 };
 
@@ -72,7 +65,7 @@ const transform = (data, siteProps) => {
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     const resp = {
-        content_elements: data
+        content_elements: data.content_elements
             .filter(art => !isNotRecommend(art))
             .slice(0, siteProps.size)
             .map(elem => {

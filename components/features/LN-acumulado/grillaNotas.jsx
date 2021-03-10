@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
@@ -7,6 +7,7 @@ import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProv
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
 import findTermica from '../../private/common/utils/findTermica';
 import { getIdsArticlesFromOtherCollections } from '../../private/LN/common/utils/cajaTemasHelper';
+import { GlobalContext } from '../../private/common/context/globalContext';
 
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
@@ -104,6 +105,8 @@ function GrillaNotasFeature(props) {
         renderables
     } = useAppContext();
 
+    const globalContext = useContext(GlobalContext);
+
     const tagId =
         Payload && Payload.items && Payload.items.length
             ? Payload.items[0].slug
@@ -139,6 +142,7 @@ function GrillaNotasFeature(props) {
             hideBanner={hide_banner}
             idsArticlesToExclude={idsArticlesToExclude}
             termicas={termicas}
+            gc={globalContext}
         />
     );
 }

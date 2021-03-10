@@ -4,7 +4,12 @@ import articlesAcumulado from '../../../../../../__mocks__/data/articles/newsNot
 import articlesTPInteresar from '../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
 import AcuList from '../../../../../../components/private/LN/api/v1/common/articles/list';
 import Article from '../../../../../../components/private/LN/api/v1/common/articles/index';
-import { dateAndTimeForAppsUtil } from '../../../../../../components/private/common/utils/dateAndTimeUtil';
+import dateAndTimeUtil, {
+    isOlderThan24HourAgo,
+    hasFutureDisplayDate,
+    addHoursAndFormat,
+    dateAndTimeForAppsUtil
+} from '../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 describe('Test de index en Json', () => {
     const respRanking = AcuList(Article, articlesRanking.content_elements);
@@ -112,17 +117,6 @@ describe('Test de index en Json', () => {
         expect(respAcumulado[1].autores[1].tipo).toBe(1);
     });
 
-    test('Test imagen de Autores de articulo', () => {
-        expect(respAcumulado[2].autores[0].image['_t']).toBe('img');
-        expect(respAcumulado[2].autores[0].image.baseUrl).toBe(
-            '/resizer/{{param}}/bucket.glanacion.com/anexos/fotos/33/3121633.png'
-        );
-        expect(respAcumulado[2].autores[0].image.parametros[0].ancho).toBe(768);
-        expect(respAcumulado[2].autores[0].image.parametros[0].firma).toBe(
-            '1A2IA1EhLsE2VJ1rysww_o0qLYc=/768x513/smart'
-        );
-    });
-
     test('Imagenes del articulo', () => {
         expect(respAcumulado[9].imagen.id).toBe('LGFOVH6SFFGZVP5V3V7NOW2KFY');
         expect(respAcumulado[9].imagen['_t']).toBe('img');
@@ -213,7 +207,7 @@ describe('Test de index en Json', () => {
         );
     });
 
-    test('Test Fecha del articulo', () => {
+    test('Test Fecha del articulo 1', () => {
         expect(respRanking[0].fechaActualizacion).toBe(
             dateAndTimeForAppsUtil(
                 articlesRanking.content_elements[0].last_updated_date
@@ -221,12 +215,21 @@ describe('Test de index en Json', () => {
         );
     });
 
-    test('Test Fecha del articulo', () => {
+    test('Test Fecha del articulo 2', () => {
         expect(respRanking[0].fecha).toBe(
             dateAndTimeForAppsUtil(
                 articlesRanking.content_elements[0].display_date
             )
         );
+    });
+
+    test('Test Fecha del articulo 3', () => {
+        expect(
+            dateAndTimeUtil(articlesRanking.content_elements[0].display_date)
+        ).toEqual({
+            date: '30 de julio de 2020',
+            time: '07:17'
+        });
     });
 
     test('Test Articulo con Autor vacio', () => {
@@ -251,8 +254,10 @@ describe('Test de index en Json', () => {
     });
 
     test('Categoria principal', () => {
-        expect(respRanking[0].categoria.id).toBe(43);
-        expect(respRanking[0].categoria.valor).toBe('Recetas');
+        expect(respRanking[0].categoria.slug).toBe(
+            '/recetas/faciles-y-rapidas'
+        );
+        expect(respRanking[0].categoria.valor).toBe('Fáciles y rápidas');
     });
 
     test('Sin Tags', () => {
@@ -276,5 +281,27 @@ describe('Test de index en Json', () => {
         expect(respRanking[0].tags[1].tipoId).toBe(1);
         expect(respRanking[0].tags[1].formatoId).toBe(1);
         expect(respRanking[0].tags[1].tipoDescripcion).toBe('Topico');
+    });
+    test('deberia sumar 3 horas a una fecha en formato SQL', () => {
+        const date1 = '2021-02-05T17:34:00.624Z';
+        const result1 = addHoursAndFormat(6, date1);
+        expect(result1).toBe('2021-02-05T20:34:00');
+    });
+
+    test('deberia filtrar notas con display_date a futuro', () => {
+        const date1 = '2021-02-05T17:34:00.624Z';
+        const result1 = hasFutureDisplayDate(date1);
+        expect(result1).toBeFalsy();
+    });
+
+    test('filtrar notas con display_date a futuro parametro vacio', () => {
+        const result1 = hasFutureDisplayDate();
+        expect(result1).toBeFalsy();
+    });
+
+    test('deberia filtrar notas con published_date mayor a 24 hs', () => {
+        const date1 = '2021-02-05T17:34:00.624Z';
+        const result1 = isOlderThan24HourAgo(date1);
+        expect(result1).toBeTruthy();
     });
 });
