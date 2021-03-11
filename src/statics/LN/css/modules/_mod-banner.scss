@@ -43,7 +43,15 @@
         }
         .sidebar__aside & {
             .--scrollDown & {
-                top: px(10);
+                padding-top: px(10);
+                background: $neutral-white;
+            }
+        }
+        .sidebar__aside & {
+            .--scrollUp & {
+                padding-top: px(10);
+                top: px(72);
+                background: $neutral-white;
             }
         }
     }
