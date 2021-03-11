@@ -8,6 +8,7 @@ import getAuthorByline from '../../../common/utils/getAuthorByline';
 import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import get from '../../../common/utils/get';
 import * as Trust from './constants';
+import addRelatedImage from '../../common/utils/addRelatedImage';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -128,7 +129,6 @@ const SnippetNoticia = props => {
             headlines,
             content_elements: contentElements,
             taxonomy: { primary_section: primarySection, tags },
-            promo_items: promoItems,
             credits: { by },
             created_date: createdDate,
             first_publish_date: firstPublishDate,
@@ -141,16 +141,17 @@ const SnippetNoticia = props => {
         contextPath,
         deployment
     } = props;
+
+    const { promo_items: promoItems } = addRelatedImage(props.globalContent);
     const LOGO_AMP = getAssetsPath(contextPath)(deployment)('logo-ln-amp.png');
     const PLACEHOLDER = getAssetsPath(contextPath)(deployment)(
         'placeholderLN.jpg'
     );
+
     const { path, name } = primarySection || {};
 
     const { authors } = extracDataFromCredits(by);
-
     const { keywords } = extractDataFromTags(tags);
-
     const { thumbnailUrl, image } = extractDataFromPromoItems(
         promoItems,
         PLACEHOLDER
