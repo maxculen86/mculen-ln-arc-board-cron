@@ -170,13 +170,17 @@ const transformContent = (jsonArticle, arcSite) => {
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((element, i) => {
             if (element.type === 'reference') {
-                promiseArr.push(
-                    addFollowAnotherNoteData(element, arcSite, i).then(
-                        newContent => {
-                            resp.related_content.basic[i] = newContent;
-                        }
-                    )
-                );
+                const referentImage = get(element, 'referent.type', '');
+
+                referentImage === 'image'
+                    ? (resp.related_content.basic[i] = element)
+                    : promiseArr.push(
+                          addFollowAnotherNoteData(element, arcSite, i).then(
+                              newContent => {
+                                  resp.related_content.basic[i] = newContent;
+                              }
+                          )
+                      );
             }
         });
     }

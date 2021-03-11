@@ -332,6 +332,7 @@ export default `
             canonical_url
             referent {
                 type
+                ${image}
             }
         }
         redirect {
