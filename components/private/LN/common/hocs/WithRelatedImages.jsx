@@ -4,12 +4,12 @@ import addRelatedImage from '../utils/addRelatedImage';
 
 const WithRelatedImages = WrappedComponent => props => {
     const { articles } = props;
-    const articleList =
+    /* const articleList =
         articles &&
         articles.map(article => {
             return addRelatedImage(article);
-        });
-    return <WrappedComponent {...props} articles={articleList || articles} />;
+        }); */
+    return <WrappedComponent {...props} articles={articles} />;
 };
 
 WithRelatedImages.propTypes = {
