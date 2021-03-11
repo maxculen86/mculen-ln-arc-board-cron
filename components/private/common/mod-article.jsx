@@ -49,6 +49,7 @@ const ModArticle = props => {
         extraOpts['data-pos'] = `${boxPosition}${artPosition}`;
         extraOpts['data-id'] = _id;
         extraOpts['data-notaid'] = _id;
+        extraOpts['data-source'] = 'editor';
     }
     const imagenDestacada = isRenderAuthor
         ? getAuthorsPhoto(articleData)

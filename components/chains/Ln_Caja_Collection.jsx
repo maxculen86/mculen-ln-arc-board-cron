@@ -12,6 +12,7 @@ import {
     getArticlesFromMyCurrentCollection
 } from '../private/LN/common/utils/cajaTemasHelper';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import { formatText } from '../private/common/utils/sectionUtils';
 
 const CajaCollection = props => {
     const {
@@ -30,7 +31,8 @@ const CajaCollection = props => {
         },
         outputType,
         renderables,
-        tree
+        tree,
+        globalContent: { name: sectionName }
     } = props;
 
     if (hideCaja) return <></>;
@@ -105,6 +107,9 @@ const CajaCollection = props => {
             classCondition={classCondition}
             notesQuantity={notesQuantity}
             position={position}
+            sectionName={`${formatText(
+                sectionName === 'LA NACION' ? '' : `${sectionName}_`
+            )}`}
             articles={
                 isInSiteService
                     ? articlesFromCollectionSiteService
@@ -141,7 +146,10 @@ CajaCollection.propTypes = {
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaCollection')
     }).isRequired,
-    tree: PropTypes.shape(PropTypes.node).isRequired
+    tree: PropTypes.shape(PropTypes.node).isRequired,
+    globalContent: PropTypes.shape({
+        name: PropTypes.string
+    }).isRequired
 };
 
 export default Consumer(CajaCollection);

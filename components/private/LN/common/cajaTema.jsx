@@ -19,7 +19,8 @@ const CajaTema = props => {
         notesQuantity = 3,
         hideTitle = false,
         withSubhead = false,
-        position
+        position,
+        sectionName = ''
     } = props;
 
     const isFocal = layout.includes('focal');
@@ -29,7 +30,7 @@ const CajaTema = props => {
         <div data-module={`tema_${position}`}>
             <section
                 id={`tema_${position}`}
-                data-block-name={`h_tema-${position}`}
+                data-block-name={`h_${sectionName}tema-${position}`}
                 data-diagramacion-id={layout}
                 className={`box-articles ${backgroundColor} ${classCondition}`}
             >
@@ -94,7 +95,7 @@ CajaTema.propTypes = {
     url: PropTypes.string,
     imageId: PropTypes.string,
     position: PropTypes.string.isRequired,
-    dataDiagramacion: PropTypes.string.isRequired
+    sectionName: PropTypes.string.isRequired
 };
 
 CajaTema.defaultProps = {
