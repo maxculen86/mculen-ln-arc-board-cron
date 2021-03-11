@@ -44,10 +44,12 @@
         top: -5px;
         color: $light-neutral-400;
     }
-    .breaking-news & {
-        align-items: flex-start;
-        color: $light-neutral-400;
-        padding: 1px 2px;
+    &.icon-bullet {
+        .mod-description & {
+            align-items: flex-start;
+            color: $light-neutral-400;
+            padding: 1px 2px;
+        }
     }
 }
 @media ($media-l) {

@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import TaxonomyComponent from '../../common/taxonomyImportantList';
 import { getFirstParentSection } from '../../../common/utils/sectionUtils';
 import ComTitle from '../../../common/com-title';
+import HeaderSection from '../../../common/mod-headerSection';
 
 const Sections = props => {
     const { taxonomy, destacado, temas } = props;
@@ -34,7 +35,8 @@ const Sections = props => {
             <div className="col-12">
                 <>
                     {temas && listSectionsDespues.length > 0 && (
-                        <ComTitle size="--l" tag="h4" content="Temas" />
+                        /* <ComTitle size="--l" tag="h4" content="Temas" /> */
+                        <HeaderSection title="Temas" />
                     )}
                     {listSectionsDespues && (
                         <TaxonomyComponent

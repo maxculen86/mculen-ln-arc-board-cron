@@ -2,7 +2,9 @@ import ArticleGallery from '../../../../../../../../__mocks__/data/nota/cuerpo/g
 import ArticleGalleryNoImages from '../../../../../../../../__mocks__/data/nota/cuerpo/gallery/galleryNoImages.json';
 
 import Gallery from '../../../../../../../../components/private/LN/api/v1/nota/cuerpo/elements/gallery';
-import { dateAndTimeForAppsUtil } from '../../../../../../../../components/private/common/utils/dateAndTimeUtil';
+import dateAndTimeUtil, {
+    dateAndTimeForAppsUtil
+} from '../../../../../../../../components/private/common/utils/dateAndTimeUtil';
 
 describe('Test de la galeria en el cuerpo de una nota', () => {
     it('Test de galerias si es null', () => {
@@ -36,6 +38,12 @@ describe('Test de la galeria en el cuerpo de una nota', () => {
         );
     });
 
+    test('Test Fecha del articulo dateAndTimeUtil', () => {
+        expect(dateAndTimeUtil(ArticleGallery.publish_date)).toEqual({
+            date: '27 de abril de 2020',
+            time: '17:32'
+        });
+    });
     it('Check respuesta general de los embebidos', () => {
         const resp = Gallery(ArticleGallery);
         expect(resp['_t']).toBe('p');

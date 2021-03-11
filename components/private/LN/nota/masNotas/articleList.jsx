@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
-import ComTitle from '../../../common/com-title';
+//import ComTitle from '../../../common/com-title';
+import HeaderSection from '../../../common/mod-headerSection';
 
 const ArticleList = props => {
     const { articles, border, outputType, title, dataBlockName } = props;
@@ -14,7 +15,8 @@ const ArticleList = props => {
                 <div className="row more-articles">
                     <div className="col-12">
                         {/* <h2 className="com-title-section-l">{title || ''}</h2> */}
-                        <ComTitle tag="h2" size="--l" content={title || ''} />
+                        {/* <ComTitle tag="h2" size="--l" content={title || ''} /> */}
+                        <HeaderSection title={title || ''} />
                         <section
                             className="row-gap-tablet-3 row-gap-desksm-3"
                             data-is-block="true"

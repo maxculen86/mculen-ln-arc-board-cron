@@ -533,6 +533,14 @@
     @include sizeM; //all
 }
 
+.--m-xs {
+    @include sizeXS; //mobile
+    @media ($media-lm) {
+        //1100
+        @include sizeM;
+    }
+}
+
 .--s {
     @include sizeS; //all
 }
@@ -565,6 +573,78 @@
     @include size6XS; //all
 }
 
-// .--sevenxs {
-//     @include size7XS; //all
-// }
+//=============================
+// FONT WEIGHT
+//=============================
+
+.--font-thin {
+    font-weight: 100;
+}
+
+.--font-light {
+    font-weight: 300;
+}
+
+.--font-regular {
+    font-weight: 400;
+}
+
+.--font-medium {
+    font-weight: 500;
+}
+
+strong,
+b,//vienen en las notas
+.--font-bold {
+    font-weight: 700;
+}
+
+.--font-black {
+    font-weight: 900;
+}
+
+//=============================
+// FONTS
+//=============================
+
+.--arial {
+    font-family: $font-arial;
+}
+
+.--georgia {
+    font-family: $font-georgia;
+}
+
+.--sueca {
+    font-family: $font-SuecaSlab;
+}
+
+//=============================
+// DISPLAY NONE / HIDE
+//=============================
+
+.--none {
+    display: none;
+}
+
+.--mobile-none {
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.--tablet-none {
+    @media (max-width: 1023px) {
+        display: none;
+    }
+}
+
+.--hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.--show {
+    visibility: visible;
+    opacity: 1;
+}

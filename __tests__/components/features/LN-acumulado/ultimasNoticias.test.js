@@ -1,8 +1,11 @@
-
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { shallow } from 'enzyme';
-import { addHoursAndFormat, hasFutureDisplayDate, isOlderThan24HourAgo } from '../../../../components/private/common/utils/dateAndTimeUtil';
+import dateAndTimeUtil, {
+    addHoursAndFormat,
+    hasFutureDisplayDate,
+    isOlderThan24HourAgo
+} from '../../../../components/private/common/utils/dateAndTimeUtil';
 // import UltimasNoticias from '../../../../components/features/LN-acumulado/ultimasNoticias';
 
 describe('Features - LN-acumulado - Ultimas Noticias =>', () => {
@@ -23,7 +26,6 @@ describe('Features - LN-acumulado - Ultimas Noticias =>', () => {
         });
 
         it('deberia filtrar notas con published_date mayor a 24 hs', () => {
-            
             const date1 = '2021-02-05T17:34:00.624Z';
             const result1 = isOlderThan24HourAgo(date1);
             expect(result1).toBeTruthy();
@@ -38,14 +40,18 @@ describe('Features - LN-acumulado - Ultimas Noticias =>', () => {
             */
         });
 
-        it('deberia sumar 3 horas a una fecha en formato SQL', () => {
-            
+        test('deberia sumar 3 horas a una fecha en formato SQL', () => {
             const date1 = '2021-02-05T17:34:00.624Z';
             const result1 = addHoursAndFormat(6, date1);
             expect(result1).toBe('2021-02-05T20:34:00');
         });
 
+        test('Test Fecha del articulo dateAndTimeUtil', () => {
+            const date = '2021-02-18T17:34:00.624Z';
+            expect(dateAndTimeUtil('2021-02-18T17:34:00.624Z')).toEqual({
+                date: '18 de febrero de 2021',
+                time: '11:34'
+            });
+        });
     });
-   
-    
 });

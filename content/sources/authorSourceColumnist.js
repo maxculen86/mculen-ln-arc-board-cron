@@ -40,6 +40,7 @@ const transform = data => {
 export default {
     resolve,
     params: {
+        id: 'text',
         website: 'text'
     },
     transform,

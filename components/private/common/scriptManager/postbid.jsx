@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { IS_DEV, IS_SANDBOX } from 'fusion:environment';
 
 export default class PostBid extends Component {
     constructor(props) {
@@ -11,10 +12,13 @@ export default class PostBid extends Component {
     }
 
     render() {
+        const isTest =
+            IS_DEV === 'true' && IS_SANDBOX === 'true' ? '_test' : '';
+
         return (
             <script
                 defer
-                src="//swh.lanacion.com.ar/programmatic_ln/postbid_ln.js"
+                src={`https://ads.rubiconproject.com/prebid/20148_LaNacion_Desktop${isTest}.js`}
             />
         );
     }

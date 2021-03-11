@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
@@ -10,6 +10,7 @@ import WithAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import withScreenUtils from '../../../common/hocs/withScreenUtils';
 import WithNavigation from '../../common/hocs/WithNavigation';
+import WithRelatedImages from '../../common/hocs/WithRelatedImages';
 import get from '../../../common/utils/get';
 import ConfigBuilder from '../../common/bannerRefactor/builder';
 import {
@@ -17,21 +18,21 @@ import {
     isPrimarySectionInBannerSegments
 } from '../../common/bannerRefactor/utils';
 import { slotsConfig } from '../../common/bannerRefactor/config';
-import { GlobalContext } from '../../../common/context/globalContext';
 
 class GrillaNotas extends React.Component {
     getBanner = index => {
         const position = index + 1;
         const {
-            bannerConfig,
+            bannerConfig = [],
             hideBanners,
             globalContentConfig,
             arcSite,
             termicas,
-            screenUtils: { device }
+            screenUtils: { device },
+            gc
         } = this.props;
 
-        const gc = useContext(GlobalContext);
+        // const gc = useContext(GlobalContext);
         const siteService = get(gc, 'state.siteService', {});
 
         const bannersSiteConfig = get(siteService, 'banners');
@@ -92,14 +93,14 @@ class GrillaNotas extends React.Component {
 
     render() {
         const {
-            articles,
+            articles = [],
             hayMasNotas,
             obtenerMasNotas,
             globalContent,
             loading,
             typeArticle,
             outputType,
-            idsArticlesToExclude
+            idsArticlesToExclude = []
         } = this.props;
 
         const articlesInNoCollection = articles.filter(
@@ -164,5 +165,11 @@ GrillaNotas.propTypes = {
 };
 
 export default WithNavigation(
-    withScreenUtils(WithAcuArticlesData(Consumer(GrillaNotas), filter, 'm'))
+    withScreenUtils(
+        WithAcuArticlesData(
+            WithRelatedImages(Consumer(GrillaNotas)),
+            filter,
+            'm'
+        )
+    )
 );

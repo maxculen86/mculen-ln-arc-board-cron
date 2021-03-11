@@ -30,13 +30,29 @@
         .--scrollDown & {
             top: 0;
         }
-        .sidebar__aside & {
+        &.--active {
             .--scrollDown & {
-                top: px(10);
+                display: flex;
             }
         }
-        .--scrollUp & {
-            top: px(80);
+        &.sticky2_mob {
+            .--scrollUp & {
+                top: px(80);
+                display: none;
+            }
+        }
+        .sidebar__aside & {
+            .--scrollDown & {
+                padding-top: px(10);
+                background: $neutral-white;
+            }
+        }
+        .sidebar__aside & {
+            .--scrollUp & {
+                padding-top: px(10);
+                top: px(72);
+                background: $neutral-white;
+            }
         }
     }
     &.--fixed {
@@ -68,8 +84,11 @@
     .cuerpo__nota & {
         margin-bottom: $spacing-lg;
     }
-    .sidebar__aside & {
-        margin-bottom: px(40);
+    &:not(:last-child) {
+        .sidebar__aside & {
+            padding-bottom: px(32);
+            background: $neutral-white;
+        }
     }
     &.--cabezal_dsk {
         margin-bottom: $spacing-lg;
@@ -91,6 +110,7 @@
         .sidebar__aside & {
             display: flex;
             width: 100%;
+            top: px(82);
         }
         &.--fixed {
             left: calc((100% - 920px) / 2);

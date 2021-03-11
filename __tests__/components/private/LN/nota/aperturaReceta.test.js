@@ -3,6 +3,14 @@ import { render, mount } from 'enzyme';
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import AperturaReceta from '../../../../../components/private/LN/nota/apertura/AperturaReceta/AperturaSinDestacado';
 
+jest.mock('fusion:consumer', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+import Consumer from 'fusion:consumer';
+
 describe('features - La Nacion - Components - Nota - AperturaReceta ', () => {
     //const component = render(<AperturaReceta globalContent={nota} />);
     it('Test de snapshot AperturaReceta', () => {

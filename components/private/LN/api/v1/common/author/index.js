@@ -1,19 +1,50 @@
-import imageAcu from '../image';
+import get from 'lodash.get';
 import { getAutorId } from '../../../../../common/utils/getElementId';
+import { getImageUrl } from '../image';
 
-const authorCommon = author => {
-    const { _id: id, name, image, type } = author;
+const getAuthorData = author => {
+    const { _id: id, name } = author;
+
+    if (!name) {
+        throw new Error('Nombre de Autor Inexistente');
+    }
 
     const resp = {
         id: getAutorId(id),
         slug: id,
-        valor: name,
-        tipo: type === 'author' ? 1 : 2
+        valor: name
     };
 
-    if (image && image.url) {
-        resp.image = imageAcu(image);
-    }
+    return resp;
+};
+
+const authorCommon = author => {
+    const { type } = author;
+    const authorData = getAuthorData(author);
+    const image = getImageUrl(
+        get(author, 'additional_properties.original.image', null)
+    );
+
+    const resp = {
+        ...authorData,
+        tipo: type === 'author' ? 1 : 2,
+        imagen: image ? image[0] : null
+    };
+
+    return resp;
+};
+
+export const authorAcu = author => {
+    const authorData = getAuthorData(author);
+    const { email, twitter } = author;
+    const image = getImageUrl(get(author, 'image.url', null));
+
+    const resp = {
+        ...authorData,
+        imagen: image ? image[0] : null,
+        mail: email,
+        twitter
+    };
 
     return resp;
 };

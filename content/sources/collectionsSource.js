@@ -14,10 +14,7 @@ import { addResizedUrls } from '../../components/private/common/utils/image/resi
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
 import { getArticlesToShow, isNotRecommend } from './utils/collectionsHelper';
-import {
-    hasFutureDisplayDate,
-    isOlderThan24HourAgo
-} from '../../components/private/common/utils/dateAndTimeUtil';
+import { hasFutureDisplayDate } from '../../components/private/common/utils/dateAndTimeUtil';
 
 const resolve = key => {
     const { id, size, website, from = 0 } = key;
@@ -73,7 +70,7 @@ const transform = (data, siteProps) => {
         contentElementsFiltered &&
         contentElementsFiltered.map(elem => {
             // const promoItems = get(elem, `promo_items`, null);
-            const marquesina = get(elem, `description.basic`, null);
+            // const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
@@ -92,8 +89,8 @@ const transform = (data, siteProps) => {
                     // y pueda aplicarse 3:2, focal point o smartcrop
                     subtype: isFotoAl100orStorytelling ? '-1' : subtype
                 }),
-                ...(elem.canonical_url && { website_url: elem.canonical_url }),
-                marquesina
+                ...(elem.canonical_url && { website_url: elem.canonical_url })
+                // marquesina
             };
         });
 
@@ -106,7 +103,6 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
         filterRecomendar = false,
         filterRepetead = false,
         filterFutureDisplayDate = false,
-        filter24hsAgo = false,
         notesQuantity = 3
     } = siteProps || {};
 
@@ -120,19 +116,13 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
           )
         : articlesRecomended;
 
-    const articlesIn24HourAgo = filter24hsAgo
-        ? articlesNoFuture.filter(
-              art => !isOlderThan24HourAgo(art.display_date)
-          )
-        : articlesNoFuture;
-
     const contentElementsFiltered = filterRepetead
         ? getArticlesToShow(
-              articlesIn24HourAgo,
+              articlesNoFuture,
               idsArticlesToExclude,
               notesQuantity
           )
-        : articlesIn24HourAgo;
+        : articlesNoFuture;
 
     return contentElementsFiltered;
 };

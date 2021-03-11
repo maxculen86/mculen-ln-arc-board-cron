@@ -20,7 +20,7 @@ const typeAcumRules = {
     },
     Timeline: {
         withMedia: true,
-        withAuthors: false,
+        withAuthors: true,
         withHour: true
     }
 };
@@ -36,9 +36,17 @@ const ArticleAcum = ({
     withSubhead,
     isRenderAuthor,
     boxPosition,
-    artPosition
+    artPosition,
+    withCategory,
+    withTags
 }) => {
-    const { display_date, headlines, website_url, label } = article;
+    const {
+        display_date,
+        headlines,
+        website_url,
+        label,
+        taxonomy: { primary_section: primarySection, tags } = {}
+    } = article;
 
     const authors =
         typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(article);
@@ -47,8 +55,15 @@ const ArticleAcum = ({
 
     const titleText = getTitleText(headlines, label);
 
+    const tagList =
+        (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
+
     const hourToDisplay = typeAcumRules[typeArticle].withHour && (
-        <ComHour display_date={display_date} size="--twoxs" />
+        <ComHour
+            display_date={display_date}
+            size="--twoxs"
+            isUltimasNoticias={typeArticle === 'Timeline'}
+        />
     );
 
     return (
@@ -70,6 +85,8 @@ const ArticleAcum = ({
                 typeArticle={typeArticle}
                 artPosition={artPosition}
                 boxPosition={boxPosition}
+                category={withCategory && primarySection}
+                tags={withTags && tagList}
             />
             {children}
         </>
@@ -87,16 +104,34 @@ ArticleAcum.propTypes = {
             volanta: PropTypes.shape({
                 text: PropTypes.string
             })
+        }),
+        taxonomy: PropTypes.shape({
+            primary_section: PropTypes.string,
+            tags: PropTypes.arrayOf(PropTypes.obj)
         })
     }).isRequired,
     children: PropTypes.node,
     typeArticle: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string.isRequired,
+    withCategory: PropTypes.bool,
+    withTags: PropTypes.bool,
+    titleTag: PropTypes.string,
+    titleSize: PropTypes.string,
+    withSubhead: PropTypes.bool,
+    isRenderAuthor: PropTypes.bool,
+    boxPosition: PropTypes.string.isRequired,
+    artPosition: PropTypes.string.isRequired
 };
 
 ArticleAcum.defaultProps = {
     dataSection: '',
-    children: undefined
+    titleSize: '',
+    titleTag: '',
+    children: undefined,
+    withCategory: false,
+    withTags: false,
+    isRenderAuthor: false,
+    withSubhead: false
 };
 
 export default ArticleAcum;

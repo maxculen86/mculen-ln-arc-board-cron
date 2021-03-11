@@ -37,7 +37,8 @@ const ModArticle = props => {
         artPosition,
         boxPosition,
         hour,
-        typeArticle
+        category,
+        tags
     } = props;
     const { _id } = articleData;
     const extraOpts = {};
@@ -55,14 +56,6 @@ const ModArticle = props => {
         ? getAuthorsPhoto(articleData)
         : get(articleData, 'promo_items.basic', null);
     const marquesina = get(articleData, 'marquesina', null);
-    const category =
-        (typeArticle === 'Timeline' &&
-            get(articleData, 'taxonomy.primary_section', null)) ||
-        null;
-    const tags = get(articleData, 'taxonomy.tags', []);
-
-    const tagList =
-        (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
 
     const type = get(imagenDestacada, 'type', null);
 
@@ -115,7 +108,7 @@ const ModArticle = props => {
                 label={label}
                 marquesina={marquesina}
                 category={category}
-                tags={tagList}
+                tags={tags}
             />
         </article>
     );
@@ -142,7 +135,8 @@ ModArticle.propTypes = {
             basic: PropTypes.object
         })
     }).isRequired,
-    typeArticle: PropTypes.string
+    category: PropTypes.string,
+    tags: PropTypes.string
 };
 
 ModArticle.defaultProps = {
@@ -159,7 +153,8 @@ ModArticle.defaultProps = {
     link: undefined,
     hour: undefined,
     outputType: 'default',
-    typeArticle: undefined
+    category: undefined,
+    tags: undefined
 };
 
 export default ModArticle;
