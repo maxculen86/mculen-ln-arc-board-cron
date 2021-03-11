@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
+import SvgDefaultShield from './sportShields/svgDefaultShield';
 
 const ComShield = props => {
     const { src, link, nameShield } = props;
@@ -14,7 +15,7 @@ const ComShield = props => {
                     alt={`escudo-${nameShield}`}
                 ></img>
             ) : (
-                <SvgSanLorenzo />
+                <SvgDefaultShield />
             )}
         </ComLink>
     );
