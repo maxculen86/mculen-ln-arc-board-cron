@@ -41,7 +41,7 @@ const resolve = key => {
         const includeField =
             '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,related_content';
         return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
-            &sort=first_publish_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
+            &sort=display_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
     }
 
     const sourceOriginFilter =
@@ -200,7 +200,7 @@ const transform = (data, siteProps) => {
 
     if (sectionsIds) {
         respData.content_elements = respData.content_elements
-            .filter(story => !isOlderThan24HourAgo(story.first_publish_date))
+            .filter(story => !isOlderThan24HourAgo(story.display_date))
             .filter(story => !hasFutureDisplayDate(story.display_date))
             .map(story => {
                 return {
