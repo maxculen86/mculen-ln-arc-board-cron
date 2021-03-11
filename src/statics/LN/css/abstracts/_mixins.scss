@@ -46,21 +46,21 @@
     }
 }
 
-@mixin headerBlanco {
-    background: $neutral-white;
-    border-bottom: 1px solid $light-neutral-300;
-    .logo-la-nacion {
-        color: $ln;
-    }
-    .--btn.--secondary {
-        background-color: $neutral-white;
-        border: 1px solid $link;
-        color: $link;
-    }
-    .com-hamburger:before {
-        color: $neutral-black;
-    }
-}
+// @mixin headerBlanco {
+//     background: $neutral-white;
+//     border-bottom: 1px solid $light-neutral-300;
+//     .logo-la-nacion {
+//         color: $ln;
+//     }
+//     .--btn.--secondary {
+//         background-color: $neutral-white;
+//         border: 1px solid $link;
+//         color: $link;
+//     }
+//     .com-hamburger:before {
+//         color: $neutral-black;
+//     }
+// }
 @mixin flex($display, $direction: null, $ejeX: null, $ejeY: null) {
     //Sólo agregamos el "@include flex($display, $direction, $ejeX, $ejeY);"
     @if $display == flex {

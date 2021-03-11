@@ -1,43 +1,43 @@
-@import '../abstracts/variables';
-//=====================
-// HEADER CORE MOBILE
-//=====================
-.header-mobile {
-    display: block;
-    position: relative;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid $light-neutral-300;
-    background: $neutral-white;
-    z-index: 1;
-    .header-mobile__logo {
-        .logo-la-nacion {
-            color: $ln-active;
-            font-size: 17px;
-        }
-    }
-    a {
-        color: $link;
-        font-family: arial;
-        text-transform: uppercase;
-        font-size: px(12);
-    }
-    /*@media ($media-l) {
-        display: none;
-    }*/ // en tablet landscape se ve mal sin esto
-    //=================================
-    // ------ESTADOS DEL HEADER------
-    //=================================
-    &.--dark,
-    .--transparent &,
-    .acu-revista & {
-        background: rgba(0, 0, 0, 0.5);
-        border: none;
-        a {
-            color: $neutral-white;
-            .logo-la-nacion {
-                color: $neutral-white;
-            }
-        }
-    }
-}
+// @import '../abstracts/variables';
+// //=====================
+// // HEADER CORE MOBILE
+// //=====================
+// .header-mobile {
+//     display: block;
+//     position: relative;
+//     padding-top: 15px;
+//     padding-bottom: 10px;
+//     border-bottom: 1px solid $light-neutral-300;
+//     background: $neutral-white;
+//     z-index: 1;
+//     .header-mobile__logo {
+//         .logo-la-nacion {
+//             color: $ln-active;
+//             font-size: 17px;
+//         }
+//     }
+//     a {
+//         color: $link;
+//         font-family: arial;
+//         text-transform: uppercase;
+//         font-size: px(12);
+//     }
+//     /*@media ($media-l) {
+//         display: none;
+//     }*/ // en tablet landscape se ve mal sin esto
+//     //=================================
+//     // ------ESTADOS DEL HEADER------
+//     //=================================
+//     &.--dark,
+//     .--transparent &,
+//     .acu-revista & {
+//         background: rgba(0, 0, 0, 0.5);
+//         border: none;
+//         a {
+//             color: $neutral-white;
+//             .logo-la-nacion {
+//                 color: $neutral-white;
+//             }
+//         }
+//     }
+// }
