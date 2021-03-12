@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/promoItemsRelatedImage';
-import get from '../../../../private/common/utils/get';
+import get from '../../../common/utils/get';
 
 const addRelatedImage = article => {
     const relatedContent = get(article, 'related_content.basic', []);
