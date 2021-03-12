@@ -1,9 +1,8 @@
-/* eslint-disable camelcase */
-import { useContent } from 'fusion:content';
+import { useContent as getContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/promoItemsRelatedImage';
-import get from '../../../../private/common/utils/get';
+import get from '../../../common/utils/get';
 
-const addRelatedImage = article => {
+const AddRelatedImage = article => {
     const relatedContent = get(article, 'related_content.basic', []);
     const { _id: id } =
         (relatedContent &&
@@ -21,7 +20,7 @@ const addRelatedImage = article => {
     const imageData =
         id &&
         withoutPromoItems &&
-        useContent({
+        getContent({
             source: 'relatedImageSource',
             query: {
                 id,
@@ -42,4 +41,4 @@ const addRelatedImage = article => {
     );
 };
 
-export default addRelatedImage;
+export default AddRelatedImage;

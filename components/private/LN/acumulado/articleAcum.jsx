@@ -6,6 +6,7 @@ import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTe
 import getTitleText from '../../common/utils/getTitleText';
 import ComHour from '../../common/com-hour';
 import getAuthorsAsString from '../../common/utils/getAuthorsAsString';
+import addRelatedImage from '../common/utils/addRelatedImage';
 
 const typeAcumRules = {
     Grilla: {
@@ -38,18 +39,19 @@ const ArticleAcum = ({
     withCategory,
     withTags
 }) => {
+    const _article = addRelatedImage(article);
     const {
         display_date,
         headlines,
         website_url,
         label,
         taxonomy: { primary_section: primarySection, tags } = {}
-    } = article;
+    } = _article;
 
     const authors =
-        typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(article);
+        typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(_article);
 
-    const subheadText = withSubhead && getBajadaOrFirstTextParagraph(article);
+    const subheadText = withSubhead && getBajadaOrFirstTextParagraph(_article);
 
     const titleText = getTitleText(headlines, label);
 
@@ -67,7 +69,7 @@ const ArticleAcum = ({
     return (
         <>
             <ModArticle
-                articleData={article}
+                articleData={_article}
                 dataSection={dataSection}
                 withMedia={typeAcumRules[typeArticle].withMedia}
                 link={website_url}
