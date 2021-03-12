@@ -14,6 +14,9 @@
 
     .container {
         @include flex(flex, row, center, center);
+        .icon-comment {
+            margin-right: px(4);
+        }
     }
 
     .amp & {
