@@ -13,7 +13,7 @@ const typeAcumRules = {
         withTags: true
     },
     Listado: {
-        withSubhead: true,
+        withSubhead: false,
         titleSize: '--m',
         withCategory: true,
         withTags: true
