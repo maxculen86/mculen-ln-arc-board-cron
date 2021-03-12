@@ -11,12 +11,12 @@
         margin-bottom: 0;
         width: 100%;
         display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        @media ($media-l) {
-            width: 50%;
-        }
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+        // @media ($media-l) {
+        //     width: 50%;
+        // }
     }
 
     .com-line {
