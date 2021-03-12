@@ -10,32 +10,16 @@ const ModShare = props => {
             className={`mod-share ${classCondition ? classCondition : ``}`}
         >
             <div className="container --left">
-                <ComButton
-                    onClick={slider.nextButtonHandler}
-                    classCondition="icon-arrow-right"
-                    iconName="facebook-filled"
-                />
-                <button type="button" className="com-button --icon">
-                    <i className="com-icon icon-facebook-filled"></i>
-                </button>
-                <button type="button" className="com-button --icon">
-                    <i className="com-icon icon-twitter-filled"></i>
-                </button>
-                <button type="button" className="com-button --icon">
-                    <i className="com-icon icon-whatsapp-filled"></i>
-                </button>
+                <ComButton iconName="facebook-filled" />
+                <ComButton iconName="twitter-filled" />
+                <ComButton iconName="whatsapp-filled" />
             </div>
             {/* <div className="com-line"></div> */}
             <div className="container --right">
-                <button type="button" className="com-button   --icon ">
-                    <i className="com-icon icon-email   "></i>
-                </button>
-                <button type="button" className="com-button   --icon comment ">
-                    <i className="com-icon icon-comment   "></i>
-                    <span className="com-text --fourxs ">
-                        <label for="">0</label>
-                    </span>
-                </button>
+                <ComButton iconName="email" />
+                <ComButton iconName="comment" size="--fourxs">
+                    <label for="">0</label>
+                </ComButton>
             </div>
             {/* <ComIcon
                     link="https://www.facebook.com/lanacion"
