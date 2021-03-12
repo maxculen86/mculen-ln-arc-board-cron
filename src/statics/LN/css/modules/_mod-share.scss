@@ -118,6 +118,9 @@
 
         .container {
             flex-direction: column;
+            .icon-comment {
+                margin-right: 0;
+            }
         }
         &.--block.--block {
             display: none;
