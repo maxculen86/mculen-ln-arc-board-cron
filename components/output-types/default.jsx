@@ -39,6 +39,10 @@ const scriptList = [
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
     {
+        component: { name: 'GooglePublisherTag', function: GooglePublisherTag },
+        feature: 'none'
+    },
+    {
         component: { name: 'PostBid', function: PostBid },
         feature: [
             'LN-common/banner',
@@ -69,10 +73,6 @@ const scriptList = [
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },
         feature: ['LN-nota/tePuedeInteresar']
-    },
-    {
-        component: { name: 'GooglePublisherTag', function: GooglePublisherTag },
-        feature: 'none'
     },
     {
         component: {
