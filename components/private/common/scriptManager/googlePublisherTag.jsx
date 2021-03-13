@@ -111,20 +111,42 @@ class GooglePublisherTag extends Component {
                 : this.getAuthorsFromContentElements(contentElements);
 
         const script = `
-            (window.googletag = window.googletag || { cmd: [] });
-                googletag.cmd.push(function() {
-                    googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url}]);
-            })
+            window.googletag = window.googletag || { cmd: [] };
+            googletag.cmd.push(() => {
+                // initialize
+                googletag.pubads().enableSingleRequest();
+                googletag.pubads().enableAsyncRendering();
+                googletag.pubads().disableInitialLoad();
+                googletag.enableServices();
+ 
+                
+                console.log('🚀 ::: setTargeting ON ::: 🚀');
+                googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url}]);
+            });
         `;
 
+        /* (() => {
+            window.googletag = window.googletag || { cmd: [] };
+            googletag.cmd.push(function() {
+                console.log('🚀 ::: setTargeting ON ::: 🚀');
+                googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url}]);
+            });
+        })(); */
+
         return (
-            <script
-                defer
-                id="googlePublisherTag-metadata"
-                type="text/javascript"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: script }}
-            />
+            <>
+                <script
+                    async
+                    src="https://www.googletagservices.com/tag/js/gpt.js"
+                />
+                <script
+                    defer
+                    id="googlePublisherTag-metadata"
+                    type="text/javascript"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{ __html: script }}
+                />
+            </>
         );
     }
 }

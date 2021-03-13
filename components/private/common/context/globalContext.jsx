@@ -5,12 +5,20 @@ import { useContent } from 'fusion:content';
 
 export const GlobalContext = React.createContext();
 
-const reducer = (state, action) => {
-    switch (action.type) {
-        default:
-            return state;
-    }
+const actionType = {
+    ADD_ADUNIT_DEFINITION: (state, action) => {
+        const adUnits = state.bannersToLoad || [];
+        adUnits.push(action.payload);
+
+        return { ...state, bannersToLoad: adUnits };
+    },
+    default: state => state
 };
+
+const reducer = (state, action) =>
+    actionType[action.type]
+        ? actionType[action.type](state, action)
+        : actionType.default(state);
 
 const GlobalProvider = ({ children }) => {
     const { arcSite: website = 'la-nacion-ar' } = useAppContext();
@@ -58,7 +66,8 @@ const GlobalProvider = ({ children }) => {
                     }))
                 };
             }
-        })
+        }),
+        bannersToLoad: []
     });
 
     return (
