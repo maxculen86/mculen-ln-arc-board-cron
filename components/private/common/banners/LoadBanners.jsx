@@ -41,6 +41,16 @@ const LoadBanners = props => {
                         const bannerInPB = get(e, 'props.customFields', {})[
                             device
                         ];
+                        const slotGroup =
+                            bannersToLoad &&
+                            bannersToLoad[0] &&
+                            bannersToLoad[0].slotGroup;
+
+                        const itsExclude =
+                            slotGroup === 'nota'
+                                ? shallBeExcluded.includes(bannerInPB || '')
+                                : false;
+
                         if (e.type === 'LN-nota/cuerpo') {
                             const bodyBanners = get(
                                 e,
@@ -74,16 +84,16 @@ const LoadBanners = props => {
                             get(e, 'props.customFields', {})[device].search(
                                 suffix
                             ) > -1 &&
-                            !shallBeExcluded.includes(bannerInPB || '')
+                            !itsExclude
                         );
                     })
                     .map(el => get(el, 'props.customFields', {})[device]);
 
-                console.log(
+                /* console.log(
                     '::: PREVIA A LA CALL DE GOOGLETAG ',
                     [...bannersWithSettings, ...bannersInBody],
                     bannersToLoad
-                );
+                ); */
 
                 if (
                     bannersToLoad.length ===
