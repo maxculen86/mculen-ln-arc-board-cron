@@ -111,6 +111,9 @@ class GooglePublisherTag extends Component {
                 : this.getAuthorsFromContentElements(contentElements);
 
         const script = `
+            var pbjs = pbjs || {};
+            pbjs.que = pbjs.que || [];
+            
             window.googletag = window.googletag || { cmd: [] };
             googletag.cmd.push(() => {
                 // initialize
