@@ -63,12 +63,6 @@ const LoadBanners = props => {
                 })
                 .map(el => get(el, 'props.customFields', {})[device]);
 
-            console.log(
-                '🚀 ~ file: LoadBanners.jsx finalSlostsConfigured',
-                [...bannersWithSettings, ...bannersInBody],
-                bannersToLoad
-            );
-
             if (
                 bannersToLoad.length ===
                     [...bannersWithSettings, ...bannersInBody].length &&
@@ -76,11 +70,12 @@ const LoadBanners = props => {
                 !googleCmdPushed
             ) {
                 googleCmdPushed = true;
-                window.googletag = window.googletag || {
-                    cmd: []
-                };
-                const pbjs = pbjs || {};
-                pbjs.que = pbjs.que || [];
+
+                console.log(
+                    '🚀 ~ file: LoadBanners.jsx finalSlostsConfigured',
+                    [...bannersWithSettings, ...bannersInBody],
+                    bannersToLoad
+                );
 
                 googletag.cmd.push(() => {
                     const defineSlot = ({
@@ -107,13 +102,6 @@ const LoadBanners = props => {
 
                     googletag.pubads().refresh(nonHeaderBiddingSlots);
 
-                    pbjs.que.push(() => {
-                        pbjs.rp.requestBids({
-                            callback: sendAdServerRequest,
-                            gptSlotObjects: headerBiddingSlots
-                        });
-                    });
-
                     // the callback function
                     // will be called twice:
                     //	once by Prebid when the auction's done
@@ -124,13 +112,16 @@ const LoadBanners = props => {
                         if (_headerBiddingSlots.length === 0) return;
                         googletag.cmd.push(() => {
                             // don't run again if already ran
-                            if (pbjs.adserverRequestSent) {
-                                return;
-                            }
+                            if (pbjs.adserverRequestSent) return;
                             pbjs.adserverRequestSent = true;
                             googletag.pubads().refresh(_headerBiddingSlots);
                         });
                     };
+
+                    pbjs.rp.requestBids({
+                        callback: sendAdServerRequest,
+                        gptSlotObjects: headerBiddingSlots
+                    });
 
                     // this timeout is a failsafe
                     // the ad ops team can set lower thresholds that will be respected by Prebid

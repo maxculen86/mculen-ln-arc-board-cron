@@ -17,7 +17,7 @@ export default class PostBid extends Component {
 
         return (
             <script
-                defer
+                async
                 src={`https://ads.rubiconproject.com/prebid/20148_LaNacion_Desktop${isTest}.js`}
             />
         );
