@@ -57,6 +57,17 @@ const Index = forwardRef((props, ref) => {
                     payload: { id }
                 });
             }
+
+            if (slotGroup === 'acumulado') {
+                if (
+                    id.search('caja') === 0 &&
+                    id.search(/(?:_tab)|(?:_mob)/) > -1
+                )
+                    dispatch({
+                        type: 'ADD_BANNER_IN_GRILLAS',
+                        payload: { id }
+                    });
+            }
         }
     }, [
         dfpId,
