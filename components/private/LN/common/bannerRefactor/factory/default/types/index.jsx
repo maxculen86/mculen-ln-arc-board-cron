@@ -1,11 +1,6 @@
-import React, { forwardRef, useState, useEffect, useContext } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import get from '../../../../../../common/utils/get';
-import hasAdsTestParam from '../../../../utils/hasAdsTesParam';
-import flatArray from '../../../../../../common/utils/flatArray';
-import { GlobalContext } from '../../../../../../common/context/globalContext';
-
-const bannersLoaded = [];
+import Ads from '../../../ads';
 
 const Index = forwardRef((props, ref) => {
     const {
@@ -26,61 +21,7 @@ const Index = forwardRef((props, ref) => {
         noShow,
         slotGroup
     } = props;
-    const [toInstance, setToInstance] = useState(() => false);
-    const { dispatch } = useContext(GlobalContext);
-    const prebidEnabled = get(bidding, 'prebid.enabled', false);
     const onClose = () => ref.current.remove();
-
-    useEffect(() => {
-        if (!toInstance && !bannersLoaded.includes(`/${dfpId}/${slotName}`)) {
-            bannersLoaded.push(`/${dfpId}/${slotName}`);
-            setToInstance(() => true);
-
-            console.log(`::: Banner position: ${id}`);
-
-            dispatch({
-                type: 'ADD_ADUNIT_DEFINITION',
-                payload: {
-                    adUnitPath: `/${dfpId}/${slotName}`,
-                    size: flatArray(dimensions),
-                    opt_div: id,
-                    sizemap,
-                    prebidEnabled,
-                    targeting: { ...targeting, adstest: hasAdsTestParam() },
-                    slotGroup
-                }
-            });
-
-            if (slotGroup === 'nota') {
-                dispatch({
-                    type: 'REMOVE_ITEM_FROM_SHALL_BE_EXLUDED_LIST',
-                    payload: { id }
-                });
-            }
-
-            if (slotGroup === 'acumulado') {
-                if (
-                    id.search('caja') === 0 &&
-                    id.search(/(?:_tab)|(?:_mob)/) > -1
-                )
-                    dispatch({
-                        type: 'ADD_BANNER_IN_GRILLAS',
-                        payload: { id }
-                    });
-            }
-        }
-    }, [
-        dfpId,
-        dimensions,
-        dispatch,
-        id,
-        prebidEnabled,
-        sizemap,
-        slotGroup,
-        slotName,
-        targeting,
-        toInstance
-    ]);
 
     return Object.values(show).some(element => element === false) ? (
         <></>
@@ -108,7 +49,17 @@ const Index = forwardRef((props, ref) => {
                     onClick={onClose}
                 />
             )}
-            <div id={id} className="com-banner" />
+            <Ads
+                slotId={id}
+                slotName={slotName}
+                dimensions={dimensions}
+                dfpId={dfpId}
+                targeting={targeting}
+                show={show}
+                bidding={bidding}
+                sizemap={sizemap}
+                slotGroup={slotGroup}
+            />
         </div>
     );
 });
@@ -137,7 +88,9 @@ Index.propTypes = {
         collection: PropTypes.bool
     }),
     withComments: PropTypes.bool,
-    subscription: PropTypes.bool
+    subscription: PropTypes.bool,
+    noShow: PropTypes.bool,
+    slotGroup: PropTypes.string.isRequired
 };
 
 Index.defaultProps = {
@@ -152,7 +105,8 @@ Index.defaultProps = {
         collections: false
     },
     withComments: false,
-    subscription: false
+    subscription: false,
+    noShow: false
 };
 
 export default Index;

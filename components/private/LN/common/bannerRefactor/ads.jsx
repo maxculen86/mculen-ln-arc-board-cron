@@ -1,5 +1,121 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/require-default-props */
+/* eslint-disable no-console */
+import React, { useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
+import get from '../../../common/utils/get';
+import hasAdsTestParam from '../utils/hasAdsTesParam';
+import flatArray from '../../../common/utils/flatArray';
+import { GlobalContext } from '../../../common/context/globalContext';
+
+const bannersLoaded = [];
+
+const Ads = props => {
+    const {
+        slotId: id,
+        slotName,
+        dimensions,
+        dfpId,
+        targeting,
+        show,
+        bidding,
+        sizemap,
+        slotGroup
+    } = props;
+    const [toInstance, setToInstance] = useState(() => false);
+    const { dispatch } = useContext(GlobalContext);
+    const prebidEnabled = get(bidding, 'prebid.enabled', false);
+
+    useEffect(() => {
+        if (!toInstance && !bannersLoaded.includes(`/${dfpId}/${slotName}`)) {
+            bannersLoaded.push(`/${dfpId}/${slotName}`);
+            setToInstance(() => true);
+
+            console.log(`::: Banner position: ${id}`);
+
+            dispatch({
+                type: 'ADD_ADUNIT_DEFINITION',
+                payload: {
+                    adUnitPath: `/${dfpId}/${slotName}`,
+                    size: flatArray(dimensions),
+                    opt_div: id,
+                    sizemap,
+                    prebidEnabled,
+                    targeting: { ...targeting, adstest: hasAdsTestParam() },
+                    slotGroup
+                }
+            });
+
+            if (slotGroup === 'nota') {
+                dispatch({
+                    type: 'REMOVE_ITEM_FROM_SHALL_BE_EXLUDED_LIST',
+                    payload: { id }
+                });
+            }
+
+            if (slotGroup === 'acumulado') {
+                if (
+                    id.search('caja') === 0 &&
+                    id.search(/(?:_tab)|(?:_mob)/) > -1
+                )
+                    dispatch({
+                        type: 'ADD_BANNER_IN_GRILLAS',
+                        payload: { id }
+                    });
+            }
+        }
+    }, [
+        dfpId,
+        dimensions,
+        dispatch,
+        id,
+        prebidEnabled,
+        sizemap,
+        slotGroup,
+        slotName,
+        targeting,
+        toInstance
+    ]);
+
+    return Object.values(show).some(element => element === false) ? (
+        <></>
+    ) : (
+        <div id={id} className="com-banner" />
+    );
+};
+
+Ads.propTypes = {
+    slotId: PropTypes.string.isRequired,
+    dfpId: PropTypes.string.isRequired,
+    dimensions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
+        .isRequired,
+    slotName: PropTypes.string.isRequired,
+    targeting: PropTypes.shape({
+        seccion: PropTypes.string,
+        sitio: PropTypes.string
+    }).isRequired,
+    sizemap: PropTypes.shape({
+        breakpoints: PropTypes.array,
+        refresh: PropTypes.bool
+    }),
+    bidding: PropTypes.objectOf(PropTypes.string),
+    show: PropTypes.shape({
+        termicas: PropTypes.bool,
+        collection: PropTypes.bool
+    }),
+    slotGroup: PropTypes.string
+};
+
+Ads.defaultProps = {
+    sizemap: [],
+    bidding: {},
+    show: {
+        termicas: false,
+        collections: false
+    },
+    slotGroup: 'desktop'
+};
+
+export default Ads;
+/* 
 import React, { useCallback, useState, useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import useMutationObserver from '../../../common/hooks/useMutationObserver';
@@ -163,3 +279,4 @@ Ads.propTypes = {
 };
 
 export default Ads;
+ */
