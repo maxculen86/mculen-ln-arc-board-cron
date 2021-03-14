@@ -2,37 +2,10 @@ import React, { forwardRef, useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import get from '../../../../../../common/utils/get';
 import hasAdsTestParam from '../../../../utils/hasAdsTesParam';
+import flatArray from '../../../../../../common/utils/flatArray';
 import { GlobalContext } from '../../../../../../common/context/globalContext';
 
 const bannersLoaded = [];
-
-function getArrayDepth(array) {
-    return Array.isArray(array)
-        ? 1 + Math.max(...array.map(child => getArrayDepth(child)))
-        : 0;
-}
-
-const flatArray = array => {
-    const _flatAarray = [];
-    const arrayDepth = getArrayDepth(array);
-
-    if (array && typeof array !== 'undefined' && arrayDepth === 1) {
-        _flatAarray.push(...array);
-    } else if (
-        array &&
-        typeof array !== 'undefined' &&
-        array.length > 0 &&
-        arrayDepth === 2
-    ) {
-        _flatAarray.push(...array);
-    } else if (array) {
-        array.forEach(set => {
-            _flatAarray.push(...set);
-        });
-    }
-
-    return _flatAarray || [];
-};
 
 const Index = forwardRef((props, ref) => {
     const {
@@ -88,15 +61,15 @@ const Index = forwardRef((props, ref) => {
         toInstance
     ]);
 
-    if (Object.values(show).some(element => element === false)) return <></>;
-
-    return (
+    return Object.values(show).some(element => element === false) ? (
+        <></>
+    ) : (
         <div
             className={`mod-banner ${background ? '--bg-banner' : ''} ${
                 sticky ? '--sticky' : ''
             } ${closeButton ? '--close' : ''} ${
                 fixed ? '--fixed' : ''
-            } --${id}`}
+            } --${id} hlp-none`}
             style={{
                 display:
                     (!!noShow && subscription) ||
@@ -114,9 +87,7 @@ const Index = forwardRef((props, ref) => {
                     onClick={onClose}
                 />
             )}
-            <div id={id} className="com-banner">
-                <div />
-            </div>
+            <div id={id} className="com-banner" />
         </div>
     );
 });
