@@ -7,19 +7,35 @@ export const GlobalContext = React.createContext();
 
 const actionType = {
     ADD_ADUNIT_DEFINITION: (state, action) => {
-        const adUnits = state.bannersToLoad || [];
+        const adUnits = state.bannersConfig.bannersToLoad || [];
         adUnits.push(action.payload);
 
-        return { ...state, bannersToLoad: adUnits };
+        return {
+            ...state,
+            bannersConfig: { ...state.bannersConfig, bannersToLoad: adUnits }
+        };
+    },
+    REMOVE_ITEM_FROM_SHALL_BE_EXLUDED_LIST: (state, action) => {
+        const shallBeExcluded = state.bannersConfig.shallBeExcluded.filter(
+            el => el !== action.payload.id
+        );
+
+        return {
+            ...state,
+            bannersConfig: {
+                ...state.bannersConfig,
+                shallBeExcluded
+            }
+        };
     },
     default: state => state
 };
 
-const reducer = (state, action) =>
-    actionType[action.type]
+const reducer = (state, action) => {
+    return actionType[action.type]
         ? actionType[action.type](state, action)
         : actionType.default(state);
-
+};
 const GlobalProvider = ({ children }) => {
     const { arcSite: website = 'la-nacion-ar' } = useAppContext();
     const [state, dispatch] = React.useReducer(reducer, {
@@ -67,7 +83,16 @@ const GlobalProvider = ({ children }) => {
                 };
             }
         }),
-        bannersToLoad: []
+        bannersConfig: {
+            bannersToLoad: [],
+            shallBeExcluded: [
+                'caja3_dsk',
+                'caja4_dsk',
+                'caja2_tab',
+                'middle_1_tab',
+                'middle_1_tab'
+            ]
+        }
     });
 
     return (

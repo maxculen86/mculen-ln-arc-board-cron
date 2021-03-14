@@ -23,7 +23,8 @@ const Index = forwardRef((props, ref) => {
         closeButton,
         withComments,
         subscription,
-        noShow
+        noShow,
+        slotGroup
     } = props;
     const [toInstance, setToInstance] = useState(() => false);
     const { dispatch } = useContext(GlobalContext);
@@ -35,6 +36,8 @@ const Index = forwardRef((props, ref) => {
             bannersLoaded.push(`/${dfpId}/${slotName}`);
             setToInstance(() => true);
 
+            console.log(`::: Banner position: ${id}`);
+
             dispatch({
                 type: 'ADD_ADUNIT_DEFINITION',
                 payload: {
@@ -43,9 +46,17 @@ const Index = forwardRef((props, ref) => {
                     opt_div: id,
                     sizemap,
                     prebidEnabled,
-                    targeting: { ...targeting, adstest: hasAdsTestParam() }
+                    targeting: { ...targeting, adstest: hasAdsTestParam() },
+                    slotGroup
                 }
             });
+
+            if (slotGroup === 'nota') {
+                dispatch({
+                    type: 'REMOVE_ITEM_FROM_SHALL_BE_EXLUDED_LIST',
+                    payload: { id }
+                });
+            }
         }
     }, [
         dfpId,
@@ -54,6 +65,7 @@ const Index = forwardRef((props, ref) => {
         id,
         prebidEnabled,
         sizemap,
+        slotGroup,
         slotName,
         targeting,
         toInstance

@@ -27,7 +27,8 @@ const Megatop = props => {
         dimensions,
         targeting,
         dfpId,
-        background
+        background,
+        slotGroup
     } = props;
     const [toInstance, setToInstance] = useState(() => false);
     const { dispatch } = useContext(GlobalContext);
@@ -85,6 +86,8 @@ const Megatop = props => {
             bannersLoaded.push(`/${dfpId}/${slotName}`);
             setToInstance(() => true);
 
+            console.log(`::: Banner position: ${id}`);
+
             dispatch({
                 type: 'ADD_ADUNIT_DEFINITION',
                 payload: {
@@ -92,11 +95,21 @@ const Megatop = props => {
                     size: flatArray(dimensions),
                     opt_div: id,
                     prebidEnabled: false,
-                    targeting: { ...targeting, adstest: hasAdsTestParam() }
+                    targeting: { ...targeting, adstest: hasAdsTestParam() },
+                    slotGroup
                 }
             });
         }
-    }, [dfpId, dimensions, dispatch, id, slotName, targeting, toInstance]);
+    }, [
+        dfpId,
+        dimensions,
+        dispatch,
+        id,
+        slotGroup,
+        slotName,
+        targeting,
+        toInstance
+    ]);
 
     return (
         <div
