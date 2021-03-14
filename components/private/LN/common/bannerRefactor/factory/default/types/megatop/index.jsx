@@ -95,8 +95,6 @@ const Megatop = props => {
                     targeting: { ...targeting, adstest: hasAdsTestParam() }
                 }
             });
-
-            console.log('🚀 ~ useEffect ~ id', id);
         }
     }, [dfpId, dimensions, dispatch, id, slotName, targeting, toInstance]);
 

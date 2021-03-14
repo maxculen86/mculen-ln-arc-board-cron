@@ -46,8 +46,6 @@ const Index = forwardRef((props, ref) => {
                     targeting: { ...targeting, adstest: hasAdsTestParam() }
                 }
             });
-
-            console.log('🚀 ~ useEffect ~ id', id);
         }
     }, [
         dfpId,
