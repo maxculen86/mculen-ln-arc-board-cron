@@ -44,6 +44,11 @@ const LoadBanners = props => {
                                         bodyBanners[value]
                                     ) &&
                                     bodyBanners[value].search(suffix) > -1 &&
+                                    Object.keys(bannersToLoad).find(
+                                        i =>
+                                            bannersToLoad[i].opt_div ===
+                                            bodyBanners[value]
+                                    ) &&
                                     bannersInBody.push(bodyBanners[value])
                             );
                     }
@@ -126,40 +131,17 @@ const LoadBanners = props => {
 
                     googletag
                         .pubads()
-                        .addEventListener('slotRenderEnded', event => {
-                            const { slot } = event;
-                            /* console.group(
-                                'Slot',
-                                slot.getSlotElementId(),
-                                'finished rendering.'
-                            );
-
-                            // Log details of the rendered ad.
-                            console.log('Advertiser ID:', event.advertiserId);
-                            console.log('Campaign ID: ', event.campaignId);
-                            console.log('Creative ID: ', event.creativeId);
-                            console.log('Is empty?:', event.isEmpty);
-                            console.log('Line Item ID:', event.lineItemId);
-                            console.log('Size:', event.size);
-                            console.log(
-                                'Source Agnostic Creative ID:',
-                                event.sourceAgnosticCreativeId
-                            );
-                            console.log(
-                                'Source Agnostic Line Item ID:',
-                                event.sourceAgnosticLineItemId
-                            );
-                            console.groupEnd(); */
-
-                            if (!event.isEmpty)
-                                document
-                                    .getElementById(slot.getSlotElementId())
-                                    .parentNode.classList.remove('hlp-none');
-
-                            /* if (slot === targetSlot) {
-                                // Slot specific logic.
-                            } */
-                        });
+                        .addEventListener(
+                            'slotRenderEnded',
+                            ({ slot, isEmpty }) => {
+                                if (!isEmpty)
+                                    document
+                                        .getElementById(slot.getSlotElementId())
+                                        .parentNode.classList.remove(
+                                            'hlp-none'
+                                        );
+                            }
+                        );
                 });
             }
         }
