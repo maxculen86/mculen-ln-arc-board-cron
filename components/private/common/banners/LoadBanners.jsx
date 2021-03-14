@@ -33,9 +33,14 @@ const LoadBanners = props => {
         try {
             if (suffix && device) {
                 const bannersInBody = [];
-                const { bannersToLoad } = state || [];
+                const {
+                    bannersConfig: { bannersToLoad = [], shallBeExcluded = [] }
+                } = state || { bannersConfig: {} };
                 const bannersWithSettings = bannersConfigured
                     .filter(e => {
+                        const bannerInPB = get(e, 'props.customFields', {})[
+                            device
+                        ];
                         if (e.type === 'LN-nota/cuerpo') {
                             const bodyBanners = get(
                                 e,
@@ -68,10 +73,17 @@ const LoadBanners = props => {
                             get(e, 'props.customFields', {})[device] &&
                             get(e, 'props.customFields', {})[device].search(
                                 suffix
-                            ) > -1
+                            ) > -1 &&
+                            !shallBeExcluded.includes(bannerInPB || '')
                         );
                     })
                     .map(el => get(el, 'props.customFields', {})[device]);
+
+                console.log(
+                    '::: PREVIA A LA CALL DE GOOGLETAG ',
+                    [...bannersWithSettings, ...bannersInBody],
+                    bannersToLoad
+                );
 
                 if (
                     bannersToLoad.length ===
