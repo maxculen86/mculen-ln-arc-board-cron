@@ -8,7 +8,68 @@ import useViewportSize from '../hooks/useViewportSize';
 
 let googleCmdPushed = false;
 
-const LoadBanners = props => {
+const queueGoogletagCommand = bannersToLoad => {
+    googletag.cmd.push(() => {
+        const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
+            googletag
+                .defineSlot(adUnitPath, size, optDiv)
+                .addService(googletag.pubads());
+
+        const headerBiddingSlots = bannersToLoad
+            .filter(e => e.prebidEnabled)
+            .map(defineSlot);
+        const nonHeaderBiddingSlots = bannersToLoad
+            .filter(e => !e.prebidEnabled)
+            .map(defineSlot);
+
+        // initialize
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().enableAsyncRendering();
+        googletag.pubads().disableInitialLoad();
+        googletag.enableServices();
+
+        googletag.pubads().refresh(nonHeaderBiddingSlots);
+
+        // the callback function
+        // will be called twice:
+        //	once by Prebid when the auction's done
+        //	once by the failsafe timeout
+        // so a boolean is used to make sure ads are refreshed only once
+        pbjs.adserverRequestSent = false;
+        const sendAdServerRequest = _headerBiddingSlots => {
+            if (_headerBiddingSlots.length === 0) return;
+            googletag.cmd.push(() => {
+                // don't run again if already ran
+                if (pbjs.adserverRequestSent) return;
+                pbjs.adserverRequestSent = true;
+                googletag.pubads().refresh(_headerBiddingSlots);
+            });
+        };
+
+        pbjs.rp.requestBids({
+            callback: sendAdServerRequest,
+            gptSlotObjects: headerBiddingSlots
+        });
+
+        // this timeout is a failsafe
+        // the ad ops team can set lower thresholds that will be respected by Prebid
+        // but the web-dev team can define the worst case here
+        setTimeout(() => {
+            sendAdServerRequest(headerBiddingSlots);
+        }, 3500);
+
+        googletag
+            .pubads()
+            .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
+                if (!isEmpty)
+                    document
+                        .getElementById(slot.getSlotElementId())
+                        .parentNode.classList.remove('hlp-none');
+            });
+    });
+};
+
+const LoadBanners = () => {
     const { state } = useContext(GlobalContext);
     const { renderables = [], outputType } = useAppContext();
     const [suffix, setSuffix] = useState();
@@ -50,7 +111,7 @@ const LoadBanners = props => {
                             bannersToLoad[0] &&
                             bannersToLoad[0].slotGroup;
 
-                        const itsExclude =
+                        const thisIsExclude =
                             slotGroup === 'nota'
                                 ? shallBeExcluded.includes(bannerInPB || '')
                                 : false;
@@ -87,11 +148,9 @@ const LoadBanners = props => {
                         }
 
                         return (
-                            get(e, 'props.customFields', {})[device] &&
-                            get(e, 'props.customFields', {})[device].search(
-                                suffix
-                            ) > -1 &&
-                            !itsExclude
+                            bannerInPB &&
+                            bannerInPB.search(suffix) > -1 &&
+                            !thisIsExclude
                         );
                     })
                     .map(el => get(el, 'props.customFields', {})[device]);
@@ -134,82 +193,11 @@ const LoadBanners = props => {
                         bannersToLoad
                     );
 
-                    googletag.cmd.push(() => {
-                        const defineSlot = ({
-                            adUnitPath,
-                            size,
-                            opt_div: optDiv
-                        }) =>
-                            googletag
-                                .defineSlot(adUnitPath, size, optDiv)
-                                .addService(googletag.pubads());
-
-                        const headerBiddingSlots = bannersToLoad
-                            .filter(e => e.prebidEnabled)
-                            .map(defineSlot);
-                        const nonHeaderBiddingSlots = bannersToLoad
-                            .filter(e => !e.prebidEnabled)
-                            .map(defineSlot);
-
-                        // initialize
-                        googletag.pubads().enableSingleRequest();
-                        googletag.pubads().enableAsyncRendering();
-                        googletag.pubads().disableInitialLoad();
-                        googletag.enableServices();
-
-                        googletag.pubads().refresh(nonHeaderBiddingSlots);
-
-                        // the callback function
-                        // will be called twice:
-                        //	once by Prebid when the auction's done
-                        //	once by the failsafe timeout
-                        // so a boolean is used to make sure ads are refreshed only once
-                        pbjs.adserverRequestSent = false;
-                        const sendAdServerRequest = _headerBiddingSlots => {
-                            if (_headerBiddingSlots.length === 0) return;
-                            googletag.cmd.push(() => {
-                                // don't run again if already ran
-                                if (pbjs.adserverRequestSent) return;
-                                pbjs.adserverRequestSent = true;
-                                googletag.pubads().refresh(_headerBiddingSlots);
-                            });
-                        };
-
-                        pbjs.rp.requestBids({
-                            callback: sendAdServerRequest,
-                            gptSlotObjects: headerBiddingSlots
-                        });
-
-                        // this timeout is a failsafe
-                        // the ad ops team can set lower thresholds that will be respected by Prebid
-                        // but the web-dev team can define the worst case here
-                        setTimeout(() => {
-                            sendAdServerRequest(headerBiddingSlots);
-                        }, 3500);
-
-                        googletag
-                            .pubads()
-                            .addEventListener(
-                                'slotRenderEnded',
-                                ({ slot, isEmpty }) => {
-                                    if (!isEmpty)
-                                        document
-                                            .getElementById(
-                                                slot.getSlotElementId()
-                                            )
-                                            .parentNode.classList.remove(
-                                                'hlp-none'
-                                            );
-                                }
-                            );
-                    });
+                    queueGoogletagCommand(bannersToLoad);
                 }
             }
         } catch (error) {
-            console.error(
-                '🚀 ~ file: LoadBanners.jsx ~ line 41 ~ useEffect ~ error',
-                error
-            );
+            console.error('🚀 ~ file: LoadBanners.jsx  ~ error', error);
         }
     }, [bannersConfigured, device, state, suffix]);
 

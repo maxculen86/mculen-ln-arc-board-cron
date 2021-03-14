@@ -1,23 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, {
-    createRef,
-    useRef,
-    useState,
-    useEffect,
-    useLayoutEffect,
-    useContext
-} from 'react';
+import React, { createRef, useRef, useState, useLayoutEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Ads from '../../../../ads';
 import addEventListener from '../../../../../../../common/hooks/useEventListener';
 import useMutationObserver from '../../../../../../../common/hooks/useMutationObserver';
 import { onMutation, onLoad, onScroll, onClick } from './handlers';
-import hasAdsTestParam from '../../../../../utils/hasAdsTesParam';
-import flatArray from '../../../../../../../common/utils/flatArray';
-import { GlobalContext } from '../../../../../../../common/context/globalContext';
-
-const bannersLoaded = [];
 
 const Megatop = props => {
     const {
@@ -27,11 +15,11 @@ const Megatop = props => {
         dimensions,
         targeting,
         dfpId,
-        background,
-        slotGroup
+        bidding,
+        slotGroup,
+        show,
+        sizemap
     } = props;
-    const [toInstance, setToInstance] = useState(() => false);
-    const { dispatch } = useContext(GlobalContext);
 
     if (device === 'tablet') return null;
 
@@ -81,36 +69,6 @@ const Megatop = props => {
         };
     }, [megatopRef, showMegatop]);
 
-    useEffect(() => {
-        if (!toInstance && !bannersLoaded.includes(`/${dfpId}/${slotName}`)) {
-            bannersLoaded.push(`/${dfpId}/${slotName}`);
-            setToInstance(() => true);
-
-            console.log(`::: Banner position: ${id}`);
-
-            dispatch({
-                type: 'ADD_ADUNIT_DEFINITION',
-                payload: {
-                    adUnitPath: `/${dfpId}/${slotName}`,
-                    size: flatArray(dimensions),
-                    opt_div: id,
-                    prebidEnabled: false,
-                    targeting: { ...targeting, adstest: hasAdsTestParam() },
-                    slotGroup
-                }
-            });
-        }
-    }, [
-        dfpId,
-        dimensions,
-        dispatch,
-        id,
-        slotGroup,
-        slotName,
-        targeting,
-        toInstance
-    ]);
-
     return (
         <div
             ref={megatopRef}
@@ -128,7 +86,17 @@ const Megatop = props => {
             >
                 Publicidad | <span>Bajar al sitio</span>
             </button>
-            <div id={id} className="com-banner" />
+            <Ads
+                slotId={id}
+                slotName={slotName}
+                dimensions={dimensions}
+                dfpId={dfpId}
+                targeting={targeting}
+                show={show}
+                bidding={bidding || {}}
+                sizemap={sizemap}
+                slotGroup={slotGroup}
+            />
         </div>
     );
 };
@@ -144,11 +112,26 @@ Megatop.propTypes = {
         sitio: PropTypes.string
     }).isRequired,
     dfpId: PropTypes.number.isRequired,
-    background: PropTypes.string
+    bidding: PropTypes.objectOf(PropTypes.string),
+    show: PropTypes.shape({
+        termicas: PropTypes.bool,
+        collection: PropTypes.bool
+    }),
+    slotGroup: PropTypes.string,
+    sizemap: PropTypes.shape({
+        breakpoints: PropTypes.array,
+        refresh: PropTypes.bool
+    })
 };
 
 Megatop.defaultProps = {
-    background: undefined
+    bidding: {},
+    show: {
+        termicas: false,
+        collections: false
+    },
+    slotGroup: 'desktop',
+    sizemap: []
 };
 
 export default Megatop;

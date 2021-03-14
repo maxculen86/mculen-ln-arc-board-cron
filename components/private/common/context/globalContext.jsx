@@ -103,7 +103,7 @@ const GlobalProvider = ({ children }) => {
                 'caja4_dsk',
                 'caja2_tab',
                 'middle_1_tab',
-                'middle_1_tab'
+                'middle_2_tab'
             ]
         }
     });
