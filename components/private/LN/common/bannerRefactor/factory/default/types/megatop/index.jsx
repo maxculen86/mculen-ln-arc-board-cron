@@ -1,11 +1,23 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { createRef, useRef, useState, useLayoutEffect } from 'react';
+import React, {
+    createRef,
+    useRef,
+    useState,
+    useEffect,
+    useLayoutEffect,
+    useContext
+} from 'react';
 import PropTypes from 'fusion:prop-types';
 import Ads from '../../../../ads';
 import addEventListener from '../../../../../../../common/hooks/useEventListener';
 import useMutationObserver from '../../../../../../../common/hooks/useMutationObserver';
 import { onMutation, onLoad, onScroll, onClick } from './handlers';
+import hasAdsTestParam from '../../../../../utils/hasAdsTesParam';
+import flatArray from '../../../../../../../common/utils/flatArray';
+import { GlobalContext } from '../../../../../../../common/context/globalContext';
+
+const bannersLoaded = [];
 
 const Megatop = props => {
     const {
@@ -17,6 +29,8 @@ const Megatop = props => {
         dfpId,
         background
     } = props;
+    const [toInstance, setToInstance] = useState(() => false);
+    const { dispatch } = useContext(GlobalContext);
 
     if (device === 'tablet') return null;
 
@@ -66,6 +80,26 @@ const Megatop = props => {
         };
     }, [megatopRef, showMegatop]);
 
+    useEffect(() => {
+        if (!toInstance && !bannersLoaded.includes(`/${dfpId}/${slotName}`)) {
+            bannersLoaded.push(`/${dfpId}/${slotName}`);
+            setToInstance(() => true);
+
+            dispatch({
+                type: 'ADD_ADUNIT_DEFINITION',
+                payload: {
+                    adUnitPath: `/${dfpId}/${slotName}`,
+                    size: flatArray(dimensions),
+                    opt_div: id,
+                    prebidEnabled: false,
+                    targeting: { ...targeting, adstest: hasAdsTestParam() }
+                }
+            });
+
+            console.log('🚀 ~ useEffect ~ id', id);
+        }
+    }, [dfpId, dimensions, dispatch, id, slotName, targeting, toInstance]);
+
     return (
         <div
             ref={megatopRef}
@@ -83,17 +117,7 @@ const Megatop = props => {
             >
                 Publicidad | <span>Bajar al sitio</span>
             </button>
-            <div id={id} className="com-banner">
-                <Ads
-                    id={id}
-                    slotName={slotName}
-                    dimensions={dimensions}
-                    targeting={targeting}
-                    dfpId={dfpId}
-                    background={background ? '--bg-banner' : ''}
-                    extraClasses="com-banner"
-                />
-            </div>
+            <div id={id} className="com-banner" />
         </div>
     );
 };

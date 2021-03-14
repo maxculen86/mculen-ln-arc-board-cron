@@ -16,14 +16,8 @@ const LoadBanners = props => {
         tablet: '_tab',
         mobile: '_mob'
     };
-    const bannersConfigured = renderables.filter(
-        e =>
-            ['LN-common/bannerRefactor', 'LN-nota/cuerpo'].includes(e.type) &&
-            !(
-                get(e, 'props.customFields.desktop', '') === 'megatop_dsk' ||
-                get(e, 'props.customFields.tablet', '') === 'megatop_tab' ||
-                get(e, 'props.customFields.mobile', '') === 'megatop_mob'
-            )
+    const bannersConfigured = renderables.filter(e =>
+        ['LN-common/bannerRefactor', 'LN-nota/cuerpo'].includes(e.type)
     );
 
     useEffect(() => {

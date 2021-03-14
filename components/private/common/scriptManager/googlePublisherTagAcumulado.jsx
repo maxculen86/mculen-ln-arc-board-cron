@@ -71,13 +71,19 @@ const googlePublisherTagAcumulado = props => {
     `;
 
     return (
-        <script
-            defer
-            id="googlePublisherTag-metadata"
-            type="text/javascript"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: script }}
-        />
+        <>
+            <script
+                async
+                src="https://www.googletagservices.com/tag/js/gpt.js"
+            />
+            <script
+                async
+                id="googlePublisherTag-metadata"
+                type="text/javascript"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: script }}
+            />
+        </>
     );
 };
 
