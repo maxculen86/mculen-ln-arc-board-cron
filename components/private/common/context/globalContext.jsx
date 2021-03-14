@@ -28,6 +28,18 @@ const actionType = {
             }
         };
     },
+    ADD_BANNER_IN_GRILLAS: (state, action) => {
+        const adUnits = state.bannersConfig.bannersInGrillaNotas || [];
+        adUnits.push(action.payload.id);
+
+        return {
+            ...state,
+            bannersConfig: {
+                ...state.bannersConfig,
+                bannersInGrillaNotas: adUnits
+            }
+        };
+    },
     default: state => state
 };
 
@@ -85,6 +97,7 @@ const GlobalProvider = ({ children }) => {
         }),
         bannersConfig: {
             bannersToLoad: [],
+            bannersInGrillaNotas: [],
             shallBeExcluded: [
                 'caja3_dsk',
                 'caja4_dsk',

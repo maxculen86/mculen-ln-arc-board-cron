@@ -34,7 +34,11 @@ const LoadBanners = props => {
             if (suffix && device) {
                 const bannersInBody = [];
                 const {
-                    bannersConfig: { bannersToLoad = [], shallBeExcluded = [] }
+                    bannersConfig: {
+                        bannersToLoad = [],
+                        shallBeExcluded = [],
+                        bannersInGrillaNotas = []
+                    }
                 } = state || { bannersConfig: {} };
                 const bannersWithSettings = bannersConfigured
                     .filter(e => {
@@ -51,7 +55,10 @@ const LoadBanners = props => {
                                 ? shallBeExcluded.includes(bannerInPB || '')
                                 : false;
 
-                        if (e.type === 'LN-nota/cuerpo') {
+                        if (
+                            e.type === 'LN-nota/cuerpo' &&
+                            slotGroup === 'nota'
+                        ) {
                             const bodyBanners = get(
                                 e,
                                 'props.customFields',
@@ -91,13 +98,27 @@ const LoadBanners = props => {
 
                 /* console.log(
                     '::: PREVIA A LA CALL DE GOOGLETAG ',
-                    [...bannersWithSettings, ...bannersInBody],
-                    bannersToLoad
+                    [
+                        ...bannersWithSettings,
+                        ...bannersInBody,
+                        ...bannersInGrillaNotas
+                    ],
+                    bannersToLoad,
+                    bannersToLoad.length ===
+                        [
+                            ...bannersWithSettings,
+                            ...bannersInBody,
+                            ...bannersInGrillaNotas
+                        ].length
                 ); */
 
                 if (
                     bannersToLoad.length ===
-                        [...bannersWithSettings, ...bannersInBody].length &&
+                        [
+                            ...bannersWithSettings,
+                            ...bannersInBody,
+                            ...bannersInGrillaNotas
+                        ].length &&
                     typeof window !== 'undefined' &&
                     !googleCmdPushed
                 ) {
@@ -105,7 +126,11 @@ const LoadBanners = props => {
 
                     console.log(
                         '🚀 ~ file: LoadBanners.jsx finalSlostsConfigured',
-                        [...bannersWithSettings, ...bannersInBody],
+                        [
+                            ...bannersWithSettings,
+                            ...bannersInBody,
+                            ...bannersInGrillaNotas
+                        ],
                         bannersToLoad
                     );
 
