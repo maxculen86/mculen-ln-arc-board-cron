@@ -65,7 +65,12 @@ export default Component => {
         // if (subscription) return null;
 
         return outputType !== 'amp' ? (
-            <Component subscription={subscription} {...props} ref={ref} />
+            <Component
+                noShow
+                subscription={subscription}
+                {...props}
+                ref={ref}
+            />
         ) : null;
     });
 };

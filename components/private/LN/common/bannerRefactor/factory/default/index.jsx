@@ -165,6 +165,7 @@ function getBannerForAccumTemplate(config) {
         case MEGATOP_DSK:
             return <Megatop {...config} />;
         case ADHESION_DSK:
+        case ADHESION_TAB:
         case ADHESION_MOB:
             return createElement(
                 withNonSubscribersConstraint(

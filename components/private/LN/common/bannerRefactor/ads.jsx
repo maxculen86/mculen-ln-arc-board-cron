@@ -15,7 +15,6 @@ const Ads = props => {
         dimensions,
         dfpId,
         targeting,
-        show,
         bidding,
         sizemap,
         slotGroup
@@ -75,11 +74,7 @@ const Ads = props => {
         toInstance
     ]);
 
-    return Object.values(show).some(element => element === false) ? (
-        <></>
-    ) : (
-        <div id={id} className="com-banner" />
-    );
+    return <div id={id} className="com-banner" />;
 };
 
 Ads.propTypes = {
@@ -97,20 +92,12 @@ Ads.propTypes = {
         refresh: PropTypes.bool
     }),
     bidding: PropTypes.objectOf(PropTypes.string),
-    show: PropTypes.shape({
-        termicas: PropTypes.bool,
-        collection: PropTypes.bool
-    }),
     slotGroup: PropTypes.string
 };
 
 Ads.defaultProps = {
     sizemap: [],
     bidding: {},
-    show: {
-        termicas: false,
-        collections: false
-    },
     slotGroup: 'desktop'
 };
 
