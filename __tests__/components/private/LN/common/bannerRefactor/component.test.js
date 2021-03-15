@@ -1,12 +1,19 @@
 import React from 'react';
 import { render } from 'enzyme';
 import Banner from '../../../../../../components/private/LN/common/bannerRefactor/factory/default/types';
+import GlobalProvider from '../../../../../../components/private/common/context/globalContext';
 
 import { slotsConfig } from '../../../../../../components/private/LN/common/bannerRefactor/config';
 
 const registerAdFn = jest.fn();
 global.ArcAds = jest.fn().mockImplementationOnce(() => ({
     registerAd: registerAdFn
+}));
+
+jest.mock('fusion:context', () => ({
+    useAppContext: () => ({
+        arcSite: 'la-nacion-ar'
+    })
 }));
 
 global.MutationObserver = class {
@@ -16,6 +23,7 @@ global.MutationObserver = class {
 };
 
 describe('Banner', () => {
+    const mockDispatch = jest.fn();
     const config = slotsConfig['nota']['cabezal_dsk'];
 
     const props = {
@@ -37,7 +45,11 @@ describe('Banner', () => {
     };
 
     it('Matches snapshot', () => {
-        const component = render(<Banner {...props} />);
+        const component = render(
+            <GlobalProvider value={mockDispatch}>
+                <Banner {...props} />
+            </GlobalProvider>
+        );
         expect(component).toMatchSnapshot();
     });
 });
