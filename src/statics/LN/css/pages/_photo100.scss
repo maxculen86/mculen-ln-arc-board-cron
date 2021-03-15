@@ -166,12 +166,12 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                 // border: none;
                 // display: flex;
                 margin-bottom: $spacing-sm;
-                //padding: 0 $spacing-sm;
+                padding: 0 $spacing-sm;
                 @media ($media-l) {
                     //     position: sticky;
                     //     display: block;
                     margin-bottom: 0;
-                    //padding: 0;
+                    padding: 0;
                 }
             }
         }
