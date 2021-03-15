@@ -26,7 +26,7 @@ const ModTrust = props => {
             </ComContainer>
 
             <ComLink
-                link="https://www.lanacion.com.ar/tema/trust-project-tid68036"
+                link="https://www.lanacion.com.ar/tema/the-trust-project-tid68036/"
                 size={size}
             >
                 Más información
