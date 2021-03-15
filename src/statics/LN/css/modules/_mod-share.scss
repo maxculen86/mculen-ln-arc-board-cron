@@ -38,8 +38,11 @@
         border: none;
         padding: 0;
         margin-bottom: px(32);
+        background: $neutral-white;
+        padding: px(32) 0;
+        margin: px(-32) 0 0 0;
         .--photo100 & {
-            padding: 0 px(16);
+            padding: px(32) px(16);
         }
         .amp & {
             display: none;
