@@ -1,15 +1,13 @@
+import getFirstParagraph from './getFirstParagraph';
+
 const truncate = (text = '', maxChar) => {
     return text.length > maxChar ? `${text.substr(0, maxChar - 1)}...` : text;
 };
 
 const getBajadaOrFirstTextParagraph = data => {
-    // eslint-disable-next-line camelcase
-    const { content_elements = [], subheadlines = {} } = data;
-    const firstContentElementText = content_elements.find(
-        elem => elem.type === 'text'
-    );
-    const firstParagraph =
-        firstContentElementText && firstContentElementText.content;
+    const { content_elements: contentElements = [], subheadlines = {} } =
+        data || {};
+    const firstParagraph = getFirstParagraph(contentElements) || '';
 
     return subheadlines.basic || truncate(firstParagraph, 160);
 };
