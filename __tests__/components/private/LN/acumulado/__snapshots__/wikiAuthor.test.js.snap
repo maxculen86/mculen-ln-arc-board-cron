@@ -32,11 +32,11 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
       <div
         class="com-container  --info"
       >
-        <h2
+        <h1
           class="com-title --l"
         >
           Joaquín Morales Solá
-        </h2>
+        </h1>
         <span
           class="com-text --twoxs --profesion"
         />
@@ -602,11 +602,11 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
       <div
         class="com-container  --info"
       >
-        <h2
+        <h1
           class="com-title --l"
         >
           Joaquín Morales Solá
-        </h2>
+        </h1>
         <span
           class="com-text --twoxs --profesion"
         />

@@ -8,12 +8,33 @@ const featuredRules = {
     cajaCollection: {
         hideInitialPosition: false,
         hideIdCollection: false,
-        hideHideCaja: false
+        hideHideCaja: false,
+        groupName: 'Ajuste Collection',
+        layouts: {
+            focalLeft3: 'Focal Izquierdo',
+            focalRight2: 'Focal Derecho',
+            author3: 'Opinión',
+            notaColorAzul3: 'Vertical 3 color Azul',
+            notaColorRojo3: 'Vertical 3 color Rojo',
+            notaColorRosa3: 'Vertical 3 color Rosa',
+            notaColorVerde3: 'Vertical 3 color Verde',
+            grilla2: 'Grilla 2',
+            grilla3: 'Grilla 3',
+            grilla6: 'Grilla 6',
+            grilla9: 'Grilla 9'
+        },
+        defaultLayout: 'grilla3'
     },
     cajaManual: {
         hideInitialPosition: true,
         hideIdCollection: true,
-        hideHideCaja: true
+        hideHideCaja: false,
+        groupName: 'Ajuste Manual',
+        layouts: {
+            focalLeft3: 'Focal Izquierdo',
+            focalRight2: 'Focal Derecho'
+        },
+        defaultLayout: 'focalLeft3'
     }
 };
 
@@ -33,20 +54,60 @@ export const validateFeature = (idCollection, articles, message) => {
     return error;
 };
 
+export const validateChainManual = (childrenProps, layout) => {
+    const minimun = (layout && Number(layout.slice(-1))) || 3;
+
+    const invalidFeature = childrenProps.some(
+        children =>
+            !(
+                children.collection === 'features' &&
+                children.type === 'LN-common/articulo'
+            )
+    );
+
+    const message =
+        (!layout && 'Se requiere que seleccione una diagramación') ||
+        (invalidFeature &&
+            'El Chain Caja Manual sólo admite Features del tipo LN Artículo') ||
+        (get(childrenProps, 'length') < minimun &&
+            `Se requiere la carga de ${minimun -
+                get(childrenProps, 'length')} artículo${
+                minimun - get(childrenProps, 'length') > 1 ? 's' : ''
+            }`) ||
+        null;
+
+    return message && { type: 'warning', message };
+};
+
+export const validateArticleFeature = (id, content) => {
+    const error =
+        (!id && {
+            type: 'warning',
+            message: 'El campo Id de la Nota es obligatorio.'
+        }) ||
+        (!content && {
+            type: 'info',
+            message: 'Cargando...'
+        }) ||
+        null;
+
+    return error;
+};
+
 export const getCommonProps = props => {
     const {
         customFields: { layout = 'grilla3', backgroundColor },
         renderables = [],
         id: idFeature
     } = props;
-    const { cajaTemaCss = {} } = config || {};
+    const { cajaTemaConfig = {} } = config || {};
     const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
-    const notesQuantity = Number(layout.slice(-1));
+    const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
     const bgColor =
         backgroundColor === 'default' || backgroundColor === null
             ? ''
             : '--bgcolor ';
-    const classCondition = cajaTemaCss[layout];
+    const classCondition = (layout && cajaTemaConfig[layout].className) || '';
 
     const position =
         renderables
@@ -140,39 +201,17 @@ export const cajaTemasCustomsFields = featuredName => {
             label: 'ID',
             description: 'Ingrese aquí el ID de la collection',
             defaultValue: '',
-            group: 'Ajuste Collection',
+            group: featuredRules[featuredName].groupName,
             hidden: featuredRules[featuredName].hideIdCollection
         }).isRequired,
-        layout: PropTypes.oneOf([
-            'focalLeft3',
-            'focalRight3',
-            'author3',
-            'notaColorAzul3',
-            'notaColorRojo3',
-            'notaColorRosa3',
-            'notaColorVerde3',
-            'grilla2',
-            'grilla3',
-            'grilla6',
-            'grilla9'
-        ]).tag({
+        layout: PropTypes.oneOf(
+            Object.keys(featuredRules[featuredName].layouts)
+        ).tag({
             label: 'Diagramación',
-            defaultValue: 'grilla3',
+            defaultValue: featuredRules[featuredName].defaultLayout,
             description: 'Cambiar el diseño de la caja',
-            group: 'Ajuste Collection',
-            labels: {
-                grilla2: 'Grilla 2',
-                grilla3: 'Grilla 3',
-                grilla6: 'Grilla 6',
-                grilla9: 'Grilla 9',
-                focalLeft3: 'Focal Izquierdo',
-                focalRight3: 'Focal Derecho',
-                author3: 'Opinión',
-                notaColorAzul3: 'Vertical 3 color Azul',
-                notaColorRojo3: 'Vertical 3 color Rojo',
-                notaColorRosa3: 'Vertical 3 color Rosa',
-                notaColorVerde3: 'Vertical 3 color Verde'
-            }
+            group: featuredRules[featuredName].groupName,
+            labels: featuredRules[featuredName].layouts
         }).isRequired,
         backgroundColor: PropTypes.oneOf([
             'default',
@@ -185,7 +224,7 @@ export const cajaTemasCustomsFields = featuredName => {
             label: 'Color de Fondo',
             defaultValue: 'default',
             description: 'Cambiar el color de fondo de la caja',
-            group: 'Ajuste Collection',
+            group: featuredRules[featuredName].groupName,
             labels: {
                 default: 'Sin Fondo',
                 '--bgpink': 'Rosa',
@@ -199,14 +238,14 @@ export const cajaTemasCustomsFields = featuredName => {
             label: 'N° de nota inicial',
             description: 'Indicar a partir de que nota desea mostrar',
             defaultValue: 1,
-            group: 'Ajuste Collection',
+            group: featuredRules[featuredName].groupName,
             hidden: featuredRules[featuredName].hideInitialPosition
         }).isRequired,
         hideCaja: PropTypes.boolean.tag({
             name: 'Ocultar Caja',
             description: 'Marque para ocultar la caja',
             defaultValue: false,
-            group: 'Ajuste Collection',
+            group: featuredRules[featuredName].groupName,
             hidden: featuredRules[featuredName].hideHideCaja
         }),
         url: PropTypes.url.tag({

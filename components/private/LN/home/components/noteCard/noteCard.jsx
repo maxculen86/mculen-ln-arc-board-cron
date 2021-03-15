@@ -1,92 +1,76 @@
 import React, { useState, useEffect } from 'react';
 
-import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
 
-import Article from './article';
-// import PageBuilderMessage from '../../common/components/pageBuilderMessage/pageBuilderMessage';
-
-// import { validateNoteCard } from './validation';
+import ModArticle from '../../../../common/mod-article';
+import get from '../../../../common/utils/get';
 import {
-    getLead,
-    getTitle,
-    getSubhead,
-    getAuthors,
-    getImageId,
-    getUrl
-} from './getData';
+    transform,
+    getWithMedia,
+    getWithSubhead,
+    getLabel
+} from './noteCardHelper';
 
 const NoteCard = ({
     id: featureId,
     isAdmin,
-    content,
+    article: content,
+    image,
+    articleProps,
     customFields,
-    isOpening,
-    belongsTo
+    outputType,
+    promoItems,
+    index,
+    boxPosition
 }) => {
-    const [lead, setLead] = useState(getLead(customFields, content));
-    const [title, setTitle] = useState(getTitle(customFields, content));
-    const [imageId, setImageId] = useState(getImageId(customFields, content));
-    const [authors, setAuthors] = useState(getAuthors(customFields, content));
-    const [subhead, setSubhead] = useState(getSubhead(customFields, content));
-    const [url, setUrl] = useState(getUrl(content));
-    // const [error, setError] = useState();
+    const [article, setArticle] = useState(
+        transform(content, customFields, promoItems)
+    );
+    const [withMedia, setWithMedia] = useState(
+        getWithMedia(customFields, articleProps, article)
+    );
+    const [withSubhead, setWithSubhead] = useState(
+        getWithSubhead(articleProps, withMedia)
+    );
+    const [label, setLabel] = useState(
+        getLabel(articleProps, customFields, withMedia)
+    );
 
     useEffect(() => {
-        setLead(getLead(customFields, content));
-        setTitle(getTitle(customFields, content));
-        setSubhead(getSubhead(customFields, content));
-        setAuthors(getAuthors(customFields, content));
-        setImageId(getImageId(customFields, content, belongsTo));
-        setUrl(getUrl(content));
-        // setError(
-        //     validateNoteCard(
-        //         isOpening,
-        //         belongsTo,
-        //         title,
-        //         imageId,
-        //         subhead,
-        //         content
-        //     )
-        // );
-    }, [content, customFields, belongsTo, isOpening, title, imageId, subhead]);
+        setWithMedia(getWithMedia(customFields, articleProps, article));
+    }, [article, articleProps, customFields]);
 
-    // if (isAdmin && !!error) {
-    //     return (
-    //         <PageBuilderMessage
-    //             key={featureId}
-    //             type={error.type}
-    //             message={error.message}
-    //         />
-    //     );
-    // }
-    // if (!error) {
+    useEffect(() => {
+        setArticle(transform(content, customFields, promoItems));
+        setLabel(getLabel(articleProps, customFields, withMedia));
+        setWithSubhead(getWithSubhead(articleProps, withMedia));
+    }, [articleProps, content, customFields, promoItems, withMedia]);
+
     return (
-        // <Static id={featureId}>
-        <Article
-            title={title}
-            imageId={
-                belongsTo === 'caja tema' &&
-                subhead &&
-                (imageId || imageId === undefined)
-                    ? null
-                    : imageId
-            }
-            lead={lead}
-            subhead={subhead}
-            authors={authors}
-            url={url}
-        />
-        // </Static>
+        (article && (
+            <ModArticle
+                articleData={article}
+                withMedia={withMedia}
+                link={get(article, 'website_url')}
+                titleSize={get(articleProps, 'titleSize')}
+                titleText={get(article, 'headlines.basic')}
+                authors={get(article, 'marquesina')}
+                subheadText={withSubhead && get(article, 'subheadlines.basic')}
+                leadText={get(article, 'label.volanta.text')}
+                outputType={outputType}
+                isRenderAuthor={get(customFields, 'opinion', false)}
+                label={label}
+                boxPosition={boxPosition}
+                artPosition={`0${Number(index) + 1}`.slice(-2)}
+            />
+        )) || <></>
     );
-    // return <></>;
 };
 
 NoteCard.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    content: PropTypes.shape({
+    article: PropTypes.shape({
         headlines: PropTypes.shape({
             basic: PropTypes.string
         }).isRequired,
@@ -100,7 +84,10 @@ NoteCard.propTypes = {
         }),
         credits: PropTypes.shape({
             by: PropTypes.array
-        })
+        }),
+        display_date: PropTypes.string,
+        marquesina: PropTypes.string,
+        website_url: PropTypes.string
     }).isRequired,
     customFields: PropTypes.shape({
         imageId: PropTypes.string,
@@ -127,4 +114,4 @@ NoteCard.defaultProps = {
     belongsTo: undefined
 };
 
-export default Consumer(NoteCard);
+export default NoteCard;

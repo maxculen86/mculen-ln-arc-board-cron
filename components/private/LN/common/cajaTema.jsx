@@ -20,7 +20,8 @@ const CajaTema = props => {
         hideTitle = false,
         withSubhead = false,
         position,
-        sectionName = ''
+        sectionName = '',
+        _children
     } = props;
 
     const isFocal = layout.includes('focal');
@@ -51,6 +52,7 @@ const CajaTema = props => {
                             articles={articles}
                             outputType={outputType}
                             boxPosition={position}
+                            _children={_children}
                         />
                     ) : (
                         articles.map((art, i) => {
@@ -95,17 +97,25 @@ CajaTema.propTypes = {
     url: PropTypes.string,
     imageId: PropTypes.string,
     position: PropTypes.string.isRequired,
-    sectionName: PropTypes.string.isRequired
+    sectionName: PropTypes.string.isRequired,
+    _children: PropTypes.arrayOf(PropTypes.obj)
 };
 
 CajaTema.defaultProps = {
     title: null,
     url: null,
     imageId: null,
-    titleSize: null
+    titleSize: null,
+    _children: null
 };
 
 const areEqual = (prevProps, nextProps) =>
+    prevProps &&
+    nextProps &&
+    prevProps.articles &&
+    nextProps.articles &&
+    prevProps.articles.length &&
+    nextProps.articles.length &&
     prevProps.articles.length === nextProps.articles.length;
 
 export default React.memo(CajaTema, areEqual);

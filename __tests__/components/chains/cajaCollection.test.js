@@ -16,7 +16,7 @@ import { getArticlesToShow } from '../../../content/sources/utils/collectionsHel
 import CajaCollection from '../../../components/chains/Ln_Caja_Collection.jsx';
 import useGlobalProviderAcu from '../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js';
 
-jest.mock('../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js', () => ( jest.fn() ))
+jest.mock('../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js', () => ( jest.fn() ));
 
 describe('Test del Chain - <Ln_Caja_Collection />', () => {
     const idCollection = 'WPDJCUD7RNAQVA4JEPFJYZMCSE';
