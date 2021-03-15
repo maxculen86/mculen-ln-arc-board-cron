@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 
 const snippetRender = ({ data, id = null }) => {
     const stringData = JSON.stringify(data, null, 2);
+
     return (
         <script
             id={id}

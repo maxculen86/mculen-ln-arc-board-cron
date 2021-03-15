@@ -43,7 +43,15 @@
         }
         .sidebar__aside & {
             .--scrollDown & {
-                top: px(10);
+                padding-top: px(10);
+                background: $neutral-white;
+            }
+        }
+        .sidebar__aside & {
+            .--scrollUp & {
+                padding-top: px(10);
+                top: px(72);
+                background: $neutral-white;
             }
         }
     }
@@ -76,8 +84,11 @@
     .cuerpo__nota & {
         margin-bottom: $spacing-lg;
     }
-    .sidebar__aside & {
-        margin-bottom: px(40);
+    &:not(:last-child) {
+        .sidebar__aside & {
+            padding-bottom: px(32);
+            background: $neutral-white;
+        }
     }
     &.--cabezal_dsk {
         margin-bottom: $spacing-lg;

@@ -16,6 +16,14 @@ jest.mock(
     () => Comp => props => (Comp ? <Comp {...props} /> : null)
 );
 
+jest.mock('fusion:consumer', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+import Consumer from 'fusion:consumer';
+
 import React from 'react';
 import { mount } from 'enzyme';
 import Ranking from '../../../../../../components/private/LN/common/ranking';

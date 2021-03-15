@@ -282,6 +282,9 @@ export default `
             slug
             image {
                 url
+                resized_urls {
+                    ${imageResizedUrl}
+                }
             }
             additional_properties {
                 original {
@@ -332,6 +335,7 @@ export default `
             canonical_url
             referent {
                 type
+                ${image}
             }
         }
         redirect {

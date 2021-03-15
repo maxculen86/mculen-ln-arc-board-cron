@@ -2,20 +2,26 @@
 @import '../abstracts/mixins';
 
 .mod-headersection {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     margin-bottom: $spacing-sm;
-    width: 100%;
+    //width: 100%;
 
-    .com-title {
+    .com-title.com-title {
         margin-bottom: 0;
-        width: 100%;
-        display: block;
-        white-space: nowrap;
+        //width: 100%;
+        //display: block;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
         overflow: hidden;
-        text-overflow: ellipsis;
+
         @media ($media-l) {
-            width: 50%;
+            -webkit-line-clamp: 1;
         }
     }
 
