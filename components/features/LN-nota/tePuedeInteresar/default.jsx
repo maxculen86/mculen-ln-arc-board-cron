@@ -21,8 +21,13 @@ const getVariablesFromLocalStorage = () => {
 };
 
 const setLocalStorage = (urls, sessionId) => {
-    localStorage.setItem('sessionId', sessionId);
-    localStorage.setItem('excludeItems', JSON.stringify(urls));
+    try {
+        localStorage.setItem('sessionId', sessionId);
+        localStorage.setItem('excludeItems', JSON.stringify(urls));
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error('Error en setear Local Storage method setLocalStorage');
+    }
 };
 
 const generateSessionId = () => {
