@@ -8,6 +8,11 @@ export default {
         dimensions: [[728, 90]],
         targeting: defaultTargeting
     },
+    adhesion_tab: {
+        slotName: `${PATH_SLOT}/adhesion_tab`,
+        dimensions: [[728, 90]],
+        targeting: defaultTargeting
+    },
     caja1_tab: {
         slotName: `${PATH_SLOT}/caja1_tab`,
         dimensions: [[728, 90]],

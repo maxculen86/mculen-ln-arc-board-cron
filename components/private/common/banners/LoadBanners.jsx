@@ -8,6 +8,10 @@ import useViewportSize from '../hooks/useViewportSize';
 
 let googleCmdPushed = false;
 
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
+
 const queueGoogletagCommand = bannersToLoad => {
     googletag.cmd.push(() => {
         const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
@@ -101,7 +105,7 @@ const LoadBanners = () => {
                         bannersInGrillaNotas = []
                     }
                 } = state || { bannersConfig: {} };
-                const bannersWithSettings = bannersConfigured
+                let bannersWithSettings = bannersConfigured
                     .filter(e => {
                         const bannerInPB = get(e, 'props.customFields', {})[
                             device
@@ -155,29 +159,23 @@ const LoadBanners = () => {
                     })
                     .map(el => get(el, 'props.customFields', {})[device]);
 
+                bannersWithSettings = [
+                    ...bannersWithSettings,
+                    ...bannersInBody,
+                    ...bannersInGrillaNotas
+                ].filter(onlyUnique);
+
                 /* console.log(
                     '::: PREVIA A LA CALL DE GOOGLETAG ',
-                    [
-                        ...bannersWithSettings,
-                        ...bannersInBody,
-                        ...bannersInGrillaNotas
-                    ],
+                    bannersWithSettings,
                     bannersToLoad,
-                    bannersToLoad.length ===
-                        [
-                            ...bannersWithSettings,
-                            ...bannersInBody,
-                            ...bannersInGrillaNotas
-                        ].length
+                    bannersToLoad.length === bannersWithSettings.length,
+                    typeof window !== 'undefined',
+                    !googleCmdPushed
                 ); */
 
                 if (
-                    bannersToLoad.length ===
-                        [
-                            ...bannersWithSettings,
-                            ...bannersInBody,
-                            ...bannersInGrillaNotas
-                        ].length &&
+                    bannersToLoad.length === bannersWithSettings.length &&
                     typeof window !== 'undefined' &&
                     !googleCmdPushed
                 ) {
@@ -185,11 +183,7 @@ const LoadBanners = () => {
 
                     console.log(
                         '🚀 ~ file: LoadBanners.jsx finalSlostsConfigured',
-                        [
-                            ...bannersWithSettings,
-                            ...bannersInBody,
-                            ...bannersInGrillaNotas
-                        ],
+                        bannersWithSettings,
                         bannersToLoad
                     );
 
