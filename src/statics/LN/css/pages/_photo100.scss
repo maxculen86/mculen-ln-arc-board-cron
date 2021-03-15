@@ -152,6 +152,9 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
                     display: block;
                     //top: calc(#{$spacing-sm} + #{$header_h_desktop});
                 }
+                &.--active {
+                    display: none;
+                }
             }
         }
     }

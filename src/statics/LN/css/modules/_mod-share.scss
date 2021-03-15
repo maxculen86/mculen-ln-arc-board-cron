@@ -49,10 +49,6 @@
         }
     }
 
-    &.--active.--active {
-        display: none;
-    }
-
     &:not(.--block) {
         .--scrollDown & {
             display: none;
