@@ -62,8 +62,15 @@ export default Component => {
             return () => window.removeEventListener('scroll', onScroll);
         }, [ref]);
 
-        if (subscription) return null;
+        // if (subscription) return null;
 
-        return outputType !== 'amp' ? <Component {...props} ref={ref} /> : null;
+        return outputType !== 'amp' ? (
+            <Component
+                noShow
+                subscription={subscription}
+                {...props}
+                ref={ref}
+            />
+        ) : null;
     });
 };

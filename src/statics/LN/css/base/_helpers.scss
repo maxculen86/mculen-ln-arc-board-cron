@@ -533,6 +533,14 @@
     @include sizeM; //all
 }
 
+.--m-xs {
+    @include sizeXS; //mobile
+    @media ($media-lm) {
+        //1100
+        @include sizeM;
+    }
+}
+
 .--s {
     @include sizeS; //all
 }
@@ -565,10 +573,6 @@
     @include size6XS; //all
 }
 
-// .--sevenxs {
-//     @include size7XS; //all
-// }
-
 //=============================
 // FONT WEIGHT
 //=============================
@@ -590,6 +594,7 @@
 }
 
 strong,
+b,//vienen en las notas
 .--font-bold {
     font-weight: 700;
 }

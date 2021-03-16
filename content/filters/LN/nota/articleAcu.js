@@ -28,6 +28,12 @@ export default `
     headlines {
         basic
     }
+    label {
+        volanta {
+            text
+            display
+        }
+    }
     display_date
     marquesina
 }`;

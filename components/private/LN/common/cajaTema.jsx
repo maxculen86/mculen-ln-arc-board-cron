@@ -19,7 +19,8 @@ const CajaTema = props => {
         titleSize,
         notesQuantity = 3,
         hideTitle = false,
-        withSubhead = false
+        withSubhead = false,
+        _children
     } = props;
 
     const isFocal = layout.includes('focal');
@@ -40,21 +41,33 @@ const CajaTema = props => {
                     <>
                         <SkeletonTheme color="lightGray">
                             <section>
-                                <Skeleton reactangle={true} height={150} width={'100%'} />
+                                <Skeleton
+                                    reactangle={true}
+                                    height={150}
+                                    width={'100%'}
+                                />
                                 <Skeleton count={2} />
                                 <Skeleton count={1} />
                             </section>
                         </SkeletonTheme>
                         <SkeletonTheme color="lightGray">
                             <section>
-                                <Skeleton reactangle={true} height={150} width={'100%'} />
+                                <Skeleton
+                                    reactangle={true}
+                                    height={150}
+                                    width={'100%'}
+                                />
                                 <Skeleton count={2} />
                                 <Skeleton count={1} />
                             </section>
                         </SkeletonTheme>
                         <SkeletonTheme color="lightGray">
                             <section>
-                                <Skeleton reactangle={true} height={150} width={'100%'} />
+                                <Skeleton
+                                    reactangle={true}
+                                    height={150}
+                                    width={'100%'}
+                                />
                                 <Skeleton count={2} />
                                 <Skeleton count={1} />
                             </section>
@@ -66,6 +79,7 @@ const CajaTema = props => {
                         directionFocal={layout}
                         articles={articles}
                         outputType={outputType}
+                        _children={_children}
                     />
                 ) : (
                     articles.map(art => {
@@ -104,17 +118,25 @@ CajaTema.propTypes = {
     title: PropTypes.string,
     titleSize: PropTypes.string,
     url: PropTypes.string,
-    imageId: PropTypes.string
+    imageId: PropTypes.string,
+    _children: PropTypes.arrayOf(PropTypes.obj)
 };
 
 CajaTema.defaultProps = {
     title: null,
     url: null,
     imageId: null,
-    titleSize: null
+    titleSize: null,
+    _children: null
 };
 
 const areEqual = (prevProps, nextProps) =>
+    prevProps &&
+    nextProps &&
+    prevProps.articles &&
+    nextProps.articles &&
+    prevProps.articles.length &&
+    nextProps.articles.length &&
     prevProps.articles.length === nextProps.articles.length;
 
 export default React.memo(CajaTema, areEqual);

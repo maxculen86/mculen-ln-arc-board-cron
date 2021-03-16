@@ -6,7 +6,8 @@ import WithRelatedImages from '../hocs/WithRelatedImages';
 
 import OrderedList from '../lists/ordered';
 import ArticleMain from '../articleTypes/articleMain';
-import ComTitle from '../../../common/com-title';
+//import ComTitle from '../../../common/com-title';
+import HeaderSection from '../../../common/mod-headerSection';
 
 import '../../../../../resources/dist/css/ln/components/ranking.css';
 
@@ -18,17 +19,17 @@ const Ranking = ({ articles, dataSection, title }) => {
             data-block-name="n_ranking"
             data-diagramacion-id="0"
         >
-            <ComTitle tag="h2" size="--m" content={title} />
+            {/* <ComTitle tag="h2" size="--m" content={title} /> */}
+            <HeaderSection title={title} />
             <OrderedList>
-                {articles.length > 0 &&
-                    articles.map((article, index) => (
-                        <ArticleMain
-                            // border
-                            articleData={article}
-                            dataSection={dataSection}
-                            position={index + 1}
-                        />
-                    ))}
+                {articles.map((article, index) => (
+                    <ArticleMain
+                        // border
+                        articleData={article}
+                        dataSection={dataSection}
+                        position={index + 1}
+                    />
+                ))}
             </OrderedList>
         </section>
     ) : null;

@@ -35,11 +35,10 @@ const getSizesFrom = (
     requestUri
 ) => {
     if (isAdmin) return value;
-    else
-        return Number.parseInt(
-            getParamFrom(urlSectionName, paramName, requestUri),
-            10
-        );
+    return Number.parseInt(
+        getParamFrom(urlSectionName, paramName, requestUri),
+        10
+    );
 };
 
 const getApiVersion = urlP => {

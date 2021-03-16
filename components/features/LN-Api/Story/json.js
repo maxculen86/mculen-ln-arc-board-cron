@@ -2,7 +2,7 @@ import Consumer from 'fusion:consumer';
 import IndexNotaV1 from '../../../private/LN/api/v1/nota';
 import browser from '../../../private/common/utils/browser';
 
-class JsonArticle {
+class Story {
     constructor(props) {
         this.props = props;
 
@@ -26,4 +26,4 @@ class JsonArticle {
     }
 }
 
-export default Consumer(JsonArticle);
+export default Consumer(Story);

@@ -3,8 +3,9 @@ import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
-import ComTitle from '../../private/common/com-title';
+//import ComTitle from '../../private/common/com-title';
 import get from '../../private/common/utils/get';
+import HeaderSection from '../../private/common/mod-headerSection';
 
 // TODO: Reoptimizar este componente
 const seguirLeyendo = ({ globalContent }) => {
@@ -20,7 +21,9 @@ const seguirLeyendo = ({ globalContent }) => {
                         data-block-name="n_segui_leyendo"
                         data-diagramacion-id="0"
                     >
-                        <ComTitle size="--l" tag="h4" content="Seguí leyendo" />
+                        {/* <ComTitle size="--l" tag="h4" content="Seguí leyendo" /> */}
+                        <HeaderSection title="Seguí leyendo" />
+
                         <SeguirLeyendo relatedContent={relatedContent} />
                     </section>
                 </div>

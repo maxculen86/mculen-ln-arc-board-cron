@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import ArticleMain from '../../common/articleTypes/articleMain';
-import ComTitle from '../../../common/com-title';
+//import ComTitle from '../../../common/com-title';
+import HeaderSection from '../../../common/mod-headerSection';
 
 const Index = props => {
     const {
@@ -30,7 +31,8 @@ const Index = props => {
 
     return articles && articles.length > 0 ? (
         <div className="row interest">
-            <ComTitle tag="h4" size="--xl" content="Te puede interesar" />
+            <HeaderSection title="Te puede interesar" />
+            {/* <ComTitle tag="h4" size="--xl" content="Te puede interesar" /> */}
             <section className="row-gap-tablet-3 row-gap-desksm-3">
                 {articles.map((article, index) => {
                     return (

@@ -25,11 +25,16 @@ const ListSocialIcons = props => {
     const { vertical, size, data, sizeIcon, sizeBullet } = props;
     const listItem = list.map(item => {
         if (!data[item]) return null;
+        const linkSocialNetwork =
+            item === 'twitter'
+                ? `https://twitter.com/${data[item]}`
+                : data[item];
+
         return (
             <ComLi>
                 <ComLink
-                    link={data[item]}
-                    blank={item.blank}
+                    link={linkSocialNetwork}
+                    target="_blank"
                     classCondition="--sociallist"
                 >
                     <ComBullet sizeBullet={sizeBullet} />

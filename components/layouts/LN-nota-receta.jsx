@@ -44,6 +44,7 @@ import '../../resources/dist/css/ln/base/helpers.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
+import LoadBanners from '../private/common/banners/LoadBanners';
 
 const pageBuilderSections = [
     'Pre-Titulo',
@@ -147,6 +148,7 @@ class LNNotaReceta extends Component {
                             </main>
                             <Footer />
                         </div>
+                        <LoadBanners />
                     </CommentsProvider>
                 </LoginProvider>
             </GlobalProvider>
