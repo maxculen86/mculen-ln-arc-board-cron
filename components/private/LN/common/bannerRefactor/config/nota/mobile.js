@@ -196,11 +196,13 @@ export default {
     caja2_mob: {
         slotName: 'la_nacion_mobile/Nota/caja2_mob',
         dimensions: [
+            [1, 1],
             [300, 250],
             [300, 450],
             [320, 50],
             [320, 100],
-            [1, 1]
+            [320, 180],
+            [360, 270]
         ],
         targeting: defaultTargeting,
         bidding: {

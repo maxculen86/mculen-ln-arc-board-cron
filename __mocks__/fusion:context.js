@@ -22,3 +22,13 @@ jest.mock('fusion:context', WrappedComponent => {
         return element;
     };
 });
+
+export const useAppContext = jest.fn();
+export const useFusionContext = jest.fn(() => {
+    return {
+        isAdmin: false,
+        siteProperties: {
+            site: 'the-prophet'
+        }
+    };
+});

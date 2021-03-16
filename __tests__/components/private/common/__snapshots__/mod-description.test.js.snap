@@ -24,7 +24,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
       classcondition="--tags"
       content="Comunidad"
       iconname="bullet"
-      link="/comunidad"
+      link="/comunidad/"
       sizebullet="--fourxs"
       sizetext="--fourxs"
     />

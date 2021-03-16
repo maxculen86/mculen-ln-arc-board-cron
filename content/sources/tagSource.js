@@ -23,6 +23,7 @@ const transform = (data, query) => {
     const newData = {
         ...data,
         node_type: 'tags',
+        name: data.Payload.items[0].name,
         canonical_url: query.uri
     };
 

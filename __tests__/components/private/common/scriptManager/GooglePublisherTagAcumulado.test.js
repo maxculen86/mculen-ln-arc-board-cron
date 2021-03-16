@@ -47,7 +47,7 @@ describe('GooglePublisherTagAcumulado', () => {
 
     it('Builds the json object as expected', () => {
         const component = mount(<GooglePublisherTagAcumulado {...content} />);
-        expect(component.find('script')).toHaveLength(1);
+        expect(component.find('script')).toHaveLength(2);
         expect(component.html()).toMatch('ca_recetas');
         expect(component.html()).toMatch('ca_deportes');
         expect(component.html()).toMatch('ca_futbol');
@@ -66,7 +66,7 @@ describe('GooglePublisherTagAcumulado', () => {
 
     it('Builds the json object without ancestors', () => {
         const component = mount(<GooglePublisherTagAcumulado {...content2} />);
-        expect(component.find('script')).toHaveLength(1);
+        expect(component.find('script')).toHaveLength(2);
         expect(component.html()).toMatch('ca_deportes');
         expect(component.html()).toMatch('ca_futbol');
     });

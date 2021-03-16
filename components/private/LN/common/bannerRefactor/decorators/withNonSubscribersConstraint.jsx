@@ -12,8 +12,8 @@ export default Component => {
         const {
             loginData: { subscription }
         } = props;
-        if (subscription) return null;
-        return <Component {...props} />;
+        // if (subscription) return null;
+        return <Component noShow subscription={subscription} {...props} />;
     });
 
     Enhanced.propTypes = {
