@@ -4,6 +4,7 @@ import ComLink from './com-link';
 import ComImage from './com-image';
 import ComShield from './com-shield';
 import ModheaderSection from './mod-headerSection';
+import '../../../resources/dist/css/ln/modules/mod-shields.css';
 
 const ModShield = props => {
     const { title, src, link, size, line, children } = props;

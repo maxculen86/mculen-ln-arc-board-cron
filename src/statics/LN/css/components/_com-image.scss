@@ -57,13 +57,6 @@
         width: inherit;
         max-height: $spacing-md;
     }
-
-    .--shield & {
-        .--shields & {
-            width: px(48);
-            height: auto;
-        }
-    }
     .mod-logo & {
         width: auto;
     }
