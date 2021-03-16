@@ -3,22 +3,33 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 
 import config from '../../../../properties/sites/la-nacion-ar';
+import get from '../utils/get';
 
-const hasOptaElements = contentElements =>
-    contentElements.some(
-        contentElement =>
-            contentElement.type === 'raw_html' &&
-            contentElement.content.includes('opta-widget')
-    );
+const hasOptaElements = (contentElements, renderables) =>
+    (contentElements &&
+        contentElements.some(
+            contentElement =>
+                get(contentElement, 'type') === 'raw_html' &&
+                get(contentElement, 'content', '').includes('opta-widget')
+        )) ||
+    (renderables &&
+        renderables.some(
+            elem =>
+                get(elem, 'collection') === 'features' &&
+                get(elem, 'type') === 'LN-common/articulo' &&
+                get(elem, 'props.customFields.html', '').includes('opta-widget')
+        ));
 
 const OptaEmbed = props => {
     const {
-        globalContent: { type, content_elements: contentElements }
+        globalContent: { type, content_elements: contentElements },
+        renderables
     } = props;
 
-    if (!contentElements) return null;
-    if (!hasOptaElements(contentElements)) return null;
-    if (type !== 'story') return null;
+    if (type === 'story' && !contentElements) return null;
+    if (!hasOptaElements(contentElements, renderables)) return null;
+    console.log('renderables', renderables);
+
     const script = `
         var opta_settings = {
             subscription_id: '${config.optaConfig.subscription_id}',
@@ -41,7 +52,8 @@ OptaEmbed.propTypes = {
     globalContent: PropTypes.shape({
         type: PropTypes.string.isRequired,
         content_elements: PropTypes.shape.isRequired
-    }).isRequired
+    }).isRequired,
+    renderables: PropTypes.arrayOf(PropTypes.obj).isRequired
 };
 
 export default Consumer(OptaEmbed);

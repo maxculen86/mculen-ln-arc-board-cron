@@ -81,6 +81,7 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
+                    anexo={anexo}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
