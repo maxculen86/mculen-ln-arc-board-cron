@@ -127,9 +127,6 @@ const HtmlPym = props => {
     );
 
     if (!__children.length) return null;
-
-    console.log(__children);
-
     return <div className="com-embed --html">{__children}</div>;
 };
 
