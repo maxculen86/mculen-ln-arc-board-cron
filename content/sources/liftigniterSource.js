@@ -12,6 +12,7 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
+import logger from '../../components/private/common/utils/logger';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
 
@@ -24,21 +25,24 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
                 !(e.image && e.image.includes('/images/placeholderLN.jpg'))
         )
         .slice(0, cantidadNotas)
-        .map(({ url, id, title, image }) => ({
-            subtype: 1,
-            by: {},
-            website_url: url,
-            _id: id,
-            headlines: {
-                basic: title
-            },
-            promo_items: {
-                basic: {
-                    type: 'image',
-                    url: image
+        .map(elem => {
+            const { url, id, title, image } = elem;
+            return {
+                subtype: 1,
+                by: {},
+                website_url: url,
+                _id: id,
+                headlines: {
+                    basic: title
+                },
+                promo_items: {
+                    basic: {
+                        type: 'image',
+                        url: image
+                    }
                 }
-            }
-        }));
+            };
+        });
 
 /**
  * TODO: Por completar de tarea
@@ -54,18 +58,58 @@ const fetch = query => {
         idArticle,
         userId,
         sessionId,
-        excludeItems
+        excludeItems,
+        arcSite
     } = query;
 
     const userIdParam = userId ? `/${userId}` : '';
-    return request({
-        uri: `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}/model`,
+    const timestampPageView = Date.now();
+    const baseUrl = `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}`;
+    const headers = {
+        'Accept-Encoding': '*,q=0.8',
+        'Content-Type': 'application/json',
+        'x-api-key': LIFTIGNITER_X_API_KEY
+    };
+    const body = {
+        url: referrer,
+        referrer,
+        sessionId,
+        pageviewId: idArticle
+    };
+
+    request({
+        uri: `${baseUrl}/activity`,
         method: 'POST',
-        headers: {
-            'Accept-Encoding': '*,q=0.8',
-            'Content-Type': 'application/json',
-            'x-api-key': LIFTIGNITER_X_API_KEY
-        },
+        headers,
+        body: JSON.stringify({
+            activities: [
+                {
+                    ...body,
+                    type: 'pageview',
+                    timestamp: timestampPageView,
+                    sourceWidgetName: WIDGETS
+                }
+            ]
+        })
+    })
+        .then(response => {
+            console.log('🚀 ~  response ACTIVITY', response);
+        })
+        .catch(error => {
+            logger.push(
+                error,
+                {
+                    source: 'content/sources/liftigniterSource',
+                    url: `${baseUrl}/activity`
+                },
+                arcSite
+            );
+        });
+
+    return request({
+        uri: `${baseUrl}/model`,
+        method: 'POST',
+        headers,
         body: JSON.stringify({
             widgetName: WIDGETS,
             maxCount: duplicateMaxCount(cantidadNotas),
@@ -81,9 +125,15 @@ const fetch = query => {
             const { items } = JSON.parse(response);
             return transformArticles(items, cantidadNotas);
         })
-        .catch(() => {
-            // TODO: Implementar registro de error en logger
-            return [];
+        .catch(error => {
+            logger.push(
+                error,
+                {
+                    source: 'content/sources/liftigniterSource',
+                    url: `${baseUrl}/model`
+                },
+                arcSite
+            );
         });
 };
 
@@ -104,7 +154,11 @@ const transform = (data, siteProps) => {
         return {
             ...elem,
             ...addResizedUrls(
-                { ...(promoItems && { promo_items: promoItems }) },
+                {
+                    ...(promoItems && {
+                        promo_items: promoItems
+                    })
+                },
                 {
                     resizerSecret: RESIZER_KEY,
                     resizerUrl: RESIZER_URL,

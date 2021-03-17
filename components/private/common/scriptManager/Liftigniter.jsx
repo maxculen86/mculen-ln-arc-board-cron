@@ -34,7 +34,8 @@ class LiftIgniter extends Component {
             taxonomy,
             label,
             content_elements: contentElements = [],
-            credits
+            credits,
+            _id
         } = globalContent || {};
         const { primary_section: primarySection, tags = [] } = taxonomy || {};
         const { name: tematica } = primarySection || {};
@@ -42,6 +43,7 @@ class LiftIgniter extends Component {
         const recomendar = get(label, 'recomendar.text', 'Si');
 
         const script = {
+            id: _id,
             noShow: recomendar !== 'Si',
             noIndex: false,
             tematica,

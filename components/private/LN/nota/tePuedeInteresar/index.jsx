@@ -12,7 +12,8 @@ const Index = props => {
         excludeItems,
         outputType,
         url,
-        idArticle
+        idArticle,
+        arcSite
     } = props;
 
     const articles = useContent({
@@ -24,7 +25,8 @@ const Index = props => {
             idArticle,
             userId,
             sessionId,
-            excludeItems
+            excludeItems,
+            arcSite
         }
     });
 
@@ -56,13 +58,15 @@ Index.propTypes = {
     outputType: PropTypes.string.isRequired,
     idArticle: PropTypes.string,
     url: PropTypes.string.isRequired,
-    excludeItems: PropTypes.arrayOf(PropTypes.string)
+    excludeItems: PropTypes.arrayOf(PropTypes.string),
+    arcSite: PropTypes.string
 };
 
 Index.defaultProps = {
     userId: null,
     excludeItems: null,
-    idArticle: null
+    idArticle: null,
+    arcSite: 'la-nacion-ar'
 };
 
 export default Index;
