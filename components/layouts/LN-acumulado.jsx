@@ -17,7 +17,6 @@ import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
-import CargaEnBloqueLazy from '../private/LN/common/cargaEnBloqueLazy';
 import LoadBanners from '../private/common/banners/LoadBanners';
 
 const pageBuilderSections = [
@@ -57,8 +56,7 @@ const LNAcumuladoLayout = props => {
         globalContent,
         outputType,
         tree,
-        isAdmin,
-        renderables
+        isAdmin
     } = props;
     const { style, name = '' } = globalContent;
     const sectionStyleName =
@@ -129,12 +127,7 @@ const LNAcumuladoLayout = props => {
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
                                     {/* NOTAS */}
-                                    {/* {notas} */}
-                                    <CargaEnBloqueLazy
-                                        renderables={renderables}
-                                        tree={tree}
-                                        idSection={6}
-                                    />
+                                    {notas}
                                 </div>
                                 <div className="sidebar__aside hlp-tablet-none">
                                     {/* BANNERS, RANKING DE NOTAS */}
