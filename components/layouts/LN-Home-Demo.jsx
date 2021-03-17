@@ -10,6 +10,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import LoginProvider from '../private/LN/common/context/loginContext';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import BannerRefactor from '../features/LN-common/bannerRefactor';
+import LoadBanners from '../private/common/banners/LoadBanners';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -94,6 +95,52 @@ const sectionsWithBlocks = {
     bloque7: 'bloque5',
     bloque8: 'bloque5'
 };
+
+/* const blocksBanners = {
+    bloque1: [
+        {
+            slotGroup: 'acumuladoHome',
+            desktop: 'caja1_dsk',
+            tablet: 'caja1_tab'
+        },
+        {
+            slotGroup: 'acumuladoHome',
+            desktop: 'caja2_dsk'
+        },
+        {
+            slotGroup: 'acumuladoHome',
+            desktop: 'caja3_dsk'
+        }
+    ],
+    bloque2: []
+};
+
+{blocksToLoad.bloque2 && (
+    <div className="row-gap-tablet-3 --ads">
+        <BannerWrapper
+            load={blocksToLoad.bloque2}
+        >
+            <BannerRefactor
+                customFields={{
+                    group: 'acumulado',
+                    desktop: 'caja1_dsk'
+                }}
+            />
+            <BannerRefactor
+                customFields={{
+                    group: 'acumulado',
+                    desktop: 'caja2_dsk'
+                }}
+            />
+            <BannerRefactor
+                customFields={{
+                    group: 'acumulado',
+                    desktop: 'caja3_dsk'
+                }}
+            />
+        </BannerWrapper>
+    </div>
+)} */
 
 const LNAcumuladoLayout = props => {
     const {
@@ -228,32 +275,6 @@ const LNAcumuladoLayout = props => {
                                     {blocksToLoad.bloque2 && breaking1}
                                 </div>
                                 {/* BANNER  */}
-                                {blocksToLoad.bloque2 && (
-                                    <div className="row-gap-tablet-3 --ads">
-                                        <BannerWrapper
-                                            load={blocksToLoad.bloque2}
-                                        >
-                                            <BannerRefactor
-                                                customFields={{
-                                                    group: 'acumulado',
-                                                    desktop: 'caja1_dsk'
-                                                }}
-                                            />
-                                            <BannerRefactor
-                                                customFields={{
-                                                    group: 'acumulado',
-                                                    desktop: 'caja2_dsk'
-                                                }}
-                                            />
-                                            <BannerRefactor
-                                                customFields={{
-                                                    group: 'acumulado',
-                                                    desktop: 'caja3_dsk'
-                                                }}
-                                            />
-                                        </BannerWrapper>
-                                    </div>
-                                )}
                                 <div data-section="breaking2">
                                     {blocksToLoad.bloque2 && breaking2}
                                 </div>
@@ -287,24 +308,11 @@ const LNAcumuladoLayout = props => {
                                 <div data-section="breaking3">
                                     {blocksToLoad.bloque2 && breaking3}
                                 </div>
-
                                 {/* 2do Bloque */}
-
                                 {blocksToLoad.bloque3 && anexo3}
                                 <div data-section="opinion">
                                     {blocksToLoad.bloque3 && opinion}
                                 </div>
-                                {/* BANNER */}
-                                {blocksToLoad.bloque3 && (
-                                    <div className="row-gap-tablet-3 --ads">
-                                        <BannerRefactor
-                                            customFields={{
-                                                group: 'acumulado',
-                                                desktop: 'caja4_dsk'
-                                            }}
-                                        />
-                                    </div>
-                                )}
                                 <div data-section="breaking4">
                                     {blocksToLoad.bloque3 && breaking4}
                                 </div>
@@ -315,9 +323,7 @@ const LNAcumuladoLayout = props => {
                                 <div data-section="comercial1">
                                     {blocksToLoad.bloque3 && comercial1}
                                 </div>
-
                                 {/* 3er Bloque */}
-
                                 <div data-section="bloque2">
                                     {blocksToLoad.bloque4 && bloque2}
                                 </div>
@@ -330,9 +336,7 @@ const LNAcumuladoLayout = props => {
                                 <div data-section="bloque4">
                                     {blocksToLoad.bloque4 && bloque4}
                                 </div>
-
                                 {/* 4to Bloque */}
-
                                 <div data-section="bloque5">
                                     {blocksToLoad.bloque5 && bloque5}
                                 </div>
@@ -354,6 +358,7 @@ const LNAcumuladoLayout = props => {
                     </main>
                     <Footer />
                 </div>
+                <LoadBanners />
             </LoginProvider>
         </GlobalProvider>
     );
