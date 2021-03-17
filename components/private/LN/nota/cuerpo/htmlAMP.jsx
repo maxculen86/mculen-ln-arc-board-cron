@@ -9,7 +9,7 @@ const HtmlAMP = props => {
     const { data } = props;
     const { globalContent } = useAppContext();
     const { _id: idNote } = globalContent;
-    const { content = null, width = '360', height = '300', _id: idRawHtml } =
+    const { content = null, width = '300', height = '3000', _id: idRawHtml } =
         data || {};
 
     let urlForOpta = null;
@@ -17,19 +17,26 @@ const HtmlAMP = props => {
         urlForOpta = `${OPTA_WIDGET_URL}/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
     }
 
+    const contentSrc =
+        content
+            .match(/src="(.*?)"/g)
+            .map(val => {
+                return val.replace(/src=/g, '').replace(/\"/g, '');
+            })
+            .join() || content;
+
     return (
         <div className="com-embed --html">
             <amp-iframe
                 width={width}
                 height={height}
                 sandbox="allow-scripts allow-same-origin"
-                frameborder="0"
                 layout="responsive"
-                src={urlForOpta || content}
+                src={urlForOpta || contentSrc}
             >
                 <amp-img
                     layout="fill"
-                    src={content}
+                    src={contentSrc}
                     placeholder="placeholder"
                 />
             </amp-iframe>
