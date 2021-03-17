@@ -129,7 +129,6 @@ const Default = props => {
         distributor,
         node_type: nodeType,
         name,
-        author_type: authorType,
         Payload,
         _id
     } = globalContent || {};
@@ -217,7 +216,6 @@ const Default = props => {
                     name={name || title}
                     _id={_id}
                     payload={Payload}
-                    authorType={authorType}
                     description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
                     firstParagraphContentElements={
