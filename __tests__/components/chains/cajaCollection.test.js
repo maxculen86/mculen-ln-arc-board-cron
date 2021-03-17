@@ -182,7 +182,7 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
         expect(classCondition).toBe('');
         expect(sectionName).toBe('economia_');
 
-        props.globalContent.acumuladoGeneral.usa_datalayer = false;
+        props.globalContent.acumuladoGeneral.usa_datalayer = 'false';
         const { position: positionFalse } = getCommonProps(props);
         expect(positionFalse).toBe(false);
     });
