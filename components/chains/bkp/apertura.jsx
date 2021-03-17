@@ -25,12 +25,12 @@ const validate = (children, childProps, idCollection, directionFocal) => {
         childProps.forEach(childProp => {
             if (
                 childProp.collection !== 'features' ||
-                childProp.type !== 'LN-home/noteFeature'
+                childProp.type !== 'LN-common/articulo'
             )
                 error = {
                     type: 'warning',
                     message:
-                        'El Chain Apertura sólo admite Features del tipo LN Home NoteCard'
+                        'El Chain Apertura sólo admite Features del tipo LN Artículo'
                 };
         });
 
@@ -47,7 +47,7 @@ const getMissingNotes = (childProps, notes) => {
     childProps.forEach(childProp => {
         if (
             !childProp.customFields.noteId &&
-            childProp.type === 'LN-home/noteFeature'
+            childProp.type === 'LN-common/articulo'
         ) {
             missingNotes += 1;
         }

@@ -40,13 +40,18 @@ const scriptList = [
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
     {
         component: { name: 'PostBid', function: PostBid },
-        feature: [
-            'LN-common/banner',
-            'LN-common/bannerRefactor',
-            'LN-nota/bannerStickyNota',
-            'LN-common/bannerTercera',
-            'LN-acumulado/bannerSticky'
-        ]
+        feature: 'none'
+    },
+    {
+        component: { name: 'GooglePublisherTag', function: GooglePublisherTag },
+        feature: 'none'
+    },
+    {
+        component: {
+            name: 'GooglePublisherTagAcumulado',
+            function: GooglePublisherTagAcumulado
+        },
+        feature: 'none'
     },
     {
         component: { name: 'ArcAds', function: ArcAds },
@@ -69,17 +74,6 @@ const scriptList = [
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },
         feature: ['LN-nota/tePuedeInteresar']
-    },
-    {
-        component: { name: 'GooglePublisherTag', function: GooglePublisherTag },
-        feature: 'none'
-    },
-    {
-        component: {
-            name: 'GooglePublisherTagAcumulado',
-            function: GooglePublisherTagAcumulado
-        },
-        feature: 'none'
     },
     {
         component: { name: 'SocialEmbeds', function: SocialEmbeds },

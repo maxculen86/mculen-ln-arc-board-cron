@@ -3,9 +3,10 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModArticle from '../../common/mod-article';
 import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTextParagraph';
-import getTitleText from '../../common/utils/getTitleText';
 import ComHour from '../../common/com-hour';
+import get from '../../common/utils/get';
 import getAuthorsAsString from '../../common/utils/getAuthorsAsString';
+import addRelatedImage from '../common/utils/addRelatedImage';
 
 const typeAcumRules = {
     Grilla: {
@@ -38,20 +39,22 @@ const ArticleAcum = ({
     withCategory,
     withTags
 }) => {
+    const _article = addRelatedImage(article);
     const {
         display_date,
         headlines,
         website_url,
         label,
         taxonomy: { primary_section: primarySection, tags } = {}
-    } = article;
+    } = _article;
 
     const authors =
-        typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(article);
+        typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(_article);
 
-    const subheadText = withSubhead && getBajadaOrFirstTextParagraph(article);
+    const subheadText = withSubhead && getBajadaOrFirstTextParagraph(_article);
 
-    const titleText = getTitleText(headlines, label);
+    const titleText = get(headlines, 'mobile') || get(headlines, 'basic');
+    const leadText = get(label, 'volanta.text', '');
 
     const tagList =
         (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
@@ -67,13 +70,14 @@ const ArticleAcum = ({
     return (
         <>
             <ModArticle
-                articleData={article}
+                articleData={_article}
                 dataSection={dataSection}
                 withMedia={typeAcumRules[typeArticle].withMedia}
                 link={website_url}
                 titleTag={titleTag}
                 titleSize={titleSize}
                 titleText={titleText}
+                leadText={leadText}
                 authors={authors}
                 dateText={!typeAcumRules[typeArticle].withHour && display_date}
                 hour={hourToDisplay}

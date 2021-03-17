@@ -65,6 +65,7 @@ import '../../resources/dist/css/ln/pages/magazine.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
+import LoadBanners from '../private/common/banners/LoadBanners';
 
 // if CATEGORIA REVISTA
 
@@ -159,6 +160,7 @@ const lnNotaStorytelling = ({
                         </main>
                         <Footer />
                     </div>
+                    <LoadBanners />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>
