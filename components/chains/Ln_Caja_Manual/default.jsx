@@ -9,7 +9,6 @@ import {
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import CajaTema from '../../private/LN/common/cajaTema';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import { formatText } from '../../private/common/utils/sectionUtils';
 
 const CajaManual = props => {
     const {
