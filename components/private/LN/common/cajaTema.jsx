@@ -24,6 +24,8 @@ const CajaTema = props => {
 
     const isFocal = layout.includes('focal');
     const isRenderAuthor = layout.includes('author');
+    const artWithoutDate =
+        (articles && articles.map(art => ({ ...art, display_date: '' }))) || [];
 
     return (
         <section
@@ -39,25 +41,22 @@ const CajaTema = props => {
                 {isFocal ? (
                     <FocalFactory
                         directionFocal={layout}
-                        articles={articles}
+                        articles={artWithoutDate}
                         outputType={outputType}
                         _children={_children}
                     />
                 ) : (
-                    articles.map(art => {
-                        const artWithoutDate = { ...art, display_date: '' };
-                        return (
-                            <ArticleAcum
-                                key={artWithoutDate._id}
-                                article={artWithoutDate}
-                                outputType={outputType}
-                                frontdemo
-                                titleSize={titleSize}
-                                isRenderAuthor={isRenderAuthor}
-                                withSubhead={withSubhead}
-                            />
-                        );
-                    })
+                    artWithoutDate.map(art => (
+                        <ArticleAcum
+                            key={art._id}
+                            article={art}
+                            outputType={outputType}
+                            frontdemo
+                            titleSize={titleSize}
+                            isRenderAuthor={isRenderAuthor}
+                            withSubhead={withSubhead}
+                        />
+                    ))
                 )}
             </ModRowGap>
         </section>

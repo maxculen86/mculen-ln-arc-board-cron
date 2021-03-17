@@ -8,37 +8,63 @@
     background: $neutral-white;
     width: 100%;
     left: 0;
-    padding: px(6) $spacing-sm;
-    border-bottom: 1px solid $light-neutral-200;
-    //display: none;
+    padding: $spacing-sm;
+    border-bottom: 1px solid $light-neutral-400;
+    display: none;
 
     .container {
         @include flex(flex, row, center, center);
+        .icon-comment {
+            margin-right: px(4);
+        }
     }
 
     .amp & {
         position: relative;
-        //display: flex;
+        display: flex;
         border: none;
+        padding: 0;
     }
-    .cuerpo__nota & {
+    // .cuerpo__nota & {
+    //     .amp & {
+    //         padding: 0;
+    //     }
+    // }
+
+    &.--block {
+        position: relative;
+        z-index: auto;
+        display: flex;
+        border: none;
+        padding: 0;
+        margin-bottom: px(32);
+        // background: $neutral-white;
+        // padding: px(32) 0;
+        // margin: px(-32) 0 0 0;
+        .--photo100 & {
+            padding: 0 px(16);
+        }
         .amp & {
-            padding: 0;
+            display: none;
         }
     }
-    // .--scrollDown & {
-    //     display: none;
-    // }
-    // &:not(.--active) {
-    //     .--scrollUp & {
-    //         top: 0;
-    //         display: flex;
-    //     }
-    //     .--scrollDown & {
-    //         top: 0;
-    //         display: flex;
-    //     }
-    // }
+
+    &:not(.--block) {
+        .--scrollDown & {
+            display: none;
+        }
+    }
+
+    &:not(.--active) {
+        .--scrollUp & {
+            //top: 0;
+            display: flex;
+        }
+        // .--scrollDown & {
+        //     top: 0;
+        //     display: flex;
+        // }
+    }
 
     amp-social-share {
         &[type='facebook'],
@@ -85,19 +111,25 @@
 @media ($media-l) {
     .mod-share {
         flex-direction: column;
-        width: px(44);
-        padding: px(8) px(2);
+        width: px(32);
+        padding: px(4);
         position: sticky;
         top: px(16);
         transition: all 0.25s;
         background: rgba(255, 255, 255, 0.8);
         float: left;
         border: none;
-        //display: block;
+        display: block;
         border-radius: px(4);
 
         .container {
             flex-direction: column;
+            .icon-comment {
+                margin-right: 0;
+            }
+        }
+        &.--block.--block {
+            display: none;
         }
         .amp & {
             position: sticky;
@@ -107,8 +139,10 @@
                 top: px(85);
             }
         }
-        // .--scrollDown & {
-        //     display: flex;
-        // }
+        &:not(.--block) {
+            .--scrollDown & {
+                display: flex;
+            }
+        }
     }
 }
