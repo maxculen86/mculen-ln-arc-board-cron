@@ -36,6 +36,8 @@ const CajaTema = props => {
         extraOpts['data-diagramacion-id'] = layout;
         extraOpts.id = `tema_${position}`;
     }
+    const artWithoutDate =
+        (articles && articles.map(art => ({ ...art, display_date: '' }))) || [];
 
     return (
         <div {...extraOptsDiv}>
@@ -57,19 +59,18 @@ const CajaTema = props => {
                     {isFocal ? (
                         <FocalFactory
                             directionFocal={layout}
-                            articles={articles}
+                            articles={artWithoutDate}
                             outputType={outputType}
                             boxPosition={position}
                             _children={_children}
                         />
                     ) : (
-                        articles.map((art, i) => {
+                        artWithoutDate.map((art, i) => {
                             const artPosition = `0${Number(i) + 1}`.slice(-2);
-                            const artWithoutDate = { ...art, display_date: '' };
                             return (
                                 <ArticleAcum
-                                    key={artWithoutDate._id}
-                                    article={artWithoutDate}
+                                    key={art._id}
+                                    article={art}
                                     outputType={outputType}
                                     frontdemo
                                     titleSize={titleSize}

@@ -34,7 +34,7 @@ const FocalFactory = ({
             );
             const comp = (_children && _children.length && art) || (
                 <ArticleAcum
-                    article={{ ...art, display_date: '' }}
+                    article={art}
                     outputType={outputType}
                     label="Chapita"
                     artPosition={`0${index + 1}`}
