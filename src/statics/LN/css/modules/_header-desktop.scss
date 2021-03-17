@@ -230,9 +230,11 @@
                 margin-right: $spacing-sm;
             }
             .com-usuario {
+                .--special {
+                    margin-right: px(24);
+                }
                 .--secondary {
                     display: flex;
-                    margin-left: px(24);
                 }
             }
         }
