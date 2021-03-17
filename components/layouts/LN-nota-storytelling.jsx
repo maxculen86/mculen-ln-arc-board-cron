@@ -11,7 +11,6 @@ import Footer from '../private/LN/common/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import LoginProvider from '../private/LN/common/context/loginContext';
-import Modshare from '../private/common/mod-share';
 
 // Styles
 // ***** INICIO PREGUNTAR A DARO
@@ -133,7 +132,6 @@ const lnNotaStorytelling = ({
                                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                                 <div className="row">
                                                     <div className="col-12">
-                                                        <Modshare classCondition="--block" />
                                                         {/* Cuerpo */}
                                                         {children[2]}
                                                     </div>

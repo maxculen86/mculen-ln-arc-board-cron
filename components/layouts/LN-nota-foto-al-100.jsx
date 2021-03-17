@@ -5,7 +5,6 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import LoginProvider from '../private/LN/common/context/loginContext';
-import Modshare from '../private/common/mod-share';
 
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
@@ -120,7 +119,6 @@ const lnNotaFotoAl100 = ({
                             {/* Cuerpo al 100% */}
                             <div className="row">
                                 {leftCuerpo}
-                                <Modshare classCondition="--block" />
                                 {cuerpo}
                             </div>
 
