@@ -5,6 +5,14 @@ import { useAppContext } from 'fusion:context';
 
 const hasOptaElements = content => content.includes('opta-widget');
 
+const formatContent = content => {
+    const DOMElement = content.match(/src="(.*?)"/g);
+
+    return DOMElement
+        ? DOMElement.map(x => x.replace(/src=/g, '').replace(/\"/g, '')).join()
+        : content;
+};
+
 const HtmlAMP = props => {
     const { data } = props;
     const { globalContent } = useAppContext();
@@ -17,13 +25,7 @@ const HtmlAMP = props => {
         urlForOpta = `${OPTA_WIDGET_URL}/${idRawHtml}/${idNote}/?_website=la-nacion-ar&outputType=opta`;
     }
 
-    const contentSrc =
-        content
-            .match(/src="(.*?)"/g)
-            .map(val => {
-                return val.replace(/src=/g, '').replace(/\"/g, '');
-            })
-            .join() || content;
+    const contentSrc = formatContent(content);
 
     return (
         <div className="com-embed --html">
