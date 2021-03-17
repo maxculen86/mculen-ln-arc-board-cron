@@ -117,14 +117,16 @@ export const getCommonProps = props => {
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
     const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
-    const showDatalayerMark = get(acumuladoGeneral, 'usa_datalayer', false);
+    const showDatalayerMark = get(acumuladoGeneral, 'usa_datalayer', 'false');
 
     return {
         collectionsInPage,
         notesQuantity,
         bgColor,
         classCondition,
-        position: showDatalayerMark && `0${Number(position) + 1}`.slice(-2),
+        position:
+            showDatalayerMark !== 'false' &&
+            `0${Number(position) + 1}`.slice(-2),
         sectionName
     };
 };
