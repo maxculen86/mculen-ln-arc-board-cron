@@ -8,7 +8,8 @@ import {
     transform,
     getWithMedia,
     getWithSubhead,
-    getLabel
+    getLabel,
+    getIsRenderAutor
 } from './noteCardHelper';
 
 const NoteCard = ({
@@ -33,6 +34,9 @@ const NoteCard = ({
     const [label, setLabel] = useState(
         getLabel(articleProps, customFields, withMedia)
     );
+    const [isRenderAutor, setIsRenderAutor] = useState(
+        getIsRenderAutor(customFields)
+    );
 
     useEffect(() => {
         setWithMedia(getWithMedia(customFields, articleProps, article));
@@ -42,6 +46,7 @@ const NoteCard = ({
         setArticle(transform(content, customFields, promoItems));
         setLabel(getLabel(articleProps, customFields, withMedia));
         setWithSubhead(getWithSubhead(articleProps, withMedia));
+        setIsRenderAutor(getIsRenderAutor(customFields));
     }, [articleProps, content, customFields, promoItems, withMedia]);
 
     return (
@@ -56,8 +61,9 @@ const NoteCard = ({
                 subheadText={withSubhead && get(article, 'subheadlines.basic')}
                 leadText={get(article, 'label.volanta.text')}
                 outputType={outputType}
-                isRenderAuthor={get(customFields, 'opinion', false)}
-                label={label}
+                isRenderAuthor={isRenderAutor}
+                label={!get(customFields, 'html') && label}
+                anexo={!isRenderAutor && get(customFields, 'html')}
             />
         )) || <></>
     );

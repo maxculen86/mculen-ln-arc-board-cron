@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../components/chains/Ln_Caja_Collection.jsx',
+    '../../../components/chains/Ln_Caja_Collection/default.jsx',
     () => 'mock-component'
 );
 
@@ -12,7 +12,7 @@ import {
     isInApertura
 } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
 import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
-import CajaCollection from '../../../components/chains/Ln_Caja_Collection.jsx';
+import CajaCollection from '../../../components/chains/Ln_Caja_Collection/default.jsx';
 
 describe('Test del Chain - <Ln_Caja_Collection />', () => {
     const idCollection = 'WPDJCUD7RNAQVA4JEPFJYZMCSE';
