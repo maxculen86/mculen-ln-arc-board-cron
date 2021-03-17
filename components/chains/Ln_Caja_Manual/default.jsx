@@ -6,9 +6,9 @@ import {
     cajaTemasCustomsFields,
     validateChainManual,
     getCommonProps
-} from '../private/LN/common/utils/cajaTemasHelper';
-import CajaTema from '../private/LN/common/cajaTema';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+} from '../../private/LN/common/utils/cajaTemasHelper';
+import CajaTema from '../../private/LN/common/cajaTema';
+import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const CajaManual = props => {
     const {

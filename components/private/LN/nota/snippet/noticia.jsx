@@ -62,7 +62,7 @@ const extractDataFromPromoItems = (promoItems, PLACEHOLDER) => {
 };
 
 const publishingPrinciples =
-    'https://www.lanacion.com.ar/tema/trust-project-tid68036';
+    'https://www.lanacion.com.ar/tema/the-trust-project-tid68036/';
 
 const getTrustProject = trust => data => sponsored => {
     if (!trust && !sponsored) return { ...data };
