@@ -138,6 +138,19 @@ export const getCommonProps = props => {
     };
 };
 
+export const getCommonPropsJson = props => {
+    const {
+        customFields: { layout = '', backgroundColor }
+    } = props;
+    const { collectionsInPage = [] } = useGlobalProviderAcu();
+    const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
+
+    return {
+        collectionsInPage,
+        notesQuantity
+    };
+};
+
 export const flattenArray = arr1 => {
     return arr1.reduce(
         (acc, val) =>
