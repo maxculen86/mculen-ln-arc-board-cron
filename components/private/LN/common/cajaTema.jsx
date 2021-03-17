@@ -26,13 +26,21 @@ const CajaTema = props => {
 
     const isFocal = layout.includes('focal');
     const isRenderAuthor = layout.includes('author');
+    const extraOptsDiv = {};
+    const extraOpts = {};
+    if (position) {
+        extraOptsDiv['data-module'] = `tema_${position}`;
+    }
+    if (position) {
+        extraOpts['data-block-name'] = `h_${sectionName}tema-${position}`;
+        extraOpts['data-diagramacion-id'] = layout;
+        extraOpts.id = `tema_${position}`;
+    }
 
     return (
-        <div data-module={`tema_${position}`}>
+        <div {...extraOptsDiv}>
             <section
-                id={`tema_${position}`}
-                data-block-name={`h_${sectionName}tema-${position}`}
-                data-diagramacion-id={layout}
+                {...extraOpts}
                 className={`box-articles ${backgroundColor} ${classCondition}`}
             >
                 {!hideTitle && (

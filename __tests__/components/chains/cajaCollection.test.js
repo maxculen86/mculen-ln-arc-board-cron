@@ -1,5 +1,5 @@
 jest.mock(
-    '../../../components/chains/Ln_Caja_Collection.jsx',
+    '../../../components/chains/Ln_Caja_Collection/default.jsx',
     () => 'mock-component'
 );
 
@@ -13,7 +13,7 @@ import {
     isInApertura
 } from '../../../components/private/LN/common/utils/cajaTemasHelper.js';
 import { getArticlesToShow } from '../../../content/sources/utils/collectionsHelper.js';
-import CajaCollection from '../../../components/chains/Ln_Caja_Collection.jsx';
+import CajaCollection from '../../../components/chains/Ln_Caja_Collection/default.jsx';
 import useGlobalProviderAcu from '../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js';
 
 jest.mock('../../../components/private/LN/acumulado/hooks/useGlobalProviderAcu.js', () => ( jest.fn() ));
@@ -159,20 +159,32 @@ describe('Test del Chain - <Ln_Caja_Collection />', () => {
         const props = {
             customFields,
             renderables,
-            id: 2
+            id: 2,
+            globalContent: {
+                name: 'Economía',
+                acumuladoGeneral: {
+                    usa_datalayer: 'true'
+                }
+            }
         }
         const {
             collectionsInPage,
             notesQuantity,
             bgColor,
             classCondition,
-            position
+            position,
+            sectionName
         } = getCommonProps(props);
         expect(collectionsInPage.length).toBe(0);
         expect(bgColor).toBe('--bgcolor ');
         expect(position).toBe('02');
         expect(notesQuantity).toBe(3);
         expect(classCondition).toBe('');
+        expect(sectionName).toBe('economia_');
+
+        props.globalContent.acumuladoGeneral.usa_datalayer = false;
+        const { position: positionFalse } = getCommonProps(props);
+        expect(positionFalse).toBe(false);
     });
 
     // Collections del tipo automatica

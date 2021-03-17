@@ -14,6 +14,6 @@ export default Component => {
             setShow(commentsAllowed);
         }, [commentsAllowed]);
 
-        return show && <Component {...props} ref={ref} />;
+        return <Component noShow withComments={show} {...props} ref={ref} />;
     };
 };

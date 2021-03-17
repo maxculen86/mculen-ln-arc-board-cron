@@ -6,10 +6,10 @@ import {
     cajaTemasCustomsFields,
     validateChainManual,
     getCommonProps
-} from '../private/LN/common/utils/cajaTemasHelper';
-import CajaTema from '../private/LN/common/cajaTema';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import { formatText } from '../private/common/utils/sectionUtils';
+} from '../../private/LN/common/utils/cajaTemasHelper';
+import CajaTema from '../../private/LN/common/cajaTema';
+import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import { formatText } from '../../private/common/utils/sectionUtils';
 
 const CajaManual = props => {
     const {
@@ -26,12 +26,18 @@ const CajaManual = props => {
         },
         outputType,
         childProps,
-        children,
-        globalContent: { name: sectionName }
+        children
     } = props;
+
     if (hideCaja) return <></>;
 
-    const { notesQuantity, bgColor, classCondition, position } = getCommonProps(props);
+    const {
+        notesQuantity,
+        bgColor,
+        classCondition,
+        position,
+        sectionName
+    } = getCommonProps(props);
     const error = validateChainManual(childProps, layout);
 
     return (
@@ -61,9 +67,7 @@ const CajaManual = props => {
                 classCondition={classCondition}
                 notesQuantity={notesQuantity}
                 position={position}
-                sectionName={`${formatText(
-                    sectionName === 'LA NACION' ? '' : `${sectionName}_`
-                )}`}
+                sectionName={sectionName}
                 backgroundColor={
                     backgroundColor !== 'default'
                         ? `${bgColor}${backgroundColor}`

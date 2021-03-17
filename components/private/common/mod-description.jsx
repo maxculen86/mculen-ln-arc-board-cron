@@ -59,7 +59,7 @@ const ModDescription = props => {
                         content={categoryName}
                         sizeText="--fourxs"
                         sizeBullet={withMarquee && '--fourxs'}
-                        link={categoryPath}
+                        link={`${categoryPath}/`}
                         classCondition="--tags"
                     />
                 )}

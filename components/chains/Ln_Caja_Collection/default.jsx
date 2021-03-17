@@ -1,8 +1,8 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import getArticleInCollection from '../private/LN/common/utils/getArticleInCollection';
-import CajaTema from '../private/LN/common/cajaTema';
+import getArticleInCollection from '../../private/LN/common/utils/getArticleInCollection';
+import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
     validateFeature,
@@ -10,9 +10,8 @@ import {
     getIdsArticlesFromOtherCollections,
     isInApertura,
     getArticlesFromMyCurrentCollection
-} from '../private/LN/common/utils/cajaTemasHelper';
-import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import { formatText } from '../private/common/utils/sectionUtils';
+} from '../../private/LN/common/utils/cajaTemasHelper';
+import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
 const CajaCollection = props => {
     const {
@@ -31,8 +30,7 @@ const CajaCollection = props => {
         },
         outputType,
         renderables,
-        tree,
-        globalContent: { name: sectionName }
+        tree
     } = props;
 
     if (hideCaja) return <></>;
@@ -42,7 +40,8 @@ const CajaCollection = props => {
         notesQuantity,
         bgColor,
         classCondition,
-        position
+        position,
+        sectionName
     } = getCommonProps(props);
 
     const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
@@ -107,9 +106,7 @@ const CajaCollection = props => {
             classCondition={classCondition}
             notesQuantity={notesQuantity}
             position={position}
-            sectionName={`${formatText(
-                sectionName === 'LA NACION' ? '' : `${sectionName}_`
-            )}`}
+            sectionName={sectionName}
             articles={
                 isInSiteService
                     ? articlesFromCollectionSiteService

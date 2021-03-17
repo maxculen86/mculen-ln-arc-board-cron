@@ -16,10 +16,11 @@ export default {
     cabezal_dsk: {
         slotName: `${PATH_SLOT}/cabezal_dsk`,
         dimensions: [
-            [1260, 100],
-            [1260, 170],
-            [920, 170],
-            [728, 90]
+            [1, 1],
+            [728, 90],
+            [920, 100],
+            [970, 90],
+            [1260, 100]
         ],
         targeting: defaultTargeting
     },

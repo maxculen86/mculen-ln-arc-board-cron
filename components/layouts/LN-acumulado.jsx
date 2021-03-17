@@ -18,6 +18,7 @@ import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContext
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import { formatText } from '../private/common/utils/sectionUtils';
+import LoadBanners from '../private/common/banners/LoadBanners';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -130,6 +131,7 @@ const LNAcumuladoLayout = props => {
                         </main>
                         <Footer />
                     </div>
+                    <LoadBanners />
                 </GlobalProviderAcu>
             </LoginProvider>
         </GlobalProvider>

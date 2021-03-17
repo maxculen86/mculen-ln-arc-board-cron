@@ -83,4 +83,10 @@ export const getWithSubhead = (articleProps, withMedia) =>
     (!get(articleProps, 'withSubheadAndMedia') && !withMedia);
 
 export const getLabel = (articleProps, customFields, withMedia) =>
-    withMedia && !get(customFields, 'opinion') && get(customFields, 'chapita');
+    withMedia &&
+    !get(customFields, 'opinion') &&
+    !get(customFields, 'html') &&
+    get(customFields, 'chapita');
+
+export const getIsRenderAutor = customFields =>
+    get(customFields, 'opinion', false);

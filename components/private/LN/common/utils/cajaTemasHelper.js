@@ -2,6 +2,7 @@
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
+import { formatText } from '../../../common/utils/sectionUtils';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const featuredRules = {
@@ -98,7 +99,8 @@ export const getCommonProps = props => {
     const {
         customFields: { layout = 'grilla3', backgroundColor },
         renderables = [],
-        id: idFeature
+        id: idFeature,
+        globalContent: { name, acumuladoGeneral }
     } = props;
     const { cajaTemaConfig = {} } = config || {};
     const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
@@ -114,12 +116,16 @@ export const getCommonProps = props => {
             .filter(ren => ren.collection === 'chains')
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
+    const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
+    const showDatalayerMark = get(acumuladoGeneral, 'usa_datalayer', false);
+
     return {
         collectionsInPage,
         notesQuantity,
         bgColor,
         classCondition,
-        position: `0${Number(position) + 1}`.slice(-2)
+        position: showDatalayerMark && `0${Number(position) + 1}`.slice(-2),
+        sectionName
     };
 };
 

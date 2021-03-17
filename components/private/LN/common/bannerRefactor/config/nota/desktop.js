@@ -35,10 +35,13 @@ export default {
     cabezal_dsk: {
         slotName: 'la_nacion_desktop/Nota/cabezal_dsk',
         dimensions: [
-            [1260, 170],
-            [1180, 170],
+            [1, 1],
+            [728, 90],
+            [920, 100],
             [920, 170],
-            [1, 1]
+            [970, 90],
+            [1260, 100],
+            [1260, 170]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -88,14 +91,6 @@ export default {
                 ]
             }
         }
-    },
-    adhesion_dsk: {
-        slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
-        dimensions: [
-            [920, 100],
-            [728, 90]
-        ],
-        targeting: defaultTargeting
     },
     caja1_dsk: {
         slotName: 'la_nacion_desktop/Nota/caja1_dsk',
@@ -378,10 +373,11 @@ export default {
     middle_1_dsk: {
         slotName: 'la_nacion_desktop/Nota/middle_1_dsk',
         dimensions: [
-            [468, 60],
+            [1, 1],
+            [640, 360],
             [640, 480],
             [728, 90],
-            [1, 1]
+            [468, 60]
         ],
         targeting: defaultTargeting,
         bidding: {

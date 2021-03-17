@@ -52,6 +52,11 @@
             top: 0;
         }
     }
+
+    .mod-logo & {
+        width: inherit;
+        max-height: $spacing-md;
+    }
     .mod-logo & {
         width: auto;
     }
