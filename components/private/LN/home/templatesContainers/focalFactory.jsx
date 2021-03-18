@@ -8,7 +8,8 @@ const FocalFactory = ({
     directionFocal,
     articles = [],
     _children,
-    outputType
+    outputType,
+    boxPosition
 }) => {
     const articleList =
         (_children && _children.length && _children) ||
@@ -33,9 +34,11 @@ const FocalFactory = ({
             );
             const comp = (_children && _children.length && art) || (
                 <ArticleAcum
-                    article={{ ...art, display_date: '' }}
+                    article={art}
                     outputType={outputType}
                     label="Chapita"
+                    artPosition={`0${index + 1}`}
+                    boxPosition={boxPosition}
                     {...(articleProps || {})}
                 />
             );

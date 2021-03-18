@@ -27,9 +27,16 @@ const CajaManual = props => {
         childProps,
         children
     } = props;
+
     if (hideCaja) return <></>;
 
-    const { notesQuantity, bgColor, classCondition } = getCommonProps(props);
+    const {
+        notesQuantity,
+        bgColor,
+        classCondition,
+        position,
+        sectionName
+    } = getCommonProps(props);
     const error = validateChainManual(childProps, layout);
 
     return (
@@ -58,6 +65,8 @@ const CajaManual = props => {
                 layout={layout}
                 classCondition={classCondition}
                 notesQuantity={notesQuantity}
+                position={position}
+                sectionName={sectionName}
                 backgroundColor={
                     backgroundColor !== 'default'
                         ? `${bgColor}${backgroundColor}`

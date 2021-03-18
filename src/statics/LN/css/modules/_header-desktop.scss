@@ -9,7 +9,7 @@
     padding: px(12) 0;
     background: $neutral-white;
     width: 100%;
-    z-index: 101;
+    z-index: 102;
     transition: top 0.2s ease-in-out;
 
     .row {
@@ -230,9 +230,11 @@
                 margin-right: $spacing-sm;
             }
             .com-usuario {
+                .--special {
+                    margin-right: px(24);
+                }
                 .--secondary {
                     display: flex;
-                    margin-left: px(24);
                 }
             }
         }
