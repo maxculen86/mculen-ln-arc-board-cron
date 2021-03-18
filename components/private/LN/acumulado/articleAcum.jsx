@@ -36,6 +36,8 @@ const ArticleAcum = ({
     titleSize,
     withSubhead,
     isRenderAuthor,
+    boxPosition,
+    artPosition,
     withCategory,
     withTags
 }) => {
@@ -84,6 +86,9 @@ const ArticleAcum = ({
                 subheadText={subheadText}
                 outputType={outputType}
                 isRenderAuthor={isRenderAuthor}
+                typeArticle={typeArticle}
+                artPosition={artPosition}
+                boxPosition={boxPosition}
                 category={withCategory && primarySection}
                 tags={withTags && tagList}
             />
@@ -113,14 +118,24 @@ ArticleAcum.propTypes = {
     typeArticle: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,
     withCategory: PropTypes.bool,
-    withTags: PropTypes.bool
+    withTags: PropTypes.bool,
+    titleTag: PropTypes.string,
+    titleSize: PropTypes.string,
+    withSubhead: PropTypes.bool,
+    isRenderAuthor: PropTypes.bool,
+    boxPosition: PropTypes.string.isRequired,
+    artPosition: PropTypes.string.isRequired
 };
 
 ArticleAcum.defaultProps = {
     dataSection: '',
+    titleSize: '',
+    titleTag: '',
     children: undefined,
     withCategory: false,
-    withTags: false
+    withTags: false,
+    isRenderAuthor: false,
+    withSubhead: false
 };
 
 export default ArticleAcum;

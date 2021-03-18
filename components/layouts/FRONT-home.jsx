@@ -538,6 +538,20 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
+                                        {/* <section className="mod-">
+                                            <ComTitle size="--twoxs" content="Temáticas LA NACION" />
+                                            <div className="row-gap-tablet-2">
+                                                <a href="https://www.lanacion.com.ar/propiedades/">
+                                                    <div class="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" class="com-image " alt="Logo"/></div>
+                                                    Toda la informacion del mercado inmobiliario 
+                                                </a>
+                                                <a href="https://www.lanacion.com.ar/propiedades/">
+                                                    <div class="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" class="com-image " alt="Logo"/></div>
+                                                    Noticias, informes y referentes del campo argentino 
+                                                </a>
+                                            </div>
+                                        </section> */}
+
                                         <section className="box-articles --bgcolor --bgteal">
                                             <HeaderSection
                                                 title="Techo de sección: La casa Breuer Moreno se prepara para su último remate"

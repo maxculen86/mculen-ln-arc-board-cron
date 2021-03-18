@@ -12,7 +12,7 @@ const UltimasNoticias = props => {
 
     const sectionsFormated = sections
         ? JSON.stringify(sections)
-              .replaceAll(',', '+OR+')
+              .replace('/,/g', '+OR+')
               .replace('[', '(')
               .replace(']', ')')
         : '';
