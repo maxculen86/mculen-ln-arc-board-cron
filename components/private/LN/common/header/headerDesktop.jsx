@@ -11,6 +11,7 @@ import ComIcon from '../../../common/com-icon';
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
+import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 // import ModsubHeather from './subHeather';
 
 const ItemAnchor = ({ url, text }) => {
@@ -70,21 +71,16 @@ const HeaderDesktop = ({
         setLoadingUserData(loading ? ' hlp-none' : '');
     }, [loading]);
 
-    const dynamicallyLoadScript = () => {
+    const handleClickBuscar = () => {
         if (
-            !document.querySelector(
-                'script[src="//www.queryly.com/js/queryly.v4.js"]'
-            )
+            dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
         ) {
-            const baseScript = document.createElement('script');
-            baseScript.src = '//www.queryly.com/js/queryly.v4.js';
-            document.body.appendChild(baseScript);
             setTimeout(() => {
                 const initScript = document.createElement('script');
                 initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
                 document.body.appendChild(initScript);
                 document.getElementById('querylyButton').click();
-            }, 100);
+            }, 50);
         }
     };
 
@@ -93,7 +89,7 @@ const HeaderDesktop = ({
             <div className="col-4 header__left">
                 <Hamburguer _onMouseDown={toglleDesplegable} />
                 <label
-                    onClick={dynamicallyLoadScript}
+                    onClick={handleClickBuscar}
                     id="querylyButton"
                     htmlFor="queryly_toggle"
                 >
@@ -185,7 +181,7 @@ const HeaderDesktop = ({
                 </div>
             </div>
             <div className="col-1 header__search">
-                <label onClick={dynamicallyLoadScript} htmlFor="queryly_toggle">
+                <label onClick={handleClickBuscar} htmlFor="queryly_toggle">
                     <i className="com-icon icon-search queryly_searchicon" />
                 </label>
             </div>
