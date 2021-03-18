@@ -2,10 +2,11 @@
 footer {
     margin-bottom: px(20);
     .footer-header {
-        margin-bottom: px(20);
+        margin-bottom: px(32);
         @media ($media-l) {
-            padding-bottom: px(15);
+            padding-bottom: px(16);
             border-bottom: 1px solid $light-neutral-400;
+            margin-bottom: px(24);
         }
         .footer-header__logo {
             border-bottom: 1px solid $light-neutral-400;
@@ -69,7 +70,7 @@ footer {
         }
     }
     .footer-sitio {
-        margin-bottom: px(20);
+        margin-bottom: px(24);
         .footer-sitio__links {
             display: none;
             @media (min-width: 1024px) {
@@ -119,7 +120,7 @@ footer {
         }
     }
     .footer-copyright {
-        margin-bottom: px(20);
+        margin-bottom: px(64);
         .footer-copyright__fiscal {
             p {
                 color: $light-neutral-600;
@@ -202,6 +203,9 @@ footer {
                 text-align: left;
                 order: 1;
             }
+        }
+        @media ($media-l) {
+            margin-bottom: px(24);
         }
     }
 }
