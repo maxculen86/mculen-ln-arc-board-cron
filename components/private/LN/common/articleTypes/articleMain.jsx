@@ -12,7 +12,8 @@ const articleMain = ({
     border,
     dataSection,
     hourToDisplay,
-    position
+    position,
+    handleClick
 }) => {
     let media = null;
     // TODO: validar tipo autor correcto
@@ -51,6 +52,7 @@ const articleMain = ({
             dataSection={dataSection}
             hourComponent={hourComponent}
             position={position}
+            handleClick={handleClick}
         >
             {children}
         </ArticleBase>
