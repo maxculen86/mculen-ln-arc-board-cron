@@ -28,6 +28,7 @@ const MetaDescription = ({
     arcSite,
     nodeType,
     name,
+    subheadlines,
     _id,
     payload
     // authorType
@@ -58,7 +59,8 @@ const MetaDescription = ({
                 content={`${getMetaDescription(
                     description,
                     firstParagraphContentElements,
-                    metaTitleBasic
+                    metaTitleBasic,
+                    subheadlines
                 )} - LA NACION`}
             />
         )
@@ -71,7 +73,8 @@ MetaDescription.propTypes = {
     firstParagraphContentElements: PropTypes.string,
     metaTitleBasic: PropTypes.string.isRequired,
     nodeType: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    subheadlines: PropTypes.object
 };
 
 export default MetaDescription;

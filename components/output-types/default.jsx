@@ -125,6 +125,7 @@ const Default = props => {
         description,
         type,
         subtype,
+        subheadlines,
         syndication,
         distributor,
         node_type: nodeType,
@@ -220,6 +221,7 @@ const Default = props => {
                     authorType={authorType}
                     description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
+                    subheadlines={subheadlines && subheadlines.basic}
                     firstParagraphContentElements={
                         getFirstParagraph(contentElements) || ''
                     }
