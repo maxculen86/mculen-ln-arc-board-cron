@@ -217,7 +217,7 @@ const Default = props => {
                     authorType={authorType}
                     description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
-                    subheadlines={subheadlines.basic}
+                    subheadlines={subheadlines && subheadlines.basic}
                     firstParagraphContentElements={
                         getFirstParagraph(contentElements) || ''
                     }
