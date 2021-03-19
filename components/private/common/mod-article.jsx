@@ -40,7 +40,7 @@ const ModArticle = props => {
         category,
         tags
     } = props;
-    const { _id } = articleData;
+    const { _id } = articleData || {};
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
