@@ -2,6 +2,7 @@ import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/acumulado';
 import browser from '../../../private/common/utils/browser';
 import getSizesFrom from '../../../private/common/utils/getSizesFrom';
+import get from 'lodash.get';
 
 // URL de ejemplo: http://localhost/api/v1/notas/byTag/cronicas-tid61570/params=size:1;page:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v([1]+)\/notas\/byTag\/((?!params).+)\/(.*\/)$ , donde "params" dependera del customField "paramUrlId" configurado
@@ -11,7 +12,6 @@ class AccumulatedTags {
         this.props = props;
 
         const {
-            globalContent: { _id: id, slug: slug },
             isAdmin,
             customFields: { size: sizeCf, page: pageCf, paramUrlId }
         } = props;
@@ -24,6 +24,12 @@ class AccumulatedTags {
             pageCf,
             paramUrlId,
             this.props.requestUri
+        );
+
+        const slug = get(
+            this.props.globalContent,
+            'Payload.items[0].slug',
+            null
         );
 
         this.fetchContent({
