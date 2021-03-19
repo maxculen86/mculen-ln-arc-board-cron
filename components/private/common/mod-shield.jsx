@@ -5,7 +5,7 @@ import ModheaderSection from './mod-headerSection';
 import '../../../resources/dist/css/ln/modules/mod-shields.css';
 
 const ModShield = props => {
-    const { title, size, line, children, data } = props;
+    const { title, size, children, data } = props;
     if (!title && !data) return null;
     return (
         <div className="row">

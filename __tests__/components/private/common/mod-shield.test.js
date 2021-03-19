@@ -46,5 +46,9 @@ describe('Private - Common - ModShield =>', () => {
         it('should render 3 ComShield components', () => {
             expect(shieldComponent.length).toBe(27);
         });
+
+        it('snapshot', () => {
+            expect(result.render()).toMatchSnapshot();
+        });
     });
 });

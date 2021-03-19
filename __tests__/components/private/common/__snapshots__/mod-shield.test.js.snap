@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`with data list snapshot 1`] = `
+exports[`Private - Common - ModShield => with data list snapshot 1`] = `
 <div
   class="row"
 >
@@ -13,281 +13,146 @@ exports[`with data list snapshot 1`] = `
       <div
         class="sports"
       >
-        <mock-header-section-mock
+        <mock-header-section
           line="true"
           size="--fourxs"
           title="Superliga: Todos los clubes"
         />
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/aldosivi"
-        >
-          <img
-            alt="escudo-Aldosivi"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7GZSJPBEPVETDMBDMW53QUFIQ4.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/argentinos-juniors"
-        >
-          <img
-            alt="escudo-ArgentinosJuniors"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EK66XYYAJNEW5JQFNHCMJV43TY.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/arsenal"
-        >
-          <img
-            alt="escudo-Arsenal"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SAAAODPTFNECTG2HJLQIA2VG2I.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/atletico-tucuman"
-        >
-          <img
-            alt="escudo-AtleticoTucuman"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/NTYJC27AK5DKHMVIYLJ5KGYDXY.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/banfield"
-        >
-          <img
-            alt="escudo-Banfield"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GFNEBMW7CREA3KODNQQNX3GLDE.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/belgrano"
-        >
-          <img
-            alt="escudo-Belgrano"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KNKQXEAB4FC2HBHB3QQM4QSSTE.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/boca-juniors"
-        >
-          <img
-            alt="escudo-BocaJuniors"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/P3LRVO2JV5EANKHKPJ2YDNMOYU.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/central-cordoba"
-        >
-          <img
-            alt="escudo-CentralCordoba"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5O6JPL3NDVB4HKEHH3OAHAOKAQ.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/colon"
-        >
-          <img
-            alt="escudo-Colon"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6VQYK27IPZCNLCZFWVSDCGOM5Q.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/defensa-y-justicia"
-        >
-          <img
-            alt="escudo-DefensayJusticia"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QIKEINXQBNAEVIDD7DTO2L2VMA.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/estudiantes-la-plata"
-        >
-          <img
-            alt="escudo-EstudiantesLaPlata"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GVBUSGSWXZBIRHZJEELOBXQN3E.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/gimnasia-y-esgrima"
-        >
-          <img
-            alt="escudo-GimnasiayEsgrima"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CBYXWVHCJVAVBDPM3TLRMUMRQQ.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/godoy-cruz"
-        >
-          <img
-            alt="escudo-GodoyCruz"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/E7JUKX736JCCJM5XMGFU3IBZJM.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/huracan"
-        >
-          <img
-            alt="escudo-Huracan"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/YQ4DMMHFDVBPVM4E23RHHOJV3Y.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/independiente"
-        >
-          <img
-            alt="escudo-Independiente"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/L77PB7OEKFA2JHOCT7NKO2KKHQ.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/lanus"
-        >
-          <img
-            alt="escudo-Lanus"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BABZC67NQBGATEV4LYCN2DSIJY.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/newells"
-        >
-          <img
-            alt="escudo-Newells"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ABOPGLJQDZCL5PDBRUBYUG27XA.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/patronato"
-        >
-          <img
-            alt="escudo-Patronato"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/M5DCMEGBYFA6TDHH7JGAXYQI4M.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/racing"
-        >
-          <img
-            alt="escudo-Racing"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZQNMANB7J5AWRBCB4FVCJZXH74.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/river-plate"
-        >
-          <img
-            alt="escudo-RiverPlate"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CMMAKYQESFFFVHUIS6DYZA4WUI.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/rosario-central"
-        >
-          <img
-            alt="escudo-RosarioCentral"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/FLUFKFZVMRCSTNWUF7Y4IKEQSA.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/san-lorenzo"
-        >
-          <img
-            alt="escudo-SanLorenzo"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XRRFAN5QYRCTLNI3QA3AWWWMMQ.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/san-martin-tucuman"
-        >
-          <img
-            alt="escudo-SanMartinTucuman"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WW73G7LX6VDKTBSYOEVTFGM3AQ.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/talleres-cordoba"
-        >
-          <img
-            alt="escudo-TalleresCordoba"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HVUKDBT3CVB5VEDXOFQ4UXEJTI.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/tigre"
-        >
-          <img
-            alt="escudo-Tigre"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XGN4WQD2XJEVLPRMIGAJ4WT4WU.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/union"
-        >
-          <img
-            alt="escudo-Unión"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/DTMIWBMBO5FQXCH7JZZ66VRHFM.png"
-          />
-        </a>
-        <a
-          class="com-link --shield"
-          href="https://www.lanacion.com.ar/deportes/futbol/velez"
-        >
-          <img
-            alt="escudo-Vélez"
-            class="com-image"
-            src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/H3VF64J3HBDLVMQMD6TOILYXMM.png"
-          />
-        </a>
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/aldosivi"
+          nameshield="Aldosivi"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7GZSJPBEPVETDMBDMW53QUFIQ4.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/argentinos-juniors"
+          nameshield="ArgentinosJuniors"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EK66XYYAJNEW5JQFNHCMJV43TY.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/arsenal"
+          nameshield="Arsenal"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SAAAODPTFNECTG2HJLQIA2VG2I.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/atletico-tucuman"
+          nameshield="AtleticoTucuman"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/NTYJC27AK5DKHMVIYLJ5KGYDXY.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/banfield"
+          nameshield="Banfield"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GFNEBMW7CREA3KODNQQNX3GLDE.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/belgrano"
+          nameshield="Belgrano"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KNKQXEAB4FC2HBHB3QQM4QSSTE.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/boca-juniors"
+          nameshield="BocaJuniors"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/P3LRVO2JV5EANKHKPJ2YDNMOYU.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/central-cordoba"
+          nameshield="CentralCordoba"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5O6JPL3NDVB4HKEHH3OAHAOKAQ.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/colon"
+          nameshield="Colon"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6VQYK27IPZCNLCZFWVSDCGOM5Q.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/defensa-y-justicia"
+          nameshield="DefensayJusticia"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QIKEINXQBNAEVIDD7DTO2L2VMA.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/estudiantes-la-plata"
+          nameshield="EstudiantesLaPlata"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GVBUSGSWXZBIRHZJEELOBXQN3E.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/gimnasia-y-esgrima"
+          nameshield="GimnasiayEsgrima"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CBYXWVHCJVAVBDPM3TLRMUMRQQ.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/godoy-cruz"
+          nameshield="GodoyCruz"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/E7JUKX736JCCJM5XMGFU3IBZJM.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/huracan"
+          nameshield="Huracan"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/YQ4DMMHFDVBPVM4E23RHHOJV3Y.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/independiente"
+          nameshield="Independiente"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/L77PB7OEKFA2JHOCT7NKO2KKHQ.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/lanus"
+          nameshield="Lanus"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BABZC67NQBGATEV4LYCN2DSIJY.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/newells"
+          nameshield="Newells"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ABOPGLJQDZCL5PDBRUBYUG27XA.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/patronato"
+          nameshield="Patronato"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/M5DCMEGBYFA6TDHH7JGAXYQI4M.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/racing"
+          nameshield="Racing"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZQNMANB7J5AWRBCB4FVCJZXH74.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/river-plate"
+          nameshield="RiverPlate"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CMMAKYQESFFFVHUIS6DYZA4WUI.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/rosario-central"
+          nameshield="RosarioCentral"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/FLUFKFZVMRCSTNWUF7Y4IKEQSA.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/san-lorenzo"
+          nameshield="SanLorenzo"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XRRFAN5QYRCTLNI3QA3AWWWMMQ.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/san-martin-tucuman"
+          nameshield="SanMartinTucuman"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WW73G7LX6VDKTBSYOEVTFGM3AQ.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/talleres-cordoba"
+          nameshield="TalleresCordoba"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HVUKDBT3CVB5VEDXOFQ4UXEJTI.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/tigre"
+          nameshield="Tigre"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XGN4WQD2XJEVLPRMIGAJ4WT4WU.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/union"
+          nameshield="Unión"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/DTMIWBMBO5FQXCH7JZZ66VRHFM.png"
+        />
+        <mock-com-shield
+          link="https://www.lanacion.com.ar/deportes/futbol/velez"
+          nameshield="Vélez"
+          src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/H3VF64J3HBDLVMQMD6TOILYXMM.png"
+        />
       </div>
     </section>
   </div>
