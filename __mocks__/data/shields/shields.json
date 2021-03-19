@@ -1,0 +1,141 @@
+{
+    "data": [
+        {
+            "name": "Aldosivi",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7GZSJPBEPVETDMBDMW53QUFIQ4.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/aldosivi"
+        },
+        {
+            "name": "ArgentinosJuniors",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/EK66XYYAJNEW5JQFNHCMJV43TY.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/argentinos-juniors"
+        },
+        {
+            "name": "Arsenal",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SAAAODPTFNECTG2HJLQIA2VG2I.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/arsenal"
+        },
+        {
+            "name": "AtleticoTucuman",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/NTYJC27AK5DKHMVIYLJ5KGYDXY.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/atletico-tucuman"
+        },
+        {
+            "name": "Banfield",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GFNEBMW7CREA3KODNQQNX3GLDE.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/banfield"
+        },
+        {
+            "name": "Belgrano",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KNKQXEAB4FC2HBHB3QQM4QSSTE.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/belgrano"
+        },
+        {
+            "name": "BocaJuniors",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/P3LRVO2JV5EANKHKPJ2YDNMOYU.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/boca-juniors"
+        },
+        {
+            "name": "CentralCordoba",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5O6JPL3NDVB4HKEHH3OAHAOKAQ.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/central-cordoba"
+        },
+        {
+            "name": "Colon",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6VQYK27IPZCNLCZFWVSDCGOM5Q.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/colon"
+        },
+        {
+            "name": "DefensayJusticia",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QIKEINXQBNAEVIDD7DTO2L2VMA.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/defensa-y-justicia"
+        },
+        {
+            "name": "EstudiantesLaPlata",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GVBUSGSWXZBIRHZJEELOBXQN3E.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/estudiantes-la-plata"
+        },
+        {
+            "name": "GimnasiayEsgrima",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CBYXWVHCJVAVBDPM3TLRMUMRQQ.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/gimnasia-y-esgrima"
+        },
+        {
+            "name": "GodoyCruz",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/E7JUKX736JCCJM5XMGFU3IBZJM.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/godoy-cruz"
+        },
+        {
+            "name": "Huracan",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/YQ4DMMHFDVBPVM4E23RHHOJV3Y.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/huracan"
+        },
+        {
+            "name": "Independiente",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/L77PB7OEKFA2JHOCT7NKO2KKHQ.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/independiente"
+        },
+        {
+            "name": "Lanus",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BABZC67NQBGATEV4LYCN2DSIJY.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/lanus"
+        },
+        {
+            "name": "Newells",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ABOPGLJQDZCL5PDBRUBYUG27XA.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/newells"
+        },
+        {
+            "name": "Patronato",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/M5DCMEGBYFA6TDHH7JGAXYQI4M.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/patronato"
+        },
+        {
+            "name": "Racing",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZQNMANB7J5AWRBCB4FVCJZXH74.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/racing"
+        },
+        {
+            "name": "RiverPlate",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CMMAKYQESFFFVHUIS6DYZA4WUI.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/river-plate"
+        },
+        {
+            "name": "RosarioCentral",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/FLUFKFZVMRCSTNWUF7Y4IKEQSA.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/rosario-central"
+        },
+        {
+            "name": "SanLorenzo",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XRRFAN5QYRCTLNI3QA3AWWWMMQ.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/san-lorenzo"
+        },
+        {
+            "name": "SanMartinTucuman",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WW73G7LX6VDKTBSYOEVTFGM3AQ.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/san-martin-tucuman"
+        },
+        {
+            "name": "TalleresCordoba",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HVUKDBT3CVB5VEDXOFQ4UXEJTI.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/talleres-cordoba"
+        },
+        {
+            "name": "Tigre",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XGN4WQD2XJEVLPRMIGAJ4WT4WU.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/tigre"
+        },
+        {
+            "name": "Unión",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/DTMIWBMBO5FQXCH7JZZ66VRHFM.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/union"
+        },
+        {
+            "name": "Vélez",
+            "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/H3VF64J3HBDLVMQMD6TOILYXMM.png",
+            "link": "https://www.lanacion.com.ar/deportes/futbol/velez"
+        }
+    ],
+    "title": "Superliga: Todos los clubes",
+    "size": "--fourxs"
+}
