@@ -1,8 +1,8 @@
-jest.mock('../../../../components/layouts/_LN-home-old.jsx', () => 'mock-component');
+jest.mock('../../../../components/layouts/LN-Home_Sports/default.jsx', () => 'mock-component');
 
 import React from 'react';
 import { mount } from 'enzyme';
-import LNHomeLayout from '../../../../components/layouts/_LN-home-old.jsx';
+import LNHomeLayout from '../../../../components/layouts/LN-Home_Sports/default.jsx';
 
 describe('Test del Layout - <LNHomeLayout />', () => {
     const isAdmin = true;
