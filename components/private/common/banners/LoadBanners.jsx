@@ -187,7 +187,9 @@ const LoadBanners = () => {
                         bannersToLoad
                     );
 
-                    queueGoogletagCommand(bannersToLoad);
+                    queueGoogletagCommand(
+                        bannersToLoad.filter(e => !e.subscription)
+                    );
                 }
             }
         } catch (error) {
