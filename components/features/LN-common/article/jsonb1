@@ -1,0 +1,125 @@
+/* eslint-disable react/require-default-props */
+import React from 'react';
+import Consumer from 'fusion:consumer';
+import { useAppContext } from 'fusion:context';
+import getProperties from 'fusion:properties';
+import PropTypes from 'fusion:prop-types';
+
+import {
+    validateArticleFeature,
+    getCajaTemaConfig
+} from '../../../private/LN/common/utils/cajaTemasHelperApi';
+/*
+class ArticleFeature2 extends React.Component {
+    constructor(props) {
+        super(props);
+        const {
+            id: featureId,
+            customFields: { noteId: id, imageId }
+        } = props;
+
+        //const { isAdmin, arcSite, renderables, outputType } = useAppContext();
+        //         const { cajaTemaConfig } = getProperties(arcSite);
+        // const articleProps = getCajaTemaConfig(
+        //     featureId,
+        //     renderables,
+        //     cajaTemaConfig
+        // ); 
+        this.props = props;
+        this.state = {};
+        this.fetchContent({
+            articleSourceNota: {
+                source: 'articleSourceNota',
+                query: { id, published: true }
+            }
+        });
+
+        this.fetchContent({
+            relatedImageSource: {
+                source: 'relatedImageSource',
+                query: { id: imageId, published: true }
+            }
+        });
+    }
+
+    render() {
+        try {
+            const { articleSourceNota } = this.state || {};
+            const {
+                id: featureId,
+                customFields: { noteId: id, imageId }
+            } = this.props;
+            const error = validateArticleFeature(id, articleSourceNota);
+            if (!articleSourceNota) {
+                return null;
+            }
+            const acuData = {
+                tipoAcumulado: 4,
+                name: 'author2.byline'
+            };
+            return acuData;
+        } catch (err) {
+            return { Success: false, Message: err.message };
+        }
+    }
+}
+*/
+
+class ArticleFeature2 extends React.Component {
+    constructor(props) {
+        super(props);
+        const {
+            id: featureId,
+            customFields: { noteId: id, imageId }
+        } = props;
+        this.props = props;
+        this.state = { id, imageId, featureId };
+        this.fetch = this.fetch.bind(this);
+        this.fetch();
+    }
+
+    fetch() {
+        const { id } = this.state;
+
+        this.fetchContent({
+            articleSourceNota: {
+                source: 'articleSourceNota',
+                query: { id, published: true },
+                transform(data) {
+                    // Check if data is being returned
+                    if (data && data.Search)
+                        return {
+                            tipoAcumulado: 4,
+                            name: 'author2.byline'
+                        };
+                    // Otherwise just keep the current list of movies
+                    return null;
+                }
+            }
+        });
+    }
+
+    render() {
+        try {
+            const { articleSourceNota } = this.state || {};
+            const {
+                id: featureId,
+                customFields: { noteId: id, imageId }
+            } = this.props;
+            const error = validateArticleFeature(id, articleSourceNota);
+            if (!articleSourceNota) {
+                return null;
+            }
+            const acuData = {
+                tipoAcumulado: 4,
+                name: 'author2.byline'
+            };
+            return acuData;
+        } catch (err) {
+            return { Success: false, Message: err.message };
+        }
+    }
+}
+ArticleFeature2.label = 'LN Articulo2';
+
+export default Consumer(ArticleFeature2);

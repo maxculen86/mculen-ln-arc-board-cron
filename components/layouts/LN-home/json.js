@@ -2,14 +2,22 @@ const LNHome = ({ children }) => {
     // Only return the data from the first child (body)
     let respRoot = [];
     let resp = [];
-    for (let i = 0; i < children.length; i++) {
-        if (Array.isArray(children[i]) && children[i].length > 0) {
-            let subChild = children[i];
+    let NotasSection = children[6];
+    let cajanum = 0;
+    for (let i = 0; i < NotasSection.length; i++) {
+        cajanum = cajanum + 1;
+        if (Array.isArray(NotasSection[i]) && NotasSection[i].length > 0) {
+            let subChild = NotasSection[i];
+            subChild = NotasSection[i].map(elem => {
+                return {
+                    ...elem,
+                    section: `caja${cajanum}`
+                };
+            });
+
             for (let a = 0; a < subChild.length; a++) {
                 resp.push(subChild[a]);
             }
-        } else {
-            resp.push(children[i]);
         }
     }
     respRoot.push(resp);

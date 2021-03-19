@@ -284,5 +284,18 @@ Default.propTypes = {
     outputType: PropTypes.string.isRequired,
     siteProperties: PropTypes.isRequired
 };
+Default.contentType = 'text/html';
 
+Default.transform = {
+    arcio({ context, data }) {
+        return {
+            contentType: 'application/json',
+            data: {
+                tree: context.tree,
+                globalContent: context.globalContent,
+                featureContent: context.contentCache
+            }
+        };
+    }
+};
 export default Default;
