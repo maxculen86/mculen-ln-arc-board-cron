@@ -59,6 +59,7 @@ const Amp = props => {
         name,
         author_type: authorType,
         Payload,
+        subheadlines,
         _id
     } = globalContent || {};
 
@@ -144,6 +145,7 @@ const Amp = props => {
                     firstParagraphContentElements={
                         getFirstParagraph(contentElements) || ''
                     }
+                    subheadlines={subheadlines && subheadlines.basic}
                     arcSite={arcSite}
                 />
                 <Syndication

@@ -48,17 +48,28 @@ export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
                 child => child && child.props && child.props.id === featureId
             )
     );
+    const position =
+        renderables
+            .filter(ren => ren.collection === 'chains')
+            .findIndex(chain => chain.props.id === parent.props.id) || 0;
     const index =
         parent &&
         parent.children.findIndex(elem => elem && elem.props.id === featureId);
-
     const directionFocal =
         parent &&
         parent.props &&
         parent.props.customFields &&
         parent.props.customFields.layout;
-
-    return get(cajaTemaConfig, `${directionFocal}.articles[${index}]`, null);
+    const config = get(
+        cajaTemaConfig,
+        `${directionFocal}.articles[${index}]`,
+        null
+    );
+    return {
+        config,
+        index,
+        boxPosition: `0${Number(position) + 1}`.slice(-2)
+    };
 };
 
 export const getWithMedia = (customFields, articleProps, article) =>

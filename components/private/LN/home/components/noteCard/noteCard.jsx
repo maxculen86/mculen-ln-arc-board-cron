@@ -20,7 +20,9 @@ const NoteCard = ({
     articleProps,
     customFields,
     outputType,
-    promoItems
+    promoItems,
+    index,
+    boxPosition
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -64,6 +66,8 @@ const NoteCard = ({
                 isRenderAuthor={isRenderAutor}
                 label={!get(customFields, 'html') && label}
                 anexo={!isRenderAutor && get(customFields, 'html')}
+                boxPosition={boxPosition}
+                artPosition={`0${Number(index) + 1}`.slice(-2)}
             />
         )) || <></>
     );

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 
+// TODO: Deprecated component (ahora se llama al hacer click al boton buscar)
 export default class Queryly extends React.Component {
     constructor(props) {
         super(props);

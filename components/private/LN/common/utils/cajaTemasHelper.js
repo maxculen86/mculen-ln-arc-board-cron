@@ -2,6 +2,7 @@
 import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
+import { formatText } from '../../../common/utils/sectionUtils';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const featuredRules = {
@@ -94,35 +95,15 @@ export const validateArticleFeature = (id, content) => {
     return error;
 };
 
-export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
-    const parent = renderables.find(
-        elem =>
-            elem.collection === 'chains' &&
-            elem.type === 'Ln_Caja_Manual' &&
-            elem.children &&
-            elem.children.some(
-                child => child && child.props && child.props.id === featureId
-            )
-    );
-    const index =
-        parent &&
-        parent.children.findIndex(elem => elem && elem.props.id === featureId);
-
-    const directionFocal =
-        parent &&
-        parent.props &&
-        parent.props.customFields &&
-        parent.props.customFields.layout;
-
-    return get(cajaTemaConfig, `${directionFocal}.articles[${index}]`, null);
-};
-
 export const getCommonProps = props => {
     const {
-        customFields: { layout = '', backgroundColor }
+        customFields: { layout = 'grilla3', backgroundColor },
+        renderables = [],
+        id: idFeature,
+        globalContent: { name, acumuladoGeneral }
     } = props;
     const { cajaTemaConfig = {} } = config || {};
-    const { collectionsInPage = [] } = useGlobalProviderAcu();
+    const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
     const bgColor =
         backgroundColor === 'default' || backgroundColor === null
@@ -130,11 +111,23 @@ export const getCommonProps = props => {
             : '--bgcolor ';
     const classCondition = (layout && cajaTemaConfig[layout].className) || '';
 
+    const position =
+        renderables
+            .filter(ren => ren.collection === 'chains')
+            .findIndex(chain => chain.props.id === idFeature) || 0;
+
+    const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
+    const showDatalayerMark = get(acumuladoGeneral, 'usa_datalayer', 'false');
+
     return {
         collectionsInPage,
         notesQuantity,
         bgColor,
-        classCondition
+        classCondition,
+        position:
+            showDatalayerMark !== 'false' &&
+            `0${Number(position) + 1}`.slice(-2),
+        sectionName
     };
 };
 
