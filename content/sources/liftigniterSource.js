@@ -47,6 +47,7 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
 /**
  * TODO: Por completar de tarea
  * 1. Mejorar armado de uri, version, endpoint y body como parametro de liftigniter
+ * 2. Mejora de registro de click, enviar listado de items
  */
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
@@ -59,11 +60,12 @@ const fetch = query => {
         userId,
         sessionId,
         excludeItems,
-        arcSite
+        arcSite,
+        action,
+        nextUrl
     } = query;
 
     const userIdParam = userId ? `/${userId}` : '';
-    const timestampPageView = Date.now();
     const baseUrl = `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}`;
     const headers = {
         'Accept-Encoding': '*,q=0.8',
@@ -77,72 +79,86 @@ const fetch = query => {
         pageviewId: idArticle
     };
 
-    request({
-        uri: `${baseUrl}/activity`,
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-            activities: [
-                {
-                    ...body,
-                    type: 'pageview',
-                    timestamp: timestampPageView,
-                    sourceWidgetName: WIDGETS
-                }
-            ]
-        })
-    })
-        .then(response => {
-            console.log('🚀 ~  response ACTIVITY', response);
-        })
-        .catch(error => {
-            logger.push(
-                error,
-                {
-                    source: 'content/sources/liftigniterSource',
-                    url: `${baseUrl}/activity`
-                },
-                arcSite
-            );
-        });
+    const REQUESTS = {
+        activity: {
+            uri: `${baseUrl}/activity`,
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                activities: [
+                    {
+                        ...body,
+                        type: 'widget_click',
+                        widgetName: WIDGETS,
+                        clickUrl: nextUrl,
+                        source: 'LI'
+                    }
+                ]
+            }),
+            resolve: response => {
+                return (response && JSON.parse(response)) || {};
+            },
+            reject: error => {
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/liftigniterSource',
+                        url: `${baseUrl}/activity`
+                    },
+                    arcSite
+                );
+            }
+        },
+        model: {
+            uri: `${baseUrl}/model`,
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                widgetName: WIDGETS,
+                maxCount: duplicateMaxCount(cantidadNotas),
+                requestFields: [
+                    'url',
+                    'title',
+                    'image',
+                    'id',
+                    'published_time'
+                ],
+                referrer,
+                pageviewId: idArticle,
+                url: referrer,
+                sessionId,
+                excludeItems
+            }),
+            resolve: response => {
+                const { items } = JSON.parse(response);
+                return transform(transformArticles(items, cantidadNotas));
+            },
+            reject: error => {
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/liftigniterSource',
+                        url: `${baseUrl}/model`
+                    },
+                    arcSite
+                );
+            }
+        }
+    };
 
     return request({
-        uri: `${baseUrl}/model`,
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-            widgetName: WIDGETS,
-            maxCount: duplicateMaxCount(cantidadNotas),
-            requestFields: ['url', 'title', 'image', 'id', 'published_time'],
-            referrer,
-            pageviewId: idArticle,
-            url: referrer,
-            sessionId,
-            excludeItems
-        })
+        uri: REQUESTS[action].uri,
+        method: REQUESTS[action].method,
+        headers: REQUESTS[action].headers,
+        body: REQUESTS[action].body
     })
-        .then(response => {
-            const { items } = JSON.parse(response);
-            return transformArticles(items, cantidadNotas);
-        })
-        .catch(error => {
-            logger.push(
-                error,
-                {
-                    source: 'content/sources/liftigniterSource',
-                    url: `${baseUrl}/model`
-                },
-                arcSite
-            );
-        });
+        .then(response => REQUESTS[action].resolve(response))
+        .catch(error => REQUESTS[action].reject(error));
 };
 
-/**
- * TODO: Por completar de tarea
- * 1. fijarse en funcion de acuArticlesSource para crear utilitario de promoItems
- */
-
 const transform = (data, siteProps) => {
+    const action = get(siteProps, 'action');
+    if (action !== 'model') return data;
     const { presets, presetsDefault } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
@@ -182,11 +198,11 @@ const transform = (data, siteProps) => {
  */
 export default {
     fetch,
-    transform,
     params: {
         cantidadNotas: 'text',
         referrer: 'text',
-        imageConfig: 'text'
+        imageConfig: 'text',
+        action: 'text'
     },
     ttl: 120
 };
