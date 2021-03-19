@@ -281,7 +281,7 @@ const LNMainHome = props => {
                                 {/* BANNER */}
                                 {blocksToLoad.bloque2 && (
                                     <div className="row-gap-tablet-3 --ads">
-                                        <BannerWrapper
+                                        {/* <BannerWrapper
                                             load={blocksToLoad.bloque2}
                                         >
                                             <BannerRefactor
@@ -302,7 +302,7 @@ const LNMainHome = props => {
                                                     desktop: 'caja3_dsk'
                                                 }}
                                             />
-                                        </BannerWrapper>
+                                        </BannerWrapper> */}
                                     </div>
                                 )}
                                 <div data-section="breaking3">
