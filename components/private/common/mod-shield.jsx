@@ -12,18 +12,14 @@ const ModShield = props => {
             <div className="col-12">
                 <section className="mod-image --shields">
                     <div className="sports">
-                        <ModheaderSection
-                            line
-                            size={size}
-                            title={title}
-                            outputType="default"
-                        />
+                        <ModheaderSection line size={size} title={title} />
 
                         {children}
 
                         {data &&
-                            data.map(x => (
+                            data.map((x, i) => (
                                 <ComShield
+                                    key={i}
                                     nameShield={x.name}
                                     src={x.image}
                                     link={x.link}

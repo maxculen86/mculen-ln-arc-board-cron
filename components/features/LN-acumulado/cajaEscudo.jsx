@@ -147,8 +147,9 @@ const CajaEscudo = () => {
     ];
 
     return (
-        (data && (
+        (data && data.length && (
             <ModShield
+                key={data}
                 title="Superliga: Todos los clubes"
                 data={data}
                 size="--fourxs"
