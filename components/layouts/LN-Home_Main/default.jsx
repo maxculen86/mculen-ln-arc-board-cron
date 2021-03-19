@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
@@ -176,10 +176,10 @@ const LNMainHome = props => {
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: true,
-        bloque2: false,
-        bloque3: false,
-        bloque4: false,
-        bloque5: false
+        bloque2: isAdmin,
+        bloque3: isAdmin,
+        bloque4: isAdmin,
+        bloque5: isAdmin
     });
 
     const getSectionVisible = (scrollParent, targetElements) => {

@@ -68,7 +68,7 @@ const LNSportsHome = props => {
                     idCollectionApertura={idCollectionApertura}
                 >
                     {megatop}
-                    <div id="wrapper" className="deportes ">
+                    <div id="wrapper" className="acumulado deportes ">
                         <Header />
                         <main>
                             {stickyMobile}
