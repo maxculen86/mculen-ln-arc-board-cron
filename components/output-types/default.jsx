@@ -28,7 +28,7 @@ import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
-import Queryly from '../private/common/scriptManager/queryly';
+// import Queryly from '../private/common/scriptManager/queryly';
 
 const scriptList = [
     {
@@ -86,10 +86,6 @@ const scriptList = [
     {
         component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
         feature: 'none'
-    },
-    {
-        component: { name: 'Queryly', function: Queryly },
-        feature: 'none'
     }
 ];
 
@@ -125,7 +121,7 @@ const Default = props => {
         description,
         type,
         subtype,
-        subheadlines,
+        subheadlines = {},
         syndication,
         distributor,
         node_type: nodeType,

@@ -3,15 +3,9 @@
 
 .com-paragraph {
     font-family: $font-georgia;
-    font-weight: normal;
+    font-weight: 100;
     margin-bottom: $spacing-lg;
-    &.--bajada {
-        font-family: $font-arial;
-        margin-bottom: $spacing;
-        &:empty {
-            display: none;
-        }
-    }
+
     .mod-paragraph & {
         //@include flex(flex);
         text-align: center;
@@ -21,13 +15,5 @@
         //line-height: px(28);
         //font-weight: bold;
         margin-bottom: 0;
-    }
-}
-
-@media ($media-l) {
-    .com-paragraph {
-        &.--bajada {
-            margin-bottom: $spacing-sm;
-        }
     }
 }

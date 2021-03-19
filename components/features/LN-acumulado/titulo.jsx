@@ -8,11 +8,9 @@ const TitleFeature = props => {
     const {
         hidesectionslist = 'false',
         hierarchy_navigation: hierarchyManual
-    } = acumuladoGeneral;
-    const {
-        id_logo_image: idLogoImage,
-        navigation_color: navigationColor
-    } = acumuladoColor;
+    } = acumuladoGeneral || {};
+    const { id_logo_image: idLogoImage, navigation_color: navigationColor } =
+        acumuladoColor || {};
 
     return (
         <Title
