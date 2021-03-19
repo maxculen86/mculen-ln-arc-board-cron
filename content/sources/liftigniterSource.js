@@ -77,6 +77,7 @@ const fetch = query => {
         sessionId,
         pageviewId: idArticle
     };
+    console.log('🚀 ~ file: liftigniterSource.js ~ line 80 ~ body', body);
 
     const REQUESTS = {
         activity: {
