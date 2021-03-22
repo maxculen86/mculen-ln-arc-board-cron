@@ -1,14 +1,12 @@
 const LNHome = ({ children }) => {
-    // Only return the data from the first child (body)
-    const respRoot = [];
-    const resp = [];
+    const resultCajas = [];
+    const Cajas = [];
     const NotasSection = children[6];
     const today = new Date();
     const fecha = `${today.getFullYear()}-${today.getMonth() +
         1}-${today.getDate()}`;
     let posnum = 0;
     let cajanum = 0;
-    // return Array.isArray(NotasSection) ? NotasSection : null;
 
     for (let i = 0; i < NotasSection.length; i++) {
         posnum += 1;
@@ -27,18 +25,16 @@ const LNHome = ({ children }) => {
             });
 
             for (let a = 0; a < subChild.length; a++) {
-                resp.push(subChild[a]);
+                Cajas.push(subChild[a]);
             }
         }
     }
 
-    respRoot.push({
-        data: resp
+    resultCajas.push({
+        data: Cajas
     });
 
-    return Array.isArray(respRoot) ? respRoot : null;
-
-    // return Array.isArray(children) ? children : null;
+    return Array.isArray(resultCajas) ? resultCajas : null;
 };
 
 LNHome.sections = [

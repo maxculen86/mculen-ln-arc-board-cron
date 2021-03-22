@@ -12,8 +12,6 @@ class ArticleFromBox {
         } = props;
         this.state = { id, imageId, featureId };
 
-        // this.state = {};
-
         this.fetchContent({
             articleSourceNota: {
                 source: 'articleSourceNota',

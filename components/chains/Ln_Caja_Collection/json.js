@@ -19,22 +19,8 @@ class CajaCollection {
     constructor(props) {
         this.props = props;
         const {
-            id: featureId,
-            isAdmin,
-            customFields: {
-                idCollection,
-                url,
-                title,
-                layout = '',
-                backgroundColor,
-                initialPosition,
-                imageId,
-                hideTitle,
-                hideCaja
-            },
-            outputType,
-            renderables,
-            tree
+            customFields: { idCollection, initialPosition },
+            renderables
         } = props;
         const { collectionsInPage, notesQuantity } = getCommonPropsJson(props);
         const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
@@ -48,8 +34,6 @@ class CajaCollection {
         const idsArticlesToExclude = !isInSiteService
             ? getIdsArticlesFromOtherCollections(renderables, collectionsInPage)
             : [];
-
-        const isInsideApertura = isInApertura(tree, featureId);
 
         this.state = {};
 
@@ -77,15 +61,12 @@ class CajaCollection {
         try {
             const { articleList } = this.state || {};
 
-            const { globalContent: author, requestUri } = this.props;
-
             if (!articleList) {
                 return null;
             }
 
             const elements = get(articleList, 'content_elements', []);
             const articuloData = elements.map(item => {
-                // result.push({ NotaId: item._id, Url: item.website_url });
                 return {
                     id: item._id,
                     url: item.website_url
