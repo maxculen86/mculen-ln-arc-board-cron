@@ -31,7 +31,7 @@ const LNHome = ({ children }) => {
     }
 
     resultCajas.push({
-        data: Cajas
+        items: Cajas
     });
 
     return Array.isArray(resultCajas) ? resultCajas : null;
