@@ -11,7 +11,7 @@ import {
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 
-const ArticleFeature2 = ({
+const ArticleFromBox = ({
     id: featureId,
     customFields,
     searchableField,
@@ -65,9 +65,9 @@ const ArticleFeature2 = ({
     );
 };
 
-ArticleFeature2.label = 'LN Articulo2';
+ArticleFromBox.label = 'LN ArticuloDeCaja';
 
-ArticleFeature2.propTypes = {
+ArticleFromBox.propTypes = {
     id: PropTypes.string.isRequired,
     tree: PropTypes.shape({
         children: PropTypes.array
@@ -138,4 +138,4 @@ ArticleFeature2.propTypes = {
     })
 };
 
-export default ArticleFeature2;
+export default ArticleFromBox;

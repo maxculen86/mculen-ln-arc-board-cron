@@ -76,7 +76,7 @@ export const validateChainManual = (childrenProps, layout) => {
         children =>
             !(
                 children.collection === 'features' &&
-                children.type === 'LN-common/articulo'
+                (children.type === 'LN-common/articulo' || 'LN-common/article')
             )
     );
 

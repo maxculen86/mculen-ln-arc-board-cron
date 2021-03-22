@@ -3,8 +3,13 @@ const LNHome = ({ children }) => {
     const respRoot = [];
     const resp = [];
     const NotasSection = children[6];
+    const today = new Date();
+    const fecha = `${today.getFullYear()}-${today.getMonth() +
+        1}-${today.getDate()}`;
     let posnum = 0;
     let cajanum = 0;
+    // return Array.isArray(NotasSection) ? NotasSection : null;
+
     for (let i = 0; i < NotasSection.length; i++) {
         posnum += 1;
         cajanum = 0;
@@ -16,7 +21,8 @@ const LNHome = ({ children }) => {
                     ...elem,
                     posicion_id: `${String(posnum).padStart(2, '0')}${String(
                         cajanum
-                    ).padStart(2, '0')}`
+                    ).padStart(2, '0')}`,
+                    fecha_publish: fecha
                 };
             });
 
@@ -25,9 +31,13 @@ const LNHome = ({ children }) => {
             }
         }
     }
-    respRoot.push(resp);
+
+    respRoot.push({
+        data: resp
+    });
 
     return Array.isArray(respRoot) ? respRoot : null;
+
     // return Array.isArray(children) ? children : null;
 };
 

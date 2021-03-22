@@ -34,16 +34,16 @@ const CajaManual = props => {
         const { notesQuantity } = getCommonPropsJson(props);
         //const error = validateChainManual(childProps, layout);
 
-        let resp = [];
-        let posicion = 0;
+        const resp = [];
+        return children;
+        //resp.push(children);
+        //return resp;
+
         for (let i = 0; i < children.length; i++) {
-            if (children[i].length !== 0) {
-                posicion += 1;
+            if (children[i] && children[i].length !== 0) {
                 const objnota = {
-                    NotaId: children[i].NotaId,
-                    Url: children[i].Url,
-                    Tipo: 'Ln_Caja_Manual',
-                    Posicion: posicion
+                    id: children[i].NotaId,
+                    url: children[i].Url
                 };
                 resp.push(objnota);
             }
