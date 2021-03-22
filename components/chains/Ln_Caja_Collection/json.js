@@ -82,16 +82,15 @@ class CajaCollection {
             if (!articleList) {
                 return null;
             }
-            let result = [];
+
             const elements = get(articleList, 'content_elements', []);
             const articuloData = elements.map(item => {
                 // result.push({ NotaId: item._id, Url: item.website_url });
                 return {
-                    NotaId: item._id,
-                    Url: item.website_url
+                    id: item._id,
+                    url: item.website_url
                 };
             });
-            result.push(articuloData);
 
             return articuloData;
         } catch (err) {

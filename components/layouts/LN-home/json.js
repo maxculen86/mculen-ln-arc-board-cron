@@ -3,15 +3,20 @@ const LNHome = ({ children }) => {
     const respRoot = [];
     const resp = [];
     const NotasSection = children[6];
+    let posnum = 0;
     let cajanum = 0;
     for (let i = 0; i < NotasSection.length; i++) {
-        cajanum += 1;
+        posnum += 1;
+        cajanum = 0;
         if (Array.isArray(NotasSection[i]) && NotasSection[i].length > 0) {
             let subChild = NotasSection[i];
             subChild = NotasSection[i].map(elem => {
+                cajanum += 1;
                 return {
                     ...elem,
-                    section: `caja${cajanum}`
+                    posicion_id: `${String(posnum).padStart(2, '0')}${String(
+                        cajanum
+                    ).padStart(2, '0')}`
                 };
             });
 

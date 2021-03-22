@@ -31,8 +31,8 @@ class ArticleFeature2 {
             }
             const { _id: notaId, canonical_url: url } = articleSourceNota;
             const articuloData = {
-                NotaId: notaId,
-                Url: url
+                id: notaId,
+                url
             };
             return articuloData;
         } catch (err) {

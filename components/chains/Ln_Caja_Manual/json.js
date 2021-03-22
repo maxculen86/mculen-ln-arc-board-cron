@@ -38,7 +38,7 @@ const CajaManual = props => {
         let posicion = 0;
         for (let i = 0; i < children.length; i++) {
             if (children[i].length !== 0) {
-                posicion = posicion + 1;
+                posicion += 1;
                 const objnota = {
                     NotaId: children[i].NotaId,
                     Url: children[i].Url,
