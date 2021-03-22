@@ -12,13 +12,34 @@ const Subtitle = ({ data }) => {
         }
         case 3:
         case 4: {
-            return <ComTitle tag="h4" size="--threexs" content={content} />;
+            return (
+                <ComTitle
+                    tag="h4"
+                    size="--threexs"
+                    classCondition="--arial"
+                    content={content}
+                />
+            );
         }
         case 5: {
-            return <ComTitle tag="h4" size="--threexs" content={content} />;
+            return (
+                <ComTitle
+                    tag="h4"
+                    size="--threexs"
+                    classCondition="--arial"
+                    content={content}
+                />
+            );
         }
         case 6: {
-            return <ComTitle tag="h4" size="--threexs" content={content} />;
+            return (
+                <ComTitle
+                    tag="h4"
+                    size="--threexs"
+                    classCondition="--arial"
+                    content={content}
+                />
+            );
         }
         default:
             return <ComTitle tag="h2" size="--l" content={content} />;
