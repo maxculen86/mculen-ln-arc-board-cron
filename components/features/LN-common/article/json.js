@@ -26,8 +26,6 @@ class ArticleFeature2 {
         try {
             const { articleSourceNota } = this.state || {};
 
-            const { globalContent: author, requestUri } = this.props;
-
             if (!articleSourceNota) {
                 return null;
             }

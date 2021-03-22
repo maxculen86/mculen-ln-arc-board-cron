@@ -12,7 +12,7 @@ const getArticleInCollection = (
     notesQuantity,
     website = 'la-nacion-ar'
 ) => {
-    const articleListwebsite = idCollection
+    const articleList = idCollection
         ? useContent({
               source: 'collectionsSource',
               query: {

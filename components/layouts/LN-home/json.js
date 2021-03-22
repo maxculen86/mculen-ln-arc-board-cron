@@ -1,11 +1,11 @@
 const LNHome = ({ children }) => {
     // Only return the data from the first child (body)
-    let respRoot = [];
-    let resp = [];
-    let NotasSection = children[6];
+    const respRoot = [];
+    const resp = [];
+    const NotasSection = children[6];
     let cajanum = 0;
     for (let i = 0; i < NotasSection.length; i++) {
-        cajanum = cajanum + 1;
+        cajanum += 1;
         if (Array.isArray(NotasSection[i]) && NotasSection[i].length > 0) {
             let subChild = NotasSection[i];
             subChild = NotasSection[i].map(elem => {
