@@ -15,7 +15,7 @@ const Subtitle = ({ data }) => {
             return (
                 <ComTitle
                     tag="h4"
-                    size="--threexs"
+                    size="--twoxs"
                     classCondition="--arial"
                     content={content}
                 />
@@ -25,7 +25,7 @@ const Subtitle = ({ data }) => {
             return (
                 <ComTitle
                     tag="h4"
-                    size="--threexs"
+                    size="--twoxs"
                     classCondition="--arial"
                     content={content}
                 />
@@ -35,7 +35,7 @@ const Subtitle = ({ data }) => {
             return (
                 <ComTitle
                     tag="h4"
-                    size="--threexs"
+                    size="--twoxs"
                     classCondition="--arial"
                     content={content}
                 />
