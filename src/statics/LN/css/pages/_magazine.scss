@@ -6,10 +6,11 @@
     &.nota {
         main {
             .com-breadcrumb a,
-            .mod-autor .com-link,
-            .com-cita .com-link,
-            .keep-reading .com-link,
-            .com-paragraph .com-link,
+            .cuerpo__nota .com-link.com-link,
+            // .mod-autor .com-link,
+            // .com-cita .com-link,
+            // .keep-reading .com-link,
+            // .com-paragraph .com-link,
             .mod-share .com-text,
             .mod-share .com-button:hover,
             .sidebar__main .com-button.--secondary {
