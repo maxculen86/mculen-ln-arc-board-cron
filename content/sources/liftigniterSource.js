@@ -131,7 +131,10 @@ const fetch = query => {
             }),
             resolve: response => {
                 const { items } = JSON.parse(response);
-                return transform(transformArticles(items, cantidadNotas));
+                return transform(
+                    transformArticles(items, cantidadNotas),
+                    query
+                );
             },
             reject: error => {
                 logger.push(
