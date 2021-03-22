@@ -62,7 +62,7 @@ const tePuedeInteresar = props => {
         siteProperties
     } = props;
 
-    const { requestUri, globalContent } = useAppContext();
+    const { requestUri, globalContent, arcSite } = useAppContext();
     const { host = 'https://www.lanacion.com.ar' } = siteProperties || {};
     const url = `${host}${requestUri}`;
     const { _id } = globalContent || {};
@@ -94,6 +94,7 @@ const tePuedeInteresar = props => {
             outputType={outputType}
             url={url}
             idArticle={_id}
+            arcSite={arcSite}
         />
     );
 };

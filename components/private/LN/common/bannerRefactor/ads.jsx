@@ -17,7 +17,8 @@ const Ads = props => {
         targeting,
         bidding,
         sizemap,
-        slotGroup
+        slotGroup,
+        subscription
     } = props;
     const [toInstance, setToInstance] = useState(() => false);
     const { dispatch } = useContext(GlobalContext);
@@ -39,7 +40,8 @@ const Ads = props => {
                     sizemap,
                     prebidEnabled,
                     targeting: { ...targeting, adstest: hasAdsTestParam() },
-                    slotGroup
+                    slotGroup,
+                    subscription
                 }
             });
 
@@ -70,6 +72,7 @@ const Ads = props => {
         sizemap,
         slotGroup,
         slotName,
+        subscription,
         targeting,
         toInstance
     ]);
@@ -92,13 +95,15 @@ Ads.propTypes = {
         refresh: PropTypes.bool
     }),
     bidding: PropTypes.objectOf(PropTypes.string),
-    slotGroup: PropTypes.string
+    slotGroup: PropTypes.string,
+    subscription: PropTypes.bool
 };
 
 Ads.defaultProps = {
     sizemap: [],
     bidding: {},
-    slotGroup: 'desktop'
+    slotGroup: 'desktop',
+    subscription: false
 };
 
 export default Ads;

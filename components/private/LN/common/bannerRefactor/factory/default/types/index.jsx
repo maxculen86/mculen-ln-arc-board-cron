@@ -59,6 +59,7 @@ const Index = forwardRef((props, ref) => {
                 bidding={bidding}
                 sizemap={sizemap}
                 slotGroup={slotGroup}
+                subscription={subscription}
             />
         </div>
     );

@@ -1,17 +1,10 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import Context from 'fusion:context';
 import { mount, render } from 'enzyme';
 import ArticleMain from '../../../../../../components/private/LN/common/articleTypes/articleMain';
 //import article from '../../../../../../components/private/LN/nota/tePuedeInteresar/article';
 import Index from '../../../../../../components/private/LN/nota/tePuedeInteresar/index';
-
-jest.mock('fusion:consumer', Component => {
-    return function(Component) {
-        return props => <Component {...props} />;
-    };
-});
-
-import Consumer from 'fusion:consumer';
 
 jest.mock(
     '../../../../../../components/private/LN/common/articleTypes/articleMain',
