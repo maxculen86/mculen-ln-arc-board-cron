@@ -38,7 +38,7 @@ exports[`LN - Common - DataLayer DataLayer home Deportes snapshot 1`] = `
             var dataLayer = [
                 {
                     \\"metarefresh\\": metarefresh,
-                    \\"pageType\\": \\"Deportes\\",
+                    \\"pagetype\\": \\"Deportes\\",
                 }
             ];
 
