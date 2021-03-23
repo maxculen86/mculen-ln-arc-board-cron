@@ -1,6 +1,6 @@
 const LNHome = ({ children }) => {
-    const resultCajas = [];
-    const Cajas = [];
+    const listItems = [];
+    const ArticlesbyBox = [];
     const NotasSection = children[6];
     const today = new Date();
     const fecha = `${today.getFullYear()}-${today.getMonth() +
@@ -20,21 +20,21 @@ const LNHome = ({ children }) => {
                     posicion_id: `${String(posnum).padStart(2, '0')}${String(
                         cajanum
                     ).padStart(2, '0')}`,
-                    fecha_publish: fecha
+                    fecha_publicacion: fecha
                 };
             });
 
             for (let a = 0; a < subChild.length; a++) {
-                Cajas.push(subChild[a]);
+                ArticlesbyBox.push(subChild[a]);
             }
         }
     }
 
-    resultCajas.push({
-        items: Cajas
+    listItems.push({
+        items: ArticlesbyBox
     });
 
-    return Array.isArray(resultCajas) ? resultCajas : null;
+    return Array.isArray(listItems) ? listItems : null;
 };
 
 LNHome.sections = [

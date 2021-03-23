@@ -1,14 +1,8 @@
-import React from 'react';
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
-import getArticleInCollection from '../../private/LN/common/utils/getArticleInCollection';
-import CajaTema from '../../private/LN/common/cajaTema';
 import {
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
-    getIdsArticlesFromOtherCollections,
-    isInApertura,
-    validateFeature
+    getIdsArticlesFromOtherCollections
 } from '../../private/LN/common/utils/cajaTemasHelperApi';
 import get from '../../private/common/utils/get';
 import filter from '../../../content/filters/LN/acumulado/articleAcu';

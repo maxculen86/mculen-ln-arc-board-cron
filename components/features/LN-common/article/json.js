@@ -1,6 +1,5 @@
 import Consumer from 'fusion:consumer';
-// URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
-// Resolver: ^\/api\/v([1]+)\/notas\/byAuthor\/(.+)\/(params.+)\/(.*)$ , donde "params" dependera del customField "paramUrlId" configurado
+// URL de pagina: http://localhost/pf/deportes/?_website=la-nacion-ar&outputType=json
 
 class ArticleFromBox {
     constructor(props) {
