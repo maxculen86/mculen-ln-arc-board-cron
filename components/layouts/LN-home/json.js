@@ -1,38 +1,33 @@
 const LNHome = ({ children }) => {
     const listItems = [];
     const ArticlesbyBox = [];
-    const NotasSection = children[6];
+    const BoxSection = children[6];
     const today = new Date();
-    const fecha = `${today.getFullYear()}-${today.getMonth() +
+    const dateToday = `${today.getFullYear()}-${today.getMonth() +
         1}-${today.getDate()}`;
     let posnum = 0;
     let cajanum = 0;
 
-    for (let i = 0; i < NotasSection.length; i++) {
-        posnum += 1;
-        cajanum = 0;
-        if (Array.isArray(NotasSection[i]) && NotasSection[i].length > 0) {
-            let subChild = NotasSection[i];
-            subChild = NotasSection[i].map(elem => {
-                cajanum += 1;
+    for (let i = 0; i < BoxSection.length; i++) {
+        cajanum += 1;
+        posnum = 0;
+        if (Array.isArray(BoxSection[i]) && BoxSection[i].length > 0) {
+            let subChild = BoxSection[i];
+            subChild = BoxSection[i].map(elem => {
+                posnum += 1;
                 return {
                     ...elem,
-                    posicion_id: `${String(posnum).padStart(2, '0')}${String(
-                        cajanum
-                    ).padStart(2, '0')}`,
-                    fecha_publicacion: fecha
+                    posicion: `${posnum.toString()}`
                 };
             });
-
-            for (let a = 0; a < subChild.length; a++) {
-                ArticlesbyBox.push(subChild[a]);
-            }
+            ArticlesbyBox.push({
+                id_caja: `${String(cajanum).padStart(2, '0')}`,
+                fecha_publicacion: dateToday,
+                notas: subChild
+            });
         }
     }
-
-    listItems.push({
-        items: ArticlesbyBox
-    });
+    listItems.push(ArticlesbyBox);
 
     return Array.isArray(listItems) ? listItems : null;
 };
