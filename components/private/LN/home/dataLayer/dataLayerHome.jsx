@@ -1,14 +1,13 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import dataLayerScriptDeportes from './dataLayerScriptDeportes';
+import dataLayerScriptHome from './dataLayerScriptHome';
 
 const dataLayerHome = props => {
-    /*
     const { globalContent } = props;
     const { _id } = globalContent || {};
-    */
-    const dataLayer = dataLayerScriptDeportes();
+
+    const dataLayer = dataLayerScriptHome(_id);
 
     return (
         <script

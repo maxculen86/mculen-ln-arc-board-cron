@@ -1,10 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`LN - Common - DataLayer DataLayer home Deportes snapshot 1`] = `
+<dataLayerIndex
+  arcSite="la-nacion-ar"
+  globalContent={
+    Object {
+      "_id": "/deportes",
+      "subtype": "7",
+    }
+  }
+  layout="LN-Home_Sports"
+>
+  <dataLayerHome
+    arcSite="la-nacion-ar"
+    globalContent={
+      Object {
+        "_id": "/deportes",
+        "subtype": "7",
+      }
+    }
+    layout="LN-Home_Sports"
+  >
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+            Array.from = Array.from || (function () { var a = Object.prototype.toString, b = function (f) { return 'function' == typeof f || '[object Function]' === a.call(f) }, c = function (f) { var g = +f; return isNaN(g) ? 0 : 0 != g && isFinite(g) ? (0 < g ? 1 : -1) * Math.floor(Math.abs(g)) : g }, d = Math.pow(2, 53) - 1, e = function (f) { var g = c(f); return Math.min(Math.max(g, 0), d) }; return function (g) { var h = this, i = Object(g); if (null == g) throw new TypeError('Array.from requires an array-like object - not null or undefined'); var l, j = 1 < arguments.length ? arguments[1] : void 0; if ('undefined' != typeof j) { if (!b(j)) throw new TypeError('Array.from: when provided, the second argument must be a function'); 2 < arguments.length && (l = arguments[2]) } for (var p, m = e(i.length), n = b(h) ? Object(new h(m)) : Array(m), o = 0; o < m;)p = i[o], n[o] = j ? 'undefined' == typeof l ? j(p, o) : j.call(l, p, o) : p, o += 1; return n.length = m, n } }()); 
+            
+            metarefresh = localStorage.getItem('CDmetaRefresh');
+
+            metarefresh = metarefresh != null ? 'yes' : 'no';
+
+            if (metarefresh === 'yes') {
+                localStorage.removeItem('CDmetaRefresh');
+            }
+
+            var dataLayer = [
+                {
+                    \\"metarefresh\\": metarefresh,
+                    \\"pageType\\": \\"Deportes\\",
+                }
+            ];
+
+        ",
+        }
+      }
+      type="text/javascript"
+    />
+  </dataLayerHome>
+</dataLayerIndex>
+`;
+
 exports[`LN - Common - DataLayer DataLayer nota recetas snapshot 1`] = `
 <dataLayerIndex
   arcSite="la-nacion-ar"
   globalContent={
     Object {
+      "_id": "/deportes",
       "subtype": "7",
     }
   }
@@ -14,6 +66,7 @@ exports[`LN - Common - DataLayer DataLayer nota recetas snapshot 1`] = `
     arcSite="la-nacion-ar"
     globalContent={
       Object {
+        "_id": "/deportes",
         "subtype": "7",
       }
     }

@@ -17,7 +17,8 @@ import Context from 'fusion:context';
 
 describe('LN - Common - DataLayer', () => {
     const globalContent = {
-        subtype: '7'
+        subtype: '7',
+        _id: '/deportes'
     };
 
     Context.useAppContext = jest.fn(() => ({
@@ -29,6 +30,17 @@ describe('LN - Common - DataLayer', () => {
             <DataLayerIndex
                 arcSite="la-nacion-ar"
                 layout="LN-nota-receta"
+                globalContent={globalContent}
+            />
+        );
+        expect(comp).toMatchSnapshot();
+    });
+
+    it('DataLayer home Deportes snapshot', () => {
+        const comp = mount(
+            <DataLayerIndex
+                arcSite="la-nacion-ar"
+                layout="LN-Home_Sports"
                 globalContent={globalContent}
             />
         );
