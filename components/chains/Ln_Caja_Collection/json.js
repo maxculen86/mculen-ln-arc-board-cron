@@ -65,7 +65,11 @@ class CajaCollection {
                 return {
                     id: item._id,
                     url: item.website_url,
-                    fecha: addHoursAndFormat(0, item.display_date)
+                    fecha:
+                        item.display_date === undefined ||
+                        item.display_date === null
+                            ? null
+                            : addHoursAndFormat(0, item.display_date)
                 };
             });
 
