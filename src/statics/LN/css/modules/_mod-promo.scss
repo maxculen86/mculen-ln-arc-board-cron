@@ -12,6 +12,9 @@
 
         .com-logo {
             margin-bottom: px(8);
+            &.--md {
+                font-size: px(22);
+            }
         }
         .com-text {
             margin-bottom: px(8);
