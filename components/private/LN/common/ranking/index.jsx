@@ -14,7 +14,7 @@ import '../../../../../resources/dist/css/ln/components/ranking.css';
 const Ranking = ({ articles, dataSection, title }) => {
     return articles && articles.length ? (
         <section
-            className="com-ranking hlp-mobile-none"
+            className="com-ranking"
             data-is-block="true"
             data-block-name="n_ranking"
             data-diagramacion-id="0"
