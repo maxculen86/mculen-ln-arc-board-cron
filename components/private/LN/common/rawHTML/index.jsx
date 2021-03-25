@@ -25,7 +25,6 @@ const RawHTML = ({
     }
 }) => {
     const modifier = subtype ? getModifier(subtype) : '';
-    console.log(html);
 
     return (
         <div
