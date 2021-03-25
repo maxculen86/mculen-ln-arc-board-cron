@@ -9,6 +9,7 @@ import Article from '../private/common/mod-article';
 import HeaderSection from '../private/common/mod-headerSection';
 import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
+import ModPromo from '../private/common/mod-promo';
 
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -220,11 +221,11 @@ const LNHome = props => {
                                             </div>
                                         </section>
 
-                                        <section className="mod-anexo">
-                                            <div className="com-anexo">
-                                                ANEXO 2
-                                            </div>
-                                        </section>
+                                        <ModPromo
+                                            text="La información más completa del mercado inmobiliario minuto a minuto."
+                                            link="https://www.lanacion.com.ar/propiedades/"
+                                            //logoName="propiedades"
+                                        />
 
                                         <div
                                             data-module="tema_04"
