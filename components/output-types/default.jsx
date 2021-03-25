@@ -177,6 +177,7 @@ const Default = props => {
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
+                <script defer src="https://platform.twitter.com/widgets.js" />
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />

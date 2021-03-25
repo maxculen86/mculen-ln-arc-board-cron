@@ -61,10 +61,6 @@ const SocialEmbeds = props => {
             {twitterEmbed && (
                 <>
                     <script
-                        defer
-                        src="https://platform.twitter.com/widgets.js"
-                    />
-                    <script
                         type="text/javascript"
                         dangerouslySetInnerHTML={{
                             __html: processTwitterEmbeds
