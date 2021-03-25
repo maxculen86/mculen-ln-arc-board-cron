@@ -80,7 +80,7 @@ const HeaderDesktop = ({
                 initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
                 document.body.appendChild(initScript);
                 document.getElementById('querylyButton').click();
-            }, 150);
+            }, 600);
         }
     };
 
