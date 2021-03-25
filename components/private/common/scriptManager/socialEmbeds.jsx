@@ -61,6 +61,10 @@ const SocialEmbeds = props => {
             {twitterEmbed && (
                 <>
                     <script
+                        async
+                        src="https://platform.twitter.com/widgets.js"
+                    />
+                    <script
                         type="text/javascript"
                         dangerouslySetInnerHTML={{
                             __html: processTwitterEmbeds
