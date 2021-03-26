@@ -25,7 +25,6 @@ import RawHTML from '../../common/rawHTML';
 import OembedAMP from './oembedAMP';
 import BotonLink from './botonLink';
 import Html from './html';
-import HtmlAMP from './htmlAMP';
 import OptaAMP from './optaAMP';
 import Video from './video';
 import { setStorageConfiguration } from '../../../common/utils/storage';
@@ -87,8 +86,7 @@ const Cuerpo = props => {
         OembedAMP,
         BotonLink,
         Html,
-        OptaAMP,
-        HtmlAMP
+        OptaAMP
     ];
     // TODO: Ver si este es el mejor lugar donde poner este script.
     // Setea valores en el Local Storage solo del lado del cliente

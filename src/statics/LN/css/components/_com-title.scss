@@ -14,8 +14,10 @@
     .more-articles & {
         display: block;
     }
+}
+.com-title.com-title {
     .com-link.com-link {
-        .more-articles & {
+        .more-articles.more-articles & {
             color: $light-neutral-700;
         }
     }

@@ -72,16 +72,16 @@ const HeaderDesktop = ({
     }, [loading]);
 
     const handleClickBuscar = () => {
-        if (
-            dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
-        ) {
-            setTimeout(() => {
+        dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
+            .then(() => {
                 const initScript = document.createElement('script');
                 initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
                 document.body.appendChild(initScript);
                 document.getElementById('querylyButton').click();
-            }, 150);
-        }
+            })
+            .catch(() => {
+                // console.error('Script loading failed! Handle this error', error);
+            });
     };
 
     return (
