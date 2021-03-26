@@ -130,9 +130,9 @@ const CajaEscudo = () => {
             link: `${baseUrl}/talleres-cordoba`
         },
         {
-            name: 'Tigre',
-            image: `${IMAGE_END_POINT}/XGN4WQD2XJEVLPRMIGAJ4WT4WU.png`,
-            link: `${baseUrl}/tigre`
+            name: 'Platense',
+            image: `${IMAGE_END_POINT}/WYSKTF2KEBG3VE7B7277VATEDA.png`,
+            link: `${baseUrl}/platense`
         },
         {
             name: 'Unión',
@@ -152,7 +152,7 @@ const CajaEscudo = () => {
                 key={data}
                 title="Superliga: Todos los clubes"
                 data={data}
-                size="--fourxs"
+                size="1"
             />
         )) ||
         null
