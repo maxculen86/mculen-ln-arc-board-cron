@@ -27,15 +27,11 @@ class ArticleFeature {
             if (!articleSourceNota) {
                 return null;
             }
-            const {
-                _id: notaId,
-                canonical_url: url,
-                display_date: fechaNota
-            } = articleSourceNota;
+
+            const { _id: notaId, canonical_url: url } = articleSourceNota;
             const articuloData = {
-                id: notaId,
-                url,
-                fecha: addHoursAndFormat(0, fechaNota)
+                id_nota: notaId,
+                url_nota: url
             };
             return articuloData;
         } catch (err) {

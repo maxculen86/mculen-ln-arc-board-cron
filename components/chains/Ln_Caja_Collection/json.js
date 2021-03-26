@@ -55,6 +55,9 @@ class CajaCollection {
     render() {
         try {
             const { articleList } = this.state || {};
+            const {
+                customFields: { hideCaja, layout }
+            } = this.props;
 
             if (!articleList) {
                 return null;
@@ -63,17 +66,17 @@ class CajaCollection {
             const elements = get(articleList, 'content_elements', []);
             const articuloData = elements.map(item => {
                 return {
-                    id: item._id,
-                    url: item.website_url,
-                    fecha:
-                        item.display_date === undefined ||
-                        item.display_date === null
-                            ? null
-                            : addHoursAndFormat(0, item.display_date)
+                    id_nota: item._id,
+                    url_nota: item.website_url
                 };
             });
 
-            return articuloData;
+            return {
+                id_caja: null,
+                visible: hideCaja || false,
+                digramacion_caja: layout,
+                notas: articuloData
+            };
         } catch (err) {
             return { Success: false, Message: err.message };
         }

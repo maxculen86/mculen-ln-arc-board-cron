@@ -3,10 +3,18 @@
 import Consumer from 'fusion:consumer';
 
 const CajaManual = props => {
-    const { children } = props;
+    const {
+        customFields: { hideCaja, layout },
+        children
+    } = props;
 
     try {
-        return children;
+        return {
+            id_caja: null,
+            visible: hideCaja || false,
+            digramacion_caja: layout,
+            notas: children
+        };
     } catch (err) {
         return { Success: false, Message: err.message };
     }
