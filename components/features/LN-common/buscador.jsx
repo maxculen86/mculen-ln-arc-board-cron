@@ -17,6 +17,16 @@ const Buscador = () => {
                 crossOrigin="anonymous"
             />
 
+            <script src="//www.queryly.com/js/queryly.v4.js" />
+            <script
+                defer
+                type="text/javascript"
+                dangerouslySetInnerHTML={{
+                    __html:
+                        "queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));"
+                }}
+            />
+
             <script
                 defer
                 src="https://www.queryly.com/js/lanacion-advanced-search.js"
