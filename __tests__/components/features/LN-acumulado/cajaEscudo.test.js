@@ -19,7 +19,7 @@ describe('Features - LN-acumulado - Caja Escudo Feature =>', () => {
 
         it('should render ModShield component with correctly props', () => {
             const { data, title } = ModShieldComponent.props();
-            const { data: dataMock, title: titleMock } = SHIELD_DATA;
+            const { title: titleMock } = SHIELD_DATA;
 
             expect(data.length).toBe(27);
             expect(title).toStrictEqual(titleMock);
