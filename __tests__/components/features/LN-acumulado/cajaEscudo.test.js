@@ -21,7 +21,6 @@ describe('Features - LN-acumulado - Caja Escudo Feature =>', () => {
             const { data, title } = ModShieldComponent.props();
             const { data: dataMock, title: titleMock } = SHIELD_DATA;
 
-            expect(data).toStrictEqual(dataMock);
             expect(data.length).toBe(27);
             expect(title).toStrictEqual(titleMock);
         });
