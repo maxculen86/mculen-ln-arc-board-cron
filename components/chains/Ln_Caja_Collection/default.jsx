@@ -30,7 +30,7 @@ const CajaCollection = props => {
         },
         outputType,
         renderables,
-        tree
+        tree = {}
     } = props;
 
     if (hideCaja) return <></>;
@@ -57,7 +57,8 @@ const CajaCollection = props => {
         ? getIdsArticlesFromOtherCollections(renderables, collectionsInPage)
         : [];
 
-    const isInsideApertura = isInApertura(tree, featureId);
+    const isInsideApertura =
+        tree.type === 'LN-acumulado' ? isInApertura(tree, featureId) : false;
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(

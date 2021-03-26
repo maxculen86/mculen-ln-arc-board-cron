@@ -15,7 +15,7 @@ const dataLayerScriptHome = section => {
             var dataLayer = [
                 {
                     "metarefresh": metarefresh,
-                    "pageType": "${pageType}",
+                    "pagetype": "${pageType}",
                 }
             ];
 

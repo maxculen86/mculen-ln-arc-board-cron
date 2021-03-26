@@ -41,30 +41,31 @@ export const transform = (content, customFields, promoItems) => {
 export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
     const parent = renderables.find(
         elem =>
-            elem.collection === 'chains' &&
-            elem.type === 'Ln_Caja_Manual' &&
-            elem.children &&
-            elem.children.some(
-                child => child && child.props && child.props.id === featureId
-            )
+            get(elem, 'collection') === 'chains' &&
+            get(elem, 'type') === 'Ln_Caja_Manual' &&
+            get(elem, 'children') &&
+            elem.children.some(child => get(child, 'props.id') === featureId)
     );
+
     const position =
         renderables
-            .filter(ren => ren.collection === 'chains')
-            .findIndex(chain => chain.props.id === parent.props.id) || 0;
-    const index =
-        parent &&
-        parent.children.findIndex(elem => elem && elem.props.id === featureId);
-    const directionFocal =
-        parent &&
-        parent.props &&
-        parent.props.customFields &&
-        parent.props.customFields.layout;
+            .filter(ren => get(ren, 'collection') === 'chains')
+            .findIndex(
+                chain => get(chain, 'props.id') === get(parent, 'props.id')
+            ) || 0;
+
+    const index = get(parent, 'children', []).findIndex(
+        elem => elem && get(elem, 'props.id') === featureId
+    );
+
+    const directionFocal = get(parent, 'props.customFields.layout');
+
     const config = get(
         cajaTemaConfig,
         `${directionFocal}.articles[${index}]`,
         null
     );
+
     return {
         config,
         index,
@@ -76,7 +77,8 @@ export const getWithMedia = (customFields, articleProps, article) =>
     !get(customFields, 'hideImage') &&
     (get(articleProps, 'withSubheadAndMedia') ||
         (!get(articleProps, 'withSubheadAndMedia') &&
-            get(article, 'promo_items.basic.type') === 'image'));
+            (get(article, 'promo_items.basic.type') === 'image' ||
+                get(customFields, 'html'))));
 
 export const getWithSubhead = (articleProps, withMedia) =>
     get(articleProps, 'withSubheadAndMedia') ||
