@@ -220,13 +220,18 @@ const LNHome = props => {
                                                 Banner
                                             </div>
                                         </section>
-
-                                        <ModPromo
-                                            text="La información más completa del mercado inmobiliario minuto a minuto."
-                                            link="https://www.lanacion.com.ar/propiedades/"
-                                            logoName="propiedades"
-                                        />
-
+                                        <div className="row-gap-tablet-2">
+                                            <ModPromo
+                                                text="La información más completa del mercado inmobiliario minuto a minuto."
+                                                link="https://www.lanacion.com.ar/propiedades/"
+                                                logoName="propiedades"
+                                            />
+                                            <ModPromo
+                                                text="La información más completa del mercado inmobiliario minuto a minuto."
+                                                link="https://www.lanacion.com.ar/revista-lugares/"
+                                                logoName="lugares"
+                                            />
+                                        </div>
                                         <div
                                             data-module="tema_04"
                                             data-is-loading="false"
