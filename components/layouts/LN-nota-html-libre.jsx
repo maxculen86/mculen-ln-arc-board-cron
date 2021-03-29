@@ -53,6 +53,7 @@ import '../../resources/dist/css/ln/base/helpers.css';
 
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
+import LoadBanners from '../private/common/banners/LoadBanners';
 
 // TODO: componentizar banner megatop
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
@@ -114,6 +115,7 @@ const lnNotaNoticia = ({
                             </div>
                         </main>
                     </div>
+                    <LoadBanners />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>
