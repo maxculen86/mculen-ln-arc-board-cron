@@ -25,6 +25,7 @@ import SnippetIndex from '../private/common/snippet';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
+import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
@@ -172,6 +173,8 @@ const Default = props => {
 
     const title = metaValue('title') || siteProperties.title || 'LA NACION';
 
+    const _nodeType = getSectionName({ nodeType, type });
+
     return (
         <html lang="es">
             <head>
@@ -180,7 +183,11 @@ const Default = props => {
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <Scripts location="head" {...props} />
-                <ScriptLoadingList location="head" arcSite={arcSite} />
+                <ScriptLoadingList
+                    section={_nodeType}
+                    location="head"
+                    arcSite={arcSite}
+                />
                 {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
                 {/* {subtype === '7' && <MetaTags />} */}
                 <MetasOG {...props} />
@@ -253,13 +260,21 @@ const Default = props => {
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
-                <ScriptLoadingList location="body-top" arcSite={arcSite} />
+                <ScriptLoadingList
+                    section={_nodeType}
+                    location="body-top"
+                    arcSite={arcSite}
+                />
 
                 <div id="fusion-app">{children}</div>
                 <Fusion />
 
                 <Scripts location="body-bottom" />
-                <ScriptLoadingList location="body-bottom" arcSite={arcSite} />
+                <ScriptLoadingList
+                    section={_nodeType}
+                    location="body-bottom"
+                    arcSite={arcSite}
+                />
                 <ScriptLogoBBC distributorName={distributorName} />
             </body>
         </html>
