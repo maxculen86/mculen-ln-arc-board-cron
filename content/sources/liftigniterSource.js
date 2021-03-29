@@ -12,6 +12,7 @@ import {
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
+import logger from '../../components/private/common/utils/logger';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import getPresets from './utils/presets';
 
@@ -24,25 +25,29 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
                 !(e.image && e.image.includes('/images/placeholderLN.jpg'))
         )
         .slice(0, cantidadNotas)
-        .map(({ url, id, title, image }) => ({
-            subtype: 1,
-            by: {},
-            website_url: url,
-            _id: id,
-            headlines: {
-                basic: title
-            },
-            promo_items: {
-                basic: {
-                    type: 'image',
-                    url: image
+        .map(elem => {
+            const { url, id, title, image } = elem;
+            return {
+                subtype: 1,
+                by: {},
+                website_url: url,
+                _id: id,
+                headlines: {
+                    basic: title
+                },
+                promo_items: {
+                    basic: {
+                        type: 'image',
+                        url: image
+                    }
                 }
-            }
-        }));
+            };
+        });
 
 /**
  * TODO: Por completar de tarea
  * 1. Mejorar armado de uri, version, endpoint y body como parametro de liftigniter
+ * 2. Mejora de registro de click, enviar listado de items
  */
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
@@ -54,45 +59,109 @@ const fetch = query => {
         idArticle,
         userId,
         sessionId,
-        excludeItems
+        excludeItems,
+        arcSite,
+        action,
+        nextUrl
     } = query;
 
     const userIdParam = userId ? `/${userId}` : '';
-    return request({
-        uri: `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}/model`,
-        method: 'POST',
-        headers: {
-            'Accept-Encoding': '*,q=0.8',
-            'Content-Type': 'application/json',
-            'x-api-key': LIFTIGNITER_X_API_KEY
+    const baseUrl = `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}`;
+    const headers = {
+        'Accept-Encoding': '*,q=0.8',
+        'Content-Type': 'application/json',
+        'x-api-key': LIFTIGNITER_X_API_KEY
+    };
+    const body = {
+        url: referrer,
+        referrer,
+        sessionId,
+        pageviewId: idArticle
+    };
+
+    const REQUESTS = {
+        activity: {
+            uri: `${baseUrl}/activity`,
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                activities: [
+                    {
+                        ...body,
+                        type: 'widget_click',
+                        widgetName: WIDGETS,
+                        clickUrl: nextUrl,
+                        source: 'LI'
+                    }
+                ]
+            }),
+            resolve: response => {
+                return (response && JSON.parse(response)) || {};
+            },
+            reject: error => {
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/liftigniterSource',
+                        url: `${baseUrl}/activity`
+                    },
+                    arcSite
+                );
+            }
         },
-        body: JSON.stringify({
-            widgetName: WIDGETS,
-            maxCount: duplicateMaxCount(cantidadNotas),
-            requestFields: ['url', 'title', 'image', 'id', 'published_time'],
-            referrer,
-            pageviewId: idArticle,
-            url: referrer,
-            sessionId,
-            excludeItems
-        })
+        model: {
+            uri: `${baseUrl}/model`,
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                widgetName: WIDGETS,
+                maxCount: duplicateMaxCount(cantidadNotas),
+                requestFields: [
+                    'url',
+                    'title',
+                    'image',
+                    'id',
+                    'published_time'
+                ],
+                referrer,
+                pageviewId: idArticle,
+                url: referrer,
+                sessionId,
+                excludeItems
+            }),
+            resolve: response => {
+                const { items } = JSON.parse(response);
+                return transform(
+                    transformArticles(items, cantidadNotas),
+                    query
+                );
+            },
+            reject: error => {
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/liftigniterSource',
+                        url: `${baseUrl}/model`
+                    },
+                    arcSite
+                );
+            }
+        }
+    };
+
+    return request({
+        uri: REQUESTS[action].uri,
+        method: REQUESTS[action].method,
+        headers: REQUESTS[action].headers,
+        body: REQUESTS[action].body
     })
-        .then(response => {
-            const { items } = JSON.parse(response);
-            return transformArticles(items, cantidadNotas);
-        })
-        .catch(() => {
-            // TODO: Implementar registro de error en logger
-            return [];
-        });
+        .then(response => REQUESTS[action].resolve(response))
+        .catch(error => REQUESTS[action].reject(error));
 };
 
-/**
- * TODO: Por completar de tarea
- * 1. fijarse en funcion de acuArticlesSource para crear utilitario de promoItems
- */
-
 const transform = (data, siteProps) => {
+    const action = get(siteProps, 'action');
+    if (action !== 'model') return data;
     const { presets, presetsDefault } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
@@ -104,7 +173,11 @@ const transform = (data, siteProps) => {
         return {
             ...elem,
             ...addResizedUrls(
-                { ...(promoItems && { promo_items: promoItems }) },
+                {
+                    ...(promoItems && {
+                        promo_items: promoItems
+                    })
+                },
                 {
                     resizerSecret: RESIZER_KEY,
                     resizerUrl: RESIZER_URL,
@@ -128,11 +201,11 @@ const transform = (data, siteProps) => {
  */
 export default {
     fetch,
-    transform,
     params: {
         cantidadNotas: 'text',
         referrer: 'text',
-        imageConfig: 'text'
+        imageConfig: 'text',
+        action: 'text'
     },
     ttl: 120
 };

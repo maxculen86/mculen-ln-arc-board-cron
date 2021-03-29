@@ -627,11 +627,11 @@
                                         pbjs.requestBids({
                                             timeout: i,
                                             bidsBackHandler: function(e) {
-                                                console.log(
-                                                    'Bid Back Handler',
-                                                    e
-                                                ),
-                                                    pbjs.setTargetingForGPTAsync(),
+                                                //console.log(
+                                                //    'Bid Back Handler',
+                                                //    e
+                                                //),
+                                                pbjs.setTargetingForGPTAsync(),
                                                     window.googletag
                                                         .pubads()
                                                         .refresh(

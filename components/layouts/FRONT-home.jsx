@@ -9,6 +9,7 @@ import Article from '../private/common/mod-article';
 import HeaderSection from '../private/common/mod-headerSection';
 import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
+import ModPromo from '../private/common/mod-promo';
 
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -219,13 +220,18 @@ const LNHome = props => {
                                                 Banner
                                             </div>
                                         </section>
-
-                                        <section className="mod-anexo">
-                                            <div className="com-anexo">
-                                                ANEXO 2
-                                            </div>
-                                        </section>
-
+                                        <div className="row-gap-tablet-2">
+                                            <ModPromo
+                                                text="La información más completa del mercado inmobiliario minuto a minuto."
+                                                link="https://www.lanacion.com.ar/propiedades/"
+                                                logoName="propiedades"
+                                            />
+                                            <ModPromo
+                                                text="La información más completa del mercado inmobiliario minuto a minuto."
+                                                link="https://www.lanacion.com.ar/revista-lugares/"
+                                                logoName="lugares"
+                                            />
+                                        </div>
                                         <div
                                             data-module="tema_04"
                                             data-is-loading="false"
@@ -537,6 +543,20 @@ const LNHome = props => {
                                                 />
                                             </div>
                                         </section>
+
+                                        {/* <section className="mod-">
+                                            <ComTitle size="--twoxs" content="Temáticas LA NACION" />
+                                            <div className="row-gap-tablet-2">
+                                                <a href="https://www.lanacion.com.ar/propiedades/">
+                                                    <div class="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" class="com-image " alt="Logo"/></div>
+                                                    Toda la informacion del mercado inmobiliario 
+                                                </a>
+                                                <a href="https://www.lanacion.com.ar/propiedades/">
+                                                    <div class="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" class="com-image " alt="Logo"/></div>
+                                                    Noticias, informes y referentes del campo argentino 
+                                                </a>
+                                            </div>
+                                        </section> */}
 
                                         <section className="box-articles --bgcolor --bgteal">
                                             <HeaderSection
@@ -1503,6 +1523,16 @@ const LNHome = props => {
                                             />
                                         </div>
                                         {/*
+                                        <section className="demofonts">
+                                            <i class="com-icon icon-snow"></i>
+                                            <i class="com-icon icon-snow-cloudy"></i>
+                                            <i class="com-icon icon-storm"></i>
+                                            <i class="com-icon icon-storm-cloudy"></i>
+                                            <i class="com-icon icon-sun"></i>
+                                            <i class="com-icon icon-sun-cloudy"></i>
+                                            <i class="com-icon icon-windy"></i>
+                                        </section>
+                                        
                                         <section className="demofonts">
                                             <div>
                                                 <h1 className="--threexl">

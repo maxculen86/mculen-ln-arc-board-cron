@@ -57,8 +57,8 @@ const Amp = props => {
         distributor,
         node_type: nodeType,
         name,
-        author_type: authorType,
         Payload,
+        subheadlines,
         _id
     } = globalContent || {};
 
@@ -138,12 +138,12 @@ const Amp = props => {
                     name={name}
                     _id={_id}
                     payload={Payload}
-                    authorType={authorType}
                     description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
                     firstParagraphContentElements={
                         getFirstParagraph(contentElements) || ''
                     }
+                    subheadlines={subheadlines && subheadlines.basic}
                     arcSite={arcSite}
                 />
                 <Syndication

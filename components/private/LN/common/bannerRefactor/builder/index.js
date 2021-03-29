@@ -66,7 +66,7 @@ function ConfigBuilder() {
     };
 
     this.get = function() {
-        /** HARDCODED TEMPORARILY */
+        /** HARDCODED TEMPORARILY 
         if (
             this._config.slotId === 'cabezal_dsk' &&
             this._config.slotGroup === 'nota'

@@ -1,10 +1,16 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { GlobalContext } from '../context/globalContext';
 import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
+import { slotsConfig } from '../../LN/common/bannerRefactor/config';
+import { getSlotForDevice } from '../../LN/common/bannerRefactor/utils';
+import ConfigBuilder from '../../LN/common/bannerRefactor/builder';
+import flatArray from '../utils/flatArray';
+import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
 
 let googleCmdPushed = false;
 
@@ -73,9 +79,15 @@ const queueGoogletagCommand = bannersToLoad => {
     });
 };
 
-const LoadBanners = () => {
+const LoadBanners = ({ blocksBanners }) => {
+    const [bannersLoaded, setBannersLoaded] = useState(() => false);
     const { state } = useContext(GlobalContext);
-    const { renderables = [], outputType } = useAppContext();
+    const {
+        renderables = [],
+        outputType,
+        isAdmin,
+        siteProperties
+    } = useAppContext();
     const [suffix, setSuffix] = useState();
     const device = useViewportSize();
     const suffixDevice = {
@@ -96,7 +108,7 @@ const LoadBanners = () => {
 
     useEffect(() => {
         try {
-            if (suffix && device) {
+            if (suffix && device && blocksBanners.length === 0 && !isAdmin) {
                 const bannersInBody = [];
                 const {
                     bannersConfig: {
@@ -177,7 +189,8 @@ const LoadBanners = () => {
                 if (
                     bannersToLoad.length === bannersWithSettings.length &&
                     typeof window !== 'undefined' &&
-                    !googleCmdPushed
+                    !googleCmdPushed &&
+                    bannersToLoad.length !== 0
                 ) {
                     googleCmdPushed = true;
 
@@ -187,15 +200,122 @@ const LoadBanners = () => {
                         bannersToLoad
                     );
 
-                    queueGoogletagCommand(bannersToLoad);
+                    queueGoogletagCommand(
+                        bannersToLoad.filter(e => !e.subscription)
+                    );
                 }
             }
         } catch (error) {
             console.error('🚀 ~ file: LoadBanners.jsx  ~ error', error);
         }
-    }, [bannersConfigured, device, state, suffix]);
+    }, [bannersConfigured, blocksBanners, device, isAdmin, state, suffix]);
+
+    useEffect(() => {
+        try {
+            if (blocksBanners.length > 0 && suffix && device && !isAdmin) {
+                const siteService = get(state, 'siteService', {});
+                const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
+                const bannersSiteConfig = get(siteService, 'banners');
+
+                const blocksConfig = blocksBanners
+                    .map(el => {
+                        const { slotGroup, desktop, tablet, mobile } = el;
+
+                        const slotId = getSlotForDevice(device)([
+                            {
+                                name: 'desktop',
+                                slot: desktop
+                            },
+                            { name: 'mobile', tablet },
+                            { name: 'tablet', mobile }
+                        ]);
+
+                        if (!slotId) return {};
+
+                        const config = slotsConfig.acumuladoHome[slotId];
+
+                        if (!config) return {};
+
+                        const configBuilder = new ConfigBuilder();
+                        configBuilder.init({
+                            ...config,
+                            slotId,
+                            dfpId,
+                            slotGroup,
+                            show: {
+                                termicas: 'Si',
+                                collection: true
+                            }
+                        });
+
+                        if (bannersSiteConfig)
+                            configBuilder.setDimensionsFromSiteService(
+                                bannersSiteConfig,
+                                slotGroup,
+                                slotId
+                            );
+
+                        return configBuilder.get();
+                    })
+                    .map(
+                        ({
+                            slotName,
+                            dimensions,
+                            slotId,
+                            bidding,
+                            targeting,
+                            slotGroup
+                        }) => ({
+                            adUnitPath: `/${dfpId}/${slotName}`,
+                            size: flatArray(dimensions),
+                            opt_div: slotId,
+                            prebidEnabled: get(
+                                bidding,
+                                'prebid.enabled',
+                                false
+                            ),
+                            targeting: {
+                                ...targeting,
+                                adstest: hasAdsTestParam()
+                            },
+                            slotGroup
+                        })
+                    )
+                    .filter(el => Object.keys(el).length > 0 && el.opt_div);
+
+                if (!bannersLoaded) {
+                    setBannersLoaded(() => true);
+                    queueGoogletagCommand(blocksConfig);
+
+                    console.log(
+                        '🚀 ~ file: blocksBanners && suffix && device',
+                        blocksBanners,
+                        blocksConfig,
+                        suffix,
+                        device
+                    );
+                }
+            }
+        } catch (error) {
+            console.error('🚀 ~ file: LoadBanners.jsx  ~ error', error);
+        }
+    }, [
+        bannersLoaded,
+        blocksBanners,
+        device,
+        isAdmin,
+        siteProperties,
+        state,
+        suffix
+    ]);
 
     return <div className="hlp-none">Cargando banners ...</div>;
 };
+
+LoadBanners.propTypes = {
+    blocksBanners: PropTypes.arrayOf(PropTypes.string)
+};
+
+LoadBanners.defaultProps = { blocksBanners: [] };
 
 export default LoadBanners;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 
 import NotaDataLayer from '../LN/nota/dataLayer/dataLayer';
+import HomeDataLayer from '../LN/home/dataLayer/dataLayerHome';
 
 const config = {
     OTT: {},
@@ -12,7 +13,8 @@ const config = {
         'LN-nota-infografia': NotaDataLayer,
         'LN-nota-html-libre': NotaDataLayer,
         'LN-nota-foto-al-100': NotaDataLayer,
-        'LN-nota-opta': NotaDataLayer
+        'LN-nota-opta': NotaDataLayer,
+        'LN-Home_Sports': HomeDataLayer
     }
 };
 

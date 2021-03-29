@@ -19,48 +19,72 @@ const CajaTema = props => {
         notesQuantity = 3,
         hideTitle = false,
         withSubhead = false,
+        position,
+        sectionName = '',
         _children
     } = props;
 
     const isFocal = layout.includes('focal');
     const isRenderAuthor = layout.includes('author');
+    const extraOptsDiv = {};
+    const extraOpts = {};
+    if (position) {
+        extraOptsDiv['data-module'] = `tema_${position}`;
+    }
+    if (position) {
+        extraOpts['data-block-name'] = `h_${sectionName}tema-${position}`;
+        extraOpts['data-diagramacion-id'] = layout;
+        extraOpts.id = `tema_${position}`;
+    }
+    const artWithoutDate =
+        (articles && articles.map(art => ({ ...art, display_date: '' }))) || [];
 
     return (
-        <section
-            className={`box-articles ${backgroundColor} ${classCondition}`}
-        >
-            {!hideTitle && (
-                <ModHeaderSection imageId={imageId} title={title} link={url} />
-            )}
-            <ModRowGap
-                typeArticle={isFocal ? 'Focal' : 'Grilla'}
-                column={notesQuantity}
+        <div {...extraOptsDiv}>
+            <section
+                {...extraOpts}
+                className={`box-articles ${backgroundColor} ${classCondition}`}
             >
-                {isFocal ? (
-                    <FocalFactory
-                        directionFocal={layout}
-                        articles={articles}
-                        outputType={outputType}
-                        _children={_children}
+                {!hideTitle && (
+                    <ModHeaderSection
+                        imageId={imageId}
+                        title={title}
+                        link={url}
                     />
-                ) : (
-                    articles.map(art => {
-                        const artWithoutDate = { ...art, display_date: '' };
-                        return (
-                            <ArticleAcum
-                                key={artWithoutDate._id}
-                                article={artWithoutDate}
-                                outputType={outputType}
-                                frontdemo
-                                titleSize={titleSize}
-                                isRenderAuthor={isRenderAuthor}
-                                withSubhead={withSubhead}
-                            />
-                        );
-                    })
                 )}
-            </ModRowGap>
-        </section>
+                <ModRowGap
+                    typeArticle={isFocal ? 'Focal' : 'Grilla'}
+                    column={notesQuantity}
+                >
+                    {isFocal ? (
+                        <FocalFactory
+                            directionFocal={layout}
+                            articles={artWithoutDate}
+                            outputType={outputType}
+                            boxPosition={position}
+                            _children={_children}
+                        />
+                    ) : (
+                        artWithoutDate.map((art, i) => {
+                            const artPosition = `0${Number(i) + 1}`.slice(-2);
+                            return (
+                                <ArticleAcum
+                                    key={art._id}
+                                    article={art}
+                                    outputType={outputType}
+                                    frontdemo
+                                    titleSize={titleSize}
+                                    isRenderAuthor={isRenderAuthor}
+                                    withSubhead={withSubhead}
+                                    boxPosition={position}
+                                    artPosition={artPosition}
+                                />
+                            );
+                        })
+                    )}
+                </ModRowGap>
+            </section>
+        </div>
     );
 };
 
@@ -81,6 +105,8 @@ CajaTema.propTypes = {
     titleSize: PropTypes.string,
     url: PropTypes.string,
     imageId: PropTypes.string,
+    position: PropTypes.string.isRequired,
+    sectionName: PropTypes.string.isRequired,
     _children: PropTypes.arrayOf(PropTypes.obj)
 };
 

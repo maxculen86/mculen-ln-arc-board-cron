@@ -307,7 +307,9 @@
                 .--top {
                     background-color: $ohlala;
                 }
-                .--tags li .com-link {
+                .com-lead,
+                .--tags li .com-link,
+                .mod-article .mod-description > div .com-link.--tags {
                     color: $ohlala;
                 }
             }
@@ -317,7 +319,9 @@
                 .--top {
                     background-color: $lugares;
                 }
-                .--tags li .com-link {
+                .com-lead,
+                .--tags li .com-link,
+                .mod-article .mod-description > div .com-link.--tags {
                     color: $lugares;
                 }
             }
@@ -327,7 +331,9 @@
                 .--top {
                     background-color: $hola;
                 }
-                .--tags li .com-link {
+                .com-lead,
+                .--tags li .com-link,
+                .mod-article .mod-description > div .com-link.--tags {
                     color: $hola;
                 }
             }
@@ -337,7 +343,9 @@
                 .--top {
                     background-color: $living;
                 }
-                .--tags li .com-link {
+                .com-lead,
+                .--tags li .com-link,
+                .mod-article .mod-description > div .com-link.--tags {
                     color: $living;
                 }
             }
@@ -347,7 +355,9 @@
                 .--top {
                     background-color: $brando;
                 }
-                .--tags li .com-link {
+                .com-lead,
+                .--tags li .com-link,
+                .mod-article .mod-description > div .com-link.--tags {
                     color: $brando;
                 }
             }
@@ -357,7 +367,9 @@
                 .--top {
                     background-color: $jardin;
                 }
-                .--tags li .com-link {
+                .com-lead,
+                .--tags li .com-link,
+                .mod-article .mod-description > div .com-link.--tags {
                     color: $jardin;
                 }
             }
@@ -368,7 +380,9 @@
                 .--top {
                     background-color: $rolling;
                 }
-                .--tags li .com-link {
+                .com-lead,
+                .--tags li .com-link,
+                .mod-article .mod-description > div .com-link.--tags {
                     color: $rolling;
                 }
             }

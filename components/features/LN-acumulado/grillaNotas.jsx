@@ -99,7 +99,7 @@ function GrillaNotasFeature(props) {
         hide_banner = true
     } = acumuladoGeneral;
     const {
-        globalContent: { author_type: authorType, _id, Payload, distributorId },
+        globalContent: { node_type: nodeType, _id, Payload, distributorId },
         siteProperties,
         outputType,
         renderables
@@ -112,8 +112,8 @@ function GrillaNotasFeature(props) {
             ? Payload.items[0].slug
             : undefined;
 
-    const sectionId = !authorType && !Payload ? _id : null;
-    const authorId = authorType ? _id : null;
+    const sectionId = nodeType === 'section' ? _id : null;
+    const authorId = nodeType === 'author' ? _id : null;
 
     const bannerConfig = groupBannerConfig(props);
     const termicas = findTermica('banners');

@@ -30,7 +30,7 @@ const CajaCollection = props => {
         },
         outputType,
         renderables,
-        tree
+        tree = {}
     } = props;
 
     if (hideCaja) return <></>;
@@ -39,14 +39,16 @@ const CajaCollection = props => {
         collectionsInPage,
         notesQuantity,
         bgColor,
-        classCondition
+        classCondition,
+        position,
+        sectionName
     } = getCommonProps(props);
 
     const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
         collectionsInPage,
         idCollection,
         Number(initialPosition) - 1,
-        Number(notesQuantity)
+        notesQuantity
     );
 
     const isInSiteService = articlesFromCollectionSiteService.length > 0;
@@ -55,7 +57,8 @@ const CajaCollection = props => {
         ? getIdsArticlesFromOtherCollections(renderables, collectionsInPage)
         : [];
 
-    const isInsideApertura = isInApertura(tree, featureId);
+    const isInsideApertura =
+        tree.type === 'LN-acumulado' ? isInApertura(tree, featureId) : false;
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
@@ -65,7 +68,7 @@ const CajaCollection = props => {
               idsArticlesToExclude,
               true,
               !isInSiteService,
-              Number(notesQuantity)
+              notesQuantity
           )
         : [];
 
@@ -103,6 +106,8 @@ const CajaCollection = props => {
             layout={layout}
             classCondition={classCondition}
             notesQuantity={notesQuantity}
+            position={position}
+            sectionName={sectionName}
             articles={
                 isInSiteService
                     ? articlesFromCollectionSiteService
@@ -139,7 +144,10 @@ CajaCollection.propTypes = {
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaCollection')
     }).isRequired,
-    tree: PropTypes.shape(PropTypes.node).isRequired
+    tree: PropTypes.shape(PropTypes.node).isRequired,
+    globalContent: PropTypes.shape({
+        name: PropTypes.string
+    }).isRequired
 };
 
 export default Consumer(CajaCollection);
