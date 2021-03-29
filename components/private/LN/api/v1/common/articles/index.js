@@ -23,7 +23,7 @@ const articleItem = article => {
     const resp = {
         id,
         templateId,
-        titulo: tituloMobile || titulo,
+        titulo: titulo || tituloMobile,
         fecha: dateAndTimeForAppsUtil(article.display_date),
         fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
         url,

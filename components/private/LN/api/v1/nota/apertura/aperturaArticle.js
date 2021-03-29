@@ -23,7 +23,7 @@ const apertura = article => {
 
     const resp = {
         volanta,
-        titulo: tituloMobile || titulo,
+        titulo: titulo || tituloMobile,
         bajada
     };
 
