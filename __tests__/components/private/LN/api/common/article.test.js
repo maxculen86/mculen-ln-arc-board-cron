@@ -78,6 +78,10 @@ describe('Test de index en Json', () => {
         expect(respAcumulado[0].titulo).toBe(
             articlesAcumulado.content_elements[0].headlines.basic
         );
+
+        expect(respAcumulado[0].tituloMobile).toBe(
+            articlesAcumulado.content_elements[0].headlines.mobile
+        );
         expect(respAcumulado[0].url).toBe(
             articlesAcumulado.content_elements[0].website_url
         );
@@ -172,7 +176,7 @@ describe('Test de index en Json', () => {
 
     test('Test render data de articulo Ranking titulo Mobile', () => {
         expect(respRanking[2].titulo).toBe(
-            articlesRanking.content_elements[2].headlines.mobile
+            articlesRanking.content_elements[2].headlines.basic
         );
     });
 
