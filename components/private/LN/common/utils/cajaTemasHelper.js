@@ -122,11 +122,7 @@ export const getCommonProps = props => {
         customFields: { layout = '', backgroundColor }
     } = props;
     const { cajaTemaConfig = {} } = config || {};
-    /*     let { collectionsInPage = [] } = [];
-    if (props.childProps) {
-        const { collectionsInPageState = [] } = useGlobalProviderAcu();
-        collectionsInPage = collectionsInPageState;
-    } */
+
     const { collectionsInPage = [] } = useGlobalProviderAcu();
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
     const bgColor =
