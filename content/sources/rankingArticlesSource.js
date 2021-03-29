@@ -113,5 +113,5 @@ export default {
         size: 'number',
         website: 'text'
     },
-    ttl: 120
+    ttl: 3600
 };
