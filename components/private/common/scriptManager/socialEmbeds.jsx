@@ -61,7 +61,7 @@ const SocialEmbeds = props => {
             {twitterEmbed && (
                 <>
                     <script
-                        defer
+                        async
                         src="https://platform.twitter.com/widgets.js"
                     />
                     <script

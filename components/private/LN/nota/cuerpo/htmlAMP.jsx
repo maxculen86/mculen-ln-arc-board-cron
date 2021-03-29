@@ -17,7 +17,7 @@ const HtmlAMP = props => {
     const { data } = props;
     const { globalContent } = useAppContext();
     const { _id: idNote } = globalContent;
-    const { content = null, width = '300', height = '3000', _id: idRawHtml } =
+    const { content = null, width = '300', height = '360', _id: idRawHtml } =
         data || {};
 
     let urlForOpta = null;

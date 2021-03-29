@@ -134,16 +134,20 @@ footer {
                 vertical-align: top;
                 text-align: left;
                 margin: px(-20) 0 px(20) 0;
-                .img_gda {
+                svg.com-svg {
+                    max-width: 38px;
+                    height: 42px;
+                    margin: 0 1.25rem -0.3125rem;
+                }
+                /*                 .img_gda {
                     width: auto;
                     margin: 0 px(20) 0 px(-5);
                 }
                 a {
-                    margin-left: px(20);
                     .img_data-fiscal {
                         width: px(35);
                     }
-                }
+                } */
             }
             @media ($media-l) {
                 order: 2;
