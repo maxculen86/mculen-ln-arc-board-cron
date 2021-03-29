@@ -6,7 +6,6 @@ import {
 } from '../../private/LN/common/utils/cajaTemasHelperApi';
 import get from '../../private/common/utils/get';
 import filter from '../../../content/filters/LN/acumulado/articleAcu';
-import { addHoursAndFormat } from '../../../components/private/common/utils/dateAndTimeUtil';
 // URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
 // Resolver: ^\/api\/v([1]+)\/notas\/byAuthor\/(.+)\/(params.+)\/(.*)$ , donde "params" dependera del customField "paramUrlId" configurado
 
@@ -17,6 +16,7 @@ class CajaCollection {
             customFields: { idCollection, initialPosition },
             renderables
         } = props;
+
         const { collectionsInPage, notesQuantity } = getCommonPropsJson(props);
         const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
             collectionsInPage,
