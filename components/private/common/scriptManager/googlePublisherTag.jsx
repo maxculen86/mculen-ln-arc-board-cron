@@ -17,6 +17,7 @@ class GooglePublisherTag extends Component {
                       .toLowerCase()
                       .normalize('NFD')
                       .replace(/[\u0300-\u036f]/g, '')
+                      .replace(/[!¡]/g, '')
                       .replace(regex, replace)}'`
                 : '';
         };
