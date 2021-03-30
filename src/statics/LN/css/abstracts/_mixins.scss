@@ -9,6 +9,7 @@
             url('../../fonts/#{$file}.ttf') format('truetype'),
             url('../../fonts/#{$file}.svg?#webfont') format('svg');
         font-weight: $weight;
+        font-display: swap;
         font-style: normal;
     }
 }

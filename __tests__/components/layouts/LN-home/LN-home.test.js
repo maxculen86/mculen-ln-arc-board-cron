@@ -1,4 +1,7 @@
-jest.mock('../../../../components/layouts/LN-Home_Sports/default.jsx', () => 'mock-component');
+jest.mock(
+    '../../../../components/layouts/LN-Home_Sports/default.jsx',
+    () => 'mock-component'
+);
 
 import React from 'react';
 import { mount } from 'enzyme';
