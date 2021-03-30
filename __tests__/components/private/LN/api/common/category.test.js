@@ -1,5 +1,4 @@
 import get from 'lodash.get';
-import env from '../../../../../../__mocks__/fusion:environment';
 import articleFull from '../../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
 import {
     getSubCategory,

@@ -5,7 +5,6 @@ describe('Test for html render inside text component', () => {
         const text = `soy un texto con <b>negrita</b>, y con <i>italica</i>, y tambien con las <i><b>dos cosas</b></i>. Aca te va un <u>subrayado</u>, y un <a href=\"https://www.lanacion.com.ar\" target=_blank>link</a>.<br/>Arc permite poner <mark class=\"hl_red\">colores</mark> Arc tambien puede enviar codigos html tales como &amp; Tambien proceso &#38; pero no proceso &euro;`;
 
         const resp = htmlText(text);
-        console.log(resp);
         expect(resp[0]).toBe('soy un texto con ');
         expect(resp[1]['_t']).toBe('b');
         expect(resp[1]['valor']).toBe('negrita');
