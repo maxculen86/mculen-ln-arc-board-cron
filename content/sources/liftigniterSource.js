@@ -62,7 +62,8 @@ const fetch = query => {
         excludeItems,
         arcSite,
         action,
-        nextUrl
+        nextUrl,
+        widgetType
     } = query;
 
     const userIdParam = userId ? `/${userId}` : '';
@@ -79,6 +80,22 @@ const fetch = query => {
         pageviewId: idArticle
     };
 
+    const WIDGET_BODY = {
+        widget_click: {
+            ...body,
+            type: 'widget_click',
+            widgetName: WIDGETS,
+            clickUrl: nextUrl,
+            source: 'LI'
+        },
+        widget_shown: {
+            ...body,
+            type: 'widget_shown',
+            widgetName: WIDGETS,
+            source: 'LI'
+        }
+    };
+
     const REQUESTS = {
         activity: {
             uri: `${baseUrl}/activity`,
@@ -87,11 +104,7 @@ const fetch = query => {
             body: JSON.stringify({
                 activities: [
                     {
-                        ...body,
-                        type: 'widget_click',
-                        widgetName: WIDGETS,
-                        clickUrl: nextUrl,
-                        source: 'LI'
+                        ...WIDGET_BODY[widgetType]
                     }
                 ]
             }),
@@ -160,8 +173,6 @@ const fetch = query => {
 };
 
 const transform = (data, siteProps) => {
-    const action = get(siteProps, 'action');
-    if (action !== 'model') return data;
     const { presets, presetsDefault } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
