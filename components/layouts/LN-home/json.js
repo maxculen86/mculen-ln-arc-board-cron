@@ -32,7 +32,7 @@ const LNHome = ({ children }) => {
     ArticlesbyBox.push(Boxes);
 
     listItems.push({
-        fecha_foto: dateToday,
+        // fecha_foto: dateToday,
         // usuario_publica: 'XX', //Data pendiente de añadir
         cajas: Boxes
     });
