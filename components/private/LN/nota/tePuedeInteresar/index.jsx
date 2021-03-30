@@ -29,7 +29,8 @@ class Index extends Component {
 
         this.state = {
             articles: [],
-            outputType
+            outputType,
+            isShownRequest: false
         };
 
         this.fetchContent({
@@ -50,6 +51,13 @@ class Index extends Component {
         });
 
         this.handleClick = this.handleClick.bind(this);
+    }
+
+    componentDidUpdate() {
+        const { articles } = this.state;
+        articles &&
+            articles.length > 0 &&
+            this.registerActivity('widget_shown');
     }
 
     handleClick = (event, nextUrl) => {
@@ -76,7 +84,8 @@ class Index extends Component {
                 excludeItems,
                 arcSite,
                 nextUrl,
-                action: 'activity'
+                action: 'activity',
+                widgetType: 'widget_click'
             }
         });
 
@@ -84,6 +93,39 @@ class Index extends Component {
             window.location.href = nextUrl;
         });
     };
+
+    registerActivity(widgetType) {
+        const { isShownRequest } = this.state;
+
+        if (!isShownRequest) {
+            const {
+                userId,
+                sessionId,
+                cantidadNotas,
+                excludeItems,
+                url,
+                idArticle,
+                arcSite
+            } = this.props;
+
+            this.getContent({
+                source: 'liftigniterSource',
+                query: {
+                    cantidadNotas,
+                    referrer: url,
+                    idArticle,
+                    userId,
+                    sessionId,
+                    excludeItems,
+                    arcSite,
+                    action: 'activity',
+                    widgetType
+                }
+            });
+
+            this.setState({ isShownRequest: true });
+        }
+    }
 
     render = () => {
         const { articles, outputType } = this.state;
