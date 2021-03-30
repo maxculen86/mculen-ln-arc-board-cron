@@ -1,9 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import PropTypes from 'fusion:prop-types';
-import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
-import { formatText } from '../../../common/utils/sectionUtils';
-import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const featuredRules = {
     cajaCollection: {
@@ -95,40 +92,27 @@ export const validateArticleFeature = (id, content) => {
     return error;
 };
 
-export const getCommonProps = props => {
-    const {
-        customFields: { layout = 'grilla3', backgroundColor },
-        renderables = [],
-        id: idFeature,
-        globalContent: { name, acumuladoGeneral }
-    } = props;
-    const { cajaTemaConfig = {} } = config || {};
-    const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
-    const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
-    const bgColor =
-        backgroundColor === 'default' || backgroundColor === null
-            ? ''
-            : '--bgcolor ';
-    const classCondition = (layout && cajaTemaConfig[layout].className) || '';
+export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
+    const parent = renderables.find(
+        elem =>
+            elem.collection === 'chains' &&
+            elem.type === 'Ln_Caja_Manual' &&
+            elem.children &&
+            elem.children.some(
+                child => child && child.props && child.props.id === featureId
+            )
+    );
+    const index =
+        parent &&
+        parent.children.findIndex(elem => elem && elem.props.id === featureId);
 
-    const position =
-        renderables
-            .filter(ren => ren.collection === 'chains')
-            .findIndex(chain => chain.props.id === idFeature) || 0;
+    const directionFocal =
+        parent &&
+        parent.props &&
+        parent.props.customFields &&
+        parent.props.customFields.layout;
 
-    const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
-    const showDatalayerMark = get(acumuladoGeneral, 'usa_datalayer', 'false');
-
-    return {
-        collectionsInPage,
-        notesQuantity,
-        bgColor,
-        classCondition,
-        position:
-            showDatalayerMark !== 'false' &&
-            `0${Number(position) + 1}`.slice(-2),
-        sectionName
-    };
+    return get(cajaTemaConfig, `${directionFocal}.articles[${index}]`, null);
 };
 
 export const getCommonPropsJson = props => {
@@ -198,17 +182,6 @@ export const getArticlesFromMyCurrentCollection = (
         : [];
 
     return articlesFiltered;
-};
-
-export const calculateSizeOfCollection = (collections, notesQuantity) => {
-    const totalArticlesInCollections = collections.reduce(
-        (total, currentValue) => {
-            return total + currentValue.articles.length;
-        },
-        0
-    );
-    const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
-    return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
 };
 
 export const isInApertura = (tree = {}, idFeature) => {
@@ -297,38 +270,10 @@ export const cajaTemasCustomsFields = featuredName => {
     };
 };
 
-/*
-const isInAnotherCollection = (idArticle, collections) => {
-    const rto = collections.find(collect =>
-        collect.articles.some(artCol => artCol._id === idArticle)
-    );
-    return rto || false;
+export const validateoutItem = itemNota => {
+    const regex = new RegExp(`/video/`);
+    const results = regex.exec(itemNota.url_nota);
+    if (results) return false;
+
+    return true;
 };
-
-const isNotRecommend = article => {
-    const { label = {} } = article;
-    const { recomendar = {} } = label;
-    return recomendar.text === 'No';
-};
-
-export const getArticlesToShow = (
-    articles = [],
-    collections = [],
-    initialPosition,
-    notesQuantity
-) => {
-    const articlesRecomended = articles.filter(art => !isNotRecommend(art));
-
-    const articlesFiltered = articlesRecomended.filter(
-        art => isInAnotherCollection(art._id, collections) === false
-    );
-
-    const articlesToShow = articlesFiltered
-        ? articlesFiltered.slice(
-              initialPosition - 1,
-              initialPosition - 1 + notesQuantity
-          )
-        : [];
-    return articlesToShow;
-};
-*/
