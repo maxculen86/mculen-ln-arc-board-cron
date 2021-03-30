@@ -22,6 +22,12 @@ const article = `
     subheadlines {
         basic
     }
+    label {
+        volanta {
+            text
+            display
+        }
+    }
     content_elements {
         _id
         type

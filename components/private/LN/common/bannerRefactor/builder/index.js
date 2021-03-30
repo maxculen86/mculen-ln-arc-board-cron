@@ -66,13 +66,21 @@ function ConfigBuilder() {
     };
 
     this.get = function() {
-        /** HARDCODED TEMPORARILY */
+        /** HARDCODED TEMPORARILY 
         if (
             this._config.slotId === 'cabezal_dsk' &&
             this._config.slotGroup === 'nota'
         ) {
             this._config.dimensions = [
-                [[1260, 170]],
+                [
+                    [1, 1],
+                    [728, 90],
+                    [920, 100],
+                    [920, 170],
+                    [970, 90],
+                    [1260, 100],
+                    [1260, 170]
+                ],
                 [
                     [920, 170],
                     [920, 100],
@@ -92,7 +100,13 @@ function ConfigBuilder() {
             this._config.slotGroup === 'acumulado'
         ) {
             this._config.dimensions = [
-                [[1260, 170]],
+                [
+                    [1, 1],
+                    [728, 90],
+                    [920, 100],
+                    [970, 90],
+                    [1260, 100]
+                ],
                 [
                     [920, 170],
                     [970, 90],

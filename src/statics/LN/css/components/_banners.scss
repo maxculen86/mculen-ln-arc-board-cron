@@ -1,6 +1,7 @@
 @import '../abstracts/variables';
 
 .--bg-banner {
+    //REVISAR. creo que no se usa
     display: flex;
     background-color: #f7f7f7;
     justify-content: center;
@@ -25,9 +26,9 @@
         top: 0;
         display: none;
 
-        .--scrollUp & {
-            display: none;
-        }
+        // .--scrollUp & {
+        //     display: none;
+        // }
 
         &.--active {
             .--scrollDown & {
@@ -73,7 +74,7 @@
         &.--sticky {
             .--scrollUp & {
                 display: flex;
-                top: 65px;
+                top: 73px;
             }
         }
     }

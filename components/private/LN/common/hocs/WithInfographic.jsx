@@ -34,6 +34,7 @@ export default function WithInfographic(WrappedComponent) {
                     globalContent || {};
                 const { basic } = promoItems || {};
                 const { type: contentType, content, _id } = basic || '';
+
                 let result = {};
                 if (
                     type === 'story' &&

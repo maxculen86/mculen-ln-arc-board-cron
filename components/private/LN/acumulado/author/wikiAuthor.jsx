@@ -54,7 +54,7 @@ const WikiAuthor = ({ data, outputType, classesNames, classCondition }) => {
                 )}
                 <div className="col-12 col-tablet-8 col-deskxl-9">
                     <ComContainer classCondition="--info">
-                        <ComTitle tag="h2" content={byline} size="--l" />
+                        <ComTitle tag="h1" content={byline} size="--l" />
                         <ComText
                             textname={role}
                             classCondition="--profesion"

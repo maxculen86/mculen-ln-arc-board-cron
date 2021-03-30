@@ -21,13 +21,21 @@ const getVariablesFromLocalStorage = () => {
 };
 
 const setLocalStorage = (urls, sessionId) => {
-    localStorage.setItem('sessionId', sessionId);
-    localStorage.setItem('excludeItems', JSON.stringify(urls));
+    try {
+        localStorage.setItem('sessionId', sessionId);
+        localStorage.setItem('excludeItems', JSON.stringify(urls));
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error('Error en setear Local Storage method setLocalStorage');
+    }
 };
 
 const generateSessionId = () => {
-    const cryptoNumber = ([1e7]+-1e3+-4e3+-8e3).replace(/[018]/g, c =>
-      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    const cryptoNumber = ([1e7] + -1e3 + -4e3 + -8e3).replace(/[018]/g, c =>
+        (
+            c ^
+            (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+        ).toString(16)
     );
 
     const uuid = `${cryptoNumber}-${Date.now()}`;
@@ -54,7 +62,7 @@ const tePuedeInteresar = props => {
         siteProperties
     } = props;
 
-    const { requestUri, globalContent } = useAppContext();
+    const { requestUri, globalContent, arcSite } = useAppContext();
     const { host = 'https://www.lanacion.com.ar' } = siteProperties || {};
     const url = `${host}${requestUri}`;
     const { _id } = globalContent || {};
@@ -86,6 +94,7 @@ const tePuedeInteresar = props => {
             outputType={outputType}
             url={url}
             idArticle={_id}
+            arcSite={arcSite}
         />
     );
 };

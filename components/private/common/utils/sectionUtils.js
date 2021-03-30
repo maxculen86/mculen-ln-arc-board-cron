@@ -107,7 +107,7 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     if (!logoName && !path && isBBC)
         return {
             logoName: 'bbc',
-            path: '/tema/bbc-mundo-tid56419',
+            path: '/distributor/bbc-mundo/',
             color
         };
 
@@ -122,8 +122,16 @@ export const getSectionLogo = (sections, layout, distributorName) => {
     );
 };
 
+export const formatText = (str = '') => {
+    return str
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+};
+
 export default {
     getSectionStyle,
     getFirstParentSection,
-    getSectionLogo
+    getSectionLogo,
+    formatText
 };

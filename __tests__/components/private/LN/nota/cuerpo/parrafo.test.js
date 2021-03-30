@@ -45,7 +45,9 @@ describe('Paragraph', () => {
         const {
             dangerouslySetInnerHTML: { __html: html }
         } = component.find('p').props();
-        expect(html).toEqual(`<a href="https://cutt.ly/TjrhkTT" target='_blank'>I'm external`);
+        expect(html).toEqual(
+            `<a href="https://cutt.ly/TjrhkTT" target='_blank'>I'm external`
+        );
     });
 
     it('Applies `capital` class to paragraph in order to upper-case the first letter', () => {

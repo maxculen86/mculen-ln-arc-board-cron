@@ -3,7 +3,7 @@ import { imageResizedUrl } from '../common';
 const image = `
     type
     resized_urls {
-        ${imageResizedUrl}               
+        ${imageResizedUrl}
     }
     url
     subtitle
@@ -29,13 +29,15 @@ export default `
             }
             primary_section {
                 _id
+                name
+                path
                 additional_properties {
                     original {
                         style {
                             section_style_name
                         }
                     }
-                    
+
                 }
             }
         }
@@ -46,7 +48,7 @@ export default `
                 image {
                     url
                     resized_urls {
-                        ${imageResizedUrl}             
+                        ${imageResizedUrl}
                     }
                 }
                 additional_properties {
@@ -67,13 +69,28 @@ export default `
             type
             content
         }
-        display_date 
+        display_date
         publish_date
-        website_url     
+        website_url
+        display_date
+        website_url
         marquesina
         label  {
             recomendar {
                 text
+            }
+            volanta {
+                text
+                display
+            }
+        }
+        related_content {
+            basic{
+                _id
+                type
+                referent {
+                    type
+                }
             }
         }
     }

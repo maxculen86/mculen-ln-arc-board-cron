@@ -17,6 +17,8 @@ import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
 import get from '../private/common/utils/get';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
+import { formatText } from '../private/common/utils/sectionUtils';
+import LoadBanners from '../private/common/banners/LoadBanners';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -28,13 +30,6 @@ const pageBuilderSections = [
     'Notas',
     'Aside'
 ];
-
-const formatText = str => {
-    return str
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '');
-};
 
 const CLASS_ACU_REVISTA = 'acu-revista';
 const revistas = ['ohlala'];
@@ -136,6 +131,7 @@ const LNAcumuladoLayout = props => {
                         </main>
                         <Footer />
                     </div>
+                    <LoadBanners />
                 </GlobalProviderAcu>
             </LoginProvider>
         </GlobalProvider>

@@ -1,0 +1,162 @@
+[
+    {
+        "subtype": 1,
+        "by": {},
+        "website_url": "https://www.lanacion.com.ar/lifestyle/sofia-jujuy-jimenez-desde-pinamar-presenta-a-sus-hermanas-ines-y-pilar-nid04022021/",
+        "_id": "04022021/",
+        "headlines": {
+            "basic": "Sofía “Jujuy” Jiménez. Desde Pinamar, presenta a sus hermanas Inés y Pilar"
+        },
+        "promo_items": {
+            "basic": {
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/wPHSH9Ambu-zuwTSGfNzG0vqpmI=/768x0/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4HAHDQWUFRDWDMRYP52CL5AXHU.jpg",
+                "width": 768,
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/NCjpdtfq2YvbfxkVWADt32o9BI0=/360x240/smart/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4HAHDQWUFRDWDMRYP52CL5AXHU.jpg",
+                        "option": {
+                            "width": 360,
+                            "height": 240,
+                            "media": "(min-width: 1024px)",
+                            "proportion": "3:2"
+                        }
+                    },
+                    {
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Hvns7cY3ZCPKEqGsMY-E0DJBPJU=/768x512/smart/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4HAHDQWUFRDWDMRYP52CL5AXHU.jpg",
+                        "option": {
+                            "width": 768,
+                            "height": 512,
+                            "media": "(min-width: 768px)",
+                            "proportion": "3:2"
+                        }
+                    },
+                    {
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/wYvCiyEkhacM4sOPvLE9E-lXeWE=/351x234/smart/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4HAHDQWUFRDWDMRYP52CL5AXHU.jpg",
+                        "option": {
+                            "width": 351,
+                            "height": 234,
+                            "media": "(min-width: 360px)",
+                            "proportion": "3:2"
+                        }
+                    },
+                    {
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/NCjpdtfq2YvbfxkVWADt32o9BI0=/360x240/smart/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4HAHDQWUFRDWDMRYP52CL5AXHU.jpg",
+                        "option": {
+                            "width": 360,
+                            "height": 240,
+                            "media": "(min-width: 320px)",
+                            "proportion": "3:2"
+                        }
+                    }
+                ],
+                "resized_urls_zoom": []
+            }
+        }
+    },
+    {
+        "subtype": 1,
+        "by": {},
+        "website_url": "https://www.lanacion.com.ar/espectaculos/rocio-oliva-hablo-suma-millonaria-recibio-maradona-nid2575979",
+        "_id": "2575979",
+        "headlines": {
+            "basic": "Rocío Oliva habló tras conocerse la fortuna en dólares que le dejó Maradona"
+        },
+        "promo_items": {
+            "basic": {
+                "type": "image",
+                "url": "//bucket3.glanacion.com/anexos/fotos/69/3429669.png",
+                "width": 768,
+                "height": 513,
+                "media": "(min-width: 768px)",
+                "resized_urls": [
+                    {
+                        "resizedUrl": "//bucket3.glanacion.com/anexos/fotos/69/3429669.png",
+                        "option": {
+                            "width": 360,
+                            "height": 240,
+                            "media": "(min-width: 1024px)"
+                        }
+                    },
+                    {
+                        "resizedUrl": "//bucket3.glanacion.com/anexos/fotos/69/3429669.png",
+                        "option": {
+                            "width": 768,
+                            "height": 512,
+                            "media": "(min-width: 768px)"
+                        }
+                    },
+                    {
+                        "resizedUrl": "//bucket3.glanacion.com/anexos/fotos/69/3429669.png",
+                        "option": {
+                            "width": 351,
+                            "height": 234,
+                            "media": "(min-width: 360px)"
+                        }
+                    },
+                    {
+                        "resizedUrl": "//bucket3.glanacion.com/anexos/fotos/69/3429669.png",
+                        "option": {
+                            "width": 360,
+                            "height": 240,
+                            "media": "(min-width: 320px)"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "subtype": 1,
+        "by": {},
+        "website_url": "https://www.lanacion.com.ar/politica/lavado-dinero-allanan-rosario-mansion-expiloto-f1-nid2599287",
+        "_id": "2599287",
+        "headlines": {
+            "basic": "Lavado de dinero: allanan en Rosario la mansión de un expiloto de Fórmula 1"
+        },
+        "promo_items": {
+            "basic": {
+                "type": "image",
+                "url": "//bucket2.glanacion.com/anexos/fotos/43/3616843w768.jpg",
+                "width": 768,
+                "height": 513,
+                "media": "(min-width: 768px)",
+                "resized_urls": [
+                    {
+                        "resizedUrl": "//bucket2.glanacion.com/anexos/fotos/43/3616843w768.jpg",
+                        "option": {
+                            "width": 360,
+                            "height": 240,
+                            "media": "(min-width: 1024px)"
+                        }
+                    },
+                    {
+                        "resizedUrl": "//bucket2.glanacion.com/anexos/fotos/43/3616843w768.jpg",
+                        "option": {
+                            "width": 768,
+                            "height": 512,
+                            "media": "(min-width: 768px)"
+                        }
+                    },
+                    {
+                        "resizedUrl": "//bucket2.glanacion.com/anexos/fotos/43/3616843w768.jpg",
+                        "option": {
+                            "width": 351,
+                            "height": 234,
+                            "media": "(min-width: 360px)"
+                        }
+                    },
+                    {
+                        "resizedUrl": "//bucket2.glanacion.com/anexos/fotos/43/3616843w768.jpg",
+                        "option": {
+                            "width": 360,
+                            "height": 240,
+                            "media": "(min-width: 320px)"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+]

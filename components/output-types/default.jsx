@@ -28,6 +28,7 @@ import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
+// import Queryly from '../private/common/scriptManager/queryly';
 
 const scriptList = [
     {
@@ -37,6 +38,21 @@ const scriptList = [
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },
     { component: { name: 'Microdata', function: Microdata }, feature: 'none' },
+    {
+        component: { name: 'PostBid', function: PostBid },
+        feature: 'none'
+    },
+    {
+        component: { name: 'GooglePublisherTag', function: GooglePublisherTag },
+        feature: 'none'
+    },
+    {
+        component: {
+            name: 'GooglePublisherTagAcumulado',
+            function: GooglePublisherTagAcumulado
+        },
+        feature: 'none'
+    },
     {
         component: { name: 'ArcAds', function: ArcAds },
         feature: [
@@ -51,7 +67,6 @@ const scriptList = [
         component: { name: 'FacebookSDK', function: FacebookSDK },
         feature: ['LN-nota/share']
     },
-    { component: { name: 'PostBid', function: PostBid }, feature: 'none' },
     {
         component: { name: 'Livefyre', function: Livefyre },
         feature: ['LN-nota/comments']
@@ -59,17 +74,6 @@ const scriptList = [
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },
         feature: ['LN-nota/tePuedeInteresar']
-    },
-    {
-        component: { name: 'GooglePublisherTag', function: GooglePublisherTag },
-        feature: 'none'
-    },
-    {
-        component: {
-            name: 'GooglePublisherTagAcumulado',
-            function: GooglePublisherTagAcumulado
-        },
-        feature: 'none'
     },
     {
         component: { name: 'SocialEmbeds', function: SocialEmbeds },
@@ -107,7 +111,8 @@ const Default = props => {
         siteProperties,
         renderables,
         globalContent,
-        outputType
+        outputType,
+        layout
     } = props;
     const {
         canonical_url: canonicalUrl,
@@ -116,11 +121,11 @@ const Default = props => {
         description,
         type,
         subtype,
+        subheadlines = {},
         syndication,
         distributor,
         node_type: nodeType,
         name,
-        author_type: authorType,
         Payload,
         _id
     } = globalContent || {};
@@ -185,6 +190,9 @@ const Default = props => {
                         href={`https://www.lanacion.com.ar${canonicalUrl}`}
                     />
                 )}
+                {layout === 'FRONT-home' && ( //Borrarlo una vez subida al home a producción
+                    <meta name="robots" content="noindex, nofollow" />
+                )}
                 <LinkAmpHTML
                     subtype={subtype}
                     canonicalUrl={canonicalUrl || _id}
@@ -205,9 +213,9 @@ const Default = props => {
                     name={name || title}
                     _id={_id}
                     payload={Payload}
-                    authorType={authorType}
                     description={descriptionBasic}
                     metaTitleBasic={metaTitleBasic}
+                    subheadlines={subheadlines && subheadlines.basic}
                     firstParagraphContentElements={
                         getFirstParagraph(contentElements) || ''
                     }
@@ -249,6 +257,7 @@ const Default = props => {
 
                 <div id="fusion-app">{children}</div>
                 <Fusion />
+
                 <Scripts location="body-bottom" />
                 <ScriptLoadingList location="body-bottom" arcSite={arcSite} />
                 <ScriptLogoBBC distributorName={distributorName} />

@@ -15,7 +15,10 @@ const Megatop = props => {
         dimensions,
         targeting,
         dfpId,
-        background
+        bidding,
+        slotGroup,
+        show,
+        sizemap
     } = props;
 
     if (device === 'tablet') return null;
@@ -83,17 +86,17 @@ const Megatop = props => {
             >
                 Publicidad | <span>Bajar al sitio</span>
             </button>
-            <div id={id} className="com-banner">
-                <Ads
-                    id={id}
-                    slotName={slotName}
-                    dimensions={dimensions}
-                    targeting={targeting}
-                    dfpId={dfpId}
-                    background={background ? '--bg-banner' : ''}
-                    extraClasses="com-banner"
-                />
-            </div>
+            <Ads
+                slotId={id}
+                slotName={slotName}
+                dimensions={dimensions}
+                dfpId={dfpId}
+                targeting={targeting}
+                show={show}
+                bidding={bidding || {}}
+                sizemap={sizemap}
+                slotGroup={slotGroup}
+            />
         </div>
     );
 };
@@ -109,11 +112,26 @@ Megatop.propTypes = {
         sitio: PropTypes.string
     }).isRequired,
     dfpId: PropTypes.number.isRequired,
-    background: PropTypes.string
+    bidding: PropTypes.objectOf(PropTypes.string),
+    show: PropTypes.shape({
+        termicas: PropTypes.bool,
+        collection: PropTypes.bool
+    }),
+    slotGroup: PropTypes.string,
+    sizemap: PropTypes.shape({
+        breakpoints: PropTypes.array,
+        refresh: PropTypes.bool
+    })
 };
 
 Megatop.defaultProps = {
-    background: undefined
+    bidding: {},
+    show: {
+        termicas: false,
+        collections: false
+    },
+    slotGroup: 'desktop',
+    sizemap: []
 };
 
 export default Megatop;

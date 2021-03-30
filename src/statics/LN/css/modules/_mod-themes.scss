@@ -2,24 +2,26 @@
 @import '../abstracts/mixins';
 
 .mod-themes {
-    @include flex(flex, row, start, start);
-    flex-wrap: nowrap;
-    width: 100%;
-    overflow: scroll;
-    margin-bottom: $spacing-lg;
+    // @include flex(flex, row, start, start);
+    // flex-wrap: nowrap;
+    // width: 100%;
+    // overflow: scroll;
+    margin-bottom: $spacing-sm;
 
     .com-button.com-button {
-        margin: 0;
+        .cuerpo__nota & {
+            margin: 0;
+        }
     }
 
     &:last-child {
         margin-right: 0;
     }
 }
-@media ($media-l) {
-    .mod-themes {
-        @include flex(flex, row, start, start);
-        flex-wrap: wrap;
-        overflow: initial;
-    }
-}
+// @media ($media-l) {
+//     .mod-themes {
+//         @include flex(flex, row, start, start);
+//         flex-wrap: wrap;
+//         overflow: initial;
+//     }
+// }

@@ -5,6 +5,7 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import LoginProvider from '../private/LN/common/context/loginContext';
+//import Modshare from '../private/common/mod-share';
 
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
@@ -56,6 +57,7 @@ import '../../resources/dist/css/ln/pages/magazine.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
+import LoadBanners from '../private/common/banners/LoadBanners';
 
 const getBannerMegatop = (element, outputType, tree, isAdmin) => {
     const { children } = tree;
@@ -152,6 +154,8 @@ const lnNotaNoticia = ({
                                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                                 <div className="row">
                                                     <div className="col-12">
+                                                        {/* <Modshare classCondition="--block" /> */}
+
                                                         {/* Pos-Apertura */}
                                                         {children[5]}
                                                         {/* Logo al pie */}
@@ -182,6 +186,7 @@ const lnNotaNoticia = ({
                         </main>
                         <Footer />
                     </div>
+                    <LoadBanners />
                 </CommentsProvider>
             </LoginProvider>
         </GlobalProvider>

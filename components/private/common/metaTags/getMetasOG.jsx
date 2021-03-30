@@ -1,5 +1,6 @@
 import { SITE_LANACION } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
+import addRelatedImage from '../../LN/common/utils/addRelatedImage';
 
 const getAppId = siteProperties =>
     siteProperties &&
@@ -60,7 +61,7 @@ const getData = ({
         canonical_url: canonicalUrl,
         _id,
         publish_date: publishDate
-    } = globalContent || {};
+    } = addRelatedImage(globalContent) || {};
 
     const { basic: headlinesBasic } = headlines;
     const { basic: subheadlinesBasic } = subheadlines;
@@ -103,7 +104,6 @@ const getData = ({
 
 const getMetasOG = props => {
     const data = getData(props);
-
     const metas = [
         {
             property: 'fb_app_id',

@@ -3,17 +3,70 @@ import AperturaReceta from '../../../../../../../components/private/LN/api/v1/no
 import Apertura from '../../../../../../../components/private/LN/api/v1/nota/apertura/aperturaArticle';
 import ArticleApertura from '../../../../../../../__mocks__/data/nota/apertura/apertura.json';
 import HistoryTellingArticle from '../../../../../../../__mocks__/data/articles/4HFO7YPZBFEYVB6K5XY6IFV3XY.json';
+import HistoryFotoAlCienArticle from '../../../../../../../__mocks__/data/articles/PTAOLSGRDBEZLG6A6T43M7A7PU.json';
 import { getAutorId } from '../../../../../../../components/private/common/utils/getElementId';
 
 describe('Test de JSON de apertura en article', () => {
     it('Render de atributos de apertura Titulos', () => {
         const respTituloMobile = Apertura(ArticleApertura[0]);
-        expect(respTituloMobile.titulo).toBe(
+        expect(respTituloMobile.tituloMobile).toBe(
             ArticleApertura[0].headlines.mobile
         );
 
         const respTitulo = Apertura(ArticleApertura[1]);
         expect(respTitulo.titulo).toBe(ArticleApertura[1].headlines.basic);
+    });
+
+    it('Render de atributos de apertura Titulo Nulo', () => {
+        const mockTituloenApertura = {
+            headlines: {
+                meta_title: '',
+                mobile: ''
+            },
+            credits: {
+                by: [
+                    {
+                        _id: 'max-fisher-4189',
+                        additional_properties: {
+                            original: {
+                                role: 'The New York Times'
+                            }
+                        },
+                        image: {
+                            url: ''
+                        },
+                        name: 'Max Fisher',
+                        slug: 'max-fisher-4189',
+                        type: 'author',
+                        url: '/autor/max-fisher-4189/'
+                    }
+                ]
+            },
+            subheadlines: {
+                basic:
+                    'Esto es una bajada. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod...'
+            },
+            label: {
+                edicion: {
+                    display: true,
+                    text: 'Digital'
+                },
+                volanta: {
+                    display: true,
+                    text: 'Esto es una volanta.'
+                }
+            },
+            subtype: '1',
+            owner: {
+                sponsored: false
+            }
+        };
+        try {
+            const respTitulo = Apertura(mockTituloenApertura);
+            expect(resp).toBe(null);
+        } catch (err) {
+            expect(err.message).toBe('Titulo de la nota es null o undefined');
+        }
     });
 
     it('Render de atributos de apertura', () => {
@@ -26,6 +79,9 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.autores[0].id).toBe(getAutorId(articleAuthor._id));
         expect(resp.autores[0].slug).toBe(articleAuthor.slug);
         expect(resp.autores[0].valor).toBe(articleAuthor.name);
+        expect(resp.autores[0].imagen).toBe(
+            '/resizer/qd_3dkJemiLUloOXwofkHeixPiU=/80x0/filters:quality(100)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
+        );
         expect(resp.autores[0].tipo).toBe(1);
     });
 
@@ -78,11 +134,30 @@ describe('Test de JSON de apertura en article', () => {
         expect(resp.imagenes[0].baseUrl).toBe(
             '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SITTWPHGIZHMRNZH3DBQINBEXA.jpg'
         );
-        expect(resp.imagenes[0].parametros[1].ancho).toBe(878);
+        expect(resp.imagenes[0].parametros[1].ancho).toBe(1120);
         expect(resp.imagenes[0].parametros[1].firma).toBe(
-            'g6OS3FXUAFmIOTNg2qOQSqWv5Uo=/0x878/filters:quality(70)'
+            'jyC1dEvJPV9p1vrfUcw79zvPx2A=/0x1120/filters:quality(70)'
         );
         expect(resp.imagenes[0].epigrafe).toBeUndefined();
+    });
+
+    it('Render de imagenes de Foto al cien apertura', () => {
+        const resp = Apertura(HistoryFotoAlCienArticle);
+        const imageData =
+            HistoryFotoAlCienArticle.promo_items.storytelling_mobile;
+        expect(resp.multimedio).toBeUndefined();
+        expect(resp.imagenes[0]['_t']).toBe('img');
+        expect(resp.imagenes[0].id).toBe(imageData._id);
+        expect(resp.imagenes[0].baseUrl).toBe(
+            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ORVQL3YRTFENDJCHJRLAWVD7EM.jpg'
+        );
+        expect(resp.imagenes[0].parametros[1].ancho).toBe(1200);
+        expect(resp.imagenes[0].parametros[1].firma).toBe(
+            'P9espymFgLMpoy3MSeSvKvwl8kI=/1200x800/filters:quality(100)'
+        );
+        expect(resp.imagenes[0].epigrafe).toBe(
+            'Esquiadores en el centro de Madrid'
+        );
     });
 
     it('Render de videos de apertura', () => {

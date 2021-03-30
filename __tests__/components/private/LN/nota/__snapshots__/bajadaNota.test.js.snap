@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - LaNacion - Nota - BajadaNota Test de snapshot TituloNota 1`] = `
-<p
-  class="com-paragraph --bajada  --twoxs"
+<h2
+  class="com-subhead --bajada --m-xs"
 />
 `;

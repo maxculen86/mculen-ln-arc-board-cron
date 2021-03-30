@@ -20,11 +20,15 @@ const pullQuote = props => {
             <section className="com-cita autor">
                 <section className="cont-cita">
                     <div className="title-cita">
-                        <Paragraph data={{ content: `"${content}"` }} />
+                        <Paragraph
+                            size="--m"
+                            classCondition="--sueca --font-bold"
+                            data={{ content: `"${content}"` }}
+                        />
                     </div>
                     <div className="cont-firma-autor">
                         {' '}
-                        <h3 className="nombre-firma">{`${author}`}</h3>
+                        <h3 className="nombre-firma --twoxs">{`${author}`}</h3>
                     </div>
                 </section>
             </section>

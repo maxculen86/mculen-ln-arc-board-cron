@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComParagraph from '../../../common/com-paragraph';
+import Bajada from '../../../common/mod-bajada';
 
 const BajadaNota = props => {
     const {
@@ -11,10 +11,11 @@ const BajadaNota = props => {
 
     const subtitulo = basic || null;
     return (
-        <ComParagraph
-            size="--twoxs"
+        <Bajada
+            subheadTag="h2"
+            subheadSize="--m-xs"
             classCondition="--bajada"
-            content={subtitulo}
+            subheadText={subtitulo}
         />
     );
 };

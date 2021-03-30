@@ -3,9 +3,10 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModArticle from '../../common/mod-article';
 import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTextParagraph';
-import getTitleText from '../../common/utils/getTitleText';
 import ComHour from '../../common/com-hour';
+import get from '../../common/utils/get';
 import getAuthorsAsString from '../../common/utils/getAuthorsAsString';
+import addRelatedImage from '../common/utils/addRelatedImage';
 
 const typeAcumRules = {
     Grilla: {
@@ -20,7 +21,7 @@ const typeAcumRules = {
     },
     Timeline: {
         withMedia: true,
-        withAuthors: false,
+        withAuthors: true,
         withHour: true
     }
 };
@@ -34,37 +35,62 @@ const ArticleAcum = ({
     titleTag,
     titleSize,
     withSubhead,
-    isRenderAuthor
+    isRenderAuthor,
+    boxPosition,
+    artPosition,
+    withCategory,
+    withTags
 }) => {
-    const { display_date, headlines, website_url, label } = article;
+    const _article = addRelatedImage(article);
+    const {
+        display_date,
+        headlines,
+        website_url,
+        label,
+        taxonomy: { primary_section: primarySection, tags } = {}
+    } = _article;
 
     const authors =
-        typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(article);
+        typeAcumRules[typeArticle].withAuthors && getAuthorsAsString(_article);
 
-    const subheadText = withSubhead && getBajadaOrFirstTextParagraph(article);
+    const subheadText = withSubhead && getBajadaOrFirstTextParagraph(_article);
 
-    const titleText = getTitleText(headlines, label);
+    const titleText = get(headlines, 'mobile') || get(headlines, 'basic');
+    const leadText = get(label, 'volanta.text', '');
+
+    const tagList =
+        (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
 
     const hourToDisplay = typeAcumRules[typeArticle].withHour && (
-        <ComHour display_date={display_date} size="--twoxs" />
+        <ComHour
+            display_date={display_date}
+            size="--twoxs"
+            isUltimasNoticias={typeArticle === 'Timeline'}
+        />
     );
 
     return (
         <>
             <ModArticle
-                articleData={article}
+                articleData={_article}
                 dataSection={dataSection}
                 withMedia={typeAcumRules[typeArticle].withMedia}
                 link={website_url}
                 titleTag={titleTag}
                 titleSize={titleSize}
                 titleText={titleText}
+                leadText={leadText}
                 authors={authors}
                 dateText={!typeAcumRules[typeArticle].withHour && display_date}
                 hour={hourToDisplay}
                 subheadText={subheadText}
                 outputType={outputType}
                 isRenderAuthor={isRenderAuthor}
+                typeArticle={typeArticle}
+                artPosition={artPosition}
+                boxPosition={boxPosition}
+                category={withCategory && primarySection}
+                tags={withTags && tagList}
             />
             {children}
         </>
@@ -82,16 +108,34 @@ ArticleAcum.propTypes = {
             volanta: PropTypes.shape({
                 text: PropTypes.string
             })
+        }),
+        taxonomy: PropTypes.shape({
+            primary_section: PropTypes.string,
+            tags: PropTypes.arrayOf(PropTypes.obj)
         })
     }).isRequired,
     children: PropTypes.node,
     typeArticle: PropTypes.string.isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string.isRequired,
+    withCategory: PropTypes.bool,
+    withTags: PropTypes.bool,
+    titleTag: PropTypes.string,
+    titleSize: PropTypes.string,
+    withSubhead: PropTypes.bool,
+    isRenderAuthor: PropTypes.bool,
+    boxPosition: PropTypes.string.isRequired,
+    artPosition: PropTypes.string.isRequired
 };
 
 ArticleAcum.defaultProps = {
     dataSection: '',
-    children: undefined
+    titleSize: '',
+    titleTag: '',
+    children: undefined,
+    withCategory: false,
+    withTags: false,
+    isRenderAuthor: false,
+    withSubhead: false
 };
 
 export default ArticleAcum;

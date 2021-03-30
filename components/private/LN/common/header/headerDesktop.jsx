@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import PropTypes from 'fusion:prop-types';
@@ -5,10 +6,13 @@ import Header from './headerBase';
 import Hamburguer from './hamburger';
 import ComLink from '../../../common/com-link';
 import ComLogo from '../../../common/com-logo';
+import ComIcon from '../../../common/com-icon';
 
 import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
+import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
+// import ModsubHeather from './subHeather';
 
 const ItemAnchor = ({ url, text }) => {
     const callURL = address => {
@@ -50,7 +54,7 @@ const HeaderDesktop = ({
     loginData,
     goToLogout,
     host,
-    //headerDark,
+    // headerDark,
     toglleDesplegable
 }) => {
     const { loading } = loginData;
@@ -67,12 +71,36 @@ const HeaderDesktop = ({
         setLoadingUserData(loading ? ' hlp-none' : '');
     }, [loading]);
 
+    const handleClickBuscar = () => {
+        dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body')
+            .then(() => {
+                const initScript = document.createElement('script');
+                initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
+                document.body.appendChild(initScript);
+                document.getElementById('querylyButton').click();
+            })
+            .catch(() => {
+                // console.error('Script loading failed! Handle this error', error);
+            });
+    };
+
     return (
-        <Header id="header" className={`header`}>
+        <Header id="header" className="header">
             <div className="col-4 header__left">
                 <Hamburguer _onMouseDown={toglleDesplegable} />
+                <label
+                    onClick={handleClickBuscar}
+                    id="querylyButton"
+                    htmlFor="queryly_toggle"
+                >
+                    <i className="com-button --tertiary --icon queryly_searchicon">
+                        <ComIcon iconName="search" />
+                        BUSCAR
+                    </i>
+                    {/* <i style={{float:'right', color:'#0074c4',position:'absolute', top: '5px', cursor: 'pointer'}} className="icon-search queryly_searchicon"></i> */}
+                </label>
             </div>
-            <div className="col-4 header__middle">
+            <div className="col-7 col-desksm-4 header__middle">
                 <ComLink
                     link={host || '/'}
                     classCondition="header__middle__logo"
@@ -87,7 +115,7 @@ const HeaderDesktop = ({
                 >
                     {!loginData.subscription && (
                         <button
-                            className="com-button --special --compact"
+                            className="com-button --special"
                             type="button"
                             onClick={() => {
                                 location.href =
@@ -144,13 +172,18 @@ const HeaderDesktop = ({
                     {!logueado && (
                         <button
                             type="button"
-                            className="com-button --secondary --compact"
+                            className="com-button --secondary"
                             onClick={() => goToLoginUrl()}
                         >
                             INGRESAR
                         </button>
                     )}
                 </div>
+            </div>
+            <div className="col-1 header__search">
+                <label onClick={handleClickBuscar} htmlFor="queryly_toggle">
+                    <i className="com-icon icon-search queryly_searchicon" />
+                </label>
             </div>
         </Header>
     );

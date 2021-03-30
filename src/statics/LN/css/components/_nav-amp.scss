@@ -1,11 +1,5 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
-// .layout {
-//     display: block;
-//     width: 100vw;
-//     height: 100vh;
-//     position: relative;
-// }
 
 amp-sidebar {
     //Sidebar
@@ -18,14 +12,14 @@ amp-sidebar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 20px;
+        padding: 10px 10px 10px 20px;
         background: $neutral-white;
         border-bottom: solid 1px #eaeaea;
-        margin-bottom: $spacing;
+        //margin-bottom: $spacing;
 
         .logo-la-nacion {
             //Logo LN
-            font-size: 15px;
+            font-size: px(17);
             color: $ln-active;
         }
         .icon-close {
@@ -122,58 +116,72 @@ amp-sidebar {
             }
         }
     }
+    @media (min-width: 1024px) {
+        width: px(280);
+    }
 }
 
-// .icon-cerrar {
-//     position: absolute;
-//     right: 10px;
-//     top: 10px;
-//     font-family: 'LNicons';
-// }
-// a.icon-cerrar:before {
-//     font-family: 'LNicons';
-//     font-size: 20px;
-//     display: block;
-// }
-
 .header {
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #e4e4e4;
     padding: px(13) 0;
     position: relative;
     z-index: 10;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+
+    .header__left {
+        display: none;
+        .com-button .com-icon {
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+        }
+    }
+
     .header__middle {
         display: flex;
         align-items: center;
+        justify-content: center;
         .header__middle__logo {
             .logo-la-nacion {
                 //Logo LN
                 color: $ln-active;
                 &:before {
-                    font-size: 17px;
+                    font-size: px(17);
                 }
             }
         }
     }
 
-    button {
-        &.icon-menu {
-            display: none;
+    .header__right {
+        .com-usuario {
+            text-align: right;
+            .--secondary {
+                display: none;
+                margin-left: 1rem;
+            }
         }
     }
-    .suscribir__header {
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 0;
-        background: transparent;
-        color: #006998;
-        font-weight: normal;
-        border: none;
-        &:hover {
-            background: transparent;
-            color: #006998;
-            border: none;
-        }
-    }
+
+    // button {
+    //     &.icon-menu {
+    //         display: none;
+    //     }
+    // }
+    // .suscribir__header {
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     padding-right: 0;
+    //     background: transparent;
+    //     color: #006998;
+    //     font-weight: normal;
+    //     border: none;
+    //     &:hover {
+    //         background: transparent;
+    //         color: #006998;
+    //         border: none;
+    //     }
+    // }
 
     .--transparent & {
         //sirve para storytelling y foto al 100
@@ -181,8 +189,13 @@ amp-sidebar {
         background: rgba(0, 0, 0, 0.5);
 
         .header__left {
-            button.icon-menu {
-                color: $neutral-white;
+            .com-button.--tertiary {
+                background: $light-neutral-800;
+                border-color: $light-neutral-800;
+                color: $light-neutral-200;
+                &:hover {
+                    background: $neutral-black;
+                }
             }
         }
 
@@ -193,87 +206,109 @@ amp-sidebar {
                 }
             }
         }
-        .header__right {
-            .suscribir__header {
-                color: $neutral-white;
-            }
-        }
+        // .header__right {
+        //     .suscribir__header {
+        //         color: $neutral-white;
+        //     }
+        // }
 
-        @media (min-width: 768px) {
-            .header__right {
-                .suscribir__header {
-                    color: $neutral-black;
-                }
-            }
-        }
+        // @media (min-width: 768px) {
+        //     .header__right {
+        //         .suscribir__header {
+        //             color: $neutral-black;
+        //         }
+        //     }
+        // }
     }
 }
 
-@media (min-width: 768px) {
-    amp-sidebar {
-        width: 40%;
-        max-width: 40%;
-    }
-    .header {
-        .suscribir__header {
-            display: inline-block;
-            justify-content: inherit;
-            text-align: center;
-        }
+@media (max-width: 1023px) {
+    .header .header__right .com-usuario .--special {
+        background: transparent;
+        border-color: transparent;
+        padding: 0.1875rem 1rem;
+        color: #0074c4;
     }
 }
+
+// @media (min-width: 768px) {
+//     amp-sidebar {
+//         width: 40%;
+//         max-width: 40%;
+//     }
+//     //.header {
+//         // .suscribir__header {
+//         //     display: inline-block;
+//         //     justify-content: inherit;
+//         //     text-align: center;
+//         // }
+//     //}
+// }
 @media (min-width: 1024px) {
     .header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-color: #d9d9d9;
-
-        .suscribir__header {
-            background-color: #ffff24;
-            border: 1px solid $light-neutral-400;
-            color: $neutral-black;
-            padding: 0.625rem 1.5rem;
-            &:hover {
-                background: $neutral-black;
-                border-color: $neutral-black;
-                color: $neutral-white;
-            }
+        .header__left {
+            display: block;
         }
 
-        .lay {
-            .row {
-                align-items: center;
+        // .suscribir__header {
+        //     background-color: #ffff24;
+        //     border: 1px solid $light-neutral-400;
+        //     color: $neutral-black;
+        //     padding: 0.625rem 1.5rem;
+        //     &:hover {
+        //         background: $neutral-black;
+        //         border-color: $neutral-black;
+        //         color: $neutral-white;
+        //     }
+        // }
+
+        .header__middle {
+            .header__middle__logo {
                 .logo-la-nacion {
-                    //Logo LN
-                    color: $ln-active;
                     &:before {
-                        font-size: 25px;
+                        font-size: px(30);
                     }
                 }
             }
         }
 
-        button {
-            &.icon-menu {
-                font-family: $font-arial;
-                background: transparent;
-                border: none;
-                font-size: px(15);
-                @include flex(flex, row, center, center);
-                cursor: pointer;
-
-                &:before {
-                    font-size: 30px;
-                    display: block;
-                    font-family: 'LNicons';
+        .header__right {
+            .com-usuario {
+                .--secondary {
+                    display: inline-flex;
                 }
             }
         }
-    }
-    amp-sidebar {
-        width: 25%;
-        max-width: 25%;
+
+        // .lay {
+        //     .row {
+        //         //align-items: center;
+        //         .logo-la-nacion {
+        //             //Logo LN
+        //             //color: $ln-active;
+        //             &:before {
+        //                 font-size: 30px;
+        //             }
+        //         }
+        //     }
+        // }
+
+        // button {
+        //     &.icon-menu {
+        //         font-family: $font-arial;
+        //         background: transparent;
+        //         border: none;
+        //         font-size: px(15);
+        //         @include flex(flex, row, center, center);
+        //         cursor: pointer;
+
+        //         &:before {
+        //             font-size: 30px;
+        //             display: block;
+        //             font-family: 'LNicons';
+        //         }
+        //     }
+        // }
     }
     .nav {
         display: none;

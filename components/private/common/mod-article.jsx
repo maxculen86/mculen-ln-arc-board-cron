@@ -34,24 +34,38 @@ const ModArticle = props => {
         anexo,
         noMedia,
         label,
-        hour
+        artPosition,
+        boxPosition,
+        hour,
+        category,
+        tags
     } = props;
+    const { _id } = articleData || {};
     const extraOpts = {};
     if (dataSection) {
         extraOpts['data-section'] = dataSection;
         extraOpts['data-event'] = 'LinkClick';
     }
+    if (boxPosition) {
+        extraOpts['data-pos'] = `${boxPosition}${artPosition}`;
+        extraOpts['data-id'] = _id;
+        extraOpts['data-notaid'] = _id;
+        extraOpts['data-source'] = 'editor';
+    }
     const imagenDestacada = isRenderAuthor
         ? getAuthorsPhoto(articleData)
         : get(articleData, 'promo_items.basic', null);
     const marquesina = get(articleData, 'marquesina', null);
+
     const type = get(imagenDestacada, 'type', null);
 
     return (
         <article
             className={`mod-article ${classCondition || ''} ${
-                noMedia ? '--no-media' : ''
-            } ${isRenderAuthor ? '--author' : ''}`}
+                boxPosition ? `toi${boxPosition}${artPosition} nid${_id}` : ''
+            } ${noMedia ? '--no-media' : ''} ${
+                isRenderAuthor ? '--author' : ''
+            }`}
             {...extraOpts}
         >
             {hour && hour}
@@ -61,6 +75,7 @@ const ModArticle = props => {
                     mediaData={type === 'image' ? imagenDestacada : null}
                     href={link}
                     outputType={outputType}
+                    anexo={anexo}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
@@ -93,6 +108,8 @@ const ModArticle = props => {
                 lead={leadText}
                 label={label}
                 marquesina={marquesina}
+                category={category}
+                tags={tags}
             />
         </article>
     );
@@ -114,16 +131,19 @@ ModArticle.propTypes = {
     withMedia: PropTypes.boolean,
     outputType: PropTypes.string,
     articleData: PropTypes.shape({
+        _id: PropTypes.string,
         promo_items: PropTypes.shape({
             basic: PropTypes.object
         })
-    }).isRequired
+    }).isRequired,
+    category: PropTypes.string,
+    tags: PropTypes.string
 };
 
 ModArticle.defaultProps = {
     dataSection: undefined,
     classCondition: undefined,
-    titleTag: 'h4',
+    titleTag: 'h2',
     titleSize: '--xs',
     subheadText: false,
     subheadSize: '',
@@ -133,7 +153,9 @@ ModArticle.defaultProps = {
     withMedia: false,
     link: undefined,
     hour: undefined,
-    outputType: 'default'
+    outputType: 'default',
+    category: undefined,
+    tags: undefined
 };
 
 export default ModArticle;

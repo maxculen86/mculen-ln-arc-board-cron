@@ -8,15 +8,21 @@ const DATA_SECTION = 'CuerpoAcu';
 const typeAcumRules = {
     Grilla: {
         withSubhead: false,
-        titleSize: '--xs'
+        titleSize: '--xs',
+        withCategory: false,
+        withTags: true
     },
     Listado: {
         withSubhead: true,
-        titleSize: '--m'
+        titleSize: '--m',
+        withCategory: true,
+        withTags: true
     },
     Timeline: {
         withSubhead: false,
-        titleSize: '--m'
+        titleSize: '--m',
+        withCategory: true,
+        withTags: true
     }
 };
 
@@ -41,10 +47,11 @@ const ArticlesAcum = ({
                         dataSection={DATA_SECTION}
                         article={art}
                         typeArticle={typeArticle}
-                        //titleSize={typeArticle === 'Listado' && '--m'}
                         titleSize={typeAcumRules[typeArticle].titleSize}
                         outputType={outputType}
                         withSubhead={typeAcumRules[typeArticle].withSubhead}
+                        withCategory={typeAcumRules[typeArticle].withCategory}
+                        withTags={typeAcumRules[typeArticle].withTags}
                     >
                         {banner}
                     </ArticleAcum>

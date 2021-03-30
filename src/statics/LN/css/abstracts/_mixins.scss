@@ -9,6 +9,7 @@
             url('../../fonts/#{$file}.ttf') format('truetype'),
             url('../../fonts/#{$file}.svg?#webfont') format('svg');
         font-weight: $weight;
+        font-display: swap;
         font-style: normal;
     }
 }
@@ -46,21 +47,21 @@
     }
 }
 
-@mixin headerBlanco {
-    background: $neutral-white;
-    border-bottom: 1px solid $light-neutral-300;
-    .logo-la-nacion {
-        color: $ln;
-    }
-    .--btn.--secondary {
-        background-color: $neutral-white;
-        border: 1px solid $link;
-        color: $link;
-    }
-    .com-hamburger:before {
-        color: $neutral-black;
-    }
-}
+// @mixin headerBlanco {
+//     background: $neutral-white;
+//     border-bottom: 1px solid $light-neutral-300;
+//     .logo-la-nacion {
+//         color: $ln;
+//     }
+//     .--btn.--secondary {
+//         background-color: $neutral-white;
+//         border: 1px solid $link;
+//         color: $link;
+//     }
+//     .com-hamburger:before {
+//         color: $neutral-black;
+//     }
+// }
 @mixin flex($display, $direction: null, $ejeX: null, $ejeY: null) {
     //Sólo agregamos el "@include flex($display, $direction, $ejeX, $ejeY);"
     @if $display == flex {
@@ -114,9 +115,9 @@
 @mixin OpeningFull {
     //.mod-opening
 
-    margin-top: px(-45); //header mobile
+    margin-top: px(-48); //header mobile sin linea
     @media ($media-l) {
-        margin-top: px(-65); //header
+        margin-top: px(-72); //header sin linea
     }
 
     .mod-figure {

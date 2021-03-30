@@ -6,29 +6,31 @@
     //width: 100%;
     margin-bottom: $spacing-lg;
     .com-item {
-        padding-left: 1em;
-        //font-family: $font-arial;
-        //font-size: px(16);
-        line-height: px(30);
-        margin-bottom: $spacing;
-        //color: $neutral-black;
+        padding-left: px(32);
+        font-size: px(16);
+        line-height: px(24);
+        margin-bottom: px(16);
         position: relative;
+
+        i {
+            //vienen en las notas
+            font-style: italic;
+        }
+
+        &:before {
+            font-family: 'LNicons';
+            content: $icon-bullet;
+            position: absolute;
+            left: 0;
+            font-size: px(24);
+        }
+
         &::first-letter {
             text-transform: uppercase;
         }
-        &:before {
-            content: '';
-            width: px(7);
-            height: px(7);
-            border-radius: 50%;
-            top: px(10);
-            background-color: $neutral-black;
-            //color: $neutral-white;
-            position: absolute;
-            left: 0;
-            //font-family: $font-arial;
-            //font-weight: bold;
-            //font-size: px(14);
+
+        .breaking-news & {
+            padding-left: 0;
         }
     }
     // .noticia & {

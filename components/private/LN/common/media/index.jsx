@@ -24,7 +24,8 @@ const media = ({
     isApertura,
     parrafo,
     tituloNota,
-    active
+    active,
+    anexo
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -108,7 +109,12 @@ const media = ({
                 <>{item}</>
             ) : (
                 <div ref={refContainer}>
-                    <ModMedia zoom={zoom} withZoom={withZoom} active={active}>
+                    <ModMedia
+                        zoom={zoom}
+                        withZoom={withZoom}
+                        active={active}
+                        anexo={anexo}
+                    >
                         {item}
                     </ModMedia>
                 </div>

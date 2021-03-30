@@ -1,4 +1,5 @@
 import React from 'react';
+import Html from '../LN/nota/cuerpo/html';
 
 import '../../../resources/dist/css/ln/modules/mod-media.css';
 
@@ -9,7 +10,8 @@ const ModMedia = props => {
         withZoom,
         itsGallery,
         active,
-        zoom
+        zoom,
+        anexo
     } = props;
 
     return (
@@ -21,7 +23,7 @@ const ModMedia = props => {
                 (itsGallery || zoom) && active ? '--active' : ''
             } ${classCondition || ''}`}
         >
-            {children}
+            {(anexo && <Html data={{ content: anexo }} />) || children}
         </section>
     );
 };

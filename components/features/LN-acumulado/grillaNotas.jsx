@@ -1,11 +1,13 @@
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import GrillaNotas from '../../private/LN/acumulado/grillaNotas/grillaNotas';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import { getSlotsOptions } from '../../private/LN/common/bannerRefactor/config';
 import findTermica from '../../private/common/utils/findTermica';
+import { getIdsArticlesFromOtherCollections } from '../../private/LN/common/utils/cajaTemasHelper';
+import { GlobalContext } from '../../private/common/context/globalContext';
 
 const groupBannerConfig = props => {
     const optionsSet = Object.keys(props.customFields);
@@ -88,7 +90,8 @@ function buildCustomFieldsForBanners() {
 function GrillaNotasFeature(props) {
     const {
         acumuladoGeneral = {},
-        articlesInCollection = []
+        articlesInCollection = [],
+        collectionsInPage = []
     } = useGlobalProviderAcu();
     const {
         cantidad_notas = 30,
@@ -96,21 +99,33 @@ function GrillaNotasFeature(props) {
         hide_banner = true
     } = acumuladoGeneral;
     const {
-        globalContent: { author_type: authorType, _id, Payload, distributorId },
+        globalContent: { node_type: nodeType, _id, Payload, distributorId },
         siteProperties,
-        outputType
+        outputType,
+        renderables
     } = useAppContext();
+
+    const globalContext = useContext(GlobalContext);
 
     const tagId =
         Payload && Payload.items && Payload.items.length
             ? Payload.items[0].slug
             : undefined;
 
-    const sectionId = !authorType && !Payload ? _id : null;
-    const authorId = authorType ? _id : null;
+    const sectionId = nodeType === 'section' ? _id : null;
+    const authorId = nodeType === 'author' ? _id : null;
 
     const bannerConfig = groupBannerConfig(props);
     const termicas = findTermica('banners');
+
+    const idsArticlesFromOtherCollection = getIdsArticlesFromOtherCollections(
+        renderables,
+        collectionsInPage
+    );
+
+    const idsArticlesToExclude = idsArticlesFromOtherCollection.concat(
+        articlesInCollection.map(art => art._id)
+    );
 
     return (
         <GrillaNotas
@@ -125,8 +140,9 @@ function GrillaNotasFeature(props) {
             bannerConfig={bannerConfig}
             outputType={outputType}
             hideBanner={hide_banner}
-            articlesInGlobalProvider={articlesInCollection}
+            idsArticlesToExclude={idsArticlesToExclude}
             termicas={termicas}
+            gc={globalContext}
         />
     );
 }

@@ -35,10 +35,13 @@ export default {
     cabezal_dsk: {
         slotName: 'la_nacion_desktop/Nota/cabezal_dsk',
         dimensions: [
-            [1260, 170],
-            [1180, 170],
+            [1, 1],
+            [728, 90],
+            [920, 100],
             [920, 170],
-            [1, 1]
+            [970, 90],
+            [1260, 100],
+            [1260, 170]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -49,6 +52,7 @@ export default {
                         sizes: dsk_1260x170_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -88,16 +92,8 @@ export default {
             }
         }
     },
-    adhesion_dsk: {
-        slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
-        dimensions: [
-            [920, 100],
-            [728, 90]
-        ],
-        targeting: defaultTargeting
-    },
     caja1_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja1_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja1_dsk',
         dimensions: [
             [300, 600],
             [300, 250]
@@ -105,6 +101,7 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
@@ -151,17 +148,19 @@ export default {
         }
     },
     caja2_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja2_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja2_dsk',
         dimensions: [[300, 250]],
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
                         sizes: dsk_300x250_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -202,7 +201,7 @@ export default {
         }
     },
     caja3_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja3_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja3_dsk',
         dimensions: [
             [300, 600],
             [300, 250]
@@ -210,12 +209,14 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
                         sizes: dsk_300x600_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -256,7 +257,7 @@ export default {
         }
     },
     caja4_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja4_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja4_dsk',
         dimensions: [
             [300, 600],
             [300, 250]
@@ -264,12 +265,14 @@ export default {
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
                         sizes: dsk_300x600_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -310,17 +313,19 @@ export default {
         }
     },
     caja5_dsk: {
-        slotName: 'la_nacion_desktop/nota/caja5_dsk',
+        slotName: 'la_nacion_desktop/Nota/caja5_dsk',
         dimensions: [[300, 250]],
         targeting: defaultTargeting,
         bidding: {
             prebid: {
+                code: '/133919216/la_nacion_desktop/Nota/caja1_dsk',
                 enabled: true,
                 mediaTypes: {
                     banner: {
                         sizes: dsk_300x250_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -368,10 +373,11 @@ export default {
     middle_1_dsk: {
         slotName: 'la_nacion_desktop/Nota/middle_1_dsk',
         dimensions: [
-            [468, 60],
+            [1, 1],
+            [640, 360],
             [640, 480],
             [728, 90],
-            [1, 1]
+            [468, 60]
         ],
         targeting: defaultTargeting,
         bidding: {
@@ -382,6 +388,7 @@ export default {
                         sizes: dsk_728x90_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -438,6 +445,7 @@ export default {
                         sizes: dsk_728x90_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
@@ -494,6 +502,7 @@ export default {
                         sizes: dsk_728x90_sizes
                     }
                 },
+                useSlotForAdUnit: true,
                 bids: [
                     {
                         bidder: 'appnexus',
