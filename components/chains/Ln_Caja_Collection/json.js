@@ -79,7 +79,7 @@ class CajaCollection {
             return {
                 id_caja: null,
                 visible: !hideCaja || false,
-                digramacion_caja: layout,
+                diagramacion_caja: layout,
                 notas: articuloData
             };
         } catch (err) {
