@@ -10,7 +10,7 @@ const ScriptLoadingList = ({
     location = 'body-bottom',
     section
 }) => {
-    const data = useContent({
+    const resp = useContent({
         sourceName: 'navigationTreeSource',
         query: {
             website
@@ -19,10 +19,11 @@ const ScriptLoadingList = ({
             site {
                 script_loading_list
             }
-        }`
+        }`,
+        transform: data => get(data, 'site.script_loading_list', [])
     });
 
-    return get(data, 'site.script_loading_list', []).map(scriptConfig => {
+    return resp.map(scriptConfig => {
         try {
             const scriptData = JSON.parse(scriptConfig);
             const {
