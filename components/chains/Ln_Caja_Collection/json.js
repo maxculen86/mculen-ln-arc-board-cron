@@ -2,7 +2,8 @@ import Consumer from 'fusion:consumer';
 import {
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
-    getIdsArticlesFromOtherCollections
+    getIdsArticlesFromOtherCollections,
+    validateoutItem
 } from '../../private/LN/common/utils/cajaTemasHelperApi';
 import get from '../../private/common/utils/get';
 import filter from '../../../content/filters/LN/acumulado/articleAcu';
@@ -65,15 +66,19 @@ class CajaCollection {
 
             const elements = get(articleList, 'content_elements', []);
             const articuloData = elements.map(item => {
-                return {
+                const itemNota = {
                     id_nota: item._id,
                     url_nota: item.website_url
                 };
+
+                if (validateoutItem(itemNota) === true) {
+                    return itemNota;
+                }
             });
 
             return {
                 id_caja: null,
-                visible: hideCaja || false,
+                visible: !hideCaja || false,
                 digramacion_caja: layout,
                 notas: articuloData
             };

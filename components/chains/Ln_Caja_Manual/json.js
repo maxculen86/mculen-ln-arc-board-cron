@@ -11,7 +11,7 @@ const CajaManual = props => {
     try {
         return {
             id_caja: null,
-            visible: hideCaja || false,
+            visible: !hideCaja || false,
             digramacion_caja: layout,
             notas: children
         };

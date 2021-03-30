@@ -269,3 +269,11 @@ export const cajaTemasCustomsFields = featuredName => {
         })
     };
 };
+
+export const validateoutItem = itemNota => {
+    const regex = new RegExp(`/video/`);
+    const results = regex.exec(itemNota.url_nota);
+    if (results) return false;
+
+    return true;
+};
