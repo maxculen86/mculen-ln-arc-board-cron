@@ -2,12 +2,15 @@
 @import '../abstracts/mixins';
 .mod-commentamp {
     @include flex(flex, column, center, center);
+    .com-button {
+        margin-bottom: px(32);
+    }
 }
 @media ($media-l) {
     .mod-commentamp {
         flex-direction: row;
         justify-content: space-between;
-        .com-button.--secondary.com-button.--secondary {
+        .com-button {
             margin: 0;
         }
     }
