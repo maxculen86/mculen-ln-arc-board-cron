@@ -4,16 +4,15 @@
     @include flex(flex, column, center, center);
 }
 @media ($media-l) {
-    .cuerpo__nota {
-        .mod-commentamp {
-            flex-direction: row;
-            justify-content: space-between;
-            .com-button.--secondary {
-                margin: 0;
-            }
+    .mod-commentamp {
+        flex-direction: row;
+        justify-content: space-between;
+        .com-button.--secondary.com-button.--secondary {
+            margin: 0;
         }
     }
 }
+
 .more-articles {
     margin-bottom: px(32);
 }
