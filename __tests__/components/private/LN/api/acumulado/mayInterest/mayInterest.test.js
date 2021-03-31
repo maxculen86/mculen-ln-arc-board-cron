@@ -1,4 +1,3 @@
-import env from '../../../../../../../__mocks__/fusion:environment';
 import articlesMayInterest from '../../../../../../../__mocks__/data/articleMayInterestCollections/mayInterest.json';
 import MayInterestIndex from '../../../../../../../components/private/LN/api/v1/acumulado';
 

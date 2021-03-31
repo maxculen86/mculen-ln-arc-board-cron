@@ -27,7 +27,7 @@ const authorCommon = author => {
 
     const resp = {
         ...authorData,
-        tipo: type === 'author' ? 1 : 2,
+        tipo: authorData.slug ? 1 : 2,
         imagen: image ? image[0] : null
     };
 

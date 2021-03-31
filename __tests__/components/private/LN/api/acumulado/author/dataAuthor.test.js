@@ -1,4 +1,3 @@
-import env from '../../../../../../../__mocks__/fusion:environment';
 import dataAuthor from '../../../../../../../__mocks__/data/author/author.json';
 import articlesAuthor from '../../../../../../../__mocks__/data/author/articlesbyAuthor.json';
 import AcuIndex from '../../../../../../../components/private/LN/api/v1/acumulado';
