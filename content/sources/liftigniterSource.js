@@ -49,6 +49,29 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
  * 1. Mejorar armado de uri, version, endpoint y body como parametro de liftigniter
  * 2. Mejora de registro de click, enviar listado de items
  */
+
+const formatItemsLiftigniter = items => {
+    const transformado =
+        items &&
+        items.map(item => {
+            const {
+                _id: id,
+                website_url: url,
+                headlines: { basic: title } = {}
+            } = item;
+
+            return {
+                url,
+                id,
+                title
+            };
+        });
+
+    return {
+        items: transformado
+    };
+};
+
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
 const fetch = query => {
@@ -63,7 +86,8 @@ const fetch = query => {
         arcSite,
         action,
         nextUrl,
-        widgetType
+        widgetType,
+        articles = []
     } = query;
 
     const userIdParam = userId ? `/${userId}` : '';
@@ -80,19 +104,33 @@ const fetch = query => {
         pageviewId: idArticle
     };
 
+    const itemsFormated = formatItemsLiftigniter(articles);
+
     const WIDGET_BODY = {
         widget_click: {
             ...body,
             type: 'widget_click',
             widgetName: WIDGETS,
             clickUrl: nextUrl,
-            source: 'LI'
+            source: 'LI',
+            timestamp: Date.now(),
+            visibleItems: itemsFormated
         },
         widget_shown: {
             ...body,
             type: 'widget_shown',
             widgetName: WIDGETS,
-            source: 'LI'
+            source: 'LI',
+            timestamp: Date.now(),
+            visibleItems: itemsFormated
+        },
+        widget_visible: {
+            ...body,
+            type: 'widget_visible',
+            widgetName: WIDGETS,
+            source: 'LI',
+            timestamp: Date.now(),
+            visibleItems: itemsFormated
         }
     };
 

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import ArticleMain from '../../common/articleTypes/articleMain';
-//import ComTitle from '../../../common/com-title';
 import HeaderSection from '../../../common/mod-headerSection';
 
 /**
@@ -29,8 +28,7 @@ class Index extends Component {
 
         this.state = {
             articles: [],
-            outputType,
-            isShownRequest: false
+            outputType
         };
 
         this.fetchContent({
@@ -50,17 +48,20 @@ class Index extends Component {
             }
         });
 
+        this.myRef = React.createRef();
         this.handleClick = this.handleClick.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
+        window.addEventListener('scroll', this.handleScroll);
+        this.isVisible = false;
+        this.isShownRegistred = false;
     }
 
-    componentDidUpdate() {
-        const { articles } = this.state;
-        articles &&
-            articles.length > 0 &&
-            this.registerActivity('widget_shown');
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
     }
 
     handleClick = (event, nextUrl) => {
+        const { articles } = this.state;
         event.preventDefault();
         const {
             userId,
@@ -85,7 +86,8 @@ class Index extends Component {
                 arcSite,
                 nextUrl,
                 action: 'activity',
-                widgetType: 'widget_click'
+                widgetType: 'widget_click',
+                articles
             }
         });
 
@@ -94,44 +96,70 @@ class Index extends Component {
         });
     };
 
-    registerActivity(widgetType) {
-        const { isShownRequest } = this.state;
+    handleScroll() {
+        if (!this.isVisible) {
+            const node = this.myRef.current;
+            const bounds = node && node.getBoundingClientRect();
+            const isInViewport =
+                bounds &&
+                Math.abs(bounds.top) < bounds.height &&
+                bounds.bottom > 0;
 
-        if (!isShownRequest) {
-            const {
+            if (isInViewport) {
+                const { articles } = this.state;
+                window.removeEventListener('scroll', this.handleScroll);
+                this.registerActivity('widget_visible', articles);
+                this.isVisible = true;
+            }
+        }
+    }
+
+    registerActivity(widgetType, articles) {
+        const {
+            userId,
+            sessionId,
+            cantidadNotas,
+            excludeItems,
+            url,
+            idArticle,
+            arcSite
+        } = this.props;
+
+        const { fetched } = this.getContent({
+            source: 'liftigniterSource',
+            query: {
+                cantidadNotas,
+                referrer: url,
+                idArticle,
                 userId,
                 sessionId,
-                cantidadNotas,
                 excludeItems,
-                url,
-                idArticle,
-                arcSite
-            } = this.props;
+                arcSite,
+                action: 'activity',
+                widgetType,
+                articles
+            }
+        });
 
-            this.getContent({
-                source: 'liftigniterSource',
-                query: {
-                    cantidadNotas,
-                    referrer: url,
-                    idArticle,
-                    userId,
-                    sessionId,
-                    excludeItems,
-                    arcSite,
-                    action: 'activity',
-                    widgetType
-                }
-            });
+        fetched.then(response => {});
+    }
 
-            this.setState({ isShownRequest: true });
-        }
+    registerShown() {
+        const { articles } = this.state;
+        this.registerActivity('widget_shown', articles);
+        this.isShownRegistred = true;
     }
 
     render = () => {
         const { articles, outputType } = this.state;
 
+        articles &&
+            articles.length > 0 &&
+            !this.isShownRegistred &&
+            this.registerShown();
+
         return articles && articles.length > 0 ? (
-            <div className="row interest">
+            <div className="row interest" ref={this.myRef}>
                 <HeaderSection title="Te puede interesar" />
                 <section className="row-gap-tablet-3 row-gap-desksm-3">
                     {articles.map((article, index) => {
