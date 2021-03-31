@@ -23,9 +23,9 @@ const ErrorPage = ({ siteProperties: { host } }) => (
                         <p>Seguí navegando y encontrá lo que necesitás:</p>
                         <nav>
                             <a className="--btn --secondary" href={host || '/'}>
-                                Página principal
+                                LA NACION
                             </a>
-                            <a className="--btn --secondary" href={host || '/'}>
+                            {/* <a className="--btn --secondary" href={host || '/'}>
                                 Buscador
                             </a>
                             <a
@@ -33,7 +33,7 @@ const ErrorPage = ({ siteProperties: { host } }) => (
                                 href="http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html"
                             >
                                 MAPA DEL SITIO
-                            </a>
+                            </a> */}
                         </nav>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ const ErrorPage = ({ siteProperties: { host } }) => (
         <footer>
             <div className="lay">
                 <div className="row footer-copyright">
-                    <div className="col-12 col-desksm-6 col-desk-6 footer-humor">
+                    {/* <div className="col-12 col-desksm-6 col-desk-6 footer-humor">
                         <p>
                             Visitá&nbsp;
                             <a href="https://www.lanacion.com.ar/humor">
@@ -62,10 +62,10 @@ const ErrorPage = ({ siteProperties: { host } }) => (
                             </a>
                             &nbsp; en LA NACION
                         </p>
-                    </div>
-                    <div className="col-12 col-desksm-6 col-desk-6 footer-copyright__reserved">
+                    </div> */}
+                    <div className="col-12 footer-copyright__reserved">
                         <p>
-                            Copyright 2020 SA LA NACION | Todos los derechos
+                            Copyright 2021 SA LA NACION | Todos los derechos
                             reservados
                         </p>
                     </div>
