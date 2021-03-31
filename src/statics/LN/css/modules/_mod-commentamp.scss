@@ -4,7 +4,13 @@
     @include flex(flex, column, center, center);
 }
 @media ($media-l) {
-    .mod-commentamp {
-        @include flex(flex, row, between, center);
+    .cuerpo__nota {
+        .mod-commentamp {
+            flex-direction: row;
+            justify-content: space-between;
+            .com-button.--secondary {
+                margin: 0;
+            }
+        }
     }
 }
