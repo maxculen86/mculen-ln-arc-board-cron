@@ -10,7 +10,9 @@ const apertura = article => {
         headlines: { basic: titulo, mobile: tituloMobile },
         subtype: template
     } = article;
-
+    if (!titulo) {
+        throw new Error('Titulo de la nota es null o undefined');
+    }
     let promoItem = get(article, 'promo_items.basic', null);
     if (template === '4' || template === '8')
         promoItem = get(article, 'promo_items.storytelling_mobile', null);
@@ -23,7 +25,8 @@ const apertura = article => {
 
     const resp = {
         volanta,
-        titulo: tituloMobile || titulo,
+        titulo: titulo || tituloMobile,
+        tituloMobile,
         bajada
     };
 

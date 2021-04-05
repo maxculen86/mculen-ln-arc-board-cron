@@ -14,6 +14,9 @@ const articleItem = article => {
         last_updated_date: lastUpdatedDate
     } = article;
 
+    if (!titulo) {
+        throw new Error('Titulo de la nota es null o undefined');
+    }
     const authors = get(article, 'credits.by', null);
     const image = get(article, 'promo_items.basic', null);
     const primarySection = get(article, 'taxonomy.primary_section', null);
@@ -23,7 +26,8 @@ const articleItem = article => {
     const resp = {
         id,
         templateId,
-        titulo: tituloMobile || titulo,
+        titulo: titulo || tituloMobile,
+        tituloMobile,
         fecha: dateAndTimeForAppsUtil(article.display_date),
         fechaActualizacion: dateAndTimeForAppsUtil(lastUpdatedDate),
         url,

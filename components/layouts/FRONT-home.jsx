@@ -1524,6 +1524,16 @@ const LNHome = props => {
                                         </div>
                                         {/*
                                         <section className="demofonts">
+                                            <i class="com-icon icon-snow"></i>
+                                            <i class="com-icon icon-snow-cloudy"></i>
+                                            <i class="com-icon icon-storm"></i>
+                                            <i class="com-icon icon-storm-cloudy"></i>
+                                            <i class="com-icon icon-sun"></i>
+                                            <i class="com-icon icon-sun-cloudy"></i>
+                                            <i class="com-icon icon-windy"></i>
+                                        </section>
+                                        
+                                        <section className="demofonts">
                                             <div>
                                                 <h1 className="--threexl">
                                                     <strong>

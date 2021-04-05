@@ -31,7 +31,7 @@ const NoteCard = ({
         getWithMedia(customFields, articleProps, article)
     );
     const [withSubhead, setWithSubhead] = useState(
-        getWithSubhead(articleProps, withMedia)
+        getWithSubhead(articleProps, withMedia, customFields)
     );
     const [label, setLabel] = useState(
         getLabel(articleProps, customFields, withMedia)
@@ -47,7 +47,7 @@ const NoteCard = ({
     useEffect(() => {
         setArticle(transform(content, customFields, promoItems));
         setLabel(getLabel(articleProps, customFields, withMedia));
-        setWithSubhead(getWithSubhead(articleProps, withMedia));
+        setWithSubhead(getWithSubhead(articleProps, withMedia, customFields));
         setIsRenderAutor(getIsRenderAutor(customFields));
     }, [articleProps, content, customFields, promoItems, withMedia]);
 
