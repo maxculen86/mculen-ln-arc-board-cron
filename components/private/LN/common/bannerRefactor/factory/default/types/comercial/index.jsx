@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react/jsx-one-expression-per-line */
-import React, { createRef, useRef, useState, useLayoutEffect } from 'react';
+import React, { createRef, useState, useLayoutEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Ads from '../../../../ads';
-import addEventListener from '../../../../../../../common/hooks/useEventListener';
 import useMutationObserver from '../../../../../../../common/hooks/useMutationObserver';
-import { onMutation, onLoad, onScroll, onClick } from './handlers';
+import { onMutation, onLoad, onClick } from './handlers';
+import ComButton from '../../../../../../../common/com-button';
 
 const Comercial = props => {
     const {
@@ -23,14 +22,12 @@ const Comercial = props => {
 
     if (device === 'tablet') return null;
 
-    const [showComercial, setShowComercial] = useState(false);
+    const [showElement, setShowElement] = useState(false);
     const [isMutationObserverActive, setIsMutationObserverActive] = useState(
         true
     );
-    const wrapperElement = document.getElementById('wrapper');
-    const windowRef = useRef(window || null);
-    const wrapperRef = useRef(wrapperElement);
     const comercialRef = createRef();
+    const adsRef = createRef();
 
     const observerConfig = {
         subtree: true,
@@ -38,15 +35,11 @@ const Comercial = props => {
     };
 
     const handleClick = () => {
-        onClick(windowRef, wrapperRef);
-    };
-
-    const handleScroll = () => {
-        onScroll(comercialRef, wrapperRef, device);
+        onClick(comercialRef);
     };
 
     const handleMutation = mutations => {
-        onMutation(mutations, id, setShowComercial);
+        onMutation(mutations, id, setShowElement);
     };
 
     useMutationObserver(
@@ -56,37 +49,30 @@ const Comercial = props => {
         observerConfig
     );
 
-    addEventListener('scroll', handleScroll, window);
-
     useLayoutEffect(() => {
         let idTimeout;
-        if (showComercial) {
-            idTimeout = onLoad(comercialRef, handleClick);
+        if (showElement) {
+            idTimeout = onLoad(comercialRef, () => onClick(comercialRef));
             setIsMutationObserverActive(false);
         }
         return () => {
             clearTimeout(idTimeout);
         };
-    }, [comercialRef, showComercial]);
+    }, [comercialRef, showElement]);
 
     return (
         <div
             ref={comercialRef}
-            className="mod-banner --comercial"
-            // style={{
-            //     height: !showComercial ? '0px' : '100vh',
-            //     transition: 'height 1000ms ease-in-out 0s'
-            // }}
+            className={`mod-banner --comercial${(!showElement && ' hlp-none') ||
+                ''}`}
         >
-            <button
-                type="button"
-                className="com-button --secondary --compact"
+            <ComButton
+                classCondition="--secondary --compact"
+                textname="CERRAR"
                 onClick={handleClick}
-                data-section="Comercial-nota"
-            >
-                CERRAR
-            </button>
+            />
             <Ads
+                ref={adsRef}
                 slotId={id}
                 slotName={slotName}
                 dimensions={dimensions}
