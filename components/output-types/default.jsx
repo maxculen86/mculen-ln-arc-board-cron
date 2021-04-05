@@ -24,6 +24,7 @@ import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
+import MetaSectionParsely from '../private/common/metaSectionParsely';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
@@ -114,6 +115,7 @@ const Default = props => {
         outputType,
         layout
     } = props;
+
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
@@ -127,7 +129,8 @@ const Default = props => {
         node_type: nodeType,
         name,
         Payload,
-        _id
+        _id,
+        taxonomy
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -179,6 +182,11 @@ const Default = props => {
                 <title>{title}</title>
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
+                <MetaSectionParsely
+                    _id={_id}
+                    arcSite={arcSite}
+                    taxonomy={taxonomy}
+                />
                 <Scripts location="head" {...props} />
                 <ScriptLoadingList location="head" arcSite={arcSite} />
                 {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
