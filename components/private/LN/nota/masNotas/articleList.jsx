@@ -9,6 +9,7 @@ const ArticleList = props => {
     const { articles, border, outputType, title, dataBlockName } = props;
     if (!articles) return null;
 
+    
     return (
         <>
             {articles.length > 0 && (
