@@ -19,7 +19,7 @@ const getContent = id => {
 };
 
 const MetaSectionParsely = ({ arcSite, _id = '', taxonomy = '' }) => {
-    if (arcSite !== 'la-nacion-ar') return <></>;
+    if (arcSite !== 'la-nacion-ar' || !_id) return <></>;
 
     const content = getContent(taxonomy ? taxonomy.primary_section._id : _id);
 
@@ -27,7 +27,6 @@ const MetaSectionParsely = ({ arcSite, _id = '', taxonomy = '' }) => {
 };
 
 MetaSectionParsely.propTypes = {
-    arcSite: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
     taxonomy: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
