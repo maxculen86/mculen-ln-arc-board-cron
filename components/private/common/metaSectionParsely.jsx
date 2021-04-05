@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import CapitalizeFIrstLetter from '../common/utils/capitalizeFirstLetter';
 
-const validateCampo = _id =>
-    _id.includes('/economia/campo') ? 'Campo' : false;
+const validateCampo = id => (id.includes('/economia/campo') ? 'Campo' : false);
 
 const getContent = id => {
     const isCampo = validateCampo(id);
@@ -18,22 +17,18 @@ const getContent = id => {
           );
 };
 
-const MetaSectionParsely = ({ arcSite, _id = '', taxonomy = '' }) => {
-    if (arcSite !== 'la-nacion-ar' || !_id) return <></>;
-
-    const content = getContent(taxonomy ? taxonomy.primary_section._id : _id);
+const MetaSectionParsely = ({ arcSite, taxonomy }) => {
+    if (arcSite !== 'la-nacion-ar' || !taxonomy) return <></>;
+    const content = getContent(
+        taxonomy.primary_section._id || taxonomy.sections[0]._id
+    );
 
     return <meta name="parsely-section" content={content} />;
 };
 
 MetaSectionParsely.propTypes = {
-    _id: PropTypes.string.isRequired,
-    taxonomy: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
-};
-
-MetaSectionParsely.defaultProps = {
-    _id: '',
-    taxonomy: ''
+    arcSite: PropTypes.string.isRequired,
+    taxonomy: PropTypes.string.object
 };
 
 export default MetaSectionParsely;

@@ -182,11 +182,7 @@ const Default = props => {
                 <title>{title}</title>
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
-                <MetaSectionParsely
-                    _id={_id}
-                    arcSite={arcSite}
-                    taxonomy={taxonomy}
-                />
+                <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
                 <Scripts location="head" {...props} />
                 <ScriptLoadingList location="head" arcSite={arcSite} />
                 {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
