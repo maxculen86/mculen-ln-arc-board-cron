@@ -18,7 +18,11 @@
         margin-bottom: $spacing-sm;
         .com-image {
             height: auto;
+            max-height: px(60);
             max-width: 90%;
+            &:hover {
+                filter: none;
+            }
         }
         span {
             visibility: hidden;
