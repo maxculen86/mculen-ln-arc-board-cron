@@ -9,6 +9,7 @@ import getFirstParagraph from '../../../common/utils/getFirstParagraph';
 import get from '../../../common/utils/get';
 import * as Trust from './constants';
 import addRelatedImage from '../../common/utils/addRelatedImage';
+import addForwardSlash from '../../common/utils/addForwardSlash';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -168,7 +169,9 @@ const SnippetNoticia = props => {
         dateCreated: `${new Date(createdDate).toUTCString() || ''}`,
         datePublished: `${new Date(firstPublishDate).toUTCString() || ''}`,
         dateModified: `${new Date(displayDate).toUTCString() || ''}`,
-        mainEntityOfPage: `${siteProperties.host}${path || ''}`,
+        mainEntityOfPage: `${addForwardSlash(
+            `${siteProperties.host}${path || ''}`
+        )}`,
         articleSection: `${name || ''}`,
         isAccessibleForFree: `${contentCode === 'abierta'}`,
         hasPart: {
