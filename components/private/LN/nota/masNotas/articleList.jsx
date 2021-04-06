@@ -3,13 +3,12 @@ import PropTypes from 'fusion:prop-types';
 import ArticleMain from '../../common/articleTypes/articleMain';
 import withAcuArticlesData from '../../common/hocs/WithAcuArticlesData';
 import HeaderSection from '../../../common/mod-headerSection';
-import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
+import filter from '../../../../../content/filters/LN/acumulado/articleMasNotas';
 
 const ArticleList = props => {
     const { articles, border, outputType, title, dataBlockName } = props;
     if (!articles) return null;
 
-    
     return (
         <>
             {articles.length > 0 && (
