@@ -12,32 +12,32 @@
                         display: none;
                     }
                 }
-                .com-link {
-                    &.--tags {
-                        font-family: $font-arial;
-                        color: $light-blue-500;
-                        font-weight: 100;
-                        letter-spacing: normal;
-                        //margin-bottom: $spacing;
-                        &:first-letter {
-                            text-transform: capitalize;
-                        }
-                    }
-                }
+                // .com-link {
+                //     &.--tags {
+                //         font-family: $font-arial;
+                //         //color: $light-blue-500;
+                //         font-weight: 100;
+                //         letter-spacing: normal;
+                //         //margin-bottom: $spacing;
+                //         &:first-letter {
+                //             text-transform: capitalize;
+                //         }
+                //     }
+                // }
             }
-            .com-link {
-                color: $light-neutral-700;
-            }
-            .com-subhead {
-                margin-bottom: $spacing;
-                a {
-                    display: block;
-                    width: 100%;
-                }
-            }
-            .mod-marquee {
-                display: flex;
-            }
+            // .com-link {
+            //     color: $light-neutral-700;
+            // }
+            // .com-subhead {
+            //     margin-bottom: $spacing;
+            //     a {
+            //         display: block;
+            //         width: 100%;
+            //     }
+            // }
+            // .mod-marquee {
+            //     display: flex;
+            // }
         }
     }
     .mod-picture.mod-picture {
@@ -140,104 +140,6 @@
         }
     }
 
-    //para refactor
-    .mod-categories {
-        position: relative;
-        width: 100%;
-        display: inline-flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        padding-bottom: $spacing;
-        .com-title {
-            margin-bottom: $spacing-sm;
-            margin-right: 0;
-            min-width: max-content;
-        }
-        .mod-logo {
-            //display: flex;
-            margin-bottom: $spacing-sm;
-            .com-image {
-                height: auto;
-                max-width: 90%;
-            }
-        }
-
-        .com-button {
-            width: px(30);
-            position: absolute;
-            right: px(-24);
-            bottom: px(2);
-            height: px(50);
-            flex-direction: column;
-            &.--left {
-                right: auto;
-                left: px(-24);
-            }
-            &:active {
-                background: none;
-                color: initial;
-            }
-            @media ($media-l) {
-                width: auto;
-                height: auto;
-                position: relative;
-                bottom: auto;
-                left: auto;
-                right: auto;
-                &.--left {
-                    left: auto;
-                }
-            }
-        }
-
-        .--category {
-            font-family: $font-SuecaSlab;
-        }
-
-        @media ($media-m) {
-            .mod-logo {
-                .com-image {
-                    width: auto;
-                    max-width: 100%;
-                    max-height: px(70);
-                }
-            }
-        }
-
-        @media ($media-l) {
-            flex-direction: row;
-            align-items: flex-end;
-            padding-bottom: $spacing-sm;
-
-            .com-title {
-                margin-bottom: 0;
-                margin-right: px(24);
-                padding-bottom: px(10);
-            }
-            .mod-logo {
-                margin: 0;
-                margin-right: $spacing-md;
-                .com-image {
-                    max-height: px(90);
-                }
-            }
-            .com-button {
-                padding: 0;
-                margin-bottom: px(8);
-                &:not(.hlp-none) {
-                    display: inline-flex;
-                }
-            }
-        }
-        @media ($media-lg) {
-            .mod-logo {
-                .com-image {
-                    max-width: none;
-                }
-            }
-        }
-    }
-
     .--top .mod-banner.--bg-banner {
         background: none;
     }
@@ -307,22 +209,12 @@
                 .--top {
                     background-color: $ohlala;
                 }
-                .com-lead,
-                .--tags li .com-link,
-                .mod-article .mod-description > div .com-link.--tags {
-                    color: $ohlala;
-                }
             }
         }
         &.lugares {
             main {
                 .--top {
                     background-color: $lugares;
-                }
-                .com-lead,
-                .--tags li .com-link,
-                .mod-article .mod-description > div .com-link.--tags {
-                    color: $lugares;
                 }
             }
         }
@@ -331,22 +223,12 @@
                 .--top {
                     background-color: $hola;
                 }
-                .com-lead,
-                .--tags li .com-link,
-                .mod-article .mod-description > div .com-link.--tags {
-                    color: $hola;
-                }
             }
         }
         &.living {
             main {
                 .--top {
                     background-color: $living;
-                }
-                .com-lead,
-                .--tags li .com-link,
-                .mod-article .mod-description > div .com-link.--tags {
-                    color: $living;
                 }
             }
         }
@@ -355,22 +237,12 @@
                 .--top {
                     background-color: $brando;
                 }
-                .com-lead,
-                .--tags li .com-link,
-                .mod-article .mod-description > div .com-link.--tags {
-                    color: $brando;
-                }
             }
         }
         &.jardin {
             main {
                 .--top {
                     background-color: $jardin;
-                }
-                .com-lead,
-                .--tags li .com-link,
-                .mod-article .mod-description > div .com-link.--tags {
-                    color: $jardin;
                 }
             }
         }
@@ -380,11 +252,71 @@
                 .--top {
                     background-color: $rolling;
                 }
-                .com-lead,
-                .--tags li .com-link,
-                .mod-article .mod-description > div .com-link.--tags {
-                    color: $rolling;
-                }
+            }
+        }
+    }
+
+    &.ohlala {
+        main {
+            .com-lead,
+            .--tags li .com-link,
+            .mod-article .mod-description > div .com-link.--tags {
+                color: $ohlala;
+            }
+        }
+    }
+    &.lugares {
+        main {
+            .com-lead,
+            .--tags li .com-link,
+            .mod-article .mod-description > div .com-link.--tags {
+                color: $lugares;
+            }
+        }
+    }
+    &.hola {
+        main {
+            .com-lead,
+            .--tags li .com-link,
+            .mod-article .mod-description > div .com-link.--tags {
+                color: $hola;
+            }
+        }
+    }
+    &.living {
+        main {
+            .com-lead,
+            .--tags li .com-link,
+            .mod-article .mod-description > div .com-link.--tags {
+                color: $living;
+            }
+        }
+    }
+    &.brando {
+        main {
+            .com-lead,
+            .--tags li .com-link,
+            .mod-article .mod-description > div .com-link.--tags {
+                color: $brando;
+            }
+        }
+    }
+    &.jardin {
+        main {
+            .com-lead,
+            .--tags li .com-link,
+            .mod-article .mod-description > div .com-link.--tags {
+                color: $jardin;
+            }
+        }
+    }
+    &.rolling,
+    &.rolling-stone {
+        main {
+            .com-lead,
+            .--tags li .com-link,
+            .mod-article .mod-description > div .com-link.--tags {
+                color: $rolling;
             }
         }
     }
@@ -483,6 +415,39 @@
         }
     }
     /* End: Solo para dema maqueta */
+}
+
+.economia.economia {
+    h1 .com-link.--black,
+    .com-breadcrumb .com-link,
+    main .com-button .com-icon,
+    .--category .com-link,
+    .--tags .com-link,
+    .com-link.--tags,
+    //.mod-headersection .com-link,
+    .mod-description .com-lead {
+        color: $negocios;
+    }
+
+    .mod-headersection.--bg.mod-headersection.--bg {
+        background-color: $negocios;
+    }
+}
+
+.deportes.deportes {
+    h1 .com-link.--black,
+    .com-breadcrumb .com-link,
+    main .com-button .com-icon,
+    .--category .com-link,
+    .--tags .com-link,
+    .com-link.--tags,
+    //.mod-headersection .com-link,
+    .mod-description .com-lead {
+        color: $deportes;
+    }
+    .mod-headersection.--bg.mod-headersection.--bg {
+        background-color: $deportes;
+    }
 }
 
 .com-unordered {
