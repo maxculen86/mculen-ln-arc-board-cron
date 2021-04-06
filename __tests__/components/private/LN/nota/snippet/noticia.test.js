@@ -136,7 +136,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(logoContext).toBe('https://schema.org');
         expect(logoType).toBe('ImageObject');
         expect(logoUrl).toBe(
-            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/logo-ln-amp.png$LATEST'
+            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST'
         );
         expect(height).toBe(41);
         expect(width).toBe(391);
