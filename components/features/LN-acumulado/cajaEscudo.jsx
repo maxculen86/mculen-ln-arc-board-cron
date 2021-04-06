@@ -157,7 +157,7 @@ const CajaEscudo = () => {
                 key={data}
                 title="Superliga: Todos los clubes"
                 data={data}
-                size="1"
+                size="--1"
             />
         )) ||
         null
