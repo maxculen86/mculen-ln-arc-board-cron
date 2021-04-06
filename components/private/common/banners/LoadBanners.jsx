@@ -14,6 +14,29 @@ import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
 
 let googleCmdPushed = false;
 
+function naveggSetTargeting() {
+    (function setTarge(w) {
+        try {
+            let name;
+            const persona = JSON.parse(
+                window.localStorage.getItem('nvgpersona18894')
+            );
+            for (const col in persona) {
+                if ({}.hasOwnProperty.call(persona, col)) {
+                    name = `nvg_${col}`;
+                    name = name.substring(0, 10);
+                    if (typeof googletag == 'object')
+                        googletag.pubads().setTargeting(name, persona[col]);
+                    // if (typeof GA_googleAddAttr == "function")
+                    //   GA_googleAddAttr(name, persona[col]);
+                }
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    })(window);
+}
+
 function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
@@ -39,6 +62,8 @@ const queueGoogletagCommand = bannersToLoad => {
         googletag.enableServices();
 
         googletag.pubads().refresh(nonHeaderBiddingSlots);
+
+        naveggSetTargeting();
 
         // the callback function
         // will be called twice:
@@ -98,6 +123,14 @@ const LoadBanners = ({ blocksBanners }) => {
     const bannersConfigured = renderables.filter(e =>
         ['LN-common/bannerRefactor', 'LN-nota/cuerpo'].includes(e.type)
     );
+
+    useEffect(() => {
+        if (hasAdsTestParam() === 'true') {
+            googletag.cmd.push(() => {
+                googletag.pubads().setTargeting('adstest', ['true']);
+            });
+        }
+    }, []);
 
     useEffect(() => {
         if (outputType && device)

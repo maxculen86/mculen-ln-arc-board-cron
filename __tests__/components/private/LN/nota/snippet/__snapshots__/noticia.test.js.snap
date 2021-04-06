@@ -13,7 +13,7 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] =
   \\"dateCreated\\": \\"Thu, 25 Jun 2020 19:39:36 GMT\\",
   \\"datePublished\\": \\"Thu, 25 Jun 2020 19:39:44 GMT\\",
   \\"dateModified\\": \\"Thu, 25 Jun 2020 19:39:44 GMT\\",
-  \\"mainEntityOfPage\\": \\"https://www.lanacion.com.ar/arquitectura\\",
+  \\"mainEntityOfPage\\": \\"https://www.lanacion.com.ar/arquitectura/\\",
   \\"articleSection\\": \\"Arquitectura\\",
   \\"isAccessibleForFree\\": \\"true\\",
   \\"hasPart\\": {
@@ -43,7 +43,7 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] =
     \\"logo\\": {
       \\"@context\\": \\"https://schema.org\\",
       \\"@type\\": \\"ImageObject\\",
-      \\"url\\": \\"https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/logo-ln-amp.png$LATEST\\",
+      \\"url\\": \\"https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST\\",
       \\"height\\": 41,
       \\"width\\": 391
     }

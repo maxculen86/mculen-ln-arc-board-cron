@@ -203,10 +203,10 @@ footer {
             line-height: px(24);
             color: $light-neutral-600;
             text-align: center;
-            @media ($media-l) {
-                text-align: left;
-                order: 1;
-            }
+            // @media ($media-l) {
+            //     text-align: left;
+            //     order: 1;
+            // }
         }
         @media ($media-l) {
             margin-bottom: px(24);

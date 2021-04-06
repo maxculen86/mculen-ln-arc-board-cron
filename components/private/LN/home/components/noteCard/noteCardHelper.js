@@ -19,6 +19,17 @@ export const transform = (content, customFields, promoItems) => {
         }) ||
         get(content, 'label', '');
 
+    const credits =
+        (get(customFields, 'hideImage') &&
+            get(content, 'credits') && {
+                ...get(content, 'credits', {}),
+                by: get(content, 'credits.by', []).map(author => ({
+                    ...author,
+                    image: undefined
+                }))
+            }) ||
+        get(content, 'credits');
+
     return (
         (content && {
             ...content,
@@ -32,7 +43,8 @@ export const transform = (content, customFields, promoItems) => {
 
             promo_items: promoItems || get(content, 'promo_items'),
             marquesina:
-                get(customFields, 'authors') || getAuthorsAsString(content)
+                get(customFields, 'authors') || getAuthorsAsString(content),
+            credits
         }) ||
         content
     );
@@ -74,15 +86,17 @@ export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
 };
 
 export const getWithMedia = (customFields, articleProps, article) =>
-    !get(customFields, 'hideImage') &&
-    (get(articleProps, 'withSubheadAndMedia') ||
-        (!get(articleProps, 'withSubheadAndMedia') &&
-            (get(article, 'promo_items.basic.type') === 'image' ||
-                get(customFields, 'html'))));
+    get(customFields, 'opinion') ||
+    (!get(customFields, 'hideImage') &&
+        (get(articleProps, 'withSubheadAndMedia') ||
+            (!get(articleProps, 'withSubheadAndMedia') &&
+                (get(article, 'promo_items.basic.type') === 'image' ||
+                    get(customFields, 'html')))));
 
-export const getWithSubhead = (articleProps, withMedia) =>
-    get(articleProps, 'withSubheadAndMedia') ||
-    (!get(articleProps, 'withSubheadAndMedia') && !withMedia);
+export const getWithSubhead = (articleProps, withMedia, customFields) =>
+    !get(customFields, 'opinion') &&
+    (get(articleProps, 'withSubheadAndMedia') ||
+        (!get(articleProps, 'withSubheadAndMedia') && !withMedia));
 
 export const getLabel = (articleProps, customFields, withMedia) =>
     withMedia &&

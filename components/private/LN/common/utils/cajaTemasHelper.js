@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import { formatText } from '../../../common/utils/sectionUtils';
-import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
+//import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const featuredRules = {
     cajaCollection: {
@@ -103,7 +103,7 @@ export const getCommonProps = props => {
         globalContent: { name, acumuladoGeneral }
     } = props;
     const { cajaTemaConfig = {} } = config || {};
-    const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
+    const { collectionsInPage = [] } = {}; //useGlobalProviderAcu() || {};
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
     const bgColor =
         backgroundColor === 'default' || backgroundColor === null
@@ -128,6 +128,19 @@ export const getCommonProps = props => {
             showDatalayerMark !== 'false' &&
             `0${Number(position) + 1}`.slice(-2),
         sectionName
+    };
+};
+
+export const getCommonPropsJson = props => {
+    const {
+        customFields: { layout = '' }
+    } = props;
+    const { collectionsInPage = [] } = [];
+    const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
+
+    return {
+        collectionsInPage,
+        notesQuantity
     };
 };
 
@@ -203,6 +216,13 @@ export const isInApertura = (tree = {}, idFeature) => {
     return sectionApertura.find(child => child.props.id === idFeature);
 };
 
+export const validateoutItem = itemNota => {
+    const regex = new RegExp(`/video/`);
+    const results = regex.exec(itemNota.url_nota);
+    if (results) return false;
+
+    return true;
+};
 export const cajaTemasCustomsFields = featuredName => {
     return {
         idCollection: PropTypes.string.tag({
