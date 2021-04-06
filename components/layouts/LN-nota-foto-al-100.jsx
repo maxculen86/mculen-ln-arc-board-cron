@@ -56,27 +56,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBanners from '../private/common/banners/LoadBanners';
-
-const getBannerMegatop = (element, outputType, tree, isAdmin) => {
-    const { children } = tree;
-    // children[0] => Section BannerMegatop
-    const { children: childrenSectionBannerMegatop } = children[0];
-    const isValid =
-        outputType !== 'amp' && childrenSectionBannerMegatop.length <= 1;
-    const component = isValid ? (
-        element
-    ) : (
-        <PageBuilderMessage
-            id="LN-nota-foto-al-100-error"
-            type="warning"
-            message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
-        />
-    );
-    if (isAdmin) return component;
-    return isValid ? component : null;
-};
-
-// if CATEGORIA REVISTA
+import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const lnNotaFotoAl100 = ({
     children: [
