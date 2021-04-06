@@ -194,7 +194,7 @@ const SnippetNoticia = props => {
             logo: {
                 '@context': 'https://schema.org',
                 '@type': 'ImageObject',
-                url: `${LOGO_AMP}`,
+                url: `${PLACEHOLDER}`,
                 height: 41,
                 width: 391
             }
