@@ -3,7 +3,6 @@ import { render, mount } from 'enzyme';
 import SnippetNoticia from '../../../../../../components/private/LN/nota/snippet/noticia';
 import article from '../../../../../../__mocks__/data/articles/YODTB72QWJCR7AAC3AHCCV46CM';
 import toJson from 'enzyme-to-json';
-import addForwardSlash from '../../../../../../components/private/LN/common/utils/addForwardSlash';
 
 jest.mock('fusion:environment', () => {
     return {
