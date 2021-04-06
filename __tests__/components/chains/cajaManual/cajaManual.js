@@ -19,13 +19,24 @@ describe('Test del Chain - <CajaManual />', () => {
         layout
     };
 
-    const childProps = [
-        { collection: 'features', type: 'LN-common/articulo' },
-        { collection: 'features', type: 'LN-common/articulo' },
-        { collection: 'features', type: 'LN-common/articulo' }
+    const children = [
+        {
+            id_nota: 'QXMSDT6FFZBAPI4IMLUZRZOOLI',
+            url_nota: '/deportes/test-noticia-en-arc-nid16032021/'
+        },
+        {
+            id_nota: 'N2E4T4NJ25HU7PJ56T7CCGGXOM',
+            url_nota:
+                '/lifestyle/migracion-a-estados-unidos-que-ha…iden-en-la-frontera-con-mexico-nid16032021/'
+        },
+        {
+            id_nota: 'GVFJYOZFHZAR7G6JCFNMQDXVCA',
+            url_nota:
+                '/deportes/futbol/el-boliviano-que-escapo-por…vivir-a-la-caida-del-avion-del-nid05032021/'
+        }
     ];
     propMock.customFields = customFields;
-    propMock.childProps = childProps;
+    propMock.children = children;
     propMock.title = title;
 
     const component = mount(
