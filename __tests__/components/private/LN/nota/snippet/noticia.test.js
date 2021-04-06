@@ -118,7 +118,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
             `${new Date(firstPublishDate).toUTCString()}`
         );
         expect(dateModified).toBe(`${new Date(displayDate).toUTCString()}`);
-        expect(mainEntityOfPage).toBe(`${host}${path}`);
+        expect(mainEntityOfPage).toBe(`${host}${path}/`);
         expect(articleSection).toBe(name);
         expect(isAccessibleForFree).toBe(`${contentCode === 'abierta'}`);
         expect(hasPartType).toBe('WebPageElement');
@@ -136,7 +136,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(logoContext).toBe('https://schema.org');
         expect(logoType).toBe('ImageObject');
         expect(logoUrl).toBe(
-            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/logo-ln-amp.png$LATEST'
+            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST'
         );
         expect(height).toBe(41);
         expect(width).toBe(391);
