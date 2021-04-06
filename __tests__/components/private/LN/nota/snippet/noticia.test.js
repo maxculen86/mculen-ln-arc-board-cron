@@ -3,6 +3,7 @@ import { render, mount } from 'enzyme';
 import SnippetNoticia from '../../../../../../components/private/LN/nota/snippet/noticia';
 import article from '../../../../../../__mocks__/data/articles/YODTB72QWJCR7AAC3AHCCV46CM';
 import toJson from 'enzyme-to-json';
+import addForwardSlash from '../../../../../../components/private/LN/common/utils/addForwardSlash';
 
 jest.mock('fusion:environment', () => {
     return {
@@ -118,7 +119,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
             `${new Date(firstPublishDate).toUTCString()}`
         );
         expect(dateModified).toBe(`${new Date(displayDate).toUTCString()}`);
-        expect(mainEntityOfPage).toBe(`${host}${path}`);
+        expect(mainEntityOfPage).toBe(`${host}${path}/`);
         expect(articleSection).toBe(name);
         expect(isAccessibleForFree).toBe(`${contentCode === 'abierta'}`);
         expect(hasPartType).toBe('WebPageElement');
