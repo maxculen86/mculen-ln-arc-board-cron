@@ -125,6 +125,14 @@ const LoadBanners = ({ blocksBanners }) => {
     );
 
     useEffect(() => {
+        if (hasAdsTestParam() === 'true') {
+            googletag.cmd.push(() => {
+                googletag.pubads().setTargeting('adstest', ['true']);
+            });
+        }
+    }, []);
+
+    useEffect(() => {
         if (outputType && device)
             setSuffix(() =>
                 outputType === 'amp' ? '_amp' : suffixDevice[device]
