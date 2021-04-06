@@ -31,9 +31,17 @@ const pageBuilderSections = [
     'Aside'
 ];
 
-const CLASS_ACU_REVISTA = 'acu-revista';
-const revistas = ['ohlala'];
-const sections = ['economia'];
+const CLASS_ACU_REVISTA = '';
+const revistas = [
+    'ohlala',
+    'lugares',
+    'hola',
+    'living',
+    'brando',
+    'jardin',
+    'rolling-stone'
+];
+const sections = ['economia', 'deportes'];
 
 const LNAcumuladoLayout = props => {
     const {

@@ -118,7 +118,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
             `${new Date(firstPublishDate).toUTCString()}`
         );
         expect(dateModified).toBe(`${new Date(displayDate).toUTCString()}`);
-        expect(mainEntityOfPage).toBe(`${host}${path}`);
+        expect(mainEntityOfPage).toBe(`${host}${path}/`);
         expect(articleSection).toBe(name);
         expect(isAccessibleForFree).toBe(`${contentCode === 'abierta'}`);
         expect(hasPartType).toBe('WebPageElement');
