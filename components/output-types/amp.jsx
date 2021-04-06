@@ -10,6 +10,7 @@ import AMPSnippet from '../private/common/ampSnippet';
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
+import MetaSectionParsely from '../private/common/metaSectionParsely';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
@@ -59,7 +60,8 @@ const Amp = props => {
         name,
         Payload,
         subheadlines,
-        _id
+        _id,
+        taxonomy
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -96,6 +98,7 @@ const Amp = props => {
                     globalContent={globalContent}
                 />
                 <AMPSnippet {...props} />
+                <MetaSectionParsely arcSite={arcSite} taxonomy={taxonomy} />
                 <AMPCustomStyle
                     layout={layout}
                     arcSite={arcSite}
