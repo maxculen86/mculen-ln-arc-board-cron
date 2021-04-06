@@ -254,7 +254,8 @@ export default {
         cantidadNotas: 'text',
         referrer: 'text',
         imageConfig: 'text',
-        action: 'text'
+        action: 'text',
+        sessionId: 'text'
     },
     ttl: 120
 };
