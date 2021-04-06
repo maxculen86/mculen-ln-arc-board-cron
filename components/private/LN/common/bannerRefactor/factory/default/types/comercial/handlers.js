@@ -1,10 +1,5 @@
 import get from '../../../../../../../common/utils/get';
 
-export const onClick = (ref = {}) => {
-    const current = get(ref, 'current');
-    current && current.remove();
-};
-
 export const onLoad = (ref, callback) => {
     const { current } = ref;
     return setTimeout(() => {

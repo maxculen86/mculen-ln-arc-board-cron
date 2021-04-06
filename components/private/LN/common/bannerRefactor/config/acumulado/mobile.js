@@ -97,7 +97,10 @@ export default {
     },
     comercial_mob: {
         slotName: `${PATH_SLOT}/comercial_mob`,
-        dimensions: [[320, 480]],
+        dimensions: [
+            [1, 1],
+            [320, 480]
+        ],
         targeting: defaultTargeting
     }
 };

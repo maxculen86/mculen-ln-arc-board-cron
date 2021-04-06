@@ -88,7 +88,10 @@ export default {
     },
     comercial_dsk: {
         slotName: `${PATH_SLOT}/comercial_dsk`,
-        dimensions: [[800, 600]],
+        dimensions: [
+            [1, 1],
+            [800, 600]
+        ],
         targeting: defaultTargeting
     }
 };

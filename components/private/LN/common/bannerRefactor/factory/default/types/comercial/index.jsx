@@ -35,7 +35,7 @@ const Comercial = props => {
     };
 
     const handleClick = () => {
-        onClick(comercialRef);
+        setShowElement(false);
     };
 
     const handleMutation = mutations => {
@@ -52,7 +52,7 @@ const Comercial = props => {
     useLayoutEffect(() => {
         let idTimeout;
         if (showElement) {
-            idTimeout = onLoad(comercialRef, () => onClick(comercialRef));
+            idTimeout = onLoad(comercialRef, () => setShowElement(false));
             setIsMutationObserverActive(false);
         }
         return () => {

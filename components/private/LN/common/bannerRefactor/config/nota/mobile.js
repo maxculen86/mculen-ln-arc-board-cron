@@ -461,7 +461,10 @@ export default {
     },
     comercial_mob: {
         slotName: 'la_nacion_mobile/Nota/comercial_mob',
-        dimensions: [[320, 480]],
+        dimensions: [
+            [1, 1],
+            [320, 480]
+        ],
         targeting: defaultTargeting
     }
 };

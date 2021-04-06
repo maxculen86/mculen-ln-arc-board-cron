@@ -573,7 +573,10 @@ export default {
     },
     comercial_dsk: {
         slotName: 'la_nacion_desktop/Nota/comercial_dsk',
-        dimensions: [[800, 600]],
+        dimensions: [
+            [1, 1],
+            [800, 600]
+        ],
         targeting: defaultTargeting
     }
 };
