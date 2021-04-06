@@ -1,40 +1,40 @@
 const LNHome = ({ children }) => {
     const listItems = [];
     const ArticlesbyBox = [];
-    const listBox = children[6];
-    const today = new Date();
-    const dateToday = `${today.getFullYear()}-${today.getMonth() +
-        1}-${today.getDate()}`;
     let posnum = 0;
     let cajanum = 0;
 
-    const Boxes = listBox.map(elem => {
-        if (elem) {
-            cajanum += 1;
-            posnum = 0;
+    children.map(element => {
+        const itemBoxes = element.map(elem => {
+            if (elem && elem.diagramacion_caja) {
+                cajanum += 1;
+                posnum = 0;
 
-            const subChild = elem.notas.map(item => {
-                posnum += 1;
-                return {
-                    ...item,
-                    posicion: `${String(posnum).padStart(2, '0')}`
+                const subChild = elem.notas.map(item => {
+                    posnum += 1;
+                    return {
+                        ...item,
+                        posicion: `${String(posnum).padStart(2, '0')}`
+                    };
+                });
+                const result = {
+                    ...elem,
+                    id_caja: `${String(cajanum).padStart(2, '0')}`,
+                    notas: subChild
                 };
-            });
+                ArticlesbyBox.push(result);
+                return result;
+            }
+            return elem;
+        });
 
-            return {
-                ...elem,
-                id_caja: `${String(cajanum).padStart(2, '0')}`,
-                notas: subChild
-            };
-        }
-        return elem;
+        return itemBoxes;
     });
-    ArticlesbyBox.push(Boxes);
 
     listItems.push({
         // fecha_foto: dateToday, //Data pendiente de añadir
         // usuario_publica: 'XX', //Data pendiente de añadir
-        cajas: Boxes
+        cajas: ArticlesbyBox
     });
 
     return Array.isArray(listItems) ? listItems : null;
