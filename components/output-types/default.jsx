@@ -13,6 +13,7 @@ import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
 import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
+import Datadog from '../private/common/scriptManager/dataDog';
 import ScriptLoadingList from '../private/common/scriptManager/scriptLoadingList';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
@@ -31,6 +32,10 @@ import { pipe } from '../private/common/utils/functional';
 // import Queryly from '../private/common/scriptManager/queryly';
 
 const scriptList = [
+    {
+        component: { name: 'Datadog', function: Datadog },
+        feature: 'none'
+    },
     {
         component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
         feature: 'none'
