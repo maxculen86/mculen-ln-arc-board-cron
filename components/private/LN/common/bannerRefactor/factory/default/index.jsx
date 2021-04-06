@@ -5,6 +5,7 @@ import React, { useReducer, useEffect, createElement } from 'react';
 
 import Default from './types';
 import Megatop from './types/megatop';
+import Comercial from './types/comercial';
 
 import {
     STORY_TEMPLATE,
@@ -39,7 +40,9 @@ import {
     MEGATOP_MOB,
     ADHESION_DSK,
     ADHESION_MOB,
-    ADHESION_TAB
+    ADHESION_TAB,
+    COMERCIAL_DSK,
+    COMERCIAL_MOB
 } from '../constants';
 
 import withStickyFromPointToPoint from '../../decorators/withStickyFromPointToPoint';
@@ -139,6 +142,9 @@ function getBannerForStoryTemplate(config) {
             return createElement(withNonSubscribersConstraint(Default), {
                 ...config
             });
+        case COMERCIAL_DSK:
+        case COMERCIAL_MOB:
+            return <Comercial {...config} />;
         case MIDDLE_TEADS_DSK:
         case CAJA_1_DSK:
         case CAJA_2_DSK:
@@ -176,6 +182,9 @@ function getBannerForAccumTemplate(config) {
                     closeButton: true
                 }
             );
+        case COMERCIAL_DSK:
+        case COMERCIAL_MOB:
+            return <Comercial {...config} />;
         case CABEZAL_DSK:
         case CABEZAL_TAB:
         case CAJA_1_DSK:

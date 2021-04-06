@@ -159,6 +159,6 @@ const CajaEscudo = () => {
     );
 };
 
-CajaEscudo.label = 'LN Acumulado Caja Escudo';
+CajaEscudo.label = 'LN Caja Escudos';
 
 export default CajaEscudo;
