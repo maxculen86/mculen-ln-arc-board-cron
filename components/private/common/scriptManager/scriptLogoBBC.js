@@ -24,4 +24,8 @@ s_bbcws('track', 'pageView');`
     return (distributorName === 'BBC Mundo') ? nodes : null;
 };
 
+ScriptLogoBBC.propTypes = {
+    distributorName: PropTypes.string.isRequired
+};
+
 export default ScriptLogoBBC;

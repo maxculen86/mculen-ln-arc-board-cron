@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 
 const ScriptLogoBBCAMP = ({ distributorName }) => {
     const data = `{
@@ -18,6 +19,10 @@ const ScriptLogoBBCAMP = ({ distributorName }) => {
             />
         </amp-analytics>
     ) : null;
+};
+
+ScriptLogoBBCAMP.propTypes = {
+    distributorName: PropTypes.string.isRequired
 };
 
 export default ScriptLogoBBCAMP;
