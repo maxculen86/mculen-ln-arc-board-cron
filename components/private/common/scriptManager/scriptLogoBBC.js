@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 // prettier-ignore
 
 const ScriptLogoBBC = ({ distributorName }) => {
