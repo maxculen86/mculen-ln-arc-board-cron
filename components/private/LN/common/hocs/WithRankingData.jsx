@@ -22,8 +22,8 @@ function WithRankingData(WrappedComponent, imageConfig) {
             }
 
             hasResults = articles => {
-                if (articles && !articles.content_elements) return false;
-                if (articles && articles.content_elements.length === 0)
+                if (!articles) return true;
+                if (get(articles, 'content_elements', []).length === 0)
                     return false;
 
                 return true;

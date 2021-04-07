@@ -25,7 +25,6 @@ const resolve = (key, a) => {
     const sectionFilter = sectionId ? `category${sectionId}` : '';
     const offsetFilter = daysAgo ? `&offset=${daysAgo}` : '';
     const finalPath = `/feeds/most-read/${sectionFilter}/${basePath}&size=${sizeNumber}${offsetFilter}`;
-    console.log("🚀 ~ file: rankingArticlesSource.js ~ line 28 ~ resolve ~ finalPath", finalPath)
     return finalPath;
 };
 
@@ -43,7 +42,6 @@ const fetch = query => {
     }
 
     return request(opt).then((response = {}) => {
-        console.log("🚀 ~ file: rankingArticlesSource.js ~ line 46 ~ returnrequest ~ response", response)
         if (response.type === 'redirect' && response.redirect_url) {
             throw new Redirect(response.redirect_url, 301);
         }
@@ -97,7 +95,9 @@ const transform = (data, siteProps) => {
                                 // Se pasa el subtype para que las notas de foto al 100
                                 // y storytelling no sean excluidas de las validaciones del resizer
                                 // y pueda aplicarse 3:2, focal point o smartcrop
-                                subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                                subtype: isFotoAl100orStorytelling
+                                    ? '-1'
+                                    : subtype
                             }
                         ),
                         headlines: {
@@ -117,5 +117,5 @@ export default {
         size: 'number',
         website: 'text'
     },
-    ttl: 120 // 3600
+    ttl: 3600
 };
