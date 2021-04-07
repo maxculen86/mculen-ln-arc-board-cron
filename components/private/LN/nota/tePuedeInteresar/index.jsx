@@ -62,6 +62,14 @@ class Index extends Component {
             window.removeEventListener('scroll', this.handleScroll);
     }
 
+    // Se limpia el formato de los articulos, antes de ir al source
+    // para evitar un error 414
+    cleanArticleFormat = (articles = []) => {
+        return articles.map(_article => {
+            return { ..._article, promo_items: undefined, by: undefined };
+        });
+    };
+
     handleClick = (event, nextUrl) => {
         const { articles } = this.state;
         event.preventDefault();
@@ -89,7 +97,7 @@ class Index extends Component {
                 nextUrl,
                 action: 'activity',
                 widgetType: 'widget_click',
-                articles
+                articles: this.cleanArticleFormat(articles)
             }
         });
 
@@ -142,7 +150,7 @@ class Index extends Component {
                 arcSite,
                 action: 'activity',
                 widgetType,
-                articles
+                articles: this.cleanArticleFormat(articles)
             }
         });
 
