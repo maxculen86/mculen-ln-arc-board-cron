@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ScriptLogoBBCAMP = ({ distributorName }) => {
-    const content = `{
+    const data = `{
         "vars": { "syndication-partner":"lanacion.com","language":"mundo" },
         "triggers": {
             "trackPageview": { "on":"visible","request":"wsStoryView" }
@@ -13,7 +13,7 @@ const ScriptLogoBBCAMP = ({ distributorName }) => {
             <script
                 type="application/json"
                 dangerouslySetInnerHTML={{
-                    __html: content
+                    __html: data
                 }}
             />
         </amp-analytics>
