@@ -7,6 +7,7 @@ export default {
     loggerOn: true,
     loggerExcludedErrors: [404, 301, 302],
     scripts: {
+        Datadog: { props: {}, location: ['head'] },
         ScriptVideoPowa: {
             props: {},
             location: ['head']

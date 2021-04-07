@@ -24,7 +24,7 @@ describe('Json imagen en acumulado', () => {
     test('tipo de autor', () => {
         const authors = article.content_elements[12].credits.by;
         const resp = authors.map(a => acuAuthor(a));
-        expect(resp[0].tipo).toBe(2);
+        expect(resp[0].tipo).toBe(1);
     });
 
     test('Imagen de autor en null', () => {

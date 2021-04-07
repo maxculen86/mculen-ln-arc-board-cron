@@ -1,7 +1,16 @@
-{
-    "_id": "4KJXJVMKZ5EPNI7QR655IDLDNU",
-    "additional_properties": {},
-    "content": "Esto es un botón",
-    "type": "interstitial_link",
-    "url": "//www.lanacion.com.ar"
-}
+[
+    {
+        "_id": "4KJXJVMKZ5EPNI7QR655IDLDNU",
+        "additional_properties": {},
+        "content": "Esto es un botón",
+        "type": "interstitial_link",
+        "url": "//www.lanacion.com.ar"
+    },
+    {
+        "_id": "4KJXJVMKZ5EPNI7QR655IDLDNU",
+        "additional_properties": {},
+        "content": "Esto es un botón",
+        "type": "interstitial_link",
+        "url": "https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/politica/familiares-de-la-tragedia-de-once-pidieron-la-detencion-de-julio-de-vido-nid29032021/"
+    }
+]

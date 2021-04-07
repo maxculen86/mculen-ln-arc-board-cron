@@ -1,4 +1,3 @@
-import env from '../../../../../../__mocks__/fusion:environment';
 import AcuIndex from '../../../../../../components/private/LN/api/v1/acumulado';
 
 describe('Test de index en Json acumulado', () => {

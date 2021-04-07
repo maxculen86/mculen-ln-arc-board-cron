@@ -51,13 +51,15 @@ class Index extends Component {
         this.myRef = React.createRef();
         this.handleClick = this.handleClick.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
-        window.addEventListener('scroll', this.handleScroll);
+        typeof window === 'object' &&
+            window.addEventListener('scroll', this.handleScroll);
         this.isVisible = false;
         this.isShownRegistred = false;
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll);
+        typeof window === 'object' &&
+            window.removeEventListener('scroll', this.handleScroll);
     }
 
     handleClick = (event, nextUrl) => {
@@ -92,7 +94,9 @@ class Index extends Component {
         });
 
         fetched.then(response => {
-            window.location.href = nextUrl;
+            if (typeof window === 'object') {
+                window.location.href = nextUrl;
+            }
         });
     };
 
@@ -107,7 +111,8 @@ class Index extends Component {
 
             if (isInViewport) {
                 const { articles } = this.state;
-                window.removeEventListener('scroll', this.handleScroll);
+                typeof window === 'object' &&
+                    window.removeEventListener('scroll', this.handleScroll);
                 this.registerActivity('widget_visible', articles);
                 this.isVisible = true;
             }

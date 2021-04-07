@@ -1,3 +1,5 @@
+import { getLinkDomain } from '../../../../../../common/utils/getEmbedHref';
+
 const button = (nodo, dataNota) => {
     if (!nodo) return null;
 
@@ -5,7 +7,7 @@ const button = (nodo, dataNota) => {
         _t: 'boton',
         class: 'linkboton',
         valor: nodo.content,
-        href: nodo.url
+        href: getLinkDomain(nodo.url)
     };
 
     return {

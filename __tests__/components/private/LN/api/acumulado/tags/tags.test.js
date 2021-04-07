@@ -1,4 +1,3 @@
-import env from '../../../../../../../__mocks__/fusion:environment';
 import AcuTags from '../../../../../../../__mocks__/data/articleTagsCollections/tags.json';
 import TagsIndex from '../../../../../../../components/private/LN/api/v1/acumulado';
 
