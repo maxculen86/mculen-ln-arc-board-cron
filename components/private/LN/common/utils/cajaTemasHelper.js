@@ -102,6 +102,7 @@ export const getCommonProps = props => {
         id: idFeature,
         globalContent: { name, acumuladoGeneral }
     } = props;
+
     const { cajaTemaConfig = {} } = config || {};
     const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
@@ -114,6 +115,7 @@ export const getCommonProps = props => {
     const position =
         renderables
             .filter(ren => ren.collection === 'chains')
+            .filter(chain => chain.props.customFields.hideCaja !== true)
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
     const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
