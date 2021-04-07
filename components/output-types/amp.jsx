@@ -18,6 +18,7 @@ import getCollectionsFromRenderables from '../private/common/utils/getCollection
 import analytics from '../../resources/json/analytics.json';
 import dataLayerIndexAmp from '../private/common/dataLayerIndexAmp';
 import MetasOG from '../private/common/metaTags/metasOG';
+import ScriptLogoBBCAMP from '../private/common/scriptManager/scriptLogoBBCAMP';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -170,6 +171,7 @@ const Amp = props => {
                         />
                     )}
                 </amp-analytics>
+                <ScriptLogoBBCAMP distributorName={distributorName} />
                 {children}
             </body>
         </html>
