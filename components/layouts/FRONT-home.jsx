@@ -31,7 +31,7 @@ const LNHome = props => {
             <LoginProvider>
                 <GlobalProviderAcu>
                     {seccion1}
-                    <div className="mod-banner --comercial">
+                    {/* <div className="mod-banner --comercial">
                         <ComButton
                             classCondition="--secondary --compact"
                             textname="CERRAR"
@@ -50,7 +50,7 @@ const LNHome = props => {
                                 ></iframe>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div
                         id="wrapper"
                         className={`home demofront ${amp} --transparent`}

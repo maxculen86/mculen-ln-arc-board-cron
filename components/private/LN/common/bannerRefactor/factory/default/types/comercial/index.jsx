@@ -67,7 +67,7 @@ const Comercial = props => {
                 ''}`}
         >
             <ComButton
-                classCondition="--secondary --compact"
+                classCondition="--primary --compact"
                 textname="CERRAR"
                 onClick={handleClick}
             />
