@@ -131,16 +131,10 @@ const getMetasOG = props => {
         }
     ];
     if (data.isArticle) {
-        metas.push(
-            {
-                property: 'article:published_time',
-                content: data.publishDate
-            },
-            {
-                property: 'article:content_tier',
-                content: data.tier
-            }
-        );
+        metas.push({
+            property: 'article:published_time',
+            content: data.publishDate
+        });
     }
     return metas;
 };
