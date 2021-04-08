@@ -60,7 +60,7 @@ class CajaCollection {
                 customFields: { hideCaja, layout }
             } = this.props;
 
-            if (!articleList) {
+            if (!articleList || hideCaja) {
                 return null;
             }
 

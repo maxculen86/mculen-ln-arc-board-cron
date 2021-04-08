@@ -53,12 +53,12 @@ describe('Test del Chain - <CajaManual />', () => {
         expect(mock.props('customFields').customFields).toEqual(customFields);
     });
 
-    it('Recibe de customFields el campo obligatorio idCollection', () => {
+    it('Recibe de customFields el campo obligatorio hideCaja', () => {
         expect(mock.props('customFields').customFields.hideCaja).toBeFalsy();
         expect(mock.props('customFields').customFields.hideCaja).toBe(false);
     });
 
-    it('Recibe de customFields el campo obligatorio notesQuantity', () => {
+    it('Recibe de customFields el campo obligatorio layout', () => {
         expect(mock.props('customFields').customFields.layout).toBeTruthy();
         expect(mock.props('customFields').customFields.layout).toBe(layout);
     });
