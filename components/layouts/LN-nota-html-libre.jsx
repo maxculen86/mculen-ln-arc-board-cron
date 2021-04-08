@@ -54,24 +54,7 @@ import '../../resources/dist/css/ln/base/helpers.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import LoadBanners from '../private/common/banners/LoadBanners';
-
-// TODO: componentizar banner megatop
-const getBannerMegatop = (element, outputType, tree, isAdmin) => {
-    const { children } = tree;
-    const { children: childrenSectionBannerMegatop } = children[0];
-    const isValid =
-        outputType !== 'amp' && childrenSectionBannerMegatop.length <= 1;
-    const component = isValid ? (
-        element
-    ) : (
-        <PageBuilderMessage
-            id="LN-nota-error"
-            type="warning"
-            message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
-        />
-    );
-    return isValid ? component : null;
-};
+import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const lnNotaNoticia = ({
     children: [bannerMegatop, bottom, bottomTercera],

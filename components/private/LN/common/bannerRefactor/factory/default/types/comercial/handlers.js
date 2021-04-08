@@ -1,5 +1,3 @@
-import get from '../../../../../../../common/utils/get';
-
 export const onLoad = (ref, callback) => {
     const { current } = ref;
     return setTimeout(() => {

@@ -3,7 +3,7 @@ import React, { createRef, useState, useLayoutEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Ads from '../../../../ads';
 import useMutationObserver from '../../../../../../../common/hooks/useMutationObserver';
-import { onMutation, onLoad, onClick } from './handlers';
+import { onMutation, onLoad } from './handlers';
 import ComButton from '../../../../../../../common/com-button';
 
 const Comercial = props => {
@@ -67,7 +67,7 @@ const Comercial = props => {
                 ''}`}
         >
             <ComButton
-                classCondition="--secondary --compact"
+                classCondition="--primary --compact"
                 textname="CERRAR"
                 onClick={handleClick}
             />

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'fusion:prop-types';
 // prettier-ignore
 
 const ScriptLogoBBC = ({ distributorName }) => {
@@ -22,6 +23,10 @@ s_bbcws('track', 'pageView');`
     ];
 
     return (distributorName === 'BBC Mundo') ? nodes : null;
+};
+
+ScriptLogoBBC.propTypes = {
+    distributorName: PropTypes.string.isRequired
 };
 
 export default ScriptLogoBBC;
