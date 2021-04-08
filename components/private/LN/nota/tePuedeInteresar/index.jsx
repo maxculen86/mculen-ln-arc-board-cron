@@ -62,34 +62,33 @@ class Index extends Component {
             window.removeEventListener('scroll', this.handleScroll);
     }
 
+    // Se limpia el formato de los articulos, antes de ir al source
+    // para evitar un error 414
+    cleanArticleFormat = (articles = []) => {
+        return articles.map(_article => {
+            // eslint-disable-next-line camelcase
+            const { _id, website_url, headlines } = _article;
+            return { _id, website_url, headlines };
+        });
+    };
+
     handleClick = (event, nextUrl) => {
         const { articles } = this.state;
         event.preventDefault();
-        const {
-            userId,
-            sessionId,
-            cantidadNotas,
-            excludeItems,
-            url,
-            idArticle,
-            arcSite
-        } = this.props;
+        const { sessionId, excludeItems, url, idArticle, arcSite } = this.props;
 
         const { fetched } = this.getContent({
             source: 'liftigniterSource',
             query: {
-                cantidadNotas,
                 referrer: url,
-                imageConfig: 'm',
                 idArticle,
-                userId,
                 sessionId,
                 excludeItems,
                 arcSite,
                 nextUrl,
                 action: 'activity',
                 widgetType: 'widget_click',
-                articles
+                articles: this.cleanArticleFormat(articles)
             }
         });
 
@@ -119,26 +118,16 @@ class Index extends Component {
         }
     }
 
-    registerActivity(widgetType, articles) {
-        const {
-            userId,
-            sessionId,
-            cantidadNotas,
-            excludeItems,
-            url,
-            idArticle,
-            arcSite
-        } = this.props;
+    registerActivity(widgetType, _articles) {
+        const articles = this.cleanArticleFormat(_articles);
+        const { sessionId, url, idArticle, arcSite } = this.props;
 
         const { fetched } = this.getContent({
             source: 'liftigniterSource',
             query: {
-                cantidadNotas,
                 referrer: url,
                 idArticle,
-                userId,
                 sessionId,
-                excludeItems,
                 arcSite,
                 action: 'activity',
                 widgetType,
@@ -146,7 +135,9 @@ class Index extends Component {
             }
         });
 
-        fetched.then(response => {});
+        fetched.then(response => {
+            // console.log('response Liftigniter', response);
+        });
     }
 
     registerShown() {

@@ -41,7 +41,7 @@ const fetch = query => {
         };
     }
 
-    return request(opt).then(response => {
+    return request(opt).then((response = {}) => {
         if (response.type === 'redirect' && response.redirect_url) {
             throw new Redirect(response.redirect_url, 301);
         }
@@ -65,43 +65,47 @@ const transform = (data, siteProps) => {
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     const resp = {
-        content_elements: data.content_elements
-            .filter(art => !isNotRecommend(art))
-            .slice(0, siteProps.size)
-            .map(elem => {
-                const headlines = get(elem, `headlines`, {});
-                const shortTitle = get(elem, `headlines.mobile`, null);
-                const promoItems = get(elem, `promo_items`, null);
-                const subtype = get(elem, `subtype`, null);
-                const isFotoAl100orStorytelling =
-                    subtype === FOTOAL100 || subtype === STORYTELLING;
-                return {
-                    ...elem,
-                    ...addResizedUrls(
-                        {
-                            ...(promoItems && {
-                                promo_items: promoItems
-                            })
-                        },
-                        {
-                            resizerSecret: RESIZER_KEY,
-                            resizerUrl: RESIZER_URL,
-                            presets: {
-                                promoItems: presetsPromoItems,
-                                presetsDefault
+        content_elements:
+            data.content_elements &&
+            data.content_elements
+                .filter(art => !isNotRecommend(art))
+                .slice(0, siteProps.size)
+                .map(elem => {
+                    const headlines = get(elem, `headlines`, {});
+                    const shortTitle = get(elem, `headlines.mobile`, null);
+                    const promoItems = get(elem, `promo_items`, null);
+                    const subtype = get(elem, `subtype`, null);
+                    const isFotoAl100orStorytelling =
+                        subtype === FOTOAL100 || subtype === STORYTELLING;
+                    return {
+                        ...elem,
+                        ...addResizedUrls(
+                            {
+                                ...(promoItems && {
+                                    promo_items: promoItems
+                                })
                             },
-                            // Se pasa el subtype para que las notas de foto al 100
-                            // y storytelling no sean excluidas de las validaciones del resizer
-                            // y pueda aplicarse 3:2, focal point o smartcrop
-                            subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                            {
+                                resizerSecret: RESIZER_KEY,
+                                resizerUrl: RESIZER_URL,
+                                presets: {
+                                    promoItems: presetsPromoItems,
+                                    presetsDefault
+                                },
+                                // Se pasa el subtype para que las notas de foto al 100
+                                // y storytelling no sean excluidas de las validaciones del resizer
+                                // y pueda aplicarse 3:2, focal point o smartcrop
+                                subtype: isFotoAl100orStorytelling
+                                    ? '-1'
+                                    : subtype
+                            }
+                        ),
+                        headlines: {
+                            ...headlines,
+                            shortTitle
                         }
-                    ),
-                    headlines: {
-                        ...headlines,
-                        shortTitle
-                    }
-                };
-            })
+                    };
+                })
     };
     return resp;
 };

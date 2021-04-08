@@ -80,9 +80,9 @@ const fetch = query => {
         referrer = SITE_LANACION,
         imageConfig = 'm',
         idArticle,
-        userId,
+        userId = '',
         sessionId,
-        excludeItems,
+        excludeItems = [],
         arcSite,
         action,
         nextUrl,
@@ -90,7 +90,7 @@ const fetch = query => {
         articles = []
     } = query;
 
-    const userIdParam = userId ? `/${userId}` : '';
+    const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
     const baseUrl = `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}`;
     const headers = {
         'Accept-Encoding': '*,q=0.8',
@@ -105,6 +105,7 @@ const fetch = query => {
     };
 
     const itemsFormated = formatItemsLiftigniter(articles);
+    const timestamp = Date.now();
 
     const WIDGET_BODY = {
         widget_click: {
@@ -113,7 +114,7 @@ const fetch = query => {
             widgetName: WIDGETS,
             clickUrl: nextUrl,
             source: 'LI',
-            timestamp: Date.now(),
+            timestamp,
             visibleItems: itemsFormated
         },
         widget_shown: {
@@ -121,7 +122,7 @@ const fetch = query => {
             type: 'widget_shown',
             widgetName: WIDGETS,
             source: 'LI',
-            timestamp: Date.now(),
+            timestamp,
             visibleItems: itemsFormated
         },
         widget_visible: {
@@ -129,7 +130,7 @@ const fetch = query => {
             type: 'widget_visible',
             widgetName: WIDGETS,
             source: 'LI',
-            timestamp: Date.now(),
+            timestamp,
             visibleItems: itemsFormated
         }
     };

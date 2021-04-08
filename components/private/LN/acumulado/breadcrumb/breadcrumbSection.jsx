@@ -9,6 +9,7 @@ function BreadcrumbSection({ sections, host, colorCategory }) {
     return (
         <>
             <BreadCrumbBase
+                lastLinked
                 sections={sections}
                 dataSection={DATA_SECTION}
                 host={host}
