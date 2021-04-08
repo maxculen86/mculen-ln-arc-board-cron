@@ -75,7 +75,7 @@ class Index extends Component {
     handleClick = (event, nextUrl) => {
         const { articles } = this.state;
         event.preventDefault();
-        const { sessionId, excludeItems, url, idArticle, arcSite } = this.props;
+        const { sessionId, url, idArticle, arcSite } = this.props;
 
         const { fetched } = this.getContent({
             source: 'liftigniterSource',
@@ -83,7 +83,6 @@ class Index extends Component {
                 referrer: url,
                 idArticle,
                 sessionId,
-                excludeItems,
                 arcSite,
                 nextUrl,
                 action: 'activity',
