@@ -50,28 +50,6 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
  * 2. Mejora de registro de click, enviar listado de items
  */
 
-const formatItemsLiftigniter = items => {
-    const transformado =
-        items &&
-        items.map(item => {
-            const {
-                _id: id,
-                website_url: url,
-                headlines: { basic: title } = {}
-            } = item;
-
-            return {
-                url,
-                id,
-                title
-            };
-        });
-
-    return {
-        items: transformado
-    };
-};
-
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
 const fetch = query => {
@@ -104,7 +82,6 @@ const fetch = query => {
         pageviewId: idArticle
     };
 
-    const itemsFormated = formatItemsLiftigniter(articles);
     const timestamp = Date.now();
 
     const WIDGET_BODY = {
@@ -115,7 +92,7 @@ const fetch = query => {
             clickUrl: nextUrl,
             source: 'LI',
             timestamp,
-            visibleItems: itemsFormated
+            visibleItems: articles
         },
         widget_shown: {
             ...body,
@@ -123,7 +100,7 @@ const fetch = query => {
             widgetName: WIDGETS,
             source: 'LI',
             timestamp,
-            visibleItems: itemsFormated
+            visibleItems: articles
         },
         widget_visible: {
             ...body,
@@ -131,7 +108,7 @@ const fetch = query => {
             widgetName: WIDGETS,
             source: 'LI',
             timestamp,
-            visibleItems: itemsFormated
+            visibleItems: articles
         }
     };
 
