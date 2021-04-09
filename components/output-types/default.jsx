@@ -11,7 +11,7 @@ import PostBid from '../private/common/scriptManager/postbid';
 import ArcAds from '../private/common/scriptManager/arcAds';
 import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
-import Livefyre from '../private/common/scriptManager/Livefyre';
+// import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import Datadog from '../private/common/scriptManager/dataDog';
 import ScriptLoadingList from '../private/common/scriptManager/scriptLoadingList';
@@ -72,10 +72,6 @@ const scriptList = [
     {
         component: { name: 'FacebookSDK', function: FacebookSDK },
         feature: ['LN-nota/share']
-    },
-    {
-        component: { name: 'Livefyre', function: Livefyre },
-        feature: ['LN-nota/comments']
     },
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },
