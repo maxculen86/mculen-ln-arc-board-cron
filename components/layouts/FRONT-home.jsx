@@ -9,6 +9,8 @@ import Article from '../private/common/mod-article';
 import HeaderSection from '../private/common/mod-headerSection';
 import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
+import ModPromo from '../private/common/mod-promo';
+import ComButton from '../private/common/com-button';
 
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -29,6 +31,26 @@ const LNHome = props => {
             <LoginProvider>
                 <GlobalProviderAcu>
                     {seccion1}
+                    {/* <div className="mod-banner --comercial">
+                        <ComButton
+                            classCondition="--secondary --compact"
+                            textname="CERRAR"
+                        />
+                        <div
+                            id="comercial_dsk"
+                            className="com-banner"
+                            data-google-query-id="CJa2odea1u8CFeoD0AQd0OQHtA"
+                        >
+                            <div id="google_ads_iframe_">
+                                <iframe
+                                    src="https://source.unsplash.com/800x600"
+                                    width="800"
+                                    height="600"
+                                    scrolling="no"
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div> */}
                     <div
                         id="wrapper"
                         className={`home demofront ${amp} --transparent`}
@@ -219,13 +241,18 @@ const LNHome = props => {
                                                 Banner
                                             </div>
                                         </section>
-
-                                        <section className="mod-anexo">
-                                            <div className="com-anexo">
-                                                ANEXO 2
-                                            </div>
-                                        </section>
-
+                                        <div className="row-gap-tablet-2">
+                                            <ModPromo
+                                                text="La información más completa del mercado inmobiliario minuto a minuto."
+                                                link="https://www.lanacion.com.ar/propiedades/"
+                                                logoName="propiedades"
+                                            />
+                                            <ModPromo
+                                                text="La información más completa del mercado inmobiliario minuto a minuto."
+                                                link="https://www.lanacion.com.ar/revista-lugares/"
+                                                logoName="lugares"
+                                            />
+                                        </div>
                                         <div
                                             data-module="tema_04"
                                             data-is-loading="false"
@@ -542,11 +569,11 @@ const LNHome = props => {
                                             <ComTitle size="--twoxs" content="Temáticas LA NACION" />
                                             <div className="row-gap-tablet-2">
                                                 <a href="https://www.lanacion.com.ar/propiedades/">
-                                                    <div class="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" class="com-image " alt="Logo"/></div>
+                                                    <div className="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" className="com-image " alt="Logo"/></div>
                                                     Toda la informacion del mercado inmobiliario 
                                                 </a>
                                                 <a href="https://www.lanacion.com.ar/propiedades/">
-                                                    <div class="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" class="com-image " alt="Logo"/></div>
+                                                    <div className="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" className="com-image " alt="Logo"/></div>
                                                     Noticias, informes y referentes del campo argentino 
                                                 </a>
                                             </div>
@@ -1517,6 +1544,16 @@ const LNHome = props => {
                                             />
                                         </div>
                                         {/*
+                                        <section className="demofonts">
+                                            <i class="com-icon icon-snow"></i>
+                                            <i class="com-icon icon-snow-cloudy"></i>
+                                            <i class="com-icon icon-storm"></i>
+                                            <i class="com-icon icon-storm-cloudy"></i>
+                                            <i class="com-icon icon-sun"></i>
+                                            <i class="com-icon icon-sun-cloudy"></i>
+                                            <i class="com-icon icon-windy"></i>
+                                        </section>
+                                        
                                         <section className="demofonts">
                                             <div>
                                                 <h1 className="--threexl">

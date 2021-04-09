@@ -49,6 +49,29 @@ const transformArticles = (liftigniterArticles = [], cantidadNotas) =>
  * 1. Mejorar armado de uri, version, endpoint y body como parametro de liftigniter
  * 2. Mejora de registro de click, enviar listado de items
  */
+
+const formatItemsLiftigniter = items => {
+    const transformado =
+        items &&
+        items.map(item => {
+            const {
+                _id: id,
+                website_url: url,
+                headlines: { basic: title } = {}
+            } = item;
+
+            return {
+                url,
+                id,
+                title
+            };
+        });
+
+    return {
+        items: transformado
+    };
+};
+
 const duplicateMaxCount = cantidadNotas => cantidadNotas * 2;
 
 const fetch = query => {
@@ -57,15 +80,17 @@ const fetch = query => {
         referrer = SITE_LANACION,
         imageConfig = 'm',
         idArticle,
-        userId,
+        userId = '',
         sessionId,
-        excludeItems,
+        excludeItems = [],
         arcSite,
         action,
-        nextUrl
+        nextUrl,
+        widgetType,
+        articles = []
     } = query;
 
-    const userIdParam = userId ? `/${userId}` : '';
+    const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
     const baseUrl = `https://query.petametrics.com/v3/${JSK_ID}${userIdParam}`;
     const headers = {
         'Accept-Encoding': '*,q=0.8',
@@ -79,6 +104,37 @@ const fetch = query => {
         pageviewId: idArticle
     };
 
+    const itemsFormated = formatItemsLiftigniter(articles);
+    const timestamp = Date.now();
+
+    const WIDGET_BODY = {
+        widget_click: {
+            ...body,
+            type: 'widget_click',
+            widgetName: WIDGETS,
+            clickUrl: nextUrl,
+            source: 'LI',
+            timestamp,
+            visibleItems: itemsFormated
+        },
+        widget_shown: {
+            ...body,
+            type: 'widget_shown',
+            widgetName: WIDGETS,
+            source: 'LI',
+            timestamp,
+            visibleItems: itemsFormated
+        },
+        widget_visible: {
+            ...body,
+            type: 'widget_visible',
+            widgetName: WIDGETS,
+            source: 'LI',
+            timestamp,
+            visibleItems: itemsFormated
+        }
+    };
+
     const REQUESTS = {
         activity: {
             uri: `${baseUrl}/activity`,
@@ -87,11 +143,7 @@ const fetch = query => {
             body: JSON.stringify({
                 activities: [
                     {
-                        ...body,
-                        type: 'widget_click',
-                        widgetName: WIDGETS,
-                        clickUrl: nextUrl,
-                        source: 'LI'
+                        ...WIDGET_BODY[widgetType]
                     }
                 ]
             }),
@@ -160,8 +212,6 @@ const fetch = query => {
 };
 
 const transform = (data, siteProps) => {
-    const action = get(siteProps, 'action');
-    if (action !== 'model') return data;
     const { presets, presetsDefault } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 

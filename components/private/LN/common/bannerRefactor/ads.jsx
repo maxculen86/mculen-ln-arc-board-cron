@@ -39,7 +39,7 @@ const Ads = props => {
                     opt_div: id,
                     sizemap,
                     prebidEnabled,
-                    targeting: { ...targeting, adstest: hasAdsTestParam() },
+                    targeting,
                     slotGroup,
                     subscription
                 }

@@ -67,6 +67,7 @@ const AcumuladoTitle = props => {
             navigation={categories}
             style={{ color: colorCategory }}
             outputType={outputType}
+            id={url}
         />
     );
 };

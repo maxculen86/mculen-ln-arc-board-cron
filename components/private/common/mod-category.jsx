@@ -3,27 +3,46 @@ import PropTypes from 'fusion:prop-types';
 import ModNavigation from './mod-navigation';
 import withImage from './hocs/withImage';
 import ComImage from './com-image';
-// import '../../../resources/dist/css/ln/modules/mod-category.css';
+import { SITE_LANACION } from 'fusion:environment';
+
+import '../../../resources/dist/css/ln/modules/mod-category.css';
 
 const ModCategory = props => {
-    const { revista, category, style, navigation, image, outputType } = props;
+    const {
+        revista,
+        category,
+        style,
+        navigation,
+        image,
+        outputType,
+        id
+    } = props;
     const { width, height, url } = image || {};
 
     return (
         <div className="mod-categories">
             {revista ? (
                 <div className="mod-logo">
-                    <ComImage
-                        width={width}
-                        height={height}
-                        src={url}
-                        alt="Logo"
-                        amp={outputType === 'amp'}
-                    />
+                    <h1>
+                        <span>{category}</span>
+                        <ComImage
+                            width={width}
+                            height={height}
+                            src={url}
+                            alt={category}
+                            amp={outputType === 'amp'}
+                        />
+                    </h1>
                 </div>
             ) : (
                 <h1 className="com-title --xl" style={style}>
-                    {category}
+                    <a
+                        href={`${SITE_LANACION}${id}/`}
+                        className="com-link --black"
+                        title={category}
+                    >
+                        {category}
+                    </a>
                 </h1>
             )}
 

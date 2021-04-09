@@ -85,5 +85,13 @@ export default {
             width: 320,
             height: 50
         }
+    },
+    comercial_dsk: {
+        slotName: `${PATH_SLOT}/comercial_dsk`,
+        dimensions: [
+            [1, 1],
+            [800, 600]
+        ],
+        targeting: defaultTargeting
     }
 };
