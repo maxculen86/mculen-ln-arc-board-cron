@@ -28,7 +28,6 @@ const OptaEmbed = props => {
 
     if (type === 'story' && !contentElements) return null;
     if (!hasOptaElements(contentElements, renderables)) return null;
-    console.log('renderables', renderables);
 
     const script = `
         var opta_settings = {
