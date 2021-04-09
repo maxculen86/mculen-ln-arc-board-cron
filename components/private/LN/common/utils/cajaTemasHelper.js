@@ -115,7 +115,10 @@ export const getCommonProps = props => {
     const position =
         renderables
             .filter(ren => ren.collection === 'chains')
-            .filter(chain => chain.props.customFields.hideCaja !== true)
+            .filter(
+                chain =>
+                    get(chain, 'props.customFields.hideCaja', false) !== true
+            )
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
     const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;

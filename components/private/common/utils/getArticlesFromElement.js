@@ -26,7 +26,7 @@ const getArticlesFromElement = values => {
         'page',
         requestUri
     );
-    console.log('FUNCTIONGETART', this);
+
     this.fetchContent({
         acuArticlesSource: {
             source: 'acuArticlesSource',
