@@ -92,7 +92,7 @@ export const shareWhatsAppMobile = (notaId, dominio, title, content) => {
 };
 
 export const scrollToComments = () => {
-    //window.scrollTo(0, document.body.scrollHeight);
-    const element = document.querySelector('footer');
-    element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    window.scrollTo(0, document.body.scrollHeight);
+    // const element = document.querySelector('footer');
+    // element.scrollIntoView({ behavior: 'smooth', block: 'end' });
 };
