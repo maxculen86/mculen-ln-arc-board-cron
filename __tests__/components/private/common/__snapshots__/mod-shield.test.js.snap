@@ -8,16 +8,16 @@ exports[`Private - Common - ModShield => with data list snapshot 1`] = `
     class="col-12"
   >
     <section
-      class="mod-image --shields"
+      class="--shields"
     >
+      <mock-header-section
+        line="true"
+        size="--fourxs"
+        title="Superliga: Todos los clubes"
+      />
       <div
         class="sports"
       >
-        <mock-header-section
-          line="true"
-          size="--fourxs"
-          title="Superliga: Todos los clubes"
-        />
         <mock-com-shield
           link="https://www.lanacion.com.ar/deportes/futbol/aldosivi/"
           nameshield="Aldosivi"
