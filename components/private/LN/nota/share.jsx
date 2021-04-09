@@ -88,16 +88,16 @@ const Share = props => {
                             popUpCompartirMailTo(requestUri, config.host)
                         }
                     />
-                    {/* Se oculta temporalmente para luego refactorizar/*}
-                    {/* {displayComments && (
+                    {/* Se oculta temporalmente para luego refactorizar */}
+                    {displayComments && (
                         <ComButton
                             onClick={() => scrollToComments()}
                             size="--fourxs"
                             iconName="comment"
                         >
-                            <label htmlFor="">{commentsCount}</label>
+                            {/* <label htmlFor="">{commentsCount}</label> */}
                         </ComButton>
-                    )} */}
+                    )}
                 </div>
             </AmpContainer>
 
