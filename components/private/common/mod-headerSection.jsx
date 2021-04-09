@@ -7,6 +7,7 @@ import ComTitle from './com-title';
 import withImage from './hocs/withImage';
 import ComImage from './com-image';
 import ComLink from './com-link';
+import addForwardSLash from '../LN/common/utils/addForwardSlash';
 
 const ModheaderSection = props => {
     const {
@@ -35,7 +36,11 @@ const ModheaderSection = props => {
     return (
         <section className={`mod-headersection ${classCondition}`}>
             {!Image ? (
-                <ComTitle size={size} content={title} link={link} />
+                <ComTitle
+                    size={size}
+                    content={title}
+                    link={addForwardSLash(link)}
+                />
             ) : (
                 <div className="mod-logo">{link ? ImageWithLink : Image}</div>
             )}
