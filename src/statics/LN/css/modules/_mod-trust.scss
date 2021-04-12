@@ -7,19 +7,29 @@
     padding-top: $spacing-md;
     padding-bottom: $spacing-md;
     margin-bottom: $spacing-lg;
-    @include flex(flex, row, between, center);
+    //@include flex(flex, row, between, center);
     .com-container {
-        @include flex(flex, column, center, start);
+        //@include flex(flex, column, center, start);
+        .com-text {
+            display: block;
+            margin-right: px(4);
+        }
     }
 }
 
-@media ($media-l) {
+@media ($media-m) {
     .mod-trust {
+        display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         .com-container {
-            flex-direction: row;
+            //flex-direction: row;
             align-items: center;
+            display: flex;
+            .com-text {
+                display: inline;
+            }
         }
     }
 }
