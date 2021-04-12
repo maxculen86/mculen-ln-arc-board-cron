@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import { formatText } from '../../../common/utils/sectionUtils';
-//import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
+import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const featuredRules = {
     cajaCollection: {
@@ -104,7 +104,7 @@ export const getCommonProps = props => {
     } = props;
 
     const { cajaTemaConfig = {} } = config || {};
-    const { collectionsInPage = [] } = {}; //useGlobalProviderAcu() || {};
+    const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
     const bgColor =
         backgroundColor === 'default' || backgroundColor === null
