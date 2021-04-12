@@ -55,15 +55,18 @@ class LiftIgniter extends Component {
         };
 
         return (
-            <script
-                defer
-                id="liftigniter-metadata"
-                type="application/json"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(script)
-                }}
-            />
+            <React.Fragment>
+                <link href="https://cdn.petametrics.com" rel="preconnect" />
+                <script
+                    defer
+                    id="liftigniter-metadata"
+                    type="application/json"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(script)
+                    }}
+                />
+            </React.Fragment>
         );
     }
 }
