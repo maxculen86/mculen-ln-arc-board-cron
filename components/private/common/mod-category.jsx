@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { SITE_LANACION } from 'fusion:environment';
 import ModNavigation from './mod-navigation';
 import withImage from './hocs/withImage';
 import ComImage from './com-image';
@@ -37,11 +36,7 @@ const ModCategory = props => {
                 </div>
             ) : (
                 <h1 className="com-title --xl" style={style}>
-                    <a
-                        href={`${SITE_LANACION}${url}`}
-                        className="com-link --black"
-                        title={category}
-                    >
+                    <a href={url} className="com-link --black" title={category}>
                         {category}
                     </a>
                 </h1>
