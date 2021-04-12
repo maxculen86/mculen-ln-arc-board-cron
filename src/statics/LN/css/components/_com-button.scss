@@ -89,7 +89,7 @@
         border-color: $light-blue-500;
         color: $light-blue-500;
         &:hover {
-            background: $light-blue-500;
+            background: $light-blue-400;
             color: $light-neutral-50;
         }
         &:active {
@@ -127,10 +127,11 @@
         color: $light-neutral-800;
 
         &:hover {
-            background: $light-neutral-300;
+            color: $light-blue-400;
         }
         &:active {
             background: $light-neutral-400;
+            color: $light-blue-400;
         }
         &:disabled {
             background: $light-neutral-300;
@@ -139,7 +140,7 @@
     }
     //&.--highlight,
     &.--special {
-        background: $highlight;
+        background: $yellow-500;
         border-color: $light-neutral-400;
         color: $neutral-black;
 
@@ -163,7 +164,7 @@
                 color: $neutral-white;
                 @media ($media-l) {
                     color: $light-neutral-700;
-                    border-color: $highlight;
+                    border-color: $yellow-500;
                     &:hover {
                         border-color: $neutral-black;
                         color: $light-neutral-50;
@@ -279,7 +280,7 @@
         // &.--special.--special {
         //     .com-usuario & {
         //         .header & {
-        //             background: $highlight;
+        //             background: $yellow-500;
         //             color: $light-neutral-700;
         //             border-color: $light-neutral-400;
         //             margin-right: px(16);
