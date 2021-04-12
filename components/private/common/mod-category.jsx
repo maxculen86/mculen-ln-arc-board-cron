@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import ModNavigation from './mod-navigation';
 import withImage from './hocs/withImage';
 import ComImage from './com-image';
-import { SITE_LANACION } from 'fusion:environment';
 
 import '../../../resources/dist/css/ln/modules/mod-category.css';
 
@@ -15,9 +15,10 @@ const ModCategory = props => {
         navigation,
         image,
         outputType,
-        id
+        url
     } = props;
-    const { width, height, url } = image || {};
+
+    const { width, height, url: imageUrl } = image || {};
 
     return (
         <div className="mod-categories">
@@ -28,7 +29,7 @@ const ModCategory = props => {
                         <ComImage
                             width={width}
                             height={height}
-                            src={url}
+                            src={imageUrl}
                             alt={category}
                             amp={outputType === 'amp'}
                         />
@@ -37,7 +38,7 @@ const ModCategory = props => {
             ) : (
                 <h1 className="com-title --xl" style={style}>
                     <a
-                        href={`${SITE_LANACION}${id}/`}
+                        href={`${SITE_LANACION}${url}`}
                         className="com-link --black"
                         title={category}
                     >
@@ -58,6 +59,7 @@ const ModCategory = props => {
 ModCategory.propTypes = {
     revista: PropTypes.string,
     category: PropTypes.string,
+    url: PropTypes.string.isRequired,
     style: PropTypes.obj,
     navigation: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,

@@ -28,7 +28,11 @@ const AcumuladoTitle = props => {
     const prefixTitle = get(props, 'customFields.prefixTitle', null);
 
     const title = setTitle(replaceTitle, globalContent);
-    const { _id: url = '' } = globalContent;
+    const url =
+        globalContent.node_type === 'tags'
+            ? globalContent.canonical_url
+            : `${globalContent._id}/`;
+    // const { _id: url = '' } = globalContent;
 
     const prefixText =
         !isPrimarySection && title && url.includes('/recetas') && prefixTitle
@@ -67,7 +71,7 @@ const AcumuladoTitle = props => {
             navigation={categories}
             style={{ color: colorCategory }}
             outputType={outputType}
-            id={url}
+            url={url}
         />
     );
 };

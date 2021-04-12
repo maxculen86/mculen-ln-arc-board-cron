@@ -5,6 +5,12 @@ import PropTypes from 'fusion:prop-types';
 import config from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
 
+const childrenHasOpta = (children = []) => {
+    return children.some(elem =>
+        get(elem, 'props.customFields.html', '').includes('opta-widget')
+    );
+};
+
 const hasOptaElements = (contentElements, renderables) =>
     (contentElements &&
         contentElements.some(
@@ -15,9 +21,10 @@ const hasOptaElements = (contentElements, renderables) =>
     (renderables &&
         renderables.some(
             elem =>
-                get(elem, 'collection') === 'features' &&
-                get(elem, 'type') === 'LN-common/articulo' &&
-                get(elem, 'props.customFields.html', '').includes('opta-widget')
+                get(elem, 'collection') === 'chains' &&
+                get(elem, 'type') === 'Ln_Caja_Manual' &&
+                get(elem, 'props.customFields.hideCaja', false) !== true &&
+                childrenHasOpta(elem.children)
         ));
 
 const OptaEmbed = props => {
