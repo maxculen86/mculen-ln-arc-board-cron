@@ -43,25 +43,14 @@ const htmlText = (nodo, dataNota) => {
         }
     );
 
-    // walker.addCondition(
-    //     node => node.nodeType === 1 && node.tagName === 'mark',
-    //     (data, next) => {
-    //         const classRegex = new RegExp('class="hl_(.*)"');
-    //         const attrs = classRegex.exec(data.rawAttrs);
-    //         const resp = {
-    //             _t: 'data.tagName',
-    //             color: attrs[1],
-    //             valor: next(data.childNodes)
-    //         };
-    //         return resp;
-    //     }
-    // );
-
     walker.addCondition(
         node => node.nodeType === 1 && node.tagName === 'mark',
         (data, next) => {
+            const classRegex = new RegExp('class="hl_(.*)"');
+            const attrs = classRegex.exec(data.rawAttrs);
             const resp = {
-                _t: 'b',
+                _t: 'mark',
+                color: attrs[1],
                 valor: next(data.childNodes)
             };
             return resp;
