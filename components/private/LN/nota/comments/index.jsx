@@ -33,12 +33,12 @@ const Comments = props => {
         deployment
     } = props;
 
-    const {
-        globalContent: { comments }
-    } = props;
+    // const {
+    //     globalContent: { comments }
+    // } = props;
 
-    const allowComments = get(comments, 'allow_comments', true);
-    const displayComments = get(comments, 'display_comments', true);
+    // const allowComments = get(comments, 'allow_comments', true);
+    // const displayComments = get(comments, 'display_comments', true);
 
     const { setCommentsEnabledAndCount } = useComments();
 
@@ -293,7 +293,7 @@ const Comments = props => {
         props
     ]);
 
-    if (!displayComments) return null;
+    // if (!displayComments) return null;
 
     return (
         <>

@@ -18,7 +18,7 @@ const findTemplate = type => {
 const getInterval = (type, resolution, config) => {
     const template = findTemplate(type);
     const device = resolution === 'tablet' ? 'mobile' : resolution;
-    const seconds = config[`${template}_${device}`];
+    const seconds = config ? config[`${template}_${device}`] : 0;
     return parseInt(seconds, 10) * 1000;
 };
 

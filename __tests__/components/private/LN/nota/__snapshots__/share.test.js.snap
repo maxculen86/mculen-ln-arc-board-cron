@@ -48,19 +48,12 @@ exports[`Share Matches snapshot 1`] = `
       />
     </button>
     <button
-      class="com-button   --icon comment "
+      class="com-button   --icon "
       type="button"
     >
       <i
         class="com-icon icon-comment   "
       />
-      <span
-        class="com-text --fourxs "
-      >
-        <label
-          for=""
-        />
-      </span>
     </button>
   </div>
 </div>

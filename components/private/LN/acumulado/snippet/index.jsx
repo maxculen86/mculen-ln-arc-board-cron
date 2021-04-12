@@ -8,9 +8,8 @@ const acumulados = {
 };
 
 const SnippetAcumulado = props => {
-    const {
-        globalContent: { node_type: nodeType }
-    } = props || {};
+    const { globalContent } = props || {};
+    const { node_type: nodeType } = globalContent || {};
 
     const Snippet = acumulados[nodeType];
     if (!Snippet) return null;

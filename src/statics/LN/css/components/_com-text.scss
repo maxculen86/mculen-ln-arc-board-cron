@@ -67,11 +67,11 @@
         order: 2;
         color: $ln;
     }
-    strong {
-        .mod-trust & {
-            margin-left: $spacing-2xs;
-        }
-    }
+    // strong {
+    //     .mod-trust & {
+    //         margin-left: $spacing-2xs;
+    //     }
+    // }
     &.--tooltip {
         display: flex;
         padding: 0;
@@ -127,21 +127,21 @@
     }
 }
 
-@media ($media-xs) {
-    .com-text {
-        .mod-trust & {
-            @include flex(flex, column, center, start);
-        }
-    }
-}
-@media ($media-s) {
-    .com-text {
-        .mod-trust & {
-            flex-direction: row;
-            align-items: center;
-        }
-    }
-}
+// @media ($media-xs) {
+//     .com-text {
+//         .mod-trust & {
+//             @include flex(flex, column, center, start);
+//         }
+//     }
+// }
+// @media ($media-s) {
+//     .com-text {
+//         .mod-trust & {
+//             flex-direction: row;
+//             align-items: center;
+//         }
+//     }
+// }
 @media ($media-m) {
     .com-text {
         .mod-fiscal & {
@@ -162,9 +162,9 @@
         .mod-copyright & {
             text-align: left;
         }
-        .mod-trust & {
-            margin-right: $spacing-xs;
-        }
+        // .mod-trust & {
+        //     margin-right: $spacing-xs;
+        // }
         &.--sponsor,
         &.--tooltip {
             position: relative;
