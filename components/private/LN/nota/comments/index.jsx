@@ -18,6 +18,7 @@ import withLoginData from '../../common/hocs/withLoginData';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 import useComments from '../../../common/hooks/useComments';
 import get from '../../../common/utils/get';
+import LoadingIcon from '../../common/loadingIcon';
 
 const Comments = props => {
     const {
@@ -32,7 +33,7 @@ const Comments = props => {
         loginData,
         deployment
     } = props;
-
+    // return <LoadingIcon />;
     // const {
     //     globalContent: { comments }
     // } = props;
@@ -41,7 +42,6 @@ const Comments = props => {
     // const displayComments = get(comments, 'display_comments', true);
 
     const { setCommentsEnabledAndCount } = useComments();
-
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
     const { getCookie } = handleCookie();
@@ -297,6 +297,7 @@ const Comments = props => {
 
     return (
         <>
+            {instance && !instance.current && <LoadingIcon />}
             <section
                 id="comentarios"
                 className="comments arrow-down hlp-none"
