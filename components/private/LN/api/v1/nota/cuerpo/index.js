@@ -11,7 +11,8 @@ const cuerpoIndex = dataNota => {
         '4': DefaultCuerpo,
         '7': RecetaCuerpo,
         '8': fotoAlCienCuerpo,
-        '9': htmlCuerpo
+        '9': htmlCuerpo,
+        '10': DefaultCuerpo
     };
 
     const contentElements = dataNota.content_elements;

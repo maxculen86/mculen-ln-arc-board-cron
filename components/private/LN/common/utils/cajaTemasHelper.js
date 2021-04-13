@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import { formatText } from '../../../common/utils/sectionUtils';
-//import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
+import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 
 const featuredRules = {
     cajaCollection: {
@@ -104,7 +104,7 @@ export const getCommonProps = props => {
     } = props;
 
     const { cajaTemaConfig = {} } = config || {};
-    const { collectionsInPage = [] } = {}; //useGlobalProviderAcu() || {};
+    const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
     const bgColor =
         backgroundColor === 'default' || backgroundColor === null
@@ -115,7 +115,10 @@ export const getCommonProps = props => {
     const position =
         renderables
             .filter(ren => ren.collection === 'chains')
-            .filter(chain => chain.props.customFields.hideCaja !== true)
+            .filter(
+                chain =>
+                    get(chain, 'props.customFields.hideCaja', false) !== true
+            )
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
     const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;

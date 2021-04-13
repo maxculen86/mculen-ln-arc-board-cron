@@ -102,10 +102,6 @@ describe('Common - getMetasOG function', () => {
             {
                 property: 'article:published_time',
                 content: '2021-01-08T15:24:00.940Z'
-            },
-            {
-                property: 'article:content_tier',
-                content: 'metered'
             }
         ];
         expect(getMetasOG(props)).toStrictEqual(metas);

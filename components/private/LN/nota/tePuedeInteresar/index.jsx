@@ -62,20 +62,10 @@ class Index extends Component {
             window.removeEventListener('scroll', this.handleScroll);
     }
 
-    // Se limpia el formato de los articulos, antes de ir al source
-    // para evitar un error 414
-    cleanArticleFormat = (articles = []) => {
-        return articles.map(_article => {
-            // eslint-disable-next-line camelcase
-            const { _id, website_url, headlines } = _article;
-            return { _id, website_url, headlines };
-        });
-    };
-
     handleClick = (event, nextUrl) => {
         const { articles } = this.state;
         event.preventDefault();
-        const { sessionId, excludeItems, url, idArticle, arcSite } = this.props;
+        const { sessionId, url, idArticle, arcSite } = this.props;
 
         const { fetched } = this.getContent({
             source: 'liftigniterSource',
@@ -83,12 +73,11 @@ class Index extends Component {
                 referrer: url,
                 idArticle,
                 sessionId,
-                excludeItems,
                 arcSite,
                 nextUrl,
                 action: 'activity',
                 widgetType: 'widget_click',
-                articles: this.cleanArticleFormat(articles)
+                articles: articles.map(article => article.website_url)
             }
         });
 
@@ -118,8 +107,7 @@ class Index extends Component {
         }
     }
 
-    registerActivity(widgetType, _articles) {
-        const articles = this.cleanArticleFormat(_articles);
+    registerActivity(widgetType, articles) {
         const { sessionId, url, idArticle, arcSite } = this.props;
 
         const { fetched } = this.getContent({
@@ -131,7 +119,7 @@ class Index extends Component {
                 arcSite,
                 action: 'activity',
                 widgetType,
-                articles
+                articles: articles.map(article => article.website_url)
             }
         });
 

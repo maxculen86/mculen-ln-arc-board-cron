@@ -9,6 +9,9 @@ const CajaManual = props => {
     } = props;
 
     try {
+        if (hideCaja) {
+            return null;
+        }
         return {
             id_caja: null,
             visible: !hideCaja || false,

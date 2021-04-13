@@ -284,6 +284,9 @@
         }
     }
     &.living {
+        .com-breadcrumb .com-link {
+            color: $living;
+        }
         main {
             .com-lead,
             .--tags li .com-link,
@@ -312,6 +315,9 @@
     }
     &.rolling,
     &.rolling-stone {
+        .com-breadcrumb .com-link {
+            color: $rolling;
+        }
         main {
             .com-lead,
             .--tags li .com-link,
