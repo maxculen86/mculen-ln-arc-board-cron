@@ -14,7 +14,7 @@ class CajaCollection {
     constructor(props) {
         this.props = props;
         const {
-            customFields: { idCollection, initialPosition },
+            customFields: { idCollection, initialPosition, layout = '' },
             renderables
         } = props;
 
@@ -45,7 +45,8 @@ class CajaCollection {
                         idsArticlesToExclude,
                         filterRecomendar: true,
                         filterRepetead: !isInSiteService,
-                        notesQuantity
+                        notesQuantity,
+                        layout
                     },
                     filter
                 }
