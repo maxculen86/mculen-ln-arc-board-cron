@@ -29,12 +29,6 @@ const ComLogo = props => {
                 <i className={className} />
             )}
         </>
-
-        // <i
-        //     className={`com-logo logo-${
-        //         logoName ? logoName : ''
-        //     } ${classCondition || ''} ${color ? '--color' : ''} ${size || ''}`}
-        // />
     );
 };
 

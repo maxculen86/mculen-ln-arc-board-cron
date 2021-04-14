@@ -11,6 +11,7 @@ import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
 import ComButton from '../private/common/com-button';
+import NewFooter from '../private/LN/common/footer/home';
 
 import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
 
@@ -1763,7 +1764,8 @@ const LNHome = props => {
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        {/* <Footer /> */}
+                        <NewFooter />
                     </div>
                 </GlobalProviderAcu>
             </LoginProvider>
