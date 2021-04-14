@@ -206,60 +206,10 @@ const transformContent = (jsonArticle, arcSite) => {
         );
     });
 
-    /*     promiseArr.push(
-        new Promise(resolver =>
-            resolver(getNavigationSiteProperties(arcSite))
-        ).then(data => {
-            resp.siteService = {
-                tooltips: data.tooltips,
-                banners: data.banners,
-                adserver: data.adserver,
-                termicas: data.termicas
-            };
-        })
-    ); */
-
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
 };
-
-/* const getNavigationSiteProperties = arcSite => {
-    return navigationTreeSource
-        .fetch({ website: arcSite })
-        .then(fetchedRelated => {
-            const {
-                site = {},
-                Termicas: termicasConfig = {},
-                bannerConfig = {}
-            } = fetchedRelated || {};
-
-            const { sitio_adserver: sitioAdserver = {}, tooltips = {} } =
-                site || {};
-
-            return {
-                tooltips: Object.keys(tooltips).map(key => ({
-                    text: key,
-                    label: tooltips[key]
-                })),
-                banners: Object.keys(bannerConfig).map(key => ({
-                    adunit: key,
-                    dimensions: bannerConfig[key]
-                })),
-                adserver: Object.keys(sitioAdserver).map(key => ({
-                    key,
-                    value: sitioAdserver[key]
-                })),
-                termicas: Object.keys(termicasConfig).forEach(key => ({
-                    key,
-                    value: termicasConfig[key]
-                }))
-            };
-        })
-        .catch(e => {
-            // console.log('Error article source: getNavigationSiteProperties -> e', e);
-        });
-}; */
 
 const addGalleryData = (gallery, arcSite) => {
     const { _id: galleryId } = gallery;

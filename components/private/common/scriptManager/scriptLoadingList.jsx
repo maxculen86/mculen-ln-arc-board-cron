@@ -14,6 +14,9 @@ const ScriptLoadingList = ({
         query: {
             website
         },
+        transform: resp => {
+            return get(resp, 'site.script_loading_list', []);
+        },
         filter: `{
             site {
                 script_loading_list
@@ -21,7 +24,7 @@ const ScriptLoadingList = ({
         }`
     });
 
-    return get(data, 'site.script_loading_list', []).map(scriptConfig => {
+    return data.map(scriptConfig => {
         try {
             const scriptData = JSON.parse(scriptConfig);
             const { location: _location = 'body-bottom' } = scriptData;
