@@ -57,6 +57,7 @@ const transform = (data, siteProps) => {
     const contentElements = get(data, `content_elements`, []);
     const isCollectionDinamic = get(data, `dynamic_items`, false);
 
+    const isFocal = get(siteProps, 'isFocal', null);
     const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
@@ -68,7 +69,17 @@ const transform = (data, siteProps) => {
 
     respData.content_elements =
         contentElementsFiltered &&
-        contentElementsFiltered.map(elem => {
+        contentElementsFiltered.map((elem, index) => {
+            const { presets: presetsFocal } =
+                (isFocal &&
+                    index === 0 &&
+                    getPresets({ ...siteProps, imageConfig: 'l' })) ||
+                {};
+            const presetsFocalPromoItems = get(
+                presetsFocal,
+                'promo_items',
+                null
+            );
             // const promoItems = get(elem, `promo_items`, null);
             // const marquesina = get(elem, `description.basic`, null);
             const subtype = get(elem, `subtype`, null);
@@ -80,7 +91,7 @@ const transform = (data, siteProps) => {
                     resizerSecret: RESIZER_KEY,
                     resizerUrl: RESIZER_URL,
                     presets: {
-                        promoItems: presetsPromoItems,
+                        promoItems: presetsFocalPromoItems || presetsPromoItems,
                         presetsDefault,
                         credits: presetsCredits
                     },

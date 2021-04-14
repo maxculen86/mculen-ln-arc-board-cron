@@ -10,6 +10,7 @@ const getArticleInCollection = (
     filterRecomendar = false,
     filterRepetead = false,
     notesQuantity,
+    layout = '',
     website = 'la-nacion-ar'
 ) => {
     const articleList = idCollection
@@ -23,7 +24,9 @@ const getArticleInCollection = (
                   idsArticlesToExclude,
                   filterRecomendar,
                   filterRepetead,
-                  notesQuantity
+                  notesQuantity,
+                  imageConfig: 'm',
+                  isFocal: layout.includes('focal')
               },
               filter
           })

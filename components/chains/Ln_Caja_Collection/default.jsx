@@ -68,7 +68,8 @@ const CajaCollection = props => {
               idsArticlesToExclude,
               true,
               !isInSiteService,
-              notesQuantity
+              notesQuantity,
+              layout
           )
         : [];
 
