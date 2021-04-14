@@ -33,10 +33,18 @@ const fetch = query => {
 
 const transform = (data, { sectionId }) => {
     const { ancestors, inactive, order, parent, ...restProps } = data || {};
-    const sections = sectionId ? getSections(restProps, sectionId) : [];
+
+    // Cuando el source es llamado desde WithNavigation no hace falta devolver mas cosas
+    if (sectionId) {
+        const sections = sectionId ? getSections(restProps, sectionId) : [];
+        return {
+            sections,
+            Termicas: restProps && restProps.Termicas
+        };
+    }
+
     const resp = {
         ...restProps,
-        sections,
         children: []
     };
 
@@ -97,5 +105,5 @@ export default {
     params: {
         website: 'text'
     },
-    ttl: 120//600
+    ttl: 600
 };
