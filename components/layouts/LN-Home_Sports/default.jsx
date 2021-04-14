@@ -86,7 +86,7 @@ const LNSportsHome = props => {
                                     {apertura}
                                     {cuerpo}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* BANNERS, RANKING DE NOTAS */}
                                     {aside}
                                 </div>

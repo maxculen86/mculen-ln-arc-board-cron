@@ -470,7 +470,7 @@ const lnNotaFotoAl100 = ({ children, outputType, tree, isAdmin }) => {
                             </div>
                         </div>
                         {/* Tercera */}
-                        <div className="sidebar__aside hlp-tablet-none">
+                        <div className="sidebar__aside hlp-tabletlm-none">
                             {children[6]}
 
                             {/* RANKING DE NOTAS */}

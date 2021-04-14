@@ -149,7 +149,7 @@ const lnNotaNoticia = ({
                                 </div>
 
                                 {/* Tercera */}
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {children[6]}
                                 </div>
                             </div>
@@ -160,7 +160,7 @@ const lnNotaNoticia = ({
                                     {/* Bottom */}
                                     {children[9]}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Bottom-Tercera */}
                                     {children[10]}
                                 </div>

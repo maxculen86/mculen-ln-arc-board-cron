@@ -107,7 +107,7 @@ const lnNotaFotoAl100 = ({
                                     {/* Post-Cuerpo */}
                                     {postCuerpo}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Post-Cuerpo-Tercera */}
                                     {postCuerpoTercera}
                                 </div>
@@ -121,7 +121,7 @@ const lnNotaFotoAl100 = ({
                                     {/* Bottom */}
                                     {bottom}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Bottom-Tercera */}
                                     {bottomTercera}
                                 </div>

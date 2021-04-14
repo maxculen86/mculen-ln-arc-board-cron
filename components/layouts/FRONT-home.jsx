@@ -923,7 +923,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
 
                                 <div className="lay">
@@ -1759,7 +1759,7 @@ const LNHome = props => {
                                         </section>
                                         */}
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
                             </div>
                         </main>

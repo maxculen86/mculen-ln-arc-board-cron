@@ -37,6 +37,12 @@
         display: none;
     }
 }
+//oculto hasta 1100
+@media (max-width: 68.75em) {
+    .hlp-tabletlm-none {
+        display: none;
+    }
+}
 
 .hlp-mobile-show {
     &.col-1 {
