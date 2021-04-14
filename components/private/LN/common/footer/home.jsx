@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 // import Consumer from 'fusion:consumer';
 // import Header from './header';
 // import FooterAMP from './footerAMP';
-import Link from '../../../common/com-link';
 import Logo from '../../../common/com-logo';
 import Icon from '../../../common/icon';
 import Text from '../../../common/text';
@@ -68,8 +67,7 @@ const Footer = ({ children }) => {
     const listText3 = [
         {
             text: 'Mapa del sitio',
-            href:
-                'http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html'
+            href: 'https://www.lanacion.com.ar/mapa-del-sitio'
         },
         { text: 'Ayuda', href: 'https://micuenta.lanacion.com.ar/ayuda' },
         {
@@ -117,18 +115,16 @@ const Footer = ({ children }) => {
                                 href="https://twitter.com/LANACION"
                                 target="_blank"
                             />
-                            <Link
+                            <Icon
+                                name="instagram"
                                 href="https://www.instagram.com/lanacioncom/"
                                 target="_blank"
-                            >
-                                <Icon name="instagram "></Icon>
-                            </Link>
-                            <Link
+                            />
+                            <Icon
+                                name="rss"
                                 href="http://servicios.lanacion.com.ar/herramientas/rss/ayuda"
                                 target="_blank"
-                            >
-                                <Icon name="rss"></Icon>
-                            </Link>
+                            />
                         </div>
                         <div className="col-desksm-4 --center">
                             <Logo

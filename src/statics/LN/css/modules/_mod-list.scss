@@ -13,7 +13,7 @@
             padding-left: px(16);
             &:after {
                 position: absolute;
-                font-family: 'Icons';
+                font-family: 'LNicons';
                 content: $icon-bullet;
                 font-size: px(24);
                 left: px(-7);
@@ -28,7 +28,7 @@
                 padding-right: px(16);
                 &:after {
                     position: absolute;
-                    font-family: 'Icons';
+                    font-family: 'LNicons';
                     content: $icon-bullet-xs;
                     color: #ccc;
                     font-size: px(24);

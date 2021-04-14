@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/dist/css/ln/components/com-icon.css';
-import Link from '../common/com-link';
+import Link from '../common/link';
 
 const Icon = ({ name, href, title, target, mod, size }) => {
     const className = `com-icon${name ? ` icon-${name}` : ``}${` ${mod}` ||
