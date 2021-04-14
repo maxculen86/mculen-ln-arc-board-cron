@@ -11,11 +11,17 @@
         text-align: center;
         padding: px(24) 0;
     }
-    h1 {
-        margin-bottom: px(32);
-        justify-content: center;
-    }
-    h4 {
-        margin-bottom: px(16);
+    main {
+        .lay {
+            > .com-title {
+                margin-bottom: px(32);
+                justify-content: center;
+            }
+            .row {
+                .com-title {
+                    margin-bottom: px(16);
+                }
+            }
+        }
     }
 }

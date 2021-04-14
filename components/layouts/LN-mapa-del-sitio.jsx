@@ -292,27 +292,33 @@ const LNMapaDelSitio = ({ children }) => {
                                         {listado1}
                                     </List>
                                     <List mod="">{listado2}</List>
-                                    <Title content="LA NACION en las redes" />
+                                    <Title
+                                        content="LA NACION en las redes"
+                                        tag="h2"
+                                    />
                                     <List mod="">{listado8}</List>
                                 </div>
                                 <div className="col-6 col-tablet-3">
-                                    <Title content="Edición impresa" />
+                                    <Title content="Edición impresa" tag="h2" />
                                     <List mod="">{listado3}</List>
                                     <List mod="">{listado4}</List>
                                     <List mod="">{listado5}</List>
                                 </div>
 
                                 <div className="col-6 col-tablet-3">
-                                    <Title content="Revistas" />
+                                    <Title content="Revistas" tag="h2" />
                                     <List mod="">{listado6}</List>
-                                    <Title content="Club LA NACION" />
+                                    <Title content="Club LA NACION" tag="h2" />
                                     <List mod="">{listado7}</List>
                                 </div>
 
                                 <div className="col-6 col-tablet-3">
-                                    <Title content="Servicios" />
+                                    <Title content="Servicios" tag="h2" />
                                     <List mod="">{listado9}</List>
-                                    <Title content="Sitios del Grupo" />
+                                    <Title
+                                        content="Sitios del Grupo"
+                                        tag="h2"
+                                    />
                                     <List mod="">{listado10}</List>
                                 </div>
                             </div>
