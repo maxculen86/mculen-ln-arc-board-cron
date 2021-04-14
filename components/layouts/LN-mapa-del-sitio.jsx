@@ -120,7 +120,7 @@ const LNMapaDelSitio = ({ children }) => {
 
     const listado6 = [
         {
-            text: 'Ohlalá!',
+            text: 'OHLALÁ!',
             href: 'https://www.lanacion.com.ar/revista-ohlala/'
         },
         {
@@ -209,6 +209,59 @@ const LNMapaDelSitio = ({ children }) => {
         }
     ];
 
+    const listado9 = [
+        { text: 'Horóscopo', href: 'https://www.lanacion.com.ar/horoscopo' },
+        {
+            text: 'Pronóstico',
+            href: 'https://servicios.lanacion.com.ar/pronostico-del-tiempo'
+        },
+        { text: 'Tránsito', href: 'https://www.lanacion.com.ar/transito/' },
+        { text: 'Dólar hoy', href: 'https://www.lanacion.com.ar/dolar-hoy/' },
+        { text: 'Feriados', href: 'https://www.lanacion.com.ar/feriados' },
+        {
+            text: 'Loterías y quinielas',
+            href: 'https://servicios.lanacion.com.ar/loterias'
+        },
+        {
+            text: 'Cartelera de cine',
+            href: 'https://www.lanacion.com.ar/cartelera-de-cine'
+        },
+        {
+            text: 'Cartelera de teatro',
+            href: 'https://www.lanacion.com.ar/cartelera-de-teatro'
+        },
+        {
+            text: 'Cocina y Recetas',
+            href: 'https://recetas.lanacion.com.ar/recetas/'
+        },
+        {
+            text: 'Podcasts',
+            href:
+                'https://www.lanacion.com.ar/lifestyle/cuales-son-podcast-la-nacion-nid2165046/'
+        },
+        { text: 'Sudoku', href: 'https://www.lanacion.com.ar/sudoku-online' },
+        { text: 'RSS', href: 'https://www.lanacion.com.ar/arcio/rss/' }
+    ];
+
+    const listado10 = [
+        { text: 'Bonvivir', href: 'https://www.bonvivir.com/' },
+        { text: 'Colecciones', href: 'https://colecciones.lanacion.com.ar/' },
+        {
+            text: 'Máster en periodismo',
+            href:
+                'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327'
+        },
+        {
+            text: 'Fundación LA NACION',
+            href: 'https://fundacionlanacion.org.ar/'
+        },
+        {
+            text: 'Avisos solidarios',
+            href: 'http://solidarios.lanacion.com.ar/'
+        },
+        { text: 'HOP', href: 'https://www.hopenvios.com.ar/' }
+    ];
+
     return (
         <GlobalProvider>
             <LoginProvider>
@@ -219,7 +272,7 @@ const LNMapaDelSitio = ({ children }) => {
                         <div className="lay">
                             <Logo
                                 color
-                                size="--md"
+                                size="--sm"
                                 logoName="la-nacion"
                                 href="https://www.lanacion.com.ar/"
                                 title="LA NACION"
@@ -234,28 +287,33 @@ const LNMapaDelSitio = ({ children }) => {
                                 content="Mapa del sitio"
                             />
                             <div className="row">
-                                <div className="col-12 col-tablet-4">
+                                <div className="col-6 col-tablet-3">
                                     <List mod="--font-bold" size="">
                                         {listado1}
                                     </List>
                                     <List mod="">{listado2}</List>
+                                    <Title content="LA NACION en las redes" />
+                                    <List mod="">{listado8}</List>
                                 </div>
-                                <div className="col-12 col-tablet-4">
+                                <div className="col-6 col-tablet-3">
                                     <Title content="Edición impresa" />
                                     <List mod="">{listado3}</List>
-                                    <Title content="Suplementos" />
                                     <List mod="">{listado4}</List>
-                                    <Title content="Avisos" />
                                     <List mod="">{listado5}</List>
                                 </div>
 
-                                <div className="col-12 col-tablet-4">
+                                <div className="col-6 col-tablet-3">
                                     <Title content="Revistas" />
                                     <List mod="">{listado6}</List>
                                     <Title content="Club LA NACION" />
                                     <List mod="">{listado7}</List>
-                                    <Title content="LA NACION en las redes" />
-                                    <List mod="">{listado8}</List>
+                                </div>
+
+                                <div className="col-6 col-tablet-3">
+                                    <Title content="Servicios" />
+                                    <List mod="">{listado9}</List>
+                                    <Title content="Sitios del Grupo" />
+                                    <List mod="">{listado10}</List>
                                 </div>
                             </div>
                         </div>
