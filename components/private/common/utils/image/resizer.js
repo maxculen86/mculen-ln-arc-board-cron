@@ -18,7 +18,7 @@ export const createResizer = (resizerKey, resizerUrl) => {
         resizeOptions,
         focalPoint,
         smartCropExcluded,
-        filterQuality = 100
+        filterQuality = 80
     ) => {
         const { isNotSmart, useFullSize, proportion } = resizeOptions;
         let { height: newHeight = 0, width: newWidth = 0 } = resizeOptions;
