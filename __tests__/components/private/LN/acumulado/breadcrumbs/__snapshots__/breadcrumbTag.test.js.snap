@@ -16,13 +16,16 @@ Array [
       />
       LA NACION
     </a>
-    <span
-      class="com-text --fourxs"
+    <a
+      class="com-link --fourxs"
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
+      href="/tema/soy-un-tag/"
     >
       <i
         class="com-icon bullet icon-bullet-xs"
       />
-    </span>
+    </a>
   </nav>,
   null,
 ]
