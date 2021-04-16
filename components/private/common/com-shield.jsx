@@ -10,10 +10,12 @@ const ComShield = props => {
         <ComLink classCondition="--shield" link={link}>
             {src ? (
                 <img
+                    width="48"
+                    height="48"
                     className="com-image"
                     src={src}
-                    alt={`escudo-${nameShield}`}
-                ></img>
+                    alt={`${nameShield}`}
+                />
             ) : (
                 <SvgDefaultShield />
             )}

@@ -16,14 +16,17 @@ Array [
       />
       LA NACION
     </a>
-    <span
-      class="com-text --fourxs"
+    <a
+      class="com-link --fourxs"
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
+      href="/autor/emilse-pizarro/"
     >
       <i
         class="com-icon bullet icon-bullet-xs"
       />
       Emilse Pizarro
-    </span>
+    </a>
   </nav>,
   null,
 ]
