@@ -43,6 +43,7 @@
             bottom: px(16);
             left: px(16);
             width: calc(100% - 32px);
+            justify-content: center;
         }
     }
 }
@@ -57,12 +58,13 @@
     .mod-media,
     .com-title,
     .mod-marquee,
+    .com-subhead,
     .com-date {
         margin-bottom: $spacing;
-        a {
-            display: block;
-            width: 100%;
-        }
+        // a {
+        //     display: block;
+        //     width: 100%;
+        // }
     }
 
     .mod-media {
@@ -106,8 +108,22 @@
             color: $light-neutral-700;
             margin-bottom: px(8);
         }
-        .com-link.com-link {
-            color: $light-neutral-800;
+        .com-link {
+            &.com-link:not(.--tags) {
+                color: $light-neutral-800;
+            }
+            &.--tags {
+                font-family: $font-arial;
+                font-weight: 100;
+                letter-spacing: normal;
+                &:first-letter {
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        .mod-marquee {
+            display: flex;
         }
     }
 
@@ -184,35 +200,6 @@
     }
     div {
         margin-bottom: px(40);
-    }
-}
-
-.economia.economia {
-    .com-breadcrumb .com-link,
-    main .com-button .com-icon,
-    .--category .com-link,
-    .--tags .com-link,
-    //.mod-headersection .com-link,
-    .mod-description .com-lead {
-        color: $negocios;
-    }
-
-    .mod-headersection.--bg.mod-headersection.--bg {
-        background-color: $negocios;
-    }
-}
-
-.deportes.deportes {
-    .com-breadcrumb .com-link,
-    main .com-button .com-icon,
-    .--category .com-link,
-    .--tags .com-link,
-    //.mod-headersection .com-link,
-    .mod-description .com-lead {
-        color: $deportes;
-    }
-    .mod-headersection.--bg.mod-headersection.--bg {
-        background-color: $deportes;
     }
 }
 
@@ -304,7 +291,7 @@
             .mod-marquee {
                 position: relative;
                 z-index: 1;
-                display: flex;
+                //display: flex;
                 margin: 0;
             }
         }
@@ -587,6 +574,7 @@
                             bottom: 32px;
                             left: 72px;
                             max-width: calc(100% - 72px);
+                            justify-content: left;
                         }
                     }
                 }

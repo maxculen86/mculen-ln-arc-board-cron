@@ -8,11 +8,12 @@ import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
-import ArcAds from '../private/common/scriptManager/arcAds';
+// import ArcAds from '../private/common/scriptManager/arcAds';
 import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
-import Livefyre from '../private/common/scriptManager/Livefyre';
+// import Livefyre from '../private/common/scriptManager/Livefyre';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
+import Datadog from '../private/common/scriptManager/dataDog';
 import ScriptLoadingList from '../private/common/scriptManager/scriptLoadingList';
 import GooglePublisherTag from '../private/common/scriptManager/googlePublisherTag';
 import GooglePublisherTagAcumulado from '../private/common/scriptManager/googlePublisherTagAcumulado';
@@ -24,6 +25,7 @@ import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
+import MetaSectionParsely from '../private/common/metaSectionParsely';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
@@ -32,6 +34,10 @@ import { pipe } from '../private/common/utils/functional';
 // import Queryly from '../private/common/scriptManager/queryly';
 
 const scriptList = [
+    {
+        component: { name: 'Datadog', function: Datadog },
+        feature: 'none'
+    },
     {
         component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
         feature: 'none'
@@ -55,22 +61,8 @@ const scriptList = [
         feature: 'none'
     },
     {
-        component: { name: 'ArcAds', function: ArcAds },
-        feature: [
-            'LN-common/banner',
-            'LN-common/bannerRefactor',
-            'LN-nota/bannerStickyNota',
-            'LN-common/bannerTercera',
-            'LN-acumulado/bannerSticky'
-        ]
-    },
-    {
         component: { name: 'FacebookSDK', function: FacebookSDK },
         feature: ['LN-nota/share']
-    },
-    {
-        component: { name: 'Livefyre', function: Livefyre },
-        feature: ['LN-nota/comments']
     },
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },
@@ -115,6 +107,7 @@ const Default = props => {
         outputType,
         layout
     } = props;
+
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
@@ -128,7 +121,8 @@ const Default = props => {
         node_type: nodeType,
         name,
         Payload,
-        _id
+        _id,
+        taxonomy
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
@@ -182,6 +176,7 @@ const Default = props => {
                 <title>{title}</title>
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
+                <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
                 <Scripts location="head" {...props} />
                 <ScriptLoadingList
                     section={_nodeType}

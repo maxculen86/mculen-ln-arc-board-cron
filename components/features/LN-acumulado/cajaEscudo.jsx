@@ -34,11 +34,11 @@ const CajaEscudo = () => {
             image: `${IMAGE_END_POINT}/GFNEBMW7CREA3KODNQQNX3GLDE.png`,
             link: `${baseUrl}/banfield/`
         },
-        {
+        /*{
             name: 'Belgrano',
             image: `${IMAGE_END_POINT}/KNKQXEAB4FC2HBHB3QQM4QSSTE.png`,
             link: `${baseUrl}/belgrano/`
-        },
+        }, */
         {
             name: 'BocaJuniors',
             image: `${IMAGE_END_POINT}/P3LRVO2JV5EANKHKPJ2YDNMOYU.png`,
@@ -119,11 +119,11 @@ const CajaEscudo = () => {
             image: `${IMAGE_END_POINT}/XRRFAN5QYRCTLNI3QA3AWWWMMQ.png`,
             link: `${baseUrl}/san-lorenzo/`
         },
-        {
+        /*{
             name: 'SanMartinTucuman',
             image: `${IMAGE_END_POINT}/WW73G7LX6VDKTBSYOEVTFGM3AQ.png`,
             link: `${baseUrl}/san-martin-tucuman/`
-        },
+        },*/
         {
             name: 'TalleresCordoba',
             image: `${IMAGE_END_POINT}/HVUKDBT3CVB5VEDXOFQ4UXEJTI.png`,
@@ -143,6 +143,11 @@ const CajaEscudo = () => {
             name: 'Vélez',
             image: `${IMAGE_END_POINT}/H3VF64J3HBDLVMQMD6TOILYXMM.png`,
             link: `${baseUrl}/velez/`
+        },
+        {
+            name: 'SarmientoJunin',
+            image: `${IMAGE_END_POINT}/AVTWTPXI3FHTDEHTVMSX5NNQFU.png`,
+            link: `${baseUrl}/club-atletico-sarmiento/`
         }
     ];
 
@@ -152,13 +157,13 @@ const CajaEscudo = () => {
                 key={data}
                 title="Superliga: Todos los clubes"
                 data={data}
-                size="1"
+                size="--l"
             />
         )) ||
         null
     );
 };
 
-CajaEscudo.label = 'LN Acumulado Caja Escudo';
+CajaEscudo.label = 'LN Caja Escudos';
 
 export default CajaEscudo;

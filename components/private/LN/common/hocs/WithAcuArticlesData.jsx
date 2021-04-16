@@ -127,39 +127,6 @@ function WithAcuArticlesData(
                 };
             };
 
-            setOrderAndCountTags = articles => {
-                const tags = articles
-                    .map(article => get(article, 'taxonomy.tags', []))
-                    .reduce((tagsGrouped, _tags) => {
-                        const tagsReduced = { ...tagsGrouped };
-                        _tags.forEach(tag => {
-                            tagsReduced[tag.slug] = {
-                                count:
-                                    tagsReduced[tag.slug] &&
-                                    tagsReduced[tag.slug].count
-                                        ? tagsReduced[tag.slug].count + 1
-                                        : 1,
-                                slug: tag.slug,
-                                text: tag.text
-                            };
-                        });
-                        return tagsReduced;
-                    }, []);
-
-                const orderAndCountTags =
-                    Object.keys(tags)
-                        .sort((a, b) =>
-                            tags[a].count < tags[b].count ? 1 : -1
-                        )
-                        .slice(0, 10)
-                        .map(key => tags[key]) || [];
-                // console.log('orderAndCountTags', orderAndCountTags);
-
-                return (
-                    (orderAndCountTags.length >= 4 && orderAndCountTags) || []
-                );
-            };
-
             obtenerMasNotas = () => {
                 const { page } = this.state;
                 const { articles } = this.state;
@@ -228,7 +195,6 @@ function WithAcuArticlesData(
                 return (
                     <WrappedArticles
                         articles={articlesArray}
-                        orderAndCountTags={this.setOrderAndCountTags(articles)}
                         obtenerMasNotas={this.obtenerMasNotas}
                         hayMasNotas={hayMasNotas}
                         loading={loading}

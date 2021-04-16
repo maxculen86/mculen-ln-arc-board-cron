@@ -10,6 +10,10 @@ import HeaderSection from '../private/common/mod-headerSection';
 import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
+import ComButton from '../private/common/com-button';
+import NewFooter from '../private/LN/common/footer/home';
+
+import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
 
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -30,6 +34,26 @@ const LNHome = props => {
             <LoginProvider>
                 <GlobalProviderAcu>
                     {seccion1}
+                    {/* <div className="mod-banner --comercial">
+                        <ComButton
+                            classCondition="--secondary --compact"
+                            textname="CERRAR"
+                        />
+                        <div
+                            id="comercial_dsk"
+                            className="com-banner"
+                            data-google-query-id="CJa2odea1u8CFeoD0AQd0OQHtA"
+                        >
+                            <div id="google_ads_iframe_">
+                                <iframe
+                                    src="https://source.unsplash.com/800x600"
+                                    width="800"
+                                    height="600"
+                                    scrolling="no"
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div> */}
                     <div
                         id="wrapper"
                         className={`home demofront ${amp} --transparent`}
@@ -71,6 +95,9 @@ const LNHome = props => {
                                                 Banner
                                             </div>
                                         </section>
+
+                                        <Escudos />
+
                                         <div
                                             data-module="tema_01"
                                             data-is-loading="false"
@@ -353,9 +380,10 @@ const LNHome = props => {
                                                             srcdemo="https://source.unsplash.com/300x300/?face"
                                                             link="#"
                                                             leadText="Opinión 2."
-                                                            titleSize="--twoxs"
+                                                            titleSize="--xs"
                                                             titleText="Una ventana al bienestar que promete el verano"
                                                             authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
                                                             position="0602"
                                                         />
                                                         <Article
@@ -363,9 +391,10 @@ const LNHome = props => {
                                                             srcdemo="https://source.unsplash.com/300x301/?face"
                                                             link="#"
                                                             leadText="Opinión 3."
-                                                            titleSize="--twoxs"
+                                                            titleSize="--xs"
                                                             titleText="Trumpismo, maoísmo y peronismo"
                                                             authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
                                                             position="0603"
                                                         />
                                                     </div>
@@ -378,6 +407,7 @@ const LNHome = props => {
                                                             titleSize="--l"
                                                             titleText="Inolvidable declaración de amor a la ciudad de Madrid"
                                                             authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
                                                             position="0604"
                                                         />
                                                     </div>
@@ -548,11 +578,11 @@ const LNHome = props => {
                                             <ComTitle size="--twoxs" content="Temáticas LA NACION" />
                                             <div className="row-gap-tablet-2">
                                                 <a href="https://www.lanacion.com.ar/propiedades/">
-                                                    <div class="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" class="com-image " alt="Logo"/></div>
+                                                    <div className="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" className="com-image " alt="Logo"/></div>
                                                     Toda la informacion del mercado inmobiliario 
                                                 </a>
                                                 <a href="https://www.lanacion.com.ar/propiedades/">
-                                                    <div class="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" class="com-image " alt="Logo"/></div>
+                                                    <div className="mod-"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7AXX6ZVNCRGLBMXP5UPH5SWDIQ.png" loading="lazy" className="com-image " alt="Logo"/></div>
                                                     Noticias, informes y referentes del campo argentino 
                                                 </a>
                                             </div>
@@ -894,7 +924,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
 
                                 <div className="lay">
@@ -1730,11 +1760,12 @@ const LNHome = props => {
                                         </section>
                                         */}
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        {/* <Footer /> */}
+                        <NewFooter />
                     </div>
                 </GlobalProviderAcu>
             </LoginProvider>

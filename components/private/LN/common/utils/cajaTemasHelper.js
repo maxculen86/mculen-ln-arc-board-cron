@@ -102,6 +102,7 @@ export const getCommonProps = props => {
         id: idFeature,
         globalContent: { name, acumuladoGeneral }
     } = props;
+
     const { cajaTemaConfig = {} } = config || {};
     const { collectionsInPage = [] } = useGlobalProviderAcu() || {};
     const notesQuantity = (layout && Number(layout.slice(-1))) || 3;
@@ -114,6 +115,10 @@ export const getCommonProps = props => {
     const position =
         renderables
             .filter(ren => ren.collection === 'chains')
+            .filter(
+                chain =>
+                    get(chain, 'props.customFields.hideCaja', false) !== true
+            )
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
     const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
@@ -216,6 +221,13 @@ export const isInApertura = (tree = {}, idFeature) => {
     return sectionApertura.find(child => child.props.id === idFeature);
 };
 
+export const validateoutItem = itemNota => {
+    const regex = new RegExp(`/video/`);
+    const results = regex.exec(itemNota.url_nota);
+    if (results) return false;
+
+    return true;
+};
 export const cajaTemasCustomsFields = featuredName => {
     return {
         idCollection: PropTypes.string.tag({

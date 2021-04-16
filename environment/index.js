@@ -27,5 +27,16 @@ export default {
     LIFTIGNITER_X_API_KEY:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGKhT8RCHVY8qdl4glIcGqbAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDA4Z0sYE9HzpPv0H+QIBEIA/AWg5YKOHqVBYY++UrEtt/vPDWkyF13+S5IpmFaSoEIQKngDxcCizVC1Gsihxz5DLCGb35mQ0Mb2uA/D8aTP6}',
     JSK_ID:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH+QyVcvBB00Xwj8urCVYyvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMUYQQ3RWuAEyjE8zpAgEQgCuj3dibucAuSygtWLyaaA65Q5kOwJBTbHqTgWH5Po4ut7uHf7lVCFSm7gwO}'
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH+QyVcvBB00Xwj8urCVYyvAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMUYQQ3RWuAEyjE8zpAgEQgCuj3dibucAuSygtWLyaaA65Q5kOwJBTbHqTgWH5Po4ut7uHf7lVCFSm7gwO}',
+    DATADOG_CONFIG: {
+        clientToken: 'pubaa01cb67f0a687a6eba4718413593f4f',
+        applicationId: 'bcea4545-f033-4b09-ab27-30995db5acb0',
+        site: 'datadoghq.com',
+        forwardErrorsToLogs: true,
+        sampleRateLog: 1,
+        sampleRateRum: 0.1,
+        service: 'lanacion-arc',
+        env: 'prod',
+        trackInteractions: 'true'
+    }
 };

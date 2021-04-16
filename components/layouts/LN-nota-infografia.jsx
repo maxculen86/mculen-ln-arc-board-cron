@@ -57,25 +57,7 @@ import GlobalProvider from '../private/common/context/globalContext';
 import { CommentsProvider } from '../private/common/context/commentsContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBanners from '../private/common/banners/LoadBanners';
-
-const getBannerMegatop = (element, outputType, tree, isAdmin) => {
-    const { children } = tree;
-    // children[0] => Section BannerMegatop
-    const { children: childrenSectionBannerMegatop } = children[0];
-    const isValid =
-        outputType !== 'amp' && childrenSectionBannerMegatop.length <= 1;
-    const component = isValid ? (
-        element
-    ) : (
-        <PageBuilderMessage
-            id="LN-nota-infografia-error"
-            type="warning"
-            message="La sección BannerMegatop solo permite un banner y no se mostrará en salida AMP"
-        />
-    );
-    if (isAdmin) return component;
-    return isValid ? component : null;
-};
+import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 
 const lnNotaInfografia = ({
     children,
@@ -166,7 +148,7 @@ const lnNotaInfografia = ({
                                     </section>
                                 </div>
                                 {/* Tercera */}
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {children[6]}
                                 </div>
                             </div>
@@ -177,7 +159,7 @@ const lnNotaInfografia = ({
                                     {/* Bottom */}
                                     {children[9]}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Bottom-Tercera */}
                                     {children[10]}
                                 </div>

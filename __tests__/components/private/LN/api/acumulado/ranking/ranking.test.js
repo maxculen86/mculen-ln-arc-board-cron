@@ -1,4 +1,3 @@
-import env from '../../../../../../../__mocks__/fusion:environment';
 import articles from '../../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
 import RankingIndex from '../../../../../../../components/private/LN/api/v1/acumulado';
 

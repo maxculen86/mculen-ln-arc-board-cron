@@ -134,12 +134,16 @@ footer {
                 vertical-align: top;
                 text-align: left;
                 margin: px(-20) 0 px(20) 0;
-                svg.com-svg {
-                    max-width: 38px;
-                    height: 42px;
-                    margin: 0 1.25rem -0.3125rem;
+                .com-svg {
+                    max-width: px(38);
+                    height: px(42);
+                    margin: 0 px(16) 0 0;
+                    &:last-child {
+                        margin: 0 0 0 px(24);
+                    }
                 }
-                /*                 .img_gda {
+                /*
+                .img_gda {
                     width: auto;
                     margin: 0 px(20) 0 px(-5);
                 }
@@ -147,7 +151,8 @@ footer {
                     .img_data-fiscal {
                         width: px(35);
                     }
-                } */
+                }
+                */
             }
             @media ($media-l) {
                 order: 2;
@@ -155,10 +160,10 @@ footer {
                     text-align: right;
                     width: 100%;
                     margin: px(-6) 0 0 0;
-                    display: block;
+                    justify-content: flex-end;
                     a {
                         float: right;
-                        margin-top: px(8);
+                        margin-bottom: px(-8);
                     }
                 }
             }

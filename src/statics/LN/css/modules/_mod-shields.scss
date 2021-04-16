@@ -5,8 +5,21 @@
     margin-bottom: $spacing-xl;
     justify-content: center;
     .sports {
-        @include flex(inline);
-        flex-wrap: wrap;
+        // @include flex(inline);
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-row-gap: $spacing-sm;
+        grid-column-gap: $spacing-sm;
+
+        @media ($media-m) {
+            grid-template-columns: repeat(9, 1fr);
+            grid-column-gap: $spacing-sm;
+        }
+        @media ($media-l) {
+            grid-template-columns: repeat(10, 1fr);
+            grid-column-gap: px(31);
+        }
     }
     .--shield {
         .com-image {
@@ -16,8 +29,9 @@
     }
 
     .com-link.--shield {
-        margin-right: $spacing-lg;
-        margin-bottom: $spacing-sm;
+        //margin-right: $spacing-m;
+        //margin-bottom: $spacing-sm;
+        justify-self: center;
         position: relative;
         width: px(64);
         height: px(64);

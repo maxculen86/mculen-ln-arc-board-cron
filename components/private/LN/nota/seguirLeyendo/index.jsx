@@ -35,7 +35,7 @@ const Index = ({ relatedContent = [] }) => {
                         </ComTitle> */}
                         <ComLink
                             link={element.website_url || element.canonical_url}
-                            size="--threexs"
+                            size="--twoxs"
                         >
                             {content}
                         </ComLink>

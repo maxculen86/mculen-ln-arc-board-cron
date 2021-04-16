@@ -1,4 +1,3 @@
-import env from '../../../../../../__mocks__/fusion:environment';
 import articlesRanking from '../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
 import articlesAcumulado from '../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articlesTPInteresar from '../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
@@ -250,7 +249,7 @@ describe('Test de index en Json', () => {
 
     test('Autores del articulo', () => {
         expect(respRanking[0].autores[0].valor).toBe('Vinciane Smeets');
-        expect(respRanking[0].autores[0].tipo).toBe(1);
+        expect(respRanking[0].autores[0].tipo).toBe(2);
     });
 
     test('Sin Categoria principal', () => {
