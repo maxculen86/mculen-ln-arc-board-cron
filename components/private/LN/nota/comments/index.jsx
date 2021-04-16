@@ -135,7 +135,7 @@ const Comments = props => {
         const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
 
-        if (boxes.length > 0) {
+        if (boxes.length > 0 && commentSection.current) {
             commentSection.current.classList.remove('hlp-none');
         }
         if (boxes.length > 1) {
@@ -158,7 +158,7 @@ const Comments = props => {
             );
             document.getElementsByTagName('head')[0].appendChild(link);
 
-            if (cookie && cookie !== '')
+            if (cookie && cookie !== '' && commentSection.current)
                 commentSection.current.classList.remove('no-logueado');
 
             if (!stylesLoaded) setStylesLoaded(true);
