@@ -36,6 +36,10 @@ export default {
             props: {},
             location: ['head']
         },
+        LivefyreCommentCount: {
+            props: {},
+            location: ['head']
+        },
         LiftIgniter: {
             props: {},
             location: ['body-top']
