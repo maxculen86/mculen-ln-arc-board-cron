@@ -18,7 +18,9 @@
         padding-bottom: px(126);
 
         .mod-media {
-            .mod-figure {
+            a {
+                display: block;
+                position: relative;
                 border-radius: 100%;
                 overflow: hidden;
                 border: 1px solid $light-neutral-400;
