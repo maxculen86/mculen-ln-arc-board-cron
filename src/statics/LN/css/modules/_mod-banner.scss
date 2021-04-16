@@ -32,6 +32,7 @@
     &.--mobile,
     &.--sticky1_mob {
         margin-bottom: px(24);
+        height: px(100);
     }
     &.--desktop {
         margin-bottom: px(24);
@@ -104,6 +105,7 @@
     }
     &.--cabezal_dsk {
         margin-bottom: $spacing-lg;
+        height: px(170);
     }
 }
 @media ($media-m) {
@@ -114,6 +116,9 @@
         &.--fixed {
             bottom: px(0);
             left: calc((100% - 728px) / 2);
+        }
+        &.--cabezal_tab {
+            height: px(90);
         }
     }
 }
