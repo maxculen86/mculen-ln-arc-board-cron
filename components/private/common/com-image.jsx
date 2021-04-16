@@ -37,9 +37,9 @@ const ComImage = props => {
                     srcSet={srcset}
                     loading={withLazy ? 'lazy' : undefined}
                     className={`com-image ${classCondition || ''}`}
+                    alt={alt}
                     width={width}
                     height={height}
-                    alt={alt}
                 />
             )}
         </>
