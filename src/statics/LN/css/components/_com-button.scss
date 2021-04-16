@@ -21,8 +21,8 @@
     .mod-share & {
         padding: 0;
         margin-right: px(24);
-        &.comment {
-            margin: 0;
+        &:last-child {
+            margin-right: 0;
         }
         @media ($media-l) {
             margin-right: 0;
