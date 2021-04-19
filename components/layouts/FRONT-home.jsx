@@ -255,7 +255,7 @@ const LNHome = props => {
                                             />
                                             <ModPromo
                                                 text="La información más completa del mercado inmobiliario minuto a minuto."
-                                                link="https://www.lanacion.com.ar/campo/"
+                                                link="https://www.lanacion.com.ar/economia/campo/"
                                                 logoName="campo"
                                             />
                                         </div>
