@@ -1,3 +1,6 @@
+import dynamicallyLoadScript from "./dynamicallyLoadScript";
+import config from '../../../../../properties/sites/la-nacion-ar';
+
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
         const result =
@@ -27,21 +30,46 @@ function popUpRedSocial(url) {
 // COMPARTIR EN NOTA
 export function popUpCompartirNotaFB(notaId, dominio, titulo) {
     if (notaId.length > 0) {
-        if (typeof FB !== 'undefined') {
-            FB.ui(
-                {
-                    method: 'share',
-                    mobile_iframe: true,
-                    href: `${dominio}${notaId}`
-                },
-                function(response) {}
-            );
-        }
+        dynamicallyLoadScript('//connect.facebook.net/en_US/sdk.js', 'head')
+            .then(() => {
+                const initScript = document.createElement('script');
+                initScript.innerHTML = `
+                    window.fbAsyncInit = function () {
+                        FB.init({
+                            appId: ${config.shareConfig.facebook.appID},
+                            autoLogAppEvents: true,
+                            xfbml: true,
+                            version: 'v2.11'
+                        });
+                        FB.AppEvents.logPageView();
+                    };
+                `;
+                document.body.appendChild(initScript);
+                callFacebookUI(notaId, dominio);
+            })
+            .catch(() => {
+                callFacebookUI(notaId, dominio);
+                // console.error('Script loading failed! Handle this error', error);
+            });
+
         // popUpRedSocial(`//www.facebook.com/sharer.php?m2w&s=100&p[url]=${dominio}${notaId}`);
     } else {
         window.open('https://www.facebook.com/lanacion', '_blank');
     }
 }
+
+const callFacebookUI = (notaId, dominio) => {
+    if (typeof FB !== 'undefined') {
+        FB.ui(
+            {
+                method: 'share',
+                mobile_iframe: true,
+                href: `${dominio}${notaId}`
+            },
+            response => {}
+        );
+    }
+};
 
 export function popUpCompartirNotaGoogle(notaId, dominio, titulo) {
     if (notaId.length > 0) {
