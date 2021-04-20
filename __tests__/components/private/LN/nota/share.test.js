@@ -65,12 +65,6 @@ describe('Share', () => {
         expect(share).toMatchSnapshot();
     });
 
-    it('Triggers defined facebook button click event function', () => {
-        const button = component.find('.icon-facebook-filled');
-        button.simulate('click');
-        expect(window.FB.ui).toHaveBeenCalled();
-    });
-
     it('Triggers defined twitter button click event function', () => {
         const button = component.find('.icon-twitter-filled');
         button.simulate('click');
