@@ -1,5 +1,6 @@
-import dynamicallyLoadScript from "./dynamicallyLoadScript";
+import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
+import get from '../../../common/utils/get';
 
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
@@ -32,11 +33,12 @@ export function popUpCompartirNotaFB(notaId, dominio, titulo) {
     if (notaId.length > 0) {
         dynamicallyLoadScript('//connect.facebook.net/en_US/sdk.js', 'head')
             .then(() => {
+                const appID = get(config, 'shareConfig.facebook.appID');
                 const initScript = document.createElement('script');
                 initScript.innerHTML = `
                     window.fbAsyncInit = function () {
                         FB.init({
-                            appId: ${config.shareConfig.facebook.appID},
+                            appId: ${appID},
                             autoLogAppEvents: true,
                             xfbml: true,
                             version: 'v2.11'
