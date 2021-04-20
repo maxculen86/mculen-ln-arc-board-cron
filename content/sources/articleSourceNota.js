@@ -20,6 +20,7 @@ import {
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
+import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -207,26 +208,7 @@ const transformContent = (jsonArticle, arcSite) => {
     });
 
     if (resp && resp.content_elements) {
-        resp.content_elements.forEach((element, index) => {
-            const { type, content } = element;
-            if (type === 'text' && content) {
-                const regexTagA = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/gim;
-                const regexValidHref = /(?:href=(["'\\])+((?:(?:https?|http?):\/\/)?((?:[a-z]+)(?:\.(?:[a-z-0-9]-*)*[a-z-0-9]+)*(?:\.(?:[a-z]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?||\/[a-z-0-9\S]+)\1)/gim;
-                const isLink = regexTagA.test(content);
-                if (isLink) {
-                    const hasValidUrl = regexValidHref.test(content);
-                    if (!hasValidUrl) {
-                        resp.content_elements[index] = {
-                            ...resp.content_elements[index],
-                            content: content.replace(
-                                regexTagA,
-                                '<!-- URL INVALIDA REMOVIDA -->'
-                            )
-                        };
-                    }
-                }
-            }
-        });
+        resp.content_elements = removeInvalidUrlTagA(resp.content_elements);
     }
 
     /*     promiseArr.push(
