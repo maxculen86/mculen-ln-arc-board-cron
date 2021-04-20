@@ -2,7 +2,7 @@
 
 exports[`Banner Matches snapshot 1`] = `
 <div
-  class="mod-banner --bg-banner    --cabezal_dsk hlp-none"
+  class="mod-banner --bg-banner    --cabezal_dsk hlp-none "
   style="display:"
 >
   <div

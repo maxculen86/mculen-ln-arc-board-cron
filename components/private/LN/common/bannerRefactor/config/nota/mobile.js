@@ -39,6 +39,7 @@ export default {
         slotName: 'la_nacion_mobile/Nota/sticky1_mob',
         dimensions: [[320, 100]],
         targeting: defaultTargeting,
+        withoutHide: true,
         bidding: {
             prebid: {
                 enabled: true,

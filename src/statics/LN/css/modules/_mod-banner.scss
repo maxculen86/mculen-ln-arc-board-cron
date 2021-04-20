@@ -107,6 +107,15 @@
     &.--cabezal_dsk {
         display: none;
     }
+    &.--top {
+        height: px(124);
+        @media ($media-m) {
+            height: px(114);
+        }
+        @media ($media-l) {
+            height: px(202);
+        }
+    }
 }
 @media ($media-m) {
     .mod-banner {
