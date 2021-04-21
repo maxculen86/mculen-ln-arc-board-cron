@@ -25,7 +25,12 @@ export default function WithNavigation(WrappedComponent) {
                 const { cached } = this.getContent({
                     sourceName: 'navigationTreeSource',
                     query: {
-                        website
+                        website,
+                        sectionId: props.sectionId
+                    },
+                    transform: resp => {
+                        const { Termicas, sections } = resp || {};
+                        return { Termicas, sections };
                     }
                 });
 
@@ -36,24 +41,7 @@ export default function WithNavigation(WrappedComponent) {
                     termicas
                 };
             }
-
-            // TODO: revisar esto!
-            /*
-            getNavigationTree = () => {
-                const website = get(this, 'props.arcSite', null);
-                const { cached, fetched } = this.getContent({
-                    sourceName: 'navigationTreeSource',
-                    query: {
-                        website
-                    }
-                });
-
-                if (cached) this.getSectionTree(cached);
-
-                fetched.then(result => this.getSectionTree(result));
-            };
-            */
-
+            /* Esta logica se paso del lado del navigationTreeSource
             getSections = results => {
                 const sections = [];
                 const { sectionId } = this.props;
@@ -103,16 +91,18 @@ export default function WithNavigation(WrappedComponent) {
 
                 return sections;
             };
+            */
 
             getSectionTree = results => {
                 const termicas = (results && results.Termicas) || {};
-                const sections = (results && this.getSections(results)) || [];
+                const sections = (results && results.sections) || [];
+                // const sections = (results && this.getSections(results)) || [];
                 if (results) this.convertStringToBoolean(termicas);
                 return { sections, termicas };
             };
 
             convertStringToBoolean = termicas => {
-                Object.keys(termicas).forEach(function(key) {
+                Object.keys(termicas).forEach(key => {
                     if (typeof termicas[key] === 'string') {
                         termicas[key].toLowerCase().trim() === 'true'
                             ? (termicas[key] = true)

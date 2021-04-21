@@ -9,7 +9,7 @@ import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
 // import ArcAds from '../private/common/scriptManager/arcAds';
-import FacebookSDK from '../private/common/scriptManager/facebookSDK';
+// import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
 // import Livefyre from '../private/common/scriptManager/Livefyre';
 import LivefyreCommentCount from '../private/common/scriptManager/LivefyreCommentCount';
@@ -60,10 +60,6 @@ const scriptList = [
             function: GooglePublisherTagAcumulado
         },
         feature: 'none'
-    },
-    {
-        component: { name: 'FacebookSDK', function: FacebookSDK },
-        feature: ['LN-nota/share']
     },
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },

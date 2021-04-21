@@ -17,7 +17,11 @@ function BreadcrumbAutor({ author, host }) {
     ];
     return (
         <>
-            <BreadCrumbBase sections={sections} dataSection={DATA_SECTION} />
+            <BreadCrumbBase
+                sections={sections}
+                lastLinked
+                dataSection={DATA_SECTION}
+            />
             <BreadCrumbSchema sections={sections} host={host} />
         </>
     );

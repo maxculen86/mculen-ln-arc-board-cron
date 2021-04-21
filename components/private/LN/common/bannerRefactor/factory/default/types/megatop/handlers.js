@@ -38,10 +38,12 @@ export const onScroll = (megatopRef, wrapperRef, device) => {
             wrapperClassList.remove(CLASS_SCROLL_DOWN);
         }
         if (device === 'mobile') {
-            const {
-                classList: vShareClassList
-            } = wrapper.getElementsByClassName('com-share')[0];
-            vShareClassList.remove(CLASS_SCROLL_UP);
+            const element =
+                wrapper && wrapper.getElementsByClassName('com-share');
+            if (element && element.length > 0) {
+                const { classList: vShareClassList } = element[0];
+                vShareClassList.remove(CLASS_SCROLL_UP);
+            }
         }
     } else if (shouldRemoveClasses(megatop, headerHeight)) {
         if (headerClassList) {

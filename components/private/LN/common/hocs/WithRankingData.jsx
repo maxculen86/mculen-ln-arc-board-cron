@@ -49,22 +49,23 @@ function WithRankingData(WrappedComponent, imageConfig) {
             };
 
             getSectionParent = (primarySection, sectionList, website) => {
+                /*
                 const { cached } = this.getContent({
                     sourceName: 'navigationTreeSource',
                     query: {
                         website
                     }
                 });
-
+                
                 const navigation = sectionList || (cached && cached.children);
-
+                */
                 const sections = primarySection.split('/');
                 const sectionParentId =
                     sections && sections.length > 2 ? `/${sections[1]}` : null;
                 const { name: titleSectionParent } =
                     (sectionParentId &&
-                        navigation &&
-                        navigation.find(
+                        sectionList &&
+                        sectionList.find(
                             section => section._id === sectionParentId
                         )) ||
                     {};

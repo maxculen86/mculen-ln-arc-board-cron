@@ -34,6 +34,7 @@ export default {
     },
     cabezal_dsk: {
         slotName: 'la_nacion_desktop/Nota/cabezal_dsk',
+        withoutHide: true,
         dimensions: [
             [1, 1],
             [728, 90],

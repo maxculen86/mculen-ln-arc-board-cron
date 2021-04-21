@@ -7,13 +7,13 @@ const isNotVisibleInViewport = element => {
 };
 
 const hideElement = element => {
-    if (element.classList.contains('--active')) {
+    if (element && element.classList.contains('--active')) {
         element.classList.remove('--active');
     }
 };
 
 const showElement = element => {
-    if (!element.classList.contains('--active')) {
+    if (element && !element.classList.contains('--active')) {
         element.classList.add('--active');
     }
 };
