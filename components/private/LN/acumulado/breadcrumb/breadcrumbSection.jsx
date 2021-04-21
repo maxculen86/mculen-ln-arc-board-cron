@@ -32,7 +32,12 @@ BreadcrumbSection.propTypes = {
             path: PropTypes.string
         })
     ).isRequired,
-    host: PropTypes.string.isRequired
+    host: PropTypes.string.isRequired,
+    colorCategory: PropTypes.string
+};
+
+BreadcrumbSection.defaultProps = {
+    colorCategory: ''
 };
 
 export default WithNavigation(BreadcrumbSection);

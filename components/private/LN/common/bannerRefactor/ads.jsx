@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import get from '../../../common/utils/get';
-import hasAdsTestParam from '../utils/hasAdsTesParam';
 import flatArray from '../../../common/utils/flatArray';
 import { GlobalContext } from '../../../common/context/globalContext';
 
@@ -18,7 +17,8 @@ const Ads = props => {
         bidding,
         sizemap,
         slotGroup,
-        subscription
+        subscription,
+        withoutHide
     } = props;
     const [toInstance, setToInstance] = useState(() => false);
     const { dispatch } = useContext(GlobalContext);
@@ -41,7 +41,8 @@ const Ads = props => {
                     prebidEnabled,
                     targeting,
                     slotGroup,
-                    subscription
+                    subscription,
+                    withoutHide
                 }
             });
 
@@ -74,7 +75,8 @@ const Ads = props => {
         slotName,
         subscription,
         targeting,
-        toInstance
+        toInstance,
+        withoutHide
     ]);
 
     return <div id={id} className="com-banner" />;
@@ -96,14 +98,16 @@ Ads.propTypes = {
     }),
     bidding: PropTypes.objectOf(PropTypes.string),
     slotGroup: PropTypes.string,
-    subscription: PropTypes.bool
+    subscription: PropTypes.bool,
+    withoutHide: PropTypes.bool
 };
 
 Ads.defaultProps = {
     sizemap: [],
     bidding: {},
     slotGroup: 'desktop',
-    subscription: false
+    subscription: false,
+    withoutHide: false
 };
 
 export default Ads;

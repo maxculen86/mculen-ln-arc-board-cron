@@ -10,6 +10,7 @@ export default {
     },
     sticky1_mob: {
         slotName: `${PATH_SLOT}/sticky1_mob`,
+        withoutHide: true,
         dimensions: [
             [320, 50],
             [320, 100]

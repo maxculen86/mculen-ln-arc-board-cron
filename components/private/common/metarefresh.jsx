@@ -39,10 +39,13 @@ const Component = props => {
     const resolution = get(props, 'screenUtils.device', null);
     const isAdmin = get(props, 'isAdmin');
     const outputType = get(props, 'outputType');
-    const content = useContent({
+    const metarefresh = useContent({
         source: 'navigationTreeSource',
         query: {
             website
+        },
+        transform: resp => {
+            return get(resp, 'Metarefresh', undefined);
         }
     });
 
@@ -51,7 +54,7 @@ const Component = props => {
         loginData: { subscription }
     } = props;
 
-    const metarefresh = content && content.Metarefresh;
+    // const metarefresh = content && content.Metarefresh;
     const interval = getInterval(type || _id, resolution, metarefresh);
     const cookieProductoPremium = getCookie('ProductoPremiumId');
 
