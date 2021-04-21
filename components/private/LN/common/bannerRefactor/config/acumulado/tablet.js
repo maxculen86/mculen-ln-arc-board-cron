@@ -6,7 +6,8 @@ export default {
     cabezal_tab: {
         slotName: `${PATH_SLOT}/cabezal_tab`,
         dimensions: [[728, 90]],
-        targeting: defaultTargeting
+        targeting: defaultTargeting,
+        withoutHide: true
     },
     adhesion_tab: {
         slotName: `${PATH_SLOT}/adhesion_tab`,

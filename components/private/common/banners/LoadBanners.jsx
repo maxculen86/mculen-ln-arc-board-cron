@@ -13,6 +13,7 @@ import flatArray from '../utils/flatArray';
 import hasAdsTestParam from '../../LN/common/utils/hasAdsTesParam';
 
 let googleCmdPushed = false;
+let bannersWithoutHide = [];
 
 function naveggSetTargeting() {
     (function setTarge(w) {
@@ -47,6 +48,10 @@ const queueGoogletagCommand = bannersToLoad => {
             googletag
                 .defineSlot(adUnitPath, size, optDiv)
                 .addService(googletag.pubads());
+
+        bannersWithoutHide = bannersToLoad
+            .filter(e => e.withoutHide)
+            .map(e => e.opt_div);
 
         const headerBiddingSlots = bannersToLoad
             .filter(e => e.prebidEnabled)
@@ -96,7 +101,10 @@ const queueGoogletagCommand = bannersToLoad => {
         googletag
             .pubads()
             .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
-                if (!isEmpty)
+                if (
+                    !isEmpty &&
+                    bannersWithoutHide.indexOf(slot.getSlotElementId()) === -1
+                )
                     document
                         .getElementById(slot.getSlotElementId())
                         .parentNode.classList.remove('hlp-none');

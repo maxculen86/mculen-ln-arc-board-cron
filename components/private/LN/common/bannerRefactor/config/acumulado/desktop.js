@@ -15,6 +15,7 @@ export default {
     },
     cabezal_dsk: {
         slotName: `${PATH_SLOT}/cabezal_dsk`,
+        withoutHide: true,
         dimensions: [
             [1, 1],
             [728, 90],

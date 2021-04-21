@@ -19,7 +19,8 @@ const Index = forwardRef((props, ref) => {
         withComments,
         subscription,
         noShow,
-        slotGroup
+        slotGroup,
+        withoutHide
     } = props;
     const onClose = () => ref.current.remove();
 
@@ -31,7 +32,7 @@ const Index = forwardRef((props, ref) => {
                 sticky ? '--sticky' : ''
             } ${closeButton ? '--close' : ''} ${
                 fixed ? '--fixed' : ''
-            } --${id} hlp-none`}
+            } --${id} ${withoutHide ? '' : 'hlp-none'} `}
             style={{
                 display:
                     (!!noShow && subscription) ||
@@ -60,6 +61,7 @@ const Index = forwardRef((props, ref) => {
                 sizemap={sizemap}
                 slotGroup={slotGroup}
                 subscription={subscription}
+                withoutHide={withoutHide}
             />
         </div>
     );
@@ -91,7 +93,8 @@ Index.propTypes = {
     withComments: PropTypes.bool,
     subscription: PropTypes.bool,
     noShow: PropTypes.bool,
-    slotGroup: PropTypes.string.isRequired
+    slotGroup: PropTypes.string.isRequired,
+    withoutHide: PropTypes.bool
 };
 
 Index.defaultProps = {
@@ -107,7 +110,8 @@ Index.defaultProps = {
     },
     withComments: false,
     subscription: false,
-    noShow: false
+    noShow: false,
+    withoutHide: false
 };
 
 export default Index;

@@ -27,6 +27,7 @@ export default {
         slotName: 'la_nacion_tablet/Nota/cabezal_tab',
         dimensions: [[728, 90]],
         targeting: defaultTargeting,
+        withoutHide: true,
         bidding: {
             prebid: {
                 enabled: true,

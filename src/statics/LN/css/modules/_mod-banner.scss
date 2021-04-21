@@ -32,6 +32,7 @@
     &.--mobile,
     &.--sticky1_mob {
         margin-bottom: px(24);
+        height: px(100);
     }
     &.--desktop {
         margin-bottom: px(24);
@@ -102,8 +103,18 @@
             background: $neutral-white;
         }
     }
+    &.--cabezal_tab,
     &.--cabezal_dsk {
-        margin-bottom: $spacing-lg;
+        display: none;
+    }
+    &.--top {
+        height: px(124);
+        @media ($media-m) {
+            height: px(114);
+        }
+        @media ($media-l) {
+            height: px(202);
+        }
     }
 }
 @media ($media-m) {
@@ -114,6 +125,14 @@
         &.--fixed {
             bottom: px(0);
             left: calc((100% - 728px) / 2);
+        }
+        &.--sticky1_mob {
+            display: none;
+        }
+        &.--cabezal_tab {
+            display: flex;
+            margin-bottom: $spacing-lg;
+            height: px(90);
         }
     }
 }
@@ -132,6 +151,14 @@
         }
         .cuerpo__nota & {
             display: none;
+        }
+        &.--cabezal_tab {
+            display: none;
+        }
+        &.--cabezal_dsk {
+            display: flex;
+            margin-bottom: $spacing-lg;
+            height: px(170);
         }
     }
 }
