@@ -56,7 +56,7 @@ const index = props => {
     }
 
     const getTripleSize = size => ({
-        tripleSize: size * 3,
+        tripleSize: Math.ceil(size * 1.5),
         originalSize: size
     });
 

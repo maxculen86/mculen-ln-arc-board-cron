@@ -64,6 +64,7 @@ function WithAcuArticlesData(
                 const authorId = get(this, 'props.authorId', null);
                 const distributorId = get(this, 'props.distributorId', null);
                 const size = get(this, 'props.size', 30);
+                const type = get(this, 'props.globalContent.type');
 
                 if (
                     !sectionId &&
@@ -99,7 +100,8 @@ function WithAcuArticlesData(
                         promoItemsOnly,
                         distributorId,
                         sectionsIds,
-                        sourceOrigin
+                        sourceOrigin,
+                        type
                     },
                     filter
                 });
@@ -176,7 +178,7 @@ function WithAcuArticlesData(
                     page + 1
                 );
             };
-
+            /*
             isRecommend = article => {
                 const { label } = article;
                 const { recomendar } = label || undefined;
@@ -184,6 +186,7 @@ function WithAcuArticlesData(
                     !recomendar || recomendar === {} || recomendar.text === 'Si'
                 );
             };
+            */
 
             addShortTitle = (article, filterFeature) => {
                 if (filterFeature === '0' || filterFeature === '1') {
@@ -206,8 +209,7 @@ function WithAcuArticlesData(
                 } = this.props;
 
                 if (type === 'story') {
-                    const isIdPresent =
-                        articles && articles.find(e => e._id === _id);
+                    // const isIdPresent = articles && articles.find(e => e._id === _id);
                     const {
                         size: { originalSize }
                     } = this.props;
@@ -216,12 +218,8 @@ function WithAcuArticlesData(
                         .map(article => {
                             return this.addShortTitle(article, filterFeature);
                         })
-                        .filter(article => {
-                            return isIdPresent
-                                ? article._id !== _id &&
-                                      this.isRecommend(article)
-                                : this.isRecommend(article);
-                        })
+                        // si la nota aparece en listado la excluyo
+                        .filter(article => article._id !== _id)
                         .slice(0, originalSize);
                 }
 
