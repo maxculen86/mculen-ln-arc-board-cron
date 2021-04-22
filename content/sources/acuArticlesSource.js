@@ -11,6 +11,7 @@ import {
     hasFutureDisplayDate,
     isOlderThan24HourAgo
 } from '../../components/private/common/utils/dateAndTimeUtil';
+import { isNotRecommend } from './utils/collectionsHelper';
 
 const resolve = key => {
     const {
@@ -154,7 +155,7 @@ const transform = (data, siteProps) => {
     const respData = data;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
-    const { sectionsIds } = siteProps;
+    const { sectionsIds, type, size } = siteProps;
 
     const presetsPromoItems = get(presets, 'promo_items', null);
 
@@ -185,6 +186,14 @@ const transform = (data, siteProps) => {
             };
         });
 
+    // Si viene de mas notas return solo las necesarias mas 1 por si se excluye misma nota
+    if (type === 'story') {
+        const originalSize = Math.floor(size / 1.5);
+        respData.content_elements = respData.content_elements
+            .filter(art => !isNotRecommend(art))
+            .slice(0, Number(originalSize) + 1);
+    }
+
     // De todos los Content Elements, solo traigo el primero que sea parrafo
     // (para no mandar mas info innecesaria)
     respData.content_elements = respData.content_elements.map(story => {
@@ -198,6 +207,7 @@ const transform = (data, siteProps) => {
         };
     });
 
+    // Si viene de Ultimas Noticias
     if (sectionsIds) {
         respData.content_elements = respData.content_elements
             .filter(story => !isOlderThan24HourAgo(story.display_date))
