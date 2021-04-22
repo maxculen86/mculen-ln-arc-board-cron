@@ -1,0 +1,27 @@
+@import '../abstracts/variables';
+
+.sitemap {
+    header {
+        border-bottom: 1px solid #e4e4e4;
+        text-align: center;
+        padding: px(24) 0;
+    }
+    footer {
+        border-top: 1px solid #e4e4e4;
+        text-align: center;
+        padding: px(24) 0;
+    }
+    main {
+        .lay {
+            > .com-title {
+                margin-bottom: px(32);
+                justify-content: center;
+            }
+            .row {
+                .com-title {
+                    margin-bottom: px(16);
+                }
+            }
+        }
+    }
+}

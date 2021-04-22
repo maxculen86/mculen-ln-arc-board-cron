@@ -48,12 +48,23 @@ exports[`Share Matches snapshot 1`] = `
       />
     </button>
     <button
-      class="com-button   --icon "
+      class="com-button   --icon comment "
       type="button"
     >
       <i
         class="com-icon icon-comment   "
       />
+      <span
+        class="com-text --fourxs "
+      >
+        <label
+          class="livefyre-commentcount"
+          data-lf-article-id="JZQDUAOPSRF3LLDZOT6374IDOM"
+          id="livefyre-commentcount"
+        >
+          0
+        </label>
+      </span>
     </button>
   </div>
 </div>

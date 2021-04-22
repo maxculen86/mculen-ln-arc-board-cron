@@ -120,7 +120,7 @@ const lnNotaStorytelling = ({
                                     </section>
                                 </div>
                                 {/* Tercera */}
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {children[3]}
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ const lnNotaStorytelling = ({
                                     {/* Bottom */}
                                     {children[5]}
                                 </div>
-                                <div className="sidebar__aside hlp-tablet-none">
+                                <div className="sidebar__aside hlp-tabletlm-none">
                                     {/* Bottom-Tercera */}
                                     {children[6]}
                                 </div>

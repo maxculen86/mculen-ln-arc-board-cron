@@ -20,6 +20,7 @@ import {
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
+import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -205,6 +206,10 @@ const transformContent = (jsonArticle, arcSite) => {
             })
         );
     });
+
+    if (resp && resp.content_elements) {
+        resp.content_elements = removeInvalidUrlTagA(resp.content_elements);
+    }
 
     return Promise.all(promiseArr).then(() => {
         return resp;

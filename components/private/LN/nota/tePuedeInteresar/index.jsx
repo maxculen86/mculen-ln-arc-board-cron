@@ -145,7 +145,12 @@ class Index extends Component {
         return articles && articles.length > 0 ? (
             <div className="row interest" ref={this.myRef}>
                 <HeaderSection title="Te puede interesar" />
-                <section className="row-gap-tablet-3 row-gap-desksm-3">
+                <section
+                    className="row-gap-tablet-3 row-gap-desksm-3"
+                    data-is-block="true"
+                    data-block-name="n_te_puede_interesar"
+                    data-diagramacion-id="0"
+                >
                     {articles.map((article, index) => {
                         return (
                             <ArticleMain

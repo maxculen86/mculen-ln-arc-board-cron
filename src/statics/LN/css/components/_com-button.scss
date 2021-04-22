@@ -4,6 +4,7 @@
 .com-button {
     @include flex(inline, row, center, center);
     background: transparent;
+    transition: all 0.2s ease-in-out;
     padding: px(12) px(16);
     color: $neutral-black;
     font-size: px(12);
@@ -90,6 +91,7 @@
         color: $light-blue-500;
         &:hover {
             background: $light-blue-400;
+            border-color: $light-blue-400;
             color: $light-neutral-50;
         }
         &:active {

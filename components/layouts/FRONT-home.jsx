@@ -11,6 +11,7 @@ import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
 import ComButton from '../private/common/com-button';
+import NewFooter from '../private/LN/common/footer/home';
 
 import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
 
@@ -254,8 +255,8 @@ const LNHome = props => {
                                             />
                                             <ModPromo
                                                 text="La información más completa del mercado inmobiliario minuto a minuto."
-                                                link="https://www.lanacion.com.ar/revista-lugares/"
-                                                logoName="lugares"
+                                                link="https://www.lanacion.com.ar/economia/campo/"
+                                                logoName="campo"
                                             />
                                         </div>
                                         <div
@@ -923,7 +924,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
 
                                 <div className="lay">
@@ -1759,11 +1760,12 @@ const LNHome = props => {
                                         </section>
                                         */}
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        {/* <Footer /> */}
+                        <NewFooter />
                     </div>
                 </GlobalProviderAcu>
             </LoginProvider>
