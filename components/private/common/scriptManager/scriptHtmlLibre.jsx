@@ -1,34 +1,35 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-
-const filterElements = (contentElements, subtype) => {
-    // Si la nota es subtype 9 se usa un `find()` ya que para las notas de html libre
-    // se debe tomar solo el primer elemento del contentElements de tipo 'raw_html'
-    const filter = subtype === '9' ? 'find' : 'filter';
-    const elements = contentElements[filter](element => {
-        const { type, content = '' } = element;
-        return type === 'raw_html' && content !== '';
-    });
-
-    // el método find devuelve un objeto por lo que se retorna dentro de un arreglo
-    // para normalizar el resultado
-    return subtype === '9' ? [elements] : elements;
-};
+import get from '../utils/get';
 
 const ScriptHtmlLibre = props => {
     const {
-        globalContent: { type, subtype, content_elements: contentElements }
+        globalContent: {
+            type,
+            content_elements: contentElements,
+            promo_items: promoItems
+        } = {}
     } = props;
 
-    if (type !== 'story') return null;
+    // Este regex se usa para validar que exista algún elemento que contenga la class 'pym'
+    const regex = /<.*class=(?:.+pym.+)\/.*?>/gim;
 
-    const elements = filterElements(contentElements, subtype);
+    const hasPymClass =
+        (get(promoItems, 'basic.type', '') === 'raw_html' &&
+            regex.test(get(promoItems, 'basic.content', ''))) ||
+        (contentElements &&
+            contentElements.some(
+                element =>
+                    get(element, 'type', '') === 'raw_html' &&
+                    regex.test(get(element, 'content', ''))
+            ));
 
     return (
-        <>
+        (type === 'story' && hasPymClass && (
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pym/1.2.0/pym.v1.min.js" />
-        </>
+        )) ||
+        null
     );
 };
 

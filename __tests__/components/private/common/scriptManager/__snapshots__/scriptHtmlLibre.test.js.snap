@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScriptManager -> ScriptHtmlLibre -> when hasn't globalContent snapshots 1`] = `""`;
+
+exports[`ScriptManager -> ScriptHtmlLibre -> when is a story with raw_html elements in "content_elements" "promo_items" and any content includes class pym snapshots 1`] = `""`;
+
+exports[`ScriptManager -> ScriptHtmlLibre -> when is a story with raw_html elements in "content_elements" "promo_items" and the content includes class pym snapshots 1`] = `"<script src=\\"https://cdnjs.cloudflare.com/ajax/libs/pym/1.2.0/pym.v1.min.js\\"></script>"`;
+
+exports[`ScriptManager -> ScriptHtmlLibre -> when is a story with raw_html elements in "content_elements" "promo_items" and the content includes class pym snapshots 2`] = `"<script src=\\"https://cdnjs.cloudflare.com/ajax/libs/pym/1.2.0/pym.v1.min.js\\"></script>"`;
+
+exports[`ScriptManager -> ScriptHtmlLibre -> when is a story with raw_html elements in "content_elements" "promo_items" and the content includes class pym snapshots 3`] = `"<script src=\\"https://cdnjs.cloudflare.com/ajax/libs/pym/1.2.0/pym.v1.min.js\\"></script>"`;
+
+exports[`ScriptManager -> ScriptHtmlLibre -> when is a story without raw_html elements in "content_elements" "promo_items" snapshots 1`] = `""`;
+
+exports[`ScriptManager -> ScriptHtmlLibre -> when isn't a story snapshots 1`] = `""`;
