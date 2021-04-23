@@ -21,6 +21,7 @@ import GooglePublisherTagAcumulado from '../private/common/scriptManager/googleP
 import SocialEmbeds from '../private/common/scriptManager/socialEmbeds';
 import OptaEmbed from '../private/common/scriptManager/optaEmbed';
 import ScriptHtmlLibre from '../private/common/scriptManager/scriptHtmlLibre';
+import Petametrics from '../private/common/scriptManager/petametrics';
 import DataLayerIndex from '../private/common/dataLayerIndex';
 import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
@@ -63,6 +64,10 @@ const scriptList = [
     },
     {
         component: { name: 'LiftIgniter', function: LiftIgniter },
+        feature: ['LN-nota/tePuedeInteresar']
+    },
+    {
+        component: { name: 'Petametrics', function: Petametrics },
         feature: ['LN-nota/tePuedeInteresar']
     },
     {
@@ -178,6 +183,16 @@ const Default = props => {
             <head>
                 <meta charset="utf-8" />
                 <title>{title}</title>
+                <link
+                    href="https://www.googletagmanager.com"
+                    rel="preconnect"
+                />
+                <link
+                    href="https://www.google-analytics.com"
+                    rel="preconnect"
+                />
+                <link href="https://resizer.glanacion.com" rel="preconnect" />
+                <link href="https://static.glanacion.com" rel="preconnect" />
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />

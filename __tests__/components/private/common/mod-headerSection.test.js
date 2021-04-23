@@ -26,7 +26,7 @@ describe('Private - Common - ModheaderSection => ', () => {
         const component = mount(
             <ModheaderSection
                 title="Titulo Separador"
-                link="https://lanacion.com.ar"
+                link="https://lanacion.com.ar/"
                 size="--l"
                 classCondition="--pink"
                 line
@@ -46,12 +46,12 @@ describe('Private - Common - ModheaderSection => ', () => {
         const component = mount(
             <ModheaderSection
                 title="Titulo Separador"
-                link="https://lanacion.com.ar"
+                link="https://lanacion.com.ar/"
             />
         );
         expect(component.find('a')).toHaveLength(1);
         expect(component.find('a.com-link').html()).toContain(
-            '<a href="https://lanacion.com.ar" class="com-link">Titulo Separador</a>'
+            '<a href="https://lanacion.com.ar/" class="com-link">Titulo Separador</a>'
         );
     });
 

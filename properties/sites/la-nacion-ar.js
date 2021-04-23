@@ -36,6 +36,10 @@ export default {
             props: {},
             location: ['head']
         },
+        Petametrics: {
+            props: {},
+            location: ['head']
+        },
         LivefyreCommentCount: {
             props: {},
             location: ['head']
