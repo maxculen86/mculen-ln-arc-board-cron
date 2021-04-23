@@ -55,7 +55,10 @@ const Footer = ({ children }) => {
 
     const listText2 = [
         { text: 'Club del vino:' },
-        { text: 'Bon vivir', href: '#' },
+        { text: 'Bon vivir', href: '#' }
+    ];
+
+    const listText2b = [
         { text: 'Envíos:' },
         { text: 'HOP', href: '#' },
         { text: 'Colecciones', href: '#' },
@@ -143,11 +146,22 @@ const Footer = ({ children }) => {
                         <List inline mod="--font-bold">
                             {listText}
                         </List>
-                        <List inline size="--fourxs">
+                        <List
+                            inline
+                            size="--fourxs"
+                            mod="--magazine --font-bold"
+                        >
                             {listText1}
                         </List>
-                        <List inline size="--fourxs">
+                        <List inline size="--fourxs" mod="--club --font-bold">
                             {listText2}
+                        </List>
+                        <List
+                            inline
+                            size="--fourxs"
+                            mod="--delivery --font-bold"
+                        >
+                            {listText2b}
                         </List>
                     </div>
                 </section>

@@ -4,6 +4,12 @@
 .footer-site {
     margin-bottom: px(16);
 
+    .--left {
+        @media ($media-l) {
+            text-align: left;
+        }
+    }
+
     .--right {
         @media ($media-l) {
             text-align: right;
@@ -42,8 +48,14 @@
             padding-bottom: px(8);
             border-bottom: 1px solid $light-neutral-400;
         }
-        .com-list {
-            margin-bottom: px(24);
+        .mod-list:not(:first-child) {
+            margin-right: px(16);
+            li:first-child {
+                font-weight: 100;
+            }
+        }
+        .--magazine {
+            width: 100%;
         }
     }
     .bottom {
