@@ -51,6 +51,11 @@ exports[`Comments Matches snapshot 1`] = `
       }
     }
   >
+    <LoadingIcon>
+      <div
+        className="loader"
+      />
+    </LoadingIcon>
     <section
       className="comments arrow-down hlp-none"
       data-module="nota-sugeridas-comentarios"

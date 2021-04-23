@@ -20,7 +20,7 @@ describe('Test for html render inside text component', () => {
         expect(resp[10]).toBe('.');
         expect(resp[11]).toBe('Arc permite poner ');
         expect(resp[12]['valor']).toBe('colores');
-        expect(resp[12]['_t']).toBe('b');
+        expect(resp[12]['_t']).toBe('mark');
         expect(resp[13]).toBe(
             ' Arc tambien puede enviar codigos html tales como & Tambien proceso & pero no proceso &euro;'
         );

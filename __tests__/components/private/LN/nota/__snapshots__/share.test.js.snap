@@ -58,8 +58,12 @@ exports[`Share Matches snapshot 1`] = `
         class="com-text --fourxs "
       >
         <label
-          for=""
-        />
+          class="livefyre-commentcount"
+          data-lf-article-id="JZQDUAOPSRF3LLDZOT6374IDOM"
+          id="livefyre-commentcount"
+        >
+          0
+        </label>
       </span>
     </button>
   </div>

@@ -34,6 +34,7 @@ const CajaTema = props => {
     if (position) {
         extraOpts['data-block-name'] = `h_${sectionName}tema-${position}`;
         extraOpts['data-diagramacion-id'] = layout;
+        extraOpts['data-is-block'] = true;
         extraOpts.id = `tema_${position}`;
     }
     const artWithoutDate =

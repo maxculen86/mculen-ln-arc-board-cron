@@ -8,6 +8,7 @@ import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTem
 import { getCajaTemaConfig } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import filter from '../../../../content/filters/LN/nota/articleAcu';
 
 const ArticleFeature = ({
     id: featureId,
@@ -24,7 +25,8 @@ const ArticleFeature = ({
     );
     const article = useContent({
         source: 'articleSourceNota',
-        query: { id, published: true }
+        query: { id, published: true },
+        filter
     });
 
     const image = useContent({

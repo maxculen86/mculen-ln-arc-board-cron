@@ -18,6 +18,7 @@ import withLoginData from '../../common/hocs/withLoginData';
 import '../../../../../resources/dist/css/ln/modules/comments.css';
 import useComments from '../../../common/hooks/useComments';
 import get from '../../../common/utils/get';
+import LoadingIcon from '../../common/loadingIcon';
 
 const Comments = props => {
     const {
@@ -32,16 +33,15 @@ const Comments = props => {
         loginData,
         deployment
     } = props;
+    // return <LoadingIcon />;
+    // const {
+    //     globalContent: { comments }
+    // } = props;
 
-    const {
-        globalContent: { comments }
-    } = props;
-
-    const allowComments = get(comments, 'allow_comments', true);
-    const displayComments = get(comments, 'display_comments', true);
+    // const allowComments = get(comments, 'allow_comments', true);
+    // const displayComments = get(comments, 'display_comments', true);
 
     const { setCommentsEnabledAndCount } = useComments();
-
     const [stylesLoaded, setStylesLoaded] = useState(false);
     const [showLegal, setShowLegal] = useState(false);
     const { getCookie } = handleCookie();
@@ -135,7 +135,7 @@ const Comments = props => {
         const lf = document.getElementById('livefyre');
         const boxes = lf.getElementsByClassName('fyre');
 
-        if (boxes.length > 0) {
+        if (boxes.length > 0 && commentSection.current) {
             commentSection.current.classList.remove('hlp-none');
         }
         if (boxes.length > 1) {
@@ -158,7 +158,7 @@ const Comments = props => {
             );
             document.getElementsByTagName('head')[0].appendChild(link);
 
-            if (cookie && cookie !== '')
+            if (cookie && cookie !== '' && commentSection.current)
                 commentSection.current.classList.remove('no-logueado');
 
             if (!stylesLoaded) setStylesLoaded(true);
@@ -293,10 +293,11 @@ const Comments = props => {
         props
     ]);
 
-    if (!displayComments) return null;
+    // if (!displayComments) return null;
 
     return (
         <>
+            {instance && !instance.current && <LoadingIcon />}
             <section
                 id="comentarios"
                 className="comments arrow-down hlp-none"

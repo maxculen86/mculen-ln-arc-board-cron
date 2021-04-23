@@ -17,11 +17,13 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="mod-picture "
         >
           <img
-            alt="Imagen de Autor"
+            alt="Joaquín Morales Solá"
             class="com-image "
+            height="280"
             loading="lazy"
             src="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
             srcset="https://bucket2.glanacion.com/anexos/fotos/95/3037695h320.png"
+            width="280"
           />
         </div>
       </figure>

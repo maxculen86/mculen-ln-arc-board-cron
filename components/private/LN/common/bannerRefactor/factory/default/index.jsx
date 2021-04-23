@@ -7,6 +7,8 @@ import Default from './types';
 import Megatop from './types/megatop';
 import Comercial from './types/comercial';
 
+import WithSkeletonBannerWithoutHide from '../../withSkeletonBannerWithoutHide';
+
 import {
     STORY_TEMPLATE,
     ACCUM_TEMPLATE,
@@ -218,7 +220,7 @@ function reducer(state, action) {
 }
 
 export default config => {
-    const { slotGroup } = config || { slotGroup: null };
+    const { slotGroup, slotId } = config || { slotGroup: null };
 
     return props => {
         const [banner, dispatch] = useReducer(reducer, null);
@@ -237,6 +239,6 @@ export default config => {
             }
         }, [banner]);
 
-        return banner;
+        return banner || <WithSkeletonBannerWithoutHide slotId={slotId} />;
     };
 };

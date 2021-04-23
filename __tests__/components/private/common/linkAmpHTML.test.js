@@ -4,12 +4,8 @@ import LinkAmpHTML from '../../../../components/private/common/linkAmpHTML.jsx';
 
 jest.mock('fusion:content', () => ({
     useContent: () => ({
-        site: {
-            'with-amp': {
-                '1': 'nota-noticia',
-                '2': 'nota-storytelling'
-            }
-        }
+        '1': 'nota-noticia',
+        '2': 'nota-storytelling'
     })
 }));
 

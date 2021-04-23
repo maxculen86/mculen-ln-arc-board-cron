@@ -7,8 +7,17 @@ import ComImage from './com-image';
 import '../../../resources/dist/css/ln/modules/mod-category.css';
 
 const ModCategory = props => {
-    const { revista, category, style, navigation, image, outputType } = props;
-    const { width, height, url } = image || {};
+    const {
+        revista,
+        category,
+        style,
+        navigation,
+        image,
+        outputType,
+        url
+    } = props;
+
+    const { width, height, url: imageUrl } = image || {};
 
     return (
         <div className="mod-categories">
@@ -19,7 +28,7 @@ const ModCategory = props => {
                         <ComImage
                             width={width}
                             height={height}
-                            src={url}
+                            src={imageUrl}
                             alt={category}
                             amp={outputType === 'amp'}
                         />
@@ -27,7 +36,7 @@ const ModCategory = props => {
                 </div>
             ) : (
                 <h1 className="com-title --xl" style={style}>
-                    <a href="#" className="com-link --black" title={category}>
+                    <a href={url} className="com-link --black" title={category}>
                         {category}
                     </a>
                 </h1>
@@ -45,6 +54,7 @@ const ModCategory = props => {
 ModCategory.propTypes = {
     revista: PropTypes.string,
     category: PropTypes.string,
+    url: PropTypes.string.isRequired,
     style: PropTypes.obj,
     navigation: PropTypes.string.isRequired,
     outputType: PropTypes.string.isRequired,

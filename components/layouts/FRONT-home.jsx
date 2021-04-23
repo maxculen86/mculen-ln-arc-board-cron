@@ -11,6 +11,9 @@ import Dolar from '../private/common/mod-dolar';
 import GlobalProvider from '../private/common/context/globalContext';
 import ModPromo from '../private/common/mod-promo';
 import ComButton from '../private/common/com-button';
+import NewFooter from '../private/LN/common/footer/home';
+
+import Escudos from '../../components/features/LN-acumulado/cajaEscudo';
 
 import '../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
@@ -92,6 +95,9 @@ const LNHome = props => {
                                                 Banner
                                             </div>
                                         </section>
+
+                                        <Escudos />
+
                                         <div
                                             data-module="tema_01"
                                             data-is-loading="false"
@@ -249,8 +255,8 @@ const LNHome = props => {
                                             />
                                             <ModPromo
                                                 text="La información más completa del mercado inmobiliario minuto a minuto."
-                                                link="https://www.lanacion.com.ar/revista-lugares/"
-                                                logoName="lugares"
+                                                link="https://www.lanacion.com.ar/economia/campo/"
+                                                logoName="campo"
                                             />
                                         </div>
                                         <div
@@ -374,9 +380,10 @@ const LNHome = props => {
                                                             srcdemo="https://source.unsplash.com/300x300/?face"
                                                             link="#"
                                                             leadText="Opinión 2."
-                                                            titleSize="--twoxs"
+                                                            titleSize="--xs"
                                                             titleText="Una ventana al bienestar que promete el verano"
                                                             authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
                                                             position="0602"
                                                         />
                                                         <Article
@@ -384,9 +391,10 @@ const LNHome = props => {
                                                             srcdemo="https://source.unsplash.com/300x301/?face"
                                                             link="#"
                                                             leadText="Opinión 3."
-                                                            titleSize="--twoxs"
+                                                            titleSize="--xs"
                                                             titleText="Trumpismo, maoísmo y peronismo"
                                                             authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
                                                             position="0603"
                                                         />
                                                     </div>
@@ -399,6 +407,7 @@ const LNHome = props => {
                                                             titleSize="--l"
                                                             titleText="Inolvidable declaración de amor a la ciudad de Madrid"
                                                             authors="Nombre Apellido"
+                                                            authorSize="--twoxs"
                                                             position="0604"
                                                         />
                                                     </div>
@@ -915,7 +924,7 @@ const LNHome = props => {
                                             </div>
                                         </section>
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
 
                                 <div className="lay">
@@ -1751,11 +1760,12 @@ const LNHome = props => {
                                         </section>
                                         */}
                                     </div>
-                                    <div className="sidebar__aside hlp-tablet-none"></div>
+                                    <div className="sidebar__aside hlp-tabletlm-none"></div>
                                 </div>
                             </div>
                         </main>
-                        <Footer />
+                        {/* <Footer /> */}
+                        <NewFooter />
                     </div>
                 </GlobalProviderAcu>
             </LoginProvider>

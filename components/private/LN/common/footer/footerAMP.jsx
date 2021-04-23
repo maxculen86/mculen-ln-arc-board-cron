@@ -243,7 +243,7 @@ const FooterAMP = ({ copyrightText }) => {
                 <section className="row footer-sitio">
                     <section className="col-desksm-9 col-deskxl-8 footer-sitio__links">
                         <a
-                            href="http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html"
+                            href="http://www.lanacion.com.ar/mapa-del-sitio/"
                             className="item_link"
                         >
                             Mapa del sitio

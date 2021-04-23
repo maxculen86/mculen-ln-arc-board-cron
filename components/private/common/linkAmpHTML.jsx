@@ -10,13 +10,13 @@ const LinkAmpHTML = props => {
         sourceName: 'navigationTreeSource',
         query: {
             website
+        },
+        transform: resp => {
+            return get(resp, 'site.with-amp', {});
         }
     });
-    const hasAmpLink = get(
-        data && data.site && data.site['with-amp'] ? data.site['with-amp'] : {},
-        subtype || nodeType || '',
-        undefined
-    );
+
+    const hasAmpLink = get(data, subtype || nodeType || '', undefined);
 
     const slash = canonicalUrl && canonicalUrl.slice(-1) !== '/' ? '/' : '';
 

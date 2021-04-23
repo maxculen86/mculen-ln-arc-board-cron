@@ -71,6 +71,8 @@ $logo-la-nacion: '\e806';
 $logo-hola-argentina: '\e804';
 $logo-club-lanacion: '\e802';
 $logo-club: '\e801';
+$logo-campo: '\e902';
+$logo-deportes: '\e903';
 
 //=======================================
 // Espaciados
@@ -268,11 +270,12 @@ $lnmas: #322d61;
 $deportes: #0d880c;
 $negocios: #d83e2c;
 $espectaculos: #eb0049;
-$lifestyle: #008185;
+$lifestyle: $green-800;
 $club: $violet-600;
 $club2: #007aff;
 $afondo: $red-400;
 $sponsor: #d83e2c;
+$campo: #00c48f;
 
 $info: $light-blue-800;
 $light-info: $dark-blue-300;

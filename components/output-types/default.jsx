@@ -8,10 +8,11 @@ import GTM from '../private/common/scriptManager/googleTagManager';
 import Comscore from '../private/common/scriptManager/comscore';
 import Microdata from '../private/common/scriptManager/microdata';
 import PostBid from '../private/common/scriptManager/postbid';
-import ArcAds from '../private/common/scriptManager/arcAds';
-import FacebookSDK from '../private/common/scriptManager/facebookSDK';
+// import ArcAds from '../private/common/scriptManager/arcAds';
+// import FacebookSDK from '../private/common/scriptManager/facebookSDK';
 import MetasOG from '../private/common/metaTags/metasOG';
-import Livefyre from '../private/common/scriptManager/Livefyre';
+// import Livefyre from '../private/common/scriptManager/Livefyre';
+import LivefyreCommentCount from '../private/common/scriptManager/LivefyreCommentCount';
 import LiftIgniter from '../private/common/scriptManager/Liftigniter';
 import Datadog from '../private/common/scriptManager/dataDog';
 import ScriptLoadingList from '../private/common/scriptManager/scriptLoadingList';
@@ -28,6 +29,7 @@ import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
 import MetaSectionParsely from '../private/common/metaSectionParsely';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
+import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
 import LinkAmpHTML from '../private/common/linkAmpHTML';
 import { pipe } from '../private/common/utils/functional';
@@ -61,24 +63,6 @@ const scriptList = [
         feature: 'none'
     },
     {
-        component: { name: 'ArcAds', function: ArcAds },
-        feature: [
-            'LN-common/banner',
-            'LN-common/bannerRefactor',
-            'LN-nota/bannerStickyNota',
-            'LN-common/bannerTercera',
-            'LN-acumulado/bannerSticky'
-        ]
-    },
-    {
-        component: { name: 'FacebookSDK', function: FacebookSDK },
-        feature: ['LN-nota/share']
-    },
-    {
-        component: { name: 'Livefyre', function: Livefyre },
-        feature: ['LN-nota/comments']
-    },
-    {
         component: { name: 'LiftIgniter', function: LiftIgniter },
         feature: ['LN-nota/tePuedeInteresar']
     },
@@ -97,6 +81,13 @@ const scriptList = [
     {
         component: { name: 'ScriptHtmlLibre', function: ScriptHtmlLibre },
         feature: 'none'
+    },
+    {
+        component: {
+            name: 'LivefyreCommentCount',
+            function: LivefyreCommentCount
+        },
+        feature: ['LN-nota/share']
     }
 ];
 
@@ -185,6 +176,8 @@ const Default = props => {
 
     const title = metaValue('title') || siteProperties.title || 'LA NACION';
 
+    const _nodeType = getSectionName({ nodeType, type });
+
     return (
         <html lang="es">
             <head>
@@ -204,7 +197,11 @@ const Default = props => {
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />
                 <Scripts location="head" {...props} />
-                <ScriptLoadingList location="head" arcSite={arcSite} />
+                <ScriptLoadingList
+                    section={_nodeType}
+                    location="head"
+                    arcSite={arcSite}
+                />
                 {/* TODO: Revisar la forma de traer metatags desde PB, y omitir o customizar los metas de 'title' y 'description' */}
                 {/* {subtype === '7' && <MetaTags />} */}
                 <MetasOG {...props} />
@@ -277,13 +274,21 @@ const Default = props => {
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
-                <ScriptLoadingList location="body-top" arcSite={arcSite} />
+                <ScriptLoadingList
+                    section={_nodeType}
+                    location="body-top"
+                    arcSite={arcSite}
+                />
 
                 <div id="fusion-app">{children}</div>
                 <Fusion />
 
                 <Scripts location="body-bottom" />
-                <ScriptLoadingList location="body-bottom" arcSite={arcSite} />
+                <ScriptLoadingList
+                    section={_nodeType}
+                    location="body-bottom"
+                    arcSite={arcSite}
+                />
                 <ScriptLogoBBC distributorName={distributorName} />
             </body>
         </html>

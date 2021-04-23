@@ -23,7 +23,7 @@ const Index = ({ outputType, siteProperties: { host } }) => {
                 <section className="row footer-sitio">
                     <section className="col-desksm-9 col-deskxl-8 footer-sitio__links">
                         <ComLink
-                            link="http://especiales.lanacion.com.ar/varios/mapa-sitio/index.html"
+                            link="http://www.lanacion.com.ar/mapa-del-sitio/"
                             classCondition="item_link"
                         >
                             Mapa del sitio

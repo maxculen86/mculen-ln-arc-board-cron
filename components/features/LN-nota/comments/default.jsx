@@ -1,13 +1,65 @@
 import Consumer from 'fusion:consumer';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'fusion:prop-types';
 import findTermica from '../../../private/common/utils/findTermica';
+import get from '../../../private/common/utils/get';
+import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
+import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
 import Comments from '../../../private/LN/nota/comments';
+import LoadingIcon from '../../../private/LN/common/loadingIcon';
 
 const CommentsFeature = props => {
+    const {
+        globalContent: { comments }
+    } = props;
+    const displayComments = get(comments, 'display_comments', true);
+    const [isReady, setIsReady] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
     const showLivefyre = findTermica('livefyre');
-    if (!showLivefyre) return <></>;
+
+    useEffect(() => {
+        const handleScrollForComments = () => {
+            const scrollPercentRounded = getScrollPercent();
+            if (scrollPercentRounded > 60) {
+                // setIsLoading(true);
+                dynamicallyLoadScript(
+                    'https://cdn.livefyre.com/Livefyre.js',
+                    'head'
+                )
+                    .then(() => {
+                        setIsReady(true);
+                        // setIsLoading(false);
+                        window.removeEventListener(
+                            'scroll',
+                            handleScrollForComments
+                        );
+                    })
+                    .catch(error => {
+                        // setIsLoading(false);
+                        // console.error('Script loading failed! Handle this error', error);
+                    });
+            }
+        };
+        if (showLivefyre && displayComments)
+            window.addEventListener('scroll', e => handleScrollForComments());
+        return () =>
+            window.removeEventListener('scroll', handleScrollForComments);
+    });
+
+    const loading = display => (!display ? <></> : <LoadingIcon />);
+    if (!isReady || !showLivefyre || !displayComments)
+        return loading(displayComments);
+    // if (!isReady) return <LoadingIcon />;
 
     return <Comments {...props} />;
+};
+
+CommentsFeature.propTypes = {
+    globalContent: PropTypes.shape({
+        comments: PropTypes.shape({
+            display_comments: PropTypes.bool
+        })
+    }).isRequired
 };
 
 CommentsFeature.label = 'LN-Nota-Comments';

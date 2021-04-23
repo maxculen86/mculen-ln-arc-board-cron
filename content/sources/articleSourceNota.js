@@ -20,6 +20,7 @@ import {
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
 import paywallUtils from './utils/paywall';
+import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
 
 const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -206,60 +207,14 @@ const transformContent = (jsonArticle, arcSite) => {
         );
     });
 
-    /*     promiseArr.push(
-        new Promise(resolver =>
-            resolver(getNavigationSiteProperties(arcSite))
-        ).then(data => {
-            resp.siteService = {
-                tooltips: data.tooltips,
-                banners: data.banners,
-                adserver: data.adserver,
-                termicas: data.termicas
-            };
-        })
-    ); */
+    if (resp && resp.content_elements) {
+        resp.content_elements = removeInvalidUrlTagA(resp.content_elements);
+    }
 
     return Promise.all(promiseArr).then(() => {
         return resp;
     });
 };
-
-/* const getNavigationSiteProperties = arcSite => {
-    return navigationTreeSource
-        .fetch({ website: arcSite })
-        .then(fetchedRelated => {
-            const {
-                site = {},
-                Termicas: termicasConfig = {},
-                bannerConfig = {}
-            } = fetchedRelated || {};
-
-            const { sitio_adserver: sitioAdserver = {}, tooltips = {} } =
-                site || {};
-
-            return {
-                tooltips: Object.keys(tooltips).map(key => ({
-                    text: key,
-                    label: tooltips[key]
-                })),
-                banners: Object.keys(bannerConfig).map(key => ({
-                    adunit: key,
-                    dimensions: bannerConfig[key]
-                })),
-                adserver: Object.keys(sitioAdserver).map(key => ({
-                    key,
-                    value: sitioAdserver[key]
-                })),
-                termicas: Object.keys(termicasConfig).forEach(key => ({
-                    key,
-                    value: termicasConfig[key]
-                }))
-            };
-        })
-        .catch(e => {
-            // console.log('Error article source: getNavigationSiteProperties -> e', e);
-        });
-}; */
 
 const addGalleryData = (gallery, arcSite) => {
     const { _id: galleryId } = gallery;

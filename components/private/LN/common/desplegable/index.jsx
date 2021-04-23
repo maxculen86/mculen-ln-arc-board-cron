@@ -104,7 +104,7 @@ const Desplegable = ({ toglleDesplegable }) => {
     useEffect(() => {
         window &&
             window.addEventListener('resize', e => {
-                if (window.outerWidth >= 768) {
+                if (window.outerWidth >= 768 && comDromdownRef.current) {
                     comDromdownRef.current.classList.remove('scroll--pasive');
                     comDromdownRef.current.classList.remove('scroll--active');
                 }

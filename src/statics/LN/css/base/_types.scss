@@ -6,7 +6,7 @@
 @include font-face('SuecaSlab', suecaslab-medium-webfont, 500);
 @include font-face('SuecaSlab', suecaslab-bold-webfont, 700);
 @include font-face('LNicons', lana-icons-v1, normal);
-@include font-face('LNlogos', ln-logos-v2, normal);
+@include font-face('LNlogos', lana-logos-v1, normal);
 
 [class*='georgia'] {
     font-family: $font-georgia;
@@ -544,4 +544,12 @@ strong,
 
 .logo-propiedades:before {
     content: $logo-propiedades;
+}
+
+.logo-campo:before {
+    content: $logo-campo;
+}
+
+.logo-deportes:before {
+    content: $logo-deportes;
 }

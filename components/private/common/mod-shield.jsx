@@ -10,10 +10,9 @@ const ModShield = props => {
     return (
         <div className="row">
             <div className="col-12">
-                <section className="mod-image --shields">
+                <section className="--shields">
+                    <ModheaderSection line size={size} title={title} />
                     <div className="sports">
-                        <ModheaderSection line size={size} title={title} />
-
                         {children}
 
                         {data &&

@@ -18,7 +18,8 @@
         padding-bottom: px(126);
 
         .mod-media {
-            .mod-figure {
+            a {
+                display: block;
                 border-radius: 100%;
                 overflow: hidden;
                 border: 1px solid $light-neutral-400;
@@ -574,6 +575,7 @@
                             bottom: 32px;
                             left: 72px;
                             max-width: calc(100% - 72px);
+                            justify-content: left;
                         }
                     }
                 }
