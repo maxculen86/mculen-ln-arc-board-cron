@@ -9,6 +9,13 @@ const Petametrics = ({ location, globalContent: { type } }) => {
     );
 };
 
+Petametrics.propTypes = {
+    globalContent: PropTypes.shape({
+        type: PropTypes.string
+    }),
+    location: PropTypes.string
+};
+
 Petametrics.defaultProps = {
     globalContent: {}
 };
