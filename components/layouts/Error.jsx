@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 
+import Copyright from '../private/LN/common/footer/copyright';
+
 import '../../resources/dist/css/ln/base.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 import '../../resources/dist/css/ln/layouts/grid.css';
@@ -64,10 +66,7 @@ const ErrorPage = ({ siteProperties: { host } }) => (
                         </p>
                     </div> */}
                     <div className="col-12 footer-copyright__reserved">
-                        <p>
-                            Copyright 2021 SA LA NACION | Todos los derechos
-                            reservados
-                        </p>
+                        <Copyright />
                     </div>
                 </div>
             </div>
