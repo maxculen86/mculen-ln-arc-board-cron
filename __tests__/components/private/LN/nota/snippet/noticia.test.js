@@ -11,7 +11,8 @@ jest.mock('fusion:environment', () => {
         LANACIONAR_URLASSETS:
             'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
         SITE_LANACION:
-            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com'
+            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
+        ARC_STATIC: 'https://arc-static.glanacion.com'
     };
 });
 
@@ -136,19 +137,19 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(logoContext).toBe('https://schema.org');
         expect(logoType).toBe('ImageObject');
         expect(logoUrl).toBe(
-            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST'
+            'https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST'
         );
         expect(height).toBe(41);
         expect(width).toBe(391);
         expect(thumbnailUrl).toBe(
-            'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST'
+            'https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST'
         );
         expect(image).toStrictEqual({
             '@context': 'https://schema.org',
             '@type': 'ImageObject',
             height: '564',
             url:
-                'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST',
+                'https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST',
             width: '1080'
         });
     });

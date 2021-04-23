@@ -38,5 +38,6 @@ export default {
         service: 'lanacion-arc',
         env: 'prod',
         trackInteractions: 'true'
-    }
+    },
+    ARC_STATIC: 'https://arc-static.glanacion.com'
 };

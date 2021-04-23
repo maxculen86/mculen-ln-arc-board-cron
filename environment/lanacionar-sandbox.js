@@ -27,5 +27,6 @@ export default {
         sampleRateRum: 100,
         service: 'lanacion-arc',
         env: 'sandbox'
-    }
+    },
+    ARC_STATIC: 'https://arc-static.glanacion.com'
 };
