@@ -12,6 +12,9 @@
     z-index: 102;
     transition: top 0.2s ease-in-out;
 
+    position: fixed;
+    top: 0;
+
     .row {
         align-items: center;
     }
@@ -252,15 +255,15 @@
         .--scrollDown & {
             /*transform: translateY(-100%);
             position: absolute;*/
-            position: fixed;
-            top: -80px;
+            // position: fixed;
+            // top: -80px;
         }
         //scrollDown
         //&.--scrollUp,
         .--scrollUp & {
             /*transform: translateY(0);*/
-            top: 0;
-            position: fixed;
+            // top: 0;
+            // position: fixed;
         }
         .dropdown.--scrollUp & {
             padding-right: $scroll-width;

@@ -152,11 +152,13 @@ body {
 #wrapper {
     position: relative;
     margin-bottom: 80px;
+    padding-top: 50px; //alto header mobile
     @media (min-width: 1023px) {
         margin-bottom: 0;
-        &.--scrollUp {
-            padding-top: 73px; //alto header desktop
-        }
+        padding-top: 73px; //alto header desktop
+        // &.--scrollUp {
+        //     padding-top: 73px; //alto header desktop
+        // }
     }
 }
 
