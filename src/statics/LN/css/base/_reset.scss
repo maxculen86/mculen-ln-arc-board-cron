@@ -149,7 +149,7 @@ body {
     overflow-x: hidden; //para notas con fondo color al 100%
 }
 
-#wrapper {
+#fusion-app > #wrapper {
     position: relative;
     margin-bottom: 80px;
     @media (min-width: 1023px) {
