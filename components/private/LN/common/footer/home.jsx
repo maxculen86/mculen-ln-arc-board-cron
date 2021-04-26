@@ -138,7 +138,24 @@ const Footer = ({ children }) => {
                                 title="LA NACION"
                             ></Logo>
                         </div>
-                        <div className="col-desksm-4 --right"></div>
+                        <div className="col-desksm-4 --right">
+                            <Image
+                                src="http://especialess3.lanacion.com.ar/LN/svg/google-play.svg"
+                                alt="Disponible en Google Paly"
+                                width="120"
+                                height="35"
+                                href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
+                                target="_blank"
+                            />
+                            <Image
+                                src="http://especialess3.lanacion.com.ar/LN/svg/app-store.svg"
+                                alt="Consíguelo en el App Store"
+                                width="120"
+                                height="35"
+                                href="https://apps.apple.com/ar/app/la-nacion/id410689702"
+                                target="_blank"
+                            />
+                        </div>
                     </div>
                 </section>
                 <section className="middle">
@@ -180,9 +197,12 @@ const Footer = ({ children }) => {
                     <div className="row">
                         <div className="col-desksm-6 --right">
                             <Image
-                                src="https://static.glanacion.com/v2/ln/img/gda.jpg"
+                                //src="https://static.glanacion.com/v2/ln/img/gda.jpg"
+                                src="http://especialess3.lanacion.com.ar/LN/svg/gda.svg"
                                 alt="gda"
                                 mod="img_gda"
+                                width="36"
+                                height="20"
                             />
                             <Text>
                                 Miembro de GDA. Grupo de Diarios América
@@ -190,10 +210,11 @@ const Footer = ({ children }) => {
                             <Image
                                 href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
                                 target="_blank"
-                                src="https://static.glanacion.com/v2/ln/img/data.jpg"
+                                //src="https://static.glanacion.com/v2/ln/img/data.jpg"
+                                src="http://especialess3.lanacion.com.ar/LN/svg/data-fiscal.svg"
                                 alt="Data fiscal"
-                                width="35"
-                                height="47"
+                                width="28"
+                                height="38"
                             />
                         </div>
                         <div className="col-desksm-6 --left">

@@ -2,13 +2,7 @@
 @import '../abstracts/mixins';
 
 .footer-site {
-    margin-bottom: px(16);
-
-    .--left {
-        @media ($media-l) {
-            text-align: left;
-        }
-    }
+    margin: px(32) 0 px(16);
 
     .--right {
         @media ($media-l) {
@@ -26,53 +20,114 @@
         .row {
             align-items: center;
         }
+
         .--left {
+            order: 2;
+            text-align: center;
+            margin-bottom: px(32);
+
             .com-link {
-                margin-right: px(24);
+                margin-right: px(32);
                 color: $light-neutral-800;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            @media ($media-l) {
+                order: 1;
+                text-align: left;
+                margin-bottom: 0;
             }
         }
 
         .--center {
             text-align: center;
+            order: 1;
+            padding-bottom: px(32);
+            border-bottom: 1px solid #ccc;
+            margin-bottom: px(32);
+            @media ($media-l) {
+                order: 2;
+                padding-bottom: 0;
+                border-bottom: none;
+                margin-bottom: 0;
+            }
         }
 
         .--right {
-            text-align: right;
+            order: 3;
+            text-align: center;
+            margin-bottom: px(16);
+
+            .com-link {
+                margin-right: px(32);
+                .com-image {
+                    border-radius: px(4);
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            @media ($media-l) {
+                text-align: right;
+                margin-bottom: 0;
+            }
         }
     }
+
     .middle {
-        margin-bottom: px(16);
+        display: none;
+
         @media ($media-l) {
+            display: block;
+            margin-bottom: px(16);
             padding-top: px(8);
             padding-bottom: px(8);
             border-bottom: 1px solid $light-neutral-400;
-        }
-        .mod-list:not(:first-child) {
-            margin-right: px(16);
-            li:first-child {
-                font-weight: 100;
+
+            .mod-list:not(:first-child) {
+                margin-right: px(16);
+                li:first-child {
+                    font-weight: 100;
+                }
+            }
+            .--magazine {
+                width: 100%;
             }
         }
-        .--magazine {
-            width: 100%;
-        }
     }
+
     .bottom {
         .row {
             margin-bottom: px(16);
+
+            .--left {
+                text-align: center;
+
+                @media ($media-l) {
+                    text-align: left;
+                }
+            }
 
             .--right {
                 display: flex;
                 align-items: end;
                 justify-content: flex-end;
+                margin-bottom: px(32);
 
                 span {
                     margin: 0 px(16);
                 }
 
                 @media ($media-l) {
+                    margin-bottom: 0;
                     order: 2;
+                }
+            }
+            &:first-child {
+                display: none;
+                @media ($media-l) {
+                    display: flex;
                 }
             }
         }
