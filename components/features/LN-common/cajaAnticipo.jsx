@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComAdvance from '../../private/common/com-advance';
 
-const CajaAnticipo = ({ customFields: { hide, title, url } }) => {
-    return !hide && title ? <ComAdvance title={title} /> : <></>;
+const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
+    return !hide && title ? <ComAdvance title={title} link={link} /> : <></>;
 };
 
 CajaAnticipo.label = 'LN Caja Anticipo';
@@ -16,7 +16,7 @@ CajaAnticipo.propTypes = {
             default: '',
             group: 'Custom Fields'
         }),
-        url: PropTypes.string.tag({
+        link: PropTypes.string.tag({
             name: 'URL',
             description: 'Ingrese aquí la url del anticipo',
             default: '',
@@ -29,6 +29,14 @@ CajaAnticipo.propTypes = {
             group: 'Custom Fields'
         })
     })
+};
+
+CajaAnticipo.defaultProps = {
+    customFields: {
+        title: '',
+        link: '',
+        hide: true
+    }
 };
 
 export default CajaAnticipo;

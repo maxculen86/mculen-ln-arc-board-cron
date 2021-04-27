@@ -5,11 +5,11 @@ import '../../../resources/dist/css/ln/components/com-advance.css';
 import ComTitle from './com-title';
 
 const ComAdvance = props => {
-    const { classCondition, size, title } = props;
+    const { classCondition, size, title, link } = props;
 
     return (
         <section className={`com-advance ${classCondition || ``}`}>
-            <ComTitle tag="h2" size={size} content={title} />
+            <ComTitle tag="h2" size={size} content={title} link={link || ''} />
         </section>
     );
 };

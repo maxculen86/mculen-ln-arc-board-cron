@@ -135,7 +135,11 @@
             color: $blanco;
         }
     }
+    .com-advance.com-advance & {
+        color: $blanco;
+    }
 }
+
 @media ($media-l) {
     .com-link {
         .--apps & {
