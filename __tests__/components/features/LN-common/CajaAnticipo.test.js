@@ -19,11 +19,15 @@ describe('Private - Feature - CajaAnticipo =>', () => {
     describe('with empty location or type', () => {
         const wrapper1 = shallow(<CajaAnticipo />);
         const wrapper2 = shallow(
-            <CajaAnticipo title={titleMock} hide={true} />
+            <CajaAnticipo customFields={{ title: titleMock, hide: true }} />
         );
-        const wrapper3 = shallow(<CajaAnticipo hide={false} />);
+        const wrapper3 = shallow(
+            <CajaAnticipo customFields={{ hide: false }} />
+        );
         const wrapper4 = shallow(
-            <CajaAnticipo hide={true} title={titleMock} link={linkMock} />
+            <CajaAnticipo
+                customFields={{ title: titleMock, link: linkMock, hide: true }}
+            />
         );
 
         it('should returns null', () => {
@@ -37,7 +41,7 @@ describe('Private - Feature - CajaAnticipo =>', () => {
     });
 
     describe('with a valid response', () => {
-        const wrapper = shallow(<CajaAnticipo {...mock} />);
+        const wrapper = shallow(<CajaAnticipo customFields={{ ...mock }} />);
 
         const result = wrapper.first();
         const ComAdvanceComponent = result.find('ComAdvance');
