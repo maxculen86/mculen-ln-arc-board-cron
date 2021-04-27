@@ -1,4 +1,4 @@
-import { SITE_LANACION } from 'fusion:environment';
+import { SITE_LANACION, ARC_STATIC } from 'fusion:environment';
 import getDomain from '../utils/getDomain';
 import addRelatedImage from '../../LN/common/utils/addRelatedImage';
 
@@ -49,7 +49,7 @@ const getData = ({
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
-    const PLACEHOLDER = `${SITE_LANACION}${deployment(
+    const PLACEHOLDER = `${ARC_STATIC}${deployment(
         `${contextPath}/resources/images/placeholderLN.jpg`
     )}`;
     const { title } = siteProperties;

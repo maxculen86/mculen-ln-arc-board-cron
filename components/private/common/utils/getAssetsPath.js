@@ -1,8 +1,8 @@
-import { SITE_LANACION } from 'fusion:environment';
+import { ARC_STATIC } from 'fusion:environment';
 
 const getAssetsPath = contextPath => deployment => assets => {
     const path = `${contextPath}/resources/images`;
-    return `${SITE_LANACION}${deployment(`${path}/${assets}`)}`;
+    return `${ARC_STATIC}${deployment(`${path}/${assets}`)}`;
 };
 
 export default getAssetsPath;
