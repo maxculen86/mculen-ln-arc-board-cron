@@ -5,7 +5,7 @@ export default {
     RANKING_URL: 'https://api.lanacionar.arcpublishing.com',
     LANACIONAR_URLASSETS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
-    OPTA_WIDGET_URL: 'https://recetas.lanacion.com.ar/opta-embed',
+    OPTA_WIDGET_URL: 'https://arc-widgets.lanacion.com.ar/opta-embed',
     SITE_LANACION: 'https://sandbox.lanacion.com.ar',
     SITE_RECETAS:
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',

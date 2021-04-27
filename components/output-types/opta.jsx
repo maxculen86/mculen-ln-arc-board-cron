@@ -1,7 +1,5 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
-
 import config from '../../properties/sites/la-nacion-ar';
 
 const Opta = props => {
@@ -29,12 +27,7 @@ const Opta = props => {
                 <noscript>Your browser does not suport javascript</noscript>
             </head>
             <body>
-                <div
-                    style={{ width: '800px', padding: '20px' }}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                />
-                <div id="fusion-app">{children}</div>
-                {/* <Fusion /> */}
+                <div dangerouslySetInnerHTML={{ __html: content }} />
             </body>
         </html>
     );
