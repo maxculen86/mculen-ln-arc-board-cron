@@ -43,7 +43,7 @@ export const authorAcu = author => {
         ...authorData,
         imagen: image ? image[0] : null,
         mail: email,
-        twitter: twitter.trim()
+        twitter: twitter ? twitter.trim() : twitter
     };
 
     return resp;
