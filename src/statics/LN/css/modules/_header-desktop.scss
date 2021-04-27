@@ -205,13 +205,14 @@
         &__left {
             display: block;
             //padding-top: 0;
-            display: grid;
-            grid-template-columns: px(151) 1fr;
-            align-items: center;
+            // display: grid;
+            // grid-template-columns: px(151) 1fr;
+            // align-items: center;
 
-            // .com-hamburger {
-            //     display: block;
-            // }
+            .com-hamburger {
+                display: inline-flex;
+                margin-right: px(24);
+            }
         }
 
         &__middle {
