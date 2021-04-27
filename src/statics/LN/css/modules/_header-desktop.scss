@@ -253,19 +253,19 @@
         //=================================
         //scrollUp
         //&.--scrollDown,
-        .--scrollDown & {
-            /*transform: translateY(-100%);
+        //.--scrollDown & {
+        /*transform: translateY(-100%);
             position: absolute;*/
-            // position: fixed;
-            // top: -80px;
-        }
+        // position: fixed;
+        // top: -80px;
+        //}
         //scrollDown
         //&.--scrollUp,
-        .--scrollUp & {
-            /*transform: translateY(0);*/
-            // top: 0;
-            // position: fixed;
-        }
+        //.--scrollUp & {
+        /*transform: translateY(0);*/
+        // top: 0;
+        // position: fixed;
+        //}
         .dropdown.--scrollUp & {
             padding-right: $scroll-width;
         }
@@ -300,9 +300,9 @@
         }
     }
 
-    @media ($media-lm) {
-        &__left {
-            grid-template-columns: px(140) 1fr;
-        }
-    }
+    // @media ($media-lm) {
+    //     &__left {
+    //         grid-template-columns: px(140) 1fr;
+    //     }
+    // }
 }
