@@ -74,7 +74,7 @@
         &.--sticky {
             .--scrollUp & {
                 display: flex;
-                top: 73px;
+                top: $header-desktop;
             }
         }
     }
