@@ -135,8 +135,9 @@
                             }
                         }
                         &.--secondary.--secondary {
-                            color: $neutral-white;
+                            background: none;
                             border-color: $neutral-white;
+                            color: $neutral-white;
                             &:hover {
                                 background: $neutral-white;
                                 border-color: $neutral-white;

@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 
-import '../../resources/dist/css/ln/base.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/components/button.css';
+import Image from '../private/common/com-image';
+import Copyright from '../private/LN/common/footer/copyright';
+
 import '../../resources/dist/css/ln/pages/error.css';
 
 const ErrorPage = ({ siteProperties: { host } }) => (
@@ -43,8 +42,8 @@ const ErrorPage = ({ siteProperties: { host } }) => (
             <div className="lay">
                 <div className="row">
                     <div className="col-12">
-                        <img
-                            src="https://www.lanacion.com.ar/error/liniers-horizontal.jpg"
+                        <Image
+                            src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RSUQWM65SRA4VG2QHCZ3KER6JM.jpg"
                             alt="Imagen de Liniers"
                         />
                     </div>
@@ -64,10 +63,7 @@ const ErrorPage = ({ siteProperties: { host } }) => (
                         </p>
                     </div> */}
                     <div className="col-12 footer-copyright__reserved">
-                        <p>
-                            Copyright 2021 SA LA NACION | Todos los derechos
-                            reservados
-                        </p>
+                        <Copyright />
                     </div>
                 </div>
             </div>
