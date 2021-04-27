@@ -21,6 +21,12 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
   <section
     class="mod-description"
   >
+    <div
+      class="com-label --sixxs"
+      title="chapita"
+    >
+      chapita
+    </div>
     <h1
       class="com-title --s"
     >

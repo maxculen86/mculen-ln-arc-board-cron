@@ -98,11 +98,12 @@ export const getWithSubhead = (articleProps, withMedia, customFields) =>
     (get(articleProps, 'withSubheadAndMedia') ||
         (!get(articleProps, 'withSubheadAndMedia') && !withMedia));
 
-export const getLabel = (articleProps, customFields, withMedia) =>
-    withMedia &&
-    !get(customFields, 'opinion') &&
-    !get(customFields, 'html') &&
-    get(customFields, 'chapita');
+export const getLabel = (article, customFields, withMedia) => {
+    if (!withMedia || get(customFields, 'opinion') || get(customFields, 'html'))
+        return undefined;
+
+    return get(customFields, 'chapita') || get(article, 'label.chapita.text');
+};
 
 export const getIsRenderAutor = customFields =>
     get(customFields, 'opinion', false);

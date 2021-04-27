@@ -77,6 +77,10 @@ export default `
             text
             display
         }
+        chapita {
+            text
+            display
+        }
     }
     related_content {
         basic{

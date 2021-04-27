@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ModArticle from '../../common/mod-article';
 import getBajadaOrFirstTextParagraph from '../../common/utils/getBajadaOrFirstTextParagraph';
 import ComHour from '../../common/com-hour';
@@ -57,6 +57,7 @@ const ArticleAcum = ({
 
     const titleText = get(headlines, 'mobile') || get(headlines, 'basic');
     const leadText = get(label, 'volanta.text', '');
+    const chapita = get(label, 'chapita.text', '');
 
     const tagList =
         (typeArticle === 'Timeline' && tags) || (tags && tags.slice(0, 1));
@@ -91,6 +92,7 @@ const ArticleAcum = ({
                 boxPosition={boxPosition}
                 category={withCategory && primarySection}
                 tags={withTags && tagList}
+                label={chapita}
             />
             {children}
         </>
