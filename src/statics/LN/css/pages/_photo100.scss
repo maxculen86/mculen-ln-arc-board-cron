@@ -1,10 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-$header_h_desktop: px(73);
-$header_h_tablet: px(51);
-$header_h_mobile: px(49);
-
 $width_nota100_l: px(1024 / $cant-col * 8);
 $width_nota100_lm: px(1100 / $cant-col * 8);
 $width_nota100_lg: px(1280 / $cant-col * 8);
@@ -150,7 +146,7 @@ $width_nota100_xl: px(1340 / $cant-col * 8);
 
     //             @media ($media-l) {
     //                 display: block;
-    //                 //top: calc(#{$spacing-sm} + #{$header_h_desktop});
+    //                 //top: calc(#{$spacing-sm} + #{$header-desktop});
     //             }
     //             // &.--active {
     //             //     display: none;
