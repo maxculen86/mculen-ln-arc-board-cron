@@ -43,16 +43,16 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] =
     \\"logo\\": {
       \\"@context\\": \\"https://schema.org\\",
       \\"@type\\": \\"ImageObject\\",
-      \\"url\\": \\"https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST\\",
+      \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\",
       \\"height\\": 41,
       \\"width\\": 391
     }
   },
-  \\"thumbnailUrl\\": \\"https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST\\",
+  \\"thumbnailUrl\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\",
   \\"image\\": {
     \\"@context\\": \\"https://schema.org\\",
     \\"@type\\": \\"ImageObject\\",
-    \\"url\\": \\"https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/resources/images/placeholderLN.jpg$LATEST\\",
+    \\"url\\": \\"https://arc-static.glanacion.com/resources/images/placeholderLN.jpg$LATEST\\",
     \\"height\\": \\"564\\",
     \\"width\\": \\"1080\\"
   },

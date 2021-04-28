@@ -207,9 +207,10 @@ const transformContent = (jsonArticle, arcSite) => {
         );
     });
 
-    if (resp && resp.content_elements) {
-        resp.content_elements = removeInvalidUrlTagA(resp.content_elements);
-    }
+    // Url Validator
+    // if (resp && resp.content_elements) {
+    //     resp.content_elements = removeInvalidUrlTagA(resp.content_elements);
+    // }
 
     return Promise.all(promiseArr).then(() => {
         return resp;
