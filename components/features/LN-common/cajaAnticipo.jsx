@@ -3,7 +3,11 @@ import PropTypes from 'fusion:prop-types';
 import ComAdvance from '../../private/common/com-advance';
 
 const CajaAnticipo = ({ customFields: { hide, title, link } }) => {
-    return !hide && title ? <ComAdvance title={title} link={link} /> : <></>;
+    return !hide && title ? (
+        <ComAdvance title={title} link={link} size="--md" />
+    ) : (
+        <></>
+    );
 };
 
 CajaAnticipo.label = 'LN Caja Anticipo';
