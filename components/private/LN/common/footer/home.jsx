@@ -44,33 +44,53 @@ const Footer = ({ children }) => {
 
     const listText1 = [
         { text: 'Revistas' },
-        { text: 'OHLALÁ!', href: '#' },
-        { text: '¡HOLA!', href: '#' },
-        { text: 'ROLLING STONE', href: '#' },
-        { text: 'LIVING', href: '#' },
-        { text: 'BRANDO', href: '#' },
-        { text: 'JARDÍN', href: '#' },
-        { text: 'LUGARES', href: '#' }
+        { text: 'OHLALÁ!', href: 'https://www.lanacion.com.ar/revista-ohlala' },
+        { text: '¡HOLA!', href: 'https://www.lanacion.com.ar/revista-hola' },
+        {
+            text: 'ROLLING STONE',
+            href: 'https://www.lanacion.com.ar/revista-rolling-stone'
+        },
+        { text: 'LIVING', href: 'https://www.lanacion.com.ar/revista-living' },
+        { text: 'BRANDO', href: 'https://www.lanacion.com.ar/revista-brando' },
+        { text: 'JARDÍN', href: 'https://www.lanacion.com.ar/revista-jardin' },
+        { text: 'LUGARES', href: 'https://www.lanacion.com.ar/revista-lugares' }
     ];
 
     const listText2 = [
         { text: 'Club del vino:' },
-        { text: 'Bon vivir', href: '#' }
+        {
+            text: 'Bon vivir',
+            href: 'http://www.bonvivir.com/',
+            target: '_blank'
+        }
     ];
 
     const listText2b = [
         { text: 'Envíos:' },
-        { text: 'HOP', href: '#' },
-        { text: 'Colecciones', href: '#' },
-        { text: 'Máster en periodismo', href: '#' },
-        { text: 'Fundación LA NACION', href: '#' },
-        { text: 'Avisos solidarios', href: '#' }
+        { text: 'HOP', href: 'http://www.hopenvios.com.ar/', target: '_blank' },
+        { text: 'Colecciones', href: 'http://colecciones.lanacion.com.ar/' },
+        {
+            text: 'Máster en periodismo',
+            href:
+                'http://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327',
+            target: '_blank'
+        },
+        {
+            text: 'Fundación LA NACION',
+            href: 'http://fundacionlanacion.org.ar/',
+            target: '_blank'
+        },
+        {
+            text: 'Avisos solidarios',
+            href: 'http://solidarios.lanacion.com.ar/',
+            target: '_blank'
+        }
     ];
 
     const listText3 = [
         {
             text: 'Mapa del sitio',
-            href: 'https://www.lanacion.com.ar/mapa-del-sitio'
+            href: 'http://www.lanacion.com.ar/mapa-del-sitio'
         },
         { text: 'Ayuda', href: 'https://micuenta.lanacion.com.ar/ayuda' },
         {
