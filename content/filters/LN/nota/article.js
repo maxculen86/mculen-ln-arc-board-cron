@@ -164,6 +164,10 @@ const labels = `
             text
             display
         }
+        chapita {
+            text
+            display
+        }
         mostrar_banners {
             url
             text

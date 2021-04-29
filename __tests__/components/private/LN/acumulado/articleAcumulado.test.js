@@ -68,6 +68,11 @@ describe('Private - LN - Acumulado - ArticleAcum', () => {
         );
         expect(hourComponent.html()).toBe('09:28');
     });
+
+    it('Test de snapshot ArticleAcum', () => {
+        const component = render(<ArticleAcum {...props} />);
+        expect(component).toMatchSnapshot();
+    });
 });
 
 describe('Private - Common - getBajadaOrFirstTextParagraph', () => {
@@ -101,14 +106,14 @@ describe('Private - Common - GetTitleText', () => {
     const titleCorto = getTitleText(headlines, label);
 
     it('Mostrar titulo corto', () => {
-        expect(titleCorto).toEqual('Titulo Movil Corto');
+        expect(titleCorto).toEqual('Volanta Titulo Movil Corto');
     });
 
     const headlines2 = { ...headlines };
     headlines2.mobile = null;
     const titleLargo = getTitleText(headlines2, label);
     it('Mostrar titulo largo', () => {
-        expect(titleLargo).toEqual('Test dl (titulo basico largo)');
+        expect(titleLargo).toEqual('Volanta Test dl (titulo basico largo)');
     });
 });
 

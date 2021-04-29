@@ -187,7 +187,9 @@
         "name": "lanacionar",
         "source_type": "staff"
     },
-    "label": {},
+    "label": {
+        "volanta": { "text": "Volanta"}
+    },
     "taxonomy": {
         "sites": [
             {

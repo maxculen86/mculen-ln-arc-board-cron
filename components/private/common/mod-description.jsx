@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import ComTitle from './com-title';
 import ComDate from './com-date';
 import ModBajada from './mod-bajada';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 
 import ModArticle from '../../../../common/mod-article';
 import get from '../../../../common/utils/get';
@@ -34,7 +34,7 @@ const NoteCard = ({
         getWithSubhead(articleProps, withMedia, customFields)
     );
     const [label, setLabel] = useState(
-        getLabel(articleProps, customFields, withMedia)
+        getLabel(content, customFields, withMedia)
     );
     const [isRenderAutor, setIsRenderAutor] = useState(
         getIsRenderAutor(customFields)
@@ -46,7 +46,7 @@ const NoteCard = ({
 
     useEffect(() => {
         setArticle(transform(content, customFields, promoItems));
-        setLabel(getLabel(articleProps, customFields, withMedia));
+        setLabel(getLabel(content, customFields, withMedia));
         setWithSubhead(getWithSubhead(articleProps, withMedia, customFields));
         setIsRenderAutor(getIsRenderAutor(customFields));
     }, [articleProps, content, customFields, promoItems, withMedia]);
