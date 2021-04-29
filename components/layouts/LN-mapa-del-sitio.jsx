@@ -1,28 +1,17 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Header from '../private/LN/common/header';
-import Footer from '../private/LN/common/footer';
-import LoginProvider from '../private/LN/common/context/loginContext';
+//import Header from '../private/LN/common/header';
+//import Footer from '../private/LN/common/footer';
+//import LoginProvider from '../private/LN/common/context/loginContext';
 
 import List from '../private/common/mod-list';
-import Link from '../private/common/com-link';
 import Logo from '../private/common/com-logo';
 import Title from '../private/common/com-title';
 import Copyright from '../private/LN/common/footer/copyright';
 
-import '../../resources/dist/css/ln/base/reset.css';
-import '../../resources/dist/css/ln/base/types.css';
-import '../../resources/dist/css/ln/layouts/grid.css';
-import '../../resources/dist/css/ln/layouts/layout.css';
 import '../../resources/dist/css/ln/pages/sitemap.css';
 
-/* Se debe importar por layouts */
-import '../../resources/dist/css/ln/components/banners.css';
-
-/* Se debe dejar último los helpers */
-import '../../resources/dist/css/ln/base/helpers.css';
-
-import GlobalProvider from '../private/common/context/globalContext';
+//import GlobalProvider from '../private/common/context/globalContext';
 
 const LNMapaDelSitio = ({ children }) => {
     const listado1 = [
@@ -263,76 +252,71 @@ const LNMapaDelSitio = ({ children }) => {
     ];
 
     return (
-        <GlobalProvider>
-            <LoginProvider>
-                {children[0]}
-                <div id="wrapper" className="sitemap">
-                    {/* <Header /> */}
-                    <header>
-                        <div className="lay">
-                            <Logo
-                                color
-                                size="--sm"
-                                logoName="la-nacion"
-                                href="https://www.lanacion.com.ar/"
-                                title="LA NACION"
-                            />
-                        </div>
-                    </header>
-                    <main>
-                        <div className="lay">
-                            <Title
-                                tag="h1"
-                                size="--l"
-                                content="Mapa del sitio"
-                            />
-                            <div className="row">
-                                <div className="col-6 col-tablet-3">
-                                    <List mod="--font-bold" size="">
-                                        {listado1}
-                                    </List>
-                                    <List mod="">{listado2}</List>
-                                    <Title
-                                        content="LA NACION en las redes"
-                                        tag="h2"
-                                    />
-                                    <List mod="">{listado8}</List>
-                                </div>
-                                <div className="col-6 col-tablet-3">
-                                    <Title content="Edición impresa" tag="h2" />
-                                    <List mod="">{listado3}</List>
-                                    <List mod="">{listado4}</List>
-                                    <List mod="">{listado5}</List>
-                                </div>
+        <>
+            {/* <GlobalProvider>
+            <LoginProvider> */}
+            {children[0]}
+            <div id="wrapper" className="sitemap">
+                {/* <Header /> */}
+                <header>
+                    <div className="lay">
+                        <Logo
+                            color
+                            size="--sm"
+                            logoName="la-nacion"
+                            href="https://www.lanacion.com.ar/"
+                            title="LA NACION"
+                        />
+                    </div>
+                </header>
+                <main>
+                    <div className="lay">
+                        <Title tag="h1" size="--l" content="Mapa del sitio" />
+                        <div className="row">
+                            <div className="col-6 col-tablet-3">
+                                <List mod="--font-bold" size="">
+                                    {listado1}
+                                </List>
+                                <List mod="">{listado2}</List>
+                                <Title
+                                    content="LA NACION en las redes"
+                                    tag="h2"
+                                />
+                                <List mod="">{listado8}</List>
+                            </div>
+                            <div className="col-6 col-tablet-3">
+                                <Title content="Edición impresa" tag="h2" />
+                                <List mod="">{listado3}</List>
+                                <List mod="">{listado4}</List>
+                                <List mod="">{listado5}</List>
+                            </div>
 
-                                <div className="col-6 col-tablet-3">
-                                    <Title content="Revistas" tag="h2" />
-                                    <List mod="">{listado6}</List>
-                                    <Title content="Club LA NACION" tag="h2" />
-                                    <List mod="">{listado7}</List>
-                                </div>
+                            <div className="col-6 col-tablet-3">
+                                <Title content="Revistas" tag="h2" />
+                                <List mod="">{listado6}</List>
+                                <Title content="Club LA NACION" tag="h2" />
+                                <List mod="">{listado7}</List>
+                            </div>
 
-                                <div className="col-6 col-tablet-3">
-                                    <Title content="Servicios" tag="h2" />
-                                    <List mod="">{listado9}</List>
-                                    <Title
-                                        content="Sitios del Grupo"
-                                        tag="h2"
-                                    />
-                                    <List mod="">{listado10}</List>
-                                </div>
+                            <div className="col-6 col-tablet-3">
+                                <Title content="Servicios" tag="h2" />
+                                <List mod="">{listado9}</List>
+                                <Title content="Sitios del Grupo" tag="h2" />
+                                <List mod="">{listado10}</List>
                             </div>
                         </div>
-                    </main>
-                    {/* <Footer /> */}
-                    <footer>
-                        <div className="lay">
-                            <Copyright />
-                        </div>
-                    </footer>
-                </div>
-            </LoginProvider>
-        </GlobalProvider>
+                    </div>
+                </main>
+                {/* <Footer /> */}
+                <footer>
+                    <div className="lay">
+                        <Copyright />
+                    </div>
+                </footer>
+            </div>
+            {/* </LoginProvider>
+        </GlobalProvider> */}
+        </>
     );
 };
 

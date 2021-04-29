@@ -89,7 +89,9 @@ const SocialEmbeds = props => {
                     />
                     <script
                         type="text/javascript"
-                        dangerouslySetInnerHTML={{__html: processTwitterEmbeds }}
+                        dangerouslySetInnerHTML={{
+                            __html: processTwitterEmbeds
+                        }}
                     />
                 </>
             )}
@@ -97,7 +99,7 @@ const SocialEmbeds = props => {
                 <>
                     <script
                         type="text/javascript"
-                        dangerouslySetInnerHTML={{__html: facebookScript }}
+                        dangerouslySetInnerHTML={{ __html: facebookScript }}
                     />
                 </>
             )}

@@ -45,7 +45,8 @@ const getPropsBuilder = position => authors =>
             name:
                 get(author, 'additional_properties.original.author_type') === ''
                     ? get(author, 'name')
-                    : get(author, 'additional_properties.original.byline'),
+                    : get(author, 'additional_properties.original.byline') ||
+                      get(author, 'name'),
             link: get(author, 'additional_properties.original.bio_page'),
             photo: get(author, 'additional_properties.original.image'),
             medio: get(author, 'additional_properties.original.role')

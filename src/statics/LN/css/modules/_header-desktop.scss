@@ -135,8 +135,9 @@
                             }
                         }
                         &.--secondary.--secondary {
-                            color: $neutral-white;
+                            background: none;
                             border-color: $neutral-white;
+                            color: $neutral-white;
                             &:hover {
                                 background: $neutral-white;
                                 border-color: $neutral-white;
@@ -201,13 +202,14 @@
         &__left {
             display: block;
             //padding-top: 0;
-            display: grid;
-            grid-template-columns: px(151) 1fr;
-            align-items: center;
+            // display: grid;
+            // grid-template-columns: px(151) 1fr;
+            // align-items: center;
 
-            // .com-hamburger {
-            //     display: block;
-            // }
+            .com-hamburger {
+                display: inline-flex;
+                margin-right: px(24);
+            }
         }
 
         &__middle {
@@ -295,9 +297,9 @@
         }
     }
 
-    @media ($media-lm) {
-        &__left {
-            grid-template-columns: px(140) 1fr;
-        }
-    }
+    // @media ($media-lm) {
+    //     &__left {
+    //         grid-template-columns: px(140) 1fr;
+    //     }
+    // }
 }

@@ -1,0 +1,181 @@
+{
+    "story": {
+        "withRawElements": {
+            "withPym": [
+                {
+                    "arcSite": "la-nacion-ar",
+                    "globalContent": {
+                        "_id": "A7KLUYG2D5HBDNKEYKBD2A4XQE",
+                        "canonical_url": "/data/pruebas-nid04032021/",
+                        "created_date": "2021-03-04T18:32:55.248Z",
+                        "headlines": {
+                            "basic": "Pruebas"
+                        },
+                        "content_elements": [
+                            {
+                                "_id": "PCJ6SN2LRZC7DCFBOMY2OYAVZQ",
+                                "additional_properties": {},
+                                "content": "<iframe id='LNcreativa' class='ln-creativa pym' frameborder='0' width='100%' height='800' scrolling='no' src='https://datasketch.shinyapps.io/dashboard-vacunas-app/'> </iframe>",
+                                "type": "raw_html"
+                            }
+                        ],
+                        "promo_items": {
+                            "basic": {
+                                "_id": "TPXV5YIULFH5FLTXRPWLOCJF3U",
+                                "content": "<iframe id='LNcreativa' frameborder='0' width='100%' height='800' scrolling='no' src='https://datasketch.shinyapps.io/dashboard-vacunas-app/'> </iframe>",
+                                "type": "raw_html"
+                            }
+                        },
+                        "subtype": "2",
+                        "type": "story",
+                        "website_url": "/data/pruebas-nid04032021/"
+                    },
+                    "layout": "LN-nota-infografia",
+                    "outputType": "default"
+                },
+                {
+                    "arcSite": "la-nacion-ar",
+                    "globalContent": {
+                        "_id": "A7KLUYG2D5HBDNKEYKBD2A4XQE",
+                        "canonical_url": "/data/pruebas-nid04032021/",
+                        "created_date": "2021-03-04T18:32:55.248Z",
+                        "headlines": {
+                            "basic": "Pruebas"
+                        },
+                        "content_elements": [
+                            {
+                                "_id": "PCJ6SN2LRZC7DCFBOMY2OYAVZQ",
+                                "additional_properties": {},
+                                "content": "<iframe id='LNcreativa' frameborder='0' width='100%' height='800' scrolling='no' src='https://datasketch.shinyapps.io/dashboard-vacunas-app/'> </iframe>",
+                                "type": "raw_html"
+                            }
+                        ],
+                        "promo_items": {
+                            "basic": {
+                                "_id": "TPXV5YIULFH5FLTXRPWLOCJF3U",
+                                "content": "<iframe id='LNcreativa' class='ln-creativa pym' frameborder='0' width='100%' height='800' scrolling='no' src='https://datasketch.shinyapps.io/dashboard-vacunas-app/'> </iframe>",
+                                "type": "raw_html"
+                            }
+                        },
+                        "subtype": "2",
+                        "type": "story",
+                        "website_url": "/data/pruebas-nid04032021/"
+                    },
+                    "layout": "LN-nota-infografia",
+                    "outputType": "default"
+                },
+                {
+                    "arcSite": "la-nacion-ar",
+                    "globalContent": {
+                        "_id": "A7KLUYG2D5HBDNKEYKBD2A4XQE",
+                        "canonical_url": "/data/pruebas-nid04032021/",
+                        "created_date": "2021-03-04T18:32:55.248Z",
+                        "headlines": {
+                            "basic": "Pruebas"
+                        },
+                        "content_elements": [
+                            {
+                                "_id": "PCJ6SN2LRZC7DCFBOMY2OYAVZQ",
+                                "additional_properties": {},
+                                "content": "<iframe id='LNcreativa' class='ln-creativa pym' frameborder='0' width='100%' height='800' scrolling='no' src='https://datasketch.shinyapps.io/dashboard-vacunas-app/'> </iframe>",
+                                "type": "raw_html"
+                            }
+                        ],
+                        "promo_items": {
+                            "basic": {
+                                "_id": "TPXV5YIULFH5FLTXRPWLOCJF3U",
+                                "content": "<iframe id='LNcreativa' class='ln-creativa pym' frameborder='0' width='100%' height='800' scrolling='no' src='https://datasketch.shinyapps.io/dashboard-vacunas-app/'> </iframe>",
+                                "type": "raw_html"
+                            }
+                        },
+                        "subtype": "2",
+                        "type": "story",
+                        "website_url": "/data/pruebas-nid04032021/"
+                    },
+                    "layout": "LN-nota-infografia",
+                    "outputType": "default"
+                }
+            ],
+            "withoutPym": [
+                {
+                    "arcSite": "la-nacion-ar",
+                    "globalContent": {
+                        "_id": "A7KLUYG2D5HBDNKEYKBD2A4XQE",
+                        "canonical_url": "/data/pruebas-nid04032021/",
+                        "created_date": "2021-03-04T18:32:55.248Z",
+                        "headlines": {
+                            "basic": "Pruebas"
+                        },
+                        "content_elements": [
+                            {
+                                "_id": "PCJ6SN2LRZC7DCFBOMY2OYAVZQ",
+                                "additional_properties": {},
+                                "content": "<iframe id='LNcreativa' frameborder='0' width='100%' height='800' scrolling='no' src='https://datasketch.shinyapps.io/dashboard-vacunas-app/'> </iframe>",
+                                "type": "raw_html"
+                            }
+                        ],
+                        "promo_items": {
+                            "basic": {
+                                "_id": "TPXV5YIULFH5FLTXRPWLOCJF3U",
+                                "content": "<iframe id='LNcreativa' frameborder='0' width='100%' height='800' scrolling='no' src='https://datasketch.shinyapps.io/dashboard-vacunas-app/'> </iframe>",
+                                "type": "raw_html"
+                            }
+                        },
+                        "subtype": "2",
+                        "type": "story",
+                        "website_url": "/data/pruebas-nid04032021/"
+                    },
+                    "layout": "LN-nota-infografia",
+                    "outputType": "default"
+                }
+            ]
+        },
+        "withoutRawElements": [
+            {
+                "arcSite": "la-nacion-ar",
+                "globalContent": {
+                    "_id": "A7KLUYG2D5HBDNKEYKBD2A4XQE",
+                    "canonical_url": "/data/pruebas-nid04032021/",
+                    "created_date": "2021-03-04T18:32:55.248Z",
+                    "headlines": {
+                        "basic": "Pruebas"
+                    },
+                    "content_elements": [
+                        {
+                            "_id": "PCJ6SN2LRZC7DCFBOMY2OYAVZQ",
+                            "additional_properties": {},
+                            "content": "Este es un Título",
+                            "type": "header"
+                        },
+                        {
+                            "_id": "PCJ6SN2LRZC7DCFBOMY2OYAVZQ",
+                            "additional_properties": {},
+                            "content": "Este es un pequeño párrafo en el cuerpo",
+                            "type": "text"
+                        }
+                    ],
+                    "promo_items": {
+                        "basic": {}
+                    },
+                    "subtype": "1",
+                    "type": "story",
+                    "website_url": "/data/pruebas-nid04032021/"
+                },
+                "layout": "LN-nota-noticia",
+                "outputType": "default"
+            }
+        ]
+    },
+    "section": {
+        "arcSite": "la-nacion-ar",
+        "globalContent": {
+            "_id": "/recetas",
+            "_website": "la-nacion-ar",
+            "name": "Recetas",
+            "node_type": "section",
+            "children": []
+        },
+        "layout": "LN-acumulado",
+        "outputType": "default"
+    }
+}

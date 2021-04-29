@@ -4,8 +4,8 @@ import Robot from '../../../../components/private/common/robot.jsx';
 
 jest.mock('fusion:content', () => ({
     useContent: () => ({
-            '1': 'nota-noticia',
-            '4': 'nota-storytelling'
+        '1': 'nota-noticia',
+        '4': 'nota-storytelling'
     })
 }));
 

@@ -41,6 +41,7 @@
         position: sticky;
         margin-bottom: $spacing-md;
         .--scrollDown & {
+            top: $header-desktop;
             top: 0;
         }
         &.--active {
