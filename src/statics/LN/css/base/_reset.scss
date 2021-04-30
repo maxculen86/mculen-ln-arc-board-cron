@@ -155,10 +155,11 @@ body {
     //padding-top: 50px; //alto header mobile
     @media (min-width: 1023px) {
         margin-bottom: 0;
-        padding-top: 73px; //alto header desktop
-        // &.--scrollUp {
-        //     padding-top: 73px; //alto header desktop
-        // }
+        //margin-top: 73px; //alto header desktop para header fijo
+        &.--scrollUp,
+        &.--scrollDown {
+            margin-top: 73px; //alto header desktop
+        }
     }
 }
 

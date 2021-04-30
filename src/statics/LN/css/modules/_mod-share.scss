@@ -123,7 +123,8 @@
         width: px(32);
         padding: px(4);
         position: sticky;
-        top: (px(16) + $header-desktop);
+        //top: (px(16) + $header-desktop);
+        top: px(16);
         transition: all 0.25s;
         background: rgba(255, 255, 255, 0.8);
         float: left;
@@ -142,17 +143,21 @@
             padding: px(4);
         }
 
+        .--scrollDown & {
+            top: (px(16) + $header-desktop);
+        }
+
         // &.--block.--block {
         //     display: none;
         // }
         // .amp & {
         //     position: sticky;
         // }
-        // &:not(.--active) {
-        //     .--scrollUp & {
-        //         top: px(85);
-        //     }
-        // }
+        &:not(.--active) {
+            .--scrollUp & {
+                top: (px(16) + $header-desktop);
+            }
+        }
         // &:not(.--block) {
         //     .--scrollDown & {
         //         display: flex;
