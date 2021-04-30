@@ -23,8 +23,14 @@ const Index = ({ relatedContent = [] }) => {
             {relatedContent.map((element, index) => {
                 if (!element) return null;
                 const content = getContent(element);
+                const { _id: elementId } = element;
+
                 return (
-                    <li data-pos={`toi${index + 1}`} data-id="1">
+                    <li
+                        data-pos={`toi${index + 1}`}
+                        data-id={elementId}
+                        data-notaid={elementId}
+                    >
                         {/* <ComTitle
                             tag="h2"
                             content={content}
