@@ -101,7 +101,7 @@ const lnNotaStorytelling = ({
                                 <div className="sidebar__main">
                                     <section className="cuerpo__nota">
                                         <div className="row">
-                                            <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                            <div className="col-12 col-desksm-1">
                                                 {/* // ***** INICIO PREGUNTAR A DARO */}
                                                 {/* hlp-mobile-show */}
                                                 {/* // ***** FIN PREGUNTAR A DARO */}

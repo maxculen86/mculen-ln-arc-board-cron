@@ -107,7 +107,7 @@ const lnNotaNoticia = ({ children, outputType, tree, isAdmin }) => {
                             </div>
                             <section className="cuerpo__nota">
                                 <div className="row">
-                                    <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                    <div className="col-12 col-desksm-1">
                                         {/* hlp-mobile-show */}
                                         {/* Left-Cuerpo Shared */}
                                         {children[4]}
