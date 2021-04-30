@@ -82,6 +82,7 @@
             // }
             .amp.--transparent & {
                 @media ($media-l) {
+                    background: none;
                     color: $neutral-white;
                     border-color: $neutral-white;
                     &:hover {

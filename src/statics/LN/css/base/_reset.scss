@@ -153,13 +153,13 @@ body {
     position: relative;
     margin-bottom: 80px;
     //padding-top: 50px; //alto header mobile
-    @media (min-width: 1023px) {
+    @media (min-width: 1024px) {
         margin-bottom: 0;
-        //margin-top: 73px; //alto header desktop para header fijo
-        &.--scrollUp,
-        &.--scrollDown {
-            margin-top: 73px; //alto header desktop
-        }
+        margin-top: 73px; //alto header desktop para header fijo
+        // &.--scrollUp,
+        // &.--scrollDown {
+        //     margin-top: 73px; //alto header desktop
+        // }
     }
 }
 
