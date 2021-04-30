@@ -41,9 +41,9 @@
     &.--sticky {
         position: sticky;
         margin-bottom: $spacing-md;
-
+        top: 0; //para mobile
         //.--scrollDown & {
-        top: $header-desktop;
+        //top: $header-desktop;
         //}
 
         &.--active {
@@ -151,6 +151,9 @@
             display: flex;
             width: 100%;
             //top: px(82);
+        }
+        &.--sticky {
+            top: $header-desktop;
         }
         &.--fixed {
             left: calc((100% - 920px) / 2);
