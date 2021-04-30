@@ -31,7 +31,8 @@ class Index extends Component {
         const header = document.getElementById('header');
         //const vshare = document.getElementById('v-share');
         const userMenu = document.getElementById('user-menu');
-        const wrapper = document.getElementById('wrapper');
+        const fusionApp = document.getElementById('fusion-app');
+        const wrapper = fusionApp && fusionApp.querySelector('#wrapper');
 
         if (header) {
             const headerHeigth = header.clientHeight || header.offsetHeight;
