@@ -184,15 +184,9 @@ const Default = props => {
                 <meta charset="utf-8" />
                 <title>{title}</title>
                 <link
-                    href="https://www.googletagmanager.com"
-                    rel="preconnect"
-                />
-                <link
                     href="https://www.google-analytics.com"
                     rel="preconnect"
                 />
-                <link href="https://resizer.glanacion.com" rel="preconnect" />
-                <link href="https://static.glanacion.com" rel="preconnect" />
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
                 <MetaSectionParsely taxonomy={taxonomy} arcSite={arcSite} />

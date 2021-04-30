@@ -38,7 +38,11 @@ const Ads = props => {
                     size: flatArray(dimensions),
                     opt_div: id,
                     sizemap,
-                    prebidEnabled,
+                    /**
+                     * Se fuerza a false el siguiente atributo para deshabilitar
+                     * llamado por prebid
+                     */
+                    prebidEnabled: false,
                     targeting,
                     slotGroup,
                     subscription,
