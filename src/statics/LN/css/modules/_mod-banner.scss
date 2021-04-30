@@ -19,6 +19,7 @@
         background: $neutral-white;
         height: 100vh;
         width: 100%;
+        top: 0;
         .com-button {
             position: absolute;
             top: px(16);
@@ -40,34 +41,41 @@
     &.--sticky {
         position: sticky;
         margin-bottom: $spacing-md;
+
         .--scrollDown & {
             top: $header-desktop;
-            top: 0;
         }
+
         &.--active {
             .--scrollDown & {
                 display: flex;
             }
         }
+
         &.sticky2_mob {
             .--scrollUp & {
                 top: px(80);
                 display: none;
             }
         }
+
         .sidebar__aside & {
-            .--scrollDown & {
-                padding-top: px(10);
-                background: $neutral-white;
-            }
+            //top: $header-desktop; descomentar si es diferente al cabezal_dsk
+            padding-top: px(10);
+            background: $neutral-white;
+
+            // .--scrollDown & {
+            //     padding-top: px(10);
+            //     background: $neutral-white;
+            // }
         }
-        .sidebar__aside & {
-            .--scrollUp & {
-                padding-top: px(10);
-                top: px(72);
-                background: $neutral-white;
-            }
-        }
+        // .sidebar__aside & {
+        //     .--scrollUp & {
+        //         padding-top: px(10);
+        //         top: px(72);
+        //         background: $neutral-white;
+        //     }
+        // }
     }
     &.--fixed {
         position: fixed;
