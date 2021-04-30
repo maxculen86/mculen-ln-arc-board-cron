@@ -10,6 +10,7 @@ exports[`Share Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      title="Facebook"
       type="button"
     >
       <i
@@ -18,6 +19,7 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      title="Twitter"
       type="button"
     >
       <i
@@ -26,6 +28,7 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      title="WhatsApp"
       type="button"
     >
       <i
@@ -41,6 +44,7 @@ exports[`Share Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      title="E-mail"
       type="button"
     >
       <i
@@ -49,6 +53,7 @@ exports[`Share Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon comment "
+      title="Comentar"
       type="button"
     >
       <i
@@ -80,6 +85,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      title="Facebook"
       type="button"
     >
       <i
@@ -88,6 +94,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      title="Twitter"
       type="button"
     >
       <i
@@ -96,6 +103,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
     </button>
     <button
       class="com-button   --icon "
+      title="WhatsApp"
       type="button"
     >
       <i
@@ -111,6 +119,7 @@ exports[`Share Note display comment in false  Matches snapshot 1`] = `
   >
     <button
       class="com-button   --icon "
+      title="E-mail"
       type="button"
     >
       <i
