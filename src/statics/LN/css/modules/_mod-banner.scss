@@ -32,8 +32,9 @@
     }
     &.--mobile,
     &.--sticky1_mob {
-        margin-bottom: px(24);
-        height: px(100);
+        display: none;
+        //margin-bottom: px(24);
+        //height: px(100);
     }
     &.--desktop {
         margin-bottom: px(24);
@@ -52,12 +53,18 @@
             }
         }
 
-        &.sticky2_mob {
-            .--scrollUp & {
-                top: px(80);
-                display: none;
-            }
+        &.--sticky2_mob {
+            background: $neutral-white;
+            position: fixed;
+            display: flex;
         }
+
+        // &.sticky2_mob {
+        //     .--scrollUp & {
+        //         top: px(80);
+        //         display: none;
+        //     }
+        // }
 
         .sidebar__aside & {
             //top: $header-desktop; descomentar si es diferente al cabezal_dsk
@@ -77,6 +84,12 @@
         //     }
         // }
     }
+
+    &.--adhesion_mob {
+        display: flex;
+        bottom: px(56);
+    }
+
     &.--fixed {
         position: fixed;
         bottom: px(60);
@@ -135,9 +148,9 @@
             bottom: px(0);
             left: calc((100% - 728px) / 2);
         }
-        &.--sticky1_mob {
-            display: none;
-        }
+        // &.--sticky1_mob {
+        //     display: none;
+        // }
         &.--cabezal_tab {
             display: flex;
             margin-bottom: $spacing-lg;

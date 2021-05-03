@@ -54,13 +54,13 @@
         }
     }
     //scrollUp
-    .--scrollDown & {
-        bottom: -200px;
-    }
+    // .--scrollDown & {
+    //     bottom: -200px;
+    // }
     //scrollDown
-    .--scrollUp & {
-        bottom: 0;
-    }
+    // .--scrollUp & {
+    //     bottom: 0;
+    // }
     /*@media ($media-l) {
         display: none;
     }*/ // en tablet landscape se ve mal sin esto
