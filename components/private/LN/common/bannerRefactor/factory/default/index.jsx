@@ -82,6 +82,7 @@ function getBannerForStoryTemplate(config) {
                 ),
                 {
                     ...config,
+                    withoutHide: true,
                     closeButton: true
                 }
             );
