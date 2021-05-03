@@ -85,20 +85,19 @@
         // }
     }
 
-    &.--adhesion_mob {
-        display: flex;
-        bottom: px(56);
-    }
-
     &.--fixed {
         position: fixed;
-        bottom: px(60);
+        bottom: px(56);
         z-index: 100;
         left: calc((100% - 320px) / 2);
 
-        .--scrollDown & {
-            bottom: px(0);
+        &.--adhesion_mob {
+            display: flex;
         }
+
+        // .--scrollDown & {
+        //     bottom: px(0);
+        // }
         &.--bg-banner {
             background: $light-neutral-200;
             width: 100%;
@@ -145,7 +144,7 @@
             display: none;
         }
         &.--fixed {
-            bottom: px(0);
+            bottom: 0;
             left: calc((100% - 728px) / 2);
         }
         // &.--sticky1_mob {
