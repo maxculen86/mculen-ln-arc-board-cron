@@ -1,6 +1,5 @@
 import React from 'react';
-import { useContent } from 'fusion:content';
-
+import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/modules/mod-subheather.css';
 
 import ComWeather from '../../../common/com-weather';
@@ -8,10 +7,7 @@ import ComDolar from '../../../common/com-dolar';
 import ComLink from '../../../common/com-link';
 import ComLogo from '../../../common/com-logo';
 
-const ModsubHeather = props => {
-    const { data: dolar } = useContent({ source: 'dolarSource' }) || {};
-    const { weather } = useContent({ source: 'weatherSource' }) || {};
-
+const ModsubHeather = ({ dolar, weather }) => {
     const [dolarBna = {}, dolarBlue = {}] = dolar || [];
     const { icon_name, temperatura, nombre } = weather || {};
 
@@ -51,6 +47,11 @@ const ModsubHeather = props => {
             </div>
         </nav>
     );
+};
+
+ModsubHeather.propTypes = {
+    dolar: PropTypes.object,
+    weather: PropTypes.object
 };
 
 export default ModsubHeather;
