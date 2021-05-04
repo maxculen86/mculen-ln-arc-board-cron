@@ -60,12 +60,24 @@ const NoteCard = ({
                 titleSize={get(articleProps, 'titleSize')}
                 titleText={get(article, 'headlines.basic')}
                 authors={get(article, 'marquesina')}
-                subheadText={withSubhead && get(article, 'subheadlines.basic')}
+                subheadText={
+                    get(articleProps, 'skipSubhead', false)
+                        ? false
+                        : withSubhead && get(article, 'subheadlines.basic')
+                }
                 leadText={get(article, 'label.volanta.text')}
                 outputType={outputType}
-                isRenderAuthor={isRenderAutor}
+                isRenderAuthor={
+                    get(articleProps, 'skipRenderAuthor', false)
+                        ? false
+                        : isRenderAutor
+                }
                 label={!get(customFields, 'html') && label}
-                anexo={!isRenderAutor && get(customFields, 'html')}
+                anexo={
+                    get(articleProps, 'skipHtml', false)
+                        ? false
+                        : !isRenderAutor && get(customFields, 'html')
+                }
                 boxPosition={boxPosition}
                 artPosition={`0${Number(index) + 1}`.slice(-2)}
             />

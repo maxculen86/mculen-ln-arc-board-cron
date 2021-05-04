@@ -540,7 +540,17 @@ export default {
         notaColorRosa3: { className: '--highlight --pink' },
         notaColorVerde3: { className: '--highlight --teal' },
         author3: { className: '' },
-        grilla1: { className: '--cinema' },
+        grilla1: {
+            className: '--cinema',
+            articles: {
+                0: {
+                    titleSize: '--l',
+                    skipRenderAuthor: true,
+                    skipHtml: true,
+                    skipSubhead: true
+                }
+            }
+        },
         grilla2: { className: '' },
         grilla3: { className: '' },
         grilla6: { className: '' },
