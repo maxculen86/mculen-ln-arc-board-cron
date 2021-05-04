@@ -207,7 +207,7 @@
 /*QUE ES LA BOMBA?*/
 
 .--bomba {
-    background: #111;
+    background: #272727;
     overflow: hidden;
     //margin-top: -($header-desktop);
 
@@ -218,7 +218,15 @@
             }
             .mod-description {
                 position: relative;
-                padding-top: px(16);
+                margin-top: px(110);
+
+                @media ($media-m) {
+                    margin-top: px(200);
+                }
+
+                @media ($media-l) {
+                    margin-top: px(188);
+                }
             }
         }
     }
