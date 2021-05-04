@@ -3,6 +3,8 @@ import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 import ArticleBase from './articleBase';
 import Media from '../media';
+//import addRelatedImage from '../../common/utils/addRelatedImage';
+import addRelatedImage from '../../common/utils/addRelatedImageClass';
 
 const articleMain = ({
     outputType,
@@ -16,24 +18,29 @@ const articleMain = ({
     handleClick
 }) => {
     let media = null;
+    const _articleData = <addRelatedImage article={articleData} />;
+    console.log(_articleData);
+
+    if (_articleData._id === '46P7NCPKIZAE5CY2LULAHCIMFQ')
+        console.log('_articleData', _articleData);
     // TODO: validar tipo autor correcto
-    if (articleData.subtype === 99) {
+    if (_articleData.subtype === 99) {
         // TODO: la imagen de autor viene por fuera de anglerfishhhhhhh.......
         media = (
             <Media
-                mediaData={articleData.by.credits}
-                href={articleData.website_url}
+                mediaData={_articleData.by.credits}
+                href={_articleData.website_url}
                 outputType={outputType}
             />
         );
     } else {
-        const imagenDestacada = get(articleData, 'promo_items.basic', null);
+        const imagenDestacada = get(_articleData, 'promo_items.basic', null);
         const type = get(imagenDestacada, 'type', null);
 
         media = (
             <Media
                 mediaData={type === 'image' ? imagenDestacada : null}
-                href={articleData.website_url}
+                href={_articleData.website_url}
                 outputType={outputType}
             />
         );
@@ -45,7 +52,7 @@ const articleMain = ({
 
     return (
         <ArticleBase
-            articleData={articleData}
+            articleData={_articleData}
             extraClasses={extraClasses}
             mediaComponent={media}
             border={border}
