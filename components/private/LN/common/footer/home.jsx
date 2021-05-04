@@ -161,7 +161,7 @@ const Footer = ({ children }) => {
                         <div className="col-desksm-4 --right">
                             <Image
                                 src="http://especialess3.lanacion.com.ar/LN/svg/google-play.svg"
-                                alt="Disponible en Google Paly"
+                                alt="Disponible en Google Play"
                                 width="120"
                                 height="35"
                                 href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
