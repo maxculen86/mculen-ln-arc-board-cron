@@ -21,7 +21,7 @@ const CajaTema = props => {
         withSubhead = false,
         position,
         sectionName = '',
-        _children
+        _children = []
     } = props;
 
     const isFocal = layout.includes('focal');
@@ -57,7 +57,7 @@ const CajaTema = props => {
                     typeArticle={isFocal ? 'Focal' : 'Grilla'}
                     column={notesQuantity}
                 >
-                    {isFocal ? (
+                    {(isFocal && (
                         <FocalFactory
                             directionFocal={layout}
                             articles={artWithoutDate}
@@ -65,24 +65,27 @@ const CajaTema = props => {
                             boxPosition={position}
                             _children={_children}
                         />
-                    ) : (
-                        artWithoutDate.map((art, i) => {
-                            const artPosition = `0${Number(i) + 1}`.slice(-2);
-                            return (
-                                <ArticleAcum
-                                    key={art._id}
-                                    article={art}
-                                    outputType={outputType}
-                                    frontdemo
-                                    titleSize={titleSize}
-                                    isRenderAuthor={isRenderAuthor}
-                                    withSubhead={withSubhead}
-                                    boxPosition={position}
-                                    artPosition={artPosition}
-                                />
-                            );
-                        })
-                    )}
+                    )) ||
+                        (artWithoutDate.length &&
+                            artWithoutDate.map((art, i) => {
+                                const artPosition = `0${Number(i) + 1}`.slice(
+                                    -2
+                                );
+                                return (
+                                    <ArticleAcum
+                                        key={art._id}
+                                        article={art}
+                                        outputType={outputType}
+                                        frontdemo
+                                        titleSize={titleSize}
+                                        isRenderAuthor={isRenderAuthor}
+                                        withSubhead={withSubhead}
+                                        boxPosition={position}
+                                        artPosition={artPosition}
+                                    />
+                                );
+                            })) ||
+                        _children.slice(0, notesQuantity)}
                 </ModRowGap>
             </section>
         </div>

@@ -537,8 +537,6 @@ export default {
                 1: { titleSize: '--xl', withSubheadAndMedia: true }
             }
         },
-        notaColorAzul3: { className: '--highlight --blue' },
-        notaColorRojo3: { className: '--highlight --red' },
         notaColorRosa3: { className: '--highlight --pink' },
         notaColorVerde3: { className: '--highlight --teal' },
         author3: { className: '' },
