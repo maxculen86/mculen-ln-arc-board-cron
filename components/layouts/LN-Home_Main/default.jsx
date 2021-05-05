@@ -5,7 +5,7 @@ import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import throttle from '../../private/common/utils/throttle';
 import Header from '../../private/LN/common/header';
-import Footer from '../../private/LN/common/footer';
+import Footer from '../../private/LN/common/footer/home';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoginProvider from '../../private/LN/common/context/loginContext';
 import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
@@ -257,7 +257,7 @@ const LNMainHome = props => {
         <GlobalProvider>
             <LoginProvider>
                 {megatop}
-                <div id="wrapper" className="home deportes">
+                <div id="wrapper" className="home">
                     <Header />
                     <main>
                         {stickyMobile}

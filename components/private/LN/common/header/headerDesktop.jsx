@@ -12,7 +12,7 @@ import '../../../../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
-// import ModsubHeather from './subHeather';
+// import ModsubHeather from './subHeader';
 
 const ItemAnchor = ({ url, text }) => {
     const callURL = address => {
