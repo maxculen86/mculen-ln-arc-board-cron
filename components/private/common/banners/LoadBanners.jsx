@@ -267,13 +267,13 @@ const LoadBanners = ({ blocksBanners }) => {
                                 name: 'desktop',
                                 slot: desktop
                             },
-                            { name: 'mobile', tablet },
-                            { name: 'tablet', mobile }
+                            { name: 'mobile', slot: mobile },
+                            { name: 'tablet', slot: tablet }
                         ]);
 
                         if (!slotId) return {};
 
-                        const config = slotsConfig.acumuladoHome[slotId];
+                        const config = slotsConfig.home[slotId];
 
                         if (!config) return {};
 
