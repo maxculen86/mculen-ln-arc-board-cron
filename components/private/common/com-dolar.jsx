@@ -16,6 +16,7 @@ const ComDolar = props => {
                 link="https://www.lanacion.com.ar/dolar-hoy"
                 size={size}
                 classCondition="--dolar"
+                title="Dólar hoy"
             >
                 Dólar:
             </ComLink>
@@ -31,6 +32,7 @@ const ComDolar = props => {
                 link="https://www.lanacion.com.ar/dolar-hoy"
                 size={size}
                 classCondition="--blue"
+                title="Dólar blue"
             >
                 Blue:
             </ComLink>
