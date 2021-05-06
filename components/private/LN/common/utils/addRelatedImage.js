@@ -4,8 +4,6 @@ import get from '../../../common/utils/get';
 
 const AddRelatedImage = article => {
     const relatedContent = get(article, 'related_content.basic', []);
-    if (article._id === '46P7NCPKIZAE5CY2LULAHCIMFQ')
-        console.log('relatedContent', relatedContent);
     const { _id: id } =
         (relatedContent &&
             relatedContent.find(
@@ -19,9 +17,6 @@ const AddRelatedImage = article => {
         !get(article, 'promo_items.basic') ||
         get(article, 'promo_items.basic.type') !== 'image';
 
-    //console.log("withoutPromoItems", withoutPromoItems);
-    //console.log("id", id);
-
     const imageData =
         id &&
         withoutPromoItems &&
@@ -32,12 +27,8 @@ const AddRelatedImage = article => {
                 subtype: get(article, 'subtype'),
                 imageConfig: 'm'
             },
-            filter,
-            staticMode: true
+            filter
         });
-
-    if (id && id === '46P7NCPKIZAE5CY2LULAHCIMFQ')
-        console.log('imageData', imageData);
 
     return (
         (imageData && {

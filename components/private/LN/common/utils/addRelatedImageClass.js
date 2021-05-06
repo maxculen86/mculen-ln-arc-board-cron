@@ -1,20 +1,22 @@
 /* eslint-disable no-console */
-import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import filter from '../../../../../content/filters/LN/acumulado/promoItemsRelatedImage';
 import get from '../../../common/utils/get';
 
-class addRelatedImage extends Component {
+class addRelatedImage {
     constructor(props) {
-        super(props);
+        debugger;
+        this.state = {};
 
         const { article } = props;
 
-        const relatedContent = get(article, 'related_content.basic', []);
+        this.test = this.test.bind(this);
+        this.test(article);
+    }
 
-        if (article._id === '46P7NCPKIZAE5CY2LULAHCIMFQ')
-            console.log('relatedContent', relatedContent);
+    async test(article) {
+        const relatedContent = get(article, 'related_content.basic', []);
 
         const { _id: id } =
             (relatedContent &&
@@ -31,7 +33,7 @@ class addRelatedImage extends Component {
 
         id &&
             withoutPromoItems &&
-            this.fetchContent({
+            (await this.fetchContent({
                 imageData: {
                     source: 'relatedImageSource',
                     query: {
@@ -41,19 +43,16 @@ class addRelatedImage extends Component {
                     },
                     filter
                 }
-            });
-
-        //if (id && id === '46P7NCPKIZAE5CY2LULAHCIMFQ') console.log('imageData', this.imageData);
+            }));
     }
 
-    render = () => {
-        const { imageData } = this.state;
-        const { article } = this.props;
-
-        console.log(imageData);
-
-        return 'imageData';
-    };
+    render() {
+        try {
+            return this.state.imageData;
+        } catch (err) {
+            return 1;
+        }
+    }
 }
 
 export default Consumer(addRelatedImage);

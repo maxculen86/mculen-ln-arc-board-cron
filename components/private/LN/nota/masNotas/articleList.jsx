@@ -10,9 +10,6 @@ const ArticleList = props => {
     const { articles, border, outputType, title, dataBlockName } = props;
     if (!articles) return null;
 
-    //console.log(articles[0]);
-    //console.log(JSON.stringify(addRelatedImage(articles[0])));
-
     return (
         <>
             {articles.length > 0 && (

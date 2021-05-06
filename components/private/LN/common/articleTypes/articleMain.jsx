@@ -3,8 +3,8 @@ import PropTypes from 'fusion:prop-types';
 import get from 'lodash.get';
 import ArticleBase from './articleBase';
 import Media from '../media';
-//import addRelatedImage from '../../common/utils/addRelatedImage';
-import addRelatedImage from '../../common/utils/addRelatedImageClass';
+import addRelatedImage from '../../common/utils/addRelatedImage';
+//import addRelatedImage from '../../common/utils/addRelatedImageClass';
 
 const articleMain = ({
     outputType,
@@ -18,11 +18,8 @@ const articleMain = ({
     handleClick
 }) => {
     let media = null;
-    const _articleData = <addRelatedImage article={articleData} />;
-    console.log(_articleData);
+    const _articleData = addRelatedImage(articleData);
 
-    if (_articleData._id === '46P7NCPKIZAE5CY2LULAHCIMFQ')
-        console.log('_articleData', _articleData);
     // TODO: validar tipo autor correcto
     if (_articleData.subtype === 99) {
         // TODO: la imagen de autor viene por fuera de anglerfishhhhhhh.......
