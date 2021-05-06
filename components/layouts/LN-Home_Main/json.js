@@ -1,80 +1,28 @@
 import Consumer from 'fusion:consumer';
-import getParamFrom from '../../private/common/utils/browser';
+import bitacora from '../../private/LN/api/v1/bitacora';
+import browser from '../../private/common/utils/browser';
 
 //^/api/v([1]+)/home(\/.*)$
 //^\/api\/v([1]+)\/home\/(.*\/)$
 
 const LNMainHome = props => {
     const { children } = props;
-    // const type = getParamFrom('param', 'tipo', props.requestUri);
-    //console.log(Symbol);
-    // const listItems = [];
-    // const ArticlesbyBox = [];
-    // let posnum = 0;
-    // let cajanum = 0;
-    // children.map(element => {
-    //     const itemBoxes = element.map(elem => {
-    //         if (elem && elem.diagramacion_caja) {
-    //             cajanum += 1;
-    //             posnum = 0;
-    //             const subChild = elem.notas.map(item => {
-    //                 posnum += 1;
-    //                 return {
-    //                     ...item,
-    //                     posicion: `${String(posnum).padStart(2, '0')}`
-    //                 };
-    //             });
-    //             const result = {
-    //                 ...elem,
-    //                 id_caja: `${String(cajanum).padStart(2, '0')}`,
-    //                 notas: subChild
-    //             };
-    //             ArticlesbyBox.push(result);
-    //             return result;
-    //         }
-    //         return elem;
-    //     });
-    //     return itemBoxes;
-    // });
-    // listItems.push({
-    //     // fecha_foto: dateToday, //Data pendiente de añadir
-    //     // usuario_publica: 'XX', //Data pendiente de añadir
-    //     cajas: ArticlesbyBox
-    // });
-
     const listItems = [];
-    const ArticlesbyBox = [];
-    let posnum = 0;
-    let cajanum = 0;
-    children.map(element => {
-        const itemBoxes = element.map(elem => {
-            // if (elem && elem.diagramacion_caja) {
-            //     cajanum += 1;
-            //     posnum = 0;
-            //     const subChild = elem.notas.map(item => {
-            //         posnum += 1;
-            //         return {
-            //             ...item,
-            //             posicion: `${String(posnum).padStart(2, '0')}`
-            //         };
-            //     });
-            //     const result = {
-            //         ...elem,
-            //         id_caja: `${String(cajanum).padStart(2, '0')}`,
-            //         notas: subChild
-            //     };
-            //     ArticlesbyBox.push(result);
-            //     return result;
-            // }
-            ArticlesbyBox.push(elem);
-            return elem;
-        });
-        return itemBoxes;
-    });
+    const type = browser.getParamFrom('params', 'tipo', props.requestUri);
+    let keyResult = null;
+    let valueResult = null;
+    switch (type) {
+        case 'bitacora':
+            keyResult = 'cajas';
+            valueResult = bitacora(children);
+            break;
+
+        default:
+            break;
+    }
+
     listItems.push({
-        // fecha_foto: dateToday, //Data pendiente de añadir
-        // usuario_publica: 'XX', //Data pendiente de añadir
-        cajas: ArticlesbyBox
+        [keyResult]: valueResult
     });
     return Array.isArray(listItems) ? listItems : null;
 };

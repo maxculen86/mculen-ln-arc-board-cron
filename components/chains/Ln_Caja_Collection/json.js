@@ -56,32 +56,15 @@ class CajaCollection {
         try {
             const { articleList } = this.state || {};
             const { customFields } = this.props;
-            // if (!articleList || customFields.hideCaja) {
-            //     return null;
-            // }
+            if (!articleList) {
+                return null;
+            }
 
             const elements = get(articleList, 'content_elements', []);
             return {
                 information: customFields,
                 articles: elements
             };
-            // const articuloData = elements.map(item => {
-            //     const itemNota = {
-            //         id_nota: item._id,
-            //         url_nota: item.website_url
-            //     };
-
-            //     if (validateoutItem(itemNota) === true) {
-            //         return itemNota;
-            //     }
-            // });
-
-            // return {
-            //     id_caja: null,
-            //     visible: !hideCaja || false,
-            //     diagramacion_caja: layout,
-            //     notas: articuloData
-            // };
         } catch (err) {
             return { Success: false, Message: err.message };
         }

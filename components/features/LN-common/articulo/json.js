@@ -25,11 +25,6 @@ class ArticleFeature {
             if (!articleSourceNota) {
                 return null;
             }
-            // const { _id: notaId, canonical_url: url } = articleSourceNota;
-            // const articuloData = {
-            //     id_nota: notaId,
-            //     url_nota: url
-            // };
             return articleSourceNota;
         } catch (err) {
             return { Success: false, Message: err.message };
