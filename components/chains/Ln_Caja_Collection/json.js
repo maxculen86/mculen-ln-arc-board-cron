@@ -7,8 +7,6 @@ import {
 } from '../../private/LN/common/utils/cajaTemasHelperApi';
 import get from '../../private/common/utils/get';
 import filter from '../../../content/filters/LN/acumulado/articleAcu';
-// URL de ejemplo: http://localhost/api/v1/notas/byAuthor/Ignacio%20Madrid/params=size:12;page:1/?_website=la-nacion-ar&outputType=json
-// Resolver: ^\/api\/v([1]+)\/notas\/byAuthor\/(.+)\/(params.+)\/(.*)$ , donde "params" dependera del customField "paramUrlId" configurado
 
 class CajaCollection {
     constructor(props) {
@@ -57,32 +55,33 @@ class CajaCollection {
     render() {
         try {
             const { articleList } = this.state || {};
-            const {
-                customFields: { hideCaja, layout }
-            } = this.props;
-
-            if (!articleList || hideCaja) {
-                return null;
-            }
+            const { customFields } = this.props;
+            // if (!articleList || customFields.hideCaja) {
+            //     return null;
+            // }
 
             const elements = get(articleList, 'content_elements', []);
-            const articuloData = elements.map(item => {
-                const itemNota = {
-                    id_nota: item._id,
-                    url_nota: item.website_url
-                };
-
-                if (validateoutItem(itemNota) === true) {
-                    return itemNota;
-                }
-            });
-
             return {
-                id_caja: null,
-                visible: !hideCaja || false,
-                diagramacion_caja: layout,
-                notas: articuloData
+                information: customFields,
+                articles: elements
             };
+            // const articuloData = elements.map(item => {
+            //     const itemNota = {
+            //         id_nota: item._id,
+            //         url_nota: item.website_url
+            //     };
+
+            //     if (validateoutItem(itemNota) === true) {
+            //         return itemNota;
+            //     }
+            // });
+
+            // return {
+            //     id_caja: null,
+            //     visible: !hideCaja || false,
+            //     diagramacion_caja: layout,
+            //     notas: articuloData
+            // };
         } catch (err) {
             return { Success: false, Message: err.message };
         }
