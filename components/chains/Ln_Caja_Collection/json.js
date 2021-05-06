@@ -2,8 +2,7 @@ import Consumer from 'fusion:consumer';
 import {
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
-    getIdsArticlesFromOtherCollections,
-    validateoutItem
+    getIdsArticlesFromOtherCollections
 } from '../../private/LN/common/utils/cajaTemasHelperApi';
 import get from '../../private/common/utils/get';
 import filter from '../../../content/filters/LN/acumulado/articleAcu';

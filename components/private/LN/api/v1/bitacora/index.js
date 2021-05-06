@@ -43,6 +43,7 @@ const index = children => {
         return itemBoxes;
     });
 
-    return ArticlesbyBox;
+    return { cajas: ArticlesbyBox };
 };
+
 export default index;
