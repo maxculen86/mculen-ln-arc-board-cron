@@ -9,7 +9,12 @@ const ComAdvance = props => {
 
     return (
         <section className={`com-advance ${classCondition || ``}`}>
-            <ComTitle tag="h2" size={size} content={title} link={link || ''} />
+            <ComTitle
+                tag="h2"
+                size={size || '--m'}
+                content={title}
+                link={link || ''}
+            />
         </section>
     );
 };

@@ -15,6 +15,7 @@ const ComButton = props => {
         iconName,
         iconPosition,
         size,
+        title,
         style
     } = props;
 
@@ -27,6 +28,7 @@ const ComButton = props => {
                 onClick={onClick}
                 onMouseDown={onMouseDown}
                 style={style}
+                title={title}
             >
                 <ComIco iconName={iconName} />
             </button>
@@ -41,6 +43,7 @@ const ComButton = props => {
                 } ${iconName} ${iconPosition || ``}`}
                 onClick={onClick}
                 style={style}
+                title={title}
             >
                 <ComIco iconName={iconName} />
                 <ComText size={size || ''}>
@@ -75,6 +78,7 @@ ComButton.propTypes = {
     iconName: PropTypes.string,
     iconPosition: PropTypes.string,
     size: PropTypes.string,
+    title: PropTypes.string,
     style: PropTypes.obj
 };
 

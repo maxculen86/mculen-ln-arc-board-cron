@@ -5,7 +5,6 @@ import Header from '../private/LN/common/header';
 import Footer from '../private/LN/common/footer';
 import PageBuilderMessage from '../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import LoginProvider from '../private/LN/common/context/loginContext';
-//import Modshare from '../private/common/mod-share';
 
 import '../../resources/dist/css/ln/base.css'; // chequear para sacar base porque se repite estilo
 import '../../resources/dist/css/ln/base/reset.css';
@@ -128,7 +127,7 @@ const lnNotaNoticia = ({
                                     </div>
                                     <section className="cuerpo__nota">
                                         <div className="row">
-                                            <div className="col-1 hlp-marginBottom-40 hlp-mobile-show">
+                                            <div className="col-12 col-desksm-1">
                                                 {/* hlp-mobile-show */}
                                                 {/* Left-Cuerpo Shared */}
                                                 {children[4]}
@@ -136,8 +135,6 @@ const lnNotaNoticia = ({
                                             <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
                                                 <div className="row">
                                                     <div className="col-12">
-                                                        {/* <Modshare classCondition="--block" /> */}
-
                                                         {/* Pos-Apertura */}
                                                         {children[5]}
                                                         {/* Logo al pie */}

@@ -1,16 +1,20 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 .mod-share {
-    top: 0;
-    position: fixed;
+    //top: 0;
+    //position: fixed;
     @include flex(flex, row, between, center);
     z-index: 100;
-    background: $neutral-white;
-    width: 100%;
-    left: 0;
-    padding: $spacing-sm;
-    border-bottom: 1px solid $light-neutral-400;
-    display: none;
+    //background: $neutral-white;
+    //width: 100%;
+    //left: 0;
+    padding: 0 $spacing-sm;
+    //border-bottom: 1px solid $light-neutral-400;
+    //display: none;
+
+    width: calc(100% + 2rem);
+    margin-left: px(-16);
+    margin-bottom: px(32);
 
     .container {
         @include flex(flex, row, center, center);
@@ -19,52 +23,56 @@
         }
     }
 
-    .amp & {
-        position: relative;
-        display: flex;
-        border: none;
-        padding: 0;
+    .--photo100 & {
+        padding: 0 px(32);
     }
+
+    // .amp & {
+    //     position: relative;
+    //     display: flex;
+    //     border: none;
+    //     padding: 0;
+    // }
     // .cuerpo__nota & {
     //     .amp & {
     //         padding: 0;
     //     }
     // }
 
-    &.--block {
-        position: relative;
-        z-index: auto;
-        display: flex;
-        border: none;
-        padding: 0;
-        margin-bottom: px(32);
-        // background: $neutral-white;
-        // padding: px(32) 0;
-        // margin: px(-32) 0 0 0;
-        .--photo100 & {
-            padding: 0 px(16);
-        }
-        .amp & {
-            display: none;
-        }
-    }
+    // &.--block {
+    //     //position: relative;
+    //     z-index: auto;
+    //     //display: flex;
+    //     //border: none;
+    //     //padding: 0;
+    //     //margin-bottom: px(32);
+    //     // background: $neutral-white;
+    //     // padding: px(32) 0;
+    //     // margin: px(-32) 0 0 0;
+    //     .--photo100 & {
+    //         padding: 0 px(16);
+    //     }
+    //     .amp & {
+    //         display: none;
+    //     }
+    // }
 
-    &:not(.--block) {
-        .--scrollDown & {
-            display: none;
-        }
-    }
+    // &:not(.--block) {
+    //     .--scrollDown & {
+    //         display: none;
+    //     }
+    // }
 
-    &:not(.--active) {
-        .--scrollUp & {
-            //top: 0;
-            display: flex;
-        }
-        // .--scrollDown & {
-        //     top: 0;
-        //     display: flex;
-        // }
-    }
+    // &:not(.--active) {
+    //     .--scrollUp & {
+    //         //top: 0;
+    //         display: flex;
+    //     }
+    //     // .--scrollDown & {
+    //     //     top: 0;
+    //     //     display: flex;
+    //     // }
+    // }
 
     amp-social-share {
         &[type='facebook'],
@@ -73,7 +81,7 @@
         &[type='email'] {
             background: none;
             @include flex(flex, row, center, center);
-            margin-bottom: $spacing-sm;
+            //margin-bottom: $spacing-sm;
             margin-right: $spacing-sm;
             font-family: 'LNicons';
             font-size: px(24);
@@ -86,6 +94,7 @@
                 color: $ln;
             }
             @media ($media-l) {
+                margin-bottom: $spacing-sm;
                 margin-right: 0;
             }
         }
@@ -114,13 +123,14 @@
         width: px(32);
         padding: px(4);
         position: sticky;
-        top: (px(16) + $header-desktop);
+        //top: (px(16) + $header-desktop);
+        top: px(16);
         transition: all 0.25s;
         background: rgba(255, 255, 255, 0.8);
         float: left;
-        border: none;
         display: block;
         border-radius: px(4);
+        margin: 0;
 
         .container {
             flex-direction: column;
@@ -128,21 +138,30 @@
                 margin-right: 0;
             }
         }
-        &.--block.--block {
-            display: none;
+
+        .--photo100 & {
+            padding: px(4);
         }
-        .amp & {
-            position: sticky;
+
+        .--scrollDown & {
+            top: (px(16) + $header-desktop);
         }
-        // &:not(.--active) {
-        //     .--scrollUp & {
-        //         top: px(85);
-        //     }
+
+        // &.--block.--block {
+        //     display: none;
         // }
-        &:not(.--block) {
-            .--scrollDown & {
-                display: flex;
+        // .amp & {
+        //     position: sticky;
+        // }
+        &:not(.--active) {
+            .--scrollUp & {
+                top: (px(16) + $header-desktop);
             }
         }
+        // &:not(.--block) {
+        //     .--scrollDown & {
+        //         display: flex;
+        //     }
+        // }
     }
 }
