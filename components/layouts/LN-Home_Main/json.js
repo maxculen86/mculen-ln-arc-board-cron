@@ -6,8 +6,7 @@ import getParamFrom from '../../private/common/utils/browser';
 
 const LNMainHome = props => {
     const { children } = props;
-    const type = getParamFrom('param', 'tipo', props.requestUri);
-
+    // const type = getParamFrom('param', 'tipo', props.requestUri);
     //console.log(Symbol);
     // const listItems = [];
     // const ArticlesbyBox = [];
