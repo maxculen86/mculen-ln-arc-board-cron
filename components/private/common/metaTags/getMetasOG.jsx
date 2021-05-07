@@ -35,7 +35,6 @@ const getUrl = (isArticle, url, domain) => {
     const slash = url && url.slice(-1) !== '/' ? '/' : '';
     if (isArticle) return (url && `${domain}${url}${slash}`) || domain;
 
-    console.log('domain:', domain, 'url:', url, 'slash:', slash);
     return (url && `${domain}${url}${slash}`) || domain;
 };
 
