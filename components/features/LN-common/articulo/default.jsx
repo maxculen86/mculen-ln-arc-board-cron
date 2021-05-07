@@ -18,7 +18,7 @@ const ArticleFeature = ({
 }) => {
     const { isAdmin, arcSite, renderables, outputType } = useAppContext();
     const { cajaTemaConfig } = getProperties(arcSite);
-    const { config, index, boxPosition } = getCajaTemaConfig(
+    const { config, index, boxPosition, layout } = getCajaTemaConfig(
         featureId,
         renderables,
         cajaTemaConfig
@@ -62,6 +62,7 @@ const ArticleFeature = ({
                 outputType={outputType}
                 index={index}
                 boxPosition={boxPosition}
+                layout={layout}
             />
         )) || <></>
     );
