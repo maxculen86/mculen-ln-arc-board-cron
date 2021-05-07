@@ -1,5 +1,6 @@
 import Consumer from 'fusion:consumer';
 import bitacora from '../../private/LN/api/v1/bitacora';
+import mobile from '../../private/LN/api/v1/mobile';
 import browser from '../../private/common/utils/browser';
 // Url regex TODO: Mejorar la regular expression.
 // ^\/api\/v([1]+)\/home\/(.*\/)$
