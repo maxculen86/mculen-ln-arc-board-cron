@@ -4,9 +4,11 @@ import browser from '../../private/common/utils/browser';
 // Url regex TODO: Mejorar la regular expression.
 // ^\/api\/v([1]+)\/home\/(.*\/)$
 
-const homeModels = {
-    bitacora,
-    LN: bitacora
+const versions = {
+    1: {
+        bitacora,
+        LN: bitacora
+    }
 };
 
 const LNMainHome = props => {
@@ -15,6 +17,8 @@ const LNMainHome = props => {
     const diagramation =
         browser.getParamFrom('params', 'diagramacion', requestUri) ||
         'completa';
+
+    const homeModels = versions[browser.getApiVersion(requestUri)];
 
     if (homeModels[homeType])
         return homeModels[homeType](children, diagramation) || null;
