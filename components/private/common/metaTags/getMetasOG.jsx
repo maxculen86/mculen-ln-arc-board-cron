@@ -21,7 +21,7 @@ const getDescription = (
     if (isArticle) {
         description = subheadlinesBasic || descriptionDefault;
     }
-    if (!isArticle && !url.includes('recetas')) {
+    if (!isArticle) {
         const customTitle =
             metaValue('title') === 'Últimas noticias - LA NACION'
                 ? 'del día de hoy en Argentina'
@@ -34,9 +34,9 @@ const getDescription = (
 const getUrl = (isArticle, url, domain) => {
     const slash = url && url.slice(-1) !== '/' ? '/' : '';
     if (isArticle) return (url && `${domain}${url}${slash}`) || domain;
-    return (
-        (url && !url.includes('recetas') && `${domain}${url}${slash}`) || domain
-    );
+
+    console.log('domain:', domain, 'url:', url, 'slash:', slash);
+    return (url && `${domain}${url}${slash}`) || domain;
 };
 
 const getData = ({
