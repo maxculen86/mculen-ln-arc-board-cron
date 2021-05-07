@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
 import bitacora from '../../private/LN/api/v1/bitacora';
-import mobile from '../../private/LN/api/v1/mobile';
+import home from '../../private/LN/api/v1/home';
 import browser from '../../private/common/utils/browser';
 // Url regex TODO: Mejorar la regular expression.
 // ^\/api\/v([1]+)\/home\/(.*\/)$
@@ -8,7 +8,7 @@ import browser from '../../private/common/utils/browser';
 const versions = {
     1: {
         bitacora,
-        LN: bitacora
+        LN: home
     }
 };
 
