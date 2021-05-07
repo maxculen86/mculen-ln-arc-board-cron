@@ -7,7 +7,10 @@ export default {
         },
         {
             slotGroup: 'home',
-            desktop: 'cabezal_dsk',
+            desktop: 'cabezal_dsk'
+        },
+        {
+            slotGroup: 'home',
             tablet: 'cabezal_tab'
         },
         {

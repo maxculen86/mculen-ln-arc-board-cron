@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 import React, { useEffect, useReducer } from 'react';
-import PropTypes from 'fusion:prop-types';
+import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import throttle from '../../private/common/utils/throttle';
@@ -12,8 +12,10 @@ import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import blocksBanners from '../../private/common/banners/blocksBannerHome';
 import Metarefresh from '../../features/LN-common/metarefresh';
+import BannerRefactor from '../../features/LN-common/bannerRefactor';
 import {
     DivBanner,
+    BannerComercial,
     getChainsFromApertura,
     sectionsWithBlocks,
     getSectionVisible,
@@ -100,16 +102,17 @@ const LNMainHome = props => {
         outputType,
         tree,
         renderables,
-        isAdmin
+        isAdmin,
+        siteProperties
     } = props;
 
     const { chainApertura1, chainApertura2 } = getChainsFromApertura(
         renderables
     );
 
-    const { isMobile, isTablet, isDesktop } = getViewport();
-
-    // const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
+    const { isMobile, isTablet, isDesktop, device } = getViewport();
+    const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
+    // const megatop = getBannerMegatop(anticipo, outputType, tree, isAdmin);
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: true,
@@ -161,19 +164,35 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             <LoginProvider>
-                {/* COMERCIAL */}
-                <DivBanner id="comercial_dsk" shouldRender={isDesktop} />
-                <DivBanner id="comercial_mob" shouldRender={isMobile} />
-
                 {/* ADHESION */}
-                <DivBanner
-                    id="adhesion_dsk"
-                    classes="--adhesiondsk"
-                    shouldRender={isDesktop}
-                />
-                <DivBanner id="adhesion_mob" shouldRender={isMobile} />
-                <DivBanner id="adhesion_tab" shouldRender={isTablet} />
+                {/* 1x1 */}
+                <DivBanner id="unoxuno_dsk" shouldRender={isDesktop} />
+                <DivBanner id="unoxuno_mob" shouldRender={isMobile} />
+                {/* COMERCIAL */}
+                {isDesktop && (
+                    <BannerComercial
+                        id="comercial_dsk"
+                        device={device}
+                        siteProperties={siteProperties}
+                    />
+                )}
+                {isMobile && (
+                    <BannerComercial
+                        id="comercial_mob"
+                        device={device}
+                        siteProperties={siteProperties}
+                    />
+                )}
+                {/* <BannerRefactor
+                    customFields={{
+                        group: 'home',
+                        desktop: 'comercial_dsk',
+                        mobile: 'comercial_mob'
+                    }}
+                /> */}
 
+                {/* <DivBanner id="comercial_dsk" shouldRender={isDesktop} /> */}
+                {/* <DivBanner id="comercial_mob" shouldRender={isMobile} /> */}
                 <div id="wrapper" className="home">
                     <Header />
                     <main>
@@ -413,10 +432,31 @@ const LNMainHome = props => {
                                 )}
                             </div>
                         </div>
+                        <div className="lay-sidebar">
+                            <div className="sidebar__main">
+                                {/* Bottom */}
+                                <DivBanner
+                                    id="adhesion_dsk"
+                                    classes="--adhesiondsk"
+                                    shouldRender={isDesktop}
+                                    closeButton
+                                />
+                                <DivBanner
+                                    id="adhesion_mob"
+                                    shouldRender={isMobile}
+                                    closeButton
+                                />
+                                <DivBanner
+                                    id="adhesion_tab"
+                                    shouldRender={isTablet}
+                                    closeButton
+                                />
+                            </div>
+                        </div>
                     </main>
                     <Footer />
                 </div>
-                <LoadBanners blocksBanners={blocksBanners.bloque1} />
+                <LoadBanners blocksBanners={blocksBanners.bloque1} display />
                 {blocksToLoad.bloque2 && (
                     <LoadBanners blocksBanners={blocksBanners.bloque2} />
                 )}
@@ -436,8 +476,9 @@ const LNMainHome = props => {
 };
 
 LNMainHome.propTypes = {
+    siteProperties: PropTypes.node.isRequired,
     children: PropTypes.node.isRequired,
-    outputType: PropTypes.string.isRequired,
+    outputType: PropTypes.string,
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)).isRequired,
     renderables: PropTypes.arrayOf(PropTypes.node).isRequired,
     isAdmin: PropTypes.bool.isRequired,
@@ -465,8 +506,12 @@ LNMainHome.propTypes = {
             PropTypes.shape({
                 _id: PropTypes.string
             })
-        ).isRequired
+        )
     }).isRequired
+};
+
+LNMainHome.defaultProps = {
+    outputType: 'default'
 };
 
 LNMainHome.sections = pageBuilderSections;

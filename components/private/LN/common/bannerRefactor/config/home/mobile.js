@@ -95,5 +95,10 @@ export default {
             [320, 480]
         ],
         targeting: defaultTargeting
+    },
+    unoxuno_mob: {
+        slotName: `${PATH_SLOT}/1x1_mob`,
+        dimensions: [[1, 1]],
+        targeting: defaultTargeting
     }
 };

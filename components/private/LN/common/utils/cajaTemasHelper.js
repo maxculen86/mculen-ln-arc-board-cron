@@ -129,7 +129,10 @@ export const getCommonProps = props => {
             .findIndex(chain => chain.props.id === idFeature) || 0;
 
     const sectionName = `${formatText(name === 'LA NACION' ? '' : `${name}_`)}`;
-    const showDatalayerMark = get(acumuladoGeneral, 'usa_datalayer', 'false');
+    const showDatalayerMark =
+        name === 'LA NACION'
+            ? 'true'
+            : get(acumuladoGeneral, 'usa_datalayer', 'false');
 
     return {
         collectionsInPage,

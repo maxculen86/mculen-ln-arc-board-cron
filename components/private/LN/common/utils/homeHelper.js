@@ -1,9 +1,14 @@
+/* eslint-disable no-undef */
 /* eslint-disable camelcase */
 import React from 'react';
 import Ln_Caja_Collection from '../../../../chains/Ln_Caja_Collection/default';
 import Ln_Caja_Manual from '../../../../chains/Ln_Caja_Manual/default';
 import useViewportSize from '../../../common/hooks/useViewportSize';
+import findTermica from '../../../common/utils/findTermica';
 import get from '../../../common/utils/get';
+import { slotsConfig } from '../bannerRefactor/config';
+import DefaultFactory from '../bannerRefactor/factory/default';
+import Comercial from '../bannerRefactor/factory/default/types/comercial';
 import WithSkeletonBannerWithoutHide from '../bannerRefactor/withSkeletonBannerWithoutHide';
 
 const Components = {
@@ -34,18 +39,67 @@ export const getChainsFromApertura = (renderable = []) => {
 export const getViewport = () => {
     const device = useViewportSize();
     return {
-        isMobile: device === 'mobile', 
-        isTablet: device === 'tablet', 
-        isDesktop: device === 'desktop'
+        isMobile: device === 'mobile',
+        isTablet: device === 'tablet',
+        isDesktop: device === 'desktop',
+        device
     };
 };
 
-export const DivBanner = ({ id, classes, shouldRender }) => {
+export const DivBanner = React.forwardRef(
+    ({ id, classes = '', shouldRender, closeButton, fixed }, ref) => {
+        if (typeof window === 'undefined')
+            return <WithSkeletonBannerWithoutHide slotId={id} />;
+
+        return shouldRender ? (
+            <div
+                className={`mod-banner ${classes} ${
+                    closeButton ? '--close' : ' '
+                } ${fixed ? '--fixed' : ''} --${id}`}
+                ref={ref}
+            >
+                {closeButton && (
+                    <button
+                        type="button"
+                        aria-label="Close"
+                        className="icon-close"
+                        onClick={() => ref.current.remove()}
+                    />
+                )}
+                <div id={id} className={`com-banner ${classes || ''}`} />
+            </div>
+        ) : (
+            <></>
+        );
+    }
+);
+
+export const BannerComercial = ({ id, device, siteProperties }) => {
     if (typeof window === 'undefined')
         return <WithSkeletonBannerWithoutHide slotId={id} />;
 
-    if (!shouldRender) return <></>;
-    return <div id={id} className={`com-banner ${classes}`} />;
+    const termicas = findTermica('banners');
+    const config = slotsConfig.home[id] || {};
+    const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
+
+    return (
+        <Comercial
+            isHome
+            targeting={config.targeting}
+            dimensions={config.dimensions}
+            dfpId={dfpId}
+            show={{
+                termicas,
+                collections: true
+            }}
+            bidding={{}}
+            sizemap={{}}
+            device={device}
+            slotId={id}
+            slotName={config.slotName}
+            slotGroup="home"
+        />
+    );
 };
 
 export const sectionsWithBlocks = {

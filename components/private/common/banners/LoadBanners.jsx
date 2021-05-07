@@ -354,7 +354,7 @@ const LoadBanners = ({ blocksBanners }) => {
 };
 
 LoadBanners.propTypes = {
-    blocksBanners: PropTypes.arrayOf(PropTypes.string)
+    blocksBanners: PropTypes.arrayOf(PropTypes.node)
 };
 
 LoadBanners.defaultProps = { blocksBanners: [] };
