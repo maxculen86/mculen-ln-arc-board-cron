@@ -150,6 +150,7 @@ export const resizeArcImage = (
      * Antes del paso por resizer validamos que no venga de bucket para así
      * usar el resizer de bucket y no de Arc
      */
+
     if (arcImage.url.match(/\/\/bucket+[\d]+.glanacion.com+/g)) {
         const getUrlwithWidth = (url, width) =>
             url.replace('.jpg', `w${defaultResize.width}.jpg`);
@@ -272,6 +273,7 @@ export const resizePromoItems = (
 
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
+
         if (pi.type === 'image') {
             resp[key] = resizeArcImage(
                 pi,
@@ -285,6 +287,7 @@ export const resizePromoItems = (
             resp[key] = pi;
         }
     });
+
     return resp;
 };
 

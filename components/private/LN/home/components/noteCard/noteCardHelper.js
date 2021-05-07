@@ -70,18 +70,15 @@ export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
         elem => elem && get(elem, 'props.id') === featureId
     );
 
-    const directionFocal = get(parent, 'props.customFields.layout');
+    const layout = get(parent, 'props.customFields.layout');
 
-    const config = get(
-        cajaTemaConfig,
-        `${directionFocal}.articles[${index}]`,
-        null
-    );
+    const config = get(cajaTemaConfig, `${layout}.articles[${index}]`, null);
 
     return {
         config,
         index,
-        boxPosition: `0${Number(position) + 1}`.slice(-2)
+        boxPosition: `0${Number(position) + 1}`.slice(-2),
+        layout
     };
 };
 
@@ -105,5 +102,5 @@ export const getLabel = (article, customFields, withMedia) => {
     return get(customFields, 'chapita') || get(article, 'label.chapita.text');
 };
 
-export const getIsRenderAutor = customFields =>
-    get(customFields, 'opinion', false);
+export const getIsRenderAutor = (customFields, layout) =>
+    get(customFields, 'opinion', false) || layout === 'author3';
