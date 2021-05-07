@@ -502,7 +502,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
               "width": 391,
             },
             "name": "Recetas La Nación",
-            "url": "https://www.lanacion.com.ar/",
+            "url": "https://www.lanacion.com.ar/recetas/",
           },
           "recipeIngredient": Array [
             "Ingrediente 1",
@@ -582,7 +582,7 @@ exports[`SNIPPET - La Nacion - Nota - Receta  Test Recipient Receta 1`] = `
   \\"publisher\\": {
     \\"@type\\": \\"Organization\\",
     \\"name\\": \\"Recetas La Nación\\",
-    \\"url\\": \\"https://www.lanacion.com.ar/\\",
+    \\"url\\": \\"https://www.lanacion.com.ar/recetas/\\",
     \\"logo\\": {
       \\"@context\\": \\"http://schema.org\\",
       \\"@type\\": \\"ImageObject\\",

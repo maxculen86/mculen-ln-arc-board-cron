@@ -160,11 +160,7 @@ const snippet = props => {
         publisher: {
             '@type': 'Organization',
             name: 'Recetas La Nación',
-            url: addForwardSlash(
-                `${getDomain({ website_url })}${
-                    section.includes('recetas') ? '' : section
-                }`
-            ),
+            url: addForwardSlash(`${getDomain({ website_url })}${section}`),
             logo: {
                 '@context': 'http://schema.org',
                 '@type': 'ImageObject',
