@@ -357,7 +357,10 @@ const LNMainHome = props => {
                                     {aside}
                                 </div>
                             </div>
-                            <div data-section="ranking" className="ranking-ln9">
+                            <div
+                                data-section="ranking"
+                                className="lay ranking-ln9"
+                            >
                                 <AnexoFeature
                                     customFields={{
                                         url:
