@@ -128,8 +128,8 @@ CajaCollection.label = 'LN Caja Collection';
 
 CajaCollection.propTypes = {
     id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
-    outputType: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool,
+    outputType: PropTypes.string,
     renderables: PropTypes.arrayOf(
         PropTypes.shape({
             type: PropTypes.string,
@@ -141,14 +141,22 @@ CajaCollection.propTypes = {
                 })
             })
         })
-    ).isRequired,
+    ),
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaCollection')
     }).isRequired,
-    tree: PropTypes.shape(PropTypes.node).isRequired,
+    tree: PropTypes.shape(PropTypes.node),
     globalContent: PropTypes.shape({
         name: PropTypes.string
-    }).isRequired
+    })
+};
+
+CajaCollection.defaultProps = {
+    outputType: 'default',
+    renderables: [],
+    isAdmin: false,
+    tree: undefined,
+    globalContent: { name: '' }
 };
 
 export default Consumer(CajaCollection);

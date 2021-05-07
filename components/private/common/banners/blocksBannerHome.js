@@ -25,12 +25,14 @@ export default {
             slotGroup: 'home',
             desktop: 'adhesion_dsk',
             mobile: 'adhesion_mob',
-            tablet: 'adhesion_tab'
+            tablet: 'adhesion_tab',
+            validateSubscription: true
         },
         {
             slotGroup: 'home',
             desktop: '1x1_dsk',
-            mobile: '1x1_mob'
+            mobile: '1x1_mob',
+            validateSubscription: true
         },
         {
             slotGroup: 'home',

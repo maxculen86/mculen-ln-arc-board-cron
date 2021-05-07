@@ -8,11 +8,11 @@ import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer/home';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoginProvider from '../../private/LN/common/context/loginContext';
-import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
+// import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import blocksBanners from '../../private/common/banners/blocksBannerHome';
 import Metarefresh from '../../features/LN-common/metarefresh';
-import BannerRefactor from '../../features/LN-common/bannerRefactor';
+// import BannerRefactor from '../../features/LN-common/bannerRefactor';
 import {
     DivBanner,
     BannerComercial,
@@ -111,7 +111,6 @@ const LNMainHome = props => {
     );
 
     const { isMobile, isTablet, isDesktop, device } = getViewport();
-    const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
     // const megatop = getBannerMegatop(anticipo, outputType, tree, isAdmin);
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
@@ -164,10 +163,17 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             <LoginProvider>
-                {/* ADHESION */}
                 {/* 1x1 */}
-                <DivBanner id="unoxuno_dsk" shouldRender={isDesktop} />
-                <DivBanner id="unoxuno_mob" shouldRender={isMobile} />
+                <DivBanner
+                    id="unoxuno_dsk"
+                    shouldRender={isDesktop}
+                    validateSuscription
+                />
+                <DivBanner
+                    id="unoxuno_mob"
+                    shouldRender={isMobile}
+                    validateSuscription
+                />
                 {/* COMERCIAL */}
                 {isDesktop && (
                     <BannerComercial
@@ -183,16 +189,7 @@ const LNMainHome = props => {
                         siteProperties={siteProperties}
                     />
                 )}
-                {/* <BannerRefactor
-                    customFields={{
-                        group: 'home',
-                        desktop: 'comercial_dsk',
-                        mobile: 'comercial_mob'
-                    }}
-                /> */}
 
-                {/* <DivBanner id="comercial_dsk" shouldRender={isDesktop} /> */}
-                {/* <DivBanner id="comercial_mob" shouldRender={isMobile} /> */}
                 <div id="wrapper" className="home">
                     <Header />
                     <main>
@@ -434,29 +431,33 @@ const LNMainHome = props => {
                         </div>
                         <div className="lay-sidebar">
                             <div className="sidebar__main">
-                                {/* Bottom */}
+                                {/* ADHESION */}
                                 <DivBanner
                                     id="adhesion_dsk"
                                     classes="--adhesiondsk"
                                     shouldRender={isDesktop}
                                     closeButton
+                                    validateSuscription
                                 />
+
                                 <DivBanner
                                     id="adhesion_mob"
                                     shouldRender={isMobile}
                                     closeButton
+                                    validateSuscription
                                 />
                                 <DivBanner
                                     id="adhesion_tab"
                                     shouldRender={isTablet}
                                     closeButton
+                                    validateSuscription
                                 />
                             </div>
                         </div>
                     </main>
                     <Footer />
                 </div>
-                <LoadBanners blocksBanners={blocksBanners.bloque1} display />
+                <LoadBanners blocksBanners={blocksBanners.bloque1} />
                 {blocksToLoad.bloque2 && (
                     <LoadBanners blocksBanners={blocksBanners.bloque2} />
                 )}
@@ -476,7 +477,7 @@ const LNMainHome = props => {
 };
 
 LNMainHome.propTypes = {
-    siteProperties: PropTypes.node.isRequired,
+    siteProperties: PropTypes.node,
     children: PropTypes.node.isRequired,
     outputType: PropTypes.string,
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)).isRequired,
@@ -511,7 +512,8 @@ LNMainHome.propTypes = {
 };
 
 LNMainHome.defaultProps = {
-    outputType: 'default'
+    outputType: 'default',
+    siteProperties: undefined
 };
 
 LNMainHome.sections = pageBuilderSections;

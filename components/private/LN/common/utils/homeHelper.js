@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { useContext, forwardRef } from 'react';
 import Ln_Caja_Collection from '../../../../chains/Ln_Caja_Collection/default';
 import Ln_Caja_Manual from '../../../../chains/Ln_Caja_Manual/default';
 import useViewportSize from '../../../common/hooks/useViewportSize';
@@ -10,6 +10,8 @@ import { slotsConfig } from '../bannerRefactor/config';
 import DefaultFactory from '../bannerRefactor/factory/default';
 import Comercial from '../bannerRefactor/factory/default/types/comercial';
 import WithSkeletonBannerWithoutHide from '../bannerRefactor/withSkeletonBannerWithoutHide';
+import { LoginStore } from '../context/loginContext';
+import withLoginData from '../hocs/withLoginData';
 
 const Components = {
     Ln_Caja_Collection,
@@ -46,33 +48,48 @@ export const getViewport = () => {
     };
 };
 
-export const DivBanner = React.forwardRef(
-    ({ id, classes = '', shouldRender, closeButton, fixed }, ref) => {
-        if (typeof window === 'undefined')
-            return <WithSkeletonBannerWithoutHide slotId={id} />;
+export const getSubscription = () => {
+    const { state } = useContext(LoginStore);
+    const { loginData } = state || {};
+    const { subscription = false } = loginData || {};
+    return subscription;
+};
 
-        return shouldRender ? (
-            <div
-                className={`mod-banner ${classes} ${
-                    closeButton ? '--close' : ' '
-                } ${fixed ? '--fixed' : ''} --${id}`}
-                ref={ref}
-            >
-                {closeButton && (
-                    <button
-                        type="button"
-                        aria-label="Close"
-                        className="icon-close"
-                        onClick={() => ref.current.remove()}
-                    />
-                )}
-                <div id={id} className={`com-banner ${classes || ''}`} />
-            </div>
-        ) : (
-            <></>
-        );
-    }
-);
+export const DivBanner = forwardRef((props, ref) => {
+    const {
+        id,
+        classes = '',
+        shouldRender,
+        closeButton,
+        fixed,
+        validateSuscription = false
+    } = props;
+    const subscription = validateSuscription ? getSubscription() : false;
+
+    if (typeof window === 'undefined')
+        return <WithSkeletonBannerWithoutHide slotId={id} />;
+
+    if (!shouldRender || (validateSuscription && subscription)) return <></>;
+
+    return (
+        <div
+            className={`mod-banner ${classes} ${
+                closeButton ? '--close' : ' '
+            } ${fixed ? '--fixed' : ''} --${id}`}
+            ref={ref}
+        >
+            {closeButton && (
+                <button
+                    type="button"
+                    aria-label="Close"
+                    className="icon-close"
+                    onClick={() => ref.current.remove()}
+                />
+            )}
+            <div id={id} className={`com-banner ${classes || ''}`} />
+        </div>
+    );
+});
 
 export const BannerComercial = ({ id, device, siteProperties }) => {
     if (typeof window === 'undefined')
@@ -148,7 +165,7 @@ export const scrollToSection = lastSectionSaw => {
     const element = document.querySelectorAll(
         `[data-section=${lastSectionSaw}]`
     );
-    if (element && element.length === 0) return;
+    if (element && element.length === 0) return false;
     const elementRect = element[0].getBoundingClientRect();
     const absoluteElementTop = elementRect.top + window.pageYOffset;
     const middle = absoluteElementTop - window.innerHeight / 2;
