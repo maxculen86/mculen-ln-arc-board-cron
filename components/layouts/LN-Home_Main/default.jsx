@@ -263,7 +263,18 @@ const LNMainHome = props => {
                     <main>
                         {stickyMobile}
                         <div className="row">
-                            <div className="lay">{preApertura}</div>
+                            {/* <div className="lay">{preApertura}</div> */}
+                            <div
+                                data-section="ranking"
+                                className="lay ranking-ln9"
+                            >
+                                <AnexoFeature
+                                    customFields={{
+                                        url:
+                                            'https://dp-ln9.lanacion.com.ar/masleidas/home'
+                                    }}
+                                />
+                            </div>
                             <div id="content-main" className="lay-sidebar">
                                 {/* Cuerpo */}
                                 <div className="sidebar__main">
@@ -356,17 +367,6 @@ const LNMainHome = props => {
                                     {/* BANNERS, RANKING DE NOTAS */}
                                     {aside}
                                 </div>
-                            </div>
-                            <div
-                                data-section="ranking"
-                                className="lay ranking-ln9"
-                            >
-                                <AnexoFeature
-                                    customFields={{
-                                        url:
-                                            'https://dp-ln9.lanacion.com.ar/masleidas/home'
-                                    }}
-                                />
                             </div>
                         </div>
                     </main>

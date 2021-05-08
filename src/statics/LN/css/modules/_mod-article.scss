@@ -891,9 +891,18 @@
 
 /*Momentaneo*/
 .ranking-ln9 {
-    height: px(360);
+    height: px(1160);
     margin-bottom: px(32);
+    padding: 0;
     iframe {
+        height: px(1160);
+    }
+    @media ($media-m) {
         height: px(360);
+        padding-right: px(16);
+        padding-left: px(16);
+        iframe {
+            height: px(360);
+        }
     }
 }
