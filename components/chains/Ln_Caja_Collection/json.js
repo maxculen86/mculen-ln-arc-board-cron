@@ -5,7 +5,7 @@ import {
     getIdsArticlesFromOtherCollections
 } from '../../private/LN/common/utils/cajaTemasHelperApi';
 import get from '../../private/common/utils/get';
-import filter from '../../../content/filters/LN/acumulado/articleAcu';
+import filter from '../../../content/filters/LN/acumulado/articleHomeMobile';
 
 class CajaCollection {
     constructor(props) {

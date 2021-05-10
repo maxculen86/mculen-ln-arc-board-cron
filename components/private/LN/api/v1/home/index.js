@@ -1,16 +1,12 @@
 import Article from './article';
 
-const index = children => {
+const index = (children, diagramacion) => {
     const ArticlesbyBox = [];
     children.map(element => {
         const itemBoxes = element.map(elem => {
             if (elem && elem.articles) {
                 const subChild = elem.articles.map(item => {
-                    return {
-                        id_nota: item._id,
-                        url_nota: item.website_url,
-                        article: Article(item)
-                    };
+                    return Article(item, diagramacion);
                 });
                 let result = null;
                 let validate = true;
