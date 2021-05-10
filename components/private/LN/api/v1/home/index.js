@@ -1,19 +1,30 @@
 import Article from './article';
 
+// TODO: Recorrer las notas en un archivo nuevo.
+// Recibir el array y validar que tenga notas
+
 const index = (children, diagramacion) => {
     const ArticlesbyBox = children.map(e => {
-        if (e) {
-            //TODO: Recorrer las notas en un archivo nuevo. Recibir el array y validar que tenga notas
-            const subChild = e.articles.map(item => {
-                return Article(item, diagramacion);
-            });
+        const { articles, information } = e;
+        const subChild = articles.map(item => {
+            return Article(item, diagramacion);
+        });
 
-            return {
-                notas: subChild
-            };
-        }
+        const tagDestacado = {
+            tipoSeccion: 'tema',
+            tagDestacado: {
+                valor: information.title,
+                url: information.url
+            }
+        };
+
+        return {
+            tagDestacado,
+            notas: subChild
+        };
     });
-    return ArticlesbyBox;
+
+    return [ArticlesbyBox];
 };
 
 export default index;

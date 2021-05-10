@@ -61,8 +61,11 @@ const LNMainHome = props => {
 
     const homeModels = versions[browser.getApiVersion(requestUri)];
 
-    if (homeModels[homeType])
+    if (homeModels[homeType]) {
+        if (!homeSections || !homeSections.length) return [];
+
         return homeModels[homeType](homeSections, diagramation) || null;
+    }
 
     throw new Error(`Se solicito una diagramacion inexistente`);
 };
