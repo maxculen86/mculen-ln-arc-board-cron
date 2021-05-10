@@ -905,4 +905,8 @@
             height: px(360);
         }
     }
+    @media ($media-xl) {
+        padding-right: $spacing-xl;
+        padding-left: $spacing-xl;
+    }
 }
