@@ -220,8 +220,8 @@ const LNMapaDelSitio = ({ children }) => {
             href: 'https://www.lanacion.com.ar/cartelera-de-teatro'
         },
         {
-            text: 'Cocina y Recetas',
-            href: 'https://recetas.lanacion.com.ar/recetas/'
+            text: 'Recetas',
+            href: 'https://www.lanacion.com.ar/recetas/'
         },
         {
             text: 'Podcasts',

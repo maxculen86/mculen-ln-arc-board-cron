@@ -8,14 +8,14 @@ import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer/home';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoginProvider from '../../private/LN/common/context/loginContext';
-import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
-import BannerRefactor from '../../features/LN-common/bannerRefactor';
+// import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
+// import BannerRefactor from '../../features/LN-common/bannerRefactor';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 
 const pageBuilderSections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Pre-Apertura',
+    'Anticipo',
+    'Anexo-1',
+    'Bomba',
     'Apertura',
     'Anexo-2',
     'Breaking-1',
@@ -33,8 +33,7 @@ const pageBuilderSections = [
     'Bloque-5',
     'Bloque-6',
     'Bloque-7',
-    'Bloque-8',
-    'Aside'
+    'Bloque-8'
 ];
 
 const BannerWrapper = React.memo(
@@ -145,9 +144,9 @@ const sectionsWithBlocks = {
 const LNMainHome = props => {
     const {
         children: [
-            bannerMegatop,
-            stickyMobile,
-            preApertura,
+            anticipo,
+            anexo1,
+            bomba,
             apertura,
             anexo2,
             breaking1,
@@ -165,14 +164,13 @@ const LNMainHome = props => {
             bloque5,
             bloque6,
             bloque7,
-            bloque8,
-            aside
+            bloque8
         ],
         outputType,
         tree,
         isAdmin
     } = props;
-    const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
+    // const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: true,
@@ -256,13 +254,16 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             <LoginProvider>
-                {megatop}
+                {/* {megatop} */}
                 <div id="wrapper" className="home">
                     <Header />
+                    {anticipo}
+                    {anexo1}
+                    {bomba}
                     <main>
-                        {stickyMobile}
+                        {/* {stickyMobile} */}
                         <div className="row --top">
-                            <div className="lay">{preApertura}</div>
+                            {/* <div className="lay">{preApertura}</div> */}
                         </div>
                         <div id="content-main" className="lay-sidebar">
                             {/* Cuerpo */}
@@ -352,7 +353,6 @@ const LNMainHome = props => {
                             </div>
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNERS, RANKING DE NOTAS */}
-                                {aside}
                             </div>
                         </div>
                     </main>
