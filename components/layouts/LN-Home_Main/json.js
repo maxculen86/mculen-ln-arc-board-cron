@@ -35,7 +35,20 @@ const versions = {
 // ];
 
 const getHomeElements = items => {
-    return [].concat([], items).filter(e => e && e.length > 0);
+    return Array.prototype.concat.apply([], items).filter(e => {
+        if (
+            e &&
+            e.hasOwnProperty('information') &&
+            e.information &&
+            e.hasOwnProperty('articles') &&
+            e.articles &&
+            e.articles.length &&
+            !e.information.hasOwnProperty('hideCaja') &&
+            !e.information.hideCaja
+        ) {
+            return e;
+        }
+    });
 };
 
 const LNMainHome = props => {

@@ -1,37 +1,18 @@
 import Article from './article';
 
 const index = (children, diagramacion) => {
-    const ArticlesbyBox = [];
-    children.map(element => {
-        const itemBoxes = element.map(elem => {
-            if (elem && elem.articles) {
-                const subChild = elem.articles.map(item => {
-                    return Article(item, diagramacion);
-                });
-                let result = null;
-                let validate = true;
+    const ArticlesbyBox = children.map(e => {
+        if (e && e.articles) {
+            const subChild = e.articles.map(item => {
+                return Article(item, diagramacion);
+            });
 
-                // Validaciones extras
-                if (elem.information.hideCaja === false) {
-                    validate = false;
-                }
-                // fin validaciones extras
-                if (validate) {
-                    result = {
-                        notas: subChild
-                    };
-                    ArticlesbyBox.push(result);
-                }
-
-                return result;
-            }
-            return elem;
-        });
-
-        return itemBoxes;
+            return {
+                notas: subChild
+            };
+        }
     });
-
-    return { cajas: ArticlesbyBox };
+    return ArticlesbyBox;
 };
 
 export default index;
