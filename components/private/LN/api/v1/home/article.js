@@ -1,9 +1,10 @@
 import get from 'lodash.get';
 import Image from '../common/image';
 import { authorHomeMobile } from '../common/author';
-import { getTag } from '../common/tag';
+import { getTag, getFeaturedTag } from '../common/tag';
 import { getPrincipalCategory } from '../common/category';
 import { removeEmptyItems } from '../common/utils/responseCleaner';
+import { getTagId } from '../../../../common/utils/getElementId';
 
 const articleItem = (article, diagramacion) => {
     const {
@@ -21,9 +22,9 @@ const articleItem = (article, diagramacion) => {
     const authors = get(article, 'credits.by', null);
     const image = get(article, 'promo_items.basic', null);
     const primarySection = get(article, 'taxonomy.primary_section', null);
-    //const tags = get(article, 'taxonomy.tags', null);
+    const tags = get(article, 'taxonomy.tags', null);
     const bajada = get(article, 'subheadlines.basic', null);
-    const volanta = get(label, 'volanta.text', '');
+    const volanta = get(label, 'volanta.text', null);
     //bajada
     const resp = {
         id,
@@ -34,8 +35,9 @@ const articleItem = (article, diagramacion) => {
         url,
         exclusivo: null,
         titulo: titulo || tituloMobile,
-        tituloMobile,
+        //tituloMobile,
         volanta,
+        bajada,
         marquesina: null,
         imagen: null,
         autor: null,
@@ -57,15 +59,21 @@ const articleItem = (article, diagramacion) => {
         }
     }
 
-    if (primarySection) {
+    /*     if (primarySection) {
         resp.tagProducto = getPrincipalCategory(primarySection);
-    }
-    /* 
-    if (tags && tags.length > 0) {
-        resp.tagProducto = tags.map(v => {
-            return getTag(v);
-        });
     } */
+
+    if (tags && tags.length > 0) {
+        // Teporal hasta verificar el tag tipo producto
+        const tagProducto = {
+            id: getTagId(tags[0].slug),
+            valor: tags[0].text,
+            tipoId: 7,
+            formatoId: 1,
+            tipoDescripcion: 'Producto'
+        };
+        resp.tagProducto = tagProducto; //getTag(tags[0]);
+    }
     return resp;
     //return removeEmptyItems(resp);
 };
