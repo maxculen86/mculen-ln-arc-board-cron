@@ -897,6 +897,12 @@
     iframe {
         height: px(1540);
     }
+    @media (min-width: 400px) {
+        height: px(1590);
+        iframe {
+            height: px(1590);
+        }
+    }
     @media ($media-m) {
         height: px(360);
         padding-right: px(16);
