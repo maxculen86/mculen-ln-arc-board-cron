@@ -3,8 +3,8 @@ const index = children => {
     let cajanum = 0;
 
     const ArticlesbyBox = children.map(e => {
-        const { articles, information } = e;
-        if (articles != null && articles.length && information) {
+        if (e) {
+            const { articles, information } = e;
             if (information.hideCaja !== false) {
                 cajanum += 1;
                 posnum = 0;
