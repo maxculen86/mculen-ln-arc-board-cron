@@ -221,7 +221,7 @@ const LNMapaDelSitio = ({ children }) => {
         },
         {
             text: 'Cocina y Recetas',
-            href: 'https://recetas.lanacion.com.ar/recetas/'
+            href: 'https://www.lanacion.com.ar/recetas/'
         },
         {
             text: 'Podcasts',

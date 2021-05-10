@@ -350,7 +350,7 @@ const headerAMP = props => {
                                         </a>
                                     </li>
                                     <li className="menu_secciones">
-                                        <a href="https://recetas.lanacion.com.ar/">
+                                        <a href="https://www.lanacion.com.ar/recetas/">
                                             Cocina y recetas
                                         </a>
                                     </li>
