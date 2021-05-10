@@ -525,7 +525,11 @@ export default {
         focalLeft3: {
             className: '--focal --left',
             articles: {
-                0: { titleSize: '--xl', withSubheadAndMedia: true },
+                0: {
+                    titleSize: '--xl',
+                    withSubheadAndMedia: true,
+                    withSubhead: true
+                },
                 1: { titleSize: '--xs', withSubheadAndMedia: false },
                 2: { titleSize: '--xs', withSubheadAndMedia: false }
             }
@@ -534,7 +538,11 @@ export default {
             className: '--focal --right',
             articles: {
                 0: { titleSize: '--l', withSubheadAndMedia: true },
-                1: { titleSize: '--xl', withSubheadAndMedia: true }
+                1: {
+                    titleSize: '--xl',
+                    withSubheadAndMedia: true,
+                    withSubhead: true
+                }
             }
         },
         notaColorRosa3: { className: '--highlight --pink' },
