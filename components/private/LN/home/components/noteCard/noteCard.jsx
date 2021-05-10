@@ -60,6 +60,7 @@ const NoteCard = ({
                 link={get(article, 'website_url')}
                 titleSize={get(articleProps, 'titleSize')}
                 titleText={get(article, 'headlines.basic')}
+                titleTag={get(articleProps, 'titleTag', 'h2')}
                 authors={get(article, 'marquesina')}
                 subheadText={
                     get(articleProps, 'skipSubhead', false)

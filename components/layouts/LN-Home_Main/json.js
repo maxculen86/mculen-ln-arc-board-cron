@@ -61,8 +61,7 @@ LNMainHome.sections = [
     'Bloque-5',
     'Bloque-6',
     'Bloque-7',
-    'Bloque-8',
-    'Aside'
+    'Bloque-8'
 ];
 
 export default LNMainHome;

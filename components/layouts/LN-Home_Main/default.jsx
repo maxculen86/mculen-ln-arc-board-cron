@@ -8,7 +8,8 @@ import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer/home';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoginProvider from '../../private/LN/common/context/loginContext';
-import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
+// import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
+// import BannerRefactor from '../../features/LN-common/bannerRefactor';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 
@@ -33,23 +34,18 @@ const pageBuilderSections = [
     'Bloque-5',
     'Bloque-6',
     'Bloque-7',
-    'Bloque-8',
-    'Aside'
+    'Bloque-8'
 ];
-
-const BannerWrapper = React.memo(
-    ({ children }) => children,
-    (prevProps, nextProps) => prevProps.load === nextProps.load
-);
-BannerWrapper.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.node).isRequired
-};
 
 const reducer = (state, action) => {
     switch (action.type) {
         case 'update': {
             const newState = updateBlocks(state, action.payload);
             return newState;
+        }
+        case 'updateNextBlock': {
+            const newState2 = updateNextBlock(state);
+            return newState2;
         }
         default:
             throw new Error();
@@ -64,6 +60,17 @@ const updateBlocks = (blocks, lastBlock) => {
         if (key.slice(-1) <= number) newState[key] = true;
     });
     return newState;
+};
+
+const updateNextBlock = (blocks) => {
+    const b = {...blocks};
+    Object.keys(blocks).some(key => {
+        if (b[key] === false) {
+            b[key] = true;
+            return true;
+        }
+    });
+    return b;
 };
 
 const sectionsWithBlocks = {
@@ -113,8 +120,7 @@ const LNMainHome = props => {
             bloque5,
             bloque6,
             bloque7,
-            bloque8,
-            aside
+            bloque8
         ],
         outputType,
         tree,
@@ -183,15 +189,15 @@ const LNMainHome = props => {
         
             try {
                 
-                sessionStorage.setItem('homePosition', window.pageYOffset);
+                sessionStorage.setItem('hp', window.pageYOffset);
                 const scrollTop = get(e, 'target.scrollingElement.scrollTop', 0);
                 const sectionVisible = getSectionVisible(scrollTop, dataSections);
                 if (!sectionVisible) return;
-                sessionStorage.setItem('lastBlock', sectionVisible);
+                sessionStorage.setItem('lb', sectionVisible);
                 const scrollPercentRounded = getScrollPercent();
-                if (scrollPercentRounded > 75) {
-                    const blockToLoad = sectionsWithBlocks[sectionVisible];
-                    dispatch({ type: 'update', payload: blockToLoad });
+                if (scrollPercentRounded > 70) {
+                    // const blockToLoad = sectionsWithBlocks[sectionVisible];
+                    dispatch({ type: 'updateNextBlock'});
                 }
 
             } catch (error) {
@@ -208,8 +214,8 @@ const LNMainHome = props => {
 
     // First Load
     useEffect(() => {
-        const lastSectionSaw = sessionStorage.getItem('lastBlock');
-        const lastScrollPosition = sessionStorage.getItem('homePosition');
+        const lastSectionSaw = sessionStorage.getItem('lb');
+        const lastScrollPosition = sessionStorage.getItem('hp');
         checkScrollForBiggerResolution();
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
@@ -230,11 +236,16 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             <LoginProvider>
+                {/* {megatop} */}
                 <div id="wrapper" className="home">
                     <Header />
+                    {anticipo}
+                    {anexo1}
+                    {bomba}
                     <main>
+                        {/* {stickyMobile} */}
                         <div className="row --top">
-                            <div className="lay"></div>
+                            {/* <div className="lay">{preApertura}</div> */}
                         </div>
                         <div id="content-main" className="lay-sidebar">
                             {/* Cuerpo */}
@@ -242,7 +253,9 @@ const LNMainHome = props => {
                                 {/* 1er Bloque */}
                                 <div data-section="apertura">{apertura}</div>
 
-                                {blocksToLoad.bloque2 && anexo2}
+                                <div data-section="anexo2">
+                                    {blocksToLoad.bloque2 && anexo2}
+                                </div>
                                 <div data-section="breaking1">
                                     {blocksToLoad.bloque2 && breaking1}
                                 </div>
@@ -260,7 +273,9 @@ const LNMainHome = props => {
                                     {blocksToLoad.bloque2 && breaking3}
                                 </div>
                                 {/* 2do Bloque */}
-                                {blocksToLoad.bloque3 && anexo3}
+                                <div data-section="anexo3">
+                                    {blocksToLoad.bloque3 && anexo3}
+                                </div>
                                 <div data-section="opinion">
                                     {blocksToLoad.bloque3 && opinion}
                                 </div>
@@ -303,7 +318,6 @@ const LNMainHome = props => {
                             </div>
                             <div className="sidebar__aside hlp-tabletlm-none">
                                 {/* BANNERS, RANKING DE NOTAS */}
-                                {aside}
                             </div>
                         </div>
                     </main>
