@@ -562,6 +562,12 @@ export default {
         grilla2: { className: '' },
         grilla3: { className: '' },
         grilla6: { className: '' },
-        grilla9: { className: '' }
+        grilla9: { className: '' },
+        bomba1: {
+            className: '--bomba',
+            articles: {
+                0: { titleSize: '--threexl', titleTag: 'h1' }
+            }
+        }
     }
 };
