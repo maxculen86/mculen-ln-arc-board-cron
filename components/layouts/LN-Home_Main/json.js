@@ -12,24 +12,7 @@ const versions = {
     }
 };
 
-const LNMainHome = props => {
-    const { children, requestUri } = props;
-    const homeType = browser.getParamFrom('params', 'tipo', requestUri);
-    const diagramation =
-        browser.getParamFrom('params', 'diagramacion', requestUri) ||
-        'completa';
-
-    const homeModels = versions[browser.getApiVersion(requestUri)];
-
-    if (homeModels[homeType])
-        return homeModels[homeType](children, diagramation) || null;
-
-    throw new Error(`Se solicito una diagramacion inexistente`);
-};
-
-// LNMainHome.sections = [
-//     'Banner-Megatop',
-//     'Sticky-Mobile',
+// const pageBuilderSections = [
 //     'Pre-Apertura',
 //     'Apertura',
 //     'Anexo-2',
@@ -48,8 +31,27 @@ const LNMainHome = props => {
 //     'Bloque-5',
 //     'Bloque-6',
 //     'Bloque-7',
-//     'Bloque-8',
-//     'Aside'
+//     'Bloque-8'
 // ];
+
+const getHomeElements = items => {
+    return [].concat([], items).filter(e => e && e.length > 0);
+};
+
+const LNMainHome = props => {
+    const { children, requestUri } = props;
+    const homeSections = getHomeElements(children);
+    const homeType = browser.getParamFrom('params', 'tipo', requestUri);
+    const diagramation =
+        browser.getParamFrom('params', 'diagramacion', requestUri) ||
+        'completa';
+
+    const homeModels = versions[browser.getApiVersion(requestUri)];
+
+    if (homeModels[homeType])
+        return homeModels[homeType](homeSections, diagramation) || null;
+
+    throw new Error(`Se solicito una diagramacion inexistente`);
+};
 
 export default Consumer(LNMainHome);
