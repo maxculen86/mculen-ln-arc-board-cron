@@ -41,9 +41,9 @@ const LNMainHome = ({ children }) => {
 };
 
 LNMainHome.sections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Pre-Apertura',
+    'Anticipo',
+    'Anexo-1',
+    'Bomba',
     'Apertura',
     'Anexo-2',
     'Breaking-1',

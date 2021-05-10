@@ -9,13 +9,13 @@ import Footer from '../../private/LN/common/footer/home';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoginProvider from '../../private/LN/common/context/loginContext';
 import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
-import BannerRefactor from '../../features/LN-common/bannerRefactor';
 import LoadBanners from '../../private/common/banners/LoadBanners';
+import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
 
 const pageBuilderSections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Pre-Apertura',
+    'Anticipo',
+    'Anexo-1',
+    'Bomba',
     'Apertura',
     'Anexo-2',
     'Breaking-1',
@@ -47,107 +47,55 @@ BannerWrapper.propTypes = {
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case 'updateAll': {
+        case 'update': {
             const newState = updateBlocks(state, action.payload);
             return newState;
         }
-        case 'update':
-            if (state[action.payload]) return state;
-            return {
-                ...state,
-                [action.payload]: true
-            };
         default:
             throw new Error();
     }
 };
 
 const updateBlocks = (blocks, lastBlock) => {
-    const b = blocks;
+    const newState = {...blocks };
     if (!lastBlock) return blocks;
-    const number = lastBlock.slice(-1);
+    const number = Number(lastBlock.slice(-1)) + 1;
     Object.keys(blocks).forEach(key => {
-        if (key.slice(-1) <= number) b[key] = true;
+        if (key.slice(-1) <= number) newState[key] = true;
     });
-    return blocks;
+    return newState;
 };
 
-/**
- * TODO: Hacer dinamica la siguiente configuracion para distintos tamaños de viewport
- */
 const sectionsWithBlocks = {
-    apertura: 'bloque2',
+    anticipo: 'bloque1',
+    anexo1: 'bloque1',
+    bomba: 'bloque1',
+    apertura: 'bloque1',
     anexo2: 'bloque2',
     breaking1: 'bloque2',
-    breaking2: 'bloque3',
-    breaking3: 'bloque3',
+    breaking2: 'bloque2',
+    breaking3: 'bloque2',
     anexo3: 'bloque3',
     opinion: 'bloque3',
     breaking4: 'bloque3',
     breaking5: 'bloque3',
-    comercial1: 'bloque4',
+    comercial1: 'bloque3',
     bloque2: 'bloque4',
     comercial2: 'bloque4',
     bloque3: 'bloque4',
-    bloque4: 'bloque5',
+    bloque4: 'bloque4',
     bloque5: 'bloque5',
     bloque6: 'bloque5',
     bloque7: 'bloque5',
     bloque8: 'bloque5'
 };
 
-/* const blocksBanners = {
-    bloque1: [
-        {
-            slotGroup: 'acumuladoHome',
-            desktop: 'caja1_dsk',
-            tablet: 'caja1_tab'
-        },
-        {
-            slotGroup: 'acumuladoHome',
-            desktop: 'caja2_dsk'
-        },
-        {
-            slotGroup: 'acumuladoHome',
-            desktop: 'caja3_dsk'
-        }
-    ],
-    bloque2: []
-};
-
-{blocksToLoad.bloque2 && (
-    <div className="row-gap-tablet-3 --ads">
-        <BannerWrapper
-            load={blocksToLoad.bloque2}
-        >
-            <BannerRefactor
-                customFields={{
-                    group: 'acumulado',
-                    desktop: 'caja1_dsk'
-                }}
-            />
-            <BannerRefactor
-                customFields={{
-                    group: 'acumulado',
-                    desktop: 'caja2_dsk'
-                }}
-            />
-            <BannerRefactor
-                customFields={{
-                    group: 'acumulado',
-                    desktop: 'caja3_dsk'
-                }}
-            />
-        </BannerWrapper>
-    </div>
-)} */
-
 const LNMainHome = props => {
     const {
         children: [
-            bannerMegatop,
-            stickyMobile,
-            preApertura,
+            anticipo,
+            anexo1,
+            bomba,
             apertura,
             anexo2,
             breaking1,
@@ -172,7 +120,7 @@ const LNMainHome = props => {
         tree,
         isAdmin
     } = props;
-    const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
+    // const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: true,
@@ -181,6 +129,21 @@ const LNMainHome = props => {
         bloque4: isAdmin,
         bloque5: isAdmin
     });
+
+    const checkScrollForBiggerResolution = () => {
+        const isScrollVisible = isScrollbarVisible();
+        if (!isScrollVisible) {
+            // Si resolution no tiene scroll bar, se fuerza cargar bloque 2
+            dispatch({ type: 'update', payload: 'bloque1' });
+        }
+    }
+
+    const isScrollbarVisible = () => {
+        return (
+            get(document, 'documentElement.scrollHeight', 0) >
+            get(document, 'documentElement.clientHeight', 0)
+        );
+    };
 
     const getSectionVisible = (scrollParent, targetElements) => {
         let bestMatch = {};
@@ -214,18 +177,28 @@ const LNMainHome = props => {
         return true;
     };
 
-    // First load
+
     useEffect(() => {
         const handleScroll = throttle((e, dataSections) => {
-            // const scrollPercentRounded = getScrollPercent();
-            sessionStorage.setItem('homePosition', window.pageYOffset);
-            const scrollTop = get(e, 'target.scrollingElement.scrollTop', 0);
-            const sectionVisible = getSectionVisible(scrollTop, dataSections);
-            if (!sectionVisible) return;
+        
+            try {
+                
+                sessionStorage.setItem('homePosition', window.pageYOffset);
+                const scrollTop = get(e, 'target.scrollingElement.scrollTop', 0);
+                const sectionVisible = getSectionVisible(scrollTop, dataSections);
+                if (!sectionVisible) return;
+                sessionStorage.setItem('lastBlock', sectionVisible);
+                const scrollPercentRounded = getScrollPercent();
+                if (scrollPercentRounded > 75) {
+                    const blockToLoad = sectionsWithBlocks[sectionVisible];
+                    dispatch({ type: 'update', payload: blockToLoad });
+                }
 
-            sessionStorage.setItem('lastBlock', sectionVisible);
-            const blockToLoad = sectionsWithBlocks[sectionVisible];
-            dispatch({ type: 'update', payload: blockToLoad });
+            } catch (error) {
+                console.log('Error en useEffect =>', error);
+                // Si tiene corrupto sessionStorage muestro todo el sitio
+                dispatch({ type: 'update', payload: 'bloque5' });
+            }
         }, 25);
 
         const dataSections = document.querySelectorAll('[data-section]');
@@ -237,10 +210,11 @@ const LNMainHome = props => {
     useEffect(() => {
         const lastSectionSaw = sessionStorage.getItem('lastBlock');
         const lastScrollPosition = sessionStorage.getItem('homePosition');
+        checkScrollForBiggerResolution();
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
         // const newStatusBlocks = updateBlocks(blocksToLoad, lastBlockSaw);
-        dispatch({ type: 'updateAll', payload: lastBlockSaw });
+        dispatch({ type: 'update', payload: lastBlockSaw });
         // setBlocksToLoad(newStatusBlocks);
 
         const readyToMove = scrollToSection(lastSectionSaw);
@@ -256,13 +230,11 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             <LoginProvider>
-                {megatop}
                 <div id="wrapper" className="home">
                     <Header />
                     <main>
-                        {stickyMobile}
                         <div className="row --top">
-                            <div className="lay">{preApertura}</div>
+                            <div className="lay"></div>
                         </div>
                         <div id="content-main" className="lay-sidebar">
                             {/* Cuerpo */}
@@ -281,28 +253,7 @@ const LNMainHome = props => {
                                 {/* BANNER */}
                                 {blocksToLoad.bloque2 && (
                                     <div className="row-gap-tablet-3 --ads">
-                                        {/* <BannerWrapper
-                                            load={blocksToLoad.bloque2}
-                                        >
-                                            <BannerRefactor
-                                                customFields={{
-                                                    group: 'acumulado',
-                                                    desktop: 'caja1_dsk'
-                                                }}
-                                            />
-                                            <BannerRefactor
-                                                customFields={{
-                                                    group: 'acumulado',
-                                                    desktop: 'caja2_dsk'
-                                                }}
-                                            />
-                                            <BannerRefactor
-                                                customFields={{
-                                                    group: 'acumulado',
-                                                    desktop: 'caja3_dsk'
-                                                }}
-                                            />
-                                        </BannerWrapper> */}
+                                        
                                     </div>
                                 )}
                                 <div data-section="breaking3">
