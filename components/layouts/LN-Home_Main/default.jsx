@@ -8,15 +8,14 @@ import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer/home';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoginProvider from '../../private/LN/common/context/loginContext';
-import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
-import BannerRefactor from '../../features/LN-common/bannerRefactor';
+// import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
+// import BannerRefactor from '../../features/LN-common/bannerRefactor';
 import LoadBanners from '../../private/common/banners/LoadBanners';
-import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 
 const pageBuilderSections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Pre-Apertura',
+    'Anticipo',
+    'Anexo-1',
+    'Bomba',
     'Apertura',
     'Anexo-2',
     'Breaking-1',
@@ -34,8 +33,7 @@ const pageBuilderSections = [
     'Bloque-5',
     'Bloque-6',
     'Bloque-7',
-    'Bloque-8',
-    'Aside'
+    'Bloque-8'
 ];
 
 const BannerWrapper = React.memo(
@@ -146,9 +144,9 @@ const sectionsWithBlocks = {
 const LNMainHome = props => {
     const {
         children: [
-            bannerMegatop,
-            stickyMobile,
-            preApertura,
+            anticipo,
+            anexo1,
+            bomba,
             apertura,
             anexo2,
             breaking1,
@@ -166,14 +164,13 @@ const LNMainHome = props => {
             bloque5,
             bloque6,
             bloque7,
-            bloque8,
-            aside
+            bloque8
         ],
         outputType,
         tree,
         isAdmin
     } = props;
-    const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
+    // const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
 
     const [blocksToLoad, dispatch] = useReducer(reducer, {
         bloque1: true,
@@ -257,116 +254,105 @@ const LNMainHome = props => {
     return (
         <GlobalProvider>
             <LoginProvider>
-                {megatop}
+                {/* {megatop} */}
                 <div id="wrapper" className="home">
                     <Header />
+                    {anticipo}
+                    {anexo1}
+                    {bomba}
                     <main>
-                        {stickyMobile}
-                        <div className="row">
+                        {/* {stickyMobile} */}
+                        <div className="row --top">
                             {/* <div className="lay">{preApertura}</div> */}
-                            <div
-                                data-section="ranking"
-                                className="lay ranking-ln9"
-                            >
-                                <AnexoFeature
-                                    customFields={{
-                                        url:
-                                            'https://dp-ln9.lanacion.com.ar/masleidas/home'
-                                    }}
-                                />
-                            </div>
-                            <div id="content-main" className="lay-sidebar">
-                                {/* Cuerpo */}
-                                <div className="sidebar__main">
-                                    {/* 1er Bloque */}
-                                    <div data-section="apertura">
-                                        {apertura}
-                                    </div>
+                        </div>
+                        <div id="content-main" className="lay-sidebar">
+                            {/* Cuerpo */}
+                            <div className="sidebar__main">
+                                {/* 1er Bloque */}
+                                <div data-section="apertura">{apertura}</div>
 
-                                    {blocksToLoad.bloque2 && anexo2}
-                                    <div data-section="breaking1">
-                                        {blocksToLoad.bloque2 && breaking1}
-                                    </div>
-                                    {/* BANNER  */}
-                                    <div data-section="breaking2">
-                                        {blocksToLoad.bloque2 && breaking2}
-                                    </div>
-                                    {/* BANNER */}
-                                    {blocksToLoad.bloque2 && (
-                                        <div className="row-gap-tablet-3 --ads">
-                                            {/* <BannerWrapper
-                                                load={blocksToLoad.bloque2}
-                                            >
-                                                <BannerRefactor
-                                                    customFields={{
-                                                        group: 'acumulado',
-                                                        desktop: 'caja1_dsk'
-                                                    }}
-                                                />
-                                                <BannerRefactor
-                                                    customFields={{
-                                                        group: 'acumulado',
-                                                        desktop: 'caja2_dsk'
-                                                    }}
-                                                />
-                                                <BannerRefactor
-                                                    customFields={{
-                                                        group: 'acumulado',
-                                                        desktop: 'caja3_dsk'
-                                                    }}
-                                                />
-                                            </BannerWrapper> */}
-                                        </div>
-                                    )}
-                                    <div data-section="breaking3">
-                                        {blocksToLoad.bloque2 && breaking3}
-                                    </div>
-                                    {/* 2do Bloque */}
-                                    {blocksToLoad.bloque3 && anexo3}
-                                    <div data-section="opinion">
-                                        {blocksToLoad.bloque3 && opinion}
-                                    </div>
-                                    <div data-section="breaking4">
-                                        {blocksToLoad.bloque3 && breaking4}
-                                    </div>
-                                    {/* BANNER */}
-                                    <div data-section="breaking5">
-                                        {blocksToLoad.bloque3 && breaking5}
-                                    </div>
-                                    <div data-section="comercial1">
-                                        {blocksToLoad.bloque3 && comercial1}
-                                    </div>
-                                    {/* 3er Bloque */}
-                                    <div data-section="bloque2">
-                                        {blocksToLoad.bloque4 && bloque2}
-                                    </div>
-                                    <div data-section="comercial2">
-                                        {blocksToLoad.bloque4 && comercial2}
-                                    </div>
-                                    <div data-section="bloque3">
-                                        {blocksToLoad.bloque4 && bloque3}
-                                    </div>
-                                    <div data-section="bloque4">
-                                        {blocksToLoad.bloque4 && bloque4}
-                                    </div>
-                                    {/* 4to Bloque */}
-                                    <div data-section="bloque5">
-                                        {blocksToLoad.bloque5 && bloque5}
-                                    </div>
-                                    <div data-section="bloque6">
-                                        {blocksToLoad.bloque5 && bloque6}
-                                    </div>
-                                    <div data-section="bloque7">
-                                        {blocksToLoad.bloque5 && bloque7}
-                                    </div>
-                                    <div data-section="bloque8">
-                                        {blocksToLoad.bloque5 && bloque8}
-                                    </div>
+                                {blocksToLoad.bloque2 && anexo2}
+                                <div data-section="breaking1">
+                                    {blocksToLoad.bloque2 && breaking1}
                                 </div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {/* BANNERS, RANKING DE NOTAS */}
-                                    {aside}
+                                {/* BANNER  */}
+                                <div data-section="breaking2">
+                                    {blocksToLoad.bloque2 && breaking2}
                                 </div>
+                                {/* BANNER */}
+                                {blocksToLoad.bloque2 && (
+                                    <div className="row-gap-tablet-3 --ads">
+                                        {/* <BannerWrapper
+                                            load={blocksToLoad.bloque2}
+                                        >
+                                            <BannerRefactor
+                                                customFields={{
+                                                    group: 'acumulado',
+                                                    desktop: 'caja1_dsk'
+                                                }}
+                                            />
+                                            <BannerRefactor
+                                                customFields={{
+                                                    group: 'acumulado',
+                                                    desktop: 'caja2_dsk'
+                                                }}
+                                            />
+                                            <BannerRefactor
+                                                customFields={{
+                                                    group: 'acumulado',
+                                                    desktop: 'caja3_dsk'
+                                                }}
+                                            />
+                                        </BannerWrapper> */}
+                                    </div>
+                                )}
+                                <div data-section="breaking3">
+                                    {blocksToLoad.bloque2 && breaking3}
+                                </div>
+                                {/* 2do Bloque */}
+                                {blocksToLoad.bloque3 && anexo3}
+                                <div data-section="opinion">
+                                    {blocksToLoad.bloque3 && opinion}
+                                </div>
+                                <div data-section="breaking4">
+                                    {blocksToLoad.bloque3 && breaking4}
+                                </div>
+                                {/* BANNER */}
+                                <div data-section="breaking5">
+                                    {blocksToLoad.bloque3 && breaking5}
+                                </div>
+                                <div data-section="comercial1">
+                                    {blocksToLoad.bloque3 && comercial1}
+                                </div>
+                                {/* 3er Bloque */}
+                                <div data-section="bloque2">
+                                    {blocksToLoad.bloque4 && bloque2}
+                                </div>
+                                <div data-section="comercial2">
+                                    {blocksToLoad.bloque4 && comercial2}
+                                </div>
+                                <div data-section="bloque3">
+                                    {blocksToLoad.bloque4 && bloque3}
+                                </div>
+                                <div data-section="bloque4">
+                                    {blocksToLoad.bloque4 && bloque4}
+                                </div>
+                                {/* 4to Bloque */}
+                                <div data-section="bloque5">
+                                    {blocksToLoad.bloque5 && bloque5}
+                                </div>
+                                <div data-section="bloque6">
+                                    {blocksToLoad.bloque5 && bloque6}
+                                </div>
+                                <div data-section="bloque7">
+                                    {blocksToLoad.bloque5 && bloque7}
+                                </div>
+                                <div data-section="bloque8">
+                                    {blocksToLoad.bloque5 && bloque8}
+                                </div>
+                            </div>
+                            <div className="sidebar__aside hlp-tabletlm-none">
+                                {/* BANNERS, RANKING DE NOTAS */}
                             </div>
                         </div>
                     </main>

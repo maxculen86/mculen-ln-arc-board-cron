@@ -14,24 +14,25 @@ const ArticleFeature = ({
     id: featureId,
     customFields,
     searchableField,
+    imageConfig,
+    customConfig,
     customFields: { noteId: id, imageId }
 }) => {
     const { isAdmin, arcSite, renderables, outputType } = useAppContext();
     const { cajaTemaConfig } = getProperties(arcSite);
-    const { config, index, boxPosition, layout } = getCajaTemaConfig(
-        featureId,
-        renderables,
-        cajaTemaConfig
-    );
+    const { config, index, boxPosition, layout } =
+        customConfig ||
+        getCajaTemaConfig(featureId, renderables, cajaTemaConfig);
+
     const article = useContent({
         source: 'articleSourceNota',
-        query: { id, published: true },
+        query: { id, published: true, imageConfig },
         filter
     });
 
     const image = useContent({
         source: 'relatedImageSource',
-        query: { id: imageId, published: true }
+        query: { id: imageId, published: true, imageConfig }
     });
 
     const error = validateArticleFeature(id, article);
