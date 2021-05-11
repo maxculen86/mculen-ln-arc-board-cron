@@ -12,6 +12,7 @@ import LoginProvider from '../../private/LN/common/context/loginContext';
 // import BannerRefactor from '../../features/LN-common/bannerRefactor';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import getScrollPercent from '../../private/LN/common/utils/getScrollPercent';
+import AnexoFeature from '../../features/LN-acumulado/anexoIframe';
 
 const pageBuilderSections = [
     'Anticipo',
@@ -26,6 +27,7 @@ const pageBuilderSections = [
     'Opinion',
     'Breaking-4',
     'Breaking-5',
+    'Breaking-6',
     'Comercial-1',
     'Bloque-2',
     'Comercial-2',
@@ -53,7 +55,7 @@ const reducer = (state, action) => {
 };
 
 const updateBlocks = (blocks, lastBlock) => {
-    const newState = {...blocks };
+    const newState = { ...blocks };
     if (!lastBlock) return blocks;
     const number = Number(lastBlock.slice(-1)) + 1;
     Object.keys(blocks).forEach(key => {
@@ -62,8 +64,8 @@ const updateBlocks = (blocks, lastBlock) => {
     return newState;
 };
 
-const updateNextBlock = (blocks) => {
-    const b = {...blocks};
+const updateNextBlock = blocks => {
+    const b = { ...blocks };
     Object.keys(blocks).some(key => {
         if (b[key] === false) {
             b[key] = true;
@@ -86,6 +88,7 @@ const sectionsWithBlocks = {
     opinion: 'bloque3',
     breaking4: 'bloque3',
     breaking5: 'bloque3',
+    breaking6: 'bloque3',
     comercial1: 'bloque3',
     bloque2: 'bloque4',
     comercial2: 'bloque4',
@@ -112,6 +115,7 @@ const LNMainHome = props => {
             opinion,
             breaking4,
             breaking5,
+            breaking6,
             comercial1,
             bloque2,
             comercial2,
@@ -135,14 +139,6 @@ const LNMainHome = props => {
         bloque4: isAdmin,
         bloque5: isAdmin
     });
-
-    const checkScrollForBiggerResolution = () => {
-        const isScrollVisible = isScrollbarVisible();
-        if (!isScrollVisible) {
-            // Si resolution no tiene scroll bar, se fuerza cargar bloque 2
-            dispatch({ type: 'update', payload: 'bloque1' });
-        }
-    }
 
     const isScrollbarVisible = () => {
         return (
@@ -183,23 +179,26 @@ const LNMainHome = props => {
         return true;
     };
 
-
     useEffect(() => {
         const handleScroll = throttle((e, dataSections) => {
-        
             try {
-                
                 sessionStorage.setItem('hp', window.pageYOffset);
-                const scrollTop = get(e, 'target.scrollingElement.scrollTop', 0);
-                const sectionVisible = getSectionVisible(scrollTop, dataSections);
+                const scrollTop = get(
+                    e,
+                    'target.scrollingElement.scrollTop',
+                    0
+                );
+                const sectionVisible = getSectionVisible(
+                    scrollTop,
+                    dataSections
+                );
                 if (!sectionVisible) return;
                 sessionStorage.setItem('lb', sectionVisible);
                 const scrollPercentRounded = getScrollPercent();
                 if (scrollPercentRounded > 70) {
                     // const blockToLoad = sectionsWithBlocks[sectionVisible];
-                    dispatch({ type: 'updateNextBlock'});
+                    dispatch({ type: 'updateNextBlock' });
                 }
-
             } catch (error) {
                 console.log('Error en useEffect =>', error);
                 // Si tiene corrupto sessionStorage muestro todo el sitio
@@ -216,7 +215,13 @@ const LNMainHome = props => {
     useEffect(() => {
         const lastSectionSaw = sessionStorage.getItem('lb');
         const lastScrollPosition = sessionStorage.getItem('hp');
-        checkScrollForBiggerResolution();
+
+        const isScrollVisible = isScrollbarVisible();
+        if (!isScrollVisible) {
+            // Si resolution no tiene scroll bar, se fuerza cargar bloque 2
+            dispatch({ type: 'update', payload: 'bloque1' });
+        }
+
         if (!lastSectionSaw || !lastScrollPosition) return;
         const lastBlockSaw = sectionsWithBlocks[lastSectionSaw];
         // const newStatusBlocks = updateBlocks(blocksToLoad, lastBlockSaw);
@@ -244,80 +249,94 @@ const LNMainHome = props => {
                     {bomba}
                     <main>
                         {/* {stickyMobile} */}
-                        <div className="row --top">
+                        <div className="row">
                             {/* <div className="lay">{preApertura}</div> */}
-                        </div>
-                        <div id="content-main" className="lay-sidebar">
-                            {/* Cuerpo */}
-                            <div className="sidebar__main">
-                                {/* 1er Bloque */}
-                                <div data-section="apertura">{apertura}</div>
-
-                                <div data-section="anexo2">
-                                    {blocksToLoad.bloque2 && anexo2}
-                                </div>
-                                <div data-section="breaking1">
-                                    {blocksToLoad.bloque2 && breaking1}
-                                </div>
-                                {/* BANNER  */}
-                                <div data-section="breaking2">
-                                    {blocksToLoad.bloque2 && breaking2}
-                                </div>
-                                {/* BANNER */}
-                                {blocksToLoad.bloque2 && (
-                                    <div className="row-gap-tablet-3 --ads">
-                                        
+                            <div id="content-main" className="lay-sidebar">
+                                {/* Cuerpo */}
+                                <div className="sidebar__main">
+                                    {/* 1er Bloque */}
+                                    <div data-section="apertura">
+                                        {apertura}
                                     </div>
-                                )}
-                                <div data-section="breaking3">
-                                    {blocksToLoad.bloque2 && breaking3}
+
+                                    <div data-section="anexo2">
+                                        {blocksToLoad.bloque2 && anexo2}
+                                    </div>
+                                    <div data-section="breaking1">
+                                        {blocksToLoad.bloque2 && breaking1}
+                                    </div>
+                                    {/* BANNER  */}
+                                    <div data-section="breaking2">
+                                        {blocksToLoad.bloque2 && breaking2}
+                                    </div>
+                                    {/* BANNER */}
+                                    {blocksToLoad.bloque2 && (
+                                        <div className="row-gap-tablet-3 --ads"></div>
+                                    )}
+                                    <div data-section="breaking3">
+                                        {blocksToLoad.bloque2 && breaking3}
+                                    </div>
+                                    {/* 2do Bloque */}
+                                    <div data-section="anexo3">
+                                        {blocksToLoad.bloque3 && anexo3}
+                                    </div>
+                                    <div data-section="opinion">
+                                        {blocksToLoad.bloque3 && opinion}
+                                    </div>
+                                    <div data-section="breaking4">
+                                        {blocksToLoad.bloque3 && breaking4}
+                                    </div>
+                                    {/* BANNER */}
+                                    <div data-section="breaking5">
+                                        {blocksToLoad.bloque3 && breaking5}
+                                    </div>
+                                    <div data-section="breaking6">
+                                        {blocksToLoad.bloque3 && breaking6}
+                                    </div>
+                                    <div
+                                        data-section="ranking"
+                                        className="lay ranking-ln9"
+                                    >
+                                        <AnexoFeature
+                                            customFields={{
+                                                url:
+                                                    'https://dp-ln9.lanacion.com.ar/masleidas/home'
+                                            }}
+                                        />
+                                    </div>
+                                    <div data-section="comercial1">
+                                        {blocksToLoad.bloque3 && comercial1}
+                                    </div>
+                                    {/* 3er Bloque */}
+                                    <div data-section="bloque2">
+                                        {blocksToLoad.bloque4 && bloque2}
+                                    </div>
+                                    <div data-section="comercial2">
+                                        {blocksToLoad.bloque4 && comercial2}
+                                    </div>
+                                    <div data-section="bloque3">
+                                        {blocksToLoad.bloque4 && bloque3}
+                                    </div>
+                                    <div data-section="bloque4">
+                                        {blocksToLoad.bloque4 && bloque4}
+                                    </div>
+                                    {/* 4to Bloque */}
+                                    <div data-section="bloque5">
+                                        {blocksToLoad.bloque5 && bloque5}
+                                    </div>
+                                    <div data-section="bloque6">
+                                        {blocksToLoad.bloque5 && bloque6}
+                                    </div>
+                                    <div data-section="bloque7">
+                                        {blocksToLoad.bloque5 && bloque7}
+                                    </div>
+                                    <div data-section="bloque8">
+                                        {blocksToLoad.bloque5 && bloque8}
+                                    </div>
                                 </div>
-                                {/* 2do Bloque */}
-                                <div data-section="anexo3">
-                                    {blocksToLoad.bloque3 && anexo3}
+                                <div className="sidebar__aside hlp-tabletlm-none">
+                                    {/* BANNERS, RANKING DE NOTAS */}
                                 </div>
-                                <div data-section="opinion">
-                                    {blocksToLoad.bloque3 && opinion}
-                                </div>
-                                <div data-section="breaking4">
-                                    {blocksToLoad.bloque3 && breaking4}
-                                </div>
-                                {/* BANNER */}
-                                <div data-section="breaking5">
-                                    {blocksToLoad.bloque3 && breaking5}
-                                </div>
-                                <div data-section="comercial1">
-                                    {blocksToLoad.bloque3 && comercial1}
-                                </div>
-                                {/* 3er Bloque */}
-                                <div data-section="bloque2">
-                                    {blocksToLoad.bloque4 && bloque2}
-                                </div>
-                                <div data-section="comercial2">
-                                    {blocksToLoad.bloque4 && comercial2}
-                                </div>
-                                <div data-section="bloque3">
-                                    {blocksToLoad.bloque4 && bloque3}
-                                </div>
-                                <div data-section="bloque4">
-                                    {blocksToLoad.bloque4 && bloque4}
-                                </div>
-                                {/* 4to Bloque */}
-                                <div data-section="bloque5">
-                                    {blocksToLoad.bloque5 && bloque5}
-                                </div>
-                                <div data-section="bloque6">
-                                    {blocksToLoad.bloque5 && bloque6}
-                                </div>
-                                <div data-section="bloque7">
-                                    {blocksToLoad.bloque5 && bloque7}
-                                </div>
-                                <div data-section="bloque8">
-                                    {blocksToLoad.bloque5 && bloque8}
-                                </div>
-                            </div>
-                            <div className="sidebar__aside hlp-tabletlm-none">
-                                {/* BANNERS, RANKING DE NOTAS */}
                             </div>
                         </div>
                     </main>
