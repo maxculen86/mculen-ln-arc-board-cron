@@ -24,11 +24,16 @@ const Text = ({
     highlight,
     capital,
     children,
+    color,
     text
 }) => {
     const _font = getFontFamily(font);
     const _size = getFontSize(size);
     const _weight = getFontWeight(weight);
+    const _style = {
+        color: color,
+        background: color
+    };
 
     const CustomTag = tag;
 
@@ -41,7 +46,11 @@ const Text = ({
 
     if (!children) return null;
 
-    return <CustomTag className={className}>{content}</CustomTag>;
+    return (
+        <CustomTag style={_style} className={className}>
+            {content}
+        </CustomTag>
+    );
 };
 
 Text.propTypes = PropTypes;
