@@ -301,19 +301,27 @@ const LNMainHome = props => {
                                     <div data-section="breaking6">
                                         {blocksToLoad.bloque3 && breaking6}
                                     </div>
-                                    {blocksToLoad.bloque3 && (
-                                        <div
-                                            data-section="ranking"
-                                            className="lay ranking-ln9"
-                                        >
-                                            <AnexoFeature
-                                                customFields={{
-                                                    url:
-                                                        'https://dp-ln9.lanacion.com.ar/masleidas/home'
-                                                }}
-                                            />
-                                        </div>
-                                    )}
+                                </div>
+                                <div className="sidebar__aside hlp-tabletlm-none">
+                                    {/* BANNERS, RANKING DE NOTAS */}
+                                </div>
+                            </div>
+                            {blocksToLoad.bloque3 && (
+                                <div
+                                    data-section="ranking"
+                                    className="lay ranking-ln9"
+                                >
+                                    <AnexoFeature
+                                        customFields={{
+                                            url:
+                                                'https://dp-ln9.lanacion.com.ar/masleidas/home'
+                                        }}
+                                    />
+                                </div>
+                            )}
+                            <div id="content-main-2" className="lay-sidebar">
+                                {/* Cuerpo */}
+                                <div className="sidebar__main">
                                     <div data-section="comercial1">
                                         {blocksToLoad.bloque3 && comercial1}
                                     </div>
