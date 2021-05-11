@@ -22,6 +22,7 @@ const articleItem = (article, diagramacion) => {
     const authors = get(article, 'credits.by', null);
     const image = get(article, 'promo_items.basic', null);
     const primarySection = get(article, 'taxonomy.primary_section', null);
+    const sections = get(article, 'taxonomy.sections', null);
     const tags = get(article, 'taxonomy.tags', null);
     const bajada = get(article, 'subheadlines.basic', null);
     const volanta = get(label, 'volanta.text', null);
@@ -62,8 +63,22 @@ const articleItem = (article, diagramacion) => {
     /*     if (primarySection) {
         resp.tagProducto = getPrincipalCategory(primarySection);
     } */
-
-    if (tags && tags.length > 0) {
+    if (sections && sections.length > 0) {
+        sections.map(v => {
+            if (v._id.includes('ln') || v._id.includes('revista')) {
+                const tagProducto = {
+                    id: getTagId(v._id),
+                    valor: v.name,
+                    tipoId: 7,
+                    formatoId: 1,
+                    tipoDescripcion: 'Producto'
+                };
+                resp.tagProducto = tagProducto;
+                return tagProducto;
+            }
+        });
+    }
+    /*    if (tags && tags.length > 0) {
         // Teporal hasta verificar el tag tipo producto
         const tagProducto = {
             id: getTagId(tags[0].slug),
@@ -73,7 +88,7 @@ const articleItem = (article, diagramacion) => {
             tipoDescripcion: 'Producto'
         };
         resp.tagProducto = tagProducto; //getTag(tags[0]);
-    }
+    } */
     return resp;
     //return removeEmptyItems(resp);
 };

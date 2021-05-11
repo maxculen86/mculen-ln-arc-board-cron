@@ -1,5 +1,29 @@
 import { imageResizedUrl } from '../common';
 
+const section = `
+{
+    _id
+    _website
+    name
+    path
+    type
+    parent_id
+    additional_properties {
+        original {
+            migration {
+                id_section_ln9
+                migrated_mob
+            }
+            ancestors {
+                default
+            }
+            style {
+                section_style_name
+            }
+            site
+        }
+    }
+}`;
 const image = `
     type
     resized_urls {
@@ -40,6 +64,7 @@ export default `
 
                 }
             }
+            sections ${section}
         }
         credits {
             by {
